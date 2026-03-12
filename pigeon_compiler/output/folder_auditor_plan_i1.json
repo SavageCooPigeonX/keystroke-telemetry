@@ -1,0 +1,185 @@
+{
+  "source_file": "codebase_auditor\\.folder_auditor_decomposed.py",
+  "target_folder": "folder_auditor_v2/",
+  "strategy": "Split by responsibility: constants \u2192 file ops \u2192 manifest ops \u2192 audit building \u2192 orchestration, respecting 35-line code limit per file",
+  "cuts": [
+    {
+      "new_file": "folder_auditor_v2_constants_seq001_v001.py",
+      "functions": [],
+      "constants": [
+        "PROJECT_ROOT",
+        "SKIP_FOLDERS",
+        "SKIP_FILES",
+        "PIGEON_MAX_LINES",
+        "PIGEON_WARNING_LINES",
+        "AUDITABLE_FOLDERS"
+      ],
+      "new_helpers": [],
+      "estimated_lines": 15,
+      "reason": "Centralize all constants for easy maintenance and import"
+    },
+    {
+      "new_file": "folder_auditor_v2_file_ops_seq002_v001.py",
+      "functions": [
+        "validate_pigeon_filename",
+        "get_file_line_count",
+        "get_folder_path",
+        "list_folder_contents",
+        "read_all_files"
+      ],
+      "constants": [],
+      "new_helpers": [],
+      "estimated_lines": 44,
+      "reason": "File system operations group (35+9 lines) - all file/folder reading functions"
+    },
+    {
+      "new_file": "folder_auditor_v2_manifest_ops_seq003_v001.py",
+      "functions": [
+        "load_local_manifest",
+        "load_master_manifest",
+        "load_previous_audit",
+        "generate_folder_structure",
+        "extract_tasks_from_audit"
+      ],
+      "constants": [],
+      "new_helpers": [],
+      "estimated_lines": 32,
+      "reason": "Manifest loading and structure generation functions"
+    },
+    {
+      "new_file": "folder_auditor_v2_code_analysis_seq004_v001.py",
+      "functions": [
+        "extract_imports",
+        "extract_functions",
+        "build_cross_reference"
+      ],
+      "constants": [],
+      "new_helpers": [],
+      "estimated_lines": 25,
+      "reason": "Code analysis functions that work together for cross-referencing"
+    },
+    {
+      "new_file": "folder_auditor_v2_audit_builders_seq005_v001.py",
+      "functions": [
+        "_run_audit_build_header",
+        "_run_audit_build_folder_section",
+        "_run_audit_build_manifest_sections",
+        "_run_audit_build_instructions",
+        "_run_audit_build_output_format"
+      ],
+      "constants": [],
+      "new_helpers": [],
+      "estimated_lines": 40,
+      "reason": "Prompt building components (27+13 lines) - all _run_audit_build_* functions"
+    },
+    {
+      "new_file": "folder_auditor_v2_audit_core_seq006_v001.py",
+      "functions": [
+        "run_audit",
+        "_run_audit_gather_context",
+        "_run_audit_build_prompt"
+      ],
+      "constants": [],
+      "new_helpers": [],
+      "estimated_lines": 38,
+      "reason": "Core audit orchestration (16+11+11 lines) - gathers context and builds prompt"
+    },
+    {
+      "new_file": "folder_auditor_v2_manifest_update_seq007_v001.py",
+      "functions": [
+        "update_local_manifest",
+        "_update_local_manifest_load_existing",
+        "_update_local_manifest_build_structure_section",
+        "_update_local_manifest_build_task_section",
+        "_update_local_manifest_merge_sections"
+      ],
+      "constants": [],
+      "new_helpers": [],
+      "estimated_lines": 43,
+      "reason": "Manifest update functions (18+5+10+15+27 lines = 75 total) - MUST split due to >35 lines"
+    },
+    {
+      "new_file": "folder_auditor_v2_manifest_update_helpers_seq008_v001.py",
+      "functions": [
+        "_update_local_manifest_merge_sections"
+      ],
+      "constants": [],
+      "new_helpers": [],
+      "estimated_lines": 35,
+      "reason": "Isolate oversized merge function (27 lines + imports)"
+    },
+    {
+      "new_file": "folder_auditor_v2_results_update_seq009_v001.py",
+      "functions": [
+        "update_audit_results"
+      ],
+      "constants": [],
+      "new_helpers": [],
+      "estimated_lines": 52,
+      "reason": "Oversized function (44 lines) - needs decomposition"
+    },
+    {
+      "new_file": "folder_auditor_v2_results_update_decomposed_seq010_v001.py",
+      "functions": [
+        "update_audit_results"
+      ],
+      "constants": [],
+      "new_helpers": [
+        "_update_results_load_existing",
+        "_update_results_build_new_content",
+        "_update_results_write_file"
+      ],
+      "estimated_lines": 48,
+      "reason": "Decompose 44-line function into 3 sub-functions (\u226420 lines each)"
+    },
+    {
+      "new_file": "folder_auditor_v2_orchestration_seq011_v001.py",
+      "functions": [
+        "audit_folder",
+        "audit_all",
+        "main"
+      ],
+      "constants": [],
+      "new_helpers": [],
+      "estimated_lines": 44,
+      "reason": "Top-level orchestration functions (28+34+24 lines = 86 total) - MUST split due to >35 lines"
+    },
+    {
+      "new_file": "folder_auditor_v2_orchestration_helpers_seq012_v001.py",
+      "functions": [
+        "audit_all"
+      ],
+      "constants": [],
+      "new_helpers": [],
+      "estimated_lines": 42,
+      "reason": "Isolate oversized audit_all function (34 lines + imports)"
+    }
+  ],
+  "init_exports": [
+    "validate_pigeon_filename",
+    "get_file_line_count",
+    "get_folder_path",
+    "list_folder_contents",
+    "read_all_files",
+    "load_local_manifest",
+    "load_master_manifest",
+    "load_previous_audit",
+    "generate_folder_structure",
+    "extract_tasks_from_audit",
+    "extract_imports",
+    "extract_functions",
+    "build_cross_reference",
+    "run_audit",
+    "update_audit_results",
+    "update_local_manifest",
+    "audit_folder",
+    "audit_all",
+    "main"
+  ],
+  "breaking_changes": [
+    "All imports must be updated to reference new module paths",
+    "PROJECT_ROOT constant moved to constants file",
+    "Internal helper functions (_run_audit_*, _update_local_manifest_*) are now in separate modules",
+    "update_audit_results function signature remains same but implementation split across helpers"
+  ]
+}

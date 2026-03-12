@@ -1,0 +1,60 @@
+{
+  "schema": "keystroke_telemetry/v2",
+  "session_id": "4c9d287d725c",
+  "messages": [
+    {
+      "message_id": "8f857c219f",
+      "drafts": [],
+      "final_text": "Hello world, this is a test of the streaming layer",
+      "submitted": true,
+      "deleted": false,
+      "total_keystrokes": 50,
+      "total_deletions": 0,
+      "total_inserts": 50,
+      "start_time_ms": 1773282769141,
+      "end_time_ms": 1773282776755,
+      "typing_pauses": [],
+      "hesitation_score": 0.0
+    },
+    {
+      "message_id": "3809d68036",
+      "drafts": [
+        {
+          "time_ms": 1773282779258,
+          "text": "W",
+          "trigger": "deletion_burst"
+        }
+      ],
+      "final_text": "What is the meaning of everything?",
+      "submitted": true,
+      "deleted": false,
+      "total_keystrokes": 58,
+      "total_deletions": 12,
+      "total_inserts": 46,
+      "start_time_ms": 1773282777072,
+      "end_time_ms": 1773282784412,
+      "typing_pauses": [],
+      "hesitation_score": 0.207
+    },
+    {
+      "message_id": "a8a773a867",
+      "drafts": [
+        {
+          "time_ms": 1773282790148,
+          "text": "Actually never mind this whole thing",
+          "trigger": "discard"
+        }
+      ],
+      "final_text": "Actually never mind this whole thing",
+      "submitted": false,
+      "deleted": true,
+      "total_keystrokes": 36,
+      "total_deletions": 0,
+      "total_inserts": 36,
+      "start_time_ms": 1773282784716,
+      "end_time_ms": 1773282790148,
+      "typing_pauses": [],
+      "hesitation_score": 0.0
+    }
+  ]
+}

@@ -1,0 +1,380 @@
+{
+  "file": "codebase_auditor\\master_auditor.py",
+  "total_lines": 567,
+  "functions": [
+    {
+      "name": "collect_manifests",
+      "start_line": 50,
+      "end_line": 68,
+      "line_count": 19,
+      "is_public": true,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "check_pigeon_violations",
+      "start_line": 71,
+      "end_line": 110,
+      "line_count": 40,
+      "is_public": true,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "collect_audit_results",
+      "start_line": 113,
+      "end_line": 150,
+      "line_count": 38,
+      "is_public": true,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "get_master_manifest",
+      "start_line": 153,
+      "end_line": 157,
+      "line_count": 5,
+      "is_public": true,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "get_db_stats",
+      "start_line": 160,
+      "end_line": 197,
+      "line_count": 38,
+      "is_public": true,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "build_master_prompt",
+      "start_line": 200,
+      "end_line": 347,
+      "line_count": 148,
+      "is_public": true,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "get_previous_audit_state",
+      "start_line": 350,
+      "end_line": 357,
+      "line_count": 8,
+      "is_public": true,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "save_current_audit_state",
+      "start_line": 360,
+      "end_line": 371,
+      "line_count": 12,
+      "is_public": true,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "query_gemini",
+      "start_line": 374,
+      "end_line": 386,
+      "line_count": 13,
+      "is_public": true,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "query_deepseek",
+      "start_line": 389,
+      "end_line": 397,
+      "line_count": 9,
+      "is_public": true,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "generate_quick_report",
+      "start_line": 400,
+      "end_line": 466,
+      "line_count": 67,
+      "is_public": true,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "run_master_audit",
+      "start_line": 469,
+      "end_line": 557,
+      "line_count": 89,
+      "is_public": true,
+      "decorators": [],
+      "is_async": false
+    }
+  ],
+  "classes": [],
+  "constants": [
+    {
+      "name": "PROJECT_ROOT",
+      "line": 28
+    },
+    {
+      "name": "FOLDERS_TO_AUDIT",
+      "line": 35
+    },
+    {
+      "name": "MASTER_MANIFEST",
+      "line": 41
+    },
+    {
+      "name": "OUTPUT_FILE",
+      "line": 42
+    },
+    {
+      "name": "AUDIT_CACHE_FILE",
+      "line": 43
+    },
+    {
+      "name": "PIGEON_MAX_LINES",
+      "line": 46
+    },
+    {
+      "name": "PIGEON_WARNING_LINES",
+      "line": 47
+    }
+  ],
+  "call_graph": {
+    "collect_manifests": [],
+    "check_pigeon_violations": [],
+    "collect_audit_results": [],
+    "get_master_manifest": [],
+    "get_db_stats": [],
+    "build_master_prompt": [],
+    "get_previous_audit_state": [],
+    "save_current_audit_state": [],
+    "query_gemini": [],
+    "query_deepseek": [],
+    "generate_quick_report": [],
+    "run_master_audit": [
+      "build_master_prompt",
+      "check_pigeon_violations",
+      "collect_audit_results",
+      "collect_manifests",
+      "generate_quick_report",
+      "get_db_stats",
+      "get_master_manifest",
+      "get_previous_audit_state",
+      "query_deepseek",
+      "query_gemini",
+      "save_current_audit_state"
+    ]
+  },
+  "clusters": [
+    [
+      "build_master_prompt",
+      "check_pigeon_violations",
+      "collect_audit_results",
+      "collect_manifests",
+      "generate_quick_report",
+      "get_db_stats",
+      "get_master_manifest",
+      "get_previous_audit_state",
+      "query_deepseek",
+      "query_gemini",
+      "run_master_audit",
+      "save_current_audit_state"
+    ]
+  ],
+  "imports": {
+    "outbound": [
+      {
+        "module": "os",
+        "names": [
+          "os"
+        ],
+        "line": 14,
+        "kind": "stdlib"
+      },
+      {
+        "module": "sys",
+        "names": [
+          "sys"
+        ],
+        "line": 15,
+        "kind": "stdlib"
+      },
+      {
+        "module": "json",
+        "names": [
+          "json"
+        ],
+        "line": 16,
+        "kind": "stdlib"
+      },
+      {
+        "module": "argparse",
+        "names": [
+          "argparse"
+        ],
+        "line": 17,
+        "kind": "stdlib"
+      },
+      {
+        "module": "subprocess",
+        "names": [
+          "subprocess"
+        ],
+        "line": 18,
+        "kind": "stdlib"
+      },
+      {
+        "module": "re",
+        "names": [
+          "re"
+        ],
+        "line": 19,
+        "kind": "stdlib"
+      },
+      {
+        "module": "pathlib",
+        "names": [
+          "Path"
+        ],
+        "line": 20,
+        "kind": "stdlib"
+      },
+      {
+        "module": "datetime",
+        "names": [
+          "datetime",
+          "timedelta"
+        ],
+        "line": 21,
+        "kind": "stdlib"
+      },
+      {
+        "module": "dotenv",
+        "names": [
+          "load_dotenv"
+        ],
+        "line": 31,
+        "kind": "stdlib"
+      },
+      {
+        "module": "yaml",
+        "names": [
+          "yaml"
+        ],
+        "line": 24,
+        "kind": "external"
+      },
+      {
+        "module": "google.generativeai",
+        "names": [
+          "genai"
+        ],
+        "line": 376,
+        "kind": "external"
+      },
+      {
+        "module": "integrations.ai_deepseek_seq005_v001",
+        "names": [
+          "deepseek_query"
+        ],
+        "line": 391,
+        "kind": "internal"
+      },
+      {
+        "module": "supabase",
+        "names": [
+          "create_client"
+        ],
+        "line": 163,
+        "kind": "stdlib"
+      }
+    ],
+    "inbound": [
+      {
+        "file": "codebase_auditor\\__init__.py",
+        "line": 13,
+        "match": "from codebase_auditor.master_auditor"
+      }
+    ]
+  },
+  "shared_state": {
+    "PROJECT_ROOT": {
+      "line": 28,
+      "is_const": true,
+      "used_by": [
+        "collect_manifests",
+        "check_pigeon_violations",
+        "collect_audit_results"
+      ]
+    },
+    "FOLDERS_TO_AUDIT": {
+      "line": 35,
+      "is_const": true,
+      "used_by": [
+        "collect_manifests",
+        "check_pigeon_violations",
+        "collect_audit_results",
+        "generate_quick_report"
+      ]
+    },
+    "MASTER_MANIFEST": {
+      "line": 41,
+      "is_const": true,
+      "used_by": [
+        "get_master_manifest"
+      ]
+    },
+    "OUTPUT_FILE": {
+      "line": 42,
+      "is_const": true,
+      "used_by": [
+        "run_master_audit"
+      ]
+    },
+    "AUDIT_CACHE_FILE": {
+      "line": 43,
+      "is_const": true,
+      "used_by": [
+        "get_previous_audit_state",
+        "save_current_audit_state"
+      ]
+    },
+    "PIGEON_MAX_LINES": {
+      "line": 46,
+      "is_const": true,
+      "used_by": [
+        "check_pigeon_violations",
+        "build_master_prompt"
+      ]
+    },
+    "PIGEON_WARNING_LINES": {
+      "line": 47,
+      "is_const": true,
+      "used_by": [
+        "build_master_prompt"
+      ]
+    }
+  },
+  "coupling_score": 0.3,
+  "resistance": {
+    "patterns": [
+      {
+        "pattern": "PROMPT_BLOB",
+        "detail": "~46 line string at L300"
+      },
+      {
+        "pattern": "COUPLED_CLUSTER",
+        "detail": "1 cluster(s) with >2 functions"
+      },
+      {
+        "pattern": "GOD_ORCHESTRATOR",
+        "detail": "run_master_audit() calls 11 functions"
+      }
+    ],
+    "score": 0.9,
+    "verdict": "HUMAN_REVIEW"
+  }
+}
