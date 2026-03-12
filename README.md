@@ -31,6 +31,8 @@ Each block is:
 - **LLM-ingestible** — an agent can read the stream and reason about operator behavior
 - **Millisecond-timestamped** — epoch ms, monotonically increasing
 
+---
+
 ## What It Tracks
 
 | Signal | How |
@@ -42,31 +44,66 @@ Each block is:
 | **Paste + edit** | Pasted text then modified (prompt refinement) |
 | **Hesitation score** | Per-message: `pause_ratio + deletion_ratio` (0.0–1.0) |
 
+---
+
 ## Architecture
 
 ```
 keystroke-telemetry/
-├── src/
-│   ├── timestamp_utils_seq001_v001.py   # ms-epoch utility
-│   ├── models_seq002_v001.py            # KeyEvent + MessageDraft dataclasses
-│   ├── logger_seq003_v001.py            # Core telemetry logger (v2 schema)
-│   ├── context_budget_seq004_v001.py    # LLM-aware file sizing scorer
-│   ├── drift_watcher_seq005_v001.py     # Live drift detection for coding loops
-│   ├── resistance_bridge_seq006_v001.py # Telemetry → pigeon compiler signal
+├── src/                                    # Core telemetry library
+│   ├── timestamp_utils_seq001_v001.py      #   ms-epoch utility (5 lines)
+│   ├── models_seq002_v001.py               #   KeyEvent + MessageDraft dataclasses (31 lines)
+│   ├── logger_seq003_v001.py               #   Core telemetry logger, v2 schema (143 lines)
+│   ├── context_budget_seq004_v001.py       #   LLM-aware file sizing scorer (80 lines)
+│   ├── drift_watcher_seq005_v001.py        #   Live drift detection for coding loops (95 lines)
+│   ├── resistance_bridge_seq006_v001.py    #   Telemetry → pigeon compiler signal (111 lines)
+│   ├── streaming_layer_seq007_v001.py      #   956-line monolith (compiler test input)
 │   └── __init__.py
-├── test_all.py                          # Full test suite
-└── .gitignore
+│
+├── streaming_layer/                        # Pigeon-compiled output (20 files)
+│   ├── streaming_layer_constants_seq001_v001.py
+│   ├── streaming_layer_stream_client_seq002_v001.py
+│   ├── streaming_layer_dataclasses_seq004-006_v001.py
+│   ├── streaming_layer_formatter_seq004_v001.py
+│   ├── streaming_layer_connection_pool_seq005_v001.py
+│   ├── streaming_layer_aggregator_seq006_v001.py
+│   ├── streaming_layer_metrics_seq007_v001.py
+│   ├── streaming_layer_alerts_seq008_v001.py
+│   ├── streaming_layer_replay_seq009_v001.py
+│   ├── streaming_layer_dashboard_seq010_v001.py
+│   ├── streaming_layer_http_handler_seq011_v001.py
+│   ├── streaming_layer_orchestrator_seq016-017_v001.py
+│   ├── streaming_layer_demo_*_v001.py      #   Demo/simulation helpers
+│   ├── __init__.py
+│   └── MANIFEST.md                         #   Prompt box + structure + changelog
+│
+├── pigeon_compiler/                        # The compiler itself (bugfixed)
+│   ├── state_extractor/                    #   Layer 1: AST parsing, call graphs, resistance
+│   ├── weakness_planner/                   #   Layer 2: DeepSeek cut plan generation
+│   ├── cut_executor/                       #   Layer 3: Slicing, writing, bin-packing, resplit
+│   ├── runners/                            #   Pipeline orchestrators
+│   ├── integrations/                       #   DeepSeek API adapter
+│   ├── bones/                              #   Shared utilities
+│   ├── docs/                               #   Compiler design docs
+│   └── output/                             #   Cached ether maps + plans
+│
+├── test_all.py                             # Full test suite (221 lines, 4 tests)
+├── test_logs/                              # Test session output
+├── demo_logs/                              # Demo session output
+└── MASTER_MANIFEST.md                      # Project manifest + development plan
 ```
 
-Every file has an `@pigeon` preamble:
+Every source file has an `@pigeon` preamble:
 ```python
 # @pigeon: seq=003 | role=core_logger | depends=[timestamp_utils,models] | exports=[TelemetryLogger] | tokens=~1800
 ```
 An LLM agent reads only these lines to build a project map without parsing imports.
 
+---
+
 ## Pigeon Compiler Integration
 
-The **resistance bridge** connects keystroke telemetry to the [Pigeon Code Compiler](https://github.com/SavageCooPigeonX/pigeon-code-compiler):
+The **resistance bridge** connects keystroke telemetry to the Pigeon Code Compiler:
 
 ```python
 from src import HesitationAnalyzer
@@ -77,6 +114,28 @@ signal = analyzer.resistance_signal()
 ```
 
 Files that cause the most human hesitation get a **resistance score bump** — they become split candidates. The compiler restructures code where *humans actually struggle*, not just where the AST says it's complex.
+
+### Running the compiler
+
+```powershell
+$env:DEEPSEEK_API_KEY = "your-key"
+py -c "
+import sys; sys.path.insert(0, r'C:\Users\Nikita\Desktop')
+from pigeon_compiler.runners.run_clean_split_seq010_v001 import run
+from pathlib import Path
+run(Path('src/streaming_layer_seq007_v001.py'), 'streaming_layer')
+"
+```
+
+Pipeline phases:
+1. **Decompose** — oversized functions split into ≤30-line sub-functions (free, AST only)
+2. **Cut Plan** — DeepSeek generates a file-split plan with line count math (~$0.002)
+3. **File Creation** — source slicer extracts functions, classes, constants by name
+4. **Resplit Loop** — deterministic bin-packing until all non-class files ≤50 lines
+5. **Init + Manifest** — `__init__.py` with re-exports, `MANIFEST.md` with prompt box
+6. **Master Manifest** — updates project-level manifest with compilation record
+
+---
 
 ## Context Budget (vs. flat line count)
 
@@ -90,6 +149,8 @@ context_cost = file_tokens + (coupling_score × dependency_tokens)
 - **Budget**: file + weighted dependencies ≤ 3000 tokens
 - Self-contained files get a bonus; heavily-coupled files get pushed shorter
 
+---
+
 ## Quick Start
 
 ```bash
@@ -98,7 +159,11 @@ cd keystroke-telemetry
 py test_all.py
 ```
 
-Zero dependencies. Python 3.11+ stdlib only.
+Zero external dependencies. Python 3.11+ stdlib only.
+
+(Pigeon compiler requires `httpx` for DeepSeek API calls.)
+
+---
 
 ## Operator Profile (from ≥3 sessions)
 
@@ -115,6 +180,8 @@ Zero dependencies. Python 3.11+ stdlib only.
 ```
 
 ~100 event blocks across 3–5 turns is enough to start fingerprinting operator patterns with persistent state.
+
+---
 
 ## License
 
