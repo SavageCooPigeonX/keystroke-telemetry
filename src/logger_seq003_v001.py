@@ -15,6 +15,7 @@ from typing import Optional
 
 from src.timestamp_utils_seq001_v001 import _now_ms
 from src.models_seq002_v001 import KeyEvent, MessageDraft
+from src.operator_stats_seq008_v001 import OperatorStats
 
 SCHEMA_VERSION = "keystroke_telemetry/v2"
 
@@ -22,7 +23,8 @@ SCHEMA_VERSION = "keystroke_telemetry/v2"
 class TelemetryLogger:
     PAUSE_THRESHOLD_MS = 2000
 
-    def __init__(self, log_dir: str = "logs", live_print: bool = True):
+    def __init__(self, log_dir: str = "logs", live_print: bool = True,
+                 stats_path: str = "operator_profile.md", stats_every: int = 8):
         self.log_dir = Path(log_dir)
         self.log_dir.mkdir(exist_ok=True)
         self.live_print = live_print
@@ -39,6 +41,7 @@ class TelemetryLogger:
         self._consecutive_deletes = 0
 
         self._events_handle = open(self.events_file, "a", encoding="utf-8")
+        self._operator_stats = OperatorStats(stats_path, write_every=stats_every)
 
     def start_message(self) -> str:
         if self.current_draft and not self.current_draft.submitted and not self.current_draft.deleted:
@@ -114,6 +117,7 @@ class TelemetryLogger:
         if self.current_draft and not self.current_draft.submitted:
             self._finalize_draft(deleted=True)
         self._write_summary()
+        self._operator_stats.flush()
         self._events_handle.close()
 
     def _finalize_draft(self, submitted=False, deleted=False, final_text=""):
@@ -131,6 +135,7 @@ class TelemetryLogger:
 
         self.all_summaries.append(asdict(d))
         self._write_summary()
+        self._operator_stats.ingest(self.all_summaries[-1])
         self.current_message_id = None
         self.current_draft = None
 

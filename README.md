@@ -58,6 +58,7 @@ keystroke-telemetry/
 │   ├── drift_watcher_seq005_v001.py        #   Live drift detection for coding loops (95 lines)
 │   ├── resistance_bridge_seq006_v001.py    #   Telemetry → pigeon compiler signal (111 lines)
 │   ├── streaming_layer_seq007_v001.py      #   956-line monolith (compiler test input)
+│   ├── operator_stats_seq008_v001.py       #   Self-growing operator profile (.md memory file)
 │   └── __init__.py
 │
 ├── streaming_layer/                        # Pigeon-compiled output (20 files)
@@ -88,8 +89,11 @@ keystroke-telemetry/
 │   └── output/                             #   Cached ether maps + plans
 │
 ├── test_all.py                             # Full test suite (221 lines, 4 tests)
+├── stress_test.py                          # Cognitive stress test (5 scenarios)
+├── operator_profile.md                     # ← auto-generated, self-growing stats
 ├── test_logs/                              # Test session output
 ├── demo_logs/                              # Demo session output
+├── stress_logs/                            # Stress test session output
 └── MASTER_MANIFEST.md                      # Project manifest + development plan
 ```
 
@@ -165,21 +169,47 @@ Zero external dependencies. Python 3.11+ stdlib only.
 
 ---
 
-## Operator Profile (from ≥3 sessions)
+## Self-Growing Operator Profile
 
-```json
-{
-  "total_sessions": 5,
-  "total_messages": 18,
-  "avg_wpm": 62.3,
-  "avg_hesitation_score": 0.31,
-  "discard_rate": 0.22,
-  "deletion_ratio": 0.18,
-  "profile_confidence": "medium"
-}
+The logger silently writes `operator_profile.md` every 8 finalized messages — no user action needed. The file accumulates real stats as ranges and produces LLM-readable observations:
+
+```markdown
+## Ranges
+| Metric | Min | Max | Avg |
+| WPM    | 18  | 95  | 50  |
+| Hesitation | 0.030 | 0.620 | 0.266 |
+
+## Time-of-Day Profile
+| morning   | 4 msgs | 46 WPM | hesitant → focused |
+| afternoon | 3 msgs | 83 WPM | flow               |
+| night     | 2 msgs | 20 WPM | frustrated          |
+
+## Patterns (LLM-readable)
+- Operator types fastest in the **afternoon** (avg 83 WPM)
+  and slowest at **night** (avg 20 WPM).
+- Morning warmup detected — early messages are ~2.4x slower.
+  Coffee effect?
+- Late-night degradation: hesitation jumps from 0.307 to 0.550.
+  Operator may be fatigued.
 ```
 
-~100 event blocks across 3–5 turns is enough to start fingerprinting operator patterns with persistent state.
+An LLM reading this file gets a sharpening cognitive profile it can act on — suggesting breaks, adjusting verbosity, or noting when the operator is in flow state.
+
+### How it works
+
+1. Each finalized message is classified: `flow`, `focused`, `neutral`, `hesitant`, `restructuring`, `frustrated`, `abandoned`
+2. Local hour is captured → bucketed into morning/afternoon/evening/night
+3. Ranges (min–max–avg) update with every message
+4. Pattern detector compares timeframes: WPM deltas, hesitation shifts, warmup curves, struggle streaks
+5. Every 8 messages: silent rewrite of the `.md` file
+6. Hidden JSON block (`<!-- DATA -->`) lets the file self-bootstrap across sessions
+
+```python
+# Already wired in — just use the logger normally:
+logger = TelemetryLogger(log_dir="logs", stats_path="operator_profile.md", stats_every=8)
+# ... type messages ...
+# operator_profile.md grows automatically
+```
 
 ---
 
