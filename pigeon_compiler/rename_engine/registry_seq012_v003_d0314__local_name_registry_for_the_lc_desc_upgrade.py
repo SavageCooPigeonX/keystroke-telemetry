@@ -25,6 +25,13 @@ desc  = what the file IS (stable, from docstring)
 intent = what was LAST DONE (mutates every push)
 _lc_  = separator between desc and intent
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 012 | VER: v003 | 246 lines | ~2,068 tokens
+# DESC:   local_name_registry_for_the
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ 855fd50
+# ──────────────────────────────────────────────
 import json
 import re
 from datetime import datetime, timezone

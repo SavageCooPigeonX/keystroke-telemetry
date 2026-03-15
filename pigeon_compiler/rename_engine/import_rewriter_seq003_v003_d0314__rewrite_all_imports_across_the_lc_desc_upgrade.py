@@ -4,6 +4,13 @@ Given a rename plan's import_map (old_module → new_module),
 scans every .py file and rewrites import statements atomically.
 Handles: from X import Y, import X, from X.sub import Y.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 003 | VER: v003 | 167 lines | ~1,551 tokens
+# DESC:   rewrite_all_imports_across_the
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ 855fd50
+# ──────────────────────────────────────────────
 import re
 from pathlib import Path
 

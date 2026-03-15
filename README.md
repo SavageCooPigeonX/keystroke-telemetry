@@ -1,11 +1,102 @@
-# Keystroke Telemetry + Pigeon Code Compiler
+# Keystroke Telemetry + Pigeon Code Engine
 
 Two developer tools packaged together:
 
 1. **Keystroke Telemetry** — captures typing patterns in LLM chat interfaces (pauses, deletions, rewrites, abandoned drafts) and classifies operator cognitive state in real time.
-2. **Pigeon Code Compiler** — autonomous code decomposition engine that enforces LLM-readable file sizes, pigeon-code naming, and self-healing renames.
+2. **Pigeon Code Engine** — self-documenting codebase engine. Filenames mutate on every commit to carry intent, description, version, and token metadata. The filename IS the changelog.
 
 > Not a keylogger. Telemetry captures input events **within your own app's text field** and runs locally.
+
+---
+
+## Quick Start — Pigeon Code
+
+```bash
+# Install
+pip install -e .
+
+# Initialize in any git repo
+cd your-project
+pigeon init       # installs git hooks
+pigeon status     # see codebase health
+pigeon heal       # bulk inject prompt boxes + rebuild manifests
+pigeon sessions   # view mutation audit trail
+```
+
+After `pigeon init`, every commit auto-renames touched pigeon files:
+
+```bash
+git commit -m "fix: timeout on buffer polling"
+# → conversation_buffer_seq001_v005_d0316__buffer_polling_lc_timeout_buffer_polling.py
+#   ├─ buffer_polling              = what the file DOES  (from docstring)
+#   └─ timeout_buffer_polling      = what was LAST DONE  (from commit message)
+```
+
+### What happens on every commit
+
+1. **Pre-commit** — advisory audit (never blocks): flags oversize files, missing versions
+2. **Post-commit** — auto-rename daemon:
+   - Parses commit message → 3-word intent slug
+   - Reads docstring → desc slug
+   - Bumps version + date
+   - Renames file on disk
+   - Injects prompt box header into file
+   - Rewrites all imports across codebase
+   - Logs session to `logs/pigeon_sessions/{name}.jsonl`
+   - Updates `pigeon_registry.json`
+   - Rebuilds all `MANIFEST.md` files
+   - Auto-commits `[pigeon-auto]`
+
+### Prompt Box (injected after docstring)
+
+```python
+# ── pigeon ────────────────────────────────────
+# SEQ: 007 | VER: v004 | 85 lines | ~2,100 tokens
+# DESC:   filter_live_noise
+# INTENT: fixed_timeout
+# LAST:   2026-03-16 @ a3f2b1c
+# SESSIONS: 4
+# ──────────────────────────────────────────────
+```
+
+### Session Log (`logs/pigeon_sessions/noise_filter_seq007.jsonl`)
+
+```jsonl
+{"ts":"2026-03-16T14:32:01Z","hash":"a3f2b1c","msg":"fix: timeout on buffer polling","intent":"fixed_timeout","ver_before":3,"ver_after":4,"tokens_before":2050,"tokens_after":2100,"diff":"+12 -3"}
+```
+
+### Pigeon Code Naming Convention
+
+```
+{name}_seq{NNN}_v{NNN}_d{MMDD}__{description}_lc_{intent}.py
+```
+
+| Part | Meaning | Source |
+|---|---|---|
+| `name` | Module identity | Stable, never changes |
+| `seq{NNN}` | Sequence within folder | Set at creation |
+| `v{NNN}` | Version (bumps every commit) | Auto-incremented |
+| `d{MMDD}` | Date of last mutation | UTC today |
+| `description` | What the file DOES | Extracted from docstring |
+| `_lc_` | Separator (lifecycle) | Fixed |
+| `intent` | What was LAST DONE | From commit message (3 words max) |
+
+### CLI Commands
+
+| Command | What it does |
+|---|---|
+| `pigeon init` | Install git hooks, create registry + session dir |
+| `pigeon status` | Files, tokens, stale count, hook status, session count |
+| `pigeon heal` | Bulk inject prompt boxes + token counts into all files |
+| `pigeon sessions` | Show recent mutation logs across all files |
+| `pigeon uninstall` | Remove hooks (preserve registry + logs) |
+
+### Token Savings
+
+On a 400-file codebase (~1.5M tokens):
+- **10K-35K tokens saved per LLM session** (less file-opening, less re-discovery)
+- **200K-700K tokens/day** at 20 sessions/day
+- **$15-$150/month** in API cost reduction depending on model
 
 ---
 

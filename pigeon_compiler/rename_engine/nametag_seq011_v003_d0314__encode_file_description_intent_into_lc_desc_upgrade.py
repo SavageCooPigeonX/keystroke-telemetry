@@ -20,6 +20,13 @@ Rules:
 - Updated by heal engine when docstring or code changes
 - Import rewriter handles cascading renames automatically
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 011 | VER: v003 | 237 lines | ~1,862 tokens
+# DESC:   encode_file_description_intent_into
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ 855fd50
+# ──────────────────────────────────────────────
 import ast
 import re
 from pathlib import Path

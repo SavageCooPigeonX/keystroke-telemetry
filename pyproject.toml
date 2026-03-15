@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pigeon-code"
+version = "1.0.0"
+description = "Self-documenting codebase engine — filenames mutate on every commit to carry intent, description, version, and token metadata."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "SavageCooPigeonX"},
+]
+keywords = ["git", "developer-tools", "llm", "self-documenting", "codebase"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Version Control :: Git",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.scripts]
+pigeon = "pigeon_compiler.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/SavageCooPigeonX/keystroke-telemetry"
+Repository = "https://github.com/SavageCooPigeonX/keystroke-telemetry"
+
+[tool.setuptools.packages.find]
+include = ["pigeon_compiler*"]
