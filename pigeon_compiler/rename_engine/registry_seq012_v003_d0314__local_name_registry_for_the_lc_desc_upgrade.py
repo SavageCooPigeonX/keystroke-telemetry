@@ -240,7 +240,7 @@ def diff_registry_vs_disk(root: Path, entries: dict) -> dict:
 
     Returns {missing_on_disk: [...], new_on_disk: [...], moved: [...]}
     """
-    from pigeon_compiler.rename_engine.scanner_seq001_v003_d0314__walk_the_project_tree_and_lc_desc_upgrade import scan_project
+    from pigeon_compiler.rename_engine.scanner_seq001_v004_d0315__walk_the_project_tree_and_lc_verify_pigeon_plugin import scan_project
 
     catalog = scan_project(root)
     disk_paths = {f['path'] for f in catalog['files'] if not f['is_init']}

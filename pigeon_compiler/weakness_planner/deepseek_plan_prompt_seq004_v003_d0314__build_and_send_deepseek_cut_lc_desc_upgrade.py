@@ -228,7 +228,7 @@ def _validate_plan_lines(plan: dict, ether_map: dict) -> list:
 def request_cut_plan(ether_map: dict, source_code: str,
                      folder_name: str = None) -> dict:
     """Send prompt to DeepSeek and return the response with validation."""
-    from pigeon_compiler.integrations.deepseek_adapter_seq001_v003_d0314__deepseek_api_client_lc_desc_upgrade import deepseek_query
+    from pigeon_compiler.integrations.deepseek_adapter_seq001_v004_d0315__deepseek_api_client_lc_verify_pigeon_plugin import deepseek_query
 
     prompt = build_plan_prompt(ether_map, source_code, folder_name)
     result = deepseek_query(prompt, max_tokens=6000)

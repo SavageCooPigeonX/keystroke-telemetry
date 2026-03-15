@@ -181,7 +181,7 @@ def scan_drift(root: Path, folders: list[str] = None) -> list[dict]:
 
     Returns list of {path, current, suggested, slug_current, slug_new}
     """
-    from pigeon_compiler.rename_engine.scanner_seq001_v003_d0314__walk_the_project_tree_and_lc_desc_upgrade import (
+    from pigeon_compiler.rename_engine.scanner_seq001_v004_d0315__walk_the_project_tree_and_lc_verify_pigeon_plugin import (
         scan_project,
     )
 

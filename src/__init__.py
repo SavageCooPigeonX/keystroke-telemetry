@@ -1,8 +1,8 @@
 # @pigeon: role=package_root | exports=[TelemetryLogger,HesitationAnalyzer,DriftWatcher,cognitive]
-from src.logger_seq003_v001 import TelemetryLogger
-from src.resistance_bridge_seq006_v001 import HesitationAnalyzer
-from src.drift_watcher_seq005_v001 import DriftWatcher
-from src.context_budget_seq004_v001 import score_context_budget
+from src.logger_seq003_v002_d0315__core_keystroke_telemetry_logger_lc_verify_pigeon_plugin import TelemetryLogger
+from src.resistance_bridge_seq006_v002_d0315__bridge_between_keystroke_telemetry_and_lc_verify_pigeon_plugin import HesitationAnalyzer
+from src.drift_watcher_seq005_v002_d0315__drift_detection_for_live_llm_lc_verify_pigeon_plugin import DriftWatcher
+from src.context_budget_seq004_v002_d0315__context_budget_scorer_for_llm_lc_verify_pigeon_plugin import score_context_budget
 
 # Cognitive layer — typing-pattern intelligence
 from src.cognitive import (
