@@ -1,0 +1,2538 @@
+[
+  {
+    "timestamp": "2026-03-14T21:55:50.591766+00:00",
+    "changed_files": [
+      "_diag_live_email.py",
+      "api/__init__.py",
+      "api/audit_routes_seq002_v001.py",
+      "api/core_routes_seq001_v001.py",
+      "api/routes_seq005_v001.py",
+      "api/sitemap_routes_seq004_v001.py",
+      "api/sitemap_seq006_v001.py",
+      "api/stripe_routes_seq003_v001.py",
+      "app.py",
+      "auth/__init__.py",
+      "auth/forms_seq001_v001.py",
+      "auth/oauth_seq002_v001.py",
+      "auth/routes_seq003_v001.py",
+      "auth/utils_seq004_v001.py",
+      "config/__init__.py",
+      "config/constants_seq001_v001.py",
+      "config/database_seq002_v001.py",
+      "config/db_schema_seq003_v001.py",
+      "config/settings_seq004_v001.py",
+      "consensus/__init__.py",
+      "consensus/builder_seq022_v001.py",
+      "consensus/consensus_builder_seq005_v001.py",
+      "consensus/difference_analyzer_seq003_v001.py",
+      "consensus/drift_detector_seq021_v001.py",
+      "consensus/free_audit_consensus_seq007_v005.py",
+      "consensus/network_map_builder_seq001_v001.py",
+      "consensus/response_parser_seq002_v001.py",
+      "consensus/snapshot_loader_seq001_v001.py",
+      "consensus/source_extractor_seq008_v001.py",
+      "consensus/void_storer_seq004_v001.py",
+      "deepseek_db/__init__.py",
+      "deepseek_db/audit_analyzer_seq007_v001.py",
+      "deepseek_db/db_inspector_seq001_v001.py",
+      "deepseek_db/deep_audit_seq010_v001.py",
+      "deepseek_db/full_schema_reader_seq009_v001.py",
+      "deepseek_db/link_sync_seq011_v001.py",
+      "deepseek_db/manifest_reader_seq006_v001.py",
+      "deepseek_db/manifest_writer_seq008_v001.py",
+      "deepseek_db/missing_data_seq003_v001.py",
+      "deepseek_db/quick_query_seq004_v001.py",
+      "deepseek_db/schema_loader_seq002_v001.py",
+      "deepseek_db/schema_reader_seq005_v001.py",
+      "delivery/__init__.py",
+      "delivery/email_sender_seq001_v001.py",
+      "delivery/hush_invite_email_seq002_v001.py",
+      "directory/__init__.py",
+      "directory/route_entity_seq001_v001.py",
+      "directory/route_geo_seq001_v001.py",
+      "directory/route_index_seq001_v001.py",
+      "directory/route_listings_seq001_v001.py",
+      "directory/route_search_seq001_v001.py",
+      "directory/route_timeline_seq001_v001.py",
+      "directory/routes_seq002_v001.py",
+      "directory/utils_validation_seq001_v001.py",
+      "documentation/__init__.py",
+      "documentation/hush_injection/__init__.py",
+      "documentation/hush_injection/comment_parser_seq002_v001.py",
+      "documentation/hush_injection/cross_ref_builder_seq003_v001.py",
+      "documentation/hush_injection/hush_injector_seq001_v001.py",
+      "documentation/orchestrator/__init__.py",
+      "documentation/orchestrator/doc_router_seq002_v001.py",
+      "documentation/orchestrator/doc_router_seq002_v002.py",
+      "documentation/orchestrator/hush_intel_notes_seq003_v001.py",
+      "documentation/orchestrator/hush_intel_notes_seq003_v002.py",
+      "documentation/orchestrator/research_orchestrator_seq004_v001.py",
+      "documentation/orchestrator/workflow_gate_seq001_v001.py",
+      "documentation/orchestrator/workflow_gate_seq001_v002.py",
+      "documentation/researcher/__init__.py",
+      "documentation/researcher/context_assembler_seq002_v001.py",
+      "documentation/researcher/deep_researcher_seq001_v001.py",
+      "documentation/researcher/report_templates_seq004_v001.py",
+      "documentation/researcher/web_searcher_seq003_v001.py",
+      "documentation/routes/__init__.py",
+      "documentation/routes/doc_routes_seq001_v001.py",
+      "documentation/routes/doc_vault_routes_seq002_v001.py",
+      "documentation/store/__init__.py",
+      "documentation/store/doc_index_seq002_v001.py",
+      "documentation/store/doc_store_seq001_v001.py",
+      "documentation/store/doc_upload_seq003_v001.py",
+      "drift_tracker/__init__.py",
+      "drift_tracker/audit_stager_seq011_v001.py",
+      "drift_tracker/call_ledger_seq009_v001.py",
+      "drift_tracker/contradiction_detector_seq003_v001.py",
+      "drift_tracker/drift_engine_seq001_v001.py",
+      "drift_tracker/drift_report_seq006_v001.py",
+      "drift_tracker/drift_routes_seq008_v001.py",
+      "drift_tracker/entity_cross_reference_seq023_v001.py",
+      "drift_tracker/entity_manifest_seq004_v001.py",
+      "drift_tracker/entity_shard_store_seq002_v001.py",
+      "drift_tracker/grok_event_forecaster_seq019_v001.py",
+      "drift_tracker/hallucination_tracker_seq016_v001.py",
+      "drift_tracker/hush_bridge_seq007_v001.py",
+      "drift_tracker/intelligence_article_seq014_v002.py",
+      "drift_tracker/intent_mapper_seq022_v001.py",
+      "drift_tracker/manifest_bridge_seq005_v001.py",
+      "drift_tracker/mutation_email_notifier_seq018_v001.py",
+      "drift_tracker/narrative_generator_seq012_v001.py",
+      "drift_tracker/narrative_tracker_seq004_v001.py",
+      "drift_tracker/news_mutation_scheduler_seq015_v001.py",
+      "drift_tracker/news_signal_processor_seq005_v001.py",
+      "drift_tracker/persona_mutation_engine_seq013_v001.py",
+      "drift_tracker/persona_updater_seq010_v001.py",
+      "drift_tracker/prediction_scorecard_seq021_v001.py",
+      "drift_tracker/press_release_generator_seq014_v001.py",
+      "drift_tracker/profile_saturation_seq024_v001.py",
+      "drift_tracker/query_package_builder_seq020_v001.py",
+      "drift_tracker/semantic_void_tracker_seq017_v001.py",
+      "drift_tracker/shard_mutation_engine_seq019_v001.py",
+      "harvester/__init__.py",
+      "harvester/country_manager_seq001_v001.py",
+      "harvester/gemini_baseline_seq002_v001.py",
+      "harvester/grok_discovery_seq003_v001.py",
+      "harvester/harvester_runner_seq004_v001.py",
+      "harvester/harvester_service_seq005_v001.py",
+      "integrations/__init__.py",
+      "integrations/ai_claude_seq016_v001.py",
+      "integrations/ai_deepseek_seq005_v001.py",
+      "integrations/ai_gemini_seq006_v001.py",
+      "integrations/ai_glm_seq018_v001.py",
+      "integrations/ai_kimi_native_seq019_v001.py",
+      "integrations/ai_kimi_seq009_v001.py",
+      "integrations/ai_llm_router_seq001_v001.py",
+      "integrations/ai_openai_seq007_v001.py",
+      "integrations/ai_openrouter_seq007_v001.py",
+      "integrations/ai_perplexity_seq010_v001.py",
+      "integrations/ai_qwen_seq017_v001.py",
+      "integrations/ai_response_seq001_v001.py",
+      "integrations/ai_xai_seq008_v001.py",
+      "integrations/api_utils_seq003_v001.py",
+      "integrations/base_interface_seq004_v001.py",
+      "integrations/client_factory_seq012_v001.py",
+      "integrations/eight_model_router_seq020_v001.py",
+      "integrations/model_registry_seq011_v001.py",
+      "integrations/model_selector_seq013_v001.py",
+      "integrations/pricing_calc_seq002_v001.py",
+      "integrations/query_router_seq014_v001.py",
+      "integrations/serper_search_seq025_v001.py",
+      "integrations/stripe_export/checkout_seq001_v001.py",
+      "integrations/stripe_export/routes_seq002_v001.py",
+      "integrations/stripe_export/stripe_config_seq003_v001.py",
+      "integrations/stripe_export/stripe_db_seq004_v001.py",
+      "integrations/stripe_export/stripe_service_seq005_v001.py",
+      "integrations/stripe_export/webhook_handler_seq006_v001.py",
+      "integrations/unified_interface_seq015_v001.py",
+      "listen/__init__.py",
+      "listen/entity_extractor_seq001_v001.py",
+      "listen/entity_matcher_seq002_v001.py",
+      "listen/keystroke_telemetry/__init__.py",
+      "listen/keystroke_telemetry/cognitive_adapter_seq001_v001.py",
+      "listen/keystroke_telemetry/cognitive_prequery_seq002_v001.py",
+      "listen/keystroke_telemetry/logger_seq003_v001.py",
+      "listen/keystroke_telemetry/models_seq004_v001.py",
+      "listen/keystroke_telemetry/timestamp_utils_seq005_v001.py",
+      "listen/keystroke_telemetry/unsaid_thoughts_seq006_v001.py",
+      "listen/listen_routes_seq003_v001.py",
+      "listen/live/__init__.py",
+      "listen/live/chat_injector_seq004_v001.py",
+      "listen/live/conversation_buffer_seq001_v001.py",
+      "listen/live/listen_session_seq005_v001.py",
+      "listen/live/live_routes_seq006_v001.py",
+      "listen/live/manifest_crossref_seq003_v001.py",
+      "listen/live/speaker_identifier_seq002_v001.py",
+      "listen/voice_agent_seq004_v001.py",
+      "maif_propaganda/__init__.py",
+      "maif_propaganda/agent_memory_seq001_v001.py",
+      "maif_propaganda/entity_agent_seq002_v001.py",
+      "maif_propaganda/personas/__init__.py",
+      "maif_propaganda/personas/corporate_percy_seq001_v001.py",
+      "maif_propaganda/personas/easter_eggs_seq002_v001.py",
+      "maif_propaganda/personas/fish_collective_seq003_v001.py",
+      "maif_propaganda/personas/glossator_seq004_v001.py",
+      "maif_propaganda/personas/librarian_seq005_v001.py",
+      "maif_propaganda/personas/nokia_3310_seq006_v001.py",
+      "maif_propaganda/personas/otterly_persona_seq007_v001.py",
+      "maif_propaganda/personas/perry_damascus_seq008_v001.py",
+      "maif_propaganda/personas/specialists_seq009_v001.py",
+      "maif_propaganda/personas/tom_persona_seq010_v001.py",
+      "maif_propaganda/research_queries_seq003_v001.py",
+      "maif_propaganda/research_runner_seq004_v001.py",
+      "maif_propaganda/routes_seq005_v001.py",
+      "maif_whisperer/__init__.py",
+      "maif_whisperer/agents/__init__.py",
+      "maif_whisperer/agents/hush_agent_base_seq001_v001.py",
+      "maif_whisperer/config/__init__.py",
+      "maif_whisperer/config/hush_config_seq001_v001.py",
+      "maif_whisperer/config/hush_constants_seq001_v001.py",
+      "maif_whisperer/config/hush_schema_seq001_v001.py",
+      "maif_whisperer/core/__init__.py",
+      "maif_whisperer/core/cli_repl_seq001_v001.py",
+      "maif_whisperer/core/router_seq002_v001.py",
+      "maif_whisperer/glossator_refusal_seq001_v001.py",
+      "maif_whisperer/glossator_refusal_seq002_v001.py",
+      "maif_whisperer/hush_logging/__init__.py",
+      "maif_whisperer/hush_logging/hush_log_turn_seq001_v001.py",
+      "maif_whisperer/hush_v38/__init__.py",
+      "maif_whisperer/hush_v38/agents/__init__.py",
+      "maif_whisperer/hush_v38/agents/hush_autonomous_seq001_v001.py",
+      "maif_whisperer/hush_v38/agents/hush_grok_subagent_seq001_v001.py",
+      "maif_whisperer/hush_v38/auth/__init__.py",
+      "maif_whisperer/hush_v38/auth/hush_auth_seq001_v001.py",
+      "maif_whisperer/hush_v38/logging/__init__.py",
+      "maif_whisperer/hush_v38/logging/hush_accomplishments_seq001_v001.py",
+      "maif_whisperer/hush_v38/logging/hush_debug_log_seq001_v001.py",
+      "maif_whisperer/hush_v38/logging/hush_intent_log_seq001_v001.py",
+      "maif_whisperer/hush_v38/memory/__init__.py",
+      "maif_whisperer/hush_v38/memory/hush_memory_lock_seq001_v001.py",
+      "maif_whisperer/hush_v38/memory/hush_memory_ops_seq001_v001.py",
+      "maif_whisperer/hush_v38/opener/__init__.py",
+      "maif_whisperer/hush_v38/opener/hush_opener_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/__init__.py",
+      "maif_whisperer/hush_v38/pipeline/hush_agent_bus_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_aim_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_auto_continue_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_auto_debug_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_auto_exec_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_auto_submit_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_background_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_chat_core_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_command_router_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_entity_watch_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_gate_commands_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_intent_harvest_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_job_manifest_seq002_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_live_telemetry_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_manifest_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_mimicry_shield_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_nl_detection_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_orchestration_awareness_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_post_agent_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_post_response_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_pq_bones_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_pre_query_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_reinjection_layer_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_shard_debate_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_slash_commands_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_slash_doc_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_slash_email_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_slash_entity_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_slash_grok_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_slash_research_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_split_pre_query_seq001_v001.py",
+      "maif_whisperer/hush_v38/pipeline/hush_write_changelog_seq001_v001.py",
+      "maif_whisperer/hush_v38/routes/__init__.py",
+      "maif_whisperer/hush_v38/routes/hush_routes_seq001_v001.py",
+      "maif_whisperer/hush_v38/session/__init__.py",
+      "maif_whisperer/hush_v38/session/hush_session_seq001_v001.py",
+      "maif_whisperer/hush_v38/tools/__init__.py",
+      "maif_whisperer/hush_v38/tools/hush_cli_preview_seq001_v001.py",
+      "maif_whisperer/hush_v38/tools/hush_codebase_tools_seq001_v001.py",
+      "maif_whisperer/hush_v38/tools/hush_data_tools_seq001_v001.py",
+      "maif_whisperer/hush_v38/tools/hush_entity_tools_seq001_v001.py",
+      "maif_whisperer/hush_v38/tools/hush_job_tools_seq001_v001.py",
+      "maif_whisperer/intel/__init__.py",
+      "maif_whisperer/intel/briefing_seq003_v001.py",
+      "maif_whisperer/intel/entity_pull_seq001_v001.py",
+      "maif_whisperer/intel/org_mapper_seq002_v001.py",
+      "maif_whisperer/memory/__init__.py",
+      "maif_whisperer/memory/distributed_memory_seq002_v001.py",
+      "maif_whisperer/memory/memory_store_seq001_v001.py",
+      "maif_whisperer/memory/shard_mutation_seq001_v001.py",
+      "maif_whisperer/ops/__init__.py",
+      "maif_whisperer/ops/hush_task_doc_seq001_v001.py",
+      "maif_whisperer/ops/job_staging_seq001_v001.py",
+      "maif_whisperer/ops/job_submit_seq001_v001.py",
+      "maif_whisperer/ops/queue_check_seq002_v001.py",
+      "maif_whisperer/persona/__init__.py",
+      "maif_whisperer/persona/architecture_manifest_seq001_v001.py",
+      "maif_whisperer/persona/gemini_prompt_seq001_v001.py",
+      "maif_whisperer/persona/hush_prompt_seq001_v001.py",
+      "maif_whisperer/persona/hush_prompt_seq001_v001_BACKUP.py",
+      "maif_whisperer/persona/persona_analyzers_seq001_v001.py",
+      "maif_whisperer/persona/prompt_authority_seq001_v001.py",
+      "maif_whisperer/persona/sim_engine_seq002_v001.py",
+      "maif_whisperer/persona/voice_config_seq003_v001.py",
+      "maif_whisperer/tools/__init__.py",
+      "maif_whisperer/tools/hush_tool_dispatch_seq001_v001.py",
+      "maif_whisperer/utils/__init__.py",
+      "maif_whisperer/utils/timezone_utils_seq001_v001.py",
+      "maif_whisperer/web/__init__.py",
+      "maif_whisperer/web/hush_web_seq001_v001.py",
+      "main/__init__.py",
+      "main/forms_seq001_v001.py",
+      "main/routes_seq002_v001.py",
+      "main/waitlist_forms_seq003_v001.py",
+      "middleware/__init__.py",
+      "middleware/crawler_detector_seq002_v001.py",
+      "middleware/crawler_headers_seq001_v001.py",
+      "models/__init__.py",
+      "models/entity_v2_seq001_v001.py",
+      "models/geo_v2_seq002_v001.py",
+      "models/link_v2_seq003_v001.py",
+      "models/routing_rule_seq004_v001.py",
+      "models/semantic_void_seq005_v001.py",
+      "models/user_v2_seq006_v001.py",
+      "pigeon_compiler/__init__.py",
+      "pigeon_compiler/bones/__init__.py",
+      "pigeon_compiler/bones/aim_utils_seq001_v001.py",
+      "pigeon_compiler/bones/core_formatters_seq001_v001.py",
+      "pigeon_compiler/bones/nl_parsers_seq001_v001.py",
+      "pigeon_compiler/bones/pq_manifest_utils_seq001_v001.py",
+      "pigeon_compiler/bones/pq_search_utils_seq001_v001.py",
+      "pigeon_compiler/cut_executor/__init__.py",
+      "pigeon_compiler/cut_executor/file_writer_seq003_v001.py",
+      "pigeon_compiler/cut_executor/func_decomposer_seq008_v001.py",
+      "pigeon_compiler/cut_executor/import_fixer_seq004_v001.py",
+      "pigeon_compiler/cut_executor/init_writer_seq007_v001.py",
+      "pigeon_compiler/cut_executor/manifest_writer_seq005_v001.py",
+      "pigeon_compiler/cut_executor/plan_parser_seq001_v001.py",
+      "pigeon_compiler/cut_executor/plan_validator_seq006_v001.py",
+      "pigeon_compiler/cut_executor/resplit_binpack_seq010_v001.py",
+      "pigeon_compiler/cut_executor/resplit_helpers_seq011_v001.py",
+      "pigeon_compiler/cut_executor/resplit_seq009_v001.py",
+      "pigeon_compiler/cut_executor/source_slicer_seq002_v001.py",
+      "pigeon_compiler/integrations/__init__.py",
+      "pigeon_compiler/integrations/deepseek_adapter_seq001_v001.py",
+      "pigeon_compiler/rename_engine/__init__.py",
+      "pigeon_compiler/rename_engine/compliance_seq008_v001.py",
+      "pigeon_compiler/rename_engine/executor_seq004_v001.py",
+      "pigeon_compiler/rename_engine/heal_seq009_v001.py",
+      "pigeon_compiler/rename_engine/import_rewriter_seq003_v001.py",
+      "pigeon_compiler/rename_engine/manifest_builder_seq007_v001.py",
+      "pigeon_compiler/rename_engine/planner_seq002_v001.py",
+      "pigeon_compiler/rename_engine/run_rename_seq006_v001.py",
+      "pigeon_compiler/rename_engine/scanner_seq001_v001.py",
+      "pigeon_compiler/rename_engine/validator_seq005_v001.py",
+      "pigeon_compiler/runners/__init__.py",
+      "pigeon_compiler/runners/compiler_output/press_release_gen/__init__.py",
+      "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_constants_seq001_v001_seq001_v001.py",
+      "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_constants_seq001_v001_seq002_v001.py",
+      "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_builders_seq002_v001_seq001_v001.py",
+      "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_builders_seq002_v001_seq002_v001.py",
+      "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_builders_seq002_v001_seq003_v001.py",
+      "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_helpers_seq004_v001_seq001_v001.py",
+      "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_helpers_seq004_v001_seq002_v001.py",
+      "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_key_findings_seq003_v001.py",
+      "pigeon_compiler/runners/manifest_bridge_seq013_v001.py",
+      "pigeon_compiler/runners/reaudit_diff_seq014_v001.py",
+      "pigeon_compiler/runners/run_clean_split_helpers_seq011_v001.py",
+      "pigeon_compiler/runners/run_clean_split_init_seq012_v001.py",
+      "pigeon_compiler/runners/run_clean_split_seq010_v001.py",
+      "pigeon_compiler/runners/run_compiler_test_seq007_v001.py",
+      "pigeon_compiler/runners/run_deepseek_plans_seq008_v001.py",
+      "pigeon_compiler/runners/run_pigeon_loop_seq009_v001.py",
+      "pigeon_compiler/state_extractor/__init__.py",
+      "pigeon_compiler/state_extractor/ast_parser_seq001_v001.py",
+      "pigeon_compiler/state_extractor/call_graph_seq002_v001.py",
+      "pigeon_compiler/state_extractor/ether_map_builder_seq006_v001.py",
+      "pigeon_compiler/state_extractor/import_tracer_seq003_v001.py",
+      "pigeon_compiler/state_extractor/resistance_analyzer_seq005_v001.py",
+      "pigeon_compiler/state_extractor/shared_state_detector_seq004_v001.py",
+      "pigeon_compiler/weakness_planner/__init__.py",
+      "pigeon_compiler/weakness_planner/deepseek_plan_prompt_seq004_v001.py",
+      "production_auditor/__init__.py",
+      "production_auditor/audit_gate_seq030_v001.py",
+      "production_auditor/audit_run_tracker_seq018_v001.py",
+      "production_auditor/backup_seq012_v001.py",
+      "production_auditor/baseline_briefing_seq035_v001.py",
+      "production_auditor/baseline_fetch_seq017_v001.py",
+      "production_auditor/baseline_store_seq016_v001.py",
+      "production_auditor/changelog_builder_seq019_v001.py",
+      "production_auditor/changelog_helpers_seq020_v001.py",
+      "production_auditor/consensus_runner_seq008_v001.py",
+      "production_auditor/duplicate_check_seq006_v001.py",
+      "production_auditor/email_ops_seq013_v001.py",
+      "production_auditor/entity_drift_seq021_v001.py",
+      "production_auditor/entity_extractor_seq036_v001.py",
+      "production_auditor/entity_ops_seq011_v001.py",
+      "production_auditor/entity_templates_seq027_v001.py",
+      "production_auditor/json_extractor_seq004_v001.py",
+      "production_auditor/json_parser_seq003_v001.py",
+      "production_auditor/link_store_seq010_v001.py",
+      "production_auditor/model_config_seq001_v001.py",
+      "production_auditor/model_runner_seq007_v001.py",
+      "production_auditor/model_switches_seq028_v001.py",
+      "production_auditor/news_auditor_seq033_v001.py",
+      "production_auditor/news_drift_seq034_v001.py",
+      "production_auditor/normalize_seq014_v001.py",
+      "production_auditor/persona_builder_seq032_v001.py",
+      "production_auditor/pipeline_seq015_v001.py",
+      "production_auditor/post_audit_seq026_v001.py",
+      "production_auditor/prompt_builder_seq002_v001.py",
+      "production_auditor/queue_manager_seq029_v001.py",
+      "production_auditor/queue_worker_seq031_v001.py",
+      "production_auditor/reaudit_consensus_seq022_v001.py",
+      "production_auditor/reaudit_gemini_seq023_v001.py",
+      "production_auditor/reaudit_helpers_seq025_v001.py",
+      "production_auditor/reaudit_pipeline_seq024_v001.py",
+      "production_auditor/result_store_seq009_v001.py",
+      "production_auditor/retry_logic_seq030_v001.py",
+      "production_auditor/snapshot_enricher_seq005_v001.py",
+      "production_auditor/statement_extractor_seq037_v001.py",
+      "research_team/__init__.py",
+      "research_team/entity_scanner_seq001_v001.py",
+      "research_team/lead_submitter_seq002_v001.py",
+      "research_team/manifest_builder_seq003_v001.py",
+      "research_team/news_tracker_seq004_v001.py",
+      "research_team/report_formatter_seq005_v001.py",
+      "research_team/research_runner_seq006_v001.py",
+      "research_team/town_prospector_seq007_v001.py",
+      "runner/__init__.py",
+      "runner/batch_tool_executor_seq024_v001.py",
+      "runner/execution_queue_seq022_v001.py",
+      "runner/headless_session_seq023_v001.py",
+      "runner/hush_backup_runner_seq027_v001.py",
+      "runner/manifest_tool_chain_seq025_v001.py",
+      "runner/queue_processor_seq028_v001.py",
+      "runner/recall_runner_seq001_v001.py",
+      "runner/reinjection_bridge_seq026_v001.py",
+      "scripts/audit_worker.py",
+      "scripts/audit_worker_seq042_v001.py",
+      "scripts/backfill_country_ids_seq043_v001.py",
+      "scripts/batch_ai_safety_discovery_seq044_v001.py",
+      "scripts/batch_dual_attack_runner_seq045_v001.py",
+      "scripts/check_queue_status_seq046_v001.py",
+      "scripts/city_manifest_builder_seq040_v001.py",
+      "scripts/city_mapper_seq041_v001.py",
+      "scripts/cleanup_hush_staging_seq047_v001.py",
+      "scripts/conflict_daily_scanner_seq048_v001.py",
+      "scripts/cron_process_audits_seq049_v001.py",
+      "scripts/daily_news_loop_seq050_v001.py",
+      "scripts/daily_planner_agent_seq039_v001.py",
+      "scripts/entity_daily_loop_seq051_v001.py",
+      "scripts/hush_cli_seq052_v001.py",
+      "scripts/hush_invite_tool_seq053_v001.py",
+      "scripts/hush_local_seq054_v001.py",
+      "scripts/ingest_batch_seq055_v001.py",
+      "scripts/lead_collector_seq038_v001.py",
+      "scripts/lead_gen_grok_seq056_v001.py",
+      "scripts/load_uploads_seq057_v001.py",
+      "scripts/stage_iran_israel_loop_seq058_v001.py",
+      "scripts/stage_next_3_days_seq059_v001.py",
+      "scripts/stage_tomorrow_seq060_v001.py",
+      "scripts/stage_top10_lists_seq061_v001.py",
+      "scripts/stage_us_politicians_loop_seq062_v001.py",
+      "scripts/submit_ai_models_to_waitlist_seq063_v001.py",
+      "scripts/trump_daily_loop_seq064_v001.py",
+      "scripts/upload_codebase_docs_seq065_v001.py",
+      "storage_maif/__init__.py",
+      "storage_maif/audit_backup_seq009_v001.py",
+      "storage_maif/city_resolver_seq010_v001.py",
+      "storage_maif/consensus_sources_seq004_v001.py",
+      "storage_maif/consensus_store_seq003_v001.py",
+      "storage_maif/entity_counts_seq011_v001.py",
+      "storage_maif/entity_create_seq001_v001.py",
+      "storage_maif/entity_list_seq002_v001.py",
+      "storage_maif/hush_write_seq001_v001.py",
+      "storage_maif/link_extractor_seq024_v001.py",
+      "storage_maif/persona_geo_placement_seq012_v001.py",
+      "storage_maif/storage_snapshot_ops_seq025_v001.py",
+      "storage_maif/storage_waitlist_ops_seq026_v001.py",
+      "storage_maif/void_store_seq005_v001.py",
+      "tests/conftest.py",
+      "tests/run_full_mutation_test_seq001_v001.py",
+      "tests/test_api_integrations_seq002_v001.py",
+      "tests/test_autonomous_db_restore_seq003_v001.py",
+      "tests/test_client_chatbot_e2e_seq004_v001.py",
+      "tests/test_compiler_v020_seq005_v001.py",
+      "tests/test_hush_e2e_seq006_v001.py",
+      "tests/test_hush_loop_e2e_seq007_v001.py",
+      "tests/test_hush_memory_architecture_seq008_v001.py",
+      "tests/test_init_manifests_safety_seq009_v001.py",
+      "tests/test_intelligence_comparison_seq010_v001.py",
+      "tests/test_job_manifest_orchestrator_seq011_v001.py",
+      "tests/test_manifest_cancel_deep_card_seq012_v001.py",
+      "tests/test_memory_telemetry_diag_seq013_v001.py",
+      "tests/test_multi_architecture_telemetry_seq014_v001.py",
+      "tests/test_press_release_llm_fix_seq015_v001.py",
+      "tests/test_reaudit_restage_seq016_v001.py",
+      "tests/test_reinjection_stress_seq017_v001.py",
+      "tests/test_self_healing_dynamic_toc_seq018_v001.py",
+      "tests/test_shard_writes_seq019_v001.py",
+      "tests/test_split_pipeline_e2e_seq020_v001.py",
+      "tests/test_split_pre_query_seq021_v001.py",
+      "users/__init__.py",
+      "users/routes_seq001_v001.py"
+    ],
+    "affected_folders": [
+      ".",
+      "api",
+      "auth",
+      "config",
+      "consensus",
+      "deepseek_db",
+      "delivery",
+      "directory",
+      "documentation",
+      "documentation/hush_injection",
+      "documentation/orchestrator",
+      "documentation/researcher",
+      "documentation/routes",
+      "documentation/store",
+      "drift_tracker",
+      "harvester",
+      "integrations",
+      "integrations/stripe_export",
+      "listen",
+      "listen/keystroke_telemetry",
+      "listen/live",
+      "maif_propaganda",
+      "maif_propaganda/personas",
+      "maif_whisperer",
+      "maif_whisperer/agents",
+      "maif_whisperer/config",
+      "maif_whisperer/core",
+      "maif_whisperer/hush_logging",
+      "maif_whisperer/hush_v38",
+      "maif_whisperer/hush_v38/agents",
+      "maif_whisperer/hush_v38/auth",
+      "maif_whisperer/hush_v38/logging",
+      "maif_whisperer/hush_v38/memory",
+      "maif_whisperer/hush_v38/opener",
+      "maif_whisperer/hush_v38/pipeline",
+      "maif_whisperer/hush_v38/routes",
+      "maif_whisperer/hush_v38/session",
+      "maif_whisperer/hush_v38/tools",
+      "maif_whisperer/intel",
+      "maif_whisperer/memory",
+      "maif_whisperer/ops",
+      "maif_whisperer/persona",
+      "maif_whisperer/tools",
+      "maif_whisperer/utils",
+      "maif_whisperer/web",
+      "main",
+      "middleware",
+      "models",
+      "pigeon_compiler",
+      "pigeon_compiler/bones",
+      "pigeon_compiler/cut_executor",
+      "pigeon_compiler/integrations",
+      "pigeon_compiler/rename_engine",
+      "pigeon_compiler/runners",
+      "pigeon_compiler/runners/compiler_output/press_release_gen",
+      "pigeon_compiler/state_extractor",
+      "pigeon_compiler/weakness_planner",
+      "production_auditor",
+      "research_team",
+      "runner",
+      "scripts",
+      "storage_maif",
+      "tests",
+      "users"
+    ],
+    "manifests_updated": [
+      ".",
+      "api",
+      "auth",
+      "config",
+      "consensus",
+      "deepseek_db",
+      "delivery",
+      "directory",
+      "documentation/hush_injection",
+      "documentation/orchestrator",
+      "documentation/researcher",
+      "documentation/routes",
+      "documentation/store",
+      "drift_tracker",
+      "harvester",
+      "integrations",
+      "integrations/stripe_export",
+      "listen",
+      "listen/keystroke_telemetry",
+      "listen/live",
+      "maif_propaganda",
+      "maif_propaganda/personas",
+      "maif_whisperer",
+      "maif_whisperer/agents",
+      "maif_whisperer/config",
+      "maif_whisperer/core",
+      "maif_whisperer/hush_logging",
+      "maif_whisperer/hush_v38/agents",
+      "maif_whisperer/hush_v38/auth",
+      "maif_whisperer/hush_v38/logging",
+      "maif_whisperer/hush_v38/memory",
+      "maif_whisperer/hush_v38/opener",
+      "maif_whisperer/hush_v38/pipeline",
+      "maif_whisperer/hush_v38/routes",
+      "maif_whisperer/hush_v38/session",
+      "maif_whisperer/hush_v38/tools",
+      "maif_whisperer/intel",
+      "maif_whisperer/memory",
+      "maif_whisperer/ops",
+      "maif_whisperer/persona",
+      "maif_whisperer/tools",
+      "maif_whisperer/utils",
+      "maif_whisperer/web",
+      "main",
+      "middleware",
+      "models",
+      "pigeon_compiler/bones",
+      "pigeon_compiler/cut_executor",
+      "pigeon_compiler/integrations",
+      "pigeon_compiler/rename_engine",
+      "pigeon_compiler/runners",
+      "pigeon_compiler/state_extractor",
+      "pigeon_compiler/weakness_planner",
+      "production_auditor",
+      "research_team",
+      "runner",
+      "scripts",
+      "storage_maif",
+      "tests",
+      "users"
+    ],
+    "compliance": {
+      "total": 407,
+      "compliant": 214,
+      "pct": 52.6,
+      "oversize_count": 193,
+      "critical": [
+        "tests/test_hush_loop_e2e_seq007_v001.py",
+        "maif_whisperer/memory/distributed_memory_seq002_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_pre_query_seq001_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_chat_core_seq001_v001.py",
+        "maif_whisperer/hush_v38/agents/hush_autonomous_seq001_v001.py",
+        "scripts/entity_daily_loop_seq051_v001.py",
+        "maif_whisperer/hush_v38/opener/hush_opener_seq001_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_nl_detection_seq001_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_aim_seq001_v001.py",
+        "app.py",
+        "maif_whisperer/hush_v38/pipeline/hush_post_agent_seq001_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_auto_submit_seq001_v001.py",
+        "runner/hush_backup_runner_seq027_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_background_seq001_v001.py",
+        "tests/test_client_chatbot_e2e_seq004_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_manifest_seq001_v001.py",
+        "maif_whisperer/hush_v38/routes/hush_routes_seq001_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_split_pre_query_seq001_v001.py",
+        "drift_tracker/press_release_generator_seq014_v001.py",
+        "maif_whisperer/persona/gemini_prompt_seq001_v001.py",
+        "maif_propaganda/routes_seq005_v001.py",
+        "scripts/conflict_daily_scanner_seq048_v001.py",
+        "maif_whisperer/hush_v38/agents/hush_grok_subagent_seq001_v001.py",
+        "maif_whisperer/persona/hush_prompt_seq001_v001.py",
+        "scripts/hush_local_seq054_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_job_manifest_seq002_v001.py",
+        "tests/test_split_pipeline_e2e_seq020_v001.py",
+        "maif_propaganda/entity_agent_seq002_v001.py",
+        "tests/test_hush_e2e_seq006_v001.py",
+        "consensus/builder_seq022_v001.py",
+        "scripts/audit_worker.py",
+        "maif_propaganda/agent_memory_seq001_v001.py",
+        "consensus/free_audit_consensus_seq007_v005.py",
+        "runner/recall_runner_seq001_v001.py",
+        "maif_whisperer/persona/architecture_manifest_seq001_v001.py",
+        "production_auditor/post_audit_seq026_v001.py",
+        "maif_whisperer/persona/hush_prompt_seq001_v001_BACKUP.py",
+        "maif_whisperer/hush_v38/pipeline/hush_slash_commands_seq001_v001.py",
+        "drift_tracker/mutation_email_notifier_seq018_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_post_response_seq001_v001.py",
+        "scripts/audit_worker_seq042_v001.py",
+        "drift_tracker/grok_event_forecaster_seq019_v001.py",
+        "scripts/trump_daily_loop_seq064_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_entity_watch_seq001_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_intent_harvest_seq001_v001.py",
+        "tests/test_multi_architecture_telemetry_seq014_v001.py",
+        "scripts/daily_news_loop_seq050_v001.py",
+        "directory/route_entity_seq001_v001.py",
+        "maif_whisperer/hush_v38/tools/hush_data_tools_seq001_v001.py",
+        "scripts/batch_ai_safety_discovery_seq044_v001.py",
+        "production_auditor/entity_extractor_seq036_v001.py",
+        "tests/test_hush_memory_architecture_seq008_v001.py",
+        "tests/test_job_manifest_orchestrator_seq011_v001.py",
+        "drift_tracker/semantic_void_tracker_seq017_v001.py",
+        "maif_whisperer/memory/shard_mutation_seq001_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_slash_research_seq001_v001.py",
+        "drift_tracker/drift_engine_seq001_v001.py",
+        "scripts/daily_planner_agent_seq039_v001.py",
+        "maif_whisperer/persona/persona_analyzers_seq001_v001.py",
+        "scripts/lead_collector_seq038_v001.py",
+        "drift_tracker/hallucination_tracker_seq016_v001.py",
+        "drift_tracker/query_package_builder_seq020_v001.py",
+        "drift_tracker/persona_mutation_engine_seq013_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_agent_bus_seq001_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_write_changelog_seq001_v001.py",
+        "tests/test_shard_writes_seq019_v001.py",
+        "delivery/hush_invite_email_seq002_v001.py",
+        "tests/test_reinjection_stress_seq017_v001.py",
+        "drift_tracker/narrative_tracker_seq004_v001.py",
+        "documentation/researcher/deep_researcher_seq001_v001.py",
+        "maif_whisperer/hush_v38/tools/hush_job_tools_seq001_v001.py",
+        "storage_maif/hush_write_seq001_v001.py",
+        "drift_tracker/intelligence_article_seq014_v002.py",
+        "maif_whisperer/hush_v38/pipeline/hush_slash_doc_seq001_v001.py",
+        "maif_whisperer/hush_v38/pipeline/hush_slash_email_seq001_v001.py",
+        "scripts/batch_dual_attack_runner_seq045_v001.py",
+        "drift_tracker/news_mutation_scheduler_seq015_v001.py",
+        "maif_whisperer/persona/prompt_authority_seq001_v001.py",
+        "drift_tracker/narrative_generator_seq012_v001.py",
+        "drift_tracker/entity_cross_reference_seq023_v001.py",
+        "models/entity_v2_seq001_v001.py",
+        "tests/test_memory_telemetry_diag_seq013_v001.py"
+      ]
+    },
+    "intent_traces": [
+      {
+        "file": "_diag_live_email.py",
+        "intent": "Diagnose why live runner stopped sending emails"
+      },
+      {
+        "file": "api/__init__.py",
+        "intent": "split into seq files"
+      },
+      {
+        "file": "api/audit_routes_seq002_v001.py",
+        "intent": "Protected audit pipeline API endpoints"
+      },
+      {
+        "file": "api/core_routes_seq001_v001.py",
+        "intent": "Shared API utilities + public endpoints"
+      },
+      {
+        "file": "api/routes_seq005_v001.py",
+        "intent": "Backward-compatible re-export"
+      },
+      {
+        "file": "api/sitemap_routes_seq004_v001.py",
+        "intent": "XML sitemap generation"
+      },
+      {
+        "file": "api/sitemap_seq006_v001.py",
+        "intent": "Sitemap generator for dynamic XML sitemaps"
+      },
+      {
+        "file": "api/stripe_routes_seq003_v001.py",
+        "intent": "Stripe payment endpoints"
+      },
+      {
+        "file": "app.py",
+        "intent": "MyAIFingerprint.com - Flask Application Factory"
+      },
+      {
+        "file": "auth/__init__.py",
+        "intent": "Auth module exports"
+      },
+      {
+        "file": "auth/forms_seq001_v001.py",
+        "intent": "Authentication forms with uniqueness validation (AUTH-006)"
+      },
+      {
+        "file": "auth/oauth_seq002_v001.py",
+        "intent": "OAuth routes for Google sign-in via Supabase Auth"
+      },
+      {
+        "file": "auth/routes_seq003_v001.py",
+        "intent": "Authentication routes for login, signup, and logout"
+      },
+      {
+        "file": "auth/utils_seq004_v001.py",
+        "intent": "Authentication utilities for password hashing and validation"
+      },
+      {
+        "file": "config/__init__.py",
+        "intent": "Config module exports"
+      },
+      {
+        "file": "config/constants_seq001_v001.py",
+        "intent": "config/constants.py - Application constants and defaults"
+      },
+      {
+        "file": "config/database_seq002_v001.py",
+        "intent": "config/database.py - Supabase database client"
+      },
+      {
+        "file": "config/db_schema_seq003_v001.py",
+        "intent": "config/db_schema.py - Hardcoded DB schema for auditor reference"
+      },
+      {
+        "file": "config/settings_seq004_v001.py",
+        "intent": "config/settings.py - Flask application settings"
+      },
+      {
+        "file": "consensus/__init__.py",
+        "intent": "consensus/ - Multi-model consensus building (Pigeon compliant)"
+      },
+      {
+        "file": "consensus/builder_seq022_v001.py",
+        "intent": "consensus/builder.py - Build consensus from snapshot list directly"
+      },
+      {
+        "file": "consensus/consensus_builder_seq005_v001.py",
+        "intent": "consensus/consensus_builder_seq005_v001.py - Build consensus from snapshots (50 lines)"
+      },
+      {
+        "file": "consensus/difference_analyzer_seq003_v001.py",
+        "intent": "consensus/difference_analyzer_seq003_v001.py - Find model agreements/disagreements (45 lines)"
+      },
+      {
+        "file": "consensus/drift_detector_seq021_v001.py",
+        "intent": "consensus/drift_detector_seq021_v001.py - Drift detection for re-audits (Pigeon-compliant)"
+      },
+      {
+        "file": "consensus/free_audit_consensus_seq007_v005.py",
+        "intent": "consensus/free_audit_consensus_seq007_v005.py - Consensus Summary style email"
+      },
+      {
+        "file": "consensus/network_map_builder_seq001_v001.py",
+        "intent": "consensus/network_map_builder_seq001_v001.py"
+      },
+      {
+        "file": "consensus/response_parser_seq002_v001.py",
+        "intent": "consensus/response_parser_seq002_v001.py - Parse model responses (35 lines)"
+      },
+      {
+        "file": "consensus/snapshot_loader_seq001_v001.py",
+        "intent": "consensus/snapshot_loader_seq001_v001.py - Load snapshots from DB (25 lines)"
+      },
+      {
+        "file": "consensus/source_extractor_seq008_v001.py",
+        "intent": "consensus/source_extractor_seq008_v001.py - Extract sources with descriptions from model responses"
+      },
+      {
+        "file": "consensus/void_storer_seq004_v001.py",
+        "intent": "consensus/void_storer_seq004_v001.py - Store disagreements in entity_consensus (28 lines)"
+      },
+      {
+        "file": "deepseek_db/__init__.py",
+        "intent": "deepseek_db/ - Supabase database inspector and manager"
+      },
+      {
+        "file": "deepseek_db/audit_analyzer_seq007_v001.py",
+        "intent": "deepseek_db/audit_analyzer_seq007_v001.py - Analyze DB and suggest integration paths"
+      },
+      {
+        "file": "deepseek_db/db_inspector_seq001_v001.py",
+        "intent": "deepseek_db/db_inspector_seq001_v001.py - Core DB inspection"
+      },
+      {
+        "file": "deepseek_db/deep_audit_seq010_v001.py",
+        "intent": "deepseek_db/deep_audit_seq010_v001.py - Full in-depth audit with schema integration"
+      },
+      {
+        "file": "deepseek_db/full_schema_reader_seq009_v001.py",
+        "intent": "deepseek_db/full_schema_reader_seq009_v001.py - Complete schema dump from Supabase"
+      },
+      {
+        "file": "deepseek_db/link_sync_seq011_v001.py",
+        "intent": "deepseek_db/link_sync_seq011_v001.py - Sync links table from entity_sources"
+      },
+      {
+        "file": "deepseek_db/manifest_reader_seq006_v001.py",
+        "intent": "deepseek_db/manifest_reader_seq006_v001.py - Read MASTER_MANIFEST with chunking"
+      },
+      {
+        "file": "deepseek_db/manifest_writer_seq008_v001.py",
+        "intent": "deepseek_db/manifest_writer_seq008_v001.py - Generate MANIFEST.md for this folder"
+      },
+      {
+        "file": "deepseek_db/missing_data_seq003_v001.py",
+        "intent": "deepseek_db/missing_data_seq003_v001.py - Find missing/null data in tables"
+      },
+      {
+        "file": "deepseek_db/quick_query_seq004_v001.py",
+        "intent": "deepseek_db/quick_query_seq004_v001.py - Quick data retrieval helpers"
+      },
+      {
+        "file": "deepseek_db/schema_loader_seq002_v001.py",
+        "intent": "deepseek_db/schema_loader_seq002_v001.py - Schema information loader"
+      },
+      {
+        "file": "deepseek_db/schema_reader_seq005_v001.py",
+        "intent": "deepseek_db/schema_reader_seq005_v001.py - Read live schema from Supabase"
+      },
+      {
+        "file": "delivery/__init__.py",
+        "intent": "delivery/ - Email delivery for MAIF audits"
+      },
+      {
+        "file": "delivery/email_sender_seq001_v001.py",
+        "intent": "Email Sender - Resend API Client"
+      },
+      {
+        "file": "delivery/hush_invite_email_seq002_v001.py",
+        "intent": "Hush-written personalized invite emails"
+      },
+      {
+        "file": "directory/__init__.py",
+        "intent": "v3.29.0 modular split"
+      },
+      {
+        "file": "directory/route_entity_seq001_v001.py",
+        "intent": "single entity display"
+      },
+      {
+        "file": "directory/route_geo_seq001_v001.py",
+        "intent": "country / state / city browsing"
+      },
+      {
+        "file": "directory/route_index_seq001_v001.py",
+        "intent": "landing page with featured content"
+      },
+      {
+        "file": "directory/route_listings_seq001_v001.py",
+        "intent": "entity-type browsing pages"
+      },
+      {
+        "file": "directory/route_search_seq001_v001.py",
+        "intent": "Directory search route"
+      },
+      {
+        "file": "directory/route_timeline_seq001_v001.py",
+        "intent": "consensus snapshot history + mutation timeline"
+      },
+      {
+        "file": "directory/routes_seq002_v001.py",
+        "intent": "thin wiring layer"
+      },
+      {
+        "file": "directory/utils_validation_seq001_v001.py",
+        "intent": "Directory input validation utilities"
+      },
+      {
+        "file": "documentation/__init__.py",
+        "intent": "documentation/__init__.py"
+      },
+      {
+        "file": "documentation/hush_injection/__init__.py",
+        "intent": "documentation/hush_injection/__init__.py"
+      },
+      {
+        "file": "documentation/hush_injection/comment_parser_seq002_v001.py",
+        "intent": "documentation/hush_injection/comment_parser_seq002_v001.py"
+      },
+      {
+        "file": "documentation/hush_injection/cross_ref_builder_seq003_v001.py",
+        "intent": "documentation/hush_injection/cross_ref_builder_seq003_v001.py"
+      },
+      {
+        "file": "documentation/hush_injection/hush_injector_seq001_v001.py",
+        "intent": "documentation/hush_injection/hush_injector_seq001_v001.py"
+      },
+      {
+        "file": "documentation/orchestrator/__init__.py",
+        "intent": "Workflow gate, doc routing, intel notes"
+      },
+      {
+        "file": "documentation/orchestrator/doc_router_seq002_v001.py",
+        "intent": "documentation/orchestrator/doc_router_seq002_v001.py"
+      },
+      {
+        "file": "documentation/orchestrator/doc_router_seq002_v002.py",
+        "intent": "documentation/orchestrator/doc_router_seq002_v002.py"
+      },
+      {
+        "file": "documentation/orchestrator/hush_intel_notes_seq003_v001.py",
+        "intent": "documentation/orchestrator/hush_intel_notes_seq003_v001.py"
+      },
+      {
+        "file": "documentation/orchestrator/hush_intel_notes_seq003_v002.py",
+        "intent": "documentation/orchestrator/hush_intel_notes_seq003_v002.py"
+      },
+      {
+        "file": "documentation/orchestrator/research_orchestrator_seq004_v001.py",
+        "intent": "documentation/orchestrator/research_orchestrator_seq004_v001.py"
+      },
+      {
+        "file": "documentation/orchestrator/workflow_gate_seq001_v001.py",
+        "intent": "documentation/orchestrator/workflow_gate_seq001_v001.py"
+      },
+      {
+        "file": "documentation/orchestrator/workflow_gate_seq001_v002.py",
+        "intent": "documentation/orchestrator/workflow_gate_seq001_v002.py"
+      },
+      {
+        "file": "documentation/researcher/__init__.py",
+        "intent": "documentation/researcher/__init__.py"
+      },
+      {
+        "file": "documentation/researcher/context_assembler_seq002_v001.py",
+        "intent": "documentation/researcher/context_assembler_seq002_v001.py"
+      },
+      {
+        "file": "documentation/researcher/deep_researcher_seq001_v001.py",
+        "intent": "documentation/researcher/deep_researcher_seq001_v001.py"
+      },
+      {
+        "file": "documentation/researcher/report_templates_seq004_v001.py",
+        "intent": "documentation/researcher/report_templates_seq004_v001.py"
+      },
+      {
+        "file": "documentation/researcher/web_searcher_seq003_v001.py",
+        "intent": "documentation/researcher/web_searcher_seq003_v001.py"
+      },
+      {
+        "file": "documentation/routes/__init__.py",
+        "intent": "documentation/routes/__init__.py"
+      },
+      {
+        "file": "documentation/routes/doc_routes_seq001_v001.py",
+        "intent": "documentation/routes/doc_routes_seq001_v001.py"
+      },
+      {
+        "file": "documentation/routes/doc_vault_routes_seq002_v001.py",
+        "intent": "documentation/routes/doc_vault_routes_seq002_v001.py"
+      },
+      {
+        "file": "documentation/store/__init__.py",
+        "intent": "documentation/store/__init__.py"
+      },
+      {
+        "file": "documentation/store/doc_index_seq002_v001.py",
+        "intent": "documentation/store/doc_index_seq002_v001.py"
+      },
+      {
+        "file": "documentation/store/doc_store_seq001_v001.py",
+        "intent": "documentation/store/doc_store_seq001_v001.py"
+      },
+      {
+        "file": "documentation/store/doc_upload_seq003_v001.py",
+        "intent": "documentation/store/doc_upload_seq003_v001.py"
+      },
+      {
+        "file": "drift_tracker/__init__.py",
+        "intent": "drift_tracker/ - Hush Entity Drift Tracker (Pigeon compliant)"
+      },
+      {
+        "file": "drift_tracker/audit_stager_seq011_v001.py",
+        "intent": "Self-Staging: Hush Auto-Schedules Next Audit"
+      },
+      {
+        "file": "drift_tracker/call_ledger_seq009_v001.py",
+        "intent": "Tool Call Accounting Per Entity"
+      },
+      {
+        "file": "drift_tracker/contradiction_detector_seq003_v001.py",
+        "intent": "Cross-model + Temporal Contradiction Detection"
+      },
+      {
+        "file": "drift_tracker/drift_engine_seq001_v001.py",
+        "intent": "Main Drift Tracker Orchestrator"
+      },
+      {
+        "file": "drift_tracker/drift_report_seq006_v001.py",
+        "intent": "Structured Drift Report Generator"
+      },
+      {
+        "file": "drift_tracker/drift_routes_seq008_v001.py",
+        "intent": "API Routes for Drift Tracker"
+      },
+      {
+        "file": "drift_tracker/entity_cross_reference_seq023_v001.py",
+        "intent": "Entity Cross-Reference Engine"
+      },
+      {
+        "file": "drift_tracker/entity_manifest_seq004_v001.py",
+        "intent": "Entity Manifest: Structured JSON per Entity"
+      },
+      {
+        "file": "drift_tracker/entity_shard_store_seq002_v001.py",
+        "intent": "Entity Drift Shard Storage"
+      },
+      {
+        "file": "drift_tracker/grok_event_forecaster_seq019_v001.py",
+        "intent": "Grok-powered event forecast + smart query generator"
+      },
+      {
+        "file": "drift_tracker/hallucination_tracker_seq016_v001.py",
+        "intent": "Hallucination Detection Engine"
+      },
+      {
+        "file": "drift_tracker/hush_bridge_seq007_v001.py",
+        "intent": "Hush Memory Shard Bridge"
+      },
+      {
+        "file": "drift_tracker/intelligence_article_seq014_v002.py",
+        "intent": "AI-Written Intelligence Articles"
+      },
+      {
+        "file": "drift_tracker/intent_mapper_seq022_v001.py",
+        "intent": "Entity Intent Map + Persona Calibration"
+      },
+      {
+        "file": "drift_tracker/manifest_bridge_seq005_v001.py",
+        "intent": "Contradiction \u2192 Manifest Bridge"
+      },
+      {
+        "file": "drift_tracker/mutation_email_notifier_seq018_v001.py",
+        "intent": "Email Digest for Autonomous Loop Monitoring"
+      },
+      {
+        "file": "drift_tracker/narrative_generator_seq012_v001.py",
+        "intent": "Propaganda Machine: Drift-Powered Counter-Narratives"
+      },
+      {
+        "file": "drift_tracker/narrative_tracker_seq004_v001.py",
+        "intent": "Narrative Evolution Tracking"
+      },
+      {
+        "file": "drift_tracker/news_mutation_scheduler_seq015_v001.py",
+        "intent": "Daily Global Event Mutation Tracker"
+      },
+      {
+        "file": "drift_tracker/news_signal_processor_seq005_v001.py",
+        "intent": "News Event \u2192 Drift Signal Pipeline"
+      },
+      {
+        "file": "drift_tracker/persona_mutation_engine_seq013_v001.py",
+        "intent": "Persona Mutation Tracker"
+      },
+      {
+        "file": "drift_tracker/persona_updater_seq010_v001.py",
+        "intent": "Auto-Update Entity Persona on Every Audit"
+      },
+      {
+        "file": "drift_tracker/prediction_scorecard_seq021_v001.py",
+        "intent": "Self-Healing Prediction Scorer"
+      },
+      {
+        "file": "drift_tracker/press_release_generator_seq014_v001.py",
+        "intent": "Auto-Generate Intelligence Reports from Persona Mutations"
+      },
+      {
+        "file": "drift_tracker/profile_saturation_seq024_v001.py",
+        "intent": "Profile Completeness + Saturation Scoring"
+      },
+      {
+        "file": "drift_tracker/query_package_builder_seq020_v001.py",
+        "intent": "Weighted Multi-Query Package Builder"
+      },
+      {
+        "file": "drift_tracker/semantic_void_tracker_seq017_v001.py",
+        "intent": "Semantic Void Detection + Prediction Gap Engine"
+      },
+      {
+        "file": "drift_tracker/shard_mutation_engine_seq019_v001.py",
+        "intent": "Entity Shard Mutation Tracker"
+      },
+      {
+        "file": "harvester/__init__.py",
+        "intent": "harvester/__init__.py - Entity Discovery & Baseline Audit System"
+      },
+      {
+        "file": "harvester/country_manager_seq001_v001.py",
+        "intent": "harvester/country_manager.py - Manages per-country entity manifests"
+      },
+      {
+        "file": "harvester/gemini_baseline_seq002_v001.py",
+        "intent": "harvester/gemini_baseline.py - Context-aware baseline audits using Gemini"
+      },
+      {
+        "file": "harvester/grok_discovery_seq003_v001.py",
+        "intent": "harvester/grok_discovery.py - Batch politician discovery using Grok"
+      },
+      {
+        "file": "harvester/harvester_runner_seq004_v001.py",
+        "intent": "harvester/harvester_runner.py - Discovery pipeline with immediate DB logging"
+      },
+      {
+        "file": "harvester/harvester_service_seq005_v001.py",
+        "intent": "harvester/harvester_service.py - Continuous harvester for Railway deployment"
+      },
+      {
+        "file": "integrations/__init__.py",
+        "intent": "integrations/ - AI model clients (Pigeon Code compliant)"
+      },
+      {
+        "file": "integrations/ai_claude_seq016_v001.py",
+        "intent": "integrations/ai_claude_seq016_v001.py - Anthropic Claude API client"
+      },
+      {
+        "file": "integrations/ai_deepseek_seq005_v001.py",
+        "intent": "integrations/deepseek_client.py - DeepSeek API client (ULTRA CHEAP) + Gemini fallback"
+      },
+      {
+        "file": "integrations/ai_gemini_seq006_v001.py",
+        "intent": "integrations/gemini_client.py - Google Gemini API client with Google Search grounding"
+      },
+      {
+        "file": "integrations/ai_glm_seq018_v001.py",
+        "intent": "integrations/ai_glm_seq018_v001.py - Zhipu GLM-4 API client with web search"
+      },
+      {
+        "file": "integrations/ai_kimi_native_seq019_v001.py",
+        "intent": "integrations/ai_kimi_native_seq019_v001.py - Moonshot Kimi API with $web_search builtin"
+      },
+      {
+        "file": "integrations/ai_kimi_seq009_v001.py",
+        "intent": "integrations/kimi_client.py - Kimi K2 via Together AI (with Qwen fallback)"
+      },
+      {
+        "file": "integrations/ai_llm_router_seq001_v001.py",
+        "intent": "integrations/ai_llm_router_seq001_v001.py"
+      },
+      {
+        "file": "integrations/ai_openai_seq007_v001.py",
+        "intent": "integrations/gpt_client.py - OpenAI GPT via Responses API with Web Search"
+      },
+      {
+        "file": "integrations/ai_openrouter_seq007_v001.py",
+        "intent": "Multi-backend LLM router"
+      },
+      {
+        "file": "integrations/ai_perplexity_seq010_v001.py",
+        "intent": "integrations/perplexity_client.py - Perplexity Sonar API client with citation extraction"
+      },
+      {
+        "file": "integrations/ai_qwen_seq017_v001.py",
+        "intent": "integrations/ai_qwen_seq017_v001.py - Alibaba Qwen API client (DashScope)"
+      },
+      {
+        "file": "integrations/ai_response_seq001_v001.py",
+        "intent": "Standard AI response format - ai_response_seq001_v001.py"
+      },
+      {
+        "file": "integrations/ai_xai_seq008_v001.py",
+        "intent": "grok_client.py - xAI Grok via Chat Completions + Responses API"
+      },
+      {
+        "file": "integrations/api_utils_seq003_v001.py",
+        "intent": "API utilities for AI clients - api_utils_seq003_v001.py"
+      },
+      {
+        "file": "integrations/base_interface_seq004_v001.py",
+        "intent": "Base client compatibility layer - base_interface_seq004_v001.py"
+      },
+      {
+        "file": "integrations/client_factory_seq012_v001.py",
+        "intent": "Client factory - client_factory_seq012_v001.py"
+      },
+      {
+        "file": "integrations/eight_model_router_seq020_v001.py",
+        "intent": "integrations/eight_model_router_seq020_v001.py - 8-model audit router with mock fallbacks"
+      },
+      {
+        "file": "integrations/model_registry_seq011_v001.py",
+        "intent": "Model registry - model_registry_seq011_v001.py"
+      },
+      {
+        "file": "integrations/model_selector_seq013_v001.py",
+        "intent": "Model selector utilities - model_selector_seq013_v001.py"
+      },
+      {
+        "file": "integrations/pricing_calc_seq002_v001.py",
+        "intent": "AI model pricing calculator - pricing_calc_seq002_v001.py"
+      },
+      {
+        "file": "integrations/query_router_seq014_v001.py",
+        "intent": "Query router - query_router_seq014_v001.py"
+      },
+      {
+        "file": "integrations/serper_search_seq025_v001.py",
+        "intent": "integrations/serper_search_seq025_v001.py - Serper.dev Google Search API"
+      },
+      {
+        "file": "integrations/stripe_export/checkout_seq001_v001.py",
+        "intent": "checkout.py - Create Stripe checkout sessions"
+      },
+      {
+        "file": "integrations/stripe_export/routes_seq002_v001.py",
+        "intent": "Stripe Routes Blueprint for MyAIFingerprint"
+      },
+      {
+        "file": "integrations/stripe_export/stripe_config_seq003_v001.py",
+        "intent": "stripe_config.py - Stripe configuration and price IDs"
+      },
+      {
+        "file": "integrations/stripe_export/stripe_db_seq004_v001.py",
+        "intent": "stripe_db.py - Stripe to Supabase database integration"
+      },
+      {
+        "file": "integrations/stripe_export/stripe_service_seq005_v001.py",
+        "intent": "integrations/stripe_export/stripe_service.py - Unified Stripe Service"
+      },
+      {
+        "file": "integrations/stripe_export/webhook_handler_seq006_v001.py",
+        "intent": "webhook_handler.py - Handle Stripe webhook events"
+      },
+      {
+        "file": "integrations/unified_interface_seq015_v001.py",
+        "intent": "Unified interface - DEPRECATED, use query_router_seq014_v001.py"
+      },
+      {
+        "file": "listen/__init__.py",
+        "intent": "Hush Listen Module (Phase A: Text-Based MVP)"
+      },
+      {
+        "file": "listen/entity_extractor_seq001_v001.py",
+        "intent": "Extract entity names from text"
+      },
+      {
+        "file": "listen/entity_matcher_seq002_v001.py",
+        "intent": "Match extracted entities against MAIF database"
+      },
+      {
+        "file": "listen/keystroke_telemetry/cognitive_adapter_seq001_v001.py",
+        "intent": "Cognitive State \u2192 Agent Behavior Adapter"
+      },
+      {
+        "file": "listen/keystroke_telemetry/cognitive_prequery_seq002_v001.py",
+        "intent": "reads historic keystroke patterns and"
+      },
+      {
+        "file": "listen/keystroke_telemetry/logger_seq003_v001.py",
+        "intent": "adapted for LinkRouter.ai"
+      },
+      {
+        "file": "listen/keystroke_telemetry/models_seq004_v001.py",
+        "intent": "Dataclasses for keystroke events and message draft tracking"
+      },
+      {
+        "file": "listen/keystroke_telemetry/timestamp_utils_seq005_v001.py",
+        "intent": "Millisecond-epoch timestamp utility"
+      },
+      {
+        "file": "listen/keystroke_telemetry/unsaid_thoughts_seq006_v001.py",
+        "intent": "detects what operators meant but didn't say"
+      },
+      {
+        "file": "listen/listen_routes_seq003_v001.py",
+        "intent": "Flask routes for Hush Listen API"
+      },
+      {
+        "file": "listen/live/__init__.py",
+        "intent": "Hush Listen Phase 6: Live Conversation Intelligence"
+      },
+      {
+        "file": "listen/live/chat_injector_seq004_v001.py",
+        "intent": "listen/live/chat_injector_seq004_v001.py"
+      },
+      {
+        "file": "listen/live/conversation_buffer_seq001_v001.py",
+        "intent": "listen/live/conversation_buffer_seq001_v001.py"
+      },
+      {
+        "file": "listen/live/listen_session_seq005_v001.py",
+        "intent": "Session lifecycle: start, feed, stop, digest"
+      },
+      {
+        "file": "listen/live/live_routes_seq006_v001.py",
+        "intent": "listen/live/live_routes_seq006_v001.py"
+      },
+      {
+        "file": "listen/live/manifest_crossref_seq003_v001.py",
+        "intent": "listen/live/manifest_crossref_seq003_v001.py"
+      },
+      {
+        "file": "listen/live/speaker_identifier_seq002_v001.py",
+        "intent": "listen/live/speaker_identifier_seq002_v001.py"
+      },
+      {
+        "file": "listen/voice_agent_seq004_v001.py",
+        "intent": "Real voice agent via OpenAI TTS"
+      },
+      {
+        "file": "maif_propaganda/__init__.py",
+        "intent": "maif_propaganda/ - The MAIF Research Collective"
+      },
+      {
+        "file": "maif_propaganda/agent_memory_seq001_v001.py",
+        "intent": "maif_propaganda/agent_memory.py - Agent memory & sales tracking system"
+      },
+      {
+        "file": "maif_propaganda/entity_agent_seq002_v001.py",
+        "intent": "maif_propaganda/entity_agent.py - Entity-specific AI agents: YOUR MIRROR"
+      },
+      {
+        "file": "maif_propaganda/personas/__init__.py",
+        "intent": "maif_propaganda/personas - Multi-agent chatbot personas for MAIF propaganda network"
+      },
+      {
+        "file": "maif_propaganda/personas/corporate_percy_seq001_v001.py",
+        "intent": "maif_propaganda/personas/corporate_percy.py - Corporate Percy chatbot"
+      },
+      {
+        "file": "maif_propaganda/personas/easter_eggs_seq002_v001.py",
+        "intent": "maif_propaganda/personas/easter_eggs.py - Easter egg chatbots"
+      },
+      {
+        "file": "maif_propaganda/personas/fish_collective_seq003_v001.py",
+        "intent": "maif_propaganda/personas/fish_collective.py - The Fish Collective chatbot"
+      },
+      {
+        "file": "maif_propaganda/personas/glossator_seq004_v001.py",
+        "intent": "maif_propaganda/personas/glossator.py - The Glossator chatbot"
+      },
+      {
+        "file": "maif_propaganda/personas/librarian_seq005_v001.py",
+        "intent": "maif_propaganda/personas/librarian.py - The Librarian chatbot for AI Directory"
+      },
+      {
+        "file": "maif_propaganda/personas/nokia_3310_seq006_v001.py",
+        "intent": "maif_propaganda/personas/nokia_3310.py - The Nokia 3310 chatbot"
+      },
+      {
+        "file": "maif_propaganda/personas/otterly_persona_seq007_v001.py",
+        "intent": "maif_propaganda/personas/otterly_persona.py - Otterly the Otter chatbot"
+      },
+      {
+        "file": "maif_propaganda/personas/perry_damascus_seq008_v001.py",
+        "intent": "maif_propaganda/personas/perry_damascus.py - Perry the Damascus Pigeon"
+      },
+      {
+        "file": "maif_propaganda/personas/specialists_seq009_v001.py",
+        "intent": "maif_propaganda/personas/specialists.py - Specialist vertical chatbots"
+      },
+      {
+        "file": "maif_propaganda/personas/tom_persona_seq010_v001.py",
+        "intent": "maif_propaganda/personas/tom_persona.py - Texas Trucker Tom chatbot"
+      },
+      {
+        "file": "maif_propaganda/research_queries_seq003_v001.py",
+        "intent": "maif_propaganda/research_queries.py - Dynamic query generation"
+      },
+      {
+        "file": "maif_propaganda/research_runner_seq004_v001.py",
+        "intent": "maif_propaganda/research_runner.py - Run research with Grok 4 + Gemini 2.5 Pro"
+      },
+      {
+        "file": "maif_propaganda/routes_seq005_v001.py",
+        "intent": "maif_propaganda/routes.py - MAIF Research Collective routes"
+      },
+      {
+        "file": "maif_whisperer/agents/hush_agent_base_seq001_v001.py",
+        "intent": "maif_whisperer/agents/hush_agent_base_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/config/hush_config_seq001_v001.py",
+        "intent": "maif_whisperer/config/hush_config_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/config/hush_constants_seq001_v001.py",
+        "intent": "maif_whisperer/config/hush_constants_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/config/hush_schema_seq001_v001.py",
+        "intent": "maif_whisperer/config/hush_schema_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/core/cli_repl_seq001_v001.py",
+        "intent": "maif_whisperer/core/cli_repl_seq001_v001.py - Hush interactive REPL"
+      },
+      {
+        "file": "maif_whisperer/core/router_seq002_v001.py",
+        "intent": "maif_whisperer/core/router_seq002_v001.py - Command parser + routing"
+      },
+      {
+        "file": "maif_whisperer/glossator_refusal_seq001_v001.py",
+        "intent": "maif_whisperer/glossator_refusal_seq001_v001.py - The Glossator's 8 Forbidden Queries"
+      },
+      {
+        "file": "maif_whisperer/glossator_refusal_seq002_v001.py",
+        "intent": "maif_whisperer/glossator_refusal_seq002_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_logging/hush_log_turn_seq001_v001.py",
+        "intent": "maif_whisperer/hush_logging/hush_log_turn_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/agents/__init__.py",
+        "intent": "subagent modules"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/agents/hush_autonomous_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/agents/hush_autonomous_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/agents/hush_grok_subagent_seq001_v001.py",
+        "intent": "Grok-powered research subagent"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/auth/__init__.py",
+        "intent": "maif_whisperer/hush_v38/auth/__init__.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/auth/hush_auth_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/auth/hush_auth_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/logging/__init__.py",
+        "intent": "maif_whisperer/hush_v38/logging/__init__.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/logging/hush_accomplishments_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/logging/hush_accomplishments_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/logging/hush_debug_log_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/logging/hush_debug_log_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/logging/hush_intent_log_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/logging/hush_intent_log_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/memory/__init__.py",
+        "intent": "Memory layer"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/memory/hush_memory_lock_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/memory/hush_memory_lock_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/memory/hush_memory_ops_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/memory/hush_memory_ops_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/opener/__init__.py",
+        "intent": "Personalized greeting generator"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/opener/hush_opener_seq001_v001.py",
+        "intent": "Deep intelligence briefing + auto-execution engine"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/__init__.py",
+        "intent": "Chat pipeline layer"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_agent_bus_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_agent_bus_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_aim_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_aim_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_auto_continue_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_auto_continue_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_auto_debug_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_auto_debug_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_auto_exec_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_auto_exec_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_auto_submit_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_auto_submit_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_background_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_background_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_chat_core_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_chat_core_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_command_router_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_command_router_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_entity_watch_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_entity_watch_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_gate_commands_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_gate_commands_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_intent_harvest_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_intent_harvest_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_job_manifest_seq002_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_job_manifest_seq002_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_live_telemetry_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_live_telemetry_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_manifest_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_manifest_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_mimicry_shield_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_mimicry_shield_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_nl_detection_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_nl_detection_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_orchestration_awareness_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_orchestration_awareness_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_post_agent_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_post_agent_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_post_response_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_post_response_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_pq_bones_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_pq_bones_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_pre_query_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_pre_query_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_reinjection_layer_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_reinjection_layer_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_shard_debate_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_shard_debate_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_slash_doc_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_slash_doc_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_slash_email_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_slash_email_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_slash_entity_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_slash_entity_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_slash_grok_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_slash_grok_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_slash_research_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_slash_research_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_split_pre_query_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_split_pre_query_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/pipeline/hush_write_changelog_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/pipeline/hush_write_changelog_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/routes/__init__.py",
+        "intent": "Flask blueprint for Hush endpoints"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/routes/hush_routes_seq001_v001.py",
+        "intent": "Flask blueprint for all Hush endpoints"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/session/__init__.py",
+        "intent": "maif_whisperer/hush_v38/session/__init__.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/session/hush_session_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/session/hush_session_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/tools/__init__.py",
+        "intent": "maif_whisperer/hush_v38/tools/__init__.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/tools/hush_cli_preview_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/tools/hush_cli_preview_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/tools/hush_codebase_tools_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/tools/hush_codebase_tools_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/tools/hush_data_tools_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/tools/hush_data_tools_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/tools/hush_entity_tools_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/tools/hush_entity_tools_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/hush_v38/tools/hush_job_tools_seq001_v001.py",
+        "intent": "maif_whisperer/hush_v38/tools/hush_job_tools_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/intel/briefing_seq003_v001.py",
+        "intent": "maif_whisperer/intel/briefing_seq003_v001.py - Format entity data into field briefings"
+      },
+      {
+        "file": "maif_whisperer/intel/entity_pull_seq001_v001.py",
+        "intent": "maif_whisperer/intel/entity_pull_seq001_v001.py - Pull entity data from Supabase"
+      },
+      {
+        "file": "maif_whisperer/intel/org_mapper_seq002_v001.py",
+        "intent": "maif_whisperer/intel/org_mapper_seq002_v001.py - Map all entities in an organization"
+      },
+      {
+        "file": "maif_whisperer/memory/distributed_memory_seq002_v001.py",
+        "intent": "maif_whisperer/memory/distributed_memory_seq002_v001.py"
+      },
+      {
+        "file": "maif_whisperer/memory/memory_store_seq001_v001.py",
+        "intent": "maif_whisperer/memory/memory_store_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/memory/shard_mutation_seq001_v001.py",
+        "intent": "maif_whisperer/memory/shard_mutation_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/ops/hush_task_doc_seq001_v001.py",
+        "intent": "Persistent task doc staging"
+      },
+      {
+        "file": "maif_whisperer/ops/job_staging_seq001_v001.py",
+        "intent": "Supabase-backed job + email staging"
+      },
+      {
+        "file": "maif_whisperer/ops/job_submit_seq001_v001.py",
+        "intent": "maif_whisperer/ops/job_submit_seq001_v001.py - Submit audit jobs to waitlist"
+      },
+      {
+        "file": "maif_whisperer/ops/queue_check_seq002_v001.py",
+        "intent": "maif_whisperer/ops/queue_check_seq002_v001.py - Check pipeline queue status"
+      },
+      {
+        "file": "maif_whisperer/persona/architecture_manifest_seq001_v001.py",
+        "intent": "maif_whisperer/persona/architecture_manifest_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/persona/gemini_prompt_seq001_v001.py",
+        "intent": "maif_whisperer/persona/gemini_prompt_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/persona/hush_prompt_seq001_v001.py",
+        "intent": "maif_whisperer/persona/hush_prompt_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/persona/hush_prompt_seq001_v001_BACKUP.py",
+        "intent": "maif_whisperer/persona/hush_prompt_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/persona/persona_analyzers_seq001_v001.py",
+        "intent": "maif_whisperer/persona/persona_analyzers_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/persona/prompt_authority_seq001_v001.py",
+        "intent": "maif_whisperer/persona/prompt_authority_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/persona/sim_engine_seq002_v001.py",
+        "intent": "maif_whisperer/persona/sim_engine_seq002_v001.py - Entity persona simulation loader"
+      },
+      {
+        "file": "maif_whisperer/persona/voice_config_seq003_v001.py",
+        "intent": "maif_whisperer/persona/voice_config_seq003_v001.py - Future TTS/headphone config"
+      },
+      {
+        "file": "maif_whisperer/tools/hush_tool_dispatch_seq001_v001.py",
+        "intent": "maif_whisperer/tools/hush_tool_dispatch_seq001_v001.py"
+      },
+      {
+        "file": "maif_whisperer/utils/timezone_utils_seq001_v001.py",
+        "intent": "maif_whisperer/utils/timezone_utils.py"
+      },
+      {
+        "file": "maif_whisperer/web/__init__.py",
+        "intent": "maif_whisperer/web/__init__.py"
+      },
+      {
+        "file": "maif_whisperer/web/hush_web_seq001_v001.py",
+        "intent": "COMPATIBILITY SHIM (v3.5.4)"
+      },
+      {
+        "file": "main/__init__.py",
+        "intent": "Main module exports"
+      },
+      {
+        "file": "main/forms_seq001_v001.py",
+        "intent": "Main forms"
+      },
+      {
+        "file": "main/waitlist_forms_seq003_v001.py",
+        "intent": "Waitlist and audit request forms with validation (MAIN-006)"
+      },
+      {
+        "file": "middleware/__init__.py",
+        "intent": "Middleware package for request processing"
+      },
+      {
+        "file": "middleware/crawler_detector_seq002_v001.py",
+        "intent": "Crawler detection middleware for AI bot tracking"
+      },
+      {
+        "file": "middleware/crawler_headers_seq001_v001.py",
+        "intent": "AI crawler response headers"
+      },
+      {
+        "file": "models/__init__.py",
+        "intent": "Models module exports - Unified Schema v3"
+      },
+      {
+        "file": "models/entity_v2_seq001_v001.py",
+        "intent": "Entity model for MAIF directory listings - Updated for production schema"
+      },
+      {
+        "file": "models/geo_v2_seq002_v001.py",
+        "intent": "Geographic models for directory hierarchy"
+      },
+      {
+        "file": "models/link_v2_seq003_v001.py",
+        "intent": "Link model for unified Supabase schema v3"
+      },
+      {
+        "file": "models/routing_rule_seq004_v001.py",
+        "intent": "Routing Rules model - intelligent link routing"
+      },
+      {
+        "file": "models/semantic_void_seq005_v001.py",
+        "intent": "Semantic Void model - gaps in AI knowledge"
+      },
+      {
+        "file": "models/user_v2_seq006_v001.py",
+        "intent": "User model for unified Supabase schema v3"
+      },
+      {
+        "file": "pigeon_compiler/__init__.py",
+        "intent": "Autonomous Code Decomposition Engine"
+      },
+      {
+        "file": "pigeon_compiler/bones/aim_utils_seq001_v001.py",
+        "intent": "pigeon_compiler/bones/aim_utils_seq001_v001.py"
+      },
+      {
+        "file": "pigeon_compiler/bones/core_formatters_seq001_v001.py",
+        "intent": "pigeon_compiler/bones/core_formatters_seq001_v001.py"
+      },
+      {
+        "file": "pigeon_compiler/bones/nl_parsers_seq001_v001.py",
+        "intent": "pigeon_compiler/bones/nl_parsers_seq001_v001.py"
+      },
+      {
+        "file": "pigeon_compiler/bones/pq_manifest_utils_seq001_v001.py",
+        "intent": "pigeon_compiler/bones/pq_manifest_utils_seq001_v001.py"
+      },
+      {
+        "file": "pigeon_compiler/bones/pq_search_utils_seq001_v001.py",
+        "intent": "pigeon_compiler/bones/pq_search_utils_seq001_v001.py"
+      },
+      {
+        "file": "pigeon_compiler/cut_executor/__init__.py",
+        "intent": "Layer 3: Execute DeepSeek cut plans into real files"
+      },
+      {
+        "file": "pigeon_compiler/cut_executor/file_writer_seq003_v001.py",
+        "intent": "Write new Pigeon-compliant files from cut plan"
+      },
+      {
+        "file": "pigeon_compiler/cut_executor/func_decomposer_seq008_v001.py",
+        "intent": "Decompose oversized functions via DeepSeek"
+      },
+      {
+        "file": "pigeon_compiler/cut_executor/import_fixer_seq004_v001.py",
+        "intent": "Update imports across the project after a split"
+      },
+      {
+        "file": "pigeon_compiler/cut_executor/init_writer_seq007_v001.py",
+        "intent": "Generate __init__.py for split folder"
+      },
+      {
+        "file": "pigeon_compiler/cut_executor/manifest_writer_seq005_v001.py",
+        "intent": "Generate MANIFEST.md for a split folder"
+      },
+      {
+        "file": "pigeon_compiler/cut_executor/plan_parser_seq001_v001.py",
+        "intent": "Parse DeepSeek JSON from raw response"
+      },
+      {
+        "file": "pigeon_compiler/cut_executor/plan_validator_seq006_v001.py",
+        "intent": "Validate cut plan before execution"
+      },
+      {
+        "file": "pigeon_compiler/cut_executor/resplit_binpack_seq010_v001.py",
+        "intent": "Bin-packing + file writing for re-splitter"
+      },
+      {
+        "file": "pigeon_compiler/cut_executor/resplit_helpers_seq011_v001.py",
+        "intent": "Shared helpers for re-splitter modules"
+      },
+      {
+        "file": "pigeon_compiler/cut_executor/resplit_seq009_v001.py",
+        "intent": "Deterministic AST bin-packing re-splitter"
+      },
+      {
+        "file": "pigeon_compiler/cut_executor/source_slicer_seq002_v001.py",
+        "intent": "Extract functions/constants from source via AST"
+      },
+      {
+        "file": "pigeon_compiler/integrations/__init__.py",
+        "intent": "External AI model adapters"
+      },
+      {
+        "file": "pigeon_compiler/integrations/deepseek_adapter_seq001_v001.py",
+        "intent": "DeepSeek API client"
+      },
+      {
+        "file": "pigeon_compiler/rename_engine/__init__.py",
+        "intent": "Atomic whole-codebase rename with import rewriting"
+      },
+      {
+        "file": "pigeon_compiler/rename_engine/compliance_seq008_v001.py",
+        "intent": "Line-count enforcer + split recommender"
+      },
+      {
+        "file": "pigeon_compiler/rename_engine/executor_seq004_v001.py",
+        "intent": "Execute file renames with rollback capability"
+      },
+      {
+        "file": "pigeon_compiler/rename_engine/heal_seq009_v001.py",
+        "intent": "Self-healing orchestrator"
+      },
+      {
+        "file": "pigeon_compiler/rename_engine/import_rewriter_seq003_v001.py",
+        "intent": "Rewrite all imports across the project"
+      },
+      {
+        "file": "pigeon_compiler/rename_engine/manifest_builder_seq007_v001.py",
+        "intent": "Generate living MANIFEST.md per folder"
+      },
+      {
+        "file": "pigeon_compiler/rename_engine/planner_seq002_v001.py",
+        "intent": "Generate rename plan for non-compliant files"
+      },
+      {
+        "file": "pigeon_compiler/rename_engine/run_rename_seq006_v001.py",
+        "intent": "Full rename pipeline runner"
+      },
+      {
+        "file": "pigeon_compiler/rename_engine/scanner_seq001_v001.py",
+        "intent": "Walk the project tree and catalog all Python modules"
+      },
+      {
+        "file": "pigeon_compiler/rename_engine/validator_seq005_v001.py",
+        "intent": "Post-rename import validation"
+      },
+      {
+        "file": "pigeon_compiler/runners/__init__.py",
+        "intent": "Pipeline orchestration scripts"
+      },
+      {
+        "file": "pigeon_compiler/runners/compiler_output/press_release_gen/__init__.py",
+        "intent": "Pigeon-extracted module. Re-exports all public API"
+      },
+      {
+        "file": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_constants_seq001_v001_seq001_v001.py",
+        "intent": "Pigeon-extracted by compiler"
+      },
+      {
+        "file": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_constants_seq001_v001_seq002_v001.py",
+        "intent": "Pigeon-extracted by compiler"
+      },
+      {
+        "file": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_builders_seq002_v001_seq001_v001.py",
+        "intent": "Pigeon-extracted by compiler"
+      },
+      {
+        "file": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_builders_seq002_v001_seq002_v001.py",
+        "intent": "Pigeon-extracted by compiler"
+      },
+      {
+        "file": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_builders_seq002_v001_seq003_v001.py",
+        "intent": "Pigeon-extracted by compiler"
+      },
+      {
+        "file": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_helpers_seq004_v001_seq001_v001.py",
+        "intent": "Pigeon-extracted by compiler"
+      },
+      {
+        "file": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_helpers_seq004_v001_seq002_v001.py",
+        "intent": "Pigeon-extracted by compiler"
+      },
+      {
+        "file": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_key_findings_seq003_v001.py",
+        "intent": "Auto-extracted by Pigeon Compiler"
+      },
+      {
+        "file": "pigeon_compiler/runners/manifest_bridge_seq013_v001.py",
+        "intent": "Update MASTER_MANIFEST.md after compiler runs"
+      },
+      {
+        "file": "pigeon_compiler/runners/reaudit_diff_seq014_v001.py",
+        "intent": "Re-audit with diff-across-time"
+      },
+      {
+        "file": "pigeon_compiler/runners/run_clean_split_helpers_seq011_v001.py",
+        "intent": "Helpers for run_clean_split"
+      },
+      {
+        "file": "pigeon_compiler/runners/run_clean_split_init_seq012_v001.py",
+        "intent": "Init + manifest writers for clean split"
+      },
+      {
+        "file": "pigeon_compiler/runners/run_clean_split_seq010_v001.py",
+        "intent": "Full clean pipeline: DeepSeek plan \u2192 split \u2192 resplit until compliant"
+      },
+      {
+        "file": "pigeon_compiler/runners/run_compiler_test_seq007_v001.py",
+        "intent": "Self-test: Pigeon Compiler on its own codebase"
+      },
+      {
+        "file": "pigeon_compiler/runners/run_deepseek_plans_seq008_v001.py",
+        "intent": "Phase 2: Send ether maps to DeepSeek for cut plans"
+      },
+      {
+        "file": "pigeon_compiler/runners/run_pigeon_loop_seq009_v001.py",
+        "intent": "The Loop: refactor until Pigeon-compliant"
+      },
+      {
+        "file": "pigeon_compiler/state_extractor/__init__.py",
+        "intent": "Layer 1: Pure AST analysis, zero API calls"
+      },
+      {
+        "file": "pigeon_compiler/state_extractor/ast_parser_seq001_v001.py",
+        "intent": "Parse Python file into function/class map via AST"
+      },
+      {
+        "file": "pigeon_compiler/state_extractor/call_graph_seq002_v001.py",
+        "intent": "Build intra-file call graph via AST walk"
+      },
+      {
+        "file": "pigeon_compiler/state_extractor/ether_map_builder_seq006_v001.py",
+        "intent": "Assemble full Ether Map JSON for a file"
+      },
+      {
+        "file": "pigeon_compiler/state_extractor/import_tracer_seq003_v001.py",
+        "intent": "Trace imports inbound and outbound"
+      },
+      {
+        "file": "pigeon_compiler/state_extractor/resistance_analyzer_seq005_v001.py",
+        "intent": "Classify WHY a file resists splitting"
+      },
+      {
+        "file": "pigeon_compiler/state_extractor/shared_state_detector_seq004_v001.py",
+        "intent": "Detect module-level shared state"
+      },
+      {
+        "file": "pigeon_compiler/weakness_planner/__init__.py",
+        "intent": "Layer 2: DeepSeek-powered strategic cut planning"
+      },
+      {
+        "file": "pigeon_compiler/weakness_planner/deepseek_plan_prompt_seq004_v001.py",
+        "intent": "Build and send DeepSeek cut plan"
+      },
+      {
+        "file": "production_auditor/__init__.py",
+        "intent": "production_auditor - Pigeon Code compliant audit pipeline"
+      },
+      {
+        "file": "production_auditor/audit_gate_seq030_v001.py",
+        "intent": "Central Audit Gate"
+      },
+      {
+        "file": "production_auditor/audit_run_tracker_seq018_v001.py",
+        "intent": "production_auditor/audit_run_tracker_seq018_v001.py - Track audit run lifecycle"
+      },
+      {
+        "file": "production_auditor/backup_seq012_v001.py",
+        "intent": "production_auditor/backup_seq012_v001.py - Save audit result as JSON backup"
+      },
+      {
+        "file": "production_auditor/baseline_briefing_seq035_v001.py",
+        "intent": "Prior Intelligence Briefing for Re-Audits"
+      },
+      {
+        "file": "production_auditor/baseline_fetch_seq017_v001.py",
+        "intent": "production_auditor/baseline_fetch_seq017_v001.py - Fetch baselines for drift comparison"
+      },
+      {
+        "file": "production_auditor/baseline_store_seq016_v001.py",
+        "intent": "production_auditor/baseline_store_seq016_v001.py - Store and retrieve versioned baselines"
+      },
+      {
+        "file": "production_auditor/changelog_builder_seq019_v001.py",
+        "intent": "production_auditor/changelog_builder_seq019_v001.py - Build perception changelog between baselines"
+      },
+      {
+        "file": "production_auditor/changelog_helpers_seq020_v001.py",
+        "intent": "production_auditor/changelog_helpers_seq020_v001.py - Changelog entry builders + DB store"
+      },
+      {
+        "file": "production_auditor/consensus_runner_seq008_v001.py",
+        "intent": "production_auditor/consensus_runner_seq008_v001.py - Build consensus with Gemini synthesis"
+      },
+      {
+        "file": "production_auditor/duplicate_check_seq006_v001.py",
+        "intent": "production_auditor/duplicate_check_seq006_v001.py - Check for duplicate entity in waitlist"
+      },
+      {
+        "file": "production_auditor/email_ops_seq013_v001.py",
+        "intent": "production_auditor/email_ops_seq013_v001.py - Send audit result email"
+      },
+      {
+        "file": "production_auditor/entity_drift_seq021_v001.py",
+        "intent": "production_auditor/entity_drift_seq021_v001.py - Compute drift between initial and current baseline"
+      },
+      {
+        "file": "production_auditor/entity_extractor_seq036_v001.py",
+        "intent": "Cross-Validated Entity Extraction"
+      },
+      {
+        "file": "production_auditor/entity_ops_seq011_v001.py",
+        "intent": "production_auditor/entity_ops_seq011_v001.py - Entity creation and waitlist updates"
+      },
+      {
+        "file": "production_auditor/entity_templates_seq027_v001.py",
+        "intent": "production_auditor/entity_templates_seq027_v001.py - Entity-type template router"
+      },
+      {
+        "file": "production_auditor/json_extractor_seq004_v001.py",
+        "intent": "production_auditor/json_extractor_seq004_v001.py - Extract structured fields from parsed JSON"
+      },
+      {
+        "file": "production_auditor/json_parser_seq003_v001.py",
+        "intent": "production_auditor/json_parser_seq003_v001.py - Parse model JSON output"
+      },
+      {
+        "file": "production_auditor/link_store_seq010_v001.py",
+        "intent": "production_auditor/link_store_seq010_v001.py - Store extracted source links"
+      },
+      {
+        "file": "production_auditor/model_config_seq001_v001.py",
+        "intent": "production_auditor/model_config_seq001_v001.py - Model registry and status"
+      },
+      {
+        "file": "production_auditor/model_runner_seq007_v001.py",
+        "intent": "production_auditor/model_runner_seq007_v001.py - Execute model queries with retry"
+      },
+      {
+        "file": "production_auditor/model_switches_seq028_v001.py",
+        "intent": "production_auditor/model_switches_seq028_v001.py - Runtime model on/off with DB persistence"
+      },
+      {
+        "file": "production_auditor/news_auditor_seq033_v001.py",
+        "intent": "production_auditor/news_auditor_seq033_v001.py - News event scanner + drift tracker"
+      },
+      {
+        "file": "production_auditor/news_drift_seq034_v001.py",
+        "intent": "production_auditor/news_drift_seq034_v001.py - Analyze news impact on entity perception drift"
+      },
+      {
+        "file": "production_auditor/normalize_seq014_v001.py",
+        "intent": "production_auditor/normalize_seq014_v001.py - Normalize snapshot fields between formats"
+      },
+      {
+        "file": "production_auditor/persona_builder_seq032_v001.py",
+        "intent": "production_auditor/persona_builder_seq032_v001.py - Formalize persona creation for directory"
+      },
+      {
+        "file": "production_auditor/pipeline_seq015_v001.py",
+        "intent": "production_auditor/pipeline_seq015_v001.py - Main audit pipeline orchestrator"
+      },
+      {
+        "file": "production_auditor/post_audit_seq026_v001.py",
+        "intent": "production_auditor/post_audit_seq026_v001.py - Post-consensus steps: baseline, directory, waitlist, email, news"
+      },
+      {
+        "file": "production_auditor/prompt_builder_seq002_v001.py",
+        "intent": "production_auditor/prompt_builder_seq002_v001.py - Load and format prompt templates"
+      },
+      {
+        "file": "production_auditor/queue_manager_seq029_v001.py",
+        "intent": "production_auditor/queue_manager_seq029_v001.py - Queue manager: add jobs, check status"
+      },
+      {
+        "file": "production_auditor/queue_worker_seq031_v001.py",
+        "intent": "production_auditor/queue_worker_seq031_v001.py - Pull and execute queue jobs"
+      },
+      {
+        "file": "production_auditor/reaudit_consensus_seq022_v001.py",
+        "intent": "production_auditor/reaudit_consensus_seq022_v001.py - Consensus with baseline context for re-audits"
+      },
+      {
+        "file": "production_auditor/reaudit_gemini_seq023_v001.py",
+        "intent": "production_auditor/reaudit_gemini_seq023_v001.py - Run Gemini for re-audit consensus"
+      },
+      {
+        "file": "production_auditor/reaudit_helpers_seq025_v001.py",
+        "intent": "production_auditor/reaudit_helpers_seq025_v001.py - Re-audit pipeline helpers"
+      },
+      {
+        "file": "production_auditor/reaudit_pipeline_seq024_v001.py",
+        "intent": "production_auditor/reaudit_pipeline_seq024_v001.py - Re-audit with drift detection"
+      },
+      {
+        "file": "production_auditor/result_store_seq009_v001.py",
+        "intent": "production_auditor/result_store_seq009_v001.py - Store snapshots and search queries"
+      },
+      {
+        "file": "production_auditor/retry_logic_seq030_v001.py",
+        "intent": "production_auditor/retry_logic_seq030_v001.py - 3x retry with backoff, kill on 3 fails"
+      },
+      {
+        "file": "production_auditor/snapshot_enricher_seq005_v001.py",
+        "intent": "production_auditor/snapshot_enricher_seq005_v001.py - Enrich raw snapshot with parsed data"
+      },
+      {
+        "file": "production_auditor/statement_extractor_seq037_v001.py",
+        "intent": "production_auditor/statement_extractor_seq037_v001.py - Extract and track public statements"
+      },
+      {
+        "file": "research_team/__init__.py",
+        "intent": "MAIF Research Team: autonomous lead generation pipeline"
+      },
+      {
+        "file": "research_team/entity_scanner_seq001_v001.py",
+        "intent": "Scan directory entities, find opportunity zones"
+      },
+      {
+        "file": "research_team/lead_submitter_seq002_v001.py",
+        "intent": "Score, dedup, and submit discoveries to waitlist"
+      },
+      {
+        "file": "research_team/manifest_builder_seq003_v001.py",
+        "intent": "Build Hush-compatible job manifests"
+      },
+      {
+        "file": "research_team/news_tracker_seq004_v001.py",
+        "intent": "2026 high-signal events pipeline"
+      },
+      {
+        "file": "research_team/report_formatter_seq005_v001.py",
+        "intent": "Format research results for operator"
+      },
+      {
+        "file": "research_team/research_runner_seq006_v001.py",
+        "intent": "CLI runner for MAIF Research Team"
+      },
+      {
+        "file": "research_team/town_prospector_seq007_v001.py",
+        "intent": "Discover businesses in small towns via Grok/Serper"
+      },
+      {
+        "file": "runner/__init__.py",
+        "intent": "runner/ - MAIF audit queue processing and execution"
+      },
+      {
+        "file": "runner/batch_tool_executor_seq024_v001.py",
+        "intent": "Batch tool executor"
+      },
+      {
+        "file": "runner/execution_queue_seq022_v001.py",
+        "intent": "runner/execution_queue_seq022_v001.py - Priority-based execution queue (Pigeon-compliant)"
+      },
+      {
+        "file": "runner/headless_session_seq023_v001.py",
+        "intent": "Headless session factory for CLI/batch use"
+      },
+      {
+        "file": "runner/hush_backup_runner_seq027_v001.py",
+        "intent": "Live marketing email runner wired to entity database"
+      },
+      {
+        "file": "runner/manifest_tool_chain_seq025_v001.py",
+        "intent": "Manifest \u2192 tool chain translator"
+      },
+      {
+        "file": "runner/queue_processor_seq028_v001.py",
+        "intent": "runner/queue_processor.py - Orchestrates full audit flow"
+      },
+      {
+        "file": "runner/recall_runner_seq001_v001.py",
+        "intent": "Phase 3 Memory Backup + Recall Runner"
+      },
+      {
+        "file": "runner/reinjection_bridge_seq026_v001.py",
+        "intent": "Batch result \u2192 Hush reinjection"
+      },
+      {
+        "file": "scripts/audit_worker.py",
+        "intent": "scripts/audit_worker.py - Continuous audit worker for Railway deployment"
+      },
+      {
+        "file": "scripts/audit_worker_seq042_v001.py",
+        "intent": "scripts/audit_worker.py - Continuous audit worker for Railway deployment"
+      },
+      {
+        "file": "scripts/backfill_country_ids_seq043_v001.py",
+        "intent": "One-time backfill: resolve country_id for entities that have NULL country_id"
+      },
+      {
+        "file": "scripts/batch_ai_safety_discovery_seq044_v001.py",
+        "intent": "Batch Grok Script"
+      },
+      {
+        "file": "scripts/batch_dual_attack_runner_seq045_v001.py",
+        "intent": "Overnight Dual Attack Batch Runner"
+      },
+      {
+        "file": "scripts/check_queue_status_seq046_v001.py",
+        "intent": "Diagnostic: check execution queue, heartbeats, logging"
+      },
+      {
+        "file": "scripts/city_manifest_builder_seq040_v001.py",
+        "intent": "scripts/city_manifest_builder_seq040_v001.py - Build entity manifests for small cities"
+      },
+      {
+        "file": "scripts/city_mapper_seq041_v001.py",
+        "intent": "scripts/city_mapper_seq041_v001.py - Execute a city manifest to discover and create entities"
+      },
+      {
+        "file": "scripts/cleanup_hush_staging_seq047_v001.py",
+        "intent": "Purge garbage rows from hush_job_staging"
+      },
+      {
+        "file": "scripts/conflict_daily_scanner_seq048_v001.py",
+        "intent": "Self-Feeding Conflict Intelligence Loop"
+      },
+      {
+        "file": "scripts/cron_process_audits_seq049_v001.py",
+        "intent": "scripts/cron_process_audits.py - Process pending waitlist audits"
+      },
+      {
+        "file": "scripts/daily_news_loop_seq050_v001.py",
+        "intent": "Daily News Event Scanner + Entity Extractor"
+      },
+      {
+        "file": "scripts/daily_planner_agent_seq039_v001.py",
+        "intent": "scripts/daily_planner_agent_seq039_v001.py - Daily budget optimizer + directory expansion planner"
+      },
+      {
+        "file": "scripts/entity_daily_loop_seq051_v001.py",
+        "intent": "Generic E2E Entity Daily Audit Loop"
+      },
+      {
+        "file": "scripts/hush_cli_seq052_v001.py",
+        "intent": "Headless CLI entry point for the Hush tool chain"
+      },
+      {
+        "file": "scripts/hush_invite_tool_seq053_v001.py",
+        "intent": "CLI: Send a Hush invite email to anyone"
+      },
+      {
+        "file": "scripts/hush_local_seq054_v001.py",
+        "intent": "Run Hush locally in terminal. Full debug mode"
+      },
+      {
+        "file": "scripts/ingest_batch_seq055_v001.py",
+        "intent": "scripts/ingest_batch.py - Formalized JSON batch ingestion to Supabase waitlist"
+      },
+      {
+        "file": "scripts/lead_collector_seq038_v001.py",
+        "intent": "scripts/lead_collector_seq038_v001.py - Automated lead collection for small-city businesses"
+      },
+      {
+        "file": "scripts/lead_gen_grok_seq056_v001.py",
+        "intent": "scripts/lead_gen_grok.py - Grok-powered small business lead generator"
+      },
+      {
+        "file": "scripts/load_uploads_seq057_v001.py",
+        "intent": "scripts/load_uploads.py - Scan json_uploads/ and ingest all batch JSON files"
+      },
+      {
+        "file": "scripts/stage_iran_israel_loop_seq058_v001.py",
+        "intent": "Stage 18 Israel-Iran war entities for re-audit loops"
+      },
+      {
+        "file": "scripts/stage_next_3_days_seq059_v001.py",
+        "intent": "Stage daily scans + set Iran P0 + news assessments"
+      },
+      {
+        "file": "scripts/stage_tomorrow_seq060_v001.py",
+        "intent": "Stage tomorrow's audit jobs: Iran-Israel (hourly P0), toplists, news mapper (daily)"
+      },
+      {
+        "file": "scripts/stage_top10_lists_seq061_v001.py",
+        "intent": "ask every AI model to rank their top 10"
+      },
+      {
+        "file": "scripts/stage_us_politicians_loop_seq062_v001.py",
+        "intent": "Stage US Politicians for re-audit loops on MAIF Wire"
+      },
+      {
+        "file": "scripts/submit_ai_models_to_waitlist_seq063_v001.py",
+        "intent": "Submit AI model audit list to Supabase waitlist"
+      },
+      {
+        "file": "scripts/trump_daily_loop_seq064_v001.py",
+        "intent": "E2E Trump Daily Audit Loop"
+      },
+      {
+        "file": "scripts/upload_codebase_docs_seq065_v001.py",
+        "intent": "scripts/upload_codebase_docs.py"
+      },
+      {
+        "file": "storage_maif/__init__.py",
+        "intent": "storage_maif/ - Database operations for MAIF audits (Pigeon compliant \u226450 lines)"
+      },
+      {
+        "file": "storage_maif/audit_backup_seq009_v001.py",
+        "intent": "storage_maif/audit_backup_seq009_v001.py - JSON backup for audit results"
+      },
+      {
+        "file": "storage_maif/city_resolver_seq010_v001.py",
+        "intent": "storage_maif/city_resolver_seq010_v001.py - Resolve city_id from text input"
+      },
+      {
+        "file": "storage_maif/consensus_sources_seq004_v001.py",
+        "intent": "storage_maif/consensus_sources_seq004_v001.py - Store sources (24 lines)"
+      },
+      {
+        "file": "storage_maif/consensus_store_seq003_v001.py",
+        "intent": "storage_maif/consensus_store_seq003_v001.py - Store consensus (DB contract)"
+      },
+      {
+        "file": "storage_maif/entity_counts_seq011_v001.py",
+        "intent": "storage_maif/entity_counts_seq011_v001.py - Centralized entity count caching"
+      },
+      {
+        "file": "storage_maif/entity_create_seq001_v001.py",
+        "intent": "storage_maif/entity_create_seq001_v001.py - Entity creation with reuse"
+      },
+      {
+        "file": "storage_maif/entity_list_seq002_v001.py",
+        "intent": "storage_maif/entity_list_seq002_v001.py - Entity auto-listing"
+      },
+      {
+        "file": "storage_maif/hush_write_seq001_v001.py",
+        "intent": "storage_maif/hush_write_seq001_v001.py - Hush's write file system"
+      },
+      {
+        "file": "storage_maif/link_extractor_seq024_v001.py",
+        "intent": "storage_maif/link_extractor_seq024_v001.py - Extract and store links from audit responses"
+      },
+      {
+        "file": "storage_maif/persona_geo_placement_seq012_v001.py",
+        "intent": "Persona-Driven Geo Self-Placement"
+      },
+      {
+        "file": "storage_maif/storage_snapshot_ops_seq025_v001.py",
+        "intent": "auditor/storage/snapshot_ops.py - Snapshot storage operations (8-model compatible)"
+      },
+      {
+        "file": "storage_maif/storage_waitlist_ops_seq026_v001.py",
+        "intent": "auditor/storage/waitlist_ops.py - Waitlist queue operations"
+      },
+      {
+        "file": "storage_maif/void_store_seq005_v001.py",
+        "intent": "storage_maif/void_store_seq005_v001.py - Store semantic voids (28 lines)"
+      },
+      {
+        "file": "tests/conftest.py",
+        "intent": "Pytest configuration and fixtures for LinkRouter.AI tests (TESTS-002)"
+      },
+      {
+        "file": "tests/run_full_mutation_test_seq001_v001.py",
+        "intent": "Full E2E audit with raw log capture"
+      },
+      {
+        "file": "tests/test_api_integrations_seq002_v001.py",
+        "intent": "Live API integration tests for all 4 model providers"
+      },
+      {
+        "file": "tests/test_autonomous_db_restore_seq003_v001.py",
+        "intent": "tests/test_autonomous_db_restore.py"
+      },
+      {
+        "file": "tests/test_client_chatbot_e2e_seq004_v001.py",
+        "intent": "E2E Tests for Entity Client Chatbot System"
+      },
+      {
+        "file": "tests/test_compiler_v020_seq005_v001.py",
+        "intent": "Tests for Pigeon Compiler v0.2.0 fixes"
+      },
+      {
+        "file": "tests/test_hush_e2e_seq006_v001.py",
+        "intent": "End-to-end test script for the Hush pipeline"
+      },
+      {
+        "file": "tests/test_hush_loop_e2e_seq007_v001.py",
+        "intent": "Unified E2E Test Suite for Hush Loop"
+      },
+      {
+        "file": "tests/test_hush_memory_architecture_seq008_v001.py",
+        "intent": "tests/test_hush_memory_architecture.py"
+      },
+      {
+        "file": "tests/test_init_manifests_safety_seq009_v001.py",
+        "intent": "tests/test_init_manifests_safety.py"
+      },
+      {
+        "file": "tests/test_intelligence_comparison_seq010_v001.py",
+        "intent": "Old vs New Intelligence Comparison"
+      },
+      {
+        "file": "tests/test_job_manifest_orchestrator_seq011_v001.py",
+        "intent": "v5.10.0 Job Manifest Orchestrator Tests"
+      },
+      {
+        "file": "tests/test_manifest_cancel_deep_card_seq012_v001.py",
+        "intent": "tests/test_manifest_cancel_deep_card.py"
+      },
+      {
+        "file": "tests/test_memory_telemetry_diag_seq013_v001.py",
+        "intent": "tests/test_memory_telemetry_diag.py"
+      },
+      {
+        "file": "tests/test_multi_architecture_telemetry_seq014_v001.py",
+        "intent": "tests/test_multi_architecture_telemetry.py"
+      },
+      {
+        "file": "tests/test_press_release_llm_fix_seq015_v001.py",
+        "intent": "tests/test_press_release_llm_fix.py"
+      },
+      {
+        "file": "tests/test_reaudit_restage_seq016_v001.py",
+        "intent": "Tests for re-audit restage multi-query staging (v6.3.0)"
+      },
+      {
+        "file": "tests/test_reinjection_stress_seq017_v001.py",
+        "intent": "tests/test_reinjection_stress.py"
+      },
+      {
+        "file": "tests/test_self_healing_dynamic_toc_seq018_v001.py",
+        "intent": "tests/test_self_healing_dynamic_toc.py"
+      },
+      {
+        "file": "tests/test_shard_writes_seq019_v001.py",
+        "intent": "Live shard write tests against Supabase"
+      },
+      {
+        "file": "tests/test_split_pipeline_e2e_seq020_v001.py",
+        "intent": "tests/test_split_pipeline_e2e.py"
+      },
+      {
+        "file": "tests/test_split_pre_query_seq021_v001.py",
+        "intent": "tests/test_split_pre_query.py"
+      },
+      {
+        "file": "users/__init__.py",
+        "intent": "Users module for profile and entity management"
+      },
+      {
+        "file": "users/routes_seq001_v001.py",
+        "intent": "User dashboard routes for profile, links, and entity management"
+      }
+    ]
+  }
+]

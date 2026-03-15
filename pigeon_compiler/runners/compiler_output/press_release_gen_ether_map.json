@@ -1,0 +1,335 @@
+{
+  "file": "drift_tracker\\press_release_generator_seq014_v001.py",
+  "total_lines": 1061,
+  "functions": [
+    {
+      "name": "generate_press_release",
+      "start_line": 173,
+      "end_line": 345,
+      "line_count": 173,
+      "is_public": true,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "_build_drift_flags",
+      "start_line": 353,
+      "end_line": 425,
+      "line_count": 73,
+      "is_public": false,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "_build_prior_accuracy",
+      "start_line": 428,
+      "end_line": 463,
+      "line_count": 36,
+      "is_public": false,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "_build_void_map",
+      "start_line": 466,
+      "end_line": 542,
+      "line_count": 77,
+      "is_public": false,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "_build_prior_report_ref",
+      "start_line": 545,
+      "end_line": 565,
+      "line_count": 21,
+      "is_public": false,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "_build_drift_assessment",
+      "start_line": 567,
+      "end_line": 652,
+      "line_count": 86,
+      "is_public": false,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "_build_current_snapshot",
+      "start_line": 655,
+      "end_line": 724,
+      "line_count": 70,
+      "is_public": false,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "_build_future_prediction",
+      "start_line": 727,
+      "end_line": 844,
+      "line_count": 118,
+      "is_public": false,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "_generate_template",
+      "start_line": 847,
+      "end_line": 960,
+      "line_count": 114,
+      "is_public": false,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "_generate_with_llm",
+      "start_line": 963,
+      "end_line": 1010,
+      "line_count": 48,
+      "is_public": false,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "_build_model_status",
+      "start_line": 1013,
+      "end_line": 1032,
+      "line_count": 20,
+      "is_public": false,
+      "decorators": [],
+      "is_async": false
+    },
+    {
+      "name": "_store_press_release",
+      "start_line": 1035,
+      "end_line": 1060,
+      "line_count": 26,
+      "is_public": false,
+      "decorators": [],
+      "is_async": false
+    }
+  ],
+  "classes": [],
+  "constants": [
+    {
+      "name": "PRESS_RELEASE_TEMPLATE",
+      "line": 34
+    },
+    {
+      "name": "SOCIAL_POST_TEMPLATE",
+      "line": 132
+    },
+    {
+      "name": "LLM_POLISH_PROMPT",
+      "line": 142
+    }
+  ],
+  "call_graph": {
+    "generate_press_release": [
+      "_build_current_snapshot",
+      "_build_drift_flags",
+      "_build_future_prediction",
+      "_build_model_status",
+      "_build_prior_accuracy",
+      "_build_prior_report_ref",
+      "_build_void_map",
+      "_generate_template",
+      "_generate_with_llm",
+      "_store_press_release"
+    ],
+    "_build_drift_flags": [],
+    "_build_prior_accuracy": [],
+    "_build_void_map": [],
+    "_build_prior_report_ref": [],
+    "_build_drift_assessment": [],
+    "_build_current_snapshot": [],
+    "_build_future_prediction": [],
+    "_generate_template": [],
+    "_generate_with_llm": [
+      "_generate_template"
+    ],
+    "_build_model_status": [],
+    "_store_press_release": []
+  },
+  "call_depth": {
+    "generate_press_release": 0,
+    "_build_current_snapshot": 1,
+    "_build_drift_flags": 1,
+    "_build_future_prediction": 1,
+    "_build_model_status": 1,
+    "_build_prior_accuracy": 1,
+    "_build_prior_report_ref": 1,
+    "_build_void_map": 1,
+    "_generate_template": 1,
+    "_generate_with_llm": 1,
+    "_store_press_release": 1,
+    "_build_drift_assessment": 999
+  },
+  "clusters": [
+    [
+      "_build_current_snapshot",
+      "_build_drift_flags",
+      "_build_future_prediction",
+      "_build_model_status",
+      "_build_prior_accuracy",
+      "_build_prior_report_ref",
+      "_build_void_map",
+      "_generate_template",
+      "_generate_with_llm",
+      "_store_press_release",
+      "generate_press_release"
+    ],
+    [
+      "_build_drift_assessment"
+    ]
+  ],
+  "imports": {
+    "outbound": [
+      {
+        "module": "json",
+        "names": [
+          "json"
+        ],
+        "line": 25,
+        "kind": "stdlib"
+      },
+      {
+        "module": "logging",
+        "names": [
+          "logging"
+        ],
+        "line": 26,
+        "kind": "stdlib"
+      },
+      {
+        "module": "datetime",
+        "names": [
+          "datetime",
+          "timezone"
+        ],
+        "line": 27,
+        "kind": "stdlib"
+      },
+      {
+        "module": "config.database",
+        "names": [
+          "get_db"
+        ],
+        "line": 394,
+        "kind": "internal"
+      },
+      {
+        "module": "config.database",
+        "names": [
+          "get_db"
+        ],
+        "line": 548,
+        "kind": "internal"
+      },
+      {
+        "module": "config.database",
+        "names": [
+          "get_db"
+        ],
+        "line": 580,
+        "kind": "internal"
+      },
+      {
+        "module": "integrations.ai_gemini_seq006_v001",
+        "names": [
+          "gemini_query"
+        ],
+        "line": 971,
+        "kind": "internal"
+      },
+      {
+        "module": "config.database",
+        "names": [
+          "get_db"
+        ],
+        "line": 1040,
+        "kind": "internal"
+      },
+      {
+        "module": "storage_maif.storage_snapshot_ops",
+        "names": [
+          "get_entity_snapshots"
+        ],
+        "line": 592,
+        "kind": "internal"
+      }
+    ],
+    "inbound": []
+  },
+  "shared_state": {
+    "logger": {
+      "line": 29,
+      "is_const": false,
+      "used_by": [
+        "generate_press_release",
+        "_build_drift_flags",
+        "_build_drift_assessment",
+        "_generate_with_llm",
+        "_store_press_release"
+      ]
+    },
+    "PRESS_RELEASE_TEMPLATE": {
+      "line": 34,
+      "is_const": true,
+      "used_by": [
+        "generate_press_release"
+      ]
+    },
+    "SOCIAL_POST_TEMPLATE": {
+      "line": 132,
+      "is_const": true,
+      "used_by": [
+        "generate_press_release"
+      ]
+    },
+    "LLM_POLISH_PROMPT": {
+      "line": 142,
+      "is_const": true,
+      "used_by": [
+        "_generate_with_llm"
+      ]
+    }
+  },
+  "coupling_score": 0.35,
+  "resistance": {
+    "patterns": [
+      {
+        "pattern": "PROMPT_BLOB",
+        "detail": "~23 line string at L1"
+      },
+      {
+        "pattern": "PROMPT_BLOB",
+        "detail": "~96 line string at L34"
+      },
+      {
+        "pattern": "PROMPT_BLOB",
+        "detail": "~28 line string at L142"
+      },
+      {
+        "pattern": "PROMPT_BLOB",
+        "detail": "~31 line string at L183"
+      },
+      {
+        "pattern": "COUPLED_CLUSTER",
+        "detail": "1 cluster(s) with >2 functions"
+      },
+      {
+        "pattern": "SHARED_STATE",
+        "detail": "mutable: ['logger']"
+      },
+      {
+        "pattern": "GOD_ORCHESTRATOR",
+        "detail": "generate_press_release() calls 10 functions"
+      }
+    ],
+    "score": 0.9,
+    "verdict": "HUMAN_REVIEW"
+  }
+}
