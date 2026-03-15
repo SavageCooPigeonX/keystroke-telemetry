@@ -221,12 +221,10 @@ keystroke-telemetry/
 │   ├── rename_engine/                      #   Autonomous renames with rollback + self-heal
 │   ├── runners/                            #   Pipeline orchestrators
 │   ├── integrations/                       #   DeepSeek API adapter
-│   ├── bones/                              #   Shared utilities
 │   └── docs/                               #   Compiler design documentation
 │
 ├── test_all.py                             # Full test suite
 ├── stress_test.py                          # Cognitive stress test (5 scenarios)
-├── operator_profile.md                     # Auto-generated, self-growing stats
 └── MASTER_MANIFEST.md                      # Project manifest
 ```
 

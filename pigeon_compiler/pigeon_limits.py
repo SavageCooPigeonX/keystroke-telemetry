@@ -20,6 +20,22 @@ EXCLUDE_NAMES = frozenset({
     "__init__.py",
     "conftest.py",
     "app.py",
+    # Infrastructure — renaming these breaks deployment
+    "Procfile",
+    "Dockerfile",
+    "docker-compose.yml",
+    "docker-compose.yaml",
+    "railway.json",
+    "railway.toml",
+    "railway.worker.json",
+    "nixpacks.toml",
+    "requirements.txt",
+    "setup.py",
+    "setup.cfg",
+    "pyproject.toml",
+    "Makefile",
+    "manage.py",
+    "wsgi.py",
 })
 
 EXCLUDE_DIR_PATTERNS = frozenset({

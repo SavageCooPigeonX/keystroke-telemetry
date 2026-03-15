@@ -8,12 +8,16 @@ from pathlib import Path
 
 PIGEON_PATTERN = re.compile(r'^.+_seq\d{3}_v\d{3}(_d\d{4})?(__[a-z0-9_]+)?\.py$')
 PIGEON_CONTAINS = re.compile(r'_seq\d{3}_v\d{3}')
-SKIP_DIRS = {'.venv', '__pycache__', 'node_modules', '.git',
+SKIP_DIRS = {'.venv', '__pycache__', 'node_modules', '.git', '.github',
              '_llm_tests_put_all_test_and_debug_scripts_here',
              '.next', 'compiler_output', 'cache', '.pytest_cache',
              'audit_backups', 'json_uploads', 'logs', 'rollback_logs',
              '.vscode'}
-SKIP_FILES = {'__init__.py', 'conftest.py', 'app.py', 'manage.py', 'wsgi.py'}
+SKIP_FILES = {'__init__.py', 'conftest.py', 'app.py', 'manage.py', 'wsgi.py',
+              'Procfile', 'Dockerfile', 'Makefile',
+              'requirements.txt', 'setup.py', 'setup.cfg', 'pyproject.toml',
+              'railway.json', 'railway.toml', 'railway.worker.json',
+              'nixpacks.toml', 'docker-compose.yml', 'docker-compose.yaml'}
 
 
 def scan_project(root: Path, folders: list[str] = None) -> dict:
