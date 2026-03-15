@@ -6,6 +6,14 @@ its context budget (after an agent edit), emits a drift signal that
 an LLM agent can act on or ignore.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 005 | VER: v001 | 95 lines | ~884 tokens
+# DESC:   drift_detection_for_live_llm
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 import json
 import os
 from pathlib import Path

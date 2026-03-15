@@ -6,6 +6,14 @@ Compares current ether map against prior compiler output to track:
 - Whether prior cuts are still valid
 - Manifest drift (files in folder vs files in MANIFEST.md)
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 014 | VER: v003 | 182 lines | ~1,669 tokens
+# DESC:   re_audit_with_diff_across
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import json
 from pathlib import Path
 from datetime import datetime

@@ -8,6 +8,14 @@ Usage:
   python -m pigeon_compiler.rename_engine.run_heal_seq010_v001 . --execute
   python -m pigeon_compiler.rename_engine.run_heal_seq010_v001 . --manifests-only
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 010 | VER: v003 | 320 lines | ~3,367 tokens
+# DESC:   automated_self_healing_pipeline
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import argparse
 import json
 import subprocess

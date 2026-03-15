@@ -1,5 +1,13 @@
 """press_release_gen_constants_seq001_v001_seq002_v001.py — Pigeon-extracted by compiler."""
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 002 | VER: v001 | 40 lines | ~327 tokens
+# DESC:   pigeon_extracted_by_compiler
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 LLM_POLISH_PROMPT = """You are a press release writer for an AI reputation intelligence platform.
 
 MUTATION DATA (factual — algorithmically detected):

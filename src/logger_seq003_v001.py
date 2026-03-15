@@ -7,6 +7,14 @@ Each event is emitted as a self-contained LLM-compatible JSON block
 (schema: keystroke_telemetry/v2).
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 003 | VER: v001 | 148 lines | ~1,394 tokens
+# DESC:   core_keystroke_telemetry_logger
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 import json
 import uuid
 from pathlib import Path
@@ -146,3 +154,5 @@ class TelemetryLogger:
                 "session_id": self.session_id,
                 "messages": self.all_summaries,
             }, f, indent=2)
+
+# pigeon test marker

@@ -3,6 +3,14 @@
 Outbound: what this file imports (stdlib, pip, internal project modules).
 Inbound: which OTHER project files import from this file.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 003 | VER: v003 | 73 lines | ~727 tokens
+# DESC:   trace_imports_inbound_and_outbound
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import ast
 import re
 from pathlib import Path

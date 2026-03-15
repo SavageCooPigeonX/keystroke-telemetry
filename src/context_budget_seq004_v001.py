@@ -6,6 +6,14 @@ needs to understand them (source tokens + dependency context tokens).
 Pigeon compiler integration: feed this score into resistance analysis.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 004 | VER: v001 | 80 lines | ~610 tokens
+# DESC:   context_budget_scorer_for_llm
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 import math
 
 # Approximate token-per-line ratio for Python (empirical: ~7 tokens/line avg)

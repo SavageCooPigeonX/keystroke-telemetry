@@ -16,6 +16,14 @@ Features:
   - Stream formatting (JSON, CSV, compact)
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 007 | VER: v001 | 1142 lines | ~10,015 tokens
+# DESC:   monolithic_live_streaming_interface_for
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 import json
 import time
 import uuid

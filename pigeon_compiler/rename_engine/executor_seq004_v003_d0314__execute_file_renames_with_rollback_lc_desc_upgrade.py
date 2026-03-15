@@ -3,6 +3,14 @@
 Renames files on disk, updates __init__.py re-exports,
 and maintains a rollback log for atomic recovery.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 004 | VER: v003 | 81 lines | ~647 tokens
+# DESC:   execute_file_renames_with_rollback
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import json
 import shutil
 from pathlib import Path

@@ -5,6 +5,14 @@ Usage:
     python codebase_auditor/run_clean_split_seq010_v001.py master_auditor.py
     python codebase_auditor/run_clean_split_seq010_v001.py --all
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 010 | VER: v003 | 234 lines | ~2,161 tokens
+# DESC:   full_clean_pipeline_deepseek_plan
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import json, sys, argparse, shutil, traceback
 from pathlib import Path
 

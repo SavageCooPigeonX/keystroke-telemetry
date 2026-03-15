@@ -2,6 +2,14 @@
 
 Re-exports all public functions so external imports don't break.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 007 | VER: v003 | 38 lines | ~298 tokens
+# DESC:   generate_init_py_for_split
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from pathlib import Path
 
 

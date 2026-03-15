@@ -5,6 +5,14 @@
   0.3-0.7 → DeepSeek plans the cut
   > 0.7 → flag for human review
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 005 | VER: v003 | 89 lines | ~975 tokens
+# DESC:   classify_why_a_file_resists
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 

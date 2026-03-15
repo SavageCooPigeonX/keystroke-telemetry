@@ -1,4 +1,12 @@
 """streaming_layer_aggregator_seq006_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 006 | VER: v001 | 89 lines | ~776 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from collections import deque
 from src.timestamp_utils_seq001_v001 import _now_ms
 from typing import Optional, Callable

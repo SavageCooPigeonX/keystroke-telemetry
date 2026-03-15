@@ -1,5 +1,13 @@
 """press_release_gen_template_builders_seq002_v001_seq001_v001.py — Pigeon-extracted by compiler."""
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v001 | 48 lines | ~565 tokens
+# DESC:   pigeon_extracted_by_compiler
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 def __generate_template_key_findings(mutations: list, news_corr: list) -> list:
     """Generate the key findings list."""
     key_findings = []

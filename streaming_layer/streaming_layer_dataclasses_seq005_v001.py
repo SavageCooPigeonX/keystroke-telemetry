@@ -1,4 +1,12 @@
 """streaming_layer_dataclasses_seq005_v001.py — Pigeon-extracted by compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 005 | VER: v001 | 23 lines | ~186 tokens
+# DESC:   pigeon_extracted_by_compiler
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from dataclasses import dataclass, field, asdict
 import json
 import queue as _queue_mod

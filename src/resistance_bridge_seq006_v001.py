@@ -6,6 +6,14 @@ feed back into the Ether Map's resistance score. Files that cause the most
 human hesitation (pauses, rewrites, deletions) are split candidates.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 006 | VER: v001 | 111 lines | ~1,130 tokens
+# DESC:   bridge_between_keystroke_telemetry_and
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 import json
 from pathlib import Path
 

@@ -1,5 +1,13 @@
 """press_release_gen_template_helpers_seq004_v001_seq002_v001.py — Pigeon-extracted by compiler."""
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 002 | VER: v001 | 20 lines | ~235 tokens
+# DESC:   pigeon_extracted_by_compiler
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 def __generate_template_social_and_stat(entity_name: str, severity: float,
                                         mut_count: int, c_count: int) -> tuple:
     """Generate the social headline and key stat."""

@@ -4,6 +4,14 @@ Handles two operations:
 1. Update the folder tree structure (insert new v2 folder)
 2. Append a versioned changelog entry for the compilation
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 013 | VER: v003 | 102 lines | ~952 tokens
+# DESC:   update_master_manifest_md_after
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import re
 from pathlib import Path
 from datetime import datetime

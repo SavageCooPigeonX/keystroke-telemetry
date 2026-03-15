@@ -178,10 +178,42 @@ def cmd_heal(args):
     # Import here so CLI loads fast
     from pigeon_compiler.rename_engine import (
         load_registry, save_registry, build_all_manifests,
+        parse_pigeon_stem, extract_desc_slug,
     )
     from pigeon_compiler.git_plugin import _estimate_tokens, _inject_box
 
     registry = load_registry(root)
+
+    # Discover pigeon files not yet in registry
+    discovered = 0
+    for py in root.rglob('*.py'):
+        rel = str(py.relative_to(root)).replace('\\', '/')
+        if rel in registry:
+            continue
+        parsed = parse_pigeon_stem(py.stem)
+        if not parsed:
+            continue
+        desc = extract_desc_slug(py) or parsed['desc']
+        try:
+            text = py.read_text(encoding='utf-8')
+        except Exception:
+            continue
+        tokens = _estimate_tokens(text)
+        today = datetime.now(timezone.utc).strftime('%m%d')
+        registry[rel] = {
+            'path': rel, 'name': parsed['name'],
+            'seq': parsed['seq'], 'ver': parsed['ver'],
+            'date': parsed.get('date') or today,
+            'desc': desc, 'intent': parsed.get('intent', ''),
+            'tokens': tokens,
+            'history': [{'ver': parsed['ver'], 'date': parsed.get('date') or today,
+                         'desc': desc, 'intent': parsed.get('intent', ''),
+                         'action': 'discovered'}],
+        }
+        discovered += 1
+    if discovered:
+        print(f'   📡 Discovered {discovered} pigeon files')
+
     updated = 0
 
     for rel, entry in sorted(registry.items()):

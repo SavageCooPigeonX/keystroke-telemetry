@@ -1,4 +1,12 @@
 """streaming_layer_connection_pool_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 005 | VER: v001 | 99 lines | ~837 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from src.logger_seq003_v001 import TelemetryLogger, SCHEMA_VERSION
 from src.timestamp_utils_seq001_v001 import _now_ms
 from typing import Optional, Callable

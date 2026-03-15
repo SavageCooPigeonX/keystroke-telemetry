@@ -3,6 +3,14 @@
 Produces: list of functions, classes, top-level constants, with line ranges.
 No AI calls. No imports beyond stdlib.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v003 | 82 lines | ~670 tokens
+# DESC:   parse_python_file_into_function
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 

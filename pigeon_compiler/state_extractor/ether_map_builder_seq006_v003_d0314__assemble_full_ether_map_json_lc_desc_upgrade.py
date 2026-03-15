@@ -3,6 +3,14 @@
 Orchestrates seq001-seq005 into a single dependency graph document.
 This is the primary entry point for Layer 1.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 006 | VER: v003 | 57 lines | ~634 tokens
+# DESC:   assemble_full_ether_map_json
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import json
 from pathlib import Path
 from pigeon_compiler.state_extractor.ast_parser_seq001_v003_d0314__parse_python_file_into_function_lc_desc_upgrade import parse_file

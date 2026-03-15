@@ -5,6 +5,14 @@ Generates __init__.py with re-exports and MANIFEST.md with:
 - Append-only CHANGELOG (preserves prior entries)
 - Version stamp + cost tracking
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 012 | VER: v003 | 191 lines | ~1,599 tokens
+# DESC:   init_manifest_writers_for_clean
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import ast, re
 from pathlib import Path
 from datetime import datetime

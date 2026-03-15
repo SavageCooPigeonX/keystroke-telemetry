@@ -1,5 +1,13 @@
 """streaming_layer_orchestrator_seq017_v001.py — Pigeon-extracted by compiler."""
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 017 | VER: v001 | 9 lines | ~82 tokens
+# DESC:   pigeon_extracted_by_compiler
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 def run_demo():
     """Run a standalone demo of the streaming server."""
     _run_demo_print_header()

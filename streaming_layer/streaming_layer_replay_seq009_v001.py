@@ -1,4 +1,12 @@
 """streaming_layer_replay_seq009_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 009 | VER: v001 | 100 lines | ~870 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from pathlib import Path
 from typing import Optional, Callable
 import json

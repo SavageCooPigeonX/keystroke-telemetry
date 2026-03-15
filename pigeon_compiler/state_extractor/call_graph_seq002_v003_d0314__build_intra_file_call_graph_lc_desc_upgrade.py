@@ -4,6 +4,14 @@ For each function, finds which OTHER functions in the same file it calls.
 This is the key input for cluster grouping — functions that call each
 other should stay together after extraction.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 002 | VER: v003 | 96 lines | ~785 tokens
+# DESC:   build_intra_file_call_graph
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 

@@ -3,6 +3,14 @@
 Orchestrates: scan → plan → preview → rewrite imports → execute → validate.
 Supports --dry-run, --folders, --rollback flags.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 006 | VER: v003 | 135 lines | ~1,310 tokens
+# DESC:   full_rename_pipeline_runner
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import argparse
 import json
 import sys

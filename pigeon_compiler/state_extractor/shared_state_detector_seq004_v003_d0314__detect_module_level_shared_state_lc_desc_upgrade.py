@@ -3,6 +3,14 @@
 Finds: module-level variables, mutable assignments, global constants,
 and which functions READ those names. Shared state = resistance to splitting.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 004 | VER: v003 | 58 lines | ~555 tokens
+# DESC:   detect_module_level_shared_state
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 

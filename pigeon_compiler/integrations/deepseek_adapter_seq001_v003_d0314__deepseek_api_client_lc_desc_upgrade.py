@@ -7,6 +7,14 @@ DeepSeek Pricing (per 1M tokens):
   deepseek-chat:     $0.14 input / $0.28 output (cache: $0.014)
   deepseek-reasoner: $0.55 input / $2.19 output
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v003 | 127 lines | ~1,116 tokens
+# DESC:   deepseek_api_client
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import os
 import time
 import logging

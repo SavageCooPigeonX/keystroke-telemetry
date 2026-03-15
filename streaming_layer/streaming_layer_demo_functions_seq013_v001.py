@@ -1,4 +1,12 @@
 """streaming_layer_demo_functions_seq013_v001.py — Pigeon-extracted by compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 013 | VER: v001 | 46 lines | ~394 tokens
+# DESC:   pigeon_extracted_by_compiler
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import json
 import time
 

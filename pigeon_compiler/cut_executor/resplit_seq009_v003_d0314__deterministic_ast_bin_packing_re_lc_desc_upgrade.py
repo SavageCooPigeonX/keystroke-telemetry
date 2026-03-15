@@ -4,6 +4,14 @@ Takes a folder of Python files. For any file >PIGEON_MAX lines,
 splits it by AST into multiple files, each ≤PIGEON_MAX.
 No AI needed — pure math.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 009 | VER: v003 | 81 lines | ~778 tokens
+# DESC:   deterministic_ast_bin_packing_re
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 from pigeon_compiler.cut_executor.resplit_helpers_seq011_v003_d0314__shared_helpers_for_re_splitter_lc_desc_upgrade import (

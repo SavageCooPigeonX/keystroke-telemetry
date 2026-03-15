@@ -4,6 +4,14 @@ Takes scanner output, assigns sequence numbers per folder,
 produces old_path → new_path map with module path translations.
 Includes description + intent slugs in filenames via nametag.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 002 | VER: v003 | 101 lines | ~856 tokens
+# DESC:   generate_rename_plan_for_non
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import re
 from datetime import datetime, timezone
 from pathlib import Path

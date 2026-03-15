@@ -1,0 +1,2 @@
+[console_scripts]
+pigeon = pigeon_compiler.cli:main

@@ -9,6 +9,14 @@ Designed for LLM consumption: an agent reading the .md file gets
 a compact operator profile that sharpens with every message.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 008 | VER: v001 | 386 lines | ~3,549 tokens
+# DESC:   persistent_markdown_memory_file
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 import json
 import time as _time
 from pathlib import Path

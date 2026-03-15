@@ -1,5 +1,13 @@
 """press_release_gen_template_builders_seq002_v001_seq002_v001.py — Pigeon-extracted by compiler."""
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 002 | VER: v001 | 43 lines | ~600 tokens
+# DESC:   pigeon_extracted_by_compiler
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 def __generate_template_exec_summary(entity_name: str, severity: float, risk_level: str,
                                      mut_count: int, c_count: int) -> str:
     """Generate the executive summary."""

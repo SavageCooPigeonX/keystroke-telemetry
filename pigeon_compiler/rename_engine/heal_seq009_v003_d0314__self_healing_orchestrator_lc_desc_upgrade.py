@@ -16,6 +16,14 @@ picks up exactly where operator left off.
 Filenames stay _seqNNN_vNNN.py (stable for imports).
 The MANIFEST description column IS the living filename extension.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 009 | VER: v003 | 255 lines | ~1,981 tokens
+# DESC:   self_healing_orchestrator
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import json
 import subprocess
 import re

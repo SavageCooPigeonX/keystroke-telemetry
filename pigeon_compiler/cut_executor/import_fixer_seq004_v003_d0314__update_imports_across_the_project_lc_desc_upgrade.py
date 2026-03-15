@@ -2,6 +2,14 @@
 
 Scans all .py files and replaces old import paths with new module paths.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 004 | VER: v003 | 52 lines | ~441 tokens
+# DESC:   update_imports_across_the_project
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import re
 from pathlib import Path
 

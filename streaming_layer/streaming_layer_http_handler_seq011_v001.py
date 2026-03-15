@@ -1,4 +1,12 @@
 """streaming_layer_http_handler_seq011_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 011 | VER: v001 | 127 lines | ~1,104 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from src.timestamp_utils_seq001_v001 import _now_ms

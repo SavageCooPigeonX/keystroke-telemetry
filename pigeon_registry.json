@@ -1,0 +1,1564 @@
+{
+  "generated": "2026-03-15T22:31:23.582899+00:00",
+  "total": 82,
+  "files": [
+    {
+      "path": "pigeon_compiler/bones/aim_utils_seq001_v003_d0314__extracted_from_hush_aim_py_lc_desc_upgrade.py",
+      "name": "aim_utils",
+      "seq": 1,
+      "ver": 3,
+      "date": "0314",
+      "desc": "extracted_from_hush_aim_py",
+      "intent": "desc_upgrade",
+      "tokens": 724,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "extracted_from_hush_aim_py",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/bones/core_formatters_seq001_v003_d0314__extracted_from_hush_chat_core_lc_desc_upgrade.py",
+      "name": "core_formatters",
+      "seq": 1,
+      "ver": 3,
+      "date": "0314",
+      "desc": "extracted_from_hush_chat_core",
+      "intent": "desc_upgrade",
+      "tokens": 1291,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "extracted_from_hush_chat_core",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/bones/nl_parsers_seq001_v003_d0314__extracted_from_hush_nl_detection_lc_desc_upgrade.py",
+      "name": "nl_parsers",
+      "seq": 1,
+      "ver": 3,
+      "date": "0314",
+      "desc": "extracted_from_hush_nl_detection",
+      "intent": "desc_upgrade",
+      "tokens": 1844,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "extracted_from_hush_nl_detection",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/bones/pq_manifest_utils_seq001_v003_d0314__extracted_from_hush_pre_query_lc_desc_upgrade.py",
+      "name": "pq_manifest_utils",
+      "seq": 1,
+      "ver": 3,
+      "date": "0314",
+      "desc": "extracted_from_hush_pre_query",
+      "intent": "desc_upgrade",
+      "tokens": 879,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "extracted_from_hush_pre_query",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/bones/pq_search_utils_seq001_v003_d0314__extracted_from_hush_pre_query_lc_desc_upgrade.py",
+      "name": "pq_search_utils",
+      "seq": 1,
+      "ver": 3,
+      "date": "0314",
+      "desc": "extracted_from_hush_pre_query",
+      "intent": "desc_upgrade",
+      "tokens": 3279,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "extracted_from_hush_pre_query",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/cut_executor/file_writer_seq003_v003_d0314__write_new_pigeon_compliant_files_lc_desc_upgrade.py",
+      "name": "file_writer",
+      "seq": 3,
+      "ver": 3,
+      "date": "0314",
+      "desc": "write_new_pigeon_compliant_files",
+      "intent": "desc_upgrade",
+      "tokens": 684,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "write_new_pigeon_compliant_files",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/cut_executor/func_decomposer_seq008_v003_d0314__decompose_oversized_functions_via_deepseek_lc_desc_upgrade.py",
+      "name": "func_decomposer",
+      "seq": 8,
+      "ver": 3,
+      "date": "0314",
+      "desc": "decompose_oversized_functions_via_deepseek",
+      "intent": "desc_upgrade",
+      "tokens": 572,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "decompose_oversized_functions_via_deepseek",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/cut_executor/import_fixer_seq004_v003_d0314__update_imports_across_the_project_lc_desc_upgrade.py",
+      "name": "import_fixer",
+      "seq": 4,
+      "ver": 3,
+      "date": "0314",
+      "desc": "update_imports_across_the_project",
+      "intent": "desc_upgrade",
+      "tokens": 441,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "update_imports_across_the_project",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/cut_executor/init_writer_seq007_v003_d0314__generate_init_py_for_split_lc_desc_upgrade.py",
+      "name": "init_writer",
+      "seq": 7,
+      "ver": 3,
+      "date": "0314",
+      "desc": "generate_init_py_for_split",
+      "intent": "desc_upgrade",
+      "tokens": 298,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "generate_init_py_for_split",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/cut_executor/manifest_writer_seq005_v003_d0314__generate_manifest_md_for_a_lc_desc_upgrade.py",
+      "name": "manifest_writer",
+      "seq": 5,
+      "ver": 3,
+      "date": "0314",
+      "desc": "generate_manifest_md_for_a",
+      "intent": "desc_upgrade",
+      "tokens": 386,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "generate_manifest_md_for_a",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/cut_executor/plan_parser_seq001_v003_d0314__parse_deepseek_json_from_raw_lc_desc_upgrade.py",
+      "name": "plan_parser",
+      "seq": 1,
+      "ver": 3,
+      "date": "0314",
+      "desc": "parse_deepseek_json_from_raw",
+      "intent": "desc_upgrade",
+      "tokens": 308,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "parse_deepseek_json_from_raw",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/cut_executor/plan_validator_seq006_v003_d0314__validate_cut_plan_before_execution_lc_desc_upgrade.py",
+      "name": "plan_validator",
+      "seq": 6,
+      "ver": 3,
+      "date": "0314",
+      "desc": "validate_cut_plan_before_execution",
+      "intent": "desc_upgrade",
+      "tokens": 515,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "validate_cut_plan_before_execution",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/cut_executor/resplit_binpack_seq010_v003_d0314__bin_packing_file_writing_for_lc_desc_upgrade.py",
+      "name": "resplit_binpack",
+      "seq": 10,
+      "ver": 3,
+      "date": "0314",
+      "desc": "bin_packing_file_writing_for",
+      "intent": "desc_upgrade",
+      "tokens": 639,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "bin_packing_file_writing_for",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/cut_executor/resplit_helpers_seq011_v003_d0314__shared_helpers_for_re_splitter_lc_desc_upgrade.py",
+      "name": "resplit_helpers",
+      "seq": 11,
+      "ver": 3,
+      "date": "0314",
+      "desc": "shared_helpers_for_re_splitter",
+      "intent": "desc_upgrade",
+      "tokens": 437,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "shared_helpers_for_re_splitter",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/cut_executor/resplit_seq009_v003_d0314__deterministic_ast_bin_packing_re_lc_desc_upgrade.py",
+      "name": "resplit",
+      "seq": 9,
+      "ver": 3,
+      "date": "0314",
+      "desc": "deterministic_ast_bin_packing_re",
+      "intent": "desc_upgrade",
+      "tokens": 778,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "deterministic_ast_bin_packing_re",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/cut_executor/source_slicer_seq002_v003_d0314__extract_functions_constants_from_source_lc_desc_upgrade.py",
+      "name": "source_slicer",
+      "seq": 2,
+      "ver": 3,
+      "date": "0314",
+      "desc": "extract_functions_constants_from_source",
+      "intent": "desc_upgrade",
+      "tokens": 420,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "extract_functions_constants_from_source",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/integrations/deepseek_adapter_seq001_v003_d0314__deepseek_api_client_lc_desc_upgrade.py",
+      "name": "deepseek_adapter",
+      "seq": 1,
+      "ver": 3,
+      "date": "0314",
+      "desc": "deepseek_api_client",
+      "intent": "desc_upgrade",
+      "tokens": 1116,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "deepseek_api_client",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/compliance_seq008_v003_d0314__line_count_enforcer_split_recommender_lc_desc_upgrade.py",
+      "name": "compliance",
+      "seq": 8,
+      "ver": 3,
+      "date": "0314",
+      "desc": "line_count_enforcer_split_recommender",
+      "intent": "desc_upgrade",
+      "tokens": 1607,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "line_count_enforcer_split_recommender",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/executor_seq004_v003_d0314__execute_file_renames_with_rollback_lc_desc_upgrade.py",
+      "name": "executor",
+      "seq": 4,
+      "ver": 3,
+      "date": "0314",
+      "desc": "execute_file_renames_with_rollback",
+      "intent": "desc_upgrade",
+      "tokens": 647,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "execute_file_renames_with_rollback",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/heal_seq009_v003_d0314__self_healing_orchestrator_lc_desc_upgrade.py",
+      "name": "heal",
+      "seq": 9,
+      "ver": 3,
+      "date": "0314",
+      "desc": "self_healing_orchestrator",
+      "intent": "desc_upgrade",
+      "tokens": 1981,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "self_healing_orchestrator",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/import_rewriter_seq003_v003_d0314__rewrite_all_imports_across_the_lc_desc_upgrade.py",
+      "name": "import_rewriter",
+      "seq": 3,
+      "ver": 3,
+      "date": "0314",
+      "desc": "rewrite_all_imports_across_the",
+      "intent": "desc_upgrade",
+      "tokens": 1612,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "rewrite_all_imports_across_the",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/manifest_builder_seq007_v003_d0314__generate_living_manifest_md_per_lc_desc_upgrade.py",
+      "name": "manifest_builder",
+      "seq": 7,
+      "ver": 3,
+      "date": "0314",
+      "desc": "generate_living_manifest_md_per",
+      "intent": "desc_upgrade",
+      "tokens": 2927,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "generate_living_manifest_md_per",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/nametag_seq011_v003_d0314__encode_file_description_intent_into_lc_desc_upgrade.py",
+      "name": "nametag",
+      "seq": 11,
+      "ver": 3,
+      "date": "0314",
+      "desc": "encode_file_description_intent_into",
+      "intent": "desc_upgrade",
+      "tokens": 1924,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "encode_file_description_intent_into",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/planner_seq002_v003_d0314__generate_rename_plan_for_non_lc_desc_upgrade.py",
+      "name": "planner",
+      "seq": 2,
+      "ver": 3,
+      "date": "0314",
+      "desc": "generate_rename_plan_for_non",
+      "intent": "desc_upgrade",
+      "tokens": 856,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "generate_rename_plan_for_non",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/registry_seq012_v003_d0314__local_name_registry_for_the_lc_desc_upgrade.py",
+      "name": "registry",
+      "seq": 12,
+      "ver": 3,
+      "date": "0314",
+      "desc": "local_name_registry_for_the",
+      "intent": "desc_upgrade",
+      "tokens": 2129,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "local_name_registry_for_the",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/run_heal_seq010_v003_d0314__automated_self_healing_pipeline_lc_desc_upgrade.py",
+      "name": "run_heal",
+      "seq": 10,
+      "ver": 3,
+      "date": "0314",
+      "desc": "automated_self_healing_pipeline",
+      "intent": "desc_upgrade",
+      "tokens": 3367,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "automated_self_healing_pipeline",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/run_rename_seq006_v003_d0314__full_rename_pipeline_runner_lc_desc_upgrade.py",
+      "name": "run_rename",
+      "seq": 6,
+      "ver": 3,
+      "date": "0314",
+      "desc": "full_rename_pipeline_runner",
+      "intent": "desc_upgrade",
+      "tokens": 1310,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "full_rename_pipeline_runner",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/scanner_seq001_v003_d0314__walk_the_project_tree_and_lc_desc_upgrade.py",
+      "name": "scanner",
+      "seq": 1,
+      "ver": 3,
+      "date": "0314",
+      "desc": "walk_the_project_tree_and",
+      "intent": "desc_upgrade",
+      "tokens": 910,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "walk_the_project_tree_and",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/validator_seq005_v003_d0314__post_rename_import_validation_lc_desc_upgrade.py",
+      "name": "validator",
+      "seq": 5,
+      "ver": 3,
+      "date": "0314",
+      "desc": "post_rename_import_validation",
+      "intent": "desc_upgrade",
+      "tokens": 858,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "post_rename_import_validation",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_constants_seq001_v001_seq001_v001.py",
+      "name": "press_release_gen_constants_seq001_v001",
+      "seq": 1,
+      "ver": 1,
+      "date": "0315",
+      "desc": "pigeon_extracted_by_compiler",
+      "intent": "",
+      "tokens": 580,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_constants_seq001_v001_seq002_v001.py",
+      "name": "press_release_gen_constants_seq001_v001",
+      "seq": 2,
+      "ver": 1,
+      "date": "0315",
+      "desc": "pigeon_extracted_by_compiler",
+      "intent": "",
+      "tokens": 327,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_builders_seq002_v001_seq001_v001.py",
+      "name": "press_release_gen_template_builders_seq002_v001",
+      "seq": 1,
+      "ver": 1,
+      "date": "0315",
+      "desc": "pigeon_extracted_by_compiler",
+      "intent": "",
+      "tokens": 565,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_builders_seq002_v001_seq002_v001.py",
+      "name": "press_release_gen_template_builders_seq002_v001",
+      "seq": 2,
+      "ver": 1,
+      "date": "0315",
+      "desc": "pigeon_extracted_by_compiler",
+      "intent": "",
+      "tokens": 600,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_builders_seq002_v001_seq003_v001.py",
+      "name": "press_release_gen_template_builders_seq002_v001",
+      "seq": 3,
+      "ver": 1,
+      "date": "0315",
+      "desc": "pigeon_extracted_by_compiler",
+      "intent": "",
+      "tokens": 235,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_helpers_seq004_v001_seq001_v001.py",
+      "name": "press_release_gen_template_helpers_seq004_v001",
+      "seq": 1,
+      "ver": 1,
+      "date": "0315",
+      "desc": "pigeon_extracted_by_compiler",
+      "intent": "",
+      "tokens": 600,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_helpers_seq004_v001_seq002_v001.py",
+      "name": "press_release_gen_template_helpers_seq004_v001",
+      "seq": 2,
+      "ver": 1,
+      "date": "0315",
+      "desc": "pigeon_extracted_by_compiler",
+      "intent": "",
+      "tokens": 235,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_key_findings_seq003_v001.py",
+      "name": "press_release_gen_template_key_findings",
+      "seq": 3,
+      "ver": 1,
+      "date": "0315",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "",
+      "tokens": 564,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/manifest_bridge_seq013_v003_d0314__update_master_manifest_md_after_lc_desc_upgrade.py",
+      "name": "manifest_bridge",
+      "seq": 13,
+      "ver": 3,
+      "date": "0314",
+      "desc": "update_master_manifest_md_after",
+      "intent": "desc_upgrade",
+      "tokens": 952,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "update_master_manifest_md_after",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/reaudit_diff_seq014_v003_d0314__re_audit_with_diff_across_lc_desc_upgrade.py",
+      "name": "reaudit_diff",
+      "seq": 14,
+      "ver": 3,
+      "date": "0314",
+      "desc": "re_audit_with_diff_across",
+      "intent": "desc_upgrade",
+      "tokens": 1669,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "re_audit_with_diff_across",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/run_clean_split_helpers_seq011_v003_d0314__helpers_for_run_clean_split_lc_desc_upgrade.py",
+      "name": "run_clean_split_helpers",
+      "seq": 11,
+      "ver": 3,
+      "date": "0314",
+      "desc": "helpers_for_run_clean_split",
+      "intent": "desc_upgrade",
+      "tokens": 503,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "helpers_for_run_clean_split",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/run_clean_split_init_seq012_v003_d0314__init_manifest_writers_for_clean_lc_desc_upgrade.py",
+      "name": "run_clean_split_init",
+      "seq": 12,
+      "ver": 3,
+      "date": "0314",
+      "desc": "init_manifest_writers_for_clean",
+      "intent": "desc_upgrade",
+      "tokens": 1599,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "init_manifest_writers_for_clean",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/run_clean_split_seq010_v003_d0314__full_clean_pipeline_deepseek_plan_lc_desc_upgrade.py",
+      "name": "run_clean_split",
+      "seq": 10,
+      "ver": 3,
+      "date": "0314",
+      "desc": "full_clean_pipeline_deepseek_plan",
+      "intent": "desc_upgrade",
+      "tokens": 2161,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "full_clean_pipeline_deepseek_plan",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/run_compiler_test_seq007_v003_d0314__self_test_pigeon_compiler_on_lc_desc_upgrade.py",
+      "name": "run_compiler_test",
+      "seq": 7,
+      "ver": 3,
+      "date": "0314",
+      "desc": "self_test_pigeon_compiler_on",
+      "intent": "desc_upgrade",
+      "tokens": 531,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "self_test_pigeon_compiler_on",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/run_deepseek_plans_seq008_v003_d0314__phase_2_send_ether_maps_lc_desc_upgrade.py",
+      "name": "run_deepseek_plans",
+      "seq": 8,
+      "ver": 3,
+      "date": "0314",
+      "desc": "phase_2_send_ether_maps",
+      "intent": "desc_upgrade",
+      "tokens": 526,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "phase_2_send_ether_maps",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/runners/run_pigeon_loop_seq009_v003_d0314__the_loop_refactor_until_pigeon_lc_desc_upgrade.py",
+      "name": "run_pigeon_loop",
+      "seq": 9,
+      "ver": 3,
+      "date": "0314",
+      "desc": "the_loop_refactor_until_pigeon",
+      "intent": "desc_upgrade",
+      "tokens": 2772,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "the_loop_refactor_until_pigeon",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/state_extractor/ast_parser_seq001_v003_d0314__parse_python_file_into_function_lc_desc_upgrade.py",
+      "name": "ast_parser",
+      "seq": 1,
+      "ver": 3,
+      "date": "0314",
+      "desc": "parse_python_file_into_function",
+      "intent": "desc_upgrade",
+      "tokens": 670,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "parse_python_file_into_function",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/state_extractor/call_graph_seq002_v003_d0314__build_intra_file_call_graph_lc_desc_upgrade.py",
+      "name": "call_graph",
+      "seq": 2,
+      "ver": 3,
+      "date": "0314",
+      "desc": "build_intra_file_call_graph",
+      "intent": "desc_upgrade",
+      "tokens": 785,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "build_intra_file_call_graph",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/state_extractor/ether_map_builder_seq006_v003_d0314__assemble_full_ether_map_json_lc_desc_upgrade.py",
+      "name": "ether_map_builder",
+      "seq": 6,
+      "ver": 3,
+      "date": "0314",
+      "desc": "assemble_full_ether_map_json",
+      "intent": "desc_upgrade",
+      "tokens": 634,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "assemble_full_ether_map_json",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/state_extractor/import_tracer_seq003_v003_d0314__trace_imports_inbound_and_outbound_lc_desc_upgrade.py",
+      "name": "import_tracer",
+      "seq": 3,
+      "ver": 3,
+      "date": "0314",
+      "desc": "trace_imports_inbound_and_outbound",
+      "intent": "desc_upgrade",
+      "tokens": 727,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "trace_imports_inbound_and_outbound",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/state_extractor/resistance_analyzer_seq005_v003_d0314__classify_why_a_file_resists_lc_desc_upgrade.py",
+      "name": "resistance_analyzer",
+      "seq": 5,
+      "ver": 3,
+      "date": "0314",
+      "desc": "classify_why_a_file_resists",
+      "intent": "desc_upgrade",
+      "tokens": 975,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "classify_why_a_file_resists",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/state_extractor/shared_state_detector_seq004_v003_d0314__detect_module_level_shared_state_lc_desc_upgrade.py",
+      "name": "shared_state_detector",
+      "seq": 4,
+      "ver": 3,
+      "date": "0314",
+      "desc": "detect_module_level_shared_state",
+      "intent": "desc_upgrade",
+      "tokens": 555,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "detect_module_level_shared_state",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/weakness_planner/deepseek_plan_prompt_seq004_v003_d0314__build_and_send_deepseek_cut_lc_desc_upgrade.py",
+      "name": "deepseek_plan_prompt",
+      "seq": 4,
+      "ver": 3,
+      "date": "0314",
+      "desc": "build_and_send_deepseek_cut",
+      "intent": "desc_upgrade",
+      "tokens": 2407,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0314",
+          "desc": "build_and_send_deepseek_cut",
+          "intent": "desc_upgrade",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive/adapter_seq001_v001.py",
+      "name": "adapter",
+      "seq": 1,
+      "ver": 1,
+      "date": "0315",
+      "desc": "cognitive_state_agent_behavior_adapter",
+      "intent": "",
+      "tokens": 1199,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "cognitive_state_agent_behavior_adapter",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive/drift_seq003_v001.py",
+      "name": "drift",
+      "seq": 3,
+      "ver": 1,
+      "date": "0315",
+      "desc": "tracks_operator_typing_patterns_across",
+      "intent": "",
+      "tokens": 2198,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "tracks_operator_typing_patterns_across",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive/unsaid_seq002_v001.py",
+      "name": "unsaid",
+      "seq": 2,
+      "ver": 1,
+      "date": "0315",
+      "desc": "detects_what_operators_meant_but",
+      "intent": "",
+      "tokens": 2045,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "detects_what_operators_meant_but",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "src/context_budget_seq004_v001.py",
+      "name": "context_budget",
+      "seq": 4,
+      "ver": 1,
+      "date": "0315",
+      "desc": "context_budget_scorer_for_llm",
+      "intent": "",
+      "tokens": 610,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "context_budget_scorer_for_llm",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "src/drift_watcher_seq005_v001.py",
+      "name": "drift_watcher",
+      "seq": 5,
+      "ver": 1,
+      "date": "0315",
+      "desc": "drift_detection_for_live_llm",
+      "intent": "",
+      "tokens": 884,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "drift_detection_for_live_llm",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "src/logger_seq003_v001.py",
+      "name": "logger",
+      "seq": 3,
+      "ver": 1,
+      "date": "0315",
+      "desc": "core_keystroke_telemetry_logger",
+      "intent": "",
+      "tokens": 1394,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "core_keystroke_telemetry_logger",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "src/models_seq002_v001.py",
+      "name": "models",
+      "seq": 2,
+      "ver": 1,
+      "date": "0315",
+      "desc": "dataclasses_for_keystroke_events_and",
+      "intent": "",
+      "tokens": 288,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "dataclasses_for_keystroke_events_and",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "src/operator_stats_seq008_v001.py",
+      "name": "operator_stats",
+      "seq": 8,
+      "ver": 1,
+      "date": "0315",
+      "desc": "persistent_markdown_memory_file",
+      "intent": "",
+      "tokens": 3549,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "persistent_markdown_memory_file",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "src/resistance_bridge_seq006_v001.py",
+      "name": "resistance_bridge",
+      "seq": 6,
+      "ver": 1,
+      "date": "0315",
+      "desc": "bridge_between_keystroke_telemetry_and",
+      "intent": "",
+      "tokens": 1130,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "bridge_between_keystroke_telemetry_and",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "src/streaming_layer_seq007_v001.py",
+      "name": "streaming_layer",
+      "seq": 7,
+      "ver": 1,
+      "date": "0315",
+      "desc": "monolithic_live_streaming_interface_for",
+      "intent": "",
+      "tokens": 10015,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "monolithic_live_streaming_interface_for",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "src/timestamp_utils_seq001_v001.py",
+      "name": "timestamp_utils",
+      "seq": 1,
+      "ver": 1,
+      "date": "0315",
+      "desc": "millisecond_epoch_timestamp_utility",
+      "intent": "",
+      "tokens": 49,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "millisecond_epoch_timestamp_utility",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_aggregator_seq006_v001.py",
+      "name": "streaming_layer_aggregator",
+      "seq": 6,
+      "ver": 1,
+      "date": "0315",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "",
+      "tokens": 776,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_alerts_seq008_v001.py",
+      "name": "streaming_layer_alerts",
+      "seq": 8,
+      "ver": 1,
+      "date": "0315",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "",
+      "tokens": 1200,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_connection_pool_seq005_v001.py",
+      "name": "streaming_layer_connection_pool",
+      "seq": 5,
+      "ver": 1,
+      "date": "0315",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "",
+      "tokens": 837,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_constants_seq001_v001.py",
+      "name": "streaming_layer_constants",
+      "seq": 1,
+      "ver": 1,
+      "date": "0315",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "",
+      "tokens": 199,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_dashboard_seq010_v001.py",
+      "name": "streaming_layer_dashboard",
+      "seq": 10,
+      "ver": 1,
+      "date": "0315",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "",
+      "tokens": 782,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_dataclasses_seq004_v001.py",
+      "name": "streaming_layer_dataclasses",
+      "seq": 4,
+      "ver": 1,
+      "date": "0315",
+      "desc": "pigeon_extracted_by_compiler",
+      "intent": "",
+      "tokens": 656,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_dataclasses_seq005_v001.py",
+      "name": "streaming_layer_dataclasses",
+      "seq": 5,
+      "ver": 1,
+      "date": "0315",
+      "desc": "pigeon_extracted_by_compiler",
+      "intent": "",
+      "tokens": 186,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_dataclasses_seq006_v001.py",
+      "name": "streaming_layer_dataclasses",
+      "seq": 6,
+      "ver": 1,
+      "date": "0315",
+      "desc": "pigeon_extracted_by_compiler",
+      "intent": "",
+      "tokens": 93,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_demo_functions_seq013_v001.py",
+      "name": "streaming_layer_demo_functions",
+      "seq": 13,
+      "ver": 1,
+      "date": "0315",
+      "desc": "pigeon_extracted_by_compiler",
+      "intent": "",
+      "tokens": 394,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_demo_functions_seq014_v001.py",
+      "name": "streaming_layer_demo_functions",
+      "seq": 14,
+      "ver": 1,
+      "date": "0315",
+      "desc": "pigeon_extracted_by_compiler",
+      "intent": "",
+      "tokens": 219,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_demo_simulate_seq014_v001.py",
+      "name": "streaming_layer_demo_simulate",
+      "seq": 14,
+      "ver": 1,
+      "date": "0315",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "",
+      "tokens": 193,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_demo_summary_seq013_v001.py",
+      "name": "streaming_layer_demo_summary",
+      "seq": 13,
+      "ver": 1,
+      "date": "0315",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "",
+      "tokens": 302,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_formatter_seq004_v001.py",
+      "name": "streaming_layer_formatter",
+      "seq": 4,
+      "ver": 1,
+      "date": "0315",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "",
+      "tokens": 483,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_http_handler_seq011_v001.py",
+      "name": "streaming_layer_http_handler",
+      "seq": 11,
+      "ver": 1,
+      "date": "0315",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "",
+      "tokens": 1104,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_metrics_seq007_v001.py",
+      "name": "streaming_layer_metrics",
+      "seq": 7,
+      "ver": 1,
+      "date": "0315",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "",
+      "tokens": 723,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_orchestrator_seq016_v001.py",
+      "name": "streaming_layer_orchestrator",
+      "seq": 16,
+      "ver": 1,
+      "date": "0315",
+      "desc": "pigeon_extracted_by_compiler",
+      "intent": "",
+      "tokens": 1191,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_orchestrator_seq017_v001.py",
+      "name": "streaming_layer_orchestrator",
+      "seq": 17,
+      "ver": 1,
+      "date": "0315",
+      "desc": "pigeon_extracted_by_compiler",
+      "intent": "",
+      "tokens": 82,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_replay_seq009_v001.py",
+      "name": "streaming_layer_replay",
+      "seq": 9,
+      "ver": 1,
+      "date": "0315",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "",
+      "tokens": 870,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "streaming_layer/streaming_layer_simulation_helpers_seq002_v001.py",
+      "name": "streaming_layer_simulation_helpers",
+      "seq": 2,
+      "ver": 1,
+      "date": "0315",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "",
+      "tokens": 141,
+      "history": [
+        {
+          "ver": 1,
+          "date": "0315",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "",
+          "action": "discovered"
+        }
+      ]
+    }
+  ]
+}

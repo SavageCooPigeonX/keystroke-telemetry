@@ -13,6 +13,14 @@ Usage:
     python codebase_auditor/run_pigeon_loop_seq009_v001.py folder_auditor.py
     python codebase_auditor/run_pigeon_loop_seq009_v001.py --all
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 009 | VER: v003 | 261 lines | ~2,772 tokens
+# DESC:   the_loop_refactor_until_pigeon
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import json, sys, argparse, traceback
 from pathlib import Path
 from datetime import datetime

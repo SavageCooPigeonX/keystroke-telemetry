@@ -3,6 +3,14 @@
 Decomposition, init writer, manifest writer, seq numbering.
 Split from main runner to stay under 50 lines.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 011 | VER: v003 | 51 lines | ~503 tokens
+# DESC:   helpers_for_run_clean_split
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import ast, re
 from pathlib import Path
 from datetime import datetime

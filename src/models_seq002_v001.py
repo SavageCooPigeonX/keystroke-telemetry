@@ -1,6 +1,14 @@
 # @pigeon: seq=002 | role=datamodels | depends=[timestamp_utils] | exports=[KeyEvent,MessageDraft] | tokens=~400
 """Dataclasses for keystroke events and message draft tracking."""
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 002 | VER: v001 | 31 lines | ~288 tokens
+# DESC:   dataclasses_for_keystroke_events_and
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 from dataclasses import dataclass, field
 
 

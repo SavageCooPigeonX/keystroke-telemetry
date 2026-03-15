@@ -18,6 +18,14 @@ Each state produces:
   3. A response strategy label (for logging/analytics)
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v001 | 117 lines | ~1,199 tokens
+# DESC:   cognitive_state_agent_behavior_adapter
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 VALID_STATES = frozenset([
     'abandoned', 'frustrated', 'hesitant', 'flow',
     'focused', 'restructuring', 'neutral'

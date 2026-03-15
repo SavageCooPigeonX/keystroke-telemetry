@@ -1,4 +1,12 @@
 """streaming_layer_demo_simulate_seq014_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 014 | VER: v001 | 23 lines | ~193 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import time
 
 def _run_demo_simulate_activity(server):

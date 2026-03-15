@@ -12,6 +12,14 @@ Capabilities:
 
 Zero LLM calls — pure keystroke reconstruction + heuristics.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 002 | VER: v001 | 218 lines | ~2,045 tokens
+# DESC:   detects_what_operators_meant_but
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import re
 from collections import defaultdict
 

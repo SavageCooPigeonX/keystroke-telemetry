@@ -3,6 +3,14 @@
 Creates each file with: docstring, imports, extracted code.
 Resolves which imports each file actually needs.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 003 | VER: v003 | 75 lines | ~684 tokens
+# DESC:   write_new_pigeon_compliant_files
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 from pigeon_compiler.pigeon_limits import PIGEON_MAX, PIGEON_RECOMMENDED

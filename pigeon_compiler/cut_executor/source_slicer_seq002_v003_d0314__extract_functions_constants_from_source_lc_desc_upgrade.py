@@ -3,6 +3,14 @@
 Given a list of names, extracts the exact source lines for each one.
 Returns a dict {name: source_lines_str} ready for writing.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 002 | VER: v003 | 47 lines | ~420 tokens
+# DESC:   extract_functions_constants_from_source
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 

@@ -3,6 +3,14 @@
 Runs the state extractor on folder_auditor.py and master_auditor.py,
 saves ether maps, then sends them to DeepSeek for cut plans.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 007 | VER: v003 | 59 lines | ~531 tokens
+# DESC:   self_test_pigeon_compiler_on
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import json, sys, os, traceback
 from pathlib import Path
 

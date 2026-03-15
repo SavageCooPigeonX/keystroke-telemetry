@@ -2,6 +2,14 @@
 
 Reads the new files, counts lines, lists exports, writes manifest.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 005 | VER: v003 | 61 lines | ~386 tokens
+# DESC:   generate_manifest_md_for_a
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from pathlib import Path
 from datetime import datetime
 

@@ -11,6 +11,14 @@ v0.2.0 fixes:
 - Bug 5: Cluster depth replaces binary clustering
 - Bug 6: Post-validation of estimated_lines vs actual
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 004 | VER: v003 | 251 lines | ~2,407 tokens
+# DESC:   build_and_send_deepseek_cut
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import json, sys
 from pathlib import Path
 

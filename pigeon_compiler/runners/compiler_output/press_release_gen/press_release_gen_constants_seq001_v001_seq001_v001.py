@@ -1,5 +1,13 @@
 """press_release_gen_constants_seq001_v001_seq001_v001.py — Pigeon-extracted by compiler."""
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v001 | 99 lines | ~580 tokens
+# DESC:   pigeon_extracted_by_compiler
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 PRESS_RELEASE_TEMPLATE = """# MAIF INTELLIGENCE REPORT
 ## {entity_name} — Drift Flags · Prediction · Void Map
 

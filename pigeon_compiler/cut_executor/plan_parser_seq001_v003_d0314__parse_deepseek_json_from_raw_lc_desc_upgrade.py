@@ -3,6 +3,14 @@
 Handles markdown code fences, trailing commas, and validation.
 Returns a clean dict or raises ValueError.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v003 | 36 lines | ~308 tokens
+# DESC:   parse_deepseek_json_from_raw
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import json, re
 
 

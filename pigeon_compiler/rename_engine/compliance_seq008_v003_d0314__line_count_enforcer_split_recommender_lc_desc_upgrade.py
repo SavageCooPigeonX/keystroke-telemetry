@@ -7,6 +7,14 @@ The enforcer doesn't just flag — it tells you WHERE to split:
 finds natural break points (class boundaries, function clusters,
 section comments) and recommends exact split targets.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 008 | VER: v003 | 207 lines | ~1,607 tokens
+# DESC:   line_count_enforcer_split_recommender
+# INTENT: desc_upgrade
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import ast
 import re
 from pathlib import Path

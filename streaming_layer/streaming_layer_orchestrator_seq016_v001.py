@@ -1,4 +1,12 @@
 """streaming_layer_orchestrator_seq016_v001.py — Pigeon-extracted by compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 016 | VER: v001 | 121 lines | ~1,191 tokens
+# DESC:   pigeon_extracted_by_compiler
+# INTENT: (none)
+# LAST:   2026-03-15 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from dataclasses import dataclass, field, asdict
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from src.logger_seq003_v001 import TelemetryLogger, SCHEMA_VERSION
