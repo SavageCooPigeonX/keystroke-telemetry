@@ -9,6 +9,7 @@ src/__pycache__/
 
 # Runtime artifacts
 operator_profile.md
+build/
 compiler_output/
 pigeon_compiler/rename_engine/rollback_logs/
 pigeon_compiler/rename_engine/heal_log.json
