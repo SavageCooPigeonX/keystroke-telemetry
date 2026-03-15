@@ -5,6 +5,7 @@ src/__pycache__/
 *.pyc
 .env
 .env.*
+!.env.example
 
 # Runtime artifacts
 operator_profile.md

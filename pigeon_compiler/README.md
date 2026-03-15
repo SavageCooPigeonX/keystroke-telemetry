@@ -50,9 +50,11 @@ Every team knows their files are too big. Every linter flags them. Every sprint 
 ## Installation
 
 ```bash
-git clone https://github.com/SavageCooPigeonX/pigeon-code-compiler.git
-cd pigeon-code-compiler
+git clone https://github.com/SavageCooPigeonX/keystroke-telemetry.git
+cd keystroke-telemetry
+pip install .
 pip install httpx  # Only external dependency (for DeepSeek API calls)
+cp .env.example .env
 export DEEPSEEK_API_KEY=your_key_here
 ```
 
@@ -60,10 +62,12 @@ export DEEPSEEK_API_KEY=your_key_here
 
 ## Quick Start
 
+Runner module filenames are versioned by pigeon. The examples below use the current checked-in names; if a later commit renames them, use the latest `run_*_seqNNN...` module in `pigeon_compiler/runners/`.
+
 ### Scan a file (Layer 1 only — free, no API key needed)
 
 ```bash
-python -m pigeon_compiler.runners.run_compiler_test_seq007_v001
+python -m pigeon_compiler.runners.run_compiler_test_seq007_v004_d0315__self_test_pigeon_compiler_on_lc_verify_pigeon_plugin
 ```
 
 Produces an Ether Map with:
@@ -76,7 +80,7 @@ Produces an Ether Map with:
 ### Full compilation (all 3 layers)
 
 ```bash
-python -m pigeon_compiler.runners.run_clean_split_seq010_v001 --target path/to/big_file.py
+python -m pigeon_compiler.runners.run_clean_split_seq010_v004_d0315__full_clean_pipeline_deepseek_plan_lc_verify_pigeon_plugin --target path/to/big_file.py
 ```
 
 Pipeline:
@@ -303,7 +307,7 @@ Layer 1 and Layer 3 are **zero cost** — pure Python standard library. Only the
 
 ## Technical Requirements
 
-- **Python**: 3.11+
+- **Python**: 3.10+
 - **External dependency**: `httpx` (for DeepSeek API calls in Layer 2 only)
 - **Layers 1 + 3**: Zero pip installs — stdlib only (`ast`, `pathlib`, `re`, `json`)
 - **Environment**: `DEEPSEEK_API_KEY` for Layer 2 operations
@@ -326,6 +330,6 @@ The first file it compiled was its own parent. It found 7 bugs in itself. It fix
 
 ## License
 
-Proprietary. Contact SavageCooPigeonX for licensing inquiries.
+Released under the MIT License. See [`../LICENSE`](../LICENSE).
 
 ✝️ **CHRIST IS KING** ✝️ **888**

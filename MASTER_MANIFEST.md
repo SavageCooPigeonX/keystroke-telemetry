@@ -11,7 +11,7 @@ Two developer tools packaged together:
 
 2. **Pigeon Code Compiler** — Autonomous code decomposition engine that enforces LLM-readable file sizes (≤50 lines), pigeon-code naming (`{name}_seq{NNN}_v{NNN}_d{MMDD}__{desc}_lc_{intent}.py`), and self-healing renames with rollback.
 
-**Stack**: Python 3.11+ stdlib (core) + httpx (compiler DeepSeek calls)
+**Stack**: Python 3.10+ stdlib (core) + httpx (compiler DeepSeek calls)
 **Browser**: Vanilla JS, zero dependencies
 **Schema**: `keystroke_telemetry/v2` — self-contained JSON blocks per event
 
@@ -27,24 +27,24 @@ keystroke-telemetry/
 │
 ├── src/                                           # Core telemetry library (Python)
 │   ├── __init__.py                                #   Package root — all exports
-│   ├── timestamp_utils_seq001_v001.py             #   ms-epoch utility
-│   ├── models_seq002_v001.py                      #   KeyEvent + MessageDraft dataclasses
-│   ├── logger_seq003_v001.py                      #   Core logger, v2 schema
-│   ├── context_budget_seq004_v001.py              #   LLM-aware file sizing scorer
-│   ├── drift_watcher_seq005_v001.py               #   Live drift detection for coding loops
-│   ├── resistance_bridge_seq006_v001.py           #   Telemetry → compiler resistance signal
-│   ├── streaming_layer_seq007_v001.py             #   956-line monolith (compiler test input)
-│   ├── operator_stats_seq008_v001.py              #   Self-growing operator profile
+│   ├── timestamp_utils_seq001_v*_d*__*.py         #   ms-epoch utility
+│   ├── models_seq002_v*_d*__*.py                  #   KeyEvent + MessageDraft dataclasses
+│   ├── logger_seq003_v*_d*__*.py                  #   Core logger, v2 schema
+│   ├── context_budget_seq004_v*_d*__*.py          #   LLM-aware file sizing scorer
+│   ├── drift_watcher_seq005_v*_d*__*.py           #   Live drift detection for coding loops
+│   ├── resistance_bridge_seq006_v*_d*__*.py       #   Telemetry → compiler resistance signal
+│   ├── streaming_layer_seq007_v*_d*__*.py         #   Compiler test input monolith
+│   ├── operator_stats_seq008_v*_d*__*.py          #   Self-growing operator profile
 │   │
 │   └── cognitive/                                 #   Cognitive intelligence layer
 │       ├── __init__.py                            #     Package root: re-exports all cognitive APIs
-│       ├── adapter_seq001_v001.py                 #     7 states → prompt injection + temp modifiers
-│       ├── unsaid_seq002_v001.py                  #     Reconstruct deleted/abandoned text
-│       └── drift_seq003_v001.py                   #     Cross-session drift + baseline store
+│       ├── adapter_seq001_v*_d*__*.py             #     7 states → prompt injection + temp modifiers
+│       ├── unsaid_seq002_v*_d*__*.py              #     Reconstruct deleted/abandoned text
+│       └── drift_seq003_v*_d*__*.py               #     Cross-session drift + baseline store
 │
 ├── streaming_layer/                               # Pigeon-compiled output from seq007
 │   ├── __init__.py                                #   Re-exports all public names
-│   ├── streaming_layer_*_v001.py                  #   20 extracted modules
+│   ├── streaming_layer_*_v*_d*__*.py              #   20 extracted modules
 │   └── MANIFEST.md                                #   Subfolder manifest + prompt box
 │
 ├── pigeon_compiler/                               # Autonomous code decomposition engine
@@ -127,22 +127,22 @@ Schema: `keystroke_telemetry/v2`. Auto-flush at 200 events. Abandon detection (3
 
 | File | Lines | Role | Exports |
 |------|-------|------|---------|
-| `timestamp_utils_seq001_v001.py` | 8 | Utility | `_now_ms` |
-| `models_seq002_v001.py` | 31 | Data models | `KeyEvent`, `MessageDraft` |
-| `logger_seq003_v001.py` | 143 | Core logger | `TelemetryLogger`, `SCHEMA_VERSION` |
-| `context_budget_seq004_v001.py` | 80 | Budget scorer | `score_context_budget`, `estimate_tokens` |
-| `drift_watcher_seq005_v001.py` | 95 | Drift detection | `DriftWatcher` |
-| `resistance_bridge_seq006_v001.py` | 111 | Compiler bridge | `HesitationAnalyzer` |
-| `streaming_layer_seq007_v001.py` | 956 | Monolith (test) | 8 classes, ~15 functions |
-| `operator_stats_seq008_v001.py` | ~200 | Self-growing profile | `OperatorStats` |
+| `timestamp_utils_seq001_v*_d*__*.py` | 8 | Utility | `_now_ms` |
+| `models_seq002_v*_d*__*.py` | 39 | Data models | `KeyEvent`, `MessageDraft` |
+| `logger_seq003_v*_d*__*.py` | 158 | Core logger | `TelemetryLogger`, `SCHEMA_VERSION` |
+| `context_budget_seq004_v*_d*__*.py` | 80 | Budget scorer | `score_context_budget`, `estimate_tokens` |
+| `drift_watcher_seq005_v*_d*__*.py` | 103 | Drift detection | `DriftWatcher` |
+| `resistance_bridge_seq006_v*_d*__*.py` | 119 | Compiler bridge | `HesitationAnalyzer` |
+| `streaming_layer_seq007_v*_d*__*.py` | 1150 | Monolith (test) | 8 classes, ~15 functions |
+| `operator_stats_seq008_v*_d*__*.py` | 394 | Self-growing profile | `OperatorStats` |
 
 ### src/cognitive/ — Intelligence Layer (3 modules)
 
 | File | Lines | Role | Exports |
 |------|-------|------|---------|
-| `adapter_seq001_v001.py` | 107 | State → prompt modifiers | `get_cognitive_modifier`, `VALID_STATES` |
-| `unsaid_seq002_v001.py` | 195 | Unsaid thought reconstruction | `extract_unsaid_thoughts` |
-| `drift_seq003_v001.py` | 215 | Cross-session drift detection | `BaselineStore`, `compute_baseline`, `detect_session_drift`, `build_cognitive_context` |
+| `adapter_seq001_v*_d*__*.py` | 107 | State → prompt modifiers | `get_cognitive_modifier`, `VALID_STATES` |
+| `unsaid_seq002_v*_d*__*.py` | 195 | Unsaid thought reconstruction | `extract_unsaid_thoughts` |
+| `drift_seq003_v*_d*__*.py` | 215 | Cross-session drift detection | `BaselineStore`, `compute_baseline`, `detect_session_drift`, `build_cognitive_context` |
 
 Seven cognitive states: `frustrated`, `hesitant`, `flow`, `focused`, `restructuring`, `abandoned`, `neutral`.
 
@@ -167,7 +167,7 @@ Seven cognitive states: `frustrated`, `hesitant`, `flow`, `focused`, `restructur
 |------|-------------|--------|
 | TEST 1 | Telemetry Logger — v2 schema, 3 turns, submit + discard | PASS |
 | TEST 2 | Context Budget Scorer — hard cap, budget, coupling | PASS |
-| TEST 3 | Drift Watcher — baseline + drift detection | PASS |
+| TEST 3 | Drift Watcher — baseline + versioned filename drift detection | PASS |
 | TEST 4 | Resistance Bridge — telemetry → compiler signal | PASS |
 
 ```bash

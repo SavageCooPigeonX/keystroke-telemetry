@@ -29,4 +29,4 @@ Homepage = "https://github.com/SavageCooPigeonX/keystroke-telemetry"
 Repository = "https://github.com/SavageCooPigeonX/keystroke-telemetry"
 
 [tool.setuptools.packages.find]
-include = ["pigeon_compiler*"]
+include = ["pigeon_compiler*", "src*"]

@@ -12,7 +12,10 @@ Two developer tools packaged together:
 ## Quick Start — Pigeon Code
 
 ```bash
-# Install
+# Install from a source checkout
+pip install .
+
+# Contributor workflow
 pip install -e .
 
 # Initialize in any git repo
@@ -22,6 +25,8 @@ pigeon status     # see codebase health
 pigeon heal       # bulk inject prompt boxes + rebuild manifests
 pigeon sessions   # view mutation audit trail
 ```
+
+If you plan to use DeepSeek-backed compiler flows, install `httpx`, then copy `.env.example` to `.env` or export `DEEPSEEK_API_KEY` in your shell before running Layer 2 commands.
 
 After `pigeon init`, every commit auto-renames touched pigeon files:
 
@@ -116,6 +121,8 @@ KeystrokeTelemetry.attach('chat-input', {
 const result = await KeystrokeTelemetry.onSubmit('chat-input', finalText);
 // result → { cognitive_state: 'frustrated', hesitation_score: 0.62 }
 ```
+
+For public deployment, point `flushEndpoint` at a same-origin HTTPS route protected by your application's existing auth/session layer.
 
 Every keystroke emits a `keystroke_telemetry/v2` JSON event with millisecond timing, cursor position, and buffer state. Events batch automatically (flush at 200 or on submit). Abandoned messages (30s blur timeout) are captured as `discard` events.
 
@@ -286,22 +293,22 @@ keystroke-telemetry/
 │   └── keystroke-telemetry.js              #   v2 IIFE, attach/onSubmit/getLastState
 │
 ├── src/                                    # Core telemetry library
-│   ├── timestamp_utils_seq001_v001.py      #   ms-epoch utility
-│   ├── models_seq002_v001.py               #   KeyEvent + MessageDraft dataclasses
-│   ├── logger_seq003_v001.py               #   Core telemetry logger, v2 schema
-│   ├── context_budget_seq004_v001.py       #   LLM-aware file sizing scorer
-│   ├── drift_watcher_seq005_v001.py        #   Live drift detection for coding loops
-│   ├── resistance_bridge_seq006_v001.py    #   Telemetry → pigeon compiler signal
-│   ├── streaming_layer_seq007_v001.py      #   956-line monolith (compiler test input)
-│   ├── operator_stats_seq008_v001.py       #   Self-growing operator profile
+│   ├── timestamp_utils_seq001_v*_d*__*.py  #   ms-epoch utility
+│   ├── models_seq002_v*_d*__*.py           #   KeyEvent + MessageDraft dataclasses
+│   ├── logger_seq003_v*_d*__*.py           #   Core telemetry logger, v2 schema
+│   ├── context_budget_seq004_v*_d*__*.py   #   LLM-aware file sizing scorer
+│   ├── drift_watcher_seq005_v*_d*__*.py    #   Live drift detection for coding loops
+│   ├── resistance_bridge_seq006_v*_d*__*.py#   Telemetry → pigeon compiler signal
+│   ├── streaming_layer_seq007_v*_d*__*.py  #   Compiler test input monolith
+│   ├── operator_stats_seq008_v*_d*__*.py   #   Self-growing operator profile
 │   ├── cognitive/                          #   Cognitive intelligence layer
-│   │   ├── adapter_seq001_v001.py          #     7 states → prompt injection + temp modifiers
-│   │   ├── unsaid_seq002_v001.py           #     Reconstruct deleted/abandoned text
-│   │   └── drift_seq003_v001.py            #     Cross-session drift detection + baselines
+│   │   ├── adapter_seq001_v*_d*__*.py      #     7 states → prompt injection + temp modifiers
+│   │   ├── unsaid_seq002_v*_d*__*.py       #     Reconstruct deleted/abandoned text
+│   │   └── drift_seq003_v*_d*__*.py        #     Cross-session drift detection + baselines
 │   └── __init__.py                         #   Package root (all exports)
 │
 ├── streaming_layer/                        # Pigeon-compiled output (20 files)
-│   ├── streaming_layer_*_v001.py           #   Constants, connection pool, aggregator, etc.
+│   ├── streaming_layer_*_v*_d*__*.py       #   Constants, connection pool, aggregator, etc.
 │   ├── __init__.py
 │   └── MANIFEST.md
 │
@@ -326,15 +333,17 @@ keystroke-telemetry/
 ```bash
 git clone https://github.com/SavageCooPigeonX/keystroke-telemetry.git
 cd keystroke-telemetry
+pip install .
 python test_all.py
+python test_public_release.py
 ```
 
-**Telemetry**: Zero external dependencies. Python 3.11+ stdlib only.
+**Telemetry**: Zero external dependencies. Python 3.10+ stdlib only.
 
-**Pigeon Compiler**: Requires `httpx` for DeepSeek API calls.
+**Pigeon Compiler**: Install `httpx` and provide `DEEPSEEK_API_KEY` (for example via `.env.example`) before using DeepSeek-backed commands.
 
 ---
 
 ## License
 
-Proprietary. Contact SavageCooPigeonX for licensing.
+Released under the MIT License. See [`LICENSE`](LICENSE).
