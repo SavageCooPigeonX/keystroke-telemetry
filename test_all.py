@@ -1,5 +1,5 @@
 """Full test — exercises logger, context budget, drift watcher, resistance bridge.
-Run from repo root: py test_all.py
+Run from repo root: python test_all.py
 """
 
 import json
@@ -168,9 +168,9 @@ def test_drift_watcher():
     watcher.snapshot()
     signals = watcher.check_and_print()
 
-    # logger_seq003 at ~130 lines should trigger OVER_HARD_CAP
+    # logger_seq003 should trigger OVER_HARD_CAP even as pigeon renames versions over time
     over_files = [s["file"] for s in signals if s["verdict"] == "OVER_HARD_CAP"]
-    assert "logger_seq003_v001.py" in over_files, \
+    assert any(name.startswith("logger_seq003_") for name in over_files), \
         f"Expected logger to be over hard cap, got: {over_files}"
     print("✓ Drift correctly flags logger_seq003 as OVER_HARD_CAP")
 
