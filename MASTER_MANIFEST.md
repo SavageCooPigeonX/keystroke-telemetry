@@ -18,7 +18,7 @@ Two developer tools packaged together:
 ---
 
 ## FOLDER TREE
-*Auto-synced by manifest_builder | 2026-03-16 02:24 UTC*
+*Auto-synced by manifest_builder | 2026-03-16 02:44 UTC*
 
 ```
 LinkRouter.AI/
@@ -37,12 +37,11 @@ LinkRouter.AI/
 +-- /demo_logs                           (2 files)
 +-- /documentation                       (1 files)
 +-- /pigeon_code.egg-info                (5 files)
-+-- /pigeon_compiler                     59 files, 9 sub | 75% compliant
-|   +-- /bones                           (5 files)
++-- /pigeon_compiler                     46 files, 7 sub | 72% compliant
 |   +-- /cut_executor                    (12 files)
 |   +-- /integrations                    (1 files)
 |   +-- /rename_engine                   (12 files)
-|   +-- /runners                         (17 files)
+|   +-- /runners                         (9 files)
 |   +-- /state_extractor                 (6 files)
 |   +-- /weakness_planner                (1 files)
 |
@@ -53,6 +52,7 @@ LinkRouter.AI/
 +-- /streaming_layer                     19 files | 100% compliant
 |
 +-- /stress_logs                         (2 files)
++-- /test_logs                           (34 files)
 ```
 
 ## MODULE INVENTORY
@@ -120,7 +120,7 @@ python test_all.py   # All 4 tests pass, zero dependencies
 
 ## OPERATOR KEYSTROKE TRAIL
 
-*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-16 02:24 UTC*
+*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-16 02:44 UTC*
 
 > **How to read**: Each row is one keystroke event from the operator.
 > Markers flag cognitive signals: ⏸ = long pause (>2s), 
@@ -129,69 +129,73 @@ python test_all.py   # All 4 tests pass, zero dependencies
 
 | # | Key | Event | Δms | Buffer | Markers |
 |---|-----|-------|----:|--------|---------|
-| 1 | `o` | insert | 47 | `Stream events into ring buf...` |  |
-| 2 | `n` | insert | 44 | `Stream events into ring buf...` |  |
-| 3 | ` ` | insert | 45 | `Stream events into ring buf...` |  |
-| 4 | `t` | insert | 32 | `Stream events into ring buf...` |  |
-| 5 | `h` | insert | 32 | `Stream events into ring buf...` |  |
-| 6 | `r` | insert | 42 | `Stream events into ring buf...` |  |
-| 7 | `e` | insert | 26 | `Stream events into ring buf...` |  |
-| 8 | `s` | insert | 34 | `Stream events into ring buf...` |  |
-| 9 | `h` | insert | 28 | `Stream events into ring buf...` |  |
-| 10 | `o` | insert | 40 | `Stream events into ring buf...` |  |
-| 11 | `l` | insert | 43 | `Stream events into ring buf...` |  |
-| 12 | `d` | insert | 27 | `Stream events into ring buf...` |  |
-| 13 | `,` | insert | 46 | `Stream events into ring buf...` |  |
-| 14 | ` ` | insert | 22 | `Stream events into ring buf...` |  |
-| 15 | `a` | insert | 29 | `Stream events into ring buf...` |  |
-| 16 | `g` | insert | 50 | `Stream events into ring buf...` |  |
-| 17 | `g` | insert | 44 | `Stream events into ring buf...` |  |
-| 18 | `r` | insert | 48 | `Stream events into ring buf...` |  |
-| 19 | `e` | insert | 27 | `Stream events into ring buf...` |  |
-| 20 | `g` | insert | 47 | `Stream events into ring buf...` |  |
-| 21 | `a` | insert | 29 | `Stream events into ring buf...` |  |
-| 22 | `t` | insert | 32 | `Stream events into ring buf...` |  |
-| 23 | `e` | insert | 33 | `Stream events into ring buf...` |  |
-| 24 | ` ` | insert | 39 | `Stream events into ring buf...` |  |
-| 25 | `p` | insert | 39 | `Stream events into ring buf...` |  |
-| 26 | `e` | insert | 31 | `Stream events into ring buf...` |  |
-| 27 | `r` | insert | 47 | `Stream events into ring buf...` |  |
-| 28 | ` ` | insert | 40 | `Stream events into ring buf...` |  |
-| 29 | `w` | insert | 45 | `Stream events into ring buf...` |  |
-| 30 | `i` | insert | 26 | `Stream events into ring buf...` |  |
-| 31 | `n` | insert | 33 | `Stream events into ring buf...` |  |
-| 32 | `d` | insert | 28 | `Stream events into ring buf...` |  |
-| 33 | `o` | insert | 48 | `Stream events into ring buf...` |  |
-| 34 | `q` | insert | 51 | `Stream events into ring buf...` |  |
-| 35 | `Backspace` | backspace | 27 | `Stream events into ring buf...` |  |
-| 36 | `w` | insert | 26 | `Stream events into ring buf...` |  |
-| 37 | `,` | insert | 35 | `Stream events into ring buf...` |  |
-| 38 | ` ` | insert | 82 | `Stream events into ring buf...` |  |
-| 39 | `e` | insert | 55 | `Stream events into ring buf...` |  |
-| 40 | `m` | insert | 27 | `Stream events into ring buf...` |  |
-| 41 | `i` | insert | 34 | `Stream events into ring buf...` |  |
-| 42 | `t` | insert | 35 | `Stream events into ring buf...` |  |
-| 43 | ` ` | insert | 38 | `Stream events into ring buf...` |  |
-| 44 | `m` | insert | 41 | `Stream events into ring buf...` |  |
-| 45 | `e` | insert | 30 | `Stream events into ring buf...` |  |
-| 46 | `t` | insert | 51 | `Stream events into ring buf...` |  |
-| 47 | `r` | insert | 42 | `Stream events into ring buf...` |  |
-| 48 | `i` | insert | 41 | `Stream events into ring buf...` |  |
-| 49 | `c` | insert | 36 | `Stream events into ring buf...` |  |
-| 50 | `s` | insert | 38 | `Stream events into ring buf...` |  |
+| 1 | `What is the meaning of life?` | paste | 0 | `What is the meaning of life?` |  |
+| 2 | `?` | backspace | 0 | `What is the meaning of life` | ⌫ burst |
+| 3 | `e` | backspace | 43 | `What is the meaning of lif` | ⌫ burst |
+| 4 | `f` | backspace | 41 | `What is the meaning of li` | ⌫ burst |
+| 5 | `i` | backspace | 46 | `What is the meaning of l` | ⌫ burst |
+| 6 | `l` | backspace | 40 | `What is the meaning of ` | ⌫ burst |
+| 7 | `4` | insert | 45 | `What is the meaning of 4` |  |
+| 8 | `2` | insert | 151 | `What is the meaning of 42` |  |
+| 9 | `?` | insert | 151 | `What is the meaning of 42?` |  |
+| 10 | `H` | insert | 0 | `H` |  |
+| 11 | `e` | insert | 151 | `He` |  |
+| 12 | `l` | insert | 151 | `Hel` |  |
+| 13 | `o` | insert | 156 | `Helo` |  |
+| 14 | ` ` | insert | 151 | `Helo ` |  |
+| 15 | `w` | insert | 152 | `Helo w` |  |
+| 16 | `r` | insert | 151 | `Helo wr` |  |
+| 17 | `l` | insert | 151 | `Helo wrl` |  |
+| 18 | `d` | insert | 150 | `Helo wrld` |  |
+| 19 | `d` | backspace | 152 | `Helo wrl` | ⌫ burst |
+| 20 | `l` | backspace | 41 | `Helo wr` | ⌫ burst |
+| 21 | `r` | backspace | 43 | `Helo w` | ⌫ burst |
+| 22 | `w` | backspace | 41 | `Helo ` | ⌫ burst |
+| 23 | `w` | insert | 41 | `Helo w` |  |
+| 24 | `o` | insert | 150 | `Helo wo` |  |
+| 25 | `r` | insert | 152 | `Helo wor` |  |
+| 26 | `l` | insert | 151 | `Helo worl` |  |
+| 27 | `d` | insert | 151 | `Helo world` |  |
+| 28 | `!` | insert | 151 | `Helo world!` |  |
+| 29 | `A` | insert | 0 | `A` |  |
+| 30 | `c` | insert | 151 | `Ac` |  |
+| 31 | `t` | insert | 151 | `Act` |  |
+| 32 | `u` | insert | 151 | `Actu` |  |
+| 33 | `a` | insert | 151 | `Actua` |  |
+| 34 | `l` | insert | 150 | `Actual` |  |
+| 35 | `l` | insert | 151 | `Actuall` |  |
+| 36 | `y` | insert | 151 | `Actually` |  |
+| 37 | ` ` | insert | 151 | `Actually ` |  |
+| 38 | `n` | insert | 150 | `Actually n` |  |
+| 39 | `v` | insert | 157 | `Actually nv` |  |
+| 40 | `m` | insert | 151 | `Actually nvm` |  |
+| 41 | `Ctrl+A+Del` | clear | 2252 | `` | ⏸ 2.3s |
+| 42 | `What is the meaning of life?` | paste | 0 | `What is the meaning of life?` |  |
+| 43 | `?` | backspace | 0 | `What is the meaning of life` | ⌫ burst |
+| 44 | `e` | backspace | 41 | `What is the meaning of lif` | ⌫ burst |
+| 45 | `f` | backspace | 41 | `What is the meaning of li` | ⌫ burst |
+| 46 | `i` | backspace | 40 | `What is the meaning of l` | ⌫ burst |
+| 47 | `l` | backspace | 41 | `What is the meaning of ` | ⌫ burst |
+| 48 | `4` | insert | 41 | `What is the meaning of 4` |  |
+| 49 | `2` | insert | 150 | `What is the meaning of 42` |  |
+| 50 | `?` | insert | 151 | `What is the meaning of 42?` |  |
 
 ### Recent message hesitation scores
 
 | Message | Submitted | Keys | Dels | Hesitation | State |
 |---------|-----------|-----:|-----:|-----------:|-------|
-| `8f857c219f` | ✓ | 50 | 0 | 0.000 | flow |
-| `3809d68036` | ✓ | 58 | 12 | 0.207 | restructuring |
-| `a8a773a867` | 🗑 | 36 | 0 | 0.000 | abandoned |
-| `bb736b0189` | ✓ | 73 | 1 | 0.014 | flow |
-| `3bd1f0afe1` | ✓ | 73 | 3 | 0.740 | frustrated |
-| `c5859e900e` | ✓ | 73 | 35 | 1.000 | frustrated |
-| `91a3db4af5` | 🗑 | 82 | 26 | 1.000 | abandoned |
-| `3533cb51c3` | ✓ | 88 | 1 | 0.011 | flow |
+| `0608eeb2ba` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `816b724b8c` | 🗑 | 13 | 0 | 0.575 | abandoned |
+| `b8965a20c5` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `093b44e6df` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `eac9de2d90` | 🗑 | 13 | 0 | 0.575 | abandoned |
+| `e6b7a4bad2` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `b4542e8aa0` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `206e4ec333` | 🗑 | 13 | 0 | 0.576 | abandoned |
+| `f13a376a02` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `23b32cb95d` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `36d5323c5b` | 🗑 | 13 | 0 | 0.560 | abandoned |
+| `413746084f` | ✓ | 9 | 5 | 0.556 | hesitant |
 
 
 ## CHANGELOG

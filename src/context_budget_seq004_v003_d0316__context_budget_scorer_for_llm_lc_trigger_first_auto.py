@@ -7,10 +7,10 @@ Pigeon compiler integration: feed this score into resistance analysis.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 004 | VER: v002 | 88 lines | ~671 tokens
+# SEQ: 004 | VER: v003 | 88 lines | ~680 tokens
 # DESC:   context_budget_scorer_for_llm
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
+# INTENT: trigger_first_auto
+# LAST:   2026-03-16 @ 4f01dbc
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 

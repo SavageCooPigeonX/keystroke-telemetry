@@ -190,5 +190,143 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 ### Full Module Index
 
 <!-- pigeon:auto-index -->
-*Not yet populated — auto-fills on next commit that touches any pigeon .py file*
+*Auto-updated 2026-03-16 — 82 modules tracked | 1 touched this commit*
+
+**pigeon_compiler/bones/** — 5 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `aim_utils_seq001*` | extracted from hush aim py | ~724 |
+| `core_formatters_seq001*` | extracted from hush chat core | ~1,291 |
+| `nl_parsers_seq001*` | extracted from hush nl detection | ~1,844 |
+| `pq_manifest_utils_seq001*` | extracted from hush pre query | ~879 |
+| `pq_search_utils_seq001*` | extracted from hush pre query | ~3,279 |
+
+**pigeon_compiler/cut_executor/** — 11 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `plan_parser_seq001*` | parse deepseek json from raw | ~371 |
+| `source_slicer_seq002*` | extract functions constants from source | ~486 |
+| `file_writer_seq003*` | write new pigeon compliant files | ~747 |
+| `import_fixer_seq004*` | update imports across the project | ~505 |
+| `manifest_writer_seq005*` | generate manifest md for a | ~448 |
+| `plan_validator_seq006*` | validate cut plan before execution | ~579 |
+| `init_writer_seq007*` | generate init py for split | ~361 |
+| `func_decomposer_seq008*` | decompose oversized functions via deepseek | ~639 |
+| `resplit_seq009*` | deterministic ast bin packing re | ~841 |
+| `resplit_binpack_seq010*` | bin packing file writing for | ~702 |
+| `resplit_helpers_seq011*` | shared helpers for re splitter | ~501 |
+
+**pigeon_compiler/integrations/** — 1 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `deepseek_adapter_seq001*` | deepseek api client | ~1,177 |
+
+**pigeon_compiler/rename_engine/** — 12 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `scanner_seq001*` | walk the project tree and | ~972 |
+| `planner_seq002*` | generate rename plan for non | ~919 |
+| `import_rewriter_seq003*` | rewrite all imports across the | ~1,750 |
+| `executor_seq004*` | execute file renames with rollback | ~712 |
+| `validator_seq005*` | post rename import validation | ~921 |
+| `run_rename_seq006*` | full rename pipeline runner | ~1,374 |
+| `manifest_builder_seq007*` | generate living manifest md per | ~2,927 |
+| `compliance_seq008*` | line count enforcer split recommender | ~1,673 |
+| `heal_seq009*` | self healing orchestrator | ~2,044 |
+| `run_heal_seq010*` | automated self healing pipeline | ~3,431 |
+| `nametag_seq011*` | encode file description intent into | ~1,924 |
+| `registry_seq012*` | local name registry for the | ~2,129 |
+
+**pigeon_compiler/runners/** — 8 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `run_compiler_test_seq007*` | self test pigeon compiler on | ~594 |
+| `run_deepseek_plans_seq008*` | phase 2 send ether maps | ~587 |
+| `run_pigeon_loop_seq009*` | the loop refactor until pigeon | ~2,836 |
+| `run_clean_split_seq010*` | full clean pipeline deepseek plan | ~2,226 |
+| `run_clean_split_helpers_seq011*` | helpers for run clean split | ~566 |
+| `run_clean_split_init_seq012*` | init manifest writers for clean | ~1,663 |
+| `manifest_bridge_seq013*` | update master manifest md after | ~1,016 |
+| `reaudit_diff_seq014*` | re audit with diff across | ~1,732 |
+
+**pigeon_compiler/runners/compiler_output/press_release_gen/** — 8 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `press_release_gen_constants_seq001_v001_seq001*` | pigeon extracted by compiler | ~641 |
+| `press_release_gen_template_builders_seq002_v001_seq001*` | pigeon extracted by compiler | ~626 |
+| `press_release_gen_template_helpers_seq004_v001_seq001*` | pigeon extracted by compiler | ~661 |
+| `press_release_gen_constants_seq001_v001_seq002*` | pigeon extracted by compiler | ~388 |
+| `press_release_gen_template_builders_seq002_v001_seq002*` | pigeon extracted by compiler | ~662 |
+| `press_release_gen_template_helpers_seq004_v001_seq002*` | pigeon extracted by compiler | ~296 |
+| `press_release_gen_template_builders_seq002_v001_seq003*` | pigeon extracted by compiler | ~296 |
+| `press_release_gen_template_key_findings_seq003*` | auto extracted by pigeon compiler | ~626 |
+
+**pigeon_compiler/state_extractor/** — 6 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `ast_parser_seq001*` | parse python file into function | ~734 |
+| `call_graph_seq002*` | build intra file call graph | ~847 |
+| `import_tracer_seq003*` | trace imports inbound and outbound | ~792 |
+| `shared_state_detector_seq004*` | detect module level shared state | ~618 |
+| `resistance_analyzer_seq005*` | classify why a file resists | ~1,037 |
+| `ether_map_builder_seq006*` | assemble full ether map json | ~697 |
+
+**pigeon_compiler/weakness_planner/** — 1 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `deepseek_plan_prompt_seq004*` | build and send deepseek cut | ~2,407 |
+
+**src/** — 8 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `timestamp_utils_seq001*` | millisecond epoch timestamp utility | ~112 |
+| `models_seq002*` | dataclasses for keystroke events and | ~351 |
+| `logger_seq003*` | core keystroke telemetry logger | ~1,462 |
+| `context_budget_seq004*` | context budget scorer for llm | ~680 |
+| `drift_watcher_seq005*` | drift detection for live llm | ~945 |
+| `resistance_bridge_seq006*` | bridge between keystroke telemetry and | ~1,195 |
+| `streaming_layer_seq007*` | monolithic live streaming interface for | ~10,080 |
+| `operator_stats_seq008*` | persistent markdown memory file | ~3,612 |
+
+**src/cognitive/** — 3 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `adapter_seq001*` | cognitive state agent behavior adapter | ~1,264 |
+| `unsaid_seq002*` | detects what operators meant but | ~2,108 |
+| `drift_seq003*` | tracks operator typing patterns across | ~2,262 |
+
+**streaming_layer/** — 19 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `streaming_layer_constants_seq001*` | auto extracted by pigeon compiler | ~261 |
+| `streaming_layer_simulation_helpers_seq002*` | auto extracted by pigeon compiler | ~204 |
+| `streaming_layer_dataclasses_seq004*` | pigeon extracted by compiler | ~717 |
+| `streaming_layer_formatter_seq004*` | auto extracted by pigeon compiler | ~546 |
+| `streaming_layer_connection_pool_seq005*` | auto extracted by pigeon compiler | ~899 |
+| `streaming_layer_dataclasses_seq005*` | pigeon extracted by compiler | ~247 |
+| `streaming_layer_aggregator_seq006*` | auto extracted by pigeon compiler | ~839 |
+| `streaming_layer_dataclasses_seq006*` | pigeon extracted by compiler | ~154 |
+| `streaming_layer_metrics_seq007*` | auto extracted by pigeon compiler | ~785 |
+| `streaming_layer_alerts_seq008*` | auto extracted by pigeon compiler | ~1,264 |
+| `streaming_layer_replay_seq009*` | auto extracted by pigeon compiler | ~932 |
+| `streaming_layer_dashboard_seq010*` | auto extracted by pigeon compiler | ~845 |
+| `streaming_layer_http_handler_seq011*` | auto extracted by pigeon compiler | ~1,167 |
+| `streaming_layer_demo_functions_seq013*` | pigeon extracted by compiler | ~456 |
+| `streaming_layer_demo_summary_seq013*` | auto extracted by pigeon compiler | ~365 |
+| `streaming_layer_demo_functions_seq014*` | pigeon extracted by compiler | ~280 |
+| `streaming_layer_demo_simulate_seq014*` | auto extracted by pigeon compiler | ~256 |
+| `streaming_layer_orchestrator_seq016*` | pigeon extracted by compiler | ~1,253 |
+| `streaming_layer_orchestrator_seq017*` | pigeon extracted by compiler | ~142 |
+
 <!-- /pigeon:auto-index -->

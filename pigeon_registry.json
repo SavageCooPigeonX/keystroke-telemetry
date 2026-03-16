@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-16T02:24:05.629379+00:00",
+  "generated": "2026-03-16T02:44:32.474155+00:00",
   "total": 82,
   "files": [
     {
@@ -1416,14 +1416,14 @@
       ]
     },
     {
-      "path": "src/context_budget_seq004_v002_d0315__context_budget_scorer_for_llm_lc_verify_pigeon_plugin.py",
+      "path": "src/context_budget_seq004_v003_d0316__context_budget_scorer_for_llm_lc_trigger_first_auto.py",
       "name": "context_budget",
       "seq": 4,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0316",
       "desc": "context_budget_scorer_for_llm",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 671,
+      "intent": "trigger_first_auto",
+      "tokens": 680,
       "history": [
         {
           "ver": 1,
@@ -1439,6 +1439,14 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 671
+        },
+        {
+          "ver": 3,
+          "date": "0316",
+          "desc": "context_budget_scorer_for_llm",
+          "intent": "trigger_first_auto",
+          "action": "mutated",
+          "tokens": 680
         }
       ]
     },
