@@ -184,3 +184,11 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 - **Don't delete monolith originals yet** — `src/operator_stats_seq008*`, `src/cognitive/unsaid_seq002*`, `src/cognitive/drift_seq003*` are still imported in some places. Verify before removing.
 - **`streaming_layer_seq007*` is intentionally left as a 1150-line test harness** — drift_watcher tests flag it as OVER_HARD_CAP on purpose.
 - **DeepSeek timeout** — phase 2 LLM calls can timeout; retry with a fresh call, don't loop.
+
+---
+
+### Full Module Index
+
+<!-- pigeon:auto-index -->
+*Not yet populated — auto-fills on next commit that touches any pigeon .py file*
+<!-- /pigeon:auto-index -->
