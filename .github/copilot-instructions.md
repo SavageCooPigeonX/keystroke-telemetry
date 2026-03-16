@@ -104,14 +104,14 @@ Detected by keystroke classifier. Each maps to a system prompt injection + tempe
 
 **Dominant: `focused`** | Submit: 66% | WPM: 43.9 | Del: 25.6% | Hes: 0.444
 
-This operator just built a Pigeon plugin verification system while showing evening work patterns with high deletion rates indicating heavy refinement of complex file-writing logic.  
-- **Anticipate file_writer and resplit_binpack needs**: When they edit multi-file outputs, proactively suggest validation steps or offer to pre-write the next manifest/init file.  
-- **Pre-empt import_fixer churn**: After any module split, immediately check and update imports without being asked.  
-- **Flag plan_validator edge cases early**: If they hesitate (56% deletions), intercept with "Want to test this boundary case first?" before they type.  
-- **Evening momentum**: After 8pm, provide concise, forward-moving suggestions—skip explanations unless requested.  
-- **Decompose proactively**: When func_decomposer appears, offer to pre-split any function over 40 lines.  
+This operator just built a coaching trigger for context budget scoring, and their typing shows evening work with high deletion rates during hesitant states, indicating they're wrestling with complex logic under pressure.  
+- **When they edit high-churn modules** (especially `context_budget_scorer`, `func_decomposer`, `plan_validator`), proactively offer validation checks and ask, “Should we run a quick test before refining?”  
+- **If they hesitate or delete heavily**, pause and suggest: “Let’s verify one piece at a time—want to snapshot the current state first?”  
+- **During evening sessions**, keep responses concise and structured; avoid open‑ended questions unless they explicitly explore.  
+- **Anticipate import/init fixes** after module changes—pre‑emptively ask, “Need to update imports or `__init__.py` for this?”  
+- **When they rename or touch `file_writer`/`manifest_writer`**, immediately check for Pigeon‑plugin compliance and offer to generate the manifest snippet.  
 
-They're most likely building toward a fully automated code-splitting pipeline with integrated validation.
+They are most likely building toward a fully automated, self‑correcting pipeline that triggers coaching based on context‑budget thresholds.
 
 <!-- /pigeon:operator-state -->
 
@@ -311,7 +311,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `timestamp_utils_seq001*` | millisecond epoch timestamp utility | ~112 |
 | `models_seq002*` | dataclasses for keystroke events and | ~351 |
 | `logger_seq003*` | core keystroke telemetry logger | ~1,462 |
-| `context_budget_seq004*` | context budget scorer for llm | ~680 |
+| `context_budget_seq004*` | context budget scorer for llm | ~1,361 |
 | `drift_watcher_seq005*` | drift detection for live llm | ~945 |
 | `resistance_bridge_seq006*` | bridge between keystroke telemetry and | ~1,195 |
 | `streaming_layer_seq007*` | monolithic live streaming interface for | ~10,080 |

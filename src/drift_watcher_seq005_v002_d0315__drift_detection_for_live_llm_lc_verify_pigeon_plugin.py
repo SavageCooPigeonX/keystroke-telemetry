@@ -17,7 +17,7 @@ an LLM agent can act on or ignore.
 import json
 import os
 from pathlib import Path
-from src.context_budget_seq004_v004_d0316__context_budget_scorer_for_llm_lc_trigger_operator_state import score_context_budget, estimate_tokens
+from src.context_budget_seq004_v005_d0316__context_budget_scorer_for_llm_lc_fire_full_coaching import score_context_budget, estimate_tokens
 
 # Inline dependency line-count lookup (avoids AST — just wc -l)
 def _line_count(path: Path) -> int:

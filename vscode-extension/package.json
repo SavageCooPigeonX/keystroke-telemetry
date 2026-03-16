@@ -7,7 +7,7 @@
   "repository": "https://github.com/SavageCooPigeonX/keystroke-telemetry",
   "engines": { "vscode": "^1.90.0" },
   "categories": ["AI", "Other"],
-  "activationEvents": [],
+  "activationEvents": ["onStartupFinished", "onCommand:pigeon.openChat"],
   "main": "./out/extension",
   "contributes": {
     "commands": [
@@ -25,9 +25,9 @@
     ]
   },
   "scripts": {
-    "compile": "node_modules/.bin/tsc -p ./",
-    "watch": "node_modules/.bin/tsc -watch -p ./",
-    "package": "node_modules/.bin/vsce package"
+    "compile": "node_modules\\.bin\\tsc.cmd -p ./",
+    "watch": "node_modules\\.bin\\tsc.cmd -watch -p ./",
+    "package": "node_modules\\.bin\\vsce.cmd package"
   },
   "devDependencies": {
     "@types/vscode": "^1.90.0",
