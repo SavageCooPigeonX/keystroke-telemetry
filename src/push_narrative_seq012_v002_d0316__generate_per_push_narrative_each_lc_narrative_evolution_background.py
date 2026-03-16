@@ -1,5 +1,13 @@
 """Generate per-push narrative: each changed file speaks as its own agent."""
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 012 | VER: v002 | 146 lines | ~1,293 tokens
+# DESC:   generate_per_push_narrative_each
+# INTENT: narrative_evolution_background
+# LAST:   2026-03-16 @ ebc4aef
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 import json
 import os
 import urllib.request
