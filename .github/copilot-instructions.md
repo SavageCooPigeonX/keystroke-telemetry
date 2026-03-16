@@ -100,8 +100,14 @@ Detected by keystroke classifier. Each maps to a system prompt injection + tempe
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Not yet populated — fires on next pigeon commit*
+*Auto-updated 2026-03-16 · 3 message(s) in profile*
 
+**Dominant: `focused`** | Submit: 66% | WPM: 47.8 | Del: 25.6% | Hes: 0.443
+
+**Behavioral tunes for this session:**
+- **focused** → thorough and structured, match effort level
+- Hesitation > 0.4 → uncertain operator; proactively offer alternatives or examples
+- Active hours: 20:00(3)
 <!-- /pigeon:operator-state -->
 
 ---

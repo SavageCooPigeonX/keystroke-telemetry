@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-16T02:44:32.474155+00:00",
+  "generated": "2026-03-16T03:21:21.740104+00:00",
   "total": 82,
   "files": [
     {
@@ -1416,13 +1416,13 @@
       ]
     },
     {
-      "path": "src/context_budget_seq004_v003_d0316__context_budget_scorer_for_llm_lc_trigger_first_auto.py",
+      "path": "src/context_budget_seq004_v004_d0316__context_budget_scorer_for_llm_lc_trigger_operator_state.py",
       "name": "context_budget",
       "seq": 4,
-      "ver": 3,
+      "ver": 4,
       "date": "0316",
       "desc": "context_budget_scorer_for_llm",
-      "intent": "trigger_first_auto",
+      "intent": "trigger_operator_state",
       "tokens": 680,
       "history": [
         {
@@ -1445,6 +1445,14 @@
           "date": "0316",
           "desc": "context_budget_scorer_for_llm",
           "intent": "trigger_first_auto",
+          "action": "mutated",
+          "tokens": 680
+        },
+        {
+          "ver": 4,
+          "date": "0316",
+          "desc": "context_budget_scorer_for_llm",
+          "intent": "trigger_operator_state",
           "action": "mutated",
           "tokens": 680
         }
