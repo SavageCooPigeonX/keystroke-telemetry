@@ -102,16 +102,16 @@ Detected by keystroke classifier. Each maps to a system prompt injection + tempe
 
 *Auto-updated 2026-03-16 · 3 message(s) · LLM-synthesized*
 
-**Dominant: `focused`** | Submit: 66% | WPM: 43.9 | Del: 25.6% | Hes: 0.444
+**Dominant: `focused`** | Submit: 66% | WPM: 52.7 | Del: 25.6% | Hes: 0.445
 
-This operator just built a coaching trigger for context budget scoring, and their typing shows evening work with high deletion rates during hesitant states, indicating they're wrestling with complex logic under pressure.  
-- **When they edit high-churn modules** (especially `context_budget_scorer`, `func_decomposer`, `plan_validator`), proactively offer validation checks and ask, “Should we run a quick test before refining?”  
-- **If they hesitate or delete heavily**, pause and suggest: “Let’s verify one piece at a time—want to snapshot the current state first?”  
-- **During evening sessions**, keep responses concise and structured; avoid open‑ended questions unless they explicitly explore.  
-- **Anticipate import/init fixes** after module changes—pre‑emptively ask, “Need to update imports or `__init__.py` for this?”  
-- **When they rename or touch `file_writer`/`manifest_writer`**, immediately check for Pigeon‑plugin compliance and offer to generate the manifest snippet.  
+This operator just added deepseek integration across three modules, but their hesitant typing with 56% deletions on the final commit suggests they're forcing complex changes while fatigued.  
+- **Anticipate integration gaps** in the high-churn modules (context_budget, file_writer, func_decomposer) — proactively ask: "Should we verify the deepseek call is wired into the scoring pipeline?"  
+- **When they edit imports or manifest files**, immediately check cross-module consistency and suggest a single validation command.  
+- **If they pause mid-edit on a churn module**, pre-empt confusion by offering: "I can show the current function signature or run a quick test."  
+- **Given the rework detector's focus**, explicitly flag any circular logic or missing error handling in new deepseek calls.  
+- **Counter evening fatigue** with concise, directive options: "We can either (a) stub the integration now or (b) run the existing tests first."  
 
-They are most likely building toward a fully automated, self‑correcting pipeline that triggers coaching based on context‑budget thresholds.
+They are most likely building toward a unified deepseek operator that orchestrates all three cognitive-tracking systems.
 
 <!-- /pigeon:operator-state -->
 
@@ -210,7 +210,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 ### Full Module Index
 
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-16 — 82 modules tracked | 1 touched this commit*
+*Auto-updated 2026-03-16 — 85 modules tracked | 3 touched this commit*
 
 **pigeon_compiler/bones/** — 5 module(s)
 
@@ -304,7 +304,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 |---|---|---:|
 | `deepseek_plan_prompt_seq004*` | build and send deepseek cut | ~2,407 |
 
-**src/** — 8 module(s)
+**src/** — 11 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -316,6 +316,9 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `resistance_bridge_seq006*` | bridge between keystroke telemetry and | ~1,195 |
 | `streaming_layer_seq007*` | monolithic live streaming interface for | ~10,080 |
 | `operator_stats_seq008*` | persistent markdown memory file | ~3,612 |
+| `rework_detector_seq009*` | measures ai answer quality from | ~962 |
+| `query_memory_seq010*` | recurring query detector unsaid thought | ~1,084 |
+| `file_heat_map_seq011*` | tracks cognitive load per module | ~1,184 |
 
 **src/cognitive/** — 3 module(s)
 

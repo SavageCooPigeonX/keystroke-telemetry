@@ -10,9 +10,11 @@ Both feed into the coaching prompt via load_query_memory().
 Zero LLM calls.
 """
 # ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v001 | src/
-# DESC:   recurring_query_and_unsaid_integrator
-# INTENT: build_deep_operator_profile
+# SEQ: 010 | VER: v002 | 118 lines | ~1,084 tokens
+# DESC:   recurring_query_detector_unsaid_thought
+# INTENT: add_deep_operator
+# LAST:   2026-03-16 @ 2c562df
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 from __future__ import annotations
 import json

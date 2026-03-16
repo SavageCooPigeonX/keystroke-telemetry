@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-16T04:54:49.014915+00:00",
-  "total": 82,
+  "generated": "2026-03-16T05:33:13.699954+00:00",
+  "total": 85,
   "files": [
     {
       "path": "pigeon_compiler/bones/aim_utils_seq001_v003_d0314__extracted_from_hush_aim_py_lc_desc_upgrade.py",
@@ -1494,6 +1494,26 @@
       ]
     },
     {
+      "path": "src/file_heat_map_seq011_v002_d0316__tracks_cognitive_load_per_module_lc_add_deep_operator.py",
+      "name": "file_heat_map",
+      "seq": 11,
+      "ver": 2,
+      "date": "0316",
+      "desc": "tracks_cognitive_load_per_module",
+      "intent": "add_deep_operator",
+      "tokens": 1184,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0316",
+          "desc": "tracks_cognitive_load_per_module",
+          "intent": "add_deep_operator",
+          "tokens": 1184,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "src/logger_seq003_v002_d0315__core_keystroke_telemetry_logger_lc_verify_pigeon_plugin.py",
       "name": "logger",
       "seq": 3,
@@ -1575,6 +1595,26 @@
       ]
     },
     {
+      "path": "src/query_memory_seq010_v002_d0316__recurring_query_detector_unsaid_thought_lc_add_deep_operator.py",
+      "name": "query_memory",
+      "seq": 10,
+      "ver": 2,
+      "date": "0316",
+      "desc": "recurring_query_detector_unsaid_thought",
+      "intent": "add_deep_operator",
+      "tokens": 1084,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0316",
+          "desc": "recurring_query_detector_unsaid_thought",
+          "intent": "add_deep_operator",
+          "tokens": 1084,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "src/resistance_bridge_seq006_v002_d0315__bridge_between_keystroke_telemetry_and_lc_verify_pigeon_plugin.py",
       "name": "resistance_bridge",
       "seq": 6,
@@ -1598,6 +1638,26 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 1195
+        }
+      ]
+    },
+    {
+      "path": "src/rework_detector_seq009_v002_d0316__measures_ai_answer_quality_from_lc_add_deep_operator.py",
+      "name": "rework_detector",
+      "seq": 9,
+      "ver": 2,
+      "date": "0316",
+      "desc": "measures_ai_answer_quality_from",
+      "intent": "add_deep_operator",
+      "tokens": 962,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0316",
+          "desc": "measures_ai_answer_quality_from",
+          "intent": "add_deep_operator",
+          "tokens": 962,
+          "action": "registered"
         }
       ]
     },

@@ -8,9 +8,11 @@ the coaching prompt so the AI learns its own failure patterns.
 Zero LLM calls. Pure signal math.
 """
 # ── pigeon ────────────────────────────────────
-# SEQ: 009 | VER: v001 | src/
-# DESC:   post_response_rework_detector
-# INTENT: build_deep_operator_profile
+# SEQ: 009 | VER: v002 | 102 lines | ~962 tokens
+# DESC:   measures_ai_answer_quality_from
+# INTENT: add_deep_operator
+# LAST:   2026-03-16 @ 2c562df
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 from __future__ import annotations
 import json
