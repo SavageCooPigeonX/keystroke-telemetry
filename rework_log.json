@@ -1,0 +1,10 @@
+[
+  {
+    "ts": "2026-03-16T05:42:44.709513+00:00",
+    "verdict": "miss",
+    "rework_score": 0.573,
+    "del_ratio": 0.818,
+    "wpm": 26.7,
+    "query_hint": "explain resistance bridge signal scoring"
+  }
+]

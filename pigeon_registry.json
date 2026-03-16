@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-16T05:33:13.699954+00:00",
+  "generated": "2026-03-16T05:42:59.319654+00:00",
   "total": 85,
   "files": [
     {
@@ -1494,14 +1494,14 @@
       ]
     },
     {
-      "path": "src/file_heat_map_seq011_v002_d0316__tracks_cognitive_load_per_module_lc_add_deep_operator.py",
+      "path": "src/file_heat_map_seq011_v003_d0316__tracks_cognitive_load_per_module_lc_fix_deep_signal.py",
       "name": "file_heat_map",
       "seq": 11,
-      "ver": 2,
+      "ver": 3,
       "date": "0316",
       "desc": "tracks_cognitive_load_per_module",
-      "intent": "add_deep_operator",
-      "tokens": 1184,
+      "intent": "fix_deep_signal",
+      "tokens": 1324,
       "history": [
         {
           "ver": 2,
@@ -1510,6 +1510,14 @@
           "intent": "add_deep_operator",
           "tokens": 1184,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0316",
+          "desc": "tracks_cognitive_load_per_module",
+          "intent": "fix_deep_signal",
+          "action": "mutated",
+          "tokens": 1324
         }
       ]
     },
@@ -1642,14 +1650,14 @@
       ]
     },
     {
-      "path": "src/rework_detector_seq009_v002_d0316__measures_ai_answer_quality_from_lc_add_deep_operator.py",
+      "path": "src/rework_detector_seq009_v003_d0316__measures_ai_answer_quality_from_lc_fix_deep_signal.py",
       "name": "rework_detector",
       "seq": 9,
-      "ver": 2,
+      "ver": 3,
       "date": "0316",
       "desc": "measures_ai_answer_quality_from",
-      "intent": "add_deep_operator",
-      "tokens": 962,
+      "intent": "fix_deep_signal",
+      "tokens": 1024,
       "history": [
         {
           "ver": 2,
@@ -1658,6 +1666,14 @@
           "intent": "add_deep_operator",
           "tokens": 962,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0316",
+          "desc": "measures_ai_answer_quality_from",
+          "intent": "fix_deep_signal",
+          "action": "mutated",
+          "tokens": 1024
         }
       ]
     },

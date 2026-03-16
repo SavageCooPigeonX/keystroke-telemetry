@@ -100,18 +100,18 @@ Detected by keystroke classifier. Each maps to a system prompt injection + tempe
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-16 · 3 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-16 · 1 message(s) · LLM-synthesized*
 
-**Dominant: `focused`** | Submit: 66% | WPM: 52.7 | Del: 25.6% | Hes: 0.445
+**Dominant: `abandoned`** | Submit: 0% | WPM: 25.3 | Del: 26.5% | Hes: 0.309
 
-This operator just added deepseek integration across three modules, but their hesitant typing with 56% deletions on the final commit suggests they're forcing complex changes while fatigued.  
-- **Anticipate integration gaps** in the high-churn modules (context_budget, file_writer, func_decomposer) — proactively ask: "Should we verify the deepseek call is wired into the scoring pipeline?"  
-- **When they edit imports or manifest files**, immediately check cross-module consistency and suggest a single validation command.  
-- **If they pause mid-edit on a churn module**, pre-empt confusion by offering: "I can show the current function signature or run a quick test."  
-- **Given the rework detector's focus**, explicitly flag any circular logic or missing error handling in new deepseek calls.  
-- **Counter evening fatigue** with concise, directive options: "We can either (a) stub the integration now or (b) run the existing tests first."  
+This operator just built a fix for deep signal tracking in cognitive load and AI answer quality modules, but their abandoned typing with high deletion and hesitation reveals late-night frustration while debugging subtle integration issues.  
+- **Anticipate deep signal debugging**: When they touch `file_heat_map_seq011` or `rework_detector_seq009`, proactively surface related imports, state variables, and recent changes to adjacent modules to prevent context-switching.  
+- **Preempt churn in registry modules**: Before they edit `context_budget`, `file_writer`, or `func_decomposer`, explicitly list the last three changes to each to avoid rework loops.  
+- **Counter high rework rate**: For any query about AI answer quality or cognitive load, first validate the deep signal flow against the fixed versions, then offer a one-line verification snippet.  
+- **Reduce hesitation on heavy edits**: If they start typing slowly or deleting heavily, immediately scaffold a stepwise debug plan—extract the current state, compare to expected, then suggest a minimal diff.  
+- **Flag integration pain points**: When `import_fixer` or `plan_validator` appear, pre-load the project’s module dependency map to catch cross-file inconsistencies early.  
 
-They are most likely building toward a unified deepseek operator that orchestrates all three cognitive-tracking systems.
+They are most likely building toward a unified deep signal validator that reduces manual debugging across the cognitive load and answer quality pipelines.
 
 <!-- /pigeon:operator-state -->
 
@@ -210,7 +210,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 ### Full Module Index
 
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-16 — 85 modules tracked | 3 touched this commit*
+*Auto-updated 2026-03-16 — 85 modules tracked | 2 touched this commit*
 
 **pigeon_compiler/bones/** — 5 module(s)
 
@@ -316,9 +316,9 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `resistance_bridge_seq006*` | bridge between keystroke telemetry and | ~1,195 |
 | `streaming_layer_seq007*` | monolithic live streaming interface for | ~10,080 |
 | `operator_stats_seq008*` | persistent markdown memory file | ~3,612 |
-| `rework_detector_seq009*` | measures ai answer quality from | ~962 |
+| `rework_detector_seq009*` | measures ai answer quality from | ~1,024 |
 | `query_memory_seq010*` | recurring query detector unsaid thought | ~1,084 |
-| `file_heat_map_seq011*` | tracks cognitive load per module | ~1,184 |
+| `file_heat_map_seq011*` | tracks cognitive load per module | ~1,324 |
 
 **src/cognitive/** — 3 module(s)
 

@@ -1,0 +1,152 @@
+{
+  "context_budget": {
+    "samples": [
+      {
+        "ts": "2026-03-16T05:42:44.221701+00:00",
+        "hes": 0.242,
+        "wpm": 26.0,
+        "state": "neutral",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T05:42:44.737667+00:00",
+        "hes": 0.271,
+        "wpm": 26.7,
+        "state": "restructuring",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-03-16T05:42:45.203451+00:00",
+        "hes": 0.235,
+        "wpm": 25.4,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T05:42:45.643144+00:00",
+        "hes": 0.235,
+        "wpm": 25.4,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T05:42:46.067053+00:00",
+        "hes": 0.235,
+        "wpm": 25.4,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T05:42:46.475166+00:00",
+        "hes": 0.309,
+        "wpm": 25.3,
+        "state": "abandoned",
+        "rework": "ok"
+      }
+    ],
+    "avg_hes": 0.255,
+    "avg_wpm": 25.7,
+    "miss_count": 1,
+    "total": 6
+  },
+  "import_rewriter": {
+    "samples": [
+      {
+        "ts": "2026-03-16T05:42:44.221735+00:00",
+        "hes": 0.242,
+        "wpm": 26.0,
+        "state": "neutral",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T05:42:44.737708+00:00",
+        "hes": 0.271,
+        "wpm": 26.7,
+        "state": "restructuring",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-03-16T05:42:45.203485+00:00",
+        "hes": 0.235,
+        "wpm": 25.4,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T05:42:45.643182+00:00",
+        "hes": 0.235,
+        "wpm": 25.4,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T05:42:46.067092+00:00",
+        "hes": 0.235,
+        "wpm": 25.4,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T05:42:46.475200+00:00",
+        "hes": 0.309,
+        "wpm": 25.3,
+        "state": "abandoned",
+        "rework": "ok"
+      }
+    ],
+    "avg_hes": 0.255,
+    "avg_wpm": 25.7,
+    "miss_count": 1,
+    "total": 6
+  },
+  "file_writer": {
+    "samples": [
+      {
+        "ts": "2026-03-16T05:42:44.221749+00:00",
+        "hes": 0.242,
+        "wpm": 26.0,
+        "state": "neutral",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T05:42:44.737725+00:00",
+        "hes": 0.271,
+        "wpm": 26.7,
+        "state": "restructuring",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-03-16T05:42:45.203497+00:00",
+        "hes": 0.235,
+        "wpm": 25.4,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T05:42:45.643196+00:00",
+        "hes": 0.235,
+        "wpm": 25.4,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T05:42:46.067108+00:00",
+        "hes": 0.235,
+        "wpm": 25.4,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T05:42:46.475216+00:00",
+        "hes": 0.309,
+        "wpm": 25.3,
+        "state": "abandoned",
+        "rework": "ok"
+      }
+    ],
+    "avg_hes": 0.255,
+    "avg_wpm": 25.7,
+    "miss_count": 1,
+    "total": 6
+  }
+}

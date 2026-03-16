@@ -18,18 +18,22 @@ Two developer tools packaged together:
 ---
 
 ## FOLDER TREE
-*Auto-synced by manifest_builder | 2026-03-16 05:33 UTC*
+*Auto-synced by manifest_builder | 2026-03-16 05:43 UTC*
 
 ```
 LinkRouter.AI/
 +-- _test_import_rewriter_patch.py
++-- deep_test.py
++-- file_heat_map.json
 +-- MANIFEST.md
 +-- MASTER_MANIFEST.md
 +-- operator_coaching.md
 +-- operator_profile.md
 +-- pigeon_registry.json
 +-- pyproject.toml
++-- query_memory.json
 +-- README.md
++-- rework_log.json
 +-- stress_test.py
 +-- test_all.py
 +-- test_public_release.py
@@ -125,7 +129,7 @@ py test_all.py   # All 4 tests pass, zero dependencies
 
 ## OPERATOR KEYSTROKE TRAIL
 
-*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-16 05:33 UTC*
+*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-16 05:43 UTC*
 
 > **How to read**: Each row is one keystroke event from the operator.
 > Markers flag cognitive signals: ⏸ = long pause (>2s), 

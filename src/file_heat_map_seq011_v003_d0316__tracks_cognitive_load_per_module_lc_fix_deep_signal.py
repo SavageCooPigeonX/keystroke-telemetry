@@ -8,11 +8,11 @@ struggles before they even ask.
 Reads pigeon_registry.json + rework_log.json. Zero LLM calls.
 """
 # ── pigeon ────────────────────────────────────
-# SEQ: 011 | VER: v002 | 127 lines | ~1,184 tokens
+# SEQ: 011 | VER: v003 | 139 lines | ~1,324 tokens
 # DESC:   tracks_cognitive_load_per_module
-# INTENT: add_deep_operator
-# LAST:   2026-03-16 @ 2c562df
-# SESSIONS: 1
+# INTENT: fix_deep_signal
+# LAST:   2026-03-16 @ 1c7d33d
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 from __future__ import annotations
 import json

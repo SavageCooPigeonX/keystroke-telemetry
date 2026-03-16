@@ -225,7 +225,7 @@ def main():
     # â”€â”€ Rework detection â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     rework_verdict = 'ok'
     try:
-        from src.rework_detector_seq009_v002_d0316__measures_ai_answer_quality_from_lc_add_deep_operator import score_rework, record_rework
+        from src.rework_detector_seq009_v003_d0316__measures_ai_answer_quality_from_lc_fix_deep_signal import score_rework, record_rework
         rw = score_rework(post_evts)
         rework_verdict = rw['verdict']
         if post_evts:
@@ -250,7 +250,7 @@ def main():
 
     # â”€â”€ File heat map update â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     try:
-        from src.file_heat_map_seq011_v002_d0316__tracks_cognitive_load_per_module_lc_add_deep_operator import update_heat_map
+        from src.file_heat_map_seq011_v003_d0316__tracks_cognitive_load_per_module_lc_fix_deep_signal import update_heat_map
         update_heat_map(root, state, metrics['hesitation_score'],
                         rework_verdict, wpm)
     except Exception:
@@ -264,9 +264,9 @@ def main():
         history = _parse_history(root)
         if _should_rewrite(history, coaching_path):
             try:
-                from src.rework_detector_seq009_v002_d0316__measures_ai_answer_quality_from_lc_add_deep_operator import load_rework_stats
+                from src.rework_detector_seq009_v003_d0316__measures_ai_answer_quality_from_lc_fix_deep_signal import load_rework_stats
                 from src.query_memory_seq010_v002_d0316__recurring_query_detector_unsaid_thought_lc_add_deep_operator import load_query_memory
-                from src.file_heat_map_seq011_v002_d0316__tracks_cognitive_load_per_module_lc_add_deep_operator import load_heat_map
+                from src.file_heat_map_seq011_v003_d0316__tracks_cognitive_load_per_module_lc_fix_deep_signal import load_heat_map
                 rw_stats  = load_rework_stats(root)
                 q_mem     = load_query_memory(root)
                 heat      = load_heat_map(root)
