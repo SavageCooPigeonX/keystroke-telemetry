@@ -6,10 +6,11 @@ Handles: from X import Y, import X, from X.sub import Y.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v003 | 167 lines | ~1,551 tokens
+# SEQ: 003 | VER: v004 | 185 lines | ~1,750 tokens
 # DESC:   rewrite_all_imports_across_the
-# INTENT: desc_upgrade
-# LAST:   2026-03-15 @ 855fd50
+# INTENT: import_rewriter_now
+# LAST:   2026-03-16 @ 43a01b4
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 import re
 from pathlib import Path

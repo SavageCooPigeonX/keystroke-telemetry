@@ -2,7 +2,7 @@
 import sys, os
 sys.path.insert(0, os.path.dirname(__file__))
 
-from pigeon_compiler.rename_engine.import_rewriter_seq003_v003_d0314__rewrite_all_imports_across_the_lc_desc_upgrade import (
+from pigeon_compiler.rename_engine.import_rewriter_seq003_v004_d0316__rewrite_all_imports_across_the_lc_import_rewriter_now import (
     _rewrite_line, _build_stem_map
 )
 

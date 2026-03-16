@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-15T22:32:07.708128+00:00",
+  "generated": "2026-03-16T02:24:05.629379+00:00",
   "total": 82,
   "files": [
     {
@@ -503,14 +503,14 @@
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/import_rewriter_seq003_v003_d0314__rewrite_all_imports_across_the_lc_desc_upgrade.py",
+      "path": "pigeon_compiler/rename_engine/import_rewriter_seq003_v004_d0316__rewrite_all_imports_across_the_lc_import_rewriter_now.py",
       "name": "import_rewriter",
       "seq": 3,
-      "ver": 3,
-      "date": "0314",
+      "ver": 4,
+      "date": "0316",
       "desc": "rewrite_all_imports_across_the",
-      "intent": "desc_upgrade",
-      "tokens": 1612,
+      "intent": "import_rewriter_now",
+      "tokens": 1750,
       "history": [
         {
           "ver": 3,
@@ -518,6 +518,14 @@
           "desc": "rewrite_all_imports_across_the",
           "intent": "desc_upgrade",
           "action": "discovered"
+        },
+        {
+          "ver": 4,
+          "date": "0316",
+          "desc": "rewrite_all_imports_across_the",
+          "intent": "import_rewriter_now",
+          "action": "mutated",
+          "tokens": 1750
         }
       ]
     },
