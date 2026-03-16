@@ -18,100 +18,40 @@ Two developer tools packaged together:
 ---
 
 ## FOLDER TREE
+*Auto-synced by manifest_builder | 2026-03-16 00:08 UTC*
 
 ```
-keystroke-telemetry/
-│
-├── client/                                        # Browser capture layer (JavaScript)
-│   └── keystroke-telemetry.js                     #   IIFE: attach/onSubmit/getLastState (210 lines)
-│
-├── src/                                           # Core telemetry library (Python)
-│   ├── __init__.py                                #   Package root — all exports
-│   ├── timestamp_utils_seq001_v*_d*__*.py         #   ms-epoch utility
-│   ├── models_seq002_v*_d*__*.py                  #   KeyEvent + MessageDraft dataclasses
-│   ├── logger_seq003_v*_d*__*.py                  #   Core logger, v2 schema
-│   ├── context_budget_seq004_v*_d*__*.py          #   LLM-aware file sizing scorer
-│   ├── drift_watcher_seq005_v*_d*__*.py           #   Live drift detection for coding loops
-│   ├── resistance_bridge_seq006_v*_d*__*.py       #   Telemetry → compiler resistance signal
-│   ├── streaming_layer_seq007_v*_d*__*.py         #   Compiler test input monolith
-│   ├── operator_stats_seq008_v*_d*__*.py          #   Self-growing operator profile
-│   │
-│   └── cognitive/                                 #   Cognitive intelligence layer
-│       ├── __init__.py                            #     Package root: re-exports all cognitive APIs
-│       ├── adapter_seq001_v*_d*__*.py             #     7 states → prompt injection + temp modifiers
-│       ├── unsaid_seq002_v*_d*__*.py              #     Reconstruct deleted/abandoned text
-│       └── drift_seq003_v*_d*__*.py               #     Cross-session drift + baseline store
-│
-├── streaming_layer/                               # Pigeon-compiled output from seq007
-│   ├── __init__.py                                #   Re-exports all public names
-│   ├── streaming_layer_*_v*_d*__*.py              #   20 extracted modules
-│   └── MANIFEST.md                                #   Subfolder manifest + prompt box
-│
-├── pigeon_compiler/                               # Autonomous code decomposition engine
-│   ├── state_extractor/                           #   Layer 1: AST parsing, call graphs, resistance
-│   │   ├── ast_parser_seq001_v003.py              #     Parse → functions, classes, constants
-│   │   ├── call_graph_seq002_v003.py              #     Intra-file call graph
-│   │   ├── import_tracer_seq003_v003.py           #     Outbound + inbound imports
-│   │   ├── shared_state_detector_seq004_v003.py   #     Module-level state detection
-│   │   ├── resistance_analyzer_seq005_v003.py     #     Coupling + resistance scoring
-│   │   └── ether_map_builder_seq006_v003.py       #     Orchestrate → full ether map JSON
-│   │
-│   ├── weakness_planner/                          #   Layer 2: DeepSeek cut planning
-│   │   └── deepseek_plan_prompt_seq004_v003.py    #     Build prompt, send, validate plan
-│   │
-│   ├── cut_executor/                              #   Layer 3: Deterministic execution
-│   │   ├── plan_parser_seq001_v003.py             #     Parse DeepSeek JSON response
-│   │   ├── source_slicer_seq002_v003.py           #     Extract funcs/classes by name
-│   │   ├── file_writer_seq003_v003.py             #     Write pigeon-compliant files
-│   │   ├── import_fixer_seq004_v003.py            #     Resolve imports per file
-│   │   ├── manifest_writer_seq005_v003.py         #     Generate subfolder MANIFEST.md
-│   │   ├── plan_validator_seq006_v003.py          #     Validate plan before execution
-│   │   ├── init_writer_seq007_v003.py             #     Generate __init__.py re-exports
-│   │   ├── func_decomposer_seq008_v003.py         #     Decompose oversized functions
-│   │   ├── resplit_seq009_v003.py                 #     Deterministic AST re-splitter
-│   │   ├── resplit_binpack_seq010_v003.py         #     First-fit-decreasing bin packer
-│   │   └── resplit_helpers_seq011_v003.py         #     Shared resplit utilities
-│   │
-│   ├── rename_engine/                             #   Autonomous renames with rollback
-│   │   ├── scanner_seq001_v003.py                 #     Walk project tree, find non-compliant
-│   │   ├── planner_seq002_v003.py                 #     Generate rename plan
-│   │   ├── import_rewriter_seq003_v003.py         #     Rewrite all imports project-wide
-│   │   ├── executor_seq004_v003.py                #     Apply renames with atomic rollback
-│   │   ├── validator_seq005_v003.py               #     Post-rename import validation
-│   │   ├── run_rename_seq006_v003.py              #     Full rename pipeline runner
-│   │   ├── manifest_builder_seq007_v003.py        #     Generate living MANIFEST.md
-│   │   ├── compliance_seq008_v003.py              #     Line count enforcer + split recommender
-│   │   ├── heal_seq009_v003.py                    #     Self-healing orchestrator
-│   │   ├── run_heal_seq010_v003.py                #     Automated self-healing pipeline
-│   │   ├── nametag_seq011_v003.py                 #     Encode description + intent into name
-│   │   └── registry_seq012_v003.py                #     Local name registry
-│   │
-│   ├── runners/                                   #   Pipeline orchestrators
-│   │   ├── run_compiler_test_seq007_v003.py       #     Self-test compiler on own code
-│   │   ├── run_deepseek_plans_seq008_v003.py      #     Phase 2: send ether maps to DeepSeek
-│   │   ├── run_pigeon_loop_seq009_v003.py         #     Refactor until pigeon-compliant
-│   │   ├── run_clean_split_seq010_v003.py         #     Full 6-phase pipeline
-│   │   ├── run_clean_split_helpers_seq011_v003.py #     Phase 1 decomposition helpers
-│   │   ├── run_clean_split_init_seq012_v003.py    #     Phase 5 init + manifest writers
-│   │   ├── manifest_bridge_seq013_v003.py         #     Phase 6 master manifest update
-│   │   └── reaudit_diff_seq014_v003.py            #     Re-audit with diff across versions
-│   │
-│   ├── integrations/
-│   │   └── deepseek_adapter_seq001_v003.py        #     DeepSeek API with retry + timeout
-│   │
-│   ├── bones/                                     #   Shared utilities (5 modules)
-│   ├── docs/                                      #   Design documentation (5 docs)
-│   └── pigeon_limits.py                           #   PIGEON_MAX=50, PIGEON_HARD=88
-│
-├── test_all.py                                    # Full test suite
-├── stress_test.py                                 # Cognitive stress test (5 scenarios)
-├── operator_profile.md                            # Auto-generated operator stats
-├── demo_logs/                                     # Demo session artifacts
-├── stress_logs/                                   # Stress test artifacts
-└── README.md                                      # Project readme
+LinkRouter.AI/
++-- MANIFEST.md
++-- MASTER_MANIFEST.md
++-- operator_profile.md
++-- pigeon_registry.json
++-- pyproject.toml
++-- README.md
++-- stress_test.py
++-- test_all.py
++-- test_public_release.py
+|
++-- /client                              (1 files)
++-- /demo_logs                           (2 files)
++-- /documentation                       (1 files)
++-- /pigeon_code.egg-info                (5 files)
++-- /pigeon_compiler                     44 files, 7 sub | 73% compliant
+|   +-- /cut_executor                    (11 files)
+|   +-- /integrations                    (1 files)
+|   +-- /rename_engine                   (12 files)
+|   +-- /runners                         (8 files)
+|   +-- /state_extractor                 (6 files)
+|   +-- /weakness_planner                (1 files)
+|
++-- /src                                 11 files, 1 sub | 64% compliant
+|   +-- /cognitive                       (3 files)
+|
++-- /streaming_layer                     19 files | 100% compliant
+|
++-- /stress_logs                         (2 files)
++-- /test_logs                           (22 files)
 ```
-
----
 
 ## MODULE INVENTORY
 
@@ -175,6 +115,86 @@ python test_all.py   # All 4 tests pass, zero dependencies
 ```
 
 ---
+
+## OPERATOR KEYSTROKE TRAIL
+
+*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-16 00:08 UTC*
+
+> **How to read**: Each row is one keystroke event from the operator.
+> Markers flag cognitive signals: ⏸ = long pause (>2s), 
+> ⌫ = backspace burst (3+), ✓ = submitted, 🗑 = discarded.
+> Hesitation scores come from session summaries (0.0 = confident, 1.0 = max hesitation).
+
+| # | Key | Event | Δms | Buffer | Markers |
+|---|-----|-------|----:|--------|---------|
+| 1 | `What is the meaning of life?` | paste | 0 | `What is the meaning of life?` |  |
+| 2 | `?` | backspace | 0 | `What is the meaning of life` | ⌫ burst |
+| 3 | `e` | backspace | 41 | `What is the meaning of lif` | ⌫ burst |
+| 4 | `f` | backspace | 41 | `What is the meaning of li` | ⌫ burst |
+| 5 | `i` | backspace | 40 | `What is the meaning of l` | ⌫ burst |
+| 6 | `l` | backspace | 41 | `What is the meaning of ` | ⌫ burst |
+| 7 | `4` | insert | 40 | `What is the meaning of 4` |  |
+| 8 | `2` | insert | 151 | `What is the meaning of 42` |  |
+| 9 | `?` | insert | 150 | `What is the meaning of 42?` |  |
+| 10 | `H` | insert | 0 | `H` |  |
+| 11 | `e` | insert | 151 | `He` |  |
+| 12 | `l` | insert | 160 | `Hel` |  |
+| 13 | `o` | insert | 156 | `Helo` |  |
+| 14 | ` ` | insert | 151 | `Helo ` |  |
+| 15 | `w` | insert | 151 | `Helo w` |  |
+| 16 | `r` | insert | 151 | `Helo wr` |  |
+| 17 | `l` | insert | 162 | `Helo wrl` |  |
+| 18 | `d` | insert | 165 | `Helo wrld` |  |
+| 19 | `d` | backspace | 168 | `Helo wrl` | ⌫ burst |
+| 20 | `l` | backspace | 45 | `Helo wr` | ⌫ burst |
+| 21 | `r` | backspace | 100 | `Helo w` | ⌫ burst |
+| 22 | `w` | backspace | 41 | `Helo ` | ⌫ burst |
+| 23 | `w` | insert | 69 | `Helo w` |  |
+| 24 | `o` | insert | 196 | `Helo wo` |  |
+| 25 | `r` | insert | 150 | `Helo wor` |  |
+| 26 | `l` | insert | 152 | `Helo worl` |  |
+| 27 | `d` | insert | 151 | `Helo world` |  |
+| 28 | `!` | insert | 151 | `Helo world!` |  |
+| 29 | `A` | insert | 0 | `A` |  |
+| 30 | `c` | insert | 151 | `Ac` |  |
+| 31 | `t` | insert | 150 | `Act` |  |
+| 32 | `u` | insert | 151 | `Actu` |  |
+| 33 | `a` | insert | 194 | `Actua` |  |
+| 34 | `l` | insert | 160 | `Actual` |  |
+| 35 | `l` | insert | 151 | `Actuall` |  |
+| 36 | `y` | insert | 152 | `Actually` |  |
+| 37 | ` ` | insert | 150 | `Actually ` |  |
+| 38 | `n` | insert | 154 | `Actually n` |  |
+| 39 | `v` | insert | 155 | `Actually nv` |  |
+| 40 | `m` | insert | 150 | `Actually nvm` |  |
+| 41 | `Ctrl+A+Del` | clear | 2251 | `` | ⏸ 2.3s |
+| 42 | `What is the meaning of life?` | paste | 0 | `What is the meaning of life?` |  |
+| 43 | `?` | backspace | 0 | `What is the meaning of life` | ⌫ burst |
+| 44 | `e` | backspace | 41 | `What is the meaning of lif` | ⌫ burst |
+| 45 | `f` | backspace | 40 | `What is the meaning of li` | ⌫ burst |
+| 46 | `i` | backspace | 42 | `What is the meaning of l` | ⌫ burst |
+| 47 | `l` | backspace | 43 | `What is the meaning of ` | ⌫ burst |
+| 48 | `4` | insert | 41 | `What is the meaning of 4` |  |
+| 49 | `2` | insert | 151 | `What is the meaning of 42` |  |
+| 50 | `?` | insert | 150 | `What is the meaning of 42?` |  |
+
+### Recent message hesitation scores
+
+| Message | Submitted | Keys | Dels | Hesitation | State |
+|---------|-----------|-----:|-----:|-----------:|-------|
+| `146728f7a9` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `55787b7c2c` | 🗑 | 13 | 0 | 0.567 | abandoned |
+| `4602f5b4a9` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `9492f51b2c` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `ddaa7375e0` | 🗑 | 13 | 0 | 0.576 | abandoned |
+| `5f836dd9dd` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `5c6b75f699` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `c05a288bdd` | 🗑 | 13 | 0 | 0.576 | abandoned |
+| `66bd161695` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `b8ee15abb2` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `045e28823a` | 🗑 | 13 | 0 | 0.576 | abandoned |
+| `d477f482ce` | ✓ | 9 | 5 | 0.556 | hesitant |
+
 
 ## CHANGELOG
 

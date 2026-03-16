@@ -1,5 +1,7 @@
 logs/
 test_logs/
+demo_logs/
+stress_logs/
 __pycache__/
 src/__pycache__/
 *.pyc
@@ -14,12 +16,20 @@ compiler_output/
 pigeon_compiler/rename_engine/rollback_logs/
 pigeon_compiler/rename_engine/heal_log.json
 pigeon_compiler/bones/
+pigeon_compiler/output/
 
 # Sensitive docs (contain production project references)
 pigeon_compiler/docs/META_OPTIMIZATION_CHANGELOG.md
 pigeon_compiler/docs/EXTRACTOR_PLAN.md
 pigeon_compiler/docs/PIGEON_COMPILER_PLAN.md
 
+# Registry (contains file history)
+pigeon_registry.json
+
 # IDE
 .vscode/
 .idea/
+
+# Egg / build metadata
+*.egg-info/
+dist/
