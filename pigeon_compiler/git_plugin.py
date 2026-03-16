@@ -40,6 +40,7 @@ from pigeon_compiler.rename_engine import (
     bump_version,
     rewrite_all_imports,
     build_all_manifests,
+    validate_imports,
 )
 from pigeon_compiler.pigeon_limits import is_excluded
 from pigeon_compiler.session_logger import log_session, count_sessions
@@ -264,14 +265,14 @@ def run():
     print(f'\n🐦 Pigeon Git Plugin: {len(renames)} rename(s), '
           f'{len(box_only)} update(s)')
 
-    # Rewrite imports FIRST (while old files still exist at old paths)
+    # Rewrite imports BEFORE renaming files (safe order — old files still exist)
     if import_map:
         changes = rewrite_all_imports(root, import_map)
         if changes:
             files_hit = len({c['file'] for c in changes})
             print(f'  ↳ {len(changes)} import(s) rewritten in {files_hit} file(s)')
 
-    # Execute renames AFTER imports are updated
+    # Execute renames (after imports are updated)
     for old_rel, new_rel, entry, _, _ in renames:
         old_abs, new_abs = root / old_rel, root / new_rel
         if old_abs.exists():
@@ -306,6 +307,19 @@ def run():
         _estimate_tokens(fp.read_text(encoding='utf-8'))
         for fp, _, _, _, _ in box_only if fp.exists()
     )
+
+    # Validate imports before committing — catch broken state early
+    if renames:
+        val = validate_imports(root)
+        if not val['valid']:
+            broken = val['broken']
+            print(f'  ⚠️  {len(broken)} broken import(s) detected after rename:')
+            for b in broken[:10]:
+                print(f"      {b['file']}:{b['line']}  {b['import']}")
+            # Attempt a second rewrite pass with broader matching
+            extra = rewrite_all_imports(root, import_map)
+            if extra:
+                print(f'  🔧 Second pass fixed {len(extra)} import(s)')
 
     # Auto-commit
     _git('add', '-A')

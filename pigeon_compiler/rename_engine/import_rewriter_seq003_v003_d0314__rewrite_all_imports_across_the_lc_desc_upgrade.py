@@ -120,26 +120,37 @@ def _rewrite_line(line: str, import_map: dict, stem_map: dict) -> str:
     top_mod = _extract_top_module(stripped)
     if top_mod and top_mod.lower() in KNOWN_EXTERNAL:
         return line
-    # Try each old_module → new_module replacement
+    # Try each old_module → new_module replacement (dotted path in line)
     for old_mod, new_mod in import_map.items():
         if old_mod in line:
             return line.replace(old_mod, new_mod)
-    # Try stem-based matching for relative-style imports
-    # Match both 'from package.stem' and 'from .stem' (relative)
+    # Try stem-based matching for all import styles
     for stem, (old_mod, new_mod) in stem_map.items():
+        new_stem = new_mod.rsplit('.', 1)[-1]
         # Absolute: from auth.forms_seq001_v001 import ...
         pat_abs = re.compile(
             rf'(from\s+\S+\.)({re.escape(stem)})(\s+import\s+)')
         m = pat_abs.search(line)
         if m:
-            new_stem = new_mod.rsplit('.', 1)[-1]
             return line[:m.start(2)] + new_stem + line[m.end(2):]
         # Relative: from .forms_seq001_v001 import ...
         pat_rel = re.compile(
             rf'(from\s+\.)({re.escape(stem)})(\s+import\s+)')
         m = pat_rel.search(line)
         if m:
-            new_stem = new_mod.rsplit('.', 1)[-1]
+            return line[:m.start(2)] + new_stem + line[m.end(2):]
+        # Package-level: from production_auditor import pipeline_seq015_v005...
+        # Handles single and multi-import: from X import a, old_stem, c
+        pat_pkg = re.compile(
+            rf'(from\s+\w[\w.]*\s+import\s+(?:.*?,\s*)?)(\b{re.escape(stem)}\b)')
+        m = pat_pkg.search(line)
+        if m:
+            return line[:m.start(2)] + new_stem + line[m.end(2):]
+        # Bare import: import production_auditor.pipeline_seq015_v005...
+        pat_bare = re.compile(
+            rf'(import\s+\w[\w.]*\.)({re.escape(stem)})\b')
+        m = pat_bare.search(line)
+        if m:
             return line[:m.start(2)] + new_stem + line[m.end(2):]
     return line
 
