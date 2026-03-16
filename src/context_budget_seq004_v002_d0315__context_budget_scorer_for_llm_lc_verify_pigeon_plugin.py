@@ -1,4 +1,4 @@
-# @pigeon: seq=004 | role=context_budget | depends=[models] | exports=[score_context_budget,default_budget_config] | tokens=~500
+# @pigeon: seq=004 | role=context_budget | depends=[models] | exports=[score_context_budget,default_budget_config,estimate_tokens] | tokens=~500
 """Context budget scorer for LLM-aware file sizing.
 
 Instead of a flat line-count cap, scores files by how many tokens an LLM
