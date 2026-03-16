@@ -102,7 +102,7 @@ Detected by keystroke classifier. Each maps to a system prompt injection + tempe
 
 *Auto-updated 2026-03-16 · 1 message(s) · LLM-synthesized*
 
-**Dominant: `abandoned`** | Submit: 0% | WPM: 25.3 | Del: 26.5% | Hes: 0.309
+**Dominant: `restructuring`** | Submit: 0% | WPM: 400.0 | Del: 50.0% | Hes: 0.300
 
 This operator just built a fix for deep signal tracking in cognitive load and AI answer quality modules, but their abandoned typing with high deletion and hesitation reveals late-night frustration while debugging subtle integration issues.  
 - **Anticipate deep signal debugging**: When they touch `file_heat_map_seq011` or `rework_detector_seq009`, proactively surface related imports, state variables, and recent changes to adjacent modules to prevent context-switching.  
