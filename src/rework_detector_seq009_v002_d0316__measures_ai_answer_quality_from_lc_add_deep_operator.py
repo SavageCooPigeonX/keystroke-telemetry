@@ -35,8 +35,10 @@ def score_rework(post_events: list) -> dict:
 
     inserts  = [e for e in post_events if e.get('type') == 'insert']
     deletes  = [e for e in post_events if e.get('type') == 'backspace']
-    total    = max(len(post_events), 1)
-    del_ratio = len(deletes) / total
+    # del_ratio = deletes / (inserts + deletes) only — exclude pauses from denominator
+    # so that a pause-heavy but delete-heavy window still scores as rework
+    keystroke_total = max(len(inserts) + len(deletes), 1)
+    del_ratio = len(deletes) / keystroke_total
 
     ts_vals  = [e['ts'] for e in post_events if 'ts' in e]
     dur_ms   = max((max(ts_vals) - min(ts_vals)) if len(ts_vals) > 1 else 1.0, 1.0)

@@ -489,7 +489,8 @@ def _generate_commit_coaching(
         rw_path = root / 'rework_log.json'
         if rw_path.exists():
             raw = json.loads(rw_path.read_text('utf-8'))
-            entries = raw.get('entries', []) if isinstance(raw, dict) else []
+            # rework_log.json is a plain JSON array
+            entries = raw if isinstance(raw, list) else raw.get('entries', [])
             total = len(entries)
             misses = [e for e in entries if e.get('verdict') == 'miss']
             miss_rate = round(len(misses) / max(total, 1), 3)
@@ -527,7 +528,8 @@ def _generate_commit_coaching(
         hm_path = root / 'file_heat_map.json'
         if hm_path.exists():
             raw = json.loads(hm_path.read_text('utf-8'))
-            modules = raw.get('modules', {}) if isinstance(raw, dict) else {}
+            # file_heat_map.json is a flat {module_name: {samples,avg_hes,...}} dict
+            modules = {k: v for k, v in raw.items() if isinstance(v, dict)} if isinstance(raw, dict) else {}
             HIGH_HES = 0.45
             complex_files = sorted(
                 [

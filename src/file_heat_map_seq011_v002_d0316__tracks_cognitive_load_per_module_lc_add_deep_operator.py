@@ -70,10 +70,20 @@ def update_heat_map(root: Path, state: str, hesitation: float,
 
 
 def _get_recent_files(registry: dict, top_n: int = 3) -> list[str]:
-    """Return module names of the most recently versioned files."""
-    entries = list(registry.values())
-    entries.sort(key=lambda e: (e.get('ver', 1), e.get('date', '')), reverse=True)
-    return [e['name'] for e in entries[:top_n]]
+    """Return module names of the most recently versioned files.
+
+    pigeon_registry.json has structure: {"files": [...entries...]}
+    but callers may also pass the already-unpacked {path: entry} dict
+    from load_registry(). Handle both formats.
+    """
+    # Raw JSON format: {"generated": ..., "total": ..., "files": [...]}
+    if 'files' in registry and isinstance(registry['files'], list):
+        entries = registry['files']
+    else:
+        # Already unpacked {path: entry_dict} from load_registry()
+        entries = [v for v in registry.values() if isinstance(v, dict)]
+    entries = sorted(entries, key=lambda e: (e.get('ver', 1), e.get('date', '')), reverse=True)
+    return [e['name'] for e in entries[:top_n] if e.get('name')]
 
 
 def load_heat_map(root: Path) -> dict:
