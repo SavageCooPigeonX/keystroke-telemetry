@@ -14,12 +14,13 @@ Pipeline:
   3. For each changed pigeon file:
      · Docstring → desc slug (what the file IS)
      · Bump version + update date
-     · Rename file on disk
-     · Inject prompt box header
-  4. Rewrite all imports across codebase (one atomic pass)
-  5. Update pigeon_registry.json
-  6. Rebuild all MANIFEST.md files
-  7. Auto-commit [pigeon-auto]
+     · Build import_map (old_module → new_module)
+  4. Rewrite all imports across codebase (BEFORE renaming files)
+  5. Rename files on disk
+  6. Inject prompt box headers + log sessions
+  7. Update pigeon_registry.json
+  8. Rebuild all MANIFEST.md files
+  9. Auto-commit [pigeon-auto]
 
 Install: .git/hooks/post-commit calls `python -m pigeon_compiler.git_plugin`
 """
@@ -263,7 +264,14 @@ def run():
     print(f'\n🐦 Pigeon Git Plugin: {len(renames)} rename(s), '
           f'{len(box_only)} update(s)')
 
-    # Execute renames
+    # Rewrite imports FIRST (while old files still exist at old paths)
+    if import_map:
+        changes = rewrite_all_imports(root, import_map)
+        if changes:
+            files_hit = len({c['file'] for c in changes})
+            print(f'  ↳ {len(changes)} import(s) rewritten in {files_hit} file(s)')
+
+    # Execute renames AFTER imports are updated
     for old_rel, new_rel, entry, _, _ in renames:
         old_abs, new_abs = root / old_rel, root / new_rel
         if old_abs.exists():
@@ -271,13 +279,6 @@ def run():
             old_abs.rename(new_abs)
             print(f'  📝 {Path(old_rel).name}')
             print(f'     → {Path(new_rel).name}')
-
-    # Rewrite imports (one pass for all renames)
-    if import_map:
-        changes = rewrite_all_imports(root, import_map)
-        if changes:
-            files_hit = len({c['file'] for c in changes})
-            print(f'  ↳ {len(changes)} import(s) rewritten in {files_hit} file(s)')
 
     # Log sessions + inject prompt boxes
     for old_rel, new_rel, entry, tb, ds in renames:

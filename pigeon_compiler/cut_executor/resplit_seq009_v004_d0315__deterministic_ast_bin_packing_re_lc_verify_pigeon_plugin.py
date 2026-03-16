@@ -44,7 +44,10 @@ def scan_violations(folder: Path) -> list[Path]:
                      if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef,
                                        ast.ClassDef, ast.Assign))]
         if len(top_items) == 1 and isinstance(top_items[0], ast.ClassDef):
-            # Single class — can't split further, skip
+            # Single class — resplitter can't split further.
+            # Phase 1b (class_decomposer) should have handled this.
+            print(f"    ⚠️ {f.name}: single class still oversized — "
+                  "class_decomposer may have missed it")
             continue
         violations.append(f)
     return violations

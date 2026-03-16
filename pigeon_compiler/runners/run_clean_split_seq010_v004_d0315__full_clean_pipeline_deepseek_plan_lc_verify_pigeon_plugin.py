@@ -35,6 +35,8 @@ from pigeon_compiler.cut_executor.resplit_helpers_seq011_v004_d0315__shared_help
     line_count, collect_imports)
 from pigeon_compiler.runners.run_clean_split_helpers_seq011_v004_d0315__helpers_for_run_clean_split_lc_verify_pigeon_plugin import (
     decompose_oversized)
+from pigeon_compiler.cut_executor.class_decomposer_seq013_v001 import (
+    decompose_oversized_classes)
 from pigeon_compiler.runners.run_clean_split_init_seq012_v004_d0315__init_manifest_writers_for_clean_lc_verify_pigeon_plugin import (
     write_clean_init, write_clean_manifest)
 from pigeon_compiler.runners.manifest_bridge_seq013_v004_d0315__update_master_manifest_md_after_lc_verify_pigeon_plugin import (
@@ -67,6 +69,13 @@ def run(source_file: Path, target_name: str = None):
     total_cost += dcost
 
     if work_file != source_file:
+        em = build_ether_map(work_file)
+
+    # Phase 1b: Decompose oversized CLASSES
+    work_file2, ccost = decompose_oversized_classes(work_file, em)
+    total_cost += ccost
+    if work_file2 != work_file:
+        work_file = work_file2
         em = build_ether_map(work_file)
 
     print(f"  Source: {work_file.name} ({em['total_lines']} lines, "
