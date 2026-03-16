@@ -269,6 +269,7 @@ signal = HesitationAnalyzer("logs").resistance_signal()
 | Self-growing operator profile | ✅ Live |
 | Telemetry → compiler resistance signal | ✅ Live |
 | **Cognitive state → LLM call site wiring** | 🔄 Adapter exists, not yet wired |
+| **VS Code extension (Pigeon Chat)** | 🔄 Built — needs `npm install && npm run compile` |
 | **`pigeon init` CLI** | 🔄 Hook installs manually today |
 
 ---
@@ -314,6 +315,52 @@ keystroke-telemetry/
 ├── operator_profile.md            # Living cognitive profile (auto-updated)
 └── MASTER_MANIFEST.md             # Auto-generated project map
 ```
+
+---
+
+## VS Code Extension: Pigeon Chat
+
+A custom chat panel with full keystroke telemetry embedded. **Closes the loop** — every message you type is classified and injected into the model's system context *before* it responds.
+
+```
+vscode-extension/
+├── src/extension.ts       # panel + LM bridge (Copilot → DeepSeek fallback)
+├── media/chat.html        # chat UI with inline keystroke capture
+├── classify_bridge.py     # Python bridge → classify_state → operator_profile.md
+├── package.json
+└── tsconfig.json
+```
+
+### What runs on every message
+
+```
+User types in Pigeon Chat panel
+  ↓ keydown/input events captured with timestamps
+  ↓ on submit → classify_bridge.py receives events JSON
+  ↓ computes: wpm, del_ratio, pause_ratio, hesitation_score
+  ↓ classify_state() → one of 7 cognitive states
+  ↓ OperatorStats.ingest() → updates operator_profile.md (every 8 msgs)
+  ↓ _refresh_operator_state() → rewrites copilot-instructions.md IMMEDIATELY
+  ↓ operator-state block read → prepended as system context to LM request
+  ↓ response adapted to current cognitive state in real time
+```
+
+No git commit needed for the context update — writes direct to disk.
+
+### Build
+
+```bash
+cd vscode-extension
+npm install
+npm run compile
+# Then in VS Code: F5 → Extension Development Host
+# Or: run command "Pigeon: Open Keystroke-Aware Chat"
+```
+
+### Model priority
+
+1. `vscode.lm` API — uses whatever Copilot model is active
+2. DeepSeek fallback — set `DEEPSEEK_API_KEY` in env
 
 ---
 

@@ -1,0 +1,38 @@
+{
+  "name": "pigeon-chat",
+  "displayName": "Pigeon Chat",
+  "description": "Keystroke-aware chat panel. Classifies cognitive state from typing patterns and injects live operator context into every LLM response.",
+  "version": "0.1.0",
+  "publisher": "savagecoo",
+  "repository": "https://github.com/SavageCooPigeonX/keystroke-telemetry",
+  "engines": { "vscode": "^1.90.0" },
+  "categories": ["AI", "Other"],
+  "activationEvents": [],
+  "main": "./out/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pigeon.openChat",
+        "title": "Pigeon: Open Keystroke-Aware Chat"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "pigeon.openChat",
+        "key": "ctrl+shift+p",
+        "when": "false"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "@types/node": "^18.0.0",
+    "typescript": "^5.0.0",
+    "@vscode/vsce": "^2.0.0"
+  }
+}

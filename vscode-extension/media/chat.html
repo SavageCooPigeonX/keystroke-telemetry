@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="${csp}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pigeon Chat</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--vscode-font-family);
+    font-size: var(--vscode-font-size);
+    background: var(--vscode-editor-background);
+    color: var(--vscode-editor-foreground);
+    display: flex; flex-direction: column; height: 100vh; overflow: hidden;
+  }
+  #messages {
+    flex: 1; overflow-y: auto; padding: 16px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .msg { padding: 8px 12px; border-radius: 8px; max-width: 88%; line-height: 1.5; }
+  .msg.user {
+    background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    align-self: flex-end; border-bottom-right-radius: 2px;
+  }
+  .msg.assistant {
+    background: var(--vscode-editorWidget-background);
+    align-self: flex-start; border-bottom-left-radius: 2px;
+    white-space: pre-wrap; word-break: break-word;
+  }
+  .msg.assistant.streaming { opacity: 0.85; }
+  #status {
+    font-size: 11px; padding: 3px 14px;
+    color: var(--vscode-descriptionForeground);
+    border-top: 1px solid var(--vscode-editorWidget-border);
+    display: flex; gap: 16px; align-items: center;
+  }
+  #state-dot { font-size: 13px; }
+  #footer {
+    display: flex; gap: 8px; padding: 8px 12px;
+    border-top: 1px solid var(--vscode-editorWidget-border);
+  }
+  #input {
+    flex: 1; resize: none; overflow: hidden;
+    background: var(--vscode-input-background);
+    color: var(--vscode-input-foreground);
+    border: 1px solid var(--vscode-input-border, #555);
+    border-radius: 5px; padding: 7px 10px;
+    font-family: inherit; font-size: inherit;
+    min-height: 36px; max-height: 140px; line-height: 1.4;
+  }
+  #input:focus { outline: 1px solid var(--vscode-focusBorder); }
+  #send {
+    background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    border: none; border-radius: 5px; padding: 0 16px;
+    cursor: pointer; font-size: 13px; white-space: nowrap;
+  }
+  #send:hover { background: var(--vscode-button-hoverBackground); }
+  #send:disabled { opacity: 0.45; cursor: default; }
+  #hint { font-size: 10px; color: var(--vscode-descriptionForeground); padding: 2px 14px 4px; }
+</style>
+</head>
+<body>
+
+<div id="messages">
+  <div class="msg assistant">🐦 Pigeon Chat — keystroke telemetry active. Every message you type is classified and injected into LLM context. Type naturally.</div>
+</div>
+
+<div id="status">
+  <span id="state-dot">⬤</span>
+  <span id="state-label">neutral</span>
+  <span id="wpm-label">wpm —</span>
+  <span id="hes-label">hes —</span>
+</div>
+<div id="hint">Enter to send · Shift+Enter for newline · typing patterns captured</div>
+<div id="footer">
+  <textarea id="input" rows="1" placeholder="Type your message…"></textarea>
+  <button id="send">Send</button>
+</div>
+
+<script nonce="${nonce}">
+const vscode = acquireVsCodeApi();
+const messagesEl = document.getElementById('messages');
+const inputEl    = document.getElementById('input');
+const sendBtn    = document.getElementById('send');
+const stateDot   = document.getElementById('state-dot');
+const stateLabel = document.getElementById('state-label');
+const wpmLabel   = document.getElementById('wpm-label');
+const hesLabel   = document.getElementById('hes-label');
+
+const STATE_ICONS = {
+  frustrated: '🔴', hesitant: '🟡', flow: '🟢',
+  focused: '🔵', restructuring: '🟠', abandoned: '⚫', neutral: '⬤'
+};
+
+// ── Keystroke capture ─────────────────────────────────────────────────────
+let events = [];
+let lastKeyTs = 0;
+const PAUSE_MS = 1500;
+
+function nowMs() { return performance.now(); }
+
+inputEl.addEventListener('keydown', e => {
+  const ts = nowMs();
+  const delta = lastKeyTs ? ts - lastKeyTs : 0;
+
+  // Long pause detection
+  if (delta > PAUSE_MS && lastKeyTs) {
+    events.push({ type: 'pause', duration_ms: Math.round(delta), ts });
+  }
+  lastKeyTs = ts;
+
+  if (e.key === 'Backspace' || e.key === 'Delete') {
+    events.push({ type: 'backspace', ts, delta_ms: Math.round(delta) });
+  } else if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    submit();
+  }
+});
+
+inputEl.addEventListener('input', e => {
+  const ts = nowMs();
+  const delta = lastKeyTs ? ts - lastKeyTs : 0;
+  if (e.inputType === 'insertText' && e.data) {
+    events.push({ type: 'insert', char: e.data, ts, delta_ms: Math.round(delta) });
+  }
+  // auto-resize textarea
+  inputEl.style.height = 'auto';
+  inputEl.style.height = Math.min(inputEl.scrollHeight, 140) + 'px';
+});
+
+// Discard: user clears the input without submitting
+inputEl.addEventListener('blur', () => {
+  if (events.length > 4 && inputEl.value.trim() === '') {
+    vscode.postMessage({ type: 'discard', events: [...events] });
+    events = [];
+  }
+});
+
+// ── Submit ────────────────────────────────────────────────────────────────
+function submit() {
+  const text = inputEl.value.trim();
+  if (!text || sendBtn.disabled) return;
+  addMessage('user', text);
+  sendBtn.disabled = true;
+  vscode.postMessage({ type: 'submit', text, events: [...events] });
+  events = [];
+  lastKeyTs = 0;
+  inputEl.value = '';
+  inputEl.style.height = 'auto';
+}
+sendBtn.addEventListener('click', submit);
+
+// ── Streaming response ────────────────────────────────────────────────────
+let streamTarget = null;
+
+window.addEventListener('message', e => {
+  const msg = e.data;
+  switch (msg.type) {
+    case 'chunk':
+      if (!streamTarget) { streamTarget = addMessage('assistant', ''); streamTarget.classList.add('streaming'); }
+      streamTarget.textContent += msg.text;
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      break;
+    case 'done':
+      if (streamTarget) streamTarget.classList.remove('streaming');
+      streamTarget = null;
+      sendBtn.disabled = false;
+      inputEl.focus();
+      break;
+    case 'state':
+      stateDot.textContent  = STATE_ICONS[msg.state] ?? '⬤';
+      stateLabel.textContent = msg.state;
+      wpmLabel.textContent   = `wpm ${msg.wpm != null ? msg.wpm.toFixed(0) : '—'}`;
+      hesLabel.textContent   = `hes ${msg.hesitation != null ? msg.hesitation.toFixed(2) : '—'}`;
+      break;
+    case 'error':
+      addMessage('assistant', '⚠️ ' + msg.text);
+      sendBtn.disabled = false;
+      break;
+  }
+});
+
+function addMessage(role, text) {
+  const div = document.createElement('div');
+  div.className = `msg ${role}`;
+  div.textContent = text;
+  messagesEl.appendChild(div);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+  return div;
+}
+
+inputEl.focus();
+</script>
+</body>
+</html>
