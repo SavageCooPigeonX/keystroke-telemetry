@@ -1,58 +1,82 @@
 # Keystroke Telemetry + Pigeon Code Engine
 
-Two developer tools packaged together:
+Two tools, one goal: **make codebases self-documenting and LLM-readable by default.**
 
-1. **Keystroke Telemetry** — captures typing patterns in LLM chat interfaces (pauses, deletions, rewrites, abandoned drafts) and classifies operator cognitive state in real time.
-2. **Pigeon Code Engine** — self-documenting codebase engine. Filenames mutate on every commit to carry intent, description, version, and token metadata. The filename IS the changelog.
+1. **Pigeon Code Engine** — drop it into any repo. From that point on, every commit autonomously refactors files to stay under 200 lines, renames them with living metadata, rewrites all imports, writes manifests, and injects prompt boxes. The human manages intent (via commit messages). The files track everything else.
 
-> Not a keylogger. Telemetry captures input events **within your own app's text field** and runs locally.
+2. **Keystroke Telemetry** — captures typing patterns in LLM chat UIs, classifies operator cognitive state in real time, reconstructs unsaid thoughts, and feeds hesitation signals back into the compiler. Files that cause the most human friction get split more aggressively.
+
+> Not a keylogger. Telemetry captures events **within your own app's text field** and runs locally.
 
 ---
 
-## Quick Start — Pigeon Code
+## The Vision: Full Plug-and-Play
 
-```bash
-# Install from a source checkout
-pip install .
+The end state is a single `pigeon init` that makes any git repo self-maintaining:
 
-# Contributor workflow
-pip install -e .
-
-# Initialize in any git repo
-cd your-project
-pigeon init       # installs git hooks
-pigeon status     # see codebase health
-pigeon heal       # bulk inject prompt boxes + rebuild manifests
-pigeon sessions   # view mutation audit trail
+```
+git commit -m "fix: timeout on retries"
+           ↓
+  Pigeon reads your commit message
+           ↓
+  Renames touched files with new version + intent slug
+  Rewrites every import across the codebase
+  Injects prompt box headers (token count, desc, intent, last commit)
+  Updates pigeon_registry.json
+  Rebuilds every MANIFEST.md
+  Refreshes .github/copilot-instructions.md with live module index
+  Auto-commits [pigeon-auto]
 ```
 
-If you plan to use DeepSeek-backed compiler flows, install `httpx`, then copy `.env.example` to `.env` or export `DEEPSEEK_API_KEY` in your shell before running Layer 2 commands.
+**What you provide**: intent (the commit message).  
+**What the files provide**: description (from docstring), version history, token cost, mutation log.  
+**What the compiler provides**: size enforcement, import consistency, LLM-readable output.
 
-After `pigeon init`, every commit auto-renames touched pigeon files:
+The human is never a bottleneck. The codebase documents itself.
 
-```bash
+---
+
+## Pigeon Code: How It Works
+
+### Filenames are the changelog
+
+```
+noise_filter_seq007_v004_d0316__filter_live_noise_lc_fixed_timeout.py
+├─ noise_filter      = module identity (never changes)
+├─ seq007            = sequence in folder (never changes)
+├─ v004              = 4th time this file was touched
+├─ d0316             = last mutated March 16
+├─ filter_live_noise = what this file DOES (from docstring, auto-extracted)
+└─ fixed_timeout     = what was LAST DONE (from commit message, 3 words max)
+```
+
+An LLM agent `ls`-ing this folder knows the entire version history, purpose, and last change of every file — without opening a single one.
+
+### What happens on every commit (automated pipeline)
+
+```
 git commit -m "fix: timeout on buffer polling"
-# → conversation_buffer_seq001_v005_d0316__buffer_polling_lc_timeout_buffer_polling.py
-#   ├─ buffer_polling              = what the file DOES  (from docstring)
-#   └─ timeout_buffer_polling      = what was LAST DONE  (from commit message)
+     ↓
+ git_plugin.py fires (post-commit hook)
+     ↓
+ 1. Parse commit message → intent slug ("timeout_buffer_polling")
+ 2. For each changed pigeon .py file:
+    · Read docstring → desc slug
+    · Bump version, update date
+    · Build import_map {old_module → new_module}
+ 3. Rewrite all imports across codebase  ← BEFORE renaming
+ 4. Rename files on disk
+ 5. Inject/update prompt boxes
+ 6. Log to logs/pigeon_sessions/{name}.jsonl
+ 7. Update pigeon_registry.json
+ 8. Rebuild all MANIFEST.md files
+ 9. Refresh .github/copilot-instructions.md auto-index
+10. Auto-commit [pigeon-auto]
 ```
 
-### What happens on every commit
+The import rewrite always happens *before* file rename — the codebase is never left in a broken import state.
 
-1. **Pre-commit** — advisory audit (never blocks): flags oversize files, missing versions
-2. **Post-commit** — auto-rename daemon:
-   - Parses commit message → 3-word intent slug
-   - Reads docstring → desc slug
-   - Bumps version + date
-   - Renames file on disk
-   - Injects prompt box header into file
-   - Rewrites all imports across codebase
-   - Logs session to `logs/pigeon_sessions/{name}.jsonl`
-   - Updates `pigeon_registry.json`
-   - Rebuilds all `MANIFEST.md` files
-   - Auto-commits `[pigeon-auto]`
-
-### Prompt Box (injected after docstring)
+### Prompt box (auto-injected after every commit)
 
 ```python
 # ── pigeon ────────────────────────────────────
@@ -64,13 +88,9 @@ git commit -m "fix: timeout on buffer polling"
 # ──────────────────────────────────────────────
 ```
 
-### Session Log (`logs/pigeon_sessions/noise_filter_seq007.jsonl`)
+Every file announces itself: seq, version, token cost, what it does, what changed last, how many times it's been touched.
 
-```jsonl
-{"ts":"2026-03-16T14:32:01Z","hash":"a3f2b1c","msg":"fix: timeout on buffer polling","intent":"fixed_timeout","ver_before":3,"ver_after":4,"tokens_before":2050,"tokens_after":2100,"diff":"+12 -3"}
-```
-
-### Pigeon Code Naming Convention
+### Naming convention
 
 ```
 {name}_seq{NNN}_v{NNN}_d{MMDD}__{description}_lc_{intent}.py
@@ -79,37 +99,87 @@ git commit -m "fix: timeout on buffer polling"
 | Part | Meaning | Source |
 |---|---|---|
 | `name` | Module identity | Stable, never changes |
-| `seq{NNN}` | Sequence within folder | Set at creation |
-| `v{NNN}` | Version (bumps every commit) | Auto-incremented |
+| `seq{NNN}` | Sequence within folder | Never changes |
+| `v{NNN}` | Version | Auto-incremented on every touch |
 | `d{MMDD}` | Date of last mutation | UTC today |
 | `description` | What the file DOES | Extracted from docstring |
-| `_lc_` | Separator (lifecycle) | Fixed |
-| `intent` | What was LAST DONE | From commit message (3 words max) |
+| `_lc_` | Lifecycle separator | Fixed |
+| `intent` | What was LAST DONE | Commit message, 3 words |
 
-### CLI Commands
+**Critical**: never hardcode full pigeon filenames — they change on every commit. Search by `name_seqNNN*`.
+
+### The compiler: oversized files get split automatically
+
+When a file exceeds 200 lines, the compiler runs:
+
+```
+Oversized file (e.g. 394 lines)
+   ↓
+Phase 1  — AST decompose oversized functions (free, no LLM)
+Phase 1b — Class decomposition via DeepSeek (~$0.001)
+            (extracts methods as standalone functions, keeps class thin)
+Phase 2  — DeepSeek generates a cut plan with exact line assignments
+Phase 3  — Deterministic bin-packing → N files × ≤50 lines + __init__.py + MANIFEST.md
+```
+
+The compiler compiles itself — every module in `pigeon_compiler/` was split by running the compiler on its own source.
+
+```bash
+# Compile one file:
+py -m pigeon_compiler.runners.run_clean_split_seq010* path/to/big_file.py
+
+# Compile entire codebase:
+py -m pigeon_compiler.runners.run_batch_compile_seq015* --dry-run
+py -m pigeon_compiler.runners.run_batch_compile_seq015*
+```
+
+### CLI
 
 | Command | What it does |
 |---|---|
 | `pigeon init` | Install git hooks, create registry + session dir |
 | `pigeon status` | Files, tokens, stale count, hook status, session count |
-| `pigeon heal` | Bulk inject prompt boxes + token counts into all files |
-| `pigeon sessions` | Show recent mutation logs across all files |
-| `pigeon uninstall` | Remove hooks (preserve registry + logs) |
+| `pigeon heal` | Bulk inject prompt boxes + rebuild manifests |
+| `pigeon sessions` | Show mutation audit trail across all files |
+| `pigeon uninstall` | Remove hooks (preserves registry + logs) |
 
-### Token Savings
+### Token savings
 
-On a 400-file codebase (~1.5M tokens):
-- **10K-35K tokens saved per LLM session** (less file-opening, less re-discovery)
-- **200K-700K tokens/day** at 20 sessions/day
-- **$15-$150/month** in API cost reduction depending on model
+An LLM agent reads only `@pigeon` preambles and `MANIFEST.md` files to build a project map — without opening source files.
+
+On a 400-file codebase: **10K–35K tokens saved per session**, ~200K–700K/day, **$15–$150/month** depending on model.
 
 ---
 
 ## Keystroke Telemetry
 
-### Browser Capture (JavaScript)
+### Capture → Classify → Inject
 
-Drop `client/keystroke-telemetry.js` into any page:
+```
+Browser keystrokes
+      ↓
+  TelemetryLogger  →  hesitation_score, cognitive_state
+      ↓
+  get_cognitive_modifier(state)
+      ↓
+  { prompt_injection, temperature_modifier, strategy }
+      ↓
+  Inject into LLM system prompt + adjust temperature
+```
+
+Seven states classified from typing patterns alone — zero LLM calls:
+
+| State | Signal | Prompt adaptation | Temp Δ |
+|---|---|---|---|
+| `frustrated` | Heavy deletions, restart loops | Concise, 2-3 options, bullets | −0.1 |
+| `hesitant` | Long inter-key pauses, low WPM | Warm, anticipate intent, follow-up | +0.05 |
+| `flow` | Fast typing, minimal edits | Match energy, full technical depth | +0.1 |
+| `focused` | Steady, deliberate | Thorough, well-structured | 0 |
+| `restructuring` | Heavy rewrite before submit | Precise, match effort | −0.05 |
+| `abandoned` | Deleted message, re-approached | Welcoming, direct | 0 |
+| `neutral` | Baseline | Standard | 0 |
+
+### Browser capture
 
 ```javascript
 KeystrokeTelemetry.attach('chat-input', {
@@ -117,171 +187,86 @@ KeystrokeTelemetry.attach('chat-input', {
     flushEndpoint: '/api/telemetry/keystrokes'
 });
 
-// On message submit:
 const result = await KeystrokeTelemetry.onSubmit('chat-input', finalText);
-// result → { cognitive_state: 'frustrated', hesitation_score: 0.62 }
+// → { cognitive_state: 'frustrated', hesitation_score: 0.62 }
 ```
 
-For public deployment, point `flushEndpoint` at a same-origin HTTPS route protected by your application's existing auth/session layer.
+Schema: `keystroke_telemetry/v2`. Auto-flushes at 200 events. Abandon detection at 30s blur. Paste tracking. Pause detection (>2s gaps).
 
-Every keystroke emits a `keystroke_telemetry/v2` JSON event with millisecond timing, cursor position, and buffer state. Events batch automatically (flush at 200 or on submit). Abandoned messages (30s blur timeout) are captured as `discard` events.
+### Unsaid thoughts reconstruction
 
-### Server Processing (Python)
-
-```python
-from src import TelemetryLogger
-
-logger = TelemetryLogger(log_dir="logs")
-result = logger.process_batch(events, final_text="How do I fix this?")
-# result → { wpm: 43, hesitation: 0.38, state: 'hesitant', deletions: 12 }
-```
-
-### Cognitive State Classification
-
-Seven states detected from typing patterns alone — no LLM calls:
-
-| State | Typing Signal | Temperature Mod |
-|---|---|---|
-| `frustrated` | Fast deletions, restart loops | -0.1 (be concise) |
-| `hesitant` | Long pauses before typing | +0.05 (be warm) |
-| `flow` | Steady fast typing, minimal edits | +0.1 (match energy) |
-| `focused` | Deliberate, measured, few pauses | 0 (thorough) |
-| `restructuring` | Heavy cursor movement, reordering | -0.05 (precision) |
-| `abandoned` | Started then left | 0 (welcoming return) |
-| `neutral` | Baseline typing | 0 (no-op) |
+Recovers what the operator typed and deleted:
 
 ```python
-from src import get_cognitive_modifier
-
-mod = get_cognitive_modifier('frustrated')
-# mod → {
-#   'prompt_injection': 'The operator is frustrated. Be concise...',
-#   'temperature_modifier': -0.1,
-#   'strategy': 'concise_direct'
-# }
-```
-
-### Unsaid Thoughts Reconstruction
-
-Recovers what operators typed and deleted — abandoned drafts, emotional deletions, topic pivots:
-
-```python
-from src import extract_unsaid_thoughts
+from src.cognitive.unsaid import extract_unsaid_thoughts
 
 unsaid = extract_unsaid_thoughts(keystroke_events, final_text)
-# unsaid → {
-#   'abandoned_drafts': ['I already tried that...'],
-#   'emotional_deletions': [{'text': 'this is ridiculous', 'emotion': 'frustration'}],
-#   'topic_pivots': 2,
-#   'confidence': 0.74
+# → {
+#     'abandoned_drafts': ['I already tried that...'],
+#     'emotional_deletions': [{'text': 'this is ridiculous', 'emotion': 'frustration'}],
+#     'topic_pivots': 2,
+#     'confidence': 0.74
 # }
 ```
 
-### Drift Detection
+### Cross-session drift detection
 
-Compares current session to operator baseline — detects frustration escalation, flow streaks, engagement decline:
+Detects frustration escalation, flow streaks, engagement decline against personal baseline:
 
 ```python
-from src import detect_session_drift, build_cognitive_context
+from src.cognitive.drift import detect_session_drift, build_cognitive_context
 
 drift = detect_session_drift(session_summaries, baseline)
-# drift → { frustration_escalating: True, engagement_trend: 'declining' }
-
-context = build_cognitive_context(operator_id, session_data)
-# context → { cognitive_block: '...', adaptation_flags: ['FRUSTRATION_ESCALATING'] }
+# → { frustration_escalating: True, engagement_trend: 'declining' }
 ```
 
-### Self-Growing Operator Profile
+### Self-growing operator profile
 
-The logger silently writes `operator_profile.md` every 8 messages — accumulates real stats with LLM-readable observations:
+Written to `operator_profile.md` every 8 messages:
 
 ```markdown
 ## Ranges
-| Metric     | Min  | Max  | Avg  |
-| WPM        | 18   | 95   | 50   |
+| WPM | 18 | 95 | 50 |
 | Hesitation | 0.03 | 0.62 | 0.27 |
 
 ## Time-of-Day Profile
 | morning   | 4 msgs | 46 WPM | hesitant → focused |
 | afternoon | 3 msgs | 83 WPM | flow               |
-| night     | 2 msgs | 20 WPM | frustrated          |
+| night     | 2 msgs | 20 WPM | frustrated         |
+```
 
-## Patterns
-- Morning warmup: early messages ~2.4x slower
-- Late-night degradation: hesitation jumps from 0.307 to 0.550
+### Resistance bridge: telemetry feeds the compiler
+
+Files that cause the most human hesitation get a resistance score bump — the compiler splits them more aggressively:
+
+```python
+from src.resistance_bridge import HesitationAnalyzer
+
+signal = HesitationAnalyzer("logs").resistance_signal()
+# → {"adjustment": 0.195, "reason": "high hesitation (0.428); high discard (0.333)"}
 ```
 
 ---
 
-## Pigeon Code Compiler
+## Current Status
 
-Autonomous code decomposition and naming engine. Takes oversized Python files and produces LLM-readable modules with structured filenames.
-
-### Pigeon Code Naming Convention
-
-```
-{name}_seq{NNN}_v{NNN}_d{MMDD}__{description}_lc_{intent}.py
-```
-
-Every source file carries an `@pigeon` preamble:
-```python
-# @pigeon: seq=003 | role=core_logger | depends=[timestamp_utils,models] | exports=[TelemetryLogger] | tokens=~1800
-```
-An LLM agent reads only these preambles to build a project map without parsing imports.
-
-### Compiler Pipeline
-
-```
-Source File (956 lines)
-  → State Extractor: AST parse, call graph, import trace, resistance score
-  → Weakness Planner: DeepSeek generates cut plan (~$0.002)
-  → Cut Executor: slice, write, bin-pack, resplit
-  → Output: 20 files × ≤50 lines each, __init__.py, MANIFEST.md
-```
-
-1. **Decompose** — oversized functions split into ≤30-line sub-functions (free, AST only)
-2. **Cut Plan** — DeepSeek generates a file-split plan with line count math
-3. **File Creation** — source slicer extracts functions, classes, constants by name
-4. **Resplit Loop** — deterministic bin-packing until all non-class files ≤50 lines
-5. **Init + Manifest** — `__init__.py` with re-exports, `MANIFEST.md` with prompt box
-6. **Master Manifest** — updates project-level manifest with compilation record
-
-### Rename Engine
-
-Autonomous rename pipeline with rollback:
-
-1. **Scanner** — walks the project tree, identifies non-compliant files
-2. **Planner** — generates rename plan with new pigeon-code names
-3. **Import Rewriter** — rewrites all imports across the project
-4. **Executor** — applies renames with atomic rollback on failure
-5. **Validator** — post-rename import validation
-6. **Self-Healer** — detects broken imports and auto-fixes
-
-### Resistance Bridge (Telemetry → Compiler)
-
-The bridge connects both tools — files that cause the most human hesitation get a resistance score bump and become split candidates:
-
-```python
-from src import HesitationAnalyzer
-
-analyzer = HesitationAnalyzer(summary_dir="logs")
-signal = analyzer.resistance_signal()
-# → {"adjustment": 0.195, "reason": "high hesitation (0.428); high discard rate (0.333)"}
-```
-
-The compiler restructures code where *humans actually struggle*, not just where the AST says it's complex.
-
-### Context Budget
-
-Files scored by LLM context cost, not flat line count:
-
-```
-context_cost = file_tokens + (coupling_score × dependency_tokens)
-```
-
-- **Hard cap**: 88 lines (~2K tokens — fits 3–4 files in agent working memory)
-- **Budget**: file + weighted dependencies ≤ 3000 tokens
-- Self-contained files get a bonus; heavily-coupled files get pushed shorter
+| Capability | Status |
+|---|---|
+| Post-commit auto-rename + import rewrite | ✅ Live |
+| Prompt box injection on every commit | ✅ Live |
+| Registry + session audit trail | ✅ Live |
+| MANIFEST.md rebuild on commit | ✅ Live |
+| `copilot-instructions.md` auto-index rebuild | ✅ Live |
+| Compiler: function decomposition (AST) | ✅ Live |
+| Compiler: class decomposition (DeepSeek) | ✅ Live |
+| Compiler: batch codebase compile | ✅ Live |
+| Cognitive state classification (7 states) | ✅ Live |
+| Unsaid thought reconstruction | ✅ Live |
+| Cross-session drift detection | ✅ Live |
+| Self-growing operator profile | ✅ Live |
+| Telemetry → compiler resistance signal | ✅ Live |
+| **Cognitive state → LLM call site wiring** | 🔄 Adapter exists, not yet wired |
+| **`pigeon init` CLI** | 🔄 Hook installs manually today |
 
 ---
 
@@ -289,41 +274,42 @@ context_cost = file_tokens + (coupling_score × dependency_tokens)
 
 ```
 keystroke-telemetry/
-├── client/                                 # Browser capture layer
-│   └── keystroke-telemetry.js              #   v2 IIFE, attach/onSubmit/getLastState
+├── .github/
+│   └── copilot-instructions.md    # Auto-updated LLM context (self-mutates on commit)
 │
-├── src/                                    # Core telemetry library
-│   ├── timestamp_utils_seq001_v*_d*__*.py  #   ms-epoch utility
-│   ├── models_seq002_v*_d*__*.py           #   KeyEvent + MessageDraft dataclasses
-│   ├── logger_seq003_v*_d*__*.py           #   Core telemetry logger, v2 schema
-│   ├── context_budget_seq004_v*_d*__*.py   #   LLM-aware file sizing scorer
-│   ├── drift_watcher_seq005_v*_d*__*.py    #   Live drift detection for coding loops
-│   ├── resistance_bridge_seq006_v*_d*__*.py#   Telemetry → pigeon compiler signal
-│   ├── streaming_layer_seq007_v*_d*__*.py  #   Compiler test input monolith
-│   ├── operator_stats_seq008_v*_d*__*.py   #   Self-growing operator profile
-│   ├── cognitive/                          #   Cognitive intelligence layer
-│   │   ├── adapter_seq001_v*_d*__*.py      #     7 states → prompt injection + temp modifiers
-│   │   ├── unsaid_seq002_v*_d*__*.py       #     Reconstruct deleted/abandoned text
-│   │   └── drift_seq003_v*_d*__*.py        #     Cross-session drift detection + baselines
-│   └── __init__.py                         #   Package root (all exports)
+├── client/
+│   └── keystroke-telemetry.js     # Browser IIFE: attach/onSubmit/getLastState
 │
-├── streaming_layer/                        # Pigeon-compiled output (20 files)
-│   ├── streaming_layer_*_v*_d*__*.py       #   Constants, connection pool, aggregator, etc.
-│   ├── __init__.py
-│   └── MANIFEST.md
+├── src/                           # Core telemetry + cognitive layer
+│   ├── timestamp_utils_seq001*    # ms-epoch utility
+│   ├── models_seq002*             # KeyEvent + MessageDraft dataclasses
+│   ├── logger_seq003*             # Core logger, v2 schema
+│   ├── context_budget_seq004*     # LLM-aware token cost scorer
+│   ├── drift_watcher_seq005*      # File-size drift detection
+│   ├── resistance_bridge_seq006*  # Telemetry → compiler hesitation signal
+│   ├── streaming_layer_seq007*    # Monolith (intentional — compiler test input)
+│   ├── operator_stats_seq008*     # Self-growing operator profile writer
+│   ├── operator_stats/            # Compiled package (14 files, pigeon-compliant)
+│   └── cognitive/
+│       ├── adapter_seq001*        # 7 states → prompt injection + temp modifiers
+│       ├── unsaid/                # Compiled: unsaid thought reconstruction (9 files)
+│       └── drift/                 # Compiled: cross-session drift detection (7 files)
 │
-├── pigeon_compiler/                        # Autonomous code decomposition engine
-│   ├── state_extractor/                    #   Layer 1: AST parsing, call graphs, resistance
-│   ├── weakness_planner/                   #   Layer 2: DeepSeek cut plan generation
-│   ├── cut_executor/                       #   Layer 3: Slicing, writing, bin-packing, resplit
-│   ├── rename_engine/                      #   Autonomous renames with rollback + self-heal
-│   ├── runners/                            #   Pipeline orchestrators
-│   ├── integrations/                       #   DeepSeek API adapter
-│   └── docs/                               #   Compiler design documentation
+├── streaming_layer/               # Pigeon-compiled: 19 files, 100% compliant
 │
-├── test_all.py                             # Full test suite
-├── stress_test.py                          # Cognitive stress test (5 scenarios)
-└── MASTER_MANIFEST.md                      # Project manifest
+├── pigeon_compiler/               # The compiler (~62 modules, compiles itself)
+│   ├── state_extractor/           # AST parsing, call graphs, resistance scoring
+│   ├── weakness_planner/          # DeepSeek cut plan generation
+│   ├── cut_executor/              # Slicing, bin-packing, class decomposition
+│   ├── rename_engine/             # Import rewriting, renames, self-healing
+│   ├── runners/                   # Pipeline orchestrators + batch compiler
+│   ├── integrations/              # DeepSeek API adapter
+│   └── git_plugin.py              # Post-commit daemon (the heart of the system)
+│
+├── test_all.py                    # 4 tests, zero deps beyond stdlib
+├── pigeon_registry.json           # Module index: seq, ver, date, tokens, history
+├── operator_profile.md            # Living cognitive profile (auto-updated)
+└── MASTER_MANIFEST.md             # Auto-generated project map
 ```
 
 ---
@@ -334,16 +320,18 @@ keystroke-telemetry/
 git clone https://github.com/SavageCooPigeonX/keystroke-telemetry.git
 cd keystroke-telemetry
 pip install .
-python test_all.py
-python test_public_release.py
+py test_all.py   # all 4 pass
+
+# To use Pigeon in your own repo:
+pigeon init
 ```
 
-**Telemetry**: Zero external dependencies. Python 3.10+ stdlib only.
-
-**Pigeon Compiler**: Install `httpx` and provide `DEEPSEEK_API_KEY` (for example via `.env.example`) before using DeepSeek-backed commands.
+**Core (telemetry + compiler)**: Python 3.10+ stdlib only, zero deps.  
+**Compiler DeepSeek flows**: install `httpx`, set `DEEPSEEK_API_KEY`.  
+**Windows**: use `py` launcher, set `$env:PYTHONIOENCODING = "utf-8"`.
 
 ---
 
 ## License
 
-Released under the MIT License. See [`LICENSE`](LICENSE).
+MIT. See [`LICENSE`](LICENSE).
