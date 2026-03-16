@@ -2,13 +2,6 @@
   "context_budget": {
     "samples": [
       {
-        "ts": "2026-03-16T08:47:56.275767+00:00",
-        "hes": 1.0,
-        "wpm": 400.0,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
         "ts": "2026-03-16T08:48:44.408934+00:00",
         "hes": 0.889,
         "wpm": 79.2,
@@ -140,22 +133,22 @@
         "wpm": 400.0,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T08:56:56.380762+00:00",
+        "hes": 1.0,
+        "wpm": 2.1,
+        "state": "frustrated",
+        "rework": "ok"
       }
     ],
     "avg_hes": 0.672,
-    "avg_wpm": 94.5,
+    "avg_wpm": 74.6,
     "miss_count": 0,
     "total": 20
   },
   "import_rewriter": {
     "samples": [
-      {
-        "ts": "2026-03-16T08:47:56.275812+00:00",
-        "hes": 1.0,
-        "wpm": 400.0,
-        "state": "frustrated",
-        "rework": "ok"
-      },
       {
         "ts": "2026-03-16T08:48:44.409017+00:00",
         "hes": 0.889,
@@ -288,22 +281,22 @@
         "wpm": 400.0,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T08:56:56.380801+00:00",
+        "hes": 1.0,
+        "wpm": 2.1,
+        "state": "frustrated",
+        "rework": "ok"
       }
     ],
     "avg_hes": 0.672,
-    "avg_wpm": 94.5,
+    "avg_wpm": 74.6,
     "miss_count": 0,
     "total": 20
   },
   "file_writer": {
     "samples": [
-      {
-        "ts": "2026-03-16T08:47:56.275835+00:00",
-        "hes": 1.0,
-        "wpm": 400.0,
-        "state": "frustrated",
-        "rework": "ok"
-      },
       {
         "ts": "2026-03-16T08:48:44.409051+00:00",
         "hes": 0.889,
@@ -436,10 +429,17 @@
         "wpm": 400.0,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-16T08:56:56.380818+00:00",
+        "hes": 1.0,
+        "wpm": 2.1,
+        "state": "frustrated",
+        "rework": "ok"
       }
     ],
     "avg_hes": 0.672,
-    "avg_wpm": 94.5,
+    "avg_wpm": 74.6,
     "miss_count": 0,
     "total": 20
   }

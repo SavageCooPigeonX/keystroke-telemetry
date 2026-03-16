@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-16T08:21:57.707874+00:00",
-  "total": 86,
+  "generated": "2026-03-16T08:56:24.898388+00:00",
+  "total": 87,
   "files": [
     {
       "path": "pigeon_compiler/bones/aim_utils_seq001_v003_d0314__extracted_from_hush_aim_py_lc_desc_upgrade.py",
@@ -1416,14 +1416,14 @@
       ]
     },
     {
-      "path": "src/context_budget_seq004_v005_d0316__context_budget_scorer_for_llm_lc_fire_full_coaching.py",
+      "path": "src/context_budget_seq004_v006_d0316__context_budget_scorer_for_llm_lc_self_fix_analyzer.py",
       "name": "context_budget",
       "seq": 4,
-      "ver": 5,
+      "ver": 6,
       "date": "0316",
       "desc": "context_budget_scorer_for_llm",
-      "intent": "fire_full_coaching",
-      "tokens": 1361,
+      "intent": "self_fix_analyzer",
+      "tokens": 680,
       "history": [
         {
           "ver": 1,
@@ -1463,6 +1463,14 @@
           "intent": "fire_full_coaching",
           "action": "mutated",
           "tokens": 1361
+        },
+        {
+          "ver": 6,
+          "date": "0316",
+          "desc": "context_budget_scorer_for_llm",
+          "intent": "self_fix_analyzer",
+          "action": "mutated",
+          "tokens": 680
         }
       ]
     },
@@ -1603,14 +1611,14 @@
       ]
     },
     {
-      "path": "src/push_narrative_seq012_v002_d0316__generate_per_push_narrative_each_lc_narrative_evolution_background.py",
+      "path": "src/push_narrative_seq012_v003_d0316__generate_per_push_narrative_each_lc_self_fix_analyzer.py",
       "name": "push_narrative",
       "seq": 12,
-      "ver": 2,
+      "ver": 3,
       "date": "0316",
       "desc": "generate_per_push_narrative_each",
-      "intent": "narrative_evolution_background",
-      "tokens": 1293,
+      "intent": "self_fix_analyzer",
+      "tokens": 1634,
       "history": [
         {
           "ver": 2,
@@ -1619,6 +1627,14 @@
           "intent": "narrative_evolution_background",
           "tokens": 1293,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0316",
+          "desc": "generate_per_push_narrative_each",
+          "intent": "self_fix_analyzer",
+          "action": "mutated",
+          "tokens": 1634
         }
       ]
     },
@@ -1694,6 +1710,26 @@
           "intent": "fix_deep_signal",
           "action": "mutated",
           "tokens": 1024
+        }
+      ]
+    },
+    {
+      "path": "src/self_fix_seq013_v002_d0316__one_shot_self_fix_analyzer_lc_self_fix_analyzer.py",
+      "name": "self_fix",
+      "seq": 13,
+      "ver": 2,
+      "date": "0316",
+      "desc": "one_shot_self_fix_analyzer",
+      "intent": "self_fix_analyzer",
+      "tokens": 3117,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0316",
+          "desc": "one_shot_self_fix_analyzer",
+          "intent": "self_fix_analyzer",
+          "tokens": 3117,
+          "action": "registered"
         }
       ]
     },

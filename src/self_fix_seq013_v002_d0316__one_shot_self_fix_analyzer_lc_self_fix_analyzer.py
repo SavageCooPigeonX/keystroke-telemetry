@@ -1,5 +1,13 @@
 """One-shot self-fix analyzer: cross-file problem detection + targeted resolution."""
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 013 | VER: v002 | 339 lines | ~3,117 tokens
+# DESC:   one_shot_self_fix_analyzer
+# INTENT: self_fix_analyzer
+# LAST:   2026-03-16 @ c8de77c
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 import ast
 import json
 import os

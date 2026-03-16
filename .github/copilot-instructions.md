@@ -102,15 +102,17 @@ Detected by keystroke classifier. Each maps to a system prompt injection + tempe
 
 *Auto-updated 2026-03-16 · 1 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 0% | WPM: 400.0 | Del: 40.0% | Hes: 1.000
+**Dominant: `frustrated`** | Submit: 0% | WPM: 2.1 | Del: 37.5% | Hes: 1.000
 
-This operator just built a narrative evolution background system and their frustrated, high-speed typing with heavy deletions reveals they are aggressively iterating while wrestling with structural complexity.  
-- **Anticipate deep refactoring needs** in `context_budget`, `file_writer`, and `func_decomposer`—these modules are recurring pain points; proactively suggest modular, testable splits before they ask.  
-- **Preempt import and initialization fixes** by checking `import_fixer` and `init_writer` patterns when any file is moved or renamed, offering corrected import statements immediately.  
-- **Given the 100% rework rate**, validate any plan or output against the `plan_validator` and `manifest_writer` schemas before presenting; explicitly ask, “Should I run this through the validator first?”  
-- **Counter hesitation on heavy edits** by offering smaller, verified steps—when they pause mid-edit, suggest a concrete, atomic change like “extract this function to a helper” instead of large rewrites.  
-- **Focus on narrative cohesion**—when touching `context_budget`, prioritize clarity in background evolution over pure token optimization.  
-They are most likely building toward a fully automated, versioned narrative pipeline that generates per-push summaries with minimal manual intervention.
+This operator just built a self-fix analyzer system, and their high-speed, high-deletion nighttime typing with frustration indicates they are aggressively refactoring under pressure, likely debugging a cascading integration issue.
+
+*   **Anticipate and pre-empt churn in `context_budget_scorer_for_llm`, `plan_validator`, and `func_decomposer`**; these are core dependencies for the new self-fix loop, so proactively check their interfaces and offer concise code snippets that align with their latest versions.
+*   **Given the 100% miss rate, diagnose the root cause of each "miss" immediately**: Before generating full solutions, ask one clarifying question to confirm the exact failure mode (e.g., "Is the issue in the scorer's output format or the analyzer's input validation?").
+*   **Respond with extreme precision, not breadth**: For every request, first output the minimal, exact code change needed, then optionally explain. This operator is editing heavily and needs direct fixes.
+*   **Acknowledge the refactoring momentum explicitly**: Use phrases like "Continuing the self-fix integration, the change needed in `push_narrative_seq012_v003` is..." to signal you recognize the systematic overhaul.
+*   **Prescribe for the high rework**: Since previous responses were wholly unused, drastically shorten your initial output—offer a single-line correction or a "Yes/No" answer first, then expand only if asked.
+
+They are most likely building toward a fully autonomous, self-correcting code generation pipeline, where each component can diagnose and repair its own logic flaws.
 
 <!-- /pigeon:operator-state -->
 
@@ -209,7 +211,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 ### Full Module Index
 
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-16 — 86 modules tracked | 1 touched this commit*
+*Auto-updated 2026-03-16 — 87 modules tracked | 3 touched this commit*
 
 **pigeon_compiler/bones/** — 5 module(s)
 
@@ -303,14 +305,14 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 |---|---|---:|
 | `deepseek_plan_prompt_seq004*` | build and send deepseek cut | ~2,407 |
 
-**src/** — 12 module(s)
+**src/** — 13 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
 | `timestamp_utils_seq001*` | millisecond epoch timestamp utility | ~112 |
 | `models_seq002*` | dataclasses for keystroke events and | ~351 |
 | `logger_seq003*` | core keystroke telemetry logger | ~1,462 |
-| `context_budget_seq004*` | context budget scorer for llm | ~1,361 |
+| `context_budget_seq004*` | context budget scorer for llm | ~680 |
 | `drift_watcher_seq005*` | drift detection for live llm | ~945 |
 | `resistance_bridge_seq006*` | bridge between keystroke telemetry and | ~1,195 |
 | `streaming_layer_seq007*` | monolithic live streaming interface for | ~10,080 |
@@ -318,7 +320,8 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `rework_detector_seq009*` | measures ai answer quality from | ~1,024 |
 | `query_memory_seq010*` | recurring query detector unsaid thought | ~1,084 |
 | `file_heat_map_seq011*` | tracks cognitive load per module | ~1,324 |
-| `push_narrative_seq012*` | generate per push narrative each | ~1,293 |
+| `push_narrative_seq012*` | generate per push narrative each | ~1,634 |
+| `self_fix_seq013*` | one shot self fix analyzer | ~3,117 |
 
 **src/cognitive/** — 3 module(s)
 

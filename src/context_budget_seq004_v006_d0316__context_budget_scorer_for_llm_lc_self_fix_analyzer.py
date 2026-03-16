@@ -7,11 +7,11 @@ Pigeon compiler integration: feed this score into resistance analysis.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 004 | VER: v005 | 179 lines | ~1,361 tokens
+# SEQ: 004 | VER: v006 | 90 lines | ~680 tokens
 # DESC:   context_budget_scorer_for_llm
-# INTENT: fire_full_coaching
-# LAST:   2026-03-16 @ 7f9948a
-# SESSIONS: 3
+# INTENT: self_fix_analyzer
+# LAST:   2026-03-16 @ c8de77c
+# SESSIONS: 4
 # ──────────────────────────────────────────────
 
 import math
