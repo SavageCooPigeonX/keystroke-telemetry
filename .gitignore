@@ -26,6 +26,10 @@ pigeon_compiler/docs/PIGEON_COMPILER_PLAN.md
 # Registry (contains file history)
 pigeon_registry.json
 
+# VS Code extension build artifacts
+vscode-extension/node_modules/
+vscode-extension/out/
+
 # IDE
 .vscode/
 .idea/
