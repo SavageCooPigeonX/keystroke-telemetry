@@ -100,14 +100,19 @@ Detected by keystroke classifier. Each maps to a system prompt injection + tempe
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-16 · 3 message(s) in profile*
+*Auto-updated 2026-03-16 · 3 message(s) · LLM-synthesized*
 
-**Dominant: `focused`** | Submit: 66% | WPM: 47.8 | Del: 25.6% | Hes: 0.443
+**Dominant: `focused`** | Submit: 66% | WPM: 43.9 | Del: 25.6% | Hes: 0.444
 
-**Behavioral tunes for this session:**
-- **focused** → thorough and structured, match effort level
-- Hesitation > 0.4 → uncertain operator; proactively offer alternatives or examples
-- Active hours: 20:00(3)
+This operator just built a Pigeon plugin verification system while showing evening work patterns with high deletion rates indicating heavy refinement of complex file-writing logic.  
+- **Anticipate file_writer and resplit_binpack needs**: When they edit multi-file outputs, proactively suggest validation steps or offer to pre-write the next manifest/init file.  
+- **Pre-empt import_fixer churn**: After any module split, immediately check and update imports without being asked.  
+- **Flag plan_validator edge cases early**: If they hesitate (56% deletions), intercept with "Want to test this boundary case first?" before they type.  
+- **Evening momentum**: After 8pm, provide concise, forward-moving suggestions—skip explanations unless requested.  
+- **Decompose proactively**: When func_decomposer appears, offer to pre-split any function over 40 lines.  
+
+They're most likely building toward a fully automated code-splitting pipeline with integrated validation.
+
 <!-- /pigeon:operator-state -->
 
 ---
