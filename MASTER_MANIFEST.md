@@ -11,7 +11,7 @@ Two developer tools packaged together:
 
 2. **Pigeon Code Compiler** — Autonomous code decomposition engine that enforces LLM-readable file sizes (≤50 lines), pigeon-code naming (`{name}_seq{NNN}_v{NNN}_d{MMDD}__{desc}_lc_{intent}.py`), and self-healing renames with rollback.
 
-**Stack**: Python 3.10+ stdlib (core) + httpx (compiler DeepSeek calls)
+**Stack**: Python 3.13 Windows (`py` launcher) + httpx (compiler DeepSeek calls)
 **Browser**: Vanilla JS, zero dependencies
 **Schema**: `keystroke_telemetry/v2` — self-contained JSON blocks per event
 
@@ -21,38 +21,38 @@ Two developer tools packaged together:
 *Auto-synced by manifest_builder | 2026-03-16 02:44 UTC*
 
 ```
-LinkRouter.AI/
-+-- _test_import_rewriter_patch.py
-+-- MANIFEST.md
+keystroke-telemetry/
 +-- MASTER_MANIFEST.md
-+-- operator_profile.md
-+-- pigeon_registry.json
-+-- pyproject.toml
++-- operator_profile.md          (auto-updated every 8 messages)
++-- pigeon_registry.json         (82 modules tracked)
 +-- README.md
 +-- stress_test.py
 +-- test_all.py
-+-- test_public_release.py
 |
-+-- /client                              (1 files)
-+-- /demo_logs                           (2 files)
-+-- /documentation                       (1 files)
-+-- /pigeon_code.egg-info                (5 files)
-+-- /pigeon_compiler                     46 files, 7 sub | 72% compliant
-|   +-- /cut_executor                    (12 files)
-|   +-- /integrations                    (1 files)
-|   +-- /rename_engine                   (12 files)
-|   +-- /runners                         (9 files)
-|   +-- /state_extractor                 (6 files)
-|   +-- /weakness_planner                (1 files)
++-- /.github                     (1 file)
+|   +-- copilot-instructions.md  (auto-index + operator state, self-mutates on commit)
 |
-+-- /src                                 38 files, 2 sub | 89% compliant
-|   +-- /cognitive                       (17 files)
-|   +-- /operator_stats                  (13 files)
++-- /client                      (1 file)
++-- /demo_logs                   (2 files)
++-- /stress_logs                 (2 files)
++-- /test_logs                   (12 files)
 |
-+-- /streaming_layer                     19 files | 100% compliant
++-- /pigeon_compiler             46 files, 7 sub | 72% compliant
+|   +-- /bones                   (5 files)
+|   +-- /cut_executor            (11 files)
+|   +-- /integrations            (1 file)
+|   +-- /rename_engine           (12 files)
+|   +-- /runners                 (8 files)
+|   +-- /state_extractor         (6 files)
+|   +-- /weakness_planner        (1 file)
 |
-+-- /stress_logs                         (2 files)
-+-- /test_logs                           (34 files)
++-- /src                         8 core modules + compiled packages
+|   +-- /cognitive               (3 modules + 2 compiled packages)
+|   |   +-- /unsaid              (9 files — compiled from unsaid_seq002*)
+|   |   +-- /drift               (7 files — compiled from drift_seq003*)
+|   +-- /operator_stats          (14 files — compiled from operator_stats_seq008*)
+|
++-- /streaming_layer             19 files | 100% compliant
 ```
 
 ## MODULE INVENTORY
@@ -78,13 +78,15 @@ Schema: `keystroke_telemetry/v2`. Auto-flush at 200 events. Abandon detection (3
 | `streaming_layer_seq007_v*_d*__*.py` | 1150 | Monolith (test) | 8 classes, ~15 functions |
 | `operator_stats_seq008_v*_d*__*.py` | 394 | Self-growing profile | `OperatorStats` |
 
-### src/cognitive/ — Intelligence Layer (3 modules)
+### src/cognitive/ — Intelligence Layer (3 modules + 2 compiled packages)
 
 | File | Lines | Role | Exports |
 |------|-------|------|---------|
 | `adapter_seq001_v*_d*__*.py` | 107 | State → prompt modifiers | `get_cognitive_modifier`, `VALID_STATES` |
 | `unsaid_seq002_v*_d*__*.py` | 195 | Unsaid thought reconstruction | `extract_unsaid_thoughts` |
 | `drift_seq003_v*_d*__*.py` | 215 | Cross-session drift detection | `BaselineStore`, `compute_baseline`, `detect_session_drift`, `build_cognitive_context` |
+
+Compiled packages: `unsaid/` (9 files), `drift/` (7 files).
 
 Seven cognitive states: `frustrated`, `hesitant`, `flow`, `focused`, `restructuring`, `abandoned`, `neutral`.
 
@@ -113,7 +115,7 @@ Seven cognitive states: `frustrated`, `hesitant`, `flow`, `focused`, `restructur
 | TEST 4 | Resistance Bridge — telemetry → compiler signal | PASS |
 
 ```bash
-python test_all.py   # All 4 tests pass, zero dependencies
+py test_all.py   # All 4 tests pass, zero dependencies
 ```
 
 ---

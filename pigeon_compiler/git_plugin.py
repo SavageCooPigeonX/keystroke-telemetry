@@ -21,7 +21,8 @@ Pipeline:
   7. Update pigeon_registry.json
   8. Rebuild all MANIFEST.md files
   9. Refresh .github/copilot-instructions.md auto-index
- 10. Auto-commit [pigeon-auto]
+ 10. Refresh .github/copilot-instructions.md operator state snapshot
+ 11. Auto-commit [pigeon-auto]
 
 Install: .git/hooks/post-commit calls `python -m pigeon_compiler.git_plugin`
 """
@@ -238,6 +239,112 @@ def _refresh_copilot_instructions(root: Path, registry: dict, processed: int) ->
     return True
 
 
+# ── Operator state injection ─────────────────────────────
+
+_OPERATOR_STATE_RE = re.compile(
+    r'<!-- pigeon:operator-state -->.*?<!-- /pigeon:operator-state -->',
+    re.DOTALL,
+)
+
+_STATE_HINTS: dict[str, str] = {
+    'frustrated':    'concise answers, 2-3 options max, bullets, lead with solution',
+    'hesitant':      'warm tone, anticipate intent, ask one follow-up question',
+    'flow':          'match energy — full technical depth, no hand-holding',
+    'focused':       'thorough and structured, match effort level',
+    'restructuring': 'precise, use headers/numbered lists to mirror their effort',
+    'abandoned':     'welcoming, direct — they re-approached after backing off',
+    'neutral':       'standard response style',
+}
+
+
+def _parse_operator_profile(root: Path) -> dict | None:
+    """Parse operator_profile.md → metrics dict. Returns None if file missing."""
+    prof_path = root / 'operator_profile.md'
+    if not prof_path.exists():
+        return None
+    try:
+        text = prof_path.read_text(encoding='utf-8')
+    except Exception:
+        return None
+
+    def _re(pattern: str, default: str) -> str:
+        m = re.search(pattern, text)
+        return m.group(1) if m else default
+
+    return {
+        'messages':    int(_re(r'(\d+) messages ingested', '0') or '0'),
+        'dominant':    _re(r'\*\*Dominant state:\s*(\w+)\*\*', 'neutral'),
+        'submit_rate': int(_re(r'\*\*Submit rate:.*?\((\d+)%\)\*\*', '0') or '0'),
+        'avg_wpm':     float(_re(r'\|\s*WPM\s*\|[^|]+\|[^|]+\|\s*([\d.]+)\s*\|', '0') or '0'),
+        'avg_del':     float(_re(r'\|\s*Deletion\s*%\s*\|[^|]+\|[^|]+\|\s*([\d.]+)%', '0') or '0'),
+        'avg_hes':     float(_re(r'\|\s*Hesitation\s*\|[^|]+\|[^|]+\|\s*([\d.]+)\s*\|', '0') or '0'),
+        'active_hours': _re(r'\*\*Active hours:\*\*\s*(.+)', '').strip(),
+    }
+
+
+def _refresh_operator_state(root: Path) -> bool:
+    """Rebuild <!-- pigeon:operator-state --> block in copilot-instructions.md.
+
+    Reads operator_profile.md, extracts key metrics, and writes a calibrated
+    behavioral snapshot so Copilot adapts to this operator's real typing patterns.
+    """
+    cp_path = root / '.github' / 'copilot-instructions.md'
+    if not cp_path.exists():
+        return False
+
+    prof = _parse_operator_profile(root)
+    if not prof or prof['messages'] == 0:
+        return False
+
+    today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+    dominant = prof['dominant']
+    hint = _STATE_HINTS.get(dominant, _STATE_HINTS['neutral'])
+
+    lines = [
+        '<!-- pigeon:operator-state -->',
+        '## Live Operator State',
+        '',
+        f'*Auto-updated {today} · {prof["messages"]} message(s) in profile*',
+        '',
+        (f'**Dominant: `{dominant}`** '
+         f'| Submit: {prof["submit_rate"]}% '
+         f'| WPM: {prof["avg_wpm"]:.1f} '
+         f'| Del: {prof["avg_del"]:.1f}% '
+         f'| Hes: {prof["avg_hes"]:.3f}'),
+        '',
+        '**Behavioral tunes for this session:**',
+        f'- **{dominant}** → {hint}',
+    ]
+
+    if prof['avg_wpm'] < 45:
+        lines.append('- WPM < 45 → prefer bullets and code blocks over dense prose')
+    if prof['avg_del'] > 30:
+        lines.append('- Deletion ratio > 30% → high rethinking; consider asking "what specifically do you need?"')
+    if prof['submit_rate'] < 60:
+        lines.append(
+            f'- Submit rate {prof["submit_rate"]}% → messages often abandoned; '
+            'check if previous answer landed before going deep'
+        )
+    if prof['avg_hes'] > 0.4:
+        lines.append('- Hesitation > 0.4 → uncertain operator; proactively offer alternatives or examples')
+    if prof['active_hours']:
+        lines.append(f'- Active hours: {prof["active_hours"]}')
+
+    lines.append('<!-- /pigeon:operator-state -->')
+    block = '\n'.join(lines)
+
+    try:
+        text = cp_path.read_text(encoding='utf-8')
+    except Exception:
+        return False
+
+    if not _OPERATOR_STATE_RE.search(text):
+        return False  # Placeholder not present — don't auto-insert, location is hand-chosen
+
+    cp_path.write_text(_OPERATOR_STATE_RE.sub(block, text), encoding='utf-8')
+    return True
+
+
 # ── Main pipeline ───────────────────────────────────────
 
 def run():
@@ -355,13 +462,18 @@ def run():
     # Save registry
     save_registry(root, registry)
 
-    # Refresh copilot-instructions.md auto-index
+    # Refresh copilot-instructions.md auto-index + operator state
     processed = len(renames) + len(box_only)
     try:
         if _refresh_copilot_instructions(root, registry, processed):
             print(f'  📋 copilot-instructions.md auto-index updated ({processed} file(s) touched)')
     except Exception as e:
         print(f'  ⚠️  copilot-instructions refresh: {e}')
+    try:
+        if _refresh_operator_state(root):
+            print('  🧠 operator-state section updated in copilot-instructions.md')
+    except Exception as e:
+        print(f'  ⚠️  operator-state refresh: {e}')
 
     # Rebuild manifests
     try:

@@ -97,6 +97,15 @@ Detected by keystroke classifier. Each maps to a system prompt injection + tempe
 
 ---
 
+<!-- pigeon:operator-state -->
+## Live Operator State
+
+*Not yet populated — fires on next pigeon commit*
+
+<!-- /pigeon:operator-state -->
+
+---
+
 ## Module Map
 
 ### src/ — Core Telemetry

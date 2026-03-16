@@ -25,6 +25,7 @@ git commit -m "fix: timeout on retries"
   Updates pigeon_registry.json
   Rebuilds every MANIFEST.md
   Refreshes .github/copilot-instructions.md with live module index
+  Refreshes .github/copilot-instructions.md with operator cognitive state
   Auto-commits [pigeon-auto]
 ```
 
@@ -71,7 +72,8 @@ git commit -m "fix: timeout on buffer polling"
  7. Update pigeon_registry.json
  8. Rebuild all MANIFEST.md files
  9. Refresh .github/copilot-instructions.md auto-index
-10. Auto-commit [pigeon-auto]
+10. Refresh `.github/copilot-instructions.md` operator state snapshot
+11. Auto-commit [pigeon-auto]
 ```
 
 The import rewrite always happens *before* file rename — the codebase is never left in a broken import state.
@@ -222,18 +224,18 @@ drift = detect_session_drift(session_summaries, baseline)
 
 ### Self-growing operator profile
 
-Written to `operator_profile.md` every 8 messages:
+Written to `operator_profile.md` every 8 messages and **auto-injected into `.github/copilot-instructions.md`** on every pigeon commit:
 
 ```markdown
-## Ranges
-| WPM | 18 | 95 | 50 |
-| Hesitation | 0.03 | 0.62 | 0.27 |
+**Dominant: `hesitant`** | Submit: 66% | WPM: 47.8 | Del: 25.6% | Hes: 0.443
 
-## Time-of-Day Profile
-| morning   | 4 msgs | 46 WPM | hesitant → focused |
-| afternoon | 3 msgs | 83 WPM | flow               |
-| night     | 2 msgs | 20 WPM | frustrated         |
+**Behavioral tunes for this session:**
+- hesitant → warm tone, anticipate intent, ask one follow-up question
+- WPM < 45 → prefer bullets and code blocks over dense prose
+- Hesitation > 0.4 → proactively offer alternatives or examples
 ```
+
+Copilot reads this at the start of every session — no manual context-setting required.
 
 ### Resistance bridge: telemetry feeds the compiler
 
@@ -257,6 +259,7 @@ signal = HesitationAnalyzer("logs").resistance_signal()
 | Registry + session audit trail | ✅ Live |
 | MANIFEST.md rebuild on commit | ✅ Live |
 | `copilot-instructions.md` auto-index rebuild | ✅ Live |
+| `copilot-instructions.md` operator state snapshot | ✅ Live |
 | Compiler: function decomposition (AST) | ✅ Live |
 | Compiler: class decomposition (DeepSeek) | ✅ Live |
 | Compiler: batch codebase compile | ✅ Live |
