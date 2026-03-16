@@ -100,6 +100,12 @@ let events = [];
 let lastKeyTs = 0;
 const PAUSE_MS = 1500;
 
+// Post-response rework capture (30s window after AI responds)
+let postResponseEvents = [];
+let capturePostResponse = false;
+let postResponseTimer = null;
+const POST_RESPONSE_WINDOW_MS = 30000;
+
 function nowMs() { return performance.now(); }
 
 inputEl.addEventListener('keydown', e => {
@@ -113,7 +119,9 @@ inputEl.addEventListener('keydown', e => {
   lastKeyTs = ts;
 
   if (e.key === 'Backspace' || e.key === 'Delete') {
-    events.push({ type: 'backspace', ts, delta_ms: Math.round(delta) });
+    const ev = { type: 'backspace', ts, delta_ms: Math.round(delta) };
+    events.push(ev);
+    if (capturePostResponse) postResponseEvents.push(ev);
   } else if (e.key === 'Enter' && !e.shiftKey) {
     e.preventDefault();
     submit();
@@ -124,7 +132,9 @@ inputEl.addEventListener('input', e => {
   const ts = nowMs();
   const delta = lastKeyTs ? ts - lastKeyTs : 0;
   if (e.inputType === 'insertText' && e.data) {
-    events.push({ type: 'insert', char: e.data, ts, delta_ms: Math.round(delta) });
+    const ev = { type: 'insert', char: e.data, ts, delta_ms: Math.round(delta) };
+    events.push(ev);
+    if (capturePostResponse) postResponseEvents.push(ev);
   }
   // auto-resize textarea
   inputEl.style.height = 'auto';
@@ -145,8 +155,15 @@ function submit() {
   if (!text || sendBtn.disabled) return;
   addMessage('user', text);
   sendBtn.disabled = true;
-  vscode.postMessage({ type: 'submit', text, events: [...events] });
+  vscode.postMessage({
+    type: 'submit', text, events: [...events],
+    query_text: text,
+    post_response_events: [...postResponseEvents],
+  });
   events = [];
+  postResponseEvents = [];
+  capturePostResponse = false;
+  if (postResponseTimer) { clearTimeout(postResponseTimer); postResponseTimer = null; }
   lastKeyTs = 0;
   inputEl.value = '';
   inputEl.style.height = 'auto';
@@ -169,6 +186,11 @@ window.addEventListener('message', e => {
       streamTarget = null;
       sendBtn.disabled = false;
       inputEl.focus();
+      // Start 30s post-response rework capture window
+      capturePostResponse = true;
+      postResponseEvents = [];
+      if (postResponseTimer) clearTimeout(postResponseTimer);
+      postResponseTimer = setTimeout(() => { capturePostResponse = false; }, POST_RESPONSE_WINDOW_MS);
       break;
     case 'state':
       stateDot.textContent  = STATE_ICONS[msg.state] ?? '⬤';

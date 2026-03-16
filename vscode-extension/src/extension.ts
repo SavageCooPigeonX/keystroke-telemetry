@@ -36,15 +36,22 @@ function readOperatorState(root: string): string {
     } catch { return ''; }
 }
 
-interface ClassifyResult { state: string; hesitation: number; wpm: number; }
+interface ClassifyResult { state: string; hesitation: number; wpm: number; rework_verdict?: string; }
 
-function classifySession(root: string, events: object[], submitted: boolean): Promise<ClassifyResult> {
+function classifySession(
+    root: string, events: object[], submitted: boolean,
+    queryText?: string, postResponseEvents?: object[]
+): Promise<ClassifyResult> {
     const fallback: ClassifyResult = { state: 'neutral', hesitation: 0, wpm: 0 };
     return new Promise(resolve => {
         const bridge = path.join(root, 'vscode-extension', 'classify_bridge.py');
         if (!fs.existsSync(bridge)) { resolve(fallback); return; }
         const proc = spawn('py', [bridge, root], { cwd: root });
-        proc.stdin.write(JSON.stringify({ events, submitted }));
+        proc.stdin.write(JSON.stringify({
+            events, submitted,
+            query_text: queryText ?? '',
+            post_response_events: postResponseEvents ?? [],
+        }));
         proc.stdin.end();
         let out = '';
         proc.stdout.on('data', (d: Buffer) => out += d.toString());
@@ -81,7 +88,10 @@ class PigeonChatPanel {
 
     private async _onMessage(msg: any) {
         if (msg.type === 'submit') {
-            const result = await classifySession(this._root, msg.events, true);
+            const result = await classifySession(
+                this._root, msg.events, true,
+                msg.query_text, msg.post_response_events
+            );
             this._panel.webview.postMessage({ type: 'state', ...result });
             const opCtx = readOperatorState(this._root);
             await this._respond(msg.text, opCtx);

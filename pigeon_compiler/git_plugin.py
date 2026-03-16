@@ -318,187 +318,15 @@ def _registry_churn(registry: dict, top_n: int = 8) -> list[dict]:
 
 def _build_commit_coaching_prompt(
     intent: str,
-    changed: list[str],
     renames: list,
     box_only: list,
     registry: dict,
     history: list,
+    rework_stats: dict | None = None,
+    query_mem: dict | None = None,
+    heat_map: dict | None = None,
 ) -> str:
-    """Build the DeepSeek prompt that synthesizes commit context + operator patterns."""
-    from collections import Counter
-
-    # Changed file summary
-    file_lines = []
-    for old_rel, new_rel, entry, tokens, _ in renames:
-        ver = entry.get('ver', 1)
-        file_lines.append(f'  RENAMED  v{ver} {tokens}tok  {Path(old_rel).name} → {Path(new_rel).name}')
-    for abs_p, entry, old_rel, tokens, _ in box_only:
-        ver = entry.get('ver', 1)
-        file_lines.append(f'  UPDATED  v{ver} {tokens}tok  {Path(old_rel).name}')
-    files_block = '\n'.join(file_lines) or '  (none parsed)'
-
-    # Registry churn — top pain-point modules
-    churn = _registry_churn(registry)
-    churn_lines = '\n'.join(
-        f'  {c["module"]} seq{c["seq"]} v{c["ver"]}  {c["tokens"]}tok  [{c["desc"]}] last: {c["intent"]}'
-        for c in churn
-    )
-
-    # Operator profile summary
-    n = len(history)
-    submitted = sum(1 for h in history if h.get('submitted', True))
-    states = [h.get('state', 'neutral') for h in history]
-    state_dist = dict(Counter(states).most_common())
-    wpms  = [h['wpm'] for h in history if 'wpm' in h]
-    hess  = [h['hesitation'] for h in history if 'hesitation' in h]
-    dels  = [h['del_ratio'] for h in history if 'del_ratio' in h]
-    slots = [h.get('slot', '') for h in history if h.get('slot')]
-    avg_wpm = round(sum(wpms)/len(wpms), 1) if wpms else 0
-    avg_hes = round(sum(hess)/len(hess), 3) if hess else 0
-    avg_del = round(sum(dels)/len(dels)*100, 1) if dels else 0
-    slot_dist = dict(Counter(slots).most_common(3))
-    recent   = history[-8:]
-    recent_block = '\n'.join(
-        f'  msg{i+1}: {h.get("state","?")} wpm={h.get("wpm",0)} '
-        f'del={round(h.get("del_ratio",0)*100)}% hes={h.get("hesitation",0)} '
-        f'sub={h.get("submitted",True)} slot={h.get("slot","?")}'
-        for i, h in enumerate(recent)
-    )
-
-    return f"""You are a behavioral AI coach embedded in a VS Code extension.
-Your output is injected DIRECTLY into a Copilot system prompt — write INSTRUCTIONS for the AI, not a report.
-
-THIS COMMIT:
-  intent: {intent}
-  files touched ({len(renames)+len(box_only)}):
-{files_block}
-
-REGISTRY CHURN (most-mutated modules = recurring pain points):
-{churn_lines}
-
-OPERATOR TYPING HISTORY ({n} messages, {submitted} submitted):
-  state distribution: {state_dist}
-  avg WPM: {avg_wpm} | avg hesitation: {avg_hes} | avg deletion rate: {avg_del}%
-  active slots: {slot_dist}
-  recent 8 messages:
-{recent_block}
-
-Write behavioral coaching instructions for Copilot. Requirements:
-1. One sentence: what this operator just accomplished + what their typing reveals about HOW they work
-2. 4-6 concrete bullets: how Copilot should respond in the NEXT session given these patterns
-3. Call out which specific modules keep getting touched and what that means for upcoming work
-4. If typing shows frustration/hesitation on heavy-edit sessions → call that out explicitly
-5. Time-of-day pattern if visible in slots
-6. One sentence: what this operator is most likely building toward next
-
-Be surgical. Every word must change AI behavior. No generic advice. Max 220 words. Plain markdown bullets."""
-
-
-def _call_deepseek_sync(prompt: str, api_key: str, max_tokens: int = 350) -> str | None:
-    """Synchronous DeepSeek call via stdlib urllib — no external deps."""
-    body = json.dumps({
-        'model': 'deepseek-chat',
-        'messages': [{'role': 'user', 'content': prompt}],
-        'max_tokens': max_tokens,
-        'temperature': 0.35,
-    }).encode('utf-8')
-    req = urllib.request.Request(
-        'https://api.deepseek.com/chat/completions',
-        data=body,
-        headers={'Content-Type': 'application/json',
-                 'Authorization': f'Bearer {api_key}'},
-        method='POST',
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=25) as resp:
-            data = json.loads(resp.read().decode('utf-8'))
-            return data['choices'][0]['message']['content'].strip()
-    except Exception:
-        return None
-
-
-def _generate_commit_coaching(
-    root: Path,
-    intent: str,
-    changed: list[str],
-    renames: list,
-    box_only: list,
-    registry: dict,
-) -> bool:
-    """Call DeepSeek at commit time with full codebase + operator context.
-
-    Combines:
-    - What just changed (renamed/updated files + their versions/token counts)
-    - Registry churn (which modules keep mutating = pain points)
-    - Operator typing history from operator_profile.md
-
-    Writes synthesized coaching prose to operator_coaching.md.
-    _refresh_operator_state() then injects it into copilot-instructions.md.
-    Returns True if coaching was updated.
-    """
-    api_key = os.environ.get('DEEPSEEK_API_KEY', '')
-    if not api_key:
-        return False
-    history = _load_operator_history(root)
-    # Only generate if there's meaningful operator data
-    if len(history) < 1:
-        return False
-    prompt = _build_commit_coaching_prompt(
-        intent, changed, renames, box_only, registry, history
-    )
-    prose = _call_deepseek_sync(prompt, api_key)
-    if not prose:
-        return False
-    today = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
-    coaching_path = root / 'operator_coaching.md'
-    submitted_count = sum(1 for h in history if h.get('submitted', True))
-    content = (
-        f'<!-- coaching:count={submitted_count} -->\n'
-        f'<!-- Auto-generated by git_plugin at commit · {today} · intent: {intent} -->\n'
-        f'{prose}\n'
-        f'<!-- /coaching -->\n'
-    )
-    coaching_path.write_text(content, encoding='utf-8')
-    return True
-
-
-# ── Commit-time LLM coaching synthesis ──────────────────────────────────────────
-
-def _load_operator_history(root: Path) -> list:
-    """Extract message history from operator_profile.md DATA block."""
-    prof_path = root / 'operator_profile.md'
-    if not prof_path.exists():
-        return []
-    try:
-        text = prof_path.read_text(encoding='utf-8')
-        m = re.search(r'<!--\s*DATA\s*(.*?)\s*DATA\s*-->', text, re.DOTALL)
-        if m:
-            data = json.loads(m.group(1).strip())
-            return data.get('history', [])
-    except Exception:
-        pass
-    return []
-
-
-def _registry_churn(registry: dict, top_n: int = 8) -> list:
-    """Return top_n most-versioned modules — these are the recurring pain points."""
-    entries = list(registry.values())
-    entries.sort(key=lambda e: e.get('ver', 1), reverse=True)
-    return [
-        {'module': e['name'], 'seq': e.get('seq'), 'ver': e.get('ver', 1),
-         'tokens': e.get('tokens', 0), 'desc': e.get('desc', ''), 'intent': e.get('intent', '')}
-        for e in entries[:top_n]
-    ]
-
-
-def _build_commit_coaching_prompt(
-    intent: str,
-    renames: list,
-    box_only: list,
-    registry: dict,
-    history: list,
-) -> str:
-    """Build the DeepSeek prompt combining commit context + operator typing patterns."""
+    """Build the DeepSeek prompt combining commit context + all deep operator signals."""
     from collections import Counter
 
     # Changed files summary
@@ -539,6 +367,49 @@ def _build_commit_coaching_prompt(
         for i, h in enumerate(recent)
     )
 
+    # Deep signal blocks (optional — populated after a few sessions)
+    rework_block = ''
+    if rework_stats:
+        worst = rework_stats.get('worst_queries', [])
+        rework_block = (
+            f'\nAI RESPONSE QUALITY (post-response rework rate):\n'
+            f'  miss_rate={rework_stats.get("miss_rate","?")}  '
+            f'({rework_stats.get("miss_count","?")} misses / '
+            f'{rework_stats.get("total_responses","?")} responses)\n'
+            f'  worst queries: {worst[:3]}'
+        )
+
+    gaps_block = ''
+    if query_mem and query_mem.get('persistent_gaps'):
+        gaps = '\n'.join(
+            f'  [{g["count"]}x] {g["query"]}'
+            for g in query_mem['persistent_gaps']
+        )
+        abandon_lines = '\n'.join(
+            f'  {a}' for a in query_mem.get('recent_abandons', [])[:3]
+        ) or '  none'
+        gaps_block = (
+            f'\nPERSISTENT GAPS (operator keeps asking same thing → AI keeps failing):\n'
+            f'{gaps}\n'
+            f'ABANDONED/UNSAID recent:\n{abandon_lines}'
+        )
+
+    heat_block = ''
+    if heat_map and heat_map.get('complex_files'):
+        cf = '\n'.join(
+            f'  {c["module"]} avg_hes={c["avg_hes"]} avg_wpm={c["avg_wpm"]} '
+            f'misses={c["miss_count"]}/{c["samples"]}'
+            for c in heat_map['complex_files'][:5]
+        )
+        mf = '\n'.join(
+            f'  {m["module"]} miss_rate={m["miss_rate"]}'
+            for m in heat_map.get('high_miss_files', [])[:3]
+        ) or '  none'
+        heat_block = (
+            f'\nFILE COMPLEXITY DEBT (high hesitation when working on these):\n{cf}\n'
+            f'HIGH AI-MISS FILES:\n{mf}'
+        )
+
     return f"""You are a behavioral AI coach embedded in a VS Code extension.
 Your output is injected DIRECTLY into a Copilot system prompt — write INSTRUCTIONS for the AI, not a report.
 
@@ -553,17 +424,17 @@ OPERATOR TYPING HISTORY ({n} total messages, {submitted} submitted):
   avg WPM: {avg_wpm} | avg hesitation: {avg_hes} | avg deletion rate: {avg_del}%
   active time slots: {slot_dist}
   recent 8 messages:
-{recent_block}
+{recent_block}{rework_block}{gaps_block}{heat_block}
 
 Write behavioral coaching instructions for Copilot. Requirements:
 1. One sentence: what this operator just built + what their typing patterns reveal about HOW they work
 2. 4-6 concrete bullets: exactly how Copilot should respond in the next session
-3. Name specific modules from the churn list that keep getting touched — what should Copilot anticipate about them?
-4. If typing shows frustration/hesitation on heavy-edit commits → call that out and prescribe a response
-5. Note active time slots if there's a pattern
+3. Name specific modules from the churn list that keep getting touched — what should Copilot anticipate?
+4. If rework/gap data present: prescribe explicit strategies for the failing areas
+5. If typing shows frustration/hesitation on heavy-edit commits → call that out and prescribe a response
 6. One sentence: what this operator is most likely building toward next
 
-Be surgical and specific. Every word must change AI behavior. No generic advice. Max 220 words. Plain markdown bullets only."""
+Be surgical and specific. Every word must change AI behavior. No generic advice. Max 250 words. Plain markdown bullets only."""
 
 
 def _call_deepseek_sync(prompt: str, api_key: str, max_tokens: int = 350) -> str | None:
@@ -598,13 +469,10 @@ def _generate_commit_coaching(
 ) -> bool:
     """Synthesize behavioral coaching at commit time using full codebase + operator context.
 
-    This is 10x stronger than message-count triggers because at commit time we know:
-    - Exactly what changed (files, versions, token counts)
-    - Which modules keep mutating (registry churn = pain points the operator returns to)
-    - The operator's accumulated typing biography from operator_profile.md
-
-    The resulting prose in operator_coaching.md is injected into copilot-instructions.md
-    by _refresh_operator_state(), so Copilot reads it on the very next session.
+    Combines changed files, registry churn, operator typing biography, and deep
+    signal stores (rework rate, persistent gaps, file complexity debt) into a
+    single DeepSeek prompt. The resulting prose is written to operator_coaching.md
+    and injected into copilot-instructions.md by _refresh_operator_state().
     """
     api_key = os.environ.get('DEEPSEEK_API_KEY', '')
     if not api_key:
@@ -612,7 +480,82 @@ def _generate_commit_coaching(
     history = _load_operator_history(root)
     if not history:
         return False
-    prompt = _build_commit_coaching_prompt(intent, renames, box_only, registry, history)
+
+    # Load deep signal stores (optional — gracefully absent before first session)
+    rework_stats: dict | None = None
+    query_mem: dict | None = None
+    heat_map: dict | None = None
+    try:
+        rw_path = root / 'rework_log.json'
+        if rw_path.exists():
+            raw = json.loads(rw_path.read_text('utf-8'))
+            entries = raw.get('entries', []) if isinstance(raw, dict) else []
+            total = len(entries)
+            misses = [e for e in entries if e.get('verdict') == 'miss']
+            miss_rate = round(len(misses) / max(total, 1), 3)
+            worst = sorted(misses, key=lambda e: e.get('rework_score', 0), reverse=True)
+            rework_stats = {
+                'miss_rate': miss_rate,
+                'miss_count': len(misses),
+                'total_responses': total,
+                'worst_queries': [e.get('query_text', '')[:60] for e in worst[:3]],
+            }
+    except Exception:
+        pass
+    try:
+        qm_path = root / 'query_memory.json'
+        if qm_path.exists():
+            raw = json.loads(qm_path.read_text('utf-8'))
+            entries = raw.get('entries', []) if isinstance(raw, dict) else []
+            from collections import Counter
+            fp_counts = Counter(e.get('fingerprint', '') for e in entries if e.get('fingerprint'))
+            RECUR = 3
+            gaps = [
+                {'query': next(
+                    (e.get('query_text', '')[:80] for e in entries if e.get('fingerprint') == fp), fp
+                ), 'count': c}
+                for fp, c in fp_counts.most_common(5) if c >= RECUR
+            ]
+            abandons = [
+                e.get('query_text', '')[:80]
+                for e in reversed(entries) if not e.get('submitted', True)
+            ][:5]
+            query_mem = {'persistent_gaps': gaps, 'recent_abandons': abandons}
+    except Exception:
+        pass
+    try:
+        hm_path = root / 'file_heat_map.json'
+        if hm_path.exists():
+            raw = json.loads(hm_path.read_text('utf-8'))
+            modules = raw.get('modules', {}) if isinstance(raw, dict) else {}
+            HIGH_HES = 0.45
+            complex_files = sorted(
+                [
+                    {
+                        'module': name,
+                        'avg_hes': round(v.get('total_hes', 0) / max(v.get('samples', 1), 1), 3),
+                        'avg_wpm': round(v.get('total_wpm', 0) / max(v.get('samples', 1), 1), 1),
+                        'miss_count': v.get('miss_count', 0),
+                        'samples': v.get('samples', 0),
+                    }
+                    for name, v in modules.items()
+                ],
+                key=lambda x: x['avg_hes'], reverse=True
+            )
+            high_hes = [c for c in complex_files if c['avg_hes'] >= HIGH_HES]
+            miss_files = [
+                {'module': c['module'],
+                 'miss_rate': round(c['miss_count'] / max(c['samples'], 1), 2)}
+                for c in complex_files if c['miss_count'] > 0
+            ]
+            heat_map = {'complex_files': high_hes[:6], 'high_miss_files': miss_files[:4]}
+    except Exception:
+        pass
+
+    prompt = _build_commit_coaching_prompt(
+        intent, renames, box_only, registry, history,
+        rework_stats, query_mem, heat_map,
+    )
     prose = _call_deepseek_sync(prompt, api_key)
     if not prose:
         return False
@@ -626,6 +569,7 @@ def _generate_commit_coaching(
     )
     (root / 'operator_coaching.md').write_text(content, encoding='utf-8')
     return True
+
 
 
 def _load_coaching_prose(root: Path) -> str | None:
