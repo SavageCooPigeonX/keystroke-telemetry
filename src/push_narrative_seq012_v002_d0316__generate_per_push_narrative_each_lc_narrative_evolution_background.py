@@ -24,6 +24,7 @@ def generate_push_narrative(
     rework_stats: dict | None = None,
     query_mem: dict | None = None,
     heat_map: dict | None = None,
+    cross_context: dict | None = None,
 ) -> Path | None:
     """Build a development narrative from file-agent voices.
 
@@ -40,7 +41,7 @@ def generate_push_narrative(
     if not file_briefs:
         return None
 
-    prompt = _build_narrative_prompt(intent, file_briefs, rework_stats, query_mem, heat_map)
+    prompt = _build_narrative_prompt(intent, file_briefs, rework_stats, query_mem, heat_map, cross_context)
     prose = _call_deepseek(prompt, api_key)
     if not prose:
         return None
@@ -88,6 +89,7 @@ def _build_narrative_prompt(
     rework_stats: dict | None,
     query_mem: dict | None,
     heat_map: dict | None,
+    cross_context: dict | None = None,
 ) -> str:
     """Single batched prompt — all files voice themselves."""
     files_block = '\n'.join(
@@ -114,16 +116,37 @@ def _build_narrative_prompt(
 
     signals_block = '\n'.join(signals) if signals else 'No deep signals available yet.'
 
+    # Cross-file dependency context
+    cross_block = ''
+    if cross_context:
+        cross_lines = []
+        for rel, ctx in cross_context.items():
+            name = Path(rel).stem.split('_seq')[0]
+            deps = ', '.join(Path(d).stem.split('_seq')[0] for d in ctx.get('imports_from', []))
+            users = ', '.join(Path(u).stem.split('_seq')[0] for u in ctx.get('imported_by', []))
+            parts = []
+            if deps:
+                parts.append(f'depends on [{deps}]')
+            if users:
+                parts.append(f'used by [{users}]')
+            if parts:
+                cross_lines.append(f'- {name}: {"; ".join(parts)}')
+        if cross_lines:
+            cross_block = f'\n\nCROSS-FILE DEPENDENCIES:\n' + '\n'.join(cross_lines)
+
     return (
         f'You are writing a development narrative for a code push.\n\n'
         f'COMMIT INTENT: {intent}\n\n'
         f'FILES CHANGED:\n{files_block}\n\n'
-        f'OPERATOR DEEP SIGNALS:\n{signals_block}\n\n'
+        f'OPERATOR DEEP SIGNALS:\n{signals_block}{cross_block}\n\n'
         f'INSTRUCTIONS:\n'
         f'Write a short development narrative (150-250 words). '
         f'Each changed file "speaks" in first person — one paragraph each — '
         f'explaining why it was touched and what it suspects about its own bugs '
         f'or technical debt based on its version history and the commit intent. '
+        f'If cross-file dependencies are shown, each file should mention HOW '
+        f'it relates to its neighbors — what it gives, what it receives, and '
+        f'potential breakage if either side changes. '
         f'End with a 2-sentence summary of what this push accomplishes. '
         f'Use direct, technical prose. No markdown headers — just paragraphs.'
     )

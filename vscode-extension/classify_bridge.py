@@ -225,34 +225,38 @@ def main():
     # â”€â”€ Rework detection â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     rework_verdict = 'ok'
     try:
-        from src.rework_detector_seq009_v003_d0316__measures_ai_answer_quality_from_lc_fix_deep_signal import score_rework, record_rework
-        rw = score_rework(post_evts)
-        rework_verdict = rw['verdict']
-        if post_evts:
-            record_rework(root, rw, query_txt)
+        rework_mod = _load_pigeon_module(root, 'src/rework_detector_seq009*.py')
+        if rework_mod:
+            rw = rework_mod.score_rework(post_evts)
+            rework_verdict = rw['verdict']
+            if post_evts:
+                rework_mod.record_rework(root, rw, query_txt)
     except Exception:
         pass
 
     # â”€â”€ Unsaid analysis â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     unsaid = None
     try:
-        from src.cognitive.unsaid_seq002_v002_d0315__detects_what_operators_meant_but_lc_verify_pigeon_plugin import extract_unsaid_thoughts
-        unsaid = extract_unsaid_thoughts(events, query_txt)
+        unsaid_mod = _load_pigeon_module(root, 'src/cognitive/unsaid_seq002*.py')
+        if unsaid_mod:
+            unsaid = unsaid_mod.extract_unsaid_thoughts(events, query_txt)
     except Exception:
         pass
 
     # â”€â”€ Query memory + unsaid integration â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     try:
-        from src.query_memory_seq010_v002_d0316__recurring_query_detector_unsaid_thought_lc_add_deep_operator import record_query
-        record_query(root, query_txt, submitted, unsaid)
+        qmem_mod = _load_pigeon_module(root, 'src/query_memory_seq010*.py')
+        if qmem_mod:
+            qmem_mod.record_query(root, query_txt, submitted, unsaid)
     except Exception:
         pass
 
     # â”€â”€ File heat map update â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     try:
-        from src.file_heat_map_seq011_v003_d0316__tracks_cognitive_load_per_module_lc_fix_deep_signal import update_heat_map
-        update_heat_map(root, state, metrics['hesitation_score'],
-                        rework_verdict, wpm)
+        heat_mod = _load_pigeon_module(root, 'src/file_heat_map_seq011*.py')
+        if heat_mod:
+            heat_mod.update_heat_map(root, state, metrics['hesitation_score'],
+                                     rework_verdict, wpm)
     except Exception:
         pass
 
@@ -264,12 +268,12 @@ def main():
         history = _parse_history(root)
         if _should_rewrite(history, coaching_path):
             try:
-                from src.rework_detector_seq009_v003_d0316__measures_ai_answer_quality_from_lc_fix_deep_signal import load_rework_stats
-                from src.query_memory_seq010_v002_d0316__recurring_query_detector_unsaid_thought_lc_add_deep_operator import load_query_memory
-                from src.file_heat_map_seq011_v003_d0316__tracks_cognitive_load_per_module_lc_fix_deep_signal import load_heat_map
-                rw_stats  = load_rework_stats(root)
-                q_mem     = load_query_memory(root)
-                heat      = load_heat_map(root)
+                rework_mod = _load_pigeon_module(root, 'src/rework_detector_seq009*.py')
+                qmem_mod   = _load_pigeon_module(root, 'src/query_memory_seq010*.py')
+                heat_mod   = _load_pigeon_module(root, 'src/file_heat_map_seq011*.py')
+                rw_stats  = rework_mod.load_rework_stats(root) if rework_mod else {}
+                q_mem     = qmem_mod.load_query_memory(root) if qmem_mod else {}
+                heat      = heat_mod.load_heat_map(root) if heat_mod else {}
                 prose = _call_deepseek(_build_prompt(history, rw_stats, q_mem, heat), api_key)
                 if prose:
                     count = _count_submitted(history)

@@ -246,7 +246,9 @@ class BackgroundTelemetry {
         // Fire classify_bridge in background — updates operator_profile + copilot-instructions
         const typingEvents = batch.filter(e => e.type === 'insert' || e.type === 'backspace' || e.type === 'pause');
         if (typingEvents.length >= 3) {
-            classifySession(this._root, typingEvents, true, '(background)').catch(() => {});
+            const activeFile = vscode.window.activeTextEditor?.document.fileName ?? '';
+            const label = activeFile ? `bg:${activeFile.split(/[/\\]/).pop()}` : 'bg:idle';
+            classifySession(this._root, typingEvents, true, label).catch(() => {});
             this._totalFlushed++;
         }
     }

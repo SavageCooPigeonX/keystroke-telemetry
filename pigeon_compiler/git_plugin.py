@@ -879,8 +879,22 @@ def run():
     except Exception as e:
         print(f'  ⚠️  copilot-instructions refresh: {e}')
 
-    # ── Push narrative: file agents speak BEFORE copilot prompt mutation ──
+    # ── Self-fix: one-shot cross-file problem scan ──
     changed_py = [nr for _, nr, _, _, _ in renames] + [r for _, _, r, _, _ in box_only]
+    cross_context = {}
+    try:
+        fix_mod = _load_glob_module(root, 'src', 'self_fix_seq013*')
+        if fix_mod:
+            fix_report = fix_mod.run_self_fix(
+                root, registry, changed_py=changed_py, intent=intent)
+            cross_context = fix_report.get('cross_context', {})
+            fix_path = fix_mod.write_self_fix_report(root, fix_report, h)
+            n_probs = len(fix_report.get('problems', []))
+            print(f'  🔧 self-fix → {fix_path.relative_to(root)} ({n_probs} problems)')
+    except Exception as e:
+        print(f'  ⚠️  self-fix: {e}')
+
+    # ── Push narrative: file agents speak BEFORE copilot prompt mutation ──
     try:
         narr_mod = _load_glob_module(root, 'src', 'push_narrative_seq012*')
         if narr_mod:
@@ -890,6 +904,7 @@ def run():
                 rework_stats=deep.get('rework'),
                 query_mem=deep.get('query'),
                 heat_map=deep.get('heat'),
+                cross_context=cross_context,
             )
             if narr_path:
                 print(f'  📖 push narrative → {narr_path.relative_to(root)}')
