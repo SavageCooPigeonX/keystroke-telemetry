@@ -26,6 +26,9 @@ pigeon_compiler/docs/PIGEON_COMPILER_PLAN.md
 # Registry (contains file history)
 pigeon_registry.json
 
+# Stale pre-rename pigeon artifacts (orphaned by rename engine)
+src/context_budget_seq004_v002_*
+
 # VS Code extension build artifacts
 vscode-extension/node_modules/
 vscode-extension/out/
