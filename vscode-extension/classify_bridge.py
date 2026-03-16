@@ -75,8 +75,10 @@ def main():
         state = stats_mod.classify_state(metrics)
         metrics['state'] = state
         try:
+            # write_every=1: bridge is called once per message (not long-running),
+            # so always flush to disk — each call is its own process lifecycle.
             stats_mod.OperatorStats(
-                str(root / 'operator_profile.md'), write_every=8
+                str(root / 'operator_profile.md'), write_every=1
             ).ingest(metrics)
         except Exception:
             pass

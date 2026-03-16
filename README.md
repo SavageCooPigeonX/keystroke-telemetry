@@ -269,7 +269,7 @@ signal = HesitationAnalyzer("logs").resistance_signal()
 | Self-growing operator profile | ✅ Live |
 | Telemetry → compiler resistance signal | ✅ Live |
 | **Cognitive state → LLM call site wiring** | 🔄 Adapter exists, not yet wired |
-| **VS Code extension (Pigeon Chat)** | 🔄 Built — needs `npm install && npm run compile` |
+| **VS Code extension (Pigeon Chat)** | ✅ Live — F5 to launch |
 | **`pigeon init` CLI** | 🔄 Hook installs manually today |
 
 ---
@@ -353,8 +353,8 @@ No git commit needed for the context update — writes direct to disk.
 cd vscode-extension
 npm install
 npm run compile
-# Then in VS Code: F5 → Extension Development Host
-# Or: run command "Pigeon: Open Keystroke-Aware Chat"
+# Then press F5 in VS Code → Extension Development Host opens
+# Run command: "Pigeon: Open Keystroke-Aware Chat"
 ```
 
 ### Model priority
