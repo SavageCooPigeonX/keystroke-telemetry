@@ -21,15 +21,20 @@ Pipeline:
   7. Update pigeon_registry.json
   8. Rebuild all MANIFEST.md files
   9. Refresh .github/copilot-instructions.md auto-index
- 10. Refresh .github/copilot-instructions.md operator state snapshot
- 11. Auto-commit [pigeon-auto]
+ 10. Call DeepSeek: changed files + registry churn + operator typing history
+     → synthesize behavioral coaching prose → operator_coaching.md
+ 11. Refresh .github/copilot-instructions.md operator state (LLM prose if available)
+ 12. Auto-commit [pigeon-auto]
 
 Install: .git/hooks/post-commit calls `python -m pigeon_compiler.git_plugin`
 """
 import ast
+import json
+import os
 import re
 import subprocess
 import sys
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -282,11 +287,371 @@ def _parse_operator_profile(root: Path) -> dict | None:
     }
 
 
+# ── Commit-time LLM coaching synthesis ──────────────────────────────────────
+
+def _load_operator_history(root: Path) -> list:
+    """Extract message history from operator_profile.md DATA block."""
+    prof_path = root / 'operator_profile.md'
+    if not prof_path.exists():
+        return []
+    try:
+        text = prof_path.read_text(encoding='utf-8')
+        m = re.search(r'<!--\s*DATA\s*(.*?)\s*DATA\s*-->', text, re.DOTALL)
+        if m:
+            data = json.loads(m.group(1).strip())
+            return data.get('history', [])
+    except Exception:
+        pass
+    return []
+
+
+def _registry_churn(registry: dict, top_n: int = 8) -> list[dict]:
+    """Return top_n most-versioned modules — these are the pain points."""
+    entries = list(registry.values())
+    entries.sort(key=lambda e: e.get('ver', 1), reverse=True)
+    return [
+        {'module': e['name'], 'seq': e.get('seq'), 'ver': e.get('ver', 1),
+         'tokens': e.get('tokens', 0), 'desc': e.get('desc', ''), 'intent': e.get('intent', '')}
+        for e in entries[:top_n]
+    ]
+
+
+def _build_commit_coaching_prompt(
+    intent: str,
+    changed: list[str],
+    renames: list,
+    box_only: list,
+    registry: dict,
+    history: list,
+) -> str:
+    """Build the DeepSeek prompt that synthesizes commit context + operator patterns."""
+    from collections import Counter
+
+    # Changed file summary
+    file_lines = []
+    for old_rel, new_rel, entry, tokens, _ in renames:
+        ver = entry.get('ver', 1)
+        file_lines.append(f'  RENAMED  v{ver} {tokens}tok  {Path(old_rel).name} → {Path(new_rel).name}')
+    for abs_p, entry, old_rel, tokens, _ in box_only:
+        ver = entry.get('ver', 1)
+        file_lines.append(f'  UPDATED  v{ver} {tokens}tok  {Path(old_rel).name}')
+    files_block = '\n'.join(file_lines) or '  (none parsed)'
+
+    # Registry churn — top pain-point modules
+    churn = _registry_churn(registry)
+    churn_lines = '\n'.join(
+        f'  {c["module"]} seq{c["seq"]} v{c["ver"]}  {c["tokens"]}tok  [{c["desc"]}] last: {c["intent"]}'
+        for c in churn
+    )
+
+    # Operator profile summary
+    n = len(history)
+    submitted = sum(1 for h in history if h.get('submitted', True))
+    states = [h.get('state', 'neutral') for h in history]
+    state_dist = dict(Counter(states).most_common())
+    wpms  = [h['wpm'] for h in history if 'wpm' in h]
+    hess  = [h['hesitation'] for h in history if 'hesitation' in h]
+    dels  = [h['del_ratio'] for h in history if 'del_ratio' in h]
+    slots = [h.get('slot', '') for h in history if h.get('slot')]
+    avg_wpm = round(sum(wpms)/len(wpms), 1) if wpms else 0
+    avg_hes = round(sum(hess)/len(hess), 3) if hess else 0
+    avg_del = round(sum(dels)/len(dels)*100, 1) if dels else 0
+    slot_dist = dict(Counter(slots).most_common(3))
+    recent   = history[-8:]
+    recent_block = '\n'.join(
+        f'  msg{i+1}: {h.get("state","?")} wpm={h.get("wpm",0)} '
+        f'del={round(h.get("del_ratio",0)*100)}% hes={h.get("hesitation",0)} '
+        f'sub={h.get("submitted",True)} slot={h.get("slot","?")}'
+        for i, h in enumerate(recent)
+    )
+
+    return f"""You are a behavioral AI coach embedded in a VS Code extension.
+Your output is injected DIRECTLY into a Copilot system prompt — write INSTRUCTIONS for the AI, not a report.
+
+THIS COMMIT:
+  intent: {intent}
+  files touched ({len(renames)+len(box_only)}):
+{files_block}
+
+REGISTRY CHURN (most-mutated modules = recurring pain points):
+{churn_lines}
+
+OPERATOR TYPING HISTORY ({n} messages, {submitted} submitted):
+  state distribution: {state_dist}
+  avg WPM: {avg_wpm} | avg hesitation: {avg_hes} | avg deletion rate: {avg_del}%
+  active slots: {slot_dist}
+  recent 8 messages:
+{recent_block}
+
+Write behavioral coaching instructions for Copilot. Requirements:
+1. One sentence: what this operator just accomplished + what their typing reveals about HOW they work
+2. 4-6 concrete bullets: how Copilot should respond in the NEXT session given these patterns
+3. Call out which specific modules keep getting touched and what that means for upcoming work
+4. If typing shows frustration/hesitation on heavy-edit sessions → call that out explicitly
+5. Time-of-day pattern if visible in slots
+6. One sentence: what this operator is most likely building toward next
+
+Be surgical. Every word must change AI behavior. No generic advice. Max 220 words. Plain markdown bullets."""
+
+
+def _call_deepseek_sync(prompt: str, api_key: str, max_tokens: int = 350) -> str | None:
+    """Synchronous DeepSeek call via stdlib urllib — no external deps."""
+    body = json.dumps({
+        'model': 'deepseek-chat',
+        'messages': [{'role': 'user', 'content': prompt}],
+        'max_tokens': max_tokens,
+        'temperature': 0.35,
+    }).encode('utf-8')
+    req = urllib.request.Request(
+        'https://api.deepseek.com/chat/completions',
+        data=body,
+        headers={'Content-Type': 'application/json',
+                 'Authorization': f'Bearer {api_key}'},
+        method='POST',
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=25) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+            return data['choices'][0]['message']['content'].strip()
+    except Exception:
+        return None
+
+
+def _generate_commit_coaching(
+    root: Path,
+    intent: str,
+    changed: list[str],
+    renames: list,
+    box_only: list,
+    registry: dict,
+) -> bool:
+    """Call DeepSeek at commit time with full codebase + operator context.
+
+    Combines:
+    - What just changed (renamed/updated files + their versions/token counts)
+    - Registry churn (which modules keep mutating = pain points)
+    - Operator typing history from operator_profile.md
+
+    Writes synthesized coaching prose to operator_coaching.md.
+    _refresh_operator_state() then injects it into copilot-instructions.md.
+    Returns True if coaching was updated.
+    """
+    api_key = os.environ.get('DEEPSEEK_API_KEY', '')
+    if not api_key:
+        return False
+    history = _load_operator_history(root)
+    # Only generate if there's meaningful operator data
+    if len(history) < 1:
+        return False
+    prompt = _build_commit_coaching_prompt(
+        intent, changed, renames, box_only, registry, history
+    )
+    prose = _call_deepseek_sync(prompt, api_key)
+    if not prose:
+        return False
+    today = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+    coaching_path = root / 'operator_coaching.md'
+    submitted_count = sum(1 for h in history if h.get('submitted', True))
+    content = (
+        f'<!-- coaching:count={submitted_count} -->\n'
+        f'<!-- Auto-generated by git_plugin at commit · {today} · intent: {intent} -->\n'
+        f'{prose}\n'
+        f'<!-- /coaching -->\n'
+    )
+    coaching_path.write_text(content, encoding='utf-8')
+    return True
+
+
+# ── Commit-time LLM coaching synthesis ──────────────────────────────────────────
+
+def _load_operator_history(root: Path) -> list:
+    """Extract message history from operator_profile.md DATA block."""
+    prof_path = root / 'operator_profile.md'
+    if not prof_path.exists():
+        return []
+    try:
+        text = prof_path.read_text(encoding='utf-8')
+        m = re.search(r'<!--\s*DATA\s*(.*?)\s*DATA\s*-->', text, re.DOTALL)
+        if m:
+            data = json.loads(m.group(1).strip())
+            return data.get('history', [])
+    except Exception:
+        pass
+    return []
+
+
+def _registry_churn(registry: dict, top_n: int = 8) -> list:
+    """Return top_n most-versioned modules — these are the recurring pain points."""
+    entries = list(registry.values())
+    entries.sort(key=lambda e: e.get('ver', 1), reverse=True)
+    return [
+        {'module': e['name'], 'seq': e.get('seq'), 'ver': e.get('ver', 1),
+         'tokens': e.get('tokens', 0), 'desc': e.get('desc', ''), 'intent': e.get('intent', '')}
+        for e in entries[:top_n]
+    ]
+
+
+def _build_commit_coaching_prompt(
+    intent: str,
+    renames: list,
+    box_only: list,
+    registry: dict,
+    history: list,
+) -> str:
+    """Build the DeepSeek prompt combining commit context + operator typing patterns."""
+    from collections import Counter
+
+    # Changed files summary
+    file_lines = []
+    for old_rel, new_rel, entry, tokens, _ in renames:
+        ver = entry.get('ver', 1)
+        file_lines.append(f'  RENAMED  v{ver} {tokens}tok  {Path(old_rel).name} → {Path(new_rel).name}')
+    for abs_p, entry, old_rel, tokens, _ in box_only:
+        ver = entry.get('ver', 1)
+        file_lines.append(f'  UPDATED  v{ver} {tokens}tok  {Path(old_rel).name}')
+    files_block = '\n'.join(file_lines) or '  (none parsed)'
+
+    # Registry churn — top pain-point modules
+    churn = _registry_churn(registry)
+    churn_lines = '\n'.join(
+        f'  {c["module"]} seq{c["seq"]} v{c["ver"]}  {c["tokens"]}tok  [{c["desc"]}] last: {c["intent"]}'
+        for c in churn
+    )
+
+    # Operator profile summary
+    n = len(history)
+    submitted = sum(1 for h in history if h.get('submitted', True))
+    states = [h.get('state', 'neutral') for h in history]
+    state_dist = dict(Counter(states).most_common())
+    wpms = [h['wpm'] for h in history if 'wpm' in h]
+    hess = [h['hesitation'] for h in history if 'hesitation' in h]
+    dels = [h['del_ratio'] for h in history if 'del_ratio' in h]
+    slots = [h.get('slot', '') for h in history if h.get('slot')]
+    avg_wpm = round(sum(wpms) / len(wpms), 1) if wpms else 0
+    avg_hes = round(sum(hess) / len(hess), 3) if hess else 0
+    avg_del = round(sum(dels) / len(dels) * 100, 1) if dels else 0
+    slot_dist = dict(Counter(slots).most_common(3))
+    recent = history[-8:]
+    recent_block = '\n'.join(
+        f'  msg{i+1}: {h.get("state","?")} wpm={h.get("wpm",0)} '
+        f'del={round(h.get("del_ratio",0)*100)}% hes={h.get("hesitation",0)} '
+        f'sub={h.get("submitted",True)} slot={h.get("slot","?")}'
+        for i, h in enumerate(recent)
+    )
+
+    return f"""You are a behavioral AI coach embedded in a VS Code extension.
+Your output is injected DIRECTLY into a Copilot system prompt — write INSTRUCTIONS for the AI, not a report.
+
+THIS COMMIT (intent: {intent}):
+{files_block}
+
+REGISTRY CHURN — most-mutated modules (recurring pain points the operator keeps revisiting):
+{churn_lines}
+
+OPERATOR TYPING HISTORY ({n} total messages, {submitted} submitted):
+  state distribution: {state_dist}
+  avg WPM: {avg_wpm} | avg hesitation: {avg_hes} | avg deletion rate: {avg_del}%
+  active time slots: {slot_dist}
+  recent 8 messages:
+{recent_block}
+
+Write behavioral coaching instructions for Copilot. Requirements:
+1. One sentence: what this operator just built + what their typing patterns reveal about HOW they work
+2. 4-6 concrete bullets: exactly how Copilot should respond in the next session
+3. Name specific modules from the churn list that keep getting touched — what should Copilot anticipate about them?
+4. If typing shows frustration/hesitation on heavy-edit commits → call that out and prescribe a response
+5. Note active time slots if there's a pattern
+6. One sentence: what this operator is most likely building toward next
+
+Be surgical and specific. Every word must change AI behavior. No generic advice. Max 220 words. Plain markdown bullets only."""
+
+
+def _call_deepseek_sync(prompt: str, api_key: str, max_tokens: int = 350) -> str | None:
+    """Synchronous DeepSeek call via stdlib urllib — no external deps."""
+    body = json.dumps({
+        'model': 'deepseek-chat',
+        'messages': [{'role': 'user', 'content': prompt}],
+        'max_tokens': max_tokens,
+        'temperature': 0.35,
+    }).encode('utf-8')
+    req = urllib.request.Request(
+        'https://api.deepseek.com/chat/completions',
+        data=body,
+        headers={'Content-Type': 'application/json',
+                 'Authorization': f'Bearer {api_key}'},
+        method='POST',
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=25) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+            return data['choices'][0]['message']['content'].strip()
+    except Exception:
+        return None
+
+
+def _generate_commit_coaching(
+    root: Path,
+    intent: str,
+    renames: list,
+    box_only: list,
+    registry: dict,
+) -> bool:
+    """Synthesize behavioral coaching at commit time using full codebase + operator context.
+
+    This is 10x stronger than message-count triggers because at commit time we know:
+    - Exactly what changed (files, versions, token counts)
+    - Which modules keep mutating (registry churn = pain points the operator returns to)
+    - The operator's accumulated typing biography from operator_profile.md
+
+    The resulting prose in operator_coaching.md is injected into copilot-instructions.md
+    by _refresh_operator_state(), so Copilot reads it on the very next session.
+    """
+    api_key = os.environ.get('DEEPSEEK_API_KEY', '')
+    if not api_key:
+        return False
+    history = _load_operator_history(root)
+    if not history:
+        return False
+    prompt = _build_commit_coaching_prompt(intent, renames, box_only, registry, history)
+    prose = _call_deepseek_sync(prompt, api_key)
+    if not prose:
+        return False
+    today = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+    submitted_count = sum(1 for h in history if h.get('submitted', True))
+    content = (
+        f'<!-- coaching:count={submitted_count} -->\n'
+        f'<!-- Auto-generated by git_plugin at commit · {today} · intent: {intent} -->\n'
+        f'{prose}\n'
+        f'<!-- /coaching -->\n'
+    )
+    (root / 'operator_coaching.md').write_text(content, encoding='utf-8')
+    return True
+
+
+def _load_coaching_prose(root: Path) -> str | None:
+    """Load LLM-generated coaching prose from operator_coaching.md if present."""
+    coaching_path = root / 'operator_coaching.md'
+    if not coaching_path.exists():
+        return None
+    try:
+        text = coaching_path.read_text(encoding='utf-8')
+        m = re.search(r'<!-- coaching:count=\d+ -->\n.*?\n(.*?)<!-- /coaching -->', text, re.DOTALL)
+        if m:
+            return m.group(1).strip()
+    except Exception:
+        pass
+    return None
+
+
 def _refresh_operator_state(root: Path) -> bool:
     """Rebuild <!-- pigeon:operator-state --> block in copilot-instructions.md.
 
-    Reads operator_profile.md, extracts key metrics, and writes a calibrated
-    behavioral snapshot so Copilot adapts to this operator's real typing patterns.
+    Priority:
+      1. LLM-synthesized prose from operator_coaching.md (generated every 8 submitted msgs)
+      2. Static template built from operator_profile.md metrics (always available)
+
+    This lets the block evolve from raw stats → rich behavioral coaching over time
+    as the operator accumulates enough history for the LLM to detect real patterns.
     """
     cp_path = root / '.github' / 'copilot-instructions.md'
     if not cp_path.exists():
@@ -298,40 +663,60 @@ def _refresh_operator_state(root: Path) -> bool:
 
     today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
     dominant = prof['dominant']
-    hint = _STATE_HINTS.get(dominant, _STATE_HINTS['neutral'])
 
-    lines = [
-        '<!-- pigeon:operator-state -->',
-        '## Live Operator State',
-        '',
-        f'*Auto-updated {today} · {prof["messages"]} message(s) in profile*',
-        '',
-        (f'**Dominant: `{dominant}`** '
-         f'| Submit: {prof["submit_rate"]}% '
-         f'| WPM: {prof["avg_wpm"]:.1f} '
-         f'| Del: {prof["avg_del"]:.1f}% '
-         f'| Hes: {prof["avg_hes"]:.3f}'),
-        '',
-        '**Behavioral tunes for this session:**',
-        f'- **{dominant}** → {hint}',
-    ]
-
-    if prof['avg_wpm'] < 45:
-        lines.append('- WPM < 45 → prefer bullets and code blocks over dense prose')
-    if prof['avg_del'] > 30:
-        lines.append('- Deletion ratio > 30% → high rethinking; consider asking "what specifically do you need?"')
-    if prof['submit_rate'] < 60:
-        lines.append(
-            f'- Submit rate {prof["submit_rate"]}% → messages often abandoned; '
-            'check if previous answer landed before going deep'
-        )
-    if prof['avg_hes'] > 0.4:
-        lines.append('- Hesitation > 0.4 → uncertain operator; proactively offer alternatives or examples')
-    if prof['active_hours']:
-        lines.append(f'- Active hours: {prof["active_hours"]}')
-
-    lines.append('<!-- /pigeon:operator-state -->')
-    block = '\n'.join(lines)
+    # ── Try LLM-generated prose first ──────────────────────────────────────
+    coaching_prose = _load_coaching_prose(root)
+    if coaching_prose:
+        lines = [
+            '<!-- pigeon:operator-state -->',
+            '## Live Operator State',
+            '',
+            f'*Auto-updated {today} · {prof["messages"]} message(s) · LLM-synthesized*',
+            '',
+            (f'**Dominant: `{dominant}`** '
+             f'| Submit: {prof["submit_rate"]}% '
+             f'| WPM: {prof["avg_wpm"]:.1f} '
+             f'| Del: {prof["avg_del"]:.1f}% '
+             f'| Hes: {prof["avg_hes"]:.3f}'),
+            '',
+            coaching_prose,
+            '',
+            '<!-- /pigeon:operator-state -->',
+        ]
+        block = '\n'.join(lines)
+    else:
+        # ── Static template fallback (first <8 messages) ────────────────────
+        hint = _STATE_HINTS.get(dominant, _STATE_HINTS['neutral'])
+        lines = [
+            '<!-- pigeon:operator-state -->',
+            '## Live Operator State',
+            '',
+            f'*Auto-updated {today} · {prof["messages"]} message(s) in profile*',
+            '',
+            (f'**Dominant: `{dominant}`** '
+             f'| Submit: {prof["submit_rate"]}% '
+             f'| WPM: {prof["avg_wpm"]:.1f} '
+             f'| Del: {prof["avg_del"]:.1f}% '
+             f'| Hes: {prof["avg_hes"]:.3f}'),
+            '',
+            '**Behavioral tunes for this session:**',
+            f'- **{dominant}** → {hint}',
+        ]
+        if prof['avg_wpm'] < 45:
+            lines.append('- WPM < 45 → prefer bullets and code blocks over dense prose')
+        if prof['avg_del'] > 30:
+            lines.append('- Deletion ratio > 30% → high rethinking; consider asking "what specifically do you need?"')
+        if prof['submit_rate'] < 60:
+            lines.append(
+                f'- Submit rate {prof["submit_rate"]}% → messages often abandoned; '
+                'check if previous answer landed before going deep'
+            )
+        if prof['avg_hes'] > 0.4:
+            lines.append('- Hesitation > 0.4 → uncertain operator; proactively offer alternatives or examples')
+        if prof['active_hours']:
+            lines.append(f'- Active hours: {prof["active_hours"]}')
+        lines.append('<!-- /pigeon:operator-state -->')
+        block = '\n'.join(lines)
 
     try:
         text = cp_path.read_text(encoding='utf-8')
@@ -469,6 +854,16 @@ def run():
             print(f'  📋 copilot-instructions.md auto-index updated ({processed} file(s) touched)')
     except Exception as e:
         print(f'  ⚠️  copilot-instructions refresh: {e}')
+    # Generate LLM coaching at commit time (full codebase + operator context)
+    try:
+        coaching_ok = _generate_commit_coaching(
+            root, intent, renames, box_only, registry
+        )
+        if coaching_ok:
+            print('  🧠 commit coaching synthesized → operator_coaching.md')
+    except Exception as e:
+        print(f'  ⚠️  commit coaching: {e}')
+
     try:
         if _refresh_operator_state(root):
             print('  🧠 operator-state section updated in copilot-instructions.md')
