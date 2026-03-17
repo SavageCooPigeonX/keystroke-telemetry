@@ -1,0 +1,122 @@
+# Self-Fix Report — 2026-03-17 fec3fe0
+
+Scanned 89 modules, 76 in import graph.
+
+## Problems Found: 20
+
+### 1. [CRITICAL] hardcoded_import
+- **File**: stress_test.py
+- **Line**: 15
+- **Import**: `src.logger_seq003_v003_d0317__core_keystroke_telemetry_logger_lc_pulse_telemetry_prompt`
+- **Fix**: Use glob-based dynamic import instead of hardcoded name
+
+### 2. [CRITICAL] hardcoded_import
+- **File**: stress_test.py
+- **Line**: 16
+- **Import**: `src.resistance_bridge_seq006_v003_d0317__bridge_between_keystroke_telemetry_and_lc_pulse_telemetry_prompt`
+- **Fix**: Use glob-based dynamic import instead of hardcoded name
+
+### 3. [CRITICAL] hardcoded_import
+- **File**: test_all.py
+- **Line**: 13
+- **Import**: `src.logger_seq003_v003_d0317__core_keystroke_telemetry_logger_lc_pulse_telemetry_prompt`
+- **Fix**: Use glob-based dynamic import instead of hardcoded name
+
+### 4. [CRITICAL] hardcoded_import
+- **File**: test_all.py
+- **Line**: 14
+- **Import**: `src.context_budget_seq004_v007_d0317__context_budget_scorer_for_llm_lc_pulse_telemetry_prompt`
+- **Fix**: Use glob-based dynamic import instead of hardcoded name
+
+### 5. [CRITICAL] hardcoded_import
+- **File**: test_all.py
+- **Line**: 15
+- **Import**: `src.drift_watcher_seq005_v003_d0317__drift_detection_for_live_llm_lc_pulse_telemetry_prompt`
+- **Fix**: Use glob-based dynamic import instead of hardcoded name
+
+### 6. [CRITICAL] hardcoded_import
+- **File**: test_all.py
+- **Line**: 16
+- **Import**: `src.resistance_bridge_seq006_v003_d0317__bridge_between_keystroke_telemetry_and_lc_pulse_telemetry_prompt`
+- **Fix**: Use glob-based dynamic import instead of hardcoded name
+
+### 7. [CRITICAL] hardcoded_import
+- **File**: vscode-extension/pulse_watcher.py
+- **Line**: 27
+- **Import**: `src.pulse_harvest_seq015_v002_d0317__pulse_harvest_pairs_prompts_to_lc_pulse_telemetry_prompt`
+- **Fix**: Use glob-based dynamic import instead of hardcoded name
+
+### 8. [HIGH] query_noise
+- **Count**: 76
+- **Fix**: Filter "(background)" queries in extension flush — use active filename instead
+
+### 9. [LOW] dead_export
+- **File**: src/cognitive_reactor_seq014_v002_d0317__cognitive_reactor_autonomous_code_modification_lc_pulse_telemetry_prompt.py
+- **Line**: 57
+- **Function**: `ingest_flush()`
+- **Fix**: Consider removing or wiring ingest_flush() into pipeline
+
+### 10. [LOW] dead_export
+- **File**: src/context_budget_seq004_v007_d0317__context_budget_scorer_for_llm_lc_pulse_telemetry_prompt.py
+- **Line**: 36
+- **Function**: `default_budget_config()`
+- **Fix**: Consider removing or wiring default_budget_config() into pipeline
+
+### 11. [LOW] dead_export
+- **File**: src/file_heat_map_seq011_v004_d0317__tracks_cognitive_load_per_module_lc_pulse_telemetry_prompt.py
+- **Line**: 34
+- **Function**: `update_heat_map()`
+- **Fix**: Consider removing or wiring update_heat_map() into pipeline
+
+### 12. [LOW] dead_export
+- **File**: src/file_heat_map_seq011_v004_d0317__tracks_cognitive_load_per_module_lc_pulse_telemetry_prompt.py
+- **Line**: 94
+- **Function**: `load_heat_map()`
+- **Fix**: Consider removing or wiring load_heat_map() into pipeline
+
+### 13. [LOW] dead_export
+- **File**: src/file_heat_map_seq011_v004_d0317__tracks_cognitive_load_per_module_lc_pulse_telemetry_prompt.py
+- **Line**: 128
+- **Function**: `load_registry_churn()`
+- **Fix**: Consider removing or wiring load_registry_churn() into pipeline
+
+### 14. [LOW] dead_export
+- **File**: src/pulse_harvest_seq015_v002_d0317__pulse_harvest_pairs_prompts_to_lc_pulse_telemetry_prompt.py
+- **Line**: 109
+- **Function**: `stamp_pulse()`
+- **Fix**: Consider removing or wiring stamp_pulse() into pipeline
+
+### 15. [LOW] dead_export
+- **File**: src/query_memory_seq010_v003_d0317__recurring_query_detector_unsaid_thought_lc_pulse_telemetry_prompt.py
+- **Line**: 47
+- **Function**: `record_query()`
+- **Fix**: Consider removing or wiring record_query() into pipeline
+
+### 16. [LOW] dead_export
+- **File**: src/query_memory_seq010_v003_d0317__recurring_query_detector_unsaid_thought_lc_pulse_telemetry_prompt.py
+- **Line**: 89
+- **Function**: `load_query_memory()`
+- **Fix**: Consider removing or wiring load_query_memory() into pipeline
+
+### 17. [LOW] dead_export
+- **File**: src/rework_detector_seq009_v004_d0317__measures_ai_answer_quality_from_lc_pulse_telemetry_prompt.py
+- **Line**: 32
+- **Function**: `score_rework()`
+- **Fix**: Consider removing or wiring score_rework() into pipeline
+
+### 18. [LOW] dead_export
+- **File**: src/rework_detector_seq009_v004_d0317__measures_ai_answer_quality_from_lc_pulse_telemetry_prompt.py
+- **Line**: 66
+- **Function**: `record_rework()`
+- **Fix**: Consider removing or wiring record_rework() into pipeline
+
+### 19. [LOW] dead_export
+- **File**: src/rework_detector_seq009_v004_d0317__measures_ai_answer_quality_from_lc_pulse_telemetry_prompt.py
+- **Line**: 85
+- **Function**: `load_rework_stats()`
+- **Fix**: Consider removing or wiring load_rework_stats() into pipeline
+
+### 20. [INFO] high_coupling
+- **File**: src/timestamp_utils_seq001_v003_d0317__millisecond_epoch_timestamp_utility_lc_pulse_telemetry_prompt.py
+- **Fan-in**: 6 dependents
+- **Fix**: Module has 6 dependents — changes here break many files

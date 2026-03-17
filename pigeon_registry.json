@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-17T01:19:14.294973+00:00",
+  "generated": "2026-03-17T04:34:52.143639+00:00",
   "total": 89,
   "files": [
     {
@@ -1699,14 +1699,14 @@
       ]
     },
     {
-      "path": "src/push_narrative_seq012_v004_d0317__generate_per_push_narrative_each_lc_pulse_telemetry_prompt.py",
+      "path": "src/push_narrative_seq012_v005_d0317__generate_per_push_narrative_each_lc_auto_prompt_reconstruction.py",
       "name": "push_narrative",
       "seq": 12,
-      "ver": 4,
+      "ver": 5,
       "date": "0317",
       "desc": "generate_per_push_narrative_each",
-      "intent": "pulse_telemetry_prompt",
-      "tokens": 1654,
+      "intent": "auto_prompt_reconstruction",
+      "tokens": 2049,
       "history": [
         {
           "ver": 2,
@@ -1731,6 +1731,14 @@
           "intent": "pulse_telemetry_prompt",
           "action": "mutated",
           "tokens": 1654
+        },
+        {
+          "ver": 5,
+          "date": "0317",
+          "desc": "generate_per_push_narrative_each",
+          "intent": "auto_prompt_reconstruction",
+          "action": "mutated",
+          "tokens": 2049
         }
       ]
     },

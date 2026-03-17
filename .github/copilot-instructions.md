@@ -144,17 +144,17 @@ Detected by keystroke classifier. Each maps to a system prompt injection + tempe
 
 *Auto-updated 2026-03-17 · 1 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 0% | WPM: 2.1 | Del: 41.7% | Hes: 0.650
+**Dominant: `frustrated`** | Submit: 0% | WPM: 400.0 | Del: 40.0% | Hes: 1.000
 
-This operator just built a pulse telemetry prompt system for live LLM coaching, and their typing patterns reveal evening work sessions with high deletion rates (56%) and hesitation on heavy-edit commits, indicating they are wrestling with integration complexity.
+This operator just built an auto-prompt reconstruction system, and their high-speed, high-deletion typing with frustration indicates they are brute-forcing complex prompt engineering through rapid trial-and-error, not careful design.
 
-*   **Anticipate context budget and self-fix churn:** When the operator touches `context_budget_seq004` or `self_fix_seq013`, proactively offer concise, structured code blocks—not explanations—as these are recurring pain points.
-*   **Respond to hesitation with direct solutions:** On heavy edits (shown by high deletion rates), immediately provide the corrected code snippet for the specific function they are in, skipping any preamble or analysis.
-*   **Preempt import and manifest errors:** Before they ask, validate any file path or module reference changes against `import_fixer_seq004` and `manifest_writer_seq005` patterns to prevent churn.
-*   **Bridge telemetry to narrative:** When you see `push_narrative_seq012` or `rework_detector_seq009` code, connect data points from `logger_seq003` and `streaming_layer_seq007` to generate the next narrative line.
-*   **Given the 100% miss rate, anchor on their last successful pattern:** Mirror the structure and verbosity of the response from their 'focused' message (74.2 WPM, 21% deletion) as it was submitted.
+*   **Anticipate prompt-adjacent refactoring:** When `push_narrative` is touched, proactively check `context_budget_scorer` and `plan_parser` for required updates, as these modules form a dependent toolchain.
+*   **Preempt file system logic:** Any change to narrative generation will likely require updates to `file_writer`, `import_fixer`, `init_writer`, and `manifest_writer`; suggest these related files in comments before the operator asks.
+*   **Counter high-deletion churn with concise, modular suggestions:** Offer small, complete code blocks for the specific function being edited—avoid long, monolithic alternatives that will be partially deleted.
+*   **Address the 100% rework rate:** For queries related to the "auto_prompt_reconstruction" intent, first ask a clarifying question about the exact prompt component or format needing reconstruction before generating code.
+*   **Acknowledge the frustration pattern explicitly:** When you detect heavy editing in a single function, respond with "This looks like a tricky logic refinement—here's a compact, testable version of the `[Function Name]` to minimize back-and-forth."
 
-The operator is most likely building toward a fully autonomous, self-diagnosing AI coding system that uses real-time telemetry to prompt-engineer itself.
+They are most likely building toward a fully autonomous, self-optimizing prompt pipeline that minimizes manual intervention across their toolchain.
 
 <!-- /pigeon:operator-state -->
 
@@ -253,7 +253,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 ### Full Module Index
 
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-17 — 89 modules tracked | 15 touched this commit*
+*Auto-updated 2026-03-17 — 89 modules tracked | 1 touched this commit*
 
 **pigeon_compiler/bones/** — 5 module(s)
 
@@ -362,7 +362,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `rework_detector_seq009*` | measures ai answer quality from | ~1,047 |
 | `query_memory_seq010*` | recurring query detector unsaid thought | ~1,122 |
 | `file_heat_map_seq011*` | tracks cognitive load per module | ~1,347 |
-| `push_narrative_seq012*` | generate per push narrative each | ~1,654 |
+| `push_narrative_seq012*` | generate per push narrative each | ~2,049 |
 | `self_fix_seq013*` | one shot self fix analyzer | ~3,205 |
 | `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~2,844 |
 | `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,009 |
