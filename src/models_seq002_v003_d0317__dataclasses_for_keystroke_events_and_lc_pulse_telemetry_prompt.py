@@ -2,10 +2,10 @@
 """Dataclasses for keystroke events and message draft tracking."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v002 | 39 lines | ~351 tokens
+# SEQ: 002 | VER: v003 | 44 lines | ~379 tokens
 # DESC:   dataclasses_for_keystroke_events_and
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
+# INTENT: pulse_telemetry_prompt
+# LAST:   2026-03-17 @ 9e2a305
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

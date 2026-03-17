@@ -8,11 +8,11 @@ struggles before they even ask.
 Reads pigeon_registry.json + rework_log.json. Zero LLM calls.
 """
 # ── pigeon ────────────────────────────────────
-# SEQ: 011 | VER: v003 | 139 lines | ~1,324 tokens
+# SEQ: 011 | VER: v004 | 144 lines | ~1,347 tokens
 # DESC:   tracks_cognitive_load_per_module
-# INTENT: fix_deep_signal
-# LAST:   2026-03-16 @ 1c7d33d
-# SESSIONS: 2
+# INTENT: pulse_telemetry_prompt
+# LAST:   2026-03-17 @ 9e2a305
+# SESSIONS: 3
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None

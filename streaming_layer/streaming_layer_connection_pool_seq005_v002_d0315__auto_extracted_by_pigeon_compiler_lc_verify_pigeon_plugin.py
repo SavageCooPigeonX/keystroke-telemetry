@@ -7,8 +7,8 @@
 # LAST:   2026-03-15 @ caac48c
 # SESSIONS: 1
 # ──────────────────────────────────────────────
-from src.logger_seq003_v002_d0315__core_keystroke_telemetry_logger_lc_verify_pigeon_plugin import TelemetryLogger, SCHEMA_VERSION
-from src.timestamp_utils_seq001_v002_d0315__millisecond_epoch_timestamp_utility_lc_verify_pigeon_plugin import _now_ms
+from src.logger_seq003_v003_d0317__core_keystroke_telemetry_logger_lc_pulse_telemetry_prompt import TelemetryLogger, SCHEMA_VERSION
+from src.timestamp_utils_seq001_v003_d0317__millisecond_epoch_timestamp_utility_lc_pulse_telemetry_prompt import _now_ms
 from typing import Optional, Callable
 import json
 import queue as _queue_mod

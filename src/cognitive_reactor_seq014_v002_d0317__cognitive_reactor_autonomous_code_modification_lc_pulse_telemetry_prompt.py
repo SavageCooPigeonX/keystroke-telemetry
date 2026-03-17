@@ -10,6 +10,14 @@ specific files, this module autonomously:
 
 No human trigger. The 60-second background flush IS the input.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 014 | VER: v002 | 342 lines | ~2,844 tokens
+# DESC:   cognitive_reactor_autonomous_code_modification
+# INTENT: pulse_telemetry_prompt
+# LAST:   2026-03-17 @ 9e2a305
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None
 # EDIT_HASH: None

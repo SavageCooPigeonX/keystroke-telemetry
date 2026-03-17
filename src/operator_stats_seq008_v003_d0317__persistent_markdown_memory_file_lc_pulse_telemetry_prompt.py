@@ -10,10 +10,10 @@ a compact operator profile that sharpens with every message.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 008 | VER: v002 | 394 lines | ~3,612 tokens
+# SEQ: 008 | VER: v003 | 399 lines | ~3,639 tokens
 # DESC:   persistent_markdown_memory_file
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
+# INTENT: pulse_telemetry_prompt
+# LAST:   2026-03-17 @ 9e2a305
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-16T08:56:24.898388+00:00",
-  "total": 87,
+  "generated": "2026-03-17T01:19:14.294973+00:00",
+  "total": 89,
   "files": [
     {
       "path": "pigeon_compiler/bones/aim_utils_seq001_v003_d0314__extracted_from_hush_aim_py_lc_desc_upgrade.py",
@@ -1416,14 +1416,34 @@
       ]
     },
     {
-      "path": "src/context_budget_seq004_v006_d0316__context_budget_scorer_for_llm_lc_self_fix_analyzer.py",
+      "path": "src/cognitive_reactor_seq014_v002_d0317__cognitive_reactor_autonomous_code_modification_lc_pulse_telemetry_prompt.py",
+      "name": "cognitive_reactor",
+      "seq": 14,
+      "ver": 2,
+      "date": "0317",
+      "desc": "cognitive_reactor_autonomous_code_modification",
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 2844,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0317",
+          "desc": "cognitive_reactor_autonomous_code_modification",
+          "intent": "pulse_telemetry_prompt",
+          "tokens": 2844,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/context_budget_seq004_v007_d0317__context_budget_scorer_for_llm_lc_pulse_telemetry_prompt.py",
       "name": "context_budget",
       "seq": 4,
-      "ver": 6,
-      "date": "0316",
+      "ver": 7,
+      "date": "0317",
       "desc": "context_budget_scorer_for_llm",
-      "intent": "self_fix_analyzer",
-      "tokens": 680,
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 703,
       "history": [
         {
           "ver": 1,
@@ -1471,18 +1491,26 @@
           "intent": "self_fix_analyzer",
           "action": "mutated",
           "tokens": 680
+        },
+        {
+          "ver": 7,
+          "date": "0317",
+          "desc": "context_budget_scorer_for_llm",
+          "intent": "pulse_telemetry_prompt",
+          "action": "mutated",
+          "tokens": 703
         }
       ]
     },
     {
-      "path": "src/drift_watcher_seq005_v002_d0315__drift_detection_for_live_llm_lc_verify_pigeon_plugin.py",
+      "path": "src/drift_watcher_seq005_v003_d0317__drift_detection_for_live_llm_lc_pulse_telemetry_prompt.py",
       "name": "drift_watcher",
       "seq": 5,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0317",
       "desc": "drift_detection_for_live_llm",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 945,
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 988,
       "history": [
         {
           "ver": 1,
@@ -1498,18 +1526,26 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 945
+        },
+        {
+          "ver": 3,
+          "date": "0317",
+          "desc": "drift_detection_for_live_llm",
+          "intent": "pulse_telemetry_prompt",
+          "action": "mutated",
+          "tokens": 988
         }
       ]
     },
     {
-      "path": "src/file_heat_map_seq011_v003_d0316__tracks_cognitive_load_per_module_lc_fix_deep_signal.py",
+      "path": "src/file_heat_map_seq011_v004_d0317__tracks_cognitive_load_per_module_lc_pulse_telemetry_prompt.py",
       "name": "file_heat_map",
       "seq": 11,
-      "ver": 3,
-      "date": "0316",
+      "ver": 4,
+      "date": "0317",
       "desc": "tracks_cognitive_load_per_module",
-      "intent": "fix_deep_signal",
-      "tokens": 1324,
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 1347,
       "history": [
         {
           "ver": 2,
@@ -1526,18 +1562,26 @@
           "intent": "fix_deep_signal",
           "action": "mutated",
           "tokens": 1324
+        },
+        {
+          "ver": 4,
+          "date": "0317",
+          "desc": "tracks_cognitive_load_per_module",
+          "intent": "pulse_telemetry_prompt",
+          "action": "mutated",
+          "tokens": 1347
         }
       ]
     },
     {
-      "path": "src/logger_seq003_v002_d0315__core_keystroke_telemetry_logger_lc_verify_pigeon_plugin.py",
+      "path": "src/logger_seq003_v003_d0317__core_keystroke_telemetry_logger_lc_pulse_telemetry_prompt.py",
       "name": "logger",
       "seq": 3,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0317",
       "desc": "core_keystroke_telemetry_logger",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 1462,
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 1539,
       "history": [
         {
           "ver": 1,
@@ -1553,18 +1597,26 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 1462
+        },
+        {
+          "ver": 3,
+          "date": "0317",
+          "desc": "core_keystroke_telemetry_logger",
+          "intent": "pulse_telemetry_prompt",
+          "action": "mutated",
+          "tokens": 1539
         }
       ]
     },
     {
-      "path": "src/models_seq002_v002_d0315__dataclasses_for_keystroke_events_and_lc_verify_pigeon_plugin.py",
+      "path": "src/models_seq002_v003_d0317__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt.py",
       "name": "models",
       "seq": 2,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0317",
       "desc": "dataclasses_for_keystroke_events_and",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 351,
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 379,
       "history": [
         {
           "ver": 1,
@@ -1580,18 +1632,26 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 351
+        },
+        {
+          "ver": 3,
+          "date": "0317",
+          "desc": "dataclasses_for_keystroke_events_and",
+          "intent": "pulse_telemetry_prompt",
+          "action": "mutated",
+          "tokens": 379
         }
       ]
     },
     {
-      "path": "src/operator_stats_seq008_v002_d0315__persistent_markdown_memory_file_lc_verify_pigeon_plugin.py",
+      "path": "src/operator_stats_seq008_v003_d0317__persistent_markdown_memory_file_lc_pulse_telemetry_prompt.py",
       "name": "operator_stats",
       "seq": 8,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0317",
       "desc": "persistent_markdown_memory_file",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 3612,
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 3639,
       "history": [
         {
           "ver": 1,
@@ -1607,18 +1667,46 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 3612
+        },
+        {
+          "ver": 3,
+          "date": "0317",
+          "desc": "persistent_markdown_memory_file",
+          "intent": "pulse_telemetry_prompt",
+          "action": "mutated",
+          "tokens": 3639
         }
       ]
     },
     {
-      "path": "src/push_narrative_seq012_v003_d0316__generate_per_push_narrative_each_lc_self_fix_analyzer.py",
+      "path": "src/pulse_harvest_seq015_v002_d0317__pulse_harvest_pairs_prompts_to_lc_pulse_telemetry_prompt.py",
+      "name": "pulse_harvest",
+      "seq": 15,
+      "ver": 2,
+      "date": "0317",
+      "desc": "pulse_harvest_pairs_prompts_to",
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 2009,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0317",
+          "desc": "pulse_harvest_pairs_prompts_to",
+          "intent": "pulse_telemetry_prompt",
+          "tokens": 2009,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/push_narrative_seq012_v004_d0317__generate_per_push_narrative_each_lc_pulse_telemetry_prompt.py",
       "name": "push_narrative",
       "seq": 12,
-      "ver": 3,
-      "date": "0316",
+      "ver": 4,
+      "date": "0317",
       "desc": "generate_per_push_narrative_each",
-      "intent": "self_fix_analyzer",
-      "tokens": 1634,
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 1654,
       "history": [
         {
           "ver": 2,
@@ -1635,18 +1723,26 @@
           "intent": "self_fix_analyzer",
           "action": "mutated",
           "tokens": 1634
+        },
+        {
+          "ver": 4,
+          "date": "0317",
+          "desc": "generate_per_push_narrative_each",
+          "intent": "pulse_telemetry_prompt",
+          "action": "mutated",
+          "tokens": 1654
         }
       ]
     },
     {
-      "path": "src/query_memory_seq010_v002_d0316__recurring_query_detector_unsaid_thought_lc_add_deep_operator.py",
+      "path": "src/query_memory_seq010_v003_d0317__recurring_query_detector_unsaid_thought_lc_pulse_telemetry_prompt.py",
       "name": "query_memory",
       "seq": 10,
-      "ver": 2,
-      "date": "0316",
+      "ver": 3,
+      "date": "0317",
       "desc": "recurring_query_detector_unsaid_thought",
-      "intent": "add_deep_operator",
-      "tokens": 1084,
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 1122,
       "history": [
         {
           "ver": 2,
@@ -1655,18 +1751,26 @@
           "intent": "add_deep_operator",
           "tokens": 1084,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0317",
+          "desc": "recurring_query_detector_unsaid_thought",
+          "intent": "pulse_telemetry_prompt",
+          "action": "mutated",
+          "tokens": 1122
         }
       ]
     },
     {
-      "path": "src/resistance_bridge_seq006_v002_d0315__bridge_between_keystroke_telemetry_and_lc_verify_pigeon_plugin.py",
+      "path": "src/resistance_bridge_seq006_v003_d0317__bridge_between_keystroke_telemetry_and_lc_pulse_telemetry_prompt.py",
       "name": "resistance_bridge",
       "seq": 6,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0317",
       "desc": "bridge_between_keystroke_telemetry_and",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 1195,
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 1222,
       "history": [
         {
           "ver": 1,
@@ -1682,18 +1786,26 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 1195
+        },
+        {
+          "ver": 3,
+          "date": "0317",
+          "desc": "bridge_between_keystroke_telemetry_and",
+          "intent": "pulse_telemetry_prompt",
+          "action": "mutated",
+          "tokens": 1222
         }
       ]
     },
     {
-      "path": "src/rework_detector_seq009_v003_d0316__measures_ai_answer_quality_from_lc_fix_deep_signal.py",
+      "path": "src/rework_detector_seq009_v004_d0317__measures_ai_answer_quality_from_lc_pulse_telemetry_prompt.py",
       "name": "rework_detector",
       "seq": 9,
-      "ver": 3,
-      "date": "0316",
+      "ver": 4,
+      "date": "0317",
       "desc": "measures_ai_answer_quality_from",
-      "intent": "fix_deep_signal",
-      "tokens": 1024,
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 1047,
       "history": [
         {
           "ver": 2,
@@ -1710,18 +1822,26 @@
           "intent": "fix_deep_signal",
           "action": "mutated",
           "tokens": 1024
+        },
+        {
+          "ver": 4,
+          "date": "0317",
+          "desc": "measures_ai_answer_quality_from",
+          "intent": "pulse_telemetry_prompt",
+          "action": "mutated",
+          "tokens": 1047
         }
       ]
     },
     {
-      "path": "src/self_fix_seq013_v002_d0316__one_shot_self_fix_analyzer_lc_self_fix_analyzer.py",
+      "path": "src/self_fix_seq013_v003_d0317__one_shot_self_fix_analyzer_lc_pulse_telemetry_prompt.py",
       "name": "self_fix",
       "seq": 13,
-      "ver": 2,
-      "date": "0316",
+      "ver": 3,
+      "date": "0317",
       "desc": "one_shot_self_fix_analyzer",
-      "intent": "self_fix_analyzer",
-      "tokens": 3117,
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 3205,
       "history": [
         {
           "ver": 2,
@@ -1730,18 +1850,26 @@
           "intent": "self_fix_analyzer",
           "tokens": 3117,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0317",
+          "desc": "one_shot_self_fix_analyzer",
+          "intent": "pulse_telemetry_prompt",
+          "action": "mutated",
+          "tokens": 3205
         }
       ]
     },
     {
-      "path": "src/streaming_layer_seq007_v002_d0315__monolithic_live_streaming_interface_for_lc_verify_pigeon_plugin.py",
+      "path": "src/streaming_layer_seq007_v003_d0317__monolithic_live_streaming_interface_for_lc_pulse_telemetry_prompt.py",
       "name": "streaming_layer",
       "seq": 7,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0317",
       "desc": "monolithic_live_streaming_interface_for",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 10080,
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 10189,
       "history": [
         {
           "ver": 1,
@@ -1757,18 +1885,26 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 10080
+        },
+        {
+          "ver": 3,
+          "date": "0317",
+          "desc": "monolithic_live_streaming_interface_for",
+          "intent": "pulse_telemetry_prompt",
+          "action": "mutated",
+          "tokens": 10189
         }
       ]
     },
     {
-      "path": "src/timestamp_utils_seq001_v002_d0315__millisecond_epoch_timestamp_utility_lc_verify_pigeon_plugin.py",
+      "path": "src/timestamp_utils_seq001_v003_d0317__millisecond_epoch_timestamp_utility_lc_pulse_telemetry_prompt.py",
       "name": "timestamp_utils",
       "seq": 1,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0317",
       "desc": "millisecond_epoch_timestamp_utility",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 112,
+      "intent": "pulse_telemetry_prompt",
+      "tokens": 147,
       "history": [
         {
           "ver": 1,
@@ -1784,6 +1920,14 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 112
+        },
+        {
+          "ver": 3,
+          "date": "0317",
+          "desc": "millisecond_epoch_timestamp_utility",
+          "intent": "pulse_telemetry_prompt",
+          "action": "mutated",
+          "tokens": 147
         }
       ]
     },

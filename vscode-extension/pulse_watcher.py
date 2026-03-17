@@ -24,7 +24,7 @@ def main():
     sys.path.insert(0, str(root))
 
     try:
-        from src.pulse_harvest_seq015_v001 import pair_pulse_to_prompt
+        from src.pulse_harvest_seq015_v002_d0317__pulse_harvest_pairs_prompts_to_lc_pulse_telemetry_prompt import pair_pulse_to_prompt
     except ImportError:
         # Dynamic load fallback
         import importlib.util

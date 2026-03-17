@@ -17,10 +17,10 @@ Features:
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 007 | VER: v002 | 1150 lines | ~10,162 tokens
+# SEQ: 007 | VER: v003 | 1155 lines | ~10,192 tokens
 # DESC:   monolithic_live_streaming_interface_for
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
+# INTENT: pulse_telemetry_prompt
+# LAST:   2026-03-17 @ 9e2a305
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
@@ -43,11 +43,11 @@ from typing import Optional, Callable
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from collections import deque
 
-from src.timestamp_utils_seq001_v002_d0315__millisecond_epoch_timestamp_utility_lc_verify_pigeon_plugin import _now_ms
-from src.models_seq002_v002_d0315__dataclasses_for_keystroke_events_and_lc_verify_pigeon_plugin import KeyEvent, MessageDraft
-from src.logger_seq003_v002_d0315__core_keystroke_telemetry_logger_lc_verify_pigeon_plugin import TelemetryLogger, SCHEMA_VERSION
-from src.context_budget_seq004_v006_d0316__context_budget_scorer_for_llm_lc_self_fix_analyzer import score_context_budget, estimate_tokens
-from src.resistance_bridge_seq006_v002_d0315__bridge_between_keystroke_telemetry_and_lc_verify_pigeon_plugin import HesitationAnalyzer
+from src.timestamp_utils_seq001_v003_d0317__millisecond_epoch_timestamp_utility_lc_pulse_telemetry_prompt import _now_ms
+from src.models_seq002_v003_d0317__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt import KeyEvent, MessageDraft
+from src.logger_seq003_v003_d0317__core_keystroke_telemetry_logger_lc_pulse_telemetry_prompt import TelemetryLogger, SCHEMA_VERSION
+from src.context_budget_seq004_v007_d0317__context_budget_scorer_for_llm_lc_pulse_telemetry_prompt import score_context_budget, estimate_tokens
+from src.resistance_bridge_seq006_v003_d0317__bridge_between_keystroke_telemetry_and_lc_pulse_telemetry_prompt import HesitationAnalyzer
 
 
 # ═══════════════════════════════════════════════════════════════════

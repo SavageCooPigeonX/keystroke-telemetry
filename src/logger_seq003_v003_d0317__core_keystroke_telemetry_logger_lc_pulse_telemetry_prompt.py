@@ -8,10 +8,10 @@ Each event is emitted as a self-contained LLM-compatible JSON block
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v002 | 158 lines | ~1,512 tokens
+# SEQ: 003 | VER: v003 | 163 lines | ~1,541 tokens
 # DESC:   core_keystroke_telemetry_logger
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
+# INTENT: pulse_telemetry_prompt
+# LAST:   2026-03-17 @ 9e2a305
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
@@ -26,9 +26,9 @@ from pathlib import Path
 from dataclasses import asdict
 from typing import Optional
 
-from src.timestamp_utils_seq001_v002_d0315__millisecond_epoch_timestamp_utility_lc_verify_pigeon_plugin import _now_ms
-from src.models_seq002_v002_d0315__dataclasses_for_keystroke_events_and_lc_verify_pigeon_plugin import KeyEvent, MessageDraft
-from src.operator_stats_seq008_v002_d0315__persistent_markdown_memory_file_lc_verify_pigeon_plugin import OperatorStats
+from src.timestamp_utils_seq001_v003_d0317__millisecond_epoch_timestamp_utility_lc_pulse_telemetry_prompt import _now_ms
+from src.models_seq002_v003_d0317__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt import KeyEvent, MessageDraft
+from src.operator_stats_seq008_v003_d0317__persistent_markdown_memory_file_lc_pulse_telemetry_prompt import OperatorStats
 
 SCHEMA_VERSION = "keystroke_telemetry/v2"
 

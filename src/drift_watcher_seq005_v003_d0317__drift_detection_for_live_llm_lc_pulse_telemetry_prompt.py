@@ -7,10 +7,10 @@ an LLM agent can act on or ignore.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v002 | 103 lines | ~961 tokens
+# SEQ: 005 | VER: v003 | 108 lines | ~989 tokens
 # DESC:   drift_detection_for_live_llm
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
+# INTENT: pulse_telemetry_prompt
+# LAST:   2026-03-17 @ 9e2a305
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
@@ -22,7 +22,7 @@ an LLM agent can act on or ignore.
 import json
 import os
 from pathlib import Path
-from src.context_budget_seq004_v006_d0316__context_budget_scorer_for_llm_lc_self_fix_analyzer import score_context_budget, estimate_tokens
+from src.context_budget_seq004_v007_d0317__context_budget_scorer_for_llm_lc_pulse_telemetry_prompt import score_context_budget, estimate_tokens
 
 # Inline dependency line-count lookup (avoids AST — just wc -l)
 def _line_count(path: Path) -> int:

@@ -7,10 +7,10 @@ human hesitation (pauses, rewrites, deletions) are split candidates.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 006 | VER: v002 | 119 lines | ~1,195 tokens
+# SEQ: 006 | VER: v003 | 124 lines | ~1,222 tokens
 # DESC:   bridge_between_keystroke_telemetry_and
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
+# INTENT: pulse_telemetry_prompt
+# LAST:   2026-03-17 @ 9e2a305
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

@@ -9,7 +9,7 @@
 # ──────────────────────────────────────────────
 from collections import deque
 from dataclasses import dataclass, field, asdict
-from src.timestamp_utils_seq001_v002_d0315__millisecond_epoch_timestamp_utility_lc_verify_pigeon_plugin import _now_ms
+from src.timestamp_utils_seq001_v003_d0317__millisecond_epoch_timestamp_utility_lc_pulse_telemetry_prompt import _now_ms
 from typing import Optional, Callable
 import statistics
 import time

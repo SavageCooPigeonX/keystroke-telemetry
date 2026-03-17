@@ -12,8 +12,8 @@ import random
 import os
 import sys
 
-from src.logger_seq003_v002_d0315__core_keystroke_telemetry_logger_lc_verify_pigeon_plugin import TelemetryLogger
-from src.resistance_bridge_seq006_v002_d0315__bridge_between_keystroke_telemetry_and_lc_verify_pigeon_plugin import HesitationAnalyzer
+from src.logger_seq003_v003_d0317__core_keystroke_telemetry_logger_lc_pulse_telemetry_prompt import TelemetryLogger
+from src.resistance_bridge_seq006_v003_d0317__bridge_between_keystroke_telemetry_and_lc_pulse_telemetry_prompt import HesitationAnalyzer
 
 # ──────────────── typing scenarios ────────────────
 

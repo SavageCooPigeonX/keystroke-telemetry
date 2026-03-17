@@ -9,7 +9,7 @@
 # ──────────────────────────────────────────────
 from dataclasses import dataclass, field, asdict
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from src.logger_seq003_v002_d0315__core_keystroke_telemetry_logger_lc_verify_pigeon_plugin import TelemetryLogger, SCHEMA_VERSION
+from src.logger_seq003_v003_d0317__core_keystroke_telemetry_logger_lc_pulse_telemetry_prompt import TelemetryLogger, SCHEMA_VERSION
 from typing import Optional, Callable
 import os
 import threading

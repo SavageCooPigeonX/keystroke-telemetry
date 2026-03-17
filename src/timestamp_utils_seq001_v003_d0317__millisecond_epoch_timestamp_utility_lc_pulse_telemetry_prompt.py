@@ -2,10 +2,10 @@
 """Millisecond-epoch timestamp utility."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v002 | 16 lines | ~112 tokens
+# SEQ: 001 | VER: v003 | 23 lines | ~147 tokens
 # DESC:   millisecond_epoch_timestamp_utility
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
+# INTENT: pulse_telemetry_prompt
+# LAST:   2026-03-17 @ 9e2a305
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

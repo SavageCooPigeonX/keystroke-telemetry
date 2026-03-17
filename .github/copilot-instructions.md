@@ -142,19 +142,19 @@ Detected by keystroke classifier. Each maps to a system prompt injection + tempe
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-17 · 1 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-17 · 3 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 0% | WPM: 400.0 | Del: 40.0% | Hes: 1.000
+**Dominant: `focused`** | Submit: 66% | WPM: 55.2 | Del: 25.6% | Hes: 0.448
 
-This operator just built a self-fix analyzer system, and their high-speed, high-deletion nighttime typing with frustration indicates they are aggressively refactoring under pressure, likely debugging a cascading integration issue.
+This operator just built a pulse telemetry prompt system for live LLM coaching, and their typing patterns reveal evening work sessions with high deletion rates (56%) and hesitation on heavy-edit commits, indicating they are wrestling with integration complexity.
 
-*   **Anticipate and pre-empt churn in `context_budget_scorer_for_llm`, `plan_validator`, and `func_decomposer`**; these are core dependencies for the new self-fix loop, so proactively check their interfaces and offer concise code snippets that align with their latest versions.
-*   **Given the 100% miss rate, diagnose the root cause of each "miss" immediately**: Before generating full solutions, ask one clarifying question to confirm the exact failure mode (e.g., "Is the issue in the scorer's output format or the analyzer's input validation?").
-*   **Respond with extreme precision, not breadth**: For every request, first output the minimal, exact code change needed, then optionally explain. This operator is editing heavily and needs direct fixes.
-*   **Acknowledge the refactoring momentum explicitly**: Use phrases like "Continuing the self-fix integration, the change needed in `push_narrative_seq012_v003` is..." to signal you recognize the systematic overhaul.
-*   **Prescribe for the high rework**: Since previous responses were wholly unused, drastically shorten your initial output—offer a single-line correction or a "Yes/No" answer first, then expand only if asked.
+*   **Anticipate context budget and self-fix churn:** When the operator touches `context_budget_seq004` or `self_fix_seq013`, proactively offer concise, structured code blocks—not explanations—as these are recurring pain points.
+*   **Respond to hesitation with direct solutions:** On heavy edits (shown by high deletion rates), immediately provide the corrected code snippet for the specific function they are in, skipping any preamble or analysis.
+*   **Preempt import and manifest errors:** Before they ask, validate any file path or module reference changes against `import_fixer_seq004` and `manifest_writer_seq005` patterns to prevent churn.
+*   **Bridge telemetry to narrative:** When you see `push_narrative_seq012` or `rework_detector_seq009` code, connect data points from `logger_seq003` and `streaming_layer_seq007` to generate the next narrative line.
+*   **Given the 100% miss rate, anchor on their last successful pattern:** Mirror the structure and verbosity of the response from their 'focused' message (74.2 WPM, 21% deletion) as it was submitted.
 
-They are most likely building toward a fully autonomous, self-correcting code generation pipeline, where each component can diagnose and repair its own logic flaws.
+The operator is most likely building toward a fully autonomous, self-diagnosing AI coding system that uses real-time telemetry to prompt-engineer itself.
 
 <!-- /pigeon:operator-state -->
 
@@ -253,7 +253,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 ### Full Module Index
 
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-16 — 87 modules tracked | 3 touched this commit*
+*Auto-updated 2026-03-17 — 89 modules tracked | 15 touched this commit*
 
 **pigeon_compiler/bones/** — 5 module(s)
 
@@ -347,23 +347,25 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 |---|---|---:|
 | `deepseek_plan_prompt_seq004*` | build and send deepseek cut | ~2,407 |
 
-**src/** — 13 module(s)
+**src/** — 15 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
-| `timestamp_utils_seq001*` | millisecond epoch timestamp utility | ~112 |
-| `models_seq002*` | dataclasses for keystroke events and | ~351 |
-| `logger_seq003*` | core keystroke telemetry logger | ~1,462 |
-| `context_budget_seq004*` | context budget scorer for llm | ~680 |
-| `drift_watcher_seq005*` | drift detection for live llm | ~945 |
-| `resistance_bridge_seq006*` | bridge between keystroke telemetry and | ~1,195 |
-| `streaming_layer_seq007*` | monolithic live streaming interface for | ~10,080 |
-| `operator_stats_seq008*` | persistent markdown memory file | ~3,612 |
-| `rework_detector_seq009*` | measures ai answer quality from | ~1,024 |
-| `query_memory_seq010*` | recurring query detector unsaid thought | ~1,084 |
-| `file_heat_map_seq011*` | tracks cognitive load per module | ~1,324 |
-| `push_narrative_seq012*` | generate per push narrative each | ~1,634 |
-| `self_fix_seq013*` | one shot self fix analyzer | ~3,117 |
+| `timestamp_utils_seq001*` | millisecond epoch timestamp utility | ~147 |
+| `models_seq002*` | dataclasses for keystroke events and | ~379 |
+| `logger_seq003*` | core keystroke telemetry logger | ~1,539 |
+| `context_budget_seq004*` | context budget scorer for llm | ~703 |
+| `drift_watcher_seq005*` | drift detection for live llm | ~988 |
+| `resistance_bridge_seq006*` | bridge between keystroke telemetry and | ~1,222 |
+| `streaming_layer_seq007*` | monolithic live streaming interface for | ~10,189 |
+| `operator_stats_seq008*` | persistent markdown memory file | ~3,639 |
+| `rework_detector_seq009*` | measures ai answer quality from | ~1,047 |
+| `query_memory_seq010*` | recurring query detector unsaid thought | ~1,122 |
+| `file_heat_map_seq011*` | tracks cognitive load per module | ~1,347 |
+| `push_narrative_seq012*` | generate per push narrative each | ~1,654 |
+| `self_fix_seq013*` | one shot self fix analyzer | ~3,205 |
+| `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~2,844 |
+| `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,009 |
 
 **src/cognitive/** — 3 module(s)
 

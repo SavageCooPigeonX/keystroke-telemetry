@@ -10,10 +10,10 @@ import os
 # ensure src is importable
 sys.path.insert(0, os.path.dirname(__file__))
 
-from src.logger_seq003_v002_d0315__core_keystroke_telemetry_logger_lc_verify_pigeon_plugin import TelemetryLogger
-from src.context_budget_seq004_v006_d0316__context_budget_scorer_for_llm_lc_self_fix_analyzer import score_context_budget, estimate_tokens
-from src.drift_watcher_seq005_v002_d0315__drift_detection_for_live_llm_lc_verify_pigeon_plugin import DriftWatcher
-from src.resistance_bridge_seq006_v002_d0315__bridge_between_keystroke_telemetry_and_lc_verify_pigeon_plugin import HesitationAnalyzer
+from src.logger_seq003_v003_d0317__core_keystroke_telemetry_logger_lc_pulse_telemetry_prompt import TelemetryLogger
+from src.context_budget_seq004_v007_d0317__context_budget_scorer_for_llm_lc_pulse_telemetry_prompt import score_context_budget, estimate_tokens
+from src.drift_watcher_seq005_v003_d0317__drift_detection_for_live_llm_lc_pulse_telemetry_prompt import DriftWatcher
+from src.resistance_bridge_seq006_v003_d0317__bridge_between_keystroke_telemetry_and_lc_pulse_telemetry_prompt import HesitationAnalyzer
 
 
 # ─────────────── helpers ───────────────
