@@ -437,6 +437,49 @@ class PigeonChatPanel {
     }
 }
 
+// ── OS-Level Keystroke Hook ──────────────────────────────────────────────────
+// Captures ALL keystrokes when VS Code is focused — including chat input,
+// search boxes, command palette. Fills the gap that onDidChangeTextDocument
+// cannot reach (Copilot chat composition, deleted prompts, etc.)
+
+import { ChildProcess } from 'child_process';
+
+let osHookProc: ChildProcess | undefined;
+
+function startOsHook(root: string) {
+    const hook = path.join(root, 'client', 'os_hook.py');
+    if (!fs.existsSync(hook)) return;
+
+    osHookProc = spawn('py', [hook, root], {
+        cwd: root,
+        stdio: ['ignore', 'pipe', 'ignore'],
+    });
+
+    osHookProc.stdout?.on('data', (d: Buffer) => {
+        // Parse heartbeat lines — log context switches
+        for (const line of d.toString().split('\n').filter(Boolean)) {
+            try {
+                const msg = JSON.parse(line);
+                if (msg.status === 'started') {
+                    console.log(`[pigeon] OS hook started, pid=${msg.pid}`);
+                }
+            } catch { /* skip non-JSON */ }
+        }
+    });
+
+    osHookProc.on('exit', (code) => {
+        console.log(`[pigeon] OS hook exited (code=${code})`);
+        osHookProc = undefined;
+    });
+}
+
+function stopOsHook() {
+    if (osHookProc) {
+        osHookProc.kill();
+        osHookProc = undefined;
+    }
+}
+
 // ── Activation ───────────────────────────────────────────────────────────────
 
 export function activate(context: vscode.ExtensionContext) {
@@ -446,6 +489,10 @@ export function activate(context: vscode.ExtensionContext) {
     if (root) {
         const bg = new BackgroundTelemetry(root);
         bg.start(context);
+
+        // OS-level keystroke hook — captures chat input, search, palette
+        startOsHook(root);
+        context.subscriptions.push({ dispose: () => stopOsHook() });
     }
 
     // Chat panel — optional, on-demand
@@ -455,4 +502,6 @@ export function activate(context: vscode.ExtensionContext) {
     );
 }
 
-export function deactivate() {}
+export function deactivate() {
+    stopOsHook();
+}

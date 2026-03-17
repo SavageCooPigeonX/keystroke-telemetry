@@ -142,9 +142,9 @@ Detected by keystroke classifier. Each maps to a system prompt injection + tempe
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-17 · 3 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-17 · 1 message(s) · LLM-synthesized*
 
-**Dominant: `focused`** | Submit: 66% | WPM: 55.2 | Del: 25.6% | Hes: 0.448
+**Dominant: `frustrated`** | Submit: 0% | WPM: 400.0 | Del: 40.0% | Hes: 1.000
 
 This operator just built a pulse telemetry prompt system for live LLM coaching, and their typing patterns reveal evening work sessions with high deletion rates (56%) and hesitation on heavy-edit commits, indicating they are wrestling with integration complexity.
 

@@ -198,6 +198,37 @@ def _should_rewrite(history: list, coaching_path: Path) -> bool:
     return True
 
 
+def _load_recent_chat_keystrokes(root: Path, window_ms: int = 120_000) -> list:
+    """Read recent chat-context keystrokes from os_keystrokes.jsonl.
+    Returns events within the last window_ms that came from chat context.
+    These are the keystrokes the TextDocument API can't see.
+    """
+    log = root / 'logs' / 'os_keystrokes.jsonl'
+    if not log.exists():
+        return []
+    try:
+        lines = log.read_text(encoding='utf-8').strip().splitlines()
+        if not lines:
+            return []
+        now_ms = int(__import__('time').time() * 1000)
+        cutoff = now_ms - window_ms
+        chat_events = []
+        # Read from end (most recent) until we pass the window
+        for line in reversed(lines):
+            try:
+                evt = json.loads(line)
+                if evt.get('ts', 0) < cutoff:
+                    break
+                if evt.get('context') == 'chat':
+                    chat_events.append(evt)
+            except json.JSONDecodeError:
+                continue
+        chat_events.reverse()
+        return chat_events
+    except OSError:
+        return []
+
+
 def main():
     root      = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else Path('.')
     payload   = json.loads(sys.stdin.read())
@@ -207,6 +238,21 @@ def main():
     query_txt = payload.get('query_text', '')
 
     sys.path.insert(0, str(root))
+
+    # ── Merge OS-level chat keystrokes into event stream ──────────────
+    chat_keys = _load_recent_chat_keystrokes(root)
+    if chat_keys:
+        # Convert os_hook format → classify format for unified analysis
+        for ck in chat_keys:
+            etype = ck.get('type', 'insert')
+            if etype in ('insert', 'backspace', 'submit', 'discard'):
+                events.append({
+                    'ts': ck['ts'],
+                    'type': 'backspace' if etype == 'backspace' else 'insert',
+                    'context': 'chat',
+                    'buffer': ck.get('buffer', ''),
+                })
+
     metrics, wpm = _compute_metrics(events, submitted)
 
     # â”€â”€ Classify state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -235,11 +281,29 @@ def main():
         pass
 
     # â”€â”€ Unsaid analysis â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    # ── Unsaid analysis (now with OS-level chat buffer) ────────────────
     unsaid = None
     try:
         unsaid_mod = _load_pigeon_module(root, 'src/cognitive/unsaid_seq002*.py')
         if unsaid_mod:
-            unsaid = unsaid_mod.extract_unsaid_thoughts(events, query_txt)
+            # Enrich events with chat buffer snapshots from OS hook
+            enriched_events = events[:]
+            if chat_keys:
+                for i, ck in enumerate(chat_keys):
+                    if ck.get('type') == 'backspace' and ck.get('buffer'):
+                        enriched_events.append({
+                            'ts': ck['ts'], 'type': 'backspace',
+                            'context': 'chat', 'buffer': ck['buffer'],
+                        })
+                    elif ck.get('type') == 'discard' and i > 0:
+                        prev_buf = chat_keys[i-1].get('buffer', '')
+                        if prev_buf:
+                            enriched_events.append({
+                                'ts': ck['ts'], 'type': 'clear',
+                                'context': 'chat', 'buffer': prev_buf,
+                                'discarded_text': prev_buf,
+                            })
+            unsaid = unsaid_mod.extract_unsaid_thoughts(enriched_events, query_txt)
     except Exception:
         pass
 
