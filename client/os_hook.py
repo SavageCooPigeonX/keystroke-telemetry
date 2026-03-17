@@ -89,6 +89,8 @@ class ContextTracker:
         if self._ctrl:
             if key_str == 'i' and self._shift:
                 self.context = 'chat'       # Ctrl+Shift+I = Copilot Chat
+            elif key_str == 'l' and self._shift:
+                self.context = 'chat'       # Ctrl+Shift+L = Copilot Chat (new)
             elif key_str == 'p':
                 self.context = 'palette'    # Ctrl+P = quick open
             elif key_str == 'f':
@@ -105,6 +107,13 @@ class ContextTracker:
             self.context = 'editor'
 
         return self.context
+
+    def set_context_from_vscdb(self, is_draft_active: bool):
+        """Override context when vscdb shows active chat draft."""
+        if is_draft_active:
+            self.context = 'chat'
+        elif self.context == 'chat':
+            self.context = 'editor'
 
 
 # ── Keystroke recorder ───────────────────────────────────────────────────────

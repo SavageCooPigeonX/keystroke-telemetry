@@ -19,10 +19,16 @@ import time
 import hashlib
 from datetime import datetime, timezone
 
-POLL_INTERVAL_S = 2.0
-KEYS_TO_WATCH = [
-    'memento/interactive-session',
+POLL_INTERVAL_S = 0.2          # 200ms — high-fidelity draft capture
+SLOW_POLL_INTERVAL_S = 2.0    # 2s for heavy keys (session index, etc.)
+
+# Fast-polled: draft composition (changes every keystroke)
+FAST_KEYS = [
     'memento/interactive-session-view-copilot',
+]
+# Slow-polled: heavier structures that change on submit
+SLOW_KEYS = [
+    'memento/interactive-session',
     'chat.ChatSessionStore.index',
     'agentSessions.state.cache',
 ]
@@ -138,7 +144,7 @@ def main():
     prev_prompt_count = 0
     prev_draft_text = ''
 
-    for key in KEYS_TO_WATCH:
+    for key in FAST_KEYS + SLOW_KEYS:
         val = read_key(db_path, key)
         prev_hashes[key] = hash_val(val)
 
@@ -153,10 +159,19 @@ def main():
         if d:
             prev_draft_text = d['input_text']
 
+    slow_counter = 0
     while True:
         time.sleep(POLL_INTERVAL_S)
+        slow_counter += 1
 
-        for key in KEYS_TO_WATCH:
+        # Fast poll: draft composition every 200ms
+        keys_this_cycle = list(FAST_KEYS)
+        # Slow poll: heavy keys every 2s (every 10th cycle)
+        if slow_counter >= int(SLOW_POLL_INTERVAL_S / POLL_INTERVAL_S):
+            keys_this_cycle.extend(SLOW_KEYS)
+            slow_counter = 0
+
+        for key in keys_this_cycle:
             val = read_key(db_path, key)
             h = hash_val(val)
 
