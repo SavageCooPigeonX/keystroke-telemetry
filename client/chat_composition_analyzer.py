@@ -123,7 +123,6 @@ def reconstruct_composition(events: list) -> dict:
         # Flush delete_run when we see a non-delete, non-insert event or
         # when we've accumulated inserts after deletes
         if etype == 'insert' and delete_run and len(insert_after_delete) >= len(delete_run):
-            _classify_delete_run(delete_run, insert_after_delete, ts)
             delete_run = []
             insert_after_delete = []
         elif etype not in ('backspace', 'insert') and delete_run:

@@ -61,7 +61,7 @@ def generate_push_narrative(
 
 
 def _load_composition_snapshot(root: Path) -> dict | None:
-    log = root / 'logs' / 'chat_compositions.jsonl'
+    log = root / 'logs' / 'prompt_compositions.jsonl'
     if not log.exists(): return None
     try:
         lines = log.read_text(encoding='utf-8').strip().splitlines()

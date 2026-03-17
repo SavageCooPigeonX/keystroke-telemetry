@@ -763,6 +763,16 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
     renames = renames or []
     box_only = box_only or []
 
+    # Auto-reconstruct prompt compositions from os_keystrokes before narrative
+    try:
+        recon_mod = _load_glob_module(root, 'src', 'prompt_recon_seq016*')
+        if recon_mod:
+            new_entries = recon_mod.reconstruct_all(root)
+            if new_entries:
+                print(f'  🔬 prompt recon: {len(new_entries)} new composition(s)')
+    except Exception as e:
+        print(f'  ⚠️  prompt recon: {e}')
+
     # Push narrative — include ALL changed code files, not just pigeon
     try:
         narr_mod = _load_glob_module(root, 'src', 'push_narrative_seq012*')
