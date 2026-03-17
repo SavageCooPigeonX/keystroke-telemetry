@@ -819,6 +819,14 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
     except Exception as e:
         print(f'  ⚠️  task-context injection: {e}')
 
+    # Task queue injection — Copilot-managed task queue linked to MANIFEST.md
+    try:
+        tq_mod = _load_glob_module(root, 'src', 'task_queue_seq018*')
+        if tq_mod and tq_mod.inject_task_queue(root):
+            print('  📋 task-queue injected into copilot-instructions.md')
+    except Exception as e:
+        print(f'  ⚠️  task-queue injection: {e}')
+
 
 def run():
     root = _root()
