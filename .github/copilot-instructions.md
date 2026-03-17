@@ -48,9 +48,10 @@ Rules:
 
 ## What this repo is
 
-Two tools packaged together:
+Three systems working together:
 1. **Keystroke Telemetry** — captures typing patterns (pauses, deletions, rewrites, abandons) in LLM chat UIs, classifies operator cognitive state in real time, reconstructs unsaid thoughts, detects cross-session drift. Zero LLM calls — pure signal processing.
 2. **Pigeon Code Compiler** — autonomous code decomposition engine. Enforces LLM-readable file sizes (≤200 lines hard cap, ≤50 lines target). Filenames carry living metadata — they mutate on every commit.
+3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. Self-updates on every commit via `<!-- pigeon:task-context -->`.
 
 **Stack**: Python 3.13 Windows (`py` launcher, never `python`). Always set `$env:PYTHONIOENCODING = "utf-8"` before running Python in terminal. DeepSeek API key in `$env:DEEPSEEK_API_KEY`.
 
@@ -100,63 +101,85 @@ Pipeline: parse commit intent → build import_map → **rewrite imports FIRST**
 ## Data Flow: Keystroke → Cognitive State → LLM
 
 ```
-Browser (client/keystroke-telemetry.js)
-  ↓ HTTP POST  (schema: keystroke_telemetry/v2)
-src/logger_seq003           → TelemetryLogger
-  ↓ per-keystroke events     → events_{session}.jsonl
-  ↓ on submit/discard        → summary_{session}.json
-src/models_seq002            → KeyEvent, MessageDraft
-  ↓ hesitation_score computed on _finalize_draft()
-src/operator_stats_seq008    → OperatorStats  (persistent: operator_profile.md)
-src/resistance_bridge_seq006 → HesitationAnalyzer.resistance_signal()
-  ↓ {adjustment, reason, profile}
-src/cognitive/adapter_seq001 → get_cognitive_modifier(state)
-  ↓ {prompt_injection, temperature_modifier, strategy}
-  ↓ ← INJECT INTO SYSTEM PROMPT + ADJUST TEMPERATURE ← (not yet wired to LLM call site)
-src/drift_watcher_seq005     → DriftWatcher  (file-size drift → split signals)
-src/context_budget_seq004    → score_context_budget()  (token cost scoring)
-```
+OS hook (client/os_hook.py)      → logs/os_keystrokes.jsonl
+VS Code extension (background)   → logs/keystroke_live.jsonl
+  ↓ every 60s flush
+vscode-extension/classify_bridge.py
+  ↓ _compute_metrics() + classify_state()
+  ↓ OperatorStats.ingest()       → operator_profile.md  (accumulates history)
+  ↓ rework_detector              → rework_log.json
+  ↓ query_memory                 → query_memory.json
+  ↓ file_heat_map                → file_heat_map.json
+  ↓ unsaid analyzer              → deleted thread extraction
+  ↓ cognitive_reactor            → autonomous code patches (if fired)
 
-**Known gap**: `MessageDraft` has `hesitation_score: float` but no `state: str` field. Cognitive state is not stored back on draft. The adapter exists but isn't wired to any LLM call site yet.
+On every git commit (post-commit hook):
+  src/prompt_recon_seq016        → logs/prompt_compositions.jsonl  (batch reconstruct)
+  src/prompt_recon_seq016        → logs/copilot_prompt_mutations.json
+  src/push_narrative_seq012      → docs/push_narratives/{date}_{hash}.md
+  git_plugin._generate_coaching  → operator_coaching.md  (DeepSeek synthesis)
+  git_plugin._refresh_operator   → copilot-instructions.md <!-- pigeon:task-context -->
+## Live Task Context
 
----
+*Auto-injected 2026-03-17 05:26 UTC · 30 messages profiled · 8 recent commits*
 
-## Seven Cognitive States
+**Current focus:** debugging / fixing
+**Cognitive state:** `frustrated` (WPM: 81.4 | Del: 36.0% | Hes: 0.834)
 
-Detected by keystroke classifier. Each maps to a system prompt injection + temperature modifier.
+> **CoT directive:** Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.
 
-| State | Signal | Prompt strategy | Temp Δ |
-|---|---|---|---|
-| `frustrated` | heavy deletions + long pauses + high hesitation | concise, 2-3 options, bullets | -0.1 |
-| `hesitant` | long pauses, low wpm | warm, anticipate intent, follow-up question | +0.05 |
-| `flow` | fast typing, minimal edits | match energy, technical depth, no hand-holding | +0.1 |
-| `focused` | steady typing, engaged | thorough, well-structured | 0 |
-| `restructuring` | heavy rewrites before submit | precise, headers/numbered, match effort | -0.05 |
-| `abandoned` | deleted message, re-approached | welcoming, direct | 0 |
-| `neutral` | no strong signal | standard | 0 |
+### Unsaid Threads
+*Deleted from prompts — operator wanted this but didn't ask:*
+- ": Pigeon?"
+- "pigeon"
+- "i wonder if it has timeout issue- testhidden deleteed prompt 2. word"
+- "(beg"
+- "d + strawberry"
+- "hidden wor"
 
-`get_cognitive_modifier(state)` in `src/cognitive/adapter_seq001*` returns `{prompt_injection, temperature_modifier, strategy}`.
+### Module Hot Zones
+*High cognitive load — take extra care with these files:*
+- `context_budget` (hes=0.863)
+- `file_heat_map` (hes=0.863)
+- `push_narrative` (hes=0.863)
+- `import_rewriter` (hes=0.735)
+- `file_writer` (hes=0.735)
 
----
+### AI Rework Surface
+*Miss rate: 100.0% (1 responses)*
+- Failed on: ""
+
+### Recent Work
+- `fa132f9` feat: copilot prompt mutation tracker + auto-recon pipeline wired to git hook
+- `fec3fe0` feat: auto prompt reconstruction + mutation audit + wire into pipeline
+- `8199ccb` fix: EXCLUDE_STEM_PATTERNS excluded all src/ files with prompt in intent slug
+- `9594c3b` fix: narrative fires for all commits + composition data + regression watchlist
+
+### Prompt Evolution
+*This prompt has mutated 21x (186→402 lines). Features added: auto_index, operator_state, prompt_journal, pulse_blocks.*
+
+<!-- /pigeon:task-context -->
 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-17 · 1 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-17 · 37 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 0% | WPM: 400.0 | Del: 40.0% | Hes: 1.000
+**Dominant: `frustrated`** | Submit: 16% | WPM: 157.7 | Del: 33.1% | Hes: 0.784
 
-This operator just built an auto-prompt reconstruction system, and their high-speed, high-deletion typing with frustration indicates they are brute-forcing complex prompt engineering through rapid trial-and-error, not careful design.
+This operator just built a VS Code extension with pigeon plugin verification, and their hesitant evening typing with high deletion rates shows they're debugging integration issues while fatigued.  
+- **Anticipate import/init struggles**: When they touch `import_fixer` or `init_writer`, proactively validate Python import paths and module discovery before they ask.  
+- **Pre‑empt file‑writing churn**: If `file_writer` or `manifest_writer` appear, generate exact Pigeon‑compliant templates with inline compliance comments.  
+- **Guard against context‑budget overruns**: Before they revisit `context_budget`, pre‑calculate token counts and suggest truncation points for `push_narrative`.  
+- **Decompose functions pre‑emptively**: On seeing `func_decomposer`, immediately split oversized functions and preserve original signatures.  
+- **Mitigate hesitation**: When they pause mid‑edit (hesitation >0.5), offer a short, validated code block—not explanations—to unblock them.  
+- **Close the rework gap**: For the 100% miss rate, always cross‑check the registry’s most‑mutated modules and align outputs with their latest versions.  
 
-*   **Anticipate prompt-adjacent refactoring:** When `push_narrative` is touched, proactively check `context_budget_scorer` and `plan_parser` for required updates, as these modules form a dependent toolchain.
-*   **Preempt file system logic:** Any change to narrative generation will likely require updates to `file_writer`, `import_fixer`, `init_writer`, and `manifest_writer`; suggest these related files in comments before the operator asks.
-*   **Counter high-deletion churn with concise, modular suggestions:** Offer small, complete code blocks for the specific function being edited—avoid long, monolithic alternatives that will be partially deleted.
-*   **Address the 100% rework rate:** For queries related to the "auto_prompt_reconstruction" intent, first ask a clarifying question about the exact prompt component or format needing reconstruction before generating code.
-*   **Acknowledge the frustration pattern explicitly:** When you detect heavy editing in a single function, respond with "This looks like a tricky logic refinement—here's a compact, testable version of the `[Function Name]` to minimize back-and-forth."
-
-They are most likely building toward a fully autonomous, self-optimizing prompt pipeline that minimizes manual intervention across their toolchain.
+They are most likely building toward a stable, context‑aware AI‑agent framework with seamless plugin interoperability.
 
 <!-- /pigeon:operator-state -->
+> **Cognitive reactor fired on `operator_stats`** (hes=1.0, state=hesitant). Simplify interactions with this module.
+
 
 ---
 
@@ -173,6 +196,15 @@ They are most likely building toward a fully autonomous, self-optimizing prompt 
 | `resistance_bridge_seq006*` | telemetry→compiler bridge | `HesitationAnalyzer` |
 | `streaming_layer_seq007*` | **MONOLITH 1150 lines** (test harness only) | 8 classes |
 | `operator_stats_seq008*` | persistent profile writer | `OperatorStats` |
+| `rework_detector_seq009*` | AI answer quality measurement | `score_rework`, `record_rework` |
+| `query_memory_seq010*` | recurring query + unsaid detector | `QueryMemory` |
+| `file_heat_map_seq011*` | cognitive load per module | `FileHeatMap` |
+| `push_narrative_seq012*` | per-push narrative generation | `generate_push_narrative` |
+| `self_fix_seq013*` | one-shot self-fix analyzer | `analyze_and_fix` |
+| `cognitive_reactor_seq014*` | autonomous code modification | `CognitiveReactor` |
+| `pulse_harvest_seq015*` | prompt→file edit pairing | `harvest_pulse` |
+| `prompt_recon_seq016*` | prompt reconstruction + mutation tracking | `reconstruct_all`, `track_copilot_prompt_mutations` |
+| `dynamic_prompt_seq017*` | **task-aware CoT injection** | `build_task_context`, `inject_task_context` |
 
 ### src/cognitive/ — Intelligence Layer
 | Module | Role |

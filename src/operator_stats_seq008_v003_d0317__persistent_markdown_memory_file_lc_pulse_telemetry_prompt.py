@@ -98,14 +98,12 @@ class OperatorStats:
         if not self.stats_path.exists():
             return
         text = self.stats_path.read_text(encoding="utf-8")
-        # look for the embedded JSON data block
-        start = text.find("<!-- DATA")
-        end = text.find("DATA -->")
-        if start == -1 or end == -1:
+        import re
+        m = re.search(r'<!--\s*\n?DATA\s*\n(.*?)\nDATA\s*\n-->', text, re.DOTALL)
+        if not m:
             return
-        json_str = text[start + len("<!-- DATA"):end].strip()
         try:
-            data = json.loads(json_str)
+            data = json.loads(m.group(1).strip())
             self._history = data.get("history", [])
             self._msg_count = len(self._history)
         except (json.JSONDecodeError, TypeError):

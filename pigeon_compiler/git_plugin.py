@@ -811,6 +811,14 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
     except Exception as e:
         print(f'  ⚠️  operator-state refresh: {e}')
 
+    # Dynamic task-context injection — steers Copilot's CoT reasoning
+    try:
+        dyn_mod = _load_glob_module(root, 'src', 'dynamic_prompt_seq017*')
+        if dyn_mod and dyn_mod.inject_task_context(root):
+            print('  🎯 task-context injected into copilot-instructions.md')
+    except Exception as e:
+        print(f'  ⚠️  task-context injection: {e}')
+
 
 def run():
     root = _root()
