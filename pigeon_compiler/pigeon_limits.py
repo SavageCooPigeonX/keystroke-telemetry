@@ -54,9 +54,10 @@ EXCLUDE_DIR_PATTERNS = frozenset({
     "logs",
 })
 
-# Any file whose stem or path contains these substrings is excluded
+# Any file whose stem STARTS with these patterns is excluded.
+# Must not match pigeon intent slugs like _lc_pulse_telemetry_prompt
 EXCLUDE_STEM_PATTERNS = re.compile(
-    r"prompt|_prompt_|deepseek_plan_prompt", re.IGNORECASE
+    r"^(?:prompt_|deepseek_plan_prompt)", re.IGNORECASE
 )
 
 
