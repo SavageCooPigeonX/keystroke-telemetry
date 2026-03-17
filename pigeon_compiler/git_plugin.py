@@ -770,6 +770,11 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
             new_entries = recon_mod.reconstruct_all(root)
             if new_entries:
                 print(f'  🔬 prompt recon: {len(new_entries)} new composition(s)')
+            # Track copilot prompt mutations
+            mutations = recon_mod.track_copilot_prompt_mutations(root)
+            mc = mutations.get('total_mutations', 0)
+            if mc:
+                print(f'  🧬 copilot prompt: {mc} mutations tracked')
     except Exception as e:
         print(f'  ⚠️  prompt recon: {e}')
 
