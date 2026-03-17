@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-17T05:27:07.083875+00:00",
+  "generated": "2026-03-17T05:42:09.069845+00:00",
   "total": 90,
   "files": [
     {
@@ -1538,14 +1538,14 @@
       ]
     },
     {
-      "path": "src/dynamic_prompt_seq017_v002_d0317__steers_copilot_cot_from_live_lc_dynamic_task_context.py",
+      "path": "src/dynamic_prompt_seq017_v003_d0317__steers_copilot_cot_from_live_lc_wire_narratives_self.py",
       "name": "dynamic_prompt",
       "seq": 17,
-      "ver": 2,
+      "ver": 3,
       "date": "0317",
       "desc": "steers_copilot_cot_from_live",
-      "intent": "dynamic_task_context",
-      "tokens": 2039,
+      "intent": "wire_narratives_self",
+      "tokens": 2947,
       "history": [
         {
           "ver": 2,
@@ -1554,6 +1554,14 @@
           "intent": "dynamic_task_context",
           "tokens": 2039,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0317",
+          "desc": "steers_copilot_cot_from_live",
+          "intent": "wire_narratives_self",
+          "action": "mutated",
+          "tokens": 2947
         }
       ]
     },

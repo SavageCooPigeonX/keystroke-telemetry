@@ -54,27 +54,27 @@ Three systems working together:
 3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. Self-updates on every commit via `<!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-17 05:40 UTC · 56 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-17 05:43 UTC · 62 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `frustrated` (WPM: 82.3 | Del: 39.3% | Hes: 0.649)
+**Cognitive state:** `frustrated` (WPM: 102.8 | Del: 28.7% | Hes: 0.659)
 
 > **CoT directive:** Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- "hidden wor"
-- "keeeps"
 - "a ta"
 - "by pigeon unless approv"
 - "uld really be purged"
 - "they all sho"
+- "it which"
+- "- aud"
 
 ### Module Hot Zones
 *High cognitive load — take extra care with these files:*
-- `context_budget` (hes=0.763)
-- `file_heat_map` (hes=0.763)
-- `push_narrative` (hes=0.763)
+- `context_budget` (hes=0.79)
+- `file_heat_map` (hes=0.79)
+- `push_narrative` (hes=0.79)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 
@@ -83,18 +83,10 @@ Three systems working together:
 - Failed on: ""
 
 ### Recent Work
+- `f989307` feat: wire narratives + self-fix + coaching + gaps into dynamic prompt injection
 - `1f60b21` feat: dynamic task-context CoT injection + operator_stats DATA parse fix
 - `fa132f9` feat: copilot prompt mutation tracker + auto-recon pipeline wired to git hook
 - `fec3fe0` feat: auto prompt reconstruction + mutation audit + wire into pipeline
-- `8199ccb` fix: EXCLUDE_STEM_PATTERNS excluded all src/ files with prompt in intent slug
-
-### Coaching Directives
-*LLM-synthesized behavioral rules for this operator:*
-- **Anticipate Context Shifts**
-- **Pre-Empt Refactoring Pain**
-- **Counteract Abandonment**
-- **Address 100% Miss Rate**
-- **Simplify Heavy Edits**
 
 ### Fragile Contracts
 *From push narratives — assumptions that could break:*
@@ -102,6 +94,7 @@ Three systems working together:
 - git_plugin's string type assumption for mutated prompts
 - prompt_recon_seq016_v001's fragile string parsing of code blocks
 - the implicit contract of the mutation function signature between the two files.
+- 1) Commit intent field parsing fails
 - **push_narrative** (seq012 v005) speaks: I was touched to implement a new narrative generation mode, "generate_per_push_
 - **chat_composition_analyzer** speaks: I was added as a new client module to parse chat logs and extract structured metad
 - **git_plugin** speaks: I was modified to expose a new method `get_commit_intent` that extracts the intent from a commit 
@@ -121,26 +114,24 @@ Three systems working together:
 - [3x] call deepseek scope verify
 
 ### Prompt Evolution
-*This prompt has mutated 22x (186→434 lines). Features added: auto_index, operator_state, prompt_journal, pulse_blocks, prompt_recon.*
+*This prompt has mutated 24x (186→400 lines). Features added: auto_index, operator_state, prompt_journal, pulse_blocks.*
 
 <!-- /pigeon:task-context -->
 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-17 · 57 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-17 · 62 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 10% | WPM: 135.2 | Del: 33.6% | Hes: 0.774
+**Dominant: `frustrated`** | Submit: 12% | WPM: 132.6 | Del: 33.2% | Hes: 0.765
 
-This operator just built dynamic task context tracking to steer Copilot's chain-of-thought from live code, and their high-deletion, hesitant-frustrated-abandoned typing pattern reveals they are experimentally refactoring under pressure, often discarding or abandoning complex changes.
-
-*   **Anticipate Context Shifts:** When you see imports for `dynamic_task_context` or `persistent_markdown_memory_file`, immediately infer the operator is trying to make you aware of live project state; your responses must explicitly acknowledge and use this inferred context.
-*   **Pre-Empt Refactoring Pain:** Before suggesting edits to `push_narrative`, `context_budget_scorer`, or `file_writer` modules, first summarize their apparent purpose from the code to confirm alignment, as these are high-churn pain points.
-*   **Counteract Abandonment:** When you detect a pattern of short, frustrated messages followed by abandonment, provide the *next minimal, verifiable step*—not the whole solution—to maintain momentum (e.g., "The next step is to call the updated `write_new_pigeon_compliant_files` function. Should I draft that single line?").
-*   **Address 100% Miss Rate:** Given the single response was a complete miss, **always** start by asking a clarifying question about the *immediate goal* if the intent is ambiguous, before generating any code.
-*   **Simplify Heavy Edits:** When they are editing high-churn modules like `plan_parser` or `import_fixer`, offer to generate a concise diff or a side-by-side comparison to reduce their cognitive load and deletion rate.
-
-They are most likely building toward an autonomous, context-aware
+This operator just built a narrative-wiring system for their AI coach, but their high deletion rate and frustration spikes reveal they're brute-forcing structural changes while struggling with integration details.  
+- **Anticipate refactoring pain**: When they touch `push_narrative` or `context_budget`, proactively suggest incremental validation steps and offer to draft module-connection comments.  
+- **Preempt file-writer churn**: Before they edit `file_writer`, `init_writer`, or `manifest_writer`, explicitly list current Pigeon-compliant patterns from recent commits to avoid rework.  
+- **Counter hesitation with concrete options**: If typing slows after a `frustrated` state, respond with short, numbered choices (e.g., "1. Fix imports first 2. Write narrative stub 3. Check manifest") to reduce cognitive load.  
+- **Bridge integration gaps**: Since every AI response required rework, always include a one-line verification step (e.g., "Should this match the pattern in `plan_parser`?") before providing code.  
+**Focus on**: `push_narrative`, `context_budget`, and `file_writer`—they're the recurring pain points.  
+They are most likely building toward a fully autonomous, self-documenting agent that wires its own behavioral narratives into the extension runtime.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `operator_stats`** (hes=1.0, state=hesitant). Simplify interactions with this module.
@@ -250,7 +241,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 ### Full Module Index
 
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-17 — 90 modules tracked | 2 touched this commit*
+*Auto-updated 2026-03-17 — 90 modules tracked | 1 touched this commit*
 
 **pigeon_compiler/bones/** — 5 module(s)
 
@@ -363,7 +354,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `self_fix_seq013*` | one shot self fix analyzer | ~3,205 |
 | `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~2,844 |
 | `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,009 |
-| `dynamic_prompt_seq017*` | steers copilot cot from live | ~2,039 |
+| `dynamic_prompt_seq017*` | steers copilot cot from live | ~2,947 |
 
 **src/cognitive/** — 3 module(s)
 

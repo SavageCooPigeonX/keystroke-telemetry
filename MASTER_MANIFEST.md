@@ -32,7 +32,7 @@ Two developer tools packaged together:
 ---
 
 ## FOLDER TREE
-*Auto-synced by manifest_builder | 2026-03-17 05:27 UTC*
+*Auto-synced by manifest_builder | 2026-03-17 05:43 UTC*
 
 ```
 LinkRouter.AI/
@@ -57,7 +57,7 @@ LinkRouter.AI/
 +-- /client                              5 files, 1 sub | 0% compliant
 |
 +-- /demo_logs                           (2 files)
-+-- /docs                                (19 files)
++-- /docs                                (21 files)
 +-- /documentation                       (1 files)
 +-- /pigeon_code.egg-info                (5 files)
 +-- /pigeon_compiler                     46 files, 7 sub | 72% compliant
@@ -68,14 +68,14 @@ LinkRouter.AI/
 |   +-- /state_extractor                 (6 files)
 |   +-- /weakness_planner                (1 files)
 |
-+-- /src                                 47 files, 2 sub | 83% compliant
++-- /src                                 47 files, 2 sub | 81% compliant
 |   +-- /cognitive                       (17 files)
 |   +-- /operator_stats                  (13 files)
 |
 +-- /streaming_layer                     19 files | 100% compliant
 |
 +-- /stress_logs                         (2 files)
-+-- /test_logs                           (90 files)
++-- /test_logs                           (92 files)
 +-- /vscode-extension                    2 files, 3 sub | 50% compliant
 |
 ```
@@ -426,7 +426,7 @@ py deep_test.py  # 8 deep profiling tests — validates full signal pipeline
 
 ## OPERATOR KEYSTROKE TRAIL
 
-*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-17 05:27 UTC*
+*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-17 05:43 UTC*
 
 > **How to read**: Each row is one keystroke event from the operator.
 > Markers flag cognitive signals: ⏸ = long pause (>2s), 
@@ -437,59 +437,62 @@ py deep_test.py  # 8 deep profiling tests — validates full signal pipeline
 |---|-----|-------|----:|--------|---------|
 | 1 | `What is the meaning of life?` | paste | 0 | `What is the meaning of life?` |  |
 | 2 | `?` | backspace | 1 | `What is the meaning of life` | ⌫ burst |
-| 3 | `e` | backspace | 61 | `What is the meaning of lif` | ⌫ burst |
-| 4 | `f` | backspace | 164 | `What is the meaning of li` | ⌫ burst |
-| 5 | `i` | backspace | 66 | `What is the meaning of l` | ⌫ burst |
-| 6 | `l` | backspace | 53 | `What is the meaning of ` | ⌫ burst |
-| 7 | `4` | insert | 128 | `What is the meaning of 4` |  |
-| 8 | `2` | insert | 169 | `What is the meaning of 42` |  |
-| 9 | `?` | insert | 152 | `What is the meaning of 42?` |  |
+| 3 | `e` | backspace | 40 | `What is the meaning of lif` | ⌫ burst |
+| 4 | `f` | backspace | 42 | `What is the meaning of li` | ⌫ burst |
+| 5 | `i` | backspace | 41 | `What is the meaning of l` | ⌫ burst |
+| 6 | `l` | backspace | 41 | `What is the meaning of ` | ⌫ burst |
+| 7 | `4` | insert | 40 | `What is the meaning of 4` |  |
+| 8 | `2` | insert | 151 | `What is the meaning of 42` |  |
+| 9 | `?` | insert | 150 | `What is the meaning of 42?` |  |
 | 10 | `H` | insert | 0 | `H` |  |
-| 11 | `e` | insert | 151 | `He` |  |
-| 12 | `l` | insert | 151 | `Hel` |  |
-| 13 | `o` | insert | 151 | `Helo` |  |
-| 14 | ` ` | insert | 151 | `Helo ` |  |
-| 15 | `w` | insert | 150 | `Helo w` |  |
-| 16 | `r` | insert | 151 | `Helo wr` |  |
-| 17 | `l` | insert | 198 | `Helo wrl` |  |
-| 18 | `d` | insert | 196 | `Helo wrld` |  |
-| 19 | `d` | backspace | 186 | `Helo wrl` | ⌫ burst |
-| 20 | `l` | backspace | 73 | `Helo wr` | ⌫ burst |
-| 21 | `r` | backspace | 76 | `Helo w` | ⌫ burst |
-| 22 | `w` | backspace | 136 | `Helo ` | ⌫ burst |
-| 23 | `w` | insert | 130 | `Helo w` |  |
-| 24 | `o` | insert | 166 | `Helo wo` |  |
-| 25 | `r` | insert | 205 | `Helo wor` |  |
-| 26 | `l` | insert | 187 | `Helo worl` |  |
-| 27 | `d` | insert | 155 | `Helo world` |  |
+| 11 | `e` | insert | 155 | `He` |  |
+| 12 | `l` | insert | 168 | `Hel` |  |
+| 13 | `o` | insert | 165 | `Helo` |  |
+| 14 | ` ` | insert | 595 | `Helo ` |  |
+| 15 | `w` | insert | 303 | `Helo w` |  |
+| 16 | `r` | insert | 267 | `Helo wr` |  |
+| 17 | `l` | insert | 184 | `Helo wrl` |  |
+| 18 | `d` | insert | 246 | `Helo wrld` |  |
+| 19 | `d` | backspace | 167 | `Helo wrl` | ⌫ burst |
+| 20 | `l` | backspace | 88 | `Helo wr` | ⌫ burst |
+| 21 | `r` | backspace | 80 | `Helo w` | ⌫ burst |
+| 22 | `w` | backspace | 48 | `Helo ` | ⌫ burst |
+| 23 | `w` | insert | 50 | `Helo w` |  |
+| 24 | `o` | insert | 158 | `Helo wo` |  |
+| 25 | `r` | insert | 231 | `Helo wor` |  |
+| 26 | `l` | insert | 407 | `Helo worl` |  |
+| 27 | `d` | insert | 175 | `Helo world` |  |
 | 28 | `!` | insert | 152 | `Helo world!` |  |
 | 29 | `A` | insert | 0 | `A` |  |
 | 30 | `c` | insert | 151 | `Ac` |  |
 | 31 | `t` | insert | 150 | `Act` |  |
 | 32 | `u` | insert | 150 | `Actu` |  |
-| 33 | `a` | insert | 151 | `Actua` |  |
-| 34 | `l` | insert | 150 | `Actual` |  |
-| 35 | `l` | insert | 153 | `Actuall` |  |
-| 36 | `y` | insert | 151 | `Actually` |  |
-| 37 | ` ` | insert | 150 | `Actually ` |  |
-| 38 | `n` | insert | 150 | `Actually n` |  |
-| 39 | `v` | insert | 217 | `Actually nv` |  |
-| 40 | `m` | insert | 151 | `Actually nvm` |  |
-| 41 | `Ctrl+A+Del` | clear | 2251 | `` | ⏸ 2.3s |
+| 33 | `a` | insert | 152 | `Actua` |  |
+| 34 | `l` | insert | 157 | `Actual` |  |
+| 35 | `l` | insert | 161 | `Actuall` |  |
+| 36 | `y` | insert | 152 | `Actually` |  |
+| 37 | ` ` | insert | 156 | `Actually ` |  |
+| 38 | `n` | insert | 151 | `Actually n` |  |
+| 39 | `v` | insert | 472 | `Actually nv` |  |
+| 40 | `m` | insert | 163 | `Actually nvm` |  |
+| 41 | `Ctrl+A+Del` | clear | 2263 | `` | ⏸ 2.3s |
 | 42 | `What is the meaning of life?` | paste | 0 | `What is the meaning of life?` |  |
-| 43 | `?` | backspace | 1 | `What is the meaning of life` | ⌫ burst |
-| 44 | `e` | backspace | 40 | `What is the meaning of lif` | ⌫ burst |
-| 45 | `f` | backspace | 42 | `What is the meaning of li` | ⌫ burst |
-| 46 | `i` | backspace | 41 | `What is the meaning of l` | ⌫ burst |
-| 47 | `l` | backspace | 41 | `What is the meaning of ` | ⌫ burst |
-| 48 | `4` | insert | 40 | `What is the meaning of 4` |  |
-| 49 | `2` | insert | 151 | `What is the meaning of 42` |  |
-| 50 | `?` | insert | 150 | `What is the meaning of 42?` |  |
+| 43 | `?` | backspace | 5 | `What is the meaning of life` | ⌫ burst |
+| 44 | `e` | backspace | 90 | `What is the meaning of lif` | ⌫ burst |
+| 45 | `f` | backspace | 105 | `What is the meaning of li` | ⌫ burst |
+| 46 | `i` | backspace | 149 | `What is the meaning of l` | ⌫ burst |
+| 47 | `l` | backspace | 109 | `What is the meaning of ` | ⌫ burst |
+| 48 | `4` | insert | 125 | `What is the meaning of 4` |  |
+| 49 | `2` | insert | 183 | `What is the meaning of 42` |  |
+| 50 | `?` | insert | 178 | `What is the meaning of 42?` |  |
 
 ### Recent message hesitation scores
 
 | Message | Submitted | Keys | Dels | Hesitation | State |
 |---------|-----------|-----:|-----:|-----------:|-------|
+| `bdf70ebaf8` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `859c45bb78` | 🗑 | 13 | 0 | 0.529 | abandoned |
+| `14f69e988e` | ✓ | 9 | 5 | 0.556 | hesitant |
 | `dd2c8de77c` | ✓ | 19 | 4 | 0.211 | restructuring |
 | `ebf61c9b5b` | 🗑 | 13 | 0 | 0.566 | abandoned |
 | `637cfe8e3e` | ✓ | 9 | 5 | 0.556 | hesitant |
@@ -499,9 +502,6 @@ py deep_test.py  # 8 deep profiling tests — validates full signal pipeline
 | `c7438ceaf1` | ✓ | 19 | 4 | 0.211 | restructuring |
 | `493673f973` | 🗑 | 13 | 0 | 0.578 | abandoned |
 | `981a67e46d` | ✓ | 9 | 5 | 0.556 | hesitant |
-| `c8f91a5036` | ✓ | 19 | 4 | 0.211 | restructuring |
-| `cdb121ef41` | 🗑 | 13 | 0 | 0.573 | abandoned |
-| `52780511fa` | ✓ | 9 | 5 | 0.556 | hesitant |
 
 
 ## CHANGELOG
