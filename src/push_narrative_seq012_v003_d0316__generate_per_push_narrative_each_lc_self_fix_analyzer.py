@@ -7,6 +7,11 @@
 # LAST:   2026-03-16 @ c8de77c
 # SESSIONS: 2
 # ──────────────────────────────────────────────
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# ── /pulse ──
 
 import json
 import os

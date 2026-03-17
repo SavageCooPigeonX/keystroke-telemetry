@@ -2,444 +2,444 @@
   "context_budget": {
     "samples": [
       {
-        "ts": "2026-03-16T08:48:44.408934+00:00",
-        "hes": 0.889,
-        "wpm": 79.2,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:48:56.422217+00:00",
-        "hes": 0.3,
-        "wpm": 50.9,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:48:58.877725+00:00",
-        "hes": 1.0,
-        "wpm": 31.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:05.296161+00:00",
-        "hes": 0.589,
-        "wpm": 9.5,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:11.272505+00:00",
-        "hes": 0.62,
-        "wpm": 12.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:28.179164+00:00",
-        "hes": 0.674,
-        "wpm": 4.4,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:48.164461+00:00",
-        "hes": 0.67,
-        "wpm": 3.1,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:56.264909+00:00",
-        "hes": 0.3,
-        "wpm": 242.9,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:50:47.239022+00:00",
-        "hes": 0.689,
-        "wpm": 0.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:50:56.425221+00:00",
-        "hes": 0.3,
-        "wpm": 43.2,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:51:30.180394+00:00",
-        "hes": 0.734,
-        "wpm": 1.1,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:51:39.589149+00:00",
-        "hes": 0.671,
-        "wpm": 8.2,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:51:56.425277+00:00",
-        "hes": 0.3,
-        "wpm": 160.0,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:52:14.791174+00:00",
-        "hes": 0.953,
-        "wpm": 2.0,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:52:56.411783+00:00",
-        "hes": 0.672,
-        "wpm": 2.2,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:53:30.324144+00:00",
-        "hes": 0.773,
-        "wpm": 0.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:53:56.632962+00:00",
-        "hes": 0.3,
-        "wpm": 37.6,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:54:56.861063+00:00",
+        "ts": "2026-03-17T00:58:12.491997+00:00",
         "hes": 1.0,
         "wpm": 400.0,
         "state": "frustrated",
         "rework": "ok"
       },
       {
-        "ts": "2026-03-16T08:55:56.582099+00:00",
+        "ts": "2026-03-17T00:59:13.220173+00:00",
         "hes": 1.0,
         "wpm": 400.0,
         "state": "frustrated",
         "rework": "ok"
       },
       {
-        "ts": "2026-03-16T08:56:56.380762+00:00",
-        "hes": 1.0,
+        "ts": "2026-03-17T01:00:12.764838+00:00",
+        "hes": 0.964,
         "wpm": 2.1,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:01:12.580773+00:00",
+        "hes": 0.658,
+        "wpm": 88.1,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:02:12.361474+00:00",
+        "hes": 1.0,
+        "wpm": 400.0,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:03:12.374435+00:00",
+        "hes": 1.0,
+        "wpm": 400.0,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:05:56.980977+00:00",
+        "hes": 1.0,
+        "wpm": 1475.7,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:06:12.412333+00:00",
+        "hes": 0.503,
+        "wpm": 9.6,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:06:37.074445+00:00",
+        "hes": 0.66,
+        "wpm": 1.5,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:06:59.319334+00:00",
+        "hes": 0.412,
+        "wpm": 29.2,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:07:12.398610+00:00",
+        "hes": 0.3,
+        "wpm": 283.5,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:07:35.439883+00:00",
+        "hes": 0.814,
+        "wpm": 2.7,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:08:03.350801+00:00",
+        "hes": 0.619,
+        "wpm": 2.1,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:08:12.429873+00:00",
+        "hes": 0.3,
+        "wpm": 279.1,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:08:25.265666+00:00",
+        "hes": 0.864,
+        "wpm": 2.9,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:09:13.124148+00:00",
+        "hes": 0.3,
+        "wpm": 504.2,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:09:27.631746+00:00",
+        "hes": 1.0,
+        "wpm": 48.7,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:10:12.453324+00:00",
+        "hes": 0.3,
+        "wpm": 98.8,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:11:12.472139+00:00",
+        "hes": 1.0,
+        "wpm": 400.0,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:12:12.438965+00:00",
+        "hes": 1.0,
+        "wpm": 400.0,
         "state": "frustrated",
         "rework": "ok"
       }
     ],
-    "avg_hes": 0.672,
-    "avg_wpm": 74.6,
+    "avg_hes": 0.735,
+    "avg_wpm": 261.4,
     "miss_count": 0,
     "total": 20
   },
   "import_rewriter": {
     "samples": [
       {
-        "ts": "2026-03-16T08:48:44.409017+00:00",
-        "hes": 0.889,
-        "wpm": 79.2,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:48:56.422293+00:00",
-        "hes": 0.3,
-        "wpm": 50.9,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:48:58.877793+00:00",
-        "hes": 1.0,
-        "wpm": 31.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:05.296235+00:00",
-        "hes": 0.589,
-        "wpm": 9.5,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:11.272538+00:00",
-        "hes": 0.62,
-        "wpm": 12.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:28.179196+00:00",
-        "hes": 0.674,
-        "wpm": 4.4,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:48.164493+00:00",
-        "hes": 0.67,
-        "wpm": 3.1,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:56.264971+00:00",
-        "hes": 0.3,
-        "wpm": 242.9,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:50:47.239102+00:00",
-        "hes": 0.689,
-        "wpm": 0.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:50:56.425257+00:00",
-        "hes": 0.3,
-        "wpm": 43.2,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:51:30.180424+00:00",
-        "hes": 0.734,
-        "wpm": 1.1,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:51:39.589197+00:00",
-        "hes": 0.671,
-        "wpm": 8.2,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:51:56.425319+00:00",
-        "hes": 0.3,
-        "wpm": 160.0,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:52:14.791222+00:00",
-        "hes": 0.953,
-        "wpm": 2.0,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:52:56.411826+00:00",
-        "hes": 0.672,
-        "wpm": 2.2,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:53:30.324196+00:00",
-        "hes": 0.773,
-        "wpm": 0.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:53:56.633028+00:00",
-        "hes": 0.3,
-        "wpm": 37.6,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:54:56.861128+00:00",
+        "ts": "2026-03-17T00:58:12.492039+00:00",
         "hes": 1.0,
         "wpm": 400.0,
         "state": "frustrated",
         "rework": "ok"
       },
       {
-        "ts": "2026-03-16T08:55:56.582160+00:00",
+        "ts": "2026-03-17T00:59:13.220246+00:00",
         "hes": 1.0,
         "wpm": 400.0,
         "state": "frustrated",
         "rework": "ok"
       },
       {
-        "ts": "2026-03-16T08:56:56.380801+00:00",
-        "hes": 1.0,
+        "ts": "2026-03-17T01:00:12.764901+00:00",
+        "hes": 0.964,
         "wpm": 2.1,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:01:12.580829+00:00",
+        "hes": 0.658,
+        "wpm": 88.1,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:02:12.361509+00:00",
+        "hes": 1.0,
+        "wpm": 400.0,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:03:12.374478+00:00",
+        "hes": 1.0,
+        "wpm": 400.0,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:05:56.981039+00:00",
+        "hes": 1.0,
+        "wpm": 1475.7,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:06:12.412370+00:00",
+        "hes": 0.503,
+        "wpm": 9.6,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:06:37.074500+00:00",
+        "hes": 0.66,
+        "wpm": 1.5,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:06:59.319372+00:00",
+        "hes": 0.412,
+        "wpm": 29.2,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:07:12.398653+00:00",
+        "hes": 0.3,
+        "wpm": 283.5,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:07:35.439953+00:00",
+        "hes": 0.814,
+        "wpm": 2.7,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:08:03.350840+00:00",
+        "hes": 0.619,
+        "wpm": 2.1,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:08:12.429913+00:00",
+        "hes": 0.3,
+        "wpm": 279.1,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:08:25.265699+00:00",
+        "hes": 0.864,
+        "wpm": 2.9,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:09:13.124220+00:00",
+        "hes": 0.3,
+        "wpm": 504.2,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:09:27.631822+00:00",
+        "hes": 1.0,
+        "wpm": 48.7,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:10:12.453368+00:00",
+        "hes": 0.3,
+        "wpm": 98.8,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:11:12.472177+00:00",
+        "hes": 1.0,
+        "wpm": 400.0,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:12:12.439013+00:00",
+        "hes": 1.0,
+        "wpm": 400.0,
         "state": "frustrated",
         "rework": "ok"
       }
     ],
-    "avg_hes": 0.672,
-    "avg_wpm": 74.6,
+    "avg_hes": 0.735,
+    "avg_wpm": 261.4,
     "miss_count": 0,
     "total": 20
   },
   "file_writer": {
     "samples": [
       {
-        "ts": "2026-03-16T08:48:44.409051+00:00",
-        "hes": 0.889,
-        "wpm": 79.2,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:48:56.422326+00:00",
-        "hes": 0.3,
-        "wpm": 50.9,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:48:58.877823+00:00",
-        "hes": 1.0,
-        "wpm": 31.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:05.296265+00:00",
-        "hes": 0.589,
-        "wpm": 9.5,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:11.272552+00:00",
-        "hes": 0.62,
-        "wpm": 12.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:28.179211+00:00",
-        "hes": 0.674,
-        "wpm": 4.4,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:48.164507+00:00",
-        "hes": 0.67,
-        "wpm": 3.1,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:49:56.265004+00:00",
-        "hes": 0.3,
-        "wpm": 242.9,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:50:47.239136+00:00",
-        "hes": 0.689,
-        "wpm": 0.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:50:56.425275+00:00",
-        "hes": 0.3,
-        "wpm": 43.2,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:51:30.180438+00:00",
-        "hes": 0.734,
-        "wpm": 1.1,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:51:39.589225+00:00",
-        "hes": 0.671,
-        "wpm": 8.2,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:51:56.425337+00:00",
-        "hes": 0.3,
-        "wpm": 160.0,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:52:14.791245+00:00",
-        "hes": 0.953,
-        "wpm": 2.0,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:52:56.411846+00:00",
-        "hes": 0.672,
-        "wpm": 2.2,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:53:30.324223+00:00",
-        "hes": 0.773,
-        "wpm": 0.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:53:56.633085+00:00",
-        "hes": 0.3,
-        "wpm": 37.6,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-16T08:54:56.861165+00:00",
+        "ts": "2026-03-17T00:58:12.492059+00:00",
         "hes": 1.0,
         "wpm": 400.0,
         "state": "frustrated",
         "rework": "ok"
       },
       {
-        "ts": "2026-03-16T08:55:56.582192+00:00",
+        "ts": "2026-03-17T00:59:13.220286+00:00",
         "hes": 1.0,
         "wpm": 400.0,
         "state": "frustrated",
         "rework": "ok"
       },
       {
-        "ts": "2026-03-16T08:56:56.380818+00:00",
-        "hes": 1.0,
+        "ts": "2026-03-17T01:00:12.764931+00:00",
+        "hes": 0.964,
         "wpm": 2.1,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:01:12.580859+00:00",
+        "hes": 0.658,
+        "wpm": 88.1,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:02:12.361524+00:00",
+        "hes": 1.0,
+        "wpm": 400.0,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:03:12.374498+00:00",
+        "hes": 1.0,
+        "wpm": 400.0,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:05:56.981068+00:00",
+        "hes": 1.0,
+        "wpm": 1475.7,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:06:12.412385+00:00",
+        "hes": 0.503,
+        "wpm": 9.6,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:06:37.074522+00:00",
+        "hes": 0.66,
+        "wpm": 1.5,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:06:59.319388+00:00",
+        "hes": 0.412,
+        "wpm": 29.2,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:07:12.398674+00:00",
+        "hes": 0.3,
+        "wpm": 283.5,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:07:35.439984+00:00",
+        "hes": 0.814,
+        "wpm": 2.7,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:08:03.350861+00:00",
+        "hes": 0.619,
+        "wpm": 2.1,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:08:12.429931+00:00",
+        "hes": 0.3,
+        "wpm": 279.1,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:08:25.265714+00:00",
+        "hes": 0.864,
+        "wpm": 2.9,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:09:13.124263+00:00",
+        "hes": 0.3,
+        "wpm": 504.2,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:09:27.631854+00:00",
+        "hes": 1.0,
+        "wpm": 48.7,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:10:12.453395+00:00",
+        "hes": 0.3,
+        "wpm": 98.8,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:11:12.472195+00:00",
+        "hes": 1.0,
+        "wpm": 400.0,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-17T01:12:12.439031+00:00",
+        "hes": 1.0,
+        "wpm": 400.0,
         "state": "frustrated",
         "rework": "ok"
       }
     ],
-    "avg_hes": 0.672,
-    "avg_wpm": 74.6,
+    "avg_hes": 0.735,
+    "avg_wpm": 261.4,
     "miss_count": 0,
     "total": 20
   }

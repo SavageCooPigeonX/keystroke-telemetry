@@ -16,6 +16,11 @@ a compact operator profile that sharpens with every message.
 # LAST:   2026-03-15 @ caac48c
 # SESSIONS: 1
 # ──────────────────────────────────────────────
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# ── /pulse ──
 
 import json
 import time as _time

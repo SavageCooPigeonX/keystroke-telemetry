@@ -14,6 +14,11 @@ Each event is emitted as a self-contained LLM-compatible JSON block
 # LAST:   2026-03-15 @ caac48c
 # SESSIONS: 1
 # ──────────────────────────────────────────────
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# ── /pulse ──
 
 import json
 import uuid

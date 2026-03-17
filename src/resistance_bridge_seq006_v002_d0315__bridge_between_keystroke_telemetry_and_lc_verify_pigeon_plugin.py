@@ -13,6 +13,11 @@ human hesitation (pauses, rewrites, deletions) are split candidates.
 # LAST:   2026-03-15 @ caac48c
 # SESSIONS: 1
 # ──────────────────────────────────────────────
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# ── /pulse ──
 
 import json
 from pathlib import Path

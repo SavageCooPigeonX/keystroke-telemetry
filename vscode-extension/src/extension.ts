@@ -93,6 +93,7 @@ class BackgroundTelemetry {
     private _active = false;
     private _sessionId: string;
     private _totalFlushed = 0;
+    private _statusItem!: vscode.StatusBarItem;
 
     constructor(root: string) {
         this._root = root;
@@ -117,6 +118,11 @@ class BackgroundTelemetry {
                 const rel = this._relPath(doc.uri);
                 this._push({ ts: Date.now(), type: 'save', file: rel });
                 this._flushIfReady();
+
+                // ── Pulse watcher: correlate LLM edits with prompts ──
+                if (doc.uri.scheme === 'file' && rel.startsWith('src/') && rel.endsWith('.py')) {
+                    this._harvestPulse(rel);
+                }
             })
         );
 
@@ -188,11 +194,11 @@ class BackgroundTelemetry {
         this._push({ ts: Date.now(), type: 'focus', context: 'session_start' });
         this._appendLog([{ ts: Date.now(), type: 'focus', context: 'session_start' }]);
 
-        const bar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 0);
-        bar.text = '$(pulse) Pigeon';
-        bar.tooltip = 'Keystroke telemetry active';
-        bar.show();
-        context.subscriptions.push(bar);
+        this._statusItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 0);
+        this._statusItem.text = '$(pulse) Pigeon';
+        this._statusItem.tooltip = 'Keystroke telemetry active';
+        this._statusItem.show();
+        context.subscriptions.push(this._statusItem);
     }
 
     private _relPath(uri: vscode.Uri): string {
@@ -248,7 +254,24 @@ class BackgroundTelemetry {
         if (typingEvents.length >= 3) {
             const activeFile = vscode.window.activeTextEditor?.document.fileName ?? '';
             const label = activeFile ? `bg:${activeFile.split(/[/\\]/).pop()}` : 'bg:idle';
-            classifySession(this._root, typingEvents, true, label).catch(() => {});
+            classifySession(this._root, typingEvents, true, label).then(result => {
+                // Cognitive reactor fired — telemetry autonomously patched the codebase
+                const reactor = (result as any).reactor;
+                if (reactor?.fired) {
+                    const patchPath = path.join(this._root, reactor.patch_path);
+                    vscode.window.showInformationMessage(
+                        `🧠 Cognitive reactor fired on \`${reactor.module}\` — ${reactor.problems} problems patched`,
+                        'Open Patch'
+                    ).then(choice => {
+                        if (choice === 'Open Patch') {
+                            vscode.workspace.openTextDocument(patchPath)
+                                .then(doc => vscode.window.showTextDocument(doc));
+                        }
+                    });
+                    this._statusItem.text = `$(zap) Reactor: ${reactor.module}`;
+                    setTimeout(() => { this._statusItem.text = '$(pulse) Pigeon'; }, 10_000);
+                }
+            }).catch(() => {});
             this._totalFlushed++;
         }
     }
@@ -269,6 +292,26 @@ class BackgroundTelemetry {
             }) + '\n';
             fs.appendFileSync(this._logPath, line, 'utf-8');
         } catch { /* non-fatal */ }
+    }
+
+    private _harvestPulse(relPath: string) {
+        // Spawn pulse_watcher.py to correlate this save with the latest prompt
+        const watcher = path.join(this._root, 'vscode-extension', 'pulse_watcher.py');
+        if (!fs.existsSync(watcher)) return;
+        const proc = spawn('py', [watcher, this._root, relPath], { cwd: this._root });
+        let out = '';
+        proc.stdout.on('data', (d: Buffer) => out += d.toString());
+        proc.on('close', () => {
+            try {
+                const result = JSON.parse(out.trim());
+                if (result.paired) {
+                    // Flash status bar with timing data
+                    this._statusItem.text = `$(link) ${result.latency_ms}ms → ${result.file.split('/').pop()}`;
+                    setTimeout(() => { this._statusItem.text = '$(pulse) Pigeon'; }, 8_000);
+                }
+            } catch { /* non-fatal */ }
+        });
+        proc.on('error', () => { /* non-fatal */ });
     }
 }
 

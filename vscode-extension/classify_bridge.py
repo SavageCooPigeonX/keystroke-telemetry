@@ -260,6 +260,20 @@ def main():
     except Exception:
         pass
 
+    # ── Cognitive reactor: autonomous code modification from telemetry ────
+    reactor_result = None
+    try:
+        reactor_mod = _load_pigeon_module(root, 'src/cognitive_reactor_seq014*.py')
+        if reactor_mod:
+            # Active files = what the operator is currently touching
+            active_files = []
+            if query_txt.startswith('bg:'):
+                active_files = [query_txt[3:]]  # filename from background flush
+            reactor_result = reactor_mod.ingest_flush(
+                root, state, metrics['hesitation_score'], wpm, active_files)
+    except Exception:
+        pass
+
     # â”€â”€ LLM rewrite every 8 submitted â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     coaching_updated = False
     coaching_path = root / 'operator_coaching.md'
@@ -299,6 +313,7 @@ def main():
         'wpm':              wpm,
         'coaching_updated': coaching_updated,
         'rework_verdict':   rework_verdict,
+        'reactor':          reactor_result,
     }))
 
 

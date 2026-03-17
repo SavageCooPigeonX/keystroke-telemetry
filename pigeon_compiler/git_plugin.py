@@ -894,6 +894,20 @@ def run():
     except Exception as e:
         print(f'  ⚠️  self-fix: {e}')
 
+    # ── Pulse harvest: failsafe for any un-cleared pulse blocks ──
+    try:
+        pulse_mod = _load_glob_module(root, 'src', 'pulse_harvest_seq015*')
+        if pulse_mod:
+            recs = pulse_mod.harvest_all_pulses(root)
+            if recs:
+                print(f'  📡 pulse harvest → {len(recs)} edit(s) paired to prompts')
+            # Also inject pulse blocks into any new files
+            n_injected = pulse_mod.inject_all_pulses(root)
+            if n_injected:
+                print(f'  📡 pulse inject → {n_injected} new pulse block(s)')
+    except Exception as e:
+        print(f'  ⚠️  pulse harvest: {e}')
+
     # ── Push narrative: file agents speak BEFORE copilot prompt mutation ──
     try:
         narr_mod = _load_glob_module(root, 'src', 'push_narrative_seq012*')

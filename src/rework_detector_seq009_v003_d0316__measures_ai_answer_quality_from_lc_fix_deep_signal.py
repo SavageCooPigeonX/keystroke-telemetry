@@ -14,6 +14,11 @@ Zero LLM calls. Pure signal math.
 # LAST:   2026-03-16 @ 1c7d33d
 # SESSIONS: 2
 # ──────────────────────────────────────────────
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# ── /pulse ──
 from __future__ import annotations
 import json
 from datetime import datetime, timezone

@@ -16,6 +16,11 @@ Zero LLM calls.
 # LAST:   2026-03-16 @ 2c562df
 # SESSIONS: 1
 # ──────────────────────────────────────────────
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# ── /pulse ──
 from __future__ import annotations
 import json
 import re
