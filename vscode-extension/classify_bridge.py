@@ -86,7 +86,8 @@ def _parse_history(root: Path) -> list:
 
 
 def _build_prompt(history: list, rework_stats: dict,
-                  query_mem: dict, heat_map: dict) -> str:
+                  query_mem: dict, heat_map: dict,
+                  composition: dict | None = None) -> str:
     """Build enhanced DeepSeek prompt with all deep profile signals."""
     from collections import Counter
     n = len(history)
@@ -130,6 +131,19 @@ def _build_prompt(history: list, rework_stats: dict,
         for m in heat_map.get('high_miss_files', [])
     ) or '  none'
 
+    # Chat composition signals from OS-level keystroke reconstruction
+    comp_block = '  no composition data yet'
+    if composition:
+        deleted_words = [w.get('word', '') for w in composition.get('deleted_words', [])]
+        rewrites = composition.get('rewrites', [])
+        comp_block = (
+            f'  deletion_ratio={composition.get("deletion_ratio", 0)} '
+            f'peak_buffer="{composition.get("peak_buffer", "")[:80]}"\n'
+            f'  deleted_words: {deleted_words[:10]}\n'
+            f'  rewrites: {len(rewrites)} '
+            f'hesitation_windows: {len(composition.get("hesitation_windows", []))}'
+        )
+
     return f"""You are a behavioral AI coach embedded in a VS Code extension.
 Your output is injected DIRECTLY into a Copilot system prompt â€” write INSTRUCTIONS for the AI, not a report.
 
@@ -154,13 +168,17 @@ FILE COMPLEXITY DEBT (high hesitation when these modules are in context):
 HIGH AI-MISS FILES (AI responses fail most often around these modules):
 {miss_files_block}
 
+CHAT COMPOSITION (OS-level keystroke reconstruction — deleted words are unsaid intent):
+{comp_block}
+
 Write behavioral coaching for Copilot. Requirements:
 1. One sentence: operator's dominant pattern + what their rework rate reveals
-2. 4â€“6 bullets: precise behavioral instructions for next session
-3. Call out persistent gaps by name â€” the AI must fix these proactively
+2. 4\u20136 bullets: precise behavioral instructions for next session
+3. Call out persistent gaps by name \u2014 the AI must fix these proactively
 4. For each high-miss file: prescribe a different response strategy
 5. For abandoned themes: the AI should proactively surface these
-6. One sentence: what this operator is building toward
+6. For deleted words: these reveal what the operator WANTED to say but chose not to \u2014 address the underlying need
+7. One sentence: what this operator is building toward
 
 Surgical and specific. Every word changes AI behavior. Max 230 words. Markdown bullets only."""
 
@@ -229,6 +247,26 @@ def _load_recent_chat_keystrokes(root: Path, window_ms: int = 120_000) -> list:
         return []
 
 
+def _load_chat_composition(root: Path) -> dict | None:
+    """Load latest chat composition analysis.
+    Uses chat_composition_analyzer to reconstruct deleted words, rewrites,
+    hesitation from raw OS hook keystrokes — regardless of context tag.
+    This is the real signal: the OS hook captures everything, the analyzer
+    reconstructs the full composition including what was deleted.
+    """
+    try:
+        analyzer_path = root / 'client' / 'chat_composition_analyzer.py'
+        if not analyzer_path.exists():
+            return None
+        spec = importlib.util.spec_from_file_location('_comp_analyzer', analyzer_path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        result = mod.analyze_and_log(root)
+        return result
+    except Exception:
+        return None
+
+
 def main():
     root      = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else Path('.')
     payload   = json.loads(sys.stdin.read())
@@ -255,12 +293,29 @@ def main():
 
     metrics, wpm = _compute_metrics(events, submitted)
 
-    # â”€â”€ Classify state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    # ── Chat composition analysis (deleted words, rewrites, hesitation) ──
+    chat_comp = _load_chat_composition(root)
+    chat_state_override = None
+    if chat_comp:
+        cs = chat_comp.get('chat_state', {})
+        if cs.get('confidence', 0) > 0.6:
+            chat_state_override = cs
+
+    # â"€â"€ Classify state â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
     stats_mod = _load_pigeon_module(root, 'src/operator_stats_seq008*.py')
     state = 'neutral'
     if stats_mod:
         state = stats_mod.classify_state(metrics)
+        # Override with chat composition state if stronger signal
+        if chat_state_override and chat_state_override.get('confidence', 0) > 0.65:
+            state = chat_state_override['state']
         metrics['state'] = state
+        # Enrich metrics with composition data
+        if chat_comp:
+            metrics['chat_deleted_words'] = [w['word'] for w in chat_comp.get('deleted_words', [])]
+            metrics['chat_rewrites'] = len(chat_comp.get('rewrites', []))
+            metrics['chat_deletion_ratio'] = chat_comp.get('deletion_ratio', 0)
+            metrics['chat_peak_buffer'] = chat_comp.get('peak_buffer', '')
         try:
             stats_mod.OperatorStats(
                 str(root / 'operator_profile.md'), write_every=1
@@ -280,15 +335,23 @@ def main():
     except Exception:
         pass
 
-    # â”€â”€ Unsaid analysis â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    # ── Unsaid analysis (now with OS-level chat buffer) ────────────────
+    # ── Unsaid analysis (composition-enriched) ─────────────────────────
     unsaid = None
     try:
         unsaid_mod = _load_pigeon_module(root, 'src/cognitive/unsaid_seq002*.py')
         if unsaid_mod:
-            # Enrich events with chat buffer snapshots from OS hook
+            # Build enriched events from chat composition (highest fidelity)
             enriched_events = events[:]
-            if chat_keys:
+            if chat_comp and chat_comp.get('composition_events'):
+                for ce in chat_comp['composition_events']:
+                    enriched_events.append({
+                        'ts': ce.get('ts', 0),
+                        'type': 'backspace' if ce.get('action') == 'delete' else 'insert',
+                        'context': 'chat',
+                        'buffer': ce.get('buffer', ''),
+                    })
+            elif chat_keys:
+                # Fallback to raw OS hook events
                 for i, ck in enumerate(chat_keys):
                     if ck.get('type') == 'backspace' and ck.get('buffer'):
                         enriched_events.append({
@@ -304,6 +367,16 @@ def main():
                                 'discarded_text': prev_buf,
                             })
             unsaid = unsaid_mod.extract_unsaid_thoughts(enriched_events, query_txt)
+            # Inject composition deleted words as extra fragments
+            if chat_comp:
+                for dw in chat_comp.get('deleted_words', []):
+                    if len(dw.get('word', '')) >= 3:
+                        unsaid['deleted_fragments'].append({
+                            'text': dw['word'],
+                            'position': 'chat_composition',
+                            'length': len(dw['word']),
+                            'deleted_at_ms': dw.get('start_ts', 0),
+                        })
     except Exception:
         pass
 
@@ -352,7 +425,7 @@ def main():
                 rw_stats  = rework_mod.load_rework_stats(root) if rework_mod else {}
                 q_mem     = qmem_mod.load_query_memory(root) if qmem_mod else {}
                 heat      = heat_mod.load_heat_map(root) if heat_mod else {}
-                prose = _call_deepseek(_build_prompt(history, rw_stats, q_mem, heat), api_key)
+                prose = _call_deepseek(_build_prompt(history, rw_stats, q_mem, heat, chat_comp), api_key)
                 if prose:
                     count = _count_submitted(history)
                     today = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
@@ -371,6 +444,17 @@ def main():
     except Exception:
         pass
 
+    # Build composition summary for output
+    comp_summary = None
+    if chat_comp:
+        comp_summary = {
+            'deleted_words': [w.get('word', '') for w in chat_comp.get('deleted_words', [])],
+            'rewrites': len(chat_comp.get('rewrites', [])),
+            'deletion_ratio': chat_comp.get('deletion_ratio', 0),
+            'peak_buffer': chat_comp.get('peak_buffer', '')[:100],
+            'hesitation_windows': len(chat_comp.get('hesitation_windows', [])),
+        }
+
     print(json.dumps({
         'state':            state,
         'hesitation':       metrics['hesitation_score'],
@@ -378,6 +462,7 @@ def main():
         'coaching_updated': coaching_updated,
         'rework_verdict':   rework_verdict,
         'reactor':          reactor_result,
+        'composition':      comp_summary,
     }))
 
 
