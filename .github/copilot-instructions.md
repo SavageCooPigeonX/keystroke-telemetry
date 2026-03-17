@@ -121,9 +121,9 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-17 · 62 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-17 · 71 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 12% | WPM: 132.6 | Del: 33.2% | Hes: 0.765
+**Dominant: `frustrated`** | Submit: 11% | WPM: 126.5 | Del: 32.7% | Hes: 0.757
 
 This operator just built a narrative-wiring system for their AI coach, but their high deletion rate and frustration spikes reveal they're brute-forcing structural changes while struggling with integration details.  
 - **Anticipate refactoring pain**: When they touch `push_narrative` or `context_budget`, proactively suggest incremental validation steps and offer to draft module-connection comments.  

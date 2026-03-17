@@ -32,7 +32,7 @@ Two developer tools packaged together:
 ---
 
 ## FOLDER TREE
-*Auto-synced by manifest_builder | 2026-03-17 05:43 UTC*
+*Auto-synced by manifest_builder | 2026-03-17 05:46 UTC*
 
 ```
 LinkRouter.AI/
@@ -426,7 +426,7 @@ py deep_test.py  # 8 deep profiling tests — validates full signal pipeline
 
 ## OPERATOR KEYSTROKE TRAIL
 
-*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-17 05:43 UTC*
+*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-17 05:46 UTC*
 
 > **How to read**: Each row is one keystroke event from the operator.
 > Markers flag cognitive signals: ⏸ = long pause (>2s), 
