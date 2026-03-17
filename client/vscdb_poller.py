@@ -58,9 +58,9 @@ def find_vscdb(project_root: str) -> str | None:
 
 
 def read_key(db_path: str, key: str) -> str | None:
-    """Read a single key from state.vscdb (read-only)."""
+    """Read a single key from state.vscdb (reads WAL pages too)."""
     try:
-        conn = sqlite3.connect(f'file:{db_path}?mode=ro', uri=True)
+        conn = sqlite3.connect(db_path)
         cur = conn.cursor()
         cur.execute("SELECT value FROM ItemTable WHERE key = ?", (key,))
         row = cur.fetchone()

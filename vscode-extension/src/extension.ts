@@ -600,6 +600,48 @@ function stopVscdbPoller() {
     }
 }
 
+// ── UIA Reader (UI Automation — live chat text capture) ──────────────────────
+// Reads the focused element's text via Windows UI Automation at 50ms.
+// REQUIRES editor.accessibilitySupport = "on" (enabled below on activate).
+// Captures exact live composition including deletions for chat, editor, etc.
+
+let uiaReaderProc: ChildProcess | undefined;
+
+function startUIAReader(root: string) {
+    const reader = path.join(root, 'client', 'uia_reader.py');
+    if (!fs.existsSync(reader)) return;
+
+    uiaReaderProc = spawn('py', [reader, root], {
+        cwd: root,
+        stdio: ['ignore', 'pipe', 'pipe'],
+    });
+
+    uiaReaderProc.stdout?.on('data', (d: Buffer) => {
+        for (const line of d.toString().split('\n').filter(Boolean)) {
+            try {
+                const msg = JSON.parse(line);
+                if (msg.status === 'started') {
+                    console.log(`[pigeon] UIA reader started, pid=${msg.pid}`);
+                } else if (msg.status === 'chat_active') {
+                    console.log(`[pigeon] UIA: chat active, text_len=${msg.text_len}, del=${msg.del_count}`);
+                }
+            } catch { /* skip non-JSON */ }
+        }
+    });
+
+    uiaReaderProc.on('exit', (code) => {
+        console.log(`[pigeon] UIA reader exited (code=${code})`);
+        uiaReaderProc = undefined;
+    });
+}
+
+function stopUIAReader() {
+    if (uiaReaderProc) {
+        uiaReaderProc.kill();
+        uiaReaderProc = undefined;
+    }
+}
+
 // ── Activation ───────────────────────────────────────────────────────────────
 
 export function activate(context: vscode.ExtensionContext) {
@@ -609,6 +651,14 @@ export function activate(context: vscode.ExtensionContext) {
     if (root) {
         const bg = new BackgroundTelemetry(root);
         bg.start(context);
+
+        // Enable accessibility support — required for UIA to read Monaco editors
+        // (chat input, code editor, search boxes). Without this, UIA gets a
+        // placeholder "not accessible" message instead of actual content.
+        const editorConfig = vscode.workspace.getConfiguration('editor');
+        if (editorConfig.get('accessibilitySupport') !== 'on') {
+            editorConfig.update('accessibilitySupport', 'on', vscode.ConfigurationTarget.Workspace);
+        }
 
         // OS-level keystroke hook — captures chat input, search, palette
         startOsHook(root);
@@ -620,6 +670,10 @@ export function activate(context: vscode.ExtensionContext) {
         // state.vscdb poller — captures draft composition from VS Code state
         startVscdbPoller(root);
         context.subscriptions.push({ dispose: () => stopVscdbPoller() });
+
+        // UIA reader — live text capture via Windows UI Automation
+        startUIAReader(root);
+        context.subscriptions.push({ dispose: () => stopUIAReader() });
     }
 
     // Chat panel — optional, on-demand
@@ -632,4 +686,5 @@ export function activate(context: vscode.ExtensionContext) {
 export function deactivate() {
     stopOsHook();
     stopVscdbPoller();
+    stopUIAReader();
 }
