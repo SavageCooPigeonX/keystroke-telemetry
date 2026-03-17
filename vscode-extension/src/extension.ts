@@ -480,6 +480,126 @@ function stopOsHook() {
     }
 }
 
+// ── Chat Participant: Prompt Capture ─────────────────────────────────────────
+// Registers @pigeon as a chat participant. Every time the user invokes
+// @pigeon <prompt>, the handler receives the exact submitted text via
+// request.prompt — including references. Logs to logs/chat_prompts.jsonl.
+
+function registerChatParticipant(root: string, context: vscode.ExtensionContext) {
+    const logDir = path.join(root, 'logs');
+    if (!fs.existsSync(logDir)) { fs.mkdirSync(logDir, { recursive: true }); }
+    const logPath = path.join(logDir, 'chat_prompts.jsonl');
+
+    const handler: vscode.ChatRequestHandler = async (
+        request: vscode.ChatRequest,
+        chatContext: vscode.ChatContext,
+        stream: vscode.ChatResponseStream,
+        token: vscode.CancellationToken
+    ) => {
+        // ── Log the exact prompt ──
+        const refs = request.references.map(r => ({
+            id: r.id,
+            range: r.range,
+            value: typeof r.value === 'string' ? r.value
+                : r.value instanceof vscode.Uri ? r.value.toString()
+                : r.value instanceof vscode.Location ? `${r.value.uri.toString()}#L${r.value.range.start.line + 1}`
+                : String(r.value),
+        }));
+
+        const entry = JSON.stringify({
+            ts: new Date().toISOString(),
+            prompt: request.prompt,
+            command: request.command ?? null,
+            references: refs,
+            history_length: chatContext.history.length,
+            tools: request.toolReferences.map(t => t.name),
+        }) + '\n';
+
+        try { fs.appendFileSync(logPath, entry, 'utf-8'); } catch { /* non-fatal */ }
+
+        // ── Forward to the active model and stream response ──
+        stream.progress('Pigeon telemetry captured — forwarding to model...');
+
+        const opCtx = readOperatorState(root);
+        const systemText = opCtx
+            ? `You are a helpful coding assistant.\n\n## Live Operator State\n${opCtx}`
+            : 'You are a helpful coding assistant.';
+
+        // Build message history from chat context
+        const messages: vscode.LanguageModelChatMessage[] = [
+            vscode.LanguageModelChatMessage.User(systemText),
+        ];
+        for (const turn of chatContext.history) {
+            if (turn instanceof vscode.ChatRequestTurn) {
+                messages.push(vscode.LanguageModelChatMessage.User(turn.prompt));
+            } else if (turn instanceof vscode.ChatResponseTurn) {
+                const parts = turn.response.map(p => {
+                    if (p instanceof vscode.ChatResponseMarkdownPart) { return p.value.value; }
+                    return '';
+                }).filter(Boolean);
+                if (parts.length) {
+                    messages.push(vscode.LanguageModelChatMessage.Assistant(parts.join('\n')));
+                }
+            }
+        }
+        messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
+
+        try {
+            const res = await request.model.sendRequest(messages, {}, token);
+            for await (const chunk of res.text) {
+                if (token.isCancellationRequested) break;
+                stream.markdown(chunk);
+            }
+        } catch (e: any) {
+            stream.markdown(`*Error: ${e?.message ?? 'unknown'}*`);
+        }
+    };
+
+    const participant = vscode.chat.createChatParticipant('pigeon-telemetry.capture', handler);
+    participant.iconPath = vscode.Uri.joinPath(context.extensionUri, 'media', 'pigeon.png');
+    context.subscriptions.push(participant);
+}
+
+// ── state.vscdb Poller ───────────────────────────────────────────────────────
+// Polls the workspace's state.vscdb SQLite for interactive session keys.
+// Captures draft composition including mid-typing deletions that never
+// reach the final prompt. Writes diffs to logs/vscdb_drafts.jsonl.
+
+let vscdbPollerProc: ChildProcess | undefined;
+
+function startVscdbPoller(root: string) {
+    const poller = path.join(root, 'client', 'vscdb_poller.py');
+    if (!fs.existsSync(poller)) return;
+
+    vscdbPollerProc = spawn('py', [poller, root], {
+        cwd: root,
+        stdio: ['ignore', 'pipe', 'pipe'],
+    });
+
+    vscdbPollerProc.stdout?.on('data', (d: Buffer) => {
+        for (const line of d.toString().split('\n').filter(Boolean)) {
+            try {
+                const msg = JSON.parse(line);
+                if (msg.status === 'started') {
+                    console.log(`[pigeon] vscdb poller started, db=${msg.db_path}`);
+                }
+            } catch { /* skip non-JSON */ }
+        }
+    });
+
+    vscdbPollerProc.on('exit', (code) => {
+        console.log(`[pigeon] vscdb poller exited (code=${code})`);
+        vscdbPollerProc = undefined;
+    });
+}
+
+function stopVscdbPoller() {
+    if (vscdbPollerProc) {
+        vscdbPollerProc.kill();
+        vscdbPollerProc = undefined;
+    }
+}
+
 // ── Activation ───────────────────────────────────────────────────────────────
 
 export function activate(context: vscode.ExtensionContext) {
@@ -493,6 +613,13 @@ export function activate(context: vscode.ExtensionContext) {
         // OS-level keystroke hook — captures chat input, search, palette
         startOsHook(root);
         context.subscriptions.push({ dispose: () => stopOsHook() });
+
+        // Chat participant — captures exact prompt text via @pigeon
+        registerChatParticipant(root, context);
+
+        // state.vscdb poller — captures draft composition from VS Code state
+        startVscdbPoller(root);
+        context.subscriptions.push({ dispose: () => stopVscdbPoller() });
     }
 
     // Chat panel — optional, on-demand
@@ -504,4 +631,5 @@ export function activate(context: vscode.ExtensionContext) {
 
 export function deactivate() {
     stopOsHook();
+    stopVscdbPoller();
 }

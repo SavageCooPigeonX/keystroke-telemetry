@@ -10,6 +10,15 @@
   "activationEvents": ["onStartupFinished", "onCommand:pigeon.openChat"],
   "main": "./out/extension",
   "contributes": {
+    "chatParticipants": [
+      {
+        "id": "pigeon-telemetry.capture",
+        "fullName": "Pigeon Telemetry",
+        "name": "pigeon",
+        "description": "Keystroke-aware cognitive telemetry — captures prompts for operator state analysis",
+        "isSticky": false
+      }
+    ],
     "commands": [
       {
         "command": "pigeon.openChat",
