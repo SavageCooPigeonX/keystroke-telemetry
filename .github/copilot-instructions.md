@@ -54,12 +54,12 @@ Three systems working together:
 3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. Self-updates on every commit via `<!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-17 05:27 UTC · 37 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-17 05:40 UTC · 56 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `hesitant` (WPM: 38.4 | Del: 33.6% | Hes: 0.535)
+**Cognitive state:** `frustrated` (WPM: 82.3 | Del: 39.3% | Hes: 0.649)
 
-> **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
+> **CoT directive:** Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
@@ -72,9 +72,9 @@ Three systems working together:
 
 ### Module Hot Zones
 *High cognitive load — take extra care with these files:*
-- `context_budget` (hes=0.852)
-- `file_heat_map` (hes=0.852)
-- `push_narrative` (hes=0.852)
+- `context_budget` (hes=0.763)
+- `file_heat_map` (hes=0.763)
+- `push_narrative` (hes=0.763)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 
@@ -88,6 +88,38 @@ Three systems working together:
 - `fec3fe0` feat: auto prompt reconstruction + mutation audit + wire into pipeline
 - `8199ccb` fix: EXCLUDE_STEM_PATTERNS excluded all src/ files with prompt in intent slug
 
+### Coaching Directives
+*LLM-synthesized behavioral rules for this operator:*
+- **Anticipate Context Shifts**
+- **Pre-Empt Refactoring Pain**
+- **Counteract Abandonment**
+- **Address 100% Miss Rate**
+- **Simplify Heavy Edits**
+
+### Fragile Contracts
+*From push narratives — assumptions that could break:*
+- push_narrative's assumption of `prompt_recon_attempts` telemetry key; git_plugin's prefix-based intent parsing; prompt_recon_seq016_v001's dependency on unified diff format. This push introduces automated prompt reconstruction and enhances push narratives with structured telemetry and chat analysis.
+- git_plugin's string type assumption for mutated prompts
+- prompt_recon_seq016_v001's fragile string parsing of code blocks
+- the implicit contract of the mutation function signature between the two files.
+- **push_narrative** (seq012 v005) speaks: I was touched to implement a new narrative generation mode, "generate_per_push_
+- **chat_composition_analyzer** speaks: I was added as a new client module to parse chat logs and extract structured metad
+- **git_plugin** speaks: I was modified to expose a new method `get_commit_intent` that extracts the intent from a commit 
+- **prompt_recon_seq016_v001** speaks: I am a new prompt reconstruction sequence, invoked to rebuild prompts from commit h
+- **push_narrative_seq012_v004_d0317__generate_per_push_narrative_each_lc_pulse_telemetry_prompt** speaks: I am a newly cr
+- **git_plugin** was touched to integrate a new prompt mutation system, requiring the addition of a `_mutate_prompt` metho
+
+### Known Issues
+*From self-fix scanner — fix when touching nearby code:*
+- [CRITICAL] hardcoded_import in `stress_test.py`
+- [CRITICAL] hardcoded_import in `test_all.py`
+- [CRITICAL] hardcoded_import in `vscode-extension/pulse_watcher.py`
+- [HIGH] query_noise
+
+### Persistent Gaps
+*Recurring queries — operator keeps hitting these:*
+- [3x] call deepseek scope verify
+
 ### Prompt Evolution
 *This prompt has mutated 22x (186→434 lines). Features added: auto_index, operator_state, prompt_journal, pulse_blocks, prompt_recon.*
 
@@ -96,9 +128,9 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-17 · 38 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-17 · 57 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 15% | WPM: 153.5 | Del: 33.3% | Hes: 0.783
+**Dominant: `frustrated`** | Submit: 10% | WPM: 135.2 | Del: 33.6% | Hes: 0.774
 
 This operator just built dynamic task context tracking to steer Copilot's chain-of-thought from live code, and their high-deletion, hesitant-frustrated-abandoned typing pattern reveals they are experimentally refactoring under pressure, often discarding or abandoning complex changes.
 

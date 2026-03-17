@@ -115,6 +115,62 @@ def _trajectory(root):
     return {'n': len(snaps), 'l0': first.get('lines', 0),
             'l1': last.get('lines', 0), 'feat': gained}
 
+def _narrative_risks(root):
+    d = root / 'docs' / 'push_narratives'
+    if not d.exists(): return [], []
+    files = sorted(d.glob('*.md'), reverse=True)[:3]
+    if not files: return [], []
+    watchlist, assumptions = [], []
+    for f in files:
+        text = f.read_text(encoding='utf-8', errors='ignore')
+        for line in text.splitlines():
+            l = line.strip()
+            if l.upper().startswith('REGRESSION WATCHLIST'):
+                watchlist.extend(r.strip() for r in l.split(':', 1)[-1].split(',') if r.strip())
+            if 'assumes' in l.lower() and '—' in l and not l.startswith('**'):
+                assumptions.append(l[:120])
+            elif l.startswith('**') and 'speaks:' in l:
+                assumptions.append(l[:120])
+            elif l.startswith('**') and 'was touched' in l:
+                assumptions.append(l[:120])
+    return watchlist[:5], assumptions[:6]
+
+def _self_fix_crit(root):
+    d = root / 'docs' / 'self_fix'
+    if not d.exists(): return []
+    files = sorted(d.glob('*.md'), reverse=True)
+    if not files: return []
+    lines = files[0].read_text(encoding='utf-8', errors='ignore').splitlines()
+    items = []
+    for i, line in enumerate(lines):
+        if '[CRITICAL]' in line or '[HIGH]' in line:
+            sev = '[CRITICAL]' if '[CRITICAL]' in line else '[HIGH]'
+            kind = re.sub(r'^.*\]\s*', '', line.strip())
+            fline = next((l for l in lines[i+1:i+4] if '**File**' in l), '')
+            fname = re.sub(r'.*\*\*File\*\*:\s*', '', fline).strip()
+            items.append(f'{sev} {kind}' + (f' in `{fname}`' if fname else ''))
+    seen = set()
+    return [x for x in items if not (x in seen or seen.add(x))][:5]
+
+def _coaching(root):
+    p = root / 'operator_coaching.md'
+    if not p.exists(): return []
+    text = p.read_text(encoding='utf-8', errors='ignore')
+    bullets = []
+    for line in text.splitlines():
+        m = re.match(r'\s*\*\s*\*\*(.+?)\*\*', line)
+        if m: bullets.append(m.group(1).rstrip(':'))
+    return bullets[:5]
+
+def _gaps(root):
+    raw = _json(root / 'query_memory.json')
+    if not raw: return []
+    qs = raw.get('queries', raw if isinstance(raw, list) else [])
+    fp = Counter(q.get('fingerprint', '') for q in qs
+                 if q.get('fingerprint', '') not in ('', 'background')
+                 and not q.get('fingerprint', '').startswith('bg'))
+    return [{'q': f, 'n': n} for f, n in fp.most_common(4) if n >= 2]
+
 _COT = {
     'frustrated': 'Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.',
     'hesitant':   'Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.',
@@ -134,6 +190,10 @@ def build_task_context(root):
     hot = _hot_modules(root)
     rw = _rework(root)
     traj = _trajectory(root)
+    watchlist, assumptions = _narrative_risks(root)
+    fixes = _self_fix_crit(root)
+    coaching = _coaching(root)
+    gaps = _gaps(root)
     rec = history[-5:] if history else []
     if rec:
         st = Counter(r.get('state', 'neutral') for r in rec)
@@ -163,6 +223,24 @@ def build_task_context(root):
         real = [c for c in coms if '[pigeon-auto]' not in c['msg']][:4]
         if real:
             L += ['### Recent Work'] + [f'- `{c["hash"]}` {c["msg"]}' for c in real] + ['']
+    if coaching:
+        L += ['### Coaching Directives',
+              '*LLM-synthesized behavioral rules for this operator:*']
+        L += [f'- **{c}**' for c in coaching] + ['']
+    if watchlist or assumptions:
+        L += ['### Fragile Contracts',
+              '*From push narratives — assumptions that could break:*']
+        L += [f'- {r}' for r in watchlist]
+        L += [f'- {a}' for a in assumptions]
+        L += ['']
+    if fixes:
+        L += ['### Known Issues',
+              '*From self-fix scanner — fix when touching nearby code:*']
+        L += [f'- {f}' for f in fixes] + ['']
+    if gaps:
+        L += ['### Persistent Gaps',
+              '*Recurring queries — operator keeps hitting these:*']
+        L += [f'- [{g["n"]}x] {g["q"]}' for g in gaps] + ['']
     if traj and traj.get('n', 0) > 5:
         L += ['### Prompt Evolution',
               f'*This prompt has mutated {traj["n"]}x ({traj["l0"]}\u2192{traj["l1"]} lines). '
