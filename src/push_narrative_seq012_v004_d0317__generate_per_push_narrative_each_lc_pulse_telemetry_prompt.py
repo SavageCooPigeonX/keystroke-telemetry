@@ -21,23 +21,12 @@ from pathlib import Path
 
 
 def generate_push_narrative(
-    root: Path,
-    intent: str,
-    commit_hash: str,
-    changed_py: list[str],
-    registry: dict,
-    rework_stats: dict | None = None,
-    query_mem: dict | None = None,
-    heat_map: dict | None = None,
+    root: Path, intent: str, commit_hash: str, changed_py: list[str],
+    registry: dict, rework_stats: dict | None = None,
+    query_mem: dict | None = None, heat_map: dict | None = None,
     cross_context: dict | None = None,
 ) -> Path | None:
-    """Build a development narrative from file-agent voices.
-
-    Each changed file 'speaks' about why it was touched. Combined into
-    a single markdown doc written to docs/push_narratives/.
-
-    Returns the output path, or None if skipped/failed.
-    """
+    """Build a narrative from file-agent voices → docs/push_narratives/."""
     api_key = os.environ.get('DEEPSEEK_API_KEY', '')
     if not api_key or not changed_py:
         return None
@@ -46,7 +35,12 @@ def generate_push_narrative(
     if not file_briefs:
         return None
 
-    prompt = _build_narrative_prompt(intent, file_briefs, rework_stats, query_mem, heat_map, cross_context)
+    # Load operator composition data for this session
+    comp_snapshot = _load_composition_snapshot(root)
+
+    prompt = _build_narrative_prompt(
+        intent, file_briefs, rework_stats, query_mem,
+        heat_map, cross_context, comp_snapshot)
     prose = _call_deepseek(prompt, api_key)
     if not prose:
         return None
@@ -56,35 +50,47 @@ def generate_push_narrative(
     today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
     out_path = out_dir / f'{today}_{commit_hash}.md'
 
-    now_str = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
-    header = (
-        f'# Push Narrative — {commit_hash}\n\n'
-        f'**Intent**: {intent}  \n'
-        f'**Date**: {now_str}  \n'
-        f'**Files touched**: {len(changed_py)}  \n\n'
-        f'---\n\n'
-    )
-    out_path.write_text(header + prose + '\n', encoding='utf-8')
+    now = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+    fl = '\n'.join(f'- `{b["path"]}`' for b in file_briefs)
+    dw = comp_snapshot.get('deleted_words', []) if comp_snapshot else []
+    dw_l = f'**Deleted words**: {", ".join(dw[:10])}  \n' if dw else ''
+    hdr = (f'# Push Narrative — {commit_hash}\n\n**Intent**: {intent}  \n'
+           f'**Date**: {now}  \n**Files**: {len(changed_py)}  \n{dw_l}\n{fl}\n\n---\n\n')
+    out_path.write_text(hdr + prose + '\n', encoding='utf-8')
     return out_path
 
 
+def _load_composition_snapshot(root: Path) -> dict | None:
+    log = root / 'logs' / 'chat_compositions.jsonl'
+    if not log.exists(): return None
+    try:
+        lines = log.read_text(encoding='utf-8').strip().splitlines()
+        return json.loads(lines[-1]) if lines else None
+    except Exception: return None
+
+
 def _build_file_briefs(root: Path, changed_py: list[str], registry: dict) -> list[dict]:
-    """Extract identity + context for each changed file from registry."""
     briefs = []
     for rel in changed_py:
         entry = registry.get(rel)
-        if not entry:
-            continue
-        briefs.append({
-            'name': entry.get('name', Path(rel).stem),
-            'path': rel,
-            'seq': entry.get('seq', '?'),
-            'ver': entry.get('ver', 0),
-            'desc': entry.get('desc', ''),
-            'intent': entry.get('intent', ''),
-            'tokens': entry.get('tokens', 0),
-            'history_len': len(entry.get('history', [])),
-        })
+        if entry:
+            briefs.append({
+                'name': entry.get('name', Path(rel).stem),
+                'path': rel,
+                'seq': entry.get('seq', '?'),
+                'ver': entry.get('ver', 0),
+                'desc': entry.get('desc', ''),
+                'intent': entry.get('intent', ''),
+                'tokens': entry.get('tokens', 0),
+                'history_len': len(entry.get('history', [])),
+            })
+        else:
+            p = root / rel
+            try: tokens = max(1, len(p.read_text(encoding='utf-8')) // 4) if p.exists() else 0
+            except Exception: tokens = 0
+            briefs.append({'name': Path(rel).stem, 'path': rel, 'seq': '-',
+                           'ver': 0, 'desc': rel, 'intent': '',
+                           'tokens': tokens, 'history_len': 0})
     return briefs
 
 
@@ -95,13 +101,17 @@ def _build_narrative_prompt(
     query_mem: dict | None,
     heat_map: dict | None,
     cross_context: dict | None = None,
+    composition: dict | None = None,
 ) -> str:
-    """Single batched prompt — all files voice themselves."""
-    files_block = '\n'.join(
-        f'- **{b["name"]}** (seq{b["seq"]:03d} v{b["ver"]:03d}, {b["tokens"]}tok): '
-        f'desc="{b["desc"]}", last_intent="{b["intent"]}", {b["history_len"]} versions'
-        for b in file_briefs
-    )
+    def _brief_line(b):
+        seq = b['seq']
+        ver = b['ver']
+        tag = f'seq{seq:03d} v{ver:03d}' if isinstance(seq, int) else b['path']
+        return (f'- **{b["name"]}** ({tag}, {b["tokens"]}tok): '
+                f'desc="{b["desc"]}", last_intent="{b["intent"]}", '
+                f'{b["history_len"]} versions')
+
+    files_block = '\n'.join(_brief_line(b) for b in file_briefs)
 
     signals = []
     if rework_stats:
@@ -129,41 +139,48 @@ def _build_narrative_prompt(
             name = Path(rel).stem.split('_seq')[0]
             deps = ', '.join(Path(d).stem.split('_seq')[0] for d in ctx.get('imports_from', []))
             users = ', '.join(Path(u).stem.split('_seq')[0] for u in ctx.get('imported_by', []))
-            parts = []
-            if deps:
-                parts.append(f'depends on [{deps}]')
-            if users:
-                parts.append(f'used by [{users}]')
-            if parts:
-                cross_lines.append(f'- {name}: {"; ".join(parts)}')
-        if cross_lines:
-            cross_block = f'\n\nCROSS-FILE DEPENDENCIES:\n' + '\n'.join(cross_lines)
+            parts = ([f'depends on [{deps}]'] if deps else []) + ([f'used by [{users}]'] if users else [])
+            if parts: cross_lines.append(f'- {name}: {"; ".join(parts)}')
+        if cross_lines: cross_block = '\n\nCROSS-FILE DEPS:\n' + '\n'.join(cross_lines)
+
+    # Composition: what the operator deleted/rewrote while building this commit
+    comp_block = ''
+    if composition:
+        dw = composition.get('deleted_words', [])
+        dr = composition.get('deletion_ratio', 0)
+        rw = composition.get('rewrites', 0)
+        state = composition.get('chat_state', {}).get('state', '?')
+        comp_parts = [f'cognitive_state={state}, deletion_ratio={dr}, rewrites={rw}']
+        if dw:
+            comp_parts.append(f'deleted_words={dw[:8]}')
+        comp_block = '\n\nOPERATOR COMPOSITION (what they typed then deleted while writing this commit):\n' + ', '.join(comp_parts)
 
     return (
-        f'You are writing a development narrative for a code push.\n\n'
+        f'You are writing a debugging-grade development narrative for a code push.\n\n'
         f'COMMIT INTENT: {intent}\n\n'
         f'FILES CHANGED:\n{files_block}\n\n'
-        f'OPERATOR DEEP SIGNALS:\n{signals_block}{cross_block}\n\n'
+        f'OPERATOR DEEP SIGNALS:\n{signals_block}{cross_block}{comp_block}\n\n'
         f'INSTRUCTIONS:\n'
-        f'Write a short development narrative (150-250 words). '
+        f'Write a development narrative (200-350 words) optimized for future debugging. '
         f'Each changed file "speaks" in first person — one paragraph each — '
-        f'explaining why it was touched and what it suspects about its own bugs '
-        f'or technical debt based on its version history and the commit intent. '
-        f'If cross-file dependencies are shown, each file should mention HOW '
-        f'it relates to its neighbors — what it gives, what it receives, and '
-        f'potential breakage if either side changes. '
-        f'End with a 2-sentence summary of what this push accomplishes. '
+        f'explaining: (1) why it was touched, (2) what assumption it makes that '
+        f'could break, (3) one specific regression to watch for. '
+        f'If cross-file dependencies exist, each file names what it gives/receives '
+        f'and the exact failure mode if that contract changes. '
+        f'If operator composition data shows deleted words or high deletion ratio, '
+        f'note what the operator was struggling with — their hesitation IS signal. '
+        f'End with: a 1-line "REGRESSION WATCHLIST" of the 3 most fragile points '
+        f'in this push, and a 1-sentence summary of what this push accomplishes. '
         f'Use direct, technical prose. No markdown headers — just paragraphs.'
     )
 
 
 def _call_deepseek(prompt: str, api_key: str) -> str | None:
-    """Single DeepSeek call for the narrative."""
     body = json.dumps({
         'model': 'deepseek-chat',
         'messages': [{'role': 'user', 'content': prompt}],
-        'max_tokens': 500,
-        'temperature': 0.5,
+        'max_tokens': 800,
+        'temperature': 0.45,
     }).encode('utf-8')
     req = urllib.request.Request(
         'https://api.deepseek.com/chat/completions',

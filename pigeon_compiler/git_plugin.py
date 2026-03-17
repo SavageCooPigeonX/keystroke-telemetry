@@ -756,6 +756,47 @@ def _refresh_operator_state(root: Path) -> bool:
 
 # ── Main pipeline ───────────────────────────────────────
 
+
+def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
+                            renames=None, box_only=None, cross_context=None):
+    """Run narrative, coaching, operator-state for ANY commit."""
+    renames = renames or []
+    box_only = box_only or []
+
+    # Push narrative — include ALL changed code files, not just pigeon
+    try:
+        narr_mod = _load_glob_module(root, 'src', 'push_narrative_seq012*')
+        if narr_mod:
+            deep = _load_deep_signals(root)
+            narr_path = narr_mod.generate_push_narrative(
+                root, intent, h, changed_files, registry,
+                rework_stats=deep.get('rework'),
+                query_mem=deep.get('query'),
+                heat_map=deep.get('heat'),
+                cross_context=cross_context or {},
+            )
+            if narr_path:
+                print(f'  📖 push narrative → {narr_path.relative_to(root)}')
+    except Exception as e:
+        print(f'  ⚠️  push narrative: {e}')
+
+    # Generate LLM coaching at commit time
+    try:
+        coaching_ok = _generate_commit_coaching(
+            root, intent, renames, box_only, registry
+        )
+        if coaching_ok:
+            print('  🧠 commit coaching synthesized → operator_coaching.md')
+    except Exception as e:
+        print(f'  ⚠️  commit coaching: {e}')
+
+    try:
+        if _refresh_operator_state(root):
+            print('  🧠 operator-state section updated in copilot-instructions.md')
+    except Exception as e:
+        print(f'  ⚠️  operator-state refresh: {e}')
+
+
 def run():
     root = _root()
     msg = _commit_msg()
@@ -837,6 +878,15 @@ def run():
             box_only.append((abs_p, entry, rel, tokens_before, diff_stat))
 
     if not renames and not box_only:
+        # No pigeon-managed files changed — but still run narrative + coaching
+        # for non-pigeon code (client/, vscode-extension/, etc.)
+        all_changed_code = [f for f in changed
+                            if f.endswith(('.py', '.ts', '.js'))]
+        if all_changed_code:
+            print(f'\n🐦 Pigeon Git Plugin: 0 rename(s), 0 update(s), '
+                  f'{len(all_changed_code)} non-pigeon file(s)')
+            _run_post_commit_extras(root, intent, h, all_changed_code,
+                                    registry, msg)
         return
 
     print(f'\n🐦 Pigeon Git Plugin: {len(renames)} rename(s), '
@@ -908,38 +958,13 @@ def run():
     except Exception as e:
         print(f'  ⚠️  pulse harvest: {e}')
 
-    # ── Push narrative: file agents speak BEFORE copilot prompt mutation ──
-    try:
-        narr_mod = _load_glob_module(root, 'src', 'push_narrative_seq012*')
-        if narr_mod:
-            deep = _load_deep_signals(root)
-            narr_path = narr_mod.generate_push_narrative(
-                root, intent, h, changed_py, registry,
-                rework_stats=deep.get('rework'),
-                query_mem=deep.get('query'),
-                heat_map=deep.get('heat'),
-                cross_context=cross_context,
-            )
-            if narr_path:
-                print(f'  📖 push narrative → {narr_path.relative_to(root)}')
-    except Exception as e:
-        print(f'  ⚠️  push narrative: {e}')
-
-    # Generate LLM coaching at commit time (full codebase + operator context)
-    try:
-        coaching_ok = _generate_commit_coaching(
-            root, intent, renames, box_only, registry
-        )
-        if coaching_ok:
-            print('  🧠 commit coaching synthesized → operator_coaching.md')
-    except Exception as e:
-        print(f'  ⚠️  commit coaching: {e}')
-
-    try:
-        if _refresh_operator_state(root):
-            print('  🧠 operator-state section updated in copilot-instructions.md')
-    except Exception as e:
-        print(f'  ⚠️  operator-state refresh: {e}')
+    # ── Push narrative + coaching + operator state ──
+    all_changed_code = changed_py + [f for f in changed
+                                      if f.endswith(('.py', '.ts', '.js'))
+                                      and f not in changed_py]
+    _run_post_commit_extras(root, intent, h, all_changed_code, registry, msg,
+                            renames=renames, box_only=box_only,
+                            cross_context=cross_context)
 
     # Rebuild manifests
     try:
