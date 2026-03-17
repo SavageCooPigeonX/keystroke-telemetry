@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-17T04:34:52.143639+00:00",
-  "total": 89,
+  "generated": "2026-03-17T05:27:07.083875+00:00",
+  "total": 90,
   "files": [
     {
       "path": "pigeon_compiler/bones/aim_utils_seq001_v003_d0314__extracted_from_hush_aim_py_lc_desc_upgrade.py",
@@ -1538,6 +1538,26 @@
       ]
     },
     {
+      "path": "src/dynamic_prompt_seq017_v002_d0317__steers_copilot_cot_from_live_lc_dynamic_task_context.py",
+      "name": "dynamic_prompt",
+      "seq": 17,
+      "ver": 2,
+      "date": "0317",
+      "desc": "steers_copilot_cot_from_live",
+      "intent": "dynamic_task_context",
+      "tokens": 2039,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0317",
+          "desc": "steers_copilot_cot_from_live",
+          "intent": "dynamic_task_context",
+          "tokens": 2039,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "src/file_heat_map_seq011_v004_d0317__tracks_cognitive_load_per_module_lc_pulse_telemetry_prompt.py",
       "name": "file_heat_map",
       "seq": 11,
@@ -1644,14 +1664,14 @@
       ]
     },
     {
-      "path": "src/operator_stats_seq008_v003_d0317__persistent_markdown_memory_file_lc_pulse_telemetry_prompt.py",
+      "path": "src/operator_stats_seq008_v004_d0317__persistent_markdown_memory_file_lc_dynamic_task_context.py",
       "name": "operator_stats",
       "seq": 8,
-      "ver": 3,
+      "ver": 4,
       "date": "0317",
       "desc": "persistent_markdown_memory_file",
-      "intent": "pulse_telemetry_prompt",
-      "tokens": 3639,
+      "intent": "dynamic_task_context",
+      "tokens": 3616,
       "history": [
         {
           "ver": 1,
@@ -1675,6 +1695,14 @@
           "intent": "pulse_telemetry_prompt",
           "action": "mutated",
           "tokens": 3639
+        },
+        {
+          "ver": 4,
+          "date": "0317",
+          "desc": "persistent_markdown_memory_file",
+          "intent": "dynamic_task_context",
+          "action": "mutated",
+          "tokens": 3616
         }
       ]
     },

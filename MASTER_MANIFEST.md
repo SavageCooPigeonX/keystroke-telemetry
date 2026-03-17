@@ -32,7 +32,7 @@ Two developer tools packaged together:
 ---
 
 ## FOLDER TREE
-*Auto-synced by manifest_builder | 2026-03-17 04:35 UTC*
+*Auto-synced by manifest_builder | 2026-03-17 05:27 UTC*
 
 ```
 LinkRouter.AI/
@@ -57,7 +57,7 @@ LinkRouter.AI/
 +-- /client                              5 files, 1 sub | 0% compliant
 |
 +-- /demo_logs                           (2 files)
-+-- /docs                                (12 files)
++-- /docs                                (19 files)
 +-- /documentation                       (1 files)
 +-- /pigeon_code.egg-info                (5 files)
 +-- /pigeon_compiler                     46 files, 7 sub | 72% compliant
@@ -75,7 +75,7 @@ LinkRouter.AI/
 +-- /streaming_layer                     19 files | 100% compliant
 |
 +-- /stress_logs                         (2 files)
-+-- /test_logs                           (82 files)
++-- /test_logs                           (90 files)
 +-- /vscode-extension                    2 files, 3 sub | 50% compliant
 |
 ```
@@ -426,7 +426,7 @@ py deep_test.py  # 8 deep profiling tests — validates full signal pipeline
 
 ## OPERATOR KEYSTROKE TRAIL
 
-*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-17 04:35 UTC*
+*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-17 05:27 UTC*
 
 > **How to read**: Each row is one keystroke event from the operator.
 > Markers flag cognitive signals: ⏸ = long pause (>2s), 
@@ -436,72 +436,72 @@ py deep_test.py  # 8 deep profiling tests — validates full signal pipeline
 | # | Key | Event | Δms | Buffer | Markers |
 |---|-----|-------|----:|--------|---------|
 | 1 | `What is the meaning of life?` | paste | 0 | `What is the meaning of life?` |  |
-| 2 | `?` | backspace | 0 | `What is the meaning of life` | ⌫ burst |
-| 3 | `e` | backspace | 82 | `What is the meaning of lif` | ⌫ burst |
-| 4 | `f` | backspace | 77 | `What is the meaning of li` | ⌫ burst |
-| 5 | `i` | backspace | 42 | `What is the meaning of l` | ⌫ burst |
-| 6 | `l` | backspace | 43 | `What is the meaning of ` | ⌫ burst |
-| 7 | `4` | insert | 45 | `What is the meaning of 4` |  |
-| 8 | `2` | insert | 206 | `What is the meaning of 42` |  |
-| 9 | `?` | insert | 170 | `What is the meaning of 42?` |  |
+| 2 | `?` | backspace | 1 | `What is the meaning of life` | ⌫ burst |
+| 3 | `e` | backspace | 61 | `What is the meaning of lif` | ⌫ burst |
+| 4 | `f` | backspace | 164 | `What is the meaning of li` | ⌫ burst |
+| 5 | `i` | backspace | 66 | `What is the meaning of l` | ⌫ burst |
+| 6 | `l` | backspace | 53 | `What is the meaning of ` | ⌫ burst |
+| 7 | `4` | insert | 128 | `What is the meaning of 4` |  |
+| 8 | `2` | insert | 169 | `What is the meaning of 42` |  |
+| 9 | `?` | insert | 152 | `What is the meaning of 42?` |  |
 | 10 | `H` | insert | 0 | `H` |  |
-| 11 | `e` | insert | 152 | `He` |  |
-| 12 | `l` | insert | 150 | `Hel` |  |
-| 13 | `o` | insert | 157 | `Helo` |  |
-| 14 | ` ` | insert | 150 | `Helo ` |  |
+| 11 | `e` | insert | 151 | `He` |  |
+| 12 | `l` | insert | 151 | `Hel` |  |
+| 13 | `o` | insert | 151 | `Helo` |  |
+| 14 | ` ` | insert | 151 | `Helo ` |  |
 | 15 | `w` | insert | 150 | `Helo w` |  |
 | 16 | `r` | insert | 151 | `Helo wr` |  |
-| 17 | `l` | insert | 150 | `Helo wrl` |  |
-| 18 | `d` | insert | 151 | `Helo wrld` |  |
-| 19 | `d` | backspace | 151 | `Helo wrl` | ⌫ burst |
-| 20 | `l` | backspace | 41 | `Helo wr` | ⌫ burst |
-| 21 | `r` | backspace | 41 | `Helo w` | ⌫ burst |
-| 22 | `w` | backspace | 40 | `Helo ` | ⌫ burst |
-| 23 | `w` | insert | 40 | `Helo w` |  |
-| 24 | `o` | insert | 151 | `Helo wo` |  |
-| 25 | `r` | insert | 151 | `Helo wor` |  |
-| 26 | `l` | insert | 151 | `Helo worl` |  |
-| 27 | `d` | insert | 150 | `Helo world` |  |
-| 28 | `!` | insert | 150 | `Helo world!` |  |
+| 17 | `l` | insert | 198 | `Helo wrl` |  |
+| 18 | `d` | insert | 196 | `Helo wrld` |  |
+| 19 | `d` | backspace | 186 | `Helo wrl` | ⌫ burst |
+| 20 | `l` | backspace | 73 | `Helo wr` | ⌫ burst |
+| 21 | `r` | backspace | 76 | `Helo w` | ⌫ burst |
+| 22 | `w` | backspace | 136 | `Helo ` | ⌫ burst |
+| 23 | `w` | insert | 130 | `Helo w` |  |
+| 24 | `o` | insert | 166 | `Helo wo` |  |
+| 25 | `r` | insert | 205 | `Helo wor` |  |
+| 26 | `l` | insert | 187 | `Helo worl` |  |
+| 27 | `d` | insert | 155 | `Helo world` |  |
+| 28 | `!` | insert | 152 | `Helo world!` |  |
 | 29 | `A` | insert | 0 | `A` |  |
 | 30 | `c` | insert | 151 | `Ac` |  |
-| 31 | `t` | insert | 153 | `Act` |  |
+| 31 | `t` | insert | 150 | `Act` |  |
 | 32 | `u` | insert | 150 | `Actu` |  |
 | 33 | `a` | insert | 151 | `Actua` |  |
 | 34 | `l` | insert | 150 | `Actual` |  |
-| 35 | `l` | insert | 150 | `Actuall` |  |
+| 35 | `l` | insert | 153 | `Actuall` |  |
 | 36 | `y` | insert | 151 | `Actually` |  |
 | 37 | ` ` | insert | 150 | `Actually ` |  |
-| 38 | `n` | insert | 151 | `Actually n` |  |
-| 39 | `v` | insert | 375 | `Actually nv` |  |
-| 40 | `m` | insert | 156 | `Actually nvm` |  |
+| 38 | `n` | insert | 150 | `Actually n` |  |
+| 39 | `v` | insert | 217 | `Actually nv` |  |
+| 40 | `m` | insert | 151 | `Actually nvm` |  |
 | 41 | `Ctrl+A+Del` | clear | 2251 | `` | ⏸ 2.3s |
 | 42 | `What is the meaning of life?` | paste | 0 | `What is the meaning of life?` |  |
-| 43 | `?` | backspace | 0 | `What is the meaning of life` | ⌫ burst |
-| 44 | `e` | backspace | 41 | `What is the meaning of lif` | ⌫ burst |
-| 45 | `f` | backspace | 43 | `What is the meaning of li` | ⌫ burst |
+| 43 | `?` | backspace | 1 | `What is the meaning of life` | ⌫ burst |
+| 44 | `e` | backspace | 40 | `What is the meaning of lif` | ⌫ burst |
+| 45 | `f` | backspace | 42 | `What is the meaning of li` | ⌫ burst |
 | 46 | `i` | backspace | 41 | `What is the meaning of l` | ⌫ burst |
-| 47 | `l` | backspace | 42 | `What is the meaning of ` | ⌫ burst |
-| 48 | `4` | insert | 41 | `What is the meaning of 4` |  |
-| 49 | `2` | insert | 150 | `What is the meaning of 42` |  |
-| 50 | `?` | insert | 151 | `What is the meaning of 42?` |  |
+| 47 | `l` | backspace | 41 | `What is the meaning of ` | ⌫ burst |
+| 48 | `4` | insert | 40 | `What is the meaning of 4` |  |
+| 49 | `2` | insert | 151 | `What is the meaning of 42` |  |
+| 50 | `?` | insert | 150 | `What is the meaning of 42?` |  |
 
 ### Recent message hesitation scores
 
 | Message | Submitted | Keys | Dels | Hesitation | State |
 |---------|-----------|-----:|-----:|-----------:|-------|
-| `d603ff9e17` | ✓ | 19 | 4 | 0.211 | restructuring |
-| `593c690c15` | 🗑 | 13 | 0 | 0.544 | abandoned |
-| `3a8d0e1c5a` | ✓ | 9 | 5 | 0.556 | hesitant |
-| `8c25c5fd5b` | ✓ | 19 | 4 | 0.211 | restructuring |
-| `69b9664efe` | 🗑 | 13 | 0 | 0.574 | abandoned |
-| `99f491877c` | ✓ | 9 | 5 | 0.556 | hesitant |
-| `c523821249` | ✓ | 19 | 4 | 0.211 | restructuring |
-| `016180360e` | 🗑 | 13 | 0 | 0.532 | abandoned |
-| `b9ac7bb24c` | ✓ | 9 | 5 | 0.556 | hesitant |
-| `c83b6cc211` | ✓ | 19 | 4 | 0.211 | restructuring |
-| `3f39d4a7e7` | 🗑 | 13 | 0 | 0.574 | abandoned |
-| `b4060bed57` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `dd2c8de77c` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `ebf61c9b5b` | 🗑 | 13 | 0 | 0.566 | abandoned |
+| `637cfe8e3e` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `e8425fa177` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `df7064336d` | 🗑 | 13 | 0 | 0.528 | abandoned |
+| `7b7746f1e3` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `c7438ceaf1` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `493673f973` | 🗑 | 13 | 0 | 0.578 | abandoned |
+| `981a67e46d` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `c8f91a5036` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `cdb121ef41` | 🗑 | 13 | 0 | 0.573 | abandoned |
+| `52780511fa` | ✓ | 9 | 5 | 0.556 | hesitant |
 
 
 ## CHANGELOG

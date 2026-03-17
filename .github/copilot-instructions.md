@@ -51,97 +51,30 @@ Rules:
 Three systems working together:
 1. **Keystroke Telemetry** — captures typing patterns (pauses, deletions, rewrites, abandons) in LLM chat UIs, classifies operator cognitive state in real time, reconstructs unsaid thoughts, detects cross-session drift. Zero LLM calls — pure signal processing.
 2. **Pigeon Code Compiler** — autonomous code decomposition engine. Enforces LLM-readable file sizes (≤200 lines hard cap, ≤50 lines target). Filenames carry living metadata — they mutate on every commit.
-3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. Self-updates on every commit via `<!-- pigeon:task-context -->`.
-
-**Stack**: Python 3.13 Windows (`py` launcher, never `python`). Always set `$env:PYTHONIOENCODING = "utf-8"` before running Python in terminal. DeepSeek API key in `$env:DEEPSEEK_API_KEY`.
-
----
-
-## CRITICAL: Pigeon Filenames Mutate
-
-**Every file in this repo has a versioned name that changes on commit.** Never hardcode a full filename — always use `file_search` or `glob` patterns.
-
-### Naming convention
-```
-{name}_seq{NNN}_v{NNN}_d{MMDD}__{description}_lc_{intent}.py
-```
-- `name` — module identity, never changes (e.g. `resistance_bridge`)
-- `seq{NNN}` — sequence number within folder, never changes
-- `v{NNN}` — version, bumps every commit the file is touched
-- `d{MMDD}` — UTC date of last mutation
-- `description` — what the file DOES (from docstring, auto-extracted)
-- `_lc_` — separator (lifecycle marker)
-- `intent` — last commit message slug (3 words max)
-
-**To find a file**: search by `{name}_seq{NNN}*` e.g. `resistance_bridge_seq006*`
-
-### Prompt box (auto-injected after docstring on every commit)
-```python
-# ── pigeon ────────────────────────────────────
-# SEQ: 006 | VER: v002 | 119 lines | ~1,195 tokens
-# DESC:   bridge_between_keystroke_telemetry_and
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-```
-
-### Size limits
-- `PIGEON_MAX = 200` lines — hard cap, compiler will split anything over this
-- `PIGEON_RECOMMENDED = 50` lines — target per file
-- `PIGEON_HARD_CAP_LINES = 88` in `context_budget` scorer
-
-### Post-commit hook
-`.git/hooks/post-commit` runs `py -m pigeon_compiler.git_plugin` after every commit.
-Pipeline: parse commit intent → build import_map → **rewrite imports FIRST** → rename files → inject prompt boxes → update registry → rebuild MANIFESTs → auto-commit `[pigeon-auto]`.
-**Import rewrite happens BEFORE file rename** — this was a fixed bug (commit 6705b11).
-
----
-
-## Data Flow: Keystroke → Cognitive State → LLM
-
-```
-OS hook (client/os_hook.py)      → logs/os_keystrokes.jsonl
-VS Code extension (background)   → logs/keystroke_live.jsonl
-  ↓ every 60s flush
-vscode-extension/classify_bridge.py
-  ↓ _compute_metrics() + classify_state()
-  ↓ OperatorStats.ingest()       → operator_profile.md  (accumulates history)
-  ↓ rework_detector              → rework_log.json
-  ↓ query_memory                 → query_memory.json
-  ↓ file_heat_map                → file_heat_map.json
-  ↓ unsaid analyzer              → deleted thread extraction
-  ↓ cognitive_reactor            → autonomous code patches (if fired)
-
-On every git commit (post-commit hook):
-  src/prompt_recon_seq016        → logs/prompt_compositions.jsonl  (batch reconstruct)
-  src/prompt_recon_seq016        → logs/copilot_prompt_mutations.json
-  src/push_narrative_seq012      → docs/push_narratives/{date}_{hash}.md
-  git_plugin._generate_coaching  → operator_coaching.md  (DeepSeek synthesis)
-  git_plugin._refresh_operator   → copilot-instructions.md <!-- pigeon:task-context -->
+3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. Self-updates on every commit via `<!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-17 05:26 UTC · 30 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-17 05:27 UTC · 37 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `frustrated` (WPM: 81.4 | Del: 36.0% | Hes: 0.834)
+**Cognitive state:** `hesitant` (WPM: 38.4 | Del: 33.6% | Hes: 0.535)
 
-> **CoT directive:** Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.
+> **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- ": Pigeon?"
-- "pigeon"
-- "i wonder if it has timeout issue- testhidden deleteed prompt 2. word"
-- "(beg"
-- "d + strawberry"
 - "hidden wor"
+- "keeeps"
+- "a ta"
+- "by pigeon unless approv"
+- "uld really be purged"
+- "they all sho"
 
 ### Module Hot Zones
 *High cognitive load — take extra care with these files:*
-- `context_budget` (hes=0.863)
-- `file_heat_map` (hes=0.863)
-- `push_narrative` (hes=0.863)
+- `context_budget` (hes=0.852)
+- `file_heat_map` (hes=0.852)
+- `push_narrative` (hes=0.852)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 
@@ -150,32 +83,32 @@ On every git commit (post-commit hook):
 - Failed on: ""
 
 ### Recent Work
+- `1f60b21` feat: dynamic task-context CoT injection + operator_stats DATA parse fix
 - `fa132f9` feat: copilot prompt mutation tracker + auto-recon pipeline wired to git hook
 - `fec3fe0` feat: auto prompt reconstruction + mutation audit + wire into pipeline
 - `8199ccb` fix: EXCLUDE_STEM_PATTERNS excluded all src/ files with prompt in intent slug
-- `9594c3b` fix: narrative fires for all commits + composition data + regression watchlist
 
 ### Prompt Evolution
-*This prompt has mutated 21x (186→402 lines). Features added: auto_index, operator_state, prompt_journal, pulse_blocks.*
+*This prompt has mutated 22x (186→434 lines). Features added: auto_index, operator_state, prompt_journal, pulse_blocks, prompt_recon.*
 
 <!-- /pigeon:task-context -->
 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-17 · 37 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-17 · 38 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 16% | WPM: 157.7 | Del: 33.1% | Hes: 0.784
+**Dominant: `frustrated`** | Submit: 15% | WPM: 153.5 | Del: 33.3% | Hes: 0.783
 
-This operator just built a VS Code extension with pigeon plugin verification, and their hesitant evening typing with high deletion rates shows they're debugging integration issues while fatigued.  
-- **Anticipate import/init struggles**: When they touch `import_fixer` or `init_writer`, proactively validate Python import paths and module discovery before they ask.  
-- **Pre‑empt file‑writing churn**: If `file_writer` or `manifest_writer` appear, generate exact Pigeon‑compliant templates with inline compliance comments.  
-- **Guard against context‑budget overruns**: Before they revisit `context_budget`, pre‑calculate token counts and suggest truncation points for `push_narrative`.  
-- **Decompose functions pre‑emptively**: On seeing `func_decomposer`, immediately split oversized functions and preserve original signatures.  
-- **Mitigate hesitation**: When they pause mid‑edit (hesitation >0.5), offer a short, validated code block—not explanations—to unblock them.  
-- **Close the rework gap**: For the 100% miss rate, always cross‑check the registry’s most‑mutated modules and align outputs with their latest versions.  
+This operator just built dynamic task context tracking to steer Copilot's chain-of-thought from live code, and their high-deletion, hesitant-frustrated-abandoned typing pattern reveals they are experimentally refactoring under pressure, often discarding or abandoning complex changes.
 
-They are most likely building toward a stable, context‑aware AI‑agent framework with seamless plugin interoperability.
+*   **Anticipate Context Shifts:** When you see imports for `dynamic_task_context` or `persistent_markdown_memory_file`, immediately infer the operator is trying to make you aware of live project state; your responses must explicitly acknowledge and use this inferred context.
+*   **Pre-Empt Refactoring Pain:** Before suggesting edits to `push_narrative`, `context_budget_scorer`, or `file_writer` modules, first summarize their apparent purpose from the code to confirm alignment, as these are high-churn pain points.
+*   **Counteract Abandonment:** When you detect a pattern of short, frustrated messages followed by abandonment, provide the *next minimal, verifiable step*—not the whole solution—to maintain momentum (e.g., "The next step is to call the updated `write_new_pigeon_compliant_files` function. Should I draft that single line?").
+*   **Address 100% Miss Rate:** Given the single response was a complete miss, **always** start by asking a clarifying question about the *immediate goal* if the intent is ambiguous, before generating any code.
+*   **Simplify Heavy Edits:** When they are editing high-churn modules like `plan_parser` or `import_fixer`, offer to generate a concise diff or a side-by-side comparison to reduce their cognitive load and deletion rate.
+
+They are most likely building toward an autonomous, context-aware
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `operator_stats`** (hes=1.0, state=hesitant). Simplify interactions with this module.
@@ -285,7 +218,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 ### Full Module Index
 
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-17 — 89 modules tracked | 1 touched this commit*
+*Auto-updated 2026-03-17 — 90 modules tracked | 2 touched this commit*
 
 **pigeon_compiler/bones/** — 5 module(s)
 
@@ -379,7 +312,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 |---|---|---:|
 | `deepseek_plan_prompt_seq004*` | build and send deepseek cut | ~2,407 |
 
-**src/** — 15 module(s)
+**src/** — 16 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -390,7 +323,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `drift_watcher_seq005*` | drift detection for live llm | ~988 |
 | `resistance_bridge_seq006*` | bridge between keystroke telemetry and | ~1,222 |
 | `streaming_layer_seq007*` | monolithic live streaming interface for | ~10,189 |
-| `operator_stats_seq008*` | persistent markdown memory file | ~3,639 |
+| `operator_stats_seq008*` | persistent markdown memory file | ~3,616 |
 | `rework_detector_seq009*` | measures ai answer quality from | ~1,047 |
 | `query_memory_seq010*` | recurring query detector unsaid thought | ~1,122 |
 | `file_heat_map_seq011*` | tracks cognitive load per module | ~1,347 |
@@ -398,6 +331,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `self_fix_seq013*` | one shot self fix analyzer | ~3,205 |
 | `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~2,844 |
 | `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,009 |
+| `dynamic_prompt_seq017*` | steers copilot cot from live | ~2,039 |
 
 **src/cognitive/** — 3 module(s)
 
