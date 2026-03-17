@@ -32,11 +32,12 @@ Two developer tools packaged together:
 ---
 
 ## FOLDER TREE
-*Auto-synced by manifest_builder | 2026-03-17 05:46 UTC*
+*Auto-synced by manifest_builder | 2026-03-17 07:04 UTC*
 
 ```
 LinkRouter.AI/
 +-- _test_import_rewriter_patch.py
++-- CHANGELOG.md
 +-- deep_test.py
 +-- ext_check.txt
 +-- ext_files.txt
@@ -51,13 +52,14 @@ LinkRouter.AI/
 +-- README.md
 +-- rework_log.json
 +-- stress_test.py
++-- task_queue.json
 +-- test_all.py
 +-- test_public_release.py
 |
 +-- /client                              5 files, 1 sub | 0% compliant
 |
 +-- /demo_logs                           (2 files)
-+-- /docs                                (21 files)
++-- /docs                                (25 files)
 +-- /documentation                       (1 files)
 +-- /pigeon_code.egg-info                (5 files)
 +-- /pigeon_compiler                     46 files, 7 sub | 72% compliant
@@ -68,14 +70,14 @@ LinkRouter.AI/
 |   +-- /state_extractor                 (6 files)
 |   +-- /weakness_planner                (1 files)
 |
-+-- /src                                 47 files, 2 sub | 81% compliant
++-- /src                                 51 files, 2 sub | 78% compliant
 |   +-- /cognitive                       (17 files)
 |   +-- /operator_stats                  (13 files)
 |
 +-- /streaming_layer                     19 files | 100% compliant
 |
 +-- /stress_logs                         (2 files)
-+-- /test_logs                           (92 files)
++-- /test_logs                           (96 files)
 +-- /vscode-extension                    2 files, 3 sub | 50% compliant
 |
 ```
@@ -426,7 +428,7 @@ py deep_test.py  # 8 deep profiling tests — validates full signal pipeline
 
 ## OPERATOR KEYSTROKE TRAIL
 
-*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-17 05:46 UTC*
+*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-17 07:04 UTC*
 
 > **How to read**: Each row is one keystroke event from the operator.
 > Markers flag cognitive signals: ⏸ = long pause (>2s), 
@@ -437,71 +439,71 @@ py deep_test.py  # 8 deep profiling tests — validates full signal pipeline
 |---|-----|-------|----:|--------|---------|
 | 1 | `What is the meaning of life?` | paste | 0 | `What is the meaning of life?` |  |
 | 2 | `?` | backspace | 1 | `What is the meaning of life` | ⌫ burst |
-| 3 | `e` | backspace | 40 | `What is the meaning of lif` | ⌫ burst |
-| 4 | `f` | backspace | 42 | `What is the meaning of li` | ⌫ burst |
+| 3 | `e` | backspace | 43 | `What is the meaning of lif` | ⌫ burst |
+| 4 | `f` | backspace | 41 | `What is the meaning of li` | ⌫ burst |
 | 5 | `i` | backspace | 41 | `What is the meaning of l` | ⌫ burst |
-| 6 | `l` | backspace | 41 | `What is the meaning of ` | ⌫ burst |
-| 7 | `4` | insert | 40 | `What is the meaning of 4` |  |
-| 8 | `2` | insert | 151 | `What is the meaning of 42` |  |
-| 9 | `?` | insert | 150 | `What is the meaning of 42?` |  |
+| 6 | `l` | backspace | 42 | `What is the meaning of ` | ⌫ burst |
+| 7 | `4` | insert | 42 | `What is the meaning of 4` |  |
+| 8 | `2` | insert | 152 | `What is the meaning of 42` |  |
+| 9 | `?` | insert | 151 | `What is the meaning of 42?` |  |
 | 10 | `H` | insert | 0 | `H` |  |
-| 11 | `e` | insert | 155 | `He` |  |
-| 12 | `l` | insert | 168 | `Hel` |  |
-| 13 | `o` | insert | 165 | `Helo` |  |
-| 14 | ` ` | insert | 595 | `Helo ` |  |
-| 15 | `w` | insert | 303 | `Helo w` |  |
-| 16 | `r` | insert | 267 | `Helo wr` |  |
-| 17 | `l` | insert | 184 | `Helo wrl` |  |
-| 18 | `d` | insert | 246 | `Helo wrld` |  |
-| 19 | `d` | backspace | 167 | `Helo wrl` | ⌫ burst |
-| 20 | `l` | backspace | 88 | `Helo wr` | ⌫ burst |
-| 21 | `r` | backspace | 80 | `Helo w` | ⌫ burst |
-| 22 | `w` | backspace | 48 | `Helo ` | ⌫ burst |
-| 23 | `w` | insert | 50 | `Helo w` |  |
-| 24 | `o` | insert | 158 | `Helo wo` |  |
-| 25 | `r` | insert | 231 | `Helo wor` |  |
-| 26 | `l` | insert | 407 | `Helo worl` |  |
-| 27 | `d` | insert | 175 | `Helo world` |  |
-| 28 | `!` | insert | 152 | `Helo world!` |  |
+| 11 | `e` | insert | 151 | `He` |  |
+| 12 | `l` | insert | 150 | `Hel` |  |
+| 13 | `o` | insert | 153 | `Helo` |  |
+| 14 | ` ` | insert | 151 | `Helo ` |  |
+| 15 | `w` | insert | 151 | `Helo w` |  |
+| 16 | `r` | insert | 150 | `Helo wr` |  |
+| 17 | `l` | insert | 151 | `Helo wrl` |  |
+| 18 | `d` | insert | 151 | `Helo wrld` |  |
+| 19 | `d` | backspace | 165 | `Helo wrl` | ⌫ burst |
+| 20 | `l` | backspace | 52 | `Helo wr` | ⌫ burst |
+| 21 | `r` | backspace | 50 | `Helo w` | ⌫ burst |
+| 22 | `w` | backspace | 88 | `Helo ` | ⌫ burst |
+| 23 | `w` | insert | 74 | `Helo w` |  |
+| 24 | `o` | insert | 214 | `Helo wo` |  |
+| 25 | `r` | insert | 279 | `Helo wor` |  |
+| 26 | `l` | insert | 304 | `Helo worl` |  |
+| 27 | `d` | insert | 165 | `Helo world` |  |
+| 28 | `!` | insert | 153 | `Helo world!` |  |
 | 29 | `A` | insert | 0 | `A` |  |
-| 30 | `c` | insert | 151 | `Ac` |  |
-| 31 | `t` | insert | 150 | `Act` |  |
+| 30 | `c` | insert | 150 | `Ac` |  |
+| 31 | `t` | insert | 151 | `Act` |  |
 | 32 | `u` | insert | 150 | `Actu` |  |
-| 33 | `a` | insert | 152 | `Actua` |  |
-| 34 | `l` | insert | 157 | `Actual` |  |
-| 35 | `l` | insert | 161 | `Actuall` |  |
-| 36 | `y` | insert | 152 | `Actually` |  |
-| 37 | ` ` | insert | 156 | `Actually ` |  |
-| 38 | `n` | insert | 151 | `Actually n` |  |
-| 39 | `v` | insert | 472 | `Actually nv` |  |
-| 40 | `m` | insert | 163 | `Actually nvm` |  |
-| 41 | `Ctrl+A+Del` | clear | 2263 | `` | ⏸ 2.3s |
+| 33 | `a` | insert | 151 | `Actua` |  |
+| 34 | `l` | insert | 150 | `Actual` |  |
+| 35 | `l` | insert | 151 | `Actuall` |  |
+| 36 | `y` | insert | 150 | `Actually` |  |
+| 37 | ` ` | insert | 151 | `Actually ` |  |
+| 38 | `n` | insert | 152 | `Actually n` |  |
+| 39 | `v` | insert | 161 | `Actually nv` |  |
+| 40 | `m` | insert | 151 | `Actually nvm` |  |
+| 41 | `Ctrl+A+Del` | clear | 2270 | `` | ⏸ 2.3s |
 | 42 | `What is the meaning of life?` | paste | 0 | `What is the meaning of life?` |  |
-| 43 | `?` | backspace | 5 | `What is the meaning of life` | ⌫ burst |
-| 44 | `e` | backspace | 90 | `What is the meaning of lif` | ⌫ burst |
-| 45 | `f` | backspace | 105 | `What is the meaning of li` | ⌫ burst |
-| 46 | `i` | backspace | 149 | `What is the meaning of l` | ⌫ burst |
-| 47 | `l` | backspace | 109 | `What is the meaning of ` | ⌫ burst |
-| 48 | `4` | insert | 125 | `What is the meaning of 4` |  |
-| 49 | `2` | insert | 183 | `What is the meaning of 42` |  |
-| 50 | `?` | insert | 178 | `What is the meaning of 42?` |  |
+| 43 | `?` | backspace | 11 | `What is the meaning of life` | ⌫ burst |
+| 44 | `e` | backspace | 46 | `What is the meaning of lif` | ⌫ burst |
+| 45 | `f` | backspace | 43 | `What is the meaning of li` | ⌫ burst |
+| 46 | `i` | backspace | 40 | `What is the meaning of l` | ⌫ burst |
+| 47 | `l` | backspace | 43 | `What is the meaning of ` | ⌫ burst |
+| 48 | `4` | insert | 43 | `What is the meaning of 4` |  |
+| 49 | `2` | insert | 171 | `What is the meaning of 42` |  |
+| 50 | `?` | insert | 152 | `What is the meaning of 42?` |  |
 
 ### Recent message hesitation scores
 
 | Message | Submitted | Keys | Dels | Hesitation | State |
 |---------|-----------|-----:|-----:|-----------:|-------|
+| `b47ac9e0f7` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `735b1e8757` | 🗑 | 13 | 0 | 0.576 | abandoned |
+| `92e7b031ad` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `87a61d0265` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `74cab19492` | 🗑 | 13 | 0 | 0.593 | abandoned |
+| `d0602a154a` | ✓ | 9 | 5 | 0.556 | hesitant |
 | `bdf70ebaf8` | ✓ | 19 | 4 | 0.211 | restructuring |
 | `859c45bb78` | 🗑 | 13 | 0 | 0.529 | abandoned |
 | `14f69e988e` | ✓ | 9 | 5 | 0.556 | hesitant |
 | `dd2c8de77c` | ✓ | 19 | 4 | 0.211 | restructuring |
 | `ebf61c9b5b` | 🗑 | 13 | 0 | 0.566 | abandoned |
 | `637cfe8e3e` | ✓ | 9 | 5 | 0.556 | hesitant |
-| `e8425fa177` | ✓ | 19 | 4 | 0.211 | restructuring |
-| `df7064336d` | 🗑 | 13 | 0 | 0.528 | abandoned |
-| `7b7746f1e3` | ✓ | 9 | 5 | 0.556 | hesitant |
-| `c7438ceaf1` | ✓ | 19 | 4 | 0.211 | restructuring |
-| `493673f973` | 🗑 | 13 | 0 | 0.578 | abandoned |
-| `981a67e46d` | ✓ | 9 | 5 | 0.556 | hesitant |
 
 
 ## CHANGELOG

@@ -54,27 +54,22 @@ Three systems working together:
 3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. Self-updates on every commit via `<!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-17 05:43 UTC · 62 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-17 07:04 UTC · 161 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `frustrated` (WPM: 102.8 | Del: 28.7% | Hes: 0.659)
+**Cognitive state:** `hesitant` (WPM: 41.2 | Del: 34.5% | Hes: 0.507)
 
-> **CoT directive:** Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.
+> **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- "a ta"
-- "by pigeon unless approv"
-- "uld really be purged"
-- "they all sho"
-- "it which"
-- "- aud"
+- "strews"
 
 ### Module Hot Zones
 *High cognitive load — take extra care with these files:*
-- `context_budget` (hes=0.79)
-- `file_heat_map` (hes=0.79)
-- `push_narrative` (hes=0.79)
+- `context_budget` (hes=0.92)
+- `file_heat_map` (hes=0.92)
+- `push_narrative` (hes=0.92)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 
@@ -83,10 +78,10 @@ Three systems working together:
 - Failed on: ""
 
 ### Recent Work
+- `21ddf89` feat: task queue system + AI response capture plan + README update
+- `ec35e10` docs: full README rewrite â€” all three systems documented
+- `5f3fa22` docs: rebuild all manifests + MASTER_MANIFEST + CHANGELOG patch notes
 - `f989307` feat: wire narratives + self-fix + coaching + gaps into dynamic prompt injection
-- `1f60b21` feat: dynamic task-context CoT injection + operator_stats DATA parse fix
-- `fa132f9` feat: copilot prompt mutation tracker + auto-recon pipeline wired to git hook
-- `fec3fe0` feat: auto prompt reconstruction + mutation audit + wire into pipeline
 
 ### Fragile Contracts
 *From push narratives — assumptions that could break:*
@@ -114,26 +109,52 @@ Three systems working together:
 - [3x] call deepseek scope verify
 
 ### Prompt Evolution
-*This prompt has mutated 24x (186→400 lines). Features added: auto_index, operator_state, prompt_journal, pulse_blocks.*
+*This prompt has mutated 26x (186→391 lines). Features added: auto_index, operator_state, prompt_journal, pulse_blocks.*
 
 <!-- /pigeon:task-context -->
+
+<!-- pigeon:task-queue -->
+## Active Task Queue
+
+*Copilot manages this queue. To complete a task: update the referenced MANIFEST.md, then call `mark_done(root, task_id)` in `task_queue_seq018`.*
+
+### Pending
+- [ ] `tq-001` **Fix hardcoded pigeon import in `test_all.py`** | stage: debugging | focus: `test_all.py`
+  → [MASTER_MANIFEST.md](MASTER_MANIFEST.md)
+- [ ] `tq-002` **Fix hardcoded pigeon import in `stress_test.py`** | stage: debugging | focus: `stress_test.py`
+  → [MASTER_MANIFEST.md](MASTER_MANIFEST.md)
+- [ ] `tq-003` **Implement AI response capture via UIA** | stage: implementing | focus: `vscode-extension/src/extension.ts`, `src/rework_detector_seq009*`
+  → [src/MANIFEST.md](src/MANIFEST.md)
+- [ ] `tq-004` **Pigeon compile `operator_stats_seq008` (397 lines → compliant)** | stage: planning | focus: `src/operator_stats_seq008*`
+  → [src/MANIFEST.md](src/MANIFEST.md)
+- [ ] `tq-005` **Pigeon compile `self_fix_seq013` (352 lines → compliant)** | stage: planning | focus: `src/self_fix_seq013*`
+  → [src/MANIFEST.md](src/MANIFEST.md)
+- [ ] `tq-006` **Wire response capture into rework_log (prompt→response→rework triples)** | stage: planning | focus: `src/rework_detector_seq009*`, `logs/ai_responses.jsonl`
+  → [src/MANIFEST.md](src/MANIFEST.md)
+*…and 4 more in `task_queue.json`*
+
+<!-- /pigeon:task-queue -->
 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-17 · 71 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-17 · 161 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 11% | WPM: 126.5 | Del: 32.7% | Hes: 0.757
+**Dominant: `frustrated`** | Submit: 7% | WPM: 140.6 | Del: 32.8% | Hes: 0.842
 
-This operator just built a narrative-wiring system for their AI coach, but their high deletion rate and frustration spikes reveal they're brute-forcing structural changes while struggling with integration details.  
-- **Anticipate refactoring pain**: When they touch `push_narrative` or `context_budget`, proactively suggest incremental validation steps and offer to draft module-connection comments.  
-- **Preempt file-writer churn**: Before they edit `file_writer`, `init_writer`, or `manifest_writer`, explicitly list current Pigeon-compliant patterns from recent commits to avoid rework.  
-- **Counter hesitation with concrete options**: If typing slows after a `frustrated` state, respond with short, numbered choices (e.g., "1. Fix imports first 2. Write narrative stub 3. Check manifest") to reduce cognitive load.  
-- **Bridge integration gaps**: Since every AI response required rework, always include a one-line verification step (e.g., "Should this match the pattern in `plan_parser`?") before providing code.  
-**Focus on**: `push_narrative`, `context_budget`, and `file_writer`—they're the recurring pain points.  
-They are most likely building toward a fully autonomous, self-documenting agent that wires its own behavioral narratives into the extension runtime.
+This operator just built a Copilot-driven task tracking system and their high-deletion, hesitant-frustrated-abandoned cycling reveals they're struggling with architectural clarity and implementation precision during late-night sessions.
+
+- **When they edit task_queue_system files**, immediately propose concrete, small-scope helper functions (like `_log_task_transition()` or `_validate_queue_state()`) instead of broad architectural suggestions.
+- **Anticipate churn in `push_narrative` and `context_budget` modules**—they're adjacent to the new task system; proactively offer to update cross-references or import statements there when you see changes to task_queue files.
+- **Given the 100% miss rate**, after any code suggestion, immediately follow with: "Should I also check the `import_fixer` or `init_writer` modules for consistency with this change?" This preempts rework.
+- **When you detect slow WPM with high deletions (frustrated/hesitant state)**, respond with one-line, copy-paste-ready code blocks—avoid multi-option lists.
+- **Explicitly bridge gaps** by linking new task_queue functions to existing patterns in `func_decomposer` or `plan_parser` modules to reduce cognitive load.
+
+They are most likely building toward a unified, LLM-orchestrated workflow engine that connects task tracking, context management, and automated documentation.
 
 <!-- /pigeon:operator-state -->
+> **Cognitive reactor fired on `os_hook`** (hes=1.038, state=frustrated). Simplify interactions with this module.
+
 > **Cognitive reactor fired on `operator_stats`** (hes=1.0, state=hesitant). Simplify interactions with this module.
 
 
@@ -241,7 +262,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 ### Full Module Index
 
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-17 — 90 modules tracked | 1 touched this commit*
+*Auto-updated 2026-03-17 — 91 modules tracked | 1 touched this commit*
 
 **pigeon_compiler/bones/** — 5 module(s)
 
@@ -335,7 +356,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 |---|---|---:|
 | `deepseek_plan_prompt_seq004*` | build and send deepseek cut | ~2,407 |
 
-**src/** — 16 module(s)
+**src/** — 17 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -355,6 +376,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~2,844 |
 | `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,009 |
 | `dynamic_prompt_seq017*` | steers copilot cot from live | ~2,947 |
+| `task_queue_seq018*` | copilot driven task tracking linked | ~1,608 |
 
 **src/cognitive/** — 3 module(s)
 
