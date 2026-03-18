@@ -305,7 +305,14 @@ def main():
     stats_mod = _load_pigeon_module(root, 'src/operator_stats_seq008*.py')
     state = 'neutral'
     if stats_mod:
-        state = stats_mod.classify_state(metrics)
+        # Load operator history for self-calibrating baselines
+        baselines = {}
+        try:
+            history = _parse_history(root)
+            baselines = stats_mod.compute_baselines(history)
+        except Exception:
+            pass
+        state = stats_mod.classify_state(metrics, baselines)
         # Override with chat composition state if stronger signal
         if chat_state_override and chat_state_override.get('confidence', 0) > 0.65:
             state = chat_state_override['state']

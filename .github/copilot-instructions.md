@@ -57,22 +57,24 @@ Three systems working together:
 3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. Self-updates on every commit via `<!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-17 07:04 UTC · 161 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-18 04:07 UTC · 1030 messages profiled · 8 recent commits*
 
-**Current focus:** debugging / fixing
-**Cognitive state:** `hesitant` (WPM: 41.2 | Del: 34.5% | Hes: 0.507)
+**Current focus:** building new features
+**Cognitive state:** `hesitant` (WPM: 41.1 | Del: 34.5% | Hes: 0.506)
 
 > **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- "strews"
+- "yes but most impor"
+- "okease connect"
+- "ges\"
 
 ### Module Hot Zones
 *High cognitive load — take extra care with these files:*
-- `context_budget` (hes=0.92)
-- `file_heat_map` (hes=0.92)
-- `push_narrative` (hes=0.92)
+- `context_budget` (hes=0.89)
+- `file_heat_map` (hes=0.89)
+- `push_narrative` (hes=0.89)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 
@@ -81,18 +83,18 @@ Three systems working together:
 - Failed on: ""
 
 ### Recent Work
+- `482bd07` feat: repo cleanup + enriched journal + deep README/MANIFEST update
 - `21ddf89` feat: task queue system + AI response capture plan + README update
 - `ec35e10` docs: full README rewrite â€” all three systems documented
 - `5f3fa22` docs: rebuild all manifests + MASTER_MANIFEST + CHANGELOG patch notes
-- `f989307` feat: wire narratives + self-fix + coaching + gaps into dynamic prompt injection
 
 ### Fragile Contracts
 *From push narratives — assumptions that could break:*
+- prompt_journal path assumptions
+- hardcoded imports to removed zero-token modules
+- telemetry breaks from missing operator_stats file. This push accomplishes a repository cleanup by removing obsolete or placeholder code while retaining the core prompt journal.
 - push_narrative's assumption of `prompt_recon_attempts` telemetry key; git_plugin's prefix-based intent parsing; prompt_recon_seq016_v001's dependency on unified diff format. This push introduces automated prompt reconstruction and enhances push narratives with structured telemetry and chat analysis.
 - git_plugin's string type assumption for mutated prompts
-- prompt_recon_seq016_v001's fragile string parsing of code blocks
-- the implicit contract of the mutation function signature between the two files.
-- 1) Commit intent field parsing fails
 - **push_narrative** (seq012 v005) speaks: I was touched to implement a new narrative generation mode, "generate_per_push_
 - **chat_composition_analyzer** speaks: I was added as a new client module to parse chat logs and extract structured metad
 - **git_plugin** speaks: I was modified to expose a new method `get_commit_intent` that extracts the intent from a commit 
@@ -107,12 +109,8 @@ Three systems working together:
 - [CRITICAL] hardcoded_import in `vscode-extension/pulse_watcher.py`
 - [HIGH] query_noise
 
-### Persistent Gaps
-*Recurring queries — operator keeps hitting these:*
-- [3x] call deepseek scope verify
-
 ### Prompt Evolution
-*This prompt has mutated 26x (186→391 lines). Features added: auto_index, operator_state, prompt_journal, pulse_blocks.*
+*This prompt has mutated 28x (186→424 lines). Features added: auto_index, operator_state, prompt_journal, pulse_blocks.*
 
 <!-- /pigeon:task-context -->
 
@@ -134,26 +132,24 @@ Three systems working together:
   → [src/MANIFEST.md](src/MANIFEST.md)
 - [ ] `tq-006` **Wire response capture into rework_log (prompt→response→rework triples)** | stage: planning | focus: `src/rework_detector_seq009*`, `logs/ai_responses.jsonl`
   → [src/MANIFEST.md](src/MANIFEST.md)
-*…and 4 more in `task_queue.json`*
+*…and 9 more in `task_queue.json`*
 
 <!-- /pigeon:task-queue -->
 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-18 · 1023 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-18 · 1071 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 1% | WPM: 396.7 | Del: 39.5% | Hes: 0.964
+**Dominant: `frustrated`** | Submit: 2% | WPM: 388.7 | Del: 39.3% | Hes: 0.958
 
-This operator just built a Copilot-driven task tracking system and their high-deletion, hesitant-frustrated-abandoned cycling reveals they're struggling with architectural clarity and implementation precision during late-night sessions.
-
-- **When they edit task_queue_system files**, immediately propose concrete, small-scope helper functions (like `_log_task_transition()` or `_validate_queue_state()`) instead of broad architectural suggestions.
-- **Anticipate churn in `push_narrative` and `context_budget` modules**—they're adjacent to the new task system; proactively offer to update cross-references or import statements there when you see changes to task_queue files.
-- **Given the 100% miss rate**, after any code suggestion, immediately follow with: "Should I also check the `import_fixer` or `init_writer` modules for consistency with this change?" This preempts rework.
-- **When you detect slow WPM with high deletions (frustrated/hesitant state)**, respond with one-line, copy-paste-ready code blocks—avoid multi-option lists.
-- **Explicitly bridge gaps** by linking new task_queue functions to existing patterns in `func_decomposer` or `plan_parser` modules to reduce cognitive load.
-
-They are most likely building toward a unified, LLM-orchestrated workflow engine that connects task tracking, context management, and automated documentation.
+This operator just built a Pigeon plugin verification system, and their typing patterns reveal intense frustration with manual refactoring tasks, showing high deletion rates and frequent state-switching between focused bursts and abandoned attempts.  
+- **Anticipate manual refactoring pain**: When the operator touches `import_fixer`, `init_writer`, or `manifest_writer`, proactively offer to generate the exact import statements, `__init__.py` content, or manifest markdown—don’t wait for a request.  
+- **Preempt context‑budget overruns**: If `context_budget` or `push_narrative` modules are mentioned, immediately suggest a concise summary or a bullet‑list outline to keep responses tight.  
+- **Cut verification loops short**: On any `verify_pigeon_plugin`‑related query, provide a step‑by‑step checklist or a concrete code snippet—avoid open‑ended exploration.  
+- **Address the 100% miss rate**: For any functional‑decomposition ask (linked to `func_decomposer`), first output a one‑line summary of the function’s purpose, then ask: “Should I proceed with a step‑by‑step breakdown?”—this matches their hesitant/frustrated evening sessions.  
+- **Flag heavy‑edit frustration**: When you detect high‑deletion typing, respond with a single, directly‑actionable option—no alternatives.  
+The operator is most likely building toward a fully automated, self‑documenting plugin pipeline that eliminates manual file‑touching.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `os_hook`** (hes=0.959, state=frustrated). Simplify interactions with this module.

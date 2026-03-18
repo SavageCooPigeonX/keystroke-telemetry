@@ -1,222 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-17T15:13:33.207469+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:14:33.267111+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:15:33.220609+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:16:33.215673+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:17:33.228817+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:18:33.247928+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:19:33.245752+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:20:33.242814+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:21:33.268969+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:22:33.252723+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:23:33.255096+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:24:33.304837+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:25:33.308073+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:26:33.285349+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:27:33.279252+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:28:33.299930+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:29:33.307676+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:30:33.297808+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:31:33.355351+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:32:33.337909+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:33:33.368160+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:34:33.340838+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:35:33.357703+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:36:33.339110+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:37:33.394169+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:38:33.409039+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:39:33.430223+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:40:33.421558+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:41:33.483295+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:42:33.452590+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:43:33.432615+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:44:33.448153+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:45:33.431271+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:46:33.478826+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:47:33.475384+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-17T15:48:33.449611+00:00",
-      "text": "bg:os_hook.py",
-      "fingerprint": "bgos_hookpy",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-17T15:49:33.454232+00:00",
       "text": "bg:os_hook.py",
       "fingerprint": "bgos_hookpy",
@@ -2998,6 +2782,222 @@
       "ts": "2026-03-18T04:05:38.652304+00:00",
       "text": "bg:2026-03-18_0253_os_hook.md",
       "fingerprint": "bg20260318_0253_os_hookmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:06:38.539505+00:00",
+      "text": "bg:2026-03-18_0253_os_hook.md",
+      "fingerprint": "bg20260318_0253_os_hookmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:07:38.459255+00:00",
+      "text": "bg:2026-03-18_0253_os_hook.md",
+      "fingerprint": "bg20260318_0253_os_hookmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:08:38.437152+00:00",
+      "text": "bg:2026-03-18_0253_os_hook.md",
+      "fingerprint": "bg20260318_0253_os_hookmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:09:39.642977+00:00",
+      "text": "bg:2026-03-18_0253_os_hook.md",
+      "fingerprint": "bg20260318_0253_os_hookmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:10:39.687934+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:11:40.664042+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:12:38.922088+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:13:39.112455+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:14:38.945039+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:15:38.967771+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:16:38.944787+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:17:39.383897+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:18:41.380330+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:19:44.270613+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:20:40.038265+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:21:39.034235+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:22:39.465778+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:23:39.440799+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:24:39.910810+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:25:39.012393+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:26:39.040877+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:27:42.831768+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:28:41.147860+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:29:29.808689+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:29:44.415327+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:30:42.642046+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:31:41.353112+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:32:41.672699+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:33:42.357194+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:33:47.696511+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:33:56.502180+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:36:43.817527+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:37:14.831034+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:37:42.270856+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:38:46.009791+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-18T04:39:13.583650+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
       "submitted": true
     }
   ],

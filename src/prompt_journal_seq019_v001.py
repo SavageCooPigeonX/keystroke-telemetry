@@ -123,7 +123,7 @@ def _hot_modules(root: Path, top_n: int = 3) -> list[dict]:
 
 
 def _running_stats(root: Path) -> dict:
-    """Compute running session stats from existing journal entries."""
+    """Compute running session stats from existing journal entries + baselines."""
     p = root / JOURNAL_PATH
     if not p.exists():
         return {}
@@ -140,11 +140,29 @@ def _running_stats(root: Path) -> dict:
     states = [e.get('cognitive_state', 'unknown') for e in entries]
     from collections import Counter
     state_dist = dict(Counter(states).most_common(5))
+
+    # Load self-calibration baselines from operator_stats
+    baselines = {}
+    try:
+        import glob, importlib.util
+        matches = sorted(root.glob('src/operator_stats_seq008*.py'))
+        if matches:
+            spec = importlib.util.spec_from_file_location('_os', matches[-1])
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            op_path = root / 'operator_profile.md'
+            if op_path.exists():
+                stats = mod.OperatorStats(str(op_path))
+                baselines = mod.compute_baselines(stats._history)
+    except Exception:
+        pass
+
     return {
         'total_prompts': n,
         'avg_wpm':       round(sum(wpms) / len(wpms), 1) if wpms else None,
         'avg_del_ratio': round(sum(dels) / len(dels), 3) if dels else None,
         'state_distribution': state_dist,
+        'baselines': baselines if baselines else None,
     }
 
 

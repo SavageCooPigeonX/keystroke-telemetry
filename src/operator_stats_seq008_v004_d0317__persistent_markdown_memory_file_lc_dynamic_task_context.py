@@ -48,8 +48,46 @@ def _local_hour_now() -> int:
     return datetime.now().hour
 
 
-def classify_state(msg: dict) -> str:
-    """Classify a finalized message dict into a cognitive state label."""
+def compute_baselines(history: list[dict], window: int = 50) -> dict:
+    """Compute rolling baselines from operator history for self-calibration.
+
+    Returns per-metric averages and std-dev approximations from the last
+    `window` entries. These baselines let classify_state adapt to each
+    operator's natural typing patterns instead of using hardcoded thresholds.
+    """
+    recent = [r for r in history[-window:] if r.get("submitted", True)]
+    if len(recent) < 5:
+        return {}  # not enough data to calibrate
+    wpms = [r["wpm"] for r in recent if "wpm" in r]
+    dels = [r["del_ratio"] for r in recent if "del_ratio" in r]
+    hess = [r["hesitation"] for r in recent if "hesitation" in r]
+    if not wpms:
+        return {}
+    n = len(wpms)
+    avg_wpm = sum(wpms) / n
+    avg_del = sum(dels) / max(len(dels), 1)
+    avg_hes = sum(hess) / max(len(hess), 1)
+    # Simple std-dev (population)
+    sd_wpm = (sum((w - avg_wpm) ** 2 for w in wpms) / n) ** 0.5
+    sd_del = (sum((d - avg_del) ** 2 for d in dels) / max(len(dels), 1)) ** 0.5
+    sd_hes = (sum((h - avg_hes) ** 2 for h in hess) / max(len(hess), 1)) ** 0.5
+    return {
+        "n": n,
+        "avg_wpm": round(avg_wpm, 1),
+        "avg_del": round(avg_del, 3),
+        "avg_hes": round(avg_hes, 3),
+        "sd_wpm": round(sd_wpm, 1),
+        "sd_del": round(sd_del, 3),
+        "sd_hes": round(sd_hes, 3),
+    }
+
+
+def classify_state(msg: dict, baselines: dict | None = None) -> str:
+    """Classify a finalized message dict into a cognitive state label.
+
+    If baselines are provided (from compute_baselines), thresholds adapt
+    to the operator's personal norms. Otherwise falls back to defaults.
+    """
     keys = max(msg.get("total_keystrokes", 0), 1)
     inserts = msg.get("total_inserts", 0)
     dels = msg.get("total_deletions", 0)
@@ -63,6 +101,39 @@ def classify_state(msg: dict) -> str:
 
     if msg.get("deleted"):
         return "abandoned"
+
+    # Adaptive thresholds: use operator baselines if available (5+ samples)
+    if baselines and baselines.get("n", 0) >= 5:
+        avg_wpm = baselines["avg_wpm"]
+        avg_del = baselines["avg_del"]
+        avg_hes = baselines["avg_hes"]
+        sd_wpm = max(baselines["sd_wpm"], 1.0)
+        sd_del = max(baselines["sd_del"], 0.01)
+        sd_hes = max(baselines["sd_hes"], 0.01)
+
+        # z-scores relative to operator's own norms
+        z_wpm = (wpm - avg_wpm) / sd_wpm
+        z_del = (del_ratio - avg_del) / sd_del
+        z_hes = (hes - avg_hes) / sd_hes
+
+        # frustrated: significantly more hesitation/deletion than their norm
+        if z_hes > 1.2 or (z_del > 1.0 and pause_ratio > 0.25):
+            return "frustrated"
+        # hesitant: above-normal pausing/hesitation
+        if z_hes > 0.8 or pause_ratio > 0.35:
+            return "hesitant"
+        # flow: significantly faster than their norm, low error
+        if z_wpm > 0.8 and z_del < -0.5 and z_hes < -0.5:
+            return "flow"
+        # focused: above-average speed, below-average hesitation
+        if z_wpm > 0.3 and z_hes < 0:
+            return "focused"
+        # restructuring: high deletion relative to their norm
+        if z_del > 0.8:
+            return "restructuring"
+        return "neutral"
+
+    # Fallback: hardcoded thresholds for cold-start (< 5 history entries)
     if hes > 0.6 or (del_ratio > 0.3 and pause_ratio > 0.3):
         return "frustrated"
     if pause_ratio > 0.4 or hes > 0.4:
@@ -111,7 +182,8 @@ class OperatorStats:
 
     def ingest(self, msg: dict):
         """Ingest a finalized message dict. Writes .md every write_every messages."""
-        state = classify_state(msg)
+        baselines = compute_baselines(self._history)
+        state = classify_state(msg, baselines)
         keys = max(msg.get("total_keystrokes", 0), 1)
         inserts = msg.get("total_inserts", 0)
         dels = msg.get("total_deletions", 0)
@@ -159,6 +231,9 @@ class OperatorStats:
         hes_scores = [r["hesitation"] for r in h]
         pause_totals = [r["pause_ms"] for r in h]
 
+        # self-calibration baselines
+        baselines = compute_baselines(h)
+
         # state distribution
         state_counts: dict[str, int] = {}
         for r in h:
@@ -184,6 +259,32 @@ class OperatorStats:
             f"| Deletion % | {min(del_ratios):.1%} | {max(del_ratios):.1%} | {sum(del_ratios)/n:.1%} |",
             f"| Hesitation | {min(hes_scores):.3f} | {max(hes_scores):.3f} | {sum(hes_scores)/n:.3f} |",
             f"| Pause ms | {min(pause_totals)} | {max(pause_totals)} | {sum(pause_totals)//n} |",
+        ]
+
+        # Self-calibration section
+        if baselines:
+            lines += [
+                "",
+                "## Self-Calibration Baselines (rolling 50)",
+                "",
+                f"*Computed from last {baselines['n']} submitted messages. "
+                "Classification thresholds adapt to these norms.*",
+                "",
+                "| Metric | Baseline | ±1 SD |",
+                "| --- | ---: | ---: |",
+                f"| WPM | {baselines['avg_wpm']:.1f} | ±{baselines['sd_wpm']:.1f} |",
+                f"| Deletion % | {baselines['avg_del']:.1%} | ±{baselines['sd_del']:.1%} |",
+                f"| Hesitation | {baselines['avg_hes']:.3f} | ±{baselines['sd_hes']:.3f} |",
+            ]
+        else:
+            lines += [
+                "",
+                "## Self-Calibration",
+                "",
+                "*Not enough data yet (need 5+ submitted messages). Using default thresholds.*",
+            ]
+
+        lines += [
             "",
             "## State Distribution",
             "",
@@ -227,7 +328,7 @@ class OperatorStats:
             "",
             "<!--",
             "DATA",
-            json.dumps({"history": h}, separators=(",", ":")),
+            json.dumps({"history": h, "baselines": baselines}, separators=(",", ":")),
             "DATA",
             "-->",
         ]
