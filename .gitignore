@@ -9,14 +9,25 @@ src/__pycache__/
 .env.*
 !.env.example
 
-# Runtime artifacts
-operator_profile.md
+# Build artifacts
+pigeon_code.egg-info/
+.pytest_cache/
 build/
 compiler_output/
+
+# Runtime artifacts
+operator_profile.md
 pigeon_compiler/rename_engine/rollback_logs/
 pigeon_compiler/rename_engine/heal_log.json
 pigeon_compiler/bones/
 pigeon_compiler/output/
+
+# Cognitive reactor output (auto-generated every 5 min)
+docs/cognitive_patches/
+
+# Temp files
+ext_check.txt
+ext_files.txt
 
 # Sensitive docs (contain production project references)
 pigeon_compiler/docs/META_OPTIMIZATION_CHANGELOG.md

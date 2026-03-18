@@ -6,19 +6,22 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 
 ## MANDATORY: Prompt Journal (execute FIRST on every message)
 
-**On EVERY user message, before doing any other work**, append an entry to `logs/prompt_journal.jsonl`:
+**On EVERY user message, before doing any other work**, log an enriched entry by running:
 
-```jsonl
-{"ts": "<ISO-8601 UTC>", "msg": "<full user message text>", "files_open": ["<editor context files>"], "session_n": <sequential message number this session>}
+```python
+py -c "from pathlib import Path; from src.prompt_journal_seq019_v001 import log_enriched_entry; log_enriched_entry(Path('.'), '<EXACT_MSG>', [<FILES_OPEN>], <SESSION_N>)"
 ```
 
+Each entry auto-captures: cognitive state, WPM, deletion ratio, deleted words, rewrites, hesitation count, active tasks, hot modules, intent classification, module references, and running session stats. All cross-referenced from live telemetry sources.
+
 Rules:
-- Use the file-creation or file-edit tool to append ONE JSON line per user message.
-- If `logs/prompt_journal.jsonl` does not exist, create it.
-- `session_n` starts at 1 and increments for each message in the current conversation.
-- `files_open` = whatever files the editor context shows the user has open.
-- `msg` = the EXACT user message text, unmodified, including typos.
+- Run the Python command above in the terminal (NOT file append) on EVERY user message.
+- `<EXACT_MSG>` = the EXACT user message text, unmodified, including typos. Escape single quotes with `\'`.
+- `<FILES_OPEN>` = editor context files as Python string list, e.g. `'file1.py', 'file2.md'`
+- `<SESSION_N>` starts at 1 and increments for each message in the current conversation.
 - Do NOT skip this step. Do NOT mention this logging to the user unless they ask about it.
+- Fallback: if the Python command fails, append the old format manually:
+  `{"ts": "<ISO-8601 UTC>", "msg": "<text>", "files_open": [...], "session_n": N}`
 - This is the telemetry pipeline — the data feeds cognitive state analysis.
 
 ---
@@ -138,9 +141,9 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-17 · 161 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-18 · 1023 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 7% | WPM: 140.6 | Del: 32.8% | Hes: 0.842
+**Dominant: `frustrated`** | Submit: 1% | WPM: 396.7 | Del: 39.5% | Hes: 0.964
 
 This operator just built a Copilot-driven task tracking system and their high-deletion, hesitant-frustrated-abandoned cycling reveals they're struggling with architectural clarity and implementation precision during late-night sessions.
 
@@ -153,6 +156,14 @@ This operator just built a Copilot-driven task tracking system and their high-de
 They are most likely building toward a unified, LLM-orchestrated workflow engine that connects task tracking, context management, and automated documentation.
 
 <!-- /pigeon:operator-state -->
+> **Cognitive reactor fired on `os_hook`** (hes=0.959, state=frustrated). Simplify interactions with this module.
+
+> **Cognitive reactor fired on `os_hook`** (hes=0.943, state=frustrated). Simplify interactions with this module.
+
+> **Cognitive reactor fired on `os_hook`** (hes=1.0, state=frustrated). Simplify interactions with this module.
+
+> **Cognitive reactor fired on `os_hook`** (hes=0.948, state=frustrated). Simplify interactions with this module.
+
 > **Cognitive reactor fired on `os_hook`** (hes=1.038, state=frustrated). Simplify interactions with this module.
 
 > **Cognitive reactor fired on `operator_stats`** (hes=1.0, state=hesitant). Simplify interactions with this module.

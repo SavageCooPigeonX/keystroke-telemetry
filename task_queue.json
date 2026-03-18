@@ -142,7 +142,78 @@
       "created_ts": "2026-03-17T07:01:02.675457+00:00",
       "completed_ts": null,
       "commit": null
+    },
+    {
+      "id": "tq-011",
+      "title": "Build file dating profile generator",
+      "status": "pending",
+      "intent": "feature",
+      "stage": "planning",
+      "focus_files": [
+        "src/"
+      ],
+      "manifest_ref": "src/MANIFEST.md",
+      "created_ts": "2026-03-18T02:48:25.146009+00:00",
+      "completed_ts": null,
+      "commit": null
+    },
+    {
+      "id": "tq-012",
+      "title": "Implement slumber party contract checker",
+      "status": "pending",
+      "intent": "feature",
+      "stage": "planning",
+      "focus_files": [
+        "src/"
+      ],
+      "manifest_ref": "src/MANIFEST.md",
+      "created_ts": "2026-03-18T02:48:25.167841+00:00",
+      "completed_ts": null,
+      "commit": null
+    },
+    {
+      "id": "tq-013",
+      "title": "Add file-specific context section to dynamic_prompt",
+      "status": "pending",
+      "intent": "feature",
+      "stage": "planning",
+      "focus_files": [
+        "src/dynamic_prompt_seq017*"
+      ],
+      "manifest_ref": "src/MANIFEST.md",
+      "created_ts": "2026-03-18T02:48:25.195282+00:00",
+      "completed_ts": null,
+      "commit": null
+    },
+    {
+      "id": "tq-014",
+      "title": "Build prompt mutation scorer",
+      "status": "pending",
+      "intent": "feature",
+      "stage": "planning",
+      "focus_files": [
+        "src/dynamic_prompt_seq017*",
+        "logs/ai_responses.jsonl"
+      ],
+      "manifest_ref": "src/MANIFEST.md",
+      "created_ts": "2026-03-18T02:48:25.215106+00:00",
+      "completed_ts": null,
+      "commit": null
+    },
+    {
+      "id": "tq-015",
+      "title": "Add pigeon-lint save hook to VS Code extension",
+      "status": "pending",
+      "intent": "feature",
+      "stage": "planning",
+      "focus_files": [
+        "vscode-extension/src/extension.ts"
+      ],
+      "manifest_ref": "MASTER_MANIFEST.md",
+      "created_ts": "2026-03-18T02:48:25.231020+00:00",
+      "completed_ts": null,
+      "commit": null
     }
   ],
-  "next_id": 11
+  "next_id": 16
 }
