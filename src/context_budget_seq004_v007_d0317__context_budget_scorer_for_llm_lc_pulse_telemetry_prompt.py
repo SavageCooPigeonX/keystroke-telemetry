@@ -14,9 +14,9 @@ Pigeon compiler integration: feed this score into resistance analysis.
 # SESSIONS: 5
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
+# EDIT_TS:   2026-03-21T17:00:00Z
+# EDIT_HASH: auto
+# EDIT_WHY:  test full hook with deepseek api
 # ── /pulse ──
 
 import math
