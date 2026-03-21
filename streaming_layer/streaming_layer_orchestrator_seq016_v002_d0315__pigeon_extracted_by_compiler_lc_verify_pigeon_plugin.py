@@ -9,13 +9,27 @@
 # ──────────────────────────────────────────────
 from dataclasses import dataclass, field, asdict
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from src.logger_seq003_v003_d0317__core_keystroke_telemetry_logger_lc_pulse_telemetry_prompt import TelemetryLogger, SCHEMA_VERSION
+TelemetryLogger, SCHEMA_VERSION
 from typing import Optional, Callable
 import os
 import threading
 import time
 
-class StreamingTelemetryServer:
+def _load_src(pattern: str, *symbols):
+    """Dynamic pigeon import — finds latest src/ file matching glob."""
+    import importlib.util as _ilu, glob as _g
+    matches = sorted(_g.glob(f'src/{pattern}'))
+    if not matches:
+        raise ImportError(f'No src/ file matches {pattern!r}')
+    spec = _ilu.spec_from_file_location('_dyn', matches[-1])
+    mod = _ilu.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    if len(symbols) == 1:
+        return getattr(mod, symbols[0])
+    return tuple(getattr(mod, s) for s in symbols)
+
+
+class StreamingTelemetryServer = _load_src('logger_seq003*.py', 'TelemetryLogger', 'SCHEMA_VERSION\nfrom typing import Optional', 'Callable\nimport os\nimport threading\nimport time\n\nclass StreamingTelemetryServer'):
     """Main orchestrator: wraps TelemetryLogger with live streaming,
     aggregation, metrics, alerts, and an HTTP endpoint."""
 

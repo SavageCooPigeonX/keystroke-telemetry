@@ -10,11 +10,11 @@ a compact operator profile that sharpens with every message.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 008 | VER: v005 | 498 lines | ~4,639 tokens
+# SEQ: 008 | VER: v006 | 525 lines | ~4,807 tokens
 # DESC:   persistent_markdown_memory_file
-# INTENT: self_calibrating_cognitive
-# LAST:   2026-03-18 @ e809454
-# SESSIONS: 3
+# INTENT: implement_all_18
+# LAST:   2026-03-21 @ 068687f
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None

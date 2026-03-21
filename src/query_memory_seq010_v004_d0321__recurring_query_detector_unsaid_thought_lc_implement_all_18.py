@@ -10,11 +10,11 @@ Both feed into the coaching prompt via load_query_memory().
 Zero LLM calls.
 """
 # ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v003 | 125 lines | ~1,122 tokens
+# SEQ: 010 | VER: v004 | 252 lines | ~2,308 tokens
 # DESC:   recurring_query_detector_unsaid_thought
-# INTENT: pulse_telemetry_prompt
-# LAST:   2026-03-17 @ 9e2a305
-# SESSIONS: 2
+# INTENT: implement_all_18
+# LAST:   2026-03-21 @ 068687f
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-03-21T00:00:00+00:00

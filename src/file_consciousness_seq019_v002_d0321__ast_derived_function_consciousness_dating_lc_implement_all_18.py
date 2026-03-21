@@ -6,10 +6,10 @@ co-change patterns, and shared state coupling.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 019 | VER: v001 | ~190 lines | ~2,100 tokens
-# DESC:   ast_derived_function_consciousness
-# INTENT: build_file_dating_profiles
-# LAST:   2026-03-19
+# SEQ: 019 | VER: v002 | 473 lines | ~4,343 tokens
+# DESC:   ast_derived_function_consciousness_dating
+# INTENT: implement_all_18
+# LAST:   2026-03-21 @ 068687f
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

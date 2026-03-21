@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-18T04:39:56.746154+00:00",
-  "total": 91,
+  "generated": "2026-03-21T16:21:53.678242+00:00",
+  "total": 96,
   "files": [
     {
       "path": "pigeon_compiler/bones/aim_utils_seq001_v003_d0314__extracted_from_hush_aim_py_lc_desc_upgrade.py",
@@ -1416,14 +1416,14 @@
       ]
     },
     {
-      "path": "src/cognitive_reactor_seq014_v002_d0317__cognitive_reactor_autonomous_code_modification_lc_pulse_telemetry_prompt.py",
+      "path": "src/cognitive_reactor_seq014_v003_d0321__cognitive_reactor_autonomous_code_modification_lc_implement_all_18.py",
       "name": "cognitive_reactor",
       "seq": 14,
-      "ver": 2,
-      "date": "0317",
+      "ver": 3,
+      "date": "0321",
       "desc": "cognitive_reactor_autonomous_code_modification",
-      "intent": "pulse_telemetry_prompt",
-      "tokens": 2844,
+      "intent": "implement_all_18",
+      "tokens": 3529,
       "history": [
         {
           "ver": 2,
@@ -1432,6 +1432,14 @@
           "intent": "pulse_telemetry_prompt",
           "tokens": 2844,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0321",
+          "desc": "cognitive_reactor_autonomous_code_modification",
+          "intent": "implement_all_18",
+          "action": "mutated",
+          "tokens": 3529
         }
       ]
     },
@@ -1503,14 +1511,34 @@
       ]
     },
     {
-      "path": "src/drift_watcher_seq005_v003_d0317__drift_detection_for_live_llm_lc_pulse_telemetry_prompt.py",
+      "path": "src/copilot_prompt_manager_seq020_v002_d0321__audits_and_manages_all_injected_lc_implement_all_18.py",
+      "name": "copilot_prompt_manager",
+      "seq": 20,
+      "ver": 2,
+      "date": "0321",
+      "desc": "audits_and_manages_all_injected",
+      "intent": "implement_all_18",
+      "tokens": 4488,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0321",
+          "desc": "audits_and_manages_all_injected",
+          "intent": "implement_all_18",
+          "tokens": 4488,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/drift_watcher_seq005_v004_d0321__drift_detection_for_live_llm_lc_implement_all_18.py",
       "name": "drift_watcher",
       "seq": 5,
-      "ver": 3,
-      "date": "0317",
+      "ver": 4,
+      "date": "0321",
       "desc": "drift_detection_for_live_llm",
-      "intent": "pulse_telemetry_prompt",
-      "tokens": 988,
+      "intent": "implement_all_18",
+      "tokens": 1117,
       "history": [
         {
           "ver": 1,
@@ -1534,18 +1562,26 @@
           "intent": "pulse_telemetry_prompt",
           "action": "mutated",
           "tokens": 988
+        },
+        {
+          "ver": 4,
+          "date": "0321",
+          "desc": "drift_detection_for_live_llm",
+          "intent": "implement_all_18",
+          "action": "mutated",
+          "tokens": 1117
         }
       ]
     },
     {
-      "path": "src/dynamic_prompt_seq017_v003_d0317__steers_copilot_cot_from_live_lc_wire_narratives_self.py",
+      "path": "src/dynamic_prompt_seq017_v004_d0321__steers_copilot_cot_from_live_lc_implement_all_18.py",
       "name": "dynamic_prompt",
       "seq": 17,
-      "ver": 3,
-      "date": "0317",
+      "ver": 4,
+      "date": "0321",
       "desc": "steers_copilot_cot_from_live",
-      "intent": "wire_narratives_self",
-      "tokens": 2947,
+      "intent": "implement_all_18",
+      "tokens": 3460,
       "history": [
         {
           "ver": 2,
@@ -1562,6 +1598,34 @@
           "intent": "wire_narratives_self",
           "action": "mutated",
           "tokens": 2947
+        },
+        {
+          "ver": 4,
+          "date": "0321",
+          "desc": "steers_copilot_cot_from_live",
+          "intent": "implement_all_18",
+          "action": "mutated",
+          "tokens": 3460
+        }
+      ]
+    },
+    {
+      "path": "src/file_consciousness_seq019_v002_d0321__ast_derived_function_consciousness_dating_lc_implement_all_18.py",
+      "name": "file_consciousness",
+      "seq": 19,
+      "ver": 2,
+      "date": "0321",
+      "desc": "ast_derived_function_consciousness_dating",
+      "intent": "implement_all_18",
+      "tokens": 4343,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0321",
+          "desc": "ast_derived_function_consciousness_dating",
+          "intent": "implement_all_18",
+          "tokens": 4343,
+          "action": "registered"
         }
       ]
     },
@@ -1602,14 +1666,14 @@
       ]
     },
     {
-      "path": "src/logger_seq003_v003_d0317__core_keystroke_telemetry_logger_lc_pulse_telemetry_prompt.py",
+      "path": "src/logger_seq003_v004_d0321__core_keystroke_telemetry_logger_lc_implement_all_18.py",
       "name": "logger",
       "seq": 3,
-      "ver": 3,
-      "date": "0317",
+      "ver": 4,
+      "date": "0321",
       "desc": "core_keystroke_telemetry_logger",
-      "intent": "pulse_telemetry_prompt",
-      "tokens": 1539,
+      "intent": "implement_all_18",
+      "tokens": 1542,
       "history": [
         {
           "ver": 1,
@@ -1633,6 +1697,14 @@
           "intent": "pulse_telemetry_prompt",
           "action": "mutated",
           "tokens": 1539
+        },
+        {
+          "ver": 4,
+          "date": "0321",
+          "desc": "core_keystroke_telemetry_logger",
+          "intent": "implement_all_18",
+          "action": "mutated",
+          "tokens": 1542
         }
       ]
     },
@@ -1672,14 +1744,34 @@
       ]
     },
     {
-      "path": "src/operator_stats_seq008_v005_d0318__persistent_markdown_memory_file_lc_self_calibrating_cognitive.py",
+      "path": "src/mutation_scorer_seq021_v002_d0321__mutation_scorer_correlates_prompt_mutations_lc_implement_all_18.py",
+      "name": "mutation_scorer",
+      "seq": 21,
+      "ver": 2,
+      "date": "0321",
+      "desc": "mutation_scorer_correlates_prompt_mutations",
+      "intent": "implement_all_18",
+      "tokens": 1611,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0321",
+          "desc": "mutation_scorer_correlates_prompt_mutations",
+          "intent": "implement_all_18",
+          "tokens": 1611,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/operator_stats_seq008_v006_d0321__persistent_markdown_memory_file_lc_implement_all_18.py",
       "name": "operator_stats",
       "seq": 8,
-      "ver": 5,
-      "date": "0318",
+      "ver": 6,
+      "date": "0321",
       "desc": "persistent_markdown_memory_file",
-      "intent": "self_calibrating_cognitive",
-      "tokens": 4639,
+      "intent": "implement_all_18",
+      "tokens": 4807,
       "history": [
         {
           "ver": 1,
@@ -1719,18 +1811,26 @@
           "intent": "self_calibrating_cognitive",
           "action": "mutated",
           "tokens": 4639
+        },
+        {
+          "ver": 6,
+          "date": "0321",
+          "desc": "persistent_markdown_memory_file",
+          "intent": "implement_all_18",
+          "action": "mutated",
+          "tokens": 4807
         }
       ]
     },
     {
-      "path": "src/pulse_harvest_seq015_v002_d0317__pulse_harvest_pairs_prompts_to_lc_pulse_telemetry_prompt.py",
+      "path": "src/pulse_harvest_seq015_v003_d0321__pulse_harvest_pairs_prompts_to_lc_implement_all_18.py",
       "name": "pulse_harvest",
       "seq": 15,
-      "ver": 2,
-      "date": "0317",
+      "ver": 3,
+      "date": "0321",
       "desc": "pulse_harvest_pairs_prompts_to",
-      "intent": "pulse_telemetry_prompt",
-      "tokens": 2009,
+      "intent": "implement_all_18",
+      "tokens": 2276,
       "history": [
         {
           "ver": 2,
@@ -1739,6 +1839,14 @@
           "intent": "pulse_telemetry_prompt",
           "tokens": 2009,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0321",
+          "desc": "pulse_harvest_pairs_prompts_to",
+          "intent": "implement_all_18",
+          "action": "mutated",
+          "tokens": 2276
         }
       ]
     },
@@ -1787,14 +1895,14 @@
       ]
     },
     {
-      "path": "src/query_memory_seq010_v003_d0317__recurring_query_detector_unsaid_thought_lc_pulse_telemetry_prompt.py",
+      "path": "src/query_memory_seq010_v004_d0321__recurring_query_detector_unsaid_thought_lc_implement_all_18.py",
       "name": "query_memory",
       "seq": 10,
-      "ver": 3,
-      "date": "0317",
+      "ver": 4,
+      "date": "0321",
       "desc": "recurring_query_detector_unsaid_thought",
-      "intent": "pulse_telemetry_prompt",
-      "tokens": 1122,
+      "intent": "implement_all_18",
+      "tokens": 2308,
       "history": [
         {
           "ver": 2,
@@ -1811,6 +1919,14 @@
           "intent": "pulse_telemetry_prompt",
           "action": "mutated",
           "tokens": 1122
+        },
+        {
+          "ver": 4,
+          "date": "0321",
+          "desc": "recurring_query_detector_unsaid_thought",
+          "intent": "implement_all_18",
+          "action": "mutated",
+          "tokens": 2308
         }
       ]
     },
@@ -1850,14 +1966,34 @@
       ]
     },
     {
-      "path": "src/rework_detector_seq009_v004_d0317__measures_ai_answer_quality_from_lc_pulse_telemetry_prompt.py",
+      "path": "src/rework_backfill_seq022_v002_d0321__reconstructs_historical_rework_scores_from_lc_implement_all_18.py",
+      "name": "rework_backfill",
+      "seq": 22,
+      "ver": 2,
+      "date": "0321",
+      "desc": "reconstructs_historical_rework_scores_from",
+      "intent": "implement_all_18",
+      "tokens": 1198,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0321",
+          "desc": "reconstructs_historical_rework_scores_from",
+          "intent": "implement_all_18",
+          "tokens": 1198,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/rework_detector_seq009_v005_d0321__measures_ai_answer_quality_from_lc_implement_all_18.py",
       "name": "rework_detector",
       "seq": 9,
-      "ver": 4,
-      "date": "0317",
+      "ver": 5,
+      "date": "0321",
       "desc": "measures_ai_answer_quality_from",
-      "intent": "pulse_telemetry_prompt",
-      "tokens": 1047,
+      "intent": "implement_all_18",
+      "tokens": 1083,
       "history": [
         {
           "ver": 2,
@@ -1882,18 +2018,26 @@
           "intent": "pulse_telemetry_prompt",
           "action": "mutated",
           "tokens": 1047
+        },
+        {
+          "ver": 5,
+          "date": "0321",
+          "desc": "measures_ai_answer_quality_from",
+          "intent": "implement_all_18",
+          "action": "mutated",
+          "tokens": 1083
         }
       ]
     },
     {
-      "path": "src/self_fix_seq013_v003_d0317__one_shot_self_fix_analyzer_lc_pulse_telemetry_prompt.py",
+      "path": "src/self_fix_seq013_v004_d0321__one_shot_self_fix_analyzer_lc_implement_all_18.py",
       "name": "self_fix",
       "seq": 13,
-      "ver": 3,
-      "date": "0317",
+      "ver": 4,
+      "date": "0321",
       "desc": "one_shot_self_fix_analyzer",
-      "intent": "pulse_telemetry_prompt",
-      "tokens": 3205,
+      "intent": "implement_all_18",
+      "tokens": 4354,
       "history": [
         {
           "ver": 2,
@@ -1910,6 +2054,34 @@
           "intent": "pulse_telemetry_prompt",
           "action": "mutated",
           "tokens": 3205
+        },
+        {
+          "ver": 4,
+          "date": "0321",
+          "desc": "one_shot_self_fix_analyzer",
+          "intent": "implement_all_18",
+          "action": "mutated",
+          "tokens": 4354
+        }
+      ]
+    },
+    {
+      "path": "src/session_handoff_seq023_v002_d0321__session_handoff_summary_generator_lc_implement_all_18.py",
+      "name": "session_handoff",
+      "seq": 23,
+      "ver": 2,
+      "date": "0321",
+      "desc": "session_handoff_summary_generator",
+      "intent": "implement_all_18",
+      "tokens": 1569,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0321",
+          "desc": "session_handoff_summary_generator",
+          "intent": "implement_all_18",
+          "tokens": 1569,
+          "action": "registered"
         }
       ]
     },
@@ -1969,14 +2141,14 @@
       ]
     },
     {
-      "path": "src/timestamp_utils_seq001_v003_d0317__millisecond_epoch_timestamp_utility_lc_pulse_telemetry_prompt.py",
+      "path": "src/timestamp_utils_seq001_v004_d0321__millisecond_epoch_timestamp_utility_lc_trigger_pigeon_rename.py",
       "name": "timestamp_utils",
       "seq": 1,
-      "ver": 3,
-      "date": "0317",
+      "ver": 4,
+      "date": "0321",
       "desc": "millisecond_epoch_timestamp_utility",
-      "intent": "pulse_telemetry_prompt",
-      "tokens": 147,
+      "intent": "trigger_pigeon_rename",
+      "tokens": 156,
       "history": [
         {
           "ver": 1,
@@ -2000,6 +2172,14 @@
           "intent": "pulse_telemetry_prompt",
           "action": "mutated",
           "tokens": 147
+        },
+        {
+          "ver": 4,
+          "date": "0321",
+          "desc": "millisecond_epoch_timestamp_utility",
+          "intent": "trigger_pigeon_rename",
+          "action": "mutated",
+          "tokens": 156
         }
       ]
     },

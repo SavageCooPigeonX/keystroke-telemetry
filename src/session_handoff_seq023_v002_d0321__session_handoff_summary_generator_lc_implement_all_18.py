@@ -12,9 +12,11 @@ Writes docs/session_handoffs/YYYY-MM-DD_HHMM.md with:
 Zero LLM calls. Safe to run repeatedly — deduplicates by minute bucket.
 """
 # ── pigeon ────────────────────────────────────
-# SEQ: 023 | VER: v001 | ~130 lines
+# SEQ: 023 | VER: v002 | 186 lines | ~1,569 tokens
 # DESC:   session_handoff_summary_generator
-# INTENT: session_handoff
+# INTENT: implement_all_18
+# LAST:   2026-03-21 @ 068687f
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None

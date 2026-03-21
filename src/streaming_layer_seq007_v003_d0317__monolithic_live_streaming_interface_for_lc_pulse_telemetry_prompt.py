@@ -1,4 +1,18 @@
 # @pigeon: seq=007 | role=streaming_layer | depends=[logger,models,context_budget,drift_watcher,resistance_bridge] | exports=[StreamingTelemetryServer,LiveDashboard,EventAggregator,SessionReplay,AlertEngine,MetricsCollector,StreamFormatter,ConnectionPool] | tokens=~12000 | coupling=0.9
+
+def _load_src(pattern: str, *symbols):
+    """Dynamic pigeon import — finds latest src/ file matching glob."""
+    import importlib.util as _ilu, glob as _g
+    matches = sorted(_g.glob(f'src/{pattern}'))
+    if not matches:
+        raise ImportError(f'No src/ file matches {pattern!r}')
+    spec = _ilu.spec_from_file_location('_dyn', matches[-1])
+    mod = _ilu.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    if len(symbols) == 1:
+        return getattr(mod, symbols[0])
+    return tuple(getattr(mod, s) for s in symbols)
+
 """streaming_layer_seq007_v001.py — MONOLITHIC live streaming interface for keystroke telemetry.
 
 This file is INTENTIONALLY oversized to test the Pigeon Code Compiler.
@@ -43,14 +57,11 @@ from typing import Optional, Callable
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from collections import deque
 
-from src.timestamp_utils_seq001_v003_d0317__millisecond_epoch_timestamp_utility_lc_pulse_telemetry_prompt import _now_ms
-from src.models_seq002_v003_d0317__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt import KeyEvent, MessageDraft
-from src.logger_seq003_v003_d0317__core_keystroke_telemetry_logger_lc_pulse_telemetry_prompt import TelemetryLogger, SCHEMA_VERSION
-from src.context_budget_seq004_v007_d0317__context_budget_scorer_for_llm_lc_pulse_telemetry_prompt import score_context_budget, estimate_tokens
-from src.resistance_bridge_seq006_v003_d0317__bridge_between_keystroke_telemetry_and_lc_pulse_telemetry_prompt import HesitationAnalyzer
-
-
-# ═══════════════════════════════════════════════════════════════════
+_now_ms
+from src = _load_src('timestamp_utils_seq001*.py', '_now_ms\nfrom src').models_seq002_v003_d0317__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt import KeyEvent, MessageDraft
+TelemetryLogger, SCHEMA_VERSION
+from src = _load_src('logger_seq003*.py', 'TelemetryLogger', 'SCHEMA_VERSION\nfrom src').context_budget_seq004_v007_d0317__context_budget_scorer_for_llm_lc_pulse_telemetry_prompt import score_context_budget, estimate_tokens
+HesitationAnalyzer = _load_src('resistance_bridge_seq006*.py', 'HesitationAnalyzer')# ═══════════════════════════════════════════════════════════════════
 # CONSTANTS
 # ═══════════════════════════════════════════════════════════════════
 

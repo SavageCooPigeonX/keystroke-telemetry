@@ -7,10 +7,10 @@ an LLM agent can act on or ignore.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v003 | 108 lines | ~989 tokens
+# SEQ: 005 | VER: v004 | 126 lines | ~1,117 tokens
 # DESC:   drift_detection_for_live_llm
-# INTENT: pulse_telemetry_prompt
-# LAST:   2026-03-17 @ 9e2a305
+# INTENT: implement_all_18
+# LAST:   2026-03-21 @ 068687f
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

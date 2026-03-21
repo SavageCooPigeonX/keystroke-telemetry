@@ -9,13 +9,27 @@
 # ──────────────────────────────────────────────
 from collections import deque
 from dataclasses import dataclass, field, asdict
-from src.timestamp_utils_seq001_v003_d0317__millisecond_epoch_timestamp_utility_lc_pulse_telemetry_prompt import _now_ms
+_now_ms
 from typing import Optional, Callable
 import statistics
 import time
 import uuid
 
-class AlertEngine:
+def _load_src(pattern: str, *symbols):
+    """Dynamic pigeon import — finds latest src/ file matching glob."""
+    import importlib.util as _ilu, glob as _g
+    matches = sorted(_g.glob(f'src/{pattern}'))
+    if not matches:
+        raise ImportError(f'No src/ file matches {pattern!r}')
+    spec = _ilu.spec_from_file_location('_dyn', matches[-1])
+    mod = _ilu.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    if len(symbols) == 1:
+        return getattr(mod, symbols[0])
+    return tuple(getattr(mod, s) for s in symbols)
+
+
+class AlertEngine = _load_src('timestamp_utils_seq001*.py', '_now_ms\nfrom typing import Optional', 'Callable\nimport statistics\nimport time\nimport uuid\n\nclass AlertEngine'):
     """Detects anomalies in the event stream and fires alerts."""
 
     def __init__(self, thresholds: dict = None):

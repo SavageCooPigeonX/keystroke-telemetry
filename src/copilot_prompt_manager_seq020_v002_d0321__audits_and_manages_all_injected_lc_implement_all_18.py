@@ -1,11 +1,11 @@
 """Copilot prompt manager — audits and manages all injected prompt blocks."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 020 | VER: v001 | ~190 lines | ~1,900 tokens
-# DESC:   manage_copilot_prompt_blocks_and
-# INTENT: wire_prompt_management
-# LAST:   2026-03-21
-# SESSIONS: 0
+# SEQ: 020 | VER: v002 | 480 lines | ~4,488 tokens
+# DESC:   audits_and_manages_all_injected
+# INTENT: implement_all_18
+# LAST:   2026-03-21 @ 068687f
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None

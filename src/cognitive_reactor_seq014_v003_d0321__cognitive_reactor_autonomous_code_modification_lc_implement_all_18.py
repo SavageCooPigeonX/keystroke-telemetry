@@ -12,10 +12,10 @@ No human trigger. The 60-second background flush IS the input.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 014 | VER: v002 | 342 lines | ~2,844 tokens
+# SEQ: 014 | VER: v003 | 416 lines | ~3,529 tokens
 # DESC:   cognitive_reactor_autonomous_code_modification
-# INTENT: pulse_telemetry_prompt
-# LAST:   2026-03-17 @ 9e2a305
+# INTENT: implement_all_18
+# LAST:   2026-03-21 @ 068687f
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

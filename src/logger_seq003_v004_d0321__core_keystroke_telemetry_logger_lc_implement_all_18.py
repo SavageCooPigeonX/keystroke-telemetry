@@ -8,10 +8,10 @@ Each event is emitted as a self-contained LLM-compatible JSON block
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v003 | 163 lines | ~1,541 tokens
+# SEQ: 003 | VER: v004 | 163 lines | ~1,540 tokens
 # DESC:   core_keystroke_telemetry_logger
-# INTENT: pulse_telemetry_prompt
-# LAST:   2026-03-17 @ 9e2a305
+# INTENT: implement_all_18
+# LAST:   2026-03-21 @ 068687f
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
@@ -26,11 +26,25 @@ from pathlib import Path
 from dataclasses import asdict
 from typing import Optional
 
-from src.timestamp_utils_seq001_v003_d0317__millisecond_epoch_timestamp_utility_lc_pulse_telemetry_prompt import _now_ms
-from src.models_seq002_v003_d0317__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt import KeyEvent, MessageDraft
-from src.operator_stats_seq008_v005_d0318__persistent_markdown_memory_file_lc_self_calibrating_cognitive import OperatorStats
+_now_ms
+from src = _load_src('timestamp_utils_seq001*.py', '_now_ms\nfrom src').models_seq002_v003_d0317__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt import KeyEvent, MessageDraft
 
-SCHEMA_VERSION = "keystroke_telemetry/v2"
+def _load_src(pattern: str, *symbols):
+    """Dynamic pigeon import — finds latest src/ file matching glob."""
+    import importlib.util as _ilu, glob as _g
+    matches = sorted(_g.glob(f'src/{pattern}'))
+    if not matches:
+        raise ImportError(f'No src/ file matches {pattern!r}')
+    spec = _ilu.spec_from_file_location('_dyn', matches[-1])
+    mod = _ilu.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    if len(symbols) == 1:
+        return getattr(mod, symbols[0])
+    return tuple(getattr(mod, s) for s in symbols)
+
+OperatorStats
+
+SCHEMA_VERSION = _load_src('operator_stats_seq008*.py', 'OperatorStats\n\nSCHEMA_VERSION')= "keystroke_telemetry/v2"
 
 
 class TelemetryLogger:

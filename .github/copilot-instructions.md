@@ -154,16 +154,16 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-21 - 243 message(s) in profile*
+*Auto-updated 2026-03-21 - 252 message(s) in profile*
 
-**Dominant: `frustrated`** | Submit: 18% | WPM: 687163.3 | Del: 32.9% | Hes: 0.538
+**Dominant: `frustrated`** | Submit: 17% | WPM: 662778.9 | Del: 32.5% | Hes: 0.536
 
 **Behavioral tunes for this session:**
 - **frustrated** -> concise answers, 2-3 options max, bullets, lead with solution
 - Deletion ratio > 30% -> high rethinking; consider asking "what specifically do you need?"
-- Submit rate 18% -> messages often abandoned; check if previous answer landed before going deep
+- Submit rate 17% -> messages often abandoned; check if previous answer landed before going deep
 - Hesitation > 0.4 -> uncertain operator; proactively offer alternatives or examples
-- Active hours: 0:00(17), 2:00(3), 3:00(6), 4:00(27), 5:00(18), 6:00(38), 7:00(45), 15:00(7), 16:00(11), 17:00(20), 20:00(2), 21:00(9), 22:00(26), 23:00(14)
+- Active hours: 0:00(17), 2:00(3), 3:00(6), 4:00(27), 5:00(18), 6:00(38), 7:00(45), 15:00(7), 16:00(11), 17:00(21), 18:00(8), 20:00(2), 21:00(9), 22:00(26), 23:00(14)
 <!-- /pigeon:operator-state -->
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
@@ -347,7 +347,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 ### Full Module Index
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-21 - 91 modules tracked | 0 touched this commit*
+*Auto-updated 2026-03-21 - 96 modules tracked | 1 touched this commit*
 
 **pigeon_compiler/bones/** - 5 module(s)
 
@@ -441,27 +441,32 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 |---|---|---:|
 | `deepseek_plan_prompt_seq004*` | build and send deepseek cut | ~2,407 |
 
-**src/** - 17 module(s)
+**src/** - 22 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
-| `timestamp_utils_seq001*` | millisecond epoch timestamp utility | ~147 |
+| `timestamp_utils_seq001*` | millisecond epoch timestamp utility | ~156 |
 | `models_seq002*` | dataclasses for keystroke events and | ~379 |
-| `logger_seq003*` | core keystroke telemetry logger | ~1,539 |
+| `logger_seq003*` | core keystroke telemetry logger | ~1,542 |
 | `context_budget_seq004*` | context budget scorer for llm | ~703 |
-| `drift_watcher_seq005*` | drift detection for live llm | ~988 |
+| `drift_watcher_seq005*` | drift detection for live llm | ~1,117 |
 | `resistance_bridge_seq006*` | bridge between keystroke telemetry and | ~1,222 |
 | `streaming_layer_seq007*` | monolithic live streaming interface for | ~10,189 |
-| `operator_stats_seq008*` | persistent markdown memory file | ~4,639 |
-| `rework_detector_seq009*` | measures ai answer quality from | ~1,047 |
-| `query_memory_seq010*` | recurring query detector unsaid thought | ~1,122 |
+| `operator_stats_seq008*` | persistent markdown memory file | ~4,807 |
+| `rework_detector_seq009*` | measures ai answer quality from | ~1,083 |
+| `query_memory_seq010*` | recurring query detector unsaid thought | ~2,308 |
 | `file_heat_map_seq011*` | tracks cognitive load per module | ~1,347 |
 | `push_narrative_seq012*` | generate per push narrative each | ~2,049 |
-| `self_fix_seq013*` | one shot self fix analyzer | ~3,205 |
-| `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~2,844 |
-| `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,009 |
-| `dynamic_prompt_seq017*` | steers copilot cot from live | ~2,947 |
+| `self_fix_seq013*` | one shot self fix analyzer | ~4,354 |
+| `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~3,529 |
+| `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,276 |
+| `dynamic_prompt_seq017*` | steers copilot cot from live | ~3,460 |
 | `task_queue_seq018*` | copilot driven task tracking linked | ~1,608 |
+| `file_consciousness_seq019*` | ast derived function consciousness dating | ~4,343 |
+| `copilot_prompt_manager_seq020*` | audits and manages all injected | ~4,488 |
+| `mutation_scorer_seq021*` | mutation scorer correlates prompt mutations | ~1,611 |
+| `rework_backfill_seq022*` | reconstructs historical rework scores from | ~1,198 |
+| `session_handoff_seq023*` | session handoff summary generator | ~1,569 |
 
 **src/cognitive/** - 3 module(s)
 
@@ -499,6 +504,10 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 | File | Folder |
 |---|---|
+| `deep_test.py` | `(root)` |
+| `stress_test.py` | `(root)` |
+| `test_all.py` | `(root)` |
+| `test_public_release.py` | `(root)` |
 | `chat_composition_analyzer.py` | `client` |
 | `chat_response_reader.py` | `client` |
 | `composition_recon.py` | `client` |

@@ -1,54 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-18T23:42:46.655548+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-18T23:43:46.655057+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-18T23:52:35.406524+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-18T23:53:17.820948+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-18T23:54:15.491252+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-18T23:55:15.203979+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-18T23:56:15.219326+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-18T23:57:15.252258+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-18T23:58:16.151022+00:00",
       "text": "bg:copilot-instructions.md",
       "fingerprint": "bgcopilotinstructionsmd",
@@ -2996,6 +2948,54 @@
     },
     {
       "ts": "2026-03-21T15:58:24.228106+00:00",
+      "text": "bg:copilot_prompt_mutations.json",
+      "fingerprint": "bgcopilot_prompt_mutationsjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-21T16:00:44.035690+00:00",
+      "text": "bg:copilot_prompt_mutations.json",
+      "fingerprint": "bgcopilot_prompt_mutationsjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-21T16:05:12.738003+00:00",
+      "text": "bg:copilot_prompt_mutations.json",
+      "fingerprint": "bgcopilot_prompt_mutationsjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-21T16:05:50.767511+00:00",
+      "text": "bg:copilot_prompt_mutations.json",
+      "fingerprint": "bgcopilot_prompt_mutationsjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-21T16:06:18.648289+00:00",
+      "text": "bg:copilot_prompt_mutations.json",
+      "fingerprint": "bgcopilot_prompt_mutationsjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-21T16:19:25.183094+00:00",
+      "text": "bg:copilot_prompt_mutations.json",
+      "fingerprint": "bgcopilot_prompt_mutationsjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-21T16:20:09.884430+00:00",
+      "text": "bg:copilot_prompt_mutations.json",
+      "fingerprint": "bgcopilot_prompt_mutationsjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-21T16:21:24.038020+00:00",
+      "text": "bg:copilot_prompt_mutations.json",
+      "fingerprint": "bgcopilot_prompt_mutationsjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-21T16:21:43.728802+00:00",
       "text": "bg:copilot_prompt_mutations.json",
       "fingerprint": "bgcopilot_prompt_mutationsjson",
       "submitted": true

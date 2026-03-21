@@ -7,14 +7,28 @@
 # LAST:   2026-03-15 @ caac48c
 # SESSIONS: 1
 # ──────────────────────────────────────────────
-from src.logger_seq003_v003_d0317__core_keystroke_telemetry_logger_lc_pulse_telemetry_prompt import TelemetryLogger, SCHEMA_VERSION
-from src.timestamp_utils_seq001_v003_d0317__millisecond_epoch_timestamp_utility_lc_pulse_telemetry_prompt import _now_ms
+TelemetryLogger, SCHEMA_VERSION
+from src = _load_src('logger_seq003*.py', 'TelemetryLogger', 'SCHEMA_VERSION\nfrom src').timestamp_utils_seq001_v004_d0321__millisecond_epoch_timestamp_utility_lc_trigger_pigeon_rename import _now_ms
 from typing import Optional, Callable
 import json
 import queue as _queue_mod
 import threading
 import time
 import uuid
+
+def _load_src(pattern: str, *symbols):
+    """Dynamic pigeon import — finds latest src/ file matching glob."""
+    import importlib.util as _ilu, glob as _g
+    matches = sorted(_g.glob(f'src/{pattern}'))
+    if not matches:
+        raise ImportError(f'No src/ file matches {pattern!r}')
+    spec = _ilu.spec_from_file_location('_dyn', matches[-1])
+    mod = _ilu.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    if len(symbols) == 1:
+        return getattr(mod, symbols[0])
+    return tuple(getattr(mod, s) for s in symbols)
+
 
 class ConnectionPool:
     """Manages connected streaming clients."""

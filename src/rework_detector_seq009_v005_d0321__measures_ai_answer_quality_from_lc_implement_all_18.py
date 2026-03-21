@@ -8,11 +8,11 @@ the coaching prompt so the AI learns its own failure patterns.
 Zero LLM calls. Pure signal math.
 """
 # ── pigeon ────────────────────────────────────
-# SEQ: 009 | VER: v004 | 111 lines | ~1,047 tokens
+# SEQ: 009 | VER: v005 | 115 lines | ~1,083 tokens
 # DESC:   measures_ai_answer_quality_from
-# INTENT: pulse_telemetry_prompt
-# LAST:   2026-03-17 @ 9e2a305
-# SESSIONS: 3
+# INTENT: implement_all_18
+# LAST:   2026-03-21 @ 068687f
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None
