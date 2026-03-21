@@ -38,6 +38,25 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+
+def _load_dotenv() -> None:
+    """Load .env from repo root into os.environ (no external deps)."""
+    env_path = Path(__file__).resolve().parent.parent / '.env'
+    if not env_path.exists():
+        return
+    for line in env_path.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#') or '=' not in line:
+            continue
+        key, _, val = line.partition('=')
+        key = key.strip()
+        val = val.strip().strip('"').strip("'")
+        if key and key not in os.environ:
+            os.environ[key] = val
+
+
+_load_dotenv()
+
 from pigeon_compiler.rename_engine import (
     extract_desc_slug,
     load_registry,
