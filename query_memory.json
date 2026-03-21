@@ -1,12 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-18T23:58:16.151022+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-18T23:59:15.191794+00:00",
       "text": "bg:copilot-instructions.md",
       "fingerprint": "bgcopilotinstructionsmd",
@@ -2996,6 +2990,12 @@
     },
     {
       "ts": "2026-03-21T16:21:43.728802+00:00",
+      "text": "bg:copilot_prompt_mutations.json",
+      "fingerprint": "bgcopilot_prompt_mutationsjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-21T16:23:27.741430+00:00",
       "text": "bg:copilot_prompt_mutations.json",
       "fingerprint": "bgcopilot_prompt_mutationsjson",
       "submitted": true

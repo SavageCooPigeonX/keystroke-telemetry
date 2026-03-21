@@ -60,7 +60,7 @@ from collections import deque
 _now_ms
 from src = _load_src('timestamp_utils_seq001*.py', '_now_ms\nfrom src').models_seq002_v003_d0317__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt import KeyEvent, MessageDraft
 TelemetryLogger, SCHEMA_VERSION
-from src = _load_src('logger_seq003*.py', 'TelemetryLogger', 'SCHEMA_VERSION\nfrom src').context_budget_seq004_v007_d0317__context_budget_scorer_for_llm_lc_pulse_telemetry_prompt import score_context_budget, estimate_tokens
+from src = _load_src('logger_seq003*.py', 'TelemetryLogger', 'SCHEMA_VERSION\nfrom src').context_budget_seq004_v008_d0321__context_budget_scorer_for_llm_lc_fire_full_post import score_context_budget, estimate_tokens
 HesitationAnalyzer = _load_src('resistance_bridge_seq006*.py', 'HesitationAnalyzer')# ═══════════════════════════════════════════════════════════════════
 # CONSTANTS
 # ═══════════════════════════════════════════════════════════════════

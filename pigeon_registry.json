@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-21T16:21:53.678242+00:00",
+  "generated": "2026-03-21T22:41:55.165524+00:00",
   "total": 96,
   "files": [
     {
@@ -1444,14 +1444,14 @@
       ]
     },
     {
-      "path": "src/context_budget_seq004_v007_d0317__context_budget_scorer_for_llm_lc_pulse_telemetry_prompt.py",
+      "path": "src/context_budget_seq004_v008_d0321__context_budget_scorer_for_llm_lc_fire_full_post.py",
       "name": "context_budget",
       "seq": 4,
-      "ver": 7,
-      "date": "0317",
+      "ver": 8,
+      "date": "0321",
       "desc": "context_budget_scorer_for_llm",
-      "intent": "pulse_telemetry_prompt",
-      "tokens": 703,
+      "intent": "fire_full_post",
+      "tokens": 715,
       "history": [
         {
           "ver": 1,
@@ -1507,6 +1507,14 @@
           "intent": "pulse_telemetry_prompt",
           "action": "mutated",
           "tokens": 703
+        },
+        {
+          "ver": 8,
+          "date": "0321",
+          "desc": "context_budget_scorer_for_llm",
+          "intent": "fire_full_post",
+          "action": "mutated",
+          "tokens": 715
         }
       ]
     },

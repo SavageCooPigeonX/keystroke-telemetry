@@ -1821,33 +1821,33 @@
   },
   "context_budget": {
     "personality": "veteran",
-    "version": 7,
-    "tokens": 703,
+    "version": 8,
+    "tokens": 715,
     "partners": [
       {
         "name": "streaming_layer",
-        "score": 0.32,
+        "score": 0.31,
         "reason": "1 shared imports"
       },
       {
         "name": "streaming_layer_metrics",
-        "score": 0.29,
+        "score": 0.28,
         "reason": "1 shared imports"
       },
       {
         "name": "operator_stats",
-        "score": 0.18,
-        "reason": "0 shared imports, both high-churn (v7+v6)"
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v8+v6)"
       },
       {
         "name": "push_narrative",
-        "score": 0.17,
-        "reason": "0 shared imports, both high-churn (v7+v5)"
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v8+v5)"
       },
       {
         "name": "rework_detector",
-        "score": 0.17,
-        "reason": "0 shared imports, both high-churn (v7+v5)"
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v8+v5)"
       }
     ],
     "fears": [],
@@ -2398,7 +2398,7 @@
       "file may not exist",
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.552
+    "avg_hes": 0.534
   },
   "self_fix": {
     "personality": "stable",
