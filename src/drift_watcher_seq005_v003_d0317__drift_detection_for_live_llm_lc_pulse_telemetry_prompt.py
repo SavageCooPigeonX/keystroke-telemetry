@@ -19,10 +19,28 @@ an LLM agent can act on or ignore.
 # EDIT_WHY:  None
 # ── /pulse ──
 
+import glob as _glob
+import importlib.util
 import json
 import os
 from pathlib import Path
-from src.context_budget_seq004_v007_d0317__context_budget_scorer_for_llm_lc_pulse_telemetry_prompt import score_context_budget, estimate_tokens
+
+
+def _load_context_budget():
+    matches = sorted(_glob.glob('src/context_budget_seq004*.py'))
+    if not matches:
+        raise ImportError('No src/context_budget_seq004*.py found')
+    spec = importlib.util.spec_from_file_location('_cb', matches[-1])
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.score_context_budget, mod.estimate_tokens
+
+
+try:
+    score_context_budget, estimate_tokens = _load_context_budget()
+except ImportError:
+    def score_context_budget(*a, **kw): return {}  # type: ignore
+    def estimate_tokens(*a, **kw): return 0  # type: ignore
 
 # Inline dependency line-count lookup (avoids AST — just wc -l)
 def _line_count(path: Path) -> int:

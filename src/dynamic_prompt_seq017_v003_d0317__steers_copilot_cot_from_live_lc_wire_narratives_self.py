@@ -171,6 +171,45 @@ def _gaps(root):
                  and not q.get('fingerprint', '').startswith('bg'))
     return [{'q': f, 'n': n} for f, n in fp.most_common(4) if n >= 2]
 
+def _file_consciousness(root):
+    """Load file consciousness report from cached profiles, including slumber party warnings."""
+    try:
+        fp = root / 'file_profiles.json'
+        if not fp.exists(): return ''
+        profiles = json.loads(fp.read_text('utf-8'))
+        if not profiles: return ''
+        drama = sorted(profiles.items(), key=lambda x: x[1].get('version', 0), reverse=True)[:4]
+        feared = {}
+        for _, p in profiles.items():
+            for f in p.get('fears', []):
+                feared[f] = feared.get(f, 0) + 1
+        top_fears = sorted(feared.items(), key=lambda x: x[1], reverse=True)[:3]
+        lines = ['### File Consciousness', f'*{len(profiles)} modules profiled*']
+        if drama:
+            lines.append('\n**High-drama (most mutations):**')
+            for name, p in drama:
+                partners = p.get('partners', [])
+                top_p = f' \u2194 {partners[0]["name"]}' if partners else ''
+                lines.append(f'- `{name}` v{p["version"]}{top_p}')
+        if top_fears:
+            lines.append('\n**Codebase fears:**')
+            for fear, count in top_fears:
+                lines.append(f'- {fear} ({count} modules)')
+        # Slumber party: surface high-score coupling warnings
+        hot_couples = []
+        for name, p in profiles.items():
+            for partner in p.get('partners', []):
+                if partner.get('score', 0) >= 0.45:
+                    hot_couples.append((name, partner['name'], partner['score'], partner.get('reason', '')))
+        hot_couples.sort(key=lambda x: x[2], reverse=True)
+        if hot_couples:
+            lines.append('\n**Slumber party warnings (high coupling):**')
+            for a, b, score, reason in hot_couples[:3]:
+                lines.append(f'- `{a}` ↔ `{b}` (score={score:.2f}, {reason})')
+        return '\n'.join(lines)
+    except Exception:
+        return ''
+
 _COT = {
     'frustrated': 'Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.',
     'hesitant':   'Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.',
@@ -245,6 +284,10 @@ def build_task_context(root):
         L += ['### Prompt Evolution',
               f'*This prompt has mutated {traj["n"]}x ({traj["l0"]}\u2192{traj["l1"]} lines). '
               f'Features added: {", ".join(traj["feat"]) or "none"}.*', '']
+    # File consciousness — dating profiles + fears
+    cons = _file_consciousness(root)
+    if cons:
+        L += [cons, '']
     L.append('<!-- /pigeon:task-context -->')
     return '\n'.join(L)
 
@@ -254,7 +297,9 @@ def inject_task_context(root):
     if not cp.exists(): return False
     block = build_task_context(root)
     text = cp.read_text(encoding='utf-8')
-    pat = re.compile(r'<!-- pigeon:task-context -->.*?<!-- /pigeon:task-context -->', re.DOTALL)
+    pat = re.compile(
+        r'(?ms)^\s*<!-- pigeon:task-context -->\s*$\n.*?^\s*<!-- /pigeon:task-context -->\s*$',
+    )
     if pat.search(text):
         text = pat.sub(block, text)
     else:

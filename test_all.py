@@ -10,10 +10,26 @@ import os
 # ensure src is importable
 sys.path.insert(0, os.path.dirname(__file__))
 
-from src.logger_seq003_v003_d0317__core_keystroke_telemetry_logger_lc_pulse_telemetry_prompt import TelemetryLogger
-from src.context_budget_seq004_v007_d0317__context_budget_scorer_for_llm_lc_pulse_telemetry_prompt import score_context_budget, estimate_tokens
-from src.drift_watcher_seq005_v003_d0317__drift_detection_for_live_llm_lc_pulse_telemetry_prompt import DriftWatcher
-from src.resistance_bridge_seq006_v003_d0317__bridge_between_keystroke_telemetry_and_lc_pulse_telemetry_prompt import HesitationAnalyzer
+import importlib.util, glob as _glob
+
+
+def _load_src(pattern: str, *symbols):
+    """Load symbol(s) from the first src/ file matching glob pattern."""
+    matches = sorted(_glob.glob(f'src/{pattern}'))
+    if not matches:
+        raise ImportError(f'No src/ file matches {pattern!r}')
+    spec = importlib.util.spec_from_file_location('_dyn', matches[-1])
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    if len(symbols) == 1:
+        return getattr(mod, symbols[0])
+    return tuple(getattr(mod, s) for s in symbols)
+
+
+TelemetryLogger = _load_src('logger_seq003*.py', 'TelemetryLogger')
+score_context_budget, estimate_tokens = _load_src('context_budget_seq004*.py', 'score_context_budget', 'estimate_tokens')
+DriftWatcher = _load_src('drift_watcher_seq005*.py', 'DriftWatcher')
+HesitationAnalyzer = _load_src('resistance_bridge_seq006*.py', 'HesitationAnalyzer')
 
 
 # ─────────────── helpers ───────────────
@@ -204,6 +220,97 @@ def test_resistance_bridge(summary_path: str):
     print("✓ TEST 4 PASSED\n")
 
 
+# ═══════════════ TEST 5: Edit Pairs Pipeline ═══════════════
+def test_edit_pairs_pipeline():
+    """Stamp pulse blocks on 3 temp files, harvest, verify edit_pairs.jsonl entries."""
+    print("=" * 60)
+    print("TEST 5: Edit Pairs (pulse stamp → harvest → edit_pairs.jsonl)")
+    print("=" * 60)
+
+    import tempfile, shutil
+    from pathlib import Path
+
+    stamp_pulse, pair_pulse_to_prompt, read_pulse = _load_src(
+        'pulse_harvest_seq015*.py', 'stamp_pulse', 'pair_pulse_to_prompt', 'read_pulse'
+    )
+
+    tmpdir = Path(tempfile.mkdtemp())
+    try:
+        # Set up minimal repo structure in tmpdir
+        (tmpdir / 'logs').mkdir()
+        (tmpdir / 'src').mkdir()
+
+        # Write a fake prompt_journal entry
+        import json as _json
+        from datetime import datetime, timezone
+        journal_path = tmpdir / 'logs' / 'prompt_journal.jsonl'
+        journal_path.write_text(
+            _json.dumps({'ts': datetime.now(timezone.utc).isoformat(),
+                         'msg': 'test pressure run',
+                         'session_n': 5}) + '\n',
+            encoding='utf-8',
+        )
+
+        # Create 3 temp .py files with pulse blocks
+        PULSE_TEMPLATE = (
+            '"""test module"""\n'
+            '# ── telemetry:pulse ──\n'
+            '# EDIT_TS:   None\n'
+            '# EDIT_HASH: None\n'
+            '# EDIT_WHY:  None\n'
+            '# ── /pulse ──\n'
+            'x = 1\n'
+        )
+        files = []
+        for i in range(3):
+            fp = tmpdir / 'src' / f'test_module_{i}.py'
+            fp.write_text(PULSE_TEMPLATE, encoding='utf-8')
+            files.append(fp)
+
+        # Stamp each file
+        for i, fp in enumerate(files):
+            ok = stamp_pulse(fp, edit_why=f'test edit {i}')
+            assert ok, f'stamp_pulse failed for {fp}'
+            pulse = read_pulse(fp)
+            assert pulse is not None, f'read_pulse returned None for {fp}'
+            assert pulse['edit_why'] == f'test edit {i}'
+            assert pulse['edit_ts'] != 'None'
+            print(f'  ✓ stamped {fp.name}: edit_why={pulse["edit_why"]!r}')
+
+        # Harvest all 3
+        harvested = []
+        for fp in files:
+            record = pair_pulse_to_prompt(tmpdir, fp, cognitive_state='focused')
+            assert record is not None, f'pair_pulse_to_prompt returned None for {fp}'
+            assert record['edit_why'] != 'None', f'edit_why not populated: {record}'
+            assert record['file'].endswith('.py')
+            assert record['session_n'] == 5
+            harvested.append(record)
+            print(f'  ✓ harvested {fp.name}: latency_ms={record["latency_ms"]}')
+
+        # Verify edit_pairs.jsonl was written with 3 entries
+        pairs_path = tmpdir / 'logs' / 'edit_pairs.jsonl'
+        assert pairs_path.exists(), 'edit_pairs.jsonl not created'
+        lines = [l for l in pairs_path.read_text('utf-8').splitlines() if l.strip()]
+        assert len(lines) == 3, f'Expected 3 edit_pairs entries, got {len(lines)}'
+        for line in lines:
+            entry = _json.loads(line)
+            assert entry['edit_why'] not in ('None', None), f'Blank edit_why in stored entry'
+        print(f'  ✓ edit_pairs.jsonl has {len(lines)} entries, all with edit_why populated')
+
+        # Verify pulse blocks are cleared after harvest
+        for fp in files:
+            pulse_after = read_pulse(fp)
+            assert pulse_after is None or pulse_after.get('edit_ts') in ('None', None), \
+                f'Pulse not cleared after harvest: {fp}'
+        print('  ✓ pulse blocks cleared after harvest')
+
+    finally:
+        shutil.rmtree(tmpdir, ignore_errors=True)
+
+    print("✓ TEST 5 PASSED\n")
+
+
 # ═══════════════ RUN ALL ═══════════════
 def main():
     from pathlib import Path
@@ -211,6 +318,7 @@ def main():
     test_context_budget()
     test_drift_watcher()
     test_resistance_bridge(summary_path)
+    test_edit_pairs_pipeline()
 
     print("=" * 60)
     print("ALL TESTS PASSED ✓")
@@ -219,3 +327,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

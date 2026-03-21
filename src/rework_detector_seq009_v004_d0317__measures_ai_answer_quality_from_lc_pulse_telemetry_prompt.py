@@ -63,21 +63,25 @@ def score_rework(post_events: list) -> dict:
             'wpm': wpm, 'verdict': verdict}
 
 
-def record_rework(root: Path, score: dict, query_text: str = '') -> None:
+def record_rework(root: Path, score: dict, query_text: str = '',
+                  response_text: str = '') -> None:
     """Append a rework event to rework_log.json."""
     log_path = root / REWORK_STORE
     try:
         existing = json.loads(log_path.read_text('utf-8')) if log_path.exists() else []
     except Exception:
         existing = []
-    existing.append({
+    entry = {
         'ts':           datetime.now(timezone.utc).isoformat(),
         'verdict':      score['verdict'],
         'rework_score': score['rework_score'],
         'del_ratio':    score['del_ratio'],
         'wpm':          score['wpm'],
         'query_hint':   query_text[:80],
-    })
+    }
+    if response_text:
+        entry['response_hint'] = response_text[:200]
+    existing.append(entry)
     # Keep last 200 events
     log_path.write_text(json.dumps(existing[-200:], indent=2), encoding='utf-8')
 

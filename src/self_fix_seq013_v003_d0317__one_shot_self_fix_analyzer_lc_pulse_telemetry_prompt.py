@@ -8,9 +8,10 @@
 # SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
+# EDIT_TS:   2026-03-21T00:00:00+00:00
+# EDIT_HASH: auto
+# EDIT_WHY:  add auto_apply_import_fixes function
+# EDIT_STATE: harvested
 # ── /pulse ──
 
 import ast
@@ -350,3 +351,123 @@ def write_self_fix_report(root: Path, report: dict, commit_hash: str = '') -> Pa
 
     out_path.write_text('\n'.join(lines), encoding='utf-8')
     return out_path
+
+
+# ── Auto-apply fix for CRITICAL hardcoded imports ─────────────────────────────
+
+_LOAD_SRC_HELPER = '''
+def _load_src(pattern: str, *symbols):
+    """Dynamic pigeon import — finds latest src/ file matching glob."""
+    import importlib.util as _ilu, glob as _g
+    matches = sorted(_g.glob(f'src/{pattern}'))
+    if not matches:
+        raise ImportError(f'No src/ file matches {pattern!r}')
+    spec = _ilu.spec_from_file_location('_dyn', matches[-1])
+    mod = _ilu.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    if len(symbols) == 1:
+        return getattr(mod, symbols[0])
+    return tuple(getattr(mod, s) for s in symbols)
+
+'''.lstrip('\n')
+
+# Pattern: `from src.logger_seq003_v003_d0317__... import TelemetryLogger`
+_HC_FROM_IMPORT = re.compile(
+    r'^(from\s+src\.([\w]+_seq\d+_v\d+_d\d+__[\w]+)\s+import\s+([\w,\s]+))',
+    re.MULTILINE,
+)
+# Pattern: `import src.logger_seq003_v003_d0317__...`
+_HC_BARE_IMPORT = re.compile(
+    r'^(import\s+src\.([\w]+_seq\d+_v\d+_d\d+__[\w]+))',
+    re.MULTILINE,
+)
+
+
+def _seq_base(full_name: str) -> str:
+    """Extract `logger_seq003` from `logger_seq003_v003_d0317__core_logger`."""
+    m = re.match(r'([\w]+_seq\d+)', full_name)
+    return m.group(1) if m else full_name.split('_')[0] + '_seq'
+
+
+def auto_apply_import_fixes(root: Path, dry_run: bool = False) -> list[dict]:
+    """Scan for CRITICAL hardcoded pigeon imports and rewrite them in-place.
+
+    For each `from src.module_seq003_v003_... import Foo, Bar` found:
+      - Replaces the import line with `_load_src('module_seq003*.py', 'Foo', 'Bar')`
+      - Injects `_load_src` helper function if not already present in the file.
+
+    Returns list of {file, old_import, new_expr, applied: bool}.
+    Skips pigeon_compiler/ internals and __init__.py (auto-managed elsewhere).
+    Does NOT commit — caller is responsible for staging.
+    """
+    problems = _scan_hardcoded_pigeon_imports(root)
+    if not problems:
+        return []
+
+    # Group by file
+    by_file: dict[str, list[dict]] = {}
+    for p in problems:
+        by_file.setdefault(p['file'], []).append(p)
+
+    results = []
+    for rel, issues in by_file.items():
+        filepath = root / rel.replace('/', os.sep)
+        try:
+            text = filepath.read_text(encoding='utf-8')
+        except Exception:
+            continue
+
+        needs_helper = '_load_src' not in text
+        changed = False
+        replacements = []
+
+        for m in _HC_FROM_IMPORT.finditer(text):
+            full_line = m.group(1)
+            mod_full = m.group(2)
+            symbols_raw = m.group(3)
+            symbols = [s.strip() for s in symbols_raw.split(',') if s.strip()]
+            base = _seq_base(mod_full)
+            glob_pat = f'{base}*.py'
+            if len(symbols) == 1:
+                new_expr = f'{symbols[0]} = _load_src({glob_pat!r}, {symbols[0]!r})'
+            else:
+                sym_list = ', '.join(f'{s!r}' for s in symbols)
+                lhs = ', '.join(symbols)
+                new_expr = f'{lhs} = _load_src({glob_pat!r}, {sym_list})'
+            replacements.append((full_line, new_expr))
+            results.append({'file': rel, 'old_import': full_line,
+                            'new_expr': new_expr, 'applied': not dry_run})
+
+        for m in _HC_BARE_IMPORT.finditer(text):
+            full_line = m.group(1)
+            mod_full = m.group(2)
+            base = _seq_base(mod_full)
+            glob_pat = f'{base}*.py'
+            alias = base.split('_seq')[0]
+            new_expr = f'{alias} = _load_src({glob_pat!r}, {alias!r})'
+            replacements.append((full_line, new_expr))
+            results.append({'file': rel, 'old_import': full_line,
+                            'new_expr': new_expr, 'applied': not dry_run})
+
+        if dry_run or not replacements:
+            continue
+
+        for old, new in replacements:
+            text = text.replace(old, new, 1)
+            changed = True
+
+        if needs_helper and changed:
+            # Inject helper after imports block (after last `import` line in first 30 lines)
+            lines = text.splitlines(keepends=True)
+            last_import_idx = 0
+            for i, ln in enumerate(lines[:30]):
+                if ln.strip().startswith(('import ', 'from ')):
+                    last_import_idx = i
+            insert_pos = last_import_idx + 1
+            lines.insert(insert_pos, '\n' + _LOAD_SRC_HELPER)
+            text = ''.join(lines)
+
+        if changed:
+            filepath.write_text(text, encoding='utf-8')
+
+    return results

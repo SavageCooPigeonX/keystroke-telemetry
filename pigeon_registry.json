@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-17T07:04:10.274352+00:00",
+  "generated": "2026-03-18T04:39:56.746154+00:00",
   "total": 91,
   "files": [
     {
@@ -1672,14 +1672,14 @@
       ]
     },
     {
-      "path": "src/operator_stats_seq008_v004_d0317__persistent_markdown_memory_file_lc_dynamic_task_context.py",
+      "path": "src/operator_stats_seq008_v005_d0318__persistent_markdown_memory_file_lc_self_calibrating_cognitive.py",
       "name": "operator_stats",
       "seq": 8,
-      "ver": 4,
-      "date": "0317",
+      "ver": 5,
+      "date": "0318",
       "desc": "persistent_markdown_memory_file",
-      "intent": "dynamic_task_context",
-      "tokens": 3616,
+      "intent": "self_calibrating_cognitive",
+      "tokens": 4639,
       "history": [
         {
           "ver": 1,
@@ -1711,6 +1711,14 @@
           "intent": "dynamic_task_context",
           "action": "mutated",
           "tokens": 3616
+        },
+        {
+          "ver": 5,
+          "date": "0318",
+          "desc": "persistent_markdown_memory_file",
+          "intent": "self_calibrating_cognitive",
+          "action": "mutated",
+          "tokens": 4639
         }
       ]
     },

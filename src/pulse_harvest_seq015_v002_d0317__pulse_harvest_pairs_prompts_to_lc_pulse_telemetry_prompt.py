@@ -2,16 +2,18 @@
 
 Each src/ file carries a structured comment block (the "pulse").
 When an LLM edits a file it MUST update the pulse with its edit reason.
-The extension's onDidSave watcher detects pulses, correlates them with
+The extension's onDidSave watcher detects pending pulses, correlates them with
 the most recent prompt_journal entry, and writes paired records to
-logs/edit_pairs.jsonl.  Pigeon post-commit harvests any surviving pulses
-as a failsafe.
+logs/edit_pairs.jsonl. Harvested pulses keep their last metadata in-file and
+are marked so later saves do not duplicate the same edit. Pigeon post-commit
+harvests any surviving pending pulses as a failsafe.
 
 Pulse block format (lives right after the pigeon prompt box):
     # ── telemetry:pulse ──
     # EDIT_TS:   None
     # EDIT_HASH: None
     # EDIT_WHY:  None
+    # EDIT_STATE: idle
     # ── /pulse ──
 
 Paired record schema (edit_pairs.jsonl):
@@ -20,6 +22,7 @@ Paired record schema (edit_pairs.jsonl):
       "prompt_ts":   "<ISO-8601 from journal>",
       "prompt_msg":  "<user message text>",
       "file":        "<relative path>",
+        "edit_ts":     "<ISO-8601 from pulse>",
       "edit_why":    "<LLM-stated reason or 'auto'>",
       "edit_hash":   "<first 8 of sha256 of new content>",
       "latency_ms":  <prompt_ts → save_ts>,
@@ -28,9 +31,10 @@ Paired record schema (edit_pairs.jsonl):
     }
 """
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
+# EDIT_TS:   2026-03-21T04:52:00.0000000Z
+# EDIT_HASH: auto
+# EDIT_WHY:  preserve harvested pulse metadata
+# EDIT_STATE: harvested
 # ── /pulse ──
 import hashlib
 import json
@@ -45,6 +49,7 @@ PULSE_RE = re.compile(
     r'# EDIT_TS:\s*(.*)\n'
     r'# EDIT_HASH:\s*(.*)\n'
     r'# EDIT_WHY:\s*(.*)\n'
+    r'(?:# EDIT_STATE:\s*(.*)\n)?'
     r'# ── /pulse ──$',
     re.MULTILINE,
 )
@@ -54,18 +59,21 @@ PULSE_BLOCK = (
     '# EDIT_TS:   None\n'
     '# EDIT_HASH: None\n'
     '# EDIT_WHY:  None\n'
+    '# EDIT_STATE: idle\n'
     '# ── /pulse ──'
 )
 
 
 def make_pulse_block(edit_ts: str = 'None',
                      edit_hash: str = 'None',
-                     edit_why: str = 'None') -> str:
+                     edit_why: str = 'None',
+                     edit_state: str = 'idle') -> str:
     return (
         '# ── telemetry:pulse ──\n'
         f'# EDIT_TS:   {edit_ts}\n'
         f'# EDIT_HASH: {edit_hash}\n'
         f'# EDIT_WHY:  {edit_why}\n'
+        f'# EDIT_STATE: {edit_state}\n'
         '# ── /pulse ──'
     )
 
@@ -86,20 +94,32 @@ def read_pulse(filepath: Path) -> dict | None:
     if not m:
         return None
     ts_val, hash_val, why_val = m.group(1).strip(), m.group(2).strip(), m.group(3).strip()
+    state_val = (m.group(4) or '').strip()
+    if not state_val:
+        state_val = 'pending' if not (ts_val == 'None' and hash_val == 'None') else 'idle'
     if ts_val == 'None' and hash_val == 'None':
         return None  # pulse is blank — no edit recorded
-    return {'edit_ts': ts_val, 'edit_hash': hash_val, 'edit_why': why_val}
+    if state_val != 'pending':
+        return None
+    return {'edit_ts': ts_val, 'edit_hash': hash_val, 'edit_why': why_val, 'edit_state': state_val}
 
 
 def clear_pulse(filepath: Path) -> bool:
-    """Reset pulse block to None values. Returns True if changed."""
+    """Mark the pulse as harvested while preserving the last metadata."""
     try:
         text = filepath.read_text(encoding='utf-8')
     except (OSError, UnicodeDecodeError):
         return False
-    if not PULSE_RE.search(text):
+    m = PULSE_RE.search(text)
+    if not m:
         return False
-    new_text = PULSE_RE.sub(PULSE_BLOCK, text)
+    ts_val, hash_val, why_val = m.group(1).strip(), m.group(2).strip(), m.group(3).strip()
+    state_val = (m.group(4) or '').strip()
+    if not state_val:
+        state_val = 'pending' if not (ts_val == 'None' and hash_val == 'None') else 'idle'
+    if state_val == 'harvested':
+        return False
+    new_text = PULSE_RE.sub(make_pulse_block(ts_val, hash_val, why_val, 'harvested'), text)
     if new_text == text:
         return False
     filepath.write_text(new_text, encoding='utf-8')
@@ -116,7 +136,7 @@ def stamp_pulse(filepath: Path, edit_why: str = 'auto') -> bool:
         return False
     ts = datetime.now(timezone.utc).isoformat()
     h = content_hash(text)
-    new_block = make_pulse_block(ts, h, edit_why)
+    new_block = make_pulse_block(ts, h, edit_why, 'pending')
     new_text = PULSE_RE.sub(new_block, text)
     filepath.write_text(new_text, encoding='utf-8')
     return True
@@ -201,6 +221,7 @@ def pair_pulse_to_prompt(root: Path, filepath: Path,
         'prompt_ts': prompt_ts,
         'prompt_msg': prompt_msg[:200],  # truncate for storage
         'file': rel,
+        'edit_ts': pulse['edit_ts'],
         'edit_why': pulse['edit_why'],
         'edit_hash': pulse['edit_hash'],
         'latency_ms': latency_ms,

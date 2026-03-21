@@ -334,17 +334,31 @@ def _read_messages(log_path: Path) -> list[list[dict]]:
         if not line.strip():
             continue
         try:
-            events.append(json.loads(line))
+            evt = json.loads(line)
         except json.JSONDecodeError:
             continue
 
+        # The canonical stroke log now includes both VS Code aggregate events and
+        # OS-hook raw key events. Composition replay must only consume raw chat keys.
+        if evt.get('source') == 'vscode':
+            continue
+        if evt.get('type') not in ('insert', 'backspace', 'submit', 'discard'):
+            continue
+        events.append(evt)
+
     messages = []
-    current = []
+    current = None
     for evt in events:
+        is_chat_evt = evt.get('context') == 'chat' or 'buffer' in evt
+        if current is None:
+            if not is_chat_evt:
+                continue
+            current = []
+
         current.append(evt)
         if evt.get('type') in ('submit', 'discard'):
             messages.append(current)
-            current = []
+            current = None
 
     return messages
 

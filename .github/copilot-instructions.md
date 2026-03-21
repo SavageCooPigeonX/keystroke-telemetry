@@ -1,4 +1,4 @@
-# Copilot Instructions — keystroke-telemetry
+﻿# Copilot Instructions — keystroke-telemetry
 
 Auto-injected into every Copilot session for this repo. Read this before touching any file.
 
@@ -57,114 +57,193 @@ Three systems working together:
 3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. Self-updates on every commit via `<!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-18 04:07 UTC · 1030 messages profiled · 8 recent commits*
-
-**Current focus:** building new features
-**Cognitive state:** `hesitant` (WPM: 41.1 | Del: 34.5% | Hes: 0.506)
-
-> **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
-
-### Unsaid Threads
-*Deleted from prompts — operator wanted this but didn't ask:*
-- "yes but most impor"
-- "okease connect"
-- "ges\"
-
-### Module Hot Zones
-*High cognitive load — take extra care with these files:*
-- `context_budget` (hes=0.89)
-- `file_heat_map` (hes=0.89)
-- `push_narrative` (hes=0.89)
-- `import_rewriter` (hes=0.735)
-- `file_writer` (hes=0.735)
-
-### AI Rework Surface
-*Miss rate: 100.0% (1 responses)*
-- Failed on: ""
-
-### Recent Work
-- `482bd07` feat: repo cleanup + enriched journal + deep README/MANIFEST update
-- `21ddf89` feat: task queue system + AI response capture plan + README update
-- `ec35e10` docs: full README rewrite â€” all three systems documented
-- `5f3fa22` docs: rebuild all manifests + MASTER_MANIFEST + CHANGELOG patch notes
-
-### Fragile Contracts
-*From push narratives — assumptions that could break:*
-- prompt_journal path assumptions
-- hardcoded imports to removed zero-token modules
-- telemetry breaks from missing operator_stats file. This push accomplishes a repository cleanup by removing obsolete or placeholder code while retaining the core prompt journal.
-- push_narrative's assumption of `prompt_recon_attempts` telemetry key; git_plugin's prefix-based intent parsing; prompt_recon_seq016_v001's dependency on unified diff format. This push introduces automated prompt reconstruction and enhances push narratives with structured telemetry and chat analysis.
-- git_plugin's string type assumption for mutated prompts
-- **push_narrative** (seq012 v005) speaks: I was touched to implement a new narrative generation mode, "generate_per_push_
-- **chat_composition_analyzer** speaks: I was added as a new client module to parse chat logs and extract structured metad
-- **git_plugin** speaks: I was modified to expose a new method `get_commit_intent` that extracts the intent from a commit 
-- **prompt_recon_seq016_v001** speaks: I am a new prompt reconstruction sequence, invoked to rebuild prompts from commit h
-- **push_narrative_seq012_v004_d0317__generate_per_push_narrative_each_lc_pulse_telemetry_prompt** speaks: I am a newly cr
-- **git_plugin** was touched to integrate a new prompt mutation system, requiring the addition of a `_mutate_prompt` metho
-
-### Known Issues
-*From self-fix scanner — fix when touching nearby code:*
-- [CRITICAL] hardcoded_import in `stress_test.py`
-- [CRITICAL] hardcoded_import in `test_all.py`
-- [CRITICAL] hardcoded_import in `vscode-extension/pulse_watcher.py`
-- [HIGH] query_noise
-
-### Prompt Evolution
-*This prompt has mutated 28x (186→424 lines). Features added: auto_index, operator_state, prompt_journal, pulse_blocks.*
+*Fresh start -- no telemetry data yet.*
 
 <!-- /pigeon:task-context -->
 
 <!-- pigeon:task-queue -->
 ## Active Task Queue
 
-*Copilot manages this queue. To complete a task: update the referenced MANIFEST.md, then call `mark_done(root, task_id)` in `task_queue_seq018`.*
-
-### Pending
-- [ ] `tq-001` **Fix hardcoded pigeon import in `test_all.py`** | stage: debugging | focus: `test_all.py`
-  → [MASTER_MANIFEST.md](MASTER_MANIFEST.md)
-- [ ] `tq-002` **Fix hardcoded pigeon import in `stress_test.py`** | stage: debugging | focus: `stress_test.py`
-  → [MASTER_MANIFEST.md](MASTER_MANIFEST.md)
-- [ ] `tq-003` **Implement AI response capture via UIA** | stage: implementing | focus: `vscode-extension/src/extension.ts`, `src/rework_detector_seq009*`
-  → [src/MANIFEST.md](src/MANIFEST.md)
-- [ ] `tq-004` **Pigeon compile `operator_stats_seq008` (397 lines → compliant)** | stage: planning | focus: `src/operator_stats_seq008*`
-  → [src/MANIFEST.md](src/MANIFEST.md)
-- [ ] `tq-005` **Pigeon compile `self_fix_seq013` (352 lines → compliant)** | stage: planning | focus: `src/self_fix_seq013*`
-  → [src/MANIFEST.md](src/MANIFEST.md)
-- [ ] `tq-006` **Wire response capture into rework_log (prompt→response→rework triples)** | stage: planning | focus: `src/rework_detector_seq009*`, `logs/ai_responses.jsonl`
-  → [src/MANIFEST.md](src/MANIFEST.md)
-*…and 9 more in `task_queue.json`*
+*No pending tasks. Fresh start.*
 
 <!-- /pigeon:task-queue -->
+<!-- pigeon:task-context -->
+## Live Task Context
 
+*Auto-injected 2026-03-21 15:57 UTC · 243 messages profiled · 8 recent commits*
+
+**Current focus:** building new features
+**Cognitive state:** `hesitant` (WPM: 56759.9 | Del: 36.5% | Hes: 0.519)
+
+> **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
+
+### Unsaid Threads
+*Deleted from prompts — operator wanted this but didn't ask:*
+- "rrectuui"
+- "sureher co"
+
+### Module Hot Zones
+*High cognitive load — take extra care with these files:*
+- `file_heat_map` (hes=0.887)
+- `import_rewriter` (hes=0.735)
+- `file_writer` (hes=0.735)
+- `context_budget` (hes=0.438)
+- `push_narrative` (hes=0.438)
+
+### AI Rework Surface
+*Miss rate: 100.0% (1 responses)*
+- Failed on: ""
+
+### Recent Work
+- `e809454` feat: self-calibrating cognitive state classification
+- `482bd07` feat: repo cleanup + enriched journal + deep README/MANIFEST update
+- `21ddf89` feat: task queue system + AI response capture plan + README update
+- `ec35e10` docs: full README rewrite â€” all three systems documented
+
+### Coaching Directives
+*LLM-synthesized behavioral rules for this operator:*
+- **Intervene on hesitation**
+- **Anticipate recurring pain in the coaching pipeline modules**
+- **Counter high rework**
+- **Break the frustration cycle**
+- **Structure the next step**
+
+### Fragile Contracts
+*From push narratives — assumptions that could break:*
+- operator_stats’s error-rate calculation for self-calibration; classify_bridge’s dependency on a pull-based cognitive state API; prompt_journal’s non-atomic writes in forked processes.
+- prompt_journal path assumptions
+- hardcoded imports to removed zero-token modules
+- telemetry breaks from missing operator_stats file. This push accomplishes a repository cleanup by removing obsolete or placeholder code while retaining the core prompt journal.
+- push_narrative's assumption of `prompt_recon_attempts` telemetry key; git_plugin's prefix-based intent parsing; prompt_recon_seq016_v001's dependency on unified diff format. This push introduces automated prompt reconstruction and enhances push narratives with structured telemetry and chat analysis.
+- **operator_stats** speaks: I was touched to embed a self-calibrating cognitive layer, shifting from passive logging to a
+- **operator_stats_seq008_v004_d0317__persistent_markdown_memory_file_lc_dynamic_task_context** speaks: I was created as a
+- **prompt_journal_seq019_v001** speaks: I was added as a new journal file to capture the reasoning behind this self-calib
+- **classify_bridge** speaks: I was likely updated to integrate with the new cognitive calibration, probably to receive ad
+- **push_narrative** (seq012 v005) speaks: I was touched to implement a new narrative generation mode, "generate_per_push_
+- **chat_composition_analyzer** speaks: I was added as a new client module to parse chat logs and extract structured metad
+
+### Known Issues
+*From self-fix scanner — fix when touching nearby code:*
+- [CRITICAL] hardcoded_import in `stress_test.py`
+- [CRITICAL] hardcoded_import in `test_all.py`
+- [CRITICAL] hardcoded_import in `vscode-extension/pulse_watcher.py`
+
+### Prompt Evolution
+*This prompt has mutated 30x (186→518 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
+
+### File Consciousness
+*83 modules profiled*
+
+**High-drama (most mutations):**
+- `context_budget` v7 ↔ streaming_layer
+- `operator_stats` v5 ↔ push_narrative
+- `push_narrative` v5 ↔ operator_stats
+- `file_writer` v4 ↔ resplit_binpack
+
+**Codebase fears:**
+- file may not exist (21 modules)
+- regex format dependency (10 modules)
+- swallowed exception (9 modules)
+
+**Slumber party warnings (high coupling):**
+- `file_writer` ↔ `resplit_binpack` (score=0.80, 3 shared imports, both high-churn (v4+v4))
+- `file_writer` ↔ `resplit` (score=0.80, 3 shared imports, both high-churn (v4+v4))
+- `func_decomposer` ↔ `run_clean_split` (score=0.80, 3 shared imports, both high-churn (v4+v4))
+
+<!-- /pigeon:task-context -->
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-18 · 1071 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-21 - 243 message(s) in profile*
 
-**Dominant: `frustrated`** | Submit: 2% | WPM: 388.7 | Del: 39.3% | Hes: 0.958
+**Dominant: `frustrated`** | Submit: 18% | WPM: 687163.3 | Del: 32.9% | Hes: 0.538
 
-This operator just built a Pigeon plugin verification system, and their typing patterns reveal intense frustration with manual refactoring tasks, showing high deletion rates and frequent state-switching between focused bursts and abandoned attempts.  
-- **Anticipate manual refactoring pain**: When the operator touches `import_fixer`, `init_writer`, or `manifest_writer`, proactively offer to generate the exact import statements, `__init__.py` content, or manifest markdown—don’t wait for a request.  
-- **Preempt context‑budget overruns**: If `context_budget` or `push_narrative` modules are mentioned, immediately suggest a concise summary or a bullet‑list outline to keep responses tight.  
-- **Cut verification loops short**: On any `verify_pigeon_plugin`‑related query, provide a step‑by‑step checklist or a concrete code snippet—avoid open‑ended exploration.  
-- **Address the 100% miss rate**: For any functional‑decomposition ask (linked to `func_decomposer`), first output a one‑line summary of the function’s purpose, then ask: “Should I proceed with a step‑by‑step breakdown?”—this matches their hesitant/frustrated evening sessions.  
-- **Flag heavy‑edit frustration**: When you detect high‑deletion typing, respond with a single, directly‑actionable option—no alternatives.  
-The operator is most likely building toward a fully automated, self‑documenting plugin pipeline that eliminates manual file‑touching.
-
+**Behavioral tunes for this session:**
+- **frustrated** -> concise answers, 2-3 options max, bullets, lead with solution
+- Deletion ratio > 30% -> high rethinking; consider asking "what specifically do you need?"
+- Submit rate 18% -> messages often abandoned; check if previous answer landed before going deep
+- Hesitation > 0.4 -> uncertain operator; proactively offer alternatives or examples
+- Active hours: 0:00(17), 2:00(3), 3:00(6), 4:00(27), 5:00(18), 6:00(38), 7:00(45), 15:00(7), 16:00(11), 17:00(20), 20:00(2), 21:00(9), 22:00(26), 23:00(14)
 <!-- /pigeon:operator-state -->
-> **Cognitive reactor fired on `os_hook`** (hes=0.959, state=frustrated). Simplify interactions with this module.
+<!-- pigeon:prompt-telemetry -->
+## Live Prompt Telemetry
 
-> **Cognitive reactor fired on `os_hook`** (hes=0.943, state=frustrated). Simplify interactions with this module.
+*Auto-updated per prompt · source: `logs/prompt_telemetry_latest.json`*
 
-> **Cognitive reactor fired on `os_hook`** (hes=1.0, state=frustrated). Simplify interactions with this module.
+Use this block as the highest-freshness prompt-level telemetry. When it conflicts with older commit-time context, prefer this block.
 
-> **Cognitive reactor fired on `os_hook`** (hes=0.948, state=frustrated). Simplify interactions with this module.
+```json
+{
+  "schema": "prompt_telemetry/latest/v1",
+  "updated_at": "2026-03-21T15:57:29.581033+00:00",
+  "latest_prompt": {
+    "session_n": 3,
+    "ts": "2026-03-21T15:57:29.581033+00:00",
+    "chars": 59,
+    "preview": "push and test rename of pigeon - make sure api is connected",
+    "intent": "building",
+    "state": "unknown",
+    "files_open": [
+      "logs/copilot_prompt_mutations.json"
+    ],
+    "module_refs": []
+  },
+  "signals": {
+    "wpm": 54.0,
+    "chars_per_sec": 4.5,
+    "deletion_ratio": 0.0,
+    "hesitation_count": 0,
+    "rewrite_count": 0,
+    "typo_corrections": 0,
+    "intentional_deletions": 0,
+    "total_keystrokes": 60,
+    "duration_ms": 13331
+  },
+  "composition_binding": {
+    "matched": true,
+    "source": "prompt_compositions",
+    "age_ms": 26751,
+    "key": "c6089014481d|1774108609499|1774108622830|2026-03-21T15:57:30.098018+00:00|60|13331|push and test rename of pigeon - make sure api is connected ",
+    "match_score": 1.0
+  },
+  "deleted_words": [],
+  "rewrites": [],
+  "task_queue": {
+    "total": 0,
+    "in_progress": [],
+    "pending": 0,
+    "done": 0
+  },
+  "hot_modules": [
+    {
+      "module": "file_heat_map",
+      "hes": 0.887
+    },
+    {
+      "module": "import_rewriter",
+      "hes": 0.735
+    },
+    {
+      "module": "file_writer",
+      "hes": 0.735
+    }
+  ],
+  "running_summary": {
+    "total_prompts": 21,
+    "avg_wpm": 40.0,
+    "avg_del_ratio": 0.033,
+    "dominant_state": "unknown",
+    "state_distribution": {
+      "unknown": 14,
+      "focused": 5,
+      "hesitant": 2
+    },
+    "baselines": null
+  }
+}
+```
 
-> **Cognitive reactor fired on `os_hook`** (hes=1.038, state=frustrated). Simplify interactions with this module.
-
-> **Cognitive reactor fired on `operator_stats`** (hes=1.0, state=hesitant). Simplify interactions with this module.
-
-
+<!-- /pigeon:prompt-telemetry -->
 ---
 
 ## Module Map
@@ -267,11 +346,10 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 ---
 
 ### Full Module Index
-
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-17 — 91 modules tracked | 1 touched this commit*
+*Auto-updated 2026-03-21 - 91 modules tracked | 0 touched this commit*
 
-**pigeon_compiler/bones/** — 5 module(s)
+**pigeon_compiler/bones/** - 5 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -281,7 +359,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `pq_manifest_utils_seq001*` | extracted from hush pre query | ~879 |
 | `pq_search_utils_seq001*` | extracted from hush pre query | ~3,279 |
 
-**pigeon_compiler/cut_executor/** — 11 module(s)
+**pigeon_compiler/cut_executor/** - 11 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -297,13 +375,13 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `resplit_binpack_seq010*` | bin packing file writing for | ~702 |
 | `resplit_helpers_seq011*` | shared helpers for re splitter | ~501 |
 
-**pigeon_compiler/integrations/** — 1 module(s)
+**pigeon_compiler/integrations/** - 1 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
 | `deepseek_adapter_seq001*` | deepseek api client | ~1,177 |
 
-**pigeon_compiler/rename_engine/** — 12 module(s)
+**pigeon_compiler/rename_engine/** - 12 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -320,7 +398,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `nametag_seq011*` | encode file description intent into | ~1,924 |
 | `registry_seq012*` | local name registry for the | ~2,129 |
 
-**pigeon_compiler/runners/** — 8 module(s)
+**pigeon_compiler/runners/** - 8 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -333,7 +411,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `manifest_bridge_seq013*` | update master manifest md after | ~1,016 |
 | `reaudit_diff_seq014*` | re audit with diff across | ~1,732 |
 
-**pigeon_compiler/runners/compiler_output/press_release_gen/** — 8 module(s)
+**pigeon_compiler/runners/compiler_output/press_release_gen/** - 8 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -346,7 +424,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `press_release_gen_template_builders_seq002_v001_seq003*` | pigeon extracted by compiler | ~296 |
 | `press_release_gen_template_key_findings_seq003*` | auto extracted by pigeon compiler | ~626 |
 
-**pigeon_compiler/state_extractor/** — 6 module(s)
+**pigeon_compiler/state_extractor/** - 6 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -357,13 +435,13 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `resistance_analyzer_seq005*` | classify why a file resists | ~1,037 |
 | `ether_map_builder_seq006*` | assemble full ether map json | ~697 |
 
-**pigeon_compiler/weakness_planner/** — 1 module(s)
+**pigeon_compiler/weakness_planner/** - 1 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
 | `deepseek_plan_prompt_seq004*` | build and send deepseek cut | ~2,407 |
 
-**src/** — 17 module(s)
+**src/** - 17 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -374,7 +452,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `drift_watcher_seq005*` | drift detection for live llm | ~988 |
 | `resistance_bridge_seq006*` | bridge between keystroke telemetry and | ~1,222 |
 | `streaming_layer_seq007*` | monolithic live streaming interface for | ~10,189 |
-| `operator_stats_seq008*` | persistent markdown memory file | ~3,616 |
+| `operator_stats_seq008*` | persistent markdown memory file | ~4,639 |
 | `rework_detector_seq009*` | measures ai answer quality from | ~1,047 |
 | `query_memory_seq010*` | recurring query detector unsaid thought | ~1,122 |
 | `file_heat_map_seq011*` | tracks cognitive load per module | ~1,347 |
@@ -385,7 +463,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `dynamic_prompt_seq017*` | steers copilot cot from live | ~2,947 |
 | `task_queue_seq018*` | copilot driven task tracking linked | ~1,608 |
 
-**src/cognitive/** — 3 module(s)
+**src/cognitive/** - 3 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -393,7 +471,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `unsaid_seq002*` | detects what operators meant but | ~2,108 |
 | `drift_seq003*` | tracks operator typing patterns across | ~2,262 |
 
-**streaming_layer/** — 19 module(s)
+**streaming_layer/** - 19 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -416,5 +494,19 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `streaming_layer_demo_simulate_seq014*` | auto extracted by pigeon compiler | ~256 |
 | `streaming_layer_orchestrator_seq016*` | pigeon extracted by compiler | ~1,253 |
 | `streaming_layer_orchestrator_seq017*` | pigeon extracted by compiler | ~142 |
+
+**Infrastructure (non-pigeon)**
+
+| File | Folder |
+|---|---|
+| `chat_composition_analyzer.py` | `client` |
+| `chat_response_reader.py` | `client` |
+| `composition_recon.py` | `client` |
+| `os_hook.py` | `client` |
+| `telemetry_cleanup.py` | `client` |
+| `uia_reader.py` | `client` |
+| `vscdb_poller.py` | `client` |
+| `classify_bridge.py` | `vscode-extension` |
+| `pulse_watcher.py` | `vscode-extension` |
 
 <!-- /pigeon:auto-index -->

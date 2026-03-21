@@ -20,133 +20,6 @@ Pipeline:
   6. Inject prompt box headers + log sessions
   7. Update pigeon_registry.json
   8. Rebuild all MANIFEST.md files
-  9. Refresh .github/copilot-instructions.md auto-index
- 10. Call DeepSeek: changed files + registry churn + operator typing history
-     → synthesize behavioral coaching prose → operator_coaching.md
- 11. Refresh .github/copilot-instructions.md operator state (LLM prose if available)
- 12. Auto-commit [pigeon-auto]
-
-Install: .git/hooks/post-commit calls `python -m pigeon_compiler.git_plugin`
-"""
-import ast
-import json
-import os
-import re
-import subprocess
-import sys
-import urllib.request
-from datetime import datetime, timezone
-from pathlib import Path
-
-from pigeon_compiler.rename_engine import (
-    extract_desc_slug,
-    load_registry,
-    save_registry,
-    build_pigeon_filename,
-    parse_pigeon_stem,
-    bump_version,
-    rewrite_all_imports,
-    build_all_manifests,
-    validate_imports,
-)
-from pigeon_compiler.pigeon_limits import is_excluded
-from pigeon_compiler.session_logger import log_session, count_sessions
-
-# ── Token estimation ─────────────────────────────────────
-# GPT/Claude average ≈ 1 token per 4 chars.  We count the file
-# content to give a rough cost estimate per file per mutation.
-TOKEN_RATIO = 4  # chars per token
-
-
-def _estimate_tokens(text: str) -> int:
-    """Estimate LLM token count from raw text (1 tok ≈ 4 chars)."""
-    return max(1, len(text) // TOKEN_RATIO)
-
-
-# ── Prompt box regex ────────────────────────────────────
-BOX_RE = re.compile(
-    r'^# ── pigeon ─[^\n]*\n(?:# [^\n]*\n)*# ─{10,}─*\n',
-    re.MULTILINE,
-)
-_AUTO_INDEX_RE = re.compile(
-    r'<!-- pigeon:auto-index -->.*?<!-- /pigeon:auto-index -->',
-    re.DOTALL,
-)
-_ROOT_DEBUG = re.compile(r'^_')
-
-
-def _root() -> Path:
-    return Path(__file__).resolve().parent.parent
-
-
-def _git(*args: str) -> str:
-    r = subprocess.run(
-        ['git', *args],
-        capture_output=True, text=True, encoding='utf-8',
-        cwd=str(_root()), timeout=30,
-    )
-    return r.stdout.strip()
-
-
-def _load_glob_module(root: Path, folder: str, pattern: str):
-    """Dynamically import a pigeon module by glob pattern (filenames mutate)."""
-    import importlib.util
-    matches = sorted((root / folder).glob(f'{pattern}.py'))
-    if not matches:
-        return None
-    spec = importlib.util.spec_from_file_location(matches[-1].stem, matches[-1])
-    if not spec or not spec.loader:
-        return None
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-# ── Git helpers ─────────────────────────────────────────
-
-def _commit_msg() -> str:
-    return _git('log', '-1', '--format=%B')
-
-
-def _commit_hash() -> str:
-    return _git('log', '-1', '--format=%h')
-
-
-def _changed_files() -> list[str]:
-    try:
-        raw = _git('diff', '--name-only', 'HEAD~1', 'HEAD')
-        return [f for f in raw.splitlines() if f.strip()]
-    except Exception:
-        return []
-
-
-def _file_diff_stat(rel: str) -> str:
-    """Get compact diff stat for one file (e.g. '+12 -3')."""
-    try:
-        raw = _git('diff', '--numstat', 'HEAD~1', 'HEAD', '--', rel)
-        if raw.strip():
-            parts = raw.strip().split('\t')
-            if len(parts) >= 2:
-                return f'+{parts[0]} -{parts[1]}'
-    except Exception:
-        pass
-    return ''
-
-
-# ── Intent parsing ──────────────────────────────────────
-
-def _parse_intent(msg: str) -> str:
-    """Commit message → 3-word intent slug.
-
-    'feat: Hush spy mode + hero image' → 'hush_spy_mode'
-    'fix: apply directory hero image'  → 'fix_directory_hero'
-    """
-    line = msg.split('\n')[0].strip()
-    m = re.match(
-        r'^(?:feat|fix|chore|refactor|docs|test|ci)(?:\([^)]+\))?:\s*', line)
-    if m:
-        line = line[m.end():]
-    slug = re.sub(r'[^a-z0-9]+', '_', line.lower()).strip('_')
     words = [w for w in slug.split('_') if w][:3]
     return '_'.join(words) or 'manual_edit'
 
@@ -200,106 +73,6 @@ def _ds_end(text: str) -> int:
     except SyntaxError:
         pass
     return -1
-
-
-# ── Copilot instructions auto-index ────────────────────
-
-def _refresh_copilot_instructions(root: Path, registry: dict, processed: int) -> bool:
-    """Rebuild the <!-- pigeon:auto-index --> block in .github/copilot-instructions.md.
-
-    Only updates the auto-index section — everything hand-written is preserved.
-    Fires on every commit that touches pigeon .py files so the index stays live.
-    """
-    cp_path = root / '.github' / 'copilot-instructions.md'
-    if not cp_path.exists():
-        return False
-
-    # Group registry entries by folder
-    groups: dict[str, list] = {}
-    for path, entry in registry.items():
-        folder = str(Path(path).parent).replace('\\', '/')
-        groups.setdefault(folder, []).append({
-            'name':   entry.get('name', ''),
-            'seq':    entry.get('seq', 0),
-            'desc':   (entry.get('desc') or '').replace('_', ' ')[:52],
-            'tokens': entry.get('tokens', 0),
-        })
-
-    today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
-    block_lines = [
-        '<!-- pigeon:auto-index -->',
-        f'*Auto-updated {today} — {len(registry)} modules tracked | {processed} touched this commit*',
-        '',
-    ]
-    for folder in sorted(groups.keys()):
-        items = sorted(groups[folder], key=lambda e: (e['seq'], e['name']))
-        block_lines.append(f'**{folder}/** — {len(items)} module(s)')
-        block_lines.append('')
-        block_lines.append('| Search pattern | Desc | Tokens |')
-        block_lines.append('|---|---|---:|')
-        for item in items:
-            pat = f'`{item["name"]}_seq{item["seq"]:03d}*`'
-            block_lines.append(f'| {pat} | {item["desc"]} | ~{item["tokens"]:,} |')
-        block_lines.append('')
-    block_lines.append('<!-- /pigeon:auto-index -->')
-    block = '\n'.join(block_lines)
-
-    try:
-        text = cp_path.read_text(encoding='utf-8')
-    except Exception:
-        return False
-
-    if _AUTO_INDEX_RE.search(text):
-        new_text = _AUTO_INDEX_RE.sub(block, text)
-    else:
-        new_text = text.rstrip() + '\n\n---\n\n### Full Module Index\n\n' + block + '\n'
-
-    cp_path.write_text(new_text, encoding='utf-8')
-    return True
-
-
-# ── Operator state injection ─────────────────────────────
-
-_OPERATOR_STATE_RE = re.compile(
-    r'<!-- pigeon:operator-state -->.*?<!-- /pigeon:operator-state -->',
-    re.DOTALL,
-)
-
-_STATE_HINTS: dict[str, str] = {
-    'frustrated':    'concise answers, 2-3 options max, bullets, lead with solution',
-    'hesitant':      'warm tone, anticipate intent, ask one follow-up question',
-    'flow':          'match energy — full technical depth, no hand-holding',
-    'focused':       'thorough and structured, match effort level',
-    'restructuring': 'precise, use headers/numbered lists to mirror their effort',
-    'abandoned':     'welcoming, direct — they re-approached after backing off',
-    'neutral':       'standard response style',
-}
-
-
-def _parse_operator_profile(root: Path) -> dict | None:
-    """Parse operator_profile.md → metrics dict. Returns None if file missing."""
-    prof_path = root / 'operator_profile.md'
-    if not prof_path.exists():
-        return None
-    try:
-        text = prof_path.read_text(encoding='utf-8')
-    except Exception:
-        return None
-
-    def _re(pattern: str, default: str) -> str:
-        m = re.search(pattern, text)
-        return m.group(1) if m else default
-
-    return {
-        'messages':    int(_re(r'(\d+) messages ingested', '0') or '0'),
-        'dominant':    _re(r'\*\*Dominant state:\s*(\w+)\*\*', 'neutral'),
-        'submit_rate': int(_re(r'\*\*Submit rate:.*?\((\d+)%\)\*\*', '0') or '0'),
-        'avg_wpm':     float(_re(r'\|\s*WPM\s*\|[^|]+\|[^|]+\|\s*([\d.]+)\s*\|', '0') or '0'),
-        'avg_del':     float(_re(r'\|\s*Deletion\s*%\s*\|[^|]+\|[^|]+\|\s*([\d.]+)%', '0') or '0'),
-        'avg_hes':     float(_re(r'\|\s*Hesitation\s*\|[^|]+\|[^|]+\|\s*([\d.]+)\s*\|', '0') or '0'),
-        'active_hours': _re(r'\*\*Active hours:\*\*\s*(.+)', '').strip(),
-    }
-
 
 # ── Commit-time LLM coaching synthesis ──────────────────────────────────────
 
@@ -550,7 +323,7 @@ def _generate_commit_coaching(
     Combines changed files, registry churn, operator typing biography, and deep
     signal stores (rework rate, persistent gaps, file complexity debt) into a
     single DeepSeek prompt. The resulting prose is written to operator_coaching.md
-    and injected into copilot-instructions.md by _refresh_operator_state().
+    and injected into copilot-instructions.md by the prompt manager.
     """
     api_key = os.environ.get('DEEPSEEK_API_KEY', '')
     if not api_key:
@@ -603,117 +376,6 @@ def _generate_commit_coaching(
     except Exception:
         pass
     try:
-        hm_path = root / 'file_heat_map.json'
-        if hm_path.exists():
-            raw = json.loads(hm_path.read_text('utf-8'))
-            # file_heat_map.json is a flat {module_name: {samples,avg_hes,...}} dict
-            modules = {k: v for k, v in raw.items() if isinstance(v, dict)} if isinstance(raw, dict) else {}
-            HIGH_HES = 0.45
-            complex_files = sorted(
-                [
-                    {
-                        'module': name,
-                        'avg_hes': round(v.get('total_hes', 0) / max(v.get('samples', 1), 1), 3),
-                        'avg_wpm': round(v.get('total_wpm', 0) / max(v.get('samples', 1), 1), 1),
-                        'miss_count': v.get('miss_count', 0),
-                        'samples': v.get('samples', 0),
-                    }
-                    for name, v in modules.items()
-                ],
-                key=lambda x: x['avg_hes'], reverse=True
-            )
-            high_hes = [c for c in complex_files if c['avg_hes'] >= HIGH_HES]
-            miss_files = [
-                {'module': c['module'],
-                 'miss_rate': round(c['miss_count'] / max(c['samples'], 1), 2)}
-                for c in complex_files if c['miss_count'] > 0
-            ]
-            heat_map = {'complex_files': high_hes[:6], 'high_miss_files': miss_files[:4]}
-    except Exception:
-        pass
-
-    prompt = _build_commit_coaching_prompt(
-        intent, renames, box_only, registry, history,
-        rework_stats, query_mem, heat_map,
-    )
-    prose = _call_deepseek_sync(prompt, api_key)
-    if not prose:
-        return False
-    today = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
-    submitted_count = sum(1 for h in history if h.get('submitted', True))
-    content = (
-        f'<!-- coaching:count={submitted_count} -->\n'
-        f'<!-- Auto-generated by git_plugin at commit · {today} · intent: {intent} -->\n'
-        f'{prose}\n'
-        f'<!-- /coaching -->\n'
-    )
-    (root / 'operator_coaching.md').write_text(content, encoding='utf-8')
-    return True
-
-
-
-def _load_coaching_prose(root: Path) -> str | None:
-    """Load LLM-generated coaching prose from operator_coaching.md if present."""
-    coaching_path = root / 'operator_coaching.md'
-    if not coaching_path.exists():
-        return None
-    try:
-        text = coaching_path.read_text(encoding='utf-8')
-        m = re.search(r'<!-- coaching:count=\d+ -->\n.*?\n(.*?)<!-- /coaching -->', text, re.DOTALL)
-        if m:
-            return m.group(1).strip()
-    except Exception:
-        pass
-    return None
-
-
-def _refresh_operator_state(root: Path) -> bool:
-    """Rebuild <!-- pigeon:operator-state --> block in copilot-instructions.md.
-
-    Priority:
-      1. LLM-synthesized prose from operator_coaching.md (generated every 8 submitted msgs)
-      2. Static template built from operator_profile.md metrics (always available)
-
-    This lets the block evolve from raw stats → rich behavioral coaching over time
-    as the operator accumulates enough history for the LLM to detect real patterns.
-    """
-    cp_path = root / '.github' / 'copilot-instructions.md'
-    if not cp_path.exists():
-        return False
-
-    prof = _parse_operator_profile(root)
-    if not prof or prof['messages'] == 0:
-        return False
-
-    today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
-    dominant = prof['dominant']
-
-    # ── Try LLM-generated prose first ──────────────────────────────────────
-    coaching_prose = _load_coaching_prose(root)
-    if coaching_prose:
-        lines = [
-            '<!-- pigeon:operator-state -->',
-            '## Live Operator State',
-            '',
-            f'*Auto-updated {today} · {prof["messages"]} message(s) · LLM-synthesized*',
-            '',
-            (f'**Dominant: `{dominant}`** '
-             f'| Submit: {prof["submit_rate"]}% '
-             f'| WPM: {prof["avg_wpm"]:.1f} '
-             f'| Del: {prof["avg_del"]:.1f}% '
-             f'| Hes: {prof["avg_hes"]:.3f}'),
-            '',
-            coaching_prose,
-            '',
-            '<!-- /pigeon:operator-state -->',
-        ]
-        block = '\n'.join(lines)
-    else:
-        # ── Static template fallback (first <8 messages) ────────────────────
-        hint = _STATE_HINTS.get(dominant, _STATE_HINTS['neutral'])
-        lines = [
-            '<!-- pigeon:operator-state -->',
-            '## Live Operator State',
             '',
             f'*Auto-updated {today} · {prof["messages"]} message(s) in profile*',
             '',
@@ -805,27 +467,54 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
     except Exception as e:
         print(f'  ⚠️  commit coaching: {e}')
 
-    try:
-        if _refresh_operator_state(root):
-            print('  🧠 operator-state section updated in copilot-instructions.md')
-    except Exception as e:
-        print(f'  ⚠️  operator-state refresh: {e}')
+    # Managed prompt blocks are refreshed centrally by copilot_prompt_manager_seq020.
 
-    # Dynamic task-context injection — steers Copilot's CoT reasoning
+    # Mutation scorer — correlate prompt evolution with rework verdicts
     try:
-        dyn_mod = _load_glob_module(root, 'src', 'dynamic_prompt_seq017*')
-        if dyn_mod and dyn_mod.inject_task_context(root):
-            print('  🎯 task-context injected into copilot-instructions.md')
+        ms_mod = _load_glob_module(root, 'src', 'mutation_scorer_seq021*')
+        if ms_mod:
+            ms_result = ms_mod.score_mutations(root)
+            pairs = ms_result.get('total_pairs', 0)
+            if pairs:
+                print(f'  📊 mutation scorer: {pairs} pair(s) analyzed')
     except Exception as e:
-        print(f'  ⚠️  task-context injection: {e}')
+        print(f'  ⚠️  mutation scorer: {e}')
 
-    # Task queue injection — Copilot-managed task queue linked to MANIFEST.md
+    # Rework backfill — score historical AI responses from chat history
     try:
-        tq_mod = _load_glob_module(root, 'src', 'task_queue_seq018*')
-        if tq_mod and tq_mod.inject_task_queue(root):
-            print('  📋 task-queue injected into copilot-instructions.md')
+        rb_mod = _load_glob_module(root, 'src', 'rework_backfill_seq022*')
+        if rb_mod:
+            added = rb_mod.backfill(root)
+            if added:
+                print(f'  📥 rework backfill: {added} new pair(s) scored')
     except Exception as e:
-        print(f'  ⚠️  task-queue injection: {e}')
+        print(f'  ⚠️  rework backfill: {e}')
+
+    # Self-fix: auto-apply CRITICAL hardcoded import fixes
+    try:
+        sf_mod = _load_glob_module(root, 'src', 'self_fix_seq013*')
+        if sf_mod and hasattr(sf_mod, 'auto_apply_import_fixes'):
+            fixes = sf_mod.auto_apply_import_fixes(root)
+            if fixes:
+                applied = [f for f in fixes if f.get('applied')]
+                print(f'  🔧 self-fix: {len(applied)} hardcoded import(s) auto-applied')
+    except Exception as e:
+        print(f'  ⚠️  self-fix auto-apply: {e}')
+
+    # File consciousness — rebuild dating profiles + slumber party audit
+    try:
+        fc_mod = _load_glob_module(root, 'src', 'file_consciousness_seq019*')
+        if fc_mod:
+            profiles = fc_mod.build_dating_profiles(root)
+            fc_mod.save_profiles(root, profiles)
+            print(f'  💕 file consciousness: {len(profiles)} dating profiles updated')
+            talks = fc_mod.slumber_party_audit(root, changed_files)
+            if talks:
+                print(f'  🛏️  slumber party: {len(talks)} contract check(s)')
+                for t in talks[:3]:
+                    print(f'     [{t["severity"]}] {t["changed"]} \u2194 {t["partner"]}')
+    except Exception as e:
+        print(f'  ⚠️  file consciousness: {e}')
 
 
 def run():
@@ -952,13 +641,8 @@ def run():
     # Save registry
     save_registry(root, registry)
 
-    # Refresh copilot-instructions.md auto-index + operator state
+    # Save registry-backed prompt metadata via the central prompt manager later in the flow
     processed = len(renames) + len(box_only)
-    try:
-        if _refresh_copilot_instructions(root, registry, processed):
-            print(f'  📋 copilot-instructions.md auto-index updated ({processed} file(s) touched)')
-    except Exception as e:
-        print(f'  ⚠️  copilot-instructions refresh: {e}')
 
     # ── Self-fix: one-shot cross-file problem scan ──
     changed_py = [nr for _, nr, _, _, _ in renames] + [r for _, _, r, _, _ in box_only]
@@ -996,6 +680,22 @@ def run():
     _run_post_commit_extras(root, intent, h, all_changed_code, registry, msg,
                             renames=renames, box_only=box_only,
                             cross_context=cross_context)
+
+    # Unified Copilot prompt management — ensure all managed prompt blocks and audits stay in sync
+    try:
+        prompt_mod = _load_glob_module(root, 'src', 'copilot_prompt_manager_seq020*')
+        if prompt_mod:
+            result = prompt_mod.refresh_managed_prompt(root, registry=registry, processed=processed)
+            audit = result.get('audit', {}) if isinstance(result, dict) else {}
+            missing = audit.get('missing_blocks', []) if isinstance(audit, dict) else []
+            unfilled = audit.get('unfilled_fields', []) if isinstance(audit, dict) else []
+            print('  🧭 copilot prompt manager refreshed blocks + audit')
+            if missing:
+                print(f'     missing blocks: {", ".join(missing)}')
+            if unfilled:
+                print(f'     unfilled fields: {", ".join(unfilled)}')
+    except Exception as e:
+        print(f'  ⚠️  prompt manager: {e}')
 
     # Rebuild manifests
     try:

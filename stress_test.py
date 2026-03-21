@@ -11,9 +11,22 @@ import time
 import random
 import os
 import sys
+import importlib.util
 
-from src.logger_seq003_v003_d0317__core_keystroke_telemetry_logger_lc_pulse_telemetry_prompt import TelemetryLogger
-from src.resistance_bridge_seq006_v003_d0317__bridge_between_keystroke_telemetry_and_lc_pulse_telemetry_prompt import HesitationAnalyzer
+# Dynamic imports — pigeon filenames mutate on rename; never hardcode the full name
+def _load_src(pattern: str, symbol: str):
+    """Load a symbol from the first src/ file matching glob pattern."""
+    import glob
+    matches = sorted(glob.glob(f'src/{pattern}'))
+    if not matches:
+        raise ImportError(f'No src/ file matches {pattern!r}')
+    spec = importlib.util.spec_from_file_location('_dyn', matches[-1])
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return getattr(mod, symbol)
+
+TelemetryLogger = _load_src('logger_seq003*.py', 'TelemetryLogger')
+HesitationAnalyzer = _load_src('resistance_bridge_seq006*.py', 'HesitationAnalyzer')
 
 # ──────────────── typing scenarios ────────────────
 

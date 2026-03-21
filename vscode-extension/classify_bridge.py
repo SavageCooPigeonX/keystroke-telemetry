@@ -14,7 +14,8 @@ Every LLM_REWRITE_EVERY *submitted* messages, calls DeepSeek to synthesize
 rich behavioral coaching from all signals, written to operator_coaching.md.
 
 Stdin:  {"events": [...], "submitted": bool,
-         "post_response_events": [...], "query_text": str}
+         "post_response_events": [...], "query_text": str,
+         "response_text": str}
 Argv:   <repo_root>
 Stdout: {"state", "hesitation", "wpm", "coaching_updated", "rework_verdict"}
 """
@@ -43,23 +44,26 @@ def _compute_metrics(events: list, submitted: bool) -> tuple:
     inserts  = [e for e in events if e.get('type') == 'insert']
     deletes  = [e for e in events if e.get('type') == 'backspace']
     pauses   = [e for e in events if e.get('type') == 'pause']
-    total    = max(len(events), 1)
+    insert_chars = sum(max(int(e.get('len', 1)), 1) for e in inserts)
+    delete_chars = sum(max(int(e.get('len', 1)), 1) for e in deletes)
+    total_chars = max(insert_chars + delete_chars, 1)
     pause_ms = [e.get('duration_ms', 0) for e in pauses]
     ts_vals  = [e['ts'] for e in events if 'ts' in e]
     start_ms = min(ts_vals) if ts_vals else 0.0
     end_ms   = max(ts_vals) if ts_vals else 1.0
-    dur_ms   = max(end_ms - start_ms, 1.0)
-    del_ratio   = len(deletes) / total
+    dur_ms   = max((end_ms - start_ms) + sum(pause_ms), sum(pause_ms), 1.0)
+    del_ratio   = delete_chars / total_chars
     pause_ratio = sum(pause_ms) / dur_ms
     hes  = min(1.0, round(del_ratio * 0.6 + pause_ratio * 0.4, 3))
-    wpm  = round((len(inserts) / 5) / max(dur_ms / 60_000, 0.001), 1)
+    wpm  = round((insert_chars / 5) / max(dur_ms / 60_000, 0.001), 1)
     return {
-        'total_keystrokes': len(events),
-        'total_inserts':    len(inserts),
-        'total_deletions':  len(deletes),
+        'total_keystrokes': total_chars,
+        'total_inserts':    insert_chars,
+        'total_deletions':  delete_chars,
         'typing_pauses':    [{'duration_ms': d} for d in pause_ms],
         'start_time_ms':    int(start_ms),
-        'end_time_ms':      int(end_ms),
+        'end_time_ms':      int(start_ms + dur_ms),
+        'effective_duration_ms': int(dur_ms),
         'hesitation_score': hes,
         'deleted':          not submitted,
         'ts':               datetime.now(timezone.utc).isoformat(),
@@ -87,7 +91,8 @@ def _parse_history(root: Path) -> list:
 
 def _build_prompt(history: list, rework_stats: dict,
                   query_mem: dict, heat_map: dict,
-                  composition: dict | None = None) -> str:
+                  composition: dict | None = None,
+                  recent_responses: list | None = None) -> str:
     """Build enhanced DeepSeek prompt with all deep profile signals."""
     from collections import Counter
     n = len(history)
@@ -144,6 +149,17 @@ def _build_prompt(history: list, rework_stats: dict,
             f'hesitation_windows: {len(composition.get("hesitation_windows", []))}'
         )
 
+    # Build recent AI responses block for coaching
+    resp_block = '  no response data yet'
+    if recent_responses:
+        resp_lines = []
+        for r in recent_responses[-5:]:
+            verdict = r.get('rework_verdict', '?')
+            prompt_hint = r.get('prompt', '')[:60]
+            resp_hint = r.get('response', '')[:80]
+            resp_lines.append(f'  [{verdict}] "{prompt_hint}" -> "{resp_hint}..."')
+        resp_block = '\n'.join(resp_lines)
+
     return f"""You are a behavioral AI coach embedded in a VS Code extension.
 Your output is injected DIRECTLY into a Copilot system prompt â€” write INSTRUCTIONS for the AI, not a report.
 
@@ -171,6 +187,9 @@ HIGH AI-MISS FILES (AI responses fail most often around these modules):
 CHAT COMPOSITION (OS-level keystroke reconstruction — deleted words are unsaid intent):
 {comp_block}
 
+RECENT AI RESPONSES (prompt→response pairs with rework verdict):
+{resp_block}
+
 Write behavioral coaching for Copilot. Requirements:
 1. One sentence: operator's dominant pattern + what their rework rate reveals
 2. 4\u20136 bullets: precise behavioral instructions for next session
@@ -178,9 +197,10 @@ Write behavioral coaching for Copilot. Requirements:
 4. For each high-miss file: prescribe a different response strategy
 5. For abandoned themes: the AI should proactively surface these
 6. For deleted words: these reveal what the operator WANTED to say but chose not to \u2014 address the underlying need
-7. One sentence: what this operator is building toward
+7. For responses marked 'miss': identify what went wrong and prescribe how to answer differently next time
+8. One sentence: what this operator is building toward
 
-Surgical and specific. Every word changes AI behavior. Max 230 words. Markdown bullets only."""
+Surgical and specific. Every word changes AI behavior. Max 250 words. Markdown bullets only."""
 
 
 def _call_deepseek(prompt: str, api_key: str) -> str | None:
@@ -216,6 +236,36 @@ def _should_rewrite(history: list, coaching_path: Path) -> bool:
     return True
 
 
+def _load_recent_responses(root: Path, limit: int = 10) -> list:
+    """Load recent AI responses — auto-syncs from VS Code chat session first."""
+    # Auto-sync: read responses directly from VS Code chatSessions storage
+    try:
+        reader_path = root / 'client' / 'chat_response_reader.py'
+        if reader_path.exists():
+            import importlib.util
+            spec = importlib.util.spec_from_file_location('chat_response_reader', str(reader_path))
+            reader = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(reader)
+            reader.sync_to_log(str(root), limit=limit)
+    except Exception:
+        pass
+
+    resp_log = root / 'logs' / 'ai_responses.jsonl'
+    if not resp_log.exists():
+        return []
+    try:
+        all_lines = resp_log.read_text(encoding='utf-8').strip().splitlines()
+        entries = []
+        for line in all_lines[-limit:]:
+            try:
+                entries.append(json.loads(line))
+            except json.JSONDecodeError:
+                continue
+        return entries
+    except Exception:
+        return []
+
+
 def _load_recent_chat_keystrokes(root: Path, window_ms: int = 120_000) -> list:
     """Read recent chat-context keystrokes from os_keystrokes.jsonl.
     Returns events within the last window_ms that came from chat context.
@@ -237,6 +287,8 @@ def _load_recent_chat_keystrokes(root: Path, window_ms: int = 120_000) -> list:
                 evt = json.loads(line)
                 if evt.get('ts', 0) < cutoff:
                     break
+                if evt.get('source') == 'vscode':
+                    continue
                 if evt.get('context') == 'chat':
                     chat_events.append(evt)
             except json.JSONDecodeError:
@@ -274,6 +326,7 @@ def main():
     submitted = payload.get('submitted', True)
     post_evts = payload.get('post_response_events', [])
     query_txt = payload.get('query_text', '')
+    resp_text = payload.get('response_text', '')
 
     sys.path.insert(0, str(root))
 
@@ -338,7 +391,7 @@ def main():
             rw = rework_mod.score_rework(post_evts)
             rework_verdict = rw['verdict']
             if post_evts:
-                rework_mod.record_rework(root, rw, query_txt)
+                rework_mod.record_rework(root, rw, query_txt, resp_text)
     except Exception:
         pass
 
@@ -418,6 +471,34 @@ def main():
     except Exception:
         pass
 
+    # ── Log AI response if present ───────────────────────────────────────────
+    if resp_text and query_txt and not query_txt.startswith('bg:'):
+        resp_log = root / 'logs' / 'ai_responses.jsonl'
+        try:
+            entry = json.dumps({
+                'ts': datetime.now(timezone.utc).isoformat(),
+                'prompt': query_txt[:500],
+                'response': resp_text[:5000],
+                'source': 'classify_bridge',
+                'rework_verdict': rework_verdict,
+            })
+            with open(resp_log, 'a', encoding='utf-8') as fh:
+                fh.write(entry + '\n')
+        except Exception:
+            pass
+
+    # -- Auto-sync Copilot responses from VS Code chat session ---------------
+    try:
+        _reader_path = root / 'client' / 'chat_response_reader.py'
+        if _reader_path.exists():
+            import importlib.util
+            _spec = importlib.util.spec_from_file_location('chat_response_reader', str(_reader_path))
+            _reader_mod = importlib.util.module_from_spec(_spec)
+            _spec.loader.exec_module(_reader_mod)
+            _reader_mod.sync_to_log(str(root), limit=5)
+    except Exception:
+        pass
+
     # â”€â”€ LLM rewrite every 8 submitted â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     coaching_updated = False
     coaching_path = root / 'operator_coaching.md'
@@ -432,7 +513,8 @@ def main():
                 rw_stats  = rework_mod.load_rework_stats(root) if rework_mod else {}
                 q_mem     = qmem_mod.load_query_memory(root) if qmem_mod else {}
                 heat      = heat_mod.load_heat_map(root) if heat_mod else {}
-                prose = _call_deepseek(_build_prompt(history, rw_stats, q_mem, heat, chat_comp), api_key)
+                recent_responses = _load_recent_responses(root)
+                prose = _call_deepseek(_build_prompt(history, rw_stats, q_mem, heat, chat_comp, recent_responses), api_key)
                 if prose:
                     count = _count_submitted(history)
                     today = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')

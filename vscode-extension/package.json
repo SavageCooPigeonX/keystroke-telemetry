@@ -7,7 +7,7 @@
   "repository": "https://github.com/SavageCooPigeonX/keystroke-telemetry",
   "engines": { "vscode": "^1.90.0" },
   "categories": ["AI", "Other"],
-  "activationEvents": ["onStartupFinished", "onCommand:pigeon.openChat"],
+  "activationEvents": ["onStartupFinished", "onCommand:pigeon.openChat", "onCommand:pigeon.showOperatorState"],
   "main": "./out/extension",
   "contributes": {
     "chatParticipants": [
@@ -23,6 +23,10 @@
       {
         "command": "pigeon.openChat",
         "title": "Pigeon: Open Keystroke-Aware Chat"
+      },
+      {
+        "command": "pigeon.showOperatorState",
+        "title": "Pigeon: Show Live Operator State"
       }
     ],
     "keybindings": [

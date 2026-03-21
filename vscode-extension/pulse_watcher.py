@@ -1,9 +1,9 @@
 """pulse_watcher.py — Save-time pulse correlator.
 
 Called by the VS Code extension on every .py save under src/.
-Reads the saved file's pulse block, correlates with the latest
+Reads the saved file's pending pulse block, correlates with the latest
 prompt_journal entry, writes paired record to edit_pairs.jsonl,
-and clears the pulse.
+and marks the pulse as harvested without erasing the metadata.
 
 Argv:   <repo_root> <saved_file_relpath>
 Stdout: JSON  {"paired": true/false, "latency_ms": int, "file": str}

@@ -138,9 +138,9 @@ class KeystrokeRecorder:
 
     def on_press(self, key):
         if not self._running:
-            return False
+            return
         if not _is_vscode_focused():
-            return True
+            return
 
         now_ms = int(time.time() * 1000)
         key_str = self._key_to_str(key)
@@ -181,6 +181,7 @@ class KeystrokeRecorder:
             'type': evt_type,
             'context': ctx,
             'buffer_len': len(self._composition),
+            'source': 'os_hook',
         }
 
         # Only include buffer content for chat context (privacy: don't log editor code)
@@ -189,14 +190,14 @@ class KeystrokeRecorder:
 
         with self._lock:
             self._buffer.append(event)
-        return True
+        return
 
     def on_release(self, key):
         if not self._running:
-            return False
+            return
         key_str = self._key_to_str(key)
         self._ctx.on_key(key_str, False)
-        return True
+        return
 
     def flush(self):
         with self._lock:

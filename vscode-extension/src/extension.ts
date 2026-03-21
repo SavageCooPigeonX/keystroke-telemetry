@@ -4,7 +4,7 @@
  * TWO MODES:
  *   A. Background telemetry (always-on, no panel needed):
  *      - Captures typing patterns from normal VS Code editing
- *      - Logs events to logs/keystroke_live.jsonl
+ *      - Logs events to logs/os_keystrokes.jsonl
  *      - Flushes session to classify_bridge.py every 60s of activity
  *        or on file save — updates operator_profile, copilot-instructions, etc.
  *
@@ -38,11 +38,120 @@ function readOperatorState(root: string): string {
     } catch { return ''; }
 }
 
+function readLatestTelemetry(root: string): { state: string; wpm: number; del: number } | null {
+    try {
+        const raw = fs.readFileSync(path.join(root, 'logs', 'prompt_telemetry_latest.json'), 'utf-8');
+        const data = JSON.parse(raw);
+        const p = data?.latest_prompt;
+        const s = data?.signals;
+        if (!p) return null;
+        return {
+            state: p.state ?? 'unknown',
+            wpm: s?.wpm ?? 0,
+            del: s?.deletion_ratio ?? 0,
+        };
+    } catch { return null; }
+}
+
+// ── Live Operator State Status Bar ───────────────────────────────────────────
+const STATE_EMOJIS: Record<string, string> = {
+    flow: '🟢', focused: '🔵', frustrated: '🔴', hesitant: '🟡',
+    restructuring: '🟠', abandoned: '⚫', neutral: '⚪', unknown: '❓',
+};
+
+class OperatorStateStatusBar {
+    private _item: vscode.StatusBarItem;
+    private _timer: ReturnType<typeof setInterval> | undefined;
+    private _root: string;
+
+    constructor(root: string, context: vscode.ExtensionContext) {
+        this._root = root;
+        this._item = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 1000);
+        this._item.command = 'pigeon.showOperatorState';
+        this._item.tooltip = 'Pigeon: click to see live operator state';
+        this._item.show();
+        context.subscriptions.push(this._item);
+        this._refresh();
+        this._timer = setInterval(() => this._refresh(), 15_000);
+        context.subscriptions.push({ dispose: () => clearInterval(this._timer) });
+    }
+
+    _refresh() {
+        const tel = readLatestTelemetry(this._root);
+        if (!tel) {
+            this._item.text = `$(pulse) Pigeon`;
+            return;
+        }
+        const emoji = STATE_EMOJIS[tel.state] ?? '❓';
+        this._item.text = `${emoji} ${tel.state} ${tel.wpm.toFixed(0)}wpm`;
+        this._item.backgroundColor = tel.state === 'frustrated'
+            ? new vscode.ThemeColor('statusBarItem.warningBackground')
+            : undefined;
+    }
+}
+
+// ── Operator State Webview Command ────────────────────────────────────────────
+function showOperatorStatePanel(root: string, context: vscode.ExtensionContext) {
+    const panel = vscode.window.createWebviewPanel(
+        'pigeonOperatorState', '🐦 Operator State', vscode.ViewColumn.Beside,
+        { enableScripts: true, retainContextWhenHidden: false }
+    );
+
+    function buildHtml(): string {
+        const tel = readLatestTelemetry(root);
+        const state_md = readOperatorState(root);
+        const stateStr = tel ? `${STATE_EMOJIS[tel.state] ?? '❓'} <b>${tel.state}</b> · ${tel.wpm.toFixed(0)} WPM · ${(tel.del * 100).toFixed(0)}% del` : '<i>No telemetry yet</i>';
+        const mdHtml = state_md
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+            .replace(/\*(.+?)\*/g, '<i>$1</i>')
+            .replace(/`(.+?)`/g, '<code>$1</code>')
+            .replace(/^#{1,4} (.+)$/gm, '<h4>$1</h4>')
+            .replace(/\n/g, '<br>');
+        return `<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<style>
+  body { font-family: var(--vscode-font-family); color: var(--vscode-foreground);
+         background: var(--vscode-editor-background); padding: 16px; }
+  .state-bar { font-size: 1.3em; margin-bottom: 12px; padding: 8px;
+               background: var(--vscode-badge-background); border-radius: 4px; }
+  code { background: var(--vscode-textCodeBlock-background); padding: 1px 4px; border-radius: 2px; }
+  h4 { color: var(--vscode-textLink-activeForeground); margin: 10px 0 4px; }
+  .refresh-btn { margin-top: 16px; padding: 4px 12px; cursor: pointer; }
+</style></head><body>
+<div class="state-bar">${stateStr}</div>
+<div id="content">${mdHtml || '<i>No operator state injected yet.</i>'}</div>
+<button class="refresh-btn" onclick="acquireVsCodeApi().postMessage({type:'refresh'})">↺ Refresh</button>
+<script>
+  const vscodeApi = acquireVsCodeApi();
+  window.addEventListener('message', e => {
+    if (e.data.type === 'update') { location.reload(); }
+  });
+</script>
+</body></html>`;
+    }
+
+    panel.webview.html = buildHtml();
+    panel.webview.onDidReceiveMessage(m => {
+        if (m.type === 'refresh') { panel.webview.html = buildHtml(); }
+    }, undefined, context.subscriptions);
+
+    // Auto-refresh every 10s
+    const tid = setInterval(() => {
+        if (!panel.visible) return;
+        panel.webview.html = buildHtml();
+    }, 10_000);
+    panel.onDidDispose(() => clearInterval(tid));
+}
+
+
+
 interface ClassifyResult { state: string; hesitation: number; wpm: number; rework_verdict?: string; }
 
 function classifySession(
     root: string, events: object[], submitted: boolean,
-    queryText?: string, postResponseEvents?: object[]
+    queryText?: string, postResponseEvents?: object[],
+    responseText?: string
 ): Promise<ClassifyResult> {
     const fallback: ClassifyResult = { state: 'neutral', hesitation: 0, wpm: 0 };
     return new Promise(resolve => {
@@ -53,6 +162,7 @@ function classifySession(
             events, submitted,
             query_text: queryText ?? '',
             post_response_events: postResponseEvents ?? [],
+            response_text: responseText ?? '',
         }));
         proc.stdin.end();
         let out = '';
@@ -68,12 +178,14 @@ function classifySession(
 //   - Terminal activity (shell commands, output reading pauses)
 //   - Context switches (file focus changes = research/browsing signal)
 //   - Selection changes (reading/scanning signal when no typing)
-// Logs everything to logs/keystroke_live.jsonl
+// Logs everything to logs/os_keystrokes.jsonl
 // Flushes to classify_bridge.py every 60s or on save
 
 const FLUSH_INTERVAL_MS = 60_000;
 const PAUSE_THRESHOLD_MS = 2_000;
 const IDLE_THRESHOLD_MS = 300_000;  // 5min idle = session break
+const MIN_CLASSIFY_CHARS = 8;
+const MIN_CLASSIFY_SPAN_MS = 4_000;
 
 interface RawEvent {
     ts: number;
@@ -82,6 +194,7 @@ interface RawEvent {
     duration_ms?: number;
     file?: string;
     context?: string;
+    source?: 'vscode';
 }
 
 class BackgroundTelemetry {
@@ -100,7 +213,7 @@ class BackgroundTelemetry {
         this._sessionId = crypto.randomBytes(6).toString('hex');
         const logDir = path.join(root, 'logs');
         if (!fs.existsSync(logDir)) { fs.mkdirSync(logDir, { recursive: true }); }
-        this._logPath = path.join(logDir, 'keystroke_live.jsonl');
+        this._logPath = path.join(logDir, 'os_keystrokes.jsonl');
     }
 
     start(context: vscode.ExtensionContext) {
@@ -251,7 +364,7 @@ class BackgroundTelemetry {
 
         // Fire classify_bridge in background — updates operator_profile + copilot-instructions
         const typingEvents = batch.filter(e => e.type === 'insert' || e.type === 'backspace' || e.type === 'pause');
-        if (typingEvents.length >= 3) {
+        if (this._shouldClassifyBatch(typingEvents)) {
             const activeFile = vscode.window.activeTextEditor?.document.fileName ?? '';
             const label = activeFile ? `bg:${activeFile.split(/[/\\]/).pop()}` : 'bg:idle';
             classifySession(this._root, typingEvents, true, label).then(result => {
@@ -276,21 +389,34 @@ class BackgroundTelemetry {
         }
     }
 
+    private _shouldClassifyBatch(events: RawEvent[]) {
+        if (events.length < 3) return false;
+        const chars = events
+            .filter(e => e.type === 'insert' || e.type === 'backspace')
+            .reduce((sum, e) => sum + (e.len ?? 1), 0);
+        if (chars < MIN_CLASSIFY_CHARS) return false;
+        return this._effectiveSpanMs(events) >= MIN_CLASSIFY_SPAN_MS;
+    }
+
+    private _effectiveSpanMs(events: RawEvent[]) {
+        if (!events.length) return 0;
+        const firstTs = events[0].ts;
+        const lastTs = events[events.length - 1].ts;
+        const pauseMs = events.reduce((sum, e) => sum + (e.duration_ms ?? 0), 0);
+        return Math.max((lastTs - firstTs) + pauseMs, pauseMs, 0);
+    }
+
     private _appendLog(events: RawEvent[]) {
         try {
-            const files = [...new Set(events.map(e => e.file).filter(Boolean))];
-            const types: Record<string, number> = {};
-            for (const e of events) { types[e.type] = (types[e.type] || 0) + 1; }
-            const line = JSON.stringify({
-                ts: new Date().toISOString(),
+            const lines = events.map(event => JSON.stringify({
+                ...event,
+                source: 'vscode',
                 sid: this._sessionId,
-                n: events.length,
-                types,
-                files: files.slice(0, 20),
-                span_ms: events.length > 1 ? events[events.length - 1].ts - events[0].ts : 0,
                 total_flushed: this._totalFlushed,
-            }) + '\n';
-            fs.appendFileSync(this._logPath, line, 'utf-8');
+            }) + '\n').join('');
+            if (lines) {
+                fs.appendFileSync(this._logPath, lines, 'utf-8');
+            }
         } catch { /* non-fatal */ }
     }
 
@@ -345,7 +471,8 @@ class PigeonChatPanel {
         if (msg.type === 'submit') {
             const result = await classifySession(
                 this._root, msg.events, true,
-                msg.query_text, msg.post_response_events
+                msg.query_text, msg.post_response_events,
+                msg.response_text
             );
             this._panel.webview.postMessage({ type: 'state', ...result });
             const opCtx = readOperatorState(this._root);
@@ -387,6 +514,7 @@ class PigeonChatPanel {
         }
         this._history.push({ role: 'assistant', content: full });
         this._panel.webview.postMessage({ type: 'done' });
+        this._logResponse(this._history[this._history.length - 2]?.content ?? '', full, 'pigeon_panel_copilot');
     }
 
     private async _callDeepSeek(opCtx: string) {
@@ -420,6 +548,19 @@ class PigeonChatPanel {
         }
         this._history.push({ role: 'assistant', content: full });
         this._panel.webview.postMessage({ type: 'done' });
+        this._logResponse(this._history[this._history.length - 2]?.content ?? '', full, 'pigeon_panel_deepseek');
+    }
+
+    private _logResponse(prompt: string, response: string, source: string) {
+        const respLogPath = path.join(this._root, 'logs', 'ai_responses.jsonl');
+        const entry = JSON.stringify({
+            ts: new Date().toISOString(),
+            prompt: prompt.slice(0, 500),
+            response: response.slice(0, 5000),
+            source,
+            tokens_approx: Math.ceil(response.length / 4),
+        }) + '\n';
+        try { fs.appendFileSync(respLogPath, entry, 'utf-8'); } catch { /* non-fatal */ }
     }
 
     private _buildHtml(): string {
@@ -455,6 +596,7 @@ function startOsHook(root: string) {
         stdio: ['ignore', 'pipe', 'ignore'],
     });
 
+    let _lastDriftCheck = 0;
     osHookProc.stdout?.on('data', (d: Buffer) => {
         // Parse heartbeat lines — log context switches
         for (const line of d.toString().split('\n').filter(Boolean)) {
@@ -462,6 +604,38 @@ function startOsHook(root: string) {
                 const msg = JSON.parse(line);
                 if (msg.status === 'started') {
                     console.log(`[pigeon] OS hook started, pid=${msg.pid}`);
+                } else if (msg.status === 'idle') {
+                    // Idle detected — trigger DriftWatcher baseline recalibration (at most once per 10 min)
+                    const now = Date.now();
+                    if (now - _lastDriftCheck > 600_000) {
+                        _lastDriftCheck = now;
+                        const driftScript = `
+import glob, importlib.util, sys, pathlib
+root = pathlib.Path(sys.argv[1])
+matches = sorted((root / 'src').glob('drift_watcher_seq005*.py'))
+if not matches: sys.exit(0)
+spec = importlib.util.spec_from_file_location('_dw', matches[-1])
+mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+dw = mod.DriftWatcher(root)
+result = dw.check_drift()
+if result: print('drift:', result)
+`.trim();
+                        const dp = spawn('py', ['-c', driftScript, root], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'] });
+                        dp.stdout?.on('data', (b: Buffer) => console.log(`[pigeon] ${b.toString().trim()}`));
+                        // Also generate session handoff on idle
+                        const handoffScript = `
+import importlib.util, sys, pathlib
+root = pathlib.Path(sys.argv[1])
+matches = sorted((root / 'src').glob('session_handoff_seq023*.py'))
+if not matches: sys.exit(0)
+spec = importlib.util.spec_from_file_location('_sh', matches[-1])
+mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+p = mod.generate(root)
+print('handoff:', p)
+`.trim();
+                        const hp = spawn('py', ['-c', handoffScript, root], { cwd: root, stdio: ['ignore', 'pipe', 'ignore'] });
+                        hp.stdout?.on('data', (b: Buffer) => console.log(`[pigeon] ${b.toString().trim()}`));
+                    }
                 }
             } catch { /* skip non-JSON */ }
         }
@@ -519,6 +693,7 @@ function registerChatParticipant(root: string, context: vscode.ExtensionContext)
 
         // ── Forward to the active model and stream response ──
         stream.progress('Pigeon telemetry captured — forwarding to model...');
+        const responsePath = path.join(logDir, 'ai_responses.jsonl');
 
         const opCtx = readOperatorState(root);
         const systemText = opCtx
@@ -544,15 +719,29 @@ function registerChatParticipant(root: string, context: vscode.ExtensionContext)
         }
         messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
 
+        let fullResponse = '';
         try {
             const res = await request.model.sendRequest(messages, {}, token);
             for await (const chunk of res.text) {
                 if (token.isCancellationRequested) break;
+                fullResponse += chunk;
                 stream.markdown(chunk);
             }
         } catch (e: any) {
+            fullResponse = `[error] ${e?.message ?? 'unknown'}`;
             stream.markdown(`*Error: ${e?.message ?? 'unknown'}*`);
         }
+
+        // ── Log response for coaching pipeline ──
+        const responseEntry = JSON.stringify({
+            ts: new Date().toISOString(),
+            prompt: request.prompt,
+            response: fullResponse,
+            model: request.model.id ?? 'unknown',
+            tokens_approx: Math.ceil(fullResponse.length / 4),
+            cancelled: token.isCancellationRequested,
+        }) + '\n';
+        try { fs.appendFileSync(responsePath, responseEntry, 'utf-8'); } catch { /* non-fatal */ }
     };
 
     const participant = vscode.chat.createChatParticipant('pigeon-telemetry.capture', handler);
@@ -674,7 +863,17 @@ export function activate(context: vscode.ExtensionContext) {
         // UIA reader — live text capture via Windows UI Automation
         startUIAReader(root);
         context.subscriptions.push({ dispose: () => stopUIAReader() });
+
+        // Live operator state status bar (refreshes every 15s)
+        new OperatorStateStatusBar(root, context);
     }
+
+    // Operator state panel command
+    context.subscriptions.push(
+        vscode.commands.registerCommand('pigeon.showOperatorState', () => {
+            if (root) showOperatorStatePanel(root, context);
+        })
+    );
 
     // Chat panel — optional, on-demand
     context.subscriptions.push(

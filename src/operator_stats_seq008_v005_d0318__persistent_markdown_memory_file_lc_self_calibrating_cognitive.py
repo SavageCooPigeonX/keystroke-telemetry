@@ -10,11 +10,11 @@ a compact operator profile that sharpens with every message.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 008 | VER: v004 | 397 lines | ~3,616 tokens
+# SEQ: 008 | VER: v005 | 498 lines | ~4,639 tokens
 # DESC:   persistent_markdown_memory_file
-# INTENT: dynamic_task_context
-# LAST:   2026-03-17 @ 1f60b21
-# SESSIONS: 2
+# INTENT: self_calibrating_cognitive
+# LAST:   2026-03-18 @ e809454
+# SESSIONS: 3
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None
@@ -48,6 +48,22 @@ def _local_hour_now() -> int:
     return datetime.now().hour
 
 
+def _is_artifact_record(record: dict) -> bool:
+    """Detect synthetic micro-batches that should not shape the baseline."""
+    keys = record.get("keys", 0)
+    wpm = record.get("wpm", 0)
+    hes = record.get("hesitation", 0)
+    del_ratio = record.get("del_ratio", 0)
+    submitted = record.get("submitted", True)
+    return (
+        not submitted
+        and keys <= 3
+        and wpm >= 180
+        and hes >= 0.95
+        and del_ratio >= 0.3
+    )
+
+
 def compute_baselines(history: list[dict], window: int = 50) -> dict:
     """Compute rolling baselines from operator history for self-calibration.
 
@@ -55,7 +71,10 @@ def compute_baselines(history: list[dict], window: int = 50) -> dict:
     `window` entries. These baselines let classify_state adapt to each
     operator's natural typing patterns instead of using hardcoded thresholds.
     """
-    recent = [r for r in history[-window:] if r.get("submitted", True)]
+    recent = [
+        r for r in history[-window:]
+        if r.get("submitted", True) and not _is_artifact_record(r)
+    ]
     if len(recent) < 5:
         return {}  # not enough data to calibrate
     wpms = [r["wpm"] for r in recent if "wpm" in r]
@@ -92,7 +111,11 @@ def classify_state(msg: dict, baselines: dict | None = None) -> str:
     inserts = msg.get("total_inserts", 0)
     dels = msg.get("total_deletions", 0)
     pauses = msg.get("typing_pauses", [])
-    duration_ms = max(msg.get("end_time_ms", 0) - msg.get("start_time_ms", 0), 1)
+    duration_ms = max(
+        msg.get("effective_duration_ms",
+                msg.get("end_time_ms", 0) - msg.get("start_time_ms", 0)),
+        1,
+    )
     hes = msg.get("hesitation_score", 0)
 
     del_ratio = dels / keys
@@ -187,7 +210,11 @@ class OperatorStats:
         keys = max(msg.get("total_keystrokes", 0), 1)
         inserts = msg.get("total_inserts", 0)
         dels = msg.get("total_deletions", 0)
-        duration_ms = max(msg.get("end_time_ms", 0) - msg.get("start_time_ms", 0), 1)
+        duration_ms = max(
+            msg.get("effective_duration_ms",
+                msg.get("end_time_ms", 0) - msg.get("start_time_ms", 0)),
+            1,
+        )
         pauses = msg.get("typing_pauses", [])
 
         wpm = round((inserts / 5) / max(duration_ms / 60_000, 0.001), 1)
