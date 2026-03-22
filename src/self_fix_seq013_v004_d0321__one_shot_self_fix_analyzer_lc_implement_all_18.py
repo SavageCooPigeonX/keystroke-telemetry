@@ -212,6 +212,102 @@ def _scan_cross_file_coupling(root: Path, registry: dict) -> list[dict]:
     return problems, import_graph
 
 
+def _scan_over_hard_cap(root: Path, registry: dict) -> list[dict]:
+    """Find pigeon-tracked files that exceed the 200-line hard cap."""
+    problems = []
+    from pigeon_compiler.pigeon_limits import PIGEON_MAX
+    reg_list = registry if isinstance(registry, list) else list(registry.values())
+    for entry in reg_list:
+        if not isinstance(entry, dict):
+            continue
+        rel = entry.get('path', '')
+        if not rel.endswith('.py'):
+            continue
+        abs_p = root / rel
+        if not abs_p.exists():
+            continue
+        try:
+            lc = len(abs_p.read_text(encoding='utf-8').splitlines())
+        except Exception:
+            continue
+        if lc > PIGEON_MAX:
+            problems.append({
+                'type': 'over_hard_cap',
+                'file': rel,
+                'line_count': lc,
+                'severity': 'high',
+                'fix': f'Auto-compile with pigeon compiler (run_clean_split)',
+            })
+    return problems
+
+
+def auto_compile_oversized(
+    root: Path,
+    fix_report: dict,
+    max_files: int = 2,
+) -> list[dict]:
+    """Auto-compile files flagged over_hard_cap, pruning confirmed dead exports.
+
+    Called from git_plugin after run_self_fix. Invokes run_clean_split on each
+    oversized file, passing dead exports as exclusions to the DeepSeek prompt
+    so they are pruned from the split output — never survive a compile cycle.
+
+    Returns list of dicts: {file, status, output_dir, error}.
+    """
+    import sys
+    sys.path.insert(0, str(root))
+
+    problems = fix_report.get('problems', [])
+    over_cap = [
+        p for p in problems
+        if p.get('type') == 'over_hard_cap'
+    ][:max_files]
+
+    if not over_cap:
+        return []
+
+    # Build per-file dead export index
+    dead_by_file: dict[str, list[str]] = {}
+    for p in problems:
+        if p.get('type') == 'dead_export':
+            f = p.get('file', '')
+            fn = p.get('function', '')
+            if f and fn:
+                dead_by_file.setdefault(f, []).append(fn)
+
+    results = []
+    try:
+        from pigeon_compiler.runners.run_clean_split_seq010_v004_d0315__full_clean_pipeline_deepseek_plan_lc_verify_pigeon_plugin import run as _run_split
+    except ImportError:
+        # glob-safe fallback import
+        import importlib.util
+        matches = sorted((root / 'pigeon_compiler' / 'runners').glob('run_clean_split_seq010*.py'))
+        if not matches:
+            return [{'file': '?', 'status': 'error', 'error': 'run_clean_split not found'}]
+        spec = importlib.util.spec_from_file_location('run_clean_split', matches[-1])
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        _run_split = mod.run
+
+    for p in over_cap:
+        rel = p['file']
+        abs_p = root / rel
+        dead = dead_by_file.get(rel, [])
+        try:
+            result = _run_split(abs_p, exclude_symbols=dead)
+            results.append({
+                'file': rel,
+                'status': 'ok',
+                'output_dir': result.get('target', ''),
+                'files': result.get('files', 0),
+                'dead_pruned': dead,
+            })
+        except Exception as e:
+            results.append({'file': rel, 'status': 'error', 'error': str(e)})
+
+    return results
+
+
 def _scan_query_noise(root: Path) -> list[dict]:
     """Detect poisoned query_memory entries."""
     problems = []
@@ -269,6 +365,9 @@ def run_self_fix(
 
     # 5. Query memory noise
     all_problems.extend(_scan_query_noise(root))
+
+    # 6. Over-hard-cap files (need auto-compile)
+    all_problems.extend(_scan_over_hard_cap(root, reg_list))
 
     # Sort by severity
     sev_order = {'critical': 0, 'high': 1, 'medium': 2, 'low': 3, 'info': 4}

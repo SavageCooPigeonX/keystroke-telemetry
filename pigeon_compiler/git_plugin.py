@@ -1013,6 +1013,21 @@ def run():
             fix_path = fix_mod.write_self_fix_report(root, fix_report, h)
             n_probs = len(fix_report.get('problems', []))
             print(f'  🔧 self-fix → {fix_path.relative_to(root)} ({n_probs} problems)')
+            # Auto-compile: split any pigeon files over 200-line hard cap, pruning dead exports
+            try:
+                if hasattr(fix_mod, 'auto_compile_oversized'):
+                    compiled = fix_mod.auto_compile_oversized(root, fix_report, max_files=2)
+                    for c in compiled:
+                        if c.get('status') == 'ok':
+                            pruned = c.get('dead_pruned', [])
+                            print(f'  🪦 auto-compiled: {Path(c["file"]).name}')
+                            print(f'     → {c["files"]} file(s) in {c["output_dir"]}')
+                            if pruned:
+                                print(f'     ✂️  pruned dead: {", ".join(pruned)}')
+                        else:
+                            print(f'  ⚠️  auto-compile {c["file"]}: {c.get("error")}')
+            except Exception as e:
+                print(f'  ⚠️  auto-compile oversized: {e}')
     except Exception as e:
         print(f'  ⚠️  self-fix: {e}')
 

@@ -47,8 +47,14 @@ MAX_RESPLIT_ROUNDS = 5
 OUT_DIR = Path(__file__).parent / "compiler_output"
 
 
-def run(source_file: Path, target_name: str = None):
-    """Full pipeline on one source file."""
+def run(source_file: Path, target_name: str = None,
+        exclude_symbols: list[str] | None = None):
+    """Full pipeline on one source file.
+
+    exclude_symbols: confirmed dead exports to prune from the split output.
+    These are passed into the DeepSeek cut plan prompt so they are omitted
+    from every cut and never appear in __init__.py exports.
+    """
     stem = source_file.stem
     target_name = target_name or stem
     target_dir = source_file.parent / target_name
@@ -86,7 +92,7 @@ def run(source_file: Path, target_name: str = None):
     print(f"{'='*60}")
 
     src = work_file.read_text(encoding="utf-8")
-    raw = request_cut_plan(em, src, target_name)
+    raw = request_cut_plan(em, src, target_name, exclude_symbols=exclude_symbols or [])
     cost = raw.get("response", {}).get("cost", 0)
     total_cost += cost
     print(f"  DeepSeek cost: ${cost:.4f}")

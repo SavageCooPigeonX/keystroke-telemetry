@@ -88,8 +88,24 @@ def _prompt_blob_section(resistance: dict) -> str:
     return "\n".join(lines)
 
 
+def _dead_exports_section(exclude_symbols: list[str]) -> str:
+    """Build dead-export exclusion block for the prompt."""
+    if not exclude_symbols:
+        return ''
+    names = ', '.join(f'`{n}`' for n in exclude_symbols)
+    return f"""\n═══════════════ DEAD EXPORTS — PRUNE THESE (never include in any cut) ═══════════════
+
+The following functions are confirmed dead exports — no caller exists anywhere in the
+codebase. DO NOT include them in any cut's "functions" list. DO NOT add them to
+init_exports. They should be deleted, not moved.
+
+DEAD (omit entirely): {names}
+"""
+
+
 def build_plan_prompt(ether_map: dict, source: str,
-                      folder_name: str = None) -> str:
+                      folder_name: str = None,
+                      exclude_symbols: list[str] | None = None) -> str:
     """Build the DeepSeek compiler prompt from an ether map."""
     em = ether_map
     r = em.get("resistance", {})
@@ -142,6 +158,7 @@ Functions at depth 0-1 are tightly coupled to the orchestrator.
 
 {_prompt_blob_section(r)}
 
+{_dead_exports_section(exclude_symbols or [])}
 ═══════════════ ETHER MAP ═══════════════
 
 File: {em['file']} ({em['total_lines']} lines)
@@ -226,11 +243,12 @@ def _validate_plan_lines(plan: dict, ether_map: dict) -> list:
 
 
 def request_cut_plan(ether_map: dict, source_code: str,
-                     folder_name: str = None) -> dict:
+                     folder_name: str = None,
+                     exclude_symbols: list[str] | None = None) -> dict:
     """Send prompt to DeepSeek and return the response with validation."""
     from pigeon_compiler.integrations.deepseek_adapter_seq001_v004_d0315__deepseek_api_client_lc_verify_pigeon_plugin import deepseek_query
 
-    prompt = build_plan_prompt(ether_map, source_code, folder_name)
+    prompt = build_plan_prompt(ether_map, source_code, folder_name, exclude_symbols=exclude_symbols)
     result = deepseek_query(prompt, max_tokens=6000)
 
     # Post-validation of the plan
