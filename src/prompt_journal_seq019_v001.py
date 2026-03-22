@@ -17,7 +17,7 @@ Zero LLM calls — pure signal cross-referencing.
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-03-22T23:00:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  filter superhuman WPM from running_stats
+# EDIT_WHY:  wire prompt_enricher deepseek call on every entry
 # EDIT_STATE: harvested
 # ── /pulse ──
 from __future__ import annotations
@@ -588,5 +588,26 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
     entry.pop('_root', None)  # don't persist in journal
     _write_latest_snapshot(root, snapshot)
     _refresh_copilot_instructions(root, snapshot)
+
+    # ── DeepSeek prompt enrichment — inject what operator actually means ──
+    try:
+        import importlib.util as _ilu, glob as _g
+        _matches = sorted(root.glob('src/prompt_enricher_seq024*.py'))
+        if _matches:
+            _spec = _ilu.spec_from_file_location('_enricher', _matches[-1])
+            _mod = _ilu.module_from_spec(_spec)
+            _spec.loader.exec_module(_mod)
+            _mod.inject_query_block(
+                root, msg,
+                deleted_words=deleted_words,
+                cognitive_state={
+                    'state': cog_state,
+                    'wpm': signals.get('wpm', 0),
+                    'del_ratio': signals.get('deletion_ratio', 0),
+                    'hes': signals.get('hesitation_count', 0),
+                },
+            )
+    except Exception:
+        pass  # enrichment is best-effort, never block the journal
 
     return entry
