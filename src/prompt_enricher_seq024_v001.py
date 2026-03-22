@@ -15,9 +15,9 @@ Zero friction: called automatically from prompt_journal on every log_enriched_en
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-22T23:40:00+00:00
+# EDIT_TS:   2026-03-22T20:20:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  make enricher a full steerer with COPILOT_QUERY
+# EDIT_WHY:  canonicalize current-query block cleanup
 # EDIT_STATE: harvested
 # ── /pulse ──
 from __future__ import annotations
@@ -270,6 +270,8 @@ def enrich_prompt(root: Path, raw_query: str,
         if not matches:
             return ''
         spec = _ilu.spec_from_file_location('_ds', matches[-1])
+        if spec is None or spec.loader is None:
+            return ''
         mod = _ilu.module_from_spec(spec)
         spec.loader.exec_module(mod)
 
@@ -290,6 +292,51 @@ def enrich_prompt(root: Path, raw_query: str,
         return result.get('content', '').strip()
     except Exception as e:
         return f'(enrichment unavailable: {e})'
+
+
+def _strip_query_blocks(text: str) -> tuple[str, bool]:
+    """Remove all managed current-query blocks, even if duplicates exist."""
+    lines = text.splitlines()
+    kept = []
+    in_block = False
+    removed = False
+
+    for line in lines:
+        stripped = line.strip()
+        if stripped == BLOCK_START:
+            in_block = True
+            removed = True
+            continue
+        if in_block:
+            if stripped == BLOCK_END:
+                in_block = False
+            continue
+        kept.append(line)
+
+    cleaned = '\n'.join(kept).rstrip()
+    legacy_pat = re.compile(
+        r'(?ms)^## What You Actually Mean Right Now\s*\n.*?^\s*'
+        + re.escape(BLOCK_END)
+        + r'\s*$\n?'
+    )
+    cleaned, legacy_n = legacy_pat.subn('', cleaned)
+    removed = removed or legacy_n > 0
+    if text.endswith('\n'):
+        cleaned += '\n'
+    return cleaned, removed
+
+
+def _find_insert_anchor(text: str) -> int:
+    """Insert before the first managed block that still exists in the file."""
+    markers = (
+        '<!-- pigeon:task-context -->',
+        '<!-- pigeon:task-queue -->',
+        '<!-- pigeon:operator-state -->',
+        '<!-- pigeon:prompt-telemetry -->',
+        '<!-- pigeon:auto-index -->',
+    )
+    hits = [text.find(marker) for marker in markers if text.find(marker) >= 0]
+    return min(hits) if hits else -1
 
 
 # ── block injection ───────────────────────────
@@ -329,14 +376,15 @@ def inject_query_block(root: Path, raw_query: str,
     )
 
     text = cp.read_text('utf-8')
-    pat = re.compile(
-        r'(?ms)^\s*' + re.escape(BLOCK_START) + r'\s*$\n.*?^\s*' + re.escape(BLOCK_END) + r'\s*$'
-    )
-    if pat.search(text):
-        text = pat.sub(block, text)
+    text, had_block = _strip_query_blocks(text)
+    if had_block:
+        idx = _find_insert_anchor(text)
+        if idx >= 0:
+            text = text[:idx] + block + '\n\n' + text[idx:]
+        else:
+            text = text.rstrip() + '\n\n' + block + '\n'
     else:
-        # Insert right before the task-context block if present, else append
-        idx = text.find('<!-- pigeon:task-context -->')
+        idx = _find_insert_anchor(text)
         if idx >= 0:
             text = text[:idx] + block + '\n\n' + text[idx:]
         else:

@@ -8,9 +8,10 @@
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
+# EDIT_TS:   2026-03-22T20:28:42.5025062Z
+# EDIT_HASH: auto
+# EDIT_WHY:  dedupe task context blocks
+# EDIT_STATE: harvested
 # ── /pulse ──
 import json, re, subprocess
 from pathlib import Path
@@ -218,6 +219,25 @@ _COT = {
     'abandoned':  'Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.',
 }
 
+def _strip_task_context_blocks(text: str) -> str:
+    pat = re.compile(
+        r'(?ms)^\s*<!-- pigeon:task-context -->\s*$\n.*?^\s*<!-- /pigeon:task-context -->\s*$\n?',
+    )
+    return pat.sub('', text).rstrip() + '\n'
+
+
+def _find_task_context_anchor(text: str) -> int:
+    for marker in (
+        '<!-- pigeon:task-queue -->',
+        '<!-- pigeon:operator-state -->',
+        '<!-- pigeon:prompt-telemetry -->',
+        '<!-- pigeon:auto-index -->',
+    ):
+        idx = text.find(marker)
+        if idx >= 0:
+            return idx
+    return -1
+
 def build_task_context(root):
     root = Path(root)
     now = datetime.now(timezone.utc)
@@ -296,16 +316,12 @@ def inject_task_context(root):
     cp = root / '.github' / 'copilot-instructions.md'
     if not cp.exists(): return False
     block = build_task_context(root)
-    text = cp.read_text(encoding='utf-8')
-    pat = re.compile(
-        r'(?ms)^\s*<!-- pigeon:task-context -->\s*$\n.*?^\s*<!-- /pigeon:task-context -->\s*$',
-    )
-    if pat.search(text):
-        text = pat.sub(block, text)
+    text = _strip_task_context_blocks(cp.read_text(encoding='utf-8'))
+    idx = _find_task_context_anchor(text)
+    if idx >= 0:
+        text = text[:idx].rstrip() + '\n\n' + block + '\n\n' + text[idx:].lstrip()
     else:
-        idx = text.find('<!-- pigeon:operator-state -->')
-        if idx >= 0: text = text[:idx] + block + '\n\n' + text[idx:]
-        else: text = text.rstrip() + '\n\n---\n\n' + block + '\n'
+        text = text.rstrip() + '\n\n---\n\n' + block + '\n'
     cp.write_text(text, encoding='utf-8')
     return True
 

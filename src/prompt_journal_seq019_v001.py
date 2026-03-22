@@ -15,9 +15,9 @@ Zero LLM calls — pure signal cross-referencing.
 # SESSIONS: 0
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-22T23:00:00+00:00
+# EDIT_TS:   2026-03-22T20:23:00.1028921Z
 # EDIT_HASH: auto
-# EDIT_WHY:  wire prompt_enricher deepseek call on every entry
+# EDIT_WHY:  refresh latest prompt manager
 # EDIT_STATE: harvested
 # ── /pulse ──
 from __future__ import annotations
@@ -461,12 +461,17 @@ def _write_latest_snapshot(root: Path, snapshot: dict) -> None:
     snapshot_path.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 
+def _latest_runtime_module(root: Path, pattern: str) -> Path | None:
+    matches = sorted(root.glob(pattern))
+    return matches[-1] if matches else None
+
+
 def _refresh_copilot_instructions(root: Path, snapshot: dict) -> None:
     try:
         import importlib.util
 
-        manager_path = root / 'src' / 'copilot_prompt_manager_seq020_v001.py'
-        if manager_path.exists():
+        manager_path = _latest_runtime_module(root, 'src/copilot_prompt_manager_seq020*.py')
+        if manager_path is not None:
             spec = importlib.util.spec_from_file_location('_copilot_prompt_manager_runtime', manager_path)
             if spec is not None and spec.loader is not None:
                 mod = importlib.util.module_from_spec(spec)
@@ -595,18 +600,19 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
         _matches = sorted(root.glob('src/prompt_enricher_seq024*.py'))
         if _matches:
             _spec = _ilu.spec_from_file_location('_enricher', _matches[-1])
-            _mod = _ilu.module_from_spec(_spec)
-            _spec.loader.exec_module(_mod)
-            _mod.inject_query_block(
-                root, msg,
-                deleted_words=deleted_words,
-                cognitive_state={
-                    'state': cog_state,
-                    'wpm': signals.get('wpm', 0),
-                    'del_ratio': signals.get('deletion_ratio', 0),
-                    'hes': signals.get('hesitation_count', 0),
-                },
-            )
+            if _spec is not None and _spec.loader is not None:
+                _mod = _ilu.module_from_spec(_spec)
+                _spec.loader.exec_module(_mod)
+                _mod.inject_query_block(
+                    root, msg,
+                    deleted_words=deleted_words,
+                    cognitive_state={
+                        'state': cog_state,
+                        'wpm': signals.get('wpm', 0),
+                        'del_ratio': signals.get('deletion_ratio', 0),
+                        'hes': signals.get('hesitation_count', 0),
+                    },
+                )
     except Exception:
         pass  # enrichment is best-effort, never block the journal
 

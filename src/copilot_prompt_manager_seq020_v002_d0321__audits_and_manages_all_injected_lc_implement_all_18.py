@@ -8,9 +8,10 @@
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
+# EDIT_TS:   2026-03-22T20:28:42.5025062Z
+# EDIT_HASH: auto
+# EDIT_WHY:  audit duplicate prompt blocks
+# EDIT_STATE: harvested
 # ── /pulse ──
 
 from __future__ import annotations
@@ -57,6 +58,10 @@ def _extract_block(text: str, start: str, end: str) -> str | None:
     return match.group(0) if match else None
 
 
+def _count_blocks(text: str, start: str, end: str) -> int:
+    return len(_block_pattern(start, end).findall(text))
+
+
 def _replace_or_insert_after_line(text: str, anchor: str, block: str) -> str:
     anchor_pattern = re.compile(rf'(?m)^\s*{re.escape(anchor)}\s*$')
     match = anchor_pattern.search(text)
@@ -75,13 +80,23 @@ def _load_json(path: Path):
         return None
 
 
-def _run_refresher(root: Path, relative_path: str, function_name: str) -> bool:
+def _latest_runtime_module(root: Path, pattern: str) -> Path | None:
+    matches = sorted(root.glob(pattern))
+    return matches[-1] if matches else None
+
+
+def _run_refresher(root: Path, relative_path: str | None, function_name: str) -> bool:
     try:
         import importlib.util
 
+        if relative_path is None:
+            return False
         mod_path = root / relative_path
         if not mod_path.exists():
-            return False
+            latest = _latest_runtime_module(root, relative_path)
+            if latest is None:
+                return False
+            mod_path = latest
         spec = importlib.util.spec_from_file_location(f'_prompt_refresh_{function_name}', mod_path)
         if spec is None or spec.loader is None:
             return False
@@ -378,16 +393,20 @@ def audit_copilot_prompt(root: Path) -> dict:
     text = cp_path.read_text(encoding='utf-8')
     block_status = {}
     missing_blocks = []
+    duplicate_blocks = []
     unfilled_fields = []
     extracted_blocks = {}
 
     for name, (start, end) in BLOCK_MARKERS.items():
         body = _extract_block(text, start, end)
         present = body is not None
-        block_status[name] = {'present': present}
+        count = _count_blocks(text, start, end)
+        block_status[name] = {'present': present, 'count': count}
         extracted_blocks[name] = body or ''
         if not present:
             missing_blocks.append(name)
+        elif count > 1:
+            duplicate_blocks.append(name)
 
     if 'Fresh start' in extracted_blocks.get('task_context', ''):
         unfilled_fields.append('task_context_placeholder')
@@ -411,6 +430,7 @@ def audit_copilot_prompt(root: Path) -> dict:
         'missing_file': False,
         'blocks': block_status,
         'missing_blocks': missing_blocks,
+        'duplicate_blocks': duplicate_blocks,
         'unfilled_fields': unfilled_fields,
         'mutation_snapshots': total_mutations,
         'latest_prompt_preview': ((snapshot.get('latest_prompt') or {}).get('preview')),
@@ -432,12 +452,12 @@ def refresh_managed_prompt(
     auto_index_refreshed = inject_auto_index(root, registry=registry, processed=processed)
     task_context_refreshed = _run_refresher(
         root,
-        'src/dynamic_prompt_seq017_v003_d0317__steers_copilot_cot_from_live_lc_wire_narratives_self.py',
+        'src/dynamic_prompt_seq017*.py',
         'inject_task_context',
     )
     task_queue_refreshed = _run_refresher(
         root,
-        'src/task_queue_seq018_v002_d0317__copilot_driven_task_tracking_linked_lc_task_queue_system.py',
+        'src/task_queue_seq018*.py',
         'inject_task_queue',
     )
     operator_state_refreshed = inject_operator_state(root)
