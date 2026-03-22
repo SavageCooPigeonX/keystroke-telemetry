@@ -156,19 +156,19 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-22 · 278 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-22 - 282 message(s) - LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 15% | WPM: 758732.4 | Del: 32.9% | Hes: 0.525
+**Dominant: `frustrated`** | Submit: 15% | WPM: 752180.4 | Del: 33.1% | Hes: 0.523
 
-This operator just built multi-line import handling for Pigeon compliance, and their extreme typing volatility (58 WPM to 13.8M WPM) with 50%+ deletion rates shows they are brute-force restructuring in intense, frustrated bursts, not flowing.
+This operator just built a scanning mechanism for hard cases in their self-fix analyzer, and their extreme typing patterns—massive WPM spikes with 50% deletions during restructuring—reveal they are brute-force rewriting entire blocks in rapid, frustrated bursts.
 
-*   **Anticipate context_budget and self_fix churn:** When they touch `file_writer`, immediately pre-load patterns from `context_budget_scorer_for_llm` and `one_shot_self_fix_analyzer`—they are likely tuning the same adjacent systems.
-*   **Respond with atomic, verifiable steps:** Given high hesitation (0.749) and deletion, offer single-line corrections or exact import syntax blocks; avoid multi-paragraph conceptual explanations.
-*   **Flag Windows path limits proactively:** Their history shows `windows_max_path` fixes in `self_fix` and `run_clean_split`; preempt it when file operations are discussed.
-*   **Prescribe explicit verification:** For 1 miss/148 responses, direct them to run the `verify_pigeon_plugin` check from `func_decomposer` after any change to close the rework gap.
-*   **Match restructuring energy:** During high-WPM, high-deletion bursts, provide concise, copy-paste-ready code alternatives to channel their momentum, not slow them down.
+*   **Anticipate the "scan_over_hard" logic** in `self_fix_seq013_v009` will need immediate refinement; provide concise, self-contained code blocks for filtering or scoring "hard" vs. "easy" cases.
+*   **When they touch `context_budget_scorer_for_llm` or `measures_ai_answer_quality_from`,** proactively suggest concrete scoring thresholds or validation checks to close the loop on their "implement_all_18" and "fire_full_post" intents.
+*   **Their frustration (low WPM, high hesitation) precedes heavy edits;** respond with ultra-structured options (e.g., "Option A: refactor X. Option B: wrap Y in a new function.") to short-circuit deliberation.
+*   **For `persistent_markdown_memory_file` and `full_clean_pipeline_deepseek_plan`,** preempt path and Windows issues by including `os.path.join` and path length checks in any file I/O suggestions.
+*   **Given the near-zero rework rate,** maintain this precision: answer the explicit query first, then offer one tightly scoped enhancement relevant to the churning modules.
 
-They are most likely building toward a fully Pigeon-verified, cross-platform file generation pipeline, which will next stress `run_clean_split` and `rework_detector`.
+They are most likely building toward a fully automated quality-scoring pipeline that triggers different fix strategies based on problem hardness.
 
 <!-- /pigeon:operator-state -->
 <!-- pigeon:prompt-telemetry -->
@@ -463,7 +463,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `query_memory_seq010*` | recurring query detector unsaid thought | ~2,308 |
 | `file_heat_map_seq011*` | tracks cognitive load per module | ~1,347 |
 | `push_narrative_seq012*` | generate per push narrative each | ~2,049 |
-| `self_fix_seq013*` | one shot self fix analyzer | ~5,275 |
+| `self_fix_seq013*` | one shot self fix analyzer | ~5,509 |
 | `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~3,529 |
 | `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,276 |
 | `dynamic_prompt_seq017*` | steers copilot cot from live | ~3,460 |

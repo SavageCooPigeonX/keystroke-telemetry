@@ -32,7 +32,7 @@ Two developer tools packaged together:
 ---
 
 ## FOLDER TREE
-*Auto-synced by manifest_builder | 2026-03-22 04:23 UTC*
+*Auto-synced by manifest_builder | 2026-03-22 04:49 UTC*
 
 ```
 LinkRouter.AI/
@@ -57,12 +57,12 @@ LinkRouter.AI/
 +-- /client                              7 files, 1 sub | 14% compliant
 |
 +-- /demo_logs                           (2 files)
-+-- /docs                                (38 files)
++-- /docs                                (41 files)
 +-- /pigeon_code.egg-info                (5 files)
-+-- /pigeon_compiler                     58 files, 7 sub | 78% compliant
++-- /pigeon_compiler                     101 files, 7 sub | 87% compliant
 |   +-- /cut_executor                    (12 files)
 |   +-- /integrations                    (1 files)
-|   +-- /rename_engine                   (24 files)
+|   +-- /rename_engine                   (67 files)
 |   +-- /runners                         (9 files)
 |   +-- /state_extractor                 (6 files)
 |   +-- /weakness_planner                (1 files)
@@ -425,7 +425,7 @@ py deep_test.py  # 8 deep profiling tests — validates full signal pipeline
 
 ## OPERATOR KEYSTROKE TRAIL
 
-*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-22 04:23 UTC*
+*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-22 04:49 UTC*
 
 > **How to read**: Each row is one keystroke event from the operator.
 > Markers flag cognitive signals: ⏸ = long pause (>2s), 

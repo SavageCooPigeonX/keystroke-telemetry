@@ -1,0 +1,8 @@
+"""nametag_seq011/ — Pigeon-compliant module."""
+from nametag_seq011.nametag_seq011_build_seq005_v001 import build_nametag
+from nametag_seq011.nametag_seq011_constants_seq001_v001 import DESC_SEPARATOR, LC_SEP, MAX_DESC_WORDS, MAX_INTENT_WORDS, MAX_SLUG_CHARS, NAMETAG_PATTERN
+from nametag_seq011.nametag_seq011_detect_seq007_v001 import detect_drift
+from nametag_seq011.nametag_seq011_extract_seq004_v001 import extract_desc_slug
+from nametag_seq011.nametag_seq011_parse_seq006_v001 import parse_nametag
+from nametag_seq011.nametag_seq011_scan_seq008_v001 import scan_drift
+from nametag_seq011.nametag_seq011_slugify_seq003_v001 import slugify
