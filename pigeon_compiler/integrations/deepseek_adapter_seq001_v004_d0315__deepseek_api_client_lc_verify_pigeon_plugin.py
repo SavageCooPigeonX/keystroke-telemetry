@@ -23,7 +23,7 @@ import httpx
 logger = logging.getLogger(__name__)
 
 DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions"
-DEEPSEEK_TIMEOUT = httpx.Timeout(connect=10.0, read=120.0, write=30.0, pool=10.0)
+DEEPSEEK_TIMEOUT = httpx.Timeout(connect=10.0, read=300.0, write=30.0, pool=10.0)
 DEEPSEEK_MAX_RETRIES = 3
 DEEPSEEK_RETRY_DELAY = 1.5
 
