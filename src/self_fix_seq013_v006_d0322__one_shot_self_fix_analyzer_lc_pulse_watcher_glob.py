@@ -1,16 +1,16 @@
 """One-shot self-fix analyzer: cross-file problem detection + targeted resolution."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 013 | VER: v005 | 572 lines | ~5,207 tokens
+# SEQ: 013 | VER: v006 | 572 lines | ~5,213 tokens
 # DESC:   one_shot_self_fix_analyzer
-# INTENT: auto_compile_oversized
-# LAST:   2026-03-22 @ 7768b84
-# SESSIONS: 2
+# INTENT: pulse_watcher_glob
+# LAST:   2026-03-22 @ d447b19
+# SESSIONS: 3
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-22T00:00:00+00:00
+# EDIT_TS:   2026-03-22T00:30:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  fix indented from-import regex
+# EDIT_WHY:  short target_name fix Windows MAX_PATH
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -293,8 +293,12 @@ def auto_compile_oversized(
         rel = p['file']
         abs_p = root / rel
         dead = dead_by_file.get(rel, [])
+        # Use short seq-base as target name to avoid Windows MAX_PATH (260 chars)
+        import re as _re
+        m = _re.match(r'([\w]+_seq\d+)', abs_p.stem)
+        short_name = m.group(1) if m else abs_p.stem[:40]
         try:
-            result = _run_split(abs_p, exclude_symbols=dead)
+            result = _run_split(abs_p, target_name=short_name, exclude_symbols=dead)
             results.append({
                 'file': rel,
                 'status': 'ok',

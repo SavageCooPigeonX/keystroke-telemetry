@@ -7,21 +7,31 @@ Usage:
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v004 | 242 lines | ~2,248 tokens
+# SEQ: 010 | VER: v005 | 257 lines | ~2,413 tokens
 # DESC:   full_clean_pipeline_deepseek_plan
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
+# INTENT: auto_compile_oversized
+# LAST:   2026-03-22 @ 7768b84
 # SESSIONS: 1
 # ──────────────────────────────────────────────
-import json, sys, argparse, shutil, traceback
+import json, sys, argparse, shutil, traceback, importlib.util, glob as _glob
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from pigeon_compiler.state_extractor import build_ether_map
-from pigeon_compiler.weakness_planner.deepseek_plan_prompt_seq004_v003_d0314__build_and_send_deepseek_cut_lc_desc_upgrade import (
-    request_cut_plan)
+
+# Dynamic import for deepseek_plan_prompt (pigeon name mutates)
+def _load_request_cut_plan():
+    matches = sorted(PROJECT_ROOT.glob('weakness_planner/deepseek_plan_prompt_seq004*.py'))
+    if not matches:
+        raise ImportError('deepseek_plan_prompt_seq004 not found')
+    spec = importlib.util.spec_from_file_location('_dsp', matches[-1])
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.request_cut_plan
+
+request_cut_plan = _load_request_cut_plan()
 from pigeon_compiler.cut_executor.plan_parser_seq001_v004_d0315__parse_deepseek_json_from_raw_lc_verify_pigeon_plugin import parse_plan
 from pigeon_compiler.cut_executor.source_slicer_seq002_v004_d0315__extract_functions_constants_from_source_lc_verify_pigeon_plugin import slice_source
 from pigeon_compiler.cut_executor.file_writer_seq003_v004_d0315__write_new_pigeon_compliant_files_lc_verify_pigeon_plugin import write_cut_files
