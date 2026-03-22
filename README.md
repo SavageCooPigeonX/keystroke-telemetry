@@ -2,14 +2,81 @@
 
 > **Three systems. One closed loop. Zero LLM calls for the core signal.**
 >
->
 > Keystroke patterns reveal cognitive state → cognitive state steers Copilot's chain-of-thought → AI behavior adapts in real time → rework detection measures if it worked → feeds back in.
 
 ---
 
-## What this is
+## Status (2026-03-22)
 
-This repo is a **cognitive feedback system** between a human developer and an AI coding assistant. It does three things that no existing tool does together:
+The self-compiling loop is live and chewing through its own codebase.
+
+| Phase | Status |
+|---|---|
+| Keystroke capture + cognitive state classification | ✅ Live |
+| Post-commit telemetry pipeline (11 injected sections) | ✅ Live |
+| Pigeon Compiler — DeepSeek cut plan + AST bin-packing | ✅ Live |
+| Auto-compile on commit (self_fix triggers `run_clean_split`) | ✅ Live |
+| Self-healing exclusion logic (vscode-ext / client / orchestrators) | ✅ Live |
+| Codebase auto-refactoring loop (2 files per commit, ~$0.001 each) | ✅ Running |
+| Compiled so far | `compliance_seq008` → 12f, `heal_seq009` → 6f, `manifest_builder_seq007` → 32f, `nametag_seq011` → 9f |
+| Remaining over-cap targets | 11 files (~$0.013 total to finish) |
+| AI response capture (UIA → rework triple) | 🔲 Planned |
+
+---
+
+## Value Audit — For Devs and Vibecoders of 2026+
+
+*An honest analysis of what this system actually does that nothing else does, and where it will matter most.*
+
+### What vibecoders are doing wrong right now
+
+"Vibe coding" in 2026 means sending a prompt, accepting the diff, sending another prompt. The human is reduced to **a prompt router** — they have no way to tell the AI what they're actually confused about, what they deleted from their last message, or why a previous answer failed. The AI models the code, not the person.
+
+This repo is a bet on a different model: **the bottleneck isn't the AI's capability — it's the AI's lack of operator context.** Every piece of ambiguity that a human resolves silently (hesitation, deletion, rewrite, abandon) is a signal that gets lost in the current human-AI interface.
+
+### What this system uniquely provides
+
+| Capability | Status | Why it matters |
+|---|---|---|
+| **Unsaid thread capture** | ✅ Live | Prompts contain only what the operator committed to — the deleted half is usually the most revealing. This is the only system that reads deleted keystrokes before send. |
+| **Per-file cognitive load** | ✅ Live | After 100+ sessions, you can tell which modules the operator dreads. That's a proxy for technical debt no static analyzer can produce. |
+| **CoT steering from live state** | ✅ Live | Copilot's reasoning changes based on whether you're in flow, frustrated, or hesitant. Not with a settings toggle — automatically, on every message. |
+| **Rework → miss rate feedback** | ✅ Live | Every AI response that triggers heavy deletion after is marked as a miss. The AI knows its own failure rate by module. |
+| **Self-narrating codebase** | ✅ Live | Each file generates a first-person account of why it was last changed, what it assumes, and what could break it. This is ambient documentation that gets more useful as the codebase ages. |
+| **Self-compiling to pigeon spec** | ✅ Live | The codebase enforces its own 200-line cap autonomously. Every commit automatically triggers DeepSeek to decompose oversized files. The codebase refactors itself. |
+| **Prompt evolution tracking** | ✅ Live | The system has a diff history of how its own AI context prompt has mutated across 30+ commits. You can see which features improved the AI response quality and which were noise. |
+| **Task queue managed by AI** | ✅ Live | Copilot manages a task backlog seeded from the automated code scanner. Tasks auto-close when the referenced MANIFEST.md is updated. |
+
+### The honest gaps
+
+| Gap | Impact | Mitigation in progress |
+|---|---|---|
+| **No response text captured** | Rework is measured but you can't correlate *what was said* with *why it failed*. Miss rate is approximate. | UIA reader stub exists (`client/uia_reader.py`). Needs the Copilot panel accessibility tree walked. |
+| **Classification noise at session start** | First few prompts of a session produce unreliable state (baseline not calibrated). History accumulates quickly. | Self-calibrating baselines introduced in v008. |
+| **Windows-only core** | UIA, OS hook, VS Code extension path assumptions. Most of the telemetry capture is Windows-native. Cross-platform would require a different input hook. | Acknowledged. Not a priority. |
+| **DeepSeek dependency for coaching** | Operator coaching and push narratives require an API key. Remove the key and the coaching loop goes silent; the rest still works. | Graceful degradation: all non-DeepSeek sections still inject. |
+| **Pigeon filenames in tests** | Tests that hardcode versioned filenames break on the next rename. Self-fix scanner flags these as CRITICAL. | `test_all.py` uses dynamic glob search — pattern to follow. |
+
+### Who this is useful for, ranked
+
+1. **Solo devs with long-running projects** — the cognitive load map becomes extremely accurate after 50+ sessions. You surface which parts of your own codebase you avoid, and the AI gets briefed on exactly that.
+
+2. **Vibecoders building production systems** — rework measurement gives you an empirical signal that your prompts are degrading in quality. Most vibe coders have no idea when they've entered a session where the AI is consistently wrong.
+
+3. **Teams that want structured AI context** — the pigeon naming convention and auto-generated MANIFESTs produce a self-describing codebase. New contributors (human or AI) can orient in under 5 minutes.
+
+4. **Anyone building an AI-heavy tool who wants to close the feedback loop** — the architecture here (capture → classify → inject → measure → adapt) is a pattern worth copying even if you don't use this exact stack.
+
+### What this is *not*
+
+- Not a linting tool. Use ruff.
+- Not a documentation generator. The MANIFESTs are navigation aids, not API docs.
+- Not a test framework. The 4 core tests are sanity checks for the telemetry pipeline, not test coverage.
+- Not an LLM wrapper or prompt library. Zero LLM calls in the core signal path.
+
+---
+
+
 
 1. **Reads human cognition through typing patterns** — pauses, deletions, rewrites, and abandoned drafts are not noise. They are the highest-bandwidth signal channel between a human and a machine. This system reads them.
 
@@ -396,26 +463,30 @@ Output: `logs/prompt_journal.jsonl` — one JSON object per line, append-only.
 keystroke-telemetry/
 ├── .github/
 │   └── copilot-instructions.md      ← auto-updated on every commit
-├── src/                             ← core telemetry (19 modules)
+├── src/                             ← core telemetry (23 modules)
 │   ├── timestamp_utils_seq001*      ← epoch ms utility
 │   ├── models_seq002*               ← KeyEvent, MessageDraft dataclasses
 │   ├── logger_seq003*               ← core telemetry logger
 │   ├── context_budget_seq004*       ← token cost scorer
 │   ├── drift_watcher_seq005*        ← cross-session drift detection
 │   ├── resistance_bridge_seq006*    ← telemetry → compiler signal
-│   ├── streaming_layer_seq007*      ← MONOLITH (test harness only)
+│   ├── streaming_layer_seq007*      ← MONOLITH (test harness only, intentional)
 │   ├── operator_stats_seq008*       ← persistent cognitive profile
 │   ├── rework_detector_seq009*      ← AI answer quality measurement
 │   ├── query_memory_seq010*         ← recurring query + unsaid detector
 │   ├── file_heat_map_seq011*        ← per-module cognitive load
 │   ├── push_narrative_seq012*       ← per-push file self-narratives
-│   ├── self_fix_seq013*             ← cross-file problem scanner
+│   ├── self_fix_seq013*             ← cross-file problem scanner + auto-compile trigger
 │   ├── cognitive_reactor_seq014*    ← autonomous code modification
 │   ├── pulse_harvest_seq015*        ← prompt → edit pairing
 │   ├── prompt_recon_seq016*         ← prompt reconstruction + mutation tracking
 │   ├── dynamic_prompt_seq017*       ← task-aware CoT injection ←── THE CORE
 │   ├── task_queue_seq018*           ← Copilot-managed task queue
-│   └── prompt_journal_seq019*       ← enriched prompt journal (cross-ref all telemetry)
+│   ├── prompt_journal_seq019*       ← enriched prompt journal (cross-ref all telemetry)
+│   ├── copilot_prompt_manager_seq020* ← prompt block auditing
+│   ├── mutation_scorer_seq021*      ← correlates prompt mutations to rework
+│   ├── rework_backfill_seq022*      ← reconstructs historical rework scores
+│   ├── session_handoff_seq023*      ← session summary generator
 │   └── cognitive/
 │       ├── adapter_seq001*          ← state → behavior adapter
 │       ├── unsaid_seq002*           ← detects unsaid thoughts
@@ -423,7 +494,12 @@ keystroke-telemetry/
 ├── streaming_layer/                 ← compiled package (19 files, 100% compliant)
 ├── pigeon_compiler/                 ← the compiler (~62 modules)
 │   ├── git_plugin.py                ← post-commit orchestrator
+│   ├── pigeon_limits.py             ← compliance thresholds + exclusion logic
 │   ├── rename_engine/               ← file renames + import rewriting
+│   │   ├── compliance_seq008/       ← compiled package (12 files) ✅
+│   │   ├── heal_seq009/             ← compiled package (6 files) ✅
+│   │   ├── manifest_builder_seq007/ ← compiled package (32 files) ✅
+│   │   └── nametag_seq011/          ← compiled package (9 files) ✅
 │   ├── cut_executor/                ← file slicing + bin-packing
 │   ├── state_extractor/             ← AST + call graph analysis
 │   ├── weakness_planner/            ← DeepSeek cut plan generation
@@ -443,7 +519,7 @@ keystroke-telemetry/
 ├── rework_log.json                  ← AI response quality log
 ├── query_memory.json                ← recurring query fingerprints
 ├── task_queue.json                  ← Copilot-managed task queue (auto-seeded from self-fix)
-├── pigeon_registry.json             ← all module versions + token history
+├── pigeon_registry.json             ← all module versions + token history (96 modules)
 ├── MASTER_MANIFEST.md               ← full project reference
 ├── CHANGELOG.md                     ← patch notes
 └── test_all.py                      ← 4 core tests (always run before commit)
