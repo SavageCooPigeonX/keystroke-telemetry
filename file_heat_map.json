@@ -2,55 +2,6 @@
   "context_budget": {
     "samples": [
       {
-        "ts": "2026-03-21T16:21:43.745038+00:00",
-        "hes": 0.61,
-        "wpm": 21.3,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-21T16:23:27.774009+00:00",
-        "hes": 0.499,
-        "wpm": 8475.3,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-22T03:05:24.706935+00:00",
-        "hes": 0.388,
-        "wpm": 71.1,
-        "state": "hesitant",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-22T03:42:24.901505+00:00",
-        "hes": 0.0,
-        "wpm": 2656.6,
-        "state": "flow",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-22T03:43:24.877945+00:00",
-        "hes": 0.262,
-        "wpm": 680.0,
-        "state": "neutral",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-22T03:56:48.483056+00:00",
-        "hes": 0.014,
-        "wpm": 105804.7,
-        "state": "flow",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-22T03:57:28.516953+00:00",
-        "hes": 0.29,
-        "wpm": 7806666.7,
-        "state": "restructuring",
-        "rework": "ok"
-      },
-      {
         "ts": "2026-03-22T03:59:37.008981+00:00",
         "hes": 0.696,
         "wpm": 68.5,
@@ -140,10 +91,59 @@
         "wpm": 969.4,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:24:26.552485+00:00",
+        "hes": 0.695,
+        "wpm": 1675.8,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:25:26.448794+00:00",
+        "hes": 0.398,
+        "wpm": 18.3,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:28:26.486754+00:00",
+        "hes": 0.394,
+        "wpm": 23.8,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:29:02.635869+00:00",
+        "hes": 0.575,
+        "wpm": 570.0,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:29:26.634354+00:00",
+        "hes": 0.299,
+        "wpm": 5076600.0,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:29:32.493959+00:00",
+        "hes": 0.737,
+        "wpm": 35.8,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:30:26.840136+00:00",
+        "hes": 0.3,
+        "wpm": 518551.0,
+        "state": "restructuring",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.403,
-    "avg_wpm": 1915494.1,
+    "avg_hes": 0.469,
+    "avg_wpm": 1799149.1,
     "miss_count": 0,
     "total": 20
   },
@@ -1015,12 +1015,61 @@
         "wpm": 969.4,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:24:26.552595+00:00",
+        "hes": 0.695,
+        "wpm": 1675.8,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:25:26.448908+00:00",
+        "hes": 0.398,
+        "wpm": 18.3,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:28:26.486811+00:00",
+        "hes": 0.394,
+        "wpm": 23.8,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:29:02.635929+00:00",
+        "hes": 0.575,
+        "wpm": 570.0,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:29:26.634426+00:00",
+        "hes": 0.299,
+        "wpm": 5076600.0,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:29:32.494054+00:00",
+        "hes": 0.737,
+        "wpm": 35.8,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:30:26.840255+00:00",
+        "hes": 0.3,
+        "wpm": 518551.0,
+        "state": "restructuring",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.504,
-    "avg_wpm": 1760371.6,
+    "avg_hes": 0.496,
+    "avg_wpm": 1312029.9,
     "miss_count": 0,
-    "total": 8
+    "total": 15
   },
   "self_fix": {
     "samples": [
@@ -1072,11 +1121,60 @@
         "wpm": 969.4,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:24:26.552559+00:00",
+        "hes": 0.695,
+        "wpm": 1675.8,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:25:26.448871+00:00",
+        "hes": 0.398,
+        "wpm": 18.3,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:28:26.486794+00:00",
+        "hes": 0.394,
+        "wpm": 23.8,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:29:02.635912+00:00",
+        "hes": 0.575,
+        "wpm": 570.0,
+        "state": "hesitant",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:29:26.634405+00:00",
+        "hes": 0.299,
+        "wpm": 5076600.0,
+        "state": "restructuring",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:29:32.494026+00:00",
+        "hes": 0.737,
+        "wpm": 35.8,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T04:30:26.840207+00:00",
+        "hes": 0.3,
+        "wpm": 518551.0,
+        "state": "restructuring",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.429,
-    "avg_wpm": 2329121.3,
+    "avg_hes": 0.457,
+    "avg_wpm": 1564380.3,
     "miss_count": 0,
-    "total": 7
+    "total": 14
   }
 }

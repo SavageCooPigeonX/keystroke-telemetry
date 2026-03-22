@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-22T04:21:32.573547+00:00",
+  "generated": "2026-03-22T04:31:26.512852+00:00",
   "total": 96,
   "files": [
     {
@@ -2062,14 +2062,14 @@
       ]
     },
     {
-      "path": "src/self_fix_seq013_v007_d0322__one_shot_self_fix_analyzer_lc_windows_max_path.py",
+      "path": "src/self_fix_seq013_v008_d0322__one_shot_self_fix_analyzer_lc_exclude_compiler_orchestrators.py",
       "name": "self_fix",
       "seq": 13,
-      "ver": 7,
+      "ver": 8,
       "date": "0322",
       "desc": "one_shot_self_fix_analyzer",
-      "intent": "windows_max_path",
-      "tokens": 5275,
+      "intent": "exclude_compiler_orchestrators",
+      "tokens": 5392,
       "history": [
         {
           "ver": 2,
@@ -2118,6 +2118,14 @@
           "intent": "windows_max_path",
           "action": "mutated",
           "tokens": 5275
+        },
+        {
+          "ver": 8,
+          "date": "0322",
+          "desc": "one_shot_self_fix_analyzer",
+          "intent": "exclude_compiler_orchestrators",
+          "action": "mutated",
+          "tokens": 5392
         }
       ]
     },

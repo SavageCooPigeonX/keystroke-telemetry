@@ -1,5 +1,6 @@
 """compliance_seq008/ — Pigeon-compliant module."""
 from compliance_seq008.compliance_seq008_audit_decomposed_seq007_v001 import audit_compliance
-from compliance_seq008.compliance_seq008_check_file_seq005_v001 import check_file
+from compliance_seq008.compliance_seq008_audit_wrapper_seq009_v001 import audit_compliance
+from compliance_seq008.compliance_seq008_check_file_seq010_v001 import check_file
 from compliance_seq008.compliance_seq008_constants_seq001_v001 import CRIT_LINES, MAX_LINES, SKIP_DIRS, WARN_LINES
-from compliance_seq008.compliance_seq008_format_report_seq006_v001 import format_report
+from compliance_seq008.compliance_seq008_format_report_seq011_v001 import format_report

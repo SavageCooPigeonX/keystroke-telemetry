@@ -1,11 +1,11 @@
 """One-shot self-fix analyzer: cross-file problem detection + targeted resolution."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 013 | VER: v007 | 576 lines | ~5,273 tokens
+# SEQ: 013 | VER: v008 | 588 lines | ~5,392 tokens
 # DESC:   one_shot_self_fix_analyzer
-# INTENT: windows_max_path
-# LAST:   2026-03-22 @ 556f5b2
-# SESSIONS: 4
+# INTENT: exclude_compiler_orchestrators
+# LAST:   2026-03-22 @ aaeb075
+# SESSIONS: 5
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-03-22T01:00:00+00:00

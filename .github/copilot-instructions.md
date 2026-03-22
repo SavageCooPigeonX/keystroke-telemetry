@@ -156,9 +156,9 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-22 · 271 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-22 · 278 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 16% | WPM: 757675.8 | Del: 32.9% | Hes: 0.526
+**Dominant: `frustrated`** | Submit: 15% | WPM: 758732.4 | Del: 32.9% | Hes: 0.525
 
 This operator just built multi-line import handling for Pigeon compliance, and their extreme typing volatility (58 WPM to 13.8M WPM) with 50%+ deletion rates shows they are brute-force restructuring in intense, frustrated bursts, not flowing.
 

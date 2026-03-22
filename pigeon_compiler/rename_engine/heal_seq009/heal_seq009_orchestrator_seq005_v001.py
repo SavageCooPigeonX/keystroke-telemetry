@@ -1,4 +1,4 @@
-"""heal_seq009_heal_wrapper_seq001_v001.py — Auto-extracted by Pigeon Compiler."""
+"""heal_seq009_orchestrator_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
 from datetime import datetime, timezone
 from pathlib import Path
 from pigeon_compiler.rename_engine.compliance_seq008_v004_d0315__line_count_enforcer_split_recommender_lc_verify_pigeon_plugin import (
