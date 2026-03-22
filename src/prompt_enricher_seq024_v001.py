@@ -15,9 +15,9 @@ Zero friction: called automatically from prompt_journal on every log_enriched_en
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-22T23:30:00+00:00
+# EDIT_TS:   2026-03-22T23:40:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  initial build prompt enricher
+# EDIT_WHY:  make enricher a full steerer with COPILOT_QUERY
 # EDIT_STATE: harvested
 # ── /pulse ──
 from __future__ import annotations
@@ -149,6 +149,29 @@ def _cognitive_state(root: Path) -> dict:
     }
 
 
+def _recent_journal_context(root: Path, n: int = 6) -> list[dict]:
+    """Pull last N journal entries as prompt trajectory — what operator was building toward."""
+    entries = _jsonl(root / 'logs' / 'prompt_journal.jsonl', n=n)
+    out = []
+    for e in entries:
+        deleted = [
+            w.get('word', w) if isinstance(w, dict) else str(w)
+            for w in (e.get('deleted_words') or [])
+        ]
+        rewrites = [
+            f"{r.get('old','')} → {r.get('new','')}" if isinstance(r, dict) else str(r)
+            for r in (e.get('rewrites') or [])
+        ]
+        out.append({
+            'msg': (e.get('msg') or '')[:120],
+            'intent': e.get('intent', 'unknown'),
+            'state': e.get('state', 'unknown'),
+            'deleted': deleted,
+            'rewrites': rewrites,
+        })
+    return out
+
+
 # ── DeepSeek enrichment ───────────────────────
 
 def _build_deepseek_prompt(raw_query: str, context: dict) -> str:
@@ -158,6 +181,7 @@ def _build_deepseek_prompt(raw_query: str, context: dict) -> str:
     deleted = context.get('deleted_words', [])
     state = context.get('cognitive_state', {})
     registry = context.get('registry_hits', [])
+    journal = context.get('journal_trajectory', [])
 
     hot_str = '\n'.join(
         f"  • {h['file']} (hes={h['hes']}, touched {h['touches']}x)" for h in hot
@@ -177,33 +201,47 @@ def _build_deepseek_prompt(raw_query: str, context: dict) -> str:
         f"  • {r['file']} v{r['ver']} — {r['desc']} (intent: {r['intent']})" for r in registry
     ) or '  (no registry matches)'
 
-    return f"""You are the Pigeon Prompt Enricher. Your job: given a raw developer prompt and rich codebase context, produce a SHORT (≤12 lines) enriched interpretation block.
+    journal_str = '\n'.join(
+        f"  [{i+1}] \"{e['msg']}\" (intent={e['intent']}, state={e['state']}"
+        + (f", deleted: {', '.join(e['deleted'])}" if e['deleted'] else '')
+        + (f", rewrote: {', '.join(e['rewrites'][:2])}" if e['rewrites'] else '')
+        + ')'
+        for i, e in enumerate(journal)
+    ) or '  (no journal history)'
+
+    return f"""You are the Pigeon Prompt Steerer. You DO NOT summarize. You rewrite.
+
+Your job: given a raw developer prompt and full codebase context, produce the BEST POSSIBLE prompt Copilot should act on. The operator's raw words are a starting point — you have more context than they wrote. Use it.
 
 RAW PROMPT: "{raw_query}"
 
+PROMPT TRAJECTORY (last 6 prompts — what they've been building toward):
+{journal_str}
+
 OPERATOR STATE:
   Cognitive state: {state.get('state', 'unknown')}
-  WPM: {state.get('wpm', 0)} | Deletion ratio: {state.get('del_ratio', 0):.1%} | Hesitation: {state.get('hes', 0)}
+  WPM: {state.get('wpm', 0)} | Deletion ratio: {state.get('del_ratio', 0):.1%} | Hesitation count: {state.get('hes', 0)}
   Words deleted before submitting: {deleted_str}
 
-HIGH-PAIN FILES (operator struggles with these):
+HIGH-PAIN FILES (operator cognitively struggles with these — be extra precise):
 {hot_str}
 
-REGISTRY HITS (files this query likely touches):
+REGISTRY HITS (files this query most likely touches):
 {reg_str}
 
-REWORK HISTORY (previous attempts at similar fixes):
+REWORK HISTORY (what failed before on similar queries):
 {rework_str}
 
-PAST COPILOT ATTEMPTS ON RELATED QUERIES:
+PAST COPILOT ATTEMPTS:
 {past_str}
 
-OUTPUT FORMAT — produce exactly this structure, no markdown fences:
-INTERPRETED INTENT: <1 sentence — what operator actually wants>
-KEY FILES: <comma-separated filenames most relevant>
-PRIOR ATTEMPTS: <1 sentence summary of what was tried before, "none" if none>
-WATCH OUT FOR: <1 sentence — specific pitfall based on the rework history>
-OPERATOR SIGNAL: <1 sentence — what the deleted words + cognitive state reveal about their real frustration>
+OUTPUT FORMAT — produce exactly this structure, no markdown fences, no extra text:
+COPILOT_QUERY: <The full rephrased query Copilot should execute. Be specific: name exact files, exact functions, exact variables. Use developer English. Make it unambiguous. 2-4 sentences max.>
+INTERPRETED INTENT: <1 sentence — what operator actually wants beneath the raw words>
+KEY FILES: <comma-separated exact filenames>
+PRIOR ATTEMPTS: <1 sentence — what was tried and why it wasn't enough, or "none">
+WATCH OUT FOR: <1 sentence — the specific pitfall most likely to trip Copilot given the rework history>
+OPERATOR SIGNAL: <1 sentence — what deleted words + hesitation + trajectory reveal about the real frustration>
 """
 
 
@@ -214,12 +252,13 @@ def enrich_prompt(root: Path, raw_query: str,
     root = Path(root)
 
     context = {
-        'hot_files':       _hot_files(root),
-        'rework_history':  _rework_for_query(root, raw_query),
-        'past_attempts':   _recent_ai_attempts(root, raw_query),
-        'deleted_words':   deleted_words or _deleted_words_from_journal(root),
-        'cognitive_state': cognitive_state or _cognitive_state(root),
-        'registry_hits':   _registry_touches(root, raw_query),
+        'hot_files':          _hot_files(root),
+        'rework_history':     _rework_for_query(root, raw_query),
+        'past_attempts':      _recent_ai_attempts(root, raw_query),
+        'deleted_words':      deleted_words or _deleted_words_from_journal(root),
+        'cognitive_state':    cognitive_state or _cognitive_state(root),
+        'registry_hits':      _registry_touches(root, raw_query),
+        'journal_trajectory': _recent_journal_context(root),
     }
 
     ds_prompt = _build_deepseek_prompt(raw_query, context)
@@ -269,11 +308,23 @@ def inject_query_block(root: Path, raw_query: str,
         return False
 
     now = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+
+    # Extract COPILOT_QUERY line from enriched output to place it prominently
+    copilot_query_line = ''
+    rest_lines = []
+    for line in enriched.splitlines():
+        if line.startswith('COPILOT_QUERY:'):
+            copilot_query_line = line
+        else:
+            rest_lines.append(line)
+    rest = '\n'.join(rest_lines).strip()
+
     block = (
         f'{BLOCK_START}\n'
         f'## What You Actually Mean Right Now\n\n'
         f'*Enriched {now} · raw: "{raw_query[:80]}"*\n\n'
-        f'{enriched}\n'
+        + (f'**{copilot_query_line}**\n\n' if copilot_query_line else '')
+        + f'{rest}\n'
         f'{BLOCK_END}'
     )
 
