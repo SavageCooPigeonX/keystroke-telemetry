@@ -1,0 +1,5 @@
+"""operator_stats_seq008/ — Pigeon-compliant module."""
+from .operator_stats_seq008_baselines_seq004_v001 import compute_baselines
+from .operator_stats_seq008_class_seq009_v001 import OperatorStats
+from .operator_stats_seq008_classify_state_seq005_v001 import classify_state
+from .operator_stats_seq008_constants_seq001_v001 import TIME_SLOTS, WPM_HUMAN_MAX

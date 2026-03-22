@@ -1,2 +1,2 @@
 """cognitive_reactor_seq014/ — Pigeon-compliant module."""
-from .cognitive_reactor_seq014_constants_seq001_v001 import FRUSTRATION_STREAK, HESITATION_THRESHOLD, REACTOR_COOLDOWN_S, STATE_FILE
+from .cognitive_reactor_seq014_constants_seq001_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook import FRUSTRATION_STREAK, HESITATION_THRESHOLD, REACTOR_COOLDOWN_S, STATE_FILE

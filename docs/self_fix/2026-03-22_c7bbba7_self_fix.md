@@ -1,0 +1,95 @@
+# Self-Fix Report — 2026-03-22 c7bbba7
+
+Scanned 133 modules, 114 in import graph.
+
+## Problems Found: 16
+
+### 1. [HIGH] over_hard_cap
+- **File**: src/file_consciousness_seq019_v002_d0321__ast_derived_function_consciousness_dating_lc_implement_all_18.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 2. [HIGH] over_hard_cap
+- **File**: src/operator_stats_seq008_v007_d0322__persistent_markdown_memory_file_lc_wpm_outlier_filter.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 3. [HIGH] over_hard_cap
+- **File**: src/pulse_harvest_seq015_v003_d0321__pulse_harvest_pairs_prompts_to_lc_implement_all_18.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 4. [HIGH] over_hard_cap
+- **File**: src/query_memory_seq010_v004_d0321__recurring_query_detector_unsaid_thought_lc_implement_all_18.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 5. [HIGH] over_hard_cap
+- **File**: src/self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 6. [LOW] dead_export
+- **File**: src/cognitive_reactor_seq014_v003_d0321__cognitive_reactor_autonomous_code_modification_lc_implement_all_18.py
+- **Line**: 57
+- **Function**: `ingest_flush()`
+- **Fix**: Consider removing or wiring ingest_flush() into pipeline
+
+### 7. [LOW] dead_export
+- **File**: src/context_budget_seq004_v008_d0321__context_budget_scorer_for_llm_lc_fire_full_post.py
+- **Line**: 37
+- **Function**: `default_budget_config()`
+- **Fix**: Consider removing or wiring default_budget_config() into pipeline
+
+### 8. [LOW] dead_export
+- **File**: src/file_heat_map_seq011_v004_d0317__tracks_cognitive_load_per_module_lc_pulse_telemetry_prompt.py
+- **Line**: 34
+- **Function**: `update_heat_map()`
+- **Fix**: Consider removing or wiring update_heat_map() into pipeline
+
+### 9. [LOW] dead_export
+- **File**: src/file_heat_map_seq011_v004_d0317__tracks_cognitive_load_per_module_lc_pulse_telemetry_prompt.py
+- **Line**: 94
+- **Function**: `load_heat_map()`
+- **Fix**: Consider removing or wiring load_heat_map() into pipeline
+
+### 10. [LOW] dead_export
+- **File**: src/file_heat_map_seq011_v004_d0317__tracks_cognitive_load_per_module_lc_pulse_telemetry_prompt.py
+- **Line**: 128
+- **Function**: `load_registry_churn()`
+- **Fix**: Consider removing or wiring load_registry_churn() into pipeline
+
+### 11. [LOW] dead_export
+- **File**: src/query_memory_seq010_v004_d0321__recurring_query_detector_unsaid_thought_lc_implement_all_18.py
+- **Line**: 88
+- **Function**: `record_query()`
+- **Fix**: Consider removing or wiring record_query() into pipeline
+
+### 12. [LOW] dead_export
+- **File**: src/query_memory_seq010_v004_d0321__recurring_query_detector_unsaid_thought_lc_implement_all_18.py
+- **Line**: 130
+- **Function**: `load_query_memory()`
+- **Fix**: Consider removing or wiring load_query_memory() into pipeline
+
+### 13. [LOW] dead_export
+- **File**: src/query_memory_seq010_v004_d0321__recurring_query_detector_unsaid_thought_lc_implement_all_18.py
+- **Line**: 216
+- **Function**: `load_query_memory()`
+- **Fix**: Consider removing or wiring load_query_memory() into pipeline
+
+### 14. [LOW] dead_export
+- **File**: src/rework_detector_seq009_v005_d0321__measures_ai_answer_quality_from_lc_implement_all_18.py
+- **Line**: 89
+- **Function**: `load_rework_stats()`
+- **Fix**: Consider removing or wiring load_rework_stats() into pipeline
+
+### 15. [LOW] dead_export
+- **File**: src/task_queue_seq018_v002_d0317__copilot_driven_task_tracking_linked_lc_task_queue_system.py
+- **Line**: 66
+- **Function**: `mark_in_progress()`
+- **Fix**: Consider removing or wiring mark_in_progress() into pipeline
+
+### 16. [INFO] high_coupling
+- **File**: pigeon_compiler/rename_engine/compliance_seq008_v004_d0315__line_count_enforcer_split_recommender_lc_verify_pigeon_plugin.py
+- **Fan-in**: 8 dependents
+- **Fix**: Module has 8 dependents — changes here break many files
+
+## Cross-File Context (changed files)
+
+### src/self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py
+- **Imports from**: pigeon_compiler/runners/run_clean_split_seq010_v006_d0322__full_clean_pipeline_deepseek_plan_lc_windows_max_path.py

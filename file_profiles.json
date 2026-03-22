@@ -25,7 +25,7 @@
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "cognitive_reactor",
+        "name": "drift_seq003_baseline_store",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       }
@@ -59,7 +59,7 @@
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "cognitive_reactor",
+        "name": "drift_seq003_baseline_store",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       }
@@ -93,7 +93,7 @@
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "cognitive_reactor",
+        "name": "drift_seq003_baseline_store",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       }
@@ -127,7 +127,7 @@
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "cognitive_reactor",
+        "name": "drift_seq003_baseline_store",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       }
@@ -161,9 +161,43 @@
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "cognitive_reactor",
+        "name": "drift_seq003_baseline_store",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "class_decomposer": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 1959,
+    "partners": [
+      {
+        "name": "manifest_builder",
+        "score": 0.76,
+        "reason": "3 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "resplit_binpack",
+        "score": 0.73,
+        "reason": "3 shared imports, both high-churn (v2+v4)"
+      },
+      {
+        "name": "resplit",
+        "score": 0.73,
+        "reason": "3 shared imports, both high-churn (v2+v4)"
+      },
+      {
+        "name": "file_writer",
+        "score": 0.71,
+        "reason": "3 shared imports"
+      },
+      {
+        "name": "file_consciousness",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -190,48 +224,48 @@
         "reason": "3 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "func_decomposer",
-        "score": 0.58,
-        "reason": "2 shared imports, both high-churn (v5+v4)"
+        "name": "class_decomposer",
+        "score": 0.71,
+        "reason": "3 shared imports"
       },
       {
-        "name": "plan_validator",
-        "score": 0.58,
-        "reason": "2 shared imports, both high-churn (v5+v4)"
+        "name": "func_decomposer",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v5+v5)"
       }
     ],
     "fears": [],
     "avg_hes": 0.735
   },
   "func_decomposer": {
-    "personality": "stable",
-    "version": 4,
-    "tokens": 639,
+    "personality": "veteran",
+    "version": 5,
+    "tokens": 644,
     "partners": [
       {
+        "name": "run_clean_split",
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v5+v6)"
+      },
+      {
         "name": "run_compiler_test",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v4+v4)"
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v5+v4)"
       },
       {
         "name": "run_deepseek_plans",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v4+v4)"
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v5+v4)"
       },
       {
         "name": "run_pigeon_loop",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v4+v4)"
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v5+v4)"
       },
       {
-        "name": "run_clean_split",
-        "score": 0.76,
-        "reason": "3 shared imports, both high-churn (v4+v6)"
-      },
-      {
-        "name": "plan_validator",
+        "name": "file_writer",
         "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
+        "reason": "2 shared imports, both high-churn (v5+v5)"
       }
     ],
     "fears": [],
@@ -243,27 +277,27 @@
     "tokens": 505,
     "partners": [
       {
+        "name": "compliance_seq008_audit_decomposed",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_audit_wrapper",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_check_file",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_helpers",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
         "name": "compliance",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
-      },
-      {
-        "name": "heal",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
-      },
-      {
-        "name": "import_rewriter",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
-      },
-      {
-        "name": "planner",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
-      },
-      {
-        "name": "scanner",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -272,38 +306,38 @@
     "avg_hes": 0.0
   },
   "init_writer": {
-    "personality": "stable",
-    "version": 4,
+    "personality": "veteran",
+    "version": 7,
     "tokens": 361,
     "partners": [
       {
+        "name": "operator_stats",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v7+v7)"
+      },
+      {
+        "name": "run_clean_split",
+        "score": 0.38,
+        "reason": "1 shared imports, both high-churn (v7+v6)"
+      },
+      {
+        "name": "file_writer",
+        "score": 0.37,
+        "reason": "1 shared imports, both high-churn (v7+v5)"
+      },
+      {
         "name": "func_decomposer",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v4+v4)"
+        "score": 0.37,
+        "reason": "1 shared imports, both high-churn (v7+v5)"
       },
       {
-        "name": "import_fixer",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v4+v4)"
-      },
-      {
-        "name": "manifest_writer",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v4+v4)"
-      },
-      {
-        "name": "plan_validator",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v4+v4)"
-      },
-      {
-        "name": "resplit_binpack",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v4+v4)"
+        "name": "logger",
+        "score": 0.37,
+        "reason": "1 shared imports, both high-churn (v7+v5)"
       }
     ],
     "fears": [],
-    "avg_hes": 0.0
+    "avg_hes": 0.702
   },
   "manifest_writer": {
     "personality": "stable",
@@ -345,11 +379,6 @@
     "tokens": 371,
     "partners": [
       {
-        "name": "func_decomposer",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v4+v4)"
-      },
-      {
         "name": "run_compiler_test",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v4+v4)"
@@ -368,6 +397,11 @@
         "name": "dynamic_prompt",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "func_decomposer",
+        "score": 0.38,
+        "reason": "1 shared imports, both high-churn (v4+v5)"
       }
     ],
     "fears": [
@@ -380,11 +414,6 @@
     "version": 4,
     "tokens": 579,
     "partners": [
-      {
-        "name": "func_decomposer",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
-      },
       {
         "name": "resplit_binpack",
         "score": 0.6,
@@ -402,6 +431,11 @@
       },
       {
         "name": "planner",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "run_heal",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -430,9 +464,9 @@
         "reason": "3 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "func_decomposer",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
+        "name": "class_decomposer",
+        "score": 0.73,
+        "reason": "3 shared imports, both high-churn (v4+v2)"
       },
       {
         "name": "plan_validator",
@@ -498,9 +532,9 @@
         "reason": "3 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "func_decomposer",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
+        "name": "class_decomposer",
+        "score": 0.73,
+        "reason": "3 shared imports, both high-churn (v4+v2)"
       },
       {
         "name": "plan_validator",
@@ -546,34 +580,276 @@
     "avg_hes": 0.0
   },
   "deepseek_adapter": {
-    "personality": "stable",
-    "version": 4,
-    "tokens": 1177,
+    "personality": "veteran",
+    "version": 6,
+    "tokens": 1180,
     "partners": [
       {
         "name": "streaming_layer",
-        "score": 0.57,
-        "reason": "2 shared imports, both high-churn (v4+v3)"
+        "score": 0.53,
+        "reason": "2 shared imports, both high-churn (v6+v3)"
       },
       {
         "name": "drift",
-        "score": 0.53,
-        "reason": "2 shared imports, both high-churn (v4+v2)"
+        "score": 0.5,
+        "reason": "2 shared imports"
       },
       {
         "name": "streaming_layer_formatter",
-        "score": 0.53,
-        "reason": "2 shared imports, both high-churn (v4+v2)"
+        "score": 0.5,
+        "reason": "2 shared imports"
       },
       {
-        "name": "drift_watcher",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v4+v4)"
+        "name": "operator_stats",
+        "score": 0.38,
+        "reason": "1 shared imports, both high-churn (v6+v7)"
       },
       {
-        "name": "timestamp_utils",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v4+v4)"
+        "name": "push_narrative",
+        "score": 0.38,
+        "reason": "1 shared imports, both high-churn (v6+v5)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "compliance_seq008_audit_decomposed": {
+    "personality": "stable",
+    "version": 4,
+    "tokens": 638,
+    "partners": [
+      {
+        "name": "compliance_seq008_audit_wrapper",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_check_file",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_helpers",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "import_fixer",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_classify",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      }
+    ],
+    "fears": [
+      "swallowed exception"
+    ],
+    "avg_hes": 0.0
+  },
+  "compliance_seq008_audit_wrapper": {
+    "personality": "stable",
+    "version": 4,
+    "tokens": 653,
+    "partners": [
+      {
+        "name": "compliance_seq008_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_check_file",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_helpers",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "import_fixer",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_classify",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      }
+    ],
+    "fears": [
+      "swallowed exception"
+    ],
+    "avg_hes": 0.0
+  },
+  "compliance_seq008_check_file": {
+    "personality": "stable",
+    "version": 4,
+    "tokens": 311,
+    "partners": [
+      {
+        "name": "compliance_seq008_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_audit_wrapper",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_helpers",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "import_fixer",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_classify",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "compliance_seq008_classify": {
+    "personality": "stable",
+    "version": 4,
+    "tokens": 160,
+    "partners": [
+      {
+        "name": "compliance_seq008_audit_decomposed",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_audit_wrapper",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_check_file",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_format_report",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_helpers",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "compliance_seq008_format_report": {
+    "personality": "stable",
+    "version": 4,
+    "tokens": 320,
+    "partners": [
+      {
+        "name": "compliance_seq008_audit_decomposed",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_audit_wrapper",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_check_file",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_classify",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_helpers",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "compliance_seq008_helpers": {
+    "personality": "stable",
+    "version": 4,
+    "tokens": 227,
+    "partners": [
+      {
+        "name": "compliance_seq008_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_audit_wrapper",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_check_file",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "import_fixer",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_classify",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "compliance_seq008_recommend_wrapper": {
+    "personality": "stable",
+    "version": 4,
+    "tokens": 603,
+    "partners": [
+      {
+        "name": "compliance_seq008_audit_decomposed",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_audit_wrapper",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_check_file",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_classify",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance_seq008_format_report",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
       }
     ],
     "fears": [],
@@ -699,22 +975,22 @@
         "reason": "2 shared imports, both high-churn (v4+v4)"
       },
       {
-        "name": "compliance",
+        "name": "compliance_seq008_audit_decomposed",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       },
       {
-        "name": "heal",
+        "name": "compliance_seq008_audit_wrapper",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       },
       {
-        "name": "planner",
+        "name": "compliance_seq008_check_file",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       },
       {
-        "name": "scanner",
+        "name": "compliance_seq008_helpers",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -952,22 +1228,22 @@
         "reason": "2 shared imports, both high-churn (v4+v4)"
       },
       {
-        "name": "compliance",
+        "name": "compliance_seq008_audit_decomposed",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       },
       {
-        "name": "heal",
+        "name": "compliance_seq008_audit_wrapper",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       },
       {
-        "name": "import_rewriter",
+        "name": "compliance_seq008_check_file",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       },
       {
-        "name": "planner",
+        "name": "compliance_seq008_helpers",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -1018,6 +1294,11 @@
     "tokens": 388,
     "partners": [
       {
+        "name": "class_decomposer",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "adapter",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
@@ -1033,12 +1314,7 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v2+v2)"
-      },
-      {
-        "name": "file_consciousness",
+        "name": "cognitive_reactor_seq014_api_client",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1052,6 +1328,11 @@
     "tokens": 296,
     "partners": [
       {
+        "name": "class_decomposer",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "adapter",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
@@ -1067,12 +1348,7 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v2+v2)"
-      },
-      {
-        "name": "file_consciousness",
+        "name": "cognitive_reactor_seq014_api_client",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1086,6 +1362,11 @@
     "tokens": 296,
     "partners": [
       {
+        "name": "class_decomposer",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "adapter",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
@@ -1101,12 +1382,7 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v2+v2)"
-      },
-      {
-        "name": "file_consciousness",
+        "name": "cognitive_reactor_seq014_api_client",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1120,6 +1396,11 @@
     "tokens": 626,
     "partners": [
       {
+        "name": "class_decomposer",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "adapter",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
@@ -1135,12 +1416,7 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v2+v2)"
-      },
-      {
-        "name": "file_consciousness",
+        "name": "cognitive_reactor_seq014_api_client",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1299,8 +1575,8 @@
     "partners": [
       {
         "name": "func_decomposer",
-        "score": 0.76,
-        "reason": "3 shared imports, both high-churn (v6+v4)"
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v6+v5)"
       },
       {
         "name": "run_compiler_test",
@@ -1335,11 +1611,6 @@
     "tokens": 594,
     "partners": [
       {
-        "name": "func_decomposer",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v4+v4)"
-      },
-      {
         "name": "run_deepseek_plans",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v4+v4)"
@@ -1348,6 +1619,11 @@
         "name": "run_pigeon_loop",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "func_decomposer",
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v4+v5)"
       },
       {
         "name": "run_clean_split",
@@ -1369,11 +1645,6 @@
     "tokens": 587,
     "partners": [
       {
-        "name": "func_decomposer",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v4+v4)"
-      },
-      {
         "name": "run_compiler_test",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v4+v4)"
@@ -1382,6 +1653,11 @@
         "name": "run_pigeon_loop",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "func_decomposer",
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v4+v5)"
       },
       {
         "name": "run_clean_split",
@@ -1403,11 +1679,6 @@
     "tokens": 2836,
     "partners": [
       {
-        "name": "func_decomposer",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v4+v4)"
-      },
-      {
         "name": "heal",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v4+v4)"
@@ -1424,6 +1695,11 @@
       },
       {
         "name": "run_clean_split_helpers",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "run_clean_split_init",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v4+v4)"
       }
@@ -1529,7 +1805,7 @@
         "reason": "3 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "func_decomposer",
+        "name": "plan_validator",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -1648,11 +1924,6 @@
     "tokens": 2407,
     "partners": [
       {
-        "name": "func_decomposer",
-        "score": 0.57,
-        "reason": "2 shared imports, both high-churn (v3+v4)"
-      },
-      {
         "name": "run_compiler_test",
         "score": 0.57,
         "reason": "2 shared imports, both high-churn (v3+v4)"
@@ -1671,6 +1942,11 @@
         "name": "dynamic_prompt",
         "score": 0.57,
         "reason": "2 shared imports, both high-churn (v3+v4)"
+      },
+      {
+        "name": "task_queue",
+        "score": 0.56,
+        "reason": "2 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [
@@ -1684,6 +1960,11 @@
     "tokens": 1264,
     "partners": [
       {
+        "name": "class_decomposer",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "drift",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
@@ -1694,19 +1975,150 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "copilot_prompt_manager",
+        "name": "cognitive_reactor_seq014_api_client",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "file_consciousness",
+        "name": "cognitive_reactor_seq014_cognitive_hint",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "drift_seq003_baseline_store": {
+    "personality": "stable",
+    "version": 3,
+    "tokens": 299,
+    "partners": [
+      {
+        "name": "manifest_builder",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "mutation_scorer",
+        "name": "nametag",
         "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v2+v2)"
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "registry",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "deepseek_plan_prompt",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "drift_seq003_build_cognitive_context",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "drift_seq003_build_cognitive_context": {
+    "personality": "stable",
+    "version": 3,
+    "tokens": 828,
+    "partners": [
+      {
+        "name": "manifest_builder",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "nametag",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "registry",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "deepseek_plan_prompt",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "drift_seq003_baseline_store",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "drift_seq003_compute_baseline": {
+    "personality": "stable",
+    "version": 3,
+    "tokens": 557,
+    "partners": [
+      {
+        "name": "streaming_layer",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "drift",
+        "score": 0.56,
+        "reason": "2 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "streaming_layer_aggregator",
+        "score": 0.56,
+        "reason": "2 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "streaming_layer_alerts",
+        "score": 0.56,
+        "reason": "2 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "dynamic_prompt",
+        "score": 0.37,
+        "reason": "1 shared imports, both high-churn (v3+v4)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "drift_seq003_detect_session_drift": {
+    "personality": "stable",
+    "version": 3,
+    "tokens": 677,
+    "partners": [
+      {
+        "name": "manifest_builder",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "nametag",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "registry",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "deepseek_plan_prompt",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "drift_seq003_baseline_store",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
       }
     ],
     "fears": [],
@@ -1728,22 +2140,128 @@
         "reason": "2 shared imports, both high-churn (v2+v2)"
       },
       {
+        "name": "drift_seq003_compute_baseline",
+        "score": 0.56,
+        "reason": "2 shared imports, both high-churn (v2+v3)"
+      },
+      {
         "name": "streaming_layer",
         "score": 0.56,
         "reason": "2 shared imports, both high-churn (v2+v3)"
       },
       {
         "name": "deepseek_adapter",
-        "score": 0.53,
-        "reason": "2 shared imports, both high-churn (v2+v4)"
-      },
-      {
-        "name": "unsaid",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v2+v2)"
+        "score": 0.5,
+        "reason": "2 shared imports"
       }
     ],
     "fears": [],
+    "avg_hes": 0.0
+  },
+  "unsaid_seq002_diff": {
+    "personality": "stable",
+    "version": 3,
+    "tokens": 245,
+    "partners": [
+      {
+        "name": "manifest_builder",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "nametag",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "registry",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "unsaid_seq002_helpers",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "unsaid_seq002_orchestrator",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "unsaid_seq002_helpers": {
+    "personality": "stable",
+    "version": 3,
+    "tokens": 561,
+    "partners": [
+      {
+        "name": "manifest_builder",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "nametag",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "registry",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "unsaid_seq002_diff",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "unsaid_seq002_orchestrator",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      }
+    ],
+    "fears": [
+      "regex format dependency"
+    ],
+    "avg_hes": 0.0
+  },
+  "unsaid_seq002_orchestrator": {
+    "personality": "stable",
+    "version": 3,
+    "tokens": 1493,
+    "partners": [
+      {
+        "name": "manifest_builder",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "nametag",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "registry",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "unsaid_seq002_diff",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "unsaid_seq002_helpers",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      }
+    ],
+    "fears": [
+      "regex format dependency"
+    ],
     "avg_hes": 0.0
   },
   "unsaid": {
@@ -1762,23 +2280,442 @@
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "copilot_prompt_manager",
+        "name": "cognitive_reactor_seq014_cognitive_hint",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "file_consciousness",
+        "name": "cognitive_reactor_seq014_constants",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "streaming_layer_aggregator",
+        "name": "cognitive_reactor_seq014_docstring_patch",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [
       "regex format dependency"
+    ],
+    "avg_hes": 0.0
+  },
+  "cognitive_reactor_seq014_api_client": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 24,
+    "partners": [
+      {
+        "name": "class_decomposer",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "adapter",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "drift",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "unsaid",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_cognitive_hint",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "cognitive_reactor_seq014_cognitive_hint": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 244,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_docstring_patch",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "swallowed exception",
+      "file may not exist"
+    ],
+    "avg_hes": 0.0
+  },
+  "cognitive_reactor_seq014_constants": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 95,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_injectors",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "cognitive_reactor_seq014_decision_maker": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 25,
+    "partners": [
+      {
+        "name": "class_decomposer",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "adapter",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "drift",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "unsaid",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_api_client",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "cognitive_reactor_seq014_docstring_patch": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 563,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor",
+        "score": 0.76,
+        "reason": "3 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "self_fix",
+        "score": 0.67,
+        "reason": "3 shared imports"
+      },
+      {
+        "name": "cognitive_reactor_seq014_cognitive_hint",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "file may not exist"
+    ],
+    "avg_hes": 0.0
+  },
+  "cognitive_reactor_seq014_patch_generator": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 781,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_docstring_patch",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_injectors",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "cognitive_reactor_seq014_patch_writer": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 24,
+    "partners": [
+      {
+        "name": "class_decomposer",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "adapter",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "drift",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "unsaid",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_api_client",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "cognitive_reactor_seq014_prompt_builder": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 25,
+    "partners": [
+      {
+        "name": "class_decomposer",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "adapter",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "drift",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "unsaid",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_api_client",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "cognitive_reactor_seq014_reactor_core": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 1026,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_docstring_patch",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_auto_index",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "swallowed exception",
+      "file may not exist"
+    ],
+    "avg_hes": 0.0
+  },
+  "cognitive_reactor_seq014_registry_loader": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 25,
+    "partners": [
+      {
+        "name": "class_decomposer",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "adapter",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "drift",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "unsaid",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_api_client",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "cognitive_reactor_seq014_self_fix_runner": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 25,
+    "partners": [
+      {
+        "name": "class_decomposer",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "adapter",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "drift",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "unsaid",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_api_client",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "cognitive_reactor_seq014_state_ops": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 146,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_injectors",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_json_utils",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "swallowed exception",
+      "file may not exist"
     ],
     "avg_hes": 0.0
   },
@@ -1835,23 +2772,377 @@
         "reason": "1 shared imports"
       },
       {
+        "name": "init_writer",
+        "score": 0.19,
+        "reason": "0 shared imports, both high-churn (v8+v7)"
+      },
+      {
         "name": "operator_stats",
         "score": 0.19,
         "reason": "0 shared imports, both high-churn (v8+v7)"
       },
       {
         "name": "self_fix",
-        "score": 0.19,
-        "reason": "0 shared imports, both high-churn (v8+v9)"
-      },
-      {
-        "name": "run_clean_split",
-        "score": 0.17,
-        "reason": "0 shared imports, both high-churn (v8+v6)"
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v8+v10)"
       }
     ],
     "fears": [],
-    "avg_hes": 0.419
+    "avg_hes": 0.516
+  },
+  "copilot_prompt_manager_seq020_audit_decomposed": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 729,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_auto_index",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_injectors",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "file may not exist"
+    ],
+    "avg_hes": 0.0
+  },
+  "copilot_prompt_manager_seq020_auto_index": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 665,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_operator_state_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "manifest_builder",
+        "score": 0.76,
+        "reason": "3 shared imports, both high-churn (v2+v3)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "copilot_prompt_manager_seq020_block_utils": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 288,
+    "partners": [
+      {
+        "name": "unsaid",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_cognitive_hint",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_constants",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_docstring_patch",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "copilot_prompt_manager_seq020_constants": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 200,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_constants",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "copilot_prompt_manager_seq020_injectors": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 461,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_json_utils",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "file may not exist"
+    ],
+    "avg_hes": 0.0
+  },
+  "copilot_prompt_manager_seq020_json_utils": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 236,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_injectors",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "file may not exist",
+      "returns empty on failure (silent)"
+    ],
+    "avg_hes": 0.0
+  },
+  "copilot_prompt_manager_seq020_operator_profile": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 472,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_cognitive_hint",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_docstring_patch",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "regex format dependency",
+      "file may not exist"
+    ],
+    "avg_hes": 0.0
+  },
+  "copilot_prompt_manager_seq020_operator_state_decomposed": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 632,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_auto_index",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "manifest_builder",
+        "score": 0.76,
+        "reason": "3 shared imports, both high-churn (v2+v3)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
+  "copilot_prompt_manager_seq020_orchestrator": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 521,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_cognitive_hint",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_docstring_patch",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "file may not exist"
+    ],
+    "avg_hes": 0.0
+  },
+  "copilot_prompt_manager_seq020_telemetry_utils": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 329,
+    "partners": [
+      {
+        "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_injectors",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "file may not exist"
+    ],
+    "avg_hes": 0.0
   },
   "copilot_prompt_manager": {
     "personality": "fresh",
@@ -1859,29 +3150,29 @@
     "tokens": 4488,
     "partners": [
       {
-        "name": "file_consciousness",
+        "name": "cognitive_reactor_seq014_patch_generator",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "mutation_scorer",
+        "name": "cognitive_reactor_seq014_reactor_core",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "rework_backfill",
+        "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "session_handoff",
+        "name": "copilot_prompt_manager_seq020_auto_index",
         "score": 0.8,
-        "reason": "4 shared imports, both high-churn (v2+v2)"
-      },
-      {
-        "name": "manifest_builder",
-        "score": 0.76,
-        "reason": "4 shared imports, both high-churn (v2+v3)"
+        "reason": "3 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [
@@ -1912,12 +3203,12 @@
         "reason": "3 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "rework_backfill",
+        "name": "cognitive_reactor_seq014_patch_generator",
         "score": 0.73,
-        "reason": "4 shared imports, both high-churn (v4+v2)"
+        "reason": "3 shared imports, both high-churn (v4+v2)"
       },
       {
-        "name": "session_handoff",
+        "name": "cognitive_reactor_seq014_reactor_core",
         "score": 0.73,
         "reason": "3 shared imports, both high-churn (v4+v2)"
       }
@@ -1951,7 +3242,7 @@
         "reason": "3 shared imports, both high-churn (v4+v2)"
       },
       {
-        "name": "func_decomposer",
+        "name": "manifest_writer",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -1970,29 +3261,29 @@
     "tokens": 4343,
     "partners": [
       {
-        "name": "copilot_prompt_manager",
+        "name": "cognitive_reactor_seq014_patch_generator",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "manifest_builder",
-        "score": 0.76,
-        "reason": "4 shared imports, both high-churn (v2+v3)"
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "nametag",
-        "score": 0.76,
-        "reason": "3 shared imports, both high-churn (v2+v3)"
+        "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "registry",
-        "score": 0.76,
-        "reason": "3 shared imports, both high-churn (v2+v3)"
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "cognitive_reactor",
-        "score": 0.76,
-        "reason": "3 shared imports, both high-churn (v2+v3)"
+        "name": "copilot_prompt_manager_seq020_injectors",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [
@@ -2114,6 +3405,16 @@
     "tokens": 1611,
     "partners": [
       {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "copilot_prompt_manager",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v2+v2)"
@@ -2127,16 +3428,6 @@
         "name": "session_handoff",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v2+v2)"
-      },
-      {
-        "name": "manifest_builder",
-        "score": 0.76,
-        "reason": "3 shared imports, both high-churn (v2+v3)"
-      },
-      {
-        "name": "registry",
-        "score": 0.76,
-        "reason": "3 shared imports, both high-churn (v2+v3)"
       }
     ],
     "fears": [
@@ -2179,7 +3470,7 @@
     "fears": [
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.397
+    "avg_hes": 0.486
   },
   "pulse_harvest": {
     "personality": "stable",
@@ -2331,6 +3622,16 @@
     "tokens": 1198,
     "partners": [
       {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "copilot_prompt_manager",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v2+v2)"
@@ -2344,16 +3645,6 @@
         "name": "session_handoff",
         "score": 0.8,
         "reason": "5 shared imports, both high-churn (v2+v2)"
-      },
-      {
-        "name": "manifest_builder",
-        "score": 0.76,
-        "reason": "3 shared imports, both high-churn (v2+v3)"
-      },
-      {
-        "name": "registry",
-        "score": 0.76,
-        "reason": "3 shared imports, both high-churn (v2+v3)"
       }
     ],
     "fears": [
@@ -2402,33 +3693,33 @@
   },
   "self_fix": {
     "personality": "veteran",
-    "version": 9,
-    "tokens": 5509,
+    "version": 10,
+    "tokens": 5641,
     "partners": [
       {
         "name": "push_narrative",
-        "score": 0.74,
-        "reason": "4 shared imports, both high-churn (v9+v5)"
+        "score": 0.73,
+        "reason": "4 shared imports, both high-churn (v10+v5)"
       },
       {
         "name": "compliance",
-        "score": 0.72,
-        "reason": "3 shared imports, both high-churn (v9+v4)"
+        "score": 0.71,
+        "reason": "3 shared imports"
       },
       {
         "name": "heal",
-        "score": 0.72,
-        "reason": "3 shared imports, both high-churn (v9+v4)"
+        "score": 0.71,
+        "reason": "3 shared imports"
       },
       {
         "name": "validator",
-        "score": 0.72,
-        "reason": "3 shared imports, both high-churn (v9+v4)"
+        "score": 0.71,
+        "reason": "3 shared imports"
       },
       {
         "name": "import_tracer",
-        "score": 0.72,
-        "reason": "3 shared imports, both high-churn (v9+v4)"
+        "score": 0.71,
+        "reason": "3 shared imports"
       }
     ],
     "fears": [
@@ -2437,13 +3728,23 @@
       "regex format dependency",
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.419
+    "avg_hes": 0.516
   },
   "session_handoff": {
     "personality": "fresh",
     "version": 2,
     "tokens": 1569,
     "partners": [
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
       {
         "name": "copilot_prompt_manager",
         "score": 0.8,
@@ -2458,16 +3759,6 @@
         "name": "rework_backfill",
         "score": 0.8,
         "reason": "5 shared imports, both high-churn (v2+v2)"
-      },
-      {
-        "name": "manifest_builder",
-        "score": 0.76,
-        "reason": "3 shared imports, both high-churn (v2+v3)"
-      },
-      {
-        "name": "registry",
-        "score": 0.76,
-        "reason": "3 shared imports, both high-churn (v2+v3)"
       }
     ],
     "fears": [
@@ -2504,9 +3795,9 @@
         "reason": "3 shared imports, both high-churn (v3+v4)"
       },
       {
-        "name": "streaming_layer_aggregator",
+        "name": "cognitive_reactor_seq014_patch_generator",
         "score": 0.76,
-        "reason": "4 shared imports, both high-churn (v3+v2)"
+        "reason": "3 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -2528,17 +3819,17 @@
         "reason": "3 shared imports, both high-churn (v2+v4)"
       },
       {
-        "name": "copilot_prompt_manager",
+        "name": "cognitive_reactor_seq014_reactor_core",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "mutation_scorer",
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "rework_backfill",
+        "name": "copilot_prompt_manager_seq020_auto_index",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
       }
@@ -2554,14 +3845,19 @@
     "tokens": 156,
     "partners": [
       {
-        "name": "deepseek_adapter",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v4+v4)"
+        "name": "drift_seq003_compute_baseline",
+        "score": 0.37,
+        "reason": "1 shared imports, both high-churn (v4+v3)"
       },
       {
         "name": "streaming_layer",
         "score": 0.37,
         "reason": "1 shared imports, both high-churn (v4+v3)"
+      },
+      {
+        "name": "deepseek_adapter",
+        "score": 0.36,
+        "reason": "1 shared imports, both high-churn (v4+v6)"
       },
       {
         "name": "operator_stats",
@@ -2570,11 +3866,6 @@
       },
       {
         "name": "drift",
-        "score": 0.33,
-        "reason": "1 shared imports, both high-churn (v4+v2)"
-      },
-      {
-        "name": "streaming_layer_aggregator",
         "score": 0.33,
         "reason": "1 shared imports, both high-churn (v4+v2)"
       }
@@ -2690,27 +3981,27 @@
     "tokens": 261,
     "partners": [
       {
-        "name": "copilot_prompt_manager",
+        "name": "cognitive_reactor_seq014_constants",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "file_consciousness",
+        "name": "cognitive_reactor_seq014_patch_generator",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "mutation_scorer",
+        "name": "cognitive_reactor_seq014_reactor_core",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "rework_backfill",
+        "name": "cognitive_reactor_seq014_state_ops",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "session_handoff",
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
@@ -2723,6 +4014,11 @@
     "version": 2,
     "tokens": 845,
     "partners": [
+      {
+        "name": "class_decomposer",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
       {
         "name": "adapter",
         "score": 0.2,
@@ -2739,12 +4035,7 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v2+v2)"
-      },
-      {
-        "name": "file_consciousness",
+        "name": "cognitive_reactor_seq014_api_client",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2860,27 +4151,27 @@
     "tokens": 365,
     "partners": [
       {
-        "name": "copilot_prompt_manager",
+        "name": "cognitive_reactor_seq014_constants",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "file_consciousness",
+        "name": "cognitive_reactor_seq014_patch_generator",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "mutation_scorer",
+        "name": "cognitive_reactor_seq014_reactor_core",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "rework_backfill",
+        "name": "cognitive_reactor_seq014_state_ops",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "session_handoff",
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
@@ -2899,6 +4190,16 @@
         "reason": "3 shared imports, both high-churn (v2+v3)"
       },
       {
+        "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "streaming_layer_connection_pool",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
@@ -2907,16 +4208,6 @@
         "name": "streaming_layer_http_handler",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
-      },
-      {
-        "name": "streaming_layer_replay",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v2+v2)"
-      },
-      {
-        "name": "cognitive_reactor",
-        "score": 0.56,
-        "reason": "2 shared imports, both high-churn (v2+v3)"
       }
     ],
     "fears": [],
@@ -2948,7 +4239,7 @@
         "reason": "3 shared imports"
       },
       {
-        "name": "copilot_prompt_manager",
+        "name": "cognitive_reactor_seq014_patch_generator",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
       }
@@ -2996,6 +4287,11 @@
     "tokens": 142,
     "partners": [
       {
+        "name": "class_decomposer",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "adapter",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
@@ -3011,12 +4307,7 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v2+v2)"
-      },
-      {
-        "name": "file_consciousness",
+        "name": "cognitive_reactor_seq014_api_client",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }

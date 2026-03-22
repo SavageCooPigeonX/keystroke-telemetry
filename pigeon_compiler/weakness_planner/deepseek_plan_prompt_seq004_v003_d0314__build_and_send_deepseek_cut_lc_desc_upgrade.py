@@ -246,7 +246,7 @@ def request_cut_plan(ether_map: dict, source_code: str,
                      folder_name: str = None,
                      exclude_symbols: list[str] | None = None) -> dict:
     """Send prompt to DeepSeek and return the response with validation."""
-    from pigeon_compiler.integrations.deepseek_adapter_seq001_v005_d0322__deepseek_api_client_lc_deepseek_timeout_read import deepseek_query
+    from pigeon_compiler.integrations.deepseek_adapter_seq001_v006_d0322__deepseek_api_client_lc_stage_78_hook import deepseek_query
 
     prompt = build_plan_prompt(ether_map, source_code, folder_name, exclude_symbols=exclude_symbols)
     result = deepseek_query(prompt, max_tokens=2000)

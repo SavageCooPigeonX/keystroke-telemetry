@@ -19,7 +19,7 @@ from pigeon_compiler.pigeon_limits import PIGEON_MAX, PIGEON_RECOMMENDED
 
 def decompose_oversized(source_file: Path, em: dict) -> tuple:
     """DeepSeek-decompose functions >50 lines. Returns (path, cost)."""
-    from pigeon_compiler.cut_executor.func_decomposer_seq008_v004_d0315__decompose_oversized_functions_via_deepseek_lc_verify_pigeon_plugin import (
+    from pigeon_compiler.cut_executor.func_decomposer_seq008_v005_d0322__decompose_oversized_functions_via_deepseek_lc_stage_78_hook import (
         find_oversized, decompose_function)
     from pigeon_compiler.cut_executor.source_slicer_seq002_v004_d0315__extract_functions_constants_from_source_lc_verify_pigeon_plugin import (
         _node_name, _node_range)

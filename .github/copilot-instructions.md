@@ -174,20 +174,22 @@ OPERATOR SIGNAL: Frustration with perceived optionality and a belief the system 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-22 · 199 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-22 - 210 message(s) - LLM-synthesized*
 
-**Dominant: `hesitant`** | Submit: 27% | WPM: 49.8 | Del: 25.2% | Hes: 0.528
+**Dominant: `hesitant`** | Submit: 28% | WPM: 49.6 | Del: 25.4% | Hes: 0.526
 
-This operator just built a prompt enrichment system and their typing shows intense evening bursts with high-speed deletions, indicating they're aggressively refactoring while fatigued.  
-- **When they edit high-churn modules** (self_fix, context_budget, operator_stats), proactively offer compact, self-contained code blocks—these files are unstable and need isolated, testable changes.  
-- **Detect hesitation spikes** (like the 45% deletion rate on high-WPM lines): respond with shorter, single-concern suggestions and ask “Should we tackle this piece first?” to reduce cognitive load.  
-- **Anticipate rework** in run_clean_split and file_writer—they’re likely debugging file‑system edge cases; always include path‑handling alternatives and validation snippets.  
-- **For frustrated low‑WPM edits** (like 18 WPM with 45% deletions), lead with a clear, step‑by‑step plan and explicitly flag potential pitfalls before showing code.  
-- **Use their flow‑state bursts** (2000+ WPM) to advance narrative (push_narrative) and logging (logger) modules—provide concise, extensible patterns they can rapidly integrate.  
-They are most likely building toward a fully autonomous, self‑correcting AI‑agent pipeline that minimizes manual intervention.
+The operator just built a self-fixing analyzer for auto-correction, revealing a pattern of intense, high-deletion editing sessions where they frequently abandon or hesitate mid-flow, indicating deep iterative refinement under pressure.
+
+*   **Anticipate heavy churn in `self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py` and `context_budget_scorer_for_llm`**; offer concise, modular code blocks that are easy to delete or replace, not monoliths.
+*   When they show high deletion rates (often 50%+), **prioritize clarity over cleverness**; use explicit variable names and clear logic to reduce cognitive load during rewrites.
+*   **Pre-empt context budget issues** by proactively suggesting efficient data structures or pruning steps, especially if `run_clean_split` or `deepseek_adapter` modules are involved.
+*   **Detect frustration/hesitation cues** (like mid-sentence stops or low WPM with high deletions) and respond with simpler, single-concept suggestions—break next steps into atomic, verifiable pieces.
+*   For `persistent_markdown_memory_file` and `generate_init_py_for_split` churn, **favor idempotent, side-effect-free functions** to simplify repeated testing.
+*   Given the zero miss-rate but high re-edit pattern, **validate assumptions explicitly** in code comments before implementing complex logic.
+
+They are most likely building toward a fully autonomous, context-aware code repair pipeline that minimizes manual intervention.
 
 <!-- /pigeon:operator-state -->
-
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
@@ -262,21 +264,6 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```
 
 <!-- /pigeon:prompt-telemetry -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 ## Module Map
@@ -380,7 +367,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 ### Full Module Index
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-22 - 96 modules tracked | 1 touched this commit*
+*Auto-updated 2026-03-22 - 133 modules tracked | 1 touched this commit*
 
 **pigeon_compiler/bones/** - 5 module(s)
 
@@ -392,7 +379,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `pq_manifest_utils_seq001*` | extracted from hush pre query | ~879 |
 | `pq_search_utils_seq001*` | extracted from hush pre query | ~3,279 |
 
-**pigeon_compiler/cut_executor/** - 11 module(s)
+**pigeon_compiler/cut_executor/** - 12 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -403,16 +390,17 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `manifest_writer_seq005*` | generate manifest md for a | ~448 |
 | `plan_validator_seq006*` | validate cut plan before execution | ~579 |
 | `init_writer_seq007*` | generate init py for split | ~361 |
-| `func_decomposer_seq008*` | decompose oversized functions via deepseek | ~639 |
+| `func_decomposer_seq008*` | decompose oversized functions via deepseek | ~644 |
 | `resplit_seq009*` | deterministic ast bin packing re | ~841 |
 | `resplit_binpack_seq010*` | bin packing file writing for | ~702 |
 | `resplit_helpers_seq011*` | shared helpers for re splitter | ~501 |
+| `class_decomposer_seq013*` | decompose oversized classes via deepseek | ~1,959 |
 
 **pigeon_compiler/integrations/** - 1 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
-| `deepseek_adapter_seq001*` | deepseek api client | ~1,177 |
+| `deepseek_adapter_seq001*` | deepseek api client | ~1,180 |
 
 **pigeon_compiler/rename_engine/** - 12 module(s)
 
@@ -430,6 +418,18 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `run_heal_seq010*` | automated self healing pipeline | ~3,431 |
 | `nametag_seq011*` | encode file description intent into | ~1,924 |
 | `registry_seq012*` | local name registry for the | ~2,129 |
+
+**pigeon_compiler/rename_engine/compliance_seq008/** - 7 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `compliance_seq008_helpers_seq002*` | auto extracted by pigeon compiler | ~227 |
+| `compliance_seq008_classify_seq003*` | auto extracted by pigeon compiler | ~160 |
+| `compliance_seq008_recommend_wrapper_seq006*` | auto extracted by pigeon compiler | ~603 |
+| `compliance_seq008_audit_decomposed_seq007*` | auto extracted by pigeon compiler | ~638 |
+| `compliance_seq008_audit_wrapper_seq009*` | auto extracted by pigeon compiler | ~653 |
+| `compliance_seq008_check_file_seq010*` | auto extracted by pigeon compiler | ~311 |
+| `compliance_seq008_format_report_seq011*` | auto extracted by pigeon compiler | ~320 |
 
 **pigeon_compiler/runners/** - 8 module(s)
 
@@ -480,17 +480,17 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 |---|---|---:|
 | `timestamp_utils_seq001*` | millisecond epoch timestamp utility | ~156 |
 | `models_seq002*` | dataclasses for keystroke events and | ~379 |
-| `logger_seq003*` | core keystroke telemetry logger | ~1,542 |
+| `logger_seq003*` | core keystroke telemetry logger | ~1,636 |
 | `context_budget_seq004*` | context budget scorer for llm | ~715 |
 | `drift_watcher_seq005*` | drift detection for live llm | ~1,117 |
 | `resistance_bridge_seq006*` | bridge between keystroke telemetry and | ~1,222 |
 | `streaming_layer_seq007*` | monolithic live streaming interface for | ~10,189 |
-| `operator_stats_seq008*` | persistent markdown memory file | ~4,807 |
+| `operator_stats_seq008*` | persistent markdown memory file | ~4,954 |
 | `rework_detector_seq009*` | measures ai answer quality from | ~1,083 |
 | `query_memory_seq010*` | recurring query detector unsaid thought | ~2,308 |
 | `file_heat_map_seq011*` | tracks cognitive load per module | ~1,347 |
 | `push_narrative_seq012*` | generate per push narrative each | ~2,049 |
-| `self_fix_seq013*` | one shot self fix analyzer | ~5,509 |
+| `self_fix_seq013*` | one shot self fix analyzer | ~5,641 |
 | `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~3,529 |
 | `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,276 |
 | `dynamic_prompt_seq017*` | steers copilot cot from live | ~3,460 |
@@ -508,6 +508,55 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `adapter_seq001*` | cognitive state agent behavior adapter | ~1,264 |
 | `unsaid_seq002*` | detects what operators meant but | ~2,108 |
 | `drift_seq003*` | tracks operator typing patterns across | ~2,262 |
+
+**src/cognitive/drift_seq003/** - 4 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `drift_seq003_baseline_store_seq001*` | auto extracted by pigeon compiler | ~299 |
+| `drift_seq003_compute_baseline_seq002*` | auto extracted by pigeon compiler | ~557 |
+| `drift_seq003_detect_session_drift_seq003*` | auto extracted by pigeon compiler | ~677 |
+| `drift_seq003_build_cognitive_context_seq004*` | auto extracted by pigeon compiler | ~828 |
+
+**src/cognitive/unsaid_seq002/** - 3 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `unsaid_seq002_helpers_seq001*` | auto extracted by pigeon compiler | ~561 |
+| `unsaid_seq002_diff_seq002*` | auto extracted by pigeon compiler | ~245 |
+| `unsaid_seq002_orchestrator_seq003*` | auto extracted by pigeon compiler | ~1,493 |
+
+**src/cognitive_reactor_seq014/** - 12 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `cognitive_reactor_seq014_constants_seq001*` | auto extracted by pigeon compiler | ~95 |
+| `cognitive_reactor_seq014_state_ops_seq002*` | auto extracted by pigeon compiler | ~146 |
+| `cognitive_reactor_seq014_docstring_patch_seq003*` | auto extracted by pigeon compiler | ~563 |
+| `cognitive_reactor_seq014_cognitive_hint_seq004*` | auto extracted by pigeon compiler | ~244 |
+| `cognitive_reactor_seq014_patch_generator_seq005*` | auto extracted by pigeon compiler | ~781 |
+| `cognitive_reactor_seq014_prompt_builder_seq006*` | auto extracted by pigeon compiler | ~25 |
+| `cognitive_reactor_seq014_api_client_seq007*` | auto extracted by pigeon compiler | ~24 |
+| `cognitive_reactor_seq014_reactor_core_seq008*` | auto extracted by pigeon compiler | ~1,026 |
+| `cognitive_reactor_seq014_registry_loader_seq009*` | auto extracted by pigeon compiler | ~25 |
+| `cognitive_reactor_seq014_self_fix_runner_seq010*` | auto extracted by pigeon compiler | ~25 |
+| `cognitive_reactor_seq014_patch_writer_seq011*` | auto extracted by pigeon compiler | ~24 |
+| `cognitive_reactor_seq014_decision_maker_seq012*` | auto extracted by pigeon compiler | ~25 |
+
+**src/copilot_prompt_manager_seq020/** - 10 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `copilot_prompt_manager_seq020_constants_seq001*` | auto extracted by pigeon compiler | ~200 |
+| `copilot_prompt_manager_seq020_block_utils_seq002*` | auto extracted by pigeon compiler | ~288 |
+| `copilot_prompt_manager_seq020_json_utils_seq003*` | auto extracted by pigeon compiler | ~236 |
+| `copilot_prompt_manager_seq020_operator_profile_seq004*` | auto extracted by pigeon compiler | ~472 |
+| `copilot_prompt_manager_seq020_auto_index_seq005*` | auto extracted by pigeon compiler | ~665 |
+| `copilot_prompt_manager_seq020_operator_state_decomposed_seq006*` | auto extracted by pigeon compiler | ~632 |
+| `copilot_prompt_manager_seq020_telemetry_utils_seq007*` | auto extracted by pigeon compiler | ~329 |
+| `copilot_prompt_manager_seq020_audit_decomposed_seq008*` | auto extracted by pigeon compiler | ~729 |
+| `copilot_prompt_manager_seq020_injectors_seq009*` | auto extracted by pigeon compiler | ~461 |
+| `copilot_prompt_manager_seq020_orchestrator_seq010*` | auto extracted by pigeon compiler | ~521 |
 
 **streaming_layer/** - 19 module(s)
 
@@ -537,6 +586,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 | File | Folder |
 |---|---|
+| `_audit_compliance.py` | `(root)` |
 | `deep_test.py` | `(root)` |
 | `stress_test.py` | `(root)` |
 | `test_all.py` | `(root)` |

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-22T19:21:50.186082+00:00",
-  "total": 110,
+  "generated": "2026-03-22T19:36:52.224318+00:00",
+  "total": 133,
   "files": [
     {
       "path": "pigeon_compiler/bones/aim_utils_seq001_v003_d0314__extracted_from_hush_aim_py_lc_desc_upgrade.py",
@@ -98,6 +98,26 @@
       ]
     },
     {
+      "path": "pigeon_compiler/cut_executor/class_decomposer_seq013_v002_d0322__decompose_oversized_classes_via_deepseek_lc_stage_78_hook.py",
+      "name": "class_decomposer",
+      "seq": 13,
+      "ver": 2,
+      "date": "0322",
+      "desc": "decompose_oversized_classes_via_deepseek",
+      "intent": "stage_78_hook",
+      "tokens": 1959,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "decompose_oversized_classes_via_deepseek",
+          "intent": "stage_78_hook",
+          "tokens": 1959,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "pigeon_compiler/cut_executor/file_writer_seq003_v005_d0322__write_new_pigeon_compliant_files_lc_multi_line_import.py",
       "name": "file_writer",
       "seq": 3,
@@ -133,14 +153,14 @@
       ]
     },
     {
-      "path": "pigeon_compiler/cut_executor/func_decomposer_seq008_v004_d0315__decompose_oversized_functions_via_deepseek_lc_verify_pigeon_plugin.py",
+      "path": "pigeon_compiler/cut_executor/func_decomposer_seq008_v005_d0322__decompose_oversized_functions_via_deepseek_lc_stage_78_hook.py",
       "name": "func_decomposer",
       "seq": 8,
-      "ver": 4,
-      "date": "0315",
+      "ver": 5,
+      "date": "0322",
       "desc": "decompose_oversized_functions_via_deepseek",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 639,
+      "intent": "stage_78_hook",
+      "tokens": 644,
       "history": [
         {
           "ver": 3,
@@ -156,6 +176,14 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 639
+        },
+        {
+          "ver": 5,
+          "date": "0322",
+          "desc": "decompose_oversized_functions_via_deepseek",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 644
         }
       ]
     },
@@ -187,14 +215,14 @@
       ]
     },
     {
-      "path": "pigeon_compiler/cut_executor/init_writer_seq007_v006_d0322__generate_init_py_for_split_lc_stage_hook_generated.py",
+      "path": "pigeon_compiler/cut_executor/init_writer_seq007_v007_d0322__generate_init_py_for_split_lc_stage_78_hook.py",
       "name": "init_writer",
       "seq": 7,
-      "ver": 6,
+      "ver": 7,
       "date": "0322",
       "desc": "generate_init_py_for_split",
-      "intent": "stage_hook_generated",
-      "tokens": 360,
+      "intent": "stage_78_hook",
+      "tokens": 361,
       "history": [
         {
           "ver": 3,
@@ -226,6 +254,14 @@
           "intent": "stage_hook_generated",
           "action": "mutated",
           "tokens": 360
+        },
+        {
+          "ver": 7,
+          "date": "0322",
+          "desc": "generate_init_py_for_split",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 361
         }
       ]
     },
@@ -419,13 +455,13 @@
       ]
     },
     {
-      "path": "pigeon_compiler/integrations/deepseek_adapter_seq001_v005_d0322__deepseek_api_client_lc_deepseek_timeout_read.py",
+      "path": "pigeon_compiler/integrations/deepseek_adapter_seq001_v006_d0322__deepseek_api_client_lc_stage_78_hook.py",
       "name": "deepseek_adapter",
       "seq": 1,
-      "ver": 5,
+      "ver": 6,
       "date": "0322",
       "desc": "deepseek_api_client",
-      "intent": "deepseek_timeout_read",
+      "intent": "stage_78_hook",
       "tokens": 1180,
       "history": [
         {
@@ -450,18 +486,26 @@
           "intent": "deepseek_timeout_read",
           "action": "mutated",
           "tokens": 1180
+        },
+        {
+          "ver": 6,
+          "date": "0322",
+          "desc": "deepseek_api_client",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 1180
         }
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_audit_decomposed_seq007_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated.py",
+      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_audit_decomposed_seq007_v004_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
       "name": "compliance_seq008_audit_decomposed",
       "seq": 7,
-      "ver": 3,
+      "ver": 4,
       "date": "0322",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_hook_generated",
-      "tokens": 637,
+      "intent": "stage_78_hook",
+      "tokens": 638,
       "history": [
         {
           "ver": 2,
@@ -478,18 +522,26 @@
           "intent": "stage_hook_generated",
           "action": "mutated",
           "tokens": 637
+        },
+        {
+          "ver": 4,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 638
         }
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_audit_wrapper_seq009_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated.py",
+      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_audit_wrapper_seq009_v004_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
       "name": "compliance_seq008_audit_wrapper",
       "seq": 9,
-      "ver": 3,
+      "ver": 4,
       "date": "0322",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_hook_generated",
-      "tokens": 652,
+      "intent": "stage_78_hook",
+      "tokens": 653,
       "history": [
         {
           "ver": 2,
@@ -506,17 +558,25 @@
           "intent": "stage_hook_generated",
           "action": "mutated",
           "tokens": 652
+        },
+        {
+          "ver": 4,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 653
         }
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_check_file_seq010_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated.py",
+      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_check_file_seq010_v004_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
       "name": "compliance_seq008_check_file",
       "seq": 10,
-      "ver": 3,
+      "ver": 4,
       "date": "0322",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_hook_generated",
+      "intent": "stage_78_hook",
       "tokens": 311,
       "history": [
         {
@@ -534,18 +594,26 @@
           "intent": "stage_hook_generated",
           "action": "mutated",
           "tokens": 311
+        },
+        {
+          "ver": 4,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 311
         }
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_classify_seq003_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated.py",
+      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_classify_seq003_v004_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
       "name": "compliance_seq008_classify",
       "seq": 3,
-      "ver": 3,
+      "ver": 4,
       "date": "0322",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_hook_generated",
-      "tokens": 159,
+      "intent": "stage_78_hook",
+      "tokens": 160,
       "history": [
         {
           "ver": 2,
@@ -562,17 +630,25 @@
           "intent": "stage_hook_generated",
           "action": "mutated",
           "tokens": 159
+        },
+        {
+          "ver": 4,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 160
         }
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_format_report_seq011_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated.py",
+      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_format_report_seq011_v004_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
       "name": "compliance_seq008_format_report",
       "seq": 11,
-      "ver": 3,
+      "ver": 4,
       "date": "0322",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_hook_generated",
+      "intent": "stage_78_hook",
       "tokens": 320,
       "history": [
         {
@@ -590,17 +666,25 @@
           "intent": "stage_hook_generated",
           "action": "mutated",
           "tokens": 320
+        },
+        {
+          "ver": 4,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 320
         }
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_helpers_seq002_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated.py",
+      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_helpers_seq002_v004_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
       "name": "compliance_seq008_helpers",
       "seq": 2,
-      "ver": 3,
+      "ver": 4,
       "date": "0322",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_hook_generated",
+      "intent": "stage_78_hook",
       "tokens": 227,
       "history": [
         {
@@ -618,17 +702,25 @@
           "intent": "stage_hook_generated",
           "action": "mutated",
           "tokens": 227
+        },
+        {
+          "ver": 4,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 227
         }
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_recommend_wrapper_seq006_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated.py",
+      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_recommend_wrapper_seq006_v004_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
       "name": "compliance_seq008_recommend_wrapper",
       "seq": 6,
-      "ver": 3,
+      "ver": 4,
       "date": "0322",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_hook_generated",
+      "intent": "stage_78_hook",
       "tokens": 603,
       "history": [
         {
@@ -644,6 +736,14 @@
           "date": "0322",
           "desc": "auto_extracted_by_pigeon_compiler",
           "intent": "stage_hook_generated",
+          "action": "mutated",
+          "tokens": 603
+        },
+        {
+          "ver": 4,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
           "action": "mutated",
           "tokens": 603
         }
@@ -1606,14 +1706,14 @@
       ]
     },
     {
-      "path": "src/cognitive/drift_seq003/drift_seq003_baseline_store_seq001_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated.py",
+      "path": "src/cognitive/drift_seq003/drift_seq003_baseline_store_seq001_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
       "name": "drift_seq003_baseline_store",
       "seq": 1,
-      "ver": 2,
+      "ver": 3,
       "date": "0322",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_hook_generated",
-      "tokens": 232,
+      "intent": "stage_78_hook",
+      "tokens": 299,
       "history": [
         {
           "ver": 2,
@@ -1622,18 +1722,26 @@
           "intent": "stage_hook_generated",
           "tokens": 232,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 299
         }
       ]
     },
     {
-      "path": "src/cognitive/drift_seq003/drift_seq003_build_cognitive_context_seq004_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated.py",
+      "path": "src/cognitive/drift_seq003/drift_seq003_build_cognitive_context_seq004_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
       "name": "drift_seq003_build_cognitive_context",
       "seq": 4,
-      "ver": 2,
+      "ver": 3,
       "date": "0322",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_hook_generated",
-      "tokens": 761,
+      "intent": "stage_78_hook",
+      "tokens": 828,
       "history": [
         {
           "ver": 2,
@@ -1642,18 +1750,26 @@
           "intent": "stage_hook_generated",
           "tokens": 761,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 828
         }
       ]
     },
     {
-      "path": "src/cognitive/drift_seq003/drift_seq003_compute_baseline_seq002_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated.py",
+      "path": "src/cognitive/drift_seq003/drift_seq003_compute_baseline_seq002_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
       "name": "drift_seq003_compute_baseline",
       "seq": 2,
-      "ver": 2,
+      "ver": 3,
       "date": "0322",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_hook_generated",
-      "tokens": 491,
+      "intent": "stage_78_hook",
+      "tokens": 557,
       "history": [
         {
           "ver": 2,
@@ -1662,18 +1778,26 @@
           "intent": "stage_hook_generated",
           "tokens": 491,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 557
         }
       ]
     },
     {
-      "path": "src/cognitive/drift_seq003/drift_seq003_detect_session_drift_seq003_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated.py",
+      "path": "src/cognitive/drift_seq003/drift_seq003_detect_session_drift_seq003_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
       "name": "drift_seq003_detect_session_drift",
       "seq": 3,
-      "ver": 2,
+      "ver": 3,
       "date": "0322",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_hook_generated",
-      "tokens": 611,
+      "intent": "stage_78_hook",
+      "tokens": 677,
       "history": [
         {
           "ver": 2,
@@ -1682,6 +1806,14 @@
           "intent": "stage_hook_generated",
           "tokens": 611,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 677
         }
       ]
     },
@@ -1713,14 +1845,14 @@
       ]
     },
     {
-      "path": "src/cognitive/unsaid_seq002/unsaid_seq002_diff_seq002_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated.py",
+      "path": "src/cognitive/unsaid_seq002/unsaid_seq002_diff_seq002_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
       "name": "unsaid_seq002_diff",
       "seq": 2,
-      "ver": 2,
+      "ver": 3,
       "date": "0322",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_hook_generated",
-      "tokens": 178,
+      "intent": "stage_78_hook",
+      "tokens": 245,
       "history": [
         {
           "ver": 2,
@@ -1729,18 +1861,26 @@
           "intent": "stage_hook_generated",
           "tokens": 178,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 245
         }
       ]
     },
     {
-      "path": "src/cognitive/unsaid_seq002/unsaid_seq002_helpers_seq001_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated.py",
+      "path": "src/cognitive/unsaid_seq002/unsaid_seq002_helpers_seq001_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
       "name": "unsaid_seq002_helpers",
       "seq": 1,
-      "ver": 2,
+      "ver": 3,
       "date": "0322",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_hook_generated",
-      "tokens": 495,
+      "intent": "stage_78_hook",
+      "tokens": 561,
       "history": [
         {
           "ver": 2,
@@ -1749,18 +1889,26 @@
           "intent": "stage_hook_generated",
           "tokens": 495,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 561
         }
       ]
     },
     {
-      "path": "src/cognitive/unsaid_seq002/unsaid_seq002_orchestrator_seq003_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated.py",
+      "path": "src/cognitive/unsaid_seq002/unsaid_seq002_orchestrator_seq003_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
       "name": "unsaid_seq002_orchestrator",
       "seq": 3,
-      "ver": 2,
+      "ver": 3,
       "date": "0322",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_hook_generated",
-      "tokens": 1425,
+      "intent": "stage_78_hook",
+      "tokens": 1493,
       "history": [
         {
           "ver": 2,
@@ -1769,6 +1917,14 @@
           "intent": "stage_hook_generated",
           "tokens": 1425,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "action": "mutated",
+          "tokens": 1493
         }
       ]
     },
@@ -1796,6 +1952,246 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 2108
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_api_client_seq007_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "cognitive_reactor_seq014_api_client",
+      "seq": 7,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 24,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 24,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_cognitive_hint_seq004_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "cognitive_reactor_seq014_cognitive_hint",
+      "seq": 4,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 244,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 244,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_constants_seq001_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "cognitive_reactor_seq014_constants",
+      "seq": 1,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 95,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 95,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_decision_maker_seq012_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "cognitive_reactor_seq014_decision_maker",
+      "seq": 12,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 25,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 25,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_docstring_patch_seq003_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "cognitive_reactor_seq014_docstring_patch",
+      "seq": 3,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 563,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 563,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_patch_generator_seq005_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "cognitive_reactor_seq014_patch_generator",
+      "seq": 5,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 781,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 781,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_patch_writer_seq011_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "cognitive_reactor_seq014_patch_writer",
+      "seq": 11,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 24,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 24,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_prompt_builder_seq006_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "cognitive_reactor_seq014_prompt_builder",
+      "seq": 6,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 25,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 25,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_reactor_core_seq008_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "cognitive_reactor_seq014_reactor_core",
+      "seq": 8,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 1026,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 1026,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_registry_loader_seq009_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "cognitive_reactor_seq014_registry_loader",
+      "seq": 9,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 25,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 25,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_self_fix_runner_seq010_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "cognitive_reactor_seq014_self_fix_runner",
+      "seq": 10,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 25,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 25,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_state_ops_seq002_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "cognitive_reactor_seq014_state_ops",
+      "seq": 2,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 146,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 146,
+          "action": "registered"
         }
       ]
     },
@@ -1899,6 +2295,206 @@
           "intent": "fire_full_post",
           "action": "mutated",
           "tokens": 715
+        }
+      ]
+    },
+    {
+      "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_audit_decomposed_seq008_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "copilot_prompt_manager_seq020_audit_decomposed",
+      "seq": 8,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 729,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 729,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_auto_index_seq005_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "copilot_prompt_manager_seq020_auto_index",
+      "seq": 5,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 665,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 665,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_block_utils_seq002_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "copilot_prompt_manager_seq020_block_utils",
+      "seq": 2,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 288,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 288,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_constants_seq001_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "copilot_prompt_manager_seq020_constants",
+      "seq": 1,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 200,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 200,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_injectors_seq009_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "copilot_prompt_manager_seq020_injectors",
+      "seq": 9,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 461,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 461,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_json_utils_seq003_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "copilot_prompt_manager_seq020_json_utils",
+      "seq": 3,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 236,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 236,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_operator_profile_seq004_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "copilot_prompt_manager_seq020_operator_profile",
+      "seq": 4,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 472,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 472,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_operator_state_decomposed_seq006_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "copilot_prompt_manager_seq020_operator_state_decomposed",
+      "seq": 6,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 632,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 632,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_orchestrator_seq010_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "copilot_prompt_manager_seq020_orchestrator",
+      "seq": 10,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 521,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 521,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_telemetry_utils_seq007_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "name": "copilot_prompt_manager_seq020_telemetry_utils",
+      "seq": 7,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "stage_78_hook",
+      "tokens": 329,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "stage_78_hook",
+          "tokens": 329,
+          "action": "registered"
         }
       ]
     },
@@ -2438,14 +3034,14 @@
       ]
     },
     {
-      "path": "src/self_fix_seq013_v009_d0322__one_shot_self_fix_analyzer_lc_scan_over_hard.py",
+      "path": "src/self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py",
       "name": "self_fix",
       "seq": 13,
-      "ver": 9,
+      "ver": 10,
       "date": "0322",
       "desc": "one_shot_self_fix_analyzer",
-      "intent": "scan_over_hard",
-      "tokens": 5509,
+      "intent": "self_fix_auto",
+      "tokens": 5641,
       "history": [
         {
           "ver": 2,
@@ -2510,6 +3106,14 @@
           "intent": "scan_over_hard",
           "action": "mutated",
           "tokens": 5509
+        },
+        {
+          "ver": 10,
+          "date": "0322",
+          "desc": "one_shot_self_fix_analyzer",
+          "intent": "self_fix_auto",
+          "action": "mutated",
+          "tokens": 5641
         }
       ]
     },

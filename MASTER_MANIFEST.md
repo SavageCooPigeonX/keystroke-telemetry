@@ -32,10 +32,11 @@ Two developer tools packaged together:
 ---
 
 ## FOLDER TREE
-*Auto-synced by manifest_builder | 2026-03-22 04:49 UTC*
+*Auto-synced by manifest_builder | 2026-03-22 19:40 UTC*
 
 ```
 LinkRouter.AI/
++-- _audit_compliance.py
 +-- CHANGELOG.md
 +-- deep_test.py
 +-- file_heat_map.json
@@ -57,24 +58,28 @@ LinkRouter.AI/
 +-- /client                              7 files, 1 sub | 14% compliant
 |
 +-- /demo_logs                           (2 files)
-+-- /docs                                (41 files)
++-- /docs                                (51 files)
 +-- /pigeon_code.egg-info                (5 files)
-+-- /pigeon_compiler                     101 files, 7 sub | 87% compliant
++-- /pigeon_compiler                     110 files, 7 sub | 88% compliant
 |   +-- /cut_executor                    (12 files)
 |   +-- /integrations                    (1 files)
-|   +-- /rename_engine                   (67 files)
+|   +-- /rename_engine                   (76 files)
 |   +-- /runners                         (9 files)
 |   +-- /state_extractor                 (6 files)
 |   +-- /weakness_planner                (1 files)
 |
-+-- /src                                 55 files, 2 sub | 76% compliant
-|   +-- /cognitive                       (17 files)
++-- /src                                 115 files, 7 sub | 87% compliant
+|   +-- /cognitive                       (24 files)
+|   +-- /cognitive_reactor_seq014        (12 files)
+|   +-- /copilot_prompt_manager_seq020   (15 files)
+|   +-- /dynamic_prompt_seq017           (15 files)
 |   +-- /operator_stats                  (13 files)
+|   +-- /operator_stats_seq008           (9 files)
 |
 +-- /streaming_layer                     19 files | 100% compliant
 |
 +-- /stress_logs                         (2 files)
-+-- /test_logs                           (155 files)
++-- /test_logs                           (171 files)
 +-- /vscode-extension                    2 files, 3 sub | 50% compliant
 |
 ```
@@ -425,7 +430,7 @@ py deep_test.py  # 8 deep profiling tests — validates full signal pipeline
 
 ## OPERATOR KEYSTROKE TRAIL
 
-*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-22 04:49 UTC*
+*Last 50 keystrokes | auto-synced by manifest_builder | 2026-03-22 19:40 UTC*
 
 > **How to read**: Each row is one keystroke event from the operator.
 > Markers flag cognitive signals: ⏸ = long pause (>2s), 
@@ -435,72 +440,72 @@ py deep_test.py  # 8 deep profiling tests — validates full signal pipeline
 | # | Key | Event | Δms | Buffer | Markers |
 |---|-----|-------|----:|--------|---------|
 | 1 | `What is the meaning of life?` | paste | 0 | `What is the meaning of life?` |  |
-| 2 | `?` | backspace | 10 | `What is the meaning of life` | ⌫ burst |
-| 3 | `e` | backspace | 50 | `What is the meaning of lif` | ⌫ burst |
-| 4 | `f` | backspace | 48 | `What is the meaning of li` | ⌫ burst |
-| 5 | `i` | backspace | 46 | `What is the meaning of l` | ⌫ burst |
-| 6 | `l` | backspace | 41 | `What is the meaning of ` | ⌫ burst |
-| 7 | `4` | insert | 41 | `What is the meaning of 4` |  |
-| 8 | `2` | insert | 151 | `What is the meaning of 42` |  |
-| 9 | `?` | insert | 152 | `What is the meaning of 42?` |  |
+| 2 | `?` | backspace | 0 | `What is the meaning of life` | ⌫ burst |
+| 3 | `e` | backspace | 47 | `What is the meaning of lif` | ⌫ burst |
+| 4 | `f` | backspace | 58 | `What is the meaning of li` | ⌫ burst |
+| 5 | `i` | backspace | 48 | `What is the meaning of l` | ⌫ burst |
+| 6 | `l` | backspace | 45 | `What is the meaning of ` | ⌫ burst |
+| 7 | `4` | insert | 49 | `What is the meaning of 4` |  |
+| 8 | `2` | insert | 164 | `What is the meaning of 42` |  |
+| 9 | `?` | insert | 195 | `What is the meaning of 42?` |  |
 | 10 | `H` | insert | 0 | `H` |  |
 | 11 | `e` | insert | 151 | `He` |  |
-| 12 | `l` | insert | 151 | `Hel` |  |
+| 12 | `l` | insert | 150 | `Hel` |  |
 | 13 | `o` | insert | 151 | `Helo` |  |
-| 14 | ` ` | insert | 155 | `Helo ` |  |
-| 15 | `w` | insert | 158 | `Helo w` |  |
-| 16 | `r` | insert | 151 | `Helo wr` |  |
-| 17 | `l` | insert | 151 | `Helo wrl` |  |
+| 14 | ` ` | insert | 151 | `Helo ` |  |
+| 15 | `w` | insert | 154 | `Helo w` |  |
+| 16 | `r` | insert | 150 | `Helo wr` |  |
+| 17 | `l` | insert | 152 | `Helo wrl` |  |
 | 18 | `d` | insert | 151 | `Helo wrld` |  |
-| 19 | `d` | backspace | 151 | `Helo wrl` | ⌫ burst |
+| 19 | `d` | backspace | 150 | `Helo wrl` | ⌫ burst |
 | 20 | `l` | backspace | 41 | `Helo wr` | ⌫ burst |
-| 21 | `r` | backspace | 40 | `Helo w` | ⌫ burst |
+| 21 | `r` | backspace | 41 | `Helo w` | ⌫ burst |
 | 22 | `w` | backspace | 41 | `Helo ` | ⌫ burst |
-| 23 | `w` | insert | 41 | `Helo w` |  |
-| 24 | `o` | insert | 150 | `Helo wo` |  |
-| 25 | `r` | insert | 151 | `Helo wor` |  |
-| 26 | `l` | insert | 151 | `Helo worl` |  |
-| 27 | `d` | insert | 151 | `Helo world` |  |
-| 28 | `!` | insert | 152 | `Helo world!` |  |
+| 23 | `w` | insert | 42 | `Helo w` |  |
+| 24 | `o` | insert | 151 | `Helo wo` |  |
+| 25 | `r` | insert | 152 | `Helo wor` |  |
+| 26 | `l` | insert | 206 | `Helo worl` |  |
+| 27 | `d` | insert | 213 | `Helo world` |  |
+| 28 | `!` | insert | 182 | `Helo world!` |  |
 | 29 | `A` | insert | 0 | `A` |  |
 | 30 | `c` | insert | 151 | `Ac` |  |
 | 31 | `t` | insert | 150 | `Act` |  |
 | 32 | `u` | insert | 151 | `Actu` |  |
 | 33 | `a` | insert | 150 | `Actua` |  |
 | 34 | `l` | insert | 151 | `Actual` |  |
-| 35 | `l` | insert | 151 | `Actuall` |  |
-| 36 | `y` | insert | 150 | `Actually` |  |
-| 37 | ` ` | insert | 151 | `Actually ` |  |
-| 38 | `n` | insert | 151 | `Actually n` |  |
-| 39 | `v` | insert | 162 | `Actually nv` |  |
-| 40 | `m` | insert | 150 | `Actually nvm` |  |
-| 41 | `Ctrl+A+Del` | clear | 2252 | `` | ⏸ 2.3s |
+| 35 | `l` | insert | 160 | `Actuall` |  |
+| 36 | `y` | insert | 152 | `Actually` |  |
+| 37 | ` ` | insert | 150 | `Actually ` |  |
+| 38 | `n` | insert | 152 | `Actually n` |  |
+| 39 | `v` | insert | 166 | `Actually nv` |  |
+| 40 | `m` | insert | 155 | `Actually nvm` |  |
+| 41 | `Ctrl+A+Del` | clear | 2260 | `` | ⏸ 2.3s |
 | 42 | `What is the meaning of life?` | paste | 0 | `What is the meaning of life?` |  |
-| 43 | `?` | backspace | 0 | `What is the meaning of life` | ⌫ burst |
-| 44 | `e` | backspace | 41 | `What is the meaning of lif` | ⌫ burst |
-| 45 | `f` | backspace | 40 | `What is the meaning of li` | ⌫ burst |
+| 43 | `?` | backspace | 1 | `What is the meaning of life` | ⌫ burst |
+| 44 | `e` | backspace | 44 | `What is the meaning of lif` | ⌫ burst |
+| 45 | `f` | backspace | 41 | `What is the meaning of li` | ⌫ burst |
 | 46 | `i` | backspace | 41 | `What is the meaning of l` | ⌫ burst |
 | 47 | `l` | backspace | 41 | `What is the meaning of ` | ⌫ burst |
-| 48 | `4` | insert | 41 | `What is the meaning of 4` |  |
+| 48 | `4` | insert | 43 | `What is the meaning of 4` |  |
 | 49 | `2` | insert | 151 | `What is the meaning of 42` |  |
-| 50 | `?` | insert | 150 | `What is the meaning of 42?` |  |
+| 50 | `?` | insert | 151 | `What is the meaning of 42?` |  |
 
 ### Recent message hesitation scores
 
 | Message | Submitted | Keys | Dels | Hesitation | State |
 |---------|-----------|-----:|-----:|-----------:|-------|
-| `b817617377` | ✓ | 19 | 4 | 0.211 | restructuring |
-| `3776d2c606` | 🗑 | 13 | 0 | 0.574 | abandoned |
-| `a031e3e6b9` | ✓ | 9 | 5 | 0.556 | hesitant |
-| `b174059482` | ✓ | 19 | 4 | 0.211 | restructuring |
-| `23d59d8f64` | 🗑 | 13 | 0 | 0.544 | abandoned |
-| `dbec4fca3f` | ✓ | 9 | 5 | 0.556 | hesitant |
-| `8a48aa580c` | ✓ | 19 | 4 | 0.211 | restructuring |
-| `f08b599200` | 🗑 | 13 | 0 | 0.575 | abandoned |
-| `bfaa4d7f14` | ✓ | 9 | 5 | 0.556 | hesitant |
-| `59c25311eb` | ✓ | 19 | 4 | 0.211 | restructuring |
-| `b60cffda4a` | 🗑 | 13 | 0 | 0.575 | abandoned |
-| `9725c69f90` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `d44d96861d` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `a2039d8672` | 🗑 | 13 | 0 | 0.572 | abandoned |
+| `be288e9992` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `9236ebb5c5` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `40a3de951a` | 🗑 | 13 | 0 | 0.508 | abandoned |
+| `9ea58fac99` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `e8d185c540` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `32ea34023c` | 🗑 | 13 | 0 | 0.528 | abandoned |
+| `31fa8ab859` | ✓ | 9 | 5 | 0.556 | hesitant |
+| `2ceda7e4aa` | ✓ | 19 | 4 | 0.211 | restructuring |
+| `4bc3a986e8` | 🗑 | 13 | 0 | 0.572 | abandoned |
+| `16f9f30911` | ✓ | 9 | 5 | 0.556 | hesitant |
 
 
 ## CHANGELOG

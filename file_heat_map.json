@@ -2,20 +2,6 @@
   "context_budget": {
     "samples": [
       {
-        "ts": "2026-03-22T17:18:30.386189+00:00",
-        "hes": 0.496,
-        "wpm": 651.5,
-        "state": "hesitant",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-22T17:19:01.590071+00:00",
-        "hes": 0.3,
-        "wpm": 984800.0,
-        "state": "focused",
-        "rework": "ok"
-      },
-      {
         "ts": "2026-03-22T17:19:35.986965+00:00",
         "hes": 0.67,
         "wpm": 1617.4,
@@ -140,10 +126,24 @@
         "wpm": 144.0,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T19:33:22.678403+00:00",
+        "hes": 0.707,
+        "wpm": 47.1,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T19:34:23.049671+00:00",
+        "hes": 0.697,
+        "wpm": 1643.1,
+        "state": "frustrated",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.486,
-    "avg_wpm": 388711.9,
+    "avg_hes": 0.516,
+    "avg_wpm": 339523.9,
     "miss_count": 0,
     "total": 20
   },
@@ -1109,20 +1109,6 @@
   "self_fix": {
     "samples": [
       {
-        "ts": "2026-03-22T17:18:30.386094+00:00",
-        "hes": 0.496,
-        "wpm": 651.5,
-        "state": "hesitant",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-22T17:19:01.589830+00:00",
-        "hes": 0.3,
-        "wpm": 984800.0,
-        "state": "focused",
-        "rework": "ok"
-      },
-      {
         "ts": "2026-03-22T17:19:35.986882+00:00",
         "hes": 0.67,
         "wpm": 1617.4,
@@ -1247,11 +1233,47 @@
         "wpm": 144.0,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T19:33:22.678303+00:00",
+        "hes": 0.707,
+        "wpm": 47.1,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T19:34:23.049600+00:00",
+        "hes": 0.697,
+        "wpm": 1643.1,
+        "state": "frustrated",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.486,
-    "avg_wpm": 388711.9,
+    "avg_hes": 0.516,
+    "avg_wpm": 339523.9,
     "miss_count": 0,
     "total": 20
+  },
+  "init_writer": {
+    "samples": [
+      {
+        "ts": "2026-03-22T19:33:22.678443+00:00",
+        "hes": 0.707,
+        "wpm": 47.1,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T19:34:23.049700+00:00",
+        "hes": 0.697,
+        "wpm": 1643.1,
+        "state": "frustrated",
+        "rework": "ok"
+      }
+    ],
+    "avg_hes": 0.702,
+    "avg_wpm": 845.1,
+    "miss_count": 0,
+    "total": 2
   }
 }
