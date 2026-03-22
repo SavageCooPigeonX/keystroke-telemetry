@@ -1,6 +1,7 @@
 """compliance_seq008_recommend_wrapper_seq006_v001.py — Auto-extracted by Pigeon Compiler."""
 import ast
 import re
+from .compliance_seq008_helpers_seq002_v001 import _snake
 
 def _recommend_splits(text: str, total_lines: int) -> list[dict]:
     """Find natural split points in a file.

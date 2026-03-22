@@ -1,6 +1,9 @@
 """compliance_seq008_check_file_seq010_v001.py — Auto-extracted by Pigeon Compiler."""
 from pathlib import Path
 import re
+from .compliance_seq008_constants_seq001_v001 import MAX_LINES, WARN_LINES
+from .compliance_seq008_classify_seq003_v001 import _classify
+from .compliance_seq008_recommend_wrapper_seq006_v001 import _recommend_splits
 
 def check_file(py: Path) -> dict:
     """Check a single file's compliance."""

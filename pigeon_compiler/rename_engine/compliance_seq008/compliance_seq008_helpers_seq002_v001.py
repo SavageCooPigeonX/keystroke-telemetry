@@ -1,6 +1,7 @@
 """compliance_seq008_helpers_seq002_v001.py — Auto-extracted by Pigeon Compiler."""
 from pathlib import Path
 import re
+from .compliance_seq008_constants_seq001_v001 import SKIP_DIRS
 
 def _snake(name: str) -> str:
     """Convert CamelCase or title to snake_case."""

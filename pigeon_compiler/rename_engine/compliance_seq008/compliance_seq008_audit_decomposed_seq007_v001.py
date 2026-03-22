@@ -1,6 +1,10 @@
 """compliance_seq008_audit_decomposed_seq007_v001.py — Auto-extracted by Pigeon Compiler."""
 from pathlib import Path
 import re
+from .compliance_seq008_constants_seq001_v001 import MAX_LINES, WARN_LINES, SKIP_DIRS
+from .compliance_seq008_helpers_seq002_v001 import _should_skip
+from .compliance_seq008_classify_seq003_v001 import _classify
+from .compliance_seq008_recommend_decomposed_seq004_v001 import _recommend_splits
 
 def audit_compliance(root: Path) -> dict:
     """Full codebase line-count audit.
