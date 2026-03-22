@@ -53,7 +53,7 @@ def write_clean_init(target_dir: Path, folder_name: str):
     lines = [f'"""{folder_name}/ — Pigeon-compliant module."""']
     for mod in sorted(exports):
         names = ", ".join(sorted(exports[mod]))
-        lines.append(f"from {folder_name}.{mod} import {names}")
+        lines.append(f"from .{mod} import {names}")
     lines.append("")
 
     (target_dir / "__init__.py").write_text("\n".join(lines), encoding="utf-8")

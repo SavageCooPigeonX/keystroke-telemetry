@@ -38,7 +38,7 @@ def write_init(target_dir: Path, plan: dict) -> Path:
 
     for mod in sorted(mods):
         names = ", ".join(sorted(mods[mod]))
-        lines.append(f"from {folder}.{mod} import {names}")
+        lines.append(f"from .{mod} import {names}")
 
     lines.append("")
     out = target_dir / "__init__.py"
