@@ -8,11 +8,11 @@ Each event is emitted as a self-contained LLM-compatible JSON block
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v004 | 163 lines | ~1,540 tokens
+# SEQ: 003 | VER: v005 | 178 lines | ~1,636 tokens
 # DESC:   core_keystroke_telemetry_logger
-# INTENT: implement_all_18
-# LAST:   2026-03-21 @ 068687f
-# SESSIONS: 1
+# INTENT: wpm_outlier_filter
+# LAST:   2026-03-22 @ 4d007ac
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None

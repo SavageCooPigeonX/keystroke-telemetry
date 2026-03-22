@@ -1,72 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-19T00:47:55.723763+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T00:48:55.511637+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T00:49:55.657005+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T00:50:55.885055+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T00:51:55.601996+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T00:52:56.591813+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T00:53:55.801444+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T00:54:55.684341+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T00:55:55.638780+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T00:56:55.922848+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T00:57:55.734005+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-19T00:58:55.671139+00:00",
       "text": "bg:package.json",
       "fingerprint": "bgpackagejson",
@@ -2998,6 +2932,72 @@
       "ts": "2026-03-22T05:04:27.652624+00:00",
       "text": "bg:2026-03-21_c4789d2.md",
       "fingerprint": "bg20260321_c4789d2md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T05:14:46.177760+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T05:24:19.035398+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T05:24:27.065627+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T05:24:29.935323+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T05:25:26.909849+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T05:25:56.627636+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T05:26:26.946037+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T05:27:39.261574+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T05:27:44.075938+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T05:27:49.560891+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T05:29:33.570951+00:00",
+      "text": "bg:class_decomposer_seq013_v001.py",
+      "fingerprint": "bgclass_decomposer_seq013_v001py",
       "submitted": true
     }
   ],

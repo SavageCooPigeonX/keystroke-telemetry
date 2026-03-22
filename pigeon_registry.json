@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-22T04:47:00.727521+00:00",
+  "generated": "2026-03-22T05:30:17.862614+00:00",
   "total": 96,
   "files": [
     {
@@ -1698,14 +1698,14 @@
       ]
     },
     {
-      "path": "src/logger_seq003_v004_d0321__core_keystroke_telemetry_logger_lc_implement_all_18.py",
+      "path": "src/logger_seq003_v005_d0322__core_keystroke_telemetry_logger_lc_wpm_outlier_filter.py",
       "name": "logger",
       "seq": 3,
-      "ver": 4,
-      "date": "0321",
+      "ver": 5,
+      "date": "0322",
       "desc": "core_keystroke_telemetry_logger",
-      "intent": "implement_all_18",
-      "tokens": 1542,
+      "intent": "wpm_outlier_filter",
+      "tokens": 1636,
       "history": [
         {
           "ver": 1,
@@ -1737,6 +1737,14 @@
           "intent": "implement_all_18",
           "action": "mutated",
           "tokens": 1542
+        },
+        {
+          "ver": 5,
+          "date": "0322",
+          "desc": "core_keystroke_telemetry_logger",
+          "intent": "wpm_outlier_filter",
+          "action": "mutated",
+          "tokens": 1636
         }
       ]
     },
@@ -1796,14 +1804,14 @@
       ]
     },
     {
-      "path": "src/operator_stats_seq008_v006_d0321__persistent_markdown_memory_file_lc_implement_all_18.py",
+      "path": "src/operator_stats_seq008_v007_d0322__persistent_markdown_memory_file_lc_wpm_outlier_filter.py",
       "name": "operator_stats",
       "seq": 8,
-      "ver": 6,
-      "date": "0321",
+      "ver": 7,
+      "date": "0322",
       "desc": "persistent_markdown_memory_file",
-      "intent": "implement_all_18",
-      "tokens": 4807,
+      "intent": "wpm_outlier_filter",
+      "tokens": 4954,
       "history": [
         {
           "ver": 1,
@@ -1851,6 +1859,14 @@
           "intent": "implement_all_18",
           "action": "mutated",
           "tokens": 4807
+        },
+        {
+          "ver": 7,
+          "date": "0322",
+          "desc": "persistent_markdown_memory_file",
+          "intent": "wpm_outlier_filter",
+          "action": "mutated",
+          "tokens": 4954
         }
       ]
     },
