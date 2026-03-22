@@ -858,6 +858,19 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
     except Exception as e:
         print(f'  ⚠️  self-fix auto-apply: {e}')
 
+    # Task queue — mark any task IDs mentioned in commit as done
+    try:
+        tq_mod = _load_glob_module(root, 'src', 'task_queue_seq018*')
+        if tq_mod and hasattr(tq_mod, 'mark_done'):
+            task_ids = re.findall(r'\btq-\d{3}\b', msg)
+            for tid in task_ids:
+                if tq_mod.mark_done(root, tid, commit=h):
+                    print(f'  ✅ task {tid} marked done')
+            if task_ids and hasattr(tq_mod, 'inject_task_queue'):
+                tq_mod.inject_task_queue(root)
+    except Exception as e:
+        print(f'  ⚠️  task queue: {e}')
+
     # File consciousness — rebuild dating profiles + slumber party audit
     try:
         fc_mod = _load_glob_module(root, 'src', 'file_consciousness_seq019*')

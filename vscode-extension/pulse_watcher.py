@@ -23,19 +23,15 @@ def main():
 
     sys.path.insert(0, str(root))
 
-    try:
-        from src.pulse_harvest_seq015_v003_d0321__pulse_harvest_pairs_prompts_to_lc_implement_all_18 import pair_pulse_to_prompt
-    except ImportError:
-        # Dynamic load fallback
-        import importlib.util
-        matches = sorted(root.glob('src/pulse_harvest_seq015*.py'))
-        if not matches:
-            print(json.dumps({"paired": False, "error": "no pulse_harvest module"}))
-            return
-        spec = importlib.util.spec_from_file_location('_ph', matches[-1])
-        mod = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(mod)
-        pair_pulse_to_prompt = mod.pair_pulse_to_prompt
+    import importlib.util
+    matches = sorted(root.glob('src/pulse_harvest_seq015*.py'))
+    if not matches:
+        print(json.dumps({"paired": False, "error": "no pulse_harvest module"}))
+        return
+    spec = importlib.util.spec_from_file_location('_ph', matches[-1])
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    pair_pulse_to_prompt = mod.pair_pulse_to_prompt
 
     rec = pair_pulse_to_prompt(root, filepath)
     if rec:

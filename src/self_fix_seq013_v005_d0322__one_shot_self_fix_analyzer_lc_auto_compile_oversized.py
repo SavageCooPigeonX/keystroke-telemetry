@@ -1,16 +1,16 @@
 """One-shot self-fix analyzer: cross-file problem detection + targeted resolution."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 013 | VER: v004 | 473 lines | ~4,354 tokens
+# SEQ: 013 | VER: v005 | 572 lines | ~5,207 tokens
 # DESC:   one_shot_self_fix_analyzer
-# INTENT: implement_all_18
-# LAST:   2026-03-21 @ 068687f
-# SESSIONS: 1
+# INTENT: auto_compile_oversized
+# LAST:   2026-03-22 @ 7768b84
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-21T00:00:00+00:00
+# EDIT_TS:   2026-03-22T00:00:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  add auto_apply_import_fixes function
+# EDIT_WHY:  fix indented from-import regex
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -277,7 +277,7 @@ def auto_compile_oversized(
 
     results = []
     try:
-        from pigeon_compiler.runners.run_clean_split_seq010_v004_d0315__full_clean_pipeline_deepseek_plan_lc_verify_pigeon_plugin import run as _run_split
+        from pigeon_compiler.runners.run_clean_split_seq010_v005_d0322__full_clean_pipeline_deepseek_plan_lc_auto_compile_oversized import run as _run_split
     except ImportError:
         # glob-safe fallback import
         import importlib.util
@@ -470,9 +470,9 @@ def _load_src(pattern: str, *symbols):
 
 '''.lstrip('\n')
 
-# Pattern: `from src.logger_seq003_v003_d0317__... import TelemetryLogger`
+# Pattern: `from src.logger_seq003_v003_d0317__... import TelemetryLogger` (indented OK)
 _HC_FROM_IMPORT = re.compile(
-    r'^(from\s+src\.([\w]+_seq\d+_v\d+_d\d+__[\w]+)\s+import\s+([\w,\s]+))',
+    r'^([ \t]*from\s+src\.([\.\w]+_seq\d+_v\d+_d\d+__[\w]+)\s+import\s+([\w,][^\n]*))',
     re.MULTILINE,
 )
 # Pattern: `import src.logger_seq003_v003_d0317__...`
