@@ -26,8 +26,6 @@ from pathlib import Path
 from dataclasses import asdict
 from typing import Optional
 
-_now_ms
-from src = _load_src('timestamp_utils_seq001*.py', '_now_ms\nfrom src').models_seq002_v003_d0317__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt import KeyEvent, MessageDraft
 
 def _load_src(pattern: str, *symbols):
     """Dynamic pigeon import — finds latest src/ file matching glob."""
@@ -42,9 +40,12 @@ def _load_src(pattern: str, *symbols):
         return getattr(mod, symbols[0])
     return tuple(getattr(mod, s) for s in symbols)
 
-OperatorStats
 
-SCHEMA_VERSION = _load_src('operator_stats_seq008*.py', 'OperatorStats\n\nSCHEMA_VERSION')= "keystroke_telemetry/v2"
+_now_ms = _load_src('timestamp_utils_seq001*.py', '_now_ms')
+KeyEvent, MessageDraft = _load_src('models_seq002*.py', 'KeyEvent', 'MessageDraft')
+OperatorStats = _load_src('operator_stats_seq008*.py', 'OperatorStats')
+
+SCHEMA_VERSION = "keystroke_telemetry/v2"
 
 
 class TelemetryLogger:

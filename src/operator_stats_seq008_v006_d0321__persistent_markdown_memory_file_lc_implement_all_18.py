@@ -17,9 +17,10 @@ a compact operator profile that sharpens with every message.
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
+# EDIT_TS:   2026-03-22T23:00:00+00:00
+# EDIT_HASH: auto
+# EDIT_WHY:  add WPM_HUMAN_MAX outlier filter
+# EDIT_STATE: harvested
 # ── /pulse ──
 
 import json
@@ -29,6 +30,9 @@ from datetime import datetime, timezone, timedelta
 
 
 # ── time-of-day slots ──
+
+# Any WPM above this is a background flush / machine event, not human typing
+WPM_HUMAN_MAX = 300
 
 TIME_SLOTS = {
     "night":   (0, 6),    # 00:00–05:59
@@ -49,9 +53,12 @@ def _local_hour_now() -> int:
 
 
 def _is_artifact_record(record: dict) -> bool:
-    """Detect synthetic micro-batches that should not shape the baseline."""
-    keys = record.get("keys", 0)
+    """Detect synthetic micro-batches / background flushes that should not shape the baseline."""
     wpm = record.get("wpm", 0)
+    # Any record with superhuman WPM is a background flush event regardless of submit flag
+    if wpm > WPM_HUMAN_MAX:
+        return True
+    keys = record.get("keys", 0)
     hes = record.get("hesitation", 0)
     del_ratio = record.get("del_ratio", 0)
     submitted = record.get("submitted", True)
@@ -77,7 +84,7 @@ def compute_baselines(history: list[dict], window: int = 50) -> dict:
     ]
     if len(recent) < 5:
         return {}  # not enough data to calibrate
-    wpms = [r["wpm"] for r in recent if "wpm" in r]
+    wpms = [r["wpm"] for r in recent if "wpm" in r and r["wpm"] <= WPM_HUMAN_MAX]
     dels = [r["del_ratio"] for r in recent if "del_ratio" in r]
     hess = [r["hesitation"] for r in recent if "hesitation" in r]
     if not wpms:
@@ -252,8 +259,9 @@ class OperatorStats:
         h = self._history
         n = len(h)
 
-        # compute ranges
-        wpms = [r["wpm"] for r in h]
+        # compute ranges — filter superhuman WPM artifacts from display stats
+        human = [r for r in h if r.get("wpm", 0) <= WPM_HUMAN_MAX]
+        wpms = [r["wpm"] for r in human] or [0]
         del_ratios = [r["del_ratio"] for r in h]
         hes_scores = [r["hesitation"] for r in h]
         pause_totals = [r["pause_ms"] for r in h]
@@ -282,7 +290,7 @@ class OperatorStats:
             "",
             "| Metric | Min | Max | Avg |",
             "| --- | ---: | ---: | ---: |",
-            f"| WPM | {min(wpms):.0f} | {max(wpms):.0f} | {sum(wpms)/n:.1f} |",
+            f"| WPM | {min(wpms):.0f} | {max(wpms):.0f} | {sum(wpms)/max(len(wpms),1):.1f} |",
             f"| Deletion % | {min(del_ratios):.1%} | {max(del_ratios):.1%} | {sum(del_ratios)/n:.1%} |",
             f"| Hesitation | {min(hes_scores):.3f} | {max(hes_scores):.3f} | {sum(hes_scores)/n:.3f} |",
             f"| Pause ms | {min(pause_totals)} | {max(pause_totals)} | {sum(pause_totals)//n} |",
@@ -386,7 +394,8 @@ class OperatorStats:
                 lines.append(f"| {slot_name} | 0 | — | — | — | — | — |")
                 continue
             cnt = len(msgs)
-            avg_wpm = sum(r["wpm"] for r in msgs) / cnt
+            human_wpm = [r["wpm"] for r in msgs if r.get("wpm", 0) <= WPM_HUMAN_MAX] or [0]
+            avg_wpm = sum(human_wpm) / len(human_wpm)
             avg_hes = sum(r["hesitation"] for r in msgs) / cnt
             avg_del = sum(r["del_ratio"] for r in msgs) / cnt
             sub = sum(1 for r in msgs if r["submitted"])

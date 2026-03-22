@@ -15,9 +15,10 @@ Zero LLM calls — pure signal cross-referencing.
 # SESSIONS: 0
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
+# EDIT_TS:   2026-03-22T23:00:00+00:00
+# EDIT_HASH: auto
+# EDIT_WHY:  filter superhuman WPM from running_stats
+# EDIT_STATE: harvested
 # ── /pulse ──
 from __future__ import annotations
 import json
@@ -316,7 +317,9 @@ def _running_stats(root: Path) -> dict:
         return {}
     n = len(entries)
     # Running averages from entries that have signals
-    wpms = [e['signals']['wpm'] for e in entries if 'signals' in e and 'wpm' in e.get('signals', {})]
+    wpms = [e['signals']['wpm'] for e in entries
+             if 'signals' in e and 'wpm' in e.get('signals', {})
+             and e['signals']['wpm'] <= 300]
     dels = [
         e['signals']['deletion_ratio']
         for e in entries
