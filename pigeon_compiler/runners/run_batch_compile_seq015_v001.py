@@ -99,7 +99,7 @@ def scan_oversized(root: Path, include_compiler: bool = False) -> list[dict]:
 def batch_compile(root: Path, dry_run: bool = False,
                   include_compiler: bool = False) -> dict:
     """Compile all oversized files in the project."""
-    from pigeon_compiler.runners.run_clean_split_seq010_v004_d0315__full_clean_pipeline_deepseek_plan_lc_verify_pigeon_plugin import (
+    from pigeon_compiler.runners.run_clean_split_seq010_v006_d0322__full_clean_pipeline_deepseek_plan_lc_windows_max_path import (
         run)
 
     targets = scan_oversized(root, include_compiler=include_compiler)

@@ -1,0 +1,22 @@
+"""compliance_seq008_format_report_seq007_v001.py — Auto-extracted by Pigeon Compiler."""
+import re
+
+def format_report(audit: dict) -> str:
+    """Format audit results as readable text."""
+    lines = []
+    lines.append(f'=== COMPLIANCE REPORT ===')
+    lines.append(f'Total files: {audit["total"]}')
+    lines.append(f'Compliant (≤{MAX_LINES} lines): {audit["compliant"]} '
+                 f'({audit["compliance_pct"]}%)')
+    lines.append(f'Oversize: {len(audit["oversize"])}')
+    lines.append('')
+
+    for entry in audit['oversize']:
+        icon = {'OVER': '⚠️', 'WARN': '🔶', 'CRITICAL': '🔴'}
+        lines.append(f'{icon.get(entry["status"], "?")} [{entry["status"]:>8}] '
+                     f'{entry["lines"]:>5} lines  {entry["path"]}')
+        for s in entry.get('splits', []):
+            lines.append(f'          → split at L{s["line"]}: '
+                         f'{s["reason"]} → {s["suggested_name"]}')
+
+    return '\n'.join(lines)

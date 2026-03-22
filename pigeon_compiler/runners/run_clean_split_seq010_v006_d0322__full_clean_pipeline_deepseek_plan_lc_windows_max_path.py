@@ -7,11 +7,11 @@ Usage:
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v005 | 257 lines | ~2,413 tokens
+# SEQ: 010 | VER: v006 | 267 lines | ~2,509 tokens
 # DESC:   full_clean_pipeline_deepseek_plan
-# INTENT: auto_compile_oversized
-# LAST:   2026-03-22 @ 7768b84
-# SESSIONS: 1
+# INTENT: windows_max_path
+# LAST:   2026-03-22 @ 556f5b2
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 import json, sys, argparse, shutil, traceback, importlib.util, glob as _glob
 from pathlib import Path

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-21T22:41:55.165524+00:00",
+  "generated": "2026-03-22T04:17:27.419958+00:00",
   "total": 96,
   "files": [
     {
@@ -1046,14 +1046,14 @@
       ]
     },
     {
-      "path": "pigeon_compiler/runners/run_clean_split_seq010_v004_d0315__full_clean_pipeline_deepseek_plan_lc_verify_pigeon_plugin.py",
+      "path": "pigeon_compiler/runners/run_clean_split_seq010_v006_d0322__full_clean_pipeline_deepseek_plan_lc_windows_max_path.py",
       "name": "run_clean_split",
       "seq": 10,
-      "ver": 4,
-      "date": "0315",
+      "ver": 6,
+      "date": "0322",
       "desc": "full_clean_pipeline_deepseek_plan",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 2226,
+      "intent": "windows_max_path",
+      "tokens": 2509,
       "history": [
         {
           "ver": 3,
@@ -1069,6 +1069,22 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 2226
+        },
+        {
+          "ver": 5,
+          "date": "0322",
+          "desc": "full_clean_pipeline_deepseek_plan",
+          "intent": "auto_compile_oversized",
+          "action": "mutated",
+          "tokens": 2413
+        },
+        {
+          "ver": 6,
+          "date": "0322",
+          "desc": "full_clean_pipeline_deepseek_plan",
+          "intent": "windows_max_path",
+          "action": "mutated",
+          "tokens": 2509
         }
       ]
     },
@@ -2038,14 +2054,14 @@
       ]
     },
     {
-      "path": "src/self_fix_seq013_v004_d0321__one_shot_self_fix_analyzer_lc_implement_all_18.py",
+      "path": "src/self_fix_seq013_v007_d0322__one_shot_self_fix_analyzer_lc_windows_max_path.py",
       "name": "self_fix",
       "seq": 13,
-      "ver": 4,
-      "date": "0321",
+      "ver": 7,
+      "date": "0322",
       "desc": "one_shot_self_fix_analyzer",
-      "intent": "implement_all_18",
-      "tokens": 4354,
+      "intent": "windows_max_path",
+      "tokens": 5275,
       "history": [
         {
           "ver": 2,
@@ -2070,6 +2086,30 @@
           "intent": "implement_all_18",
           "action": "mutated",
           "tokens": 4354
+        },
+        {
+          "ver": 5,
+          "date": "0322",
+          "desc": "one_shot_self_fix_analyzer",
+          "intent": "auto_compile_oversized",
+          "action": "mutated",
+          "tokens": 5206
+        },
+        {
+          "ver": 6,
+          "date": "0322",
+          "desc": "one_shot_self_fix_analyzer",
+          "intent": "pulse_watcher_glob",
+          "action": "mutated",
+          "tokens": 5213
+        },
+        {
+          "ver": 7,
+          "date": "0322",
+          "desc": "one_shot_self_fix_analyzer",
+          "intent": "windows_max_path",
+          "action": "mutated",
+          "tokens": 5275
         }
       ]
     },

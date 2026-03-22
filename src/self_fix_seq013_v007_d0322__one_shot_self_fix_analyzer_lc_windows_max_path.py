@@ -1,11 +1,11 @@
 """One-shot self-fix analyzer: cross-file problem detection + targeted resolution."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 013 | VER: v006 | 572 lines | ~5,213 tokens
+# SEQ: 013 | VER: v007 | 576 lines | ~5,273 tokens
 # DESC:   one_shot_self_fix_analyzer
-# INTENT: pulse_watcher_glob
-# LAST:   2026-03-22 @ d447b19
-# SESSIONS: 3
+# INTENT: windows_max_path
+# LAST:   2026-03-22 @ 556f5b2
+# SESSIONS: 4
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-03-22T00:30:00+00:00
@@ -277,7 +277,7 @@ def auto_compile_oversized(
 
     results = []
     try:
-        from pigeon_compiler.runners.run_clean_split_seq010_v005_d0322__full_clean_pipeline_deepseek_plan_lc_auto_compile_oversized import run as _run_split
+        from pigeon_compiler.runners.run_clean_split_seq010_v006_d0322__full_clean_pipeline_deepseek_plan_lc_windows_max_path import run as _run_split
     except ImportError:
         # glob-safe fallback import
         import importlib.util

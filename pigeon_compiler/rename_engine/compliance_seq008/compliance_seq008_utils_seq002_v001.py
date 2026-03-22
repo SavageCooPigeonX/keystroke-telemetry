@@ -1,0 +1,17 @@
+"""compliance_seq008_utils_seq002_v001.py — Auto-extracted by Pigeon Compiler."""
+from pathlib import Path
+import re
+
+def _snake(name: str) -> str:
+    """Convert CamelCase or title to snake_case."""
+    name = re.sub(r'[^a-zA-Z0-9]', '_', name)
+    name = re.sub(r'([A-Z])', r'_\1', name).lower()
+    return re.sub(r'_+', '_', name).strip('_')
+
+
+def _should_skip(py: Path, root: Path) -> bool:
+    parts = py.relative_to(root).parts
+    for p in parts:
+        if p in SKIP_DIRS or p.startswith('.venv') or p.startswith('_llm_tests'):
+            return True
+    return False

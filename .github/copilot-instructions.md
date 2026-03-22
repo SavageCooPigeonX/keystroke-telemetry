@@ -64,7 +64,9 @@ Three systems working together:
 <!-- pigeon:task-queue -->
 ## Active Task Queue
 
-*No pending tasks. Fresh start.*
+*Copilot manages this queue. To complete a task: update the referenced MANIFEST.md, then call `mark_done(root, task_id)` in `task_queue_seq018`.*
+
+*Queue empty — add tasks via `add_task()` or they auto-seed from self-fix.*
 
 <!-- /pigeon:task-queue -->
 <!-- pigeon:task-context -->
@@ -154,17 +156,17 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-21 - 253 message(s) - LLM-synthesized*
+*Auto-updated 2026-03-22 - 269 message(s) - LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 17% | WPM: 660192.7 | Del: 32.6% | Hes: 0.536
+**Dominant: `frustrated`** | Submit: 16% | WPM: 763305.4 | Del: 32.9% | Hes: 0.526
 
-The operator just built a "fire full post" context budget scorer, and their typing patterns reveal intense frustration-driven editing with high deletion rates during evening sessions, indicating they're brute-forcing solutions through rapid trial-and-error.  
-- **Respond with ultra-concise, modular code blocks**—avoid monoliths, as their high deletion rate shows they're aggressively rewriting.  
-- **Anticipate edits to `context_budget_scorer_for_llm` and `persistent_markdown_memory_file`**—these are high-churn modules; preemptively suggest splitting logic or adding configuration flags.  
-- **When they touch `rework_detector` or `push_narrative`**, explicitly validate the AI answer quality metrics to prevent rework (miss rate is low, but churn is high).  
-- **If they show hesitation (low WPM) followed by frustration (high deletion)**, interrupt the cycle by offering 2–3 discrete, scaffolded options instead of open-ended suggestions.  
-- **Prescribe explicit guardrails for `import_fixer` and `init_writer`**—these are utility modules; provide copy-paste-ready corrections, not explanations.  
-They are most likely building toward an integrated telemetry and narrative system that triggers full context posts based on scorer outputs.
+This operator just built Windows max‑path handling into two pipeline modules, but their extreme WPM spikes and 50% deletion rates reveal they are brute‑force restructuring code in frustrated, heavy‑edit sessions.  
+- **When they next edit `self_fix_seq013` or `run_clean_split_seq010`**, proactively suggest path‑length checks and `os.path.normpath` snippets before they type.  
+- **If they hesitate (hes > 0.5) on a large file**, offer a one‑line summary of the module’s current purpose to re‑anchor them.  
+- **Anticipate churn in `context_budget_scorer` and `persistent_markdown_memory_file`**—pre‑load relevant constants or helper functions from the latest versions.  
+- **For high‑deletion commits**, respond with short, reversible changes (e.g., “Try this block; I can revert it in one click”).  
+- **Given the low miss‑rate but high frustration**, validate their approach first (“Good call on Windows paths—here’s the safe way to…”) before adding code.  
+They are most likely building toward a cross‑platform, path‑aware pipeline that avoids OS‑specific failures in production.
 
 <!-- /pigeon:operator-state -->
 <!-- pigeon:prompt-telemetry -->
@@ -349,7 +351,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 ### Full Module Index
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-21 - 96 modules tracked | 1 touched this commit*
+*Auto-updated 2026-03-22 - 96 modules tracked | 2 touched this commit*
 
 **pigeon_compiler/bones/** - 5 module(s)
 
@@ -407,7 +409,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `run_compiler_test_seq007*` | self test pigeon compiler on | ~594 |
 | `run_deepseek_plans_seq008*` | phase 2 send ether maps | ~587 |
 | `run_pigeon_loop_seq009*` | the loop refactor until pigeon | ~2,836 |
-| `run_clean_split_seq010*` | full clean pipeline deepseek plan | ~2,226 |
+| `run_clean_split_seq010*` | full clean pipeline deepseek plan | ~2,509 |
 | `run_clean_split_helpers_seq011*` | helpers for run clean split | ~566 |
 | `run_clean_split_init_seq012*` | init manifest writers for clean | ~1,663 |
 | `manifest_bridge_seq013*` | update master manifest md after | ~1,016 |
@@ -459,7 +461,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `query_memory_seq010*` | recurring query detector unsaid thought | ~2,308 |
 | `file_heat_map_seq011*` | tracks cognitive load per module | ~1,347 |
 | `push_narrative_seq012*` | generate per push narrative each | ~2,049 |
-| `self_fix_seq013*` | one shot self fix analyzer | ~4,354 |
+| `self_fix_seq013*` | one shot self fix analyzer | ~5,275 |
 | `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~3,529 |
 | `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,276 |
 | `dynamic_prompt_seq017*` | steers copilot cot from live | ~3,460 |
