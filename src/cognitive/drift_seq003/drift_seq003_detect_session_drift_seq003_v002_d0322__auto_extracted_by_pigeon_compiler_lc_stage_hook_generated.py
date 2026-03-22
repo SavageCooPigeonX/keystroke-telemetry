@@ -1,5 +1,13 @@
 """drift_seq003_detect_session_drift_seq003_v001.py — Auto-extracted by Pigeon Compiler."""
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 003 | VER: v002 | 61 lines | ~611 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: stage_hook_generated
+# LAST:   2026-03-22 @ b48ee0a
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 def detect_session_drift(session_summaries: list, baseline: dict) -> dict:
     """Compare this session's patterns against operator baseline.
 

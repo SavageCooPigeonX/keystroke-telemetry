@@ -1,4 +1,12 @@
 """unsaid_seq002_orchestrator_seq003_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 003 | VER: v002 | 151 lines | ~1,425 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: stage_hook_generated
+# LAST:   2026-03-22 @ b48ee0a
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 import re
 
 def extract_unsaid_thoughts(events: list, final_text: str = '') -> dict:

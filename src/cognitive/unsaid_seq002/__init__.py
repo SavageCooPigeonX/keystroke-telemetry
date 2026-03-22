@@ -1,2 +1,2 @@
 """unsaid_seq002/ — Pigeon-compliant module."""
-from .unsaid_seq002_orchestrator_seq003_v001 import extract_unsaid_thoughts
+from .unsaid_seq002_orchestrator_seq003_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_hook_generated import extract_unsaid_thoughts

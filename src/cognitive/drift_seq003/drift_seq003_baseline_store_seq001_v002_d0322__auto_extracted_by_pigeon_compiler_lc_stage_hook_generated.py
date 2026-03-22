@@ -1,5 +1,13 @@
 """drift_seq003_baseline_store_seq001_v001.py — Auto-extracted by Pigeon Compiler."""
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v002 | 23 lines | ~232 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: stage_hook_generated
+# LAST:   2026-03-22 @ b48ee0a
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 class BaselineStore:
     """In-memory operator baseline storage.
 

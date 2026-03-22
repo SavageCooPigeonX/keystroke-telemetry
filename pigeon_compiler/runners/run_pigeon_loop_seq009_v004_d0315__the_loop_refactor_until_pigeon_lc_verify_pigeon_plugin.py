@@ -35,7 +35,7 @@ from pigeon_compiler.cut_executor.plan_parser_seq001_v004_d0315__parse_deepseek_
 from pigeon_compiler.cut_executor.plan_validator_seq006_v004_d0315__validate_cut_plan_before_execution_lc_verify_pigeon_plugin import validate_plan
 from pigeon_compiler.cut_executor.source_slicer_seq002_v004_d0315__extract_functions_constants_from_source_lc_verify_pigeon_plugin import slice_source
 from pigeon_compiler.cut_executor.file_writer_seq003_v005_d0322__write_new_pigeon_compliant_files_lc_multi_line_import import write_cut_files
-from pigeon_compiler.cut_executor.init_writer_seq007_v005_d0322__generate_init_py_for_split_lc_init_writer_run import write_init
+from pigeon_compiler.cut_executor.init_writer_seq007_v006_d0322__generate_init_py_for_split_lc_stage_hook_generated import write_init
 from pigeon_compiler.cut_executor.manifest_writer_seq005_v004_d0315__generate_manifest_md_for_a_lc_verify_pigeon_plugin import write_manifest
 from pigeon_compiler.cut_executor.import_fixer_seq004_v004_d0315__update_imports_across_the_project_lc_verify_pigeon_plugin import fix_imports
 from pigeon_compiler.cut_executor.func_decomposer_seq008_v004_d0315__decompose_oversized_functions_via_deepseek_lc_verify_pigeon_plugin import (
@@ -73,7 +73,7 @@ def _pre_decompose(source_file: Path, em: dict) -> tuple[Path, float]:
                 func_src = "".join(lines[start:end])
                 print(f"      Decomposing {name}() ({func_info['line_count']} lines)...")
                 try:
-                    from pigeon_compiler.integrations.deepseek_adapter_seq001_v004_d0315__deepseek_api_client_lc_verify_pigeon_plugin import deepseek_query
+                    from pigeon_compiler.integrations.deepseek_adapter_seq001_v005_d0322__deepseek_api_client_lc_deepseek_timeout_read import deepseek_query
                     decomposed = decompose_function(func_src, name, func_info["line_count"])
                     total_cost += 0.002  # approximate
                     replacements.append((start, end, decomposed))

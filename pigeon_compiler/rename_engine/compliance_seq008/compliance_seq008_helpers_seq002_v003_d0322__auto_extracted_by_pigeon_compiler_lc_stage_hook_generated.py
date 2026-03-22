@@ -1,11 +1,11 @@
 """compliance_seq008_helpers_seq002_v001.py — Auto-extracted by Pigeon Compiler."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v002 | 18 lines | ~160 tokens
+# SEQ: 002 | VER: v003 | 26 lines | ~227 tokens
 # DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: repair_all_compiled
-# LAST:   2026-03-22 @ e4f5ad3
-# SESSIONS: 1
+# INTENT: stage_hook_generated
+# LAST:   2026-03-22 @ b48ee0a
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 from pathlib import Path
 import re

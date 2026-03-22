@@ -9,10 +9,10 @@ DeepSeek Pricing (per 1M tokens):
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v004 | 135 lines | ~1,177 tokens
+# SEQ: 001 | VER: v005 | 135 lines | ~1,180 tokens
 # DESC:   deepseek_api_client
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
+# INTENT: deepseek_timeout_read
+# LAST:   2026-03-22 @ 5f07f14
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 import os

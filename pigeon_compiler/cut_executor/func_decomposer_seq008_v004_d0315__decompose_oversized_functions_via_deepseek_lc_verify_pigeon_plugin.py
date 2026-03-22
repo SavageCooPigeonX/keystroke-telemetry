@@ -55,7 +55,7 @@ No markdown fences. Just Python."""
 def decompose_function(func_source: str, func_name: str,
                        line_count: int, context: str = "") -> str:
     """Send function to DeepSeek for decomposition. Returns Python code."""
-    from pigeon_compiler.integrations.deepseek_adapter_seq001_v004_d0315__deepseek_api_client_lc_verify_pigeon_plugin import deepseek_query
+    from pigeon_compiler.integrations.deepseek_adapter_seq001_v005_d0322__deepseek_api_client_lc_deepseek_timeout_read import deepseek_query
 
     prompt = build_decompose_prompt(func_source, func_name, line_count, context)
     result = deepseek_query(prompt, max_tokens=6000)

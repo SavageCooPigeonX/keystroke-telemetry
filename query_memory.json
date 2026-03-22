@@ -1,42 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-19T01:28:17.670493+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:29:17.537459+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:30:17.551191+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:31:17.539616+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:32:17.551789+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:33:17.550301+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-19T01:34:17.532906+00:00",
       "text": "bg:package.json",
       "fingerprint": "bgpackagejson",
@@ -2996,6 +2960,42 @@
     },
     {
       "ts": "2026-03-22T19:07:02.752131+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T19:15:12.863481+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T19:18:21.672492+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T19:19:20.659634+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T19:21:08.631748+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T19:21:20.772391+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T19:22:20.607246+00:00",
       "text": "bg:MANIFEST.md",
       "fingerprint": "bgmanifestmd",
       "submitted": true

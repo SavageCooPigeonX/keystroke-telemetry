@@ -63,7 +63,7 @@ def _build_prompt(class_source: str, class_name: str,
 
 def _call_deepseek(prompt: str) -> str:
     """Call DeepSeek and strip any markdown fences from the response."""
-    from pigeon_compiler.integrations.deepseek_adapter_seq001_v004_d0315__deepseek_api_client_lc_verify_pigeon_plugin import (
+    from pigeon_compiler.integrations.deepseek_adapter_seq001_v005_d0322__deepseek_api_client_lc_deepseek_timeout_read import (
         deepseek_query)
 
     result = deepseek_query(prompt, max_tokens=8000)

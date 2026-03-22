@@ -68,9 +68,9 @@ OPERATOR SIGNAL: Frustration with perceived optionality and a belief the system 
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Enriched 2026-03-22 19:14 UTC · raw: "yes"*
+*Enriched 2026-03-22 19:28 UTC · raw: "go ahead and try theres 78 changesin staged - verify the imports dont break on p"*
 
-(enrichment unavailable: DeepSeek failed after 3 attempts: [Errno 11001] getaddrinfo failed)
+(enrichment unavailable: DeepSeek failed after 3 attempts: timed out)
 <!-- /pigeon:current-query -->
 <!-- pigeon:task-context -->
 ## Live Task Context
@@ -174,9 +174,9 @@ OPERATOR SIGNAL: Frustration with perceived optionality and a belief the system 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-22 · 193 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-22 · 199 message(s) · LLM-synthesized*
 
-**Dominant: `hesitant`** | Submit: 27% | WPM: 49.3 | Del: 24.7% | Hes: 0.526
+**Dominant: `hesitant`** | Submit: 27% | WPM: 49.8 | Del: 25.2% | Hes: 0.528
 
 This operator just built a prompt enrichment system and their typing shows intense evening bursts with high-speed deletions, indicating they're aggressively refactoring while fatigued.  
 - **When they edit high-churn modules** (self_fix, context_budget, operator_stats), proactively offer compact, self-contained code blocks—these files are unstable and need isolated, testable changes.  
@@ -198,13 +198,13 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-03-22T19:13:25.198736+00:00",
+  "updated_at": "2026-03-22T19:27:55.911583+00:00",
   "latest_prompt": {
-    "session_n": 4,
-    "ts": "2026-03-22T19:13:25.198736+00:00",
-    "chars": 3,
-    "preview": "yes",
-    "intent": "unknown",
+    "session_n": 6,
+    "ts": "2026-03-22T19:27:55.911583+00:00",
+    "chars": 84,
+    "preview": "go ahead and try theres 78 changesin staged - verify the imports dont break on push ",
+    "intent": "testing",
     "state": "unknown",
     "files_open": [],
     "module_refs": []
@@ -239,29 +239,33 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 27,
-    "avg_wpm": 41.0,
-    "avg_del_ratio": 0.03,
+    "total_prompts": 29,
+    "avg_wpm": 41.3,
+    "avg_del_ratio": 0.029,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 20,
+      "unknown": 22,
       "focused": 5,
       "hesitant": 2
     },
     "baselines": {
-      "n": 10,
-      "avg_wpm": 62.2,
-      "avg_del": 0.384,
-      "avg_hes": 0.384,
-      "sd_wpm": 11.3,
-      "sd_del": 0.173,
-      "sd_hes": 0.173
+      "n": 9,
+      "avg_wpm": 61.0,
+      "avg_del": 0.403,
+      "avg_hes": 0.403,
+      "sd_wpm": 11.1,
+      "sd_del": 0.171,
+      "sd_hes": 0.171
     }
   }
 }
 ```
 
 <!-- /pigeon:prompt-telemetry -->
+
+
+
+
 
 
 

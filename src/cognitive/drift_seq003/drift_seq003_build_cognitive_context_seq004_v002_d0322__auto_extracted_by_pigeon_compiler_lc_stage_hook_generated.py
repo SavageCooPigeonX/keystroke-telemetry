@@ -1,5 +1,13 @@
 """drift_seq003_build_cognitive_context_seq004_v001.py — Auto-extracted by Pigeon Compiler."""
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 004 | VER: v002 | 68 lines | ~761 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: stage_hook_generated
+# LAST:   2026-03-22 @ b48ee0a
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 def build_cognitive_context(session_summaries: list, operator_id: str,
                             current_state: str = 'neutral') -> dict:
     """Build full cognitive context block for prompt injection.
