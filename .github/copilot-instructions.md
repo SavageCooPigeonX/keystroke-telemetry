@@ -156,9 +156,9 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-22 - 282 message(s) - LLM-synthesized*
+*Auto-updated 2026-03-22 · 285 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 15% | WPM: 752180.4 | Del: 33.1% | Hes: 0.523
+**Dominant: `frustrated`** | Submit: 15% | WPM: 744272.9 | Del: 33.0% | Hes: 0.523
 
 This operator just built a scanning mechanism for hard cases in their self-fix analyzer, and their extreme typing patterns—massive WPM spikes with 50% deletions during restructuring—reveal they are brute-force rewriting entire blocks in rapid, frustrated bursts.
 
