@@ -8,9 +8,9 @@
 # SESSIONS: 5
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-22T01:00:00+00:00
+# EDIT_TS:   2026-03-22T01:45:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  call is_excluded in _scan_over_hard_cap
+# EDIT_WHY:  fix registry files key + skip compiled subdir
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -225,7 +225,12 @@ def _scan_over_hard_cap(root: Path, registry: dict) -> list[dict]:
     except ImportError:
         PIGEON_MAX = 200
         is_excluded = lambda p, root=None: False  # noqa: E731
-    reg_list = registry if isinstance(registry, list) else list(registry.values())
+    if isinstance(registry, list):
+        reg_list = registry
+    elif isinstance(registry, dict) and 'files' in registry:
+        reg_list = registry['files']
+    else:
+        reg_list = list(registry.values())
     for entry in reg_list:
         if not isinstance(entry, dict):
             continue
@@ -238,6 +243,13 @@ def _scan_over_hard_cap(root: Path, registry: dict) -> list[dict]:
         # Skip anything that should never be auto-compiled
         if is_excluded(abs_p):
             continue
+        # Skip if a compiled subdir already exists (seq base dir with __init__.py)
+        import re as _re
+        _seq_m = _re.match(r'([\w]+_seq\d+)', abs_p.stem)
+        if _seq_m:
+            _compiled = abs_p.parent / _seq_m.group(1)
+            if (_compiled / '__init__.py').exists():
+                continue
         try:
             lc = len(abs_p.read_text(encoding='utf-8').splitlines())
         except Exception:
