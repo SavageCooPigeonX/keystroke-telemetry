@@ -156,17 +156,19 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-22 · 270 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-22 · 271 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 16% | WPM: 760478.4 | Del: 32.8% | Hes: 0.526
+**Dominant: `frustrated`** | Submit: 16% | WPM: 757675.8 | Del: 32.9% | Hes: 0.526
 
-This operator just built Windows max‑path handling into two pipeline modules, but their extreme WPM spikes and 50% deletion rates reveal they are brute‑force restructuring code in frustrated, heavy‑edit sessions.  
-- **When they next edit `self_fix_seq013` or `run_clean_split_seq010`**, proactively suggest path‑length checks and `os.path.normpath` snippets before they type.  
-- **If they hesitate (hes > 0.5) on a large file**, offer a one‑line summary of the module’s current purpose to re‑anchor them.  
-- **Anticipate churn in `context_budget_scorer` and `persistent_markdown_memory_file`**—pre‑load relevant constants or helper functions from the latest versions.  
-- **For high‑deletion commits**, respond with short, reversible changes (e.g., “Try this block; I can revert it in one click”).  
-- **Given the low miss‑rate but high frustration**, validate their approach first (“Good call on Windows paths—here’s the safe way to…”) before adding code.  
-They are most likely building toward a cross‑platform, path‑aware pipeline that avoids OS‑specific failures in production.
+This operator just built multi-line import handling for Pigeon compliance, and their extreme typing volatility (58 WPM to 13.8M WPM) with 50%+ deletion rates shows they are brute-force restructuring in intense, frustrated bursts, not flowing.
+
+*   **Anticipate context_budget and self_fix churn:** When they touch `file_writer`, immediately pre-load patterns from `context_budget_scorer_for_llm` and `one_shot_self_fix_analyzer`—they are likely tuning the same adjacent systems.
+*   **Respond with atomic, verifiable steps:** Given high hesitation (0.749) and deletion, offer single-line corrections or exact import syntax blocks; avoid multi-paragraph conceptual explanations.
+*   **Flag Windows path limits proactively:** Their history shows `windows_max_path` fixes in `self_fix` and `run_clean_split`; preempt it when file operations are discussed.
+*   **Prescribe explicit verification:** For 1 miss/148 responses, direct them to run the `verify_pigeon_plugin` check from `func_decomposer` after any change to close the rework gap.
+*   **Match restructuring energy:** During high-WPM, high-deletion bursts, provide concise, copy-paste-ready code alternatives to channel their momentum, not slow them down.
+
+They are most likely building toward a fully Pigeon-verified, cross-platform file generation pipeline, which will next stress `run_clean_split` and `rework_detector`.
 
 <!-- /pigeon:operator-state -->
 <!-- pigeon:prompt-telemetry -->
@@ -351,7 +353,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 ### Full Module Index
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-22 - 96 modules tracked | 2 touched this commit*
+*Auto-updated 2026-03-22 - 96 modules tracked | 1 touched this commit*
 
 **pigeon_compiler/bones/** - 5 module(s)
 
@@ -369,7 +371,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 |---|---|---:|
 | `plan_parser_seq001*` | parse deepseek json from raw | ~371 |
 | `source_slicer_seq002*` | extract functions constants from source | ~486 |
-| `file_writer_seq003*` | write new pigeon compliant files | ~747 |
+| `file_writer_seq003*` | write new pigeon compliant files | ~783 |
 | `import_fixer_seq004*` | update imports across the project | ~505 |
 | `manifest_writer_seq005*` | generate manifest md for a | ~448 |
 | `plan_validator_seq006*` | validate cut plan before execution | ~579 |

@@ -1,4 +1,4 @@
-"""compliance_seq008_audit_core_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
+"""compliance_seq008_audit_decomposed_seq007_v001.py — Auto-extracted by Pigeon Compiler."""
 from pathlib import Path
 import re
 

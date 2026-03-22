@@ -1,4 +1,4 @@
-"""compliance_seq008_split_recommender_seq004_v001.py — Auto-extracted by Pigeon Compiler."""
+"""compliance_seq008_recommend_decomposed_seq004_v001.py — Auto-extracted by Pigeon Compiler."""
 import ast
 import re
 

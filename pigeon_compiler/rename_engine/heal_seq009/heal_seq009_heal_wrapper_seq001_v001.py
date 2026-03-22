@@ -1,8 +1,14 @@
-"""heal_seq009_orchestrator_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
+"""heal_seq009_heal_wrapper_seq001_v001.py — Auto-extracted by Pigeon Compiler."""
 from datetime import datetime, timezone
 from pathlib import Path
 from pigeon_compiler.rename_engine.compliance_seq008_v004_d0315__line_count_enforcer_split_recommender_lc_verify_pigeon_plugin import (
+    audit_compliance,
+    check_file,
+)
 from pigeon_compiler.rename_engine.manifest_builder_seq007_v003_d0314__generate_living_manifest_md_per_lc_desc_upgrade import (
+    build_all_manifests,
+    build_manifest,
+)
 import re
 
 def heal(root: Path, full: bool = False, dry_run: bool = False) -> dict:

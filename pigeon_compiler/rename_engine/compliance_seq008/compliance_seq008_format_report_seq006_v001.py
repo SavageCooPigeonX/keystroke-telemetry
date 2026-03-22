@@ -1,4 +1,4 @@
-"""compliance_seq008_format_report_seq007_v001.py — Auto-extracted by Pigeon Compiler."""
+"""compliance_seq008_format_report_seq006_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
 
 def format_report(audit: dict) -> str:

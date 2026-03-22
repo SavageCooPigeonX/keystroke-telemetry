@@ -170,34 +170,34 @@
     "avg_hes": 0.0
   },
   "file_writer": {
-    "personality": "stable",
-    "version": 4,
-    "tokens": 747,
+    "personality": "veteran",
+    "version": 5,
+    "tokens": 783,
     "partners": [
       {
         "name": "resplit_binpack",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v4+v4)"
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v5+v4)"
       },
       {
         "name": "resplit",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v4+v4)"
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v5+v4)"
       },
       {
         "name": "manifest_builder",
-        "score": 0.77,
-        "reason": "3 shared imports, both high-churn (v4+v3)"
+        "score": 0.75,
+        "reason": "3 shared imports, both high-churn (v5+v3)"
       },
       {
         "name": "func_decomposer",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
+        "score": 0.58,
+        "reason": "2 shared imports, both high-churn (v5+v4)"
       },
       {
         "name": "plan_validator",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
+        "score": 0.58,
+        "reason": "2 shared imports, both high-churn (v5+v4)"
       }
     ],
     "fears": [],
@@ -229,7 +229,7 @@
         "reason": "3 shared imports, both high-churn (v4+v6)"
       },
       {
-        "name": "file_writer",
+        "name": "plan_validator",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -277,11 +277,6 @@
     "tokens": 361,
     "partners": [
       {
-        "name": "file_writer",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v4+v4)"
-      },
-      {
         "name": "func_decomposer",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v4+v4)"
@@ -298,6 +293,11 @@
       },
       {
         "name": "plan_validator",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "resplit_binpack",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v4+v4)"
       }
@@ -381,11 +381,6 @@
     "tokens": 579,
     "partners": [
       {
-        "name": "file_writer",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
-      },
-      {
         "name": "func_decomposer",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
@@ -404,6 +399,11 @@
         "name": "heal",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "planner",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
       }
     ],
     "fears": [],
@@ -415,14 +415,14 @@
     "tokens": 702,
     "partners": [
       {
-        "name": "file_writer",
+        "name": "resplit",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v4+v4)"
       },
       {
-        "name": "resplit",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v4+v4)"
+        "name": "file_writer",
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v4+v5)"
       },
       {
         "name": "manifest_builder",
@@ -449,11 +449,6 @@
     "tokens": 501,
     "partners": [
       {
-        "name": "file_writer",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
-      },
-      {
         "name": "resplit_binpack",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
@@ -472,6 +467,11 @@
         "name": "compliance",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "validator",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
       }
     ],
     "fears": [],
@@ -483,14 +483,14 @@
     "tokens": 841,
     "partners": [
       {
-        "name": "file_writer",
+        "name": "resplit_binpack",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v4+v4)"
       },
       {
-        "name": "resplit_binpack",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v4+v4)"
+        "name": "file_writer",
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v4+v5)"
       },
       {
         "name": "manifest_builder",
@@ -517,11 +517,6 @@
     "tokens": 486,
     "partners": [
       {
-        "name": "file_writer",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
-      },
-      {
         "name": "resplit_binpack",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
@@ -538,6 +533,11 @@
       },
       {
         "name": "compliance",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "validator",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -750,7 +750,7 @@
         "reason": "4 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "file_writer",
+        "name": "resplit_binpack",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v3+v4)"
       }
@@ -1319,15 +1319,15 @@
       },
       {
         "name": "file_writer",
-        "score": 0.56,
-        "reason": "2 shared imports, both high-churn (v6+v4)"
+        "score": 0.58,
+        "reason": "2 shared imports, both high-churn (v6+v5)"
       }
     ],
     "fears": [
       "regex format dependency",
       "file may not exist"
     ],
-    "avg_hes": 0.499
+    "avg_hes": 0.505
   },
   "run_compiler_test": {
     "personality": "stable",
@@ -1355,7 +1355,7 @@
         "reason": "3 shared imports, both high-churn (v4+v6)"
       },
       {
-        "name": "file_writer",
+        "name": "plan_validator",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -1389,7 +1389,7 @@
         "reason": "3 shared imports, both high-churn (v4+v6)"
       },
       {
-        "name": "file_writer",
+        "name": "plan_validator",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -1439,11 +1439,6 @@
     "tokens": 734,
     "partners": [
       {
-        "name": "file_writer",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
-      },
-      {
         "name": "resplit_binpack",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
@@ -1460,6 +1455,11 @@
       },
       {
         "name": "source_slicer",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -1473,11 +1473,6 @@
     "tokens": 847,
     "partners": [
       {
-        "name": "file_writer",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
-      },
-      {
         "name": "resplit_binpack",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
@@ -1494,6 +1489,11 @@
       },
       {
         "name": "source_slicer",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -1529,7 +1529,7 @@
         "reason": "3 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "file_writer",
+        "name": "func_decomposer",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -1580,11 +1580,6 @@
     "tokens": 1037,
     "partners": [
       {
-        "name": "file_writer",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
-      },
-      {
         "name": "resplit_binpack",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
@@ -1601,6 +1596,11 @@
       },
       {
         "name": "source_slicer",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -1614,11 +1614,6 @@
     "tokens": 618,
     "partners": [
       {
-        "name": "file_writer",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
-      },
-      {
         "name": "resplit_binpack",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
@@ -1635,6 +1630,11 @@
       },
       {
         "name": "source_slicer",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "compliance",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v4+v4)"
       }
@@ -1851,7 +1851,7 @@
       }
     ],
     "fears": [],
-    "avg_hes": 0.404
+    "avg_hes": 0.402
   },
   "copilot_prompt_manager": {
     "personality": "fresh",
@@ -2437,7 +2437,7 @@
       "regex format dependency",
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.393
+    "avg_hes": 0.418
   },
   "session_handoff": {
     "personality": "fresh",
