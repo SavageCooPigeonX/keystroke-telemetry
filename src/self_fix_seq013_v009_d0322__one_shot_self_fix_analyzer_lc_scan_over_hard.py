@@ -290,6 +290,21 @@ def auto_compile_oversized(
     if not over_cap:
         return []
 
+    # Skip files that already have a compiled package directory alongside them
+    # (stem without version suffix → look for a matching subdir in same parent)
+    import re as _re2
+    def _already_compiled(rel: str) -> bool:
+        abs_p = root / rel
+        m = _re2.match(r'([\w]+_seq\d+)', abs_p.stem)
+        if not m:
+            return False
+        pkg_stem = m.group(1)
+        return (abs_p.parent / pkg_stem).is_dir()
+
+    over_cap = [p for p in over_cap if not _already_compiled(p['file'])]
+    if not over_cap:
+        return []
+
     # Build per-file dead export index
     dead_by_file: dict[str, list[str]] = {}
     for p in problems:
