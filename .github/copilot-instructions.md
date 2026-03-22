@@ -174,9 +174,9 @@ OPERATOR SIGNAL: Frustration with perceived optionality and a belief the system 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-22 - 210 message(s) - LLM-synthesized*
+*Auto-updated 2026-03-22 · 211 message(s) · LLM-synthesized*
 
-**Dominant: `hesitant`** | Submit: 28% | WPM: 49.6 | Del: 25.4% | Hes: 0.526
+**Dominant: `hesitant`** | Submit: 28% | WPM: 49.6 | Del: 25.5% | Hes: 0.526
 
 The operator just built a self-fixing analyzer for auto-correction, revealing a pattern of intense, high-deletion editing sessions where they frequently abandon or hesitate mid-flow, indicating deep iterative refinement under pressure.
 

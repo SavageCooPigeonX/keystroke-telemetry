@@ -1,12 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-19T01:36:17.541815+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-19T01:37:17.563420+00:00",
       "text": "bg:package.json",
       "fingerprint": "bgpackagejson",
@@ -2998,6 +2992,12 @@
       "ts": "2026-03-22T19:34:23.001550+00:00",
       "text": "bg:MANIFEST.md",
       "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T19:41:23.974026+00:00",
+      "text": "bg:task_queue_seq018_v002_d0317__copilot_driven_task_tracking_linked_lc_task_queue_system.py",
+      "fingerprint": "bgtask_queue_seq018_v002_d0317__copilot_driven_task_tracking_linked_lc_task_queue_systempy",
       "submitted": true
     }
   ],

@@ -2,13 +2,6 @@
   "context_budget": {
     "samples": [
       {
-        "ts": "2026-03-22T17:19:35.986965+00:00",
-        "hes": 0.67,
-        "wpm": 1617.4,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
         "ts": "2026-03-22T17:20:00.202497+00:00",
         "hes": 0.3,
         "wpm": 1480200.0,
@@ -140,10 +133,17 @@
         "wpm": 1643.1,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T19:41:23.991753+00:00",
+        "hes": 0.667,
+        "wpm": 1451.2,
+        "state": "frustrated",
+        "rework": "ok"
       }
     ],
     "avg_hes": 0.516,
-    "avg_wpm": 339523.9,
+    "avg_wpm": 339515.6,
     "miss_count": 0,
     "total": 20
   },
@@ -1109,13 +1109,6 @@
   "self_fix": {
     "samples": [
       {
-        "ts": "2026-03-22T17:19:35.986882+00:00",
-        "hes": 0.67,
-        "wpm": 1617.4,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
         "ts": "2026-03-22T17:20:00.202419+00:00",
         "hes": 0.3,
         "wpm": 1480200.0,
@@ -1247,10 +1240,17 @@
         "wpm": 1643.1,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T19:41:23.991608+00:00",
+        "hes": 0.667,
+        "wpm": 1451.2,
+        "state": "frustrated",
+        "rework": "ok"
       }
     ],
     "avg_hes": 0.516,
-    "avg_wpm": 339523.9,
+    "avg_wpm": 339515.6,
     "miss_count": 0,
     "total": 20
   },
@@ -1269,11 +1269,18 @@
         "wpm": 1643.1,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-22T19:41:23.991822+00:00",
+        "hes": 0.667,
+        "wpm": 1451.2,
+        "state": "frustrated",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.702,
-    "avg_wpm": 845.1,
+    "avg_hes": 0.69,
+    "avg_wpm": 1047.1,
     "miss_count": 0,
-    "total": 2
+    "total": 3
   }
 }
