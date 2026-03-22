@@ -4,10 +4,10 @@ Re-exports all public functions so external imports don't break.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 007 | VER: v004 | 46 lines | ~361 tokens
+# SEQ: 007 | VER: v005 | 46 lines | ~361 tokens
 # DESC:   generate_init_py_for_split
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
+# INTENT: init_writer_run
+# LAST:   2026-03-22 @ 3490a76
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 from pathlib import Path

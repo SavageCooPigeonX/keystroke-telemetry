@@ -1,10 +1,18 @@
 """compliance_seq008_audit_wrapper_seq009_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 009 | VER: v002 | 68 lines | ~585 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: repair_all_compiled
+# LAST:   2026-03-22 @ e4f5ad3
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 from pathlib import Path
 import re
 from .compliance_seq008_constants_seq001_v001 import MAX_LINES, WARN_LINES, SKIP_DIRS
-from .compliance_seq008_helpers_seq002_v001 import _should_skip
-from .compliance_seq008_classify_seq003_v001 import _classify
-from .compliance_seq008_recommend_wrapper_seq006_v001 import _recommend_splits
+from .compliance_seq008_helpers_seq002_v002_d0322__auto_extracted_by_pigeon_compiler_lc_repair_all_compiled import _should_skip
+from .compliance_seq008_classify_seq003_v002_d0322__auto_extracted_by_pigeon_compiler_lc_repair_all_compiled import _classify
+from .compliance_seq008_recommend_wrapper_seq006_v002_d0322__auto_extracted_by_pigeon_compiler_lc_repair_all_compiled import _recommend_splits
 
 def audit_compliance(root: Path) -> dict:
     """Full codebase line-count audit.

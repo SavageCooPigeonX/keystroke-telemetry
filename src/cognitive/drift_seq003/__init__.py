@@ -1,0 +1,5 @@
+"""drift_seq003/ — Pigeon-compliant module."""
+from drift_seq003.drift_seq003_baseline_store_seq001_v001 import BaselineStore
+from drift_seq003.drift_seq003_build_cognitive_context_seq004_v001 import build_cognitive_context
+from drift_seq003.drift_seq003_compute_baseline_seq002_v001 import BASELINE_CACHE_TTL, compute_baseline
+from drift_seq003.drift_seq003_detect_session_drift_seq003_v001 import detect_session_drift

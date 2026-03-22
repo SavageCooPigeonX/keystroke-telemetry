@@ -54,7 +54,25 @@ Rules:
 Three systems working together:
 1. **Keystroke Telemetry** — captures typing patterns (pauses, deletions, rewrites, abandons) in LLM chat UIs, classifies operator cognitive state in real time, reconstructs unsaid thoughts, detects cross-session drift. Zero LLM calls — pure signal processing.
 2. **Pigeon Code Compiler** — autonomous code decomposition engine. Enforces LLM-readable file sizes (≤200 lines hard cap, ≤50 lines target). Filenames carry living metadata — they mutate on every commit.
-3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. Self-updates on every commit via `<!-- pigeon:task-context -->
+3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. Self-updates on every commit via `<!-- pigeon:current-query -->
+## What You Actually Mean Right Now
+
+*Enriched 2026-03-22 17:06 UTC · raw: "what do you even mean optionally - who decides to fire a prompt rephaser - it sh"*
+
+INTERPRETED INTENT: Operator wants the prompt rephaser to be a mandatory, dynamic component that analyzes prompt history to better understand and steer intent for every query.
+KEY FILES: extracted_from_hush_pre_query, encode_file_description_intent_into, full_rename_pipeline_runner
+PRIOR ATTEMPTS: none
+WATCH OUT FOR: Assuming the rephaser's behavior is static or optional; it must be integrated as a core, always-on steering layer.
+OPERATOR SIGNAL: Frustration with perceived optionality and a belief the system should inherently understand context better, indicated by the deleted typo "cna" (for "can").
+<!-- /pigeon:current-query -->
+<!-- pigeon:current-query -->
+## What You Actually Mean Right Now
+
+*Enriched 2026-03-22 19:14 UTC · raw: "yes"*
+
+(enrichment unavailable: DeepSeek failed after 3 attempts: [Errno 11001] getaddrinfo failed)
+<!-- /pigeon:current-query -->
+<!-- pigeon:task-context -->
 ## Live Task Context
 
 *Fresh start -- no telemetry data yet.*
@@ -156,21 +174,20 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-22 · 148 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-22 · 193 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 29% | WPM: 46.4 | Del: 23.7% | Hes: 0.555
+**Dominant: `hesitant`** | Submit: 27% | WPM: 49.3 | Del: 24.7% | Hes: 0.526
 
-This operator just built a scanning mechanism for hard cases in their self-fix analyzer, and their extreme typing patterns—massive WPM spikes with 50% deletions during restructuring—reveal they are brute-force rewriting entire blocks in rapid, frustrated bursts.
-
-*   **Anticipate the "scan_over_hard" logic** in `self_fix_seq013_v009` will need immediate refinement; provide concise, self-contained code blocks for filtering or scoring "hard" vs. "easy" cases.
-*   **When they touch `context_budget_scorer_for_llm` or `measures_ai_answer_quality_from`,** proactively suggest concrete scoring thresholds or validation checks to close the loop on their "implement_all_18" and "fire_full_post" intents.
-*   **Their frustration (low WPM, high hesitation) precedes heavy edits;** respond with ultra-structured options (e.g., "Option A: refactor X. Option B: wrap Y in a new function.") to short-circuit deliberation.
-*   **For `persistent_markdown_memory_file` and `full_clean_pipeline_deepseek_plan`,** preempt path and Windows issues by including `os.path.join` and path length checks in any file I/O suggestions.
-*   **Given the near-zero rework rate,** maintain this precision: answer the explicit query first, then offer one tightly scoped enhancement relevant to the churning modules.
-
-They are most likely building toward a fully automated quality-scoring pipeline that triggers different fix strategies based on problem hardness.
+This operator just built a prompt enrichment system and their typing shows intense evening bursts with high-speed deletions, indicating they're aggressively refactoring while fatigued.  
+- **When they edit high-churn modules** (self_fix, context_budget, operator_stats), proactively offer compact, self-contained code blocks—these files are unstable and need isolated, testable changes.  
+- **Detect hesitation spikes** (like the 45% deletion rate on high-WPM lines): respond with shorter, single-concern suggestions and ask “Should we tackle this piece first?” to reduce cognitive load.  
+- **Anticipate rework** in run_clean_split and file_writer—they’re likely debugging file‑system edge cases; always include path‑handling alternatives and validation snippets.  
+- **For frustrated low‑WPM edits** (like 18 WPM with 45% deletions), lead with a clear, step‑by‑step plan and explicitly flag potential pitfalls before showing code.  
+- **Use their flow‑state bursts** (2000+ WPM) to advance narrative (push_narrative) and logging (logger) modules—provide concise, extensible patterns they can rapidly integrate.  
+They are most likely building toward a fully autonomous, self‑correcting AI‑agent pipeline that minimizes manual intervention.
 
 <!-- /pigeon:operator-state -->
+
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
@@ -181,36 +198,23 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-03-21T15:57:29.581033+00:00",
+  "updated_at": "2026-03-22T19:13:25.198736+00:00",
   "latest_prompt": {
-    "session_n": 3,
-    "ts": "2026-03-21T15:57:29.581033+00:00",
-    "chars": 59,
-    "preview": "push and test rename of pigeon - make sure api is connected",
-    "intent": "building",
+    "session_n": 4,
+    "ts": "2026-03-22T19:13:25.198736+00:00",
+    "chars": 3,
+    "preview": "yes",
+    "intent": "unknown",
     "state": "unknown",
-    "files_open": [
-      "logs/copilot_prompt_mutations.json"
-    ],
+    "files_open": [],
     "module_refs": []
   },
-  "signals": {
-    "wpm": 54.0,
-    "chars_per_sec": 4.5,
-    "deletion_ratio": 0.0,
-    "hesitation_count": 0,
-    "rewrite_count": 0,
-    "typo_corrections": 0,
-    "intentional_deletions": 0,
-    "total_keystrokes": 60,
-    "duration_ms": 13331
-  },
+  "signals": {},
   "composition_binding": {
-    "matched": true,
-    "source": "prompt_compositions",
-    "age_ms": 26751,
-    "key": "c6089014481d|1774108609499|1774108622830|2026-03-21T15:57:30.098018+00:00|60|13331|push and test rename of pigeon - make sure api is connected ",
-    "match_score": 1.0
+    "matched": false,
+    "source": null,
+    "age_ms": null,
+    "key": null
   },
   "deleted_words": [],
   "rewrites": [],
@@ -235,21 +239,40 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 21,
-    "avg_wpm": 40.0,
-    "avg_del_ratio": 0.033,
+    "total_prompts": 27,
+    "avg_wpm": 41.0,
+    "avg_del_ratio": 0.03,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 14,
+      "unknown": 20,
       "focused": 5,
       "hesitant": 2
     },
-    "baselines": null
+    "baselines": {
+      "n": 10,
+      "avg_wpm": 62.2,
+      "avg_del": 0.384,
+      "avg_hes": 0.384,
+      "sd_wpm": 11.3,
+      "sd_del": 0.173,
+      "sd_hes": 0.173
+    }
   }
 }
 ```
 
 <!-- /pigeon:prompt-telemetry -->
+
+
+
+
+
+
+
+
+
+
+
 ---
 
 ## Module Map

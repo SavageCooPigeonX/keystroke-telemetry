@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-22T05:30:17.862614+00:00",
-  "total": 96,
+  "generated": "2026-03-22T17:37:46.529216+00:00",
+  "total": 103,
   "files": [
     {
       "path": "pigeon_compiler/bones/aim_utils_seq001_v003_d0314__extracted_from_hush_aim_py_lc_desc_upgrade.py",
@@ -187,13 +187,13 @@
       ]
     },
     {
-      "path": "pigeon_compiler/cut_executor/init_writer_seq007_v004_d0315__generate_init_py_for_split_lc_verify_pigeon_plugin.py",
+      "path": "pigeon_compiler/cut_executor/init_writer_seq007_v005_d0322__generate_init_py_for_split_lc_init_writer_run.py",
       "name": "init_writer",
       "seq": 7,
-      "ver": 4,
-      "date": "0315",
+      "ver": 5,
+      "date": "0322",
       "desc": "generate_init_py_for_split",
-      "intent": "verify_pigeon_plugin",
+      "intent": "init_writer_run",
       "tokens": 361,
       "history": [
         {
@@ -208,6 +208,14 @@
           "date": "0315",
           "desc": "generate_init_py_for_split",
           "intent": "verify_pigeon_plugin",
+          "action": "mutated",
+          "tokens": 361
+        },
+        {
+          "ver": 5,
+          "date": "0322",
+          "desc": "generate_init_py_for_split",
+          "intent": "init_writer_run",
           "action": "mutated",
           "tokens": 361
         }
@@ -426,6 +434,146 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 1177
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_audit_decomposed_seq007_v002_d0322__auto_extracted_by_pigeon_compiler_lc_repair_all_compiled.py",
+      "name": "compliance_seq008_audit_decomposed",
+      "seq": 7,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "repair_all_compiled",
+      "tokens": 539,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "repair_all_compiled",
+          "tokens": 539,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_audit_wrapper_seq009_v002_d0322__auto_extracted_by_pigeon_compiler_lc_repair_all_compiled.py",
+      "name": "compliance_seq008_audit_wrapper",
+      "seq": 9,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "repair_all_compiled",
+      "tokens": 537,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "repair_all_compiled",
+          "tokens": 537,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_check_file_seq010_v002_d0322__auto_extracted_by_pigeon_compiler_lc_repair_all_compiled.py",
+      "name": "compliance_seq008_check_file",
+      "seq": 10,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "repair_all_compiled",
+      "tokens": 212,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "repair_all_compiled",
+          "tokens": 212,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_classify_seq003_v002_d0322__auto_extracted_by_pigeon_compiler_lc_repair_all_compiled.py",
+      "name": "compliance_seq008_classify",
+      "seq": 3,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "repair_all_compiled",
+      "tokens": 93,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "repair_all_compiled",
+          "tokens": 93,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_format_report_seq011_v002_d0322__auto_extracted_by_pigeon_compiler_lc_repair_all_compiled.py",
+      "name": "compliance_seq008_format_report",
+      "seq": 11,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "repair_all_compiled",
+      "tokens": 253,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "repair_all_compiled",
+          "tokens": 253,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_helpers_seq002_v002_d0322__auto_extracted_by_pigeon_compiler_lc_repair_all_compiled.py",
+      "name": "compliance_seq008_helpers",
+      "seq": 2,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "repair_all_compiled",
+      "tokens": 160,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "repair_all_compiled",
+          "tokens": 160,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_recommend_wrapper_seq006_v002_d0322__auto_extracted_by_pigeon_compiler_lc_repair_all_compiled.py",
+      "name": "compliance_seq008_recommend_wrapper",
+      "seq": 6,
+      "ver": 2,
+      "date": "0322",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "repair_all_compiled",
+      "tokens": 520,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0322",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "repair_all_compiled",
+          "tokens": 520,
+          "action": "registered"
         }
       ]
     },
