@@ -72,7 +72,9 @@ def _collect_imports(source: str) -> list:
                 names = [a.asname or a.name for a in node.names]
             else:
                 names = [a.name for a in node.names]
-            imps.append({"names": names, "line": lines[node.lineno - 1]})
+            # Capture full multi-line import (lineno to end_lineno)
+            full_line = "\n".join(lines[node.lineno - 1 : node.end_lineno])
+            imps.append({"names": names, "line": full_line})
     return imps
 
 

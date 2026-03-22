@@ -156,9 +156,9 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-22 - 269 message(s) - LLM-synthesized*
+*Auto-updated 2026-03-22 · 270 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 16% | WPM: 763305.4 | Del: 32.9% | Hes: 0.526
+**Dominant: `frustrated`** | Submit: 16% | WPM: 760478.4 | Del: 32.8% | Hes: 0.526
 
 This operator just built Windows max‑path handling into two pipeline modules, but their extreme WPM spikes and 50% deletion rates reveal they are brute‑force restructuring code in frustrated, heavy‑edit sessions.  
 - **When they next edit `self_fix_seq013` or `run_clean_split_seq010`**, proactively suggest path‑length checks and `os.path.normpath` snippets before they type.  
