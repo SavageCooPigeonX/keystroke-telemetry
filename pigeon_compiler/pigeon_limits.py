@@ -39,6 +39,8 @@ EXCLUDE_NAMES = frozenset({
 # static/  — HTML/CSS/JS served by send_from_directory(), paths hardcoded
 # templates/ — Jinja2 templates loaded by render_template(), paths hardcoded
 # .github/  — CI workflow YAML references module paths by exact string
+# vscode-extension/ — entry points invoked directly by the VS Code extension
+# client/ — standalone scripts with __main__ blocks, not importable packages
 EXCLUDE_DIR_PATTERNS = frozenset({
     "_llm_tests_put_all_test_and_debug_scripts_here",
     "__pycache__",
@@ -52,12 +54,30 @@ EXCLUDE_DIR_PATTERNS = frozenset({
     "documentation",
     "maif_propaganda",
     "logs",
+    "vscode-extension",
+    "client",
 })
 
-# Any file whose stem STARTS with these patterns is excluded.
-# Must not match pigeon intent slugs like _lc_pulse_telemetry_prompt
+# Any file whose stem STARTS WITH or CONTAINS these patterns is excluded.
+# Categories:
+#   prompt_* / deepseek_plan_prompt — prompt templates, never split (LLM instructions)
+#   run_clean_split / run_pigeon_loop / run_heal — compiler orchestrators:
+#     splitting them mid-run causes import-of-partially-written-package crashes
+#   streaming_layer_seq007 — intentional 1150-line test harness (see copilot-instructions)
+#   stress_test / test_all / deep_test / test_public — root-level test runners
 EXCLUDE_STEM_PATTERNS = re.compile(
-    r"^(?:prompt_|deepseek_plan_prompt)", re.IGNORECASE
+    r"^(?:prompt_"
+    r"|deepseek_plan_prompt"
+    r"|run_clean_split"
+    r"|run_pigeon_loop"
+    r"|run_heal_seq"
+    r"|streaming_layer_seq007"
+    r"|stress_test"
+    r"|test_all"
+    r"|deep_test"
+    r"|test_public"
+    r")",
+    re.IGNORECASE,
 )
 
 

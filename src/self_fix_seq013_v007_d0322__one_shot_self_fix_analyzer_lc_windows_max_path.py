@@ -8,9 +8,9 @@
 # SESSIONS: 4
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-22T00:30:00+00:00
+# EDIT_TS:   2026-03-22T01:00:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  short target_name fix Windows MAX_PATH
+# EDIT_WHY:  call is_excluded in _scan_over_hard_cap
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -213,9 +213,18 @@ def _scan_cross_file_coupling(root: Path, registry: dict) -> list[dict]:
 
 
 def _scan_over_hard_cap(root: Path, registry: dict) -> list[dict]:
-    """Find pigeon-tracked files that exceed the 200-line hard cap."""
+    """Find pigeon-tracked files that exceed the 200-line hard cap.
+
+    Skips files matched by pigeon_limits.is_excluded() — compiler orchestrators,
+    prompt templates, intentional monoliths, vscode-extension entry points, client
+    scripts, and test harnesses are never auto-compiled.
+    """
     problems = []
-    from pigeon_compiler.pigeon_limits import PIGEON_MAX
+    try:
+        from pigeon_compiler.pigeon_limits import PIGEON_MAX, is_excluded
+    except ImportError:
+        PIGEON_MAX = 200
+        is_excluded = lambda p, root=None: False  # noqa: E731
     reg_list = registry if isinstance(registry, list) else list(registry.values())
     for entry in reg_list:
         if not isinstance(entry, dict):
@@ -225,6 +234,9 @@ def _scan_over_hard_cap(root: Path, registry: dict) -> list[dict]:
             continue
         abs_p = root / rel
         if not abs_p.exists():
+            continue
+        # Skip anything that should never be auto-compiled
+        if is_excluded(abs_p):
             continue
         try:
             lc = len(abs_p.read_text(encoding='utf-8').splitlines())
