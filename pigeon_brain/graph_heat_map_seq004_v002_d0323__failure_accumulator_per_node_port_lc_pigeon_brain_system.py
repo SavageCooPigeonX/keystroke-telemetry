@@ -6,6 +6,14 @@ debt map: which nodes consistently kill electrons, cause loops, or
 produce timeouts. Isomorphic to file_heat_map but for agent execution.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 004 | VER: v002 | 100 lines | ~874 tokens
+# DESC:   failure_accumulator_per_node_port
+# INTENT: pigeon_brain_system
+# LAST:   2026-03-23 @ 465cbfa
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 import json
 from collections import defaultdict
 from datetime import datetime, timezone

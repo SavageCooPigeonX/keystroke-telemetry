@@ -3,7 +3,7 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from pathlib import Path
-from pigeon_brain.trace_hook_seq011_v001 import start_trace, stop_trace, peek_recent
+from pigeon_brain.trace_hook_seq011_v002_d0323__instruments_python_calls_between_pigeon_lc_pigeon_brain_system import start_trace, stop_trace, peek_recent
 
 root = Path(".")
 start_trace(root)

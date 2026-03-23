@@ -6,11 +6,19 @@ them to a shared event buffer. The WebSocket server reads this buffer and
 pushes events to the UI in real-time.
 
 Usage:
-    from pigeon_brain.trace_hook_seq011_v001 import start_trace, stop_trace
+    from pigeon_brain.trace_hook_seq011_v002_d0323__instruments_python_calls_between_pigeon_lc_pigeon_brain_system import start_trace, stop_trace
     start_trace(root)
     # ... run code ...
     stop_trace()
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 011 | VER: v002 | 137 lines | ~976 tokens
+# DESC:   instruments_python_calls_between_pigeon
+# INTENT: pigeon_brain_system
+# LAST:   2026-03-23 @ 465cbfa
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 
 import json
 import os

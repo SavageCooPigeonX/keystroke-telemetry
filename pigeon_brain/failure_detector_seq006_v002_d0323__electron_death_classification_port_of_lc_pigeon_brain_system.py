@@ -6,6 +6,14 @@ and accumulates per-session death stats. Like rework_detector scores human inten
 deaths as miss/partial/ok, this scores agent intent deaths by cause.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 006 | VER: v002 | 124 lines | ~1,018 tokens
+# DESC:   electron_death_classification_port_of
+# INTENT: pigeon_brain_system
+# LAST:   2026-03-23 @ 465cbfa
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path

@@ -6,15 +6,23 @@ with realistic failure patterns: stale imports, timeouts, loops.
 Produces real telemetry files that the UI can render.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 010 | VER: v002 | 126 lines | ~1,358 tokens
+# DESC:   generates_execution_telemetry_from_the
+# INTENT: pigeon_brain_system
+# LAST:   2026-03-23 @ 465cbfa
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 import random
 import time
 from pathlib import Path
 
-from .execution_logger_seq002_v001 import ExecutionLogger
-from .graph_extractor_seq003_v001 import build_graph
-from .graph_heat_map_seq004_v001 import update_graph_heat
-from .loop_detector_seq005_v001 import record_path
-from .failure_detector_seq006_v001 import classify_death, record_death
+from .execution_logger_seq002_v002_d0323__isomorphic_to_telemetrylogger_for_agent_lc_pigeon_brain_system import ExecutionLogger
+from .graph_extractor_seq003_v002_d0323__extract_the_cognition_graph_from_lc_pigeon_brain_system import build_graph
+from .graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system import update_graph_heat
+from .loop_detector_seq005_v002_d0323__recurring_path_detection_port_of_lc_pigeon_brain_system import record_path
+from .failure_detector_seq006_v002_d0323__electron_death_classification_port_of_lc_pigeon_brain_system import classify_death, record_death
 
 
 # Nodes that are realistically "dangerous" in pigeon codebases

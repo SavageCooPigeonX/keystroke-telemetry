@@ -1,7 +1,267 @@
 {
-  "generated": "2026-03-22T19:36:52.224318+00:00",
-  "total": 133,
+  "generated": "2026-03-23T01:07:48.912261+00:00",
+  "total": 146,
   "files": [
+    {
+      "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
+      "name": "cli",
+      "seq": 9,
+      "ver": 2,
+      "date": "0323",
+      "desc": "build_graph_run_observer_export",
+      "intent": "pigeon_brain_system",
+      "tokens": 855,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0323",
+          "desc": "build_graph_run_observer_export",
+          "intent": "pigeon_brain_system",
+          "tokens": 855,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/demo_sim_seq010_v002_d0323__generates_execution_telemetry_from_the_lc_pigeon_brain_system.py",
+      "name": "demo_sim",
+      "seq": 10,
+      "ver": 2,
+      "date": "0323",
+      "desc": "generates_execution_telemetry_from_the",
+      "intent": "pigeon_brain_system",
+      "tokens": 1276,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0323",
+          "desc": "generates_execution_telemetry_from_the",
+          "intent": "pigeon_brain_system",
+          "tokens": 1276,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/dual_substrate_seq008_v002_d0323__merges_human_and_agent_telemetry_lc_pigeon_brain_system.py",
+      "name": "dual_substrate",
+      "seq": 8,
+      "ver": 2,
+      "date": "0323",
+      "desc": "merges_human_and_agent_telemetry",
+      "intent": "pigeon_brain_system",
+      "tokens": 1314,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0323",
+          "desc": "merges_human_and_agent_telemetry",
+          "intent": "pigeon_brain_system",
+          "tokens": 1314,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/execution_logger_seq002_v002_d0323__isomorphic_to_telemetrylogger_for_agent_lc_pigeon_brain_system.py",
+      "name": "execution_logger",
+      "seq": 2,
+      "ver": 2,
+      "date": "0323",
+      "desc": "isomorphic_to_telemetrylogger_for_agent",
+      "intent": "pigeon_brain_system",
+      "tokens": 1541,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0323",
+          "desc": "isomorphic_to_telemetrylogger_for_agent",
+          "intent": "pigeon_brain_system",
+          "tokens": 1541,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/failure_detector_seq006_v002_d0323__electron_death_classification_port_of_lc_pigeon_brain_system.py",
+      "name": "failure_detector",
+      "seq": 6,
+      "ver": 2,
+      "date": "0323",
+      "desc": "electron_death_classification_port_of",
+      "intent": "pigeon_brain_system",
+      "tokens": 1018,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0323",
+          "desc": "electron_death_classification_port_of",
+          "intent": "pigeon_brain_system",
+          "tokens": 1018,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/graph_extractor_seq003_v002_d0323__extract_the_cognition_graph_from_lc_pigeon_brain_system.py",
+      "name": "graph_extractor",
+      "seq": 3,
+      "ver": 2,
+      "date": "0323",
+      "desc": "extract_the_cognition_graph_from",
+      "intent": "pigeon_brain_system",
+      "tokens": 1116,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0323",
+          "desc": "extract_the_cognition_graph_from",
+          "intent": "pigeon_brain_system",
+          "tokens": 1116,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "name": "graph_heat_map",
+      "seq": 4,
+      "ver": 2,
+      "date": "0323",
+      "desc": "failure_accumulator_per_node_port",
+      "intent": "pigeon_brain_system",
+      "tokens": 874,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0323",
+          "desc": "failure_accumulator_per_node_port",
+          "intent": "pigeon_brain_system",
+          "tokens": 874,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/live_server_seq012_v002_d0323__websocket_server_for_live_execution_lc_pigeon_brain_system.py",
+      "name": "live_server",
+      "seq": 12,
+      "ver": 2,
+      "date": "0323",
+      "desc": "websocket_server_for_live_execution",
+      "intent": "pigeon_brain_system",
+      "tokens": 1763,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0323",
+          "desc": "websocket_server_for_live_execution",
+          "intent": "pigeon_brain_system",
+          "tokens": 1763,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/loop_detector_seq005_v002_d0323__recurring_path_detection_port_of_lc_pigeon_brain_system.py",
+      "name": "loop_detector",
+      "seq": 5,
+      "ver": 2,
+      "date": "0323",
+      "desc": "recurring_path_detection_port_of",
+      "intent": "pigeon_brain_system",
+      "tokens": 910,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0323",
+          "desc": "recurring_path_detection_port_of",
+          "intent": "pigeon_brain_system",
+          "tokens": 910,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/models_seq001_v002_d0323__isomorphic_to_keystroke_models_lc_pigeon_brain_system.py",
+      "name": "models",
+      "seq": 1,
+      "ver": 2,
+      "date": "0323",
+      "desc": "isomorphic_to_keystroke_models",
+      "intent": "pigeon_brain_system",
+      "tokens": 424,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0323",
+          "desc": "isomorphic_to_keystroke_models",
+          "intent": "pigeon_brain_system",
+          "tokens": 424,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/observer_synthesis_seq007_v002_d0323__coaching_from_execution_patterns_port_lc_pigeon_brain_system.py",
+      "name": "observer_synthesis",
+      "seq": 7,
+      "ver": 2,
+      "date": "0323",
+      "desc": "coaching_from_execution_patterns_port",
+      "intent": "pigeon_brain_system",
+      "tokens": 1357,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0323",
+          "desc": "coaching_from_execution_patterns_port",
+          "intent": "pigeon_brain_system",
+          "tokens": 1357,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/trace_hook_seq011_v002_d0323__instruments_python_calls_between_pigeon_lc_pigeon_brain_system.py",
+      "name": "trace_hook",
+      "seq": 11,
+      "ver": 2,
+      "date": "0323",
+      "desc": "instruments_python_calls_between_pigeon",
+      "intent": "pigeon_brain_system",
+      "tokens": 959,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0323",
+          "desc": "instruments_python_calls_between_pigeon",
+          "intent": "pigeon_brain_system",
+          "tokens": 959,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/traced_runner_seq013_v002_d0323__run_any_python_script_with_lc_pigeon_brain_system.py",
+      "name": "traced_runner",
+      "seq": 13,
+      "ver": 2,
+      "date": "0323",
+      "desc": "run_any_python_script_with",
+      "intent": "pigeon_brain_system",
+      "tokens": 855,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0323",
+          "desc": "run_any_python_script_with",
+          "intent": "pigeon_brain_system",
+          "tokens": 855,
+          "action": "registered"
+        }
+      ]
+    },
     {
       "path": "pigeon_compiler/bones/aim_utils_seq001_v003_d0314__extracted_from_hush_aim_py_lc_desc_upgrade.py",
       "name": "aim_utils",

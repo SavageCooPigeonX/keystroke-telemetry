@@ -6,14 +6,22 @@ observation that either feeds a DeepSeek prompt or writes agent_coaching.md.
 Isomorphic to operator coaching synthesis but for agent execution substrate.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 007 | VER: v002 | 142 lines | ~1,421 tokens
+# DESC:   coaching_from_execution_patterns_port
+# INTENT: pigeon_brain_system
+# LAST:   2026-03-23 @ 465cbfa
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .graph_heat_map_seq004_v001 import load_graph_heat
-from .loop_detector_seq005_v001 import load_loop_stats
-from .failure_detector_seq006_v001 import load_death_stats
-from .graph_extractor_seq003_v001 import load_graph, graph_stats
+from .graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system import load_graph_heat
+from .loop_detector_seq005_v002_d0323__recurring_path_detection_port_of_lc_pigeon_brain_system import load_loop_stats
+from .failure_detector_seq006_v002_d0323__electron_death_classification_port_of_lc_pigeon_brain_system import load_death_stats
+from .graph_extractor_seq003_v002_d0323__extract_the_cognition_graph_from_lc_pigeon_brain_system import load_graph, graph_stats
 
 COACHING_PATH = "agent_coaching.md"
 

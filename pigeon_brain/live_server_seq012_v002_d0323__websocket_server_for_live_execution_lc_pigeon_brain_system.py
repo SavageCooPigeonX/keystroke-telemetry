@@ -9,6 +9,14 @@ Usage:
     py -m pigeon_brain live --port 8765
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 012 | VER: v002 | 199 lines | ~1,780 tokens
+# DESC:   websocket_server_for_live_execution
+# INTENT: pigeon_brain_system
+# LAST:   2026-03-23 @ 465cbfa
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 import asyncio
 import json
 import os
@@ -26,7 +34,7 @@ try:
 except ImportError:
     HAS_WS = False
 
-from pigeon_brain.trace_hook_seq011_v001 import (
+from pigeon_brain.trace_hook_seq011_v002_d0323__instruments_python_calls_between_pigeon_lc_pigeon_brain_system import (
     drain_events,
     peek_recent,
     start_trace,

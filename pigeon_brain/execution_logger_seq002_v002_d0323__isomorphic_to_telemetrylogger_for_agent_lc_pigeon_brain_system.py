@@ -6,13 +6,21 @@ a self-contained JSON block (schema: execution_telemetry/v1). Tracks
 electrons (intent units) through their lifecycle.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 002 | VER: v002 | 157 lines | ~1,556 tokens
+# DESC:   isomorphic_to_telemetrylogger_for_agent
+# INTENT: pigeon_brain_system
+# LAST:   2026-03-23 @ 465cbfa
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 import json
 import uuid
 import time
 from pathlib import Path
 from dataclasses import asdict
 
-from .models_seq001_v001 import (
+from .models_seq001_v002_d0323__isomorphic_to_keystroke_models_lc_pigeon_brain_system import (
     SCHEMA_VERSION, ExecutionEvent, Electron,
     ElectronStatus, EventType, DeathCause,
 )

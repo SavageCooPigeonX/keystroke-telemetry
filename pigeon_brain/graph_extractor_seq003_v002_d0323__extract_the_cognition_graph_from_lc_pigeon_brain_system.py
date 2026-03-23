@@ -5,6 +5,14 @@ Nodes = pigeon code files. Edges = import/call relationships.
 Reads pigeon_registry.json + AST import analysis. Outputs adjacency list.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 003 | VER: v002 | 132 lines | ~1,116 tokens
+# DESC:   extract_the_cognition_graph_from
+# INTENT: pigeon_brain_system
+# LAST:   2026-03-23 @ 465cbfa
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 import ast
 import json
 import re

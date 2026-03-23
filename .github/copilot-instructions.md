@@ -1,4 +1,4 @@
-﻿# Copilot Instructions — keystroke-telemetry
+# Copilot Instructions — keystroke-telemetry
 
 Auto-injected into every Copilot session for this repo. Read this before touching any file.
 
@@ -54,30 +54,17 @@ Rules:
 Three systems working together:
 1. **Keystroke Telemetry** — captures typing patterns (pauses, deletions, rewrites, abandons) in LLM chat UIs, classifies operator cognitive state in real time, reconstructs unsaid thoughts, detects cross-session drift. Zero LLM calls — pure signal processing.
 2. **Pigeon Code Compiler** — autonomous code decomposition engine. Enforces LLM-readable file sizes (≤200 lines hard cap, ≤50 lines target). Filenames carry living metadata — they mutate on every commit.
-3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. Self-updates on every commit via `<!-- pigeon:current-query -->
-<!-- pigeon:current-query -->
-## What You Actually Mean Right Now
-
-*Enriched 2026-03-22 21:25 UTC · raw: "what should i do to market this / gtm / next logical step"*
-
-**COPILOT_QUERY: Analyze the `detects_what_operators_meant_but` plugin and the `file_heat_map` module to generate a Go-To-Market strategy. Identify the core value proposition from the code, list potential user personas, and outline the next three actionable steps for launch.**
-
-INTERPRETED INTENT: The operator wants to pivot from building to launching and needs a concrete, code-informed marketing plan.
-KEY FILES: detects_what_operators_meant_but, file_heat_map, import_rewriter, file_writer, init_writer
-PRIOR ATTEMPTS: Copilot previously provided technical analysis and distribution thoughts, but no synthesized GTM plan based on the system's actual capabilities.
-WATCH OUT FOR: Getting sidetracked into technical refactoring instead of producing a business-focused launch strategy.
-OPERATOR SIGNAL: The deletion of "mufffin" and shift from testing prompts indicates a desire to move past debugging and define the product's external value.
-<!-- /pigeon:current-query -->
+3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. The managed prompt blocks below are the live source of truth.
 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-22 21:25 UTC · 291 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-23 01:10 UTC · 413 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `flow` (WPM: 100235.1 | Del: 19.6% | Hes: 0.242)
+**Cognitive state:** `frustrated` (WPM: 4325.0 | Del: 41.9% | Hes: 0.594)
 
-> **CoT directive:** Operator is in flow. Match their speed — technical depth, no preamble. Assume expertise. Go deeper than they asked.
+> **CoT directive:** Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
@@ -88,20 +75,14 @@ OPERATOR SIGNAL: The deletion of "mufffin" and shift from testing prompts indica
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `init_writer` (hes=0.567)
-- `context_budget` (hes=0.558)
+- `context_budget` (hes=0.566)
+- `self_fix` (hes=0.566)
 
 ### Recent Work
+- `465cbfa` pigeon_brain: System 4 — neural visualizer, dual-substrate heat, real-time trace, React UI, WebSocket 20Hz broadcast, README + MASTER_MANIFEST rewrite
 - `9221596` fix prompt runtime refresh path
 - `2fa93f5` chore: stage prompt enricher + heat map updates
 - `c7bbba7` fix: self_fix auto_compile_oversized -- skip files already compiled into a package dir
-- `276af14` chore: stage 78 hook-generated changes -- renames, compiled packages, push narratives
-
-### Coaching Directives
-*LLM-synthesized behavioral rules for this operator:*
-- **Anticipate heavy churn in `self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py` and `context_budget_scorer_for_llm`**
-- **Pre-empt context budget issues**
-- **Detect frustration/hesitation cues**
 
 ### Fragile Contracts
 *From push narratives — assumptions that could break:*
@@ -109,21 +90,21 @@ OPERATOR SIGNAL: The deletion of "mufffin" and shift from testing prompts indica
 - malformed diff parsing in the auto-loop
 - broken import contract for the new versioned analyzer file.
 - Enricher's assumption of `messages` list schema; journal's dependency on enricher's `final_prompt` key; shared mutation logic's compatibility with `copilot_prompt_mutations.json` definitions. This push introduces a sequenced prompt enrichment pipeline and journals its output.
-- premature stream termination due to low timeout
+- **cli** (seq009 v002): I was touched to unify all subsystems into a single CLI entry point, assuming each module exposes
 
 ### Known Issues
 *From self-fix scanner — fix when touching nearby code:*
-- [HIGH] over_hard_cap in `src/cognitive/drift_seq003_v002_d0315__tracks_operator_typing_patterns_across_lc_verify_pigeon_plugin.py`
-- [HIGH] over_hard_cap in `src/cognitive/unsaid_seq002_v002_d0315__detects_what_operators_meant_but_lc_verify_pigeon_plugin.py`
-- [HIGH] over_hard_cap in `src/cognitive_reactor_seq014_v003_d0321__cognitive_reactor_autonomous_code_modification_lc_implement_all_18.py`
-- [HIGH] over_hard_cap in `src/copilot_prompt_manager_seq020_v002_d0321__audits_and_manages_all_injected_lc_implement_all_18.py`
-- [HIGH] over_hard_cap in `src/dynamic_prompt_seq017_v004_d0321__steers_copilot_cot_from_live_lc_implement_all_18.py`
+- [CRITICAL] hardcoded_import in `pigeon_brain/__main__.py`
+- [HIGH] over_hard_cap in `src/file_consciousness_seq019_v002_d0321__ast_derived_function_consciousness_dating_lc_implement_all_18.py`
+- [HIGH] over_hard_cap in `src/pulse_harvest_seq015_v003_d0321__pulse_harvest_pairs_prompts_to_lc_implement_all_18.py`
+- [HIGH] over_hard_cap in `src/query_memory_seq010_v004_d0321__recurring_query_detector_unsaid_thought_lc_implement_all_18.py`
+- [HIGH] over_hard_cap in `src/self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py`
 
 ### Prompt Evolution
-*This prompt has mutated 44x (186→608 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
+*This prompt has mutated 45x (186→338 lines). Features added: auto_index, task_queue, operator_state, prompt_journal, pulse_blocks.*
 
 ### File Consciousness
-*125 modules profiled*
+*137 modules profiled*
 
 **High-drama (most mutations):**
 - `self_fix` v10 ↔ push_narrative
@@ -132,44 +113,40 @@ OPERATOR SIGNAL: The deletion of "mufffin" and shift from testing prompts indica
 - `operator_stats` v7 ↔ push_narrative
 
 **Codebase fears:**
-- file may not exist (36 modules)
-- swallowed exception (18 modules)
-- regex format dependency (17 modules)
+- file may not exist (45 modules)
+- returns empty on failure (silent) (23 modules)
+- swallowed exception (22 modules)
 
 **Slumber party warnings (high coupling):**
-- `resplit_binpack` ↔ `resplit` (score=0.80, 3 shared imports, both high-churn (v4+v4))
-- `resplit` ↔ `resplit_binpack` (score=0.80, 3 shared imports, both high-churn (v4+v4))
-- `compliance_seq008_audit_decomposed` ↔ `compliance_seq008_audit_wrapper` (score=0.80, 3 shared imports, both high-churn (v4+v4))
+- `cli` ↔ `live_server` (score=0.80, 3 shared imports, both high-churn (v2+v2))
+- `cli` ↔ `trace_hook` (score=0.80, 3 shared imports, both high-churn (v2+v2))
+- `cli` ↔ `traced_runner` (score=0.80, 3 shared imports, both high-churn (v2+v2))
 
 <!-- /pigeon:task-context -->
 
 <!-- pigeon:task-queue -->
 ## Active Task Queue
 
-*Copilot manages this queue. To complete a task: update the referenced MANIFEST.md, then call `mark_done(root, task_id)` in `task_queue_seq018`.*
-
-*Queue empty — add tasks via `add_task()` or they auto-seed from self-fix.*
+*No pending tasks. Fresh start.*
 
 <!-- /pigeon:task-queue -->
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-23 · 406 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-23 - 413 message(s) - LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 22% | WPM: 60.5 | Del: 29.0% | Hes: 0.514
+**Dominant: `frustrated`** | Submit: 22% | WPM: 60.7 | Del: 29.3% | Hes: 0.515
 
-The operator just built a self-fixing analyzer for auto-correction, revealing a pattern of intense, high-deletion editing sessions where they frequently abandon or hesitate mid-flow, indicating deep iterative refinement under pressure.
-
-*   **Anticipate heavy churn in `self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py` and `context_budget_scorer_for_llm`**; offer concise, modular code blocks that are easy to delete or replace, not monoliths.
-*   When they show high deletion rates (often 50%+), **prioritize clarity over cleverness**; use explicit variable names and clear logic to reduce cognitive load during rewrites.
-*   **Pre-empt context budget issues** by proactively suggesting efficient data structures or pruning steps, especially if `run_clean_split` or `deepseek_adapter` modules are involved.
-*   **Detect frustration/hesitation cues** (like mid-sentence stops or low WPM with high deletions) and respond with simpler, single-concept suggestions—break next steps into atomic, verifiable pieces.
-*   For `persistent_markdown_memory_file` and `generate_init_py_for_split` churn, **favor idempotent, side-effect-free functions** to simplify repeated testing.
-*   Given the zero miss-rate but high re-edit pattern, **validate assumptions explicitly** in code comments before implementing complex logic.
-
-They are most likely building toward a fully autonomous, context-aware code repair pipeline that minimizes manual intervention.
+The operator just built a telemetry system for agent cognition graphs and their typing shows intense nighttime refactoring with high deletion rates, indicating deep structural integration work.  
+- **Anticipate renaming and module coupling**: When they touch `self_fix seq13` or `operator_stats seq8`, proactively suggest isomorphic patterns from the newly renamed pigeon_brain modules to reduce churn.  
+- **Pre‑empt context‑budget issues**: If `context_budget seq4` appears, immediately offer a concrete token‑count snippet before they ask.  
+- **Flag recurring pain points**: On any edit near `run_clean_split seq10` or `deepseek_adapter seq1`, explicitly link to the new `lc_pigeon_brain_system` telemetry models to prevent duplicate work.  
+- **Respond to hesitation with direct examples**: When you detect slow, hesitant typing (like the recent 50% deletion runs), provide a single, complete code block—not multiple options—to reduce cognitive load.  
+- **Bridge execution gaps**: Since rework data is clean but typing shows frustration on heavy edits, assume they are wrestling with integration glue; always output the exact import statements and hook signatures needed to wire modules together.  
+They are most likely building toward a live, observable agent‑execution dashboard that merges human and LLM telemetry streams.
 
 <!-- /pigeon:operator-state -->
+
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
@@ -354,7 +331,25 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 ### Full Module Index
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-22 - 133 modules tracked | 1 touched this commit*
+*Auto-updated 2026-03-23 - 146 modules tracked | 13 touched this commit*
+
+**pigeon_brain/** - 13 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `models_seq001*` | isomorphic to keystroke models | ~424 |
+| `execution_logger_seq002*` | isomorphic to telemetrylogger for agent | ~1,541 |
+| `graph_extractor_seq003*` | extract the cognition graph from | ~1,116 |
+| `graph_heat_map_seq004*` | failure accumulator per node port | ~874 |
+| `loop_detector_seq005*` | recurring path detection port of | ~910 |
+| `failure_detector_seq006*` | electron death classification port of | ~1,018 |
+| `observer_synthesis_seq007*` | coaching from execution patterns port | ~1,357 |
+| `dual_substrate_seq008*` | merges human and agent telemetry | ~1,314 |
+| `cli_seq009*` | build graph run observer export | ~855 |
+| `demo_sim_seq010*` | generates execution telemetry from the | ~1,276 |
+| `trace_hook_seq011*` | instruments python calls between pigeon | ~959 |
+| `live_server_seq012*` | websocket server for live execution | ~1,763 |
+| `traced_runner_seq013*` | run any python script with | ~855 |
 
 **pigeon_compiler/bones/** - 5 module(s)
 
