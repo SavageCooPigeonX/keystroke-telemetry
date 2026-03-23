@@ -1,0 +1,165 @@
+{
+  "paths": [
+    {
+      "ts": "2026-03-22T22:17:24.984814+00:00",
+      "job_id": "bd093cc6f0",
+      "fingerprint": "run_heal \u2192 ether_map_builder \u2192 shared_state_detector \u2192 unsaid \u2192 cognitive_reactor \u2192 plan_parser",
+      "length": 7,
+      "status": "dead",
+      "death_cause": "exception"
+    },
+    {
+      "ts": "2026-03-22T22:17:25.112265+00:00",
+      "job_id": "13bae1ff34",
+      "fingerprint": "drift \u2192 compliance \u2192 compliance \u2192 pulse_harvest \u2192 streaming_layer_demo_simulate \u2192 cognitive_reactor",
+      "length": 7,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:25.317642+00:00",
+      "job_id": "be90b3216a",
+      "fingerprint": "cognitive_reactor \u2192 cognitive_reactor \u2192 resplit \u2192 cognitive_reactor \u2192 unsaid \u2192 run_rename",
+      "length": 11,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:25.482492+00:00",
+      "job_id": "e91f158528",
+      "fingerprint": "streaming_layer_simulation_helpers \u2192 compliance \u2192 compliance \u2192 compliance \u2192 core_formatters \u2192 context_budget",
+      "length": 9,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:25.655970+00:00",
+      "job_id": "32329d1555",
+      "fingerprint": "compliance \u2192 plan_parser \u2192 resistance_analyzer \u2192 logger \u2192 pq_search_utils \u2192 ether_map_builder",
+      "length": 7,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:25.820859+00:00",
+      "job_id": "53d67d81d2",
+      "fingerprint": "rework_detector \u2192 unsaid \u2192 rework_backfill \u2192 copilot_prompt_manager \u2192 call_graph",
+      "length": 5,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:25.923310+00:00",
+      "job_id": "4cf8feac3d",
+      "fingerprint": "unsaid \u2192 copilot_prompt_manager \u2192 models \u2192 drift",
+      "length": 4,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:26.052704+00:00",
+      "job_id": "5fa764a989",
+      "fingerprint": "copilot_prompt_manager \u2192 compliance \u2192 compliance \u2192 streaming_layer_alerts \u2192 streaming_layer_demo_functions \u2192 cognitive_reactor",
+      "length": 6,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:26.220137+00:00",
+      "job_id": "7155ab1f15",
+      "fingerprint": "copilot_prompt_manager \u2192 source_slicer \u2192 manifest_writer \u2192 press_release_gen_constants \u2192 resistance_bridge \u2192 deepseek_adapter",
+      "length": 9,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:26.338707+00:00",
+      "job_id": "7bdafa2dcd",
+      "fingerprint": "cognitive_reactor \u2192 registry \u2192 scanner \u2192 resistance_analyzer \u2192 cognitive_reactor \u2192 nametag",
+      "length": 6,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:26.678323+00:00",
+      "job_id": "674ec1cc7e",
+      "fingerprint": "drift \u2192 dynamic_prompt",
+      "length": 2,
+      "status": "dead",
+      "death_cause": "exception"
+    },
+    {
+      "ts": "2026-03-22T22:17:27.044405+00:00",
+      "job_id": "f3c5dec32a",
+      "fingerprint": "streaming_layer_alerts \u2192 file_heat_map \u2192 copilot_prompt_manager",
+      "length": 3,
+      "status": "dead",
+      "death_cause": "loop"
+    },
+    {
+      "ts": "2026-03-22T22:17:27.355119+00:00",
+      "job_id": "a607fbce34",
+      "fingerprint": "copilot_prompt_manager \u2192 cognitive_reactor \u2192 drift \u2192 compliance \u2192 compliance \u2192 run_pigeon_loop",
+      "length": 10,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:27.513171+00:00",
+      "job_id": "e1ac36973a",
+      "fingerprint": "registry \u2192 cognitive_reactor \u2192 operator_stats \u2192 reaudit_diff \u2192 file_writer \u2192 import_rewriter",
+      "length": 7,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:27.765911+00:00",
+      "job_id": "3494e6bc0e",
+      "fingerprint": "streaming_layer_formatter \u2192 ether_map_builder \u2192 shared_state_detector \u2192 query_memory \u2192 validator \u2192 import_tracer",
+      "length": 9,
+      "status": "dead",
+      "death_cause": "exception"
+    },
+    {
+      "ts": "2026-03-22T22:17:28.045473+00:00",
+      "job_id": "4a50305bb6",
+      "fingerprint": "unsaid \u2192 press_release_gen_constants \u2192 nametag \u2192 streaming_layer_orchestrator \u2192 timestamp_utils \u2192 push_narrative",
+      "length": 12,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:28.177549+00:00",
+      "job_id": "c1fb29b106",
+      "fingerprint": "cognitive_reactor \u2192 func_decomposer \u2192 deepseek_adapter \u2192 compliance \u2192 compliance \u2192 cognitive_reactor",
+      "length": 6,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:28.352668+00:00",
+      "job_id": "d992df9e10",
+      "fingerprint": "self_fix \u2192 run_clean_split \u2192 file_writer \u2192 plan_validator \u2192 streaming_layer_metrics \u2192 compliance",
+      "length": 7,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:28.668207+00:00",
+      "job_id": "ec650ce5ac",
+      "fingerprint": "deepseek_plan_prompt \u2192 streaming_layer_formatter \u2192 run_compiler_test \u2192 core_formatters \u2192 resplit_helpers \u2192 cognitive_reactor",
+      "length": 13,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-22T22:17:28.913745+00:00",
+      "job_id": "eb7b205f21",
+      "fingerprint": "validator \u2192 streaming_layer_simulation_helpers \u2192 press_release_gen_constants \u2192 heal \u2192 manifest_builder \u2192 cognitive_reactor",
+      "length": 8,
+      "status": "complete",
+      "death_cause": ""
+    }
+  ],
+  "detected_loops": []
+}

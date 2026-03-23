@@ -55,27 +55,91 @@ Three systems working together:
 1. **Keystroke Telemetry** — captures typing patterns (pauses, deletions, rewrites, abandons) in LLM chat UIs, classifies operator cognitive state in real time, reconstructs unsaid thoughts, detects cross-session drift. Zero LLM calls — pure signal processing.
 2. **Pigeon Code Compiler** — autonomous code decomposition engine. Enforces LLM-readable file sizes (≤200 lines hard cap, ≤50 lines target). Filenames carry living metadata — they mutate on every commit.
 3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. Self-updates on every commit via `<!-- pigeon:current-query -->
-## What You Actually Mean Right Now
-
-*Enriched 2026-03-22 17:06 UTC · raw: "what do you even mean optionally - who decides to fire a prompt rephaser - it sh"*
-
-INTERPRETED INTENT: Operator wants the prompt rephaser to be a mandatory, dynamic component that analyzes prompt history to better understand and steer intent for every query.
-KEY FILES: extracted_from_hush_pre_query, encode_file_description_intent_into, full_rename_pipeline_runner
-PRIOR ATTEMPTS: none
-WATCH OUT FOR: Assuming the rephaser's behavior is static or optional; it must be integrated as a core, always-on steering layer.
-OPERATOR SIGNAL: Frustration with perceived optionality and a belief the system should inherently understand context better, indicated by the deleted typo "cna" (for "can").
-<!-- /pigeon:current-query -->
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Enriched 2026-03-22 19:28 UTC · raw: "go ahead and try theres 78 changesin staged - verify the imports dont break on p"*
+*Enriched 2026-03-22 21:25 UTC · raw: "what should i do to market this / gtm / next logical step"*
 
-(enrichment unavailable: DeepSeek failed after 3 attempts: timed out)
+**COPILOT_QUERY: Analyze the `detects_what_operators_meant_but` plugin and the `file_heat_map` module to generate a Go-To-Market strategy. Identify the core value proposition from the code, list potential user personas, and outline the next three actionable steps for launch.**
+
+INTERPRETED INTENT: The operator wants to pivot from building to launching and needs a concrete, code-informed marketing plan.
+KEY FILES: detects_what_operators_meant_but, file_heat_map, import_rewriter, file_writer, init_writer
+PRIOR ATTEMPTS: Copilot previously provided technical analysis and distribution thoughts, but no synthesized GTM plan based on the system's actual capabilities.
+WATCH OUT FOR: Getting sidetracked into technical refactoring instead of producing a business-focused launch strategy.
+OPERATOR SIGNAL: The deletion of "mufffin" and shift from testing prompts indicates a desire to move past debugging and define the product's external value.
 <!-- /pigeon:current-query -->
+
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Fresh start -- no telemetry data yet.*
+*Auto-injected 2026-03-22 21:25 UTC · 291 messages profiled · 8 recent commits*
+
+**Current focus:** debugging / fixing
+**Cognitive state:** `flow` (WPM: 100235.1 | Del: 19.6% | Hes: 0.242)
+
+> **CoT directive:** Operator is in flow. Match their speed — technical depth, no preamble. Assume expertise. Go deeper than they asked.
+
+### Unsaid Threads
+*Deleted from prompts — operator wanted this but didn't ask:*
+- "mufffin"
+
+### Module Hot Zones
+*High cognitive load — take extra care with these files:*
+- `file_heat_map` (hes=0.887)
+- `import_rewriter` (hes=0.735)
+- `file_writer` (hes=0.735)
+- `init_writer` (hes=0.567)
+- `context_budget` (hes=0.558)
+
+### Recent Work
+- `9221596` fix prompt runtime refresh path
+- `2fa93f5` chore: stage prompt enricher + heat map updates
+- `c7bbba7` fix: self_fix auto_compile_oversized -- skip files already compiled into a package dir
+- `276af14` chore: stage 78 hook-generated changes -- renames, compiled packages, push narratives
+
+### Coaching Directives
+*LLM-synthesized behavioral rules for this operator:*
+- **Anticipate heavy churn in `self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py` and `context_budget_scorer_for_llm`**
+- **Pre-empt context budget issues**
+- **Detect frustration/hesitation cues**
+
+### Fragile Contracts
+*From push narratives — assumptions that could break:*
+- Ambiguous success signals from `run_clean_split`
+- malformed diff parsing in the auto-loop
+- broken import contract for the new versioned analyzer file.
+- Enricher's assumption of `messages` list schema; journal's dependency on enricher's `final_prompt` key; shared mutation logic's compatibility with `copilot_prompt_mutations.json` definitions. This push introduces a sequenced prompt enrichment pipeline and journals its output.
+- premature stream termination due to low timeout
+
+### Known Issues
+*From self-fix scanner — fix when touching nearby code:*
+- [HIGH] over_hard_cap in `src/cognitive/drift_seq003_v002_d0315__tracks_operator_typing_patterns_across_lc_verify_pigeon_plugin.py`
+- [HIGH] over_hard_cap in `src/cognitive/unsaid_seq002_v002_d0315__detects_what_operators_meant_but_lc_verify_pigeon_plugin.py`
+- [HIGH] over_hard_cap in `src/cognitive_reactor_seq014_v003_d0321__cognitive_reactor_autonomous_code_modification_lc_implement_all_18.py`
+- [HIGH] over_hard_cap in `src/copilot_prompt_manager_seq020_v002_d0321__audits_and_manages_all_injected_lc_implement_all_18.py`
+- [HIGH] over_hard_cap in `src/dynamic_prompt_seq017_v004_d0321__steers_copilot_cot_from_live_lc_implement_all_18.py`
+
+### Prompt Evolution
+*This prompt has mutated 44x (186→608 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
+
+### File Consciousness
+*125 modules profiled*
+
+**High-drama (most mutations):**
+- `self_fix` v10 ↔ push_narrative
+- `context_budget` v8 ↔ streaming_layer
+- `init_writer` v7 ↔ operator_stats
+- `operator_stats` v7 ↔ push_narrative
+
+**Codebase fears:**
+- file may not exist (36 modules)
+- swallowed exception (18 modules)
+- regex format dependency (17 modules)
+
+**Slumber party warnings (high coupling):**
+- `resplit_binpack` ↔ `resplit` (score=0.80, 3 shared imports, both high-churn (v4+v4))
+- `resplit` ↔ `resplit_binpack` (score=0.80, 3 shared imports, both high-churn (v4+v4))
+- `compliance_seq008_audit_decomposed` ↔ `compliance_seq008_audit_wrapper` (score=0.80, 3 shared imports, both high-churn (v4+v4))
 
 <!-- /pigeon:task-context -->
 
@@ -87,96 +151,12 @@ OPERATOR SIGNAL: Frustration with perceived optionality and a belief the system 
 *Queue empty — add tasks via `add_task()` or they auto-seed from self-fix.*
 
 <!-- /pigeon:task-queue -->
-<!-- pigeon:task-context -->
-## Live Task Context
-
-*Auto-injected 2026-03-21 15:57 UTC · 243 messages profiled · 8 recent commits*
-
-**Current focus:** building new features
-**Cognitive state:** `hesitant` (WPM: 56759.9 | Del: 36.5% | Hes: 0.519)
-
-> **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
-
-### Unsaid Threads
-*Deleted from prompts — operator wanted this but didn't ask:*
-- "rrectuui"
-- "sureher co"
-
-### Module Hot Zones
-*High cognitive load — take extra care with these files:*
-- `file_heat_map` (hes=0.887)
-- `import_rewriter` (hes=0.735)
-- `file_writer` (hes=0.735)
-- `context_budget` (hes=0.438)
-- `push_narrative` (hes=0.438)
-
-### AI Rework Surface
-*Miss rate: 100.0% (1 responses)*
-- Failed on: ""
-
-### Recent Work
-- `e809454` feat: self-calibrating cognitive state classification
-- `482bd07` feat: repo cleanup + enriched journal + deep README/MANIFEST update
-- `21ddf89` feat: task queue system + AI response capture plan + README update
-- `ec35e10` docs: full README rewrite â€” all three systems documented
-
-### Coaching Directives
-*LLM-synthesized behavioral rules for this operator:*
-- **Intervene on hesitation**
-- **Anticipate recurring pain in the coaching pipeline modules**
-- **Counter high rework**
-- **Break the frustration cycle**
-- **Structure the next step**
-
-### Fragile Contracts
-*From push narratives — assumptions that could break:*
-- operator_stats’s error-rate calculation for self-calibration; classify_bridge’s dependency on a pull-based cognitive state API; prompt_journal’s non-atomic writes in forked processes.
-- prompt_journal path assumptions
-- hardcoded imports to removed zero-token modules
-- telemetry breaks from missing operator_stats file. This push accomplishes a repository cleanup by removing obsolete or placeholder code while retaining the core prompt journal.
-- push_narrative's assumption of `prompt_recon_attempts` telemetry key; git_plugin's prefix-based intent parsing; prompt_recon_seq016_v001's dependency on unified diff format. This push introduces automated prompt reconstruction and enhances push narratives with structured telemetry and chat analysis.
-- **operator_stats** speaks: I was touched to embed a self-calibrating cognitive layer, shifting from passive logging to a
-- **operator_stats_seq008_v004_d0317__persistent_markdown_memory_file_lc_dynamic_task_context** speaks: I was created as a
-- **prompt_journal_seq019_v001** speaks: I was added as a new journal file to capture the reasoning behind this self-calib
-- **classify_bridge** speaks: I was likely updated to integrate with the new cognitive calibration, probably to receive ad
-- **push_narrative** (seq012 v005) speaks: I was touched to implement a new narrative generation mode, "generate_per_push_
-- **chat_composition_analyzer** speaks: I was added as a new client module to parse chat logs and extract structured metad
-
-### Known Issues
-*From self-fix scanner — fix when touching nearby code:*
-- [CRITICAL] hardcoded_import in `stress_test.py`
-- [CRITICAL] hardcoded_import in `test_all.py`
-- [CRITICAL] hardcoded_import in `vscode-extension/pulse_watcher.py`
-
-### Prompt Evolution
-*This prompt has mutated 30x (186→518 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
-
-### File Consciousness
-*83 modules profiled*
-
-**High-drama (most mutations):**
-- `context_budget` v7 ↔ streaming_layer
-- `operator_stats` v5 ↔ push_narrative
-- `push_narrative` v5 ↔ operator_stats
-- `file_writer` v4 ↔ resplit_binpack
-
-**Codebase fears:**
-- file may not exist (21 modules)
-- regex format dependency (10 modules)
-- swallowed exception (9 modules)
-
-**Slumber party warnings (high coupling):**
-- `file_writer` ↔ `resplit_binpack` (score=0.80, 3 shared imports, both high-churn (v4+v4))
-- `file_writer` ↔ `resplit` (score=0.80, 3 shared imports, both high-churn (v4+v4))
-- `func_decomposer` ↔ `run_clean_split` (score=0.80, 3 shared imports, both high-churn (v4+v4))
-
-<!-- /pigeon:task-context -->
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-22 · 211 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-23 · 406 message(s) · LLM-synthesized*
 
-**Dominant: `hesitant`** | Submit: 28% | WPM: 49.6 | Del: 25.5% | Hes: 0.526
+**Dominant: `frustrated`** | Submit: 22% | WPM: 60.5 | Del: 29.0% | Hes: 0.514
 
 The operator just built a self-fixing analyzer for auto-correction, revealing a pattern of intense, high-deletion editing sessions where they frequently abandon or hesitate mid-flow, indicating deep iterative refinement under pressure.
 
@@ -200,15 +180,17 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-03-22T19:27:55.911583+00:00",
+  "updated_at": "2026-03-22T21:25:34.717718+00:00",
   "latest_prompt": {
-    "session_n": 6,
-    "ts": "2026-03-22T19:27:55.911583+00:00",
-    "chars": 84,
-    "preview": "go ahead and try theres 78 changesin staged - verify the imports dont break on push ",
-    "intent": "testing",
+    "session_n": 11,
+    "ts": "2026-03-22T21:25:34.717718+00:00",
+    "chars": 57,
+    "preview": "what should i do to market this / gtm / next logical step",
+    "intent": "exploring",
     "state": "unknown",
-    "files_open": [],
+    "files_open": [
+      "operator_coaching.md"
+    ],
     "module_refs": []
   },
   "signals": {},
@@ -241,25 +223,30 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 29,
-    "avg_wpm": 41.3,
-    "avg_del_ratio": 0.029,
+    "total_prompts": 44,
+    "avg_wpm": 41.1,
+    "avg_del_ratio": 0.03,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 22,
+      "unknown": 37,
       "focused": 5,
       "hesitant": 2
     },
     "baselines": {
-      "n": 9,
-      "avg_wpm": 61.0,
-      "avg_del": 0.403,
-      "avg_hes": 0.403,
-      "sd_wpm": 11.1,
-      "sd_del": 0.171,
-      "sd_hes": 0.171
+      "n": 15,
+      "avg_wpm": 118.3,
+      "avg_del": 0.155,
+      "avg_hes": 0.426,
+      "sd_wpm": 93.6,
+      "sd_del": 0.204,
+      "sd_hes": 0.388
     }
-  }
+  },
+  "coaching_directives": [
+    "Anticipate heavy churn in `self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py` and `context_budget_scorer_for_llm`",
+    "Pre-empt context budget issues",
+    "Detect frustration/hesitation cues"
+  ]
 }
 ```
 

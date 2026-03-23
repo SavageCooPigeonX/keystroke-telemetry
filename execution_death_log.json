@@ -1,0 +1,42 @@
+[
+  {
+    "ts": "2026-03-22T22:17:24.983775+00:00",
+    "job_id": "bd093cc6f0",
+    "cause": "exception",
+    "severity": "high",
+    "node": "plan_parser",
+    "score": 0.75,
+    "detail": "Exception at plan_parser after 6 calls",
+    "path_length": 7
+  },
+  {
+    "ts": "2026-03-22T22:17:26.606389+00:00",
+    "job_id": "674ec1cc7e",
+    "cause": "exception",
+    "severity": "high",
+    "node": "dynamic_prompt",
+    "score": 0.75,
+    "detail": "Exception at dynamic_prompt after 1 calls",
+    "path_length": 2
+  },
+  {
+    "ts": "2026-03-22T22:17:27.003143+00:00",
+    "job_id": "f3c5dec32a",
+    "cause": "loop",
+    "severity": "low",
+    "node": "copilot_prompt_manager_seq020_block_utils",
+    "score": 0.3,
+    "detail": "Unknown death at copilot_prompt_manager_seq020_block_utils",
+    "path_length": 3
+  },
+  {
+    "ts": "2026-03-22T22:17:27.741325+00:00",
+    "job_id": "3494e6bc0e",
+    "cause": "exception",
+    "severity": "high",
+    "node": "import_tracer",
+    "score": 0.75,
+    "detail": "Exception at import_tracer after 8 calls",
+    "path_length": 9
+  }
+]

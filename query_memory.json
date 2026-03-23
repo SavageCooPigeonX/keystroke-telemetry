@@ -1,612 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-19T01:37:17.563420+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:38:17.578445+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:39:17.569031+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:40:17.592921+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:41:17.579955+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:42:17.593145+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:43:17.600302+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:44:17.585683+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:45:17.613133+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:46:17.647621+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:47:17.606106+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:48:17.608955+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:49:17.636423+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:50:17.611299+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:51:17.632902+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:52:17.639574+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:53:17.677660+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:54:17.680267+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:55:17.664531+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:56:17.685825+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:57:17.698725+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:58:17.682436+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T01:59:17.683564+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:00:17.701572+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:01:17.735737+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:02:17.731469+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:03:17.747587+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:04:17.749561+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:05:17.745200+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:06:17.734720+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:07:17.782652+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:08:17.828127+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:09:17.812889+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:10:17.789845+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:11:17.790401+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:12:17.772095+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:13:17.776094+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:14:17.776521+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:15:17.790438+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:16:17.803439+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:17:17.801469+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:18:17.823902+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:19:17.826715+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:20:17.824135+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:21:17.818865+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:22:17.826479+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:23:17.827589+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:24:17.861614+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:25:17.831347+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:26:17.834960+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:27:17.850324+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:28:17.873098+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:29:17.849790+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:30:17.994510+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:31:17.864692+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:32:17.856811+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:33:17.849125+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:34:17.922109+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:35:17.884029+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:36:17.869444+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:37:17.868677+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:38:17.883916+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:39:17.884646+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:40:17.880977+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:41:17.911235+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:42:17.901042+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:43:17.930487+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:44:17.912755+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:45:17.927276+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:46:17.917341+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:47:17.910571+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:48:17.939118+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:49:17.928423+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:50:17.949114+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:51:17.953921+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:52:17.951554+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:53:17.957505+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:54:17.953576+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:55:17.969438+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:56:17.974878+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:57:17.982663+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:58:17.980217+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T02:59:17.964437+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:00:17.962132+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:01:18.002531+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:02:17.976238+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:03:17.970823+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:04:17.959745+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:05:17.985525+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:06:17.987284+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:07:17.987125+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:08:17.974442+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:09:18.048959+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:10:18.050362+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:11:18.003926+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:12:18.002496+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:13:18.008870+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:14:17.994060+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:15:18.008748+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:16:17.996396+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-19T03:17:18.004095+00:00",
-      "text": "bg:package.json",
-      "fingerprint": "bgpackagejson",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-19T03:18:18.001675+00:00",
       "text": "bg:package.json",
       "fingerprint": "bgpackagejson",
@@ -2998,6 +2392,612 @@
       "ts": "2026-03-22T19:41:23.974026+00:00",
       "text": "bg:task_queue_seq018_v002_d0317__copilot_driven_task_tracking_linked_lc_task_queue_system.py",
       "fingerprint": "bgtask_queue_seq018_v002_d0317__copilot_driven_task_tracking_linked_lc_task_queue_systempy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T20:48:26.696313+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T21:02:35.913382+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T21:05:35.064563+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T21:08:35.314779+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T21:12:35.693292+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T21:13:36.020848+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T21:25:35.573050+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T21:26:35.095504+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:06:02.928004+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:06:20.575856+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:07:21.043316+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:07:57.006936+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:08:38.140673+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:08:39.911937+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:09:07.170960+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:09:33.438310+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:10:20.080296+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:10:39.778535+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:10:57.354944+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:11:32.278733+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:11:50.362042+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:11:56.034077+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:12:04.584889+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:12:29.415118+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:12:55.248769+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:13:06.541074+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:13:15.671464+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:13:35.827167+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:14:03.027190+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:16:32.856057+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:17:36.185087+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:18:35.883653+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:19:37.871623+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:38:40.584746+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:38:59.417319+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:39:43.432794+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:40:16.770064+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:41:04.814027+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:41:52.127541+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:43:58.139854+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:44:05.592353+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:44:54.973863+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:48:55.242109+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:49:35.197494+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:50:56.508924+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:53:02.046207+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:53:57.250532+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:56:55.790422+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:58:13.164356+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T22:58:54.500430+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T23:05:36.179108+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T23:05:44.225871+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T23:06:55.050524+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T23:07:47.379585+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T23:08:12.517245+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T23:08:43.861728+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T23:08:54.539546+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T23:09:29.624663+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T23:09:37.073822+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T23:09:52.745869+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T23:09:54.537650+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T23:10:03.631940+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-22T23:10:54.999029+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:11:02.517239+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:13:41.181300+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:14:24.432609+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:14:44.248525+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:15:30.440136+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:15:42.480757+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:15:55.762633+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:16:01.304302+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:16:28.417212+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:16:56.471303+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:17:01.165141+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:17:05.479140+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:17:11.911304+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:17:56.700557+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:20:48.155206+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:21:14.471269+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:21:56.449682+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:22:14.518928+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:22:28.443724+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:23:02.157163+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:23:23.356606+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:23:56.951360+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:26:23.615050+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:27:24.436299+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:30:24.031826+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:31:24.281832+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:47:21.345609+00:00",
+      "text": "bg:operator_coaching.md",
+      "fingerprint": "bgoperator_coachingmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:50:59.550834+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:51:13.389544+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:51:28.038375+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:52:50.586483+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:53:51.462929+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:57:53.758538+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T00:58:53.542026+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T01:01:08.227941+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T01:02:06.604719+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T01:03:05.594727+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-23T01:04:05.665771+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
       "submitted": true
     }
   ],

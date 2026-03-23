@@ -44,6 +44,10 @@ src/context_budget_seq004_v002_*
 vscode-extension/node_modules/
 vscode-extension/out/
 
+# Pigeon Brain UI build artifacts
+pigeon_brain/ui/node_modules/
+pigeon_brain/ui/dist/
+
 # IDE
 .vscode/
 .idea/

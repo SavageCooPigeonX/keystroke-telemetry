@@ -1,14 +1,14 @@
 ﻿# keystroke-telemetry
 
-> **Three systems. One closed loop. Zero LLM calls for the core signal.**
+> **Four systems. One closed loop. Zero LLM calls for the core signal. A real-time neural visualizer that watches itself think.**
 >
-> Keystroke patterns reveal cognitive state → cognitive state steers Copilot's chain-of-thought → AI behavior adapts in real time → rework detection measures if it worked → feeds back in.
+> Keystroke patterns reveal cognitive state → cognitive state steers Copilot's chain-of-thought → AI behavior adapts in real time → rework detection measures if it worked → Pigeon Brain watches the whole thing happen live, lights up the call graph, and tells you where both you and the AI are dying.
 
 ---
 
 ## Status (2026-03-22)
 
-The self-compiling loop is live and chewing through its own codebase.
+The self-compiling loop is live and chewing through its own codebase. Pigeon Brain is online — 125 neurons mapped, dual-substrate heat flowing, WebSocket trace server broadcasting at 20Hz.
 
 | Phase | Status |
 |---|---|
@@ -18,71 +18,181 @@ The self-compiling loop is live and chewing through its own codebase.
 | Auto-compile on commit (self_fix triggers `run_clean_split`) | ✅ Live |
 | Self-healing exclusion logic (vscode-ext / client / orchestrators) | ✅ Live |
 | Codebase auto-refactoring loop (2 files per commit, ~$0.001 each) | ✅ Running |
+| **Pigeon Brain — dual-substrate neural visualizer** | **✅ Live** |
+| **Live execution tracing via sys.settrace** | **✅ Live** |
+| **WebSocket real-time event broadcast** | **✅ Live** |
+| **React graph UI with profiler cards** | **✅ Live** |
 | Compiled so far | `compliance_seq008` → 12f, `heal_seq009` → 6f, `manifest_builder_seq007` → 32f, `nametag_seq011` → 9f |
 | Remaining over-cap targets | 11 files (~$0.013 total to finish) |
 | AI response capture (UIA → rework triple) | 🔲 Planned |
 
 ---
 
+## What This Actually Is
+
+This is a system that **reads your mind through your fingers**, **rewires the AI's reasoning in real time**, **refactors its own source code autonomously**, and now **visualizes the entire thing as a living neural network that lights up when you run code through it**.
+
+Four systems working in concert:
+
+1. **Keystroke Telemetry** — captures typing patterns (pauses, deletions, rewrites, abandons) in LLM chat UIs, classifies operator cognitive state in real time, reconstructs unsaid thoughts, detects cross-session drift. Zero LLM calls — pure signal processing.
+
+2. **Pigeon Code Compiler** — autonomous code decomposition engine. Enforces LLM-readable file sizes (≤200 lines hard cap, ≤50 lines target). Filenames carry living metadata — they mutate on every commit. The codebase refactors itself.
+
+3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. Self-updates on every commit.
+
+4. **Pigeon Brain** — dual-substrate execution observation layer. Maps every module in the codebase as a neuron in a graph. Tracks where humans hesitate AND where AI agents die. Overlays both heat maps on the same visualization. Real-time `sys.settrace` instrumentation lights up edges and cards as actual function calls flow through the system. You can literally watch your codebase think.
+
+---
+
+## Pigeon Brain: The Neural Visualizer
+
+**This is the part that makes people stop scrolling.**
+
+Pigeon Brain treats your codebase as a neural network. Every Python module is a neuron. Every import is a synapse. When you run code, electrons (function calls) flow through the graph in real time. When something dies — an exception, a timeout, a stale import, an infinite loop — **the neuron turns red and stays red**.
+
+But here's the part that doesn't exist anywhere else: **it overlays human cognitive heat on the same graph**. The keystroke telemetry system has been profiling which modules make the operator hesitate, delete, abandon, and rework. Pigeon Brain takes that data and combines it with agent execution failures to identify **dual-substrate hotspots** — the modules that are killing both humans and machines simultaneously.
+
+These are the most important decomposition targets in your entire codebase. No static analyzer finds them. No linter flags them. Only the combination of human typing patterns and machine execution traces can surface them.
+
+### Architecture
+
+```
+pigeon_registry.json (133 modules)
+    │
+    ▼
+graph_extractor ─→ graph_cache.json (125 nodes, 72 edges)
+    │
+    ├─→ demo_sim (fake electrons)     ─┐
+    ├─→ traced_runner (real electrons)  ├─→ execution_logger ─→ exec_events.jsonl
+    └─→ trace_hook (sys.settrace)      ┘         │
+                                                  ▼
+                                    graph_heat_map + loop_detector + failure_detector
+                                                  │
+                                                  ▼
+            file_heat_map.json ─→ dual_substrate ←─ graph_heat_map.json
+            (human hesitation)                      (agent deaths)
+                                        │
+                                        ▼
+                                  dual_view.json (125 enriched nodes)
+                                        │
+                          ┌─────────────┴─────────────┐
+                          ▼                           ▼
+                    React UI                    WebSocket Server
+                  (profiler cards,              (ws://127.0.0.1:8765)
+                   edge animation,                    │
+                   observer panel)                    ▼
+                          ▲                     trace_hook events
+                          └──── live events ────┘ (20 pushes/sec)
+```
+
+### 13 Python Modules
+
+| Module | Lines | Role |
+|---|---:|---|
+| `models_seq001` | ~85 | `ExecutionEvent`, `Electron`, `DeathCause` — isomorphic to keystroke models |
+| `execution_logger_seq002` | ~150 | Core agent telemetry logger — stall detection, loop threshold, latency scoring |
+| `graph_extractor_seq003` | ~150 | AST + pigeon_registry → adjacency list with 125 nodes and 72 import edges |
+| `graph_heat_map_seq004` | ~120 | Failure accumulator per node — danger zones, death rates, cause breakdown |
+| `loop_detector_seq005` | ~120 | Recurring path fingerprinting — detects agents stuck in loops |
+| `failure_detector_seq006` | ~130 | Death classification — stale_import (0.9), timeout (0.7), loop (0.65), exception (0.75) |
+| `observer_synthesis_seq007` | ~160 | Aggregates all execution telemetry → coaching Markdown + dual-substrate hotspot identification |
+| `dual_substrate_seq008` | ~200 | **The killer feature** — merges human hesitation + agent death rate into `dual_score` per node |
+| `cli_seq009` | ~120 | CLI: `graph`, `observe`, `dual`, `stats`, `simulate`, `live`, `trace` |
+| `demo_sim_seq010` | ~180 | Realistic electron simulation with DANGER_PATTERNS for failure-prone modules |
+| `trace_hook_seq011` | ~150 | `sys.settrace` instrumentation — maps real Python calls to graph node names at runtime |
+| `live_server_seq012` | ~240 | WebSocket server (20Hz broadcast) + HTTP snapshot — accepts injected events from traced_runner |
+| `traced_runner_seq013` | ~140 | Wraps any Python script with the trace hook, pushes events to live server |
+
+### React UI (7 components)
+
+| Component | Role |
+|---|---|
+| `PigeonBrain.jsx` | Main graph — ReactFlow with 125 profiler-card nodes, live edge animation, LIVE indicator |
+| `NodeNeuron.jsx` | Profiler card per module — name, version, stats grid, heat bars, personality, flash animation on call |
+| `useLiveTrace.js` | WebSocket hook — auto-reconnect, TTL-based node/edge activation (800ms/1.2s), 200-event buffer |
+| `ObserverPanel.jsx` | Right sidebar — stats, live event feed, dual-substrate hotspots, danger zones, full node profile on click |
+| `ElectronLayer.jsx` | Animated dots for flowing electrons |
+| `styles.css` | Dark theme — `#0a0a1a` base, neon green/red/blue accents, `cardFlash` + `feedSlide` + `livePulse` animations |
+| `vite.config.js` | Vite 5.3.5 + React plugin + dual_view.json middleware |
+
+### Commands
+
+```bash
+# Build the cognition graph (125 nodes, 72 edges)
+py -m pigeon_brain graph
+
+# Generate dual-substrate view (human heat + agent heat merged)
+py -m pigeon_brain dual
+
+# Run observer synthesis → agent_coaching.md
+py -m pigeon_brain observe
+
+# Demo simulation with 20 fake electrons
+py -m pigeon_brain simulate --electrons 20
+
+# Start live trace server (WebSocket + HTTP)
+py -m pigeon_brain live
+
+# Run any script with real-time tracing (lights up the graph)
+py -m pigeon_brain trace test_all.py
+
+# Start the UI
+cd pigeon_brain/ui && npm run dev
+# → http://localhost:3333
+```
+
+### What You See
+
+Each module renders as a **profiler card** — a mini cProfile manifest showing:
+- Module name + version
+- Token count, line count, call count, death count, loop count
+- Human hesitation bar (orange) + dual score bar (severity-colored)
+- Personality classification + last-called timestamp
+
+When you run `py -m pigeon_brain trace test_all.py`:
+- **Edges glow green** when a function call traverses them (1.2s fade)
+- **Cards flash green** when a module is entered (0.8s fade)
+- **Live event feed** scrolls in the observer panel — call/return/exception with timestamps
+- **LIVE** indicator pulses green in the top-left corner
+
+Click any card to see the full dual-substrate profile: human hesitation score, agent death rate, coupled modules, fears, death causes, import relationships.
+
+---
+
 ## Value Audit — For Devs and Vibecoders of 2026+
 
-*An honest analysis of what this system actually does that nothing else does, and where it will matter most.*
+*An honest analysis of what this system actually does that nothing else does.*
 
 ### What vibecoders are doing wrong right now
 
-"Vibe coding" in 2026 means sending a prompt, accepting the diff, sending another prompt. The human is reduced to **a prompt router** — they have no way to tell the AI what they're actually confused about, what they deleted from their last message, or why a previous answer failed. The AI models the code, not the person.
+"Vibe coding" in 2026 means sending a prompt, accepting the diff, sending another prompt. The human is reduced to **a prompt router** — no way to tell the AI what they're confused about, what they deleted, or why a previous answer failed. The AI models the code, not the person.
 
-This repo is a bet on a different model: **the bottleneck isn't the AI's capability — it's the AI's lack of operator context.** Every piece of ambiguity that a human resolves silently (hesitation, deletion, rewrite, abandon) is a signal that gets lost in the current human-AI interface.
+This repo is a bet on a different model: **the bottleneck isn't the AI's capability — it's the AI's lack of operator context.**
 
 ### What this system uniquely provides
 
 | Capability | Status | Why it matters |
 |---|---|---|
-| **Unsaid thread capture** | ✅ Live | Prompts contain only what the operator committed to — the deleted half is usually the most revealing. This is the only system that reads deleted keystrokes before send. |
-| **Per-file cognitive load** | ✅ Live | After 100+ sessions, you can tell which modules the operator dreads. That's a proxy for technical debt no static analyzer can produce. |
-| **CoT steering from live state** | ✅ Live | Copilot's reasoning changes based on whether you're in flow, frustrated, or hesitant. Not with a settings toggle — automatically, on every message. |
-| **Rework → miss rate feedback** | ✅ Live | Every AI response that triggers heavy deletion after is marked as a miss. The AI knows its own failure rate by module. |
-| **Self-narrating codebase** | ✅ Live | Each file generates a first-person account of why it was last changed, what it assumes, and what could break it. This is ambient documentation that gets more useful as the codebase ages. |
-| **Self-compiling to pigeon spec** | ✅ Live | The codebase enforces its own 200-line cap autonomously. Every commit automatically triggers DeepSeek to decompose oversized files. The codebase refactors itself. |
-| **Prompt evolution tracking** | ✅ Live | The system has a diff history of how its own AI context prompt has mutated across 30+ commits. You can see which features improved the AI response quality and which were noise. |
-| **Task queue managed by AI** | ✅ Live | Copilot manages a task backlog seeded from the automated code scanner. Tasks auto-close when the referenced MANIFEST.md is updated. |
+| **Unsaid thread capture** | ✅ Live | The deleted half of a prompt is usually the most revealing. Only system that reads keystrokes before send. |
+| **Per-file cognitive load** | ✅ Live | After 100+ sessions, tells which modules the operator dreads. Technical debt proxy no static analyzer can produce. |
+| **CoT steering from live state** | ✅ Live | Copilot's reasoning changes based on flow/frustrated/hesitant — automatically, on every message. |
+| **Rework → miss rate feedback** | ✅ Live | Heavy deletion after AI response = miss. The AI knows its own failure rate by module. |
+| **Self-narrating codebase** | ✅ Live | Each file generates a first-person account of why it was last changed and what could break it. |
+| **Self-compiling to pigeon spec** | ✅ Live | 200-line cap enforced autonomously. Every commit triggers DeepSeek decomposition. |
+| **Prompt evolution tracking** | ✅ Live | Diff history of how its own AI context prompt has mutated across 44+ commits. |
+| **Task queue managed by AI** | ✅ Live | Copilot manages a task backlog seeded from the automated code scanner. |
+| **Dual-substrate neural visualization** | ✅ Live | Human cognitive load AND AI execution failures on the same graph. 125 neurons profiled. |
+| **Real-time execution tracing** | ✅ Live | `sys.settrace` + WebSocket at 20Hz. Watch your call graph light up as code runs. |
+| **Module profiler cards** | ✅ Live | cProfile-style cards: tokens, lines, calls, deaths, loops, hesitation bars, personality, fears. |
 
 ### The honest gaps
 
-| Gap | Impact | Mitigation in progress |
+| Gap | Impact | Mitigation |
 |---|---|---|
-| **No response text captured** | Rework is measured but you can't correlate *what was said* with *why it failed*. Miss rate is approximate. | UIA reader stub exists (`client/uia_reader.py`). Needs the Copilot panel accessibility tree walked. |
-| **Classification noise at session start** | First few prompts of a session produce unreliable state (baseline not calibrated). History accumulates quickly. | Self-calibrating baselines introduced in v008. |
-| **Windows-only core** | UIA, OS hook, VS Code extension path assumptions. Most of the telemetry capture is Windows-native. Cross-platform would require a different input hook. | Acknowledged. Not a priority. |
-| **DeepSeek dependency for coaching** | Operator coaching and push narratives require an API key. Remove the key and the coaching loop goes silent; the rest still works. | Graceful degradation: all non-DeepSeek sections still inject. |
-| **Pigeon filenames in tests** | Tests that hardcode versioned filenames break on the next rename. Self-fix scanner flags these as CRITICAL. | `test_all.py` uses dynamic glob search — pattern to follow. |
-
-### Who this is useful for, ranked
-
-1. **Solo devs with long-running projects** — the cognitive load map becomes extremely accurate after 50+ sessions. You surface which parts of your own codebase you avoid, and the AI gets briefed on exactly that.
-
-2. **Vibecoders building production systems** — rework measurement gives you an empirical signal that your prompts are degrading in quality. Most vibe coders have no idea when they've entered a session where the AI is consistently wrong.
-
-3. **Teams that want structured AI context** — the pigeon naming convention and auto-generated MANIFESTs produce a self-describing codebase. New contributors (human or AI) can orient in under 5 minutes.
-
-4. **Anyone building an AI-heavy tool who wants to close the feedback loop** — the architecture here (capture → classify → inject → measure → adapt) is a pattern worth copying even if you don't use this exact stack.
-
-### What this is *not*
-
-- Not a linting tool. Use ruff.
-- Not a documentation generator. The MANIFESTs are navigation aids, not API docs.
-- Not a test framework. The 4 core tests are sanity checks for the telemetry pipeline, not test coverage.
-- Not an LLM wrapper or prompt library. Zero LLM calls in the core signal path.
-
----
-
-
-
-1. **Reads human cognition through typing patterns** — pauses, deletions, rewrites, and abandoned drafts are not noise. They are the highest-bandwidth signal channel between a human and a machine. This system reads them.
-
-2. **Enforces LLM-readable code structure** — the Pigeon Compiler decomposes files above 200 lines into smaller, named, self-documenting modules. File names carry living metadata and mutate on every commit.
-
-3. **Injects operator state directly into Copilot's chain-of-thought** — every commit triggers a pipeline that reads all live signals and rewrites `.github/copilot-instructions.md` with a task-context block. The AI reads this before reasoning about your prompt.
+| **No response text captured** | Can't correlate *what was said* with *why it failed*. | UIA reader stub exists. Needs accessibility tree walking. |
+| **Classification noise at session start** | First few prompts unreliable. | Self-calibrating baselines in v008. |
+| **Windows-only core** | UIA, OS hook, VS Code extension path assumptions. | Acknowledged. Not a priority. |
+| **DeepSeek dependency for coaching** | Remove the key and coaching goes silent; rest still works. | Graceful degradation. |
 
 ---
 
@@ -110,35 +220,35 @@ This repo is a bet on a different model: **the bottleneck isn't the AI's capabil
    7. DeepSeek API call                  → operator_coaching.md
    8. dynamic_prompt_seq017              → .github/copilot-instructions.md
       └─ inject_task_context()
-           reads: operator_profile, prompt_compositions, file_heat_map,
-                  rework_log, query_memory, push_narratives, self_fix,
-                  operator_coaching, copilot_mutations, git log
    9. task_queue_seq018                  → task_queue.json
-      └─ inject_task_queue()
-           auto-seeds from self_fix reports
-           marks done when MANIFEST.md is updated
   10. auto-commit [pigeon-auto]
  ────────────────────────────────────────────────────────────
       │
       ▼
- Copilot reads injected context on next message
-      │  task focus, CoT directive, unsaid threads, hot zones,
-      │  coaching directives, fragile contracts, known issues
-      ▼
- AI response generated with operator-aware reasoning
+ Copilot reads injected context → AI response
       │
       ▼
- rework_detector_seq009
-      │  measures post-response typing: heavy deletion = miss
+ rework_detector_seq009 (heavy deletion = miss)
+      │
       ▼
  rework_log.json → feeds into next injection
       │
+      ▼                              ┌──────────────────────────┐
+ ─── PIGEON BRAIN (LIVE) ──         │  React UI (localhost:3333) │
+      │                              │  profiler cards + edges   │
+ graph_extractor ←─ registry         │  live event feed          │
+      │                              │  observer panel           │
+ trace_hook (sys.settrace)           └──────────┬───────────────┘
+      │                                         │
+ live_server (ws://8765) ──── WebSocket ────────┘
+      │                           20 pushes/sec
+ dual_substrate                  edges glow, cards flash
+      │
+ file_heat_map + graph_heat_map
+ (human heat)    (agent heat)
+      │
       ▼
- logs/ai_responses.jsonl  (planned)
-      │  UIA capture of Copilot panel response text
-      │  (prompt → response → rework_score) triples
-      ▼
- narrative analysis + prompt mutation scoring
+ dual_view.json (125 neurons, dual_score per node)
 ```
 
 ---
@@ -462,67 +572,95 @@ Output: `logs/prompt_journal.jsonl` — one JSON object per line, append-only.
 ```
 keystroke-telemetry/
 ├── .github/
-│   └── copilot-instructions.md      ← auto-updated on every commit
-├── src/                             ← core telemetry (23 modules)
-│   ├── timestamp_utils_seq001*      ← epoch ms utility
-│   ├── models_seq002*               ← KeyEvent, MessageDraft dataclasses
-│   ├── logger_seq003*               ← core telemetry logger
-│   ├── context_budget_seq004*       ← token cost scorer
-│   ├── drift_watcher_seq005*        ← cross-session drift detection
-│   ├── resistance_bridge_seq006*    ← telemetry → compiler signal
-│   ├── streaming_layer_seq007*      ← MONOLITH (test harness only, intentional)
-│   ├── operator_stats_seq008*       ← persistent cognitive profile
-│   ├── rework_detector_seq009*      ← AI answer quality measurement
-│   ├── query_memory_seq010*         ← recurring query + unsaid detector
-│   ├── file_heat_map_seq011*        ← per-module cognitive load
-│   ├── push_narrative_seq012*       ← per-push file self-narratives
-│   ├── self_fix_seq013*             ← cross-file problem scanner + auto-compile trigger
-│   ├── cognitive_reactor_seq014*    ← autonomous code modification
-│   ├── pulse_harvest_seq015*        ← prompt → edit pairing
-│   ├── prompt_recon_seq016*         ← prompt reconstruction + mutation tracking
-│   ├── dynamic_prompt_seq017*       ← task-aware CoT injection ←── THE CORE
-│   ├── task_queue_seq018*           ← Copilot-managed task queue
-│   ├── prompt_journal_seq019*       ← enriched prompt journal (cross-ref all telemetry)
-│   ├── copilot_prompt_manager_seq020* ← prompt block auditing
-│   ├── mutation_scorer_seq021*      ← correlates prompt mutations to rework
-│   ├── rework_backfill_seq022*      ← reconstructs historical rework scores
-│   ├── session_handoff_seq023*      ← session summary generator
+│   └── copilot-instructions.md           ← auto-updated on every commit (608 lines, 44 mutations)
+├── src/                                  ← core telemetry (23 modules)
+│   ├── timestamp_utils_seq001*           ← epoch ms utility
+│   ├── models_seq002*                    ← KeyEvent, MessageDraft dataclasses
+│   ├── logger_seq003*                    ← core telemetry logger
+│   ├── context_budget_seq004*            ← token cost scorer
+│   ├── drift_watcher_seq005*             ← cross-session drift detection
+│   ├── resistance_bridge_seq006*         ← telemetry → compiler signal
+│   ├── streaming_layer_seq007*           ← MONOLITH (test harness only, intentional)
+│   ├── operator_stats_seq008*            ← persistent cognitive profile
+│   ├── rework_detector_seq009*           ← AI answer quality measurement
+│   ├── query_memory_seq010*              ← recurring query + unsaid detector
+│   ├── file_heat_map_seq011*             ← per-module cognitive load
+│   ├── push_narrative_seq012*            ← per-push file self-narratives
+│   ├── self_fix_seq013*                  ← cross-file problem scanner + auto-compile trigger
+│   ├── cognitive_reactor_seq014*         ← autonomous code modification
+│   ├── pulse_harvest_seq015*             ← prompt → edit pairing
+│   ├── prompt_recon_seq016*              ← prompt reconstruction + mutation tracking
+│   ├── dynamic_prompt_seq017*            ← task-aware CoT injection ←── THE CORE
+│   ├── task_queue_seq018*                ← Copilot-managed task queue
+│   ├── prompt_journal_seq019*            ← enriched prompt journal (cross-ref all telemetry)
+│   ├── copilot_prompt_manager_seq020*    ← prompt block auditing
+│   ├── mutation_scorer_seq021*           ← correlates prompt mutations to rework
+│   ├── rework_backfill_seq022*           ← reconstructs historical rework scores
+│   ├── session_handoff_seq023*           ← session summary generator
 │   └── cognitive/
-│       ├── adapter_seq001*          ← state → behavior adapter
-│       ├── unsaid_seq002*           ← detects unsaid thoughts
-│       └── drift_seq003*            ← typing pattern drift
-├── streaming_layer/                 ← compiled package (19 files, 100% compliant)
-├── pigeon_compiler/                 ← the compiler (~62 modules)
-│   ├── git_plugin.py                ← post-commit orchestrator
-│   ├── pigeon_limits.py             ← compliance thresholds + exclusion logic
-│   ├── rename_engine/               ← file renames + import rewriting
-│   │   ├── compliance_seq008/       ← compiled package (12 files) ✅
-│   │   ├── heal_seq009/             ← compiled package (6 files) ✅
-│   │   ├── manifest_builder_seq007/ ← compiled package (32 files) ✅
-│   │   └── nametag_seq011/          ← compiled package (9 files) ✅
-│   ├── cut_executor/                ← file slicing + bin-packing
-│   ├── state_extractor/             ← AST + call graph analysis
-│   ├── weakness_planner/            ← DeepSeek cut plan generation
-│   └── runners/                     ← pipeline entry points
-├── vscode-extension/                ← TypeScript keystroke capture
+│       ├── adapter_seq001*               ← state → behavior adapter
+│       ├── unsaid_seq002*                ← detects unsaid thoughts
+│       └── drift_seq003*                 ← typing pattern drift
+├── pigeon_brain/                         ← THE NEURAL VISUALIZER (13 modules + React UI)
+│   ├── models_seq001*                    ← ExecutionEvent, Electron, DeathCause
+│   ├── execution_logger_seq002*          ← agent telemetry logger — stalls, loops, latency
+│   ├── graph_extractor_seq003*           ← registry → 125-node adjacency graph
+│   ├── graph_heat_map_seq004*            ← failure accumulation per neuron
+│   ├── loop_detector_seq005*             ← recurring path fingerprinting
+│   ├── failure_detector_seq006*          ← death classification (stale, timeout, loop, exception)
+│   ├── observer_synthesis_seq007*        ← coaching markdown + hotspot identification
+│   ├── dual_substrate_seq008*            ← HUMAN HEAT + AGENT HEAT → dual_score ←── THE KILLER
+│   ├── cli_seq009*                       ← 7 subcommands: graph, observe, dual, stats, simulate, live, trace
+│   ├── demo_sim_seq010*                  ← fake electron simulation with DANGER_PATTERNS
+│   ├── trace_hook_seq011*                ← sys.settrace → graph node mapping at runtime
+│   ├── live_server_seq012*               ← WebSocket (ws://8765) + HTTP, 20Hz broadcast
+│   ├── traced_runner_seq013*             ← wrap any script with trace + push to live server
+│   ├── dual_view.json                    ← 125 enriched neurons (human + agent heat merged)
+│   ├── graph_cache.json                  ← graph topology cache
+│   └── ui/                               ← React + @xyflow/react
+│       ├── src/
+│       │   ├── PigeonBrain.jsx           ← main graph — 125 profiler cards, live edges, LIVE indicator
+│       │   ├── NodeNeuron.jsx            ← profiler card — stats grid, heat bars, personality, flash
+│       │   ├── ObserverPanel.jsx         ← sidebar — live event feed, dual-substrate hotspots
+│       │   ├── ElectronLayer.jsx         ← animated electron dots
+│       │   ├── useLiveTrace.js           ← WebSocket hook — auto-reconnect, TTL activation
+│       │   ├── styles.css                ← dark theme, neon accents, cardFlash/feedSlide/livePulse
+│       │   └── main.jsx                  ← entry point
+│       ├── vite.config.js                ← Vite 5.3.5 + dual_view.json middleware
+│       └── package.json                  ← react 18.3.1, @xyflow/react 12.0.0
+├── streaming_layer/                      ← compiled package (19 files, 100% compliant)
+├── pigeon_compiler/                      ← the compiler (~62 modules)
+│   ├── git_plugin.py                     ← post-commit orchestrator (1038 lines)
+│   ├── pigeon_limits.py                  ← compliance thresholds + exclusion logic
+│   ├── rename_engine/                    ← file renames + import rewriting
+│   │   ├── compliance_seq008/            ← compiled package (12 files) ✅
+│   │   ├── heal_seq009/                  ← compiled package (6 files) ✅
+│   │   ├── manifest_builder_seq007/      ← compiled package (32 files) ✅
+│   │   └── nametag_seq011/               ← compiled package (9 files) ✅
+│   ├── cut_executor/                     ← file slicing + bin-packing
+│   ├── state_extractor/                  ← AST + call graph analysis
+│   ├── weakness_planner/                 ← DeepSeek cut plan generation
+│   └── runners/                          ← pipeline entry points
+├── vscode-extension/                     ← TypeScript keystroke capture
+├── client/                               ← OS-level hooks + UIA readers
 ├── docs/
-│   ├── push_narratives/             ← per-commit module self-narratives
-│   └── self_fix/                    ← automated problem detection reports
+│   ├── push_narratives/                  ← per-commit module self-narratives
+│   └── self_fix/                         ← automated problem detection reports
 ├── logs/
-│   ├── prompt_journal.jsonl         ← enriched journal (cross-refs all telemetry per prompt)
-│   ├── chat_compositions.jsonl      ← keystroke compositions + deleted words + cognitive state
-│   ├── copilot_prompt_mutations.json ← prompt file evolution snapshots
-│   └── ai_responses.jsonl           ← (planned) Copilot response text + rework triples
-├── operator_profile.md              ← living cognitive profile
-├── operator_coaching.md             ← DeepSeek behavioral synthesis
-├── file_heat_map.json               ← per-module cognitive load data
-├── rework_log.json                  ← AI response quality log
-├── query_memory.json                ← recurring query fingerprints
-├── task_queue.json                  ← Copilot-managed task queue (auto-seeded from self-fix)
-├── pigeon_registry.json             ← all module versions + token history (96 modules)
-├── MASTER_MANIFEST.md               ← full project reference
-├── CHANGELOG.md                     ← patch notes
-└── test_all.py                      ← 4 core tests (always run before commit)
+│   ├── prompt_journal.jsonl              ← enriched journal (cross-refs all telemetry per prompt)
+│   ├── chat_compositions.jsonl           ← keystroke compositions + deleted words + cognitive state
+│   ├── copilot_prompt_mutations.json     ← prompt file evolution snapshots
+│   └── ai_responses.jsonl                ← (planned) Copilot response text + rework triples
+├── operator_profile.md                   ← living cognitive profile
+├── operator_coaching.md                  ← DeepSeek behavioral synthesis
+├── file_heat_map.json                    ← per-module cognitive load data
+├── rework_log.json                       ← AI response quality log
+├── query_memory.json                     ← recurring query fingerprints
+├── task_queue.json                       ← Copilot-managed task queue (auto-seeded from self-fix)
+├── pigeon_registry.json                  ← all module versions + token history (133 modules)
+├── MASTER_MANIFEST.md                    ← full project reference
+├── CHANGELOG.md                          ← patch notes
+└── test_all.py                           ← 5 core tests (always run before commit)
 ```
 
 ---
@@ -540,8 +678,9 @@ py test_all.py
 | TEST 2 | `Context Budget Scorer` — hard cap, budget, coupling |
 | TEST 3 | `DriftWatcher` — baseline + versioned filename drift |
 | TEST 4 | `Resistance Bridge` — telemetry → compiler signal |
+| TEST 5 | `Edit Pairs` — pulse harvest prompt → file edit pairing |
 
-All 4 must pass before every commit.
+All 5 must pass before every commit.
 
 ---
 
@@ -562,6 +701,16 @@ $env:DEEPSEEK_API_KEY = "your-key-here"
 cd vscode-extension
 npm install
 # Press F5 in VS Code to launch Extension Development Host
+
+# ── Pigeon Brain ──
+pip install websockets                    # for live trace server
+py -m pigeon_brain graph                  # build cognition graph (125 nodes, 72 edges)
+py -m pigeon_brain dual                   # generate dual-substrate view
+cd pigeon_brain/ui && npm install         # install React UI deps
+npm run dev                               # → http://localhost:3333
+# In another terminal:
+py -m pigeon_brain live                   # start WebSocket trace server (ws://8765)
+py -m pigeon_brain trace test_all.py      # run tests with live tracing — watch the graph light up
 
 # Run tests
 py test_all.py
@@ -597,7 +746,7 @@ mod = importlib.import_module(f.replace('/', '.').rstrip('.py'))
 
 ---
 
-## Current Status (2026-03-17)
+## Current Status (2026-03-23)
 
 | Component | Status |
 |---|---|
@@ -609,13 +758,17 @@ mod = importlib.import_module(f.replace('/', '.').rstrip('.py'))
 | Rework detection | ✅ Live |
 | Push narratives | ✅ Live (8 narratives) |
 | Self-fix scanner | ✅ Live (20 problems detected last scan) |
-| Prompt reconstruction | ✅ Live (24 mutations tracked) |
+| Prompt reconstruction | ✅ Live (44 mutations tracked) |
 | Dynamic CoT injection | ✅ Live (11 sections, all data sources wired) |
 | Task queue | ✅ Live (auto-seeded, manifest-linked, Copilot-managed) |
 | Post-commit pipeline | ✅ Fully wired (10-step auto-commit) |
 | Pigeon compiler | ✅ Operational |
+| **Pigeon Brain — neural visualizer** | **✅ Live (125 neurons, 72 synapses)** |
+| **Dual-substrate heat mapping** | **✅ Live (human + agent heat merged per node)** |
+| **Live execution tracing** | **✅ Live (sys.settrace → WebSocket @ 20Hz)** |
+| **React graph UI** | **✅ Live (profiler cards, edge animation, observer panel)** |
 | MASTER_MANIFEST | ✅ Rebuilt |
-| Tests | ✅ 4/4 passing |
+| Tests | ✅ 5/5 passing |
 
 **Known open issues (tracked in `task_queue.json`):**
 - `stress_test.py`, `test_all.py` have hardcoded pigeon imports — `tq-001`, `tq-002`
