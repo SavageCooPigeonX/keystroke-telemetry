@@ -1,0 +1,17 @@
+Here are the modules in `src/cognitive/` and its subfolders, with their token counts:
+
+```
+src/cognitive/
+  adapter v2 (1264tok)
+  drift v2 (2262tok)
+  unsaid v2 (2108tok)
+src/cognitive/drift_seq003/
+  drift_seq003_baseline_store v3 (299tok)
+  drift_seq003_build_cognitive_context v3 (828tok)
+  drift_seq003_compute_baseline v3 (557tok)
+  drift_seq003_detect_session_drift v3 (677tok)
+src/cognitive/unsaid_seq002/
+  unsaid_seq002_diff v3 (245tok)
+  unsaid_seq002_helpers v3 (561tok)
+  unsaid_seq002_orchestrator v3 (1493tok)
+```

@@ -35,7 +35,7 @@ def main():
     root = Path(".")
 
     if args.command == "graph":
-        from .graph_extractor_seq003_v002_d0323__extract_the_cognition_graph_from_lc_pigeon_brain_system import build_graph, graph_stats
+        from .graph_extractor_seq003_v003_d0324__extract_the_cognition_graph_from_lc_gemini_chat_dead import build_graph, graph_stats
         g = build_graph(root)
         cache = root / "pigeon_brain" / "graph_cache.json"
         cache.parent.mkdir(parents=True, exist_ok=True)
@@ -60,7 +60,7 @@ def main():
         print(f"Dual view exported to {out}")
 
     elif args.command == "stats":
-        from .graph_extractor_seq003_v002_d0323__extract_the_cognition_graph_from_lc_pigeon_brain_system import load_graph, graph_stats
+        from .graph_extractor_seq003_v003_d0324__extract_the_cognition_graph_from_lc_gemini_chat_dead import load_graph, graph_stats
         from .graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system import load_graph_heat
         from .failure_detector_seq006_v002_d0323__electron_death_classification_port_of_lc_pigeon_brain_system import load_death_stats
         from .loop_detector_seq005_v002_d0323__recurring_path_detection_port_of_lc_pigeon_brain_system import load_loop_stats
@@ -74,7 +74,7 @@ def main():
         run_simulation(root, n_electrons=args.electrons)
 
     elif args.command == "live":
-        from .live_server_seq012_v002_d0323__websocket_server_for_live_execution_lc_pigeon_brain_system import serve_live
+        from .live_server_seq012_v003_d0324__websocket_server_for_live_execution_lc_gemini_chat_dead import serve_live
         serve_live(root, ws_port=args.ws_port, http_port=args.http_port)
 
     elif args.command == "trace":

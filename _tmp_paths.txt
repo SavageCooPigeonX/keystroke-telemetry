@@ -1,0 +1,17 @@
+pigeon_brain
+pigeon_compiler/bones
+pigeon_compiler/cut_executor
+pigeon_compiler/integrations
+pigeon_compiler/rename_engine
+pigeon_compiler/rename_engine/compliance_seq008
+pigeon_compiler/runners
+pigeon_compiler/runners/compiler_output/press_release_gen
+pigeon_compiler/state_extractor
+pigeon_compiler/weakness_planner
+src
+src/cognitive
+src/cognitive/drift_seq003
+src/cognitive/unsaid_seq002
+src/cognitive_reactor_seq014
+src/copilot_prompt_manager_seq020
+streaming_layer

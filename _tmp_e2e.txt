@@ -1,0 +1,8 @@
+Here are the top-level folders:
+
+*   `client/`
+*   `pigeon_brain/`
+*   `pigeon_compiler/`
+*   `src/`
+*   `streaming_layer/`
+*   `vscode-extension/`

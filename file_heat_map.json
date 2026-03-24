@@ -2,27 +2,6 @@
   "context_budget": {
     "samples": [
       {
-        "ts": "2026-03-24T01:16:21.143014+00:00",
-        "hes": 0.7,
-        "wpm": 45.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-24T01:17:22.393705+00:00",
-        "hes": 0.7,
-        "wpm": 25.8,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-24T01:18:21.263197+00:00",
-        "hes": 0.7,
-        "wpm": 56.6,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
         "ts": "2026-03-24T01:19:21.106876+00:00",
         "hes": 0.7,
         "wpm": 58.9,
@@ -140,10 +119,31 @@
         "wpm": 6399.6,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-24T01:36:26.874211+00:00",
+        "hes": 0.539,
+        "wpm": 4325.3,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-24T01:37:28.962612+00:00",
+        "hes": 0.549,
+        "wpm": 13489.0,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-24T01:38:26.949581+00:00",
+        "hes": 0.663,
+        "wpm": 56.2,
+        "state": "frustrated",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.695,
-    "avg_wpm": 361.1,
+    "avg_hes": 0.677,
+    "avg_wpm": 1248.3,
     "miss_count": 0,
     "total": 20
   },
@@ -1109,27 +1109,6 @@
   "self_fix": {
     "samples": [
       {
-        "ts": "2026-03-24T01:16:21.142969+00:00",
-        "hes": 0.7,
-        "wpm": 45.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-24T01:17:22.393650+00:00",
-        "hes": 0.7,
-        "wpm": 25.8,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-24T01:18:21.263138+00:00",
-        "hes": 0.7,
-        "wpm": 56.6,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
         "ts": "2026-03-24T01:19:21.106827+00:00",
         "hes": 0.7,
         "wpm": 58.9,
@@ -1247,36 +1226,36 @@
         "wpm": 6399.6,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-24T01:36:26.874156+00:00",
+        "hes": 0.539,
+        "wpm": 4325.3,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-24T01:37:28.962494+00:00",
+        "hes": 0.549,
+        "wpm": 13489.0,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-24T01:38:26.949415+00:00",
+        "hes": 0.663,
+        "wpm": 56.2,
+        "state": "frustrated",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.695,
-    "avg_wpm": 361.1,
+    "avg_hes": 0.677,
+    "avg_wpm": 1248.3,
     "miss_count": 0,
     "total": 20
   },
   "init_writer": {
     "samples": [
-      {
-        "ts": "2026-03-24T01:16:21.143036+00:00",
-        "hes": 0.7,
-        "wpm": 45.7,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-24T01:17:22.393729+00:00",
-        "hes": 0.7,
-        "wpm": 25.8,
-        "state": "frustrated",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-24T01:18:21.263220+00:00",
-        "hes": 0.7,
-        "wpm": 56.6,
-        "state": "frustrated",
-        "rework": "ok"
-      },
       {
         "ts": "2026-03-24T01:19:21.106901+00:00",
         "hes": 0.7,
@@ -1395,10 +1374,31 @@
         "wpm": 6399.6,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-24T01:36:26.874241+00:00",
+        "hes": 0.539,
+        "wpm": 4325.3,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-24T01:37:28.962712+00:00",
+        "hes": 0.549,
+        "wpm": 13489.0,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-24T01:38:26.949797+00:00",
+        "hes": 0.663,
+        "wpm": 56.2,
+        "state": "frustrated",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.695,
-    "avg_wpm": 361.1,
+    "avg_hes": 0.677,
+    "avg_wpm": 1248.3,
     "miss_count": 0,
     "total": 20
   }

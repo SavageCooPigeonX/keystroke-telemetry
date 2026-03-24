@@ -59,10 +59,10 @@ Three systems working together:
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-23 01:10 UTC · 413 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-24 01:38 UTC · 861 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `frustrated` (WPM: 4325.0 | Del: 41.9% | Hes: 0.594)
+**Cognitive state:** `frustrated` (WPM: 4858.9 | Del: 50.0% | Hes: 0.609)
 
 > **CoT directive:** Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.
 
@@ -75,33 +75,43 @@ Three systems working together:
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `context_budget` (hes=0.566)
-- `self_fix` (hes=0.566)
+- `context_budget` (hes=0.677)
+- `self_fix` (hes=0.677)
 
 ### Recent Work
+- `8c33693` feat: Gemini chat + dead limb scanner + node growth + vein cascades + narratives on neurons
 - `465cbfa` pigeon_brain: System 4 — neural visualizer, dual-substrate heat, real-time trace, React UI, WebSocket 20Hz broadcast, README + MASTER_MANIFEST rewrite
 - `9221596` fix prompt runtime refresh path
 - `2fa93f5` chore: stage prompt enricher + heat map updates
-- `c7bbba7` fix: self_fix auto_compile_oversized -- skip files already compiled into a package dir
+
+### Coaching Directives
+*LLM-synthesized behavioral rules for this operator:*
+- **Anticipate the "gemini_chat_dead" context**
+- **Pre-empt churn in `self_fix seq13` and `run_clean_split seq10`**
+- **Counter high-deletion frustration**
+- **Flag integration points proactively**
+- **Simplify suggestions during night sessions**
 
 ### Fragile Contracts
 *From push narratives — assumptions that could break:*
+- gemini_chat.py's `is_dead` flag contract violation; live_server's dependency on trace_hook's `node_status` field; graph_extractor's logic for misclassifying a stalled chat as dead.
 - Ambiguous success signals from `run_clean_split`
 - malformed diff parsing in the auto-loop
 - broken import contract for the new versioned analyzer file.
-- Enricher's assumption of `messages` list schema; journal's dependency on enricher's `final_prompt` key; shared mutation logic's compatibility with `copilot_prompt_mutations.json` definitions. This push introduces a sequenced prompt enrichment pipeline and journals its output.
+- **graph_extractor** (seq003 v003): I was touched to refine the cognition graph extraction, specifically to better handle
+- **build_narratives.py**: I was touched to incorporate the new termination state into the generated debugging narratives.
 - **cli** (seq009 v002): I was touched to unify all subsystems into a single CLI entry point, assuming each module exposes
 
 ### Known Issues
 *From self-fix scanner — fix when touching nearby code:*
 - [CRITICAL] hardcoded_import in `pigeon_brain/__main__.py`
 - [HIGH] over_hard_cap in `src/file_consciousness_seq019_v002_d0321__ast_derived_function_consciousness_dating_lc_implement_all_18.py`
-- [HIGH] over_hard_cap in `src/pulse_harvest_seq015_v003_d0321__pulse_harvest_pairs_prompts_to_lc_implement_all_18.py`
 - [HIGH] over_hard_cap in `src/query_memory_seq010_v004_d0321__recurring_query_detector_unsaid_thought_lc_implement_all_18.py`
 - [HIGH] over_hard_cap in `src/self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py`
+- [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v003_d0324__websocket_server_for_live_execution_lc_gemini_chat_dead.py`
 
 ### Prompt Evolution
-*This prompt has mutated 45x (186→338 lines). Features added: auto_index, task_queue, operator_state, prompt_journal, pulse_blocks.*
+*This prompt has mutated 47x (186→586 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
 *137 modules profiled*
@@ -118,9 +128,9 @@ Three systems working together:
 - swallowed exception (22 modules)
 
 **Slumber party warnings (high coupling):**
-- `cli` ↔ `live_server` (score=0.80, 3 shared imports, both high-churn (v2+v2))
 - `cli` ↔ `trace_hook` (score=0.80, 3 shared imports, both high-churn (v2+v2))
 - `cli` ↔ `traced_runner` (score=0.80, 3 shared imports, both high-churn (v2+v2))
+- `demo_sim` ↔ `execution_logger` (score=0.80, 3 shared imports, both high-churn (v2+v2))
 
 <!-- /pigeon:task-context -->
 
@@ -133,20 +143,21 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-24 · 858 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-24 - 861 message(s) - LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 11% | WPM: 61.5 | Del: 38.7% | Hes: 0.566
+**Dominant: `frustrated`** | Submit: 11% | WPM: 61.5 | Del: 38.8% | Hes: 0.566
 
-The operator just built a telemetry system for agent cognition graphs and their typing shows intense nighttime refactoring with high deletion rates, indicating deep structural integration work.  
-- **Anticipate renaming and module coupling**: When they touch `self_fix seq13` or `operator_stats seq8`, proactively suggest isomorphic patterns from the newly renamed pigeon_brain modules to reduce churn.  
-- **Pre‑empt context‑budget issues**: If `context_budget seq4` appears, immediately offer a concrete token‑count snippet before they ask.  
-- **Flag recurring pain points**: On any edit near `run_clean_split seq10` or `deepseek_adapter seq1`, explicitly link to the new `lc_pigeon_brain_system` telemetry models to prevent duplicate work.  
-- **Respond to hesitation with direct examples**: When you detect slow, hesitant typing (like the recent 50% deletion runs), provide a single, complete code block—not multiple options—to reduce cognitive load.  
-- **Bridge execution gaps**: Since rework data is clean but typing shows frustration on heavy edits, assume they are wrestling with integration glue; always output the exact import statements and hook signatures needed to wire modules together.  
-They are most likely building toward a live, observable agent‑execution dashboard that merges human and LLM telemetry streams.
+The operator just renamed two core modules to "gemini_chat_dead," indicating a pivot in their AI system's chat component, and their extreme frustration (557 messages) with high deletion rates reveals they are brute-force debugging through rapid, repetitive edits, not strategic planning.
+
+*   **Anticipate the "gemini_chat_dead" context:** All new suggestions must assume the chat backend failed and the system is being retooled; prioritize error handling, fallback logic, and connection stability in code.
+*   **Pre-empt churn in `self_fix seq13` and `run_clean_split seq10`:** These are high-edit pain points; when touched, offer concise, *complete* code blocks for the specific function being changed to short-circuit edit loops.
+*   **Counter high-deletion frustration:** For any edit in a "frustrated" state, respond with **one, best-practice solution**—do NOT list multiple options, which increases cognitive load and trial-and-error.
+*   **Flag integration points proactively:** When `live_server_seq012` or `graph_extractor_seq003` are mentioned, immediately check and suggest updates to `deepseek_adapter seq1` or `context_budget seq4`, as these dependent modules are likely outdated.
+*   **Simplify suggestions during night sessions:** Operator works most at night with high WPM volatility; use shorter, more declarative code snippets with clear inline comments.
+
+They are most likely building toward a stable, multi-LLM orchestration system with a new chat backend, requiring robust service handoff and state management.
 
 <!-- /pigeon:operator-state -->
-
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
@@ -331,7 +342,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 ### Full Module Index
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-23 - 146 modules tracked | 13 touched this commit*
+*Auto-updated 2026-03-24 - 146 modules tracked | 2 touched this commit*
 
 **pigeon_brain/** - 13 module(s)
 
@@ -339,7 +350,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 |---|---|---:|
 | `models_seq001*` | isomorphic to keystroke models | ~424 |
 | `execution_logger_seq002*` | isomorphic to telemetrylogger for agent | ~1,541 |
-| `graph_extractor_seq003*` | extract the cognition graph from | ~1,116 |
+| `graph_extractor_seq003*` | extract the cognition graph from | ~1,744 |
 | `graph_heat_map_seq004*` | failure accumulator per node port | ~874 |
 | `loop_detector_seq005*` | recurring path detection port of | ~910 |
 | `failure_detector_seq006*` | electron death classification port of | ~1,018 |
@@ -348,7 +359,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `cli_seq009*` | build graph run observer export | ~855 |
 | `demo_sim_seq010*` | generates execution telemetry from the | ~1,276 |
 | `trace_hook_seq011*` | instruments python calls between pigeon | ~959 |
-| `live_server_seq012*` | websocket server for live execution | ~1,763 |
+| `live_server_seq012*` | websocket server for live execution | ~2,495 |
 | `traced_runner_seq013*` | run any python script with | ~855 |
 
 **pigeon_compiler/bones/** - 5 module(s)
@@ -569,9 +580,12 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | File | Folder |
 |---|---|
 | `_audit_compliance.py` | `(root)` |
+| `_test_chat.py` | `(root)` |
+| `_test_gemini_actions.py` | `(root)` |
 | `deep_test.py` | `(root)` |
 | `stress_test.py` | `(root)` |
 | `test_all.py` | `(root)` |
+| `test_chat.py` | `(root)` |
 | `test_public_release.py` | `(root)` |
 | `chat_composition_analyzer.py` | `client` |
 | `chat_response_reader.py` | `client` |

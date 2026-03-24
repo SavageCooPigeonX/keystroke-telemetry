@@ -5,11 +5,6 @@
     "tokens": 855,
     "partners": [
       {
-        "name": "live_server",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "trace_hook",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
@@ -18,6 +13,11 @@
         "name": "traced_runner",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "live_server",
+        "score": 0.76,
+        "reason": "3 shared imports, both high-churn (v2+v3)"
       },
       {
         "name": "run_heal",
@@ -49,17 +49,17 @@
         "reason": "2 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "live_server",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "observer_synthesis",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
       },
       {
         "name": "trace_hook",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "traced_runner",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
       }
@@ -122,17 +122,17 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "live_server",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "observer_synthesis",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
         "name": "trace_hook",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "traced_runner",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       }
@@ -178,34 +178,34 @@
     "avg_hes": 0.0
   },
   "graph_extractor": {
-    "personality": "fresh",
-    "version": 2,
-    "tokens": 1116,
+    "personality": "stable",
+    "version": 3,
+    "tokens": 1744,
     "partners": [
       {
-        "name": "loop_detector",
+        "name": "manifest_builder",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "4 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "cognitive_reactor_seq014_patch_generator",
+        "name": "nametag",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "3 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "cognitive_reactor_seq014_reactor_core",
+        "name": "registry",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "3 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "cognitive_reactor_seq014_state_ops",
+        "name": "cognitive_reactor",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "3 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "name": "pulse_harvest",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "3 shared imports, both high-churn (v3+v3)"
       }
     ],
     "fears": [
@@ -253,34 +253,34 @@
     "avg_hes": 0.0
   },
   "live_server": {
-    "personality": "fresh",
-    "version": 2,
-    "tokens": 1763,
+    "personality": "stable",
+    "version": 3,
+    "tokens": 2495,
     "partners": [
       {
-        "name": "cli",
+        "name": "cognitive_reactor",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "3 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "execution_logger",
+        "name": "streaming_layer",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "5 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "trace_hook",
-        "score": 0.8,
-        "reason": "6 shared imports, both high-churn (v2+v2)"
+        "name": "run_heal",
+        "score": 0.77,
+        "reason": "3 shared imports, both high-churn (v3+v4)"
       },
       {
-        "name": "traced_runner",
-        "score": 0.8,
-        "reason": "4 shared imports, both high-churn (v2+v2)"
+        "name": "run_rename",
+        "score": 0.77,
+        "reason": "3 shared imports, both high-churn (v3+v4)"
       },
       {
-        "name": "cognitive_reactor_seq014_patch_generator",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "name": "drift_watcher",
+        "score": 0.77,
+        "reason": "3 shared imports, both high-churn (v3+v4)"
       }
     ],
     "fears": [
@@ -305,17 +305,17 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "graph_extractor",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "graph_heat_map",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v2+v2)"
       },
       {
         "name": "observer_synthesis",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "trace_hook",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       }
@@ -418,14 +418,14 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "live_server",
-        "score": 0.8,
-        "reason": "6 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "loop_detector",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "traced_runner",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [
@@ -451,17 +451,17 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "live_server",
-        "score": 0.8,
-        "reason": "4 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "trace_hook",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v2+v2)"
       },
       {
         "name": "rework_backfill",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "streaming_layer_http_handler",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       }
@@ -478,6 +478,16 @@
     "tokens": 724,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "live_server",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
@@ -489,16 +499,6 @@
       },
       {
         "name": "registry",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "deepseek_plan_prompt",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "drift_seq003_baseline_store",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       }
@@ -512,6 +512,16 @@
     "tokens": 1291,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "live_server",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
@@ -523,16 +533,6 @@
       },
       {
         "name": "registry",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "deepseek_plan_prompt",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "drift_seq003_baseline_store",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       }
@@ -546,6 +546,16 @@
     "tokens": 1844,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "live_server",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
@@ -557,16 +567,6 @@
       },
       {
         "name": "registry",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "deepseek_plan_prompt",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "drift_seq003_baseline_store",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       }
@@ -580,6 +580,16 @@
     "tokens": 879,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "live_server",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
@@ -591,16 +601,6 @@
       },
       {
         "name": "registry",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "deepseek_plan_prompt",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "drift_seq003_baseline_store",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       }
@@ -614,6 +614,16 @@
     "tokens": 3279,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "live_server",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
@@ -625,16 +635,6 @@
       },
       {
         "name": "registry",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "deepseek_plan_prompt",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "drift_seq003_baseline_store",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       }
@@ -668,7 +668,7 @@
         "reason": "3 shared imports"
       },
       {
-        "name": "graph_extractor",
+        "name": "file_consciousness",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
       }
@@ -810,7 +810,7 @@
       }
     ],
     "fears": [],
-    "avg_hes": 0.566
+    "avg_hes": 0.677
   },
   "manifest_writer": {
     "personality": "stable",
@@ -1058,14 +1058,14 @@
     "tokens": 1180,
     "partners": [
       {
-        "name": "streaming_layer",
+        "name": "live_server",
         "score": 0.53,
         "reason": "2 shared imports, both high-churn (v6+v3)"
       },
       {
-        "name": "live_server",
-        "score": 0.5,
-        "reason": "2 shared imports"
+        "name": "streaming_layer",
+        "score": 0.53,
+        "reason": "2 shared imports, both high-churn (v6+v3)"
       },
       {
         "name": "trace_hook",
@@ -1344,6 +1344,11 @@
         "reason": "3 shared imports, both high-churn (v4+v4)"
       },
       {
+        "name": "graph_extractor",
+        "score": 0.77,
+        "reason": "3 shared imports, both high-churn (v4+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v4+v3)"
@@ -1352,11 +1357,6 @@
         "name": "nametag",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v4+v3)"
-      },
-      {
-        "name": "graph_extractor",
-        "score": 0.73,
-        "reason": "3 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [
@@ -1479,6 +1479,11 @@
     "tokens": 2927,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "nametag",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v3+v3)"
@@ -1497,11 +1502,6 @@
         "name": "pulse_harvest",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "resplit_binpack",
-        "score": 0.77,
-        "reason": "3 shared imports, both high-churn (v3+v4)"
       }
     ],
     "fears": [
@@ -1517,6 +1517,11 @@
     "version": 3,
     "tokens": 1924,
     "partners": [
+      {
+        "name": "graph_extractor",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v3+v3)"
+      },
       {
         "name": "manifest_builder",
         "score": 0.8,
@@ -1536,11 +1541,6 @@
         "name": "import_tracer",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v3+v4)"
-      },
-      {
-        "name": "graph_extractor",
-        "score": 0.76,
-        "reason": "3 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [
@@ -1591,6 +1591,11 @@
     "tokens": 2129,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v3+v3)"
@@ -1609,11 +1614,6 @@
         "name": "executor",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v3+v4)"
-      },
-      {
-        "name": "heal",
-        "score": 0.77,
-        "reason": "4 shared imports, both high-churn (v3+v4)"
       }
     ],
     "fears": [
@@ -1682,7 +1682,7 @@
         "reason": "3 shared imports, both high-churn (v4+v4)"
       },
       {
-        "name": "manifest_builder",
+        "name": "live_server",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v4+v3)"
       }
@@ -1740,6 +1740,11 @@
         "reason": "3 shared imports, both high-churn (v4+v4)"
       },
       {
+        "name": "graph_extractor",
+        "score": 0.77,
+        "reason": "3 shared imports, both high-churn (v4+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v4+v3)"
@@ -1748,11 +1753,6 @@
         "name": "nametag",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v4+v3)"
-      },
-      {
-        "name": "graph_extractor",
-        "score": 0.73,
-        "reason": "3 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [
@@ -2302,6 +2302,11 @@
         "reason": "3 shared imports, both high-churn (v4+v4)"
       },
       {
+        "name": "graph_extractor",
+        "score": 0.77,
+        "reason": "3 shared imports, both high-churn (v4+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v4+v3)"
@@ -2310,11 +2315,6 @@
         "name": "nametag",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v4+v3)"
-      },
-      {
-        "name": "graph_extractor",
-        "score": 0.73,
-        "reason": "3 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [
@@ -2467,6 +2467,16 @@
     "tokens": 299,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "live_server",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
@@ -2478,16 +2488,6 @@
       },
       {
         "name": "registry",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "deepseek_plan_prompt",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "drift_seq003_build_cognitive_context",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       }
@@ -2501,6 +2501,16 @@
     "tokens": 828,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "live_server",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
@@ -2512,16 +2522,6 @@
       },
       {
         "name": "registry",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "deepseek_plan_prompt",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "drift_seq003_baseline_store",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       }
@@ -2569,6 +2569,16 @@
     "tokens": 677,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "live_server",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
@@ -2580,16 +2590,6 @@
       },
       {
         "name": "registry",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "deepseek_plan_prompt",
-        "score": 0.2,
-        "reason": "0 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "drift_seq003_baseline_store",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       }
@@ -2637,6 +2637,11 @@
     "tokens": 245,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v3+v3)"
@@ -2655,11 +2660,6 @@
         "name": "unsaid_seq002_helpers",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "unsaid_seq002_orchestrator",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v3+v3)"
       }
     ],
     "fears": [],
@@ -2670,6 +2670,11 @@
     "version": 3,
     "tokens": 561,
     "partners": [
+      {
+        "name": "graph_extractor",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
       {
         "name": "manifest_builder",
         "score": 0.4,
@@ -2687,11 +2692,6 @@
       },
       {
         "name": "unsaid_seq002_diff",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "unsaid_seq002_orchestrator",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v3+v3)"
       }
@@ -2707,6 +2707,11 @@
     "tokens": 1493,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v3+v3)"
@@ -2723,11 +2728,6 @@
       },
       {
         "name": "unsaid_seq002_diff",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "unsaid_seq002_helpers",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v3+v3)"
       }
@@ -2753,17 +2753,17 @@
         "reason": "2 shared imports, both high-churn (v2+v4)"
       },
       {
-        "name": "graph_extractor",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "graph_heat_map",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
         "name": "trace_hook",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "drift",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
@@ -2813,11 +2813,6 @@
     "tokens": 244,
     "partners": [
       {
-        "name": "graph_extractor",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "loop_detector",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
@@ -2836,6 +2831,11 @@
         "name": "cognitive_reactor_seq014_reactor_core",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [
@@ -2849,11 +2849,6 @@
     "version": 2,
     "tokens": 95,
     "partners": [
-      {
-        "name": "graph_extractor",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v2+v2)"
-      },
       {
         "name": "loop_detector",
         "score": 0.6,
@@ -2871,6 +2866,11 @@
       },
       {
         "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
       }
@@ -2938,7 +2938,7 @@
         "reason": "3 shared imports"
       },
       {
-        "name": "graph_extractor",
+        "name": "loop_detector",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
       }
@@ -2954,16 +2954,6 @@
     "tokens": 781,
     "partners": [
       {
-        "name": "graph_extractor",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
-      {
-        "name": "live_server",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "loop_detector",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
@@ -2975,6 +2965,16 @@
       },
       {
         "name": "cognitive_reactor_seq014_docstring_patch",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_state_ops",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       }
@@ -3066,17 +3066,17 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "graph_extractor",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "graph_heat_map",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "live_server",
+        "name": "loop_detector",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "observer_synthesis",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       }
@@ -3161,11 +3161,6 @@
     "tokens": 146,
     "partners": [
       {
-        "name": "graph_extractor",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "loop_detector",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
@@ -3184,6 +3179,11 @@
         "name": "copilot_prompt_manager_seq020_audit_decomposed",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_injectors",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [
@@ -3198,6 +3198,16 @@
     "tokens": 3529,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "live_server",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v3+v3)"
@@ -3211,16 +3221,6 @@
         "name": "pulse_harvest",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "streaming_layer",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "executor",
-        "score": 0.77,
-        "reason": "3 shared imports, both high-churn (v3+v4)"
       }
     ],
     "fears": [
@@ -3261,7 +3261,7 @@
       }
     ],
     "fears": [],
-    "avg_hes": 0.566
+    "avg_hes": 0.677
   },
   "copilot_prompt_manager_seq020_audit_decomposed": {
     "personality": "fresh",
@@ -3279,11 +3279,6 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "graph_extractor",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "graph_heat_map",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
@@ -3292,6 +3287,11 @@
         "name": "loop_detector",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "observer_synthesis",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [
@@ -3339,11 +3339,6 @@
     "tokens": 288,
     "partners": [
       {
-        "name": "graph_extractor",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "loop_detector",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
@@ -3360,6 +3355,11 @@
       },
       {
         "name": "cognitive_reactor_seq014_constants",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_docstring_patch",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
@@ -3393,7 +3393,7 @@
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "graph_extractor",
+        "name": "graph_heat_map",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
@@ -3406,11 +3406,6 @@
     "version": 2,
     "tokens": 461,
     "partners": [
-      {
-        "name": "graph_extractor",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
       {
         "name": "loop_detector",
         "score": 0.8,
@@ -3428,6 +3423,11 @@
       },
       {
         "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       }
@@ -3443,11 +3443,6 @@
     "tokens": 236,
     "partners": [
       {
-        "name": "graph_extractor",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "loop_detector",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
@@ -3466,6 +3461,11 @@
         "name": "cognitive_reactor_seq014_state_ops",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [
@@ -3479,11 +3479,6 @@
     "version": 2,
     "tokens": 472,
     "partners": [
-      {
-        "name": "graph_extractor",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v2+v2)"
-      },
       {
         "name": "loop_detector",
         "score": 0.6,
@@ -3501,6 +3496,11 @@
       },
       {
         "name": "cognitive_reactor_seq014_patch_generator",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
       }
@@ -3551,11 +3551,6 @@
     "tokens": 521,
     "partners": [
       {
-        "name": "graph_extractor",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "loop_detector",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
@@ -3574,6 +3569,11 @@
         "name": "cognitive_reactor_seq014_patch_generator",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "cognitive_reactor_seq014_reactor_core",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [
@@ -3586,11 +3586,6 @@
     "version": 2,
     "tokens": 329,
     "partners": [
-      {
-        "name": "graph_extractor",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
       {
         "name": "loop_detector",
         "score": 0.8,
@@ -3608,6 +3603,11 @@
       },
       {
         "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       }
@@ -3633,11 +3633,6 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "graph_extractor",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "graph_heat_map",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
@@ -3646,6 +3641,11 @@
         "name": "loop_detector",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "observer_synthesis",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [
@@ -3666,6 +3666,11 @@
         "reason": "3 shared imports, both high-churn (v4+v5)"
       },
       {
+        "name": "live_server",
+        "score": 0.77,
+        "reason": "3 shared imports, both high-churn (v4+v3)"
+      },
+      {
         "name": "cognitive_reactor",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v4+v3)"
@@ -3674,11 +3679,6 @@
         "name": "streaming_layer",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v4+v3)"
-      },
-      {
-        "name": "live_server",
-        "score": 0.73,
-        "reason": "3 shared imports, both high-churn (v4+v2)"
       },
       {
         "name": "trace_hook",
@@ -3734,11 +3734,6 @@
     "tokens": 4343,
     "partners": [
       {
-        "name": "graph_extractor",
-        "score": 0.8,
-        "reason": "4 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "loop_detector",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
@@ -3755,6 +3750,11 @@
       },
       {
         "name": "cognitive_reactor_seq014_state_ops",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager_seq020_audit_decomposed",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       }
@@ -3917,6 +3917,11 @@
     "tokens": 2276,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v3+v3)"
@@ -3935,11 +3940,6 @@
         "name": "executor",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v3+v4)"
-      },
-      {
-        "name": "heal",
-        "score": 0.77,
-        "reason": "4 shared imports, both high-churn (v3+v4)"
       }
     ],
     "fears": [
@@ -4027,6 +4027,16 @@
     "tokens": 1222,
     "partners": [
       {
+        "name": "graph_extractor",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "live_server",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v3+v3)"
@@ -4038,16 +4048,6 @@
       },
       {
         "name": "cognitive_reactor",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "pulse_harvest",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v3+v3)"
-      },
-      {
-        "name": "streaming_layer",
         "score": 0.6,
         "reason": "2 shared imports, both high-churn (v3+v3)"
       }
@@ -4167,7 +4167,7 @@
       "regex format dependency",
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.566
+    "avg_hes": 0.677
   },
   "session_handoff": {
     "personality": "fresh",
@@ -4214,6 +4214,11 @@
     "tokens": 10189,
     "partners": [
       {
+        "name": "live_server",
+        "score": 0.8,
+        "reason": "5 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "cognitive_reactor",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v3+v3)"
@@ -4232,11 +4237,6 @@
         "name": "query_memory",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v3+v4)"
-      },
-      {
-        "name": "execution_logger",
-        "score": 0.76,
-        "reason": "5 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -4284,6 +4284,11 @@
     "tokens": 156,
     "partners": [
       {
+        "name": "live_server",
+        "score": 0.37,
+        "reason": "1 shared imports, both high-churn (v4+v3)"
+      },
+      {
         "name": "drift_seq003_compute_baseline",
         "score": 0.37,
         "reason": "1 shared imports, both high-churn (v4+v3)"
@@ -4302,11 +4307,6 @@
         "name": "operator_stats",
         "score": 0.35,
         "reason": "1 shared imports, both high-churn (v4+v7)"
-      },
-      {
-        "name": "demo_sim",
-        "score": 0.33,
-        "reason": "1 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -4391,11 +4391,6 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "live_server",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "trace_hook",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
@@ -4407,6 +4402,11 @@
       },
       {
         "name": "streaming_layer_http_handler",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "streaming_layer_replay",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       }
@@ -4440,7 +4440,7 @@
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "graph_extractor",
+        "name": "graph_heat_map",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
@@ -4508,7 +4508,7 @@
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "live_server",
+        "name": "models",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
@@ -4532,17 +4532,17 @@
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "live_server",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "trace_hook",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
         "name": "traced_runner",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "drift",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
@@ -4566,17 +4566,17 @@
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "live_server",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "trace_hook",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
         "name": "traced_runner",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "drift",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
@@ -4610,7 +4610,7 @@
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "graph_extractor",
+        "name": "graph_heat_map",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
@@ -4624,14 +4624,14 @@
     "tokens": 546,
     "partners": [
       {
-        "name": "live_server",
+        "name": "trace_hook",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "trace_hook",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "name": "live_server",
+        "score": 0.76,
+        "reason": "3 shared imports, both high-churn (v2+v3)"
       },
       {
         "name": "streaming_layer",
@@ -4663,11 +4663,6 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "live_server",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "trace_hook",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
@@ -4679,6 +4674,11 @@
       },
       {
         "name": "streaming_layer_connection_pool",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "streaming_layer_replay",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       }
@@ -4765,11 +4765,6 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "live_server",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "trace_hook",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
@@ -4781,6 +4776,11 @@
       },
       {
         "name": "streaming_layer_connection_pool",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "streaming_layer_http_handler",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       }
@@ -4804,17 +4804,17 @@
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "live_server",
-        "score": 0.4,
-        "reason": "1 shared imports, both high-churn (v2+v2)"
-      },
-      {
         "name": "trace_hook",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
         "name": "traced_runner",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "drift",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
