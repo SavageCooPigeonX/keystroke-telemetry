@@ -23,16 +23,24 @@ Given a task seed, it:
 For multi-perspective reasoning, run_multi() launches packets
 through all 3 modes and returns all results.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 003 | VER: v002 | 172 lines | ~1,372 tokens
+# DESC:   the_flow_engine_is_the
+# INTENT: flow_engine_context
+# LAST:   2026-03-24 @ c0caa0a
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 from __future__ import annotations
 
 import json
 from pathlib import Path
 from typing import Any
 
-from .context_packet_seq001_v001 import ContextPacket, create_packet
-from .node_awakener_seq002_v001 import awaken
-from .path_selector_seq004_v001 import find_origin, select_next
-from .vein_transport_seq006_v001 import transport
+from .context_packet_seq001_v002_d0324__the_contextpacket_is_the_unit_lc_flow_engine_context import ContextPacket, create_packet
+from .node_awakener_seq002_v002_d0324__when_a_packet_arrives_at_lc_flow_engine_context import awaken
+from .path_selector_seq004_v002_d0324__path_selection_is_the_real_lc_flow_engine_context import find_origin, select_next
+from .vein_transport_seq006_v002_d0324__as_a_packet_flows_along_lc_flow_engine_context import transport
 
 
 def load_graph_data(root: Path) -> dict[str, Any]:

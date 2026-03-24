@@ -18,6 +18,14 @@ memory of every node it touched.
 Strict size discipline: accumulated entries are capped. Importance decays
 with depth. Packets die if they loop or exceed max depth.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v002 | 119 lines | ~1,033 tokens
+# DESC:   the_contextpacket_is_the_unit
+# INTENT: flow_engine_context
+# LAST:   2026-03-24 @ c0caa0a
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 from __future__ import annotations
 
 from dataclasses import dataclass, field

@@ -26,6 +26,14 @@ The flow engine calls select_next() at each step to get the
 next node to visit. The selector returns None when the path
 should terminate.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 004 | VER: v002 | 197 lines | ~1,373 tokens
+# DESC:   path_selection_is_the_real
+# INTENT: flow_engine_context
+# LAST:   2026-03-24 @ c0caa0a
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 from __future__ import annotations
 
 from typing import Any

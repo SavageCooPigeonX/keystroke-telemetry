@@ -16,11 +16,19 @@ Dead veins (clot connections) add warnings and increase heat.
 
 The vein is not passive plumbing. It's a transformation channel.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 006 | VER: v002 | 120 lines | ~899 tokens
+# DESC:   as_a_packet_flows_along
+# INTENT: flow_engine_context
+# LAST:   2026-03-24 @ c0caa0a
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 from __future__ import annotations
 
 from typing import Any
 
-from .context_packet_seq001_v001 import ContextPacket
+from .context_packet_seq001_v002_d0324__the_contextpacket_is_the_unit_lc_flow_engine_context import ContextPacket
 
 DEAD_VEIN_HEAT = 0.15
 WEAK_THRESHOLD = 0.3

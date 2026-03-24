@@ -19,12 +19,20 @@ Relevance is computed from:
   - heat threshold (hot nodes are always relevant)
   - direct dependency (if the node imports or is imported by a path member)
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 002 | VER: v002 | 152 lines | ~1,186 tokens
+# DESC:   when_a_packet_arrives_at
+# INTENT: flow_engine_context
+# LAST:   2026-03-24 @ c0caa0a
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 from __future__ import annotations
 
 import re
 from typing import Any
 
-from .context_packet_seq001_v001 import ContextPacket, NodeIntel
+from .context_packet_seq001_v002_d0324__the_contextpacket_is_the_unit_lc_flow_engine_context import ContextPacket, NodeIntel
 
 RELEVANCE_THRESHOLD = 0.3
 HEAT_AUTO_RELEVANT = 0.5     # dual_score above this = always relevant

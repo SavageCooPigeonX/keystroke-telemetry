@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-24T04:09:14.225428+00:00",
-  "total": 146,
+  "generated": "2026-03-24T04:38:28.916763+00:00",
+  "total": 152,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -98,6 +98,126 @@
           "desc": "electron_death_classification_port_of",
           "intent": "pigeon_brain_system",
           "tokens": 1018,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/context_packet_seq001_v002_d0324__the_contextpacket_is_the_unit_lc_flow_engine_context.py",
+      "name": "context_packet",
+      "seq": 1,
+      "ver": 2,
+      "date": "0324",
+      "desc": "the_contextpacket_is_the_unit",
+      "intent": "flow_engine_context",
+      "tokens": 1033,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0324",
+          "desc": "the_contextpacket_is_the_unit",
+          "intent": "flow_engine_context",
+          "tokens": 1033,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/flow_engine_seq003_v002_d0324__the_flow_engine_is_the_lc_flow_engine_context.py",
+      "name": "flow_engine",
+      "seq": 3,
+      "ver": 2,
+      "date": "0324",
+      "desc": "the_flow_engine_is_the",
+      "intent": "flow_engine_context",
+      "tokens": 1316,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0324",
+          "desc": "the_flow_engine_is_the",
+          "intent": "flow_engine_context",
+          "tokens": 1316,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/node_awakener_seq002_v002_d0324__when_a_packet_arrives_at_lc_flow_engine_context.py",
+      "name": "node_awakener",
+      "seq": 2,
+      "ver": 2,
+      "date": "0324",
+      "desc": "when_a_packet_arrives_at",
+      "intent": "flow_engine_context",
+      "tokens": 1171,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0324",
+          "desc": "when_a_packet_arrives_at",
+          "intent": "flow_engine_context",
+          "tokens": 1171,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/path_selector_seq004_v002_d0324__path_selection_is_the_real_lc_flow_engine_context.py",
+      "name": "path_selector",
+      "seq": 4,
+      "ver": 2,
+      "date": "0324",
+      "desc": "path_selection_is_the_real",
+      "intent": "flow_engine_context",
+      "tokens": 1373,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0324",
+          "desc": "path_selection_is_the_real",
+          "intent": "flow_engine_context",
+          "tokens": 1373,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/task_writer_seq005_v002_d0324__the_river_delta_where_all_lc_flow_engine_context.py",
+      "name": "task_writer",
+      "seq": 5,
+      "ver": 2,
+      "date": "0324",
+      "desc": "the_river_delta_where_all",
+      "intent": "flow_engine_context",
+      "tokens": 1476,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0324",
+          "desc": "the_river_delta_where_all",
+          "intent": "flow_engine_context",
+          "tokens": 1476,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/vein_transport_seq006_v002_d0324__as_a_packet_flows_along_lc_flow_engine_context.py",
+      "name": "vein_transport",
+      "seq": 6,
+      "ver": 2,
+      "date": "0324",
+      "desc": "as_a_packet_flows_along",
+      "intent": "flow_engine_context",
+      "tokens": 884,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0324",
+          "desc": "as_a_packet_flows_along",
+          "intent": "flow_engine_context",
+          "tokens": 884,
           "action": "registered"
         }
       ]

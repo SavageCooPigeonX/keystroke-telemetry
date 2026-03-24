@@ -20,9 +20,17 @@ Two output modes:
   - write_task()    → Markdown task for humans/Copilot
   - write_multi()   → Merged output from multiple perspectives
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 005 | VER: v002 | 167 lines | ~1,491 tokens
+# DESC:   the_river_delta_where_all
+# INTENT: flow_engine_context
+# LAST:   2026-03-24 @ c0caa0a
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 from __future__ import annotations
 
-from .context_packet_seq001_v001 import ContextPacket
+from .context_packet_seq001_v002_d0324__the_contextpacket_is_the_unit_lc_flow_engine_context import ContextPacket
 
 
 def write_task(packet: ContextPacket) -> str:

@@ -2,13 +2,6 @@
   "context_budget": {
     "samples": [
       {
-        "ts": "2026-03-24T04:29:46.037951+00:00",
-        "hes": 0.7,
-        "wpm": 131.8,
-        "state": "hesitant",
-        "rework": "ok"
-      },
-      {
         "ts": "2026-03-24T04:30:46.037267+00:00",
         "hes": 0.692,
         "wpm": 6670.3,
@@ -140,10 +133,17 @@
         "wpm": 63849.1,
         "state": "hesitant",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-24T04:38:46.733906+00:00",
+        "hes": 0.544,
+        "wpm": 6534.7,
+        "state": "hesitant",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.529,
-    "avg_wpm": 14890.2,
+    "avg_hes": 0.521,
+    "avg_wpm": 15210.3,
     "miss_count": 0,
     "total": 20
   },
@@ -1109,13 +1109,6 @@
   "self_fix": {
     "samples": [
       {
-        "ts": "2026-03-24T04:29:46.037884+00:00",
-        "hes": 0.7,
-        "wpm": 131.8,
-        "state": "hesitant",
-        "rework": "ok"
-      },
-      {
         "ts": "2026-03-24T04:30:46.037183+00:00",
         "hes": 0.692,
         "wpm": 6670.3,
@@ -1247,22 +1240,22 @@
         "wpm": 63849.1,
         "state": "hesitant",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-24T04:38:46.732881+00:00",
+        "hes": 0.544,
+        "wpm": 6534.7,
+        "state": "hesitant",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.529,
-    "avg_wpm": 14890.2,
+    "avg_hes": 0.521,
+    "avg_wpm": 15210.3,
     "miss_count": 0,
     "total": 20
   },
   "init_writer": {
     "samples": [
-      {
-        "ts": "2026-03-24T04:29:46.037996+00:00",
-        "hes": 0.7,
-        "wpm": 131.8,
-        "state": "hesitant",
-        "rework": "ok"
-      },
       {
         "ts": "2026-03-24T04:30:46.037303+00:00",
         "hes": 0.692,
@@ -1395,10 +1388,17 @@
         "wpm": 63849.1,
         "state": "hesitant",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-24T04:38:46.733968+00:00",
+        "hes": 0.544,
+        "wpm": 6534.7,
+        "state": "hesitant",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.529,
-    "avg_wpm": 14890.2,
+    "avg_hes": 0.521,
+    "avg_wpm": 15210.3,
     "miss_count": 0,
     "total": 20
   }
