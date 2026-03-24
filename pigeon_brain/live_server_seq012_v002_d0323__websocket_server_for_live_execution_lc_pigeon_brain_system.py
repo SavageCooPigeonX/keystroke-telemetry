@@ -40,10 +40,19 @@ from pigeon_brain.trace_hook_seq011_v002_d0323__instruments_python_calls_between
     start_trace,
     stop_trace,
 )
+from pigeon_brain.node_tester import test_node as _run_node_tests
+from pigeon_brain.gemini_chat import (
+    chat as _gemini_chat,
+    parse_file_actions,
+    execute_file_action,
+    strip_action_blocks,
+)
 
 _clients = set()
 _injected = []  # Events injected by external traced_runner processes
 _inject_lock = threading.Lock()
+_project_root = Path(".")  # Set during serve_live
+_chat_histories = {}  # ws_id -> list of {role, text}
 
 
 async def _ws_handler(websocket):
@@ -54,13 +63,52 @@ async def _ws_handler(websocket):
         recent = peek_recent(100)
         if recent:
             await websocket.send(json.dumps({"type": "history", "events": recent}))
-        # Listen for injected events from traced_runner
+        # Listen for commands from UI
         async for msg in websocket:
             try:
                 data = json.loads(msg)
                 if data.get("type") == "inject" and data.get("events"):
                     with _inject_lock:
                         _injected.extend(data["events"])
+                elif data.get("type") == "test_node" and data.get("node"):
+                    # Run real tests on the tapped node, inject results
+                    loop = asyncio.get_event_loop()
+                    test_results = await loop.run_in_executor(
+                        None, _run_node_tests, _project_root, data["node"]
+                    )
+                    if test_results:
+                        with _inject_lock:
+                            _injected.extend(test_results)
+                elif data.get("type") == "chat" and data.get("message"):
+                    ws_id = id(websocket)
+                    if ws_id not in _chat_histories:
+                        _chat_histories[ws_id] = []
+                    if data.get("clear"):
+                        _chat_histories[ws_id] = []
+                    _chat_histories[ws_id].append({"role": "user", "text": data["message"]})
+                    selected = data.get("selectedNode")
+                    loop = asyncio.get_event_loop()
+                    reply = await loop.run_in_executor(
+                        None, _gemini_chat, _project_root,
+                        list(_chat_histories[ws_id]), selected
+                    )
+                    # Parse and execute file-write actions from Gemini response
+                    file_actions = parse_file_actions(reply)
+                    file_results = []
+                    for action in file_actions:
+                        result = execute_file_action(_project_root, action)
+                        file_results.append(result)
+                    # Clean display text (strip action blocks)
+                    display_text = strip_action_blocks(reply) if file_actions else reply
+                    _chat_histories[ws_id].append({"role": "model", "text": display_text})
+                    # Keep history bounded
+                    if len(_chat_histories[ws_id]) > 40:
+                        _chat_histories[ws_id] = _chat_histories[ws_id][-30:]
+                    await websocket.send(json.dumps({
+                        "type": "chat_response",
+                        "text": display_text,
+                        "file_actions": file_results if file_results else None,
+                    }))
             except Exception:
                 pass
     except websockets.exceptions.ConnectionClosed:
@@ -134,6 +182,9 @@ async def _snapshot_server(root: Path, host: str, port: int):
 
 async def run_server(root: Path, ws_port: int = 8765, http_port: int = 8766):
     """Start WebSocket + HTTP servers and trace hook."""
+    global _project_root
+    _project_root = root
+
     if not HAS_WS:
         print("ERROR: 'websockets' package required. Install with: pip install websockets")
         return

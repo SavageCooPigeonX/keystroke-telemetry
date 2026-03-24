@@ -1,17 +1,29 @@
 /* ObserverPanel — side panel showing failure patterns + selected node detail + live feed */
 import React from 'react';
 
-export default function ObserverPanel({ graphData, selectedNode, liveEvents = [], connected = false }) {
+export default function ObserverPanel({ graphData, selectedNode, liveEvents = [], connected = false, narratives = {}, cascadeStats = {}, nodeHeat = {} }) {
   if (!graphData) return null;
 
   const nodes = graphData.nodes || [];
-  const dangerNodes = nodes.filter(n => n.dual_score > 0.3)
-    .sort((a, b) => b.dual_score - a.dual_score)
-    .slice(0, 8);
 
-  const totalDeaths = nodes.reduce((s, n) => s + (n.agent_deaths || 0), 0);
-  const dualHotspots = nodes.filter(n =>
-    (n.human_hesitation || 0) > 0.3 && (n.agent_deaths || 0) > 0
+  // Blend static dual_score with live heat (deaths/calls ratio)
+  const scoredNodes = nodes.map(n => {
+    const heat = nodeHeat[n.name] || { calls: 0, deaths: 0 };
+    const liveRisk = heat.calls > 0 ? heat.deaths / heat.calls : 0;
+    const liveCalls = Math.min(1, heat.calls / 50); // normalize call volume
+    const blended = (n.dual_score || 0) * 0.6 + liveRisk * 0.25 + liveCalls * 0.15;
+    return { ...n, live_score: blended, live_calls: heat.calls, live_deaths: heat.deaths };
+  });
+
+  const dangerNodes = scoredNodes.filter(n => n.live_score >= 0.15 || n.dual_score >= 0.15)
+    .sort((a, b) => b.live_score - a.live_score)
+    .slice(0, 12);
+
+  const totalDeaths = nodes.reduce((s, n) => s + (n.agent_deaths || 0), 0)
+    + Object.values(nodeHeat).reduce((s, h) => s + (h.deaths || 0), 0);
+  const dualHotspots = scoredNodes.filter(n =>
+    ((n.human_hesitation || 0) > 0.3 && (n.agent_deaths || 0) > 0)
+    || (n.live_deaths > 0 && n.live_calls > 3)
   );
 
   return (
@@ -61,6 +73,29 @@ export default function ObserverPanel({ graphData, selectedNode, liveEvents = []
         )}
       </div>
 
+      {/* Vein cascade stats */}
+      <div className="section cascade-stats">
+        <h3>🩸 Vein Cascade</h3>
+        <div className="stats-row">
+          <div className="stat">
+            <span className="stat-num" style={{color: '#00ff88'}}>{cascadeStats.cascades || 0}</span>
+            <span className="stat-label">cascades</span>
+          </div>
+          <div className="stat">
+            <span className="stat-num" style={{color: '#4488ff'}}>{cascadeStats.tested || 0}</span>
+            <span className="stat-label">tested</span>
+          </div>
+          <div className="stat">
+            <span className="stat-num" style={{color: cascadeStats.errors > 0 ? '#ff4444' : '#888'}}>{cascadeStats.errors || 0}</span>
+            <span className="stat-label">errors</span>
+          </div>
+          <div className="stat">
+            <span className="stat-num" style={{color: cascadeStats.debt > 1 ? '#ff8800' : '#888'}}>{cascadeStats.debt?.toFixed(1) || '0.0'}</span>
+            <span className="stat-label">cog debt</span>
+          </div>
+        </div>
+      </div>
+
       {dualHotspots.length > 0 && (
         <div className="section dual-hotspots">
           <h3>🔴 Dual-Substrate Hotspots</h3>
@@ -79,15 +114,21 @@ export default function ObserverPanel({ graphData, selectedNode, liveEvents = []
       )}
 
       <div className="section danger-zones">
-        <h3>⚠️ Danger Zones</h3>
+        <h3>⚠️ Danger Zones {connected && <span style={{fontSize:'0.6em',color:'#0f0'}}>LIVE</span>}</h3>
+        {dangerNodes.length === 0 && <div className="feed-empty">All clear</div>}
         {dangerNodes.map(n => (
           <div key={n.name} className="danger-item">
             <div className="danger-bar" style={{
-              width: `${Math.min(100, n.dual_score * 100)}%`,
-              background: n.dual_score > 0.6 ? '#ff2222' : '#ff8800',
+              width: `${Math.min(100, n.live_score * 130)}%`,
+              background: n.live_score > 0.5 ? '#ff2222' : n.live_score > 0.3 ? '#ff8800' : '#cc6600',
             }} />
             <span className="danger-name">{n.name.replace(/_seq\d+.*/, '')}</span>
-            <span className="danger-score">{n.dual_score.toFixed(3)}</span>
+            <span className="danger-score">{n.live_score.toFixed(3)}</span>
+            {n.live_calls > 0 && (
+              <span className="danger-live" style={{fontSize:'0.7em',color:'#888',marginLeft:4}}>
+                {n.live_calls}c{n.live_deaths > 0 ? ` ${n.live_deaths}💀` : ''}
+              </span>
+            )}
           </div>
         ))}
       </div>
@@ -100,6 +141,16 @@ export default function ObserverPanel({ graphData, selectedNode, liveEvents = []
           )}
           {selectedNode.path && (
             <div className="profile-path">{selectedNode.path}</div>
+          )}
+          {/* Push narrative — semantic self-description */}
+          {narratives[selectedNode.label] && (
+            <div className="profile-narrative">
+              <div className="profile-section-head">NARRATIVE</div>
+              <p className="narrative-text">{narratives[selectedNode.label].text}</p>
+              <span className="narrative-commit">
+                {narratives[selectedNode.label].intent} · {narratives[selectedNode.label].date} · {narratives[selectedNode.label].commit}
+              </span>
+            </div>
           )}
           <table className="profile-table">
             <tbody>

@@ -1,4 +1,4 @@
-/* NodeNeuron — profiler card: mini manifest with stats like cProfile */
+/* NodeNeuron — compact brain cell with region color + heat glow */
 import React from 'react';
 import { Handle, Position } from '@xyflow/react';
 
@@ -9,99 +9,100 @@ function severity(score) {
   return 'safe';
 }
 
-function barWidth(val, max) {
-  return `${Math.min(100, (val / Math.max(max, 1)) * 100)}%`;
-}
-
 export default function NodeNeuron({ data, selected }) {
   const {
-    label, ver, tokens, dualScore, humanHes, agentDeaths,
-    agentCalls, agentLoops, lines, desc, personality, lastCalled,
-    active,
+    label, ver, dualScore, agentDeaths, agentCalls,
+    active, degree, cardW, liveHeat, testStatus,
+    regionColor, tokens,
   } = data;
 
   const sev = severity(dualScore);
   const shortName = label.replace(/_seq\d+.*/, '');
-  const shortDesc = (desc || '').replace(/_/g, ' ').slice(0, 40);
-  const ago = lastCalled ? timeAgo(lastCalled) : '\u2014';
+  const isHub = (degree || 0) >= 8;
+
+  const heat = liveHeat || { calls: 0, deaths: 0, lastSeen: 0 };
+  const heatIntensity = Math.min(1, heat.calls / 20);
+  const isAlive = testStatus === 'alive';
+  const isDead = testStatus === 'dead';
+  const narrative = data.narrative;
+  const deadPaths = data.deadPaths || [];
+
+  /* Permanent growth from LLM touches (ver) + live heat */
+  const verGrowth = Math.min(0.18, ((ver || 1) - 1) * 0.012);
+  const heatGrowth = Math.min(0.14, heat.calls * 0.005);
+  const growthScale = 1 + verGrowth + heatGrowth;
+
+  /* Dynamic glow */
+  let glowStyle = {};
+  if (isDead) {
+    glowStyle = {
+      borderColor: '#ff2222',
+      boxShadow: `0 0 ${8 + heatIntensity * 12}px rgba(255,34,34,${0.3 + heatIntensity * 0.4})`,
+    };
+  } else if (active) {
+    glowStyle = {
+      borderColor: '#00ff88',
+      boxShadow: `0 0 ${8 + heatIntensity * 14}px rgba(0,255,136,${0.3 + heatIntensity * 0.5})`,
+    };
+  } else if (isAlive && heatIntensity > 0.1) {
+    glowStyle = {
+      borderColor: `rgba(0,255,136,${0.3 + heatIntensity * 0.5})`,
+      boxShadow: `0 0 ${4 + heatIntensity * 8}px rgba(0,255,136,${0.1 + heatIntensity * 0.2})`,
+    };
+  }
 
   return (
-    <div className={`profiler-card sev-${sev} ${selected ? 'selected' : ''} ${active ? 'card-active' : ''}`}>
-      <Handle type="target" position={Position.Left} className="card-handle" />
-      <Handle type="source" position={Position.Right} className="card-handle" />
+    <div
+      className={`neuron-cell sev-${sev} ${selected ? 'selected' : ''} ${active ? 'cell-active' : ''} ${isHub ? 'cell-hub' : ''} ${isDead ? 'cell-dead' : ''}`}
+      style={{
+        borderLeftColor: regionColor || '#448aff',
+        transform: `scale(${growthScale})`,
+        transformOrigin: 'center center',
+        transition: 'transform 1.2s ease-out, box-shadow 0.3s',
+        ...glowStyle,
+      }}
+    >
+      {active && <div className="ping-ring ping-ring-1" />}
+      {active && <div className="ping-ring ping-ring-2" />}
 
-      <div className="card-header">
-        <span className="card-name">{shortName}</span>
-        <span className="card-ver">v{ver}</span>
-      </div>
+      <Handle type="target" position={Position.Left} className="cell-handle" />
+      <Handle type="source" position={Position.Right} className="cell-handle" />
 
-      {shortDesc && <div className="card-desc">{shortDesc}</div>}
-
-      <div className="card-stats">
-        <div className="stat-row">
-          <span className="stat-key">tokens</span>
-          <span className="stat-val">{tokens}</span>
-        </div>
-        <div className="stat-row">
-          <span className="stat-key">lines</span>
-          <span className="stat-val">{lines || '\u2014'}</span>
-        </div>
-        <div className="stat-row">
-          <span className="stat-key">calls</span>
-          <span className="stat-val">{agentCalls || 0}</span>
-        </div>
-        {agentDeaths > 0 && (
-          <div className="stat-row stat-danger">
-            <span className="stat-key">{'\u2620'} deaths</span>
-            <span className="stat-val">{agentDeaths}</span>
-          </div>
+      <div className="cell-top">
+        {testStatus && (
+          <span className={`cell-dot ${isDead ? 'dot-dead' : 'dot-alive'}`} />
         )}
-        {agentLoops > 0 && (
-          <div className="stat-row stat-warn">
-            <span className="stat-key">{'\u21BB'} loops</span>
-            <span className="stat-val">{agentLoops}</span>
-          </div>
-        )}
+        <span className="cell-name" title={label}>{shortName}</span>
       </div>
 
-      <div className="card-bars">
-        {humanHes > 0 && (
-          <div className="bar-row">
-            <span className="bar-label">hes</span>
-            <div className="bar-track">
-              <div className="bar-fill hes-bar" style={{ width: barWidth(humanHes, 1) }} />
-            </div>
-            <span className="bar-num">{humanHes.toFixed(2)}</span>
-          </div>
-        )}
-        <div className="bar-row">
-          <span className="bar-label">dual</span>
-          <div className="bar-track">
-            <div
-              className={`bar-fill dual-bar sev-${sev}`}
-              style={{ width: barWidth(dualScore, 1) }}
-            />
-          </div>
-          <span className="bar-num">{dualScore.toFixed(2)}</span>
+      <div className="cell-meta">
+        <span className="cell-ver">v{ver}</span>
+        {dualScore > 0.1 && <span className={`cell-score sev-${sev}`}>{dualScore.toFixed(2)}</span>}
+        {heat.calls > 0 && <span className="cell-heat">{heat.calls}⚡</span>}
+        {agentDeaths > 0 && <span className="cell-deaths">{agentDeaths}☠</span>}
+        {isHub && <span className="cell-degree">{degree}↔</span>}
+      </div>
+
+      {/* Tiny heat bar at bottom */}
+      {dualScore > 0 && (
+        <div className="cell-bar-track">
+          <div className={`cell-bar-fill sev-${sev}`} style={{ width: `${Math.min(100, dualScore * 100)}%` }} />
         </div>
-      </div>
+      )}
 
-      <div className="card-footer">
-        <span className="card-personality">{personality || 'unknown'}</span>
-        <span className="card-last">{ago}</span>
-      </div>
+      {/* Narrative note from push narratives */}
+      {narrative && (
+        <div className="cell-narrative" title={narrative.text}>
+          {narrative.intent && <span className="cell-narr-tag">{narrative.intent}</span>}
+        </div>
+      )}
+
+      {/* Dead paths detected by vein tests */}
+      {deadPaths.length > 0 && (
+        <div className="cell-dead-paths" title={deadPaths.join(', ')}>
+          ✂{deadPaths.length}
+        </div>
+      )}
     </div>
   );
-}
-
-function timeAgo(isoStr) {
-  try {
-    const ms = Date.now() - new Date(isoStr).getTime();
-    if (ms < 60_000) return `${Math.round(ms / 1000)}s ago`;
-    if (ms < 3_600_000) return `${Math.round(ms / 60_000)}m ago`;
-    if (ms < 86_400_000) return `${Math.round(ms / 3_600_000)}h ago`;
-    return `${Math.round(ms / 86_400_000)}d ago`;
-  } catch {
-    return '\u2014';
-  }
 }

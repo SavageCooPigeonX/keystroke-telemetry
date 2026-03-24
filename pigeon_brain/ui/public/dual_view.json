@@ -1,6 +1,6 @@
 {
-  "ts": "2026-03-22T23:05:54.541985+00:00",
-  "total_nodes": 125,
+  "ts": "2026-03-23T03:21:10.135386+00:00",
+  "total_nodes": 137,
   "nodes": [
     {
       "name": "file_heat_map",
@@ -10,10 +10,14 @@
       "ver": 4,
       "tokens": 1347,
       "lines": 144,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "logger"
+      ],
+      "edges_in": [
+        "file_consciousness"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.887,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -43,12 +47,14 @@
       "ver": 4,
       "tokens": 792,
       "lines": 81,
-      "edges_out": [],
+      "edges_out": [
+        "resistance_analyzer"
+      ],
       "edges_in": [
         "ether_map_builder"
       ],
       "in_degree": 1,
-      "out_degree": 0,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 1,
@@ -80,10 +86,14 @@
       "ver": 4,
       "tokens": 3460,
       "lines": 333,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "file_consciousness"
+      ],
+      "edges_in": [
+        "drift_watcher"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 1,
@@ -117,13 +127,16 @@
       "ver": 5,
       "tokens": 783,
       "lines": 85,
-      "edges_out": [],
+      "edges_out": [
+        "func_decomposer"
+      ],
       "edges_in": [
         "run_clean_split",
-        "run_pigeon_loop"
+        "run_pigeon_loop",
+        "class_decomposer"
       ],
-      "in_degree": 2,
-      "out_degree": 0,
+      "in_degree": 3,
+      "out_degree": 1,
       "human_hesitation": 0.735,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -150,13 +163,16 @@
       "ver": 4,
       "tokens": 1750,
       "lines": 186,
-      "edges_out": [],
+      "edges_out": [
+        "manifest_builder"
+      ],
       "edges_in": [
         "run_heal",
-        "run_rename"
+        "run_rename",
+        "heal"
       ],
-      "in_degree": 2,
-      "out_degree": 0,
+      "in_degree": 3,
+      "out_degree": 1,
       "human_hesitation": 0.735,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -185,14 +201,17 @@
       "ver": 7,
       "tokens": 361,
       "lines": 46,
-      "edges_out": [],
+      "edges_out": [
+        "manifest_writer"
+      ],
       "edges_in": [
         "run_clean_split",
-        "run_pigeon_loop"
+        "run_pigeon_loop",
+        "import_fixer"
       ],
-      "in_degree": 2,
-      "out_degree": 0,
-      "human_hesitation": 0.582,
+      "in_degree": 3,
+      "out_degree": 1,
+      "human_hesitation": 0.599,
       "human_misses": 0,
       "agent_deaths": 0,
       "agent_calls": 0,
@@ -208,7 +227,81 @@
         "run_clean_split",
         "file_writer"
       ],
-      "dual_score": 0.233
+      "dual_score": 0.24
+    },
+    {
+      "name": "context_budget",
+      "desc": "context_budget_scorer_for_llm",
+      "path": "src/context_budget_seq004_v008_d0321__context_budget_scorer_for_llm_lc_fire_full_post.py",
+      "seq": 4,
+      "ver": 8,
+      "tokens": 715,
+      "lines": 96,
+      "edges_out": [
+        "copilot_prompt_manager"
+      ],
+      "edges_in": [
+        "cognitive_reactor"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
+      "human_hesitation": 0.599,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 2,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": "2026-03-22T22:17:28.461845+00:00",
+      "personality": "veteran",
+      "fears": [],
+      "partners": [
+        "streaming_layer",
+        "streaming_layer_metrics",
+        "init_writer"
+      ],
+      "dual_score": 0.24
+    },
+    {
+      "name": "self_fix",
+      "desc": "one_shot_self_fix_analyzer",
+      "path": "src/self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py",
+      "seq": 13,
+      "ver": 10,
+      "tokens": 5641,
+      "lines": 615,
+      "edges_out": [
+        "run_clean_split",
+        "session_handoff"
+      ],
+      "edges_in": [
+        "rework_detector"
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
+      "human_hesitation": 0.599,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 1,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": "2026-03-22T22:17:28.201291+00:00",
+      "personality": "veteran",
+      "fears": [
+        "swallowed exception",
+        "file may not exist",
+        "regex format dependency",
+        "returns empty on failure (silent)"
+      ],
+      "partners": [
+        "push_narrative",
+        "compliance",
+        "heal"
+      ],
+      "dual_score": 0.24
     },
     {
       "name": "plan_parser",
@@ -218,13 +311,16 @@
       "ver": 4,
       "tokens": 371,
       "lines": 44,
-      "edges_out": [],
+      "edges_out": [
+        "plan_validator"
+      ],
       "edges_in": [
         "run_clean_split",
-        "run_pigeon_loop"
+        "run_pigeon_loop",
+        "manifest_writer"
       ],
-      "in_degree": 2,
-      "out_degree": 0,
+      "in_degree": 3,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 1,
@@ -248,36 +344,6 @@
       "dual_score": 0.233
     },
     {
-      "name": "context_budget",
-      "desc": "context_budget_scorer_for_llm",
-      "path": "src/context_budget_seq004_v008_d0321__context_budget_scorer_for_llm_lc_fire_full_post.py",
-      "seq": 4,
-      "ver": 8,
-      "tokens": 715,
-      "lines": 96,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
-      "human_hesitation": 0.582,
-      "human_misses": 0,
-      "agent_deaths": 0,
-      "agent_calls": 2,
-      "agent_latency_ms": 0,
-      "agent_loops": 0,
-      "death_rate": 0.0,
-      "death_causes": {},
-      "last_called": "2026-03-22T22:17:28.461845+00:00",
-      "personality": "veteran",
-      "fears": [],
-      "partners": [
-        "streaming_layer",
-        "streaming_layer_metrics",
-        "init_writer"
-      ],
-      "dual_score": 0.233
-    },
-    {
       "name": "copilot_prompt_manager_seq020_block_utils",
       "desc": "auto_extracted_by_pigeon_compiler",
       "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_block_utils_seq002_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -285,10 +351,14 @@
       "ver": 2,
       "tokens": 288,
       "lines": 38,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "copilot_prompt_manager"
+      ],
+      "edges_in": [
+        "copilot_prompt_manager"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 1,
@@ -303,46 +373,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "unsaid",
-        "cognitive_reactor_seq014_cognitive_hint",
-        "cognitive_reactor_seq014_constants"
-      ],
-      "dual_score": 0.233
-    },
-    {
-      "name": "self_fix",
-      "desc": "one_shot_self_fix_analyzer",
-      "path": "src/self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py",
-      "seq": 13,
-      "ver": 10,
-      "tokens": 5641,
-      "lines": 615,
-      "edges_out": [
-        "run_clean_split"
-      ],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 1,
-      "human_hesitation": 0.582,
-      "human_misses": 0,
-      "agent_deaths": 0,
-      "agent_calls": 1,
-      "agent_latency_ms": 0,
-      "agent_loops": 0,
-      "death_rate": 0.0,
-      "death_causes": {},
-      "last_called": "2026-03-22T22:17:28.201291+00:00",
-      "personality": "veteran",
-      "fears": [
-        "swallowed exception",
-        "file may not exist",
-        "regex format dependency",
-        "returns empty on failure (silent)"
-      ],
-      "partners": [
-        "push_narrative",
-        "compliance",
-        "heal"
+        "graph_extractor",
+        "loop_detector",
+        "unsaid"
       ],
       "dual_score": 0.233
     },
@@ -354,10 +387,14 @@
       "ver": 7,
       "tokens": 4954,
       "lines": 534,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "pulse_harvest"
+      ],
+      "edges_in": [
+        "mutation_scorer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.486,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -401,9 +438,10 @@
         "manifest_bridge"
       ],
       "edges_in": [
-        "self_fix"
+        "self_fix",
+        "reaudit_diff"
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 12,
       "human_hesitation": 0.476,
       "human_misses": 0,
@@ -434,10 +472,14 @@
       "ver": 5,
       "tokens": 2049,
       "lines": 199,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "query_memory"
+      ],
+      "edges_in": [
+        "pulse_harvest"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.452,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -466,10 +508,14 @@
       "ver": 5,
       "tokens": 1083,
       "lines": 115,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "self_fix"
+      ],
+      "edges_in": [
+        "rework_backfill"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.361,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -492,6 +538,520 @@
       "dual_score": 0.144
     },
     {
+      "name": "cli",
+      "desc": "build_graph_run_observer_export",
+      "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
+      "seq": 9,
+      "ver": 2,
+      "tokens": 855,
+      "lines": 89,
+      "edges_out": [
+        "graph_extractor",
+        "observer_synthesis",
+        "dual_substrate",
+        "graph_heat_map",
+        "failure_detector",
+        "loop_detector",
+        "demo_sim",
+        "live_server",
+        "traced_runner"
+      ],
+      "edges_in": [],
+      "in_degree": 0,
+      "out_degree": 9,
+      "human_hesitation": 0.0,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 0,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": null,
+      "personality": "fresh",
+      "fears": [],
+      "partners": [
+        "live_server",
+        "trace_hook",
+        "traced_runner"
+      ],
+      "dual_score": 0.0
+    },
+    {
+      "name": "demo_sim",
+      "desc": "generates_execution_telemetry_from_the",
+      "path": "pigeon_brain/demo_sim_seq010_v002_d0323__generates_execution_telemetry_from_the_lc_pigeon_brain_system.py",
+      "seq": 10,
+      "ver": 2,
+      "tokens": 1276,
+      "lines": 134,
+      "edges_out": [
+        "execution_logger",
+        "graph_extractor",
+        "graph_heat_map",
+        "loop_detector",
+        "failure_detector",
+        "dual_substrate"
+      ],
+      "edges_in": [
+        "cli"
+      ],
+      "in_degree": 1,
+      "out_degree": 6,
+      "human_hesitation": 0.0,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 0,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": null,
+      "personality": "fresh",
+      "fears": [
+        "returns empty on failure (silent)"
+      ],
+      "partners": [
+        "execution_logger",
+        "dual_substrate",
+        "live_server"
+      ],
+      "dual_score": 0.0
+    },
+    {
+      "name": "dual_substrate",
+      "desc": "merges_human_and_agent_telemetry",
+      "path": "pigeon_brain/dual_substrate_seq008_v002_d0323__merges_human_and_agent_telemetry_lc_pigeon_brain_system.py",
+      "seq": 8,
+      "ver": 2,
+      "tokens": 1314,
+      "lines": 160,
+      "edges_out": [
+        "graph_extractor",
+        "graph_heat_map",
+        "execution_logger"
+      ],
+      "edges_in": [
+        "cli",
+        "demo_sim"
+      ],
+      "in_degree": 2,
+      "out_degree": 3,
+      "human_hesitation": 0.0,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 0,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": null,
+      "personality": "fresh",
+      "fears": [
+        "file may not exist",
+        "returns empty on failure (silent)"
+      ],
+      "partners": [
+        "execution_logger",
+        "failure_detector",
+        "graph_heat_map"
+      ],
+      "dual_score": 0.0
+    },
+    {
+      "name": "execution_logger",
+      "desc": "isomorphic_to_telemetrylogger_for_agent",
+      "path": "pigeon_brain/execution_logger_seq002_v002_d0323__isomorphic_to_telemetrylogger_for_agent_lc_pigeon_brain_system.py",
+      "seq": 2,
+      "ver": 2,
+      "tokens": 1541,
+      "lines": 165,
+      "edges_out": [
+        "models",
+        "failure_detector"
+      ],
+      "edges_in": [
+        "demo_sim",
+        "dual_substrate"
+      ],
+      "in_degree": 2,
+      "out_degree": 2,
+      "human_hesitation": 0.0,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 0,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": null,
+      "personality": "fresh",
+      "fears": [],
+      "partners": [
+        "demo_sim",
+        "dual_substrate",
+        "live_server"
+      ],
+      "dual_score": 0.0
+    },
+    {
+      "name": "failure_detector",
+      "desc": "electron_death_classification_port_of",
+      "path": "pigeon_brain/failure_detector_seq006_v002_d0323__electron_death_classification_port_of_lc_pigeon_brain_system.py",
+      "seq": 6,
+      "ver": 2,
+      "tokens": 1018,
+      "lines": 132,
+      "edges_out": [
+        "graph_extractor"
+      ],
+      "edges_in": [
+        "cli",
+        "demo_sim",
+        "observer_synthesis",
+        "execution_logger"
+      ],
+      "in_degree": 4,
+      "out_degree": 1,
+      "human_hesitation": 0.0,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 0,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": null,
+      "personality": "fresh",
+      "fears": [
+        "file may not exist",
+        "returns empty on failure (silent)"
+      ],
+      "partners": [
+        "dual_substrate",
+        "graph_heat_map",
+        "loop_detector"
+      ],
+      "dual_score": 0.0
+    },
+    {
+      "name": "graph_extractor",
+      "desc": "extract_the_cognition_graph_from",
+      "path": "pigeon_brain/graph_extractor_seq003_v002_d0323__extract_the_cognition_graph_from_lc_pigeon_brain_system.py",
+      "seq": 3,
+      "ver": 2,
+      "tokens": 1116,
+      "lines": 198,
+      "edges_out": [
+        "graph_heat_map"
+      ],
+      "edges_in": [
+        "cli",
+        "demo_sim",
+        "dual_substrate",
+        "observer_synthesis",
+        "failure_detector"
+      ],
+      "in_degree": 5,
+      "out_degree": 1,
+      "human_hesitation": 0.0,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 0,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": null,
+      "personality": "fresh",
+      "fears": [
+        "file may not exist",
+        "returns empty on failure (silent)",
+        "swallowed exception"
+      ],
+      "partners": [
+        "loop_detector",
+        "cognitive_reactor_seq014_patch_generator",
+        "cognitive_reactor_seq014_reactor_core"
+      ],
+      "dual_score": 0.0
+    },
+    {
+      "name": "graph_heat_map",
+      "desc": "failure_accumulator_per_node_port",
+      "path": "pigeon_brain/graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "seq": 4,
+      "ver": 2,
+      "tokens": 874,
+      "lines": 108,
+      "edges_out": [
+        "live_server"
+      ],
+      "edges_in": [
+        "cli",
+        "demo_sim",
+        "dual_substrate",
+        "observer_synthesis",
+        "graph_extractor"
+      ],
+      "in_degree": 5,
+      "out_degree": 1,
+      "human_hesitation": 0.0,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 0,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": null,
+      "personality": "fresh",
+      "fears": [
+        "file may not exist",
+        "returns empty on failure (silent)"
+      ],
+      "partners": [
+        "dual_substrate",
+        "failure_detector",
+        "loop_detector"
+      ],
+      "dual_score": 0.0
+    },
+    {
+      "name": "live_server",
+      "desc": "websocket_server_for_live_execution",
+      "path": "pigeon_brain/live_server_seq012_v002_d0323__websocket_server_for_live_execution_lc_pigeon_brain_system.py",
+      "seq": 12,
+      "ver": 2,
+      "tokens": 1763,
+      "lines": 221,
+      "edges_out": [
+        "trace_hook",
+        "loop_detector"
+      ],
+      "edges_in": [
+        "cli",
+        "graph_heat_map"
+      ],
+      "in_degree": 2,
+      "out_degree": 2,
+      "human_hesitation": 0.0,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 0,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": null,
+      "personality": "fresh",
+      "fears": [
+        "swallowed exception",
+        "file may not exist"
+      ],
+      "partners": [
+        "cli",
+        "execution_logger",
+        "trace_hook"
+      ],
+      "dual_score": 0.0
+    },
+    {
+      "name": "loop_detector",
+      "desc": "recurring_path_detection_port_of",
+      "path": "pigeon_brain/loop_detector_seq005_v002_d0323__recurring_path_detection_port_of_lc_pigeon_brain_system.py",
+      "seq": 5,
+      "ver": 2,
+      "tokens": 910,
+      "lines": 120,
+      "edges_out": [
+        "observer_synthesis"
+      ],
+      "edges_in": [
+        "cli",
+        "demo_sim",
+        "observer_synthesis",
+        "live_server"
+      ],
+      "in_degree": 4,
+      "out_degree": 1,
+      "human_hesitation": 0.0,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 0,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": null,
+      "personality": "fresh",
+      "fears": [
+        "file may not exist",
+        "returns empty on failure (silent)"
+      ],
+      "partners": [
+        "dual_substrate",
+        "failure_detector",
+        "graph_extractor"
+      ],
+      "dual_score": 0.0
+    },
+    {
+      "name": "models",
+      "desc": "dataclasses_for_keystroke_events_and",
+      "path": "src/models_seq002_v003_d0317__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt.py",
+      "seq": 2,
+      "ver": 3,
+      "tokens": 379,
+      "lines": 44,
+      "edges_out": [
+        "mutation_scorer"
+      ],
+      "edges_in": [
+        "execution_logger",
+        "logger"
+      ],
+      "in_degree": 2,
+      "out_degree": 1,
+      "human_hesitation": 0.0,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 1,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": "2026-03-22T22:17:25.881845+00:00",
+      "personality": "stable",
+      "fears": [],
+      "partners": [
+        "streaming_layer",
+        "execution_logger",
+        "streaming_layer_alerts"
+      ],
+      "dual_score": 0.0
+    },
+    {
+      "name": "observer_synthesis",
+      "desc": "coaching_from_execution_patterns_port",
+      "path": "pigeon_brain/observer_synthesis_seq007_v002_d0323__coaching_from_execution_patterns_port_lc_pigeon_brain_system.py",
+      "seq": 7,
+      "ver": 2,
+      "tokens": 1357,
+      "lines": 150,
+      "edges_out": [
+        "graph_heat_map",
+        "loop_detector",
+        "failure_detector",
+        "graph_extractor",
+        "trace_hook"
+      ],
+      "edges_in": [
+        "cli",
+        "loop_detector"
+      ],
+      "in_degree": 2,
+      "out_degree": 5,
+      "human_hesitation": 0.0,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 0,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": null,
+      "personality": "fresh",
+      "fears": [
+        "file may not exist",
+        "returns empty on failure (silent)"
+      ],
+      "partners": [
+        "dual_substrate",
+        "execution_logger",
+        "failure_detector"
+      ],
+      "dual_score": 0.0
+    },
+    {
+      "name": "trace_hook",
+      "desc": "instruments_python_calls_between_pigeon",
+      "path": "pigeon_brain/trace_hook_seq011_v002_d0323__instruments_python_calls_between_pigeon_lc_pigeon_brain_system.py",
+      "seq": 11,
+      "ver": 2,
+      "tokens": 959,
+      "lines": 145,
+      "edges_out": [
+        "traced_runner"
+      ],
+      "edges_in": [
+        "live_server",
+        "traced_runner",
+        "observer_synthesis"
+      ],
+      "in_degree": 3,
+      "out_degree": 1,
+      "human_hesitation": 0.0,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 0,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": null,
+      "personality": "fresh",
+      "fears": [
+        "file may not exist",
+        "returns empty on failure (silent)",
+        "swallowed exception"
+      ],
+      "partners": [
+        "cli",
+        "execution_logger",
+        "graph_heat_map"
+      ],
+      "dual_score": 0.0
+    },
+    {
+      "name": "traced_runner",
+      "desc": "run_any_python_script_with",
+      "path": "pigeon_brain/traced_runner_seq013_v002_d0323__run_any_python_script_with_lc_pigeon_brain_system.py",
+      "seq": 13,
+      "ver": 2,
+      "tokens": 855,
+      "lines": 110,
+      "edges_out": [
+        "trace_hook"
+      ],
+      "edges_in": [
+        "cli",
+        "trace_hook"
+      ],
+      "in_degree": 2,
+      "out_degree": 1,
+      "human_hesitation": 0.0,
+      "human_misses": 0,
+      "agent_deaths": 0,
+      "agent_calls": 0,
+      "agent_latency_ms": 0,
+      "agent_loops": 0,
+      "death_rate": 0.0,
+      "death_causes": {},
+      "last_called": null,
+      "personality": "fresh",
+      "fears": [
+        "swallowed exception",
+        "file may not exist"
+      ],
+      "partners": [
+        "cli",
+        "execution_logger",
+        "live_server"
+      ],
+      "dual_score": 0.0
+    },
+    {
       "name": "aim_utils",
       "desc": "extracted_from_hush_aim_py",
       "path": "pigeon_compiler/bones/aim_utils_seq001_v003_d0314__extracted_from_hush_aim_py_lc_desc_upgrade.py",
@@ -499,10 +1059,12 @@
       "ver": 3,
       "tokens": 724,
       "lines": 0,
-      "edges_out": [],
+      "edges_out": [
+        "core_formatters"
+      ],
       "edges_in": [],
       "in_degree": 0,
-      "out_degree": 0,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -529,10 +1091,14 @@
       "ver": 3,
       "tokens": 1291,
       "lines": 0,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "nl_parsers"
+      ],
+      "edges_in": [
+        "aim_utils"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -559,10 +1125,14 @@
       "ver": 3,
       "tokens": 1844,
       "lines": 0,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "pq_manifest_utils"
+      ],
+      "edges_in": [
+        "core_formatters"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -589,10 +1159,14 @@
       "ver": 3,
       "tokens": 879,
       "lines": 0,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "pq_search_utils"
+      ],
+      "edges_in": [
+        "nl_parsers"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -620,8 +1194,10 @@
       "tokens": 3279,
       "lines": 0,
       "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
+      "edges_in": [
+        "pq_manifest_utils"
+      ],
+      "in_degree": 1,
       "out_degree": 0,
       "human_hesitation": 0.0,
       "human_misses": 0,
@@ -651,13 +1227,14 @@
       "lines": 177,
       "edges_out": [
         "deepseek_adapter",
-        "source_slicer"
+        "source_slicer",
+        "file_writer"
       ],
       "edges_in": [
         "run_clean_split"
       ],
       "in_degree": 1,
-      "out_degree": 2,
+      "out_degree": 3,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -685,14 +1262,16 @@
       "tokens": 644,
       "lines": 67,
       "edges_out": [
-        "deepseek_adapter"
+        "deepseek_adapter",
+        "import_fixer"
       ],
       "edges_in": [
         "run_clean_split_helpers",
-        "run_pigeon_loop"
+        "run_pigeon_loop",
+        "file_writer"
       ],
-      "in_degree": 2,
-      "out_degree": 1,
+      "in_degree": 3,
+      "out_degree": 2,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -719,12 +1298,15 @@
       "ver": 4,
       "tokens": 505,
       "lines": 60,
-      "edges_out": [],
-      "edges_in": [
-        "run_pigeon_loop"
+      "edges_out": [
+        "init_writer"
       ],
-      "in_degree": 1,
-      "out_degree": 0,
+      "edges_in": [
+        "run_pigeon_loop",
+        "func_decomposer"
+      ],
+      "in_degree": 2,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -751,13 +1333,16 @@
       "ver": 4,
       "tokens": 448,
       "lines": 69,
-      "edges_out": [],
+      "edges_out": [
+        "plan_parser"
+      ],
       "edges_in": [
         "run_clean_split",
-        "run_pigeon_loop"
+        "run_pigeon_loop",
+        "init_writer"
       ],
-      "in_degree": 2,
-      "out_degree": 0,
+      "in_degree": 3,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -784,12 +1369,15 @@
       "ver": 4,
       "tokens": 579,
       "lines": 59,
-      "edges_out": [],
-      "edges_in": [
-        "run_pigeon_loop"
+      "edges_out": [
+        "resplit"
       ],
-      "in_degree": 1,
-      "out_degree": 0,
+      "edges_in": [
+        "run_pigeon_loop",
+        "plan_parser"
+      ],
+      "in_degree": 2,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -851,14 +1439,16 @@
       "ver": 4,
       "tokens": 501,
       "lines": 60,
-      "edges_out": [],
+      "edges_out": [
+        "source_slicer"
+      ],
       "edges_in": [
         "resplit_binpack",
         "resplit",
         "run_clean_split"
       ],
       "in_degree": 3,
-      "out_degree": 0,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -890,9 +1480,10 @@
         "resplit_binpack"
       ],
       "edges_in": [
-        "run_clean_split"
+        "run_clean_split",
+        "plan_validator"
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 2,
       "human_hesitation": 0.0,
       "human_misses": 0,
@@ -926,7 +1517,7 @@
         "run_clean_split_helpers",
         "run_clean_split",
         "run_pigeon_loop",
-        "run_pigeon_loop"
+        "resplit_helpers"
       ],
       "in_degree": 5,
       "out_degree": 0,
@@ -978,8 +1569,8 @@
       "fears": [],
       "partners": [
         "streaming_layer",
-        "drift",
-        "streaming_layer_formatter"
+        "live_server",
+        "trace_hook"
       ],
       "dual_score": 0.0
     },
@@ -991,24 +1582,22 @@
       "ver": 4,
       "tokens": 638,
       "lines": 76,
-      "edges_out": [],
+      "edges_out": [
+        "compliance"
+      ],
       "edges_in": [
         "compliance_seq008_audit_wrapper",
-        "compliance_seq008_audit_wrapper",
-        "compliance_seq008_audit_wrapper",
-        "compliance_seq008_audit_wrapper",
-        "compliance_seq008_check_file",
-        "compliance_seq008_check_file",
         "compliance_seq008_check_file",
         "compliance_seq008_classify",
         "compliance_seq008_format_report",
         "compliance_seq008_helpers",
         "compliance_seq008_recommend_wrapper",
         "heal",
-        "run_heal"
+        "run_heal",
+        "compliance"
       ],
-      "in_degree": 13,
-      "out_degree": 0,
+      "in_degree": 9,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1039,13 +1628,13 @@
       "lines": 76,
       "edges_out": [
         "compliance_seq008_audit_decomposed",
-        "compliance_seq008_audit_decomposed",
-        "compliance_seq008_audit_decomposed",
-        "compliance_seq008_audit_decomposed"
+        "compliance"
       ],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 4,
+      "edges_in": [
+        "compliance"
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1076,12 +1665,13 @@
       "lines": 32,
       "edges_out": [
         "compliance_seq008_audit_decomposed",
-        "compliance_seq008_audit_decomposed",
-        "compliance_seq008_audit_decomposed"
+        "compliance"
       ],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 3,
+      "edges_in": [
+        "compliance"
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1109,11 +1699,14 @@
       "tokens": 160,
       "lines": 20,
       "edges_out": [
-        "compliance_seq008_audit_decomposed"
+        "compliance_seq008_audit_decomposed",
+        "compliance"
       ],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 1,
+      "edges_in": [
+        "compliance"
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1141,11 +1734,14 @@
       "tokens": 320,
       "lines": 31,
       "edges_out": [
-        "compliance_seq008_audit_decomposed"
+        "compliance_seq008_audit_decomposed",
+        "compliance"
       ],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 1,
+      "edges_in": [
+        "compliance"
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1173,11 +1769,14 @@
       "tokens": 227,
       "lines": 26,
       "edges_out": [
-        "compliance_seq008_audit_decomposed"
+        "compliance_seq008_audit_decomposed",
+        "compliance"
       ],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 1,
+      "edges_in": [
+        "compliance"
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1205,11 +1804,14 @@
       "tokens": 603,
       "lines": 69,
       "edges_out": [
-        "compliance_seq008_audit_decomposed"
+        "compliance_seq008_audit_decomposed",
+        "compliance"
       ],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 1,
+      "edges_in": [
+        "compliance"
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1236,10 +1838,27 @@
       "ver": 4,
       "tokens": 1673,
       "lines": 215,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "compliance_seq008_audit_decomposed",
+        "compliance_seq008_audit_wrapper",
+        "compliance_seq008_check_file",
+        "compliance_seq008_classify",
+        "compliance_seq008_format_report",
+        "compliance_seq008_helpers",
+        "compliance_seq008_recommend_wrapper",
+        "executor"
+      ],
+      "edges_in": [
+        "compliance_seq008_audit_decomposed",
+        "compliance_seq008_audit_wrapper",
+        "compliance_seq008_check_file",
+        "compliance_seq008_classify",
+        "compliance_seq008_format_report",
+        "compliance_seq008_helpers",
+        "compliance_seq008_recommend_wrapper"
+      ],
+      "in_degree": 7,
+      "out_degree": 8,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1268,13 +1887,16 @@
       "ver": 4,
       "tokens": 712,
       "lines": 89,
-      "edges_out": [],
+      "edges_out": [
+        "heal"
+      ],
       "edges_in": [
         "run_heal",
-        "run_rename"
+        "run_rename",
+        "compliance"
       ],
-      "in_degree": 2,
-      "out_degree": 0,
+      "in_degree": 3,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1305,11 +1927,14 @@
       "lines": 263,
       "edges_out": [
         "manifest_builder",
-        "compliance_seq008_audit_decomposed"
+        "compliance_seq008_audit_decomposed",
+        "import_rewriter"
       ],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 2,
+      "edges_in": [
+        "executor"
+      ],
+      "in_degree": 1,
+      "out_degree": 3,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1339,13 +1964,16 @@
       "ver": 3,
       "tokens": 2927,
       "lines": 1023,
-      "edges_out": [],
+      "edges_out": [
+        "nametag"
+      ],
       "edges_in": [
         "heal",
-        "run_heal"
+        "run_heal",
+        "import_rewriter"
       ],
-      "in_degree": 2,
-      "out_degree": 0,
+      "in_degree": 3,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1378,14 +2006,16 @@
       "tokens": 1924,
       "lines": 244,
       "edges_out": [
-        "scanner"
+        "scanner",
+        "planner"
       ],
       "edges_in": [
         "planner",
-        "run_heal"
+        "run_heal",
+        "manifest_builder"
       ],
-      "in_degree": 2,
-      "out_degree": 1,
+      "in_degree": 3,
+      "out_degree": 2,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1416,14 +2046,16 @@
       "tokens": 919,
       "lines": 109,
       "edges_out": [
-        "nametag"
+        "nametag",
+        "registry"
       ],
       "edges_in": [
         "run_heal",
-        "run_rename"
+        "run_rename",
+        "nametag"
       ],
-      "in_degree": 2,
-      "out_degree": 1,
+      "in_degree": 3,
+      "out_degree": 2,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1453,13 +2085,15 @@
       "tokens": 2129,
       "lines": 253,
       "edges_out": [
-        "scanner"
-      ],
-      "edges_in": [
+        "scanner",
         "run_heal"
       ],
-      "in_degree": 1,
-      "out_degree": 1,
+      "edges_in": [
+        "run_heal",
+        "planner"
+      ],
+      "in_degree": 2,
+      "out_degree": 2,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1498,11 +2132,14 @@
         "manifest_builder",
         "compliance_seq008_audit_decomposed",
         "nametag",
+        "registry",
+        "run_rename"
+      ],
+      "edges_in": [
         "registry"
       ],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 9,
+      "in_degree": 1,
+      "out_degree": 10,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1536,8 +2173,10 @@
         "executor",
         "validator"
       ],
-      "edges_in": [],
-      "in_degree": 0,
+      "edges_in": [
+        "run_heal"
+      ],
+      "in_degree": 1,
       "out_degree": 5,
       "human_hesitation": 0.0,
       "human_misses": 0,
@@ -1565,7 +2204,9 @@
       "ver": 4,
       "tokens": 972,
       "lines": 108,
-      "edges_out": [],
+      "edges_out": [
+        "validator"
+      ],
       "edges_in": [
         "nametag",
         "registry",
@@ -1573,7 +2214,7 @@
         "run_rename"
       ],
       "in_degree": 4,
-      "out_degree": 0,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1603,9 +2244,10 @@
       "edges_out": [],
       "edges_in": [
         "run_heal",
-        "run_rename"
+        "run_rename",
+        "scanner"
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 0,
       "human_hesitation": 0.0,
       "human_misses": 0,
@@ -1636,10 +2278,12 @@
       "ver": 2,
       "tokens": 388,
       "lines": 0,
-      "edges_out": [],
+      "edges_out": [
+        "press_release_gen_template_builders_seq002_v001"
+      ],
       "edges_in": [],
       "in_degree": 0,
-      "out_degree": 0,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1652,9 +2296,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "class_decomposer",
-        "adapter",
-        "drift"
+        "cli",
+        "demo_sim",
+        "dual_substrate"
       ],
       "dual_score": 0.0
     },
@@ -1666,10 +2310,14 @@
       "ver": 2,
       "tokens": 296,
       "lines": 0,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "press_release_gen_template_helpers_seq004_v001"
+      ],
+      "edges_in": [
+        "press_release_gen_constants_seq001_v001"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1682,9 +2330,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "class_decomposer",
-        "adapter",
-        "drift"
+        "cli",
+        "demo_sim",
+        "dual_substrate"
       ],
       "dual_score": 0.0
     },
@@ -1696,10 +2344,14 @@
       "ver": 2,
       "tokens": 296,
       "lines": 0,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "press_release_gen_template_key_findings"
+      ],
+      "edges_in": [
+        "press_release_gen_template_builders_seq002_v001"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1712,9 +2364,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "class_decomposer",
-        "adapter",
-        "drift"
+        "cli",
+        "demo_sim",
+        "dual_substrate"
       ],
       "dual_score": 0.0
     },
@@ -1727,8 +2379,10 @@
       "tokens": 626,
       "lines": 0,
       "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
+      "edges_in": [
+        "press_release_gen_template_helpers_seq004_v001"
+      ],
+      "in_degree": 1,
       "out_degree": 0,
       "human_hesitation": 0.0,
       "human_misses": 0,
@@ -1742,9 +2396,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "class_decomposer",
-        "adapter",
-        "drift"
+        "cli",
+        "demo_sim",
+        "dual_substrate"
       ],
       "dual_score": 0.0
     },
@@ -1756,12 +2410,14 @@
       "ver": 4,
       "tokens": 1016,
       "lines": 110,
-      "edges_out": [],
+      "edges_out": [
+        "reaudit_diff"
+      ],
       "edges_in": [
         "run_clean_split"
       ],
       "in_degree": 1,
-      "out_degree": 0,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1791,10 +2447,14 @@
       "ver": 4,
       "tokens": 1732,
       "lines": 190,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "run_clean_split"
+      ],
+      "edges_in": [
+        "manifest_bridge"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1826,13 +2486,14 @@
       "lines": 59,
       "edges_out": [
         "func_decomposer",
-        "source_slicer"
+        "source_slicer",
+        "run_clean_split_init"
       ],
       "edges_in": [
         "run_clean_split"
       ],
       "in_degree": 1,
-      "out_degree": 2,
+      "out_degree": 3,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1859,12 +2520,15 @@
       "ver": 4,
       "tokens": 1663,
       "lines": 199,
-      "edges_out": [],
-      "edges_in": [
-        "run_clean_split"
+      "edges_out": [
+        "run_compiler_test"
       ],
-      "in_degree": 1,
-      "out_degree": 0,
+      "edges_in": [
+        "run_clean_split",
+        "run_clean_split_helpers"
+      ],
+      "in_degree": 2,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1894,11 +2558,14 @@
       "tokens": 594,
       "lines": 67,
       "edges_out": [
-        "ether_map_builder"
+        "ether_map_builder",
+        "run_deepseek_plans"
       ],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 1,
+      "edges_in": [
+        "run_clean_split_init"
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1926,11 +2593,14 @@
       "tokens": 587,
       "lines": 69,
       "edges_out": [
-        "deepseek_plan_prompt"
+        "deepseek_plan_prompt",
+        "run_pigeon_loop"
       ],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 1,
+      "edges_in": [
+        "run_compiler_test"
+      ],
+      "in_degree": 1,
+      "out_degree": 2,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -1968,12 +2638,13 @@
         "manifest_writer",
         "import_fixer",
         "func_decomposer",
-        "source_slicer",
         "deepseek_adapter"
       ],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 12,
+      "edges_in": [
+        "run_deepseek_plans"
+      ],
+      "in_degree": 1,
+      "out_degree": 11,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2002,12 +2673,14 @@
       "ver": 4,
       "tokens": 734,
       "lines": 90,
-      "edges_out": [],
+      "edges_out": [
+        "call_graph"
+      ],
       "edges_in": [
         "ether_map_builder"
       ],
       "in_degree": 1,
-      "out_degree": 0,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2034,13 +2707,16 @@
       "ver": 4,
       "tokens": 847,
       "lines": 104,
-      "edges_out": [],
+      "edges_out": [
+        "ether_map_builder"
+      ],
       "edges_in": [
         "ether_map_builder",
-        "resistance_analyzer"
+        "resistance_analyzer",
+        "ast_parser"
       ],
-      "in_degree": 2,
-      "out_degree": 0,
+      "in_degree": 3,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2078,9 +2754,10 @@
       ],
       "edges_in": [
         "run_compiler_test",
-        "run_pigeon_loop"
+        "run_pigeon_loop",
+        "call_graph"
       ],
-      "in_degree": 2,
+      "in_degree": 3,
       "out_degree": 5,
       "human_hesitation": 0.0,
       "human_misses": 0,
@@ -2109,13 +2786,15 @@
       "tokens": 1037,
       "lines": 97,
       "edges_out": [
-        "call_graph"
+        "call_graph",
+        "shared_state_detector"
       ],
       "edges_in": [
-        "ether_map_builder"
+        "ether_map_builder",
+        "import_tracer"
       ],
-      "in_degree": 1,
-      "out_degree": 1,
+      "in_degree": 2,
+      "out_degree": 2,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2144,9 +2823,10 @@
       "lines": 66,
       "edges_out": [],
       "edges_in": [
-        "ether_map_builder"
+        "ether_map_builder",
+        "resistance_analyzer"
       ],
-      "in_degree": 1,
+      "in_degree": 2,
       "out_degree": 0,
       "human_hesitation": 0.0,
       "human_misses": 0,
@@ -2211,10 +2891,12 @@
       "ver": 2,
       "tokens": 1264,
       "lines": 125,
-      "edges_out": [],
+      "edges_out": [
+        "drift"
+      ],
       "edges_in": [],
       "in_degree": 0,
-      "out_degree": 0,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2227,9 +2909,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "class_decomposer",
-        "drift",
-        "unsaid"
+        "cli",
+        "demo_sim",
+        "dual_substrate"
       ],
       "dual_score": 0.0
     },
@@ -2241,10 +2923,14 @@
       "ver": 3,
       "tokens": 299,
       "lines": 31,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "drift"
+      ],
+      "edges_in": [
+        "drift"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2271,10 +2957,14 @@
       "ver": 3,
       "tokens": 828,
       "lines": 76,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "drift"
+      ],
+      "edges_in": [
+        "drift"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2301,10 +2991,14 @@
       "ver": 3,
       "tokens": 557,
       "lines": 62,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "drift"
+      ],
+      "edges_in": [
+        "drift"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2318,8 +3012,8 @@
       "fears": [],
       "partners": [
         "streaming_layer",
-        "drift",
-        "streaming_layer_aggregator"
+        "trace_hook",
+        "drift"
       ],
       "dual_score": 0.0
     },
@@ -2331,10 +3025,14 @@
       "ver": 3,
       "tokens": 677,
       "lines": 69,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "drift"
+      ],
+      "edges_in": [
+        "drift"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2361,10 +3059,22 @@
       "ver": 2,
       "tokens": 2262,
       "lines": 234,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "unsaid",
+        "drift_seq003_baseline_store",
+        "drift_seq003_build_cognitive_context",
+        "drift_seq003_compute_baseline",
+        "drift_seq003_detect_session_drift"
+      ],
+      "edges_in": [
+        "adapter",
+        "drift_seq003_baseline_store",
+        "drift_seq003_build_cognitive_context",
+        "drift_seq003_compute_baseline",
+        "drift_seq003_detect_session_drift"
+      ],
+      "in_degree": 5,
+      "out_degree": 5,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2377,9 +3087,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
+        "trace_hook",
         "streaming_layer_aggregator",
-        "streaming_layer_alerts",
-        "drift_seq003_compute_baseline"
+        "streaming_layer_alerts"
       ],
       "dual_score": 0.0
     },
@@ -2391,10 +3101,14 @@
       "ver": 3,
       "tokens": 245,
       "lines": 27,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "unsaid"
+      ],
+      "edges_in": [
+        "unsaid"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2421,10 +3135,14 @@
       "ver": 3,
       "tokens": 561,
       "lines": 61,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "unsaid"
+      ],
+      "edges_in": [
+        "unsaid"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2453,10 +3171,14 @@
       "ver": 3,
       "tokens": 1493,
       "lines": 159,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "unsaid"
+      ],
+      "edges_in": [
+        "unsaid"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2485,10 +3207,19 @@
       "ver": 2,
       "tokens": 2108,
       "lines": 226,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "unsaid_seq002_diff",
+        "unsaid_seq002_helpers",
+        "unsaid_seq002_orchestrator"
+      ],
+      "edges_in": [
+        "drift",
+        "unsaid_seq002_diff",
+        "unsaid_seq002_helpers",
+        "unsaid_seq002_orchestrator"
+      ],
+      "in_degree": 4,
+      "out_degree": 3,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2503,9 +3234,9 @@
         "regex format dependency"
       ],
       "partners": [
+        "loop_detector",
         "query_memory",
-        "drift",
-        "cognitive_reactor_seq014_cognitive_hint"
+        "graph_extractor"
       ],
       "dual_score": 0.0
     },
@@ -2517,10 +3248,14 @@
       "ver": 2,
       "tokens": 24,
       "lines": 11,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "cognitive_reactor"
+      ],
+      "edges_in": [
+        "cognitive_reactor"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2533,9 +3268,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "class_decomposer",
-        "adapter",
-        "drift"
+        "cli",
+        "demo_sim",
+        "dual_substrate"
       ],
       "dual_score": 0.0
     },
@@ -2547,10 +3282,14 @@
       "ver": 2,
       "tokens": 244,
       "lines": 36,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "cognitive_reactor"
+      ],
+      "edges_in": [
+        "cognitive_reactor"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2566,9 +3305,9 @@
         "file may not exist"
       ],
       "partners": [
-        "cognitive_reactor_seq014_docstring_patch",
-        "cognitive_reactor_seq014_patch_generator",
-        "cognitive_reactor_seq014_reactor_core"
+        "graph_extractor",
+        "loop_detector",
+        "cognitive_reactor_seq014_docstring_patch"
       ],
       "dual_score": 0.0
     },
@@ -2580,10 +3319,14 @@
       "ver": 2,
       "tokens": 95,
       "lines": 19,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "cognitive_reactor"
+      ],
+      "edges_in": [
+        "cognitive_reactor"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2596,9 +3339,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "cognitive_reactor_seq014_patch_generator",
-        "cognitive_reactor_seq014_reactor_core",
-        "cognitive_reactor_seq014_state_ops"
+        "graph_extractor",
+        "loop_detector",
+        "cognitive_reactor_seq014_patch_generator"
       ],
       "dual_score": 0.0
     },
@@ -2610,10 +3353,14 @@
       "ver": 2,
       "tokens": 25,
       "lines": 11,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "cognitive_reactor"
+      ],
+      "edges_in": [
+        "cognitive_reactor"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2626,9 +3373,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "class_decomposer",
-        "adapter",
-        "drift"
+        "cli",
+        "demo_sim",
+        "dual_substrate"
       ],
       "dual_score": 0.0
     },
@@ -2640,10 +3387,14 @@
       "ver": 2,
       "tokens": 563,
       "lines": 70,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "cognitive_reactor"
+      ],
+      "edges_in": [
+        "cognitive_reactor"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2672,10 +3423,14 @@
       "ver": 2,
       "tokens": 781,
       "lines": 102,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "cognitive_reactor"
+      ],
+      "edges_in": [
+        "cognitive_reactor"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2688,9 +3443,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "cognitive_reactor_seq014_docstring_patch",
-        "cognitive_reactor_seq014_reactor_core",
-        "cognitive_reactor_seq014_state_ops"
+        "graph_extractor",
+        "live_server",
+        "loop_detector"
       ],
       "dual_score": 0.0
     },
@@ -2702,10 +3457,14 @@
       "ver": 2,
       "tokens": 24,
       "lines": 11,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "cognitive_reactor"
+      ],
+      "edges_in": [
+        "cognitive_reactor"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2718,9 +3477,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "class_decomposer",
-        "adapter",
-        "drift"
+        "cli",
+        "demo_sim",
+        "dual_substrate"
       ],
       "dual_score": 0.0
     },
@@ -2732,10 +3491,14 @@
       "ver": 2,
       "tokens": 25,
       "lines": 11,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "cognitive_reactor"
+      ],
+      "edges_in": [
+        "cognitive_reactor"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2748,9 +3511,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "class_decomposer",
-        "adapter",
-        "drift"
+        "cli",
+        "demo_sim",
+        "dual_substrate"
       ],
       "dual_score": 0.0
     },
@@ -2762,10 +3525,14 @@
       "ver": 2,
       "tokens": 1026,
       "lines": 121,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "cognitive_reactor"
+      ],
+      "edges_in": [
+        "cognitive_reactor"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2781,9 +3548,9 @@
         "file may not exist"
       ],
       "partners": [
-        "cognitive_reactor_seq014_docstring_patch",
-        "cognitive_reactor_seq014_patch_generator",
-        "cognitive_reactor_seq014_state_ops"
+        "dual_substrate",
+        "failure_detector",
+        "graph_extractor"
       ],
       "dual_score": 0.0
     },
@@ -2795,10 +3562,14 @@
       "ver": 2,
       "tokens": 25,
       "lines": 11,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "cognitive_reactor"
+      ],
+      "edges_in": [
+        "cognitive_reactor"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2811,9 +3582,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "class_decomposer",
-        "adapter",
-        "drift"
+        "cli",
+        "demo_sim",
+        "dual_substrate"
       ],
       "dual_score": 0.0
     },
@@ -2825,10 +3596,14 @@
       "ver": 2,
       "tokens": 25,
       "lines": 11,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "cognitive_reactor"
+      ],
+      "edges_in": [
+        "cognitive_reactor"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2841,9 +3616,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "class_decomposer",
-        "adapter",
-        "drift"
+        "cli",
+        "demo_sim",
+        "dual_substrate"
       ],
       "dual_score": 0.0
     },
@@ -2855,10 +3630,14 @@
       "ver": 2,
       "tokens": 146,
       "lines": 27,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "cognitive_reactor"
+      ],
+      "edges_in": [
+        "cognitive_reactor"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2874,9 +3653,9 @@
         "file may not exist"
       ],
       "partners": [
-        "cognitive_reactor_seq014_patch_generator",
-        "cognitive_reactor_seq014_reactor_core",
-        "copilot_prompt_manager_seq020_audit_decomposed"
+        "graph_extractor",
+        "loop_detector",
+        "cognitive_reactor_seq014_patch_generator"
       ],
       "dual_score": 0.0
     },
@@ -2888,10 +3667,37 @@
       "ver": 3,
       "tokens": 3529,
       "lines": 416,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "context_budget",
+        "cognitive_reactor_seq014_api_client",
+        "cognitive_reactor_seq014_cognitive_hint",
+        "cognitive_reactor_seq014_constants",
+        "cognitive_reactor_seq014_decision_maker",
+        "cognitive_reactor_seq014_docstring_patch",
+        "cognitive_reactor_seq014_patch_generator",
+        "cognitive_reactor_seq014_patch_writer",
+        "cognitive_reactor_seq014_prompt_builder",
+        "cognitive_reactor_seq014_reactor_core",
+        "cognitive_reactor_seq014_registry_loader",
+        "cognitive_reactor_seq014_self_fix_runner",
+        "cognitive_reactor_seq014_state_ops"
+      ],
+      "edges_in": [
+        "cognitive_reactor_seq014_api_client",
+        "cognitive_reactor_seq014_cognitive_hint",
+        "cognitive_reactor_seq014_constants",
+        "cognitive_reactor_seq014_decision_maker",
+        "cognitive_reactor_seq014_docstring_patch",
+        "cognitive_reactor_seq014_patch_generator",
+        "cognitive_reactor_seq014_patch_writer",
+        "cognitive_reactor_seq014_prompt_builder",
+        "cognitive_reactor_seq014_reactor_core",
+        "cognitive_reactor_seq014_registry_loader",
+        "cognitive_reactor_seq014_self_fix_runner",
+        "cognitive_reactor_seq014_state_ops"
+      ],
+      "in_degree": 12,
+      "out_degree": 13,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2921,10 +3727,14 @@
       "ver": 2,
       "tokens": 729,
       "lines": 76,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "copilot_prompt_manager"
+      ],
+      "edges_in": [
+        "copilot_prompt_manager"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2939,9 +3749,9 @@
         "file may not exist"
       ],
       "partners": [
-        "cognitive_reactor_seq014_patch_generator",
-        "cognitive_reactor_seq014_reactor_core",
-        "cognitive_reactor_seq014_state_ops"
+        "dual_substrate",
+        "failure_detector",
+        "graph_extractor"
       ],
       "dual_score": 0.0
     },
@@ -2953,10 +3763,14 @@
       "ver": 2,
       "tokens": 665,
       "lines": 75,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "copilot_prompt_manager"
+      ],
+      "edges_in": [
+        "copilot_prompt_manager"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2969,9 +3783,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
+        "loop_detector",
         "cognitive_reactor_seq014_reactor_core",
-        "copilot_prompt_manager_seq020_audit_decomposed",
-        "copilot_prompt_manager_seq020_operator_state_decomposed"
+        "copilot_prompt_manager_seq020_audit_decomposed"
       ],
       "dual_score": 0.0
     },
@@ -2983,10 +3797,14 @@
       "ver": 2,
       "tokens": 200,
       "lines": 30,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "copilot_prompt_manager"
+      ],
+      "edges_in": [
+        "copilot_prompt_manager"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -2999,9 +3817,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "cognitive_reactor_seq014_constants",
-        "cognitive_reactor_seq014_patch_generator",
-        "cognitive_reactor_seq014_reactor_core"
+        "cli",
+        "dual_substrate",
+        "execution_logger"
       ],
       "dual_score": 0.0
     },
@@ -3013,10 +3831,14 @@
       "ver": 2,
       "tokens": 461,
       "lines": 66,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "copilot_prompt_manager"
+      ],
+      "edges_in": [
+        "copilot_prompt_manager"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3031,9 +3853,9 @@
         "file may not exist"
       ],
       "partners": [
-        "cognitive_reactor_seq014_patch_generator",
-        "cognitive_reactor_seq014_reactor_core",
-        "cognitive_reactor_seq014_state_ops"
+        "graph_extractor",
+        "loop_detector",
+        "cognitive_reactor_seq014_patch_generator"
       ],
       "dual_score": 0.0
     },
@@ -3045,10 +3867,14 @@
       "ver": 2,
       "tokens": 236,
       "lines": 38,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "copilot_prompt_manager"
+      ],
+      "edges_in": [
+        "copilot_prompt_manager"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3064,9 +3890,9 @@
         "returns empty on failure (silent)"
       ],
       "partners": [
-        "cognitive_reactor_seq014_patch_generator",
-        "cognitive_reactor_seq014_reactor_core",
-        "cognitive_reactor_seq014_state_ops"
+        "graph_extractor",
+        "loop_detector",
+        "cognitive_reactor_seq014_patch_generator"
       ],
       "dual_score": 0.0
     },
@@ -3078,10 +3904,14 @@
       "ver": 2,
       "tokens": 472,
       "lines": 53,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "copilot_prompt_manager"
+      ],
+      "edges_in": [
+        "copilot_prompt_manager"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3097,9 +3927,9 @@
         "file may not exist"
       ],
       "partners": [
-        "cognitive_reactor_seq014_cognitive_hint",
-        "cognitive_reactor_seq014_docstring_patch",
-        "cognitive_reactor_seq014_patch_generator"
+        "graph_extractor",
+        "loop_detector",
+        "cognitive_reactor_seq014_cognitive_hint"
       ],
       "dual_score": 0.0
     },
@@ -3111,10 +3941,14 @@
       "ver": 2,
       "tokens": 632,
       "lines": 70,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "copilot_prompt_manager"
+      ],
+      "edges_in": [
+        "copilot_prompt_manager"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3127,9 +3961,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
+        "loop_detector",
         "cognitive_reactor_seq014_reactor_core",
-        "copilot_prompt_manager_seq020_audit_decomposed",
-        "copilot_prompt_manager_seq020_auto_index"
+        "copilot_prompt_manager_seq020_audit_decomposed"
       ],
       "dual_score": 0.0
     },
@@ -3141,10 +3975,14 @@
       "ver": 2,
       "tokens": 521,
       "lines": 61,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "copilot_prompt_manager"
+      ],
+      "edges_in": [
+        "copilot_prompt_manager"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3159,9 +3997,9 @@
         "file may not exist"
       ],
       "partners": [
-        "cognitive_reactor_seq014_cognitive_hint",
-        "cognitive_reactor_seq014_docstring_patch",
-        "cognitive_reactor_seq014_patch_generator"
+        "graph_extractor",
+        "loop_detector",
+        "cognitive_reactor_seq014_cognitive_hint"
       ],
       "dual_score": 0.0
     },
@@ -3173,10 +4011,14 @@
       "ver": 2,
       "tokens": 329,
       "lines": 45,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "copilot_prompt_manager"
+      ],
+      "edges_in": [
+        "copilot_prompt_manager"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3191,9 +4033,9 @@
         "file may not exist"
       ],
       "partners": [
-        "cognitive_reactor_seq014_patch_generator",
-        "cognitive_reactor_seq014_reactor_core",
-        "cognitive_reactor_seq014_state_ops"
+        "graph_extractor",
+        "loop_detector",
+        "cognitive_reactor_seq014_patch_generator"
       ],
       "dual_score": 0.0
     },
@@ -3205,10 +4047,34 @@
       "ver": 2,
       "tokens": 4488,
       "lines": 500,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "drift_watcher",
+        "copilot_prompt_manager_seq020_audit_decomposed",
+        "copilot_prompt_manager_seq020_auto_index",
+        "copilot_prompt_manager_seq020_block_utils",
+        "copilot_prompt_manager_seq020_constants",
+        "copilot_prompt_manager_seq020_injectors",
+        "copilot_prompt_manager_seq020_json_utils",
+        "copilot_prompt_manager_seq020_operator_profile",
+        "copilot_prompt_manager_seq020_operator_state_decomposed",
+        "copilot_prompt_manager_seq020_orchestrator",
+        "copilot_prompt_manager_seq020_telemetry_utils"
+      ],
+      "edges_in": [
+        "context_budget",
+        "copilot_prompt_manager_seq020_audit_decomposed",
+        "copilot_prompt_manager_seq020_auto_index",
+        "copilot_prompt_manager_seq020_block_utils",
+        "copilot_prompt_manager_seq020_constants",
+        "copilot_prompt_manager_seq020_injectors",
+        "copilot_prompt_manager_seq020_json_utils",
+        "copilot_prompt_manager_seq020_operator_profile",
+        "copilot_prompt_manager_seq020_operator_state_decomposed",
+        "copilot_prompt_manager_seq020_orchestrator",
+        "copilot_prompt_manager_seq020_telemetry_utils"
+      ],
+      "in_degree": 11,
+      "out_degree": 11,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3225,9 +4091,9 @@
         "regex format dependency"
       ],
       "partners": [
-        "cognitive_reactor_seq014_patch_generator",
-        "cognitive_reactor_seq014_reactor_core",
-        "cognitive_reactor_seq014_state_ops"
+        "dual_substrate",
+        "failure_detector",
+        "graph_extractor"
       ],
       "dual_score": 0.0
     },
@@ -3239,10 +4105,14 @@
       "ver": 4,
       "tokens": 1117,
       "lines": 126,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "dynamic_prompt"
+      ],
+      "edges_in": [
+        "copilot_prompt_manager"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3269,10 +4139,14 @@
       "ver": 2,
       "tokens": 4343,
       "lines": 473,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "file_heat_map"
+      ],
+      "edges_in": [
+        "dynamic_prompt"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3290,9 +4164,9 @@
         "returns empty on failure (silent)"
       ],
       "partners": [
-        "cognitive_reactor_seq014_patch_generator",
-        "cognitive_reactor_seq014_reactor_core",
-        "cognitive_reactor_seq014_state_ops"
+        "graph_extractor",
+        "loop_detector",
+        "cognitive_reactor_seq014_patch_generator"
       ],
       "dual_score": 0.0
     },
@@ -3304,10 +4178,14 @@
       "ver": 5,
       "tokens": 1636,
       "lines": 178,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "models"
+      ],
+      "edges_in": [
+        "file_heat_map"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3321,38 +4199,8 @@
       "fears": [],
       "partners": [
         "streaming_layer",
-        "streaming_layer_alerts",
-        "streaming_layer_connection_pool"
-      ],
-      "dual_score": 0.0
-    },
-    {
-      "name": "models",
-      "desc": "dataclasses_for_keystroke_events_and",
-      "path": "src/models_seq002_v003_d0317__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt.py",
-      "seq": 2,
-      "ver": 3,
-      "tokens": 379,
-      "lines": 44,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
-      "human_hesitation": 0.0,
-      "human_misses": 0,
-      "agent_deaths": 0,
-      "agent_calls": 1,
-      "agent_latency_ms": 0,
-      "agent_loops": 0,
-      "death_rate": 0.0,
-      "death_causes": {},
-      "last_called": "2026-03-22T22:17:25.881845+00:00",
-      "personality": "stable",
-      "fears": [],
-      "partners": [
-        "streaming_layer",
-        "streaming_layer_alerts",
-        "streaming_layer_dataclasses"
+        "execution_logger",
+        "streaming_layer_alerts"
       ],
       "dual_score": 0.0
     },
@@ -3364,10 +4212,14 @@
       "ver": 2,
       "tokens": 1611,
       "lines": 188,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "operator_stats"
+      ],
+      "edges_in": [
+        "models"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3383,9 +4235,9 @@
         "file may not exist"
       ],
       "partners": [
-        "cognitive_reactor_seq014_reactor_core",
-        "copilot_prompt_manager_seq020_audit_decomposed",
-        "copilot_prompt_manager"
+        "dual_substrate",
+        "failure_detector",
+        "graph_heat_map"
       ],
       "dual_score": 0.0
     },
@@ -3397,10 +4249,14 @@
       "ver": 3,
       "tokens": 2276,
       "lines": 275,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "push_narrative"
+      ],
+      "edges_in": [
+        "operator_stats"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3430,10 +4286,14 @@
       "ver": 4,
       "tokens": 2308,
       "lines": 252,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "resistance_bridge"
+      ],
+      "edges_in": [
+        "push_narrative"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3463,10 +4323,14 @@
       "ver": 3,
       "tokens": 1222,
       "lines": 124,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "rework_backfill"
+      ],
+      "edges_in": [
+        "query_memory"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3493,10 +4357,14 @@
       "ver": 2,
       "tokens": 1198,
       "lines": 153,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "rework_detector"
+      ],
+      "edges_in": [
+        "resistance_bridge"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3513,9 +4381,9 @@
         "returns empty on failure (silent)"
       ],
       "partners": [
-        "cognitive_reactor_seq014_reactor_core",
-        "copilot_prompt_manager_seq020_audit_decomposed",
-        "copilot_prompt_manager"
+        "dual_substrate",
+        "failure_detector",
+        "graph_heat_map"
       ],
       "dual_score": 0.0
     },
@@ -3527,10 +4395,14 @@
       "ver": 2,
       "tokens": 1569,
       "lines": 188,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "self_fix"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3548,9 +4420,9 @@
         "regex format dependency"
       ],
       "partners": [
-        "cognitive_reactor_seq014_reactor_core",
-        "copilot_prompt_manager_seq020_audit_decomposed",
-        "copilot_prompt_manager"
+        "dual_substrate",
+        "failure_detector",
+        "graph_heat_map"
       ],
       "dual_score": 0.0
     },
@@ -3562,10 +4434,44 @@
       "ver": 3,
       "tokens": 10189,
       "lines": 1166,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "task_queue",
+        "streaming_layer_aggregator",
+        "streaming_layer_alerts",
+        "streaming_layer_connection_pool",
+        "streaming_layer_constants",
+        "streaming_layer_dashboard",
+        "streaming_layer_dataclasses",
+        "streaming_layer_demo_functions",
+        "streaming_layer_demo_simulate",
+        "streaming_layer_demo_summary",
+        "streaming_layer_formatter",
+        "streaming_layer_http_handler",
+        "streaming_layer_metrics",
+        "streaming_layer_orchestrator",
+        "streaming_layer_replay",
+        "streaming_layer_simulation_helpers"
+      ],
+      "edges_in": [
+        "session_handoff",
+        "streaming_layer_aggregator",
+        "streaming_layer_alerts",
+        "streaming_layer_connection_pool",
+        "streaming_layer_constants",
+        "streaming_layer_dashboard",
+        "streaming_layer_dataclasses",
+        "streaming_layer_demo_functions",
+        "streaming_layer_demo_simulate",
+        "streaming_layer_demo_summary",
+        "streaming_layer_formatter",
+        "streaming_layer_http_handler",
+        "streaming_layer_metrics",
+        "streaming_layer_orchestrator",
+        "streaming_layer_replay",
+        "streaming_layer_simulation_helpers"
+      ],
+      "in_degree": 16,
+      "out_degree": 16,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3592,10 +4498,14 @@
       "ver": 2,
       "tokens": 1608,
       "lines": 180,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "timestamp_utils"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3612,7 +4522,7 @@
       "partners": [
         "run_pigeon_loop",
         "dynamic_prompt",
-        "cognitive_reactor_seq014_reactor_core"
+        "dual_substrate"
       ],
       "dual_score": 0.0
     },
@@ -3625,8 +4535,10 @@
       "tokens": 156,
       "lines": 24,
       "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
+      "edges_in": [
+        "task_queue"
+      ],
+      "in_degree": 1,
       "out_degree": 0,
       "human_hesitation": 0.0,
       "human_misses": 0,
@@ -3654,10 +4566,14 @@
       "ver": 2,
       "tokens": 839,
       "lines": 111,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3672,7 +4588,7 @@
       "partners": [
         "streaming_layer_alerts",
         "streaming_layer",
-        "drift"
+        "trace_hook"
       ],
       "dual_score": 0.0
     },
@@ -3684,10 +4600,14 @@
       "ver": 2,
       "tokens": 1264,
       "lines": 144,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3700,9 +4620,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
+        "execution_logger",
         "streaming_layer_aggregator",
-        "streaming_layer_connection_pool",
-        "streaming_layer"
+        "streaming_layer_connection_pool"
       ],
       "dual_score": 0.0
     },
@@ -3714,10 +4634,14 @@
       "ver": 2,
       "tokens": 899,
       "lines": 121,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3730,9 +4654,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "streaming_layer_alerts",
-        "streaming_layer_http_handler",
-        "streaming_layer_replay"
+        "execution_logger",
+        "live_server",
+        "trace_hook"
       ],
       "dual_score": 0.0
     },
@@ -3744,10 +4668,14 @@
       "ver": 2,
       "tokens": 261,
       "lines": 52,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3760,9 +4688,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "cognitive_reactor_seq014_constants",
-        "cognitive_reactor_seq014_patch_generator",
-        "cognitive_reactor_seq014_reactor_core"
+        "cli",
+        "dual_substrate",
+        "execution_logger"
       ],
       "dual_score": 0.0
     },
@@ -3774,10 +4702,14 @@
       "ver": 2,
       "tokens": 845,
       "lines": 80,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3790,9 +4722,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "class_decomposer",
-        "adapter",
-        "drift"
+        "cli",
+        "demo_sim",
+        "dual_substrate"
       ],
       "dual_score": 0.0
     },
@@ -3804,10 +4736,14 @@
       "ver": 2,
       "tokens": 154,
       "lines": 21,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3820,9 +4756,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
+        "execution_logger",
         "streaming_layer_alerts",
-        "streaming_layer",
-        "drift"
+        "streaming_layer"
       ],
       "dual_score": 0.0
     },
@@ -3834,10 +4770,14 @@
       "ver": 2,
       "tokens": 280,
       "lines": 35,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3850,9 +4790,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "drift",
-        "streaming_layer_aggregator",
-        "streaming_layer_alerts"
+        "demo_sim",
+        "execution_logger",
+        "live_server"
       ],
       "dual_score": 0.0
     },
@@ -3864,10 +4804,14 @@
       "ver": 2,
       "tokens": 256,
       "lines": 31,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3880,9 +4824,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "drift",
-        "streaming_layer_aggregator",
-        "streaming_layer_alerts"
+        "demo_sim",
+        "execution_logger",
+        "live_server"
       ],
       "dual_score": 0.0
     },
@@ -3894,10 +4838,14 @@
       "ver": 2,
       "tokens": 365,
       "lines": 42,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3910,9 +4858,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "cognitive_reactor_seq014_constants",
-        "cognitive_reactor_seq014_patch_generator",
-        "cognitive_reactor_seq014_reactor_core"
+        "cli",
+        "dual_substrate",
+        "execution_logger"
       ],
       "dual_score": 0.0
     },
@@ -3924,10 +4872,14 @@
       "ver": 2,
       "tokens": 546,
       "lines": 65,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3940,9 +4892,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "streaming_layer",
-        "cognitive_reactor_seq014_patch_generator",
-        "cognitive_reactor_seq014_reactor_core"
+        "live_server",
+        "trace_hook",
+        "streaming_layer"
       ],
       "dual_score": 0.0
     },
@@ -3954,10 +4906,14 @@
       "ver": 2,
       "tokens": 1167,
       "lines": 149,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -3970,9 +4926,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "streaming_layer_connection_pool",
-        "streaming_layer_replay",
-        "streaming_layer"
+        "execution_logger",
+        "live_server",
+        "trace_hook"
       ],
       "dual_score": 0.0
     },
@@ -3984,10 +4940,14 @@
       "ver": 2,
       "tokens": 785,
       "lines": 90,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -4014,10 +4974,14 @@
       "ver": 2,
       "tokens": 142,
       "lines": 17,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -4030,9 +4994,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "class_decomposer",
-        "adapter",
-        "drift"
+        "cli",
+        "demo_sim",
+        "dual_substrate"
       ],
       "dual_score": 0.0
     },
@@ -4044,10 +5008,14 @@
       "ver": 2,
       "tokens": 932,
       "lines": 108,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -4060,9 +5028,9 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "streaming_layer_connection_pool",
-        "streaming_layer_http_handler",
-        "streaming_layer"
+        "execution_logger",
+        "live_server",
+        "trace_hook"
       ],
       "dual_score": 0.0
     },
@@ -4074,10 +5042,14 @@
       "ver": 2,
       "tokens": 204,
       "lines": 28,
-      "edges_out": [],
-      "edges_in": [],
-      "in_degree": 0,
-      "out_degree": 0,
+      "edges_out": [
+        "streaming_layer"
+      ],
+      "edges_in": [
+        "streaming_layer"
+      ],
+      "in_degree": 1,
+      "out_degree": 1,
       "human_hesitation": 0.0,
       "human_misses": 0,
       "agent_deaths": 0,
@@ -4090,14 +5062,129 @@
       "personality": "fresh",
       "fears": [],
       "partners": [
-        "drift",
-        "streaming_layer_aggregator",
-        "streaming_layer_alerts"
+        "demo_sim",
+        "execution_logger",
+        "live_server"
       ],
       "dual_score": 0.0
     }
   ],
   "edges": [
+    {
+      "from": "cli",
+      "to": "graph_extractor",
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "observer_synthesis",
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "dual_substrate",
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "graph_heat_map",
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "failure_detector",
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "loop_detector",
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "demo_sim",
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "live_server",
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "traced_runner",
+      "type": "import"
+    },
+    {
+      "from": "demo_sim",
+      "to": "execution_logger",
+      "type": "import"
+    },
+    {
+      "from": "demo_sim",
+      "to": "graph_extractor",
+      "type": "import"
+    },
+    {
+      "from": "demo_sim",
+      "to": "graph_heat_map",
+      "type": "import"
+    },
+    {
+      "from": "demo_sim",
+      "to": "loop_detector",
+      "type": "import"
+    },
+    {
+      "from": "demo_sim",
+      "to": "failure_detector",
+      "type": "import"
+    },
+    {
+      "from": "dual_substrate",
+      "to": "graph_extractor",
+      "type": "import"
+    },
+    {
+      "from": "dual_substrate",
+      "to": "graph_heat_map",
+      "type": "import"
+    },
+    {
+      "from": "execution_logger",
+      "to": "models",
+      "type": "import"
+    },
+    {
+      "from": "live_server",
+      "to": "trace_hook",
+      "type": "import"
+    },
+    {
+      "from": "observer_synthesis",
+      "to": "graph_heat_map",
+      "type": "import"
+    },
+    {
+      "from": "observer_synthesis",
+      "to": "loop_detector",
+      "type": "import"
+    },
+    {
+      "from": "observer_synthesis",
+      "to": "failure_detector",
+      "type": "import"
+    },
+    {
+      "from": "observer_synthesis",
+      "to": "graph_extractor",
+      "type": "import"
+    },
+    {
+      "from": "traced_runner",
+      "to": "trace_hook",
+      "type": "import"
+    },
     {
       "from": "class_decomposer",
       "to": "deepseek_adapter",
@@ -4130,31 +5217,6 @@
     },
     {
       "from": "compliance_seq008_audit_wrapper",
-      "to": "compliance_seq008_audit_decomposed",
-      "type": "import"
-    },
-    {
-      "from": "compliance_seq008_audit_wrapper",
-      "to": "compliance_seq008_audit_decomposed",
-      "type": "import"
-    },
-    {
-      "from": "compliance_seq008_audit_wrapper",
-      "to": "compliance_seq008_audit_decomposed",
-      "type": "import"
-    },
-    {
-      "from": "compliance_seq008_audit_wrapper",
-      "to": "compliance_seq008_audit_decomposed",
-      "type": "import"
-    },
-    {
-      "from": "compliance_seq008_check_file",
-      "to": "compliance_seq008_audit_decomposed",
-      "type": "import"
-    },
-    {
-      "from": "compliance_seq008_check_file",
       "to": "compliance_seq008_audit_decomposed",
       "type": "import"
     },
@@ -4410,11 +5472,6 @@
     },
     {
       "from": "run_pigeon_loop",
-      "to": "source_slicer",
-      "type": "import"
-    },
-    {
-      "from": "run_pigeon_loop",
       "to": "deepseek_adapter",
       "type": "import"
     },
@@ -4457,6 +5514,861 @@
       "from": "self_fix",
       "to": "run_clean_split",
       "type": "import"
+    },
+    {
+      "from": "demo_sim",
+      "to": "dual_substrate",
+      "type": "package"
+    },
+    {
+      "from": "dual_substrate",
+      "to": "execution_logger",
+      "type": "package"
+    },
+    {
+      "from": "execution_logger",
+      "to": "failure_detector",
+      "type": "package"
+    },
+    {
+      "from": "failure_detector",
+      "to": "graph_extractor",
+      "type": "package"
+    },
+    {
+      "from": "graph_extractor",
+      "to": "graph_heat_map",
+      "type": "package"
+    },
+    {
+      "from": "graph_heat_map",
+      "to": "live_server",
+      "type": "package"
+    },
+    {
+      "from": "live_server",
+      "to": "loop_detector",
+      "type": "package"
+    },
+    {
+      "from": "loop_detector",
+      "to": "observer_synthesis",
+      "type": "package"
+    },
+    {
+      "from": "observer_synthesis",
+      "to": "trace_hook",
+      "type": "package"
+    },
+    {
+      "from": "trace_hook",
+      "to": "traced_runner",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "context_budget",
+      "type": "package"
+    },
+    {
+      "from": "context_budget",
+      "to": "copilot_prompt_manager",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "drift_watcher",
+      "type": "package"
+    },
+    {
+      "from": "drift_watcher",
+      "to": "dynamic_prompt",
+      "type": "package"
+    },
+    {
+      "from": "dynamic_prompt",
+      "to": "file_consciousness",
+      "type": "package"
+    },
+    {
+      "from": "file_consciousness",
+      "to": "file_heat_map",
+      "type": "package"
+    },
+    {
+      "from": "file_heat_map",
+      "to": "logger",
+      "type": "package"
+    },
+    {
+      "from": "logger",
+      "to": "models",
+      "type": "package"
+    },
+    {
+      "from": "models",
+      "to": "mutation_scorer",
+      "type": "package"
+    },
+    {
+      "from": "mutation_scorer",
+      "to": "operator_stats",
+      "type": "package"
+    },
+    {
+      "from": "operator_stats",
+      "to": "pulse_harvest",
+      "type": "package"
+    },
+    {
+      "from": "pulse_harvest",
+      "to": "push_narrative",
+      "type": "package"
+    },
+    {
+      "from": "push_narrative",
+      "to": "query_memory",
+      "type": "package"
+    },
+    {
+      "from": "query_memory",
+      "to": "resistance_bridge",
+      "type": "package"
+    },
+    {
+      "from": "resistance_bridge",
+      "to": "rework_backfill",
+      "type": "package"
+    },
+    {
+      "from": "rework_backfill",
+      "to": "rework_detector",
+      "type": "package"
+    },
+    {
+      "from": "rework_detector",
+      "to": "self_fix",
+      "type": "package"
+    },
+    {
+      "from": "self_fix",
+      "to": "session_handoff",
+      "type": "package"
+    },
+    {
+      "from": "session_handoff",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "task_queue",
+      "type": "package"
+    },
+    {
+      "from": "task_queue",
+      "to": "timestamp_utils",
+      "type": "package"
+    },
+    {
+      "from": "aim_utils",
+      "to": "core_formatters",
+      "type": "package"
+    },
+    {
+      "from": "core_formatters",
+      "to": "nl_parsers",
+      "type": "package"
+    },
+    {
+      "from": "nl_parsers",
+      "to": "pq_manifest_utils",
+      "type": "package"
+    },
+    {
+      "from": "pq_manifest_utils",
+      "to": "pq_search_utils",
+      "type": "package"
+    },
+    {
+      "from": "class_decomposer",
+      "to": "file_writer",
+      "type": "package"
+    },
+    {
+      "from": "file_writer",
+      "to": "func_decomposer",
+      "type": "package"
+    },
+    {
+      "from": "func_decomposer",
+      "to": "import_fixer",
+      "type": "package"
+    },
+    {
+      "from": "import_fixer",
+      "to": "init_writer",
+      "type": "package"
+    },
+    {
+      "from": "init_writer",
+      "to": "manifest_writer",
+      "type": "package"
+    },
+    {
+      "from": "manifest_writer",
+      "to": "plan_parser",
+      "type": "package"
+    },
+    {
+      "from": "plan_parser",
+      "to": "plan_validator",
+      "type": "package"
+    },
+    {
+      "from": "plan_validator",
+      "to": "resplit",
+      "type": "package"
+    },
+    {
+      "from": "resplit_helpers",
+      "to": "source_slicer",
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "compliance_seq008_audit_decomposed",
+      "type": "package"
+    },
+    {
+      "from": "compliance_seq008_audit_decomposed",
+      "to": "compliance",
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "compliance_seq008_audit_wrapper",
+      "type": "package"
+    },
+    {
+      "from": "compliance_seq008_audit_wrapper",
+      "to": "compliance",
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "compliance_seq008_check_file",
+      "type": "package"
+    },
+    {
+      "from": "compliance_seq008_check_file",
+      "to": "compliance",
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "compliance_seq008_classify",
+      "type": "package"
+    },
+    {
+      "from": "compliance_seq008_classify",
+      "to": "compliance",
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "compliance_seq008_format_report",
+      "type": "package"
+    },
+    {
+      "from": "compliance_seq008_format_report",
+      "to": "compliance",
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "compliance_seq008_helpers",
+      "type": "package"
+    },
+    {
+      "from": "compliance_seq008_helpers",
+      "to": "compliance",
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "compliance_seq008_recommend_wrapper",
+      "type": "package"
+    },
+    {
+      "from": "compliance_seq008_recommend_wrapper",
+      "to": "compliance",
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "executor",
+      "type": "package"
+    },
+    {
+      "from": "executor",
+      "to": "heal",
+      "type": "package"
+    },
+    {
+      "from": "heal",
+      "to": "import_rewriter",
+      "type": "package"
+    },
+    {
+      "from": "import_rewriter",
+      "to": "manifest_builder",
+      "type": "package"
+    },
+    {
+      "from": "manifest_builder",
+      "to": "nametag",
+      "type": "package"
+    },
+    {
+      "from": "nametag",
+      "to": "planner",
+      "type": "package"
+    },
+    {
+      "from": "planner",
+      "to": "registry",
+      "type": "package"
+    },
+    {
+      "from": "registry",
+      "to": "run_heal",
+      "type": "package"
+    },
+    {
+      "from": "run_heal",
+      "to": "run_rename",
+      "type": "package"
+    },
+    {
+      "from": "scanner",
+      "to": "validator",
+      "type": "package"
+    },
+    {
+      "from": "press_release_gen_constants_seq001_v001",
+      "to": "press_release_gen_template_builders_seq002_v001",
+      "type": "package"
+    },
+    {
+      "from": "press_release_gen_template_builders_seq002_v001",
+      "to": "press_release_gen_template_helpers_seq004_v001",
+      "type": "package"
+    },
+    {
+      "from": "press_release_gen_template_helpers_seq004_v001",
+      "to": "press_release_gen_template_key_findings",
+      "type": "package"
+    },
+    {
+      "from": "manifest_bridge",
+      "to": "reaudit_diff",
+      "type": "package"
+    },
+    {
+      "from": "reaudit_diff",
+      "to": "run_clean_split",
+      "type": "package"
+    },
+    {
+      "from": "run_clean_split_helpers",
+      "to": "run_clean_split_init",
+      "type": "package"
+    },
+    {
+      "from": "run_clean_split_init",
+      "to": "run_compiler_test",
+      "type": "package"
+    },
+    {
+      "from": "run_compiler_test",
+      "to": "run_deepseek_plans",
+      "type": "package"
+    },
+    {
+      "from": "run_deepseek_plans",
+      "to": "run_pigeon_loop",
+      "type": "package"
+    },
+    {
+      "from": "ast_parser",
+      "to": "call_graph",
+      "type": "package"
+    },
+    {
+      "from": "call_graph",
+      "to": "ether_map_builder",
+      "type": "package"
+    },
+    {
+      "from": "import_tracer",
+      "to": "resistance_analyzer",
+      "type": "package"
+    },
+    {
+      "from": "resistance_analyzer",
+      "to": "shared_state_detector",
+      "type": "package"
+    },
+    {
+      "from": "adapter",
+      "to": "drift",
+      "type": "package"
+    },
+    {
+      "from": "drift",
+      "to": "unsaid",
+      "type": "package"
+    },
+    {
+      "from": "drift",
+      "to": "drift_seq003_baseline_store",
+      "type": "package"
+    },
+    {
+      "from": "drift_seq003_baseline_store",
+      "to": "drift",
+      "type": "package"
+    },
+    {
+      "from": "drift",
+      "to": "drift_seq003_build_cognitive_context",
+      "type": "package"
+    },
+    {
+      "from": "drift_seq003_build_cognitive_context",
+      "to": "drift",
+      "type": "package"
+    },
+    {
+      "from": "drift",
+      "to": "drift_seq003_compute_baseline",
+      "type": "package"
+    },
+    {
+      "from": "drift_seq003_compute_baseline",
+      "to": "drift",
+      "type": "package"
+    },
+    {
+      "from": "drift",
+      "to": "drift_seq003_detect_session_drift",
+      "type": "package"
+    },
+    {
+      "from": "drift_seq003_detect_session_drift",
+      "to": "drift",
+      "type": "package"
+    },
+    {
+      "from": "unsaid",
+      "to": "unsaid_seq002_diff",
+      "type": "package"
+    },
+    {
+      "from": "unsaid_seq002_diff",
+      "to": "unsaid",
+      "type": "package"
+    },
+    {
+      "from": "unsaid",
+      "to": "unsaid_seq002_helpers",
+      "type": "package"
+    },
+    {
+      "from": "unsaid_seq002_helpers",
+      "to": "unsaid",
+      "type": "package"
+    },
+    {
+      "from": "unsaid",
+      "to": "unsaid_seq002_orchestrator",
+      "type": "package"
+    },
+    {
+      "from": "unsaid_seq002_orchestrator",
+      "to": "unsaid",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_api_client",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_api_client",
+      "to": "cognitive_reactor",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_cognitive_hint",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_cognitive_hint",
+      "to": "cognitive_reactor",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_constants",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_constants",
+      "to": "cognitive_reactor",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_decision_maker",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_decision_maker",
+      "to": "cognitive_reactor",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_docstring_patch",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_docstring_patch",
+      "to": "cognitive_reactor",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_patch_generator",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_patch_generator",
+      "to": "cognitive_reactor",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_patch_writer",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_patch_writer",
+      "to": "cognitive_reactor",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_prompt_builder",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_prompt_builder",
+      "to": "cognitive_reactor",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_reactor_core",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_reactor_core",
+      "to": "cognitive_reactor",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_registry_loader",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_registry_loader",
+      "to": "cognitive_reactor",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_self_fix_runner",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_self_fix_runner",
+      "to": "cognitive_reactor",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_state_ops",
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_state_ops",
+      "to": "cognitive_reactor",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_audit_decomposed",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_audit_decomposed",
+      "to": "copilot_prompt_manager",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_auto_index",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_auto_index",
+      "to": "copilot_prompt_manager",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_block_utils",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_block_utils",
+      "to": "copilot_prompt_manager",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_constants",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_constants",
+      "to": "copilot_prompt_manager",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_injectors",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_injectors",
+      "to": "copilot_prompt_manager",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_json_utils",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_json_utils",
+      "to": "copilot_prompt_manager",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_operator_profile",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_operator_profile",
+      "to": "copilot_prompt_manager",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_operator_state_decomposed",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_operator_state_decomposed",
+      "to": "copilot_prompt_manager",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_orchestrator",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_orchestrator",
+      "to": "copilot_prompt_manager",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_telemetry_utils",
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_telemetry_utils",
+      "to": "copilot_prompt_manager",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_aggregator",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_aggregator",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_alerts",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_alerts",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_connection_pool",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_connection_pool",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_constants",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_constants",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_dashboard",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_dashboard",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_dataclasses",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_dataclasses",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_demo_functions",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_demo_functions",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_demo_simulate",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_demo_simulate",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_demo_summary",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_demo_summary",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_formatter",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_formatter",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_http_handler",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_http_handler",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_metrics",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_metrics",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_orchestrator",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_orchestrator",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_replay",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_replay",
+      "to": "streaming_layer",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_simulation_helpers",
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_simulation_helpers",
+      "to": "streaming_layer",
+      "type": "package"
     }
   ]
 }

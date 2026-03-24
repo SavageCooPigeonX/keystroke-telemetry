@@ -48,143 +48,188 @@ body {
   border-color: #333 !important;
 }
 
-/* ── Profiler Cards ── */
-.profiler-card {
-  background: #0f1020;
+/* ── Neuron Cells (compact brain mode) ── */
+.neuron-cell {
+  background: #0d0d1e;
   border: 1px solid #2a2a3e;
-  border-radius: 6px;
-  padding: 8px 10px;
-  width: 190px;
+  border-left: 3px solid #448aff;
+  border-radius: 8px;
+  padding: 5px 8px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-size: 11px;
   color: #ccc;
   cursor: pointer;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  position: relative;
+  overflow: visible;
+  will-change: transform;
+  transition: border-color 0.2s, box-shadow 0.3s;
 }
-.profiler-card:hover {
-  transform: scale(1.03);
+.neuron-cell:hover {
   z-index: 100;
   border-color: #5577ff;
-  box-shadow: 0 0 12px rgba(85,119,255,0.3);
+  box-shadow: 0 0 14px rgba(85,119,255,0.35);
+  transform: scale(1.08) !important;
 }
-.profiler-card.selected {
+.neuron-cell.selected {
   border-color: #00ff88;
-  box-shadow: 0 0 16px rgba(0,255,136,0.3);
+  box-shadow: 0 0 16px rgba(0,255,136,0.35);
 }
-.profiler-card.sev-critical { border-left: 3px solid #ff2222; }
-.profiler-card.sev-hot      { border-left: 3px solid #ff8800; }
-.profiler-card.sev-warm     { border-left: 3px solid #ffcc00; }
-.profiler-card.sev-safe     { border-left: 3px solid #334; }
+.neuron-cell.cell-hub {
+  border-width: 1px 1px 1px 4px;
+}
+.neuron-cell.sev-critical { border-left-color: #ff2222; }
+.neuron-cell.sev-hot      { border-left-color: #ff8800; }
+.neuron-cell.sev-warm     { border-left-color: #ffcc00; }
 
-.card-handle { opacity: 0; width: 6px; height: 6px; }
+.cell-handle { opacity: 0; width: 6px; height: 6px; }
 
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 2px;
-}
-.card-name {
-  font-weight: 700;
-  font-size: 12px;
-  color: #fff;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 140px;
-}
-.card-ver {
-  font-size: 10px;
-  color: #888;
-  flex-shrink: 0;
-}
-
-.card-desc {
-  font-size: 9px;
-  color: #666;
-  margin-bottom: 4px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.card-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px 8px;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
-  padding: 4px 0;
-}
-.stat-row {
-  display: flex;
-  justify-content: space-between;
-}
-.stat-key {
-  color: #666;
-  font-size: 10px;
-}
-.stat-val {
-  color: #aaa;
-  font-size: 10px;
-  font-family: monospace;
-}
-.stat-danger .stat-key,
-.stat-danger .stat-val { color: #ff4444; }
-.stat-warn .stat-key,
-.stat-warn .stat-val { color: #ff8800; }
-
-/* Heat bars */
-.card-bars {
-  padding: 3px 0;
-}
-.bar-row {
+.cell-top {
   display: flex;
   align-items: center;
   gap: 4px;
-  margin: 2px 0;
+  min-width: 0;
 }
-.bar-label {
-  font-size: 9px;
-  color: #666;
-  width: 24px;
-  text-align: right;
+.cell-name {
+  font-weight: 700;
+  font-size: 11px;
+  color: #eee;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+.cell-hub .cell-name { font-size: 13px; }
+
+.cell-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
   flex-shrink: 0;
 }
-.bar-track {
-  flex: 1;
-  height: 4px;
-  background: #1a1a2e;
-  border-radius: 2px;
+.cell-dot.dot-alive { background: #00ff88; box-shadow: 0 0 4px #00ff88; }
+.cell-dot.dot-dead  { background: #ff2222; box-shadow: 0 0 4px #ff2222; animation: livePulse 1s infinite; }
+
+.cell-meta {
+  display: flex;
+  gap: 4px;
+  font-size: 9px;
+  color: #777;
+  margin-top: 1px;
+  flex-wrap: nowrap;
   overflow: hidden;
 }
-.bar-fill {
+.cell-ver { color: #00ccff; font-family: monospace; }
+.cell-score { font-family: monospace; }
+.cell-score.sev-critical { color: #ff4444; }
+.cell-score.sev-hot { color: #ff8800; }
+.cell-score.sev-warm { color: #ccaa00; }
+.cell-heat { color: #00ff88; }
+.cell-deaths { color: #ff4444; }
+.cell-degree { color: #888; }
+
+.cell-bar-track {
+  height: 2px;
+  background: #1a1a2e;
+  border-radius: 1px;
+  margin-top: 3px;
+  overflow: hidden;
+}
+.cell-bar-fill {
   height: 100%;
-  border-radius: 2px;
+  border-radius: 1px;
   transition: width 0.3s;
 }
-.hes-bar { background: #ff8800; }
-.dual-bar.sev-safe { background: #4488ff; }
-.dual-bar.sev-warm { background: #ffcc00; }
-.dual-bar.sev-hot  { background: #ff8800; }
-.dual-bar.sev-critical { background: #ff2222; }
-.bar-num {
-  font-size: 9px;
-  color: #888;
-  font-family: monospace;
-  width: 28px;
-  text-align: right;
-  flex-shrink: 0;
+.cell-bar-fill.sev-safe     { background: #4488ff; }
+.cell-bar-fill.sev-warm     { background: #ffcc00; }
+.cell-bar-fill.sev-hot      { background: #ff8800; }
+.cell-bar-fill.sev-critical { background: #ff2222; }
+
+/* Narrative note tag */
+.cell-narrative {
+  margin-top: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  cursor: help;
+}
+.cell-narr-tag {
+  font-size: 7px;
+  color: #8888cc;
+  background: rgba(100,100,180,0.15);
+  border-radius: 3px;
+  padding: 0 3px;
+  letter-spacing: 0.3px;
 }
 
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  font-size: 9px;
-  color: #555;
-  padding-top: 2px;
+/* Dead path amputation badge */
+.cell-dead-paths {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  font-size: 8px;
+  color: #ff4444;
+  background: rgba(255,34,34,0.15);
+  border: 1px solid rgba(255,34,34,0.4);
+  border-radius: 6px;
+  padding: 0 4px;
+  line-height: 14px;
+  cursor: help;
+  z-index: 10;
 }
-.card-personality { text-transform: uppercase; letter-spacing: 0.5px; }
-.card-last { font-family: monospace; }
+
+/* Active cell flash */
+@keyframes cellFlash {
+  0% { box-shadow: 0 0 0 rgba(0,255,136,0); }
+  20% { box-shadow: 0 0 18px rgba(0,255,136,0.6); border-color: #00ff88; }
+  100% { box-shadow: 0 0 0 rgba(0,255,136,0); }
+}
+.neuron-cell.cell-active {
+  animation: cellFlash 0.8s ease-out;
+  border-color: #00ff88 !important;
+  z-index: 50;
+}
+.neuron-cell.cell-dead {
+  border-color: #ff2222 !important;
+  animation: cardShake 0.5s ease-out;
+}
+
+/* Ping rings (reused from before) */
+.neuron-cell .ping-ring {
+  position: absolute;
+  inset: -3px;
+  border: 1.5px solid rgba(0,255,136,0.5);
+  border-radius: 10px;
+  pointer-events: none;
+  animation: pingExpand 1.2s ease-out forwards;
+}
+.neuron-cell .ping-ring-2 { animation-delay: 0.2s; }
+
+/* ── Region Labels ── */
+.region-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.55;
+  white-space: nowrap;
+}
+.region-icon { font-size: 18px; }
+.region-name { font-family: 'SF Mono', 'Fira Code', monospace; }
+.region-count {
+  font-size: 11px;
+  opacity: 0.5;
+  font-weight: 400;
+}
 
 /* Electron dots */
 .electron-layer {
@@ -395,19 +440,55 @@ body {
 }
 .val-danger { color: #ff4444; }
 
-/* ── Live Trace Animations ── */
+/* ── Shared Keyframe Animations ── */
 
-/* Card active flash — when a function call enters this module */
-@keyframes cardFlash {
-  0% { box-shadow: 0 0 0 rgba(0,255,136,0); border-color: inherit; }
-  20% { box-shadow: 0 0 20px rgba(0,255,136,0.6); border-color: #00ff88; }
-  100% { box-shadow: 0 0 0 rgba(0,255,136,0); }
+@keyframes pingExpand {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+    border-color: rgba(0,255,136,0.7);
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+    border-color: rgba(0,255,136,0);
+  }
 }
-.profiler-card.card-active {
-  animation: cardFlash 0.8s ease-out;
-  border-color: #00ff88 !important;
-  box-shadow: 0 0 16px rgba(0,255,136,0.4);
-  z-index: 50;
+
+@keyframes cardShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-1px); }
+  80% { transform: translateX(1px); }
+}
+
+/* Profile panel narrative (full text) */
+.profile-narrative {
+  margin-bottom: 8px;
+}
+.narrative-text {
+  font-size: 11px;
+  color: #aaa;
+  line-height: 1.5;
+  margin: 4px 0;
+}
+.narrative-commit {
+  font-size: 9px;
+  color: #555;
+  font-family: monospace;
+}
+
+/* ── Electron SVG Overlay ── */
+.electron-svg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: visible;
 }
 
 /* Live indicator (top-left of graph) */
@@ -508,5 +589,261 @@ body {
   font-size: 10px;
   color: #555;
   padding: 8px 0;
+  font-style: italic;
+}
+
+/* ── ChatPanel ── */
+.chat-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid #4488ff;
+  background: #0d0d1a;
+  color: #4488ff;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(68,136,255,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.chat-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(68,136,255,0.5);
+}
+.chat-toggle-icon { line-height: 1; }
+.chat-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #ff4444;
+  color: #fff;
+  font-size: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-panel {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  width: 420px;
+  height: 520px;
+  background: #0d0d1a;
+  border: 1px solid #2a2a4e;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #111128;
+  border-bottom: 1px solid #2a2a4e;
+}
+.chat-title {
+  color: #4488ff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.chat-header-actions { display: flex; gap: 6px; }
+.chat-btn-clear, .chat-btn-close {
+  background: none;
+  border: 1px solid #333;
+  color: #888;
+  font-size: 14px;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chat-btn-clear:hover, .chat-btn-close:hover { color: #fff; border-color: #555; }
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.chat-messages::-webkit-scrollbar { width: 4px; }
+.chat-messages::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+.chat-empty {
+  color: #555;
+  font-size: 12px;
+  text-align: center;
+  padding: 40px 12px;
+  line-height: 1.6;
+}
+.chat-context-hint {
+  margin-top: 8px;
+  color: #4488ff;
+  font-size: 11px;
+}
+
+.chat-msg {
+  max-width: 92%;
+  animation: feedSlide 0.2s ease-out;
+}
+.chat-msg-user { align-self: flex-end; }
+.chat-msg-model { align-self: flex-start; }
+
+.chat-msg-role {
+  font-size: 9px;
+  color: #555;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.chat-msg-user .chat-msg-role { text-align: right; }
+
+.chat-msg-text {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.chat-msg-user .chat-msg-text {
+  background: #1a2a4e;
+  color: #ddd;
+  border-bottom-right-radius: 3px;
+}
+.chat-msg-model .chat-msg-text {
+  background: #1a1a2e;
+  color: #ccc;
+  border: 1px solid #2a2a4e;
+  border-bottom-left-radius: 3px;
+}
+
+.chat-loading { padding: 10px 14px; }
+.dot-pulse {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4488ff;
+  animation: dotPulse 1.2s infinite ease-in-out;
+}
+.dot-pulse::before, .dot-pulse::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4488ff;
+  position: absolute;
+}
+.dot-pulse::before { margin-left: -12px; animation: dotPulse 1.2s infinite ease-in-out 0.2s; }
+.dot-pulse::after { margin-left: 12px; animation: dotPulse 1.2s infinite ease-in-out 0.4s; }
+@keyframes dotPulse {
+  0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1.2); }
+}
+
+.chat-input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  padding: 10px 12px;
+  border-top: 1px solid #2a2a4e;
+  background: #111128;
+}
+.chat-input {
+  flex: 1;
+  background: #0d0d1a;
+  border: 1px solid #2a2a4e;
+  color: #ddd;
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+  max-height: 80px;
+}
+.chat-input:focus { border-color: #4488ff; }
+.chat-input::placeholder { color: #444; }
+
+.chat-send {
+  background: #4488ff;
+  border: none;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.chat-send:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.chat-send:not(:disabled):hover {
+  background: #5599ff;
+}
+
+/* File action blocks from Gemini write_file */
+.chat-file-actions {
+  padding: 8px 12px;
+  background: #0d1a0d;
+  border: 1px solid #1a3a1a;
+  border-radius: 8px;
+  font-size: 11px;
+}
+.chat-file-actions-header {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6a6;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.chat-file-action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+  color: #ccc;
+}
+.chat-file-action.success .chat-file-icon { color: #6c6; }
+.chat-file-action.error .chat-file-icon { color: #c66; }
+.chat-file-path {
+  font-family: monospace;
+  color: #8af;
+}
+.chat-file-size {
+  color: #666;
+  font-size: 10px;
+}
+.chat-file-error {
+  color: #c66;
+  font-size: 10px;
   font-style: italic;
 }

@@ -53,6 +53,7 @@ def build_graph(root: Path) -> dict:
 
     # Extract import edges via AST
     edges = []
+    seen_edges = set()
     for name, node in nodes.items():
         fpath = root / node["path"]
         if not fpath.exists():
@@ -61,11 +62,15 @@ def build_graph(root: Path) -> dict:
         for imp in imports:
             # Match imported module name to a registered node
             target = _resolve_import(imp, nodes, path_to_name)
-            if target and target != name:
+            if target and target != name and (name, target) not in seen_edges:
+                seen_edges.add((name, target))
                 edges.append({"from": name, "to": target, "type": "import"})
                 node["edges_out"].append(target)
                 if target in nodes:
                     nodes[target]["edges_in"].append(name)
+
+    # Wire intra-package edges from __init__.py files
+    _wire_package_edges(root, nodes, path_to_name, edges, seen_edges)
 
     return {"nodes": nodes, "edges": edges, "total": len(nodes)}
 
@@ -100,6 +105,59 @@ def _resolve_import(module_name: str, nodes: dict, path_map: dict) -> str | None
         if name_clean == clean or name == base:
             return name
     return None
+
+
+def _wire_package_edges(root: Path, nodes: dict, path_to_name: dict,
+                        edges: list, seen: set) -> None:
+    """Wire sub-modules to their parent monolith via directory membership.
+
+    Any registered file inside a package directory is connected to the
+    parent monolith node (star topology). If no parent exists, sub-modules
+    in the same directory are chained together.
+    """
+    # Group registered nodes by their parent directory
+    dir_to_members: dict[str, list[str]] = {}
+    for name, info in nodes.items():
+        p = info["path"].replace("\\", "/")
+        parts = p.rsplit("/", 1)
+        if len(parts) == 2:
+            dir_to_members.setdefault(parts[0], []).append(name)
+
+    for pkg_dir, members in dir_to_members.items():
+        if len(members) < 2:
+            continue
+
+        # Find the parent monolith node (lives outside pkg_dir, name matches)
+        dir_base = pkg_dir.rsplit("/", 1)[-1]
+        dir_clean = re.sub(r'_seq\d+.*$', '', dir_base)
+        parent = None
+        member_set = set(members)
+        for name in nodes:
+            if name in member_set:
+                continue
+            if re.sub(r'_seq\d+.*$', '', name) == dir_clean:
+                parent = name
+                break
+
+        def _add_edge(a: str, b: str, etype: str = "package") -> None:
+            if (a, b) not in seen:
+                seen.add((a, b))
+                edges.append({"from": a, "to": b, "type": etype})
+                nodes[a]["edges_out"].append(b)
+                nodes[b]["edges_in"].append(a)
+
+        if parent:
+            # Star topology: parent <-> each sub-module
+            for sub in members:
+                if sub == parent:
+                    continue
+                _add_edge(parent, sub)
+                _add_edge(sub, parent)
+        else:
+            # No parent monolith — chain the sub-modules together
+            chain = sorted(members)
+            for i in range(len(chain) - 1):
+                _add_edge(chain[i], chain[i + 1])
 
 
 def load_graph(root: Path) -> dict:

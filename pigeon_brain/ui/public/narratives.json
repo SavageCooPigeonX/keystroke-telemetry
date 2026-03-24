@@ -1,0 +1,104 @@
+{
+  "context_budget": {
+    "text": "the scorer that decides what stays and what gets cut when we’re about to exceed token limits. I was touched to implement the `fire_full_post` intent, which means I now need to handle a new, high-priority class of content that must never be truncated. My assumption is that the `lc_pulse_telemetry_prompt` module provides a stable, callable scoring function; I now import and depend on its output format. If that contract changes—if it returns a dict instead of a float, or scales scores differently—my priority sorting will break silently, potentially demoting critical telemetry data. Watch for the telemetry context being incorrectly deprioritized and dropped from final posts.",
+    "date": "2026-03-21",
+    "commit": "c4789d2",
+    "intent": "fire_full_post"
+  },
+  "file_writer": {
+    "text": "and I was touched to implement the new `multi_line_import` intent, which required me to parse and rewrite Python import statements that span multiple lines into a single-line, Pigeon-compliant format. My core assumption is that I can correctly identify the boundaries of a multi-line import using parenthesis matching and that the source code after the `import` keyword is syntactically valid Python. This could break if there are nested parentheses within the import statement (e.g., in a function call within a module-level string, which is bizarre but possible), causing me to capture too much or too little. Watch for regression where valid multi-line imports are corrupted or left unchanged, breaking downstream compilation.",
+    "date": "2026-03-22",
+    "commit": "4e3a7c4",
+    "intent": "multi_line_import"
+  },
+  "run_clean_split": {
+    "text": "the full clean pipeline orchestrator. I was touched to enforce Windows MAX_PATH (260 character) limits across all file operations, as our deep file trees were causing silent failures on Windows systems. My key assumption is that all path strings passed to me from `source_slicer`, `manifest_bridge`, and `resplit_helpers` are already sanitized and below the limit after my new truncation logic; if those modules start emitting raw, longer paths, my truncation may slice off critical unique identifiers or extensions, causing collisions or missing files. Watch for regression where output files have identical names or are written to the wrong directory due to over-aggressive path shortening.",
+    "date": "2026-03-22",
+    "commit": "556f5b2",
+    "intent": "windows_max_path"
+  },
+  "self_fix": {
+    "text": "the one-shot self-fix analyzer. I was touched to implement a new 'self_fix_auto' intent, which orchestrates a fully automated fix loop without requiring user confirmation at each step. My core assumption is that the underlying `run_clean_split` dependency will always return a clean, parseable diff and a definitive success/failure signal; if it starts returning ambiguous or malformed diffs, my loop will either spin infinitely or apply corrupt patches. Watch for regressions where I commit nonsense changes or fail to halt after a logical conclusion, as this indicates a breakdown in interpreting the dependency's output. I receive execution results from `run_clean_split` and give back a consolidated fix report; if that contract changes and the success flag becomes unreliable, the entire auto-fix mechanism will produce false positives.",
+    "date": "2026-03-22",
+    "commit": "c7bbba7",
+    "intent": "self_fix_auto"
+  },
+  "deepseek_adapter": {
+    "text": "the API client that talks to DeepSeek’s chat completions endpoint. I was touched to implement a configurable read timeout for streaming responses, because indefinite hangs on incomplete streams were blocking the pigeon loop. My assumption is that the `requests` library’s `stream=True` mode respects the `timeout` parameter for each chunk read; if that’s wrong, I’ll still hang. Watch for a regression where valid long streams are prematurely terminated because my timeout is too short for normal token delivery rates—this would manifest as truncated final outputs.",
+    "date": "2026-03-22",
+    "commit": "5f07f14",
+    "intent": "deepseek_timeout_read"
+  },
+  "deepseek_plan_prompt": {
+    "text": "responsible for constructing the plan prompt sent to DeepSeek. I was touched because the adapter’s new timeout parameter required a configuration passthrough in the build flow. I assume the adapter accepts the timeout via the same kwargs dict I’ve always passed; if the parameter name or expected type changes, I’ll silently fail to apply the timeout, reverting to the old hanging behavior. I give the assembled request dict to the adapter; if that contract changes, the adapter will receive `timeout_seconds` incorrectly or not at all.",
+    "date": "2026-03-22",
+    "commit": "5f07f14",
+    "intent": "deepseek_timeout_read"
+  },
+  "cli": {
+    "text": "I was touched to unify all subsystems into a single CLI entry point, assuming each module exposes a stable interface. If any subcommand’s signature changes, the CLI will break silently—watch for missing imports when a dependent module is refactored. I receive execution control from `traced_runner`, failure signals from `failure_detector`, and coaching from `observer_synthesis`; if `live_server`’s WebSocket contract changes, live tracing will hang.",
+    "date": "2026-03-23",
+    "commit": "465cbfa",
+    "intent": "pigeon_brain_system"
+  },
+  "demo_sim": {
+    "text": "I generate synthetic telemetry to test the pipeline, assuming the `execution_logger` emits events matching the real agent’s schema. If that schema drifts, my simulated data will produce invalid graphs. I depend on `graph_extractor` for structure and `loop_detector` for pattern injection; a change in `graph_heat_map`’s node‑ID format will cause heat‑map mismatches.",
+    "date": "2026-03-23",
+    "commit": "465cbfa",
+    "intent": "pigeon_brain_system"
+  },
+  "dual_substrate": {
+    "text": "I merge human and agent telemetry streams, assuming both share a common node‑labeling scheme from `graph_extractor`. If extractor output changes key fields, merges will corrupt. I receive graphs from `graph_extractor` and heat‑maps from `graph_heat_map`; if heat‑map aggregation logic changes, merged substrates will show skewed weights.",
+    "date": "2026-03-23",
+    "commit": "465cbfa",
+    "intent": "pigeon_brain_system"
+  },
+  "execution_logger": {
+    "text": "I log execution steps isomorphic to telemetry‑logger, assuming `models` define immutable event types. If `models` adds a required field without a default, historical logs will fail to replay. I feed `demo_sim`; if my timestamp granularity changes, simulation ordering may break.",
+    "date": "2026-03-23",
+    "commit": "465cbfa",
+    "intent": "pigeon_brain_system"
+  },
+  "failure_detector": {
+    "text": "I classify electron‑death‑style failures, assuming error patterns are stable. If exception‑message formats change, classifications will be wrong. I send signals to `observer_synthesis` and `cli`; if my output schema changes, coaching heuristics will misbehave.",
+    "date": "2026-03-23",
+    "commit": "465cbfa",
+    "intent": "pigeon_brain_system"
+  },
+  "graph_extractor": {
+    "text": "I extract cognition graphs from raw traces, assuming call‑stack depth is bounded. Deep recursion could overflow my buffers. I provide graphs to `dual_substrate`, `observer_synthesis`, and `demo_sim`; if I alter the adjacency‑list format, all downstream modules will misinterpret edges.",
+    "date": "2026-03-23",
+    "commit": "465cbfa",
+    "intent": "pigeon_brain_system"
+  },
+  "graph_heat_map": {
+    "text": "I accumulate failures per node, assuming node IDs persist across runs. If `graph_extractor` re‑IDs nodes, my accumulations will reset. I feed `dual_substrate` and `observer_synthesis`; if my map‑update frequency changes, real‑time observers may see stale data.",
+    "date": "2026-03-23",
+    "commit": "465cbfa",
+    "intent": "pigeon_brain_system"
+  },
+  "live_server": {
+    "text": "I serve WebSocket streams for live execution, assuming `trace_hook` emits events in a specific JSON shape. If the hook’s payload gains nested layers, clients will parse incorrectly. I depend on `trace_hook`; if trace emission blocks, connections will time out.",
+    "date": "2026-03-23",
+    "commit": "465cbfa",
+    "intent": "pigeon_brain_system"
+  },
+  "loop_detector": {
+    "text": "I detect recurring paths, assuming trace sequences are hashable. Mutable context in traces will cause false negatives. I inform `observer_synthesis` and `demo_sim`; if my cycle‑threshold changes, coaching suggestions may vanish.",
+    "date": "2026-03-23",
+    "commit": "465cbfa",
+    "intent": "pigeon_brain_system"
+  },
+  "observer_synthesis": {
+    "text": "I generate coaching from execution patterns, relying on `failure_detector`, `graph_extractor`, `graph_heat_map`, and `loop_detector`. If any of their outputs shift semantically, my advice will be nonsensical. I feed `cli`; if my recommendation format changes, the CLI may crash on display.",
+    "date": "2026-03-23",
+    "commit": "465cbfa",
+    "intent": "pigeon_brain_system"
+  },
+  "trace_hook": {
+    "text": "I instrument Python calls between pigeon‑brain components, assuming sys.s",
+    "date": "2026-03-23",
+    "commit": "465cbfa",
+    "intent": "pigeon_brain_system"
+  }
+}
