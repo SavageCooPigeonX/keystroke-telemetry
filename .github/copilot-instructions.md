@@ -59,10 +59,11 @@ Three systems working together:
 
 
 
+
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Enriched 2026-03-24 04:53 UTC · raw: "update / make master manifest more detailed / make read me cover everything - al"*
+*Enriched 2026-03-24 23:07 UTC · raw: "write glosstor 18 refusal genius queries because theire too unhinged then los sa"*
 
 (enrichment unavailable: No module named 'httpx')
 <!-- /pigeon:current-query -->
@@ -70,10 +71,10 @@ Three systems working together:
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-24 04:53 UTC · 1131 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-24 23:07 UTC · 1697 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `frustrated` (WPM: 685.7 | Del: 32.7% | Hes: 0.527)
+**Cognitive state:** `frustrated` (WPM: 31.8 | Del: 50.0% | Hes: 0.7)
 
 > **CoT directive:** Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.
 
@@ -86,14 +87,14 @@ Three systems working together:
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `context_budget` (hes=0.581)
-- `self_fix` (hes=0.581)
+- `context_budget` (hes=0.692)
+- `self_fix` (hes=0.692)
 
 ### Recent Work
+- `6e5e346` fix: flow engine CLI commands in docs — match actual interface (positional task arg)
+- `030a33d` docs: comprehensive MASTER_MANIFEST + README update — flow engine (6 modules), fix stale counts (152 registry, 137 nodes, 260 edges), architecture diagrams, CLI commands, compliance table, project structure tree
 - `c0caa0a` feat: flow engine — context-accumulating dataflow through the code graph
 - `5d61391` feat: per-prompt deleted word injection, predictive debug, context veins, keystroke pipeline fix
-- `8c33693` feat: Gemini chat + dead limb scanner + node growth + vein cascades + narratives on neurons
-- `465cbfa` pigeon_brain: System 4 — neural visualizer, dual-substrate heat, real-time trace, React UI, WebSocket 20Hz broadcast, README + MASTER_MANIFEST rewrite
 
 ### Coaching Directives
 *LLM-synthesized behavioral rules for this operator:*
@@ -122,7 +123,7 @@ Three systems working together:
 - [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v003_d0324__websocket_server_for_live_execution_lc_gemini_chat_dead.py`
 
 ### Prompt Evolution
-*This prompt has mutated 48x (186→640 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 52x (186→647 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
 *137 modules profiled*
@@ -174,9 +175,9 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-24 · 1142 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-24 · 1721 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 10% | WPM: 62.5 | Del: 39.9% | Hes: 0.569
+**Dominant: `frustrated`** | Submit: 7% | WPM: 50.6 | Del: 43.3% | Hes: 0.612
 
 The operator just renamed two core modules to "gemini_chat_dead," indicating a pivot in their AI system's chat component, and their extreme frustration (557 messages) with high deletion rates reveals they are brute-force debugging through rapid, repetitive edits, not strategic planning.
 
@@ -189,6 +190,7 @@ The operator just renamed two core modules to "gemini_chat_dead," indicating a p
 They are most likely building toward a stable, multi-LLM orchestration system with a new chat backend, requiring robust service handoff and state management.
 
 <!-- /pigeon:operator-state -->
+
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
@@ -199,40 +201,48 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-03-24T04:53:45.795433+00:00",
+  "updated_at": "2026-03-24T23:07:03.530533+00:00",
   "latest_prompt": {
-    "session_n": 1,
-    "ts": "2026-03-24T04:53:45.795433+00:00",
-    "chars": 188,
-    "preview": "update / make master manifest more detailed / make read me cover everything - also isint compiler supposed to be running per turn - push > then after documentation update - test the system",
-    "intent": "building",
-    "state": "hesitant",
+    "session_n": 2,
+    "ts": "2026-03-24T23:07:03.530533+00:00",
+    "chars": 382,
+    "preview": "write glosstor 18 refusal genius queries because theire too unhinged then los santos comedy 8888 words total doc - this must plan future architechture - glossator queries start with i cannot help a pigeon with underst...",
+    "intent": "documenting",
+    "state": "unknown",
     "files_open": [],
     "module_refs": []
   },
   "signals": {
-    "wpm": 8.2,
-    "chars_per_sec": 0.7,
-    "deletion_ratio": 0.034,
-    "hesitation_count": 3,
-    "rewrite_count": 1,
-    "typo_corrections": 3,
-    "intentional_deletions": 1,
-    "total_keystrokes": 204,
-    "duration_ms": 289763
+    "wpm": 6.1,
+    "chars_per_sec": 0.5,
+    "deletion_ratio": 0.066,
+    "hesitation_count": 12,
+    "rewrite_count": 2,
+    "typo_corrections": 8,
+    "intentional_deletions": 4,
+    "total_keystrokes": 453,
+    "duration_ms": 860554
   },
   "composition_binding": {
     "matched": true,
-    "source": "chat_compositions",
-    "age_ms": 35428,
-    "key": "|||2026-03-24T04:53:10.367407+00:00|204|289763|update / make master manifest more detailed / make read me cover everything - also isint compiler supposed to be running",
+    "source": "prompt_compositions",
+    "age_ms": 48484,
+    "key": "3b9967d950da|1774392714492|1774393575046|2026-03-24T23:07:04.927824+00:00|453|860554|so rn we \u0016>>> \u0016\u0016\u0016>>>> write glosstor 18 refusal genius queries because theire too unhinged then los santos comedy 8888 w",
     "match_score": 1.0
   },
-  "deleted_words": [],
+  "deleted_words": [
+    "aud",
+    "to",
+    "er"
+  ],
   "rewrites": [
     {
-      "old": " - ",
-      "new": " to be running per r"
+      "old": "aud",
+      "new": "so rn we \u0003"
+    },
+    {
+      "old": "er ",
+      "new": " los santos is a meltdown - "
     }
   ],
   "task_queue": {
@@ -256,30 +266,30 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 48,
-    "avg_wpm": 41.2,
-    "avg_del_ratio": 0.03,
+    "total_prompts": 49,
+    "avg_wpm": 39.9,
+    "avg_del_ratio": 0.031,
     "dominant_state": "unknown",
     "state_distribution": {
       "unknown": 40,
       "focused": 6,
-      "hesitant": 2
+      "hesitant": 3
     },
     "baselines": null
   },
   "predicted_struggles": [
     {
-      "module": "context_budget",
-      "score": 1.36,
+      "module": "self_fix",
+      "score": 1.58,
       "reasons": [
-        "high heat (0.58)"
+        "high heat (0.69)"
       ]
     },
     {
-      "module": "self_fix",
-      "score": 1.36,
+      "module": "context_budget",
+      "score": 1.58,
       "reasons": [
-        "high heat (0.58)"
+        "high heat (0.69)"
       ]
     }
   ]
@@ -287,6 +297,7 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```
 
 <!-- /pigeon:prompt-telemetry -->
+
 ---
 
 ## Module Map
