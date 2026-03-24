@@ -325,7 +325,13 @@ def classify_chat_state(comp: dict) -> dict:
 # ── Read and segment OS hook log ─────────────────────────────────────────────
 
 def _read_messages(log_path: Path) -> list[list[dict]]:
-    """Split OS hook log into per-message event lists (split on submit/discard)."""
+    """Split OS hook log into per-message event lists (split on submit/discard).
+
+    Groups ALL keystroke events between submit/discard markers, regardless of
+    context tag. Post-filters to keep only messages with meaningful typing
+    (>= 5 insert events), which filters editor Enter presses while keeping
+    real chat compositions.
+    """
     if not log_path.exists():
         return []
 
@@ -346,19 +352,20 @@ def _read_messages(log_path: Path) -> list[list[dict]]:
             continue
         events.append(evt)
 
+    # Group events between submit/discard markers
     messages = []
-    current = None
+    current: list[dict] = []
     for evt in events:
-        is_chat_evt = evt.get('context') == 'chat' or 'buffer' in evt
-        if current is None:
-            if not is_chat_evt:
-                continue
-            current = []
-
         current.append(evt)
         if evt.get('type') in ('submit', 'discard'):
-            messages.append(current)
-            current = None
+            if current:
+                messages.append(current)
+            current = []
+
+    # Post-filter: keep only messages with meaningful typing (not just Enter)
+    MIN_INSERTS = 5
+    messages = [m for m in messages
+                if sum(1 for e in m if e['type'] == 'insert') >= MIN_INSERTS]
 
     return messages
 

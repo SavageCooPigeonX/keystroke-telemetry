@@ -1,30 +1,33 @@
 ﻿# keystroke-telemetry
 
-> **Four systems. One closed loop. Zero LLM calls for the core signal. A real-time neural visualizer that watches itself think.**
+> **Four systems. One closed loop. Zero LLM calls for the core signal. A real-time neural visualizer that watches itself think. And now it reads your deleted thoughts before it starts working.**
 >
-> Keystroke patterns reveal cognitive state → cognitive state steers Copilot's chain-of-thought → AI behavior adapts in real time → rework detection measures if it worked → Pigeon Brain watches the whole thing happen live, lights up the call graph, and tells you where both you and the AI are dying.
+> Keystroke patterns reveal cognitive state → cognitive state steers Copilot's chain-of-thought → AI behavior adapts in real time → rework detection measures if it worked → Pigeon Brain watches the whole thing happen live, lights up the call graph, and tells you where both you and the AI are dying. Every prompt's deleted words are injected into Copilot's context before it writes a single line.
 
 ---
 
-## Status (2026-03-22)
+## Status (2026-03-24)
 
-The self-compiling loop is live and chewing through its own codebase. Pigeon Brain is online — 125 neurons mapped, dual-substrate heat flowing, WebSocket trace server broadcasting at 20Hz.
+The self-compiling loop is live and chewing through its own codebase. Pigeon Brain is online — 137 neurons mapped, 260 edges, dual-substrate heat flowing, WebSocket trace server broadcasting at 20Hz. Keystroke deleted word pipeline is live — every prompt's unsaid thoughts are captured before Copilot starts reasoning. Context veins score the import graph health and surface self-trim recommendations.
 
 | Phase | Status |
 |---|---|
 | Keystroke capture + cognitive state classification | ✅ Live |
-| Post-commit telemetry pipeline (11 injected sections) | ✅ Live |
+| **Deleted word capture (per-prompt)** | **✅ Live — bound to composition, injected into CoT** |
+| **Predictive debug from prompt history** | **✅ Live — pattern mining: frustration→module, build→debug cycles** |
+| Post-commit telemetry pipeline (12 injected sections) | ✅ Live |
 | Pigeon Compiler — DeepSeek cut plan + AST bin-packing | ✅ Live |
 | Auto-compile on commit (self_fix triggers `run_clean_split`) | ✅ Live |
 | Self-healing exclusion logic (vscode-ext / client / orchestrators) | ✅ Live |
 | Codebase auto-refactoring loop (2 files per commit, ~$0.001 each) | ✅ Running |
+| **Context veins — import graph health + self-trim** | **✅ Live (137 nodes, 4 clots, 21 arteries)** |
 | **Pigeon Brain — dual-substrate neural visualizer** | **✅ Live** |
 | **Live execution tracing via sys.settrace** | **✅ Live** |
 | **WebSocket real-time event broadcast** | **✅ Live** |
 | **React graph UI with profiler cards** | **✅ Live** |
 | Compiled so far | `compliance_seq008` → 12f, `heal_seq009` → 6f, `manifest_builder_seq007` → 32f, `nametag_seq011` → 9f |
 | Remaining over-cap targets | 11 files (~$0.013 total to finish) |
-| AI response capture (UIA → rework triple) | 🔲 Planned |
+| AI response capture (UIA → rework triple) | 🟨 Planned |
 
 ---
 
@@ -34,13 +37,13 @@ This is a system that **reads your mind through your fingers**, **rewires the AI
 
 Four systems working in concert:
 
-1. **Keystroke Telemetry** — captures typing patterns (pauses, deletions, rewrites, abandons) in LLM chat UIs, classifies operator cognitive state in real time, reconstructs unsaid thoughts, detects cross-session drift. Zero LLM calls — pure signal processing.
+1. **Keystroke Telemetry** — captures typing patterns (pauses, deletions, rewrites, abandons) in LLM chat UIs, classifies operator cognitive state in real time, reconstructs unsaid thoughts, detects cross-session drift. Zero LLM calls — pure signal processing. **Now with per-prompt deleted word binding** — Copilot sees what you deleted before it starts thinking.
 
 2. **Pigeon Code Compiler** — autonomous code decomposition engine. Enforces LLM-readable file sizes (≤200 lines hard cap, ≤50 lines target). Filenames carry living metadata — they mutate on every commit. The codebase refactors itself.
 
-3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. Self-updates on every commit.
+3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations, **codebase health veins/clots**, **predictive debug scores**) and generates a context block that steers how Copilot reasons. Self-updates on every commit and every prompt.
 
-4. **Pigeon Brain** — dual-substrate execution observation layer. Maps every module in the codebase as a neuron in a graph. Tracks where humans hesitate AND where AI agents die. Overlays both heat maps on the same visualization. Real-time `sys.settrace` instrumentation lights up edges and cards as actual function calls flow through the system. You can literally watch your codebase think.
+4. **Pigeon Brain** — dual-substrate execution observation layer. Maps every module in the codebase as a neuron in a graph (**137 nodes, 260 edges**). Tracks where humans hesitate AND where AI agents die. Overlays both heat maps on the same visualization. Real-time `sys.settrace` instrumentation lights up edges and cards as actual function calls flow through the system. **Context veins** score import graph health and flag dead/bloated modules for self-trimming.
 
 ---
 
@@ -52,6 +55,8 @@ Pigeon Brain treats your codebase as a neural network. Every Python module is a 
 
 But here's the part that doesn't exist anywhere else: **it overlays human cognitive heat on the same graph**. The keystroke telemetry system has been profiling which modules make the operator hesitate, delete, abandon, and rework. Pigeon Brain takes that data and combines it with agent execution failures to identify **dual-substrate hotspots** — the modules that are killing both humans and machines simultaneously.
 
+**New (2026-03-24): Context Veins.** The import graph is now scored as a circulatory system. Healthy imports are veins (scored 0–1.0). Dead/bloated modules are clots. The system identifies 4 current clots and 21 critical arteries across 137 nodes. Self-trim recommendations surface automatically in Copilot's context window.
+
 These are the most important decomposition targets in your entire codebase. No static analyzer finds them. No linter flags them. Only the combination of human typing patterns and machine execution traces can surface them.
 
 ### Architecture
@@ -60,7 +65,7 @@ These are the most important decomposition targets in your entire codebase. No s
 pigeon_registry.json (133 modules)
     │
     ▼
-graph_extractor ─→ graph_cache.json (125 nodes, 72 edges)
+graph_extractor ─→ graph_cache.json (137 nodes, 260 edges)
     │
     ├─→ demo_sim (fake electrons)     ─┐
     ├─→ traced_runner (real electrons)  ├─→ execution_logger ─→ exec_events.jsonl
@@ -73,7 +78,7 @@ graph_extractor ─→ graph_cache.json (125 nodes, 72 edges)
             (human hesitation)                      (agent deaths)
                                         │
                                         ▼
-                                  dual_view.json (125 enriched nodes)
+                                  dual_view.json (137 enriched nodes)
                                         │
                           ┌─────────────┴─────────────┐
                           ▼                           ▼
@@ -91,7 +96,7 @@ graph_extractor ─→ graph_cache.json (125 nodes, 72 edges)
 |---|---:|---|
 | `models_seq001` | ~85 | `ExecutionEvent`, `Electron`, `DeathCause` — isomorphic to keystroke models |
 | `execution_logger_seq002` | ~150 | Core agent telemetry logger — stall detection, loop threshold, latency scoring |
-| `graph_extractor_seq003` | ~150 | AST + pigeon_registry → adjacency list with 125 nodes and 72 import edges |
+| `graph_extractor_seq003` | ~150 | AST + pigeon_registry → adjacency list with 137 nodes and 260 import edges |
 | `graph_heat_map_seq004` | ~120 | Failure accumulator per node — danger zones, death rates, cause breakdown |
 | `loop_detector_seq005` | ~120 | Recurring path fingerprinting — detects agents stuck in loops |
 | `failure_detector_seq006` | ~130 | Death classification — stale_import (0.9), timeout (0.7), loop (0.65), exception (0.75) |
@@ -107,7 +112,7 @@ graph_extractor ─→ graph_cache.json (125 nodes, 72 edges)
 
 | Component | Role |
 |---|---|
-| `PigeonBrain.jsx` | Main graph — ReactFlow with 125 profiler-card nodes, live edge animation, LIVE indicator |
+| `PigeonBrain.jsx` | Main graph — ReactFlow with 137 profiler-card nodes, live edge animation, LIVE indicator |
 | `NodeNeuron.jsx` | Profiler card per module — name, version, stats grid, heat bars, personality, flash animation on call |
 | `useLiveTrace.js` | WebSocket hook — auto-reconnect, TTL-based node/edge activation (800ms/1.2s), 200-event buffer |
 | `ObserverPanel.jsx` | Right sidebar — stats, live event feed, dual-substrate hotspots, danger zones, full node profile on click |
@@ -118,11 +123,14 @@ graph_extractor ─→ graph_cache.json (125 nodes, 72 edges)
 ### Commands
 
 ```bash
-# Build the cognition graph (125 nodes, 72 edges)
+# Build the cognition graph (137 nodes, 260 edges)
 py -m pigeon_brain graph
 
 # Generate dual-substrate view (human heat + agent heat merged)
 py -m pigeon_brain dual
+
+# Analyze context veins (import graph health + self-trim)
+py -m pigeon_brain.context_veins .
 
 # Run observer synthesis → agent_coaching.md
 py -m pigeon_brain observe
@@ -173,15 +181,17 @@ This repo is a bet on a different model: **the bottleneck isn't the AI's capabil
 
 | Capability | Status | Why it matters |
 |---|---|---|
-| **Unsaid thread capture** | ✅ Live | The deleted half of a prompt is usually the most revealing. Only system that reads keystrokes before send. |
+| **Unsaid thread capture** | ✅ Live | The deleted half of a prompt is now captured **per-prompt** and injected into CoT before Copilot starts. Only system that reads keystrokes before send. |
 | **Per-file cognitive load** | ✅ Live | After 100+ sessions, tells which modules the operator dreads. Technical debt proxy no static analyzer can produce. |
 | **CoT steering from live state** | ✅ Live | Copilot's reasoning changes based on flow/frustrated/hesitant — automatically, on every message. |
+| **Predictive debug** | ✅ Live | Prompt history mines frustration→module patterns and build→debug cycles to predict next struggles. |
 | **Rework → miss rate feedback** | ✅ Live | Heavy deletion after AI response = miss. The AI knows its own failure rate by module. |
 | **Self-narrating codebase** | ✅ Live | Each file generates a first-person account of why it was last changed and what could break it. |
 | **Self-compiling to pigeon spec** | ✅ Live | 200-line cap enforced autonomously. Every commit triggers DeepSeek decomposition. |
-| **Prompt evolution tracking** | ✅ Live | Diff history of how its own AI context prompt has mutated across 44+ commits. |
+| **Prompt evolution tracking** | ✅ Live | Diff history of how its own AI context prompt has mutated across 48+ commits. |
 | **Task queue managed by AI** | ✅ Live | Copilot manages a task backlog seeded from the automated code scanner. |
-| **Dual-substrate neural visualization** | ✅ Live | Human cognitive load AND AI execution failures on the same graph. 125 neurons profiled. |
+| **Context veins (codebase health)** | ✅ Live | Import graph scored as veins/clots. Dead modules flagged. Self-trim recommendations. 137 nodes scored. |
+| **Dual-substrate neural visualization** | ✅ Live | Human cognitive load AND AI execution failures on the same graph. 137 neurons profiled. |
 | **Real-time execution tracing** | ✅ Live | `sys.settrace` + WebSocket at 20Hz. Watch your call graph light up as code runs. |
 | **Module profiler cards** | ✅ Live | cProfile-style cards: tokens, lines, calls, deaths, loops, hesitation bars, personality, fears. |
 
@@ -704,7 +714,7 @@ npm install
 
 # ── Pigeon Brain ──
 pip install websockets                    # for live trace server
-py -m pigeon_brain graph                  # build cognition graph (125 nodes, 72 edges)
+py -m pigeon_brain graph                  # build cognition graph (137 nodes, 260 edges)
 py -m pigeon_brain dual                   # generate dual-substrate view
 cd pigeon_brain/ui && npm install         # install React UI deps
 npm run dev                               # → http://localhost:3333
@@ -746,24 +756,27 @@ mod = importlib.import_module(f.replace('/', '.').rstrip('.py'))
 
 ---
 
-## Current Status (2026-03-23)
+## Current Status (2026-03-24)
 
 | Component | Status |
 |---|---|
 | VS Code extension keystroke capture | ✅ Live (110+ session flushes) |
 | Cognitive state classification | ✅ Live (5 states, 45+ profile entries) |
 | Operator stats accumulation | ✅ Fixed (DATA block regex) |
+| **Deleted word capture (per-prompt)** | **✅ Live — bound per-prompt, injected into CoT** |
+| **Predictive debug** | **✅ Live — frustration→module + build→debug cycle mining** |
 | Unsaid thread detection | ✅ Live |
 | File heat map per-module | ✅ Live |
 | Rework detection | ✅ Live |
 | Push narratives | ✅ Live (8 narratives) |
 | Self-fix scanner | ✅ Live (20 problems detected last scan) |
-| Prompt reconstruction | ✅ Live (44 mutations tracked) |
-| Dynamic CoT injection | ✅ Live (11 sections, all data sources wired) |
+| Prompt reconstruction | ✅ Live (48 mutations tracked) |
+| Dynamic CoT injection | ✅ Live (12 sections, all data sources wired) |
 | Task queue | ✅ Live (auto-seeded, manifest-linked, Copilot-managed) |
 | Post-commit pipeline | ✅ Fully wired (10-step auto-commit) |
 | Pigeon compiler | ✅ Operational |
-| **Pigeon Brain — neural visualizer** | **✅ Live (125 neurons, 72 synapses)** |
+| **Context veins (codebase health)** | **✅ Live (137 nodes, 4 clots, 21 arteries)** |
+| **Pigeon Brain — neural visualizer** | **✅ Live (137 neurons, 260 synapses)** |
 | **Dual-substrate heat mapping** | **✅ Live (human + agent heat merged per node)** |
 | **Live execution tracing** | **✅ Live (sys.settrace → WebSocket @ 20Hz)** |
 | **React graph UI** | **✅ Live (profiler cards, edge animation, observer panel)** |

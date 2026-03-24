@@ -6,6 +6,7 @@ export default function ChatPanel({ sendMessage, selectedNode, connected }) {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
+  const [aiState, setAiState] = useState(null);
   const scrollRef = useRef(null);
   const inputRef = useRef(null);
   const wsHandlerRef = useRef(null);
@@ -61,7 +62,8 @@ export default function ChatPanel({ sendMessage, selectedNode, connected }) {
   };
 
   /* Register handler for chat_response — called from parent via ref */
-  ChatPanel.onChatResponse = (text, fileActions) => {
+  ChatPanel.onChatResponse = (text, fileActions, aiStateData) => {
+    if (aiStateData) setAiState(aiStateData);
     setMessages(prev => {
       const next = [...prev, { role: 'model', text }];
       // Append file action results if Gemini wrote files
@@ -90,6 +92,11 @@ export default function ChatPanel({ sendMessage, selectedNode, connected }) {
     <div className="chat-panel">
       <div className="chat-header">
         <span className="chat-title">✦ Gemini</span>
+        {aiState && aiState.ai_state && aiState.ai_state !== 'unknown' && (
+          <span className={`chat-ai-state chat-ai-${aiState.ai_state}`}>
+            {aiState.ai_state}
+          </span>
+        )}
         <div className="chat-header-actions">
           <button className="chat-btn-clear" onClick={handleClear} title="Clear chat">⟲</button>
           <button className="chat-btn-close" onClick={() => setOpen(false)}>✕</button>

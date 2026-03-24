@@ -56,13 +56,23 @@ Three systems working together:
 2. **Pigeon Code Compiler** — autonomous code decomposition engine. Enforces LLM-readable file sizes (≤200 lines hard cap, ≤50 lines target). Filenames carry living metadata — they mutate on every commit.
 3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. The managed prompt blocks below are the live source of truth.
 
+
+
+<!-- pigeon:current-query -->
+## What You Actually Mean Right Now
+
+*Enriched 2026-03-24 03:58 UTC · raw: "the magic  really would be if evey single prompt deletion was inserted into your"*
+
+(enrichment unavailable: No module named 'httpx')
+<!-- /pigeon:current-query -->
+
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-24 01:38 UTC · 861 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-24 03:58 UTC · 1046 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `frustrated` (WPM: 4858.9 | Del: 50.0% | Hes: 0.609)
+**Cognitive state:** `frustrated` (WPM: 22773.7 | Del: 49.0% | Hes: 0.5)
 
 > **CoT directive:** Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.
 
@@ -75,8 +85,8 @@ Three systems working together:
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `context_budget` (hes=0.677)
-- `self_fix` (hes=0.677)
+- `context_budget` (hes=0.567)
+- `self_fix` (hes=0.567)
 
 ### Recent Work
 - `8c33693` feat: Gemini chat + dead limb scanner + node growth + vein cascades + narratives on neurons
@@ -111,7 +121,7 @@ Three systems working together:
 - [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v003_d0324__websocket_server_for_live_execution_lc_gemini_chat_dead.py`
 
 ### Prompt Evolution
-*This prompt has mutated 47x (186→586 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 48x (186→629 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
 *137 modules profiled*
@@ -132,6 +142,26 @@ Three systems working together:
 - `cli` ↔ `traced_runner` (score=0.80, 3 shared imports, both high-churn (v2+v2))
 - `demo_sim` ↔ `execution_logger` (score=0.80, 3 shared imports, both high-churn (v2+v2))
 
+### Codebase Health (Veins / Clots)
+*133/137 alive, 4 clots, avg vein health 0.53*
+
+**Clots (dead/bloated — trim candidates):**
+- `aim_utils` (score=0.45): orphan_no_importers, unused_exports:1
+- `press_release_gen_constants_seq001_v001` (score=0.45): orphan_no_importers, unused_exports:1
+- `adapter` (score=0.45): orphan_no_importers, unused_exports:1
+- `query_memory` (score=0.40): dead_imports:2, oversize:252, self_fix:dead_export:record_query, self_fix:dead_export:load_query_memory, self_fix:dead_export:load_query_memory
+
+**Self-trim recommendations:**
+- [investigate] `aim_utils`: Nobody imports this module. Check if it's an entry point or dead.
+- [investigate] `press_release_gen_constants_seq001_v001`: Nobody imports this module. Check if it's an entry point or dead.
+- [investigate] `adapter`: Nobody imports this module. Check if it's an entry point or dead.
+- [split] `query_memory`: Oversize + clot signals. Recommend pigeon split.
+
+**Critical arteries (do NOT break):**
+- `compliance` (vein=1.00, in=7)
+- `drift` (vein=1.00, in=5)
+- `cognitive_reactor` (vein=1.00, in=12)
+
 <!-- /pigeon:task-context -->
 
 <!-- pigeon:task-queue -->
@@ -143,9 +173,9 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-24 - 861 message(s) - LLM-synthesized*
+*Auto-updated 2026-03-24 · 1061 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 11% | WPM: 61.5 | Del: 38.8% | Hes: 0.566
+**Dominant: `frustrated`** | Submit: 10% | WPM: 61.5 | Del: 39.8% | Hes: 0.570
 
 The operator just renamed two core modules to "gemini_chat_dead," indicating a pivot in their AI system's chat component, and their extreme frustration (557 messages) with high deletion rates reveals they are brute-force debugging through rapid, repetitive edits, not strategic planning.
 
@@ -168,27 +198,39 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-03-22T21:25:34.717718+00:00",
+  "updated_at": "2026-03-24T03:57:59.363419+00:00",
   "latest_prompt": {
-    "session_n": 11,
-    "ts": "2026-03-22T21:25:34.717718+00:00",
-    "chars": 57,
-    "preview": "what should i do to market this / gtm / next logical step",
-    "intent": "exploring",
-    "state": "unknown",
-    "files_open": [
-      "operator_coaching.md"
-    ],
+    "session_n": 997,
+    "ts": "2026-03-24T03:57:59.363419+00:00",
+    "chars": 149,
+    "preview": "the magic  really would be if evey single prompt deletion was inserted into your cot before ypu commence work so you can adress unsaid thoughts lmfao",
+    "intent": "unknown",
+    "state": "focused",
+    "files_open": [],
     "module_refs": []
   },
-  "signals": {},
-  "composition_binding": {
-    "matched": false,
-    "source": null,
-    "age_ms": null,
-    "key": null
+  "signals": {
+    "wpm": 43.2,
+    "chars_per_sec": 3.6,
+    "deletion_ratio": 0.028,
+    "hesitation_count": 1,
+    "rewrite_count": 0,
+    "typo_corrections": 3,
+    "intentional_deletions": 2,
+    "total_keystrokes": 254,
+    "duration_ms": 68619
   },
-  "deleted_words": [],
+  "composition_binding": {
+    "matched": true,
+    "source": "chat_compositions",
+    "age_ms": 378430,
+    "key": "|||2026-03-24T03:51:40.933928+00:00|254|68619|the magic  really would be if evey single prompt deletion was inserted into your cot before ypu commence work so you can",
+    "match_score": 1.0
+  },
+  "deleted_words": [
+    "co",
+    "wo"
+  ],
   "rewrites": [],
   "task_queue": {
     "total": 0,
@@ -211,29 +253,32 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 44,
+    "total_prompts": 47,
     "avg_wpm": 41.1,
     "avg_del_ratio": 0.03,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 37,
+      "unknown": 40,
       "focused": 5,
       "hesitant": 2
     },
-    "baselines": {
-      "n": 15,
-      "avg_wpm": 118.3,
-      "avg_del": 0.155,
-      "avg_hes": 0.426,
-      "sd_wpm": 93.6,
-      "sd_del": 0.204,
-      "sd_hes": 0.388
-    }
+    "baselines": null
   },
-  "coaching_directives": [
-    "Anticipate heavy churn in `self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py` and `context_budget_scorer_for_llm`",
-    "Pre-empt context budget issues",
-    "Detect frustration/hesitation cues"
+  "predicted_struggles": [
+    {
+      "module": "self_fix",
+      "score": 1.33,
+      "reasons": [
+        "high heat (0.57)"
+      ]
+    },
+    {
+      "module": "context_budget",
+      "score": 1.33,
+      "reasons": [
+        "high heat (0.57)"
+      ]
+    }
   ]
 }
 ```

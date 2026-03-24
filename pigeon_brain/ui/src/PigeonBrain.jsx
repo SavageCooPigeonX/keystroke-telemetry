@@ -216,7 +216,7 @@ export default function PigeonBrain() {
   useEffect(() => {
     onRawMessageRef.current = (data) => {
       if (data.type === 'chat_response' && data.text) {
-        if (ChatPanel.onChatResponse) ChatPanel.onChatResponse(data.text, data.file_actions || null);
+        if (ChatPanel.onChatResponse) ChatPanel.onChatResponse(data.text, data.file_actions || null, data.ai_state || null);
       }
     };
   }, [onRawMessageRef]);

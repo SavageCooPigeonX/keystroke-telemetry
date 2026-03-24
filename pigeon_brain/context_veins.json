@@ -1,0 +1,3973 @@
+{
+  "ts": "2026-03-24T03:39:58.728655+00:00",
+  "stats": {
+    "total_nodes": 137,
+    "alive": 133,
+    "clots": 4,
+    "arteries": 21,
+    "avg_vein_health": 0.534,
+    "total_edges": 260
+  },
+  "clots": [
+    {
+      "module": "aim_utils",
+      "in_degree": 0,
+      "out_degree": 1,
+      "lines": 0,
+      "clot_score": 0.45,
+      "clot_signals": [
+        "orphan_no_importers",
+        "unused_exports:1"
+      ],
+      "vein_score": 0.33,
+      "vein_signals": [],
+      "dead_imports": [],
+      "unused_exports": [
+        "(all — no importers)"
+      ]
+    },
+    {
+      "module": "press_release_gen_constants_seq001_v001",
+      "in_degree": 0,
+      "out_degree": 1,
+      "lines": 0,
+      "clot_score": 0.45,
+      "clot_signals": [
+        "orphan_no_importers",
+        "unused_exports:1"
+      ],
+      "vein_score": 0.33,
+      "vein_signals": [],
+      "dead_imports": [],
+      "unused_exports": [
+        "(all — no importers)"
+      ]
+    },
+    {
+      "module": "adapter",
+      "in_degree": 0,
+      "out_degree": 1,
+      "lines": 125,
+      "clot_score": 0.45,
+      "clot_signals": [
+        "orphan_no_importers",
+        "unused_exports:1"
+      ],
+      "vein_score": 0.33,
+      "vein_signals": [],
+      "dead_imports": [],
+      "unused_exports": [
+        "(all — no importers)"
+      ]
+    },
+    {
+      "module": "query_memory",
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 252,
+      "clot_score": 0.4,
+      "clot_signals": [
+        "dead_imports:2",
+        "oversize:252",
+        "self_fix:dead_export:record_query",
+        "self_fix:dead_export:load_query_memory",
+        "self_fix:dead_export:load_query_memory"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "__future__.annotations",
+        "sys"
+      ],
+      "unused_exports": []
+    }
+  ],
+  "arteries": [
+    {
+      "module": "compliance",
+      "in_degree": 7,
+      "out_degree": 8,
+      "lines": 215,
+      "clot_score": 0.2,
+      "clot_signals": [
+        "oversize:215",
+        "self_fix:high_coupling:0"
+      ],
+      "vein_score": 1.0,
+      "vein_signals": [
+        "critical_artery:in_degree=7",
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    {
+      "module": "drift",
+      "in_degree": 5,
+      "out_degree": 5,
+      "lines": 234,
+      "clot_score": 0.15,
+      "clot_signals": [
+        "oversize:234"
+      ],
+      "vein_score": 1.0,
+      "vein_signals": [
+        "critical_artery:in_degree=5",
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    {
+      "module": "cognitive_reactor",
+      "in_degree": 12,
+      "out_degree": 13,
+      "lines": 416,
+      "clot_score": 0.2,
+      "clot_signals": [
+        "oversize:416",
+        "self_fix:dead_export:ingest_flush"
+      ],
+      "vein_score": 1.0,
+      "vein_signals": [
+        "critical_artery:in_degree=12",
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    {
+      "module": "copilot_prompt_manager",
+      "in_degree": 11,
+      "out_degree": 11,
+      "lines": 500,
+      "clot_score": 0.2,
+      "clot_signals": [
+        "dead_imports:1",
+        "oversize:500"
+      ],
+      "vein_score": 1.0,
+      "vein_signals": [
+        "critical_artery:in_degree=11",
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [
+        "__future__.annotations"
+      ],
+      "unused_exports": []
+    },
+    {
+      "module": "streaming_layer",
+      "in_degree": 16,
+      "out_degree": 16,
+      "lines": 1166,
+      "clot_score": 0.15,
+      "clot_signals": [
+        "oversize:1166"
+      ],
+      "vein_score": 1.0,
+      "vein_signals": [
+        "critical_artery:in_degree=16",
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    {
+      "module": "graph_extractor",
+      "in_degree": 5,
+      "out_degree": 1,
+      "lines": 0,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.93,
+      "vein_signals": [
+        "critical_artery:in_degree=5",
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    {
+      "module": "graph_heat_map",
+      "in_degree": 5,
+      "out_degree": 1,
+      "lines": 108,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.93,
+      "vein_signals": [
+        "critical_artery:in_degree=5",
+        "low_friction"
+      ],
+      "dead_imports": [
+        "collections.defaultdict"
+      ],
+      "unused_exports": []
+    },
+    {
+      "module": "compliance_seq008_audit_decomposed",
+      "in_degree": 9,
+      "out_degree": 1,
+      "lines": 76,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:2"
+      ],
+      "vein_score": 0.93,
+      "vein_signals": [
+        "critical_artery:in_degree=9",
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re",
+        "compliance_seq008_constants_seq001_v001.SKIP_DIRS"
+      ],
+      "unused_exports": []
+    },
+    {
+      "module": "source_slicer",
+      "in_degree": 5,
+      "out_degree": 0,
+      "lines": 55,
+      "clot_score": 0.05,
+      "clot_signals": [],
+      "vein_score": 0.9,
+      "vein_signals": [
+        "critical_artery:in_degree=5",
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    {
+      "module": "unsaid",
+      "in_degree": 4,
+      "out_degree": 3,
+      "lines": 226,
+      "clot_score": 0.2,
+      "clot_signals": [
+        "dead_imports:1",
+        "oversize:226"
+      ],
+      "vein_score": 0.89,
+      "vein_signals": [
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [
+        "collections.defaultdict"
+      ],
+      "unused_exports": []
+    }
+  ],
+  "trim_recommendations": [
+    {
+      "action": "investigate",
+      "target": "aim_utils",
+      "score": 0.45,
+      "reason": "Nobody imports this module. Check if it's an entry point or dead.",
+      "signals": [
+        "orphan_no_importers",
+        "unused_exports:1"
+      ]
+    },
+    {
+      "action": "investigate",
+      "target": "press_release_gen_constants_seq001_v001",
+      "score": 0.45,
+      "reason": "Nobody imports this module. Check if it's an entry point or dead.",
+      "signals": [
+        "orphan_no_importers",
+        "unused_exports:1"
+      ]
+    },
+    {
+      "action": "investigate",
+      "target": "adapter",
+      "score": 0.45,
+      "reason": "Nobody imports this module. Check if it's an entry point or dead.",
+      "signals": [
+        "orphan_no_importers",
+        "unused_exports:1"
+      ]
+    },
+    {
+      "action": "split",
+      "target": "query_memory",
+      "score": 0.4,
+      "reason": "Oversize + clot signals. Recommend pigeon split.",
+      "signals": [
+        "dead_imports:2",
+        "oversize:252",
+        "self_fix:dead_export:record_query",
+        "self_fix:dead_export:load_query_memory",
+        "self_fix:dead_export:load_query_memory"
+      ]
+    }
+  ],
+  "veins": [
+    {
+      "from": "cli",
+      "to": "graph_extractor",
+      "health": 0.665,
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "observer_synthesis",
+      "health": 0.6,
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "dual_substrate",
+      "health": 0.595,
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "graph_heat_map",
+      "health": 0.665,
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "failure_detector",
+      "health": 0.515,
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "loop_detector",
+      "health": 0.515,
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "demo_sim",
+      "health": 0.475,
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "live_server",
+      "health": 0.48,
+      "type": "import"
+    },
+    {
+      "from": "cli",
+      "to": "traced_runner",
+      "health": 0.465,
+      "type": "import"
+    },
+    {
+      "from": "demo_sim",
+      "to": "execution_logger",
+      "health": 0.555,
+      "type": "import"
+    },
+    {
+      "from": "demo_sim",
+      "to": "graph_extractor",
+      "health": 0.74,
+      "type": "import"
+    },
+    {
+      "from": "demo_sim",
+      "to": "graph_heat_map",
+      "health": 0.74,
+      "type": "import"
+    },
+    {
+      "from": "demo_sim",
+      "to": "loop_detector",
+      "health": 0.59,
+      "type": "import"
+    },
+    {
+      "from": "demo_sim",
+      "to": "failure_detector",
+      "health": 0.59,
+      "type": "import"
+    },
+    {
+      "from": "dual_substrate",
+      "to": "graph_extractor",
+      "health": 0.86,
+      "type": "import"
+    },
+    {
+      "from": "dual_substrate",
+      "to": "graph_heat_map",
+      "health": 0.86,
+      "type": "import"
+    },
+    {
+      "from": "execution_logger",
+      "to": "models",
+      "health": 0.545,
+      "type": "import"
+    },
+    {
+      "from": "live_server",
+      "to": "trace_hook",
+      "health": 0.57,
+      "type": "import"
+    },
+    {
+      "from": "observer_synthesis",
+      "to": "graph_heat_map",
+      "health": 0.865,
+      "type": "import"
+    },
+    {
+      "from": "observer_synthesis",
+      "to": "loop_detector",
+      "health": 0.715,
+      "type": "import"
+    },
+    {
+      "from": "observer_synthesis",
+      "to": "failure_detector",
+      "health": 0.715,
+      "type": "import"
+    },
+    {
+      "from": "observer_synthesis",
+      "to": "graph_extractor",
+      "health": 0.865,
+      "type": "import"
+    },
+    {
+      "from": "traced_runner",
+      "to": "trace_hook",
+      "health": 0.555,
+      "type": "import"
+    },
+    {
+      "from": "class_decomposer",
+      "to": "deepseek_adapter",
+      "health": 0.57,
+      "type": "import"
+    },
+    {
+      "from": "class_decomposer",
+      "to": "source_slicer",
+      "health": 0.72,
+      "type": "import"
+    },
+    {
+      "from": "func_decomposer",
+      "to": "deepseek_adapter",
+      "health": 0.605,
+      "type": "import"
+    },
+    {
+      "from": "resplit_binpack",
+      "to": "resplit_helpers",
+      "health": 0.555,
+      "type": "import"
+    },
+    {
+      "from": "resplit",
+      "to": "resplit_helpers",
+      "health": 0.57,
+      "type": "import"
+    },
+    {
+      "from": "resplit",
+      "to": "resplit_binpack",
+      "health": 0.545,
+      "type": "import"
+    },
+    {
+      "from": "compliance_seq008_audit_wrapper",
+      "to": "compliance_seq008_audit_decomposed",
+      "health": 0.72,
+      "type": "import"
+    },
+    {
+      "from": "compliance_seq008_check_file",
+      "to": "compliance_seq008_audit_decomposed",
+      "health": 0.72,
+      "type": "import"
+    },
+    {
+      "from": "compliance_seq008_classify",
+      "to": "compliance_seq008_audit_decomposed",
+      "health": 0.72,
+      "type": "import"
+    },
+    {
+      "from": "compliance_seq008_format_report",
+      "to": "compliance_seq008_audit_decomposed",
+      "health": 0.72,
+      "type": "import"
+    },
+    {
+      "from": "compliance_seq008_helpers",
+      "to": "compliance_seq008_audit_decomposed",
+      "health": 0.72,
+      "type": "import"
+    },
+    {
+      "from": "compliance_seq008_recommend_wrapper",
+      "to": "compliance_seq008_audit_decomposed",
+      "health": 0.72,
+      "type": "import"
+    },
+    {
+      "from": "heal",
+      "to": "manifest_builder",
+      "health": 0.56,
+      "type": "import"
+    },
+    {
+      "from": "heal",
+      "to": "compliance_seq008_audit_decomposed",
+      "health": 0.735,
+      "type": "import"
+    },
+    {
+      "from": "nametag",
+      "to": "scanner",
+      "health": 0.62,
+      "type": "import"
+    },
+    {
+      "from": "planner",
+      "to": "nametag",
+      "health": 0.61,
+      "type": "import"
+    },
+    {
+      "from": "registry",
+      "to": "scanner",
+      "health": 0.595,
+      "type": "import"
+    },
+    {
+      "from": "run_heal",
+      "to": "scanner",
+      "health": 0.59,
+      "type": "import"
+    },
+    {
+      "from": "run_heal",
+      "to": "planner",
+      "health": 0.58,
+      "type": "import"
+    },
+    {
+      "from": "run_heal",
+      "to": "import_rewriter",
+      "health": 0.465,
+      "type": "import"
+    },
+    {
+      "from": "run_heal",
+      "to": "executor",
+      "health": 0.565,
+      "type": "import"
+    },
+    {
+      "from": "run_heal",
+      "to": "validator",
+      "health": 0.55,
+      "type": "import"
+    },
+    {
+      "from": "run_heal",
+      "to": "manifest_builder",
+      "health": 0.565,
+      "type": "import"
+    },
+    {
+      "from": "run_heal",
+      "to": "compliance_seq008_audit_decomposed",
+      "health": 0.74,
+      "type": "import"
+    },
+    {
+      "from": "run_heal",
+      "to": "nametag",
+      "health": 0.58,
+      "type": "import"
+    },
+    {
+      "from": "run_heal",
+      "to": "registry",
+      "health": 0.555,
+      "type": "import"
+    },
+    {
+      "from": "run_rename",
+      "to": "scanner",
+      "health": 0.59,
+      "type": "import"
+    },
+    {
+      "from": "run_rename",
+      "to": "planner",
+      "health": 0.58,
+      "type": "import"
+    },
+    {
+      "from": "run_rename",
+      "to": "import_rewriter",
+      "health": 0.465,
+      "type": "import"
+    },
+    {
+      "from": "run_rename",
+      "to": "executor",
+      "health": 0.565,
+      "type": "import"
+    },
+    {
+      "from": "run_rename",
+      "to": "validator",
+      "health": 0.55,
+      "type": "import"
+    },
+    {
+      "from": "run_clean_split_helpers",
+      "to": "func_decomposer",
+      "health": 0.575,
+      "type": "import"
+    },
+    {
+      "from": "run_clean_split_helpers",
+      "to": "source_slicer",
+      "health": 0.72,
+      "type": "import"
+    },
+    {
+      "from": "run_clean_split",
+      "to": "plan_parser",
+      "health": 0.64,
+      "type": "import"
+    },
+    {
+      "from": "run_clean_split",
+      "to": "source_slicer",
+      "health": 0.8,
+      "type": "import"
+    },
+    {
+      "from": "run_clean_split",
+      "to": "file_writer",
+      "health": 0.54,
+      "type": "import"
+    },
+    {
+      "from": "run_clean_split",
+      "to": "init_writer",
+      "health": 0.54,
+      "type": "import"
+    },
+    {
+      "from": "run_clean_split",
+      "to": "manifest_writer",
+      "health": 0.64,
+      "type": "import"
+    },
+    {
+      "from": "run_clean_split",
+      "to": "resplit",
+      "health": 0.63,
+      "type": "import"
+    },
+    {
+      "from": "run_clean_split",
+      "to": "resplit_binpack",
+      "health": 0.615,
+      "type": "import"
+    },
+    {
+      "from": "run_clean_split",
+      "to": "resplit_helpers",
+      "health": 0.64,
+      "type": "import"
+    },
+    {
+      "from": "run_clean_split",
+      "to": "run_clean_split_helpers",
+      "health": 0.62,
+      "type": "import"
+    },
+    {
+      "from": "run_clean_split",
+      "to": "class_decomposer",
+      "health": 0.62,
+      "type": "import"
+    },
+    {
+      "from": "run_clean_split",
+      "to": "run_clean_split_init",
+      "health": 0.615,
+      "type": "import"
+    },
+    {
+      "from": "run_clean_split",
+      "to": "manifest_bridge",
+      "health": 0.59,
+      "type": "import"
+    },
+    {
+      "from": "run_compiler_test",
+      "to": "ether_map_builder",
+      "health": 0.68,
+      "type": "import"
+    },
+    {
+      "from": "run_deepseek_plans",
+      "to": "deepseek_plan_prompt",
+      "health": 0.52,
+      "type": "import"
+    },
+    {
+      "from": "run_pigeon_loop",
+      "to": "ether_map_builder",
+      "health": 0.7,
+      "type": "import"
+    },
+    {
+      "from": "run_pigeon_loop",
+      "to": "deepseek_plan_prompt",
+      "health": 0.54,
+      "type": "import"
+    },
+    {
+      "from": "run_pigeon_loop",
+      "to": "plan_parser",
+      "health": 0.565,
+      "type": "import"
+    },
+    {
+      "from": "run_pigeon_loop",
+      "to": "plan_validator",
+      "health": 0.54,
+      "type": "import"
+    },
+    {
+      "from": "run_pigeon_loop",
+      "to": "source_slicer",
+      "health": 0.725,
+      "type": "import"
+    },
+    {
+      "from": "run_pigeon_loop",
+      "to": "file_writer",
+      "health": 0.465,
+      "type": "import"
+    },
+    {
+      "from": "run_pigeon_loop",
+      "to": "init_writer",
+      "health": 0.465,
+      "type": "import"
+    },
+    {
+      "from": "run_pigeon_loop",
+      "to": "manifest_writer",
+      "health": 0.565,
+      "type": "import"
+    },
+    {
+      "from": "run_pigeon_loop",
+      "to": "import_fixer",
+      "health": 0.54,
+      "type": "import"
+    },
+    {
+      "from": "run_pigeon_loop",
+      "to": "func_decomposer",
+      "health": 0.58,
+      "type": "import"
+    },
+    {
+      "from": "run_pigeon_loop",
+      "to": "deepseek_adapter",
+      "health": 0.575,
+      "type": "import"
+    },
+    {
+      "from": "ether_map_builder",
+      "to": "ast_parser",
+      "health": 0.665,
+      "type": "import"
+    },
+    {
+      "from": "ether_map_builder",
+      "to": "call_graph",
+      "health": 0.715,
+      "type": "import"
+    },
+    {
+      "from": "ether_map_builder",
+      "to": "import_tracer",
+      "health": 0.665,
+      "type": "import"
+    },
+    {
+      "from": "ether_map_builder",
+      "to": "shared_state_detector",
+      "health": 0.675,
+      "type": "import"
+    },
+    {
+      "from": "ether_map_builder",
+      "to": "resistance_analyzer",
+      "health": 0.705,
+      "type": "import"
+    },
+    {
+      "from": "resistance_analyzer",
+      "to": "call_graph",
+      "health": 0.57,
+      "type": "import"
+    },
+    {
+      "from": "deepseek_plan_prompt",
+      "to": "deepseek_adapter",
+      "health": 0.565,
+      "type": "import"
+    },
+    {
+      "from": "self_fix",
+      "to": "run_clean_split",
+      "health": 0.505,
+      "type": "import"
+    },
+    {
+      "from": "demo_sim",
+      "to": "dual_substrate",
+      "health": 0.67,
+      "type": "package"
+    },
+    {
+      "from": "dual_substrate",
+      "to": "execution_logger",
+      "health": 0.675,
+      "type": "package"
+    },
+    {
+      "from": "execution_logger",
+      "to": "failure_detector",
+      "health": 0.595,
+      "type": "package"
+    },
+    {
+      "from": "failure_detector",
+      "to": "graph_extractor",
+      "health": 0.78,
+      "type": "package"
+    },
+    {
+      "from": "graph_extractor",
+      "to": "graph_heat_map",
+      "health": 0.93,
+      "type": "package"
+    },
+    {
+      "from": "graph_heat_map",
+      "to": "live_server",
+      "health": 0.745,
+      "type": "package"
+    },
+    {
+      "from": "live_server",
+      "to": "loop_detector",
+      "health": 0.595,
+      "type": "package"
+    },
+    {
+      "from": "loop_detector",
+      "to": "observer_synthesis",
+      "health": 0.715,
+      "type": "package"
+    },
+    {
+      "from": "observer_synthesis",
+      "to": "trace_hook",
+      "health": 0.69,
+      "type": "package"
+    },
+    {
+      "from": "trace_hook",
+      "to": "traced_runner",
+      "health": 0.555,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "context_budget",
+      "health": 0.64,
+      "type": "package"
+    },
+    {
+      "from": "context_budget",
+      "to": "copilot_prompt_manager",
+      "health": 0.64,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "drift_watcher",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "drift_watcher",
+      "to": "dynamic_prompt",
+      "health": 0.48,
+      "type": "package"
+    },
+    {
+      "from": "dynamic_prompt",
+      "to": "file_consciousness",
+      "health": 0.48,
+      "type": "package"
+    },
+    {
+      "from": "file_consciousness",
+      "to": "file_heat_map",
+      "health": 0.38,
+      "type": "package"
+    },
+    {
+      "from": "file_heat_map",
+      "to": "logger",
+      "health": 0.38,
+      "type": "package"
+    },
+    {
+      "from": "logger",
+      "to": "models",
+      "health": 0.505,
+      "type": "package"
+    },
+    {
+      "from": "models",
+      "to": "mutation_scorer",
+      "health": 0.505,
+      "type": "package"
+    },
+    {
+      "from": "mutation_scorer",
+      "to": "operator_stats",
+      "health": 0.43,
+      "type": "package"
+    },
+    {
+      "from": "operator_stats",
+      "to": "pulse_harvest",
+      "health": 0.43,
+      "type": "package"
+    },
+    {
+      "from": "pulse_harvest",
+      "to": "push_narrative",
+      "health": 0.43,
+      "type": "package"
+    },
+    {
+      "from": "push_narrative",
+      "to": "query_memory",
+      "health": 0.43,
+      "type": "package"
+    },
+    {
+      "from": "query_memory",
+      "to": "resistance_bridge",
+      "health": 0.48,
+      "type": "package"
+    },
+    {
+      "from": "resistance_bridge",
+      "to": "rework_backfill",
+      "health": 0.48,
+      "type": "package"
+    },
+    {
+      "from": "rework_backfill",
+      "to": "rework_detector",
+      "health": 0.43,
+      "type": "package"
+    },
+    {
+      "from": "rework_detector",
+      "to": "self_fix",
+      "health": 0.345,
+      "type": "package"
+    },
+    {
+      "from": "self_fix",
+      "to": "session_handoff",
+      "health": 0.395,
+      "type": "package"
+    },
+    {
+      "from": "session_handoff",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "task_queue",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "task_queue",
+      "to": "timestamp_utils",
+      "health": 0.465,
+      "type": "package"
+    },
+    {
+      "from": "aim_utils",
+      "to": "core_formatters",
+      "health": 0.405,
+      "type": "package"
+    },
+    {
+      "from": "core_formatters",
+      "to": "nl_parsers",
+      "health": 0.48,
+      "type": "package"
+    },
+    {
+      "from": "nl_parsers",
+      "to": "pq_manifest_utils",
+      "health": 0.48,
+      "type": "package"
+    },
+    {
+      "from": "pq_manifest_utils",
+      "to": "pq_search_utils",
+      "health": 0.465,
+      "type": "package"
+    },
+    {
+      "from": "class_decomposer",
+      "to": "file_writer",
+      "health": 0.46,
+      "type": "package"
+    },
+    {
+      "from": "file_writer",
+      "to": "func_decomposer",
+      "health": 0.495,
+      "type": "package"
+    },
+    {
+      "from": "func_decomposer",
+      "to": "import_fixer",
+      "health": 0.57,
+      "type": "package"
+    },
+    {
+      "from": "import_fixer",
+      "to": "init_writer",
+      "health": 0.455,
+      "type": "package"
+    },
+    {
+      "from": "init_writer",
+      "to": "manifest_writer",
+      "health": 0.48,
+      "type": "package"
+    },
+    {
+      "from": "manifest_writer",
+      "to": "plan_parser",
+      "health": 0.58,
+      "type": "package"
+    },
+    {
+      "from": "plan_parser",
+      "to": "plan_validator",
+      "health": 0.555,
+      "type": "package"
+    },
+    {
+      "from": "plan_validator",
+      "to": "resplit",
+      "health": 0.545,
+      "type": "package"
+    },
+    {
+      "from": "resplit_helpers",
+      "to": "source_slicer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "compliance_seq008_audit_decomposed",
+      "health": 0.965,
+      "type": "package"
+    },
+    {
+      "from": "compliance_seq008_audit_decomposed",
+      "to": "compliance",
+      "health": 0.965,
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "compliance_seq008_audit_wrapper",
+      "health": 0.755,
+      "type": "package"
+    },
+    {
+      "from": "compliance_seq008_audit_wrapper",
+      "to": "compliance",
+      "health": 0.755,
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "compliance_seq008_check_file",
+      "health": 0.755,
+      "type": "package"
+    },
+    {
+      "from": "compliance_seq008_check_file",
+      "to": "compliance",
+      "health": 0.755,
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "compliance_seq008_classify",
+      "health": 0.755,
+      "type": "package"
+    },
+    {
+      "from": "compliance_seq008_classify",
+      "to": "compliance",
+      "health": 0.755,
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "compliance_seq008_format_report",
+      "health": 0.755,
+      "type": "package"
+    },
+    {
+      "from": "compliance_seq008_format_report",
+      "to": "compliance",
+      "health": 0.755,
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "compliance_seq008_helpers",
+      "health": 0.755,
+      "type": "package"
+    },
+    {
+      "from": "compliance_seq008_helpers",
+      "to": "compliance",
+      "health": 0.755,
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "compliance_seq008_recommend_wrapper",
+      "health": 0.755,
+      "type": "package"
+    },
+    {
+      "from": "compliance_seq008_recommend_wrapper",
+      "to": "compliance",
+      "health": 0.755,
+      "type": "package"
+    },
+    {
+      "from": "compliance",
+      "to": "executor",
+      "health": 0.79,
+      "type": "package"
+    },
+    {
+      "from": "executor",
+      "to": "heal",
+      "health": 0.56,
+      "type": "package"
+    },
+    {
+      "from": "heal",
+      "to": "import_rewriter",
+      "health": 0.46,
+      "type": "package"
+    },
+    {
+      "from": "import_rewriter",
+      "to": "manifest_builder",
+      "health": 0.48,
+      "type": "package"
+    },
+    {
+      "from": "manifest_builder",
+      "to": "nametag",
+      "health": 0.595,
+      "type": "package"
+    },
+    {
+      "from": "nametag",
+      "to": "planner",
+      "health": 0.61,
+      "type": "package"
+    },
+    {
+      "from": "planner",
+      "to": "registry",
+      "health": 0.585,
+      "type": "package"
+    },
+    {
+      "from": "registry",
+      "to": "run_heal",
+      "health": 0.555,
+      "type": "package"
+    },
+    {
+      "from": "run_heal",
+      "to": "run_rename",
+      "health": 0.55,
+      "type": "package"
+    },
+    {
+      "from": "scanner",
+      "to": "validator",
+      "health": 0.59,
+      "type": "package"
+    },
+    {
+      "from": "press_release_gen_constants_seq001_v001",
+      "to": "press_release_gen_template_builders_seq002_v001",
+      "health": 0.405,
+      "type": "package"
+    },
+    {
+      "from": "press_release_gen_template_builders_seq002_v001",
+      "to": "press_release_gen_template_helpers_seq004_v001",
+      "health": 0.48,
+      "type": "package"
+    },
+    {
+      "from": "press_release_gen_template_helpers_seq004_v001",
+      "to": "press_release_gen_template_key_findings",
+      "health": 0.465,
+      "type": "package"
+    },
+    {
+      "from": "manifest_bridge",
+      "to": "reaudit_diff",
+      "health": 0.48,
+      "type": "package"
+    },
+    {
+      "from": "reaudit_diff",
+      "to": "run_clean_split",
+      "health": 0.59,
+      "type": "package"
+    },
+    {
+      "from": "run_clean_split_helpers",
+      "to": "run_clean_split_init",
+      "health": 0.535,
+      "type": "package"
+    },
+    {
+      "from": "run_clean_split_init",
+      "to": "run_compiler_test",
+      "health": 0.52,
+      "type": "package"
+    },
+    {
+      "from": "run_compiler_test",
+      "to": "run_deepseek_plans",
+      "health": 0.51,
+      "type": "package"
+    },
+    {
+      "from": "run_deepseek_plans",
+      "to": "run_pigeon_loop",
+      "health": 0.53,
+      "type": "package"
+    },
+    {
+      "from": "ast_parser",
+      "to": "call_graph",
+      "health": 0.53,
+      "type": "package"
+    },
+    {
+      "from": "call_graph",
+      "to": "ether_map_builder",
+      "health": 0.715,
+      "type": "package"
+    },
+    {
+      "from": "import_tracer",
+      "to": "resistance_analyzer",
+      "health": 0.52,
+      "type": "package"
+    },
+    {
+      "from": "resistance_analyzer",
+      "to": "shared_state_detector",
+      "health": 0.53,
+      "type": "package"
+    },
+    {
+      "from": "adapter",
+      "to": "drift",
+      "health": 0.665,
+      "type": "package"
+    },
+    {
+      "from": "drift",
+      "to": "unsaid",
+      "health": 0.945,
+      "type": "package"
+    },
+    {
+      "from": "drift",
+      "to": "drift_seq003_baseline_store",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "drift_seq003_baseline_store",
+      "to": "drift",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "drift",
+      "to": "drift_seq003_build_cognitive_context",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "drift_seq003_build_cognitive_context",
+      "to": "drift",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "drift",
+      "to": "drift_seq003_compute_baseline",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "drift_seq003_compute_baseline",
+      "to": "drift",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "drift",
+      "to": "drift_seq003_detect_session_drift",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "drift_seq003_detect_session_drift",
+      "to": "drift",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "unsaid",
+      "to": "unsaid_seq002_diff",
+      "health": 0.685,
+      "type": "package"
+    },
+    {
+      "from": "unsaid_seq002_diff",
+      "to": "unsaid",
+      "health": 0.685,
+      "type": "package"
+    },
+    {
+      "from": "unsaid",
+      "to": "unsaid_seq002_helpers",
+      "health": 0.685,
+      "type": "package"
+    },
+    {
+      "from": "unsaid_seq002_helpers",
+      "to": "unsaid",
+      "health": 0.685,
+      "type": "package"
+    },
+    {
+      "from": "unsaid",
+      "to": "unsaid_seq002_orchestrator",
+      "health": 0.685,
+      "type": "package"
+    },
+    {
+      "from": "unsaid_seq002_orchestrator",
+      "to": "unsaid",
+      "health": 0.685,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_api_client",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_api_client",
+      "to": "cognitive_reactor",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_cognitive_hint",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_cognitive_hint",
+      "to": "cognitive_reactor",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_constants",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_constants",
+      "to": "cognitive_reactor",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_decision_maker",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_decision_maker",
+      "to": "cognitive_reactor",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_docstring_patch",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_docstring_patch",
+      "to": "cognitive_reactor",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_patch_generator",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_patch_generator",
+      "to": "cognitive_reactor",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_patch_writer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_patch_writer",
+      "to": "cognitive_reactor",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_prompt_builder",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_prompt_builder",
+      "to": "cognitive_reactor",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_reactor_core",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_reactor_core",
+      "to": "cognitive_reactor",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_registry_loader",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_registry_loader",
+      "to": "cognitive_reactor",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_self_fix_runner",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_self_fix_runner",
+      "to": "cognitive_reactor",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor",
+      "to": "cognitive_reactor_seq014_state_ops",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "cognitive_reactor_seq014_state_ops",
+      "to": "cognitive_reactor",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_audit_decomposed",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_audit_decomposed",
+      "to": "copilot_prompt_manager",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_auto_index",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_auto_index",
+      "to": "copilot_prompt_manager",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_block_utils",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_block_utils",
+      "to": "copilot_prompt_manager",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_constants",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_constants",
+      "to": "copilot_prompt_manager",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_injectors",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_injectors",
+      "to": "copilot_prompt_manager",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_json_utils",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_json_utils",
+      "to": "copilot_prompt_manager",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_operator_profile",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_operator_profile",
+      "to": "copilot_prompt_manager",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_operator_state_decomposed",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_operator_state_decomposed",
+      "to": "copilot_prompt_manager",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_orchestrator",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_orchestrator",
+      "to": "copilot_prompt_manager",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager",
+      "to": "copilot_prompt_manager_seq020_telemetry_utils",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "copilot_prompt_manager_seq020_telemetry_utils",
+      "to": "copilot_prompt_manager",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_aggregator",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_aggregator",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_alerts",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_alerts",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_connection_pool",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_connection_pool",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_constants",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_constants",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_dashboard",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_dashboard",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_dataclasses",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_dataclasses",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_demo_functions",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_demo_functions",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_demo_simulate",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_demo_simulate",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_demo_summary",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_demo_summary",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_formatter",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_formatter",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_http_handler",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_http_handler",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_metrics",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_metrics",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_orchestrator",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_orchestrator",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_replay",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_replay",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer",
+      "to": "streaming_layer_simulation_helpers",
+      "health": 0.74,
+      "type": "package"
+    },
+    {
+      "from": "streaming_layer_simulation_helpers",
+      "to": "streaming_layer",
+      "health": 0.74,
+      "type": "package"
+    }
+  ],
+  "node_scores": {
+    "cli": {
+      "in_degree": 0,
+      "out_degree": 9,
+      "lines": 89,
+      "clot_score": 0.15,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.4,
+      "vein_signals": [],
+      "dead_imports": [
+        "sys"
+      ],
+      "unused_exports": []
+    },
+    "demo_sim": {
+      "in_degree": 1,
+      "out_degree": 6,
+      "lines": 134,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.55,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "time"
+      ],
+      "unused_exports": []
+    },
+    "dual_substrate": {
+      "in_degree": 2,
+      "out_degree": 3,
+      "lines": 160,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.79,
+      "vein_signals": [
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "execution_logger": {
+      "in_degree": 2,
+      "out_degree": 2,
+      "lines": 165,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:2"
+      ],
+      "vein_score": 0.56,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "models_seq001_v002_d0323__isomorphic_to_keystroke_models_lc_pigeon_brain_system.ExecutionEvent",
+        "models_seq001_v002_d0323__isomorphic_to_keystroke_models_lc_pigeon_brain_system.DeathCause"
+      ],
+      "unused_exports": []
+    },
+    "failure_detector": {
+      "in_degree": 4,
+      "out_degree": 1,
+      "lines": 132,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.63,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "graph_extractor": {
+      "in_degree": 5,
+      "out_degree": 1,
+      "lines": 0,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.93,
+      "vein_signals": [
+        "critical_artery:in_degree=5",
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "graph_heat_map": {
+      "in_degree": 5,
+      "out_degree": 1,
+      "lines": 108,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.93,
+      "vein_signals": [
+        "critical_artery:in_degree=5",
+        "low_friction"
+      ],
+      "dead_imports": [
+        "collections.defaultdict"
+      ],
+      "unused_exports": []
+    },
+    "live_server": {
+      "in_degree": 2,
+      "out_degree": 2,
+      "lines": 0,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.56,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "loop_detector": {
+      "in_degree": 4,
+      "out_degree": 1,
+      "lines": 120,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.63,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "models": {
+      "in_degree": 2,
+      "out_degree": 1,
+      "lines": 44,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.53,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "observer_synthesis": {
+      "in_degree": 2,
+      "out_degree": 5,
+      "lines": 150,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.8,
+      "vein_signals": [
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [
+        "json"
+      ],
+      "unused_exports": []
+    },
+    "trace_hook": {
+      "in_degree": 3,
+      "out_degree": 1,
+      "lines": 145,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.58,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "traced_runner": {
+      "in_degree": 2,
+      "out_degree": 1,
+      "lines": 110,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.53,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "aim_utils": {
+      "in_degree": 0,
+      "out_degree": 1,
+      "lines": 0,
+      "clot_score": 0.45,
+      "clot_signals": [
+        "orphan_no_importers",
+        "unused_exports:1"
+      ],
+      "vein_score": 0.33,
+      "vein_signals": [],
+      "dead_imports": [],
+      "unused_exports": [
+        "(all — no importers)"
+      ]
+    },
+    "core_formatters": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 0,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "nl_parsers": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 0,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "pq_manifest_utils": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 0,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "pq_search_utils": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "lines": 0,
+      "clot_score": 0.05,
+      "clot_signals": [],
+      "vein_score": 0.45,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "class_decomposer": {
+      "in_degree": 1,
+      "out_degree": 3,
+      "lines": 177,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.54,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "pigeon_compiler.cut_executor.source_slicer_seq002_v004_d0315__extract_functions_constants_from_source_lc_verify_pigeon_plugin._node_name"
+      ],
+      "unused_exports": []
+    },
+    "file_writer": {
+      "in_degree": 3,
+      "out_degree": 1,
+      "lines": 85,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "high_hesitation:0.73"
+      ],
+      "vein_score": 0.38,
+      "vein_signals": [],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "func_decomposer": {
+      "in_degree": 3,
+      "out_degree": 2,
+      "lines": 67,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:2"
+      ],
+      "vein_score": 0.61,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "json",
+        "pigeon_compiler.pigeon_limits.PIGEON_RECOMMENDED"
+      ],
+      "unused_exports": []
+    },
+    "import_fixer": {
+      "in_degree": 2,
+      "out_degree": 1,
+      "lines": 60,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.53,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "init_writer": {
+      "in_degree": 3,
+      "out_degree": 1,
+      "lines": 46,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.38,
+      "vein_signals": [],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "manifest_writer": {
+      "in_degree": 3,
+      "out_degree": 1,
+      "lines": 69,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.58,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "plan_parser": {
+      "in_degree": 3,
+      "out_degree": 1,
+      "lines": 44,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.58,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "plan_validator": {
+      "in_degree": 2,
+      "out_degree": 1,
+      "lines": 59,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.53,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "pathlib.Path"
+      ],
+      "unused_exports": []
+    },
+    "resplit_binpack": {
+      "in_degree": 2,
+      "out_degree": 1,
+      "lines": 74,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.53,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "ast"
+      ],
+      "unused_exports": []
+    },
+    "resplit_helpers": {
+      "in_degree": 3,
+      "out_degree": 1,
+      "lines": 60,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.58,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "resplit": {
+      "in_degree": 2,
+      "out_degree": 2,
+      "lines": 92,
+      "clot_score": 0.2,
+      "clot_signals": [
+        "dead_imports:5"
+      ],
+      "vein_score": 0.56,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "pigeon_compiler.cut_executor.resplit_helpers_seq011_v004_d0315__shared_helpers_for_re_splitter_lc_verify_pigeon_plugin.collect_imports",
+        "pigeon_compiler.cut_executor.resplit_binpack_seq010_v004_d0315__bin_packing_file_writing_for_lc_verify_pigeon_plugin.bin_pack",
+        "pigeon_compiler.cut_executor.resplit_binpack_seq010_v004_d0315__bin_packing_file_writing_for_lc_verify_pigeon_plugin.write_splits",
+        "pigeon_compiler.pigeon_limits.PIGEON_RECOMMENDED",
+        "pigeon_compiler.pigeon_limits.FILE_OVERHEAD"
+      ],
+      "unused_exports": []
+    },
+    "source_slicer": {
+      "in_degree": 5,
+      "out_degree": 0,
+      "lines": 55,
+      "clot_score": 0.05,
+      "clot_signals": [],
+      "vein_score": 0.9,
+      "vein_signals": [
+        "critical_artery:in_degree=5",
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "deepseek_adapter": {
+      "in_degree": 4,
+      "out_degree": 0,
+      "lines": 135,
+      "clot_score": 0.05,
+      "clot_signals": [],
+      "vein_score": 0.6,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "compliance_seq008_audit_decomposed": {
+      "in_degree": 9,
+      "out_degree": 1,
+      "lines": 76,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:2"
+      ],
+      "vein_score": 0.93,
+      "vein_signals": [
+        "critical_artery:in_degree=9",
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re",
+        "compliance_seq008_constants_seq001_v001.SKIP_DIRS"
+      ],
+      "unused_exports": []
+    },
+    "compliance_seq008_audit_wrapper": {
+      "in_degree": 1,
+      "out_degree": 2,
+      "lines": 76,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:2"
+      ],
+      "vein_score": 0.51,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re",
+        "compliance_seq008_constants_seq001_v001.SKIP_DIRS"
+      ],
+      "unused_exports": []
+    },
+    "compliance_seq008_check_file": {
+      "in_degree": 1,
+      "out_degree": 2,
+      "lines": 32,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.51,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "compliance_seq008_classify": {
+      "in_degree": 1,
+      "out_degree": 2,
+      "lines": 20,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.51,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "compliance_seq008_format_report": {
+      "in_degree": 1,
+      "out_degree": 2,
+      "lines": 31,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.51,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "compliance_seq008_helpers": {
+      "in_degree": 1,
+      "out_degree": 2,
+      "lines": 26,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.51,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "compliance_seq008_recommend_wrapper": {
+      "in_degree": 1,
+      "out_degree": 2,
+      "lines": 69,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.51,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "compliance": {
+      "in_degree": 7,
+      "out_degree": 8,
+      "lines": 215,
+      "clot_score": 0.2,
+      "clot_signals": [
+        "oversize:215",
+        "self_fix:high_coupling:0"
+      ],
+      "vein_score": 1.0,
+      "vein_signals": [
+        "critical_artery:in_degree=7",
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "executor": {
+      "in_degree": 3,
+      "out_degree": 1,
+      "lines": 89,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.58,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "heal": {
+      "in_degree": 1,
+      "out_degree": 3,
+      "lines": 263,
+      "clot_score": 0.25,
+      "clot_signals": [
+        "dead_imports:2",
+        "oversize:263"
+      ],
+      "vein_score": 0.54,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re",
+        "pigeon_compiler.rename_engine.compliance_seq008_v004_d0315__line_count_enforcer_split_recommender_lc_verify_pigeon_plugin.check_file"
+      ],
+      "unused_exports": []
+    },
+    "import_rewriter": {
+      "in_degree": 3,
+      "out_degree": 1,
+      "lines": 186,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "high_hesitation:0.73"
+      ],
+      "vein_score": 0.38,
+      "vein_signals": [],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "manifest_builder": {
+      "in_degree": 3,
+      "out_degree": 1,
+      "lines": 1023,
+      "clot_score": 0.2,
+      "clot_signals": [
+        "dead_imports:1",
+        "oversize:1023"
+      ],
+      "vein_score": 0.58,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "pigeon_compiler.pigeon_limits.is_excluded"
+      ],
+      "unused_exports": []
+    },
+    "nametag": {
+      "in_degree": 3,
+      "out_degree": 2,
+      "lines": 244,
+      "clot_score": 0.15,
+      "clot_signals": [
+        "oversize:244"
+      ],
+      "vein_score": 0.61,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "planner": {
+      "in_degree": 3,
+      "out_degree": 2,
+      "lines": 109,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.61,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "registry": {
+      "in_degree": 2,
+      "out_degree": 2,
+      "lines": 253,
+      "clot_score": 0.15,
+      "clot_signals": [
+        "oversize:253"
+      ],
+      "vein_score": 0.56,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "run_heal": {
+      "in_degree": 1,
+      "out_degree": 10,
+      "lines": 328,
+      "clot_score": 0.25,
+      "clot_signals": [
+        "dead_imports:2",
+        "oversize:328"
+      ],
+      "vein_score": 0.55,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "json",
+        "pigeon_compiler.rename_engine.registry_seq012_v003_d0314__local_name_registry_for_the_lc_desc_upgrade.bump_all_versions"
+      ],
+      "unused_exports": []
+    },
+    "run_rename": {
+      "in_degree": 1,
+      "out_degree": 5,
+      "lines": 143,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.55,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "json"
+      ],
+      "unused_exports": []
+    },
+    "scanner": {
+      "in_degree": 4,
+      "out_degree": 1,
+      "lines": 108,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.63,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "validator": {
+      "in_degree": 3,
+      "out_degree": 0,
+      "lines": 114,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.55,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "ast"
+      ],
+      "unused_exports": []
+    },
+    "press_release_gen_constants_seq001_v001": {
+      "in_degree": 0,
+      "out_degree": 1,
+      "lines": 0,
+      "clot_score": 0.45,
+      "clot_signals": [
+        "orphan_no_importers",
+        "unused_exports:1"
+      ],
+      "vein_score": 0.33,
+      "vein_signals": [],
+      "dead_imports": [],
+      "unused_exports": [
+        "(all — no importers)"
+      ]
+    },
+    "press_release_gen_template_builders_seq002_v001": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 0,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "press_release_gen_template_helpers_seq004_v001": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 0,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "press_release_gen_template_key_findings": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "lines": 0,
+      "clot_score": 0.05,
+      "clot_signals": [],
+      "vein_score": 0.45,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "manifest_bridge": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 110,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "reaudit_diff": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 190,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "run_clean_split_helpers": {
+      "in_degree": 1,
+      "out_degree": 3,
+      "lines": 59,
+      "clot_score": 0.2,
+      "clot_signals": [
+        "dead_imports:4"
+      ],
+      "vein_score": 0.54,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re",
+        "datetime.datetime",
+        "pigeon_compiler.pigeon_limits.PIGEON_MAX",
+        "pigeon_compiler.pigeon_limits.PIGEON_RECOMMENDED"
+      ],
+      "unused_exports": []
+    },
+    "run_clean_split_init": {
+      "in_degree": 2,
+      "out_degree": 1,
+      "lines": 199,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.53,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "run_clean_split": {
+      "in_degree": 2,
+      "out_degree": 12,
+      "lines": 267,
+      "clot_score": 0.35,
+      "clot_signals": [
+        "dead_imports:5",
+        "oversize:267"
+      ],
+      "vein_score": 0.7,
+      "vein_signals": [
+        "hub"
+      ],
+      "dead_imports": [
+        "json",
+        "glob",
+        "pigeon_compiler.cut_executor.init_writer_seq007_v007_d0322__generate_init_py_for_split_lc_stage_78_hook.write_init",
+        "pigeon_compiler.cut_executor.manifest_writer_seq005_v004_d0315__generate_manifest_md_for_a_lc_verify_pigeon_plugin.write_manifest",
+        "pigeon_compiler.pigeon_limits.PIGEON_RECOMMENDED"
+      ],
+      "unused_exports": []
+    },
+    "run_compiler_test": {
+      "in_degree": 1,
+      "out_degree": 2,
+      "lines": 67,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:2"
+      ],
+      "vein_score": 0.51,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "json",
+        "os"
+      ],
+      "unused_exports": []
+    },
+    "run_deepseek_plans": {
+      "in_degree": 1,
+      "out_degree": 2,
+      "lines": 69,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.51,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "os"
+      ],
+      "unused_exports": []
+    },
+    "run_pigeon_loop": {
+      "in_degree": 1,
+      "out_degree": 11,
+      "lines": 269,
+      "clot_score": 0.35,
+      "clot_signals": [
+        "dead_imports:4",
+        "oversize:269"
+      ],
+      "vein_score": 0.55,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "datetime.datetime",
+        "pigeon_compiler.pigeon_limits.PIGEON_MAX",
+        "pigeon_compiler.pigeon_limits.PIGEON_RECOMMENDED",
+        "pigeon_compiler.integrations.deepseek_adapter_seq001_v006_d0322__deepseek_api_client_lc_stage_78_hook.deepseek_query"
+      ],
+      "unused_exports": []
+    },
+    "ast_parser": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 90,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "call_graph": {
+      "in_degree": 3,
+      "out_degree": 1,
+      "lines": 104,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.58,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "ether_map_builder": {
+      "in_degree": 3,
+      "out_degree": 5,
+      "lines": 65,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.85,
+      "vein_signals": [
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "import_tracer": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 81,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "resistance_analyzer": {
+      "in_degree": 2,
+      "out_degree": 2,
+      "lines": 97,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.56,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "shared_state_detector": {
+      "in_degree": 2,
+      "out_degree": 0,
+      "lines": 66,
+      "clot_score": 0.05,
+      "clot_signals": [],
+      "vein_score": 0.5,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "deepseek_plan_prompt": {
+      "in_degree": 2,
+      "out_degree": 1,
+      "lines": 277,
+      "clot_score": 0.15,
+      "clot_signals": [
+        "oversize:277"
+      ],
+      "vein_score": 0.53,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "adapter": {
+      "in_degree": 0,
+      "out_degree": 1,
+      "lines": 125,
+      "clot_score": 0.45,
+      "clot_signals": [
+        "orphan_no_importers",
+        "unused_exports:1"
+      ],
+      "vein_score": 0.33,
+      "vein_signals": [],
+      "dead_imports": [],
+      "unused_exports": [
+        "(all — no importers)"
+      ]
+    },
+    "drift_seq003_baseline_store": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 31,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "drift_seq003_build_cognitive_context": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 76,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "drift_seq003_compute_baseline": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 62,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "drift_seq003_detect_session_drift": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 69,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "drift": {
+      "in_degree": 5,
+      "out_degree": 5,
+      "lines": 234,
+      "clot_score": 0.15,
+      "clot_signals": [
+        "oversize:234"
+      ],
+      "vein_score": 1.0,
+      "vein_signals": [
+        "critical_artery:in_degree=5",
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "unsaid_seq002_diff": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 27,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "unsaid_seq002_helpers": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 61,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "unsaid_seq002_orchestrator": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 159,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "unsaid": {
+      "in_degree": 4,
+      "out_degree": 3,
+      "lines": 226,
+      "clot_score": 0.2,
+      "clot_signals": [
+        "dead_imports:1",
+        "oversize:226"
+      ],
+      "vein_score": 0.89,
+      "vein_signals": [
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [
+        "collections.defaultdict"
+      ],
+      "unused_exports": []
+    },
+    "cognitive_reactor_seq014_api_client": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 11,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "cognitive_reactor_seq014_cognitive_hint": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 36,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "cognitive_reactor_seq014_constants": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 19,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:2"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "json",
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "cognitive_reactor_seq014_decision_maker": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 11,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "cognitive_reactor_seq014_docstring_patch": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 70,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:2"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "os",
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "cognitive_reactor_seq014_patch_generator": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 102,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "cognitive_reactor_seq014_patch_writer": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 11,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "cognitive_reactor_seq014_prompt_builder": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 11,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "cognitive_reactor_seq014_reactor_core": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 121,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:2"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "os",
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "cognitive_reactor_seq014_registry_loader": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 11,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "cognitive_reactor_seq014_self_fix_runner": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 11,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "cognitive_reactor_seq014_state_ops": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 27,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "cognitive_reactor": {
+      "in_degree": 12,
+      "out_degree": 13,
+      "lines": 416,
+      "clot_score": 0.2,
+      "clot_signals": [
+        "oversize:416",
+        "self_fix:dead_export:ingest_flush"
+      ],
+      "vein_score": 1.0,
+      "vein_signals": [
+        "critical_artery:in_degree=12",
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "context_budget": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 96,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "self_fix:dead_export:default_budget_config"
+      ],
+      "vein_score": 0.28,
+      "vein_signals": [],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "copilot_prompt_manager_seq020_audit_decomposed": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 76,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "copilot_prompt_manager_seq020_auto_index": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 75,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "copilot_prompt_manager_seq020_block_utils": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 38,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "copilot_prompt_manager_seq020_constants": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 30,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "json"
+      ],
+      "unused_exports": []
+    },
+    "copilot_prompt_manager_seq020_injectors": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 66,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:2"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "json",
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "copilot_prompt_manager_seq020_json_utils": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 38,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "copilot_prompt_manager_seq020_operator_profile": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 53,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "copilot_prompt_manager_seq020_operator_state_decomposed": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 70,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "copilot_prompt_manager_seq020_orchestrator": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 61,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "copilot_prompt_manager_seq020_telemetry_utils": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 45,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "re"
+      ],
+      "unused_exports": []
+    },
+    "copilot_prompt_manager": {
+      "in_degree": 11,
+      "out_degree": 11,
+      "lines": 500,
+      "clot_score": 0.2,
+      "clot_signals": [
+        "dead_imports:1",
+        "oversize:500"
+      ],
+      "vein_score": 1.0,
+      "vein_signals": [
+        "critical_artery:in_degree=11",
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [
+        "__future__.annotations"
+      ],
+      "unused_exports": []
+    },
+    "drift_watcher": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 126,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:2"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "json",
+        "os"
+      ],
+      "unused_exports": []
+    },
+    "dynamic_prompt": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 373,
+      "clot_score": 0.15,
+      "clot_signals": [
+        "oversize:373"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "file_consciousness": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 473,
+      "clot_score": 0.15,
+      "clot_signals": [
+        "oversize:473"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "file_heat_map": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 144,
+      "clot_score": 0.3,
+      "clot_signals": [
+        "dead_imports:2",
+        "high_hesitation:0.89",
+        "self_fix:dead_export:update_heat_map",
+        "self_fix:dead_export:load_registry_churn"
+      ],
+      "vein_score": 0.28,
+      "vein_signals": [],
+      "dead_imports": [
+        "__future__.annotations",
+        "collections.defaultdict"
+      ],
+      "unused_exports": []
+    },
+    "logger": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 178,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "mutation_scorer": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 188,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "__future__.annotations"
+      ],
+      "unused_exports": []
+    },
+    "operator_stats": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 534,
+      "clot_score": 0.25,
+      "clot_signals": [
+        "dead_imports:2",
+        "oversize:534"
+      ],
+      "vein_score": 0.38,
+      "vein_signals": [],
+      "dead_imports": [
+        "time",
+        "datetime.timedelta"
+      ],
+      "unused_exports": []
+    },
+    "pulse_harvest": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 275,
+      "clot_score": 0.15,
+      "clot_signals": [
+        "oversize:275"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "push_narrative": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 199,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.38,
+      "vein_signals": [],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "query_memory": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 252,
+      "clot_score": 0.4,
+      "clot_signals": [
+        "dead_imports:2",
+        "oversize:252",
+        "self_fix:dead_export:record_query",
+        "self_fix:dead_export:load_query_memory",
+        "self_fix:dead_export:load_query_memory"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "__future__.annotations",
+        "sys"
+      ],
+      "unused_exports": []
+    },
+    "resistance_bridge": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 124,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "rework_backfill": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 153,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "__future__.annotations"
+      ],
+      "unused_exports": []
+    },
+    "rework_detector": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 115,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:1",
+        "self_fix:dead_export:load_rework_stats"
+      ],
+      "vein_score": 0.38,
+      "vein_signals": [],
+      "dead_imports": [
+        "__future__.annotations"
+      ],
+      "unused_exports": []
+    },
+    "self_fix": {
+      "in_degree": 1,
+      "out_degree": 2,
+      "lines": 615,
+      "clot_score": 0.2,
+      "clot_signals": [
+        "dead_imports:1",
+        "oversize:615"
+      ],
+      "vein_score": 0.31,
+      "vein_signals": [],
+      "dead_imports": [
+        "urllib.request"
+      ],
+      "unused_exports": []
+    },
+    "session_handoff": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 188,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:2"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "__future__.annotations",
+        "glob"
+      ],
+      "unused_exports": []
+    },
+    "streaming_layer": {
+      "in_degree": 16,
+      "out_degree": 16,
+      "lines": 1166,
+      "clot_score": 0.15,
+      "clot_signals": [
+        "oversize:1166"
+      ],
+      "vein_score": 1.0,
+      "vein_signals": [
+        "critical_artery:in_degree=16",
+        "hub",
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "task_queue": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 180,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "self_fix:dead_export:mark_in_progress"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "timestamp_utils": {
+      "in_degree": 1,
+      "out_degree": 0,
+      "lines": 24,
+      "clot_score": 0.05,
+      "clot_signals": [],
+      "vein_score": 0.45,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "streaming_layer_aggregator": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 111,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "streaming_layer_alerts": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 144,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "streaming_layer_connection_pool": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 121,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "streaming_layer_constants": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 52,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "json"
+      ],
+      "unused_exports": []
+    },
+    "streaming_layer_dashboard": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 80,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "streaming_layer_dataclasses": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 21,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:2"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "dataclasses.asdict",
+        "time"
+      ],
+      "unused_exports": []
+    },
+    "streaming_layer_demo_functions": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 35,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "streaming_layer_demo_simulate": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 31,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "streaming_layer_demo_summary": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 42,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "streaming_layer_formatter": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 65,
+      "clot_score": 0.1,
+      "clot_signals": [
+        "dead_imports:2"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "os",
+        "time"
+      ],
+      "unused_exports": []
+    },
+    "streaming_layer_http_handler": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 149,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "streaming_layer_metrics": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 90,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "streaming_layer_orchestrator": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 17,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    },
+    "streaming_layer_replay": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 108,
+      "clot_score": 0.05,
+      "clot_signals": [
+        "dead_imports:1"
+      ],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [
+        "typing.Optional"
+      ],
+      "unused_exports": []
+    },
+    "streaming_layer_simulation_helpers": {
+      "in_degree": 1,
+      "out_degree": 1,
+      "lines": 28,
+      "clot_score": 0.0,
+      "clot_signals": [],
+      "vein_score": 0.48,
+      "vein_signals": [
+        "low_friction"
+      ],
+      "dead_imports": [],
+      "unused_exports": []
+    }
+  }
+}

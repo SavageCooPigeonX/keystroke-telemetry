@@ -199,7 +199,108 @@ def _build_system_context(root: Path) -> str:
         except Exception:
             pass
 
+    # AI Cognitive State — how the AI itself is performing
+    _inject_ai_cognitive_state(root, parts)
+
+    # Rework log — which AI responses landed vs missed
+    _inject_rework_summary(root, parts)
+
+    # Recurring queries — what the operator keeps asking twice
+    _inject_query_memory(root, parts)
+
     return "\n".join(parts)
+
+
+def _inject_ai_cognitive_state(root: Path, parts: list[str]) -> None:
+    """Inject AI self-awareness: its own cognitive state and struggling modules."""
+    try:
+        from pigeon_brain.ai_cognitive_log import get_ai_state
+        state = get_ai_state(root)
+        if state.get("window_size", 0) > 0:
+            parts.append("## AI Self-Assessment (Copilot needs therapy too)")
+            parts.append(f"AI cognitive state: **{state.get('ai_state', 'unknown')}**")
+            parts.append(f"Error rate: {state.get('error_rate', 0):.0%} | "
+                         f"Miss rate: {state.get('miss_rate', 0):.0%} | "
+                         f"Uncertainty: {state.get('uncertainty_rate', 0):.0%}")
+            chains = state.get("fix_chains", [])
+            if chains:
+                parts.append("### Fix attempt chains (AI kept retrying):")
+                for c in chains[:3]:
+                    parts.append(f"  - {', '.join(c['modules'][:3])}: "
+                                 f"{c['attempts']} attempts, {c['errors']} errors")
+            struggling = state.get("struggling_modules", [])
+            if struggling:
+                parts.append("### Modules AI struggles with:")
+                for m in struggling[:5]:
+                    parts.append(f"  - {m['module']}: {m['attempts']} attempts, "
+                                 f"{m['misses']} misses (badness={m['badness']})")
+            parts.append("")
+    except Exception:
+        pass
+
+
+def _inject_rework_summary(root: Path, parts: list[str]) -> None:
+    """Inject AI response quality — how often did the human rework AI answers."""
+    rework_path = root / "rework_log.json"
+    if not rework_path.exists():
+        return
+    try:
+        data = json.loads(rework_path.read_text("utf-8"))
+        if not isinstance(data, list) or not data:
+            return
+        recent = data[-20:]  # Last 20 rework entries
+        verdicts = {"ok": 0, "miss": 0, "partial": 0}
+        for r in recent:
+            v = r.get("verdict", "ok")
+            verdicts[v] = verdicts.get(v, 0) + 1
+        total = sum(verdicts.values()) or 1
+        parts.append("## AI Response Quality (last 20 interactions):")
+        parts.append(f"  OK: {verdicts['ok']}/{total} ({verdicts['ok']/total:.0%}) | "
+                     f"Partial: {verdicts['partial']}/{total} | "
+                     f"Miss: {verdicts['miss']}/{total}")
+        misses = [r for r in recent if r.get("verdict") == "miss"]
+        if misses:
+            parts.append("  Recent misses (human deleted/reworked AI response):")
+            for m in misses[-5:]:
+                parts.append(f"    - query: {m.get('query_hint', '?')[:80]}")
+        parts.append("")
+    except Exception:
+        pass
+
+
+def _inject_query_memory(root: Path, parts: list[str]) -> None:
+    """Inject recurring queries — what does the operator keep asking?"""
+    qm_path = root / "query_memory.json"
+    if not qm_path.exists():
+        return
+    try:
+        data = json.loads(qm_path.read_text("utf-8"))
+        queries = data.get("queries", []) if isinstance(data, dict) else []
+        if not queries:
+            return
+        # Detect recurring queries by fingerprint frequency
+        fp_counts: dict[str, list] = {}
+        for q in queries:
+            fp = q.get("fingerprint", "")
+            if fp:
+                fp_counts.setdefault(fp, []).append(q.get("text", ""))
+        recurring = [(fp, texts) for fp, texts in fp_counts.items() if len(texts) >= 2]
+        recurring.sort(key=lambda x: -len(x[1]))
+        if recurring:
+            parts.append("## Recurring Queries (operator keeps asking these):")
+            for fp, texts in recurring[:8]:
+                parts.append(f"  - ({len(texts)}x) {texts[-1][:100]}")
+        # Abandoned themes / unsaid
+        abandoned = data.get("abandoned_themes", []) if isinstance(data, dict) else []
+        if abandoned:
+            parts.append("### Unsaid thoughts (operator deleted these from prompts):")
+            for u in abandoned[:5]:
+                text = u.get("text", u) if isinstance(u, dict) else str(u)
+                parts.append(f'  - "{text[:80]}"')
+        if recurring or abandoned:
+            parts.append("")
+    except Exception:
+        pass
 
 
 # Allowed folder prefixes for write_file actions

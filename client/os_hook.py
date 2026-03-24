@@ -89,8 +89,10 @@ class ContextTracker:
         if self._ctrl:
             if key_str == 'i' and self._shift:
                 self.context = 'chat'       # Ctrl+Shift+I = Copilot Chat
-            elif key_str == 'l' and self._shift:
-                self.context = 'chat'       # Ctrl+Shift+L = Copilot Chat (new)
+            elif key_str == 'i' and not self._shift:
+                self.context = 'chat'       # Ctrl+I = inline chat
+            elif key_str == 'l':
+                self.context = 'chat'       # Ctrl+L = Copilot Chat (new)
             elif key_str == 'p':
                 self.context = 'palette'    # Ctrl+P = quick open
             elif key_str == 'f':
@@ -184,9 +186,8 @@ class KeystrokeRecorder:
             'source': 'os_hook',
         }
 
-        # Only include buffer content for chat context (privacy: don't log editor code)
-        if ctx == 'chat':
-            event['buffer'] = self._composition
+        # Include buffer in all events for composition reconstruction
+        event['buffer'] = self._composition
 
         with self._lock:
             self._buffer.append(event)

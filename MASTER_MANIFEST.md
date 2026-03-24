@@ -1,8 +1,8 @@
 # MASTER MANIFEST — keystroke-telemetry
 
-*Auto-updated 2026-03-23 · 23 src modules · 19 streaming modules · ~62 compiler modules · 13 brain modules · 7 React components*
+*Auto-updated 2026-03-24 · 23 src modules · 19 streaming modules · ~62 compiler modules · 14 brain modules · 7 React components*
 
-**This codebase reads minds, rewires AI reasoning, refactors itself, and watches the whole thing happen in a living neural visualization.**
+**This codebase reads minds, rewires AI reasoning, refactors itself, watches the whole thing happen in a living neural visualization, and now reads its own deleted thoughts before starting work.**
 
 ---
 
@@ -15,7 +15,7 @@ Four interlocking systems. Each one feeds the next. The last one watches all the
 | **Keystroke Telemetry** | `src/` | 23 + 3 cognitive | ✅ Live |
 | **Pigeon Code Compiler** | `pigeon_compiler/` | ~62 | ✅ Live |
 | **Streaming Layer** | `streaming_layer/` | 19 | ✅ Live · 100% compliant |
-| **Pigeon Brain** | `pigeon_brain/` | 13 + 7 React | **✅ Live · dual-substrate · real-time trace** |
+| **Pigeon Brain** | `pigeon_brain/` | 14 + 7 React | **✅ Live · dual-substrate · real-time trace · context veins** |
 | **VS Code Extension** | `vscode-extension/` | — | ✅ Live · TypeScript |
 
 ---
@@ -40,7 +40,7 @@ Four interlocking systems. Each one feeds the next. The last one watches all the
 | 014 | `cognitive_reactor_seq014*` | 350 | 🟠 WARN | Autonomous code modification from telemetry |
 | 015 | `pulse_harvest_seq015*` | 254 | ⚠️ OVER | Prompt→file edit pairing, sub-second timing |
 | 016 | `prompt_recon_seq016*` | 215 | ⚠️ OVER | Prompt reconstruction + mutation tracking |
-| 017 | `dynamic_prompt_seq017*` | 272 | ⚠️ OVER | **Task-aware CoT injection** into copilot-instructions.md |
+| 017 | `dynamic_prompt_seq017*` | ~340 | ⚠️ OVER | **Task-aware CoT injection** into copilot-instructions.md + codebase health |
 | 018 | `task_queue_seq018*` | 180 | ✅ | Copilot-managed task queue, auto-seeded from self-fix |
 | 019 | `file_consciousness_seq019*` | ~200 | ✅ | AST-derived function consciousness dating |
 | 020 | `copilot_prompt_manager_seq020*` | ~200 | ⚠️ OVER | Audits and manages all injected prompt blocks |
@@ -63,6 +63,15 @@ VS Code Extension (keystrokes)
   └─ flush → classify_bridge.py
        └─ OperatorStats.ingest() → operator_profile.md
 
+PER-PROMPT PIPELINE (prompt_journal_seq019):
+  1. Force fresh composition            (analyze_and_log() from raw keystrokes)
+  2. Bind composition to prompt         (text similarity, score ≥ 0.95 bypasses age)
+  3. Extract deleted_words + rewrites   (from bound composition)
+  4. Predict next struggles             (journal history pattern mining)
+  5. Write prompt_telemetry_latest.json (snapshot: binding + predictions)
+  6. Inject into copilot-instructions   (<!-- pigeon:prompt-telemetry -->)
+  Result: Copilot sees your deleted words BEFORE starting work.
+
 POST-COMMIT PIPELINE (git_plugin.py):
   1. Rename files + bump versions       (pigeon naming convention)
   2. Rewrite all imports                (auto-heals after renames)
@@ -72,7 +81,7 @@ POST-COMMIT PIPELINE (git_plugin.py):
   6. push_narrative_seq012              → docs/push_narratives/{hash}.md
   7. DeepSeek API call                  → operator_coaching.md
   8. dynamic_prompt_seq017              → .github/copilot-instructions.md
-     └─ inject_task_context()
+     └─ inject_task_context()           (incl. codebase health from context_veins.json)
   9. task_queue_seq018                  → task_queue.json
      └─ inject_task_queue()
  10. auto-commit [pigeon-auto]
@@ -82,11 +91,20 @@ POST-COMMIT PIPELINE (git_plugin.py):
 
 On every Copilot message, `prompt_journal_seq019` writes an enriched JSON entry to `logs/prompt_journal.jsonl` that cross-references: cognitive state, WPM, deletion ratio, deleted words, rewrites, active tasks, hot modules, intent classification, module refs, and running session stats. This is the unified analysis layer — one file to reconstruct any session.
 
+**New (2026-03-24):** Per-prompt composition binding now works. Before building a response, `log_enriched_entry()` forces a fresh composition analysis from raw keystrokes, matches the current prompt to its composition via text similarity (score ≥ 0.95 bypasses age filter), and injects the operator's deleted words + rewrites directly into the `<!-- pigeon:prompt-telemetry -->` context block. Copilot sees what you deleted before it starts thinking.
+
+**Predictive Debug:** `_predict_next_issues()` mines the prompt journal for three patterns:
+1. Which modules appear in prompts after frustrated/hesitant states
+2. Build→debug cycles (implement module X → debug module X within 5 prompts)
+3. Module heat + recent mention trending
+
+Predictions surface in `prompt_telemetry_latest.json` as `predicted_struggles` and are visible in every Copilot context window.
+
 ### Injected Context Blocks (in copilot-instructions.md)
 
 | Block | Source | Sections |
 |---|---|---|
-| `<!-- pigeon:task-context -->` | `dynamic_prompt_seq017` | Task focus · Cognitive state + CoT directive · Unsaid threads · Module hot zones · AI rework surface · Recent work · **Coaching directives** · **Fragile contracts** · **Known issues** · **Persistent gaps** · Prompt evolution |
+| `<!-- pigeon:task-context -->` | `dynamic_prompt_seq017` | Task focus · Cognitive state + CoT directive · Unsaid threads · Module hot zones · AI rework surface · Recent work · **Coaching directives** · **Fragile contracts** · **Known issues** · **Persistent gaps** · Prompt evolution · **File consciousness** · **Codebase health (veins/clots)** |
 | `<!-- pigeon:operator-state -->` | `git_plugin._refresh_operator_state()` | LLM-synthesized behavioral instructions |
 | `<!-- pigeon:auto-index -->` | `git_plugin._refresh_copilot_instructions()` | All module token counts |
 
@@ -110,7 +128,7 @@ Entry points: `streaming_layer_orchestrator_seq016*`, `streaming_layer_orchestra
 |---|---|---:|---|---|
 | 001 | `models_seq001*` | ~85 | ✅ | `ExecutionEvent`, `Electron`, `DeathCause` — isomorphic to keystroke models |
 | 002 | `execution_logger_seq002*` | ~150 | ✅ | Agent telemetry logger — stall detection, loop threshold, latency |
-| 003 | `graph_extractor_seq003*` | ~150 | ✅ | AST + pigeon_registry → 125-node adjacency graph, 72 import edges |
+| 003 | `graph_extractor_seq003*` | ~150 | ✅ | AST + pigeon_registry → 137-node adjacency graph, 260 import edges |
 | 004 | `graph_heat_map_seq004*` | ~120 | ✅ | Failure accumulation per node — danger zones, death rates, cause breakdown |
 | 005 | `loop_detector_seq005*` | ~120 | ✅ | Recurring path fingerprinting — detects agents stuck in loops |
 | 006 | `failure_detector_seq006*` | ~130 | ✅ | Death classification — stale (0.9), timeout (0.7), loop (0.65), exception (0.75) |
@@ -121,6 +139,7 @@ Entry points: `streaming_layer_orchestrator_seq016*`, `streaming_layer_orchestra
 | 011 | `trace_hook_seq011*` | ~150 | ✅ | `sys.settrace` → maps real Python calls to graph node names at runtime |
 | 012 | `live_server_seq012*` | ~240 | ⚠️ OVER | WebSocket (ws://8765) + HTTP snapshot, 20Hz broadcast, event injection |
 | 013 | `traced_runner_seq013*` | ~140 | ✅ | Wraps any Python script with trace hook, pushes events to live server |
+| — | `context_veins.py` | ~350 | ✅ | **Codebase health** — import graph → vein/clot scoring, self-trim recommendations |
 
 ### React UI (`pigeon_brain/ui/`)
 
@@ -152,8 +171,9 @@ py -m pigeon_brain trace X.py # Run any script with real-time tracing
 
 | File | Purpose | Updated |
 |---|---|---|
-| `pigeon_brain/dual_view.json` | 125 enriched neurons — human hesitation + agent death merged per node | `py -m pigeon_brain dual` |
-| `pigeon_brain/graph_cache.json` | Graph topology cache (nodes + edges) | `py -m pigeon_brain graph` |
+| `pigeon_brain/dual_view.json` | 137 enriched neurons — human hesitation + agent death merged per node | `py -m pigeon_brain dual` |
+| `pigeon_brain/graph_cache.json` | Graph topology cache (137 nodes, 260 edges) | `py -m pigeon_brain graph` |
+| `pigeon_brain/context_veins.json` | Vein/clot health scores per module + trim recommendations | `py -m pigeon_brain.context_veins .` |
 | `pigeon_brain/exec_events.jsonl` | Execution event log (simulated or traced) | On simulation/trace |
 | `pigeon_brain/trace_log.jsonl` | Trace hook output from `traced_runner` | `py -m pigeon_brain trace` |
 

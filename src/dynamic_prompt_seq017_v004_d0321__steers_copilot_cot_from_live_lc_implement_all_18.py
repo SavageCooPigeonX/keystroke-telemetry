@@ -211,6 +211,42 @@ def _file_consciousness(root):
     except Exception:
         return ''
 
+def _codebase_health(root):
+    """Load context_veins.json and build a Codebase Health section for CoT injection."""
+    vp = root / 'pigeon_brain' / 'context_veins.json'
+    if not vp.exists():
+        return ''
+    try:
+        data = json.loads(vp.read_text('utf-8'))
+    except Exception:
+        return ''
+    stats = data.get('stats', {})
+    clots = data.get('clots', [])
+    recs = data.get('trim_recommendations', [])
+    arteries = data.get('arteries', [])
+    if not clots and not recs:
+        return ''
+    lines = ['### Codebase Health (Veins / Clots)',
+             f'*{stats.get("alive", 0)}/{stats.get("total_nodes", 0)} alive, '
+             f'{stats.get("clots", 0)} clots, '
+             f'avg vein health {stats.get("avg_vein_health", 0):.2f}*']
+    if clots:
+        lines.append('\n**Clots (dead/bloated — trim candidates):**')
+        for c in clots[:6]:
+            sigs = ', '.join(c.get('clot_signals', []))
+            lines.append(f'- `{c["module"]}` (score={c["clot_score"]:.2f}): {sigs}')
+    if recs:
+        lines.append('\n**Self-trim recommendations:**')
+        for r in recs[:4]:
+            lines.append(f'- [{r["action"]}] `{r["target"]}`: {r["reason"]}')
+    if arteries:
+        top_art = [a for a in arteries[:3] if a.get('vein_score', 0) >= 0.8]
+        if top_art:
+            lines.append('\n**Critical arteries (do NOT break):**')
+            for a in top_art:
+                lines.append(f'- `{a["module"]}` (vein={a["vein_score"]:.2f}, in={a["in_degree"]})')
+    return '\n'.join(lines)
+
 _COT = {
     'frustrated': 'Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.',
     'hesitant':   'Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.',
@@ -308,6 +344,10 @@ def build_task_context(root):
     cons = _file_consciousness(root)
     if cons:
         L += [cons, '']
+    # Codebase health — veins/clots from context_veins.json
+    health = _codebase_health(root)
+    if health:
+        L += [health, '']
     L.append('<!-- /pigeon:task-context -->')
     return '\n'.join(L)
 

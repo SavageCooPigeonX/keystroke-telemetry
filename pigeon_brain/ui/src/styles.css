@@ -663,6 +663,23 @@ body {
   letter-spacing: 0.5px;
 }
 .chat-header-actions { display: flex; gap: 6px; }
+
+/* AI cognitive state pill */
+.chat-ai-state {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 8px;
+}
+.chat-ai-confident { background: #143a1a; color: #44dd66; border: 1px solid #2a6a2a; }
+.chat-ai-uncertain { background: #3a3a14; color: #dddd44; border: 1px solid #6a6a2a; }
+.chat-ai-struggling { background: #3a2a14; color: #dd8844; border: 1px solid #6a4a2a; }
+.chat-ai-looping { background: #3a1414; color: #dd4444; border: 1px solid #6a2a2a; animation: aiPulse 1.2s ease-in-out infinite; }
+.chat-ai-hallucinating { background: #2a143a; color: #bb44dd; border: 1px solid #5a2a6a; animation: aiPulse 0.8s ease-in-out infinite; }
+@keyframes aiPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
 .chat-btn-clear, .chat-btn-close {
   background: none;
   border: 1px solid #333;
