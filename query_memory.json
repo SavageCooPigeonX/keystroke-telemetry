@@ -1,48 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-23T02:42:28.898994+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T02:43:29.084725+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T02:44:28.871995+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T02:45:29.588062+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T02:46:29.969611+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T02:47:29.839359+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T02:48:29.729231+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-23T02:49:29.698390+00:00",
       "text": "bg:build_narratives.py",
       "fingerprint": "bgbuild_narrativespy",
@@ -2998,6 +2956,48 @@
       "ts": "2026-03-24T04:07:45.235891+00:00",
       "text": "bg:MASTER_MANIFEST.md",
       "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:08:58.483450+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:09:48.098833+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:10:51.505675+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:11:54.176126+00:00",
+      "text": "bg:dynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_per_prompt_deleted.py",
+      "fingerprint": "bgdynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_per_prompt_deletedpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:12:48.482422+00:00",
+      "text": "bg:dynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_per_prompt_deleted.py",
+      "fingerprint": "bgdynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_per_prompt_deletedpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:14:05.142161+00:00",
+      "text": "bg:dynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_per_prompt_deleted.py",
+      "fingerprint": "bgdynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_per_prompt_deletedpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:14:48.442334+00:00",
+      "text": "bg:dynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_per_prompt_deleted.py",
+      "fingerprint": "bgdynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_per_prompt_deletedpy",
       "submitted": true
     }
   ],

@@ -10,11 +10,11 @@ Usage:
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 012 | VER: v003 | 258 lines | ~2,495 tokens
+# SEQ: 012 | VER: v004 | 289 lines | ~2,857 tokens
 # DESC:   websocket_server_for_live_execution
-# INTENT: gemini_chat_dead
-# LAST:   2026-03-24 @ 8c33693
-# SESSIONS: 2
+# INTENT: per_prompt_deleted
+# LAST:   2026-03-24 @ 5d61391
+# SESSIONS: 3
 # ──────────────────────────────────────────────
 
 import asyncio

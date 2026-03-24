@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-24T01:37:17.502820+00:00",
+  "generated": "2026-03-24T04:09:14.225428+00:00",
   "total": 146,
   "files": [
     {
@@ -151,14 +151,14 @@
       ]
     },
     {
-      "path": "pigeon_brain/live_server_seq012_v003_d0324__websocket_server_for_live_execution_lc_gemini_chat_dead.py",
+      "path": "pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_per_prompt_deleted.py",
       "name": "live_server",
       "seq": 12,
-      "ver": 3,
+      "ver": 4,
       "date": "0324",
       "desc": "websocket_server_for_live_execution",
-      "intent": "gemini_chat_dead",
-      "tokens": 2495,
+      "intent": "per_prompt_deleted",
+      "tokens": 2857,
       "history": [
         {
           "ver": 2,
@@ -175,6 +175,14 @@
           "intent": "gemini_chat_dead",
           "action": "mutated",
           "tokens": 2495
+        },
+        {
+          "ver": 4,
+          "date": "0324",
+          "desc": "websocket_server_for_live_execution",
+          "intent": "per_prompt_deleted",
+          "action": "mutated",
+          "tokens": 2857
         }
       ]
     },
@@ -2838,14 +2846,14 @@
       ]
     },
     {
-      "path": "src/dynamic_prompt_seq017_v004_d0321__steers_copilot_cot_from_live_lc_implement_all_18.py",
+      "path": "src/dynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_per_prompt_deleted.py",
       "name": "dynamic_prompt",
       "seq": 17,
-      "ver": 4,
-      "date": "0321",
+      "ver": 5,
+      "date": "0324",
       "desc": "steers_copilot_cot_from_live",
-      "intent": "implement_all_18",
-      "tokens": 3460,
+      "intent": "per_prompt_deleted",
+      "tokens": 3996,
       "history": [
         {
           "ver": 2,
@@ -2870,6 +2878,14 @@
           "intent": "implement_all_18",
           "action": "mutated",
           "tokens": 3460
+        },
+        {
+          "ver": 5,
+          "date": "0324",
+          "desc": "steers_copilot_cot_from_live",
+          "intent": "per_prompt_deleted",
+          "action": "mutated",
+          "tokens": 3996
         }
       ]
     },

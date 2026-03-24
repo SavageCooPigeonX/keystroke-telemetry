@@ -74,7 +74,7 @@ def main():
         run_simulation(root, n_electrons=args.electrons)
 
     elif args.command == "live":
-        from .live_server_seq012_v003_d0324__websocket_server_for_live_execution_lc_gemini_chat_dead import serve_live
+        from .live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_per_prompt_deleted import serve_live
         serve_live(root, ws_port=args.ws_port, http_port=args.http_port)
 
     elif args.command == "trace":
