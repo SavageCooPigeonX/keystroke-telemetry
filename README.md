@@ -1,14 +1,14 @@
 ﻿# keystroke-telemetry
 
-> **Four systems. One closed loop. Zero LLM calls for the core signal. A real-time neural visualizer that watches itself think. And now it reads your deleted thoughts before it starts working.**
+> **Five systems. One closed loop. Zero LLM calls for the core signal. A real-time neural visualizer that watches itself think. Context-accumulating intelligence packets flow through the code graph. And it reads your deleted thoughts before it starts working.**
 >
-> Keystroke patterns reveal cognitive state → cognitive state steers Copilot's chain-of-thought → AI behavior adapts in real time → rework detection measures if it worked → Pigeon Brain watches the whole thing happen live, lights up the call graph, and tells you where both you and the AI are dying. Every prompt's deleted words are injected into Copilot's context before it writes a single line.
+> Keystroke patterns reveal cognitive state → cognitive state steers Copilot's chain-of-thought → AI behavior adapts in real time → rework detection measures if it worked → Pigeon Brain watches the whole thing happen live, lights up the call graph, and tells you where both you and the AI are dying. The Flow Engine routes intelligence packets through the graph — nodes wake up, contribute warnings, and the signal amplifies or decays along import-health edges. Every prompt's deleted words are injected into Copilot's context before it writes a single line.
 
 ---
 
 ## Status (2026-03-24)
 
-The self-compiling loop is live and chewing through its own codebase. Pigeon Brain is online — 137 neurons mapped, 260 edges, dual-substrate heat flowing, WebSocket trace server broadcasting at 20Hz. Keystroke deleted word pipeline is live — every prompt's unsaid thoughts are captured before Copilot starts reasoning. Context veins score the import graph health and surface self-trim recommendations.
+The self-compiling loop is live and chewing through its own codebase. Pigeon Brain is online — 137 neurons mapped, 260 edges, dual-substrate heat flowing, WebSocket trace server broadcasting at 20Hz. The Flow Engine routes context-accumulating intelligence packets through the code graph across 3 modes (targeted/heat/failure). Keystroke deleted word pipeline is live — every prompt's unsaid thoughts are captured before Copilot starts reasoning. Context veins score the import graph health and surface self-trim recommendations.
 
 | Phase | Status |
 |---|---|
@@ -21,6 +21,7 @@ The self-compiling loop is live and chewing through its own codebase. Pigeon Bra
 | Self-healing exclusion logic (vscode-ext / client / orchestrators) | ✅ Live |
 | Codebase auto-refactoring loop (2 files per commit, ~$0.001 each) | ✅ Running |
 | **Context veins — import graph health + self-trim** | **✅ Live (137 nodes, 4 clots, 21 arteries)** |
+| **Flow Engine — context-accumulating dataflow** | **✅ Live (6 modules, 3 routing modes, multi-perspective merge)** |
 | **Pigeon Brain — dual-substrate neural visualizer** | **✅ Live** |
 | **Live execution tracing via sys.settrace** | **✅ Live** |
 | **WebSocket real-time event broadcast** | **✅ Live** |
@@ -33,9 +34,9 @@ The self-compiling loop is live and chewing through its own codebase. Pigeon Bra
 
 ## What This Actually Is
 
-This is a system that **reads your mind through your fingers**, **rewires the AI's reasoning in real time**, **refactors its own source code autonomously**, and now **visualizes the entire thing as a living neural network that lights up when you run code through it**.
+This is a system that **reads your mind through your fingers**, **rewires the AI's reasoning in real time**, **refactors its own source code autonomously**, **visualizes the entire thing as a living neural network that lights up when you run code through it**, and **routes context-accumulating intelligence packets through the code graph to surface what matters**.
 
-Four systems working in concert:
+Five systems working in concert:
 
 1. **Keystroke Telemetry** — captures typing patterns (pauses, deletions, rewrites, abandons) in LLM chat UIs, classifies operator cognitive state in real time, reconstructs unsaid thoughts, detects cross-session drift. Zero LLM calls — pure signal processing. **Now with per-prompt deleted word binding** — Copilot sees what you deleted before it starts thinking.
 
@@ -44,6 +45,8 @@ Four systems working in concert:
 3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations, **codebase health veins/clots**, **predictive debug scores**) and generates a context block that steers how Copilot reasons. Self-updates on every commit and every prompt.
 
 4. **Pigeon Brain** — dual-substrate execution observation layer. Maps every module in the codebase as a neuron in a graph (**137 nodes, 260 edges**). Tracks where humans hesitate AND where AI agents die. Overlays both heat maps on the same visualization. Real-time `sys.settrace` instrumentation lights up edges and cards as actual function calls flow through the system. **Context veins** score import graph health and flag dead/bloated modules for self-trimming.
+
+5. **Flow Engine** — context-accumulating dataflow through the code graph. A `ContextPacket` starts at any module and routes through dependencies. At each node, modules "wake up" if relevant and contribute intelligence (risks, warnings, fears). Edges amplify or decay signal based on vein health. Three routing modes — **targeted** (dependency chains), **heat** (dual-score hotspots), **failure** (death signals) — can run independently or merge via multi-perspective synthesis. Zero LLM calls — pure graph traversal + pattern matching.
 
 ---
 
@@ -62,7 +65,7 @@ These are the most important decomposition targets in your entire codebase. No s
 ### Architecture
 
 ```
-pigeon_registry.json (133 modules)
+pigeon_registry.json (152 modules)
     │
     ▼
 graph_extractor ─→ graph_cache.json (137 nodes, 260 edges)
@@ -80,17 +83,27 @@ graph_extractor ─→ graph_cache.json (137 nodes, 260 edges)
                                         ▼
                                   dual_view.json (137 enriched nodes)
                                         │
-                          ┌─────────────┴─────────────┐
-                          ▼                           ▼
+                          ┌─────────────┴─────────────────────┐
+                          ▼                                   ▼
                     React UI                    WebSocket Server
                   (profiler cards,              (ws://127.0.0.1:8765)
                    edge animation,                    │
                    observer panel)                    ▼
                           ▲                     trace_hook events
                           └──── live events ────┘ (20 pushes/sec)
+                                        │
+                                        ▼
+                              ┌── Flow Engine ──┐
+                              │ graph_cache.json │
+                              │ dual_view.json   │→ ContextPacket routes through graph
+                              │ context_veins    │   nodes awaken, contribute intel
+                              └──────┬───────────┘   edges amplify/decay signal
+                                     ▼
+                              task_writer → Markdown tasks
+                              (targeted / heat / failure / multi-perspective)
 ```
 
-### 13 Python Modules
+### 19 Python Modules (13 core + 6 flow engine)
 
 | Module | Lines | Role |
 |---|---:|---|
@@ -107,6 +120,12 @@ graph_extractor ─→ graph_cache.json (137 nodes, 260 edges)
 | `trace_hook_seq011` | ~150 | `sys.settrace` instrumentation — maps real Python calls to graph node names at runtime |
 | `live_server_seq012` | ~240 | WebSocket server (20Hz broadcast) + HTTP snapshot — accepts injected events from traced_runner |
 | `traced_runner_seq013` | ~140 | Wraps any Python script with the trace hook, pushes events to live server |
+| **flow/** `context_packet_seq001` | 119 | `ContextPacket` + `NodeIntel` dataclasses — importance decay (0.92), depth cap (15), loop death |
+| **flow/** `node_awakener_seq002` | 152 | Relevance gating — keyword overlap, fear match, heat threshold (≥0.5), dependency chain |
+| **flow/** `flow_engine_seq003` | 172 | Loads graph_cache + dual_view + context_veins, routes packets via `run_flow()` / `run_multi()` |
+| **flow/** `path_selector_seq004` | 197 | 3 routing modes — targeted (dependency, depth 10), heat (dual-score, depth 8), failure (death, depth 6) |
+| **flow/** `task_writer_seq005` | 167 | Terminal node — synthesizes accumulated NodeIntel → enriched Markdown. Multi-perspective merge |
+| **flow/** `vein_transport_seq006` | 120 | Edge effects — amplify strong veins (1.05×), decay weak (0.93×), dead-vein warnings (<0.15) |
 
 ### React UI (7 components)
 
@@ -144,6 +163,12 @@ py -m pigeon_brain live
 # Run any script with real-time tracing (lights up the graph)
 py -m pigeon_brain trace test_all.py
 
+# ── Flow Engine ──
+py -m pigeon_brain.flow --mode targeted --origin cognitive_reactor  # Targeted dependency chain
+py -m pigeon_brain.flow --mode heat                                 # Greedy dual-score hotspots
+py -m pigeon_brain.flow --mode failure                              # Death-signal path
+py -m pigeon_brain.flow --multi --origin self_fix                   # Multi-perspective (all 3 modes merged)
+
 # Start the UI
 cd pigeon_brain/ui && npm run dev
 # → http://localhost:3333
@@ -164,6 +189,61 @@ When you run `py -m pigeon_brain trace test_all.py`:
 - **LIVE** indicator pulses green in the top-left corner
 
 Click any card to see the full dual-substrate profile: human hesitation score, agent death rate, coupled modules, fears, death causes, import relationships.
+
+---
+
+## Flow Engine: Context-Accumulating Dataflow (`pigeon_brain/flow/`)
+
+**The newest intelligence layer.** Instead of asking "what's wrong with module X?", you ask the *codebase itself* — and it answers by routing a context packet through the graph, letting each module contribute what it knows.
+
+### How It Works
+
+A `ContextPacket` starts at an origin module and flows through the graph:
+
+1. **Origin detection** — `find_origin("self_fix")` maps a keyword to a graph node using tokenized matching (splits on underscores)
+2. **Path selection** — three modes pick the next hop:
+   - **targeted** — follows dependency chains (depth 10) — "what does this module depend on and what depends on it?"
+   - **heat** — greedy follows highest `dual_score` neighbors (depth 8) — "where are the hotspots?"
+   - **failure** — follows death signals: exception rate, loop rate, stale imports (depth 6) — "what's dying?"
+3. **Node awakening** — at each hop, `node_awakener` checks relevance (keyword overlap, fear match, heat ≥0.5, dependency). Irrelevant nodes are skipped.
+4. **Intel contribution** — relevant nodes add `NodeIntel`: risk level (low/medium/high/critical), specific warnings, fears from file consciousness
+5. **Edge transport** — `vein_transport` amplifies signal on strong veins (1.05×), decays on weak (0.93×), warns on dead veins (<0.15 health)
+6. **Terminal synthesis** — `task_writer` produces enriched Markdown: origin context, routed path, accumulated intel, consensus fears
+7. **Multi-perspective** — `--multi` runs all 3 modes from the same origin and merges results, surfacing fears that appear across perspectives
+
+### 6 Modules (927 lines total, 100% pigeon-compliant)
+
+| Module | Lines | Key exports |
+|---|---:|---|
+| `context_packet_seq001` | 119 | `ContextPacket`, `NodeIntel`, `create_packet()` |
+| `node_awakener_seq002` | 152 | `awaken()`, `RELEVANCE_THRESHOLD=0.3` |
+| `flow_engine_seq003` | 172 | `load_graph_data()`, `run_flow()`, `run_multi()` |
+| `path_selector_seq004` | 197 | `select_next()`, `find_origin()`, 3 mode functions |
+| `task_writer_seq005` | 167 | `write_task()`, `write_multi()` |
+| `vein_transport_seq006` | 120 | `transport()`, `DEAD_VEIN_HEAT=0.15` |
+
+### Data Sources
+
+The flow engine reads 3 JSON files (all auto-generated by other pigeon_brain modules):
+- `graph_cache.json` — topology (137 nodes, 260 edges)
+- `dual_view.json` — per-node human + agent heat, fears, personality
+- `context_veins.json` — vein/clot health scores, arteries, self-trim targets
+
+### Commands
+
+```bash
+# Targeted: follow dependency chain from cognitive_reactor
+py -m pigeon_brain.flow --mode targeted --origin cognitive_reactor
+
+# Heat: follow highest dual-score hotspots
+py -m pigeon_brain.flow --mode heat
+
+# Failure: follow death signals
+py -m pigeon_brain.flow --mode failure
+
+# Multi-perspective: run all 3 modes, merge into one analysis
+py -m pigeon_brain.flow --multi --origin self_fix
+```
 
 ---
 
@@ -191,6 +271,7 @@ This repo is a bet on a different model: **the bottleneck isn't the AI's capabil
 | **Prompt evolution tracking** | ✅ Live | Diff history of how its own AI context prompt has mutated across 48+ commits. |
 | **Task queue managed by AI** | ✅ Live | Copilot manages a task backlog seeded from the automated code scanner. |
 | **Context veins (codebase health)** | ✅ Live | Import graph scored as veins/clots. Dead modules flagged. Self-trim recommendations. 137 nodes scored. |
+| **Flow Engine (context-accumulating dataflow)** | ✅ Live | Intelligence packets route through the code graph. Nodes wake up, contribute risks. 3 modes + multi-perspective merge. Zero LLM calls. |
 | **Dual-substrate neural visualization** | ✅ Live | Human cognitive load AND AI execution failures on the same graph. 137 neurons profiled. |
 | **Real-time execution tracing** | ✅ Live | `sys.settrace` + WebSocket at 20Hz. Watch your call graph light up as code runs. |
 | **Module profiler cards** | ✅ Live | cProfile-style cards: tokens, lines, calls, deaths, loops, hesitation bars, personality, fears. |
@@ -258,7 +339,13 @@ This repo is a bet on a different model: **the bottleneck isn't the AI's capabil
  (human heat)    (agent heat)
       │
       ▼
- dual_view.json (125 neurons, dual_score per node)
+ dual_view.json (137 neurons, dual_score per node)
+                                        │
+                              ┌── Flow Engine ──┐
+                              │ 3 routing modes  │ → enriched Markdown tasks
+                              │ nodes awaken     │   (per-module intel, fears,
+                              │ veins transport  │    consensus, recommendations)
+                              └──────────────────┘
 ```
 
 ---
@@ -611,10 +698,10 @@ keystroke-telemetry/
 │       ├── adapter_seq001*               ← state → behavior adapter
 │       ├── unsaid_seq002*                ← detects unsaid thoughts
 │       └── drift_seq003*                 ← typing pattern drift
-├── pigeon_brain/                         ← THE NEURAL VISUALIZER (13 modules + React UI)
+├── pigeon_brain/                         ← THE NEURAL VISUALIZER (19 modules + React UI)
 │   ├── models_seq001*                    ← ExecutionEvent, Electron, DeathCause
 │   ├── execution_logger_seq002*          ← agent telemetry logger — stalls, loops, latency
-│   ├── graph_extractor_seq003*           ← registry → 125-node adjacency graph
+│   ├── graph_extractor_seq003*           ← registry → 137-node adjacency graph
 │   ├── graph_heat_map_seq004*            ← failure accumulation per neuron
 │   ├── loop_detector_seq005*             ← recurring path fingerprinting
 │   ├── failure_detector_seq006*          ← death classification (stale, timeout, loop, exception)
@@ -625,7 +712,15 @@ keystroke-telemetry/
 │   ├── trace_hook_seq011*                ← sys.settrace → graph node mapping at runtime
 │   ├── live_server_seq012*               ← WebSocket (ws://8765) + HTTP, 20Hz broadcast
 │   ├── traced_runner_seq013*             ← wrap any script with trace + push to live server
-│   ├── dual_view.json                    ← 125 enriched neurons (human + agent heat merged)
+│   ├── context_veins.py                  ← import graph health → veins/clots scoring
+│   ├── flow/                             ← CONTEXT-ACCUMULATING DATAFLOW ENGINE (6 modules)
+│   │   ├── context_packet_seq001*        ← ContextPacket + NodeIntel dataclasses
+│   │   ├── node_awakener_seq002*         ← relevance gating (keyword, fear, heat, dependency)
+│   │   ├── flow_engine_seq003*           ← loads 3 data sources, routes packets
+│   │   ├── path_selector_seq004*         ← 3 modes: targeted, heat, failure
+│   │   ├── task_writer_seq005*           ← terminal node → enriched Markdown tasks
+│   │   └── vein_transport_seq006*        ← edge effects: amplify/decay/dead-vein warnings
+│   ├── dual_view.json                    ← 137 enriched neurons (human + agent heat merged)
 │   ├── graph_cache.json                  ← graph topology cache
 │   └── ui/                               ← React + @xyflow/react
 │       ├── src/
@@ -667,7 +762,7 @@ keystroke-telemetry/
 ├── rework_log.json                       ← AI response quality log
 ├── query_memory.json                     ← recurring query fingerprints
 ├── task_queue.json                       ← Copilot-managed task queue (auto-seeded from self-fix)
-├── pigeon_registry.json                  ← all module versions + token history (133 modules)
+├── pigeon_registry.json                  ← all module versions + token history (152 modules)
 ├── MASTER_MANIFEST.md                    ← full project reference
 ├── CHANGELOG.md                          ← patch notes
 └── test_all.py                           ← 5 core tests (always run before commit)
@@ -776,6 +871,7 @@ mod = importlib.import_module(f.replace('/', '.').rstrip('.py'))
 | Post-commit pipeline | ✅ Fully wired (10-step auto-commit) |
 | Pigeon compiler | ✅ Operational |
 | **Context veins (codebase health)** | **✅ Live (137 nodes, 4 clots, 21 arteries)** |
+| **Flow Engine — context-accumulating dataflow** | **✅ Live (6 modules, 3 modes, multi-perspective)** |
 | **Pigeon Brain — neural visualizer** | **✅ Live (137 neurons, 260 synapses)** |
 | **Dual-substrate heat mapping** | **✅ Live (human + agent heat merged per node)** |
 | **Live execution tracing** | **✅ Live (sys.settrace → WebSocket @ 20Hz)** |

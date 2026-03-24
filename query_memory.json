@@ -1,156 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-23T03:16:32.545994+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:17:30.745274+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:17:50.260327+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:18:31.129527+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:19:31.064837+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:20:31.153111+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:21:30.563708+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:22:30.477391+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:23:30.724253+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:24:30.575078+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:25:30.825237+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:26:31.018394+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:27:30.584666+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:28:31.402316+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:29:32.770025+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:30:31.250716+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:31:31.931113+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:32:32.686499+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:33:31.664172+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:34:32.075518+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:34:42.335314+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:35:17.797160+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:35:31.211244+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:35:53.751472+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-23T03:36:31.890882+00:00",
-      "text": "bg:build_narratives.py",
-      "fingerprint": "bgbuild_narrativespy",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-23T03:37:25.077580+00:00",
       "text": "bg:build_narratives.py",
       "fingerprint": "bgbuild_narrativespy",
@@ -2996,6 +2846,156 @@
     },
     {
       "ts": "2026-03-24T04:38:46.724049+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:39:46.205159+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:40:46.104120+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:41:45.982721+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:42:46.417807+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:43:46.391430+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:44:46.366893+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:45:46.252801+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:46:46.228373+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:47:46.324486+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:48:46.401879+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:49:34.316420+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:49:46.321317+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:49:57.172176+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:50:09.025502+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:50:31.910364+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:50:46.555112+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:50:55.563762+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:51:46.652232+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:51:51.355403+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:52:21.277639+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:52:46.725708+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:52:52.412233+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:53:02.922184+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:53:10.495221+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T04:53:46.814647+00:00",
       "text": "bg:MASTER_MANIFEST.md",
       "fingerprint": "bgmaster_manifestmd",
       "submitted": true

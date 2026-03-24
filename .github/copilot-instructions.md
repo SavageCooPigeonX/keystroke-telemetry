@@ -58,10 +58,11 @@ Three systems working together:
 
 
 
+
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Enriched 2026-03-24 03:58 UTC · raw: "the magic  really would be if evey single prompt deletion was inserted into your"*
+*Enriched 2026-03-24 04:53 UTC · raw: "update / make master manifest more detailed / make read me cover everything - al"*
 
 (enrichment unavailable: No module named 'httpx')
 <!-- /pigeon:current-query -->
@@ -69,10 +70,10 @@ Three systems working together:
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-24 03:58 UTC · 1046 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-24 04:53 UTC · 1131 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `frustrated` (WPM: 22773.7 | Del: 49.0% | Hes: 0.5)
+**Cognitive state:** `frustrated` (WPM: 685.7 | Del: 32.7% | Hes: 0.527)
 
 > **CoT directive:** Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.
 
@@ -85,14 +86,14 @@ Three systems working together:
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `context_budget` (hes=0.567)
-- `self_fix` (hes=0.567)
+- `context_budget` (hes=0.581)
+- `self_fix` (hes=0.581)
 
 ### Recent Work
+- `c0caa0a` feat: flow engine — context-accumulating dataflow through the code graph
+- `5d61391` feat: per-prompt deleted word injection, predictive debug, context veins, keystroke pipeline fix
 - `8c33693` feat: Gemini chat + dead limb scanner + node growth + vein cascades + narratives on neurons
 - `465cbfa` pigeon_brain: System 4 — neural visualizer, dual-substrate heat, real-time trace, React UI, WebSocket 20Hz broadcast, README + MASTER_MANIFEST rewrite
-- `9221596` fix prompt runtime refresh path
-- `2fa93f5` chore: stage prompt enricher + heat map updates
 
 ### Coaching Directives
 *LLM-synthesized behavioral rules for this operator:*
@@ -121,7 +122,7 @@ Three systems working together:
 - [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v003_d0324__websocket_server_for_live_execution_lc_gemini_chat_dead.py`
 
 ### Prompt Evolution
-*This prompt has mutated 48x (186→629 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 48x (186→640 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
 *137 modules profiled*
@@ -173,9 +174,9 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-24 · 1106 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-24 · 1131 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 10% | WPM: 61.9 | Del: 39.9% | Hes: 0.569
+**Dominant: `frustrated`** | Submit: 10% | WPM: 62.6 | Del: 40.0% | Hes: 0.570
 
 The operator just renamed two core modules to "gemini_chat_dead," indicating a pivot in their AI system's chat component, and their extreme frustration (557 messages) with high deletion rates reveals they are brute-force debugging through rapid, repetitive edits, not strategic planning.
 
@@ -198,40 +199,42 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-03-24T03:57:59.363419+00:00",
+  "updated_at": "2026-03-24T04:53:45.795433+00:00",
   "latest_prompt": {
-    "session_n": 997,
-    "ts": "2026-03-24T03:57:59.363419+00:00",
-    "chars": 149,
-    "preview": "the magic  really would be if evey single prompt deletion was inserted into your cot before ypu commence work so you can adress unsaid thoughts lmfao",
-    "intent": "unknown",
-    "state": "focused",
+    "session_n": 1,
+    "ts": "2026-03-24T04:53:45.795433+00:00",
+    "chars": 188,
+    "preview": "update / make master manifest more detailed / make read me cover everything - also isint compiler supposed to be running per turn - push > then after documentation update - test the system",
+    "intent": "building",
+    "state": "hesitant",
     "files_open": [],
     "module_refs": []
   },
   "signals": {
-    "wpm": 43.2,
-    "chars_per_sec": 3.6,
-    "deletion_ratio": 0.028,
-    "hesitation_count": 1,
-    "rewrite_count": 0,
+    "wpm": 8.2,
+    "chars_per_sec": 0.7,
+    "deletion_ratio": 0.034,
+    "hesitation_count": 3,
+    "rewrite_count": 1,
     "typo_corrections": 3,
-    "intentional_deletions": 2,
-    "total_keystrokes": 254,
-    "duration_ms": 68619
+    "intentional_deletions": 1,
+    "total_keystrokes": 204,
+    "duration_ms": 289763
   },
   "composition_binding": {
     "matched": true,
     "source": "chat_compositions",
-    "age_ms": 378430,
-    "key": "|||2026-03-24T03:51:40.933928+00:00|254|68619|the magic  really would be if evey single prompt deletion was inserted into your cot before ypu commence work so you can",
+    "age_ms": 35428,
+    "key": "|||2026-03-24T04:53:10.367407+00:00|204|289763|update / make master manifest more detailed / make read me cover everything - also isint compiler supposed to be running",
     "match_score": 1.0
   },
-  "deleted_words": [
-    "co",
-    "wo"
+  "deleted_words": [],
+  "rewrites": [
+    {
+      "old": " - ",
+      "new": " to be running per r"
+    }
   ],
-  "rewrites": [],
   "task_queue": {
     "total": 0,
     "in_progress": [],
@@ -253,30 +256,30 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 47,
-    "avg_wpm": 41.1,
+    "total_prompts": 48,
+    "avg_wpm": 41.2,
     "avg_del_ratio": 0.03,
     "dominant_state": "unknown",
     "state_distribution": {
       "unknown": 40,
-      "focused": 5,
+      "focused": 6,
       "hesitant": 2
     },
     "baselines": null
   },
   "predicted_struggles": [
     {
-      "module": "self_fix",
-      "score": 1.33,
+      "module": "context_budget",
+      "score": 1.36,
       "reasons": [
-        "high heat (0.57)"
+        "high heat (0.58)"
       ]
     },
     {
-      "module": "context_budget",
-      "score": 1.33,
+      "module": "self_fix",
+      "score": 1.36,
       "reasons": [
-        "high heat (0.57)"
+        "high heat (0.58)"
       ]
     }
   ]
