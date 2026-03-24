@@ -190,10 +190,11 @@ py -m pigeon_brain live       # Start WebSocket trace server (ws://8765, http://
 py -m pigeon_brain trace X.py # Run any script with real-time tracing
 
 # ── Flow Engine ──
-py -m pigeon_brain.flow --mode targeted --origin cognitive_reactor  # Targeted dependency chain
-py -m pigeon_brain.flow --mode heat                                 # Greedy dual-score hotspots
-py -m pigeon_brain.flow --mode failure                              # Death-signal path
-py -m pigeon_brain.flow --multi --origin self_fix                   # Multi-perspective (all 3 modes)
+py -m pigeon_brain.flow "Fix the hardcoded import in __main__.py"      # Targeted (default) with auto-origin
+py -m pigeon_brain.flow --mode targeted --origin cognitive_reactor "analyze reactor drama"  # Explicit origin
+py -m pigeon_brain.flow --mode heat "self_fix keeps failing"            # Greedy dual-score hotspots
+py -m pigeon_brain.flow --mode failure "import rewriter breaks"         # Death-signal path
+py -m pigeon_brain.flow --multi --origin self_fix "why does self_fix keep failing"  # Multi-perspective (all 3 modes)
 ```
 
 ### Data Files
