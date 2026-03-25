@@ -12,9 +12,9 @@ Usage:
 # ── pigeon ────────────────────────────────────
 # SEQ: 012 | VER: v003 | 258 lines | ~2,495 tokens
 # DESC:   websocket_server_for_live_execution
-# INTENT: gemini_chat_dead
-# LAST:   2026-03-24 @ 8c33693
-# SESSIONS: 2
+# INTENT: 8888_word_backpropagation
+# LAST:   2026-03-24 @ af28c35
+# SESSIONS: 4
 # ──────────────────────────────────────────────
 
 import asyncio
@@ -47,7 +47,6 @@ from pigeon_brain.gemini_chat import (
     execute_file_action,
     strip_action_blocks,
 )
-from pigeon_brain.ai_cognitive_log import log_ai_response, get_ai_state
 
 _clients = set()
 _injected = []  # Events injected by external traced_runner processes
@@ -89,12 +88,10 @@ async def _ws_handler(websocket):
                     _chat_histories[ws_id].append({"role": "user", "text": data["message"]})
                     selected = data.get("selectedNode")
                     loop = asyncio.get_event_loop()
-                    t0 = time.time()
                     reply = await loop.run_in_executor(
                         None, _gemini_chat, _project_root,
                         list(_chat_histories[ws_id]), selected
                     )
-                    duration_ms = int((time.time() - t0) * 1000)
                     # Parse and execute file-write actions from Gemini response
                     file_actions = parse_file_actions(reply)
                     file_results = []
@@ -107,30 +104,10 @@ async def _ws_handler(websocket):
                     # Keep history bounded
                     if len(_chat_histories[ws_id]) > 40:
                         _chat_histories[ws_id] = _chat_histories[ws_id][-30:]
-                    # Log AI cognitive response
-                    try:
-                        log_ai_response(
-                            _project_root,
-                            source="gemini",
-                            prompt=data["message"],
-                            response=reply,
-                            file_actions=file_results,
-                            duration_ms=duration_ms,
-                            selected_node=selected.get("name") if selected else None,
-                        )
-                    except Exception:
-                        pass
-                    # Get AI cognitive state for response
-                    ai_state = {}
-                    try:
-                        ai_state = get_ai_state(_project_root)
-                    except Exception:
-                        pass
                     await websocket.send(json.dumps({
                         "type": "chat_response",
                         "text": display_text,
                         "file_actions": file_results if file_results else None,
-                        "ai_state": ai_state if ai_state.get("window_size") else None,
                     }))
             except Exception:
                 pass
@@ -253,14 +230,6 @@ def _run_http_sync(root, host, port):
                 self.send_header("Content-Type", "application/json")
                 self.end_headers()
                 self.wfile.write(json.dumps(peek_recent(100)).encode())
-            elif self.path == "/ai_state":
-                self.send_header("Content-Type", "application/json")
-                self.end_headers()
-                try:
-                    state = get_ai_state(root)
-                    self.wfile.write(json.dumps(state).encode())
-                except Exception:
-                    self.wfile.write(b'{}')
             else:
                 self.send_header("Content-Type", "text/plain")
                 self.end_headers()

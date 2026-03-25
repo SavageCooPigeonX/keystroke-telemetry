@@ -1,534 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-24T06:17:46.665713+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:18:46.663663+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:19:46.679594+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:20:46.689767+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:21:46.693982+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:22:46.697118+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:23:46.710407+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:24:46.692738+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:25:46.690603+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:26:46.685586+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:27:46.770833+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:28:46.712568+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:29:46.736752+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:30:46.725875+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:31:46.734958+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:32:46.727927+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:33:46.786690+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:34:46.796233+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:35:46.755622+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:36:46.792758+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:37:46.773615+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:38:46.840338+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:39:46.801435+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:40:46.788732+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:41:46.818776+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:42:46.806349+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:43:46.889284+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:44:46.897344+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:45:46.903446+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:46:46.889244+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:47:46.859833+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:48:46.866895+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:49:46.914602+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:50:46.875548+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:51:46.914535+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:52:46.917791+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:53:46.884451+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:54:46.919806+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:55:46.921610+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:56:47.050168+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:57:46.924794+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:58:46.993118+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T06:59:46.950684+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:00:46.944426+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:01:46.964689+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:02:46.970542+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:03:46.990238+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:04:46.967146+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:05:47.021054+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:06:46.978476+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:07:46.987324+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:08:47.031824+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:09:47.034773+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:10:47.021619+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:11:47.064912+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:12:47.077602+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:13:47.083331+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:14:47.073460+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:15:47.635583+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:16:47.087378+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:17:47.108294+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:18:47.116538+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:19:47.102902+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:20:47.113994+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:21:47.122603+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:22:47.130646+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:23:47.158748+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:24:47.148847+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:25:47.195413+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:26:47.151829+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:27:47.160905+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:28:47.171535+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:29:47.175192+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:30:47.184148+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:31:47.211981+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:32:47.235865+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:33:47.223308+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:34:47.231691+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:35:47.228789+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:36:47.778915+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:37:47.279761+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:38:47.236918+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:39:47.248612+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:40:47.786598+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:41:47.258380+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:42:47.254352+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:43:47.269163+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-24T07:44:47.321450+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-24T07:45:47.294713+00:00",
       "text": "bg:MASTER_MANIFEST.md",
       "fingerprint": "bgmaster_manifestmd",
@@ -2998,6 +2470,534 @@
       "ts": "2026-03-24T23:30:12.693630+00:00",
       "text": "bg:MASTER_MANIFEST.md",
       "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:31:12.966490+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:32:12.723293+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:33:12.733459+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:34:13.758179+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:35:14.375454+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:36:13.610583+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:37:13.009832+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:38:13.415710+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:39:13.603968+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:40:13.634677+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:41:12.948722+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:42:13.930759+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:43:12.953585+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:44:12.966245+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:45:13.011751+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:46:13.070001+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:47:13.262733+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:48:13.222477+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:49:13.655664+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:50:13.247094+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:51:13.613913+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:52:13.051468+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:53:13.084488+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:54:13.077929+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:55:13.056249+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:56:13.185960+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:57:13.086456+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:58:13.050970+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-24T23:59:13.000057+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:00:13.023076+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:01:12.978907+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:02:13.558769+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:03:16.840740+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:04:13.099648+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:05:13.104817+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:06:13.079178+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:07:13.118176+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:07:50.305053+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:08:13.110394+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:08:42.528968+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:09:13.139514+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:09:20.559806+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:10:13.302011+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:11:13.107237+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:12:13.119119+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:13:13.118775+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:14:10.948857+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:14:13.526612+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:14:53.767394+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:15:16.903144+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:15:57.559498+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:16:13.976181+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:17:13.748882+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:17:28.356144+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:17:43.555279+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:18:14.448359+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:19:13.500495+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:20:14.535154+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:21:15.813393+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:22:15.181142+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:23:13.502569+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:24:13.509961+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:25:13.393693+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:26:13.471190+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:27:13.441899+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:28:13.350093+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:29:13.380442+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:30:13.364283+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:31:13.381684+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:32:13.424095+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:33:13.372425+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:34:13.447733+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:35:13.398278+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:36:13.457282+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:37:13.441508+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:38:13.454121+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:39:14.041355+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:40:13.650439+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:41:13.853921+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:42:13.488145+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:43:13.470208+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:44:14.386949+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:44:29.191236+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:45:18.046328+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:45:39.781115+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:45:55.219396+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:46:14.883470+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-25T00:47:14.564907+00:00",
+      "text": "bg:BACKPROPAGATION_ARCHITECTURE.md",
+      "fingerprint": "bgbackpropagation_architecturemd",
       "submitted": true
     }
   ],

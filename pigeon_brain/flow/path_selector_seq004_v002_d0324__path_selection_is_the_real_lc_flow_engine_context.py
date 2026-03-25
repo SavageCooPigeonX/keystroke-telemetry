@@ -8,23 +8,11 @@
 # EDIT_WHY:  None
 # ── /pulse ──
 """
-Path selection is the real intelligence.
-
-Same graph, different paths, different thinking.
-Three modes, each producing a different perspective on the same problem.
-
-TARGETED:  Start at the bug's node, follow dependencies outward.
-           Depth-limited. Finds the structural neighborhood.
-
-HEAT:      Start at any node, always step toward highest dual_score.
-           Finds pain clusters. Greedy hill-climbing on heat.
-
-FAILURE:   Start at any node, follow historical failure patterns.
-           Reconstructs known bad routes from death data.
-
-The flow engine calls select_next() at each step to get the
-next node to visit. The selector returns None when the path
-should terminate.
+Three traversal modes, each a different perspective on the same graph:
+TARGETED: follow dependencies outward from bug's node (depth-limited).
+HEAT: greedy hill-climb toward highest dual_score (pain clusters).
+FAILURE: follow historical death patterns (known bad routes).
+The flow engine calls select_next() at each step.
 """
 
 # ── pigeon ────────────────────────────────────

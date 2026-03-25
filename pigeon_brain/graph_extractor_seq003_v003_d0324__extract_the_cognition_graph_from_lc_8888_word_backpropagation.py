@@ -6,11 +6,11 @@ Reads pigeon_registry.json + AST import analysis. Outputs adjacency list.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v002 | 132 lines | ~1,116 tokens
+# SEQ: 003 | VER: v003 | 198 lines | ~1,744 tokens
 # DESC:   extract_the_cognition_graph_from
-# INTENT: pigeon_brain_system
-# LAST:   2026-03-23 @ 465cbfa
-# SESSIONS: 1
+# INTENT: 8888_word_backpropagation
+# LAST:   2026-03-24 @ af28c35
+# SESSIONS: 3
 # ──────────────────────────────────────────────
 
 import ast

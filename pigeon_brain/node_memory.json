@@ -1,0 +1,138 @@
+{
+  "import_fixer": {
+    "entries": [
+      {
+        "electron_id": "7c0756b66aca",
+        "task_seed": "Fix the hardcoded import in __main__.py",
+        "contribution_summary": "dual=0.00",
+        "credit_score": 0.3875,
+        "outcome_loss": 0.0231,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.066,
+        "ts": "2026-03-25T00:18:11.135495+00:00"
+      }
+    ],
+    "policy": {
+      "node": "import_fixer",
+      "rolling_score": 0.4879,
+      "confidence": 0.2,
+      "top_effective_patterns": [
+        "dual=0.00"
+      ],
+      "failure_patterns": [],
+      "utilization_rate": 0.3875,
+      "behavioral_directive": "import_fixer: moderate; focus on: dual=0.00",
+      "sample_count": 1,
+      "last_updated": "2026-03-25T00:18:11.135529+00:00"
+    }
+  },
+  "self_fix": {
+    "entries": [
+      {
+        "electron_id": "4cc90c9a908a",
+        "task_seed": "self_fix keeps flagging __main__.py",
+        "contribution_summary": "dual=0.24; fears: swallowed exception, file may not exist",
+        "credit_score": 0.4446,
+        "outcome_loss": 0.0231,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.066,
+        "ts": "2026-03-25T00:20:26.342881+00:00"
+      },
+      {
+        "electron_id": "d307727191f2",
+        "task_seed": "self_fix keeps flagging __main__.py",
+        "contribution_summary": "dual=0.24; fears: swallowed exception, file may not exist",
+        "credit_score": 0.4446,
+        "outcome_loss": 0.0231,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.066,
+        "ts": "2026-03-25T00:20:27.135403+00:00"
+      },
+      {
+        "electron_id": "60c055fce772",
+        "task_seed": "self_fix keeps flagging __main__.py",
+        "contribution_summary": "dual=0.24; fears: swallowed exception, file may not exist",
+        "credit_score": 0.4707,
+        "outcome_loss": 0.0231,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.066,
+        "ts": "2026-03-25T00:20:27.627746+00:00"
+      }
+    ],
+    "policy": {
+      "node": "self_fix",
+      "rolling_score": 0.4848,
+      "confidence": 0.6,
+      "top_effective_patterns": [
+        "dual=0.24; fears: swallowed exception, file may not exist",
+        "dual=0.24; fears: swallowed exception, file may not exist",
+        "dual=0.24; fears: swallowed exception, file may not exist"
+      ],
+      "failure_patterns": [],
+      "utilization_rate": 0.4533,
+      "behavioral_directive": "self_fix: moderate; focus on: dual=0.24; fears: swallowed exception, file may not exist",
+      "sample_count": 3,
+      "last_updated": "2026-03-25T00:20:27.627829+00:00"
+    }
+  },
+  "shared_state_detector": {
+    "entries": [
+      {
+        "electron_id": "7fdcfa8b4cb2",
+        "task_seed": "verify backward module still works after trim",
+        "contribution_summary": "dual=0.00",
+        "credit_score": 0.35,
+        "outcome_loss": 0.0231,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.066,
+        "ts": "2026-03-25T00:46:40.850145+00:00"
+      }
+    ],
+    "policy": {
+      "node": "shared_state_detector",
+      "rolling_score": 0.4842,
+      "confidence": 0.2,
+      "top_effective_patterns": [
+        "dual=0.00"
+      ],
+      "failure_patterns": [],
+      "utilization_rate": 0.35,
+      "behavioral_directive": "shared_state_detector: moderate; focus on: dual=0.00",
+      "sample_count": 1,
+      "last_updated": "2026-03-25T00:46:40.850190+00:00"
+    }
+  },
+  "manifest_bridge": {
+    "entries": [
+      {
+        "electron_id": "7fdcfa8b4cb2",
+        "task_seed": "verify backward module still works after trim",
+        "contribution_summary": "dual=0.00; fears: regex format dependency, file may not exist",
+        "credit_score": 0.3889,
+        "outcome_loss": 0.0231,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.066,
+        "ts": "2026-03-25T00:46:40.868634+00:00"
+      }
+    ],
+    "policy": {
+      "node": "manifest_bridge",
+      "rolling_score": 0.488,
+      "confidence": 0.2,
+      "top_effective_patterns": [
+        "dual=0.00; fears: regex format dependency, file may not exist"
+      ],
+      "failure_patterns": [],
+      "utilization_rate": 0.3889,
+      "behavioral_directive": "manifest_bridge: moderate; focus on: dual=0.00; fears: regex format dependency, file may not exis",
+      "sample_count": 1,
+      "last_updated": "2026-03-25T00:46:40.868683+00:00"
+    }
+  }
+}

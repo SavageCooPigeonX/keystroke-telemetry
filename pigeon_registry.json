@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-24T04:38:28.916763+00:00",
-  "total": 152,
+  "generated": "2026-03-24T23:31:16.391840+00:00",
+  "total": 156,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -223,6 +223,26 @@
       ]
     },
     {
+      "path": "pigeon_brain/graph_extractor_seq003_v003_d0324__extract_the_cognition_graph_from_lc_8888_word_backpropagation.py",
+      "name": "graph_extractor",
+      "seq": 3,
+      "ver": 3,
+      "date": "0324",
+      "desc": "extract_the_cognition_graph_from",
+      "intent": "8888_word_backpropagation",
+      "tokens": 1744,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0324",
+          "desc": "extract_the_cognition_graph_from",
+          "intent": "8888_word_backpropagation",
+          "tokens": 1744,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "pigeon_brain/graph_extractor_seq003_v003_d0324__extract_the_cognition_graph_from_lc_gemini_chat_dead.py",
       "name": "graph_extractor",
       "seq": 3,
@@ -266,6 +286,46 @@
           "desc": "failure_accumulator_per_node_port",
           "intent": "pigeon_brain_system",
           "tokens": 874,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/live_server_seq012_v003_d0324__websocket_server_for_live_execution_lc_8888_word_backpropagation.py",
+      "name": "live_server",
+      "seq": 12,
+      "ver": 3,
+      "date": "0324",
+      "desc": "websocket_server_for_live_execution",
+      "intent": "8888_word_backpropagation",
+      "tokens": 2495,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0324",
+          "desc": "websocket_server_for_live_execution",
+          "intent": "8888_word_backpropagation",
+          "tokens": 2495,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_8888_word_backpropagation.py",
+      "name": "live_server",
+      "seq": 12,
+      "ver": 4,
+      "date": "0324",
+      "desc": "websocket_server_for_live_execution",
+      "intent": "8888_word_backpropagation",
+      "tokens": 2857,
+      "history": [
+        {
+          "ver": 4,
+          "date": "0324",
+          "desc": "websocket_server_for_live_execution",
+          "intent": "8888_word_backpropagation",
+          "tokens": 2857,
           "action": "registered"
         }
       ]
@@ -2962,6 +3022,26 @@
           "intent": "implement_all_18",
           "action": "mutated",
           "tokens": 1117
+        }
+      ]
+    },
+    {
+      "path": "src/dynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_8888_word_backpropagation.py",
+      "name": "dynamic_prompt",
+      "seq": 17,
+      "ver": 5,
+      "date": "0324",
+      "desc": "steers_copilot_cot_from_live",
+      "intent": "8888_word_backpropagation",
+      "tokens": 3996,
+      "history": [
+        {
+          "ver": 5,
+          "date": "0324",
+          "desc": "steers_copilot_cot_from_live",
+          "intent": "8888_word_backpropagation",
+          "tokens": 3996,
+          "action": "registered"
         }
       ]
     },
