@@ -31,7 +31,8 @@ def generate_push_narrative(
     if not api_key or not changed_py:
         return None
 
-    file_briefs = _build_file_briefs(root, changed_py, registry)
+    # Cap file briefs to avoid massive prompts that timeout
+    file_briefs = _build_file_briefs(root, changed_py[:20], registry)
     if not file_briefs:
         return None
 
@@ -192,8 +193,9 @@ def _call_deepseek(prompt: str, api_key: str) -> str | None:
         method='POST',
     )
     try:
-        with urllib.request.urlopen(req, timeout=25) as resp:
+        with urllib.request.urlopen(req, timeout=45) as resp:
             data = json.loads(resp.read().decode('utf-8'))
             return data['choices'][0]['message']['content'].strip()
-    except Exception:
+    except Exception as e:
+        print(f'  [push_narrative] DeepSeek call failed: {type(e).__name__}: {e}')
         return None

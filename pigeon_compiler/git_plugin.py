@@ -802,6 +802,7 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
         narr_mod = _load_glob_module(root, 'src', 'push_narrative_seq012*')
         if narr_mod:
             deep = _load_deep_signals(root)
+            print(f'  📝 generating push narrative ({len(changed_files)} files)...')
             narr_path = narr_mod.generate_push_narrative(
                 root, intent, h, changed_files, registry,
                 rework_stats=deep.get('rework'),

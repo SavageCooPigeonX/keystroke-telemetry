@@ -1,144 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-27T06:56:11.047264+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T06:57:12.507847+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T06:58:09.864578+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T06:59:08.241366+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:00:08.865217+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:01:08.148458+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:02:07.955262+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:03:07.978966+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:04:08.629501+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:05:08.325933+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:06:08.591467+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:07:07.949938+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:08:07.954828+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:09:09.784095+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:10:09.406345+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:11:08.894613+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:12:08.854323+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:13:08.327721+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:14:08.197745+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:15:08.248103+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:16:08.306259+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:17:08.749704+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T07:18:08.120525+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-27T07:19:08.334530+00:00",
       "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
       "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
@@ -2998,6 +2860,144 @@
       "ts": "2026-03-27T15:37:37.886340+00:00",
       "text": "bg:2026-03-27_63ee334_self_fix.md",
       "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:38:38.973565+00:00",
+      "text": "bg:2026-03-27_63ee334_self_fix.md",
+      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:39:37.291545+00:00",
+      "text": "bg:2026-03-27_63ee334_self_fix.md",
+      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:40:37.075789+00:00",
+      "text": "bg:2026-03-27_63ee334_self_fix.md",
+      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:41:37.892547+00:00",
+      "text": "bg:2026-03-27_63ee334_self_fix.md",
+      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:42:39.232874+00:00",
+      "text": "bg:2026-03-27_63ee334_self_fix.md",
+      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:43:39.007936+00:00",
+      "text": "bg:2026-03-27_63ee334_self_fix.md",
+      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:44:42.182068+00:00",
+      "text": "bg:2026-03-27_63ee334_self_fix.md",
+      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:45:39.904834+00:00",
+      "text": "bg:2026-03-27_63ee334_self_fix.md",
+      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:46:38.809426+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:47:37.387762+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:48:38.600994+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:49:36.966071+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:50:36.978162+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:51:37.199008+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:52:37.011153+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:53:11.157070+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:53:38.772387+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:54:11.846797+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:54:24.490154+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:54:38.297116+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:55:39.143528+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:56:38.434145+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:57:39.045048+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
+      "fingerprint": "bgdead_token_radio_s01e01md",
       "submitted": true
     }
   ],
