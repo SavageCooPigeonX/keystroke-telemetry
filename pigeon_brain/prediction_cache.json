@@ -826,7 +826,7 @@
       },
       "confidence": 0.96,
       "ts": "2026-03-27T14:30:12.745623+00:00",
-      "scored": false
+      "scored": true
     },
     {
       "prediction_id": "546d52652d02",
@@ -882,7 +882,7 @@
       },
       "confidence": 0.96,
       "ts": "2026-03-27T14:30:12.745623+00:00",
-      "scored": false
+      "scored": true
     },
     {
       "prediction_id": "77c11bf07c76",
@@ -931,8 +931,8 @@
       },
       "confidence": 0.96,
       "ts": "2026-03-27T14:30:12.745623+00:00",
-      "scored": false
+      "scored": true
     }
   ],
-  "updated": "2026-03-27T14:30:12.862336+00:00"
+  "updated": "2026-03-27T14:32:44.289126+00:00"
 }

@@ -1,14 +1,17 @@
 """learning_loop_seq013_single_cycle_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v002 | 95 lines | ~826 tokens
+# SEQ: 005 | VER: v003 | 102 lines | ~880 tokens
 # DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: pigeon_split_3
-# LAST:   2026-03-27 @ fd07906
-# SESSIONS: 1
+# INTENT: dynamic_import_resolver
+# LAST:   2026-03-27 @ 63ee334
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 from pathlib import Path
 from typing import Any
+import logging
+
+logger = logging.getLogger(__name__)
 
 def run_single_cycle(
     root: Path, entry: dict[str, Any], state: dict[str, Any],

@@ -20,11 +20,11 @@ Regenerated after each backward pass.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v002 | 180 lines | ~1,550 tokens
+# SEQ: 010 | VER: v003 | 178 lines | ~1,539 tokens
 # DESC:   the_roadmap_writer_synthesizes_the
-# INTENT: pigeon_split_3
-# LAST:   2026-03-27 @ fd07906
-# SESSIONS: 1
+# INTENT: dynamic_import_resolver
+# LAST:   2026-03-27 @ 63ee334
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 from __future__ import annotations
 

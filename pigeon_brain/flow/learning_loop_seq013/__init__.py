@@ -20,6 +20,7 @@ run_prediction_cycle = _r("learning_loop_seq013_prediction_cycle_seq003", "run_p
 run_single_cycle = _r("learning_loop_seq013_single_cycle_seq005", "run_single_cycle")
 LOOP_STATE_FILE = _r("learning_loop_seq013_state_utils_seq001", "LOOP_STATE_FILE")
 
-# Also re-export private state helpers for gemini_chat
+# Also re-export private helpers for gemini_chat + submodule lazy imports
 _load_state = _r("learning_loop_seq013_state_utils_seq001", "_load_state")
 _save_state = _r("learning_loop_seq013_state_utils_seq001", "_save_state")
+_load_journal_entries = _r("learning_loop_seq013_journal_loader_seq002", "_load_journal_entries")

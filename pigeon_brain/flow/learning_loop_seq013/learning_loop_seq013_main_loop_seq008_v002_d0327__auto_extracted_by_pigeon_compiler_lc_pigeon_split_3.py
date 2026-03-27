@@ -8,7 +8,25 @@
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 from pathlib import Path
+import logging
 import time
+
+logger = logging.getLogger(__name__)
+
+
+def _refresh_compositions(root: Path) -> None:
+    """Refresh prompt_compositions.jsonl so unsaid thoughts stay current."""
+    try:
+        import sys
+        sys.path.insert(0, str(root / "src"))
+        from prompt_recon_seq016_v001 import reconstruct_latest
+        result = reconstruct_latest(root)
+        if result:
+            print(f"  [recon] refreshed composition: state={result.get('cognitive_state', '?')} "
+                  f"deleted={result.get('deleted_words', [])}")
+    except Exception as e:
+        logger.debug(f"[loop] Composition refresh failed: {e}")
+
 
 def run_loop(root: Path, once: bool = False, use_deepseek: bool = True) -> None:
     """The perpetual learning loop. Watches journal, trains nodes, never stops.
@@ -18,6 +36,12 @@ def run_loop(root: Path, once: bool = False, use_deepseek: bool = True) -> None:
         once: if True, process new entries once then exit
         use_deepseek: use DeepSeek for rich backward analysis
     """
+    # Lazy imports to avoid circular deps (we're imported by __init__.py)
+    from pigeon_brain.flow.learning_loop_seq013 import (
+        _load_state, _save_state, run_single_cycle, run_prediction_cycle,
+    )
+    from pigeon_brain.flow.learning_loop_seq013 import _load_journal_entries
+
     state = _load_state(root)
     cycle_since_predict = 0
 
@@ -26,6 +50,9 @@ def run_loop(root: Path, once: bool = False, use_deepseek: bool = True) -> None:
           f"{state['total_forward']} forward, {state['total_backward']} backward")
 
     while True:
+        # Refresh prompt compositions for unsaid thought reconstruction
+        _refresh_compositions(root)
+
         entries = _load_journal_entries(root, after_line=state["last_processed_line"])
 
         if not entries:
@@ -56,7 +83,7 @@ def run_loop(root: Path, once: bool = False, use_deepseek: bool = True) -> None:
                       f"eid={eid} path={len(result.get('path', []))} "
                       f"nodes_trained={nodes} loss={loss_str}")
 
-        # Prediction cycle
+        # Prediction cycle — every few entries, fire phantoms + score
         if cycle_since_predict >= PREDICT_EVERY:
             try:
                 n = run_prediction_cycle(root, state)
@@ -73,8 +100,8 @@ def run_loop(root: Path, once: bool = False, use_deepseek: bool = True) -> None:
 
         time.sleep(POLL_INTERVAL)
 
-POLL_INTERVAL = 5.0        # seconds between journal checks
+POLL_INTERVAL = 2.0        # seconds between journal checks
 
-PREDICT_EVERY = 10         # fire phantoms every N cycles
+PREDICT_EVERY = 3          # fire phantoms every N cycles (tight feedback)
 
 MAX_ENTRIES_PER_WAKE = 5   # process at most N entries per wake cycle

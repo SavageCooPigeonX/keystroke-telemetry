@@ -1,11 +1,11 @@
 """backward_seq007_backward_pass_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v002 | 94 lines | ~842 tokens
+# SEQ: 005 | VER: v003 | 101 lines | ~908 tokens
 # DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: pigeon_split_3
-# LAST:   2026-03-27 @ fd07906
-# SESSIONS: 1
+# INTENT: dynamic_import_resolver
+# LAST:   2026-03-27 @ 63ee334
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 from pigeon_brain.flow._resolve import flow_import as _fi
 append_learning = _fi("node_memory_seq008", "append_learning")
