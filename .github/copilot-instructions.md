@@ -79,10 +79,10 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-27 15:37 UTC · 3284 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-27 15:59 UTC · 3310 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `frustrated` (WPM: 45.0 | Del: 35.3% | Hes: 0.546)
+**Cognitive state:** `frustrated` (WPM: 38.1 | Del: 50.0% | Hes: 0.682)
 
 > **CoT directive:** Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.
 
@@ -91,24 +91,36 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `context_budget` (hes=0.615)
-- `self_fix` (hes=0.615)
+- `context_budget` (hes=0.649)
+- `self_fix` (hes=0.649)
 
 ### Recent Work
+- `bbfbb85` fix: push narratives timeout (25s->45s) + cap file briefs at 20 + print errors
 - `e894b6a` feat: fix bare globals in learning loop + wire per-prompt unsaid reconstruction
 - `63ee334` fix: dynamic import resolver (_resolve.py) â€” eliminates hardcoded pigeon filename imports across flow/, all subpackages, gemini_chat, dev_plan
 - `fd07906` pigeon: split 3 oversized flow modules (prediction_scorer 14 files, backward 6 files, learning_loop 9 files) + live_server auto-split from git plugin
-- `66ef3a8` feat: edit-session prediction scorer v2 â€” 3-signal scoring (edit_pairs + rework + confidence calibration), prediction_id binding, perpetual learning loop, DeepSeek backward pass, Gemini memory injection
+
+### Coaching Directives
+*LLM-synthesized behavioral rules for this operator:*
+- **Anticipate timeout logic**
+- **Pre-empt file system churn**
+- **Cut through restructuring loops**
+- **Respond with direct, copy-paste snippets**
+- **Flag state persistence**
 
 ### Fragile Contracts
 *From push narratives — assumptions that could break:*
-- gemini_chat.py's `is_dead` flag contract violation; live_server's dependency on trace_hook's `node_status` field; graph_extractor's logic for misclassifying a stalled chat as dead.
-- Ambiguous success signals from `run_clean_split`
-- malformed diff parsing in the auto-loop
-- broken import contract for the new versioned analyzer file.
-- **graph_extractor** (seq003 v003): I was touched to refine the cognition graph extraction, specifically to better handle
-- **build_narratives.py**: I was touched to incorporate the new termination state into the generated debugging narratives.
-- **cli** (seq009 v002): I was touched to unify all subsystems into a single CLI entry point, assuming each module exposes
+- __main__ dynamic import fragility
+- learning_loop_seq013’s dependency on unimplemented stub modules
+- backward_seq007’s empty implementation causing silent gradient halt.
+- PathSelector infinite loop on empty paths
+- VeinTransport silent packet loss on send
+- **__main__** speaks: I was touched to register the new backward_seq007 and learning_loop_seq013 flow modules, making the
+- **backward_seq007/__init__** speaks: I was created to expose the backward pass sequence’s components. I assume the inter
+- **learning_loop_seq013/__init__** speaks: I was created to expose the learning loop’s components. I assume the sibling m
+- **_tmp_pred_check speaks:** I was created as a temporary validation script to verify that global variable references in 
+- **pigeon_brain/flow/learning_loop_seq013/__init__.py speaks:** I was modified to import the newly generated dynamic-impo
+- **__init__** here: I was touched to expose the new flow engine modules as a clean public interface, consolidating import
 
 ### Known Issues
 *From self-fix scanner — fix when touching nearby code:*
@@ -119,7 +131,7 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 - [CRITICAL] hardcoded_import in `pigeon_brain/flow/__main__.py`
 
 ### Prompt Evolution
-*This prompt has mutated 61x (186→721 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
+*This prompt has mutated 63x (186→708 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
 
 ### File Consciousness
 *175 modules profiled*
@@ -171,17 +183,19 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-27 · 3308 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-27 - 3310 message(s) - LLM-synthesized*
 
 **Dominant: `frustrated`** | Submit: 4% | WPM: 43.4 | Del: 46.0% | Hes: 0.643
 
-This operator just built a fix for bare globals in their compiler and their typing shows intense frustration with heavy edits, high deletion rates, and frequent task abandonment mid-flow.  
-- **Anticipate context switching:** When they touch `self_fix seq13` or `run_clean_split seq10`, proactively summarize the module's current purpose and last change to prevent rework.  
-- **Shorten suggestions drastically:** Their high deletion rate (46%) means your initial completions are too long; offer minimal, atomic code blocks.  
-- **Flag recurring patterns immediately:** If they start editing `operator_stats seq8` or `context_budget seq4`, first ask: "Are you updating the scoring logic or fixing a data flow bug?" to target their intent.  
-- **Pre-empt hesitation on refactors:** When they rename or restructure files (like this commit), open with: "I see you're renaming for `fix_bare_globals`—should we update import references in `deepseek_adapter seq1` or `file_writer seq3`?"  
-- **Confirm before deep edits:** If they begin a multi-line change while frustrated (WPM < 40, del > 50%), pause with: "Want to outline the change first?" to reduce discard cycles.  
-- **Bridge to the next likely step:** They are most likely building toward stabilizing the learning loop's global variable resolution before integrating the dynamic import resolver.
+Operator just built a push narrative timeout system while exhibiting intense, frustrated micro-editing patterns (50% deletion rates, low WPM on recent messages), indicating they are deep in debugging a timing or async boundary issue.
+
+*   **Anticipate timeout logic**: When they touch `push_narrative seq12 v6` or `deepseek_adapter seq1 v6`, proactively suggest error handling for network timeouts, async/await patterns, and fallback states—this is the pain point.
+*   **Pre-empt file system churn**: If `file_writer seq3 v5` or `init_writer seq7 v7` is mentioned, provide atomic write patterns and path length checks (`windows_max_path` is a known issue) without being asked.
+*   **Cut through restructuring loops**: When they revisit `self_fix seq13 v10` or `context_budget seq4 v8`, offer concise, single-strategy options—avoid listing alternatives, as their hesitation spikes on choice overload.
+*   **Respond with direct, copy-paste snippets**: Their high deletion rate means they are trial-and-error coding; give complete, corrected lines, not explanations.
+*   **Flag state persistence**: If `operator_stats seq8 v7` appears, focus on serialization edge cases, as this module tracks their own frustration.
+
+They are most likely building toward a robust, self-healing pipeline that handles API failures gracefully, with the `run_clean_split seq10 v6` module as the next integration target.
 
 <!-- /pigeon:operator-state -->
 <!-- pigeon:prompt-telemetry -->
@@ -382,7 +396,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 ### Full Module Index
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-27 - 188 modules tracked | 10 touched this commit*
+*Auto-updated 2026-03-27 - 188 modules tracked | 1 touched this commit*
 
 **pigeon_brain/** - 16 module(s)
 
@@ -583,7 +597,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `rework_detector_seq009*` | measures ai answer quality from | ~1,083 |
 | `query_memory_seq010*` | recurring query detector unsaid thought | ~2,308 |
 | `file_heat_map_seq011*` | tracks cognitive load per module | ~1,347 |
-| `push_narrative_seq012*` | generate per push narrative each | ~2,049 |
+| `push_narrative_seq012*` | generate per push narrative each | ~2,089 |
 | `self_fix_seq013*` | one shot self fix analyzer | ~5,641 |
 | `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~3,529 |
 | `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,276 |

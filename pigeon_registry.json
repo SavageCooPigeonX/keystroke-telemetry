@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-27T15:36:25.344088+00:00",
+  "generated": "2026-03-27T15:58:16.207959+00:00",
   "total": 188,
   "files": [
     {
@@ -4171,14 +4171,14 @@
       ]
     },
     {
-      "path": "src/push_narrative_seq012_v005_d0317__generate_per_push_narrative_each_lc_auto_prompt_reconstruction.py",
+      "path": "src/push_narrative_seq012_v006_d0327__generate_per_push_narrative_each_lc_push_narratives_timeout.py",
       "name": "push_narrative",
       "seq": 12,
-      "ver": 5,
-      "date": "0317",
+      "ver": 6,
+      "date": "0327",
       "desc": "generate_per_push_narrative_each",
-      "intent": "auto_prompt_reconstruction",
-      "tokens": 2049,
+      "intent": "push_narratives_timeout",
+      "tokens": 2089,
       "history": [
         {
           "ver": 2,
@@ -4211,6 +4211,14 @@
           "intent": "auto_prompt_reconstruction",
           "action": "mutated",
           "tokens": 2049
+        },
+        {
+          "ver": 6,
+          "date": "0327",
+          "desc": "generate_per_push_narrative_each",
+          "intent": "push_narratives_timeout",
+          "action": "mutated",
+          "tokens": 2089
         }
       ]
     },

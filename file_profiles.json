@@ -1621,9 +1621,9 @@
         "reason": "3 shared imports, both high-churn (v4+v4)"
       },
       {
-        "name": "push_narrative",
-        "score": 0.78,
-        "reason": "3 shared imports, both high-churn (v4+v5)"
+        "name": "learning_loop",
+        "score": 0.77,
+        "reason": "3 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [
@@ -2137,6 +2137,11 @@
         "reason": "1 shared imports, both high-churn (v7+v6)"
       },
       {
+        "name": "push_narrative",
+        "score": 0.38,
+        "reason": "1 shared imports, both high-churn (v7+v6)"
+      },
+      {
         "name": "file_writer",
         "score": 0.37,
         "reason": "1 shared imports, both high-churn (v7+v5)"
@@ -2145,15 +2150,10 @@
         "name": "func_decomposer",
         "score": 0.37,
         "reason": "1 shared imports, both high-churn (v7+v5)"
-      },
-      {
-        "name": "dynamic_prompt",
-        "score": 0.37,
-        "reason": "1 shared imports, both high-churn (v7+v5)"
       }
     ],
     "fears": [],
-    "avg_hes": 0.615
+    "avg_hes": 0.649
   },
   "manifest_writer": {
     "personality": "stable",
@@ -4604,7 +4604,7 @@
       }
     ],
     "fears": [],
-    "avg_hes": 0.615
+    "avg_hes": 0.649
   },
   "copilot_prompt_manager_seq020_audit_decomposed": {
     "personality": "fresh",
@@ -5004,11 +5004,6 @@
     "tokens": 1117,
     "partners": [
       {
-        "name": "push_narrative",
-        "score": 0.78,
-        "reason": "3 shared imports, both high-churn (v4+v5)"
-      },
-      {
         "name": "live_server",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v4+v3)"
@@ -5022,6 +5017,11 @@
         "name": "streaming_layer",
         "score": 0.77,
         "reason": "3 shared imports, both high-churn (v4+v3)"
+      },
+      {
+        "name": "push_narrative",
+        "score": 0.76,
+        "reason": "3 shared imports, both high-churn (v4+v6)"
       },
       {
         "name": "trace_hook",
@@ -5225,8 +5225,8 @@
     "partners": [
       {
         "name": "push_narrative",
-        "score": 0.77,
-        "reason": "3 shared imports, both high-churn (v7+v5)"
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v7+v6)"
       },
       {
         "name": "rework_detector",
@@ -5293,33 +5293,33 @@
   },
   "push_narrative": {
     "personality": "veteran",
-    "version": 5,
-    "tokens": 2049,
+    "version": 6,
+    "tokens": 2089,
     "partners": [
       {
+        "name": "operator_stats",
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v6+v7)"
+      },
+      {
         "name": "rework_detector",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v5+v5)"
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v6+v5)"
       },
       {
         "name": "executor",
-        "score": 0.78,
-        "reason": "3 shared imports, both high-churn (v5+v4)"
+        "score": 0.76,
+        "reason": "3 shared imports, both high-churn (v6+v4)"
       },
       {
         "name": "heal",
-        "score": 0.78,
-        "reason": "3 shared imports, both high-churn (v5+v4)"
+        "score": 0.76,
+        "reason": "3 shared imports, both high-churn (v6+v4)"
       },
       {
         "name": "run_heal",
-        "score": 0.78,
-        "reason": "3 shared imports, both high-churn (v5+v4)"
-      },
-      {
-        "name": "reaudit_diff",
-        "score": 0.78,
-        "reason": "3 shared imports, both high-churn (v5+v4)"
+        "score": 0.76,
+        "reason": "3 shared imports, both high-churn (v6+v4)"
       }
     ],
     "fears": [
@@ -5442,11 +5442,6 @@
     "tokens": 1083,
     "partners": [
       {
-        "name": "push_narrative",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v5+v5)"
-      },
-      {
         "name": "dev_plan",
         "score": 0.78,
         "reason": "3 shared imports, both high-churn (v5+v4)"
@@ -5465,6 +5460,11 @@
         "name": "run_heal",
         "score": 0.78,
         "reason": "3 shared imports, both high-churn (v5+v4)"
+      },
+      {
+        "name": "reaudit_diff",
+        "score": 0.78,
+        "reason": "3 shared imports, both high-churn (v5+v4)"
       }
     ],
     "fears": [
@@ -5480,8 +5480,8 @@
     "partners": [
       {
         "name": "push_narrative",
-        "score": 0.73,
-        "reason": "4 shared imports, both high-churn (v10+v5)"
+        "score": 0.75,
+        "reason": "4 shared imports, both high-churn (v10+v6)"
       },
       {
         "name": "backward_seq007_deepseek_analyze",
@@ -5510,7 +5510,7 @@
       "regex format dependency",
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.615
+    "avg_hes": 0.649
   },
   "session_handoff": {
     "personality": "fresh",
