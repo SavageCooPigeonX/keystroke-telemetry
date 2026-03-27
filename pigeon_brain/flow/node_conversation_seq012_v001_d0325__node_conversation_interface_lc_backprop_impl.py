@@ -137,17 +137,27 @@ def talk_to_node(
     node_name: str,
     question: str,
     graph_data: dict[str, Any] | None = None,
+    use_gemini: bool = True,
 ) -> str:
     """
     Have a conversation with a node.
 
-    Currently returns the constructed prompt (ready for LLM injection).
-    When DeepSeek/Gemini is wired in, this will return the LLM response.
+    When use_gemini=True and GEMINI_API_KEY is available, fires a real
+    Gemini call with the roleplay prompt. Otherwise returns the prompt.
     """
     prompt = build_conversation_prompt(root, node_name, question, graph_data)
 
-    # For now, return the prompt as the "response" — the operator can
-    # paste this into any LLM, or it can be wired into DeepSeek later.
+    if use_gemini:
+        try:
+            from pigeon_brain.gemini_chat import chat as gemini_chat
+            messages = [{"role": "user", "text": prompt}]
+            response = gemini_chat(root, messages)
+            if response and not response.startswith("Error:"):
+                header = f"─── {node_name} speaks ───\n"
+                return header + response
+        except Exception:
+            pass  # Fall through to prompt-only mode
+
     header = f"─── Conversation with {node_name} ───\n"
-    footer = "\n─── (prompt ready for LLM — wire DeepSeek for live responses) ───"
+    footer = "\n─── (prompt ready for LLM — set GEMINI_API_KEY for live responses) ───"
     return header + prompt + footer

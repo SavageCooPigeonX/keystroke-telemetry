@@ -3,15 +3,16 @@
 # │  execution. pigeon_brain/flow                   │
 # └──────────────────────────────────────────────┘
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-25T00:00:00+00:00
+# EDIT_TS:   2026-03-27T09:00:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  trim to 200 lines
+# EDIT_WHY:  add prediction_id + session_n binding
 # ── /pulse ──
 """Fires phantom electrons using cognitive profile (no real task). Triggers:
 state change, every N prompts, or module cluster (3+ refs). Cost: ~$0.03/phantom."""
 # ── pigeon: SEQ 009 | v001 | backprop_impl | 2026-03-25 ──
 from __future__ import annotations
 
+import hashlib
 import json
 from collections import Counter
 from datetime import datetime, timezone
@@ -123,6 +124,20 @@ def predict_next_needs(
 
     modes = ["targeted", "heat", "failure"][:n_predictions]
 
+    # Read current session_n from latest journal entry
+    session_n_at = 0
+    journal = root / "logs" / "prompt_journal.jsonl"
+    if journal.exists():
+        lines = journal.read_text(encoding="utf-8").strip().splitlines()
+        if lines:
+            try:
+                session_n_at = json.loads(lines[-1]).get("session_n", len(lines))
+            except json.JSONDecodeError:
+                session_n_at = len(lines)
+
+    batch_ts = datetime.now(timezone.utc).isoformat()
+    batch_id = hashlib.md5(f"{batch_ts}_{phantom_seed[:40]}".encode()).hexdigest()[:12]
+
     for mode in modes:
         if run_flow_fn is not None:
             packet = run_flow_fn(root, phantom_seed, mode=mode)
@@ -130,13 +145,18 @@ def predict_next_needs(
         else:
             task_output = {"mode": mode, "phantom_seed": phantom_seed}
 
+        pred_id = hashlib.md5(f"{batch_id}_{mode}".encode()).hexdigest()[:12]
         prediction = {
+            "prediction_id": pred_id,
+            "batch_id": batch_id,
+            "session_n_at": session_n_at,
             "phantom_seed": phantom_seed,
             "mode": mode,
             "trend": trend,
             "result": task_output,
             "confidence": _compute_confidence(trend),
-            "ts": datetime.now(timezone.utc).isoformat(),
+            "ts": batch_ts,
+            "scored": False,
         }
         predictions.append(prediction)
 

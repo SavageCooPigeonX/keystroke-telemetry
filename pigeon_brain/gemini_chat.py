@@ -370,6 +370,9 @@ def strip_action_blocks(text: str) -> str:
 def chat(root: Path, messages: list[dict], selected_node: dict | None = None) -> str:
     """Send a chat message to Gemini with project context.
 
+    Also fires a background forward→backward training cycle so nodes
+    learn from every interaction.
+
     Args:
         root: project root
         messages: list of {"role": "user"|"model", "text": "..."}
@@ -383,6 +386,9 @@ def chat(root: Path, messages: list[dict], selected_node: dict | None = None) ->
         return "Error: No GEMINI_API_KEY or GOOGLE_API_KEY environment variable set."
 
     system_ctx = _build_system_context(root)
+
+    # Inject node learning memory into context
+    system_ctx += _build_node_memory_context(root)
 
     if selected_node:
         system_ctx += f"\n\n## Currently selected node: {selected_node.get('name', '?')}\n"
@@ -416,12 +422,110 @@ def chat(root: Path, messages: list[dict], selected_node: dict | None = None) ->
             candidates = result.get("candidates", [])
             if candidates:
                 parts = candidates[0].get("content", {}).get("parts", [])
-                return parts[0].get("text", "") if parts else "No response generated."
-            return "No response from Gemini."
+                response_text = parts[0].get("text", "") if parts else "No response generated."
+            else:
+                response_text = "No response from Gemini."
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8", errors="replace")[:500]
-        return f"Gemini API error ({e.code}): {body}"
+        response_text = f"Gemini API error ({e.code}): {body}"
     except urllib.error.URLError as e:
-        return f"Network error: {e.reason}"
+        response_text = f"Network error: {e.reason}"
     except Exception as e:
-        return f"Error: {e}"
+        response_text = f"Error: {e}"
+
+    # Fire background training cycle (non-blocking, best-effort)
+    _fire_training_cycle(root, messages)
+
+    return response_text
+
+
+def _build_node_memory_context(root: Path) -> str:
+    """Build context from node learning memory for Gemini injection."""
+    try:
+        memory_path = root / "pigeon_brain" / "node_memory.json"
+        if not memory_path.exists():
+            return ""
+        memory = json.loads(memory_path.read_text(encoding="utf-8"))
+        if not memory:
+            return ""
+
+        parts = ["\n\n## Node Learning Memory (accumulated from backward passes)"]
+        # Sort by rolling score, show top performers and struggling nodes
+        nodes_with_policy = [
+            (name, rec.get("policy", {}))
+            for name, rec in memory.items()
+            if rec.get("policy", {}).get("sample_count", 0) > 0
+        ]
+        if not nodes_with_policy:
+            return ""
+
+        ranked = sorted(nodes_with_policy, key=lambda x: x[1].get("rolling_score", 0.5))
+
+        # Struggling nodes (bottom 5)
+        struggling = [n for n in ranked[:5] if n[1].get("rolling_score", 0.5) < 0.4]
+        if struggling:
+            parts.append("\n**Struggling nodes (need help):**")
+            for name, pol in struggling:
+                parts.append(
+                    f"- {name}: score={pol.get('rolling_score', '?'):.3f}, "
+                    f"directive='{pol.get('behavioral_directive', 'none')[:80]}'"
+                )
+                fails = pol.get("failure_patterns", [])
+                if fails:
+                    parts.append(f"  failures: {'; '.join(fails[:2])}")
+
+        # Top performers (top 5)
+        top = [n for n in reversed(ranked[-5:]) if n[1].get("rolling_score", 0.5) > 0.6]
+        if top:
+            parts.append("\n**Top performing nodes:**")
+            for name, pol in top:
+                parts.append(
+                    f"- {name}: score={pol.get('rolling_score', '?'):.3f}, "
+                    f"samples={pol.get('sample_count', 0)}"
+                )
+
+        total_samples = sum(p.get("sample_count", 0) for _, p in nodes_with_policy)
+        parts.append(f"\n*{len(nodes_with_policy)} nodes trained, {total_samples} total backward passes*")
+        return "\n".join(parts)
+    except Exception:
+        return ""
+
+
+def _fire_training_cycle(root: Path, messages: list[dict]) -> None:
+    """Best-effort training cycle from the latest user message."""
+    try:
+        # Extract the latest user message as task seed
+        user_msgs = [m for m in messages if m.get("role") == "user"]
+        if not user_msgs:
+            return
+        task_seed = user_msgs[-1].get("text", "")
+        if len(task_seed) < 10:
+            return
+
+        import threading
+
+        def _train():
+            try:
+                from pigeon_brain.flow.learning_loop_seq013_v001_d0327__perpetual_forward_backward_training_lc_deepseek_backprop import (
+                    run_single_cycle, _load_state, _save_state,
+                )
+                state = _load_state(root)
+                # Construct a synthetic journal entry from the chat message
+                from datetime import datetime, timezone
+                entry = {
+                    "ts": datetime.now(timezone.utc).isoformat(),
+                    "msg": task_seed,
+                    "cognitive_state": "focused",
+                    "rework_score": 0.0,
+                    "signals": {"deletion_ratio": 0.0},
+                }
+                result = run_single_cycle(root, entry, state, use_deepseek=False)
+                state["total_cycles"] += 1
+                _save_state(root, state)
+            except Exception:
+                pass  # Best effort — don't crash chat
+
+        t = threading.Thread(target=_train, daemon=True)
+        t.start()
+    except Exception:
+        pass

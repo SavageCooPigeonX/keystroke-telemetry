@@ -3,18 +3,20 @@
 # │  code graph. pigeon_brain/flow                 │
 # └──────────────────────────────────────────────┘
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-25T00:00:00+00:00
+# EDIT_TS:   2026-03-27T04:30:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  trim to 200 lines
+# EDIT_WHY:  wire DeepSeek as backprop engine
 # ── /pulse ──
 """Backward pass: walks electron path in REVERSE, computes credit/node,
-writes to node_memory. Loss = rework*0.4 + del*0.3 + frustration*0.2 +
-ignored*0.1. Credit = overlap*0.35 + position*0.25 + relevance*0.25 +
-downstream*0.15. Cost: $0.00."""
+writes to node_memory. DeepSeek generates rich contribution analysis.
+Loss = rework*0.4 + del*0.3 + frustration*0.2 + ignored*0.1.
+Credit = overlap*0.35 + position*0.25 + relevance*0.25 + downstream*0.15.
+Cost: ~$0.003 per backward pass (1 DeepSeek call for analysis)."""
 # ── pigeon: SEQ 007 | v001 | backprop_impl | 2026-03-25 ──
 from __future__ import annotations
 
 import json
+import logging
 import re
 import uuid
 from pathlib import Path
@@ -24,8 +26,71 @@ from .node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_
     append_learning,
 )
 
+logger = logging.getLogger(__name__)
+
 FLOW_LOG = "flow_log.jsonl"
 STATE_FRUSTRATION = {"frustrated", "confused", "struggling"}
+
+
+def _deepseek_analyze_backward(
+    task_seed: str, path: list[str], accumulated: list[dict],
+    journal_entry: dict[str, Any], loss: float,
+) -> dict[str, Any]:
+    """Use DeepSeek to generate rich backward-pass analysis.
+
+    Returns {node_analyses: [{node, summary, directive, failure_reason}...],
+             system_insight: str, cost: float}
+    Falls back to empty analysis if DeepSeek unavailable.
+    """
+    try:
+        from pigeon_compiler.integrations.deepseek_adapter_seq001_v006_d0322__deepseek_api_client_lc_stage_78_hook import (
+            deepseek_query,
+        )
+    except (ImportError, ValueError):
+        return {"node_analyses": [], "system_insight": "", "cost": 0.0}
+
+    node_block = "\n".join(
+        f"  - {n.get('node','?')}: dual={n.get('dual_score',0):.2f}, "
+        f"fears={n.get('fears',[])[:2]}, relevance={n.get('relevance',0):.2f}"
+        for n in accumulated[:15]
+    )
+    state = journal_entry.get("cognitive_state", "unknown")
+    rework = journal_entry.get("rework_score", 0.0)
+    prompt = f"""Backward pass analysis for a code-graph flow engine.
+
+Task: "{task_seed}"
+Path traversed: {' → '.join(path[:15])}
+Loss: {loss:.3f} (0=perfect, 1=total failure)
+Operator state after: {state}
+Rework score: {rework:.2f}
+
+Nodes that contributed:
+{node_block}
+
+For each node, write a 1-line contribution summary and 1-line behavioral directive.
+If loss > 0.5, identify which node(s) failed and why.
+End with a 1-line system-level insight.
+
+Respond as JSON: {{"node_analyses": [{{"node": "...", "summary": "...", "directive": "...", "failure_reason": "..."}}], "system_insight": "..."}}"""
+
+    try:
+        result = deepseek_query(
+            prompt=prompt,
+            system="You are a neural graph backward-pass analyzer. Be precise and terse.",
+            temperature=0.1,
+            max_tokens=800,
+        )
+        text = result.get("content", "")
+        # Extract JSON from response
+        match = re.search(r"\{.*\}", text, re.DOTALL)
+        if match:
+            analysis = json.loads(match.group())
+            analysis["cost"] = result.get("cost", 0.0)
+            return analysis
+    except Exception as e:
+        logger.warning(f"[backward] DeepSeek analysis failed: {e}")
+
+    return {"node_analyses": [], "system_insight": "", "cost": 0.0}
 
 
 def _flow_log_path(root: Path) -> Path:
@@ -102,8 +167,14 @@ def _compute_credit(
 def backward_pass(
     root: Path, electron_id: str,
     journal_entry: dict[str, Any], fix_context: str = "",
+    use_deepseek: bool = True,
 ) -> list[dict[str, Any]]:
-    """Run backward pass for a completed electron. Returns learning results."""
+    """Run backward pass for a completed electron. Returns learning results.
+    
+    When use_deepseek=True, fires a DeepSeek call to produce rich contribution
+    summaries and behavioral directives per node. Falls back to heuristic
+    summaries if DeepSeek is unavailable.
+    """
     forward = _load_forward_path(root, electron_id)
     if forward is None:
         return []
@@ -121,6 +192,20 @@ def backward_pass(
     state = journal_entry.get("cognitive_state", "unknown")
     del_ratio = signals.get("deletion_ratio", 0.0)
     intel_by_node = {i.get("node", ""): i for i in accumulated}
+
+    # DeepSeek analysis for rich summaries
+    ds_analyses: dict[str, dict] = {}
+    ds_insight = ""
+    if use_deepseek:
+        analysis = _deepseek_analyze_backward(
+            task_seed, path, accumulated, journal_entry, loss,
+        )
+        for na in analysis.get("node_analyses", []):
+            ds_analyses[na.get("node", "")] = na
+        ds_insight = analysis.get("system_insight", "")
+        if ds_insight:
+            logger.info(f"[backward] DeepSeek insight: {ds_insight}")
+
     results = []
     path_len = len(path)
 
@@ -131,10 +216,17 @@ def backward_pass(
             continue  # node was on path but didn't contribute (gated out)
 
         credit = _compute_credit(intel, position, path_len, fix_tokens)
-        fears_str = ", ".join(intel.get("fears", [])[:2])
-        summary = f"dual={intel.get('dual_score', 0):.2f}"
-        if fears_str:
-            summary += f"; fears: {fears_str}"
+
+        # Use DeepSeek summary if available, else heuristic
+        ds_node = ds_analyses.get(node_name, {})
+        if ds_node.get("summary"):
+            summary = ds_node["summary"][:200]
+        else:
+            fears_str = ", ".join(intel.get("fears", [])[:2])
+            summary = f"dual={intel.get('dual_score', 0):.2f}"
+            if fears_str:
+                summary += f"; fears: {fears_str}"
+
         record = append_learning(
             root=root,
             node=node_name,
@@ -147,6 +239,27 @@ def backward_pass(
             rework_score=journal_entry.get("rework_score", 0.0),
             deletion_ratio_after=del_ratio,
         )
-        results.append({"node": node_name, "credit": credit, "loss": loss})
+        results.append({
+            "node": node_name, "credit": credit, "loss": loss,
+            "deepseek_directive": ds_node.get("directive", ""),
+            "failure_reason": ds_node.get("failure_reason", ""),
+        })
+
+    # Log system insight to flow log
+    if ds_insight:
+        _append_insight(root, electron_id, ds_insight, loss)
 
     return results
+
+
+def _append_insight(root: Path, electron_id: str, insight: str, loss: float) -> None:
+    """Append a DeepSeek system insight to the flow log."""
+    p = _flow_log_path(root)
+    entry = {
+        "type": "backward_insight",
+        "electron_id": electron_id,
+        "insight": insight[:300],
+        "loss": round(loss, 4),
+    }
+    with p.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, default=str) + "\n")

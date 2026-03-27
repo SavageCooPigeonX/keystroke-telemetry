@@ -47,6 +47,12 @@ from .dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_im
 from .fix_summary_seq011_v001_d0325__structured_diff_analysis_lc_backprop_impl import (
     generate_fix_summary,
 )
+from .learning_loop_seq013_v001_d0327__perpetual_forward_backward_training_lc_deepseek_backprop import (
+    run_loop, catch_up,
+)
+from .prediction_scorer_seq014_v001_d0327__prediction_vs_reality_feedback_lc_e2e_loop import (
+    score_predictions_post_edit, score_predictions_post_commit,
+)
 
 
 def main() -> None:
@@ -91,6 +97,20 @@ def main() -> None:
     fs = sub.add_parser("fix-summary", help="Generate structured fix summary from last commit")
     fs.add_argument("--root", default=".")
 
+    # loop — perpetual learning
+    lp = sub.add_parser("loop", help="Start perpetual learning loop (forward→backward→learn)")
+    lp.add_argument("--once", action="store_true",
+                    help="Process new entries once then exit")
+    lp.add_argument("--catch-up", action="store_true",
+                    help="Process ALL unprocessed journal entries then exit")
+    lp.add_argument("--no-deepseek", action="store_true",
+                    help="Skip DeepSeek calls (heuristic-only backward pass)")
+    lp.add_argument("--root", default=".")
+
+    # score — score predictions against actual commit diff
+    sc = sub.add_parser("score", help="Score predictions against last commit diff")
+    sc.add_argument("--root", default=".")
+
     args = parser.parse_args()
     root = Path(args.root).resolve()
 
@@ -106,6 +126,10 @@ def main() -> None:
         _cmd_plan(root)
     elif args.command == "fix-summary":
         _cmd_fix_summary(root)
+    elif args.command == "loop":
+        _cmd_loop(root, args)
+    elif args.command == "score":
+        _cmd_score(root)
     else:
         parser.print_help()
 
@@ -191,6 +215,51 @@ def _cmd_fix_summary(root: Path) -> None:
     """Generate fix summary from last commit."""
     summary = generate_fix_summary(root)
     print(json.dumps(summary, indent=2))
+
+
+def _cmd_loop(root: Path, args: argparse.Namespace) -> None:
+    """Start perpetual learning loop."""
+    import logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(name)s] %(message)s",
+        datefmt="%H:%M:%S",
+    )
+    use_ds = not getattr(args, "no_deepseek", False)
+    if getattr(args, "catch_up", False):
+        print("[learning_loop] Catching up on all unprocessed entries...")
+        result = catch_up(root, use_deepseek=use_ds)
+        print(f"[learning_loop] Done — {result['entries_processed']} processed, "
+              f"{result['total_nodes_trained']} nodes trained, "
+              f"{result['cycles']} total cycles")
+        return
+    run_loop(root, once=getattr(args, "once", False), use_deepseek=use_ds)
+
+
+def _cmd_score(root: Path) -> None:
+    """Score predictions against edit sessions (primary) + commit diff (secondary)."""
+    # Primary: edit-session scoring
+    result = score_predictions_post_edit(root)
+    if result["status"] == "scored":
+        print(f"Edit-session scoring: {result['predictions_scored']} predictions")
+        print(f"  Avg combined: {result['avg_combined']:.3f}")
+        print(f"  Avg F1: {result['avg_f1']:.3f}")
+        print(f"  Overconfidence rate: {result['overconfidence_rate']:.2f}")
+        print(f"  Nodes updated: {result['nodes_updated']}")
+        print(f"  Edit pairs available: {result['edits_available']}")
+    elif result["status"] == "no_predictions":
+        print("No predictions to score. Run 'predict' first.")
+        return
+    else:
+        print(f"Edit-session scoring: {result['status']}")
+
+    # Secondary: commit-diff audit
+    commit_result = score_predictions_post_commit(root)
+    if commit_result.get("status") == "scored":
+        print(f"\nCommit-diff audit: {commit_result['predictions_scored']} predictions")
+        print(f"  Avg F1: {commit_result['avg_f1']:.3f}")
+        print(f"  Changed files: {commit_result['changed_files']}")
+        print(f"  Actual modules: {', '.join(commit_result['actual_modules'][:10])}")
 
 
 if __name__ == "__main__":
