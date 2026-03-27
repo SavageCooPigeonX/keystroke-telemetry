@@ -255,6 +255,19 @@ _COT = {
     'abandoned':  'Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.',
 }
 
+# ── Provenance gate: what feeds the CoT directive ──
+# MEASURED fields → allowed to drive behavioral changes (state, thresholds)
+# DERIVED fields → displayed as "system's current theory", not used for CoT selection
+_MEASURED_INPUTS = frozenset({
+    'wpm', 'deletion_ratio', 'hesitation_count', 'chars_per_sec',
+    'rewrite_count', 'total_keystrokes', 'duration_ms',
+    'typo_corrections', 'intentional_deletions',
+})
+_DERIVED_INPUTS = frozenset({
+    'coaching', 'unsaid', 'narrative_risks', 'self_fix_crit',
+    'trajectory', 'gaps', 'file_consciousness', 'codebase_health',
+})
+
 def _strip_task_context_blocks(text: str) -> str:
     pat = re.compile(
         r'(?ms)^\s*<!-- pigeon:task-context -->\s*$\n.*?^\s*<!-- /pigeon:task-context -->\s*$\n?',
@@ -303,13 +316,14 @@ def build_task_context(root):
          f'*Auto-injected {now.strftime("%Y-%m-%d %H:%M UTC")} \u00b7 '
          f'{len(history)} messages profiled \u00b7 {len(coms)} recent commits*', '',
          f'**Current focus:** {focus}',
-         f'**Cognitive state:** `{dom}` (WPM: {wpm} | Del: {dl}% | Hes: {hes})', '',
+         f'**Cognitive state:** `{dom}` (WPM: {wpm} | Del: {dl}% | Hes: {hes})'
+         f' · *[source: measured]*', '',
          f'> **CoT directive:** {_COT.get(dom, "Standard mode. Be thorough and structured.")}', '']
     if unsaid:
         L += ['### Unsaid Threads', "*Deleted from prompts \u2014 operator wanted this but didn't ask:*"]
         L += [f'- "{t}"' for t in unsaid] + ['']
     if hot:
-        L += ['### Module Hot Zones', '*High cognitive load \u2014 take extra care with these files:*']
+        L += ['### Module Hot Zones *[source: measured]*', '*High cognitive load (from typing signal) \u2014 take extra care with these files:*']
         L += [f'- `{m["m"]}` (hes={m["h"]}' + (f', {m["x"]} AI misses' if m["x"] else '') + ')' for m in hot] + ['']
     if rw and rw.get('rate', 0) > 0:
         L += ['### AI Rework Surface', f'*Miss rate: {rw["rate"]}% ({rw["n"]} responses)*']
@@ -319,18 +333,18 @@ def build_task_context(root):
         if real:
             L += ['### Recent Work'] + [f'- `{c["hash"]}` {c["msg"]}' for c in real] + ['']
     if coaching:
-        L += ['### Coaching Directives',
-              '*LLM-synthesized behavioral rules for this operator:*']
+        L += ['### Coaching Directives *[source: llm_derived]*',
+              '*LLM-synthesized behavioral rules \u2014 treat as hypothesis, not measurement:*']
         L += [f'- **{c}**' for c in coaching] + ['']
     if watchlist or assumptions:
-        L += ['### Fragile Contracts',
-              '*From push narratives — assumptions that could break:*']
+        L += ['### Fragile Contracts *[source: llm_derived]*',
+              '*From push narratives (LLM-generated) \u2014 treat as hypothesis:*']
         L += [f'- {r}' for r in watchlist]
         L += [f'- {a}' for a in assumptions]
         L += ['']
     if fixes:
-        L += ['### Known Issues',
-              '*From self-fix scanner — fix when touching nearby code:*']
+        L += ['### Known Issues *[source: measured]*',
+              '*From self-fix scanner (AST-verified) \u2014 fix when touching nearby code:*']
         L += [f'- {f}' for f in fixes] + ['']
     if gaps:
         L += ['### Persistent Gaps',

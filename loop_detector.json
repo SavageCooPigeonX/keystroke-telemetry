@@ -159,7 +159,234 @@
       "length": 8,
       "status": "complete",
       "death_cause": ""
+    },
+    {
+      "ts": "2026-03-27T18:54:16.841223+00:00",
+      "job_id": "2f81282736",
+      "fingerprint": "copilot_prompt_manager \u2192 copilot_prompt_manager \u2192 streaming_layer_constants \u2192 run_compiler_test \u2192 manifest_writer \u2192 plan_parser",
+      "length": 12,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-27T18:54:17.143064+00:00",
+      "job_id": "a915cf7336",
+      "fingerprint": "unsaid \u2192 unsaid \u2192 unsaid \u2192 unsaid \u2192 unsaid \u2192 unsaid",
+      "length": 7,
+      "status": "dead",
+      "death_cause": "loop"
+    },
+    {
+      "ts": "2026-03-27T18:54:17.221237+00:00",
+      "job_id": "9b5fd0d963",
+      "fingerprint": "demo_sim \u2192 failure_detector",
+      "length": 2,
+      "status": "dead",
+      "death_cause": "timeout"
+    },
+    {
+      "ts": "2026-03-27T18:54:17.338922+00:00",
+      "job_id": "e16750d947",
+      "fingerprint": "execution_logger \u2192 models \u2192 mutation_scorer \u2192 operator_stats \u2192 pulse_harvest",
+      "length": 5,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-27T18:54:17.607530+00:00",
+      "job_id": "886297bea6",
+      "fingerprint": "copilot_prompt_manager \u2192 copilot_prompt_manager \u2192 copilot_prompt_manager \u2192 copilot_prompt_manager \u2192 copilot_prompt_manager \u2192 manifest_bridge",
+      "length": 12,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-27T18:54:17.838126+00:00",
+      "job_id": "f3f5265683",
+      "fingerprint": "copilot_prompt_manager \u2192 copilot_prompt_manager \u2192 drift_watcher \u2192 dynamic_prompt \u2192 observer_synthesis \u2192 graph_heat_map",
+      "length": 7,
+      "status": "dead",
+      "death_cause": "timeout"
+    },
+    {
+      "ts": "2026-03-27T18:54:18.079953+00:00",
+      "job_id": "248fae800b",
+      "fingerprint": "context_packet \u2192 planner \u2192 backward \u2192 backward \u2192 backward \u2192 backward",
+      "length": 9,
+      "status": "dead",
+      "death_cause": "stale_import"
+    },
+    {
+      "ts": "2026-03-27T18:54:18.318072+00:00",
+      "job_id": "cdddf0eba7",
+      "fingerprint": "drift \u2192 drift \u2192 drift \u2192 drift \u2192 drift \u2192 drift",
+      "length": 12,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-27T18:54:18.391578+00:00",
+      "job_id": "5bdd7960fc",
+      "fingerprint": "prediction_scorer \u2192 prediction_scorer \u2192 prediction_scorer \u2192 prediction_scorer",
+      "length": 4,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-27T18:54:18.654418+00:00",
+      "job_id": "d86daff07c",
+      "fingerprint": "push_narrative \u2192 query_memory \u2192 resistance_bridge \u2192 rework_backfill \u2192 rework_detector \u2192 prediction_scorer",
+      "length": 13,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-27T18:54:40.017471+00:00",
+      "job_id": "882cc7c094",
+      "fingerprint": "validator \u2192 execution_logger \u2192 streaming_layer_dashboard \u2192 cognitive_reactor \u2192 cognitive_reactor \u2192 backward",
+      "length": 12,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-27T18:54:40.081213+00:00",
+      "job_id": "e3c15fa2f7",
+      "fingerprint": "cli \u2192 graph_heat_map",
+      "length": 2,
+      "status": "dead",
+      "death_cause": "loop"
+    },
+    {
+      "ts": "2026-03-27T18:54:40.164154+00:00",
+      "job_id": "efed8d35aa",
+      "fingerprint": "nametag \u2192 deepseek_adapter \u2192 copilot_prompt_manager \u2192 copilot_prompt_manager \u2192 copilot_prompt_manager",
+      "length": 5,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-27T18:54:40.380238+00:00",
+      "job_id": "98ddc09fa4",
+      "fingerprint": "copilot_prompt_manager \u2192 copilot_prompt_manager \u2192 copilot_prompt_manager \u2192 drift_watcher \u2192 dynamic_prompt \u2192 file_consciousness",
+      "length": 10,
+      "status": "dead",
+      "death_cause": "stale_import"
+    },
+    {
+      "ts": "2026-03-27T18:54:40.636266+00:00",
+      "job_id": "eb43aa24d3",
+      "fingerprint": "cognitive_reactor \u2192 cognitive_reactor \u2192 nl_parsers \u2192 pq_manifest_utils \u2192 pq_search_utils \u2192 call_graph",
+      "length": 12,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-27T18:54:40.787883+00:00",
+      "job_id": "c54387fdc0",
+      "fingerprint": "cognitive_reactor \u2192 backward \u2192 node_conversation \u2192 path_selector \u2192 run_pigeon_loop \u2192 file_writer",
+      "length": 6,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-27T18:54:40.866019+00:00",
+      "job_id": "70b916369b",
+      "fingerprint": "manifest_writer \u2192 copilot_prompt_manager \u2192 backward \u2192 dynamic_prompt",
+      "length": 4,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-27T18:54:41.061789+00:00",
+      "job_id": "44a830ac36",
+      "fingerprint": "streaming_layer \u2192 streaming_layer_metrics \u2192 streaming_layer \u2192 resplit \u2192 resplit_binpack \u2192 resplit_helpers",
+      "length": 11,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-27T18:54:41.251426+00:00",
+      "job_id": "ef7a9c5ac7",
+      "fingerprint": "prediction_scorer \u2192 prediction_scorer \u2192 prediction_scorer \u2192 prediction_scorer \u2192 copilot_prompt_manager \u2192 press_release_gen_template_key_findings",
+      "length": 10,
+      "status": "complete",
+      "death_cause": ""
+    },
+    {
+      "ts": "2026-03-27T18:54:41.382049+00:00",
+      "job_id": "bc06268328",
+      "fingerprint": "context_budget \u2192 copilot_prompt_manager \u2192 copilot_prompt_manager \u2192 logger \u2192 models \u2192 mutation_scorer",
+      "length": 7,
+      "status": "complete",
+      "death_cause": ""
     }
   ],
-  "detected_loops": []
+  "detected_loops": [
+    {
+      "ts": "2026-03-27T18:54:17.143119+00:00",
+      "job_id": "a915cf7336",
+      "loops": [
+        {
+          "node": "unsaid",
+          "visits": 3
+        }
+      ],
+      "path_length": 7
+    },
+    {
+      "ts": "2026-03-27T18:54:17.607614+00:00",
+      "job_id": "886297bea6",
+      "loops": [
+        {
+          "node": "copilot_prompt_manager",
+          "visits": 3
+        }
+      ],
+      "path_length": 12
+    },
+    {
+      "ts": "2026-03-27T18:54:18.318122+00:00",
+      "job_id": "cdddf0eba7",
+      "loops": [
+        {
+          "node": "drift",
+          "visits": 3
+        }
+      ],
+      "path_length": 12
+    },
+    {
+      "ts": "2026-03-27T18:54:40.380283+00:00",
+      "job_id": "98ddc09fa4",
+      "loops": [
+        {
+          "node": "copilot_prompt_manager",
+          "visits": 3
+        }
+      ],
+      "path_length": 10
+    },
+    {
+      "ts": "2026-03-27T18:54:40.636314+00:00",
+      "job_id": "eb43aa24d3",
+      "loops": [
+        {
+          "node": "cognitive_reactor",
+          "visits": 4
+        }
+      ],
+      "path_length": 12
+    },
+    {
+      "ts": "2026-03-27T18:54:41.061832+00:00",
+      "job_id": "44a830ac36",
+      "loops": [
+        {
+          "node": "streaming_layer",
+          "visits": 4
+        }
+      ],
+      "path_length": 11
+    }
+  ]
 }

@@ -325,8 +325,14 @@ def _load_graph(root: Path) -> dict:
             pass
     # Fallback: build fresh
     try:
-        from pigeon_brain.graph_extractor_seq003_v003_d0324__extract_the_cognition_graph_from_lc_gemini_chat_dead import build_graph
-        return build_graph(root)
+        from glob import glob as _glob
+        hits = _glob(str(root / "pigeon_brain" / "graph_extractor_seq003*"))
+        if hits:
+            import importlib, os
+            mod_name = "pigeon_brain." + os.path.splitext(os.path.basename(hits[0]))[0]
+            mod = importlib.import_module(mod_name)
+            return mod.build_graph(root)
+        return {"nodes": {}, "edges": []}
     except Exception:
         return {"nodes": {}, "edges": []}
 

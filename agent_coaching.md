@@ -1,16 +1,16 @@
 # Agent Execution Observation Report
 
-## Graph: 125 nodes, 72 edges
+## Graph: 175 nodes, 337 edges
 
-- Bottleneck: **compliance_seq008_audit_decomposed** (in_degree=13)
-- Bottleneck: **source_slicer** (in_degree=5)
-- Bottleneck: **deepseek_adapter** (in_degree=4)
+- Bottleneck: **streaming_layer** (in_degree=16)
+- Bottleneck: **prediction_scorer** (in_degree=14)
+- Bottleneck: **cognitive_reactor** (in_degree=12)
 
-## Deaths: 4 total, 75% critical
+## Deaths: 10 total, 80% critical
+- **graph_heat_map**: 2 deaths
 - **plan_parser**: 1 deaths
 - **dynamic_prompt**: 1 deaths
-- **copilot_prompt_manager_seq020_block_utils**: 1 deaths
-- Causes: {'exception': 3, 'loop': 1}
+- Causes: {'exception': 3, 'loop': 3, 'timeout': 2, 'stale_import': 2}
 
 ---
 Generate 3-5 specific actions to reduce deaths.

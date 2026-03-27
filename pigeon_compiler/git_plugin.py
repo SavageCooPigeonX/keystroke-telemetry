@@ -887,6 +887,22 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
     except Exception as e:
         print(f'  ⚠️  file consciousness: {e}')
 
+    # Push learning cycle — the PUSH is the unit of learning
+    try:
+        pc_mod = _load_glob_module(root, 'src', 'push_cycle_seq025*')
+        if pc_mod and hasattr(pc_mod, 'run_push_cycle'):
+            cycle = pc_mod.run_push_cycle(root, h, intent, changed_files)
+            sync = cycle.get('sync', {})
+            coaching = cycle.get('coaching', {})
+            print(f'  🔄 push cycle #{cycle.get("cycle_number", "?")}: sync={sync.get("score", "?")}'
+                  f' | {cycle.get("operator_signal", {}).get("prompt_count", 0)} prompts → {cycle.get("copilot_signal", {}).get("py_files_changed", 0)} files')
+            for tip in coaching.get('operator_coaching', [])[:2]:
+                print(f'     👤 operator: {tip}')
+            for tip in coaching.get('agent_coaching', [])[:2]:
+                print(f'     🤖 agent: {tip}')
+    except Exception as e:
+        print(f'  ⚠️  push cycle: {e}')
+
 
 def run():
     root = _root()

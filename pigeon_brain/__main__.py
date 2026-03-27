@@ -1,4 +1,10 @@
 """Allow `py -m pigeon_brain <command>`."""
-from .cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system import main
+from glob import glob as _glob
+from pathlib import Path
+import importlib, os
 
-main()
+_hits = _glob(str(Path(__file__).parent / "cli_seq009*"))
+if not _hits:
+    raise ImportError("cli_seq009* not found in pigeon_brain/")
+_mod = importlib.import_module("pigeon_brain." + os.path.splitext(os.path.basename(_hits[0]))[0])
+_mod.main()

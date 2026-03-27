@@ -33,9 +33,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "3494e6bc0e"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.077214+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "ef7a9c5ac7"
       }
     ],
-    "total_calls": 3,
+    "total_calls": 4,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -54,9 +60,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "3494e6bc0e"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.110294+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "ef7a9c5ac7"
       }
     ],
-    "total_calls": 2,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -75,9 +87,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "4a50305bb6"
+      },
+      {
+        "ts": "2026-03-27T18:54:16.911013+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "a915cf7336"
       }
     ],
-    "total_calls": 2,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -124,9 +142,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "32329d1555"
+      },
+      {
+        "ts": "2026-03-27T18:54:16.789817+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "2f81282736"
       }
     ],
-    "total_calls": 3,
+    "total_calls": 4,
     "total_deaths": 1,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -147,9 +171,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "4cf8feac3d"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.278565+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "cdddf0eba7"
       }
     ],
-    "total_calls": 2,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -225,9 +255,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "ec650ce5ac"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.413364+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "d86daff07c"
       }
     ],
-    "total_calls": 7,
+    "total_calls": 8,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -240,9 +276,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "13bae1ff34"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.319255+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "e16750d947"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -255,9 +297,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "13bae1ff34"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.901988+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "44a830ac36"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -297,9 +345,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "7155ab1f15"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.563365+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "d86daff07c"
       }
     ],
-    "total_calls": 2,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -375,9 +429,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "e1ac36973a"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.412520+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "eb43aa24d3"
       }
     ],
-    "total_calls": 2,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -411,9 +471,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "4a50305bb6"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.011793+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "44a830ac36"
       }
     ],
-    "total_calls": 2,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -441,13 +507,40 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "be90b3216a"
+      },
+      {
+        "ts": "2026-03-27T18:54:16.972838+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "a915cf7336"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.038653+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "a915cf7336"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.095322+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "a915cf7336"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.117158+00:00",
+        "event_type": "error",
+        "latency_ms": 0,
+        "job_id": "a915cf7336",
+        "death_cause": "loop"
       }
     ],
-    "total_calls": 1,
-    "total_deaths": 0,
+    "total_calls": 5,
+    "total_deaths": 1,
     "total_loops": 0,
     "avg_latency_ms": 0,
-    "death_causes": {}
+    "death_causes": {
+      "loop": 1
+    }
   },
   "run_rename": {
     "samples": [
@@ -477,9 +570,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "ec650ce5ac"
+      },
+      {
+        "ts": "2026-03-27T18:54:16.690113+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "2f81282736"
       }
     ],
-    "total_calls": 2,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -603,9 +702,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "ec650ce5ac"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.269261+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "bc06268328"
       }
     ],
-    "total_calls": 2,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -624,9 +729,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "7bdafa2dcd"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.093658+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "ef7a9c5ac7"
       }
     ],
-    "total_calls": 2,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -639,9 +750,21 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "32329d1555"
+      },
+      {
+        "ts": "2026-03-27T18:54:15.913375+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "2f81282736"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.326418+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "bc06268328"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -654,9 +777,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "32329d1555"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.588933+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "eb43aa24d3"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -669,9 +798,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "53d67d81d2"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.006436+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "a915cf7336"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -684,9 +819,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "53d67d81d2"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.585061+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "d86daff07c"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -699,9 +840,21 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "53d67d81d2"
+      },
+      {
+        "ts": "2026-03-27T18:54:15.955924+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "2f81282736"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.510436+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "886297bea6"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -714,9 +867,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "53d67d81d2"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.616252+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "eb43aa24d3"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -729,9 +888,21 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "4cf8feac3d"
+      },
+      {
+        "ts": "2026-03-27T18:54:39.821371+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "882cc7c094"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.131356+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "efed8d35aa"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -744,9 +915,27 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "4cf8feac3d"
+      },
+      {
+        "ts": "2026-03-27T18:54:15.936605+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "2f81282736"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.243881+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "e16750d947"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.346630+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "bc06268328"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 4,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -795,9 +984,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "5fa764a989"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.942523+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "44a830ac36"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -852,9 +1047,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "7155ab1f15"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.114992+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "efed8d35aa"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -867,9 +1068,21 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "7155ab1f15"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.379437+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "886297bea6"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.504642+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "d86daff07c"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -882,9 +1095,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "7155ab1f15"
+      },
+      {
+        "ts": "2026-03-27T18:54:16.727795+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "2f81282736"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -909,9 +1128,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "eb7b205f21"
+      },
+      {
+        "ts": "2026-03-27T18:54:39.854567+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "882cc7c094"
       }
     ],
-    "total_calls": 3,
+    "total_calls": 4,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -930,9 +1155,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "c1fb29b106"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.099457+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "efed8d35aa"
       }
     ],
-    "total_calls": 2,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -966,9 +1197,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "7bdafa2dcd"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.140209+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "cdddf0eba7"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -981,9 +1218,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "7bdafa2dcd"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.493841+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "eb43aa24d3"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1003,9 +1246,27 @@
         "latency_ms": 0,
         "job_id": "674ec1cc7e",
         "death_cause": "exception"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.720515+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "f3f5265683"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.316460+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "98ddc09fa4"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.847585+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "70b916369b"
       }
     ],
-    "total_calls": 2,
+    "total_calls": 5,
     "total_deaths": 1,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1020,9 +1281,21 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "f3c5dec32a"
+      },
+      {
+        "ts": "2026-03-27T18:54:15.890022+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "2f81282736"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.451455+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "d86daff07c"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1048,9 +1321,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "a607fbce34"
+      },
+      {
+        "ts": "2026-03-27T18:54:15.995418+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "2f81282736"
       }
     ],
-    "total_calls": 3,
+    "total_calls": 4,
     "total_deaths": 1,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1095,9 +1374,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "a607fbce34"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.931791+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "248fae800b"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1110,9 +1395,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "a607fbce34"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.199890+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "cdddf0eba7"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1146,9 +1437,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "a607fbce34"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.746524+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "c54387fdc0"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1161,9 +1458,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "e1ac36973a"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.293268+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "e16750d947"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1203,9 +1506,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "d992df9e10"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.769329+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "c54387fdc0"
       }
     ],
-    "total_calls": 3,
+    "total_calls": 4,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1239,9 +1548,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "3494e6bc0e"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.541292+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "d86daff07c"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1260,9 +1575,21 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "eb7b205f21"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.159171+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "cdddf0eba7"
+      },
+      {
+        "ts": "2026-03-27T18:54:39.911723+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "882cc7c094"
       }
     ],
-    "total_calls": 2,
+    "total_calls": 4,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1299,9 +1626,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "4a50305bb6"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.309525+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "bc06268328"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1335,9 +1668,21 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "ec650ce5ac"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.361576+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "886297bea6"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.046614+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "44a830ac36"
       }
     ],
-    "total_calls": 2,
+    "total_calls": 4,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1380,9 +1725,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "4a50305bb6"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.522161+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "d86daff07c"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1440,9 +1791,15 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "d992df9e10"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.978809+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "44a830ac36"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 2,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1476,9 +1833,21 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "ec650ce5ac"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.267707+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "e16750d947"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.364529+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "bc06268328"
       }
     ],
-    "total_calls": 1,
+    "total_calls": 3,
     "total_deaths": 0,
     "total_loops": 0,
     "avg_latency_ms": 0,
@@ -1551,6 +1920,920 @@
         "event_type": "call",
         "latency_ms": 0,
         "job_id": "eb7b205f21"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.451581+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "eb43aa24d3"
+      }
+    ],
+    "total_calls": 2,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "copilot_prompt_manager": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:15.976287+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "2f81282736"
+      },
+      {
+        "ts": "2026-03-27T18:54:16.015708+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "2f81282736"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.445913+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "886297bea6"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.489227+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "886297bea6"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.532905+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "886297bea6"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.660855+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "f3f5265683"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.103322+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "cdddf0eba7"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.146931+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "efed8d35aa"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.204603+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "98ddc09fa4"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.247084+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "98ddc09fa4"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.281682+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "98ddc09fa4"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.290253+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "bc06268328"
+      }
+    ],
+    "total_calls": 12,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "streaming_layer_constants": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:16.282004+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "2f81282736"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "unsaid_seq002_diff": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.070649+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "a915cf7336"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "failure_detector": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.164381+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "9b5fd0d963"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.184738+00:00",
+        "event_type": "error",
+        "latency_ms": 0,
+        "job_id": "9b5fd0d963",
+        "death_cause": "timeout"
+      }
+    ],
+    "total_calls": 2,
+    "total_deaths": 1,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {
+      "timeout": 1
+    }
+  },
+  "task_queue": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.402779+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "886297bea6"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "copilot_prompt_manager_seq020_operator_profile": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.424430+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "886297bea6"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.631979+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "f3f5265683"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.178960+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "cdddf0eba7"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.183472+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "98ddc09fa4"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.264041+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "98ddc09fa4"
+      }
+    ],
+    "total_calls": 5,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "copilot_prompt_manager_seq020_orchestrator": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.466693+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "886297bea6"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "copilot_prompt_manager_seq020_injectors": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.559430+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "886297bea6"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.809185+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "70b916369b"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.210284+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "ef7a9c5ac7"
+      }
+    ],
+    "total_calls": 3,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "manifest_bridge": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.583800+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "886297bea6"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "drift_watcher": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.690863+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "f3f5265683"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.122329+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "cdddf0eba7"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.299066+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "98ddc09fa4"
+      }
+    ],
+    "total_calls": 3,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "observer_synthesis": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.745742+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "f3f5265683"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "graph_heat_map": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.770848+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "f3f5265683"
+      },
+      {
+        "ts": "2026-03-27T18:54:17.797020+00:00",
+        "event_type": "error",
+        "latency_ms": 0,
+        "job_id": "f3f5265683",
+        "death_cause": "timeout"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.034384+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "e3c15fa2f7"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.051398+00:00",
+        "event_type": "error",
+        "latency_ms": 0,
+        "job_id": "e3c15fa2f7",
+        "death_cause": "loop"
+      }
+    ],
+    "total_calls": 4,
+    "total_deaths": 2,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {
+      "timeout": 1,
+      "loop": 1
+    }
+  },
+  "task_writer": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.861503+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "248fae800b"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "vein_transport": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.884728+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "248fae800b"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "context_packet": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.904228+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "248fae800b"
+      },
+      {
+        "ts": "2026-03-27T18:54:39.838173+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "882cc7c094"
+      }
+    ],
+    "total_calls": 2,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "backward_seq007_tokenize": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.956965+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "248fae800b"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "backward": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:17.983102+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "248fae800b"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.022492+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "248fae800b"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.044109+00:00",
+        "event_type": "error",
+        "latency_ms": 0,
+        "job_id": "248fae800b",
+        "death_cause": "stale_import"
+      }
+    ],
+    "total_calls": 3,
+    "total_deaths": 1,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {
+      "stale_import": 1
+    }
+  },
+  "backward_seq007_backward_pass": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:18.003303+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "248fae800b"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.830263+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "70b916369b"
+      }
+    ],
+    "total_calls": 2,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "drift": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:18.220842+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "cdddf0eba7"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.258422+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "cdddf0eba7"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.302805+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "cdddf0eba7"
+      }
+    ],
+    "total_calls": 3,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "drift_seq003_detect_session_drift": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:18.240003+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "cdddf0eba7"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "prediction_scorer": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:18.335738+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "5bdd7960fc"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.372498+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "5bdd7960fc"
+      },
+      {
+        "ts": "2026-03-27T18:54:18.632340+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "d86daff07c"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.147705+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "ef7a9c5ac7"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.186925+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "ef7a9c5ac7"
+      }
+    ],
+    "total_calls": 5,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "prediction_scorer_seq014_module_extractor": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:18.352451+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "5bdd7960fc"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "file_consciousness": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:18.431852+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "d86daff07c"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.333480+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "98ddc09fa4"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.350407+00:00",
+        "event_type": "error",
+        "latency_ms": 0,
+        "job_id": "98ddc09fa4",
+        "death_cause": "stale_import"
+      }
+    ],
+    "total_calls": 3,
+    "total_deaths": 1,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {
+      "stale_import": 1
+    }
+  },
+  "press_release_gen_template_helpers_seq004_v001": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:18.470410+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "d86daff07c"
+      },
+      {
+        "ts": "2026-03-27T18:54:39.891526+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "882cc7c094"
+      }
+    ],
+    "total_calls": 2,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "press_release_gen_template_key_findings": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:18.487037+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "d86daff07c"
+      },
+      {
+        "ts": "2026-03-27T18:54:41.233645+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "ef7a9c5ac7"
+      }
+    ],
+    "total_calls": 2,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "rework_detector": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:18.608198+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "d86daff07c"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "press_release_gen_template_builders_seq002_v001": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:39.873845+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "882cc7c094"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "execution_logger": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:39.930191+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "882cc7c094"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "streaming_layer_dashboard": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:39.948895+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "882cc7c094"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "cognitive_reactor_seq014_registry_loader": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:39.965976+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "882cc7c094"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "cognitive_reactor": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:39.983595+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "882cc7c094"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.396346+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "eb43aa24d3"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.431661+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "eb43aa24d3"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.472467+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "eb43aa24d3"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.514791+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "eb43aa24d3"
+      }
+    ],
+    "total_calls": 5,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "backward_seq007_deepseek_analyze": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:40.000093+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "882cc7c094"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "copilot_prompt_manager_seq020_audit_decomposed": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:40.225181+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "98ddc09fa4"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "nl_parsers": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:40.535538+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "eb43aa24d3"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "pq_manifest_utils": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:40.558284+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "eb43aa24d3"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "backward_seq007_flow_log": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:40.664688+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "c54387fdc0"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "node_conversation": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:40.695349+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "c54387fdc0"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "path_selector": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:40.721666+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "c54387fdc0"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "streaming_layer": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:40.883066+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "44a830ac36"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.924427+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "44a830ac36"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.962296+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "44a830ac36"
+      },
+      {
+        "ts": "2026-03-27T18:54:40.995655+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "44a830ac36"
+      }
+    ],
+    "total_calls": 4,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "resplit_binpack": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:41.030059+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "44a830ac36"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "prediction_scorer_seq014_post_commit_scorer": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:41.127931+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "ef7a9c5ac7"
+      }
+    ],
+    "total_calls": 1,
+    "total_deaths": 0,
+    "total_loops": 0,
+    "avg_latency_ms": 0,
+    "death_causes": {}
+  },
+  "prediction_scorer_seq014_node_backfill": {
+    "samples": [
+      {
+        "ts": "2026-03-27T18:54:41.168118+00:00",
+        "event_type": "call",
+        "latency_ms": 0,
+        "job_id": "ef7a9c5ac7"
       }
     ],
     "total_calls": 1,

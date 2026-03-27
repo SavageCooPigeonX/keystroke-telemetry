@@ -94,11 +94,658 @@
       "heat": 0.0,
       "electron_deaths": 0
     },
-    "graph_extractor": {
-      "path": "pigeon_brain/graph_extractor_seq003_v002_d0323__extract_the_cognition_graph_from_lc_pigeon_brain_system.py",
+    "backward_seq007_backward_pass": {
+      "path": "pigeon_brain/flow/backward_seq007/backward_seq007_backward_pass_seq005_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
+      "seq": 5,
+      "ver": 4,
+      "tokens": 910,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "backward"
+      ],
+      "edges_in": [
+        "learning_loop",
+        "backward"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "backward_seq007_deepseek_analyze": {
+      "path": "pigeon_brain/flow/backward_seq007/backward_seq007_deepseek_analyze_seq004_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
+      "seq": 4,
+      "ver": 4,
+      "tokens": 774,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "backward"
+      ],
+      "edges_in": [
+        "backward"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "backward_seq007_flow_log": {
+      "path": "pigeon_brain/flow/backward_seq007/backward_seq007_flow_log_seq001_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 1,
+      "ver": 2,
+      "tokens": 423,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "backward"
+      ],
+      "edges_in": [
+        "backward"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "backward_seq007_loss_compute": {
+      "path": "pigeon_brain/flow/backward_seq007/backward_seq007_loss_compute_seq002_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 2,
+      "ver": 2,
+      "tokens": 187,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "backward"
+      ],
+      "edges_in": [
+        "backward"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "backward_seq007_tokenize": {
+      "path": "pigeon_brain/flow/backward_seq007/backward_seq007_tokenize_seq003_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
       "seq": 3,
       "ver": 2,
-      "tokens": 1116,
+      "tokens": 307,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "backward"
+      ],
+      "edges_in": [
+        "backward"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "backward": {
+      "path": "pigeon_brain/flow/backward_seq007_v003_d0327__backward_pass_walks_electron_path_lc_pigeon_split_3.py",
+      "seq": 7,
+      "ver": 3,
+      "tokens": 2500,
+      "desc": "backward_pass_walks_electron_path",
+      "edges_out": [
+        "deepseek_adapter",
+        "backward_seq007_backward_pass",
+        "backward_seq007_deepseek_analyze",
+        "backward_seq007_flow_log",
+        "backward_seq007_loss_compute",
+        "backward_seq007_tokenize",
+        "context_packet"
+      ],
+      "edges_in": [
+        "backward_seq007_backward_pass",
+        "backward_seq007_deepseek_analyze",
+        "backward_seq007_flow_log",
+        "backward_seq007_loss_compute",
+        "backward_seq007_tokenize"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "context_packet": {
+      "path": "pigeon_brain/flow/context_packet_seq001_v002_d0324__the_contextpacket_is_the_unit_lc_flow_engine_context.py",
+      "seq": 1,
+      "ver": 2,
+      "tokens": 1033,
+      "desc": "the_contextpacket_is_the_unit",
+      "edges_out": [
+        "dev_plan"
+      ],
+      "edges_in": [
+        "flow_engine",
+        "node_awakener",
+        "task_writer",
+        "vein_transport",
+        "backward"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "dev_plan": {
+      "path": "pigeon_brain/flow/dev_plan_seq010_v004_d0327__the_roadmap_writer_synthesizes_the_lc_fix_bare_globals.py",
+      "seq": 10,
+      "ver": 4,
+      "tokens": 1541,
+      "desc": "the_roadmap_writer_synthesizes_the",
+      "edges_out": [
+        "flow_engine"
+      ],
+      "edges_in": [
+        "context_packet"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "flow_engine": {
+      "path": "pigeon_brain/flow/flow_engine_seq003_v002_d0324__the_flow_engine_is_the_lc_flow_engine_context.py",
+      "seq": 3,
+      "ver": 2,
+      "tokens": 1316,
+      "desc": "the_flow_engine_is_the",
+      "edges_out": [
+        "context_packet",
+        "node_awakener",
+        "path_selector",
+        "vein_transport",
+        "learning_loop"
+      ],
+      "edges_in": [
+        "learning_loop",
+        "dev_plan"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "learning_loop_seq013_catch_up": {
+      "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_catch_up_seq006_v003_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
+      "seq": 6,
+      "ver": 3,
+      "tokens": 431,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "learning_loop"
+      ],
+      "edges_in": [
+        "learning_loop_seq013_main_loop",
+        "learning_loop"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "learning_loop_seq013_journal_loader": {
+      "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_journal_loader_seq002_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 2,
+      "ver": 2,
+      "tokens": 192,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "learning_loop"
+      ],
+      "edges_in": [
+        "learning_loop"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "learning_loop_seq013_loop_helpers": {
+      "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_loop_helpers_seq007_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 7,
+      "ver": 2,
+      "tokens": 23,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "learning_loop"
+      ],
+      "edges_in": [
+        "learning_loop"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "learning_loop_seq013_main_loop": {
+      "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_main_loop_seq008_v003_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
+      "seq": 8,
+      "ver": 3,
+      "tokens": 1044,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "learning_loop_seq013_catch_up",
+        "learning_loop"
+      ],
+      "edges_in": [
+        "learning_loop"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "learning_loop_seq013_prediction_cycle": {
+      "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_prediction_cycle_seq003_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
+      "seq": 3,
+      "ver": 4,
+      "tokens": 431,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "learning_loop"
+      ],
+      "edges_in": [
+        "learning_loop"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "learning_loop_seq013_single_cycle_helpers": {
+      "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_single_cycle_helpers_seq004_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 4,
+      "ver": 2,
+      "tokens": 25,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "learning_loop"
+      ],
+      "edges_in": [
+        "learning_loop"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "learning_loop_seq013_single_cycle": {
+      "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_single_cycle_seq005_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
+      "seq": 5,
+      "ver": 4,
+      "tokens": 896,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "learning_loop"
+      ],
+      "edges_in": [
+        "learning_loop"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "learning_loop_seq013_state_utils": {
+      "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_state_utils_seq001_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 1,
+      "ver": 2,
+      "tokens": 284,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "learning_loop"
+      ],
+      "edges_in": [
+        "learning_loop"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "learning_loop": {
+      "path": "pigeon_brain/flow/learning_loop_seq013_v003_d0327__the_perpetual_learning_loop_lc_pigeon_split_3.py",
+      "seq": 13,
+      "ver": 3,
+      "tokens": 2881,
+      "desc": "the_perpetual_learning_loop",
+      "edges_out": [
+        "flow_engine",
+        "task_writer",
+        "backward_seq007_backward_pass",
+        "predictor",
+        "prediction_scorer_seq014_calibration",
+        "node_awakener",
+        "learning_loop_seq013_catch_up",
+        "learning_loop_seq013_journal_loader",
+        "learning_loop_seq013_loop_helpers",
+        "learning_loop_seq013_main_loop",
+        "learning_loop_seq013_prediction_cycle",
+        "learning_loop_seq013_single_cycle_helpers",
+        "learning_loop_seq013_single_cycle",
+        "learning_loop_seq013_state_utils"
+      ],
+      "edges_in": [
+        "flow_engine",
+        "learning_loop_seq013_catch_up",
+        "learning_loop_seq013_journal_loader",
+        "learning_loop_seq013_loop_helpers",
+        "learning_loop_seq013_main_loop",
+        "learning_loop_seq013_prediction_cycle",
+        "learning_loop_seq013_single_cycle_helpers",
+        "learning_loop_seq013_single_cycle",
+        "learning_loop_seq013_state_utils"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "node_awakener": {
+      "path": "pigeon_brain/flow/node_awakener_seq002_v002_d0324__when_a_packet_arrives_at_lc_flow_engine_context.py",
+      "seq": 2,
+      "ver": 2,
+      "tokens": 1171,
+      "desc": "when_a_packet_arrives_at",
+      "edges_out": [
+        "context_packet",
+        "node_conversation"
+      ],
+      "edges_in": [
+        "flow_engine",
+        "learning_loop"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "node_conversation": {
+      "path": "pigeon_brain/flow/node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "seq": 12,
+      "ver": 3,
+      "tokens": 1431,
+      "desc": "the_interpretability_interface_lets_the",
+      "edges_out": [
+        "path_selector"
+      ],
+      "edges_in": [
+        "node_awakener"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "path_selector": {
+      "path": "pigeon_brain/flow/path_selector_seq004_v002_d0324__path_selection_is_the_real_lc_flow_engine_context.py",
+      "seq": 4,
+      "ver": 2,
+      "tokens": 1373,
+      "desc": "path_selection_is_the_real",
+      "edges_out": [
+        "prediction_scorer"
+      ],
+      "edges_in": [
+        "flow_engine",
+        "node_conversation"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "prediction_scorer_seq014_calibration": {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_calibration_seq009_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 9,
+      "ver": 2,
+      "tokens": 419,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "prediction_scorer"
+      ],
+      "edges_in": [
+        "learning_loop",
+        "prediction_scorer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "prediction_scorer_seq014_constants": {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_constants_seq001_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 1,
+      "ver": 2,
+      "tokens": 73,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "prediction_scorer"
+      ],
+      "edges_in": [
+        "prediction_scorer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "prediction_scorer_seq014_data_loaders": {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_data_loaders_seq003_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 3,
+      "ver": 2,
+      "tokens": 514,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "prediction_scorer"
+      ],
+      "edges_in": [
+        "prediction_scorer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "prediction_scorer_seq014_edit_session_analyzer": {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_edit_session_analyzer_seq006_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 6,
+      "ver": 2,
+      "tokens": 187,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "prediction_scorer"
+      ],
+      "edges_in": [
+        "prediction_scorer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "prediction_scorer_seq014_module_extractor": {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_module_extractor_seq005_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 5,
+      "ver": 2,
+      "tokens": 112,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "prediction_scorer"
+      ],
+      "edges_in": [
+        "prediction_scorer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "prediction_scorer_seq014_node_backfill": {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_node_backfill_seq010_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
+      "seq": 10,
+      "ver": 4,
+      "tokens": 499,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "prediction_scorer"
+      ],
+      "edges_in": [
+        "prediction_scorer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "prediction_scorer_seq014_path_utils": {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_path_utils_seq002_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 2,
+      "ver": 2,
+      "tokens": 79,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "prediction_scorer"
+      ],
+      "edges_in": [
+        "prediction_scorer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "prediction_scorer_seq014_post_commit_scorer": {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_post_commit_scorer_seq012_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
+      "seq": 12,
+      "ver": 4,
+      "tokens": 607,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "prediction_scorer"
+      ],
+      "edges_in": [
+        "prediction_scorer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "prediction_scorer_seq014_post_edit_scorer": {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_post_edit_scorer_seq011_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
+      "seq": 11,
+      "ver": 4,
+      "tokens": 841,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "prediction_scorer"
+      ],
+      "edges_in": [
+        "prediction_scorer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "prediction_scorer_seq014_reality_loaders": {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_reality_loaders_seq004_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 4,
+      "ver": 2,
+      "tokens": 374,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "prediction_scorer"
+      ],
+      "edges_in": [
+        "prediction_scorer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "prediction_scorer_seq014_rework_matcher": {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_rework_matcher_seq007_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 7,
+      "ver": 2,
+      "tokens": 460,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "prediction_scorer"
+      ],
+      "edges_in": [
+        "prediction_scorer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "prediction_scorer_seq014_scores_io": {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_scores_io_seq003_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 3,
+      "ver": 2,
+      "tokens": 181,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "prediction_scorer"
+      ],
+      "edges_in": [
+        "prediction_scorer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "prediction_scorer_seq014_scoring_core": {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_scoring_core_seq008_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
+      "seq": 8,
+      "ver": 2,
+      "tokens": 713,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "prediction_scorer"
+      ],
+      "edges_in": [
+        "prediction_scorer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "prediction_scorer": {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014_v003_d0327__edit_session_based_lc_pigeon_split_3.py",
+      "seq": 14,
+      "ver": 3,
+      "tokens": 4298,
+      "desc": "edit_session_based",
+      "edges_out": [
+        "predictor",
+        "prediction_scorer_seq014_calibration",
+        "prediction_scorer_seq014_constants",
+        "prediction_scorer_seq014_data_loaders",
+        "prediction_scorer_seq014_edit_session_analyzer",
+        "prediction_scorer_seq014_module_extractor",
+        "prediction_scorer_seq014_node_backfill",
+        "prediction_scorer_seq014_path_utils",
+        "prediction_scorer_seq014_post_commit_scorer",
+        "prediction_scorer_seq014_post_edit_scorer",
+        "prediction_scorer_seq014_reality_loaders",
+        "prediction_scorer_seq014_rework_matcher",
+        "prediction_scorer_seq014_scores_io",
+        "prediction_scorer_seq014_scoring_core"
+      ],
+      "edges_in": [
+        "path_selector",
+        "prediction_scorer_seq014_calibration",
+        "prediction_scorer_seq014_constants",
+        "prediction_scorer_seq014_data_loaders",
+        "prediction_scorer_seq014_edit_session_analyzer",
+        "prediction_scorer_seq014_module_extractor",
+        "prediction_scorer_seq014_node_backfill",
+        "prediction_scorer_seq014_path_utils",
+        "prediction_scorer_seq014_post_commit_scorer",
+        "prediction_scorer_seq014_post_edit_scorer",
+        "prediction_scorer_seq014_reality_loaders",
+        "prediction_scorer_seq014_rework_matcher",
+        "prediction_scorer_seq014_scores_io",
+        "prediction_scorer_seq014_scoring_core"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "predictor": {
+      "path": "pigeon_brain/flow/predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3.py",
+      "seq": 9,
+      "ver": 3,
+      "tokens": 1831,
+      "desc": "fires_phantom_electrons_using_cognitive",
+      "edges_out": [
+        "task_writer"
+      ],
+      "edges_in": [
+        "learning_loop",
+        "prediction_scorer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "task_writer": {
+      "path": "pigeon_brain/flow/task_writer_seq005_v002_d0324__the_river_delta_where_all_lc_flow_engine_context.py",
+      "seq": 5,
+      "ver": 2,
+      "tokens": 1476,
+      "desc": "the_river_delta_where_all",
+      "edges_out": [
+        "context_packet",
+        "vein_transport"
+      ],
+      "edges_in": [
+        "learning_loop",
+        "predictor"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "vein_transport": {
+      "path": "pigeon_brain/flow/vein_transport_seq006_v002_d0324__as_a_packet_flows_along_lc_flow_engine_context.py",
+      "seq": 6,
+      "ver": 2,
+      "tokens": 884,
+      "desc": "as_a_packet_flows_along",
+      "edges_out": [
+        "context_packet"
+      ],
+      "edges_in": [
+        "flow_engine",
+        "task_writer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "graph_extractor": {
+      "path": "pigeon_brain/graph_extractor_seq003_v003_d0324__extract_the_cognition_graph_from_lc_gemini_chat_dead.py",
+      "seq": 3,
+      "ver": 3,
+      "tokens": 1744,
       "desc": "extract_the_cognition_graph_from",
       "edges_out": [
         "graph_heat_map"
@@ -133,10 +780,10 @@
       "electron_deaths": 0
     },
     "live_server": {
-      "path": "pigeon_brain/live_server_seq012_v002_d0323__websocket_server_for_live_execution_lc_pigeon_brain_system.py",
+      "path": "pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_per_prompt_deleted.py",
       "seq": 12,
-      "ver": 2,
-      "tokens": 1763,
+      "ver": 4,
+      "tokens": 2857,
       "desc": "websocket_server_for_live_execution",
       "edges_out": [
         "trace_hook",
@@ -517,6 +1164,7 @@
       "desc": "deepseek_api_client",
       "edges_out": [],
       "edges_in": [
+        "backward",
         "class_decomposer",
         "func_decomposer",
         "run_pigeon_loop",
@@ -1782,10 +2430,10 @@
       "electron_deaths": 0
     },
     "dynamic_prompt": {
-      "path": "src/dynamic_prompt_seq017_v004_d0321__steers_copilot_cot_from_live_lc_implement_all_18.py",
+      "path": "src/dynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_per_prompt_deleted.py",
       "seq": 17,
-      "ver": 4,
-      "tokens": 3460,
+      "ver": 5,
+      "tokens": 3996,
       "desc": "steers_copilot_cot_from_live",
       "edges_out": [
         "file_consciousness"
@@ -1887,10 +2535,10 @@
       "electron_deaths": 0
     },
     "push_narrative": {
-      "path": "src/push_narrative_seq012_v005_d0317__generate_per_push_narrative_each_lc_auto_prompt_reconstruction.py",
+      "path": "src/push_narrative_seq012_v006_d0327__generate_per_push_narrative_each_lc_push_narratives_timeout.py",
       "seq": 12,
-      "ver": 5,
-      "tokens": 2049,
+      "ver": 6,
+      "tokens": 2089,
       "desc": "generate_per_push_narrative_each",
       "edges_out": [
         "query_memory"
@@ -2378,6 +3026,81 @@
       "type": "import"
     },
     {
+      "from": "backward",
+      "to": "deepseek_adapter",
+      "type": "import"
+    },
+    {
+      "from": "flow_engine",
+      "to": "context_packet",
+      "type": "import"
+    },
+    {
+      "from": "flow_engine",
+      "to": "node_awakener",
+      "type": "import"
+    },
+    {
+      "from": "flow_engine",
+      "to": "path_selector",
+      "type": "import"
+    },
+    {
+      "from": "flow_engine",
+      "to": "vein_transport",
+      "type": "import"
+    },
+    {
+      "from": "learning_loop_seq013_main_loop",
+      "to": "learning_loop_seq013_catch_up",
+      "type": "import"
+    },
+    {
+      "from": "learning_loop",
+      "to": "flow_engine",
+      "type": "import"
+    },
+    {
+      "from": "learning_loop",
+      "to": "task_writer",
+      "type": "import"
+    },
+    {
+      "from": "learning_loop",
+      "to": "backward_seq007_backward_pass",
+      "type": "import"
+    },
+    {
+      "from": "learning_loop",
+      "to": "predictor",
+      "type": "import"
+    },
+    {
+      "from": "learning_loop",
+      "to": "prediction_scorer_seq014_calibration",
+      "type": "import"
+    },
+    {
+      "from": "node_awakener",
+      "to": "context_packet",
+      "type": "import"
+    },
+    {
+      "from": "prediction_scorer",
+      "to": "predictor",
+      "type": "import"
+    },
+    {
+      "from": "task_writer",
+      "to": "context_packet",
+      "type": "import"
+    },
+    {
+      "from": "vein_transport",
+      "to": "context_packet",
+      "type": "import"
+    },
+    {
       "from": "live_server",
       "to": "trace_hook",
       "type": "import"
@@ -2785,6 +3508,316 @@
     {
       "from": "trace_hook",
       "to": "traced_runner",
+      "type": "package"
+    },
+    {
+      "from": "backward",
+      "to": "backward_seq007_backward_pass",
+      "type": "package"
+    },
+    {
+      "from": "backward_seq007_backward_pass",
+      "to": "backward",
+      "type": "package"
+    },
+    {
+      "from": "backward",
+      "to": "backward_seq007_deepseek_analyze",
+      "type": "package"
+    },
+    {
+      "from": "backward_seq007_deepseek_analyze",
+      "to": "backward",
+      "type": "package"
+    },
+    {
+      "from": "backward",
+      "to": "backward_seq007_flow_log",
+      "type": "package"
+    },
+    {
+      "from": "backward_seq007_flow_log",
+      "to": "backward",
+      "type": "package"
+    },
+    {
+      "from": "backward",
+      "to": "backward_seq007_loss_compute",
+      "type": "package"
+    },
+    {
+      "from": "backward_seq007_loss_compute",
+      "to": "backward",
+      "type": "package"
+    },
+    {
+      "from": "backward",
+      "to": "backward_seq007_tokenize",
+      "type": "package"
+    },
+    {
+      "from": "backward_seq007_tokenize",
+      "to": "backward",
+      "type": "package"
+    },
+    {
+      "from": "backward",
+      "to": "context_packet",
+      "type": "package"
+    },
+    {
+      "from": "context_packet",
+      "to": "dev_plan",
+      "type": "package"
+    },
+    {
+      "from": "dev_plan",
+      "to": "flow_engine",
+      "type": "package"
+    },
+    {
+      "from": "flow_engine",
+      "to": "learning_loop",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop",
+      "to": "node_awakener",
+      "type": "package"
+    },
+    {
+      "from": "node_awakener",
+      "to": "node_conversation",
+      "type": "package"
+    },
+    {
+      "from": "node_conversation",
+      "to": "path_selector",
+      "type": "package"
+    },
+    {
+      "from": "path_selector",
+      "to": "prediction_scorer",
+      "type": "package"
+    },
+    {
+      "from": "predictor",
+      "to": "task_writer",
+      "type": "package"
+    },
+    {
+      "from": "task_writer",
+      "to": "vein_transport",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop",
+      "to": "learning_loop_seq013_catch_up",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop_seq013_catch_up",
+      "to": "learning_loop",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop",
+      "to": "learning_loop_seq013_journal_loader",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop_seq013_journal_loader",
+      "to": "learning_loop",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop",
+      "to": "learning_loop_seq013_loop_helpers",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop_seq013_loop_helpers",
+      "to": "learning_loop",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop",
+      "to": "learning_loop_seq013_main_loop",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop_seq013_main_loop",
+      "to": "learning_loop",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop",
+      "to": "learning_loop_seq013_prediction_cycle",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop_seq013_prediction_cycle",
+      "to": "learning_loop",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop",
+      "to": "learning_loop_seq013_single_cycle_helpers",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop_seq013_single_cycle_helpers",
+      "to": "learning_loop",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop",
+      "to": "learning_loop_seq013_single_cycle",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop_seq013_single_cycle",
+      "to": "learning_loop",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop",
+      "to": "learning_loop_seq013_state_utils",
+      "type": "package"
+    },
+    {
+      "from": "learning_loop_seq013_state_utils",
+      "to": "learning_loop",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer",
+      "to": "prediction_scorer_seq014_calibration",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer_seq014_calibration",
+      "to": "prediction_scorer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer",
+      "to": "prediction_scorer_seq014_constants",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer_seq014_constants",
+      "to": "prediction_scorer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer",
+      "to": "prediction_scorer_seq014_data_loaders",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer_seq014_data_loaders",
+      "to": "prediction_scorer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer",
+      "to": "prediction_scorer_seq014_edit_session_analyzer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer_seq014_edit_session_analyzer",
+      "to": "prediction_scorer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer",
+      "to": "prediction_scorer_seq014_module_extractor",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer_seq014_module_extractor",
+      "to": "prediction_scorer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer",
+      "to": "prediction_scorer_seq014_node_backfill",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer_seq014_node_backfill",
+      "to": "prediction_scorer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer",
+      "to": "prediction_scorer_seq014_path_utils",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer_seq014_path_utils",
+      "to": "prediction_scorer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer",
+      "to": "prediction_scorer_seq014_post_commit_scorer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer_seq014_post_commit_scorer",
+      "to": "prediction_scorer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer",
+      "to": "prediction_scorer_seq014_post_edit_scorer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer_seq014_post_edit_scorer",
+      "to": "prediction_scorer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer",
+      "to": "prediction_scorer_seq014_reality_loaders",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer_seq014_reality_loaders",
+      "to": "prediction_scorer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer",
+      "to": "prediction_scorer_seq014_rework_matcher",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer_seq014_rework_matcher",
+      "to": "prediction_scorer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer",
+      "to": "prediction_scorer_seq014_scores_io",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer_seq014_scores_io",
+      "to": "prediction_scorer",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer",
+      "to": "prediction_scorer_seq014_scoring_core",
+      "type": "package"
+    },
+    {
+      "from": "prediction_scorer_seq014_scoring_core",
+      "to": "prediction_scorer",
       "type": "package"
     },
     {
@@ -3593,5 +4626,5 @@
       "type": "package"
     }
   ],
-  "total": 137
+  "total": 175
 }

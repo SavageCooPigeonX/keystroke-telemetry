@@ -620,7 +620,13 @@ def _force_fresh_composition(root: Path) -> None:
 
 def log_enriched_entry(root: Path, msg: str, files_open: list[str],
                        session_n: int) -> dict:
-    """Build and append one fully-enriched journal entry. Returns the entry."""
+    """Build and append one fully-enriched journal entry. Returns the entry.
+
+    Signal/narrative separation:
+    1. Write raw measured signal to prompt_signal_raw.jsonl (ground truth)
+    2. Build enriched entry with interpretation (intent, state, predictions)
+    3. Enriched entry is tagged with provenance markers
+    """
     now = datetime.now(timezone.utc)
     _force_fresh_composition(root)
     _refresh_prompt_compositions(root)
@@ -664,27 +670,53 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
                          for w in comp.get('deleted_words', [])]
         rewrites = comp.get('rewrites', [])
 
+    # ── STEP 1: Write raw signal (measured truth only) ──
+    try:
+        import importlib.util
+        _sig_matches = sorted(root.glob('src/prompt_signal_seq026*.py'))
+        if _sig_matches:
+            _sig_spec = importlib.util.spec_from_file_location('_prompt_signal', _sig_matches[-1])
+            if _sig_spec and _sig_spec.loader:
+                _sig_mod = importlib.util.module_from_spec(_sig_spec)
+                _sig_spec.loader.exec_module(_sig_mod)
+                _sig_mod.log_raw_signal(
+                    root=root, msg=msg, files_open=files_open,
+                    session_n=session_n, signals=signals,
+                    deleted_words=deleted_words, rewrites=rewrites,
+                    composition_binding=binding,
+                )
+    except Exception:
+        pass  # raw signal write is best-effort — journal still works without it
+
+    # ── STEP 2: Build enriched entry (raw + interpretation) ──
     entry = {
         'ts':               now.isoformat(),
         'session_n':        session_n,
         'msg':              msg,
         'msg_len':          len(msg),
         'files_open':       files_open,
-        # ── classification ──
+        # ── classification (DERIVED — not in raw signal) ──
         'intent':           _classify_intent(msg),
         'module_refs':      _extract_module_refs(msg),
         'cognitive_state':  cog_state,
-        # ── typing signals ──
+        # ── typing signals (MEASURED — also in raw signal) ──
         'signals':          signals,
         'composition_binding': binding,
         'deleted_words':    deleted_words,
         'rewrites':         rewrites,
-        # ── context snapshot ──
+        # ── context snapshot (DERIVED — point-in-time system state) ──
         'task_queue':       _active_tasks(root),
         'hot_modules':      _hot_modules(root),
         'prompt_mutations': _mutation_count(root),
-        # ── running stats ──
+        # ── running stats (DERIVED — aggregated from history) ──
         'running':          _running_stats(root),
+        # ── provenance tag ──
+        'provenance': {
+            'measured': ['ts', 'session_n', 'msg', 'msg_len', 'files_open',
+                         'signals', 'deleted_words', 'rewrites', 'composition_binding'],
+            'derived':  ['intent', 'module_refs', 'cognitive_state',
+                         'task_queue', 'hot_modules', 'prompt_mutations', 'running'],
+        },
     }
 
     # Append

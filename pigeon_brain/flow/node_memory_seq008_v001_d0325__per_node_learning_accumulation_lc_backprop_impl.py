@@ -81,12 +81,26 @@ def append_learning(
     entry = {
         "electron_id": electron_id,
         "task_seed": task_seed[:120],
-        "contribution_summary": contribution_summary[:200],
+        # ── observation (measured — drives scoring) ──
+        "observation": {
+            "credit_score": round(credit_score, 4),
+            "outcome_loss": round(outcome_loss, 4),
+            "rework_score": round(rework_score, 4),
+            "deletion_ratio_after": round(deletion_ratio_after, 4),
+            "operator_state_after": operator_state_after,
+        },
+        # ── hypothesis (LLM-generated — informational only, NOT used in scoring) ──
+        "hypothesis": {
+            "contribution_summary": contribution_summary[:200],
+            "source": "llm_inference",
+        },
+        # Legacy flat fields kept for backward compat with existing policy rebuild
         "credit_score": round(credit_score, 4),
         "outcome_loss": round(outcome_loss, 4),
         "operator_state_after": operator_state_after,
         "rework_score": round(rework_score, 4),
         "deletion_ratio_after": round(deletion_ratio_after, 4),
+        "contribution_summary": contribution_summary[:200],
         "ts": datetime.now(timezone.utc).isoformat(),
     }
     node_record["entries"].append(entry)
@@ -104,29 +118,61 @@ def append_learning(
 
 
 def _rebuild_policy(node: str, entries: list[dict]) -> dict[str, Any]:
-    """Compress raw entries into a behavioral policy."""
+    """Compress raw entries into a behavioral policy.
+
+    CRITICAL: Scoring uses ONLY observation fields (measured truth).
+    Hypotheses (LLM summaries) are stored for display but do NOT affect scores.
+    This prevents hallucination → memory → scoring contamination.
+    """
     if not entries:
         return {}
 
-    # Exponential moving average for rolling score
+    # Exponential moving average for rolling score — observations only
     score = 0.5  # prior
     for e in entries:
-        signal = e["credit_score"] * (1.0 - e["outcome_loss"])
+        obs = e.get("observation", e)  # backward compat: fall back to flat fields
+        credit = obs.get("credit_score", e.get("credit_score", 0.5))
+        loss = obs.get("outcome_loss", e.get("outcome_loss", 0.5))
+        signal = credit * (1.0 - loss)
         score = score * (1.0 - DECAY_ALPHA) + signal * DECAY_ALPHA
 
     n = len(entries)
     confidence = min(n / MIN_CONFIDENCE_SAMPLES, 1.0)
 
-    # Utilization = average credit score (proxy for "were my contributions used")
-    avg_credit = sum(e["credit_score"] for e in entries) / n
+    # Utilization = average credit score (from observations only)
+    avg_credit = sum(
+        e.get("observation", e).get("credit_score", e.get("credit_score", 0))
+        for e in entries
+    ) / n
 
-    # Top effective patterns: entries with high credit + low loss
-    effective = sorted(entries, key=lambda e: e["credit_score"] * (1.0 - e["outcome_loss"]), reverse=True)
-    top_patterns = [e["contribution_summary"] for e in effective[:3] if e["credit_score"] > 0.3]
+    # Top effective patterns: entries with high credit + low loss (observation-based)
+    effective = sorted(entries, key=lambda e: (
+        e.get("observation", e).get("credit_score", e.get("credit_score", 0))
+        * (1.0 - e.get("observation", e).get("outcome_loss", e.get("outcome_loss", 0)))
+    ), reverse=True)
+    # Hypotheses shown for context but labeled as such
+    top_patterns = []
+    for e in effective[:3]:
+        obs = e.get("observation", e)
+        credit = obs.get("credit_score", e.get("credit_score", 0))
+        if credit > 0.3:
+            hyp = e.get("hypothesis", {})
+            summary = hyp.get("contribution_summary", e.get("contribution_summary", ""))
+            top_patterns.append(summary)
 
-    # Failure patterns: entries with low credit or high loss
-    failures = sorted(entries, key=lambda e: e["outcome_loss"] - e["credit_score"], reverse=True)
-    fail_patterns = [e["contribution_summary"] for e in failures[:2] if e["outcome_loss"] > 0.5]
+    # Failure patterns: entries with low credit or high loss (observation-based)
+    failures = sorted(entries, key=lambda e: (
+        e.get("observation", e).get("outcome_loss", e.get("outcome_loss", 0))
+        - e.get("observation", e).get("credit_score", e.get("credit_score", 0))
+    ), reverse=True)
+    fail_patterns = []
+    for e in failures[:2]:
+        obs = e.get("observation", e)
+        loss = obs.get("outcome_loss", e.get("outcome_loss", 0))
+        if loss > 0.5:
+            hyp = e.get("hypothesis", {})
+            summary = hyp.get("contribution_summary", e.get("contribution_summary", ""))
+            fail_patterns.append(summary)
 
     # Behavioral directive
     directive = _synthesize_directive(node, score, top_patterns, fail_patterns)
@@ -135,11 +181,15 @@ def _rebuild_policy(node: str, entries: list[dict]) -> dict[str, Any]:
         "node": node,
         "rolling_score": round(score, 4),
         "confidence": round(confidence, 4),
+        # ── observation-derived (drives all decisions) ──
+        "utilization_rate": round(avg_credit, 4),
+        "sample_count": n,
+        # ── hypothesis-derived (display only, NOT used for scoring) ──
         "top_effective_patterns": top_patterns,
         "failure_patterns": fail_patterns,
-        "utilization_rate": round(avg_credit, 4),
         "behavioral_directive": directive,
-        "sample_count": n,
+        # ── provenance ──
+        "scoring_source": "observation_only",
         "last_updated": datetime.now(timezone.utc).isoformat(),
     }
 

@@ -17,9 +17,9 @@ a compact operator profile that sharpens with every message.
 # SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-22T23:00:00+00:00
+# EDIT_TS:   2026-03-27T20:00:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  add WPM_HUMAN_MAX outlier filter
+# EDIT_WHY:  fix stale baselines: remove submitted filter, add decay
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -71,34 +71,50 @@ def _is_artifact_record(record: dict) -> bool:
     )
 
 
-def compute_baselines(history: list[dict], window: int = 50) -> dict:
+def compute_baselines(history: list[dict], window: int = 200) -> dict:
     """Compute rolling baselines from operator history for self-calibration.
 
-    Returns per-metric averages and std-dev approximations from the last
-    `window` entries. These baselines let classify_state adapt to each
-    operator's natural typing patterns instead of using hardcoded thresholds.
+    Uses ALL human-speed messages (submitted or not — discards carry valid
+    cognitive signal) with exponential decay weighting (half-life 25 messages)
+    so recent typing patterns dominate over stale data.
     """
     recent = [
         r for r in history[-window:]
-        if r.get("submitted", True) and not _is_artifact_record(r)
+        if not _is_artifact_record(r)
     ]
     if len(recent) < 5:
         return {}  # not enough data to calibrate
-    wpms = [r["wpm"] for r in recent if "wpm" in r and r["wpm"] <= WPM_HUMAN_MAX]
-    dels = [r["del_ratio"] for r in recent if "del_ratio" in r]
-    hess = [r["hesitation"] for r in recent if "hesitation" in r]
-    if not wpms:
+
+    n = len(recent)
+    # Exponential decay: half-life 25 messages.
+    # Most recent msg weight=1.0, msg 25 back=0.5, msg 75 back=0.125
+    weights = [2.0 ** ((i - n + 1) / 25.0) for i in range(n)]
+
+    wpm_pairs = [(r["wpm"], w) for r, w in zip(recent, weights)
+                 if "wpm" in r and r["wpm"] <= WPM_HUMAN_MAX]
+    del_pairs = [(r["del_ratio"], w) for r, w in zip(recent, weights)
+                 if "del_ratio" in r]
+    hes_pairs = [(r["hesitation"], w) for r, w in zip(recent, weights)
+                 if "hesitation" in r]
+    if not wpm_pairs:
         return {}
-    n = len(wpms)
-    avg_wpm = sum(wpms) / n
-    avg_del = sum(dels) / max(len(dels), 1)
-    avg_hes = sum(hess) / max(len(hess), 1)
-    # Simple std-dev (population)
-    sd_wpm = (sum((w - avg_wpm) ** 2 for w in wpms) / n) ** 0.5
-    sd_del = (sum((d - avg_del) ** 2 for d in dels) / max(len(dels), 1)) ** 0.5
-    sd_hes = (sum((h - avg_hes) ** 2 for h in hess) / max(len(hess), 1)) ** 0.5
+
+    def _wavg(pairs):
+        tw = sum(w for _, w in pairs)
+        return sum(v * w for v, w in pairs) / tw
+
+    def _wsd(pairs, avg):
+        tw = sum(w for _, w in pairs)
+        return (sum(w * (v - avg) ** 2 for v, w in pairs) / tw) ** 0.5
+
+    avg_wpm = _wavg(wpm_pairs)
+    avg_del = _wavg(del_pairs) if del_pairs else 0
+    avg_hes = _wavg(hes_pairs) if hes_pairs else 0
+    sd_wpm = _wsd(wpm_pairs, avg_wpm)
+    sd_del = _wsd(del_pairs, avg_del) if del_pairs else 0
+    sd_hes = _wsd(hes_pairs, avg_hes) if hes_pairs else 0
     return {
-        "n": n,
+        "n": len(wpm_pairs),
         "avg_wpm": round(avg_wpm, 1),
         "avg_del": round(avg_del, 3),
         "avg_hes": round(avg_hes, 3),
@@ -300,10 +316,10 @@ class OperatorStats:
         if baselines:
             lines += [
                 "",
-                "## Self-Calibration Baselines (rolling 50)",
+                "## Self-Calibration Baselines (rolling 200, decay-weighted)",
                 "",
-                f"*Computed from last {baselines['n']} submitted messages. "
-                "Classification thresholds adapt to these norms.*",
+                f"*Computed from last {baselines['n']} human-speed messages "
+                "(half-life 25). Classification thresholds adapt to these norms.*",
                 "",
                 "| Metric | Baseline | ±1 SD |",
                 "| --- | ---: | ---: |",
@@ -350,11 +366,15 @@ class OperatorStats:
             "| # | State | WPM | Del% | Hes | Submitted |",
             "| ---: | --- | ---: | ---: | ---: | --- |",
         ]
-        # show last 12 messages
+        # show last 12 messages (flag artifacts)
         for i, r in enumerate(h[-12:], max(n - 11, 1)):
             sub = "yes" if r["submitted"] else "no"
+            wpm_display = r['wpm']
+            artifact = ""
+            if wpm_display > WPM_HUMAN_MAX:
+                artifact = " ⚡"  # machine-speed flag
             lines.append(
-                f"| {i} | {r['state']} | {r['wpm']:.0f} | {r['del_ratio']:.1%} "
+                f"| {i} | {r['state']}{artifact} | {wpm_display:.0f} | {r['del_ratio']:.1%} "
                 f"| {r['hesitation']:.3f} | {sub} |"
             )
 
@@ -435,11 +455,12 @@ class OperatorStats:
             s = r.get("slot", "afternoon")
             slots.setdefault(s, []).append(r)
 
-        # compare WPM across timeframes
+        # compare WPM across timeframes (filter machine-speed artifacts)
         slot_wpm: dict[str, float] = {}
         for s, msgs in slots.items():
-            if len(msgs) >= 2:
-                slot_wpm[s] = sum(r["wpm"] for r in msgs) / len(msgs)
+            human = [r["wpm"] for r in msgs if r.get("wpm", 0) <= WPM_HUMAN_MAX]
+            if len(human) >= 2:
+                slot_wpm[s] = sum(human) / len(human)
 
         if len(slot_wpm) >= 2:
             fastest = max(slot_wpm, key=slot_wpm.get)

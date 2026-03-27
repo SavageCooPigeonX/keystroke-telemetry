@@ -183,9 +183,9 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-27 - 3310 message(s) - LLM-synthesized*
+*Auto-updated 2026-03-27 · 3595 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 4% | WPM: 43.4 | Del: 46.0% | Hes: 0.643
+**Dominant: `frustrated`** | Submit: 4% | WPM: 43.7 | Del: 46.0% | Hes: 0.643
 
 Operator just built a push narrative timeout system while exhibiting intense, frustrated micro-editing patterns (50% deletion rates, low WPM on recent messages), indicating they are deep in debugging a timing or async boundary issue.
 
