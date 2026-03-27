@@ -2,20 +2,6 @@
   "context_budget": {
     "samples": [
       {
-        "ts": "2026-03-27T14:39:09.443877+00:00",
-        "hes": 0.7,
-        "wpm": 24.8,
-        "state": "hesitant",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-27T14:40:09.504584+00:00",
-        "hes": 0.7,
-        "wpm": 25.9,
-        "state": "hesitant",
-        "rework": "ok"
-      },
-      {
         "ts": "2026-03-27T14:48:26.377494+00:00",
         "hes": 0.7,
         "wpm": 25.2,
@@ -140,10 +126,24 @@
         "wpm": 34.1,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-27T15:36:37.548928+00:00",
+        "hes": 0.7,
+        "wpm": 25.3,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-27T15:37:37.922274+00:00",
+        "hes": 0.7,
+        "wpm": 24.7,
+        "state": "frustrated",
+        "rework": "ok"
       }
     ],
     "avg_hes": 0.615,
-    "avg_wpm": 118014.5,
+    "avg_wpm": 118014.4,
     "miss_count": 0,
     "total": 20
   },
@@ -1109,20 +1109,6 @@
   "self_fix": {
     "samples": [
       {
-        "ts": "2026-03-27T14:39:09.443802+00:00",
-        "hes": 0.7,
-        "wpm": 24.8,
-        "state": "hesitant",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-27T14:40:09.504506+00:00",
-        "hes": 0.7,
-        "wpm": 25.9,
-        "state": "hesitant",
-        "rework": "ok"
-      },
-      {
         "ts": "2026-03-27T14:48:26.377363+00:00",
         "hes": 0.7,
         "wpm": 25.2,
@@ -1247,29 +1233,29 @@
         "wpm": 34.1,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-27T15:36:37.548862+00:00",
+        "hes": 0.7,
+        "wpm": 25.3,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-27T15:37:37.922203+00:00",
+        "hes": 0.7,
+        "wpm": 24.7,
+        "state": "frustrated",
+        "rework": "ok"
       }
     ],
     "avg_hes": 0.615,
-    "avg_wpm": 118014.5,
+    "avg_wpm": 118014.4,
     "miss_count": 0,
     "total": 20
   },
   "init_writer": {
     "samples": [
-      {
-        "ts": "2026-03-27T14:39:09.443974+00:00",
-        "hes": 0.7,
-        "wpm": 24.8,
-        "state": "hesitant",
-        "rework": "ok"
-      },
-      {
-        "ts": "2026-03-27T14:40:09.504624+00:00",
-        "hes": 0.7,
-        "wpm": 25.9,
-        "state": "hesitant",
-        "rework": "ok"
-      },
       {
         "ts": "2026-03-27T14:48:26.377532+00:00",
         "hes": 0.7,
@@ -1395,10 +1381,24 @@
         "wpm": 34.1,
         "state": "frustrated",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-03-27T15:36:37.548959+00:00",
+        "hes": 0.7,
+        "wpm": 25.3,
+        "state": "frustrated",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-03-27T15:37:37.922304+00:00",
+        "hes": 0.7,
+        "wpm": 24.7,
+        "state": "frustrated",
+        "rework": "ok"
       }
     ],
     "avg_hes": 0.615,
-    "avg_wpm": 118014.5,
+    "avg_wpm": 118014.4,
     "miss_count": 0,
     "total": 20
   }

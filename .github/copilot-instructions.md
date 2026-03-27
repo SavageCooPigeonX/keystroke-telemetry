@@ -79,38 +79,26 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-27 14:03 UTC · 3209 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-27 15:37 UTC · 3284 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `frustrated` (WPM: 71.3 | Del: 35.6% | Hes: 0.535)
+**Cognitive state:** `frustrated` (WPM: 45.0 | Del: 35.3% | Hes: 0.546)
 
 > **CoT directive:** Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.
-
-### Unsaid Threads
-*Deleted from prompts — operator wanted this but didn't ask:*
-- "d \\"
 
 ### Module Hot Zones
 *High cognitive load — take extra care with these files:*
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `context_budget` (hes=0.657)
-- `self_fix` (hes=0.657)
+- `context_budget` (hes=0.615)
+- `self_fix` (hes=0.615)
 
 ### Recent Work
+- `e894b6a` feat: fix bare globals in learning loop + wire per-prompt unsaid reconstruction
+- `63ee334` fix: dynamic import resolver (_resolve.py) â€” eliminates hardcoded pigeon filename imports across flow/, all subpackages, gemini_chat, dev_plan
 - `fd07906` pigeon: split 3 oversized flow modules (prediction_scorer 14 files, backward 6 files, learning_loop 9 files) + live_server auto-split from git plugin
 - `66ef3a8` feat: edit-session prediction scorer v2 â€” 3-signal scoring (edit_pairs + rework + confidence calibration), prediction_id binding, perpetual learning loop, DeepSeek backward pass, Gemini memory injection
-- `bf41560` feat: backpropagation architecture â€” 6 new modules (backward pass, node memory, predictor, dev plan, fix summary, node conversation) + CLI subcommands + pigeon compliance trim
-- `af28c35` docs: 8888-word backpropagation architecture â€” 18 glossator refusals, Los Santos radio, full learning cycle spec (backward pass, node memory, predictor, dev plan, fix summary, node conversations)
-
-### Coaching Directives
-*LLM-synthesized behavioral rules for this operator:*
-- **Anticipate cleanup**
-- **Focus on pain points**
-- **Reduce friction on edits**
-- **Bridge automation gaps**
-- **Confirm, don't assume**
 
 ### Fragile Contracts
 *From push narratives — assumptions that could break:*
@@ -131,7 +119,7 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 - [CRITICAL] hardcoded_import in `pigeon_brain/flow/__main__.py`
 
 ### Prompt Evolution
-*This prompt has mutated 57x (186→654 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
+*This prompt has mutated 61x (186→721 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
 
 ### File Consciousness
 *175 modules profiled*
@@ -183,19 +171,17 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-27 · 3283 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-27 · 3285 message(s) · LLM-synthesized*
 
 **Dominant: `frustrated`** | Submit: 4% | WPM: 43.4 | Del: 46.0% | Hes: 0.643
 
-This operator just completed a major automated refactoring (pigeon_split_3) to enforce a new architectural pattern, but their high deletion rate and frustration/hesitation cycles reveal they are manually cleaning up after automation, likely fighting tooling gaps.
-
-*   **Anticipate cleanup:** When they open a just-renamed file (e.g., `*_pigeon_split_3.py`), proactively suggest imports, function call updates, or constants to align with the new split module structure.
-*   **Focus on pain points:** Prioritize understanding and suggestions for high-churn modules like `self_fix`, `operator_stats`, and `run_clean_split`; they are the unstable core.
-*   **Reduce friction on edits:** In files with high WPM but also high deletion rates, offer concise, single-line corrections or flag inconsistencies immediately instead of multi-line completions.
-*   **Bridge automation gaps:** When they work on `init_writer` or `file_writer`, pre-empt the next step in the pipeline—like generating `__init__.py` imports or fixing path errors from the split.
-*   **Confirm, don't assume:** After a series of "abandoned" states, ask clarifying questions before implementing larger changes, as they are likely discarding mismatched suggestions.
-
-They are most likely building toward a stable, self-correcting pipeline where automated refactoring (`pigeon_split_3`) requires zero manual cleanup.
+This operator just built a fix for bare globals in their compiler and their typing shows intense frustration with heavy edits, high deletion rates, and frequent task abandonment mid-flow.  
+- **Anticipate context switching:** When they touch `self_fix seq13` or `run_clean_split seq10`, proactively summarize the module's current purpose and last change to prevent rework.  
+- **Shorten suggestions drastically:** Their high deletion rate (46%) means your initial completions are too long; offer minimal, atomic code blocks.  
+- **Flag recurring patterns immediately:** If they start editing `operator_stats seq8` or `context_budget seq4`, first ask: "Are you updating the scoring logic or fixing a data flow bug?" to target their intent.  
+- **Pre-empt hesitation on refactors:** When they rename or restructure files (like this commit), open with: "I see you're renaming for `fix_bare_globals`—should we update import references in `deepseek_adapter seq1` or `file_writer seq3`?"  
+- **Confirm before deep edits:** If they begin a multi-line change while frustrated (WPM < 40, del > 50%), pause with: "Want to outline the change first?" to reduce discard cycles.  
+- **Bridge to the next likely step:** They are most likely building toward stabilizing the learning loop's global variable resolution before integrating the dynamic import resolver.
 
 <!-- /pigeon:operator-state -->
 <!-- pigeon:prompt-telemetry -->
@@ -396,7 +382,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 ### Full Module Index
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-27 - 188 modules tracked | 32 touched this commit*
+*Auto-updated 2026-03-27 - 188 modules tracked | 10 touched this commit*
 
 **pigeon_brain/** - 16 module(s)
 
@@ -431,7 +417,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `vein_transport_seq006*` | as a packet flows along | ~884 |
 | `backward_seq007*` | backward pass walks electron path | ~2,500 |
 | `predictor_seq009*` | fires phantom electrons using cognitive | ~1,831 |
-| `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,552 |
+| `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,541 |
 | `node_conversation_seq012*` | the interpretability interface lets the | ~1,431 |
 | `learning_loop_seq013*` | the perpetual learning loop | ~2,881 |
 | `prediction_scorer_seq014*` | edit session based | ~4,298 |
@@ -443,8 +429,8 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `backward_seq007_flow_log_seq001*` | auto extracted by pigeon compiler | ~423 |
 | `backward_seq007_loss_compute_seq002*` | auto extracted by pigeon compiler | ~187 |
 | `backward_seq007_tokenize_seq003*` | auto extracted by pigeon compiler | ~307 |
-| `backward_seq007_deepseek_analyze_seq004*` | auto extracted by pigeon compiler | ~616 |
-| `backward_seq007_backward_pass_seq005*` | auto extracted by pigeon compiler | ~842 |
+| `backward_seq007_deepseek_analyze_seq004*` | auto extracted by pigeon compiler | ~774 |
+| `backward_seq007_backward_pass_seq005*` | auto extracted by pigeon compiler | ~910 |
 
 **pigeon_brain/flow/learning_loop_seq013/** - 8 module(s)
 
@@ -452,12 +438,12 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 |---|---|---:|
 | `learning_loop_seq013_state_utils_seq001*` | auto extracted by pigeon compiler | ~284 |
 | `learning_loop_seq013_journal_loader_seq002*` | auto extracted by pigeon compiler | ~192 |
-| `learning_loop_seq013_prediction_cycle_seq003*` | auto extracted by pigeon compiler | ~375 |
+| `learning_loop_seq013_prediction_cycle_seq003*` | auto extracted by pigeon compiler | ~431 |
 | `learning_loop_seq013_single_cycle_helpers_seq004*` | auto extracted by pigeon compiler | ~25 |
-| `learning_loop_seq013_single_cycle_seq005*` | auto extracted by pigeon compiler | ~828 |
-| `learning_loop_seq013_catch_up_seq006*` | auto extracted by pigeon compiler | ~309 |
+| `learning_loop_seq013_single_cycle_seq005*` | auto extracted by pigeon compiler | ~896 |
+| `learning_loop_seq013_catch_up_seq006*` | auto extracted by pigeon compiler | ~431 |
 | `learning_loop_seq013_loop_helpers_seq007*` | auto extracted by pigeon compiler | ~23 |
-| `learning_loop_seq013_main_loop_seq008*` | auto extracted by pigeon compiler | ~706 |
+| `learning_loop_seq013_main_loop_seq008*` | auto extracted by pigeon compiler | ~1,044 |
 
 **pigeon_brain/flow/prediction_scorer_seq014/** - 13 module(s)
 
@@ -473,9 +459,9 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `prediction_scorer_seq014_rework_matcher_seq007*` | auto extracted by pigeon compiler | ~460 |
 | `prediction_scorer_seq014_scoring_core_seq008*` | auto extracted by pigeon compiler | ~713 |
 | `prediction_scorer_seq014_calibration_seq009*` | auto extracted by pigeon compiler | ~419 |
-| `prediction_scorer_seq014_node_backfill_seq010*` | auto extracted by pigeon compiler | ~431 |
-| `prediction_scorer_seq014_post_edit_scorer_seq011*` | auto extracted by pigeon compiler | ~769 |
-| `prediction_scorer_seq014_post_commit_scorer_seq012*` | auto extracted by pigeon compiler | ~544 |
+| `prediction_scorer_seq014_node_backfill_seq010*` | auto extracted by pigeon compiler | ~499 |
+| `prediction_scorer_seq014_post_edit_scorer_seq011*` | auto extracted by pigeon compiler | ~841 |
+| `prediction_scorer_seq014_post_commit_scorer_seq012*` | auto extracted by pigeon compiler | ~607 |
 
 **pigeon_compiler/bones/** - 5 module(s)
 
@@ -703,6 +689,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `_tmp_check_memory.py` | `(root)` |
 | `_tmp_check_preds.py` | `(root)` |
 | `_tmp_heal_check.py` | `(root)` |
+| `_tmp_pred_check.py` | `(root)` |
 | `deep_test.py` | `(root)` |
 | `stress_test.py` | `(root)` |
 | `test_all.py` | `(root)` |

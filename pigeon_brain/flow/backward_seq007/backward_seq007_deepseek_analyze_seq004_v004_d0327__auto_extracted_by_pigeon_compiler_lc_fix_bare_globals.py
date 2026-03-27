@@ -1,11 +1,11 @@
 """backward_seq007_deepseek_analyze_seq004_v001.py — Auto-extracted by Pigeon Compiler."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 004 | VER: v003 | 76 lines | ~772 tokens
+# SEQ: 004 | VER: v004 | 76 lines | ~774 tokens
 # DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: dynamic_import_resolver
-# LAST:   2026-03-27 @ 63ee334
-# SESSIONS: 2
+# INTENT: fix_bare_globals
+# LAST:   2026-03-27 @ e894b6a
+# SESSIONS: 3
 # ──────────────────────────────────────────────
 from pathlib import Path
 from typing import Any

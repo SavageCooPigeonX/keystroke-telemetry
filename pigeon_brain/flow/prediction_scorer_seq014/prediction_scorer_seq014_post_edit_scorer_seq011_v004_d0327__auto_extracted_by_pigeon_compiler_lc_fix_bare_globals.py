@@ -1,11 +1,11 @@
 """prediction_scorer_seq014_post_edit_scorer_seq011_v001.py — Auto-extracted by Pigeon Compiler."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 011 | VER: v003 | 98 lines | ~839 tokens
+# SEQ: 011 | VER: v004 | 98 lines | ~841 tokens
 # DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: dynamic_import_resolver
-# LAST:   2026-03-27 @ 63ee334
-# SESSIONS: 2
+# INTENT: fix_bare_globals
+# LAST:   2026-03-27 @ e894b6a
+# SESSIONS: 3
 # ──────────────────────────────────────────────
 from pathlib import Path
 from typing import Any

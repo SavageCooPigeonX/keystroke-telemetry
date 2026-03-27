@@ -1,11 +1,11 @@
 """learning_loop_seq013_single_cycle_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v003 | 102 lines | ~880 tokens
+# SEQ: 005 | VER: v004 | 105 lines | ~896 tokens
 # DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: dynamic_import_resolver
-# LAST:   2026-03-27 @ 63ee334
-# SESSIONS: 2
+# INTENT: fix_bare_globals
+# LAST:   2026-03-27 @ e894b6a
+# SESSIONS: 3
 # ──────────────────────────────────────────────
 from pathlib import Path
 from typing import Any

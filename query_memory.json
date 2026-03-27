@@ -1,18 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-27T06:54:08.794682+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T06:55:09.958157+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-27T06:56:11.047264+00:00",
       "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
       "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
@@ -2996,6 +2984,18 @@
     },
     {
       "ts": "2026-03-27T15:35:36.822010+00:00",
+      "text": "bg:2026-03-27_63ee334_self_fix.md",
+      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:36:37.484613+00:00",
+      "text": "bg:2026-03-27_63ee334_self_fix.md",
+      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T15:37:37.886340+00:00",
       "text": "bg:2026-03-27_63ee334_self_fix.md",
       "fingerprint": "bg20260327_63ee334_self_fixmd",
       "submitted": true
