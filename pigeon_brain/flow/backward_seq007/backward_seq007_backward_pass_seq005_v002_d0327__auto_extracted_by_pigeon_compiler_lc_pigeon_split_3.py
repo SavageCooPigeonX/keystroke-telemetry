@@ -7,9 +7,8 @@
 # LAST:   2026-03-27 @ fd07906
 # SESSIONS: 1
 # ──────────────────────────────────────────────
-from .node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl import (
-    append_learning,
-)
+from pigeon_brain.flow._resolve import flow_import as _fi
+append_learning = _fi("node_memory_seq008", "append_learning")
 from pathlib import Path
 from typing import Any
 import re

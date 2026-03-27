@@ -23,10 +23,13 @@ def _deepseek_analyze_backward(
     Falls back to empty analysis if DeepSeek unavailable.
     """
     try:
-        from pigeon_compiler.integrations.deepseek_adapter_seq001_v006_d0322__deepseek_api_client_lc_stage_78_hook import (
-            deepseek_query,
-        )
-    except (ImportError, ValueError):
+        import importlib, re
+        _ds_dir = __import__('pathlib').Path(__file__).resolve().parents[2] / 'pigeon_compiler' / 'integrations'
+        _ds_pat = re.compile(r'^deepseek_adapter_seq001_v\d+', re.I)
+        _ds_mod = next((f.stem for f in _ds_dir.iterdir() if f.suffix == '.py' and _ds_pat.match(f.stem)), None)
+        if _ds_mod is None: raise ImportError('no deepseek adapter')
+        deepseek_query = getattr(importlib.import_module(f'pigeon_compiler.integrations.{_ds_mod}'), 'deepseek_query')
+    except (ImportError, ValueError, StopIteration):
         return {"node_analyses": [], "system_insight": "", "cost": 0.0}
 
     node_block = "\n".join(

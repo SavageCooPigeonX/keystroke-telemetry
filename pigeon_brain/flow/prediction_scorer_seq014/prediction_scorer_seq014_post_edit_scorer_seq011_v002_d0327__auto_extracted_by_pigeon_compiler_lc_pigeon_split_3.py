@@ -18,8 +18,9 @@ def score_predictions_post_edit(root: Path) -> dict[str, Any]:
     Uses edit_pairs.jsonl + rework_log.json as reality signals.
     Should be called frequently (every prediction cycle in the learning loop).
     """
-    from .predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
-        load_predictions, save_predictions,
+    from pigeon_brain.flow._resolve import flow_import
+    load_predictions, save_predictions = flow_import(
+        "predictor_seq009", "load_predictions", "save_predictions",
     )
 
     predictions = load_predictions(root)

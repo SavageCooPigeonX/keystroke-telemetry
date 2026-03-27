@@ -18,14 +18,13 @@ def run_single_cycle(
 
     Returns cycle result dict.
     """
-    from .flow_engine_seq003_v002_d0324__the_flow_engine_is_the_lc_flow_engine_context import (
-        run_flow, run_multi, load_graph_data,
+    from pigeon_brain.flow._resolve import flow_import
+    run_flow, run_multi, load_graph_data = flow_import(
+        "flow_engine_seq003", "run_flow", "run_multi", "load_graph_data",
     )
-    from .task_writer_seq005_v002_d0324__the_river_delta_where_all_lc_flow_engine_context import (
-        write_task,
-    )
-    from .backward_seq007_v003_d0327__backward_pass_walks_electron_path_lc_pigeon_split_3 import (
-        backward_pass, log_forward_pass,
+    write_task = flow_import("task_writer_seq005", "write_task")
+    backward_pass, log_forward_pass = flow_import(
+        "backward_seq007", "backward_pass", "log_forward_pass",
     )
 
     task_seed = entry.get("msg", "")

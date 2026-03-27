@@ -12,16 +12,13 @@ from typing import Any
 
 def run_prediction_cycle(root: Path, state: dict[str, Any]) -> int:
     """Fire phantom electrons from cognitive profile."""
-    from .predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
-        predict_next_needs,
-    )
-    from .flow_engine_seq003_v002_d0324__the_flow_engine_is_the_lc_flow_engine_context import (
-        run_flow,
-    )
+    from pigeon_brain.flow._resolve import flow_import
+    predict_next_needs = flow_import("predictor_seq009", "predict_next_needs")
+    run_flow = flow_import("flow_engine_seq003", "run_flow")
     # Score any existing predictions against edit sessions (primary)
     try:
-        from .prediction_scorer_seq014_v003_d0327__edit_session_based_lc_pigeon_split_3 import (
-            score_predictions_post_edit,
+        score_predictions_post_edit = flow_import(
+            "prediction_scorer_seq014", "score_predictions_post_edit",
         )
         score_result = score_predictions_post_edit(root)
         if score_result.get("status") == "scored":

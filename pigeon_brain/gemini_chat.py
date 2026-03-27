@@ -506,9 +506,10 @@ def _fire_training_cycle(root: Path, messages: list[dict]) -> None:
 
         def _train():
             try:
-                from pigeon_brain.flow.learning_loop_seq013_v003_d0327__the_perpetual_learning_loop_lc_pigeon_split_3 import (
-                    run_single_cycle, _load_state, _save_state,
-                )
+                from pigeon_brain.flow._resolve import flow_import
+                run_single_cycle = flow_import("learning_loop_seq013", "run_single_cycle")
+                _load_state = flow_import("learning_loop_seq013", "_load_state")
+                _save_state = flow_import("learning_loop_seq013", "_save_state")
                 state = _load_state(root)
                 # Construct a synthetic journal entry from the chat message
                 from datetime import datetime, timezone

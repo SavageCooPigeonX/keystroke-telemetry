@@ -17,9 +17,8 @@ def score_predictions_post_commit(root: Path) -> dict[str, Any]:
 
     Supplements edit-session scoring with commit-level ground truth.
     """
-    from .predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
-        load_predictions,
-    )
+    from pigeon_brain.flow._resolve import flow_import
+    load_predictions = flow_import("predictor_seq009", "load_predictions")
 
     predictions = load_predictions(root)
     if not predictions:

@@ -1622,11 +1622,143 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:23.868160+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:55.752179+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:56.557536+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:57.298604+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:58.042729+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:58.222414+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:58.454364+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:59.218205+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:59.438040+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:59.756417+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:00.190189+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:00.371466+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:01.163131+00:00"
       }
     ],
     "policy": {
       "node": "file_heat_map",
-      "rolling_score": 0.0735,
+      "rolling_score": 0.072,
       "confidence": 1.0,
       "top_effective_patterns": [
         "dual=0.35; fears: file may not exist, returns empty on failure (silent)",
@@ -1637,10 +1769,10 @@
         "pred_false_pos cal_err=0.56",
         "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.3305,
+      "utilization_rate": 0.3137,
       "behavioral_directive": "file_heat_map: struggling; focus on: dual=0.35; fears: file may not exist, returns empty on failu; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 117,
-      "last_updated": "2026-03-27T14:01:23.868520+00:00"
+      "sample_count": 129,
+      "last_updated": "2026-03-27T14:30:01.163883+00:00"
     }
   },
   "cognitive_reactor_seq014_docstring_patch": {
@@ -3405,11 +3537,44 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:23.741017+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:56.203078+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:58.828383+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:00.703927+00:00"
       }
     ],
     "policy": {
       "node": "cognitive_reactor",
-      "rolling_score": 0.1561,
+      "rolling_score": 0.1332,
       "confidence": 1.0,
       "top_effective_patterns": [
         "dual=0.00; fears: swallowed exception, file may not exist",
@@ -3420,10 +3585,10 @@
         "pred_false_pos cal_err=0.56",
         "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.2737,
+      "utilization_rate": 0.2614,
       "behavioral_directive": "cognitive_reactor: struggling; focus on: dual=0.00; fears: swallowed exception, file may not exist; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 27,
-      "last_updated": "2026-03-27T14:01:23.741095+00:00"
+      "sample_count": 30,
+      "last_updated": "2026-03-27T14:30:00.704138+00:00"
     }
   },
   "copilot_prompt_manager": {
@@ -3823,11 +3988,44 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:23.814717+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:56.425277+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:59.078338+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:00.943860+00:00"
       }
     ],
     "policy": {
       "node": "copilot_prompt_manager",
-      "rolling_score": 0.2261,
+      "rolling_score": 0.1842,
       "confidence": 1.0,
       "top_effective_patterns": [
         "pred_hit combined=0.53",
@@ -3838,10 +4036,10 @@
         "pred_false_pos cal_err=0.56",
         "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.3543,
+      "utilization_rate": 0.3386,
       "behavioral_directive": "copilot_prompt_manager: struggling; focus on: pred_hit combined=0.53; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 36,
-      "last_updated": "2026-03-27T14:01:23.814785+00:00"
+      "sample_count": 39,
+      "last_updated": "2026-03-27T14:30:00.943989+00:00"
     }
   },
   "file_consciousness": {
@@ -4469,11 +4667,77 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:23.718394+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:56.123895+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:57.714916+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:58.753080+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:59.689439+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:00.110169+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:00.644825+00:00"
       }
     ],
     "policy": {
       "node": "models",
-      "rolling_score": 0.0918,
+      "rolling_score": 0.0823,
       "confidence": 1.0,
       "top_effective_patterns": [
         "dual=0.00",
@@ -4484,10 +4748,10 @@
         "pred_false_pos cal_err=0.56",
         "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.2138,
+      "utilization_rate": 0.2055,
       "behavioral_directive": "models: struggling; focus on: dual=0.00; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 40,
-      "last_updated": "2026-03-27T14:01:23.718491+00:00"
+      "sample_count": 46,
+      "last_updated": "2026-03-27T14:30:00.644990+00:00"
     }
   },
   "drift_watcher": {
@@ -4700,11 +4964,44 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:23.841941+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:56.488278+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:59.147243+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:01.041327+00:00"
       }
     ],
     "policy": {
       "node": "drift_watcher",
-      "rolling_score": 0.1611,
+      "rolling_score": 0.1368,
       "confidence": 1.0,
       "top_effective_patterns": [
         "dual=0.00",
@@ -4715,10 +5012,10 @@
         "pred_false_pos cal_err=0.56",
         "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.2142,
+      "utilization_rate": 0.2054,
       "behavioral_directive": "drift_watcher: struggling; focus on: dual=0.00; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 19,
-      "last_updated": "2026-03-27T14:01:23.841999+00:00"
+      "sample_count": 22,
+      "last_updated": "2026-03-27T14:30:01.041511+00:00"
     }
   },
   "copilot_prompt_manager_seq020_json_utils": {
@@ -4971,11 +5268,44 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:23.790380+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:56.355413+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:58.983638+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:00.854270+00:00"
       }
     ],
     "policy": {
       "node": "context_budget",
-      "rolling_score": 0.2456,
+      "rolling_score": 0.1984,
       "confidence": 1.0,
       "top_effective_patterns": [
         "pred_hit combined=0.53",
@@ -4986,10 +5316,10 @@
         "pred_false_pos cal_err=0.56",
         "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.3255,
+      "utilization_rate": 0.3016,
       "behavioral_directive": "context_budget: struggling; focus on: pred_hit combined=0.53; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 19,
-      "last_updated": "2026-03-27T14:01:23.790443+00:00"
+      "sample_count": 22,
+      "last_updated": "2026-03-27T14:30:00.854500+00:00"
     }
   },
   "run_compiler_test": {
@@ -5693,11 +6023,77 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:23.690949+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:56.027777+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:57.653172+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:58.693005+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:59.612663+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:59.995633+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:00.583975+00:00"
       }
     ],
     "policy": {
       "node": "logger",
-      "rolling_score": 0.0962,
+      "rolling_score": 0.0846,
       "confidence": 1.0,
       "top_effective_patterns": [
         "dual=0.00"
@@ -5706,10 +6102,10 @@
         "pred_false_pos cal_err=0.56",
         "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.1831,
+      "utilization_rate": 0.1777,
       "behavioral_directive": "logger: struggling; focus on: dual=0.00; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 31,
-      "last_updated": "2026-03-27T14:01:23.691017+00:00"
+      "sample_count": 37,
+      "last_updated": "2026-03-27T14:30:00.584317+00:00"
     }
   },
   "resistance_analyzer": {
@@ -6470,11 +6866,143 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:23.891441+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:55.847837+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:56.991047+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:57.474878+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:58.145038+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:58.293105+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:58.530791+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:59.297065+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:59.495646+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:59.843206+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:00.244398+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:00.453710+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:01.276130+00:00"
       }
     ],
     "policy": {
       "node": "file_writer",
-      "rolling_score": 0.0735,
+      "rolling_score": 0.072,
       "confidence": 1.0,
       "top_effective_patterns": [
         "dual=0.29",
@@ -6484,10 +7012,10 @@
         "pred_false_pos cal_err=0.56",
         "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.1779,
+      "utilization_rate": 0.173,
       "behavioral_directive": "file_writer: struggling; focus on: dual=0.29; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 57,
-      "last_updated": "2026-03-27T14:01:23.891535+00:00"
+      "sample_count": 69,
+      "last_updated": "2026-03-27T14:30:01.276388+00:00"
     }
   },
   "run_clean_split": {
@@ -7194,11 +7722,132 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:23.918748+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:55.940633+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:57.211856+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:57.562736+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:58.384689+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:58.617179+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:59.376913+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:59.557522+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:59.910219+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:00.296400+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:00.518905+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:01.374904+00:00"
       }
     ],
     "policy": {
       "node": "import_rewriter",
-      "rolling_score": 0.0746,
+      "rolling_score": 0.0724,
       "confidence": 1.0,
       "top_effective_patterns": [
         "dual=0.29; fears: regex format dependency",
@@ -7209,10 +7858,10 @@
         "pred_false_pos cal_err=0.56",
         "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.1814,
+      "utilization_rate": 0.176,
       "behavioral_directive": "import_rewriter: struggling; focus on: dual=0.29; fears: regex format dependency; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 53,
-      "last_updated": "2026-03-27T14:01:23.918895+00:00"
+      "sample_count": 64,
+      "last_updated": "2026-03-27T14:30:01.375089+00:00"
     }
   },
   "ether_map_builder": {
@@ -7494,21 +8143,32 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:22.513085+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:56.274523+00:00"
       }
     ],
     "policy": {
       "node": "cognitive_reactor_seq014_state_ops",
-      "rolling_score": 0.3294,
+      "rolling_score": 0.3036,
       "confidence": 1.0,
       "top_effective_patterns": [],
       "failure_patterns": [
         "pred_false_pos cal_err=0.56",
-        "pred_false_pos cal_err=0.50"
+        "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.17,
+      "utilization_rate": 0.1667,
       "behavioral_directive": "cognitive_reactor_seq014_state_ops: moderate; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 5,
-      "last_updated": "2026-03-27T14:01:22.513122+00:00"
+      "sample_count": 6,
+      "last_updated": "2026-03-27T14:29:56.274607+00:00"
     }
   },
   "cli": {
@@ -7567,21 +8227,32 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:22.789227+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:57.779470+00:00"
       }
     ],
     "policy": {
       "node": "cli",
-      "rolling_score": 0.3284,
+      "rolling_score": 0.3027,
       "confidence": 1.0,
       "top_effective_patterns": [],
       "failure_patterns": [
         "pred_false_pos cal_err=0.56",
         "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.17,
+      "utilization_rate": 0.1667,
       "behavioral_directive": "cli: moderate; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 5,
-      "last_updated": "2026-03-27T14:01:22.789288+00:00"
+      "sample_count": 6,
+      "last_updated": "2026-03-27T14:29:57.779567+00:00"
     }
   },
   "dual_substrate": {
@@ -7640,21 +8311,32 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:22.812119+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:57.870980+00:00"
       }
     ],
     "policy": {
       "node": "dual_substrate",
-      "rolling_score": 0.3284,
+      "rolling_score": 0.3027,
       "confidence": 1.0,
       "top_effective_patterns": [],
       "failure_patterns": [
         "pred_false_pos cal_err=0.56",
         "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.17,
+      "utilization_rate": 0.1667,
       "behavioral_directive": "dual_substrate: moderate; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 5,
-      "last_updated": "2026-03-27T14:01:22.812178+00:00"
+      "sample_count": 6,
+      "last_updated": "2026-03-27T14:29:57.871186+00:00"
     }
   },
   "execution_logger": {
@@ -7713,21 +8395,32 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:22.836734+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:57.961590+00:00"
       }
     ],
     "policy": {
       "node": "execution_logger",
-      "rolling_score": 0.3284,
+      "rolling_score": 0.3027,
       "confidence": 1.0,
       "top_effective_patterns": [],
       "failure_patterns": [
         "pred_false_pos cal_err=0.56",
         "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.17,
+      "utilization_rate": 0.1667,
       "behavioral_directive": "execution_logger: moderate; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 5,
-      "last_updated": "2026-03-27T14:01:22.836785+00:00"
+      "sample_count": 6,
+      "last_updated": "2026-03-27T14:29:57.961718+00:00"
     }
   },
   "cognitive_reactor_seq014_cognitive_hint": {
@@ -7786,21 +8479,32 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:23.123440+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:29:58.896386+00:00"
       }
     ],
     "policy": {
       "node": "cognitive_reactor_seq014_cognitive_hint",
-      "rolling_score": 0.3294,
+      "rolling_score": 0.3036,
       "confidence": 1.0,
       "top_effective_patterns": [],
       "failure_patterns": [
         "pred_false_pos cal_err=0.56",
-        "pred_false_pos cal_err=0.50"
+        "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.17,
+      "utilization_rate": 0.1667,
       "behavioral_directive": "cognitive_reactor_seq014_cognitive_hint: moderate; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 5,
-      "last_updated": "2026-03-27T14:01:23.123495+00:00"
+      "sample_count": 6,
+      "last_updated": "2026-03-27T14:29:58.896486+00:00"
     }
   },
   "cognitive_reactor_seq014_self_fix_runner": {
@@ -7848,21 +8552,32 @@
         "rework_score": 0.0,
         "deletion_ratio_after": 0.0,
         "ts": "2026-03-27T14:01:23.767708+00:00"
+      },
+      {
+        "electron_id": "?",
+        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file",
+        "contribution_summary": "pred_false_pos cal_err=0.56",
+        "credit_score": 0.15,
+        "outcome_loss": 0.524,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "ts": "2026-03-27T14:30:00.763740+00:00"
       }
     ],
     "policy": {
       "node": "cognitive_reactor_seq014_self_fix_runner",
-      "rolling_score": 0.3556,
-      "confidence": 0.8,
+      "rolling_score": 0.3272,
+      "confidence": 1.0,
       "top_effective_patterns": [],
       "failure_patterns": [
         "pred_false_pos cal_err=0.56",
-        "pred_false_pos cal_err=0.50"
+        "pred_false_pos cal_err=0.56"
       ],
-      "utilization_rate": 0.1625,
+      "utilization_rate": 0.16,
       "behavioral_directive": "cognitive_reactor_seq014_self_fix_runner: moderate; avoid: pred_false_pos cal_err=0.56",
-      "sample_count": 4,
-      "last_updated": "2026-03-27T14:01:23.767846+00:00"
+      "sample_count": 5,
+      "last_updated": "2026-03-27T14:30:00.763836+00:00"
     }
   },
   "graph_extractor": {

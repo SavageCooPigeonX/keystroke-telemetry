@@ -32,17 +32,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from .node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl import (
-    get_all_policies,
-    load_memory,
+from ._resolve import flow_import
+
+get_all_policies, load_memory = flow_import(
+    "node_memory_seq008", "get_all_policies", "load_memory",
 )
-from .predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
-    extract_cognitive_trend,
-    load_predictions,
+extract_cognitive_trend, load_predictions = flow_import(
+    "predictor_seq009", "extract_cognitive_trend", "load_predictions",
 )
-from .fix_summary_seq011_v001_d0325__structured_diff_analysis_lc_backprop_impl import (
-    load_fix_memory,
-)
+load_fix_memory = flow_import("fix_summary_seq011", "load_fix_memory")
 
 DEV_PLAN_FILE = "dev_plan.md"
 

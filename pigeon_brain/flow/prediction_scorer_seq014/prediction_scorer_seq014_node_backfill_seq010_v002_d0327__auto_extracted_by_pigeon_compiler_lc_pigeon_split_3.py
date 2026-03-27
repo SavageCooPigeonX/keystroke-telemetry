@@ -14,9 +14,8 @@ import re
 
 def backfill_prediction_scores(root: Path, scored: list[dict[str, Any]]) -> int:
     """Feed prediction accuracy into node_memory with calibration-weighted penalties."""
-    from .node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl import (
-        append_learning,
-    )
+    from pigeon_brain.flow._resolve import flow_import
+    append_learning = flow_import("node_memory_seq008", "append_learning")
 
     updated = 0
     for s in scored:

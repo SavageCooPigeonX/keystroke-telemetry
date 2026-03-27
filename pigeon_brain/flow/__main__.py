@@ -30,28 +30,19 @@ import json
 import sys
 from pathlib import Path
 
-from .flow_engine_seq003_v002_d0324__the_flow_engine_is_the_lc_flow_engine_context import run_flow, run_multi
-from .task_writer_seq005_v002_d0324__the_river_delta_where_all_lc_flow_engine_context import write_task, write_multi
-from .backward_seq007_v003_d0327__backward_pass_walks_electron_path_lc_pigeon_split_3 import (
-    backward_pass, log_forward_pass,
-)
-from .node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3 import (
-    talk_to_node, find_worst_node,
-)
-from .predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
-    predict_next_needs,
-)
-from .dev_plan_seq010_v002_d0327__the_roadmap_writer_synthesizes_the_lc_pigeon_split_3 import (
-    generate_dev_plan,
-)
-from .fix_summary_seq011_v001_d0325__structured_diff_analysis_lc_backprop_impl import (
-    generate_fix_summary,
-)
-from .learning_loop_seq013_v003_d0327__the_perpetual_learning_loop_lc_pigeon_split_3 import (
-    run_loop, catch_up,
-)
-from .prediction_scorer_seq014_v003_d0327__edit_session_based_lc_pigeon_split_3 import (
-    score_predictions_post_edit, score_predictions_post_commit,
+from ._resolve import flow_import
+
+# Dynamic imports — survive pigeon renames
+run_flow, run_multi = flow_import("flow_engine_seq003", "run_flow", "run_multi")
+write_task, write_multi = flow_import("task_writer_seq005", "write_task", "write_multi")
+backward_pass, log_forward_pass = flow_import("backward_seq007", "backward_pass", "log_forward_pass")
+talk_to_node, find_worst_node = flow_import("node_conversation_seq012", "talk_to_node", "find_worst_node")
+predict_next_needs = flow_import("predictor_seq009", "predict_next_needs")
+generate_dev_plan = flow_import("dev_plan_seq010", "generate_dev_plan")
+generate_fix_summary = flow_import("fix_summary_seq011", "generate_fix_summary")
+run_loop, catch_up = flow_import("learning_loop_seq013", "run_loop", "catch_up")
+score_predictions_post_edit, score_predictions_post_commit = flow_import(
+    "prediction_scorer_seq014", "score_predictions_post_edit", "score_predictions_post_commit",
 )
 
 
