@@ -12,6 +12,14 @@ writes to node_memory. DeepSeek generates rich contribution analysis.
 Loss = rework*0.4 + del*0.3 + frustration*0.2 + ignored*0.1.
 Credit = overlap*0.35 + position*0.25 + relevance*0.25 + downstream*0.15.
 Cost: ~$0.003 per backward pass (1 DeepSeek call for analysis)."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 007 | VER: v002 | 265 lines | ~2,432 tokens
+# DESC:   backward_pass_walks_electron_path
+# INTENT: edit_session_prediction
+# LAST:   2026-03-27 @ 66ef3a8
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 # ── pigeon: SEQ 007 | v001 | backprop_impl | 2026-03-25 ──
 from __future__ import annotations
 

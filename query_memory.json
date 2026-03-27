@@ -1,48 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-27T06:00:08.466446+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T06:01:07.809109+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T06:01:47.434674+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T06:02:09.628447+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T06:03:08.313392+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T06:03:33.934903+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-27T06:03:54.356992+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-27T06:04:09.177548+00:00",
       "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
       "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
@@ -2998,6 +2956,48 @@
       "ts": "2026-03-27T13:55:06.825062+00:00",
       "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
       "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T13:56:08.632226+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T13:57:07.127310+00:00",
+      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
+      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T13:58:06.924100+00:00",
+      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
+      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T13:59:06.947940+00:00",
+      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
+      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T14:00:07.174738+00:00",
+      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
+      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T14:01:08.037409+00:00",
+      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
+      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T14:02:07.102471+00:00",
+      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
+      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
       "submitted": true
     }
   ],

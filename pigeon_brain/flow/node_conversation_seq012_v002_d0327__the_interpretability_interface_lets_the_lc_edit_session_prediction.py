@@ -21,10 +21,10 @@ integration is wired in. The prompt is fully constructed and ready.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 012 | VER: v001 | ~120 lines | ~1,000 tokens
-# DESC:   node_conversation_interface
-# INTENT: backprop_impl
-# LAST:   2026-03-25
+# SEQ: 012 | VER: v002 | 163 lines | ~1,423 tokens
+# DESC:   the_interpretability_interface_lets_the
+# INTENT: edit_session_prediction
+# LAST:   2026-03-27 @ 66ef3a8
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 from __future__ import annotations

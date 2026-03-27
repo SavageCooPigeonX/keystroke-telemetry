@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-24T23:31:16.391840+00:00",
-  "total": 156,
+  "generated": "2026-03-27T13:56:09.208914+00:00",
+  "total": 161,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -103,6 +103,26 @@
       ]
     },
     {
+      "path": "pigeon_brain/flow/backward_seq007_v002_d0327__backward_pass_walks_electron_path_lc_edit_session_prediction.py",
+      "name": "backward",
+      "seq": 7,
+      "ver": 2,
+      "date": "0327",
+      "desc": "backward_pass_walks_electron_path",
+      "intent": "edit_session_prediction",
+      "tokens": 2432,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0327",
+          "desc": "backward_pass_walks_electron_path",
+          "intent": "edit_session_prediction",
+          "tokens": 2432,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "pigeon_brain/flow/context_packet_seq001_v002_d0324__the_contextpacket_is_the_unit_lc_flow_engine_context.py",
       "name": "context_packet",
       "seq": 1,
@@ -143,6 +163,26 @@
       ]
     },
     {
+      "path": "pigeon_brain/flow/learning_loop_seq013_v002_d0327__the_perpetual_learning_loop_lc_edit_session_prediction.py",
+      "name": "learning_loop",
+      "seq": 13,
+      "ver": 2,
+      "date": "0327",
+      "desc": "the_perpetual_learning_loop",
+      "intent": "edit_session_prediction",
+      "tokens": 2806,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0327",
+          "desc": "the_perpetual_learning_loop",
+          "intent": "edit_session_prediction",
+          "tokens": 2806,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "pigeon_brain/flow/node_awakener_seq002_v002_d0324__when_a_packet_arrives_at_lc_flow_engine_context.py",
       "name": "node_awakener",
       "seq": 2,
@@ -163,6 +203,26 @@
       ]
     },
     {
+      "path": "pigeon_brain/flow/node_conversation_seq012_v002_d0327__the_interpretability_interface_lets_the_lc_edit_session_prediction.py",
+      "name": "node_conversation",
+      "seq": 12,
+      "ver": 2,
+      "date": "0327",
+      "desc": "the_interpretability_interface_lets_the",
+      "intent": "edit_session_prediction",
+      "tokens": 1423,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0327",
+          "desc": "the_interpretability_interface_lets_the",
+          "intent": "edit_session_prediction",
+          "tokens": 1423,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "pigeon_brain/flow/path_selector_seq004_v002_d0324__path_selection_is_the_real_lc_flow_engine_context.py",
       "name": "path_selector",
       "seq": 4,
@@ -178,6 +238,46 @@
           "desc": "path_selection_is_the_real",
           "intent": "flow_engine_context",
           "tokens": 1373,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014_v002_d0327__edit_session_based_lc_edit_session_prediction.py",
+      "name": "prediction_scorer",
+      "seq": 14,
+      "ver": 2,
+      "date": "0327",
+      "desc": "edit_session_based",
+      "intent": "edit_session_prediction",
+      "tokens": 4222,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0327",
+          "desc": "edit_session_based",
+          "intent": "edit_session_prediction",
+          "tokens": 4222,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/predictor_seq009_v002_d0327__fires_phantom_electrons_using_cognitive_lc_edit_session_prediction.py",
+      "name": "predictor",
+      "seq": 9,
+      "ver": 2,
+      "date": "0327",
+      "desc": "fires_phantom_electrons_using_cognitive",
+      "intent": "edit_session_prediction",
+      "tokens": 1762,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0327",
+          "desc": "fires_phantom_electrons_using_cognitive",
+          "intent": "edit_session_prediction",
+          "tokens": 1762,
           "action": "registered"
         }
       ]

@@ -24,6 +24,14 @@ If the rework verdict for those edits was "ok", the prediction was useful.
 Confidence calibration: tracks predicted confidence vs actual F1 over time,
 penalizes overconfident wrong predictions harder.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 014 | VER: v002 | 484 lines | ~4,234 tokens
+# DESC:   edit_session_based
+# INTENT: edit_session_prediction
+# LAST:   2026-03-27 @ 66ef3a8
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 # ── pigeon: SEQ 014 | v002 | edit_session_scoring | 2026-03-27 ──
 from __future__ import annotations
 
@@ -349,7 +357,7 @@ def score_predictions_post_edit(root: Path) -> dict[str, Any]:
     Uses edit_pairs.jsonl + rework_log.json as reality signals.
     Should be called frequently (every prediction cycle in the learning loop).
     """
-    from .predictor_seq009_v001_d0325__phantom_electron_predictor_lc_backprop_impl import (
+    from .predictor_seq009_v002_d0327__fires_phantom_electrons_using_cognitive_lc_edit_session_prediction import (
         load_predictions, save_predictions,
     )
 
@@ -433,7 +441,7 @@ def score_predictions_post_commit(root: Path) -> dict[str, Any]:
 
     Supplements edit-session scoring with commit-level ground truth.
     """
-    from .predictor_seq009_v001_d0325__phantom_electron_predictor_lc_backprop_impl import (
+    from .predictor_seq009_v002_d0327__fires_phantom_electrons_using_cognitive_lc_edit_session_prediction import (
         load_predictions,
     )
 

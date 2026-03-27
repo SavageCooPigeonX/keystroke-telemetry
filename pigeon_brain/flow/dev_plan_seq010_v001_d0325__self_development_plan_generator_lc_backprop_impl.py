@@ -36,7 +36,7 @@ from .node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_
     get_all_policies,
     load_memory,
 )
-from .predictor_seq009_v001_d0325__phantom_electron_predictor_lc_backprop_impl import (
+from .predictor_seq009_v002_d0327__fires_phantom_electrons_using_cognitive_lc_edit_session_prediction import (
     extract_cognitive_trend,
     load_predictions,
 )

@@ -27,6 +27,14 @@ Run:
 
 Cost: ~$0.003 per forward+backward cycle (DeepSeek-chat).
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 013 | VER: v002 | 307 lines | ~2,814 tokens
+# DESC:   the_perpetual_learning_loop
+# INTENT: edit_session_prediction
+# LAST:   2026-03-27 @ 66ef3a8
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 # ── pigeon: SEQ 013 | v001 | deepseek_backprop | 2026-03-27 ──
 from __future__ import annotations
 
@@ -106,7 +114,7 @@ def run_single_cycle(
     from .task_writer_seq005_v002_d0324__the_river_delta_where_all_lc_flow_engine_context import (
         write_task,
     )
-    from .backward_seq007_v001_d0325__backward_pass_gradient_distributor_lc_backprop_impl import (
+    from .backward_seq007_v002_d0327__backward_pass_walks_electron_path_lc_edit_session_prediction import (
         backward_pass, log_forward_pass,
     )
 
@@ -187,7 +195,7 @@ def run_single_cycle(
 
 def run_prediction_cycle(root: Path, state: dict[str, Any]) -> int:
     """Fire phantom electrons from cognitive profile."""
-    from .predictor_seq009_v001_d0325__phantom_electron_predictor_lc_backprop_impl import (
+    from .predictor_seq009_v002_d0327__fires_phantom_electrons_using_cognitive_lc_edit_session_prediction import (
         predict_next_needs,
     )
     from .flow_engine_seq003_v002_d0324__the_flow_engine_is_the_lc_flow_engine_context import (
@@ -195,7 +203,7 @@ def run_prediction_cycle(root: Path, state: dict[str, Any]) -> int:
     )
     # Score any existing predictions against edit sessions (primary)
     try:
-        from .prediction_scorer_seq014_v001_d0327__prediction_vs_reality_feedback_lc_e2e_loop import (
+        from .prediction_scorer_seq014_v002_d0327__edit_session_based_lc_edit_session_prediction import (
             score_predictions_post_edit,
         )
         score_result = score_predictions_post_edit(root)
