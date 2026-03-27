@@ -79,38 +79,38 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-27 06:44 UTC · 2759 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-27 14:03 UTC · 3209 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `frustrated` (WPM: 1025800.9 | Del: 41.1% | Hes: 0.474)
+**Cognitive state:** `frustrated` (WPM: 71.3 | Del: 35.6% | Hes: 0.535)
 
 > **CoT directive:** Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- "mufffin"
+- "d \\"
 
 ### Module Hot Zones
 *High cognitive load — take extra care with these files:*
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `context_budget` (hes=0.516)
-- `self_fix` (hes=0.516)
+- `context_budget` (hes=0.657)
+- `self_fix` (hes=0.657)
 
 ### Recent Work
+- `fd07906` pigeon: split 3 oversized flow modules (prediction_scorer 14 files, backward 6 files, learning_loop 9 files) + live_server auto-split from git plugin
+- `66ef3a8` feat: edit-session prediction scorer v2 â€” 3-signal scoring (edit_pairs + rework + confidence calibration), prediction_id binding, perpetual learning loop, DeepSeek backward pass, Gemini memory injection
 - `bf41560` feat: backpropagation architecture â€” 6 new modules (backward pass, node memory, predictor, dev plan, fix summary, node conversation) + CLI subcommands + pigeon compliance trim
 - `af28c35` docs: 8888-word backpropagation architecture â€” 18 glossator refusals, Los Santos radio, full learning cycle spec (backward pass, node memory, predictor, dev plan, fix summary, node conversations)
-- `6e5e346` fix: flow engine CLI commands in docs â€” match actual interface (positional task arg)
-- `030a33d` docs: comprehensive MASTER_MANIFEST + README update â€” flow engine (6 modules), fix stale counts (152 registry, 137 nodes, 260 edges), architecture diagrams, CLI commands, compliance table, project structure tree
 
 ### Coaching Directives
 *LLM-synthesized behavioral rules for this operator:*
-- **Anticipate the "gemini_chat_dead" context**
-- **Pre-empt churn in `self_fix seq13` and `run_clean_split seq10`**
-- **Counter high-deletion frustration**
-- **Flag integration points proactively**
-- **Simplify suggestions during night sessions**
+- **Anticipate cleanup**
+- **Focus on pain points**
+- **Reduce friction on edits**
+- **Bridge automation gaps**
+- **Confirm, don't assume**
 
 ### Fragile Contracts
 *From push narratives — assumptions that could break:*
@@ -124,17 +124,17 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 
 ### Known Issues
 *From self-fix scanner — fix when touching nearby code:*
+- [CRITICAL] hardcoded_import in `_tmp_heal_check.py`
+- [CRITICAL] hardcoded_import in `pigeon_brain/context_veins.py`
+- [CRITICAL] hardcoded_import in `pigeon_brain/gemini_chat.py`
 - [CRITICAL] hardcoded_import in `pigeon_brain/__main__.py`
-- [HIGH] over_hard_cap in `src/file_consciousness_seq019_v002_d0321__ast_derived_function_consciousness_dating_lc_implement_all_18.py`
-- [HIGH] over_hard_cap in `src/query_memory_seq010_v004_d0321__recurring_query_detector_unsaid_thought_lc_implement_all_18.py`
-- [HIGH] over_hard_cap in `src/self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py`
-- [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v003_d0324__websocket_server_for_live_execution_lc_gemini_chat_dead.py`
+- [CRITICAL] hardcoded_import in `pigeon_brain/flow/__main__.py`
 
 ### Prompt Evolution
-*This prompt has mutated 56x (186→632 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 57x (186→654 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
 
 ### File Consciousness
-*137 modules profiled*
+*175 modules profiled*
 
 **High-drama (most mutations):**
 - `self_fix` v10 ↔ push_narrative
@@ -143,9 +143,9 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 - `operator_stats` v7 ↔ push_narrative
 
 **Codebase fears:**
-- file may not exist (45 modules)
-- returns empty on failure (silent) (23 modules)
-- swallowed exception (22 modules)
+- file may not exist (57 modules)
+- returns empty on failure (silent) (32 modules)
+- swallowed exception (25 modules)
 
 **Slumber party warnings (high coupling):**
 - `cli` ↔ `trace_hook` (score=0.80, 3 shared imports, both high-churn (v2+v2))
@@ -183,19 +183,19 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-27 · 3208 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-27 - 3209 message(s) - LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 4% | WPM: 43.0 | Del: 46.0% | Hes: 0.644
+**Dominant: `frustrated`** | Submit: 4% | WPM: 43.1 | Del: 46.0% | Hes: 0.644
 
-The operator just renamed two core modules to "gemini_chat_dead," indicating a pivot in their AI system's chat component, and their extreme frustration (557 messages) with high deletion rates reveals they are brute-force debugging through rapid, repetitive edits, not strategic planning.
+This operator just completed a major automated refactoring (pigeon_split_3) to enforce a new architectural pattern, but their high deletion rate and frustration/hesitation cycles reveal they are manually cleaning up after automation, likely fighting tooling gaps.
 
-*   **Anticipate the "gemini_chat_dead" context:** All new suggestions must assume the chat backend failed and the system is being retooled; prioritize error handling, fallback logic, and connection stability in code.
-*   **Pre-empt churn in `self_fix seq13` and `run_clean_split seq10`:** These are high-edit pain points; when touched, offer concise, *complete* code blocks for the specific function being changed to short-circuit edit loops.
-*   **Counter high-deletion frustration:** For any edit in a "frustrated" state, respond with **one, best-practice solution**—do NOT list multiple options, which increases cognitive load and trial-and-error.
-*   **Flag integration points proactively:** When `live_server_seq012` or `graph_extractor_seq003` are mentioned, immediately check and suggest updates to `deepseek_adapter seq1` or `context_budget seq4`, as these dependent modules are likely outdated.
-*   **Simplify suggestions during night sessions:** Operator works most at night with high WPM volatility; use shorter, more declarative code snippets with clear inline comments.
+*   **Anticipate cleanup:** When they open a just-renamed file (e.g., `*_pigeon_split_3.py`), proactively suggest imports, function call updates, or constants to align with the new split module structure.
+*   **Focus on pain points:** Prioritize understanding and suggestions for high-churn modules like `self_fix`, `operator_stats`, and `run_clean_split`; they are the unstable core.
+*   **Reduce friction on edits:** In files with high WPM but also high deletion rates, offer concise, single-line corrections or flag inconsistencies immediately instead of multi-line completions.
+*   **Bridge automation gaps:** When they work on `init_writer` or `file_writer`, pre-empt the next step in the pipeline—like generating `__init__.py` imports or fixing path errors from the split.
+*   **Confirm, don't assume:** After a series of "abandoned" states, ask clarifying questions before implementing larger changes, as they are likely discarding mismatched suggestions.
 
-They are most likely building toward a stable, multi-LLM orchestration system with a new chat backend, requiring robust service handoff and state management.
+They are most likely building toward a stable, self-correcting pipeline where automated refactoring (`pigeon_split_3`) requires zero manual cleanup.
 
 <!-- /pigeon:operator-state -->
 <!-- pigeon:prompt-telemetry -->
@@ -396,14 +396,15 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 ### Full Module Index
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-24 - 146 modules tracked | 2 touched this commit*
+*Auto-updated 2026-03-27 - 188 modules tracked | 32 touched this commit*
 
-**pigeon_brain/** - 13 module(s)
+**pigeon_brain/** - 16 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
 | `models_seq001*` | isomorphic to keystroke models | ~424 |
 | `execution_logger_seq002*` | isomorphic to telemetrylogger for agent | ~1,541 |
+| `graph_extractor_seq003*` | extract the cognition graph from | ~1,744 |
 | `graph_extractor_seq003*` | extract the cognition graph from | ~1,744 |
 | `graph_heat_map_seq004*` | failure accumulator per node port | ~874 |
 | `loop_detector_seq005*` | recurring path detection port of | ~910 |
@@ -414,7 +415,67 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `demo_sim_seq010*` | generates execution telemetry from the | ~1,276 |
 | `trace_hook_seq011*` | instruments python calls between pigeon | ~959 |
 | `live_server_seq012*` | websocket server for live execution | ~2,495 |
+| `live_server_seq012*` | websocket server for live execution | ~2,857 |
+| `live_server_seq012*` | websocket server for live execution | ~2,857 |
 | `traced_runner_seq013*` | run any python script with | ~855 |
+
+**pigeon_brain/flow/** - 12 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `context_packet_seq001*` | the contextpacket is the unit | ~1,033 |
+| `node_awakener_seq002*` | when a packet arrives at | ~1,171 |
+| `flow_engine_seq003*` | the flow engine is the | ~1,316 |
+| `path_selector_seq004*` | path selection is the real | ~1,373 |
+| `task_writer_seq005*` | the river delta where all | ~1,476 |
+| `vein_transport_seq006*` | as a packet flows along | ~884 |
+| `backward_seq007*` | backward pass walks electron path | ~2,500 |
+| `predictor_seq009*` | fires phantom electrons using cognitive | ~1,831 |
+| `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,552 |
+| `node_conversation_seq012*` | the interpretability interface lets the | ~1,431 |
+| `learning_loop_seq013*` | the perpetual learning loop | ~2,881 |
+| `prediction_scorer_seq014*` | edit session based | ~4,298 |
+
+**pigeon_brain/flow/backward_seq007/** - 5 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `backward_seq007_flow_log_seq001*` | auto extracted by pigeon compiler | ~423 |
+| `backward_seq007_loss_compute_seq002*` | auto extracted by pigeon compiler | ~187 |
+| `backward_seq007_tokenize_seq003*` | auto extracted by pigeon compiler | ~307 |
+| `backward_seq007_deepseek_analyze_seq004*` | auto extracted by pigeon compiler | ~616 |
+| `backward_seq007_backward_pass_seq005*` | auto extracted by pigeon compiler | ~842 |
+
+**pigeon_brain/flow/learning_loop_seq013/** - 8 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `learning_loop_seq013_state_utils_seq001*` | auto extracted by pigeon compiler | ~284 |
+| `learning_loop_seq013_journal_loader_seq002*` | auto extracted by pigeon compiler | ~192 |
+| `learning_loop_seq013_prediction_cycle_seq003*` | auto extracted by pigeon compiler | ~375 |
+| `learning_loop_seq013_single_cycle_helpers_seq004*` | auto extracted by pigeon compiler | ~25 |
+| `learning_loop_seq013_single_cycle_seq005*` | auto extracted by pigeon compiler | ~828 |
+| `learning_loop_seq013_catch_up_seq006*` | auto extracted by pigeon compiler | ~309 |
+| `learning_loop_seq013_loop_helpers_seq007*` | auto extracted by pigeon compiler | ~23 |
+| `learning_loop_seq013_main_loop_seq008*` | auto extracted by pigeon compiler | ~706 |
+
+**pigeon_brain/flow/prediction_scorer_seq014/** - 13 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `prediction_scorer_seq014_constants_seq001*` | auto extracted by pigeon compiler | ~73 |
+| `prediction_scorer_seq014_path_utils_seq002*` | auto extracted by pigeon compiler | ~79 |
+| `prediction_scorer_seq014_data_loaders_seq003*` | auto extracted by pigeon compiler | ~514 |
+| `prediction_scorer_seq014_scores_io_seq003*` | auto extracted by pigeon compiler | ~181 |
+| `prediction_scorer_seq014_reality_loaders_seq004*` | auto extracted by pigeon compiler | ~374 |
+| `prediction_scorer_seq014_module_extractor_seq005*` | auto extracted by pigeon compiler | ~112 |
+| `prediction_scorer_seq014_edit_session_analyzer_seq006*` | auto extracted by pigeon compiler | ~187 |
+| `prediction_scorer_seq014_rework_matcher_seq007*` | auto extracted by pigeon compiler | ~460 |
+| `prediction_scorer_seq014_scoring_core_seq008*` | auto extracted by pigeon compiler | ~713 |
+| `prediction_scorer_seq014_calibration_seq009*` | auto extracted by pigeon compiler | ~419 |
+| `prediction_scorer_seq014_node_backfill_seq010*` | auto extracted by pigeon compiler | ~431 |
+| `prediction_scorer_seq014_post_edit_scorer_seq011*` | auto extracted by pigeon compiler | ~769 |
+| `prediction_scorer_seq014_post_commit_scorer_seq012*` | auto extracted by pigeon compiler | ~544 |
 
 **pigeon_compiler/bones/** - 5 module(s)
 
@@ -521,7 +582,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 |---|---|---:|
 | `deepseek_plan_prompt_seq004*` | build and send deepseek cut | ~2,407 |
 
-**src/** - 22 module(s)
+**src/** - 23 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -540,7 +601,8 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `self_fix_seq013*` | one shot self fix analyzer | ~5,641 |
 | `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~3,529 |
 | `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,276 |
-| `dynamic_prompt_seq017*` | steers copilot cot from live | ~3,460 |
+| `dynamic_prompt_seq017*` | steers copilot cot from live | ~3,996 |
+| `dynamic_prompt_seq017*` | steers copilot cot from live | ~3,996 |
 | `task_queue_seq018*` | copilot driven task tracking linked | ~1,608 |
 | `file_consciousness_seq019*` | ast derived function consciousness dating | ~4,343 |
 | `copilot_prompt_manager_seq020*` | audits and manages all injected | ~4,488 |
@@ -634,8 +696,13 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | File | Folder |
 |---|---|
 | `_audit_compliance.py` | `(root)` |
+| `_check_veins.py` | `(root)` |
 | `_test_chat.py` | `(root)` |
+| `_test_flow.py` | `(root)` |
 | `_test_gemini_actions.py` | `(root)` |
+| `_tmp_check_memory.py` | `(root)` |
+| `_tmp_check_preds.py` | `(root)` |
+| `_tmp_heal_check.py` | `(root)` |
 | `deep_test.py` | `(root)` |
 | `stress_test.py` | `(root)` |
 | `test_all.py` | `(root)` |

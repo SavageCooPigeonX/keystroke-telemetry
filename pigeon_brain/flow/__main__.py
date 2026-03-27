@@ -32,25 +32,25 @@ from pathlib import Path
 
 from .flow_engine_seq003_v002_d0324__the_flow_engine_is_the_lc_flow_engine_context import run_flow, run_multi
 from .task_writer_seq005_v002_d0324__the_river_delta_where_all_lc_flow_engine_context import write_task, write_multi
-from .backward_seq007_v002_d0327__backward_pass_walks_electron_path_lc_edit_session_prediction import (
+from .backward_seq007_v003_d0327__backward_pass_walks_electron_path_lc_pigeon_split_3 import (
     backward_pass, log_forward_pass,
 )
-from .node_conversation_seq012_v002_d0327__the_interpretability_interface_lets_the_lc_edit_session_prediction import (
+from .node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3 import (
     talk_to_node, find_worst_node,
 )
-from .predictor_seq009_v002_d0327__fires_phantom_electrons_using_cognitive_lc_edit_session_prediction import (
+from .predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
     predict_next_needs,
 )
-from .dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl import (
+from .dev_plan_seq010_v002_d0327__the_roadmap_writer_synthesizes_the_lc_pigeon_split_3 import (
     generate_dev_plan,
 )
 from .fix_summary_seq011_v001_d0325__structured_diff_analysis_lc_backprop_impl import (
     generate_fix_summary,
 )
-from .learning_loop_seq013_v002_d0327__the_perpetual_learning_loop_lc_edit_session_prediction import (
+from .learning_loop_seq013_v003_d0327__the_perpetual_learning_loop_lc_pigeon_split_3 import (
     run_loop, catch_up,
 )
-from .prediction_scorer_seq014_v002_d0327__edit_session_based_lc_edit_session_prediction import (
+from .prediction_scorer_seq014_v003_d0327__edit_session_based_lc_pigeon_split_3 import (
     score_predictions_post_edit, score_predictions_post_commit,
 )
 

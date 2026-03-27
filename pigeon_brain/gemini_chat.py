@@ -506,7 +506,7 @@ def _fire_training_cycle(root: Path, messages: list[dict]) -> None:
 
         def _train():
             try:
-                from pigeon_brain.flow.learning_loop_seq013_v002_d0327__the_perpetual_learning_loop_lc_edit_session_prediction import (
+                from pigeon_brain.flow.learning_loop_seq013_v003_d0327__the_perpetual_learning_loop_lc_pigeon_split_3 import (
                     run_single_cycle, _load_state, _save_state,
                 )
                 state = _load_state(root)

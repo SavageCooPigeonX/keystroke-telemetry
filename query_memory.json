@@ -1,12 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-27T06:04:09.177548+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-27T06:05:03.858798+00:00",
       "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
       "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
@@ -2996,6 +2990,12 @@
     },
     {
       "ts": "2026-03-27T14:02:07.102471+00:00",
+      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
+      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-27T14:03:06.958680+00:00",
       "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
       "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
       "submitted": true
