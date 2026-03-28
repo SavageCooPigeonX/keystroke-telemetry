@@ -12,14 +12,6 @@ writes to node_memory. DeepSeek generates rich contribution analysis.
 Loss = rework*0.4 + del*0.3 + frustration*0.2 + ignored*0.1.
 Credit = overlap*0.35 + position*0.25 + relevance*0.25 + downstream*0.15.
 Cost: ~$0.003 per backward pass (1 DeepSeek call for analysis)."""
-
-# ── pigeon ────────────────────────────────────
-# SEQ: 007 | VER: v003 | 273 lines | ~2,500 tokens
-# DESC:   backward_pass_walks_electron_path
-# INTENT: pigeon_split_3
-# LAST:   2026-03-27 @ fd07906
-# SESSIONS: 2
-# ──────────────────────────────────────────────
 # ── pigeon: SEQ 007 | v001 | backprop_impl | 2026-03-25 ──
 from __future__ import annotations
 
@@ -30,9 +22,9 @@ import uuid
 from pathlib import Path
 from typing import Any
 
-from .node_memory_seq008_v002_d0327__the_experience_vault_stores_raw_lc_adaptive_wpm_baselines import (
-    append_learning,
-)
+from ._resolve import flow_import
+
+append_learning = flow_import("node_memory_seq008", "append_learning")
 
 logger = logging.getLogger(__name__)
 
@@ -51,9 +43,14 @@ def _deepseek_analyze_backward(
     Falls back to empty analysis if DeepSeek unavailable.
     """
     try:
-        from pigeon_compiler.integrations.deepseek_adapter_seq001_v006_d0322__deepseek_api_client_lc_stage_78_hook import (
-            deepseek_query,
-        )
+        import importlib as _il
+        from pathlib import Path as _P
+        _int_dir = _P(__file__).resolve().parent.parent.parent / "pigeon_compiler" / "integrations"
+        _hits = list(_int_dir.glob("deepseek_adapter_seq001_v*.py"))
+        if not _hits:
+            raise ImportError("deepseek_adapter_seq001* not found")
+        _ds = _il.import_module("pigeon_compiler.integrations." + _hits[0].stem)
+        deepseek_query = _ds.deepseek_query
     except (ImportError, ValueError):
         return {"node_analyses": [], "system_insight": "", "cost": 0.0}
 

@@ -8,26 +8,20 @@
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 from collections import deque
-_now_ms
 from typing import Optional, Callable
 import statistics
 import time
 
-def _load_src(pattern: str, *symbols):
-    """Dynamic pigeon import — finds latest src/ file matching glob."""
-    import importlib.util as _ilu, glob as _g
-    matches = sorted(_g.glob(f'src/{pattern}'))
-    if not matches:
-        raise ImportError(f'No src/ file matches {pattern!r}')
-    spec = _ilu.spec_from_file_location('_dyn', matches[-1])
-    mod = _ilu.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    if len(symbols) == 1:
-        return getattr(mod, symbols[0])
-    return tuple(getattr(mod, s) for s in symbols)
+from src._resolve import src_import
+from streaming_layer._resolve import sl_import
+
+_now_ms = src_import("timestamp_utils_seq001", "_now_ms")
+AGGREGATION_INTERVALS = sl_import("streaming_layer_constants_seq001", "AGGREGATION_INTERVALS")
+EVENT_BUFFER_SIZE = sl_import("streaming_layer_constants_seq001", "EVENT_BUFFER_SIZE")
+AggregationBucket = sl_import("streaming_layer_dataclasses_seq004", "AggregationBucket")
 
 
-class EventAggregator = _load_src('timestamp_utils_seq001*.py', '_now_ms\nfrom typing import Optional', 'Callable\nimport statistics\nimport time\n\nclass EventAggregator'):
+class EventAggregator:
     """Sliding-window aggregation of telemetry events."""
 
     def __init__(self, window_sizes_ms: list[int] = None):

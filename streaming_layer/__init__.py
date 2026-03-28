@@ -1,15 +1,25 @@
 """streaming_layer/ — Pigeon-compliant module."""
-from streaming_layer.streaming_layer_aggregator_seq006_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin import EventAggregator
-from streaming_layer.streaming_layer_alerts_seq008_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin import AlertEngine
-from streaming_layer.streaming_layer_connection_pool_seq005_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin import ConnectionPool
-from streaming_layer.streaming_layer_constants_seq001_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin import AGGREGATION_INTERVALS, ALERT_COOLDOWN_MS, ALERT_THRESHOLDS, COMPACT_SEPARATOR, CSV_SEPARATOR, DASHBOARD_REFRESH_MS, DEFAULT_PORT, EVENT_BUFFER_SIZE, HEARTBEAT_INTERVAL_MS, MAX_CLIENTS, MAX_REPLAY_EVENTS, PERCENTILE_TARGETS, SLIDING_WINDOW_MS, STREAM_FORMATS
-from streaming_layer.streaming_layer_dashboard_seq010_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin import LiveDashboard
-from streaming_layer.streaming_layer_dataclasses_seq004_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin import AggregationBucket
-from streaming_layer.streaming_layer_dataclasses_seq005_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin import StreamClient
-from streaming_layer.streaming_layer_dataclasses_seq006_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin import Alert
-from streaming_layer.streaming_layer_formatter_seq004_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin import StreamFormatter
-from streaming_layer.streaming_layer_http_handler_seq011_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin import TelemetryHTTPHandler
-from streaming_layer.streaming_layer_metrics_seq007_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin import MetricsCollector
-from streaming_layer.streaming_layer_orchestrator_seq016_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin import StreamingTelemetryServer
-from streaming_layer.streaming_layer_orchestrator_seq017_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin import run_demo
-from streaming_layer.streaming_layer_replay_seq009_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin import SessionReplay
+from streaming_layer._resolve import sl_import
+
+EventAggregator = sl_import("streaming_layer_aggregator_seq006", "EventAggregator")
+AlertEngine = sl_import("streaming_layer_alerts_seq008", "AlertEngine")
+ConnectionPool = sl_import("streaming_layer_connection_pool_seq005", "ConnectionPool")
+(AGGREGATION_INTERVALS, ALERT_COOLDOWN_MS, ALERT_THRESHOLDS, COMPACT_SEPARATOR,
+ CSV_SEPARATOR, DASHBOARD_REFRESH_MS, DEFAULT_PORT, EVENT_BUFFER_SIZE,
+ HEARTBEAT_INTERVAL_MS, MAX_CLIENTS, MAX_REPLAY_EVENTS, PERCENTILE_TARGETS,
+ SLIDING_WINDOW_MS, STREAM_FORMATS) = sl_import(
+    "streaming_layer_constants_seq001",
+    "AGGREGATION_INTERVALS", "ALERT_COOLDOWN_MS", "ALERT_THRESHOLDS",
+    "COMPACT_SEPARATOR", "CSV_SEPARATOR", "DASHBOARD_REFRESH_MS", "DEFAULT_PORT",
+    "EVENT_BUFFER_SIZE", "HEARTBEAT_INTERVAL_MS", "MAX_CLIENTS",
+    "MAX_REPLAY_EVENTS", "PERCENTILE_TARGETS", "SLIDING_WINDOW_MS", "STREAM_FORMATS")
+LiveDashboard = sl_import("streaming_layer_dashboard_seq010", "LiveDashboard")
+AggregationBucket = sl_import("streaming_layer_dataclasses_seq004", "AggregationBucket")
+StreamClient = sl_import("streaming_layer_dataclasses_seq005", "StreamClient")
+Alert = sl_import("streaming_layer_dataclasses_seq006", "Alert")
+StreamFormatter = sl_import("streaming_layer_formatter_seq004", "StreamFormatter")
+TelemetryHTTPHandler = sl_import("streaming_layer_http_handler_seq011", "TelemetryHTTPHandler")
+MetricsCollector = sl_import("streaming_layer_metrics_seq007", "MetricsCollector")
+StreamingTelemetryServer = sl_import("streaming_layer_orchestrator_seq016", "StreamingTelemetryServer")
+run_demo = sl_import("streaming_layer_orchestrator_seq017", "run_demo")
+SessionReplay = sl_import("streaming_layer_replay_seq009", "SessionReplay")

@@ -62,54 +62,56 @@ Three systems working together:
 
 
 
+
+
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Enriched 2026-03-27 06:45 UTC · raw: "is this the best way to do this"*
+*Enriched 2026-03-28 05:42 UTC · raw: "gemini read my entire codebase take it all in then analyze  what you think the n"*
 
-**COPILOT_QUERY: Review the current implementation of the pigeon compiler's core logic, focusing on the `file_heat_map` and `import_rewriter` modules. Identify any inefficiencies or anti-patterns in the data flow and error handling, and propose the most robust and performant architectural pattern for this system.**
-
-INTERPRETED INTENT: The operator wants a code review to validate or improve the core architecture of the struggling compiler components.
-KEY FILES: file_heat_map, import_rewriter, file_writer, context_budget, self_fix
-PRIOR ATTEMPTS: none
-WATCH OUT FOR: Over-engineering the solution; the operator needs clear, actionable improvements, not a full rewrite.
-OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustration, culminating in a vague query seeking validation on fundamental design choices.
+(enrichment unavailable: No module named 'httpx')
 <!-- /pigeon:current-query -->
 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-27 15:59 UTC · 3310 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-28 05:42 UTC · 4149 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `frustrated` (WPM: 38.1 | Del: 50.0% | Hes: 0.682)
+**Cognitive state:** `hesitant` (WPM: 15151.6 | Del: 49.9% | Hes: 0.694) · *[source: measured]*
 
-> **CoT directive:** Operator is frustrated. Think step-by-step but keep output SHORT. Lead with the fix. Skip explanations unless asked. If unsure, say so in one line then give your best option.
+> **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
 
-### Module Hot Zones
-*High cognitive load — take extra care with these files:*
+### Unsaid Threads
+*Deleted from prompts — operator wanted this but didn't ask:*
+- "mend"
+- "ideally i think ui"
+- "k\\\"
+
+### Module Hot Zones *[source: measured]*
+*High cognitive load (from typing signal) — take extra care with these files:*
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `context_budget` (hes=0.649)
-- `self_fix` (hes=0.649)
+- `context_budget` (hes=0.653)
+- `self_fix` (hes=0.653)
 
 ### Recent Work
+- `804937e` feat: adaptive WPM baselines (decay-weighted window 200) + signal/narrative split + push cycle + DTR S01E03
 - `bbfbb85` fix: push narratives timeout (25s->45s) + cap file briefs at 20 + print errors
 - `e894b6a` feat: fix bare globals in learning loop + wire per-prompt unsaid reconstruction
 - `63ee334` fix: dynamic import resolver (_resolve.py) â€” eliminates hardcoded pigeon filename imports across flow/, all subpackages, gemini_chat, dev_plan
-- `fd07906` pigeon: split 3 oversized flow modules (prediction_scorer 14 files, backward 6 files, learning_loop 9 files) + live_server auto-split from git plugin
 
-### Coaching Directives
-*LLM-synthesized behavioral rules for this operator:*
+### Coaching Directives *[source: llm_derived]*
+*LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
 - **Anticipate timeout logic**
 - **Pre-empt file system churn**
 - **Cut through restructuring loops**
 - **Respond with direct, copy-paste snippets**
 - **Flag state persistence**
 
-### Fragile Contracts
-*From push narratives — assumptions that could break:*
+### Fragile Contracts *[source: llm_derived]*
+*From push narratives (LLM-generated) — treat as hypothesis:*
 - __main__ dynamic import fragility
 - learning_loop_seq013’s dependency on unimplemented stub modules
 - backward_seq007’s empty implementation causing silent gradient halt.
@@ -122,8 +124,8 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 - **pigeon_brain/flow/learning_loop_seq013/__init__.py speaks:** I was modified to import the newly generated dynamic-impo
 - **__init__** here: I was touched to expose the new flow engine modules as a clean public interface, consolidating import
 
-### Known Issues
-*From self-fix scanner — fix when touching nearby code:*
+### Known Issues *[source: measured]*
+*From self-fix scanner (AST-verified) — fix when touching nearby code:*
 - [CRITICAL] hardcoded_import in `_tmp_heal_check.py`
 - [CRITICAL] hardcoded_import in `pigeon_brain/context_veins.py`
 - [CRITICAL] hardcoded_import in `pigeon_brain/gemini_chat.py`
@@ -131,7 +133,7 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 - [CRITICAL] hardcoded_import in `pigeon_brain/flow/__main__.py`
 
 ### Prompt Evolution
-*This prompt has mutated 63x (186→708 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
+*This prompt has mutated 65x (186→711 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
 *175 modules profiled*
@@ -183,9 +185,9 @@ OPERATOR SIGNAL: The trajectory shows building, documenting, and testing frustra
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-27 · 3595 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-28 · 4640 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 4% | WPM: 43.7 | Del: 46.0% | Hes: 0.643
+**Dominant: `frustrated`** | Submit: 3% | WPM: 42.6 | Del: 46.4% | Hes: 0.648
 
 Operator just built a push narrative timeout system while exhibiting intense, frustrated micro-editing patterns (50% deletion rates, low WPM on recent messages), indicating they are deep in debugging a timing or async boundary issue.
 
@@ -208,39 +210,57 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-03-27T06:44:45.066753+00:00",
+  "updated_at": "2026-03-28T05:41:54.893615+00:00",
   "latest_prompt": {
-    "session_n": 6,
-    "ts": "2026-03-27T06:44:45.066753+00:00",
-    "chars": 31,
-    "preview": "is this the best way to do this",
-    "intent": "unknown",
-    "state": "unknown",
+    "session_n": 13,
+    "ts": "2026-03-28T05:41:54.893615+00:00",
+    "chars": 103,
+    "preview": "gemini read my entire codebase take it all in then analyze  what you think the novel potential here is ",
+    "intent": "exploring",
+    "state": "hesitant",
     "files_open": [
-      "pigeon_brain/flow/node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py"
+      "pigeon_brain\\flow\\node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py"
     ],
     "module_refs": []
   },
   "signals": {
-    "wpm": 72.0,
-    "chars_per_sec": 6.0,
-    "deletion_ratio": 0.0,
-    "hesitation_count": 0,
-    "rewrite_count": 0,
-    "typo_corrections": 0,
-    "intentional_deletions": 0,
-    "total_keystrokes": 32,
-    "duration_ms": 5332
+    "wpm": 21.3,
+    "chars_per_sec": 1.8,
+    "deletion_ratio": 0.095,
+    "hesitation_count": 6,
+    "rewrite_count": 4,
+    "typo_corrections": 1,
+    "intentional_deletions": 4,
+    "total_keystrokes": 377,
+    "duration_ms": 191836
   },
   "composition_binding": {
     "matched": true,
-    "source": "prompt_compositions",
-    "age_ms": 32171,
-    "key": "8af27e578b0a|1774593847563|1774593852895|2026-03-27T06:44:45.880611+00:00|32|5332|is this the best way to do this ",
+    "source": "chat_compositions",
+    "age_ms": 6504,
+    "key": "|||2026-03-28T05:41:48.389676+00:00|377|191836|yes - also i noticed that discovered entities dont have claim profile / how they were discovered - and links need to be ",
     "match_score": 1.0
   },
-  "deleted_words": [],
-  "rewrites": [],
+  "deleted_words": [
+    "mend",
+    "ideally i think ui",
+    "k\\\",
+    "ta"
+  ],
+  "rewrites": [
+    {
+      "old": "mend",
+      "new": "menu - ideally i think ui "
+    },
+    {
+      "old": " ideally i think ui ",
+      "new": " i "
+    },
+    {
+      "old": " - i ",
+      "new": ". and also for sql before i run it we need to keep intent analysisgemini tak\\\"
+    }
+  ],
   "task_queue": {
     "total": 0,
     "in_progress": [],
@@ -262,33 +282,26 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 51,
-    "avg_wpm": 38.7,
-    "avg_del_ratio": 0.032,
+    "total_prompts": 53,
+    "avg_wpm": 39.4,
+    "avg_del_ratio": 0.03,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 42,
+      "unknown": 43,
       "focused": 6,
-      "hesitant": 3
+      "hesitant": 3,
+      "neutral": 1
     },
-    "baselines": null
-  },
-  "predicted_struggles": [
-    {
-      "module": "context_budget",
-      "score": 1.23,
-      "reasons": [
-        "high heat (0.52)"
-      ]
-    },
-    {
-      "module": "self_fix",
-      "score": 1.23,
-      "reasons": [
-        "high heat (0.52)"
-      ]
+    "baselines": {
+      "n": 161,
+      "avg_wpm": 41.3,
+      "avg_del": 0.468,
+      "avg_hes": 0.664,
+      "sd_wpm": 38.2,
+      "sd_del": 0.095,
+      "sd_hes": 0.095
     }
-  ]
+  }
 }
 ```
 

@@ -11,6 +11,9 @@ from collections import deque
 import math
 import statistics
 
+from streaming_layer._resolve import sl_import
+PERCENTILE_TARGETS = sl_import("streaming_layer_constants_seq001", "PERCENTILE_TARGETS")
+
 class MetricsCollector:
     """Collects and computes percentile metrics from event stream."""
 

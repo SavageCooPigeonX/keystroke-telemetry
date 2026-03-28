@@ -99,8 +99,13 @@ def scan_oversized(root: Path, include_compiler: bool = False) -> list[dict]:
 def batch_compile(root: Path, dry_run: bool = False,
                   include_compiler: bool = False) -> dict:
     """Compile all oversized files in the project."""
-    from pigeon_compiler.runners.run_clean_split_seq010_v006_d0322__full_clean_pipeline_deepseek_plan_lc_windows_max_path import (
-        run)
+    import importlib as _il
+    _runner_dir = Path(__file__).parent
+    _hits = list(_runner_dir.glob("run_clean_split_seq010_v*.py"))
+    if not _hits:
+        raise ImportError("run_clean_split_seq010* not found in runners/")
+    _rcs = _il.import_module("pigeon_compiler.runners." + _hits[0].stem)
+    run = _rcs.run
 
     targets = scan_oversized(root, include_compiler=include_compiler)
     total = len(targets)

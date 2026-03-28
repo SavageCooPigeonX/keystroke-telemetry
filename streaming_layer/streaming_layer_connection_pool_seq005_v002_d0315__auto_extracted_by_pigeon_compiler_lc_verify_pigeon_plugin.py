@@ -7,27 +7,20 @@
 # LAST:   2026-03-15 @ caac48c
 # SESSIONS: 1
 # ──────────────────────────────────────────────
-TelemetryLogger, SCHEMA_VERSION
-from src = _load_src('logger_seq003*.py', 'TelemetryLogger', 'SCHEMA_VERSION\nfrom src').timestamp_utils_seq001_v004_d0321__millisecond_epoch_timestamp_utility_lc_trigger_pigeon_rename import _now_ms
+from src._resolve import src_import
+from streaming_layer._resolve import sl_import
+
+_now_ms = src_import("timestamp_utils_seq001", "_now_ms")
+MAX_CLIENTS = sl_import("streaming_layer_constants_seq001", "MAX_CLIENTS")
+StreamClient = sl_import("streaming_layer_dataclasses_seq005", "StreamClient")
+StreamFormatter = sl_import("streaming_layer_formatter_seq004", "StreamFormatter")
+
 from typing import Optional, Callable
 import json
 import queue as _queue_mod
 import threading
 import time
 import uuid
-
-def _load_src(pattern: str, *symbols):
-    """Dynamic pigeon import — finds latest src/ file matching glob."""
-    import importlib.util as _ilu, glob as _g
-    matches = sorted(_g.glob(f'src/{pattern}'))
-    if not matches:
-        raise ImportError(f'No src/ file matches {pattern!r}')
-    spec = _ilu.spec_from_file_location('_dyn', matches[-1])
-    mod = _ilu.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    if len(symbols) == 1:
-        return getattr(mod, symbols[0])
-    return tuple(getattr(mod, s) for s in symbols)
 
 
 class ConnectionPool:

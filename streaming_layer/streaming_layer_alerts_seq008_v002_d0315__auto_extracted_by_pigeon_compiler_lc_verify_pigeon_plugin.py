@@ -9,27 +9,22 @@
 # ──────────────────────────────────────────────
 from collections import deque
 from dataclasses import dataclass, field, asdict
-_now_ms
 from typing import Optional, Callable
 import statistics
 import time
 import uuid
 
-def _load_src(pattern: str, *symbols):
-    """Dynamic pigeon import — finds latest src/ file matching glob."""
-    import importlib.util as _ilu, glob as _g
-    matches = sorted(_g.glob(f'src/{pattern}'))
-    if not matches:
-        raise ImportError(f'No src/ file matches {pattern!r}')
-    spec = _ilu.spec_from_file_location('_dyn', matches[-1])
-    mod = _ilu.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    if len(symbols) == 1:
-        return getattr(mod, symbols[0])
-    return tuple(getattr(mod, s) for s in symbols)
+from src._resolve import src_import
+from streaming_layer._resolve import sl_import
+
+_now_ms = src_import("timestamp_utils_seq001", "_now_ms")
+ALERT_THRESHOLDS = sl_import("streaming_layer_constants_seq001", "ALERT_THRESHOLDS")
+ALERT_COOLDOWN_MS = sl_import("streaming_layer_constants_seq001", "ALERT_COOLDOWN_MS")
+Alert = sl_import("streaming_layer_dataclasses_seq006", "Alert")
+EventAggregator = sl_import("streaming_layer_aggregator_seq006", "EventAggregator")
 
 
-class AlertEngine = _load_src('timestamp_utils_seq001*.py', '_now_ms\nfrom typing import Optional', 'Callable\nimport statistics\nimport time\nimport uuid\n\nclass AlertEngine'):
+class AlertEngine:
     """Detects anomalies in the event stream and fires alerts."""
 
     def __init__(self, thresholds: dict = None):

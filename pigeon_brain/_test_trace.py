@@ -3,20 +3,31 @@ import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from pathlib import Path
-from pigeon_brain.trace_hook_seq011_v002_d0323__instruments_python_calls_between_pigeon_lc_pigeon_brain_system import start_trace, stop_trace, peek_recent
+from glob import glob
+import importlib, os
+
+def _pb_import(pattern, *attrs):
+    hits = glob(f'pigeon_brain/{pattern}_v*.py')
+    if not hits:
+        raise ImportError(f'{pattern}* not found')
+    mod = importlib.import_module('pigeon_brain.' + os.path.splitext(os.path.basename(hits[0]))[0])
+    return tuple(getattr(mod, a) for a in attrs) if len(attrs) > 1 else getattr(mod, attrs[0])
+
+start_trace, stop_trace, peek_recent = _pb_import('trace_hook_seq011', 'start_trace', 'stop_trace', 'peek_recent')
 
 root = Path(".")
 start_trace(root)
 
 # Import some pigeon modules to trigger trace events
 try:
-    from src.timestamp_utils_seq001_v001_d0314__millisecond_epoch_timestamp_utility_lc_pulse_telemetry_prompt import _now_ms
+    from src._resolve import src_import
+    _now_ms = src_import('timestamp_utils_seq001', '_now_ms')
     _now_ms()
 except Exception:
     pass
 
 try:
-    from src.models_seq002_v001_d0314__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt import KeyEvent
+    KeyEvent = src_import('models_seq002', 'KeyEvent')
 except Exception:
     pass
 

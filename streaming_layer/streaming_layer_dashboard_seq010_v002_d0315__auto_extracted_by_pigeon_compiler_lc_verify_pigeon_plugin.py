@@ -7,6 +7,7 @@
 # LAST:   2026-03-15 @ caac48c
 # SESSIONS: 1
 # ──────────────────────────────────────────────
+from __future__ import annotations
 
 class LiveDashboard:
     """Terminal-based live dashboard that prints rolling stats."""

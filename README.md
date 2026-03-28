@@ -6,7 +6,7 @@
 
 ---
 
-## Status (2026-03-24)
+## Status (2026-03-28)
 
 The self-compiling loop is live and chewing through its own codebase. Pigeon Brain is online — 137 neurons mapped, 260 edges, dual-substrate heat flowing, WebSocket trace server broadcasting at 20Hz. The Flow Engine routes context-accumulating intelligence packets through the code graph across 3 modes (targeted/heat/failure). Keystroke deleted word pipeline is live — every prompt's unsaid thoughts are captured before Copilot starts reasoning. Context veins score the import graph health and surface self-trim recommendations.
 
@@ -28,6 +28,7 @@ The self-compiling loop is live and chewing through its own codebase. Pigeon Bra
 | **React graph UI with profiler cards** | **✅ Live** |
 | Compiled so far | `compliance_seq008` → 12f, `heal_seq009` → 6f, `manifest_builder_seq007` → 32f, `nametag_seq011` → 9f |
 | Remaining over-cap targets | 11 files (~$0.013 total to finish) |
+| **Pigeon Code Compilor — standalone open-source tool** | **✅ Released (`pip install pigeon-code-compilor`)** |
 | AI response capture (UIA → rework triple) | 🟨 Planned |
 
 ---
@@ -40,7 +41,7 @@ Five systems working in concert:
 
 1. **Keystroke Telemetry** — captures typing patterns (pauses, deletions, rewrites, abandons) in LLM chat UIs, classifies operator cognitive state in real time, reconstructs unsaid thoughts, detects cross-session drift. Zero LLM calls — pure signal processing. **Now with per-prompt deleted word binding** — Copilot sees what you deleted before it starts thinking.
 
-2. **Pigeon Code Compiler** — autonomous code decomposition engine. Enforces LLM-readable file sizes (≤200 lines hard cap, ≤50 lines target). Filenames carry living metadata — they mutate on every commit. The codebase refactors itself.
+2. **Pigeon Code Compiler** — autonomous code decomposition engine. Enforces LLM-readable file sizes (≤200 lines hard cap, ≤50 lines target). Filenames carry living metadata — they mutate on every commit. The codebase refactors itself. **The rename engine has been extracted as a standalone open-source tool:** [`pigeon-code-compilor`](https://myaifingerprint.com) — a semantic compiler for repository structure. `pip install pigeon-code-compilor`.
 
 3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations, **codebase health veins/clots**, **predictive debug scores**) and generates a context block that steers how Copilot reasons. Self-updates on every commit and every prompt.
 
@@ -65,7 +66,7 @@ These are the most important decomposition targets in your entire codebase. No s
 ### Architecture
 
 ```
-pigeon_registry.json (152 modules)
+pigeon_registry.json (188 modules)
     │
     ▼
 graph_extractor ─→ graph_cache.json (137 nodes, 260 edges)
@@ -412,6 +413,22 @@ Every flush records which file the operator has open alongside their cognitive m
 ### The Problem It Solves
 
 LLMs degrade on long files. A 600-line module gives the model too much context noise to reason precisely about a 10-line function. The Pigeon Compiler enforces a hard 200-line cap and 50-line target on every Python file in the project.
+
+### Open Source: Pigeon Code Compilor
+
+The rename engine — the core of the compiler that scans, renames, rewrites imports, enforces compliance, and builds manifests — has been extracted as a **standalone open-source tool**:
+
+```bash
+pip install pigeon-code-compilor
+pigeon scan .          # discover all Python files
+pigeon rename .        # full rename + import rewrite cycle
+pigeon audit .         # compliance report
+pigeon manifest .      # rebuild all MANIFEST.md files
+```
+
+**Zero external dependencies.** Works on any Python codebase. Enforces ≤200-line files with living metadata filenames. Git hook ready.
+
+→ [myaifingerprint.com](https://myaifingerprint.com) · [GitHub](https://github.com/SavageCooPigeonX/pigeon-rename) · `pip install pigeon-code-compilor`
 
 ### How It Works
 
@@ -763,7 +780,7 @@ keystroke-telemetry/
 ├── rework_log.json                       ← AI response quality log
 ├── query_memory.json                     ← recurring query fingerprints
 ├── task_queue.json                       ← Copilot-managed task queue (auto-seeded from self-fix)
-├── pigeon_registry.json                  ← all module versions + token history (152 modules)
+├── pigeon_registry.json                  ← all module versions + token history (188 modules)
 ├── MASTER_MANIFEST.md                    ← full project reference
 ├── CHANGELOG.md                          ← patch notes
 └── test_all.py                           ← 5 core tests (always run before commit)
@@ -852,7 +869,7 @@ mod = importlib.import_module(f.replace('/', '.').rstrip('.py'))
 
 ---
 
-## Current Status (2026-03-24)
+## Current Status (2026-03-28)
 
 | Component | Status |
 |---|---|
@@ -877,6 +894,7 @@ mod = importlib.import_module(f.replace('/', '.').rstrip('.py'))
 | **Dual-substrate heat mapping** | **✅ Live (human + agent heat merged per node)** |
 | **Live execution tracing** | **✅ Live (sys.settrace → WebSocket @ 20Hz)** |
 | **React graph UI** | **✅ Live (profiler cards, edge animation, observer panel)** |
+| **Pigeon Code Compilor — open-source standalone** | **✅ Released** ([pip install](https://myaifingerprint.com)) |
 | MASTER_MANIFEST | ✅ Rebuilt |
 | Tests | ✅ 5/5 passing |
 

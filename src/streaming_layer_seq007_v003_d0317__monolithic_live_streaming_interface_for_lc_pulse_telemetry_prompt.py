@@ -1,18 +1,5 @@
 # @pigeon: seq=007 | role=streaming_layer | depends=[logger,models,context_budget,drift_watcher,resistance_bridge] | exports=[StreamingTelemetryServer,LiveDashboard,EventAggregator,SessionReplay,AlertEngine,MetricsCollector,StreamFormatter,ConnectionPool] | tokens=~12000 | coupling=0.9
 
-def _load_src(pattern: str, *symbols):
-    """Dynamic pigeon import — finds latest src/ file matching glob."""
-    import importlib.util as _ilu, glob as _g
-    matches = sorted(_g.glob(f'src/{pattern}'))
-    if not matches:
-        raise ImportError(f'No src/ file matches {pattern!r}')
-    spec = _ilu.spec_from_file_location('_dyn', matches[-1])
-    mod = _ilu.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    if len(symbols) == 1:
-        return getattr(mod, symbols[0])
-    return tuple(getattr(mod, s) for s in symbols)
-
 """streaming_layer_seq007_v001.py — MONOLITHIC live streaming interface for keystroke telemetry.
 
 This file is INTENTIONALLY oversized to test the Pigeon Code Compiler.
@@ -57,11 +44,14 @@ from typing import Optional, Callable
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from collections import deque
 
-_now_ms
-from src = _load_src('timestamp_utils_seq001*.py', '_now_ms\nfrom src').models_seq002_v003_d0317__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt import KeyEvent, MessageDraft
-TelemetryLogger, SCHEMA_VERSION
-from src = _load_src('logger_seq003*.py', 'TelemetryLogger', 'SCHEMA_VERSION\nfrom src').context_budget_seq004_v008_d0321__context_budget_scorer_for_llm_lc_fire_full_post import score_context_budget, estimate_tokens
-HesitationAnalyzer = _load_src('resistance_bridge_seq006*.py', 'HesitationAnalyzer')# ═══════════════════════════════════════════════════════════════════
+from src._resolve import src_import
+
+_now_ms = src_import("timestamp_utils_seq001", "_now_ms")
+KeyEvent, MessageDraft = src_import("models_seq002", "KeyEvent", "MessageDraft")
+TelemetryLogger, SCHEMA_VERSION = src_import("logger_seq003", "TelemetryLogger", "SCHEMA_VERSION")
+score_context_budget, estimate_tokens = src_import("context_budget_seq004", "score_context_budget", "estimate_tokens")
+HesitationAnalyzer = src_import("resistance_bridge_seq006", "HesitationAnalyzer")
+# ═══════════════════════════════════════════════════════════════════
 # CONSTANTS
 # ═══════════════════════════════════════════════════════════════════
 

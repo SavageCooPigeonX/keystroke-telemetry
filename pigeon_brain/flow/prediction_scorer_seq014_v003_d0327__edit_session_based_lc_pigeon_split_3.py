@@ -309,7 +309,7 @@ def _update_calibration(root: Path, scored: list[dict[str, Any]]) -> dict[str, A
 
 def backfill_prediction_scores(root: Path, scored: list[dict[str, Any]]) -> int:
     """Feed prediction accuracy into node_memory with calibration-weighted penalties."""
-    from .node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl import (
+    from .node_memory_seq008_v002_d0327__the_experience_vault_stores_raw_lc_adaptive_wpm_baselines import (
         append_learning,
     )
 

@@ -1,3003 +1,3003 @@
 {
   "queries": [
     {
-      "ts": "2026-03-27T11:41:09.522946+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T04:36:24.012855+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:42:09.531459+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T04:37:24.121697+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:43:09.562665+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T04:38:24.038642+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:44:09.510679+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T04:39:24.026211+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:45:09.527637+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T04:40:25.024128+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:46:09.533097+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T04:41:25.283754+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:47:09.536852+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T04:42:25.036065+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:48:09.551063+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T04:43:24.980446+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:49:09.559304+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T04:44:25.082440+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:50:09.556898+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T04:45:24.843695+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:51:09.576794+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T04:46:25.118736+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:52:09.584802+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T04:47:25.984254+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:53:09.572398+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:30:47.352428+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:54:09.575392+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:31:45.835853+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:55:09.585376+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:32:45.679091+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:56:09.600854+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:33:45.777422+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:57:09.583909+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:34:46.401346+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:58:09.596117+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:35:47.364706+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T11:59:09.598065+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:36:45.891639+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:00:09.611974+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:37:46.031596+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:01:09.606164+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:38:45.761595+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:02:09.601885+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:39:46.066958+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:03:09.615935+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:40:47.038414+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:04:09.629006+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:41:48.810811+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:05:06.267969+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:42:46.677716+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:06:06.260270+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:43:46.883778+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:07:06.267982+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:44:46.348726+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:08:06.266400+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:45:46.555028+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:09:06.293639+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:46:49.875584+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:10:06.336110+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:47:47.232596+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:11:06.313555+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:48:45.842355+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:12:06.326977+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:49:45.981223+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:13:06.316864+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:50:46.060507+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:14:06.341840+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:51:46.095533+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:15:06.348856+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:52:45.910877+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:16:06.348030+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:53:46.380640+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:17:06.403124+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:54:45.959363+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:18:06.394697+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:55:46.181318+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:19:06.380801+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:56:45.949550+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:20:06.401012+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:57:47.021090+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:21:06.407983+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:58:45.974130+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:22:06.418025+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T05:59:45.972183+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:23:06.506979+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:00:46.193483+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:24:06.435345+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:01:47.002286+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:25:06.446165+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:02:46.852615+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:26:06.470163+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:03:46.123723+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:27:06.466820+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:04:46.214588+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:28:06.447392+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:05:46.090116+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:29:06.499289+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:06:46.176105+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:30:06.523379+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:07:46.843657+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:31:06.515965+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:08:46.711275+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:32:06.470661+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:09:46.185129+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:33:06.484205+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:10:46.257447+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:34:06.498427+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:11:46.046565+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:35:06.508660+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:12:46.207720+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:36:06.505404+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:13:46.255220+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:37:06.499058+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:14:46.131330+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:38:06.519489+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:15:46.635161+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:39:06.567167+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:16:47.207314+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:40:06.591343+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T06:17:47.403622+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:41:06.570574+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T08:45:49.619188+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:42:06.542784+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T08:46:49.637872+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:43:06.555891+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T08:47:49.535744+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:44:06.580034+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T08:48:49.572436+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:45:06.584618+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T08:49:49.658273+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:46:06.561256+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T09:24:23.250402+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:47:06.569949+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:18:33.755003+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:48:06.572320+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:19:28.584004+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:49:06.568979+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:20:30.988299+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:50:06.580021+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:21:29.043576+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:51:06.583222+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:22:28.516403+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:52:06.592413+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:23:28.684350+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:53:06.578057+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:24:28.687533+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:54:06.590229+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:25:29.058159+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:55:06.594083+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:53:19.615386+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:56:06.585911+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:53:24.197196+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:57:06.585263+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:54:19.287568+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:58:06.589818+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:55:18.867539+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T12:59:06.597639+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:56:19.255353+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:00:06.603150+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:57:22.543693+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:01:06.619189+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:57:34.527462+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:02:06.613947+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:58:19.216806+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:03:06.609618+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T14:59:19.331041+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:04:06.656284+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:00:19.185743+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:05:06.626068+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:01:19.298248+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:06:06.628536+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:02:19.667497+00:00",
+      "text": "bg:node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "fingerprint": "bgnode_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3py",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:07:06.638722+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:23:16.687340+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_THE_HARD_STOP.md",
+      "fingerprint": "bgdead_token_radio_s01e04_the_hard_stopmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:08:06.776348+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:24:15.982892+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_THE_HARD_STOP.md",
+      "fingerprint": "bgdead_token_radio_s01e04_the_hard_stopmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:09:06.633607+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:25:19.566766+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:10:06.637469+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:26:19.262492+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:11:06.632775+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:27:16.688638+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:12:06.671492+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:28:16.076594+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:13:06.640525+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:29:16.971318+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:14:06.670039+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:30:15.208678+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:15:06.665211+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:31:14.752218+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:16:06.682686+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:32:14.758265+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:17:06.726294+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:33:14.796154+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:18:06.699706+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:34:15.264184+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:19:06.667600+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:35:14.908049+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:20:06.678671+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:36:14.814976+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:21:06.698475+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:37:15.385303+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:22:06.681108+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:38:14.823359+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:23:06.685171+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:39:14.822826+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:24:06.672304+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:40:14.811693+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:25:06.666604+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:41:15.468425+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:26:06.716952+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:42:15.721590+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:27:06.689683+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:43:16.483308+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:28:06.671596+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:44:15.167784+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:29:06.741158+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:45:15.088428+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:30:06.686677+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:46:14.997982+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:31:06.715783+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:47:15.018338+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:32:06.756054+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:48:15.446680+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:33:06.688589+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:49:16.761589+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:34:06.698457+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:50:15.814337+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:35:06.707664+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:51:15.455048+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:36:06.718291+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:52:15.907205+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:37:06.724019+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:53:14.881111+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:38:06.751677+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:54:14.897179+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:39:06.747899+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:55:14.902630+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:40:06.724871+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:56:14.941241+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:41:06.758221+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:57:14.877591+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:42:06.738767+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:58:14.910244+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:43:06.733335+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T15:59:14.974922+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:44:06.727665+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T16:00:14.901064+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:45:06.752618+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T16:01:14.922527+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:46:06.754816+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T16:02:14.965399+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:47:06.784248+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T16:03:14.909506+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:48:06.755958+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T16:04:14.930660+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:49:06.778343+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T16:05:15.066590+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:50:06.774127+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T16:06:14.946808+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:51:06.797162+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T16:07:14.945892+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:52:06.796615+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T16:08:14.967673+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:53:06.790282+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T16:09:14.946441+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:54:06.824375+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T16:10:14.936736+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:55:06.825062+00:00",
-      "text": "bg:node_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_impl.py",
-      "fingerprint": "bgnode_memory_seq008_v001_d0325__per_node_learning_accumulation_lc_backprop_implpy",
+      "ts": "2026-03-28T16:11:15.004720+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:56:08.632226+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:12:14.963251+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:57:07.127310+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:13:14.954047+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:58:06.924100+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:14:15.049312+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T13:59:06.947940+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:15:14.989733+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:00:07.174738+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:16:14.984120+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:01:08.037409+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:17:15.004259+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:02:07.102471+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:18:14.988656+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:03:06.958680+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:19:14.997434+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:04:07.898558+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:20:15.037835+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:05:06.925481+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:21:15.084892+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:06:06.923785+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:22:15.034291+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:07:07.543494+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:23:15.026375+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:08:07.660182+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:24:15.042864+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:09:08.669789+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:25:15.084855+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:10:07.883272+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:26:15.037657+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:11:08.252746+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:27:15.059819+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:12:07.666749+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:28:15.079210+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:13:08.299234+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:29:15.103653+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:14:10.628947+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:30:15.062373+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:15:07.842380+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:31:15.075730+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:16:08.258877+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:32:15.159235+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:17:08.002029+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:33:15.093716+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:18:08.103760+00:00",
-      "text": "bg:dev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_impl.py",
-      "fingerprint": "bgdev_plan_seq010_v001_d0325__self_development_plan_generator_lc_backprop_implpy",
+      "ts": "2026-03-28T16:34:15.102475+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:19:10.074753+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:35:15.185947+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:20:08.377215+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:36:15.165540+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:21:08.370753+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:37:15.105449+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:22:10.995187+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:38:15.179562+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:22:43.835703+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:39:15.148298+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:23:11.509759+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:40:15.172587+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:23:17.814132+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:41:15.166303+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:23:41.598134+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:42:15.186917+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:23:59.045586+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:43:15.172989+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:24:08.938238+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:44:15.202508+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:25:09.447625+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:45:15.264996+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:25:16.480529+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:46:15.207769+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:25:17.117184+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:47:15.232503+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:26:09.382732+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:48:15.230914+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:27:09.781267+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:49:15.220223+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:27:14.497288+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:50:15.233172+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:27:37.804876+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:51:15.320508+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:28:15.291765+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:52:15.260582+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:29:04.632030+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:53:15.240465+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:29:10.913845+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
+      "ts": "2026-03-28T16:54:15.275472+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:30:09.883975+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T16:55:15.267885+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:31:09.912119+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T16:56:15.430393+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:32:10.262481+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T16:57:15.237589+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:33:09.888900+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T16:58:15.288410+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:33:46.878708+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T16:59:15.292968+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:34:15.098153+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T17:00:15.246354+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:35:10.825448+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T17:01:15.317058+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:36:10.661565+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T17:02:15.321670+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:37:09.856199+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T17:03:15.322233+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:38:10.201817+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T17:04:15.294982+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:39:09.391495+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T17:05:15.275618+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:40:09.457171+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T17:06:15.264637+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:48:26.242662+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T17:07:15.243451+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:49:27.274023+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T17:08:15.241450+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:50:27.272932+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T17:09:15.248347+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:51:25.696871+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T17:10:15.304073+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:52:26.164836+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T17:11:15.332664+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:53:27.539626+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T17:12:15.279163+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:54:30.481638+00:00",
-      "text": "bg:2026-03-27_fd07906_self_fix.md",
-      "fingerprint": "bg20260327_fd07906_self_fixmd",
+      "ts": "2026-03-28T17:13:15.282462+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:55:26.209323+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:14:15.268154+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:56:33.488589+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:15:15.307659+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:57:28.273201+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:16:15.280148+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:58:21.884092+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:17:15.284475+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:58:33.247412+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:18:15.351523+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:58:35.618580+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:19:15.281419+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T14:59:29.177679+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:20:15.298078+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:00:27.529593+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:21:15.350556+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:33:38.394856+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:22:15.319525+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:34:36.897974+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:23:15.331444+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:35:36.822010+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:24:15.378143+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:36:37.484613+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:25:15.387883+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:37:37.886340+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:26:15.297213+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:38:38.973565+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:27:15.306968+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:39:37.291545+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:28:15.370372+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:40:37.075789+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:29:15.327821+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:41:37.892547+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:30:15.318821+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:42:39.232874+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:31:15.305921+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:43:39.007936+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:32:15.379632+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:44:42.182068+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:33:15.327798+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:45:39.904834+00:00",
-      "text": "bg:2026-03-27_63ee334_self_fix.md",
-      "fingerprint": "bg20260327_63ee334_self_fixmd",
+      "ts": "2026-03-28T17:34:15.320951+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:46:38.809426+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:35:15.394725+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:47:37.387762+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:36:15.355478+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:48:38.600994+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:37:15.365847+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:49:36.966071+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:38:15.328955+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:50:36.978162+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:39:15.381829+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:51:37.199008+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:40:15.378276+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:52:37.011153+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:41:15.386244+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:53:11.157070+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:42:15.393275+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:53:38.772387+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:43:15.437494+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:54:11.846797+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:44:15.383915+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:54:24.490154+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:45:15.386969+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:54:38.297116+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:46:15.422065+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:55:39.143528+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:47:15.378752+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:56:38.434145+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:48:15.365254+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:57:39.045048+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:49:15.377020+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:58:40.521173+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:50:15.366363+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T15:59:38.230770+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:51:15.359994+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:00:41.837139+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:52:15.394529+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:01:41.400244+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:53:15.377845+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:02:40.507105+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:54:15.372193+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:03:43.696466+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:55:15.424033+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:04:49.478551+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:56:15.544585+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:05:43.412145+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:57:15.394576+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:06:23.122264+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:58:15.398681+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:06:43.872736+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T17:59:15.374964+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:07:42.905094+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T18:00:15.403471+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:08:43.243049+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T18:01:15.450380+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:09:43.415784+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T18:02:15.391322+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:10:45.313026+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E01.md",
-      "fingerprint": "bgdead_token_radio_s01e01md",
+      "ts": "2026-03-28T18:03:15.404754+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:11:46.096042+00:00",
-      "text": "bg:LOS_SANTOS_FM_PERCY_COMPILER_SPECIAL.md",
-      "fingerprint": "bglos_santos_fm_percy_compiler_specialmd",
+      "ts": "2026-03-28T18:04:15.412753+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:12:43.223851+00:00",
-      "text": "bg:LOS_SANTOS_FM_PERCY_COMPILER_SPECIAL.md",
-      "fingerprint": "bglos_santos_fm_percy_compiler_specialmd",
+      "ts": "2026-03-28T18:05:15.472931+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:13:44.288188+00:00",
-      "text": "bg:LOS_SANTOS_FM_PERCY_COMPILER_SPECIAL.md",
-      "fingerprint": "bglos_santos_fm_percy_compiler_specialmd",
+      "ts": "2026-03-28T18:06:15.407818+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:14:43.639739+00:00",
-      "text": "bg:UPDATE_narrative_evolution.md",
-      "fingerprint": "bgupdate_narrative_evolutionmd",
+      "ts": "2026-03-28T18:07:15.431262+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:15:43.938747+00:00",
-      "text": "bg:UPDATE_narrative_evolution.md",
-      "fingerprint": "bgupdate_narrative_evolutionmd",
+      "ts": "2026-03-28T18:08:15.417484+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:16:43.089554+00:00",
-      "text": "bg:UPDATE_narrative_evolution.md",
-      "fingerprint": "bgupdate_narrative_evolutionmd",
+      "ts": "2026-03-28T18:09:15.424008+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:17:42.150945+00:00",
-      "text": "bg:UPDATE_narrative_evolution.md",
-      "fingerprint": "bgupdate_narrative_evolutionmd",
+      "ts": "2026-03-28T18:10:15.434539+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:18:43.091411+00:00",
-      "text": "bg:UPDATE_narrative_evolution.md",
-      "fingerprint": "bgupdate_narrative_evolutionmd",
+      "ts": "2026-03-28T18:11:15.445160+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:19:43.251600+00:00",
-      "text": "bg:UPDATE_narrative_evolution.md",
-      "fingerprint": "bgupdate_narrative_evolutionmd",
+      "ts": "2026-03-28T18:12:15.438277+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:20:43.482674+00:00",
-      "text": "bg:UPDATE_narrative_evolution.md",
-      "fingerprint": "bgupdate_narrative_evolutionmd",
+      "ts": "2026-03-28T18:13:15.431723+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:32:36.440436+00:00",
-      "text": "bg:UPDATE_narrative_evolution.md",
-      "fingerprint": "bgupdate_narrative_evolutionmd",
+      "ts": "2026-03-28T18:14:15.437401+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:33:12.551522+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:15:15.458588+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:34:13.091768+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:16:15.432711+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:35:10.143156+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:17:15.503296+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:36:12.760041+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:18:15.429061+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:37:13.304476+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:19:15.464710+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:38:10.430045+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:20:15.448411+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:39:13.097117+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:21:15.449304+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:40:11.950834+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:22:15.475028+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:41:10.336285+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:23:15.485181+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:42:10.369317+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:24:15.481633+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:43:10.366534+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:25:15.500936+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:44:13.913434+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:26:15.483220+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:45:17.229274+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:27:15.486127+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:46:11.991807+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:28:15.502053+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:47:11.828176+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:29:15.483505+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:48:12.316857+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:30:15.500213+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:49:11.863409+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:31:15.527109+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:50:13.171422+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:32:15.515658+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:51:15.058042+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:33:15.537479+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:52:13.524222+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:34:15.611994+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:53:16.415329+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:35:15.572468+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:54:14.647990+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:36:15.509669+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:55:15.633526+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:37:15.537365+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:56:12.230485+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:38:15.542184+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:57:11.748122+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:39:15.541316+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:58:11.380111+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:40:15.517608+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T16:59:13.375724+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:41:15.545877+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:00:11.073120+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:42:15.539595+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:01:11.687994+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:43:15.618507+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:02:10.457327+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:44:15.547314+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:03:10.349136+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:45:15.588360+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:04:10.742745+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:46:15.589077+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:05:11.759266+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:47:15.624681+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:06:10.963842+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:48:15.588807+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:07:10.893965+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:49:15.563047+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:08:10.901739+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:50:15.585762+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:09:10.479110+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:51:15.597963+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:10:10.450759+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:52:15.625794+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:11:10.772801+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:53:15.596104+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:12:10.555234+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:54:15.596864+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:13:10.412216+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:55:15.624123+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:14:10.796996+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:56:15.817302+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:15:10.531542+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:57:15.665715+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:16:10.391125+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:58:15.708999+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:17:10.822047+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T18:59:15.679264+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:18:10.483342+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:00:15.683483+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:19:10.398844+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:01:15.684574+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:20:10.447275+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:02:15.675550+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:21:12.545616+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:03:15.669002+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:22:10.452298+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:04:15.687178+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:23:10.912978+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:05:15.695898+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:24:10.514605+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:06:15.730633+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:25:12.629218+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:07:15.712101+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:26:10.500152+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:08:15.699708+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:27:10.690864+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:09:15.716014+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:28:10.528957+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:10:15.734422+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:29:11.336802+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:11:15.728426+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:30:21.190275+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:12:15.735667+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:31:14.469420+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:13:15.726185+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:32:15.186850+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:14:15.749733+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:33:13.797057+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:15:15.775627+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:34:13.248071+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:16:15.759897+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:35:15.415927+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:17:15.752700+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:36:15.623703+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:18:15.776611+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:37:17.253874+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:19:15.816949+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:38:15.396680+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:20:15.791199+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:39:12.207974+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:21:15.800089+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:40:12.479697+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:22:15.826342+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:41:12.303947+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:23:15.880539+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:42:16.723824+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:24:15.912573+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:43:14.308599+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:25:15.850842+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:44:13.523344+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:26:15.844353+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:45:18.081345+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:27:15.833868+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:46:16.197944+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:28:15.853845+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:47:13.690685+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:29:15.872134+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:48:11.978617+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:30:15.872125+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:49:12.035075+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:31:15.915610+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:50:11.974304+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:32:15.861724+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:51:11.951608+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:33:15.905750+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:52:12.336630+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:34:15.887797+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:53:11.978589+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:35:15.922098+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:54:11.881780+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:36:15.893882+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:55:11.874392+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:37:15.925489+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:56:17.100821+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:38:15.934158+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:57:12.784630+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:39:15.919458+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:58:12.367971+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:40:15.930365+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T17:59:12.706045+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:41:15.951727+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:00:12.040974+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:42:15.952355+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:01:12.018406+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:43:15.947434+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:02:11.983641+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:44:15.971640+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:03:12.048855+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:45:15.965404+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:04:12.025021+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:46:15.973285+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:05:11.984284+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:47:15.991470+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:06:16.789727+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:48:15.951815+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:07:14.767319+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:49:15.969533+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:08:14.882655+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:50:15.958262+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:09:12.109596+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:51:16.027852+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:10:11.997393+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:52:16.065300+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:11:12.184966+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:53:15.998783+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:12:11.981767+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:54:16.012692+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:13:12.054872+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:55:16.014680+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:14:12.074969+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:56:16.034709+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:15:11.991846+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:57:16.021917+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:16:11.990809+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:58:16.024706+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:17:11.972068+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T19:59:16.018489+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:18:12.271260+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:00:16.013198+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:19:12.032324+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:01:16.063674+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:20:12.009807+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:02:16.027775+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:21:12.613924+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:03:16.024311+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:22:12.071395+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:04:16.067864+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:23:12.090820+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:05:16.058159+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:24:12.037922+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:06:16.031746+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:25:12.192974+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:07:16.068764+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:26:12.119168+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:08:16.054065+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:27:12.065457+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:09:16.099325+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:28:12.060906+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:10:16.062357+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:29:12.220924+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:11:16.070868+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:30:12.112236+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:12:16.088076+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:31:12.800535+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:13:16.082507+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:32:12.465729+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:14:16.064147+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:33:12.365039+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:15:16.104454+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:34:12.235825+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:16:16.123211+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:35:12.355450+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:17:16.236282+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:36:12.199131+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:18:16.129265+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:37:12.435276+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:19:16.099318+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:38:13.863748+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:20:16.127570+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:39:12.306431+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:21:16.111029+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:40:12.743389+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:22:16.143261+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:41:12.036235+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:23:16.141579+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:42:12.087925+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:24:16.176793+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:43:13.242774+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:25:16.154809+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:44:12.157248+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:26:16.718232+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:45:12.183509+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:27:16.221437+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:46:12.154714+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:28:16.460760+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:47:12.181450+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:29:16.324837+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:48:12.116751+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:30:16.457012+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:49:12.283304+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:31:16.596876+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:50:13.536000+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:31:51.605203+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:51:12.852970+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:32:16.993071+00:00",
+      "text": "bg:glossator.agent.md",
+      "fingerprint": "bgglossatoragentmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:52:12.431175+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:33:18.020667+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:53:12.619719+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:34:17.133307+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:54:12.337421+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:35:16.255689+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:55:15.135960+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:36:17.517889+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:55:57.505383+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:37:18.560186+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:56:13.125207+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:38:16.908407+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:57:13.906096+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:39:17.147532+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:58:13.187038+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:40:16.329640+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T18:59:15.549329+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:41:16.272367+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:00:15.768123+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:42:16.402488+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:01:13.604319+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:43:17.735026+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:02:12.730980+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:44:16.370964+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:03:13.876993+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:45:17.053339+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:04:12.573524+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:46:22.528467+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:05:13.198325+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:47:16.411758+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:06:01.612235+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:48:16.438017+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:06:08.412869+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:49:16.716134+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:06:13.703568+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:50:16.483800+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:07:14.003179+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:51:16.396619+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:08:12.470974+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:52:16.411781+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:09:12.677399+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:53:16.409537+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:10:12.321604+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:54:17.290014+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:11:14.427276+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:55:17.354859+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:12:14.224300+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:56:17.467329+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:13:14.680505+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:57:18.501950+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:13:32.640680+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E03_COO_COO_ZAP.md",
-      "fingerprint": "bgdead_token_radio_s01e03_coo_coo_zapmd",
+      "ts": "2026-03-28T20:58:19.447633+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:14:13.993604+00:00",
-      "text": "bg:2026-03-27_fd07906.md",
-      "fingerprint": "bg20260327_fd07906md",
+      "ts": "2026-03-28T20:59:17.634028+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:15:13.314549+00:00",
-      "text": "bg:2026-03-27_e894b6a.md",
-      "fingerprint": "bg20260327_e894b6amd",
+      "ts": "2026-03-28T21:00:18.166538+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:16:14.155516+00:00",
-      "text": "bg:push_cycle_seq024_v001.py",
-      "fingerprint": "bgpush_cycle_seq024_v001py",
+      "ts": "2026-03-28T21:01:18.566877+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:16:21.954146+00:00",
-      "text": "bg:push_cycle_seq024_v001.py",
-      "fingerprint": "bgpush_cycle_seq024_v001py",
+      "ts": "2026-03-28T21:02:18.849302+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:17:14.556044+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
+      "ts": "2026-03-28T21:03:19.475460+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:18:12.325360+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:04:20.399097+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:19:12.373979+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:05:23.183979+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:19:30.215798+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:06:18.633172+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:20:12.268618+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:06:40.823458+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:21:12.372681+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:06:51.680729+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:22:12.421172+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:07:09.345971+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:23:15.801509+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:07:20.265197+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:24:12.353314+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:07:34.827880+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:25:12.594803+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:08:07.528311+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:26:13.224098+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:08:18.504655+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:27:12.821390+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:08:42.151268+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:28:13.473695+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:09:22.649405+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:29:15.735706+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:09:46.830344+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:29:55.491097+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:10:04.209928+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:30:15.611997+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:10:13.319680+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:30:29.755230+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:10:16.733212+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:31:04.717439+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:10:35.305705+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:31:15.389766+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:10:50.299534+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:31:36.399639+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:11:16.859984+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:32:01.530258+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:12:16.853040+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:32:12.974981+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:12:49.849414+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:32:31.758649+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:12:59.454125+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:33:05.815676+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:13:08.723481+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:33:13.295114+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:13:16.792221+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:33:20.582068+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:14:16.594215+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:34:09.215593+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:15:16.840035+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:34:13.724197+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:16:18.212869+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:35:12.841377+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:17:22.822580+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:36:13.263229+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:18:22.222620+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:37:12.757544+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:18:30.914506+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:38:15.612435+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:19:17.806035+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:39:17.349293+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:20:17.300237+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:40:20.580049+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:21:16.725095+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:41:14.244856+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:22:16.829703+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:42:16.354593+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:23:16.827645+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:43:15.797664+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:24:16.774448+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:44:13.656543+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:25:16.805556+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:45:13.961328+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:26:16.830688+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:46:14.216831+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:27:16.808748+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:47:13.797088+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:28:16.837175+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:47:42.970319+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:29:16.822066+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:48:13.672484+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:30:16.861005+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:48:21.407311+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:31:18.157642+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:48:36.456049+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:32:17.758486+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:48:51.493537+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:33:21.803988+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:49:14.044332+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:34:17.511712+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:49:37.528506+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:35:16.868208+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:50:13.870694+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:36:17.068138+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:51:15.064630+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:37:18.155328+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:52:13.574749+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:38:17.420192+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:53:13.517444+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:39:18.076071+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:54:13.775149+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:39:52.441931+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:55:14.159479+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:40:18.061048+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:56:13.448047+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:41:09.591183+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:57:13.472542+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:41:18.389071+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:58:13.437146+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:41:19.531046+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T19:59:13.562037+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:41:37.565574+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:00:13.589051+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:42:17.863279+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:01:13.560873+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:43:18.553444+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:02:13.691468+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:44:18.030412+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:03:13.846887+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:45:17.725155+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:04:13.878021+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:46:17.123617+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:05:13.593084+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:47:17.773430+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:06:13.739573+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:48:18.061831+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:07:14.061375+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:49:17.927618+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:08:16.648977+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:50:18.595712+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:09:13.982153+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:51:18.383714+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:10:13.610938+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:52:19.559990+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:11:14.545052+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:53:20.103863+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:12:13.944165+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:54:19.566667+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:13:16.179328+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:55:18.445929+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-27T20:14:15.563916+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
+      "ts": "2026-03-28T21:56:22.442723+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true
     }
   ],

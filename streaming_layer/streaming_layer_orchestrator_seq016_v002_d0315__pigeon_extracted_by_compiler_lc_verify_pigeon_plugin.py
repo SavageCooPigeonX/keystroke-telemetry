@@ -9,27 +9,24 @@
 # ──────────────────────────────────────────────
 from dataclasses import dataclass, field, asdict
 from http.server import HTTPServer, BaseHTTPRequestHandler
-TelemetryLogger, SCHEMA_VERSION
 from typing import Optional, Callable
 import os
 import threading
 import time
 
-def _load_src(pattern: str, *symbols):
-    """Dynamic pigeon import — finds latest src/ file matching glob."""
-    import importlib.util as _ilu, glob as _g
-    matches = sorted(_g.glob(f'src/{pattern}'))
-    if not matches:
-        raise ImportError(f'No src/ file matches {pattern!r}')
-    spec = _ilu.spec_from_file_location('_dyn', matches[-1])
-    mod = _ilu.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    if len(symbols) == 1:
-        return getattr(mod, symbols[0])
-    return tuple(getattr(mod, s) for s in symbols)
+from src._resolve import src_import
+from streaming_layer._resolve import sl_import
+
+TelemetryLogger, SCHEMA_VERSION = src_import("logger_seq003", "TelemetryLogger", "SCHEMA_VERSION")
+DEFAULT_PORT = sl_import("streaming_layer_constants_seq001", "DEFAULT_PORT")
+ConnectionPool = sl_import("streaming_layer_connection_pool_seq005", "ConnectionPool")
+EventAggregator = sl_import("streaming_layer_aggregator_seq006", "EventAggregator")
+MetricsCollector = sl_import("streaming_layer_metrics_seq007", "MetricsCollector")
+AlertEngine = sl_import("streaming_layer_alerts_seq008", "AlertEngine")
+LiveDashboard = sl_import("streaming_layer_dashboard_seq010", "LiveDashboard")
 
 
-class StreamingTelemetryServer = _load_src('logger_seq003*.py', 'TelemetryLogger', 'SCHEMA_VERSION\nfrom typing import Optional', 'Callable\nimport os\nimport threading\nimport time\n\nclass StreamingTelemetryServer'):
+class StreamingTelemetryServer:
     """Main orchestrator: wraps TelemetryLogger with live streaming,
     aggregation, metrics, alerts, and an HTTP endpoint."""
 

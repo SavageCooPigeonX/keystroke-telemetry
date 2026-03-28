@@ -1,6 +1,6 @@
 # MASTER MANIFEST — keystroke-telemetry
 
-*Auto-updated 2026-03-24 · 23 src modules · 19 streaming modules · ~62 compiler modules · 19 brain modules (13 core + 6 flow engine) · 7 React components*
+*Auto-updated 2026-03-28 · 23 src modules · 19 streaming modules · ~62 compiler modules · 19 brain modules (13 core + 6 flow engine) · 7 React components*
 
 **This codebase reads minds, rewires AI reasoning, refactors itself, watches the whole thing happen in a living neural visualization, reads its own deleted thoughts before starting work, and now routes context-accumulating intelligence packets through its own code graph.**
 
@@ -14,6 +14,7 @@ Four interlocking systems. Each one feeds the next. The last one watches all the
 |---|---|---:|---|
 | **Keystroke Telemetry** | `src/` | 23 + 3 cognitive | ✅ Live |
 | **Pigeon Code Compiler** | `pigeon_compiler/` | ~62 | ✅ Live |
+| **Pigeon Code Compilor (standalone)** | [`pip install pigeon-code-compilor`](https://myaifingerprint.com) | 13 | **✅ Released — open-source** |
 | **Streaming Layer** | `streaming_layer/` | 19 | ✅ Live · 100% compliant |
 | **Pigeon Brain** | `pigeon_brain/` | 19 + 7 React | **✅ Live · dual-substrate · real-time trace · context veins · flow engine** |
 | **Flow Engine** | `pigeon_brain/flow/` | 6 | **✅ Live · context-accumulating dataflow · 3 routing modes** |
@@ -92,7 +93,7 @@ POST-COMMIT PIPELINE (git_plugin.py):
 
 On every Copilot message, `prompt_journal_seq019` writes an enriched JSON entry to `logs/prompt_journal.jsonl` that cross-references: cognitive state, WPM, deletion ratio, deleted words, rewrites, active tasks, hot modules, intent classification, module refs, and running session stats. This is the unified analysis layer — one file to reconstruct any session.
 
-**New (2026-03-24):** Per-prompt composition binding now works. Before building a response, `log_enriched_entry()` forces a fresh composition analysis from raw keystrokes, matches the current prompt to its composition via text similarity (score ≥ 0.95 bypasses age filter), and injects the operator's deleted words + rewrites directly into the `<!-- pigeon:prompt-telemetry -->` context block. Copilot sees what you deleted before it starts thinking.
+**New (2026-03-28):** Per-prompt composition binding now works. Before building a response, `log_enriched_entry()` forces a fresh composition analysis from raw keystrokes, matches the current prompt to its composition via text similarity (score ≥ 0.95 bypasses age filter), and injects the operator's deleted words + rewrites directly into the `<!-- pigeon:prompt-telemetry -->` context block. Copilot sees what you deleted before it starts thinking.
 
 **Predictive Debug:** `_predict_next_issues()` mines the prompt journal for three patterns:
 1. Which modules appear in prompts after frustrated/hesitant states
@@ -211,7 +212,7 @@ py -m pigeon_brain.flow --multi --origin self_fix "why does self_fix keep failin
 ### Data Flow
 
 ```
-pigeon_registry.json (152 modules)
+pigeon_registry.json (188 modules)
     │
     ▼
 graph_extractor ─→ graph_cache.json (137 nodes, 260 edges)
@@ -258,7 +259,7 @@ graph_extractor ─→ graph_cache.json (137 nodes, 260 edges)
 | `state_extractor/` | 6 | AST parsing, call graphs, resistance scoring |
 | `weakness_planner/` | 1 | DeepSeek cut plan generation |
 | `cut_executor/` | 11 | File slicing, bin-packing, class decomposition |
-| `rename_engine/` | 12 | Autonomous renames, import rewriting, self-healing |
+| `rename_engine/` | 12 | Autonomous renames, import rewriting, self-healing — **extracted as [`pigeon-code-compilor`](https://myaifingerprint.com)** |
 | `runners/` | 9 | Pipeline orchestrators |
 | `integrations/` | 1 | DeepSeek API adapter |
 | `bones/` | 5 | Shared utilities |
@@ -269,13 +270,15 @@ Key entry points:
 - `py -m pigeon_compiler.runners.run_batch_compile_seq015*` — compile entire codebase
 - `py -m pigeon_compiler.git_plugin` — post-commit hook
 
+**Standalone open-source release:** The rename engine (scan, rename, import rewrite, compliance audit, manifest build) is available as `pip install pigeon-code-compilor`. Zero external deps. Works on any Python codebase. [myaifingerprint.com](https://myaifingerprint.com) · [GitHub](https://github.com/SavageCooPigeonX/pigeon-rename)
+
 ---
 
 ## Registry & State Files
 
 | File | Purpose | Updated |
 |---|---|---|
-| `pigeon_registry.json` | Every module: seq, ver, date, desc, intent, token history | Every commit |
+| `pigeon_registry.json` | Every module: seq, ver, date, desc, intent, token history (188 tracked) | Every commit |
 | `operator_profile.md` | Living cognitive profile, 45+ history entries | Every session |
 | `operator_coaching.md` | DeepSeek-synthesized behavioral directives | Every 8 submitted msgs |
 | `file_heat_map.json` | Per-module hesitation + WPM + miss counts | Per session |
