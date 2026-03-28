@@ -114,7 +114,7 @@ def run_single_cycle(
     from .task_writer_seq005_v002_d0324__the_river_delta_where_all_lc_flow_engine_context import (
         write_task,
     )
-    from .backward_seq007_v003_d0327__backward_pass_walks_electron_path_lc_pigeon_split_3 import (
+    from .backward_seq007_v004_d0328__backward_pass_walks_electron_path_lc_dynamic_import_resolvers import (
         backward_pass, log_forward_pass,
     )
 
@@ -203,7 +203,7 @@ def run_prediction_cycle(root: Path, state: dict[str, Any]) -> int:
     )
     # Score any existing predictions against edit sessions (primary)
     try:
-        from .prediction_scorer_seq014_v003_d0327__edit_session_based_lc_pigeon_split_3 import (
+        from .prediction_scorer_seq014_v004_d0328__edit_session_based_lc_dynamic_import_resolvers import (
             score_predictions_post_edit,
         )
         score_result = score_predictions_post_edit(root)

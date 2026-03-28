@@ -7,6 +7,12 @@ Each git push = one learning cycle:
   4. Generate dual coaching (for operator AND for coding agent)
   5. Update calibration + node memory
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 
 import json

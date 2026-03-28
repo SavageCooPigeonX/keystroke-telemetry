@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-27T15:58:16.207959+00:00",
-  "total": 188,
+  "generated": "2026-03-28T21:58:06.295361+00:00",
+  "total": 209,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -103,6 +103,26 @@
       ]
     },
     {
+      "path": "pigeon_brain/flow/backward_seq007/backward_seq007_backward_pass_seq005_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
+      "name": "backward_seq007_backward_pass",
+      "seq": 5,
+      "ver": 3,
+      "date": "0328",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 908,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 908,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "pigeon_brain/flow/backward_seq007/backward_seq007_backward_pass_seq005_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
       "name": "backward_seq007_backward_pass",
       "seq": 5,
@@ -135,6 +155,26 @@
           "intent": "fix_bare_globals",
           "action": "mutated",
           "tokens": 910
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/backward_seq007/backward_seq007_deepseek_analyze_seq004_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
+      "name": "backward_seq007_deepseek_analyze",
+      "seq": 4,
+      "ver": 3,
+      "date": "0328",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 772,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 772,
+          "action": "registered"
         }
       ]
     },
@@ -235,13 +275,33 @@
       ]
     },
     {
-      "path": "pigeon_brain/flow/backward_seq007_v003_d0327__backward_pass_walks_electron_path_lc_pigeon_split_3.py",
+      "path": "pigeon_brain/flow/backward_seq007_v002_d0328__backward_pass_walks_electron_path_lc_dynamic_import_resolvers.py",
       "name": "backward",
       "seq": 7,
-      "ver": 3,
-      "date": "0327",
+      "ver": 2,
+      "date": "0328",
       "desc": "backward_pass_walks_electron_path",
-      "intent": "pigeon_split_3",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 2502,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0328",
+          "desc": "backward_pass_walks_electron_path",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 2502,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/backward_seq007_v004_d0328__backward_pass_walks_electron_path_lc_dynamic_import_resolvers.py",
+      "name": "backward",
+      "seq": 7,
+      "ver": 4,
+      "date": "0328",
+      "desc": "backward_pass_walks_electron_path",
+      "intent": "dynamic_import_resolvers",
       "tokens": 2500,
       "history": [
         {
@@ -257,6 +317,14 @@
           "date": "0327",
           "desc": "backward_pass_walks_electron_path",
           "intent": "pigeon_split_3",
+          "action": "mutated",
+          "tokens": 2500
+        },
+        {
+          "ver": 4,
+          "date": "0328",
+          "desc": "backward_pass_walks_electron_path",
+          "intent": "dynamic_import_resolvers",
           "action": "mutated",
           "tokens": 2500
         }
@@ -278,6 +346,46 @@
           "desc": "the_contextpacket_is_the_unit",
           "intent": "flow_engine_context",
           "tokens": 1033,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/dev_plan_seq010_v002_d0328__the_roadmap_writer_synthesizes_the_lc_dynamic_import_resolvers.py",
+      "name": "dev_plan",
+      "seq": 10,
+      "ver": 2,
+      "date": "0328",
+      "desc": "the_roadmap_writer_synthesizes_the",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 1532,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0328",
+          "desc": "the_roadmap_writer_synthesizes_the",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 1532,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/dev_plan_seq010_v003_d0328__the_roadmap_writer_synthesizes_the_lc_dynamic_import_resolvers.py",
+      "name": "dev_plan",
+      "seq": 10,
+      "ver": 3,
+      "date": "0328",
+      "desc": "the_roadmap_writer_synthesizes_the",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 1539,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "the_roadmap_writer_synthesizes_the",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 1539,
           "action": "registered"
         }
       ]
@@ -367,6 +475,26 @@
       ]
     },
     {
+      "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_catch_up_seq006_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
+      "name": "learning_loop_seq013_catch_up",
+      "seq": 6,
+      "ver": 3,
+      "date": "0328",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 431,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 431,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_journal_loader_seq002_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
       "name": "learning_loop_seq013_journal_loader",
       "seq": 2,
@@ -435,6 +563,46 @@
       ]
     },
     {
+      "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_main_loop_seq008_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
+      "name": "learning_loop_seq013_main_loop",
+      "seq": 8,
+      "ver": 3,
+      "date": "0328",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 1044,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 1044,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_prediction_cycle_seq003_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
+      "name": "learning_loop_seq013_prediction_cycle",
+      "seq": 3,
+      "ver": 3,
+      "date": "0328",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 415,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 415,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_prediction_cycle_seq003_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
       "name": "learning_loop_seq013_prediction_cycle",
       "seq": 3,
@@ -471,6 +639,26 @@
       ]
     },
     {
+      "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_prediction_cycle_seq003_v004_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
+      "name": "learning_loop_seq013_prediction_cycle",
+      "seq": 3,
+      "ver": 4,
+      "date": "0328",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 431,
+      "history": [
+        {
+          "ver": 4,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 431,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_single_cycle_helpers_seq004_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
       "name": "learning_loop_seq013_single_cycle_helpers",
       "seq": 4,
@@ -486,6 +674,26 @@
           "desc": "auto_extracted_by_pigeon_compiler",
           "intent": "pigeon_split_3",
           "tokens": 25,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_single_cycle_seq005_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
+      "name": "learning_loop_seq013_single_cycle",
+      "seq": 5,
+      "ver": 3,
+      "date": "0328",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 880,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 880,
           "action": "registered"
         }
       ]
@@ -523,6 +731,26 @@
           "intent": "fix_bare_globals",
           "action": "mutated",
           "tokens": 896
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_single_cycle_seq005_v004_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
+      "name": "learning_loop_seq013_single_cycle",
+      "seq": 5,
+      "ver": 4,
+      "date": "0328",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 896,
+      "history": [
+        {
+          "ver": 4,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 896,
+          "action": "registered"
         }
       ]
     },
@@ -595,14 +823,34 @@
       ]
     },
     {
-      "path": "pigeon_brain/flow/node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py",
+      "path": "pigeon_brain/flow/node_conversation_seq012_v002_d0328__the_interpretability_interface_lets_the_lc_dynamic_import_resolvers.py",
       "name": "node_conversation",
       "seq": 12,
-      "ver": 3,
-      "date": "0327",
+      "ver": 2,
+      "date": "0328",
       "desc": "the_interpretability_interface_lets_the",
-      "intent": "pigeon_split_3",
-      "tokens": 1431,
+      "intent": "dynamic_import_resolvers",
+      "tokens": 1422,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0328",
+          "desc": "the_interpretability_interface_lets_the",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 1422,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/node_conversation_seq012_v004_d0328__the_interpretability_interface_lets_the_lc_dynamic_import_resolvers.py",
+      "name": "node_conversation",
+      "seq": 12,
+      "ver": 4,
+      "date": "0328",
+      "desc": "the_interpretability_interface_lets_the",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 1428,
       "history": [
         {
           "ver": 2,
@@ -619,6 +867,34 @@
           "intent": "pigeon_split_3",
           "action": "mutated",
           "tokens": 1431
+        },
+        {
+          "ver": 4,
+          "date": "0328",
+          "desc": "the_interpretability_interface_lets_the",
+          "intent": "dynamic_import_resolvers",
+          "action": "mutated",
+          "tokens": 1428
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/node_memory_seq008_v003_d0328__the_experience_vault_stores_raw_lc_dynamic_import_resolvers.py",
+      "name": "node_memory",
+      "seq": 8,
+      "ver": 3,
+      "date": "0328",
+      "desc": "the_experience_vault_stores_raw",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 2084,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "the_experience_vault_stores_raw",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 2084,
+          "action": "registered"
         }
       ]
     },
@@ -743,6 +1019,26 @@
       ]
     },
     {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_node_backfill_seq010_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
+      "name": "prediction_scorer_seq014_node_backfill",
+      "seq": 10,
+      "ver": 3,
+      "date": "0328",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 496,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 496,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_node_backfill_seq010_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
       "name": "prediction_scorer_seq014_node_backfill",
       "seq": 10,
@@ -799,6 +1095,26 @@
       ]
     },
     {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_post_commit_scorer_seq012_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
+      "name": "prediction_scorer_seq014_post_commit_scorer",
+      "seq": 12,
+      "ver": 3,
+      "date": "0328",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 605,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 605,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_post_commit_scorer_seq012_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
       "name": "prediction_scorer_seq014_post_commit_scorer",
       "seq": 12,
@@ -831,6 +1147,26 @@
           "intent": "fix_bare_globals",
           "action": "mutated",
           "tokens": 607
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_post_edit_scorer_seq011_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
+      "name": "prediction_scorer_seq014_post_edit_scorer",
+      "seq": 11,
+      "ver": 3,
+      "date": "0328",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 839,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 839,
+          "action": "registered"
         }
       ]
     },
@@ -951,14 +1287,14 @@
       ]
     },
     {
-      "path": "pigeon_brain/flow/prediction_scorer_seq014_v003_d0327__edit_session_based_lc_pigeon_split_3.py",
+      "path": "pigeon_brain/flow/prediction_scorer_seq014_v004_d0328__edit_session_based_lc_dynamic_import_resolvers.py",
       "name": "prediction_scorer",
       "seq": 14,
-      "ver": 3,
-      "date": "0327",
+      "ver": 4,
+      "date": "0328",
       "desc": "edit_session_based",
-      "intent": "pigeon_split_3",
-      "tokens": 4298,
+      "intent": "dynamic_import_resolvers",
+      "tokens": 4294,
       "history": [
         {
           "ver": 2,
@@ -975,6 +1311,34 @@
           "intent": "pigeon_split_3",
           "action": "mutated",
           "tokens": 4298
+        },
+        {
+          "ver": 4,
+          "date": "0328",
+          "desc": "edit_session_based",
+          "intent": "dynamic_import_resolvers",
+          "action": "mutated",
+          "tokens": 4294
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/predictor_seq009_v002_d0328__fires_phantom_electrons_using_cognitive_lc_dynamic_import_resolvers.py",
+      "name": "predictor",
+      "seq": 9,
+      "ver": 2,
+      "date": "0328",
+      "desc": "fires_phantom_electrons_using_cognitive",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 1762,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0328",
+          "desc": "fires_phantom_electrons_using_cognitive",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 1762,
+          "action": "registered"
         }
       ]
     },
@@ -2608,6 +2972,26 @@
       ]
     },
     {
+      "path": "pigeon_compiler/runners/run_batch_compile_seq015_v002_d0328__compile_entire_codebase_to_pigeon_lc_dynamic_import_resolvers.py",
+      "name": "run_batch_compile",
+      "seq": 15,
+      "ver": 2,
+      "date": "0328",
+      "desc": "compile_entire_codebase_to_pigeon",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 1999,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0328",
+          "desc": "compile_entire_codebase_to_pigeon",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 1999,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "pigeon_compiler/runners/run_clean_split_helpers_seq011_v004_d0315__helpers_for_run_clean_split_lc_verify_pigeon_plugin.py",
       "name": "run_clean_split_helpers",
       "seq": 11,
@@ -2963,6 +3347,26 @@
           "desc": "build_and_send_deepseek_cut",
           "intent": "desc_upgrade",
           "action": "discovered"
+        }
+      ]
+    },
+    {
+      "path": "src/.operator_stats_seq008_v009_d0328__persistent_markdown_memory_file_lc_dynamic_import_resolvers.py",
+      "name": ".operator_stats",
+      "seq": 8,
+      "ver": 9,
+      "date": "0328",
+      "desc": "persistent_markdown_memory_file",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 4617,
+      "history": [
+        {
+          "ver": 9,
+          "date": "0328",
+          "desc": "persistent_markdown_memory_file",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 4617,
+          "action": "registered"
         }
       ]
     },
@@ -3914,6 +4318,26 @@
       ]
     },
     {
+      "path": "src/dynamic_prompt_seq017_v007_d0328__steers_copilot_cot_from_live_lc_dynamic_import_resolvers.py",
+      "name": "dynamic_prompt",
+      "seq": 17,
+      "ver": 7,
+      "date": "0328",
+      "desc": "steers_copilot_cot_from_live",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 4192,
+      "history": [
+        {
+          "ver": 7,
+          "date": "0328",
+          "desc": "steers_copilot_cot_from_live",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 4192,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "src/file_consciousness_seq019_v002_d0321__ast_derived_function_consciousness_dating_lc_implement_all_18.py",
       "name": "file_consciousness",
       "seq": 19,
@@ -4223,6 +4647,26 @@
       ]
     },
     {
+      "path": "src/push_narrative_seq012_v006_d0328__generate_per_push_narrative_each_lc_dynamic_import_resolvers.py",
+      "name": "push_narrative",
+      "seq": 12,
+      "ver": 6,
+      "date": "0328",
+      "desc": "generate_per_push_narrative_each",
+      "intent": "dynamic_import_resolvers",
+      "tokens": 2089,
+      "history": [
+        {
+          "ver": 6,
+          "date": "0328",
+          "desc": "generate_per_push_narrative_each",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 2089,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "src/query_memory_seq010_v004_d0321__recurring_query_detector_unsaid_thought_lc_implement_all_18.py",
       "name": "query_memory",
       "seq": 10,
@@ -4358,14 +4802,14 @@
       ]
     },
     {
-      "path": "src/self_fix_seq013_v010_d0322__one_shot_self_fix_analyzer_lc_self_fix_auto.py",
+      "path": "src/self_fix_seq013_v011_d0328__one_shot_self_fix_analyzer_lc_dynamic_import_resolvers.py",
       "name": "self_fix",
       "seq": 13,
-      "ver": 10,
-      "date": "0322",
+      "ver": 11,
+      "date": "0328",
       "desc": "one_shot_self_fix_analyzer",
-      "intent": "self_fix_auto",
-      "tokens": 5641,
+      "intent": "dynamic_import_resolvers",
+      "tokens": 5846,
       "history": [
         {
           "ver": 2,
@@ -4438,6 +4882,14 @@
           "intent": "self_fix_auto",
           "action": "mutated",
           "tokens": 5641
+        },
+        {
+          "ver": 11,
+          "date": "0328",
+          "desc": "one_shot_self_fix_analyzer",
+          "intent": "dynamic_import_resolvers",
+          "action": "mutated",
+          "tokens": 5846
         }
       ]
     },
@@ -4560,14 +5012,14 @@
       ]
     },
     {
-      "path": "streaming_layer/streaming_layer_aggregator_seq006_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin.py",
+      "path": "streaming_layer/streaming_layer_aggregator_seq006_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
       "name": "streaming_layer_aggregator",
       "seq": 6,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0328",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 839,
+      "intent": "dynamic_import_resolvers",
+      "tokens": 934,
       "history": [
         {
           "ver": 1,
@@ -4583,18 +5035,26 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 839
+        },
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "action": "mutated",
+          "tokens": 934
         }
       ]
     },
     {
-      "path": "streaming_layer/streaming_layer_alerts_seq008_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin.py",
+      "path": "streaming_layer/streaming_layer_alerts_seq008_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
       "name": "streaming_layer_alerts",
       "seq": 8,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0328",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 1264,
+      "intent": "dynamic_import_resolvers",
+      "tokens": 1371,
       "history": [
         {
           "ver": 1,
@@ -4610,18 +5070,26 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 1264
+        },
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "action": "mutated",
+          "tokens": 1371
         }
       ]
     },
     {
-      "path": "streaming_layer/streaming_layer_connection_pool_seq005_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin.py",
+      "path": "streaming_layer/streaming_layer_connection_pool_seq005_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
       "name": "streaming_layer_connection_pool",
       "seq": 5,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0328",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 899,
+      "intent": "dynamic_import_resolvers",
+      "tokens": 969,
       "history": [
         {
           "ver": 1,
@@ -4637,6 +5105,14 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 899
+        },
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "action": "mutated",
+          "tokens": 969
         }
       ]
     },
@@ -4668,14 +5144,14 @@
       ]
     },
     {
-      "path": "streaming_layer/streaming_layer_dashboard_seq010_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin.py",
+      "path": "streaming_layer/streaming_layer_dashboard_seq010_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
       "name": "streaming_layer_dashboard",
       "seq": 10,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0328",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 845,
+      "intent": "dynamic_import_resolvers",
+      "tokens": 858,
       "history": [
         {
           "ver": 1,
@@ -4691,6 +5167,14 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 845
+        },
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "action": "mutated",
+          "tokens": 858
         }
       ]
     },
@@ -4911,14 +5395,14 @@
       ]
     },
     {
-      "path": "streaming_layer/streaming_layer_http_handler_seq011_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin.py",
+      "path": "streaming_layer/streaming_layer_http_handler_seq011_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
       "name": "streaming_layer_http_handler",
       "seq": 11,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0328",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 1167,
+      "intent": "dynamic_import_resolvers",
+      "tokens": 1182,
       "history": [
         {
           "ver": 1,
@@ -4934,18 +5418,26 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 1167
+        },
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "action": "mutated",
+          "tokens": 1182
         }
       ]
     },
     {
-      "path": "streaming_layer/streaming_layer_metrics_seq007_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin.py",
+      "path": "streaming_layer/streaming_layer_metrics_seq007_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
       "name": "streaming_layer_metrics",
       "seq": 7,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0328",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 785,
+      "intent": "dynamic_import_resolvers",
+      "tokens": 824,
       "history": [
         {
           "ver": 1,
@@ -4961,18 +5453,26 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 785
+        },
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "dynamic_import_resolvers",
+          "action": "mutated",
+          "tokens": 824
         }
       ]
     },
     {
-      "path": "streaming_layer/streaming_layer_orchestrator_seq016_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
+      "path": "streaming_layer/streaming_layer_orchestrator_seq016_v003_d0328__pigeon_extracted_by_compiler_lc_dynamic_import_resolvers.py",
       "name": "streaming_layer_orchestrator",
       "seq": 16,
-      "ver": 2,
-      "date": "0315",
+      "ver": 3,
+      "date": "0328",
       "desc": "pigeon_extracted_by_compiler",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 1253,
+      "intent": "dynamic_import_resolvers",
+      "tokens": 1408,
       "history": [
         {
           "ver": 1,
@@ -4988,6 +5488,14 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 1253
+        },
+        {
+          "ver": 3,
+          "date": "0328",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "dynamic_import_resolvers",
+          "action": "mutated",
+          "tokens": 1408
         }
       ]
     },

@@ -1,30 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-28T04:36:24.012855+00:00",
-      "text": "bg:query_memory.json",
-      "fingerprint": "bgquery_memoryjson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-28T04:37:24.121697+00:00",
-      "text": "bg:query_memory.json",
-      "fingerprint": "bgquery_memoryjson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-28T04:38:24.038642+00:00",
-      "text": "bg:query_memory.json",
-      "fingerprint": "bgquery_memoryjson",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-28T04:39:24.026211+00:00",
-      "text": "bg:query_memory.json",
-      "fingerprint": "bgquery_memoryjson",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-28T04:40:25.024128+00:00",
       "text": "bg:query_memory.json",
       "fingerprint": "bgquery_memoryjson",
@@ -2996,6 +2972,30 @@
     },
     {
       "ts": "2026-03-28T21:56:22.442723+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-28T21:57:25.735689+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-28T21:58:26.454362+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-28T21:59:26.068119+00:00",
+      "text": "bg:LINKROUTER_AI_MAP.md",
+      "fingerprint": "bglinkrouter_ai_mapmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-28T22:00:20.079941+00:00",
       "text": "bg:LINKROUTER_AI_MAP.md",
       "fingerprint": "bglinkrouter_ai_mapmd",
       "submitted": true

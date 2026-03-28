@@ -9,6 +9,12 @@ Usage:
     TelemetryLogger = src_import("logger_seq003", "TelemetryLogger")
     mod = src_import("drift_watcher_seq005")  # returns module
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 
 import importlib
