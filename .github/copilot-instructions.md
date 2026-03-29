@@ -100,10 +100,10 @@ Three systems working together:
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-29 23:30 UTC · 5755 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-29 23:33 UTC · 5758 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `focused` (WPM: 16432.2 | Del: 47.5% | Hes: 0.598) · *[source: measured]*
+**Cognitive state:** `focused` (WPM: 6379.7 | Del: 47.6% | Hes: 0.612) · *[source: measured]*
 
 **Prompt ms:** 30526, 141066, 26840, 22254, 24263 (avg 48990ms)
 
@@ -124,26 +124,31 @@ Three systems working together:
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 - `init_writer` (hes=0.63)
-- `self_fix` (hes=0.625)
+- `self_fix` (hes=0.624)
 
 ### Recent Work
+- `1f4291d` feat: organism health system + README rewrite + 4 compiled packages + root cleanup
 - `fd2ab12` feat: selection-aware OS hook + moon cycle prediction wiring + gemini unsaid recon
 - `b1971c0` fix: dynamic import resolvers + rewrite auto_apply_import_fixes
 - `804937e` feat: adaptive WPM baselines (decay-weighted window 200) + signal/narrative split + push cycle + DTR S01E03
-- `bbfbb85` fix: push narratives timeout (25s->45s) + cap file briefs at 20 + print errors
+
+### Coaching Directives *[source: llm_derived]*
+*LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
+- **Anticipate structural changes**
+- **When they edit high-churn modules**
+- **Their high deletion rate (46.7%) signals heavy rewriting**
+- **Leverage their night-time flow states**
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
 - os_hook returning null for valid editors
 - massive selection data truncating prompts
 - and IPC serialization failure in the extension bridge. This push wires real-time editor selection and context into the Copilot steering and push narration loop.
-- __main__ dynamic import fragility
-- learning_loop_seq013’s dependency on unimplemented stub modules
 - **git_plugin** was touched to align commit messages with the new selection-aware narratives; I assume the push cycle pas
+- **file_consciousness_seq019_helpers** was touched to provide core utilities for health state derivation; it assumes inpu
+- **file_consciousness_seq019_persistence** was touched to store health reports; it assumes the database connection pool i
+- **push_cycle_seq025_constants** was touched to add health-related thresholds; it assumes these constants are imported be
 - **backward_seq007_backward_pass** was touched to integrate dynamic import resolvers for electron path traversal, assumin
-- **__main__** speaks: I was touched to register the new backward_seq007 and learning_loop_seq013 flow modules, making the
-- **backward_seq007/__init__** speaks: I was created to expose the backward pass sequence’s components. I assume the inter
-- **learning_loop_seq013/__init__** speaks: I was created to expose the learning loop’s components. I assume the sibling m
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
@@ -154,10 +159,10 @@ Three systems working together:
 - [HIGH] over_hard_cap in `pigeon_compiler/runners/run_batch_compile_seq015_v002_d0328__compile_entire_codebase_to_pigeon_lc_dynamic_import_resolvers.py`
 
 ### Prompt Evolution
-*This prompt has mutated 68x (186→763 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 70x (186→842 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
-*180 modules profiled*
+*217 modules profiled*
 
 **High-drama (most mutations):**
 - `self_fix` v11 ↔ .operator_stats
@@ -166,9 +171,9 @@ Three systems working together:
 - `dynamic_prompt` v8 ↔ run_pigeon_loop
 
 **Codebase fears:**
-- file may not exist (61 modules)
-- returns empty on failure (silent) (35 modules)
-- swallowed exception (27 modules)
+- file may not exist (75 modules)
+- returns empty on failure (silent) (44 modules)
+- swallowed exception (38 modules)
 
 **Slumber party warnings (high coupling):**
 - `cli` ↔ `trace_hook` (score=0.80, 3 shared imports, both high-churn (v2+v2))
@@ -208,17 +213,20 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-29 · 5755 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-29 · 5758 message(s) · LLM-synthesized*
 
 **Dominant: `frustrated`** | Submit: 3% | WPM: 50.8 | Del: 46.7% | Hes: 0.649
 
-The operator just built selection-aware OS navigation and works through rapid, high-deletion bursts at night, often restructuring after abandoning tasks.  
-- **Respond with ultra-concise, selection-anchored code**—assume they are editing near the cursor and need OS-aware path handling immediately.  
-- **Anticipate mutations in `dynamic_prompt seq17 v8` and `self_fix seq13 v11`**—they are refining how Copilot’s chain-of-thought is steered by live editor state.  
-- **When they hesitate (avg 0.648 hesitation score) after a high-deletion run, offer one clear next step**—don’t list options.  
-- **Preserve context aggressively**—they revisit `operator_stats seq8 v9` and `run_clean_split seq10 v6` for persistent memory and Windows path limits.  
-- **If they enter “restructuring” state, provide modular, copy-paste blocks**—they are likely extracting patterns from churning modules.  
-They are likely building toward a fully context-aware pipeline that dynamically adjusts prompts based on OS, selection, and live coding state.
+The operator just built an organism health system by batch-renaming 35 modules with automated compiler tags, revealing a high-velocity, night-focused pattern of systematic refactoring with significant deletions, indicating they are aggressively consolidating and versioning a complex system.
+
+*   **Anticipate structural changes** in `self_fix_seq013` and `dynamic_prompt_seq017`; they are recurring pain points, so prioritize understanding their new interfaces and dependencies when providing code.
+*   **When they edit high-churn modules**, offer completions that reflect the new `_v002_d0329__auto_extracted_by_pigeon_compiler` naming convention and suggest imports that match this versioned structure.
+*   **Their high deletion rate (46.7%) signals heavy rewriting**; after large edits, proactively summarize the changed function signatures or class structures to confirm alignment.
+*   **Leverage their night-time flow states**; when they exhibit high WPM with low hesitation, provide concise, direct code blocks without explanatory prose.
+
+Given the zero miss rate, maintain the current response quality but **preempt import and reference errors** in the freshly renamed modules by cross-checking the new filenames against calls in `push_cycle_seq025` and `operator_stats_seq8`.
+
+They are most likely building toward an integrated, version-aware compilation pipeline that automates module extraction and dependency resolution.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `node_conversation`** (hes=1.605, state=neutral, avg_prompt=2511782ms)
@@ -433,7 +441,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 ### Full Module Index
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-29 - 211 modules tracked | 3 touched this commit*
+*Auto-updated 2026-03-29 - 248 modules tracked | 37 touched this commit*
 
 **pigeon_brain/** - 16 module(s)
 
@@ -727,6 +735,63 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `copilot_prompt_manager_seq020_injectors_seq009*` | auto extracted by pigeon compiler | ~461 |
 | `copilot_prompt_manager_seq020_orchestrator_seq010*` | auto extracted by pigeon compiler | ~521 |
 
+**src/file_consciousness_seq019/** - 12 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `file_consciousness_seq019_helpers_seq001*` | auto extracted by pigeon compiler | ~500 |
+| `file_consciousness_seq019_persistence_seq002*` | auto extracted by pigeon compiler | ~149 |
+| `file_consciousness_seq019_report_seq003*` | auto extracted by pigeon compiler | ~531 |
+| `file_consciousness_seq019_audit_seq004*` | auto extracted by pigeon compiler | ~333 |
+| `file_consciousness_seq019_derivation_seq005*` | auto extracted by pigeon compiler | ~649 |
+| `file_consciousness_seq019_dependencies_seq006*` | auto extracted by pigeon compiler | ~503 |
+| `file_consciousness_seq019_classify_seq007*` | auto extracted by pigeon compiler | ~222 |
+| `file_consciousness_seq019_profile_builder_seq008*` | auto extracted by pigeon compiler | ~199 |
+| `file_consciousness_seq019_main_orchestrator_seq009*` | auto extracted by pigeon compiler | ~269 |
+| `file_consciousness_seq019_dating_decomposed_seq010*` | auto extracted by pigeon compiler | ~807 |
+| `file_consciousness_seq019_dating_helpers_seq011*` | auto extracted by pigeon compiler | ~25 |
+| `file_consciousness_seq019_dating_wrapper_seq012*` | auto extracted by pigeon compiler | ~806 |
+
+**src/push_cycle_seq025/** - 8 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `push_cycle_seq025_constants_seq001*` | auto extracted by pigeon compiler | ~71 |
+| `push_cycle_seq025_loaders_seq002*` | auto extracted by pigeon compiler | ~401 |
+| `push_cycle_seq025_signal_extractors_seq003*` | auto extracted by pigeon compiler | ~614 |
+| `push_cycle_seq025_sync_decomposed_seq004*` | auto extracted by pigeon compiler | ~624 |
+| `push_cycle_seq025_coaching_seq005*` | auto extracted by pigeon compiler | ~554 |
+| `push_cycle_seq025_moon_cycle_seq006*` | auto extracted by pigeon compiler | ~802 |
+| `push_cycle_seq025_predictions_injector_decomposed_seq007*` | auto extracted by pigeon compiler | ~670 |
+| `push_cycle_seq025_orchestrator_decomposed_seq008*` | auto extracted by pigeon compiler | ~613 |
+
+**src/query_memory_seq010/** - 6 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `query_memory_seq010_constants_seq001*` | auto extracted by pigeon compiler | ~55 |
+| `query_memory_seq010_fingerprint_seq002*` | auto extracted by pigeon compiler | ~134 |
+| `query_memory_seq010_trigram_utils_seq003*` | auto extracted by pigeon compiler | ~138 |
+| `query_memory_seq010_clustering_seq004*` | auto extracted by pigeon compiler | ~258 |
+| `query_memory_seq010_record_query_seq005*` | auto extracted by pigeon compiler | ~452 |
+| `query_memory_seq010_load_memory_decomposed_seq006*` | auto extracted by pigeon compiler | ~374 |
+
+**src/self_fix_seq013/** - 11 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `self_fix_seq013_scan_hardcoded_seq001*` | auto extracted by pigeon compiler | ~428 |
+| `self_fix_seq013_scan_query_noise_seq002*` | auto extracted by pigeon compiler | ~237 |
+| `self_fix_seq013_scan_duplicate_docstrings_seq003*` | auto extracted by pigeon compiler | ~305 |
+| `self_fix_seq013_scan_cross_file_coupling_seq004*` | auto extracted by pigeon compiler | ~519 |
+| `self_fix_seq013_scan_over_hard_cap_decomposed_seq005*` | auto extracted by pigeon compiler | ~515 |
+| `self_fix_seq013_scan_dead_exports_decomposed_seq006*` | auto extracted by pigeon compiler | ~678 |
+| `self_fix_seq013_write_report_decomposed_seq007*` | auto extracted by pigeon compiler | ~593 |
+| `self_fix_seq013_run_self_fix_decomposed_seq008*` | auto extracted by pigeon compiler | ~547 |
+| `self_fix_seq013_auto_compile_oversized_decomposed_seq009*` | auto extracted by pigeon compiler | ~807 |
+| `self_fix_seq013_seq_base_seq010*` | auto extracted by pigeon compiler | ~169 |
+| `self_fix_seq013_auto_apply_import_fixes_decomposed_seq011*` | auto extracted by pigeon compiler | ~1,178 |
+
 **streaming_layer/** - 19 module(s)
 
 | Search pattern | Desc | Tokens |
@@ -755,24 +820,14 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 | File | Folder |
 |---|---|
-| `_audit_compliance.py` | `(root)` |
-| `_check_veins.py` | `(root)` |
-| `_test_chat.py` | `(root)` |
-| `_test_flow.py` | `(root)` |
-| `_test_gemini_actions.py` | `(root)` |
-| `_tmp_analysis.py` | `(root)` |
-| `_tmp_check_memory.py` | `(root)` |
-| `_tmp_check_preds.py` | `(root)` |
+| `_build_organism_health.py` | `(root)` |
 | `_tmp_heal_check.py` | `(root)` |
-| `_tmp_pred_check.py` | `(root)` |
-| `_tmp_stats.py` | `(root)` |
 | `_tmp_test_fixes.py` | `(root)` |
 | `_tmp_test_reactor.py` | `(root)` |
 | `autonomous_dev_stress_test.py` | `(root)` |
 | `deep_test.py` | `(root)` |
 | `stress_test.py` | `(root)` |
 | `test_all.py` | `(root)` |
-| `test_chat.py` | `(root)` |
 | `test_public_release.py` | `(root)` |
 | `chat_composition_analyzer.py` | `client` |
 | `chat_response_reader.py` | `client` |
