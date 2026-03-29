@@ -19,9 +19,10 @@ No human trigger. The 60-second background flush IS the input.
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
+# EDIT_TS:   2026-03-29T01:00:00+00:00
+# EDIT_HASH: auto
+# EDIT_WHY:  fix state loading + active_files bugs
+# EDIT_STATE: harvested
 # ── /pulse ──
 
 import json
@@ -39,13 +40,18 @@ STATE_FILE = 'logs/cognitive_reactor_state.json'
 
 
 def _load_state(root: Path) -> dict:
+    defaults = {'file_streaks': {}, 'last_fire': {}, 'total_fires': 0}
     sp = root / STATE_FILE
     if sp.exists():
         try:
-            return json.loads(sp.read_text('utf-8'))
+            data = json.loads(sp.read_text('utf-8'))
+            if isinstance(data, dict):
+                for k, v in defaults.items():
+                    data.setdefault(k, v)
+                return data
         except Exception:
             pass
-    return {'file_streaks': {}, 'last_fire': {}, 'total_fires': 0}
+    return defaults
 
 
 def _save_state(root: Path, state: dict):
@@ -192,6 +198,9 @@ def _fire_reactor(
             except Exception:
                 pass
 
+    # ── Therapy data: gather rework + composition signals ────────────
+    therapy = _gather_therapy_data(root, module_key)
+
     # Generate cognitive patch via DeepSeek
     patch = _generate_patch(
         module_key, avg_hes, dominant_state, streak['count'],
@@ -209,15 +218,23 @@ def _fire_reactor(
         f'**Triggered**: {timestamp}  \n'
         f'**Reason**: {streak["count"]} consecutive high-load flushes '
         f'(avg hesitation {avg_hes}, dominant state: {dominant_state})  \n'
-        f'**Problems found**: {len(problems)}  \n\n'
-        f'---\n\n'
+        f'**Problems found**: {len(problems)}  \n'
+        f'**Rework misses**: {therapy["miss_count"]}/{therapy["total_rework"]}  \n'
     )
+    if therapy.get('recent_durations_ms'):
+        avg_dur = round(sum(therapy['recent_durations_ms']) / len(therapy['recent_durations_ms']))
+        header += f'**Prompt ms**: {", ".join(str(d) for d in therapy["recent_durations_ms"][:5])} (avg {avg_dur}ms)  \n'
+    header += '\n---\n\n'
     body = patch or '_DeepSeek unavailable — raw problems listed below._\n'
     if not patch and problems:
         body += '\n'.join(
             f'- [{p["severity"]}] {p["type"]}: {p.get("file","")} — {p.get("fix","")}'
             for p in problems
         )
+    # Append therapy notes
+    if therapy['notes']:
+        body += '\n\n## Therapy Notes\n\n' + '\n'.join(
+            f'- {n}' for n in therapy['notes'])
 
     out_path.write_text(header + body + '\n', encoding='utf-8')
 
@@ -227,9 +244,8 @@ def _fire_reactor(
             and avg_hes >= HESITATION_THRESHOLD + 0.1):
         staged = _apply_docstring_patch(root, target_file, module_key, avg_hes, dominant_state)
 
-    # Inject a hint into copilot-instructions if streak was severe
-    if streak['count'] >= FRUSTRATION_STREAK * 2:
-        _inject_cognitive_hint(root, module_key, avg_hes, dominant_state, patch)
+    # Inject therapy into copilot-instructions (always, not just severe)
+    _inject_cognitive_hint(root, module_key, avg_hes, dominant_state, patch, therapy)
 
     return {
         'fired': True,
@@ -239,7 +255,103 @@ def _fire_reactor(
         'problems': len(problems),
         'patch_path': str(out_path.relative_to(root)),
         'staged_docstring_patch': staged,
+        'therapy': therapy,
     }
+
+
+def _gather_therapy_data(root: Path, module_key: str) -> dict:
+    """Read rework log + composition + heat map for data-driven coaching."""
+    therapy = {
+        'miss_count': 0, 'total_rework': 0,
+        'worst_queries': [], 'deleted_words': [],
+        'recent_states': [], 'notes': [],
+        'recent_durations_ms': [],
+    }
+    # Rework log — find misses related to this module
+    try:
+        rw_path = root / 'rework_log.json'
+        if rw_path.exists():
+            rw = json.loads(rw_path.read_text('utf-8'))
+            entries = rw if isinstance(rw, list) else rw.get('entries', [])
+            therapy['total_rework'] = len(entries)
+            for e in entries[-50:]:
+                if e.get('verdict') == 'miss':
+                    therapy['miss_count'] += 1
+                    q = e.get('query', '')[:80]
+                    if q and module_key in q.lower():
+                        therapy['worst_queries'].append(q)
+            # Also collect recent misses regardless of module
+            recent_misses = [e for e in entries[-20:] if e.get('verdict') == 'miss']
+            for m in recent_misses[-3:]:
+                therapy['worst_queries'].append(m.get('query', '')[:80])
+    except Exception:
+        pass
+    # Chat compositions — deleted words (PRIMARY source, updated every flush)
+    try:
+        comp = root / 'logs' / 'chat_compositions.jsonl'
+        if comp.exists():
+            lines = comp.read_text('utf-8').strip().splitlines()[-30:]
+            seen = set()
+            cutoff = time.time() - 600  # only last 10 minutes
+            for line in reversed(lines):  # most recent first
+                try:
+                    c = json.loads(line)
+                    # Skip entries older than 10 minutes
+                    ts_str = c.get('ts', '')
+                    if ts_str:
+                        from datetime import datetime as _dt, timezone as _tz
+                        try:
+                            entry_ts = _dt.fromisoformat(ts_str).timestamp()
+                            if entry_ts < cutoff:
+                                continue
+                        except (ValueError, TypeError):
+                            pass
+                    # Skip entries with no deleted words
+                    dws = c.get('deleted_words', [])
+                    if not dws:
+                        continue
+                    for dw in dws:
+                        w = dw.get('word', '') if isinstance(dw, dict) else str(dw)
+                        if len(w) >= 2 and w not in seen:
+                            seen.add(w)
+                            therapy['deleted_words'].append(w)
+                except Exception:
+                    pass
+            therapy['deleted_words'] = therapy['deleted_words'][:8]
+    except Exception:
+        pass
+    # Composition durations (ms per prompt)
+    try:
+        comp = root / 'logs' / 'chat_compositions.jsonl'
+        if comp.exists():
+            dur_lines = comp.read_text('utf-8').strip().splitlines()[-10:]
+            for line in reversed(dur_lines):
+                try:
+                    c = json.loads(line)
+                    dur = c.get('duration_ms', 0)
+                    if dur and dur > 0:
+                        therapy['recent_durations_ms'].append(int(dur))
+                except Exception:
+                    pass
+            therapy['recent_durations_ms'] = therapy['recent_durations_ms'][:5]
+    except Exception:
+        pass
+    # Build therapy notes
+    if therapy['miss_count'] > 0:
+        rate = round(therapy['miss_count'] / max(therapy['total_rework'], 1) * 100)
+        therapy['notes'].append(
+            f'Rework miss rate: {rate}% ({therapy["miss_count"]}/{therapy["total_rework"]})')
+    if therapy['worst_queries']:
+        therapy['notes'].append(
+            f'Worst queries: {"; ".join(therapy["worst_queries"][:3])}')
+    if therapy['deleted_words']:
+        therapy['notes'].append(
+            f'Unsaid intent (deleted words): {", ".join(str(w) for w in therapy["deleted_words"][:5])}')
+    if therapy['recent_durations_ms']:
+        avg_dur = round(sum(therapy['recent_durations_ms']) / len(therapy['recent_durations_ms']))
+        therapy['notes'].append(
+            f'Prompt composition time: {" / ".join(str(d) + "ms" for d in therapy["recent_durations_ms"][:5])} (avg {avg_dur}ms)')
+    return therapy
 
 
 def _apply_docstring_patch(
@@ -392,9 +504,10 @@ Max 300 words. Be surgical."""
 
 def _inject_cognitive_hint(
     root: Path, module_key: str, avg_hes: float,
-    dominant_state: str, patch: str | None
+    dominant_state: str, patch: str | None,
+    therapy: dict | None = None,
 ):
-    """For severe streaks, inject a one-liner into copilot-instructions."""
+    """Inject data-driven therapy block into copilot-instructions."""
     cp = root / '.github' / 'copilot-instructions.md'
     if not cp.exists():
         return
@@ -403,13 +516,34 @@ def _inject_cognitive_hint(
         marker = '<!-- /pigeon:operator-state -->'
         if marker not in text:
             return
-        hint = (
+        # Remove any previous reactor hints to keep it fresh
+        import re as _re
+        text = _re.sub(
+            r'\n> \*\*Cognitive reactor fired.*?\n(?:> .*\n)*',
+            '', text)
+        # Build therapy block
+        dur_str = ''
+        if therapy and therapy.get('recent_durations_ms'):
+            avg_dur = round(sum(therapy['recent_durations_ms']) / len(therapy['recent_durations_ms']))
+            dur_str = f', avg_prompt={avg_dur}ms'
+        lines = [
             f'\n> **Cognitive reactor fired on `{module_key}`** '
-            f'(hes={avg_hes}, state={dominant_state}). '
-            f'Simplify interactions with this module.\n'
-        )
-        if hint in text:
-            return  # already injected
+            f'(hes={avg_hes}, state={dominant_state}{dur_str})'
+        ]
+        if therapy:
+            if therapy.get('notes'):
+                for n in therapy['notes'][:4]:
+                    lines.append(f'> - {n}')
+            if therapy.get('deleted_words'):
+                lines.append(
+                    f'> - Operator unsaid: '
+                    f'{", ".join(str(w) for w in therapy["deleted_words"][:4])}')
+        lines.append(
+            f'> **Directive**: When `{module_key}` appears in context, '
+            f'provide complete code blocks (not snippets), '
+            f'proactively explain cross-module dependencies, '
+            f'and address the unsaid topics above without being asked.')
+        hint = '\n'.join(lines) + '\n'
         text = text.replace(marker, marker + hint)
         cp.write_text(text, encoding='utf-8')
     except Exception:

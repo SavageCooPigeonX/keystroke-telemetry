@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-28T21:58:06.295361+00:00",
-  "total": 209,
+  "generated": "2026-03-29T16:19:53.169745+00:00",
+  "total": 211,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -4318,14 +4318,14 @@
       ]
     },
     {
-      "path": "src/dynamic_prompt_seq017_v007_d0328__steers_copilot_cot_from_live_lc_dynamic_import_resolvers.py",
+      "path": "src/dynamic_prompt_seq017_v008_d0329__steers_copilot_cot_from_live_lc_selection_aware_os.py",
       "name": "dynamic_prompt",
       "seq": 17,
-      "ver": 7,
-      "date": "0328",
+      "ver": 8,
+      "date": "0329",
       "desc": "steers_copilot_cot_from_live",
-      "intent": "dynamic_import_resolvers",
-      "tokens": 4192,
+      "intent": "selection_aware_os",
+      "tokens": 4458,
       "history": [
         {
           "ver": 7,
@@ -4334,6 +4334,14 @@
           "intent": "dynamic_import_resolvers",
           "tokens": 4192,
           "action": "registered"
+        },
+        {
+          "ver": 8,
+          "date": "0329",
+          "desc": "steers_copilot_cot_from_live",
+          "intent": "selection_aware_os",
+          "action": "mutated",
+          "tokens": 4458
         }
       ]
     },
@@ -4591,6 +4599,26 @@
           "intent": "implement_all_18",
           "action": "mutated",
           "tokens": 2276
+        }
+      ]
+    },
+    {
+      "path": "src/push_cycle_seq025_v002_d0329__the_push_is_the_unit_lc_selection_aware_os.py",
+      "name": "push_cycle",
+      "seq": 25,
+      "ver": 2,
+      "date": "0329",
+      "desc": "the_push_is_the_unit",
+      "intent": "selection_aware_os",
+      "tokens": 4339,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0329",
+          "desc": "the_push_is_the_unit",
+          "intent": "selection_aware_os",
+          "tokens": 4339,
+          "action": "registered"
         }
       ]
     },
@@ -5008,6 +5036,26 @@
           "intent": "trigger_pigeon_rename",
           "action": "mutated",
           "tokens": 156
+        }
+      ]
+    },
+    {
+      "path": "src/unsaid_recon_seq024_v002_d0329__fires_on_high_deletion_prompts_lc_selection_aware_os.py",
+      "name": "unsaid_recon",
+      "seq": 24,
+      "ver": 2,
+      "date": "0329",
+      "desc": "fires_on_high_deletion_prompts",
+      "intent": "selection_aware_os",
+      "tokens": 1112,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0329",
+          "desc": "fires_on_high_deletion_prompts",
+          "intent": "selection_aware_os",
+          "tokens": 1112,
+          "action": "registered"
         }
       ]
     },

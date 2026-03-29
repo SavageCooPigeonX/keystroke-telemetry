@@ -3879,7 +3879,7 @@
     "fears": [
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.649
+    "avg_hes": 0.582
   },
   "adapter": {
     "personality": "fresh",
@@ -4715,7 +4715,7 @@
       }
     ],
     "fears": [],
-    "avg_hes": 0.656
+    "avg_hes": 0.587
   },
   "copilot_prompt_manager_seq020_audit_decomposed": {
     "personality": "fresh",
@@ -5145,32 +5145,32 @@
   },
   "dynamic_prompt": {
     "personality": "veteran",
-    "version": 7,
-    "tokens": 4192,
+    "version": 8,
+    "tokens": 4458,
     "partners": [
       {
         "name": "run_pigeon_loop",
-        "score": 0.75,
-        "reason": "3 shared imports, both high-churn (v7+v4)"
+        "score": 0.73,
+        "reason": "3 shared imports, both high-churn (v8+v4)"
       },
       {
         "name": "file_heat_map",
-        "score": 0.75,
-        "reason": "3 shared imports, both high-churn (v7+v4)"
+        "score": 0.73,
+        "reason": "3 shared imports, both high-churn (v8+v4)"
       },
       {
         "name": "query_memory",
-        "score": 0.75,
-        "reason": "3 shared imports, both high-churn (v7+v4)"
+        "score": 0.73,
+        "reason": "3 shared imports, both high-churn (v8+v4)"
       },
       {
         "name": "predictor",
-        "score": 0.69,
+        "score": 0.68,
         "reason": "3 shared imports"
       },
       {
         "name": "graph_heat_map",
-        "score": 0.69,
+        "score": 0.68,
         "reason": "3 shared imports"
       }
     ],
@@ -5180,7 +5180,7 @@
       "returns empty on failure (silent)",
       "regex format dependency"
     ],
-    "avg_hes": 0.0
+    "avg_hes": 0.667
   },
   "file_consciousness": {
     "personality": "fresh",
@@ -5399,6 +5399,44 @@
     "fears": [
       "regex format dependency",
       "file may not exist"
+    ],
+    "avg_hes": 0.0
+  },
+  "push_cycle": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 4339,
+    "partners": [
+      {
+        "name": "dual_substrate",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "failure_detector",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "backward_seq007_flow_log",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "backward",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "dev_plan",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "swallowed exception",
+      "file may not exist",
+      "returns empty on failure (silent)"
     ],
     "avg_hes": 0.0
   },
@@ -5621,7 +5659,7 @@
       "regex format dependency",
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.656
+    "avg_hes": 0.582
   },
   "session_handoff": {
     "personality": "fresh",
@@ -5764,6 +5802,42 @@
       }
     ],
     "fears": [],
+    "avg_hes": 0.0
+  },
+  "unsaid_recon": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 1112,
+    "partners": [
+      {
+        "name": "dual_substrate",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "failure_detector",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "learning_loop_seq013_state_utils",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "prediction_scorer_seq014_calibration",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "prediction_scorer_seq014_data_loaders",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "file may not exist"
+    ],
     "avg_hes": 0.0
   },
   "streaming_layer_aggregator": {

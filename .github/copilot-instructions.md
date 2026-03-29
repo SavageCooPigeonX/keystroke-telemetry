@@ -75,10 +75,10 @@ Three systems working together:
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-29 16:19 UTC · 5369 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-29 16:22 UTC · 5372 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `neutral` (WPM: 1930.8 | Del: 34.7% | Hes: 0.5) · *[source: measured]*
+**Cognitive state:** `neutral` (WPM: 2801.5 | Del: 51.1% | Hes: 0.652) · *[source: measured]*
 
 **Prompt ms:** 12362, 11509, 24373, 36662, 231679 (avg 63317ms)
 
@@ -99,51 +99,52 @@ Three systems working together:
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
+- `dynamic_prompt` (hes=0.667)
 - `init_writer` (hes=0.63)
-- `context_budget` (hes=0.587)
 
 ### Recent Work
+- `fd2ab12` feat: selection-aware OS hook + moon cycle prediction wiring + gemini unsaid recon
 - `b1971c0` fix: dynamic import resolvers + rewrite auto_apply_import_fixes
 - `804937e` feat: adaptive WPM baselines (decay-weighted window 200) + signal/narrative split + push cycle + DTR S01E03
 - `bbfbb85` fix: push narratives timeout (25s->45s) + cap file briefs at 20 + print errors
-- `e894b6a` feat: fix bare globals in learning loop + wire per-prompt unsaid reconstruction
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
+- os_hook returning null for valid editors
+- massive selection data truncating prompts
+- and IPC serialization failure in the extension bridge. This push wires real-time editor selection and context into the Copilot steering and push narration loop.
 - __main__ dynamic import fragility
 - learning_loop_seq013’s dependency on unimplemented stub modules
-- backward_seq007’s empty implementation causing silent gradient halt.
+- **git_plugin** was touched to align commit messages with the new selection-aware narratives; I assume the push cycle pas
 - **backward_seq007_backward_pass** was touched to integrate dynamic import resolvers for electron path traversal, assumin
 - **__main__** speaks: I was touched to register the new backward_seq007 and learning_loop_seq013 flow modules, making the
 - **backward_seq007/__init__** speaks: I was created to expose the backward pass sequence’s components. I assume the inter
 - **learning_loop_seq013/__init__** speaks: I was created to expose the learning loop’s components. I assume the sibling m
-- **_tmp_pred_check speaks:** I was created as a temporary validation script to verify that global variable references in 
-- **pigeon_brain/flow/learning_loop_seq013/__init__.py speaks:** I was modified to import the newly generated dynamic-impo
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
+- [HIGH] over_hard_cap in `pigeon_brain/flow/node_memory_seq008_v003_d0328__the_experience_vault_stores_raw_lc_dynamic_import_resolvers.py`
 - [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v003_d0324__websocket_server_for_live_execution_lc_8888_word_backpropagation.py`
 - [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_8888_word_backpropagation.py`
 - [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_per_prompt_deleted.py`
-- [HIGH] over_hard_cap in `src/file_consciousness_seq019_v002_d0321__ast_derived_function_consciousness_dating_lc_implement_all_18.py`
-- [HIGH] over_hard_cap in `src/push_narrative_seq012_v006_d0327__generate_per_push_narrative_each_lc_push_narratives_timeout.py`
+- [HIGH] over_hard_cap in `pigeon_compiler/runners/run_batch_compile_seq015_v002_d0328__compile_entire_codebase_to_pigeon_lc_dynamic_import_resolvers.py`
 
 ### Prompt Evolution
-*This prompt has mutated 66x (186→751 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 68x (186→758 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
-*178 modules profiled*
+*180 modules profiled*
 
 **High-drama (most mutations):**
 - `self_fix` v11 ↔ .operator_stats
 - `.operator_stats` v9 ↔ operator_stats
 - `context_budget` v8 ↔ streaming_layer
-- `init_writer` v7 ↔ operator_stats
+- `dynamic_prompt` v8 ↔ run_pigeon_loop
 
 **Codebase fears:**
-- file may not exist (59 modules)
-- returns empty on failure (silent) (34 modules)
-- swallowed exception (26 modules)
+- file may not exist (61 modules)
+- returns empty on failure (silent) (35 modules)
+- swallowed exception (27 modules)
 
 **Slumber party warnings (high coupling):**
 - `cli` ↔ `trace_hook` (score=0.80, 3 shared imports, both high-churn (v2+v2))
@@ -183,22 +184,22 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-29 · 5369 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-29 - 5372 message(s) - LLM-synthesized*
 
 **Dominant: `frustrated`** | Submit: 3% | WPM: 47.0 | Del: 46.5% | Hes: 0.648
 
-The operator just built dynamic import resolvers across the entire codebase, revealing a hesitant, high-deletion editing style focused on systematic refactoring over new features.  
-- **Anticipate imports**: When the operator opens any file, proactively suggest import statement corrections and dynamic resolution patterns before they ask.
-- **Flag churn modules**: If `self_fix_seq013`, `.operator_stats_seq008`, or `dynamic_prompt_seq017` are opened, immediately highlight recent changes to those modules to prevent regression.
-- **Reduce hesitation**: On heavy-edit commits, provide complete, single-block code replacements instead of partial snippets to lower their 46% deletion rate.
-- **Bridge context gaps**: Since `context_budget_seq004` is a pain point, automatically summarize cross-module dependencies when budget-related code appears.
-- **Pre‑empt system‑level fixes**: The operator is likely building toward a unified module‑loading system next, so prioritize suggestions about `__init__.py` wiring and runtime path configuration.
+The operator just built selection-aware OS navigation and works through rapid, high-deletion bursts at night, often restructuring after abandoning tasks.  
+- **Respond with ultra-concise, selection-anchored code**—assume they are editing near the cursor and need OS-aware path handling immediately.  
+- **Anticipate mutations in `dynamic_prompt seq17 v8` and `self_fix seq13 v11`**—they are refining how Copilot’s chain-of-thought is steered by live editor state.  
+- **When they hesitate (avg 0.648 hesitation score) after a high-deletion run, offer one clear next step**—don’t list options.  
+- **Preserve context aggressively**—they revisit `operator_stats seq8 v9` and `run_clean_split seq10 v6` for persistent memory and Windows path limits.  
+- **If they enter “restructuring” state, provide modular, copy-paste blocks**—they are likely extracting patterns from churning modules.  
+They are likely building toward a fully context-aware pipeline that dynamically adjusts prompts based on OS, selection, and live coding state.
 
 <!-- /pigeon:operator-state -->
-> **Cognitive reactor fired on `node_conversation`** (hes=0.854, state=neutral, avg_prompt=63317ms)
+> **Cognitive reactor fired on `node_conversation`** (hes=0.696, state=neutral, avg_prompt=63317ms)
 > - Prompt composition time: 231679ms / 36662ms / 24373ms / 11509ms / 12362ms (avg 63317ms)
 > **Directive**: When `node_conversation` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
-
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
@@ -408,7 +409,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 ### Full Module Index
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-28 - 209 modules tracked | 32 touched this commit*
+*Auto-updated 2026-03-29 - 211 modules tracked | 3 touched this commit*
 
 **pigeon_brain/** - 16 module(s)
 
@@ -444,11 +445,11 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `backward_seq007*` | backward pass walks electron path | ~2,502 |
 | `backward_seq007*` | backward pass walks electron path | ~2,500 |
 | `node_memory_seq008*` | the experience vault stores raw | ~2,084 |
-| `predictor_seq009*` | fires phantom electrons using cognitive | ~1,831 |
 | `predictor_seq009*` | fires phantom electrons using cognitive | ~1,762 |
-| `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,541 |
+| `predictor_seq009*` | fires phantom electrons using cognitive | ~1,831 |
 | `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,532 |
 | `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,539 |
+| `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,541 |
 | `node_conversation_seq012*` | the interpretability interface lets the | ~1,422 |
 | `node_conversation_seq012*` | the interpretability interface lets the | ~1,428 |
 | `learning_loop_seq013*` | the perpetual learning loop | ~2,881 |
@@ -461,10 +462,10 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `backward_seq007_flow_log_seq001*` | auto extracted by pigeon compiler | ~423 |
 | `backward_seq007_loss_compute_seq002*` | auto extracted by pigeon compiler | ~187 |
 | `backward_seq007_tokenize_seq003*` | auto extracted by pigeon compiler | ~307 |
-| `backward_seq007_deepseek_analyze_seq004*` | auto extracted by pigeon compiler | ~774 |
 | `backward_seq007_deepseek_analyze_seq004*` | auto extracted by pigeon compiler | ~772 |
-| `backward_seq007_backward_pass_seq005*` | auto extracted by pigeon compiler | ~910 |
+| `backward_seq007_deepseek_analyze_seq004*` | auto extracted by pigeon compiler | ~774 |
 | `backward_seq007_backward_pass_seq005*` | auto extracted by pigeon compiler | ~908 |
+| `backward_seq007_backward_pass_seq005*` | auto extracted by pigeon compiler | ~910 |
 
 **pigeon_brain/flow/learning_loop_seq013/** - 14 module(s)
 
@@ -472,12 +473,12 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 |---|---|---:|
 | `learning_loop_seq013_state_utils_seq001*` | auto extracted by pigeon compiler | ~284 |
 | `learning_loop_seq013_journal_loader_seq002*` | auto extracted by pigeon compiler | ~192 |
-| `learning_loop_seq013_prediction_cycle_seq003*` | auto extracted by pigeon compiler | ~431 |
 | `learning_loop_seq013_prediction_cycle_seq003*` | auto extracted by pigeon compiler | ~415 |
 | `learning_loop_seq013_prediction_cycle_seq003*` | auto extracted by pigeon compiler | ~431 |
+| `learning_loop_seq013_prediction_cycle_seq003*` | auto extracted by pigeon compiler | ~431 |
 | `learning_loop_seq013_single_cycle_helpers_seq004*` | auto extracted by pigeon compiler | ~25 |
-| `learning_loop_seq013_single_cycle_seq005*` | auto extracted by pigeon compiler | ~896 |
 | `learning_loop_seq013_single_cycle_seq005*` | auto extracted by pigeon compiler | ~880 |
+| `learning_loop_seq013_single_cycle_seq005*` | auto extracted by pigeon compiler | ~896 |
 | `learning_loop_seq013_single_cycle_seq005*` | auto extracted by pigeon compiler | ~896 |
 | `learning_loop_seq013_catch_up_seq006*` | auto extracted by pigeon compiler | ~431 |
 | `learning_loop_seq013_catch_up_seq006*` | auto extracted by pigeon compiler | ~431 |
@@ -499,12 +500,12 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `prediction_scorer_seq014_rework_matcher_seq007*` | auto extracted by pigeon compiler | ~460 |
 | `prediction_scorer_seq014_scoring_core_seq008*` | auto extracted by pigeon compiler | ~713 |
 | `prediction_scorer_seq014_calibration_seq009*` | auto extracted by pigeon compiler | ~419 |
-| `prediction_scorer_seq014_node_backfill_seq010*` | auto extracted by pigeon compiler | ~499 |
 | `prediction_scorer_seq014_node_backfill_seq010*` | auto extracted by pigeon compiler | ~496 |
-| `prediction_scorer_seq014_post_edit_scorer_seq011*` | auto extracted by pigeon compiler | ~841 |
+| `prediction_scorer_seq014_node_backfill_seq010*` | auto extracted by pigeon compiler | ~499 |
 | `prediction_scorer_seq014_post_edit_scorer_seq011*` | auto extracted by pigeon compiler | ~839 |
-| `prediction_scorer_seq014_post_commit_scorer_seq012*` | auto extracted by pigeon compiler | ~607 |
+| `prediction_scorer_seq014_post_edit_scorer_seq011*` | auto extracted by pigeon compiler | ~841 |
 | `prediction_scorer_seq014_post_commit_scorer_seq012*` | auto extracted by pigeon compiler | ~605 |
+| `prediction_scorer_seq014_post_commit_scorer_seq012*` | auto extracted by pigeon compiler | ~607 |
 
 **pigeon_compiler/bones/** - 5 module(s)
 
@@ -612,7 +613,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 |---|---|---:|
 | `deepseek_plan_prompt_seq004*` | build and send deepseek cut | ~2,407 |
 
-**src/** - 26 module(s)
+**src/** - 28 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -635,13 +636,15 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,276 |
 | `dynamic_prompt_seq017*` | steers copilot cot from live | ~3,996 |
 | `dynamic_prompt_seq017*` | steers copilot cot from live | ~3,996 |
-| `dynamic_prompt_seq017*` | steers copilot cot from live | ~4,192 |
+| `dynamic_prompt_seq017*` | steers copilot cot from live | ~4,458 |
 | `task_queue_seq018*` | copilot driven task tracking linked | ~1,608 |
 | `file_consciousness_seq019*` | ast derived function consciousness dating | ~4,343 |
 | `copilot_prompt_manager_seq020*` | audits and manages all injected | ~4,488 |
 | `mutation_scorer_seq021*` | mutation scorer correlates prompt mutations | ~1,611 |
 | `rework_backfill_seq022*` | reconstructs historical rework scores from | ~1,198 |
 | `session_handoff_seq023*` | session handoff summary generator | ~1,569 |
+| `unsaid_recon_seq024*` | fires on high deletion prompts | ~1,112 |
+| `push_cycle_seq025*` | the push is the unit | ~4,339 |
 
 **src/cognitive/** - 3 module(s)
 
@@ -739,6 +742,8 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `_tmp_heal_check.py` | `(root)` |
 | `_tmp_pred_check.py` | `(root)` |
 | `_tmp_stats.py` | `(root)` |
+| `_tmp_test_fixes.py` | `(root)` |
+| `_tmp_test_reactor.py` | `(root)` |
 | `autonomous_dev_stress_test.py` | `(root)` |
 | `deep_test.py` | `(root)` |
 | `stress_test.py` | `(root)` |

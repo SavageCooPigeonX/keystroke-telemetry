@@ -17,9 +17,9 @@ a compact operator profile that sharpens with every message.
 # SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-27T20:00:00+00:00
+# EDIT_TS:   2026-03-29T06:00:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  fix stale baselines: remove submitted filter, add decay
+# EDIT_WHY:  fix degenerate classifier: SD floors + pause thresholds
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -153,9 +153,11 @@ def classify_state(msg: dict, baselines: dict | None = None) -> str:
         avg_wpm = baselines["avg_wpm"]
         avg_del = baselines["avg_del"]
         avg_hes = baselines["avg_hes"]
-        sd_wpm = max(baselines["sd_wpm"], 1.0)
-        sd_del = max(baselines["sd_del"], 0.01)
-        sd_hes = max(baselines["sd_hes"], 0.01)
+        # SD floors prevent z-score collapse when population converges.
+        # Without these, a tight distribution makes ALL messages look identical.
+        sd_wpm = max(baselines["sd_wpm"], 10.0)
+        sd_del = max(baselines["sd_del"], 0.06)
+        sd_hes = max(baselines["sd_hes"], 0.10)
 
         # z-scores relative to operator's own norms
         z_wpm = (wpm - avg_wpm) / sd_wpm
@@ -163,10 +165,11 @@ def classify_state(msg: dict, baselines: dict | None = None) -> str:
         z_hes = (hes - avg_hes) / sd_hes
 
         # frustrated: significantly more hesitation/deletion than their norm
-        if z_hes > 1.2 or (z_del > 1.0 and pause_ratio > 0.25):
+        if z_hes > 1.2 or (z_del > 1.0 and pause_ratio > 0.40):
             return "frustrated"
         # hesitant: above-normal pausing/hesitation
-        if z_hes > 0.8 or pause_ratio > 0.35:
+        # pause_ratio threshold raised from 0.35 — natural typing easily exceeds 35% pause
+        if z_hes > 0.8 or (pause_ratio > 0.55 and z_hes > 0.3):
             return "hesitant"
         # flow: significantly faster than their norm, low error
         if z_wpm > 0.8 and z_del < -0.5 and z_hes < -0.5:
