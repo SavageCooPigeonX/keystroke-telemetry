@@ -1,0 +1,7 @@
+"""file_consciousness_seq019/ — Pigeon-compliant module."""
+from .file_consciousness_seq019_audit_seq004_v001 import slumber_party_audit
+from .file_consciousness_seq019_dating_decomposed_seq010_v001 import build_dating_profiles
+from .file_consciousness_seq019_dating_wrapper_seq012_v001 import build_dating_profiles
+from .file_consciousness_seq019_main_orchestrator_seq009_v001 import build_file_consciousness
+from .file_consciousness_seq019_persistence_seq002_v001 import load_profiles, save_profiles
+from .file_consciousness_seq019_report_seq003_v001 import consciousness_report

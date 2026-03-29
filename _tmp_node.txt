@@ -1,9 +1,0 @@
-{
-  "name": "file_heat_map",
-  "path": "src/file_heat_map_seq011_v004_d0317__tracks_cognitive_load_per_module_lc_pulse_telemetry_prompt.py",
-  "ver": 4,
-  "tokens": 1347,
-  "dual_score": 0.355,
-  "in_degree": 1,
-  "out_degree": 1
-}

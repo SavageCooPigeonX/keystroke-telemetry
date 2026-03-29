@@ -249,7 +249,7 @@ def request_cut_plan(ether_map: dict, source_code: str,
     from pigeon_compiler.integrations.deepseek_adapter_seq001_v006_d0322__deepseek_api_client_lc_stage_78_hook import deepseek_query
 
     prompt = build_plan_prompt(ether_map, source_code, folder_name, exclude_symbols=exclude_symbols)
-    result = deepseek_query(prompt, max_tokens=2000)
+    result = deepseek_query(prompt, max_tokens=8000)
 
     # Post-validation of the plan
     content = result.get("content", "")

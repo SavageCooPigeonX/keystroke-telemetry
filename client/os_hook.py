@@ -423,6 +423,18 @@ class KeystrokeRecorder:
             composition = mod.analyze_and_log(root)
         except Exception as e:
             _err_log.write_text(f'compose: {e}\n', encoding='utf-8')
+
+        # 1.5 Populate prompt journal from composition (feeds push cycle)
+        if composition:
+            try:
+                self._write_journal_entry(root, composition)
+            except Exception as e:
+                try:
+                    with open(_err_log, 'a', encoding='utf-8') as ef:
+                        ef.write(f'journal: {e}\n')
+                except Exception:
+                    pass
+
         # 2. Reconstruct unsaid intent if high deletion ratio
         if composition:
             try:
@@ -450,6 +462,107 @@ class KeystrokeRecorder:
         except Exception as e:
             import traceback
             _err_log.write_text(f'inject: {e}\n{traceback.format_exc()}', encoding='utf-8')
+
+    def _write_journal_entry(self, root: Path, composition: dict):
+        """Write a prompt_journal entry directly from composition data.
+
+        This ensures the journal is populated automatically on every Enter,
+        without depending on the copilot prompt_journal command being run.
+        The push cycle's backward pass reads from this journal.
+        """
+        import hashlib
+        from datetime import datetime, timezone
+
+        now = datetime.now(timezone.utc)
+        final_text = composition.get('final_text', '')
+        if not final_text.strip():
+            return
+
+        signals = {
+            'wpm': composition.get('wpm', 0),
+            'chars_per_sec': composition.get('chars_per_sec', 0),
+            'deletion_ratio': composition.get('deletion_ratio', 0),
+            'hesitation_count': len(composition.get('hesitation_windows', [])),
+            'rewrite_count': len(composition.get('rewrites', [])),
+            'typo_corrections': composition.get('typo_corrections', 0),
+            'intentional_deletions': composition.get('intentional_deletions', 0),
+            'total_keystrokes': composition.get('total_keystrokes', 0),
+            'duration_ms': composition.get('duration_ms', 0),
+        }
+
+        # Simple intent classification from text
+        text_lower = final_text.lower()
+        if any(w in text_lower for w in ('fix', 'bug', 'error', 'broken', 'wrong')):
+            intent = 'debugging'
+        elif any(w in text_lower for w in ('add', 'create', 'build', 'implement', 'wire', 'new')):
+            intent = 'building'
+        elif any(w in text_lower for w in ('refactor', 'rename', 'move', 'split', 'restructure')):
+            intent = 'restructuring'
+        elif any(w in text_lower for w in ('test', 'verify', 'check', 'run')):
+            intent = 'testing'
+        elif any(w in text_lower for w in ('why', 'how', 'what', 'explain', 'analyze')):
+            intent = 'exploring'
+        else:
+            intent = 'unknown'
+
+        # Cognitive state from signals
+        del_ratio = signals['deletion_ratio']
+        hes_count = signals['hesitation_count']
+        wpm = signals['wpm']
+        if del_ratio > 0.4 or hes_count > 5:
+            cog_state = 'frustrated'
+        elif del_ratio > 0.2 or hes_count > 2:
+            cog_state = 'hesitant'
+        elif wpm > 60 and del_ratio < 0.1:
+            cog_state = 'focused'
+        elif wpm > 0:
+            cog_state = 'neutral'
+        else:
+            cog_state = 'unknown'
+
+        # Extract deleted words
+        deleted_words = []
+        for dw in composition.get('deleted_words', []):
+            if isinstance(dw, dict):
+                deleted_words.append(dw.get('word', ''))
+            elif isinstance(dw, str):
+                deleted_words.append(dw)
+
+        # Module references from text
+        import re
+        module_refs = re.findall(r'\b(\w+_seq\d+)\b', final_text)
+
+        # Session tracking
+        journal_path = root / 'logs' / 'prompt_journal.jsonl'
+        session_n = 0
+        if journal_path.exists():
+            try:
+                lines = journal_path.read_text('utf-8').strip().splitlines()
+                if lines:
+                    last = json.loads(lines[-1])
+                    session_n = last.get('session_n', 0)
+            except Exception:
+                pass
+        session_n += 1
+
+        entry = {
+            'ts': now.isoformat(),
+            'session_n': session_n,
+            'session_id': hashlib.md5(now.date().isoformat().encode()).hexdigest()[:12],
+            'msg': final_text,
+            'intent': intent,
+            'cognitive_state': cog_state,
+            'signals': signals,
+            'deleted_words': deleted_words,
+            'rewrites': [{'old': r.get('old', ''), 'new': r.get('new', '')}
+                         for r in composition.get('rewrites', [])],
+            'module_refs': module_refs,
+            'source': 'os_hook_auto',
+        }
+
+        journal_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(journal_path, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(entry) + '\n')
 
     def on_release(self, key):
         if not self._running:

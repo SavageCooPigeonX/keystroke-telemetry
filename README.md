@@ -1,33 +1,33 @@
 ﻿# keystroke-telemetry
 
-> **Five systems. One closed loop. Zero LLM calls for the core signal. A real-time neural visualizer that watches itself think. Context-accumulating intelligence packets flow through the code graph. And it reads your deleted thoughts before it starts working.**
+> **Six systems. One organism. Zero LLM calls for the core signal. The codebase is alive — it has a circulatory system, a nervous system, a memory, and it diagnoses its own clots in real time. It reads your deleted thoughts before it starts working. It predicts which modules will break you next. And it injects its own health status into the AI's reasoning on every single prompt.**
 >
-> Keystroke patterns reveal cognitive state → cognitive state steers Copilot's chain-of-thought → AI behavior adapts in real time → rework detection measures if it worked → Pigeon Brain watches the whole thing happen live, lights up the call graph, and tells you where both you and the AI are dying. The Flow Engine routes intelligence packets through the graph — nodes wake up, contribute warnings, and the signal amplifies or decays along import-health edges. Every prompt's deleted words are injected into Copilot's context before it writes a single line.
+> Keystroke patterns reveal cognitive state → cognitive state steers Copilot's chain-of-thought → AI behavior adapts in real time → rework detection measures if it worked → Pigeon Brain watches the whole thing happen live as a neural graph → the Organism Health layer synthesizes all 16 data pipelines into a live diagnostic that Copilot reads before writing a single line. If a pipeline goes stale, the organism knows. If a module clots, the organism flags it. If you hesitate for 3 seconds on a file, the organism remembers.
 
 ---
 
-## Status (2026-03-28)
+## Status (2026-03-30)
 
-The self-compiling loop is live and chewing through its own codebase. Pigeon Brain is online — 137 neurons mapped, 260 edges, dual-substrate heat flowing, WebSocket trace server broadcasting at 20Hz. The Flow Engine routes context-accumulating intelligence packets through the code graph across 3 modes (targeted/heat/failure). Keystroke deleted word pipeline is live — every prompt's unsaid thoughts are captured before Copilot starts reasoning. Context veins score the import graph health and surface self-trim recommendations.
+The organism is online. 448 Python files across 8 packages — 87% pigeon-compliant (389/448). 16 data pipelines flowing. 57 prompts profiled. The codebase diagnoses its own clots and injects live health into every Copilot prompt via `<!-- pigeon:organism-health -->`. Four new modules compiled this session via the actual pigeon compiler + DeepSeek ($0.005 total). Root directory purged of 20 dead files. MANIFEST.md is now a living organism health dashboard, not a static file listing.
 
 | Phase | Status |
 |---|---|
 | Keystroke capture + cognitive state classification | ✅ Live |
 | **Deleted word capture (per-prompt)** | **✅ Live — bound to composition, injected into CoT** |
 | **Predictive debug from prompt history** | **✅ Live — pattern mining: frustration→module, build→debug cycles** |
+| **Organism health — live-injected into Copilot prompt** | **✅ Live — 16 pipelines, clot/stale/death diagnosis** |
+| **OS hook auto-journal** | **✅ Live — journal populates on every Enter keystroke** |
 | Post-commit telemetry pipeline (12 injected sections) | ✅ Live |
 | Pigeon Compiler — DeepSeek cut plan + AST bin-packing | ✅ Live |
 | Auto-compile on commit (self_fix triggers `run_clean_split`) | ✅ Live |
-| Self-healing exclusion logic (vscode-ext / client / orchestrators) | ✅ Live |
-| Codebase auto-refactoring loop (2 files per commit, ~$0.001 each) | ✅ Running |
+| Codebase auto-refactoring loop (~$0.001 per file) | ✅ Running |
 | **Context veins — import graph health + self-trim** | **✅ Live (137 nodes, 4 clots, 21 arteries)** |
 | **Flow Engine — context-accumulating dataflow** | **✅ Live (6 modules, 3 routing modes, multi-perspective merge)** |
 | **Pigeon Brain — dual-substrate neural visualizer** | **✅ Live** |
 | **Live execution tracing via sys.settrace** | **✅ Live** |
-| **WebSocket real-time event broadcast** | **✅ Live** |
 | **React graph UI with profiler cards** | **✅ Live** |
-| Compiled so far | `compliance_seq008` → 12f, `heal_seq009` → 6f, `manifest_builder_seq007` → 32f, `nametag_seq011` → 9f |
-| Remaining over-cap targets | 11 files (~$0.013 total to finish) |
+| Compiled packages | `compliance` → 12f, `heal` → 6f, `manifest_builder` → 32f, `nametag` → 9f, **`push_cycle` → 9f**, **`self_fix` → 12f**, **`file_consciousness` → 13f**, **`query_memory` → 7f** |
+| Remaining over-cap targets | 16 files (mostly monoliths + orchestrators) |
 | **Pigeon Code Compilor — standalone open-source tool** | **✅ Released (`pip install pigeon-code-compilor`)** |
 | AI response capture (UIA → rework triple) | 🟨 Planned |
 
@@ -37,17 +37,53 @@ The self-compiling loop is live and chewing through its own codebase. Pigeon Bra
 
 This is a system that **reads your mind through your fingers**, **rewires the AI's reasoning in real time**, **refactors its own source code autonomously**, **visualizes the entire thing as a living neural network that lights up when you run code through it**, and **routes context-accumulating intelligence packets through the code graph to surface what matters**.
 
-Five systems working in concert:
+Six systems working in concert:
 
-1. **Keystroke Telemetry** — captures typing patterns (pauses, deletions, rewrites, abandons) in LLM chat UIs, classifies operator cognitive state in real time, reconstructs unsaid thoughts, detects cross-session drift. Zero LLM calls — pure signal processing. **Now with per-prompt deleted word binding** — Copilot sees what you deleted before it starts thinking.
+1. **Keystroke Telemetry** — captures typing patterns (pauses, deletions, rewrites, abandons) in LLM chat UIs, classifies operator cognitive state in real time, reconstructs unsaid thoughts, detects cross-session drift. Zero LLM calls — pure signal processing. Per-prompt deleted word binding — Copilot sees what you deleted before it starts thinking. **OS hook auto-populates the journal on every Enter keystroke** — no manual logging required.
 
-2. **Pigeon Code Compiler** — autonomous code decomposition engine. Enforces LLM-readable file sizes (≤200 lines hard cap, ≤50 lines target). Filenames carry living metadata — they mutate on every commit. The codebase refactors itself. **The rename engine has been extracted as a standalone open-source tool:** [`pigeon-code-compilor`](https://myaifingerprint.com) — a semantic compiler for repository structure. `pip install pigeon-code-compilor`.
+2. **Pigeon Code Compiler** — autonomous code decomposition engine. Enforces LLM-readable file sizes (≤200 lines hard cap, ≤50 lines target). Filenames carry living metadata — they mutate on every commit. The codebase refactors itself. **8 packages compiled so far** (100+ new files from 8 monoliths, total DeepSeek cost: ~$0.01). The rename engine is a standalone open-source tool: [`pigeon-code-compilor`](https://myaifingerprint.com) — `pip install pigeon-code-compilor`.
 
-3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations, **codebase health veins/clots**, **predictive debug scores**) and generates a context block that steers how Copilot reasons. Self-updates on every commit and every prompt.
+3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations, codebase health veins/clots, predictive debug scores, **organism health diagnostics**) and generates context blocks that steer how Copilot reasons. Self-updates on every commit and every prompt.
 
 4. **Pigeon Brain** — dual-substrate execution observation layer. Maps every module in the codebase as a neuron in a graph (**137 nodes, 260 edges**). Tracks where humans hesitate AND where AI agents die. Overlays both heat maps on the same visualization. Real-time `sys.settrace` instrumentation lights up edges and cards as actual function calls flow through the system. **Context veins** score import graph health and flag dead/bloated modules for self-trimming.
 
 5. **Flow Engine** — context-accumulating dataflow through the code graph. A `ContextPacket` starts at any module and routes through dependencies. At each node, modules "wake up" if relevant and contribute intelligence (risks, warnings, fears). Edges amplify or decay signal based on vein health. Three routing modes — **targeted** (dependency chains), **heat** (dual-score hotspots), **failure** (death signals) — can run independently or merge via multi-perspective synthesis. Zero LLM calls — pure graph traversal + pattern matching.
+
+6. **Organism Health** — the codebase treated as a living organism. 16 data pipelines are its blood flow. Module compliance is its structural integrity. Context veins are its circulatory system. Clots are diagnosed. Stale pipelines turn red. AI rework rate is the immune response. The condensed health diagnostic is **injected directly into Copilot's prompt** via `<!-- pigeon:organism-health -->` — so the AI reasons with awareness of which parts of the codebase are healthy and which are dying. Full dashboard in `MANIFEST.md`, regenerated by `py _build_organism_health.py`.
+
+---
+
+## Organism Health: The Codebase Is Alive
+
+**This is the part that makes this repo an organism, not a project.**
+
+Every data pipeline in this codebase — 16 of them — is monitored as blood flow. When a pipeline goes stale (>24h since last write), it turns red. When a module exceeds 200 lines, it's flagged as over-cap. When an import graph node has no importers and unused exports, it's diagnosed as a clot. When AI responses need heavy rework, the immune system reports it.
+
+The organism health is synthesized from:
+- `logs/prompt_journal.jsonl` — 57 enriched prompts
+- `logs/chat_compositions.jsonl` — 3,913 keystroke compositions
+- `logs/edit_pairs.jsonl` — 52 prompt→file pairings
+- `logs/os_keystrokes.jsonl` — 93K OS-level keystrokes
+- `rework_log.json` — 200 AI response quality scores
+- `file_heat_map.json` — 12 modules with cognitive load profiles
+- `pigeon_brain/context_veins.json` — 137 nodes scored as veins/clots
+- `execution_death_log.json` — 10 electron death events
+- And 8 more state files
+
+### Two outputs
+
+1. **`MANIFEST.md`** — full organism health dashboard with Blood Flow tables, Structure compliance, Circulation metrics, Hot Modules, Rework Surface, Prompt Consolidation, Push Cycle status, Death Log. The detailed view.
+
+2. **`<!-- pigeon:organism-health -->`** — compressed ~1.2K char block injected directly into `copilot-instructions.md`. Copilot reads this before every response. Contains only what matters: stale pipelines 🔴, over-cap critical files, clots, circulation score, recent deaths, AI rework rate, and an **organism directive** that steers behavior ("Multiple systems degraded. Prioritize fixing clots before new features.").
+
+### Regenerate
+
+```bash
+py _build_organism_health.py
+# Writes MANIFEST.md + injects into .github/copilot-instructions.md
+```
+
+Wire into `git_plugin.py` post-commit and the organism updates its own nervous system every push.
 
 ---
 
@@ -66,7 +102,7 @@ These are the most important decomposition targets in your entire codebase. No s
 ### Architecture
 
 ```
-pigeon_registry.json (188 modules)
+pigeon_registry.json (211 modules)
     │
     ▼
 graph_extractor ─→ graph_cache.json (137 nodes, 260 edges)
@@ -277,6 +313,9 @@ This repo is a bet on a different model: **the bottleneck isn't the AI's capabil
 | **Dual-substrate neural visualization** | ✅ Live | Human cognitive load AND AI execution failures on the same graph. 137 neurons profiled. |
 | **Real-time execution tracing** | ✅ Live | `sys.settrace` + WebSocket at 20Hz. Watch your call graph light up as code runs. |
 | **Module profiler cards** | ✅ Live | cProfile-style cards: tokens, lines, calls, deaths, loops, hesitation bars, personality, fears. |
+| **Organism health (live diagnostics)** | ✅ Live | 16 data pipelines monitored for freshness, over-cap/clot detection, AI rework rate, organism directive injected into Copilot prompt. |
+| **OS hook auto-journal** | ✅ Live | Low-level keyboard/mouse/clipboard capture → prompt_journal population with selection context. |
+| **Moon cycle predictions** | ✅ Live | Backward pass + predict + score + inject pipeline. Edit-session-based prediction scoring. |
 
 ### The honest gaps
 
@@ -313,8 +352,9 @@ This repo is a bet on a different model: **the bottleneck isn't the AI's capabil
    7. DeepSeek API call                  → operator_coaching.md
    8. dynamic_prompt_seq017              → .github/copilot-instructions.md
       └─ inject_task_context()
-   9. task_queue_seq018                  → task_queue.json
-  10. auto-commit [pigeon-auto]
+   9. _build_organism_health             → MANIFEST.md + organism health block
+  10. task_queue_seq018                  → task_queue.json
+  11. auto-commit [pigeon-auto]
  ────────────────────────────────────────────────────────────
       │
       ▼
@@ -756,10 +796,11 @@ keystroke-telemetry/
 │   ├── git_plugin.py                     ← post-commit orchestrator (1038 lines)
 │   ├── pigeon_limits.py                  ← compliance thresholds + exclusion logic
 │   ├── rename_engine/                    ← file renames + import rewriting
-│   │   ├── compliance_seq008/            ← compiled package (12 files) ✅
+│   │   ├── compliance_seq008/            ← compiled package (7 files) ✅
 │   │   ├── heal_seq009/                  ← compiled package (6 files) ✅
 │   │   ├── manifest_builder_seq007/      ← compiled package (32 files) ✅
-│   │   └── nametag_seq011/               ← compiled package (9 files) ✅
+│   │   ├── nametag_seq011/               ← compiled package (9 files) ✅
+│   │   └── registry_seq012/              ← compiled package ✅
 │   ├── cut_executor/                     ← file slicing + bin-packing
 │   ├── state_extractor/                  ← AST + call graph analysis
 │   ├── weakness_planner/                 ← DeepSeek cut plan generation
@@ -780,9 +821,11 @@ keystroke-telemetry/
 ├── rework_log.json                       ← AI response quality log
 ├── query_memory.json                     ← recurring query fingerprints
 ├── task_queue.json                       ← Copilot-managed task queue (auto-seeded from self-fix)
-├── pigeon_registry.json                  ← all module versions + token history (188 modules)
+├── pigeon_registry.json                  ← all module versions + token history (211 modules)
+├── MANIFEST.md                           ← living organism health dashboard (auto-generated)
 ├── MASTER_MANIFEST.md                    ← full project reference
 ├── CHANGELOG.md                          ← patch notes
+├── tests/archive/                        ← 8 archived test scripts
 └── test_all.py                           ← 5 core tests (always run before commit)
 ```
 
@@ -835,6 +878,9 @@ npm run dev                               # → http://localhost:3333
 py -m pigeon_brain live                   # start WebSocket trace server (ws://8765)
 py -m pigeon_brain trace test_all.py      # run tests with live tracing — watch the graph light up
 
+# Regenerate organism health
+py _build_organism_health.py
+
 # Run tests
 py test_all.py
 ```
@@ -869,7 +915,7 @@ mod = importlib.import_module(f.replace('/', '.').rstrip('.py'))
 
 ---
 
-## Current Status (2026-03-28)
+## Current Status (2026-03-30)
 
 | Component | Status |
 |---|---|
@@ -879,30 +925,33 @@ mod = importlib.import_module(f.replace('/', '.').rstrip('.py'))
 | **Deleted word capture (per-prompt)** | **✅ Live — bound per-prompt, injected into CoT** |
 | **Predictive debug** | **✅ Live — frustration→module + build→debug cycle mining** |
 | Unsaid thread detection | ✅ Live |
-| File heat map per-module | ✅ Live |
-| Rework detection | ✅ Live |
+| File heat map per-module | ✅ Live (12 modules tracked) |
+| Rework detection | ✅ Live (200 scored, 38% rework rate) |
 | Push narratives | ✅ Live (8 narratives) |
-| Self-fix scanner | ✅ Live (20 problems detected last scan) |
+| Self-fix scanner | ✅ Live (21 problems detected last scan) |
 | Prompt reconstruction | ✅ Live (48 mutations tracked) |
 | Dynamic CoT injection | ✅ Live (12 sections, all data sources wired) |
 | Task queue | ✅ Live (auto-seeded, manifest-linked, Copilot-managed) |
 | Post-commit pipeline | ✅ Fully wired (10-step auto-commit) |
-| Pigeon compiler | ✅ Operational |
+| Pigeon compiler | ✅ Operational (8 compiled packages, ~$0.01 total DeepSeek cost) |
+| **Organism health — live codebase diagnostics** | **✅ Live — 16 pipelines monitored, injected into Copilot prompt** |
+| **OS hook auto-journal** | **✅ Live — selection + clipboard + mouse → prompt_journal** |
+| **Moon cycle predictions** | **✅ Live — backward pass + predict + score + inject** |
 | **Context veins (codebase health)** | **✅ Live (137 nodes, 4 clots, 21 arteries)** |
 | **Flow Engine — context-accumulating dataflow** | **✅ Live (6 modules, 3 modes, multi-perspective)** |
 | **Pigeon Brain — neural visualizer** | **✅ Live (137 neurons, 260 synapses)** |
 | **Dual-substrate heat mapping** | **✅ Live (human + agent heat merged per node)** |
 | **Live execution tracing** | **✅ Live (sys.settrace → WebSocket @ 20Hz)** |
 | **React graph UI** | **✅ Live (profiler cards, edge animation, observer panel)** |
-| **Pigeon Code Compilor — open-source standalone** | **✅ Released** ([pip install](https://myaifingerprint.com)) |
+| **Pigeon Code Compiler — open-source standalone** | **✅ Released** ([pip install](https://myaifingerprint.com)) |
 | MASTER_MANIFEST | ✅ Rebuilt |
 | Tests | ✅ 5/5 passing |
 
-**Known open issues (tracked in `task_queue.json`):**
-- `stress_test.py`, `test_all.py` have hardcoded pigeon imports — `tq-001`, `tq-002`
-- AI response capture not yet implemented — `tq-003`, `tq-006`
-- 76 `(background)` queries polluting `query_memory.json` — `tq-007`
-- `operator_stats_seq008*` (397 lines) and `self_fix_seq013*` (352 lines) need pigeon compile — `tq-004`, `tq-005`
+**Known open issues:**
+- `operator_stats_seq008*` (532 lines) still needs pigeon compile
+- AI response capture not yet implemented
+- DeepSeek caching not yet wired (70-80% savings available)
+- 16 over-cap files flagged by organism health
 
 ---
 

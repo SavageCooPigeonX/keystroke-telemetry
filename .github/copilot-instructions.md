@@ -72,15 +72,40 @@ Three systems working together:
 (enrichment unavailable: No module named 'httpx')
 <!-- /pigeon:current-query -->
 
+<!-- pigeon:organism-health -->
+## Organism Health
+
+*Auto-injected 2026-03-29 23:17 UTC · 448 files · 389/448 compliant (87%)*
+
+**Stale pipelines:**
+- **context_veins**: 5d ago 🔴
+- **execution_deaths**: 2d ago 🔴
+- **push_cycle_state**: 1d ago 🔴
+
+**Over-cap critical (16):** `streaming_layer_seq007_v003_d0317__monol` (1156), `git_plugin.py` (1155), `manifest_builder_seq007_v003_d0314__gene` (1023), `autonomous_dev_stress_test.py` (999), `prompt_journal_seq019_v001.py` (756), `_build_organism_health.py` (703), `os_hook.py` (655), `self_fix_seq013_v011_d0328__one_shot_sel` (632)
+
+**Clots:** `aim_utils` (orphan_no_importers, unused_exports:1), `press_release_gen_constants_seq001_v001` (orphan_no_importers, unused_exports:1), `adapter` (orphan_no_importers, unused_exports:1), `query_memory` (dead_imports:2, oversize:252)
+
+**Circulation:** 133/137 alive · 4 clots · vein health 0.53
+
+**Recent deaths:** `?` (timeout), `?` (timeout), `?` (stale_import), `?` (stale_import)
+
+**AI rework:** 77/200 responses needed rework (38%)
+
+**Push cycles:** 2 · sync score: 0.6 · reactor fires: 148
+
+> **Organism directive:** Multiple systems degraded. Prioritize fixing clots and over-cap files before new features.
+<!-- /pigeon:organism-health -->
+
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-29 16:22 UTC · 5372 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-29 23:30 UTC · 5755 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `neutral` (WPM: 2801.5 | Del: 51.1% | Hes: 0.652) · *[source: measured]*
+**Cognitive state:** `focused` (WPM: 16432.2 | Del: 47.5% | Hes: 0.598) · *[source: measured]*
 
-**Prompt ms:** 12362, 11509, 24373, 36662, 231679 (avg 63317ms)
+**Prompt ms:** 30526, 141066, 26840, 22254, 24263 (avg 48990ms)
 
 > **CoT directive:** Standard mode. Be thorough and structured.
 
@@ -91,16 +116,15 @@ Three systems working together:
 - **Reconstructed intent:** Refactor the entire
   - *(deleted: can you also refactor the, entire learning loop | ratio: 55%)*
 
-- "blueberrry"
-- "- apple"
+- "cont"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `dynamic_prompt` (hes=0.667)
 - `init_writer` (hes=0.63)
+- `self_fix` (hes=0.625)
 
 ### Recent Work
 - `fd2ab12` feat: selection-aware OS hook + moon cycle prediction wiring + gemini unsaid recon
@@ -130,7 +154,7 @@ Three systems working together:
 - [HIGH] over_hard_cap in `pigeon_compiler/runners/run_batch_compile_seq015_v002_d0328__compile_entire_codebase_to_pigeon_lc_dynamic_import_resolvers.py`
 
 ### Prompt Evolution
-*This prompt has mutated 68x (186→758 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 68x (186→763 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
 *180 modules profiled*
@@ -184,9 +208,9 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-29 - 5372 message(s) - LLM-synthesized*
+*Auto-updated 2026-03-29 · 5755 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 3% | WPM: 47.0 | Del: 46.5% | Hes: 0.648
+**Dominant: `frustrated`** | Submit: 3% | WPM: 50.8 | Del: 46.7% | Hes: 0.649
 
 The operator just built selection-aware OS navigation and works through rapid, high-deletion bursts at night, often restructuring after abandoning tasks.  
 - **Respond with ultra-concise, selection-anchored code**—assume they are editing near the cursor and need OS-aware path handling immediately.  
@@ -197,8 +221,8 @@ The operator just built selection-aware OS navigation and works through rapid, h
 They are likely building toward a fully context-aware pipeline that dynamically adjusts prompts based on OS, selection, and live coding state.
 
 <!-- /pigeon:operator-state -->
-> **Cognitive reactor fired on `node_conversation`** (hes=0.696, state=neutral, avg_prompt=63317ms)
-> - Prompt composition time: 231679ms / 36662ms / 24373ms / 11509ms / 12362ms (avg 63317ms)
+> **Cognitive reactor fired on `node_conversation`** (hes=1.605, state=neutral, avg_prompt=2511782ms)
+> - Prompt composition time: 22254ms / 26840ms / 141066ms / 30526ms / 12338224ms (avg 2511782ms)
 > **Directive**: When `node_conversation` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry

@@ -1,0 +1,5 @@
+"""self_fix_seq013/ — Pigeon-compliant module."""
+from .self_fix_seq013_auto_apply_import_fixes_decomposed_seq011_v001 import _HC_BARE_IMPORT, _HC_FROM_IMPORT, auto_apply_import_fixes
+from .self_fix_seq013_auto_compile_oversized_decomposed_seq009_v001 import auto_compile_oversized
+from .self_fix_seq013_run_self_fix_decomposed_seq008_v001 import run_self_fix
+from .self_fix_seq013_write_report_decomposed_seq007_v001 import write_self_fix_report
