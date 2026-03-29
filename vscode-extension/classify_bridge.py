@@ -388,9 +388,17 @@ def main():
     try:
         rework_mod = _load_pigeon_module(root, 'src/rework_detector_seq009*.py')
         if rework_mod:
-            rw = rework_mod.score_rework(post_evts)
-            rework_verdict = rw['verdict']
-            if post_evts:
+            if chat_comp and chat_comp.get('total_keystrokes', 0) > 5:
+                rw_fn = getattr(rework_mod, 'score_rework_from_composition', None)
+                if rw_fn:
+                    rw = rw_fn(chat_comp)
+                else:
+                    rw = rework_mod.score_rework(post_evts)
+                rework_verdict = rw['verdict']
+                rework_mod.record_rework(root, rw, query_txt, resp_text)
+            elif post_evts:
+                rw = rework_mod.score_rework(post_evts)
+                rework_verdict = rw['verdict']
                 rework_mod.record_rework(root, rw, query_txt, resp_text)
     except Exception:
         pass
@@ -462,10 +470,34 @@ def main():
     try:
         reactor_mod = _load_pigeon_module(root, 'src/cognitive_reactor_seq014*.py')
         if reactor_mod:
-            # Active files = what the operator is currently touching
+            # Gather active files from all available sources
             active_files = []
+            # Source 1: background flush label (bg:filename.py)
             if query_txt.startswith('bg:'):
-                active_files = [query_txt[3:]]  # filename from background flush
+                bg_file = query_txt[3:]
+                if bg_file and bg_file != 'idle':
+                    active_files.append(bg_file)
+            # Source 2: prompt telemetry files_open (most reliable)
+            try:
+                pt_path = root / 'logs' / 'prompt_telemetry_latest.json'
+                if pt_path.exists():
+                    pt = json.loads(pt_path.read_text('utf-8'))
+                    for f in pt.get('latest_prompt', {}).get('files_open', []):
+                        if f and f not in active_files:
+                            active_files.append(f)
+            except Exception:
+                pass
+            # Source 3: file heat map — recently active modules
+            try:
+                hm_path = root / 'file_heat_map.json'
+                if hm_path.exists():
+                    hm = json.loads(hm_path.read_text('utf-8'))
+                    for entry in hm.get('files', [])[:3]:
+                        fname = entry.get('file', '')
+                        if fname and fname not in active_files:
+                            active_files.append(fname)
+            except Exception:
+                pass
             reactor_result = reactor_mod.ingest_flush(
                 root, state, metrics['hesitation_score'], wpm, active_files)
     except Exception:
@@ -530,6 +562,13 @@ def main():
     try:
         from pigeon_compiler.git_plugin import _refresh_operator_state
         _refresh_operator_state(root)
+    except Exception:
+        pass
+    # Refresh task context (Prompt ms, unsaid, hot modules) on every flush
+    try:
+        dyn_mod = _load_pigeon_module(root, 'src/dynamic_prompt_seq017*.py')
+        if dyn_mod and hasattr(dyn_mod, 'inject_task_context'):
+            dyn_mod.inject_task_context(root)
     except Exception:
         pass
 

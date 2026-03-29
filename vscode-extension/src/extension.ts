@@ -312,6 +312,58 @@ class BackgroundTelemetry {
         this._statusItem.tooltip = 'Keystroke telemetry active';
         this._statusItem.show();
         context.subscriptions.push(this._statusItem);
+
+        // ── Submit-triggered flush: watch os_keystrokes.jsonl for Enter events ──
+        // The OS hook writes "submit" events on Enter in chat context.
+        // Trigger immediate flush instead of waiting for 60s timer.
+        this._watchForSubmit(context);
+    }
+
+    private _submitWatcher: fs.FSWatcher | undefined;
+    private _lastSubmitFlushMs = 0;
+
+    private _watchForSubmit(context: vscode.ExtensionContext) {
+        const logPath = this._logPath;
+        if (!fs.existsSync(logPath)) return;
+
+        try {
+            this._submitWatcher = fs.watch(logPath, () => {
+                const now = Date.now();
+                // Debounce: max one submit-flush per 5 seconds
+                if (now - this._lastSubmitFlushMs < 5_000) return;
+
+                // Read last few bytes looking for a submit event
+                try {
+                    const stat = fs.statSync(logPath);
+                    const readSize = Math.min(2048, stat.size);
+                    const fd = fs.openSync(logPath, 'r');
+                    const buf = Buffer.alloc(readSize);
+                    fs.readSync(fd, buf, 0, readSize, stat.size - readSize);
+                    fs.closeSync(fd);
+
+                    const tail = buf.toString('utf-8');
+                    const lines = tail.split('\n').filter(l => l.trim());
+                    // Check last 3 lines for a recent submit event
+                    const recentLines = lines.slice(-3);
+                    for (const line of recentLines) {
+                        try {
+                            const evt = JSON.parse(line);
+                            if (evt.type === 'submit' && evt.ts && (now - evt.ts) < 10_000) {
+                                // Submit detected! Flush immediately
+                                this._lastSubmitFlushMs = now;
+                                this._statusItem.text = '$(zap) Submit detected';
+                                setTimeout(() => { this._statusItem.text = '$(pulse) Pigeon'; }, 3_000);
+                                this._flushIfReady();
+                                return;
+                            }
+                        } catch { /* parse error, skip */ }
+                    }
+                } catch { /* file read error, non-fatal */ }
+            });
+            context.subscriptions.push({
+                dispose: () => { if (this._submitWatcher) this._submitWatcher.close(); }
+            });
+        } catch { /* watch setup failed, fall back to timer-only */ }
     }
 
     private _relPath(uri: vscode.Uri): string {

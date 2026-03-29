@@ -5,12 +5,15 @@ Each git push = one learning cycle:
   2. Collect git diff (copilot signal — the operator never types code)
   3. Compute sync score (did copilot output match operator intent?)
   4. Generate dual coaching (for operator AND for coding agent)
-  5. Update calibration + node memory
+  5. Score old predictions (how accurate were last cycle's guesses?)
+  6. Run backward pass on journal entries (gradient distribution)
+  7. Fire new predictions (what will operator want next push?)
+  8. Inject predictions into copilot-instructions
 """
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
+# EDIT_TS:   2026-03-29T15:40:00+00:00
+# EDIT_HASH: auto
+# EDIT_WHY:  wire backward + predict into push cycle
 # EDIT_STATE: idle
 # ── /pulse ──
 from __future__ import annotations
@@ -23,6 +26,21 @@ from typing import Any
 CYCLE_STATE_PATH = "logs/push_cycle_state.json"
 CYCLE_LOG_PATH = "logs/push_cycles.jsonl"
 JOURNAL_PATH = "logs/prompt_journal.jsonl"
+PREDICTION_LOG_PATH = "logs/push_predictions.jsonl"
+
+
+def _load_pigeon_module(root: Path, folder: str, pattern: str):
+    """Dynamically import a pigeon module by glob (filenames mutate)."""
+    import importlib.util
+    matches = sorted((root / folder).glob(f'{pattern}.py'))
+    if not matches:
+        return None
+    spec = importlib.util.spec_from_file_location(matches[-1].stem, matches[-1])
+    if not spec or not spec.loader:
+        return None
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
 
 
 def _load_state(root: Path) -> dict:
@@ -224,7 +242,16 @@ def run_push_cycle(root: Path, commit_hash: str, intent: str,
     # 4. Generate dual coaching
     coaching = _generate_dual_coaching(operator, copilot, sync)
 
-    # 5. Build cycle record
+    # 5. Score old predictions from last cycle
+    score_result = _score_old_predictions(root)
+
+    # 6. Backward pass on key journal entries (gradient distribution)
+    backward_results = _run_backward_on_entries(root, entries)
+
+    # 7. Fire new predictions (what will operator want next push?)
+    predictions = _fire_predictions(root)
+
+    # 8. Build cycle record
     now = datetime.now(timezone.utc).isoformat()
     total_journal_lines = state["last_journal_line"] + len(entries)
     cycle = {
@@ -236,20 +263,174 @@ def run_push_cycle(root: Path, commit_hash: str, intent: str,
         "copilot_signal": copilot,
         "sync": sync,
         "coaching": coaching,
+        "prediction_score": score_result,
+        "backward_runs": len(backward_results),
+        "new_predictions": len(predictions),
     }
 
-    # 6. Append to cycle log
+    # 8. Append to cycle log
     log_path = root / CYCLE_LOG_PATH
     log_path.parent.mkdir(parents=True, exist_ok=True)
     with open(log_path, "a", encoding="utf-8") as f:
         f.write(json.dumps(cycle) + "\n")
 
-    # 7. Update state
+    # 9. Update state
     state["last_journal_line"] = total_journal_lines
     state["total_cycles"] += 1
     state["last_commit"] = commit_hash
     state["last_sync_score"] = sync["score"]
+    state["last_prediction_count"] = len(predictions)
     state["updated_at"] = now
     _save_state(root, state)
 
+    # 10. Inject predictions + coaching into copilot-instructions.md
+    _inject_predictions_into_prompt(root, predictions, coaching)
+
     return cycle
+
+
+# ── Moon Cycle stages (backward → predict → inject) ─────────────────────────
+
+def _score_old_predictions(root: Path) -> dict:
+    """Score predictions from the LAST push cycle against what actually happened."""
+    try:
+        scorer = _load_pigeon_module(root, 'pigeon_brain/flow', 'prediction_scorer_seq014*')
+        if scorer and hasattr(scorer, 'score_predictions_post_commit'):
+            return scorer.score_predictions_post_commit(root)
+    except Exception as e:
+        return {"status": "error", "error": str(e)[:200]}
+    return {"status": "no_scorer"}
+
+
+def _run_backward_on_entries(root: Path, entries: list[dict]) -> list[dict]:
+    """Run backward pass on journal entries — distribute credit to nodes.
+
+    Only runs on high-signal entries (frustrated/hesitant state or high deletion)
+    to keep DeepSeek costs bounded. Max 3 backward passes per push.
+    """
+    backward_mod = _load_pigeon_module(root, 'pigeon_brain/flow', 'backward_seq007*')
+    if not backward_mod or not hasattr(backward_mod, 'backward_pass'):
+        return []
+
+    # Select high-signal entries worth running backward pass on
+    candidates = []
+    for e in entries:
+        signals = e.get("signals", {})
+        state = e.get("cognitive_state", "unknown")
+        del_ratio = signals.get("deletion_ratio", 0) or e.get("deletion_ratio", 0)
+        if state in ("frustrated", "hesitant", "confused") or del_ratio > 0.3:
+            candidates.append(e)
+
+    # Cap at 3 to keep DeepSeek costs bounded (~$0.009 max per push)
+    candidates = candidates[:3]
+    results = []
+    for entry in candidates:
+        try:
+            # Build a synthetic electron_id from the entry
+            eid = entry.get("session_id", "") + "_" + str(entry.get("session_n", 0))
+            backward_results = backward_mod.backward_pass(
+                root,
+                electron_id=eid,
+                journal_entry=entry,
+                fix_context=entry.get("msg", ""),
+                use_deepseek=True,
+            )
+            results.extend(backward_results)
+        except Exception:
+            pass  # DeepSeek timeout or model error — skip, don't block push
+    return results
+
+
+def _fire_predictions(root: Path) -> list[dict]:
+    """Fire new predictions for what operator will want next push cycle."""
+    predictor = _load_pigeon_module(root, 'pigeon_brain/flow', 'predictor_seq009*')
+    if not predictor or not hasattr(predictor, 'predict_next_needs'):
+        return []
+
+    try:
+        predictions = predictor.predict_next_needs(
+            root,
+            run_flow_fn=None,  # no phantom execution — just predict
+            n_predictions=3,
+        )
+        # Persist to prediction log for post-commit scoring
+        log_path = root / PREDICTION_LOG_PATH
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        for p in predictions:
+            p["cycle_ts"] = datetime.now(timezone.utc).isoformat()
+        with open(log_path, "a", encoding="utf-8") as f:
+            for p in predictions:
+                f.write(json.dumps(p) + "\n")
+        return predictions
+    except Exception:
+        return []
+
+
+def _inject_predictions_into_prompt(root: Path, predictions: list[dict],
+                                     coaching: dict) -> None:
+    """Inject predictions + coaching into copilot-instructions.md.
+
+    Writes a <!-- pigeon:predictions --> block so Copilot knows what
+    the operator will likely want next and can prepare proactively.
+    """
+    if not predictions and not coaching:
+        return
+
+    lines = ["<!-- pigeon:predictions -->",
+             "## Push Cycle Predictions",
+             "",
+             f"*Auto-generated {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')} UTC*",
+             ""]
+
+    if predictions:
+        lines.append("**What you'll likely want next push:**")
+        for i, p in enumerate(predictions, 1):
+            seed = p.get("phantom_seed", p.get("prediction_id", "?"))
+            conf = p.get("confidence", 0)
+            mode = p.get("mode", "?")
+            trend = p.get("trend", {})
+            modules = trend.get("modules", [])
+            lines.append(f"{i}. [{mode}] {seed[:120]} (conf={conf:.0%})")
+            if modules:
+                lines.append(f"   - hot modules: {', '.join(modules[:5])}")
+        lines.append("")
+
+    if coaching.get("operator_coaching"):
+        lines.append("**Operator coaching:**")
+        for tip in coaching["operator_coaching"]:
+            lines.append(f"- {tip}")
+        lines.append("")
+
+    if coaching.get("agent_coaching"):
+        lines.append("**Agent coaching (for Copilot):**")
+        for tip in coaching["agent_coaching"]:
+            lines.append(f"- {tip}")
+        lines.append("")
+
+    lines.append("<!-- /pigeon:predictions -->")
+    block = "\n".join(lines)
+
+    # Inject into copilot-instructions.md
+    ci_path = root / ".github" / "copilot-instructions.md"
+    if not ci_path.exists():
+        return
+
+    content = ci_path.read_text("utf-8")
+    start_tag = "<!-- pigeon:predictions -->"
+    end_tag = "<!-- /pigeon:predictions -->"
+
+    start_idx = content.find(start_tag)
+    end_idx = content.find(end_tag)
+
+    if start_idx >= 0 and end_idx >= 0:
+        content = content[:start_idx] + block + content[end_idx + len(end_tag):]
+    else:
+        # Insert before the operator-state block (or at end)
+        op_marker = "<!-- pigeon:operator-state -->"
+        op_idx = content.find(op_marker)
+        if op_idx >= 0:
+            content = content[:op_idx] + block + "\n\n" + content[op_idx:]
+        else:
+            content += "\n\n" + block
+
+    ci_path.write_text(content, "utf-8")

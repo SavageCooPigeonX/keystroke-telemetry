@@ -72,6 +72,11 @@ def _unsaid(comps):
             if word and len(word) > 3: threads.append(word)
     return threads[-6:]
 
+def _unsaid_reconstructions(root):
+    """Load LLM-reconstructed intents from high-deletion prompts."""
+    recs = _jsonl(root / 'logs' / 'unsaid_reconstructions.jsonl', n=5)
+    return [r for r in recs if r.get('reconstructed_intent')]
+
 def _hot_modules(root):
     raw = _json(root / 'file_heat_map.json')
     if not raw or not isinstance(raw, dict): return []
@@ -291,10 +296,11 @@ def build_task_context(root):
     root = Path(root)
     now = datetime.now(timezone.utc)
     history = _profile_history(root)
-    comps = _jsonl(root / 'logs' / 'prompt_compositions.jsonl', n=12)
+    comps = _jsonl(root / 'logs' / 'chat_compositions.jsonl', n=12)
     coms = _commits(root, n=8)
     focus = _task_focus(coms)
     unsaid = _unsaid(comps)
+    unsaid_recons = _unsaid_reconstructions(root)
     hot = _hot_modules(root)
     rw = _rework(root)
     traj = _trajectory(root)
@@ -317,11 +323,26 @@ def build_task_context(root):
          f'{len(history)} messages profiled \u00b7 {len(coms)} recent commits*', '',
          f'**Current focus:** {focus}',
          f'**Cognitive state:** `{dom}` (WPM: {wpm} | Del: {dl}% | Hes: {hes})'
-         f' · *[source: measured]*', '',
-         f'> **CoT directive:** {_COT.get(dom, "Standard mode. Be thorough and structured.")}', '']
-    if unsaid:
+         f' · *[source: measured]*', '']
+    # Per-prompt composition timing
+    chat_comps = _jsonl(root / 'logs' / 'chat_compositions.jsonl', n=5)
+    recent_durs = [int(c['duration_ms']) for c in chat_comps if c.get('duration_ms', 0) > 0]
+    if recent_durs:
+        avg_dur = round(sum(recent_durs) / len(recent_durs))
+        L.append(f'**Prompt ms:** {", ".join(str(d) for d in recent_durs)} (avg {avg_dur}ms)')
+        L.append('')
+    L += [f'> **CoT directive:** {_COT.get(dom, "Standard mode. Be thorough and structured.")}', '']
+    if unsaid or unsaid_recons:
         L += ['### Unsaid Threads', "*Deleted from prompts \u2014 operator wanted this but didn't ask:*"]
-        L += [f'- "{t}"' for t in unsaid] + ['']
+        if unsaid_recons:
+            for r in unsaid_recons[-3:]:
+                dw = ', '.join(r.get('deleted_words', []))
+                L.append(f'- **Reconstructed intent:** {r["reconstructed_intent"]}')
+                L.append(f'  - *(deleted: {dw} | ratio: {r.get("deletion_ratio", 0):.0%})*')
+            L.append('')
+        if unsaid:
+            L += [f'- "{t}"' for t in unsaid]
+        L.append('')
     if hot:
         L += ['### Module Hot Zones *[source: measured]*', '*High cognitive load (from typing signal) \u2014 take extra care with these files:*']
         L += [f'- `{m["m"]}` (hes={m["h"]}' + (f', {m["x"]} AI misses' if m["x"] else '') + ')' for m in hot] + ['']

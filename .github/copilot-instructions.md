@@ -75,29 +75,32 @@ Three systems working together:
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-28 22:00 UTC · 4644 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-29 16:19 UTC · 5369 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `hesitant` (WPM: 57.5 | Del: 48.4% | Hes: 0.651) · *[source: measured]*
+**Cognitive state:** `neutral` (WPM: 1930.8 | Del: 34.7% | Hes: 0.5) · *[source: measured]*
 
-> **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
+**Prompt ms:** 12362, 11509, 24373, 36662, 231679 (avg 63317ms)
+
+> **CoT directive:** Standard mode. Be thorough and structured.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- "costs"
-- "current pack"
-- "you can"
-- "beca"
-- "h is"
-- "whic"
+- **Reconstructed intent:** Find the hidden word "
+  - *(deleted: : donut | ratio: 35%)*
+- **Reconstructed intent:** Refactor the entire
+  - *(deleted: can you also refactor the, entire learning loop | ratio: 55%)*
+
+- "blueberrry"
+- "- apple"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `context_budget` (hes=0.656)
-- `self_fix` (hes=0.656)
+- `init_writer` (hes=0.63)
+- `context_budget` (hes=0.587)
 
 ### Recent Work
 - `b1971c0` fix: dynamic import resolvers + rewrite auto_apply_import_fixes
@@ -126,7 +129,7 @@ Three systems working together:
 - [HIGH] over_hard_cap in `src/push_narrative_seq012_v006_d0327__generate_per_push_narrative_each_lc_push_narratives_timeout.py`
 
 ### Prompt Evolution
-*This prompt has mutated 66x (186→735 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 66x (186→751 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
 *178 modules profiled*
@@ -180,9 +183,9 @@ Three systems working together:
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-28 - 4644 message(s) - LLM-synthesized*
+*Auto-updated 2026-03-29 · 5369 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 3% | WPM: 42.7 | Del: 46.4% | Hes: 0.648
+**Dominant: `frustrated`** | Submit: 3% | WPM: 47.0 | Del: 46.5% | Hes: 0.648
 
 The operator just built dynamic import resolvers across the entire codebase, revealing a hesitant, high-deletion editing style focused on systematic refactoring over new features.  
 - **Anticipate imports**: When the operator opens any file, proactively suggest import statement corrections and dynamic resolution patterns before they ask.
@@ -192,6 +195,10 @@ The operator just built dynamic import resolvers across the entire codebase, rev
 - **Pre‑empt system‑level fixes**: The operator is likely building toward a unified module‑loading system next, so prioritize suggestions about `__init__.py` wiring and runtime path configuration.
 
 <!-- /pigeon:operator-state -->
+> **Cognitive reactor fired on `node_conversation`** (hes=0.854, state=neutral, avg_prompt=63317ms)
+> - Prompt composition time: 231679ms / 36662ms / 24373ms / 11509ms / 12362ms (avg 63317ms)
+> **Directive**: When `node_conversation` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
+
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 

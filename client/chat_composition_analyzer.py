@@ -120,6 +120,78 @@ def reconstruct_composition(events: list) -> dict:
             })
             prev_ts = ts
 
+        # ── Selection-aware events (from mouse drag / Ctrl+A) ──
+        elif etype == 'selection_replace':
+            # User selected text, then typed a char — replacing selection
+            deleted_text = evt.get('deleted_text', buffer)
+            for i, ch in enumerate(reversed(deleted_text)):
+                deleted_chars.append({'char': ch, 'ts': ts, 'pos': max(0, len(buffer) - i - 1)})
+            composition_events.append({
+                'ts': ts, 'action': 'selection_replace',
+                'char': key, 'buffer': key,
+                'deleted': deleted_text,
+            })
+            buffer = key
+            if len(buffer) > len(peak_buffer):
+                peak_buffer = buffer
+            prev_ts = ts
+
+        elif etype == 'selection_delete':
+            # User selected text then hit Backspace/Delete
+            deleted_text = evt.get('deleted_text', buffer)
+            for i, ch in enumerate(reversed(deleted_text)):
+                deleted_chars.append({'char': ch, 'ts': ts, 'pos': max(0, len(buffer) - i - 1)})
+            composition_events.append({
+                'ts': ts, 'action': 'selection_delete',
+                'char': '', 'buffer': '',
+                'deleted': deleted_text,
+            })
+            buffer = ''
+            prev_ts = ts
+
+        elif etype == 'paste_replace':
+            # Ctrl+V replaced selected text
+            deleted_text = evt.get('deleted_text', '')
+            pasted_text = evt.get('pasted_text', '')
+            if deleted_text:
+                for i, ch in enumerate(reversed(deleted_text)):
+                    deleted_chars.append({'char': ch, 'ts': ts, 'pos': max(0, len(buffer) - i - 1)})
+            composition_events.append({
+                'ts': ts, 'action': 'paste_replace',
+                'char': pasted_text, 'buffer': pasted_text,
+                'deleted': deleted_text,
+            })
+            buffer = pasted_text
+            if len(buffer) > len(peak_buffer):
+                peak_buffer = buffer
+            prev_ts = ts
+
+        elif etype == 'paste':
+            # Ctrl+V without selection — append
+            pasted_text = evt.get('pasted_text', '')
+            buffer += pasted_text
+            if len(buffer) > len(peak_buffer):
+                peak_buffer = buffer
+            composition_events.append({
+                'ts': ts, 'action': 'paste',
+                'char': pasted_text, 'buffer': buffer,
+            })
+            prev_ts = ts
+
+        elif etype == 'cut':
+            # Ctrl+X — text was cut (deleted + copied)
+            deleted_text = evt.get('deleted_text', '')
+            if deleted_text:
+                for i, ch in enumerate(reversed(deleted_text)):
+                    deleted_chars.append({'char': ch, 'ts': ts, 'pos': max(0, len(buffer) - i - 1)})
+            composition_events.append({
+                'ts': ts, 'action': 'cut',
+                'char': '', 'buffer': '',
+                'deleted': deleted_text,
+            })
+            buffer = ''
+            prev_ts = ts
+
         # Flush delete_run when we see a non-delete, non-insert event or
         # when we've accumulated inserts after deletes
         if etype == 'insert' and delete_run and len(insert_after_delete) >= len(delete_run):
@@ -142,8 +214,9 @@ def reconstruct_composition(events: list) -> dict:
     # Compute stats
     timestamps = [e.get('ts', 0) for e in events if e.get('ts')]
     duration_ms = (max(timestamps) - min(timestamps)) if len(timestamps) > 1 else 1
-    total_inserts = sum(1 for e in events if e.get('type') == 'insert')
-    total_deletes = sum(1 for e in events if e.get('type') == 'backspace')
+    total_inserts = sum(1 for e in events if e.get('type') in ('insert', 'paste', 'paste_replace'))
+    total_deletes = sum(1 for e in events if e.get('type') in
+                        ('backspace', 'selection_delete', 'selection_replace', 'cut'))
     total_keys = total_inserts + total_deletes
 
     return {
@@ -394,12 +467,38 @@ def analyze_latest_composition(root: Path, n: int = 1) -> list[dict]:
 
 
 def analyze_and_log(root: Path) -> dict | None:
-    """Analyze latest composition and append to chat_compositions.jsonl."""
-    results = analyze_latest_composition(root, n=1)
-    if not results:
+    """Analyze latest composition and append to chat_compositions.jsonl.
+
+    Tracks the last-processed submit timestamp to avoid re-logging
+    the same composition on every flush cycle.
+    """
+    log_path = root / 'logs' / 'os_keystrokes.jsonl'
+    messages = _read_messages(log_path)
+    if not messages:
         return None
 
-    result = results[0]
+    # Find the submit timestamp of the last message
+    last_msg = messages[-1]
+    submit_ts = None
+    for evt in reversed(last_msg):
+        if evt.get('type') in ('submit', 'discard'):
+            submit_ts = evt.get('ts')
+            break
+
+    # Check if we already logged this message
+    marker_path = root / 'logs' / '.last_composition_ts'
+    if submit_ts and marker_path.exists():
+        try:
+            prev_ts = int(marker_path.read_text('utf-8').strip())
+            if submit_ts <= prev_ts:
+                return None  # Already processed
+        except (ValueError, OSError):
+            pass
+
+    result = reconstruct_composition(last_msg)
+    chat_state = classify_chat_state(result)
+    result['chat_state'] = chat_state
+    result['timestamp'] = datetime.now(timezone.utc).isoformat()
 
     # Write to log (strip the full composition_events to save space)
     log_entry = {
@@ -417,13 +516,20 @@ def analyze_and_log(root: Path) -> dict | None:
         'intentional_deletions': result['intentional_deletions'],
     }
 
-    log_path = root / 'logs' / 'chat_compositions.jsonl'
-    log_path.parent.mkdir(parents=True, exist_ok=True)
+    comp_log = root / 'logs' / 'chat_compositions.jsonl'
+    comp_log.parent.mkdir(parents=True, exist_ok=True)
     try:
-        with open(log_path, 'a', encoding='utf-8') as f:
+        with open(comp_log, 'a', encoding='utf-8') as f:
             f.write(json.dumps(log_entry, ensure_ascii=False) + '\n')
     except OSError:
         pass
+
+    # Update marker so we don't re-log this message
+    if submit_ts:
+        try:
+            marker_path.write_text(str(submit_ts), encoding='utf-8')
+        except OSError:
+            pass
 
     return result
 

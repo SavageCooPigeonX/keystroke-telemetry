@@ -896,6 +896,13 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
             coaching = cycle.get('coaching', {})
             print(f'  🔄 push cycle #{cycle.get("cycle_number", "?")}: sync={sync.get("score", "?")}'
                   f' | {cycle.get("operator_signal", {}).get("prompt_count", 0)} prompts → {cycle.get("copilot_signal", {}).get("py_files_changed", 0)} files')
+            if cycle.get('backward_runs', 0):
+                print(f'  ⬅️  backward pass: {cycle["backward_runs"]} gradient(s) distributed')
+            if cycle.get('new_predictions', 0):
+                print(f'  🔮 predictions: {cycle["new_predictions"]} phantom(s) fired for next cycle')
+            ps = cycle.get('prediction_score', {})
+            if ps.get('status') == 'scored':
+                print(f'  📊 scored old predictions: avg_f1={ps.get("avg_f1", "?")} | overconf={ps.get("overconfidence_rate", "?")}')
             for tip in coaching.get('operator_coaching', [])[:2]:
                 print(f'     👤 operator: {tip}')
             for tip in coaching.get('agent_coaching', [])[:2]:
