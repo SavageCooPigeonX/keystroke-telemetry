@@ -3881,7 +3881,7 @@
     "fears": [
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.607
+    "avg_hes": 0.652
   },
   "adapter": {
     "personality": "fresh",
@@ -5219,7 +5219,7 @@
       "returns empty on failure (silent)",
       "regex format dependency"
     ],
-    "avg_hes": 0.607
+    "avg_hes": 0.652
   },
   "file_consciousness_seq019_audit": {
     "personality": "fresh",
@@ -6010,37 +6010,39 @@
     "avg_hes": 0.0
   },
   "push_cycle_seq025_orchestrator_decomposed": {
-    "personality": "fresh",
-    "version": 2,
-    "tokens": 613,
+    "personality": "stable",
+    "version": 3,
+    "tokens": 811,
     "partners": [
       {
-        "name": "dual_substrate",
+        "name": "backward_seq007_deepseek_analyze",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "3 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "failure_detector",
+        "name": "learning_loop",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "4 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "backward_seq007_flow_log",
+        "name": "node_memory",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "4 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "backward",
+        "name": "prediction_scorer_seq014_post_edit_scorer",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "3 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "dev_plan",
+        "name": "predictor",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "4 shared imports, both high-churn (v3+v3)"
       }
     ],
-    "fears": [],
+    "fears": [
+      "swallowed exception"
+    ],
     "avg_hes": 0.0
   },
   "push_cycle_seq025_predictions_injector_decomposed": {
@@ -6465,6 +6467,43 @@
     ],
     "fears": [
       "returns empty on failure (silent)",
+      "file may not exist"
+    ],
+    "avg_hes": 0.0
+  },
+  "research_lab": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 2804,
+    "partners": [
+      {
+        "name": "dual_substrate",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "failure_detector",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "learning_loop_seq013_state_utils",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "prediction_scorer_seq014_calibration",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "prediction_scorer_seq014_data_loaders",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "swallowed exception",
       "file may not exist"
     ],
     "avg_hes": 0.0
@@ -7014,7 +7053,7 @@
       "regex format dependency",
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.607
+    "avg_hes": 0.652
   },
   "session_handoff": {
     "personality": "fresh",

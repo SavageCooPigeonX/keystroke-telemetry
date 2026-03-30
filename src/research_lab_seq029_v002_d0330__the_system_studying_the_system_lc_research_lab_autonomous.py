@@ -1,10 +1,10 @@
 """Autonomous research synthesizer — the system studying the system studying us."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 029 | VER: v001 | 200 lines | ~2,500 tokens
-# DESC:   research_lab_autonomous_cognition_research
-# INTENT: human_ai_cognition_recursive_evolution
-# LAST:   2026-03-31
+# SEQ: 029 | VER: v002 | 265 lines | ~2,804 tokens
+# DESC:   the_system_studying_the_system
+# INTENT: research_lab_autonomous
+# LAST:   2026-03-30 @ 8888287
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

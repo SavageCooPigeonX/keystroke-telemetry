@@ -1,36 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-30T00:41:16.100418+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:42:16.866486+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:43:16.405593+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:44:05.207203+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:44:18.178223+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-30T00:45:18.949580+00:00",
       "text": "bg:README.md",
       "fingerprint": "bgreadmemd",
@@ -2996,6 +2966,36 @@
     },
     {
       "ts": "2026-03-30T22:18:55.184437+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:19:54.190879+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:20:55.187945+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:21:53.570224+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:22:54.154906+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:23:54.064350+00:00",
       "text": "bg:DEV_STORY.md",
       "fingerprint": "bgdev_storymd",
       "submitted": true

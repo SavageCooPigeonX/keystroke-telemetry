@@ -1,11 +1,11 @@
 """push_cycle_seq025_orchestrator_decomposed_seq008_v001.py — Auto-extracted by Pigeon Compiler."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 008 | VER: v002 | 69 lines | ~613 tokens
+# SEQ: 008 | VER: v003 | 89 lines | ~811 tokens
 # DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: organism_health_system
-# LAST:   2026-03-29 @ 1f4291d
-# SESSIONS: 1
+# INTENT: research_lab_autonomous
+# LAST:   2026-03-30 @ 8888287
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 from datetime import datetime, timezone
 from pathlib import Path
