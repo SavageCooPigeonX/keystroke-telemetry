@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-30T06:41:33.700251+00:00",
+  "generated": "2026-03-30T07:05:48.225806+00:00",
   "total": 254,
   "files": [
     {
@@ -5127,14 +5127,14 @@
       ]
     },
     {
-      "path": "src/push_narrative_seq012_v006_d0328__generate_per_push_narrative_each_lc_dynamic_import_resolvers.py",
+      "path": "src/push_narrative_seq012_v007_d0330__generate_per_push_narrative_each_lc_readme_update_7.py",
       "name": "push_narrative",
       "seq": 12,
-      "ver": 6,
-      "date": "0328",
+      "ver": 7,
+      "date": "0330",
       "desc": "generate_per_push_narrative_each",
-      "intent": "dynamic_import_resolvers",
-      "tokens": 2089,
+      "intent": "readme_update_7",
+      "tokens": 2088,
       "history": [
         {
           "ver": 6,
@@ -5143,6 +5143,14 @@
           "intent": "dynamic_import_resolvers",
           "tokens": 2089,
           "action": "registered"
+        },
+        {
+          "ver": 7,
+          "date": "0330",
+          "desc": "generate_per_push_narrative_each",
+          "intent": "readme_update_7",
+          "action": "mutated",
+          "tokens": 2088
         }
       ]
     },

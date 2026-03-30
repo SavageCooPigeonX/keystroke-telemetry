@@ -109,14 +109,14 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-30 07:05 UTC · 6299 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-30 07:14 UTC · 6305 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `focused` (WPM: 2183.5 | Del: 35.4% | Hes: 0.467) · *[source: measured]*
+**Cognitive state:** `hesitant` (WPM: 2410.4 | Del: 49.9% | Hes: 0.621) · *[source: measured]*
 
 **Prompt ms:** 10748, 102401, 41809, 25002, 12155 (avg 38423ms)
 
-> **CoT directive:** Standard mode. Be thorough and structured.
+> **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
@@ -136,33 +136,33 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 - `init_writer` (hes=0.63)
-- `self_fix` (hes=0.598)
+- `self_fix` (hes=0.596)
 
 ### Recent Work
+- `ad34e17` feat: README update (7 systems + shard memory + Gemini Flash) + push_narrative self-fix (201->200 lines) + DEV_STORY.md export
 - `078c366` feat: fix push_cycle relative imports + shard memory injection + predictions block live
 - `5018891` feat: gemini flash enricher + per-shard training pairs + shard memory injection into copilot prompt
 - `1f4291d` feat: organism health system + README rewrite + 4 compiled packages + root cleanup
-- `fd2ab12` feat: selection-aware OS hook + moon cycle prediction wiring + gemini unsaid recon
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
+- `last_intent` field semantic drift breaking narrative categorization; side-effect execution of _export_dev_story during doc pushes; broken dynamic imports from stale descriptor strings for zero-token modules. This push updates narrative metadata to track a documentation-focused commit cycle.
 - OS preemption deadlock in new critical section; LC selection module contract change from list to generator; archived version path breakage.
-- os_hook returning null for valid editors
-- massive selection data truncating prompts
-- and IPC serialization failure in the extension bridge. This push wires real-time editor selection and context into the Copilot steering and push narration loop.
+- **push_narrative** speaks: I was updated to reflect a new commit intent, "readme_update_7", which signals a shift in the
+- **_export_dev_story** speaks: I was touched only to have my metadata updated, likely as a side effect of the repository 
+- **push_narrative_seq012_v006_d0328__generate_per_push_narrative_each_lc_dynamic_import_resolvers** speaks: I was listed 
 - **push_cycle (seq025 v003):** I was touched to resolve a subtle failure in the push cycle's selection awareness under sp
-- **git_plugin** was touched to align commit messages with the new selection-aware narratives; I assume the push cycle pas
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
-- [CRITICAL] hardcoded_import in `test_training_pairs.py`
-- [CRITICAL] hardcoded_import in `src/prompt_enricher_seq024_v001.py`
 - [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v003_d0324__websocket_server_for_live_execution_lc_8888_word_backpropagation.py`
 - [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_8888_word_backpropagation.py`
 - [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_per_prompt_deleted.py`
+- [HIGH] over_hard_cap in `pigeon_compiler/runners/run_batch_compile_seq015_v002_d0328__compile_entire_codebase_to_pigeon_lc_dynamic_import_resolvers.py`
+- [HIGH] over_hard_cap in `src/.operator_stats_seq008_v009_d0328__persistent_markdown_memory_file_lc_dynamic_import_resolvers.py`
 
 ### Prompt Evolution
-*This prompt has mutated 74x (186→931 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 76x (186→930 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
 *223 modules profiled*
@@ -277,9 +277,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-03-30 06:43 UTC · 74 prompts analyzed · zero LLM calls*
+*Auto-extracted 2026-03-30 07:14 UTC · 74 prompts analyzed · zero LLM calls*
 
-**Brevity:** 23.3 words/prompt | **Caps:** never | **Fragments:** 77% | **Questions:** 16% | **Directives:** 14%
+**Brevity:** 23.0 words/prompt | **Caps:** never | **Fragments:** 77% | **Questions:** 16% | **Directives:** 15%
 
 **Voice directives (personality tuning):**
 - Operator is semi-casual — use contractions, skip formalities, but keep technical precision.
@@ -289,42 +289,42 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 - Operator rarely uses punctuation — fragments and run-ons are normal. Don't overcorrect their style in quotes.
 - Operator uses plain language — avoid unnecessary jargon in explanations.
 
-**Vocabulary fingerprint:** to, this, is, the, you, and, what, if, i, test
+**Vocabulary fingerprint:** to, this, is, the, you, and, if, i, what, a
 <!-- /pigeon:voice-style -->
 <!-- pigeon:predictions -->
 ## Push Cycle Predictions
 
-*Auto-generated 2026-03-30 06:43 UTC*
+*Auto-generated 2026-03-30 07:14 UTC*
 
 **What you'll likely want next push:**
-1. [targeted] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=49%)
+1. [targeted] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=50%)
    - hot modules: file_heat_map, import_rewriter, file_writer
-2. [heat] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=49%)
+2. [heat] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=50%)
    - hot modules: file_heat_map, import_rewriter, file_writer
-3. [failure] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=49%)
+3. [failure] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=50%)
    - hot modules: file_heat_map, import_rewriter, file_writer
 
 **Operator coaching:**
 - No module references detected in prompts — naming specific modules helps copilot target the right files.
 
 **Agent coaching (for Copilot):**
-- Touched ['push_cycle'] without operator reference — confirm intent before modifying unreferenced modules.
+- Touched ['_export_dev_story', 'push_narrative'] without operator reference — confirm intent before modifying unreferenced modules.
 
 <!-- /pigeon:predictions -->
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-30 · 6299 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-30 - 6305 message(s) - LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 3% | WPM: 53.7 | Del: 46.6% | Hes: 0.647
+**Dominant: `frustrated`** | Submit: 3% | WPM: 53.8 | Del: 46.6% | Hes: 0.647
 
-This operator just fixed a push cycle bug in their selection-aware one-shot system, but their hesitant typing with 50% deletions shows they're wrestling with complex state logic under pressure.  
-- **When they edit `push_cycle_seq025_v003_d0330__the_push_is_the_unit_lc_fix_push_cycle.py`**, proactively infer they're debugging a state transition or loop condition—offer concise, inline code fixes, not explanations.  
-- **Anticipate churn in `dynamic_prompt` (v17) and `self_fix` (v13)**—they'll likely revisit prompt engineering and import resolution; preemptively suggest import paths and prompt-structure tweaks.  
-- **Their frustration appears during heavy edits**—respond with minimal, confident suggestions; avoid questioning their approach.  
-- **Since rework rate is low but hesitation is high**, focus on reducing cognitive load: provide ready-to-use code blocks, not multiple options.  
-- **Watch for `context_budget` (v4) changes**—they may be optimizing token allocation next; suggest precise scoring adjustments.  
-- **They're likely building toward a stable, self-correcting push-cycle system** with integrated memory and budget controls.
+This operator just built a README update system for push narratives, and their typing patterns reveal a meticulous but hesitant editor who restructures heavily in morning sessions with high deletion rates.  
+- **Anticipate documentation focus**: When they touch `push_narrative` or `self_fix`, proactively suggest concise docstrings, markdown templates, or inline comments—they’re likely refining explanations.  
+- **Pre‑empt import/resolver pain**: If `dynamic_import_resolvers` or `init_writer` appear, immediately offer import‑fix patterns or module‑discovery snippets to short‑circuit churn.  
+- **Flag high‑edit commits**: When you detect rapid deletions or “restructuring” state, respond with shorter, modular code blocks and ask, “Should we break this into a helper?”  
+- **Bridge context‑budget gaps**: Before they dive into `context_budget` or `dynamic_prompt`, pre‑load with context‑scoring snippets or prompt‑compression tactics.  
+- **Avoid over‑explaining**: Their low miss‑rate means they catch errors quickly—keep answers direct and assume they’ll iterate.  
+- **Steer toward automation**: They’re likely building toward a fully automated narrative‑generation pipeline; suggest hooks into `operator_stats` or `deepseek_adapter` for self‑logging.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `node_conversation`** (hes=0.698, state=hesitant, avg_prompt=33623ms)
@@ -743,7 +743,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `query_memory_seq010*` | recurring query detector unsaid thought | ~2,308 |
 | `file_heat_map_seq011*` | tracks cognitive load per module | ~1,347 |
 | `push_narrative_seq012*` | generate per push narrative each | ~2,089 |
-| `push_narrative_seq012*` | generate per push narrative each | ~2,089 |
+| `push_narrative_seq012*` | generate per push narrative each | ~2,088 |
 | `self_fix_seq013*` | one shot self fix analyzer | ~5,846 |
 | `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~5,144 |
 | `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,276 |
@@ -908,6 +908,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | File | Folder |
 |---|---|
 | `_build_organism_health.py` | `(root)` |
+| `_export_dev_story.py` | `(root)` |
 | `_tmp_heal_check.py` | `(root)` |
 | `_tmp_test_fixes.py` | `(root)` |
 | `_tmp_test_reactor.py` | `(root)` |
