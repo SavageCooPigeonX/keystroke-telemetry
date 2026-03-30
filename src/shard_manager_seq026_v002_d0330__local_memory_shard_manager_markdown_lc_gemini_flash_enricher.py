@@ -14,10 +14,10 @@ Shards are populated two ways:
    back into the relevant shard so the system improves over time
 """
 # ── pigeon ────────────────────────────────────
-# SEQ: 026 | VER: v001 | ~200 lines | ~2,000 tokens
+# SEQ: 026 | VER: v002 | 471 lines | ~4,413 tokens
 # DESC:   local_memory_shard_manager_markdown
-# INTENT: hush_memory_architecture_local
-# LAST:   2026-03-30
+# INTENT: gemini_flash_enricher
+# LAST:   2026-03-30 @ 5018891
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

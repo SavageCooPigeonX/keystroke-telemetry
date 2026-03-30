@@ -24,6 +24,14 @@ Per-cycle: generate_cycle_summary(root, cycle_dict) → reads all pairs since la
 The delta between user_intent and copilot_intent IS the gradient.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 027 | VER: v002 | 285 lines | ~2,625 tokens
+# DESC:   training_pair_generator_for_the
+# INTENT: gemini_flash_enricher
+# LAST:   2026-03-30 @ 5018891
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 from __future__ import annotations
 import json
 from pathlib import Path

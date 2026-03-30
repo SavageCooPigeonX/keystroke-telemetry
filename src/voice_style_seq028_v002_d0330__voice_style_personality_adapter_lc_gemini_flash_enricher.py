@@ -23,6 +23,14 @@ The operator's VOICE tunes how Copilot responds — not what it does,
 but how it talks back.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 028 | VER: v002 | 328 lines | ~3,157 tokens
+# DESC:   voice_style_personality_adapter
+# INTENT: gemini_flash_enricher
+# LAST:   2026-03-30 @ 5018891
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 from __future__ import annotations
 import json
 import re

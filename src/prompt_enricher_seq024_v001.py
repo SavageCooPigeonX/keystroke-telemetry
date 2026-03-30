@@ -27,6 +27,7 @@ import os
 import urllib.request
 from pathlib import Path
 from datetime import datetime, timezone
+from src._resolve import src_import
 
 GEMINI_MODEL = 'gemini-2.5-flash'
 GEMINI_TIMEOUT = 12  # seconds — enricher prompt is bigger than unsaid recon
@@ -260,7 +261,7 @@ def enrich_prompt(root: Path, raw_query: str,
     # Route memory shards
     shard_text = ''
     try:
-        from src.context_router_seq027_v001 import route_context, format_shard_context
+        route_context, format_shard_context = src_import("context_router_seq027", "route_context", "format_shard_context")
         routed = route_context(root, raw_query)
         shard_text = format_shard_context(routed, root=root)
     except Exception:

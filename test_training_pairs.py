@@ -18,8 +18,9 @@ from pathlib import Path
 # ── Bootstrap ──
 ROOT = Path(__file__).parent.resolve()
 import sys
+from src._resolve import src_import
 sys.path.insert(0, str(ROOT))
-from src.training_pairs_seq027_v001 import capture_training_pair, generate_cycle_summary
+capture_training_pair, generate_cycle_summary = src_import("training_pairs_seq027", "capture_training_pair", "generate_cycle_summary")
 
 INTENTS = ['bugfix', 'refactor', 'exploring', 'feature', 'debug', 'cleanup']
 STATES = ['focused', 'hesitant', 'frustrated', 'flow', 'neutral', 'unknown']

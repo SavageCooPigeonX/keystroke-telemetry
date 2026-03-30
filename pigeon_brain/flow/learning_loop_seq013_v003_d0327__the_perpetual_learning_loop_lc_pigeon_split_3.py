@@ -203,7 +203,7 @@ def run_prediction_cycle(root: Path, state: dict[str, Any]) -> int:
     )
     # Score any existing predictions against edit sessions (primary)
     try:
-        from .prediction_scorer_seq014_v004_d0328__edit_session_based_lc_dynamic_import_resolvers import (
+        from .prediction_scorer_seq014_v005_d0330__edit_session_based_lc_gemini_flash_enricher import (
             score_predictions_post_edit,
         )
         score_result = score_predictions_post_edit(root)

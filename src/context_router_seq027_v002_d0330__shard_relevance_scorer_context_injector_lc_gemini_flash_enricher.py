@@ -7,10 +7,10 @@ Zero LLM calls — pure keyword/trigram scoring with recency boost.
 Reads markdown shards from logs/shards/*.md.
 """
 # ── pigeon ────────────────────────────────────
-# SEQ: 027 | VER: v001 | ~100 lines | ~1,000 tokens
-# DESC:   context_router_shard_relevance
-# INTENT: route_prompt_to_relevant_shards
-# LAST:   2026-03-30
+# SEQ: 027 | VER: v002 | 137 lines | ~1,216 tokens
+# DESC:   shard_relevance_scorer_context_injector
+# INTENT: gemini_flash_enricher
+# LAST:   2026-03-30 @ 5018891
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
@@ -23,7 +23,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from src.shard_manager_seq026_v001 import (
+from src.shard_manager_seq026_v002_d0330__local_memory_shard_manager_markdown_lc_gemini_flash_enricher import (
     SHARD_SCHEMA, read_shard_entries, get_shard_summary, list_shards,
     get_unresolved_contradictions,
 )

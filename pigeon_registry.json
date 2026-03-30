@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-29T23:31:37.291115+00:00",
-  "total": 248,
+  "generated": "2026-03-30T06:33:41.700996+00:00",
+  "total": 254,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -1287,14 +1287,14 @@
       ]
     },
     {
-      "path": "pigeon_brain/flow/prediction_scorer_seq014_v004_d0328__edit_session_based_lc_dynamic_import_resolvers.py",
+      "path": "pigeon_brain/flow/prediction_scorer_seq014_v005_d0330__edit_session_based_lc_gemini_flash_enricher.py",
       "name": "prediction_scorer",
       "seq": 14,
-      "ver": 4,
-      "date": "0328",
+      "ver": 5,
+      "date": "0330",
       "desc": "edit_session_based",
-      "intent": "dynamic_import_resolvers",
-      "tokens": 4294,
+      "intent": "gemini_flash_enricher",
+      "tokens": 5797,
       "history": [
         {
           "ver": 2,
@@ -1319,26 +1319,14 @@
           "intent": "dynamic_import_resolvers",
           "action": "mutated",
           "tokens": 4294
-        }
-      ]
-    },
-    {
-      "path": "pigeon_brain/flow/predictor_seq009_v002_d0328__fires_phantom_electrons_using_cognitive_lc_dynamic_import_resolvers.py",
-      "name": "predictor",
-      "seq": 9,
-      "ver": 2,
-      "date": "0328",
-      "desc": "fires_phantom_electrons_using_cognitive",
-      "intent": "dynamic_import_resolvers",
-      "tokens": 1762,
-      "history": [
+        },
         {
-          "ver": 2,
-          "date": "0328",
-          "desc": "fires_phantom_electrons_using_cognitive",
-          "intent": "dynamic_import_resolvers",
-          "tokens": 1762,
-          "action": "registered"
+          "ver": 5,
+          "date": "0330",
+          "desc": "edit_session_based",
+          "intent": "gemini_flash_enricher",
+          "action": "mutated",
+          "tokens": 5797
         }
       ]
     },
@@ -1367,6 +1355,34 @@
           "intent": "pigeon_split_3",
           "action": "mutated",
           "tokens": 1831
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/predictor_seq009_v003_d0330__fires_phantom_electrons_using_cognitive_lc_gemini_flash_enricher.py",
+      "name": "predictor",
+      "seq": 9,
+      "ver": 3,
+      "date": "0330",
+      "desc": "fires_phantom_electrons_using_cognitive",
+      "intent": "gemini_flash_enricher",
+      "tokens": 2174,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0328",
+          "desc": "fires_phantom_electrons_using_cognitive",
+          "intent": "dynamic_import_resolvers",
+          "tokens": 1762,
+          "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0330",
+          "desc": "fires_phantom_electrons_using_cognitive",
+          "intent": "gemini_flash_enricher",
+          "action": "mutated",
+          "tokens": 2174
         }
       ]
     },
@@ -3888,14 +3904,14 @@
       ]
     },
     {
-      "path": "src/cognitive_reactor_seq014_v003_d0321__cognitive_reactor_autonomous_code_modification_lc_implement_all_18.py",
+      "path": "src/cognitive_reactor_seq014_v004_d0330__cognitive_reactor_autonomous_code_modification_lc_gemini_flash_enricher.py",
       "name": "cognitive_reactor",
       "seq": 14,
-      "ver": 3,
-      "date": "0321",
+      "ver": 4,
+      "date": "0330",
       "desc": "cognitive_reactor_autonomous_code_modification",
-      "intent": "implement_all_18",
-      "tokens": 3529,
+      "intent": "gemini_flash_enricher",
+      "tokens": 5144,
       "history": [
         {
           "ver": 2,
@@ -3912,6 +3928,14 @@
           "intent": "implement_all_18",
           "action": "mutated",
           "tokens": 3529
+        },
+        {
+          "ver": 4,
+          "date": "0330",
+          "desc": "cognitive_reactor_autonomous_code_modification",
+          "intent": "gemini_flash_enricher",
+          "action": "mutated",
+          "tokens": 5144
         }
       ]
     },
@@ -3987,6 +4011,26 @@
           "intent": "fire_full_post",
           "action": "mutated",
           "tokens": 715
+        }
+      ]
+    },
+    {
+      "path": "src/context_router_seq027_v002_d0330__shard_relevance_scorer_context_injector_lc_gemini_flash_enricher.py",
+      "name": "context_router",
+      "seq": 27,
+      "ver": 2,
+      "date": "0330",
+      "desc": "shard_relevance_scorer_context_injector",
+      "intent": "gemini_flash_enricher",
+      "tokens": 1199,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0330",
+          "desc": "shard_relevance_scorer_context_injector",
+          "intent": "gemini_flash_enricher",
+          "tokens": 1199,
+          "action": "registered"
         }
       ]
     },
@@ -5682,6 +5726,26 @@
       ]
     },
     {
+      "path": "src/shard_manager_seq026_v002_d0330__local_memory_shard_manager_markdown_lc_gemini_flash_enricher.py",
+      "name": "shard_manager",
+      "seq": 26,
+      "ver": 2,
+      "date": "0330",
+      "desc": "local_memory_shard_manager_markdown",
+      "intent": "gemini_flash_enricher",
+      "tokens": 4413,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0330",
+          "desc": "local_memory_shard_manager_markdown",
+          "intent": "gemini_flash_enricher",
+          "tokens": 4413,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "src/streaming_layer_seq007_v003_d0317__monolithic_live_streaming_interface_for_lc_pulse_telemetry_prompt.py",
       "name": "streaming_layer",
       "seq": 7,
@@ -5780,6 +5844,66 @@
       ]
     },
     {
+      "path": "src/training_pairs_seq027_v002_d0330__training_pair_generator_for_the_lc_gemini_flash_enricher.py",
+      "name": "training_pairs",
+      "seq": 27,
+      "ver": 2,
+      "date": "0330",
+      "desc": "training_pair_generator_for_the",
+      "intent": "gemini_flash_enricher",
+      "tokens": 2625,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0330",
+          "desc": "training_pair_generator_for_the",
+          "intent": "gemini_flash_enricher",
+          "tokens": 2625,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/training_writer_seq028_v002_d0330__end_of_prompt_training_pair_lc_gemini_flash_enricher.py",
+      "name": "training_writer",
+      "seq": 28,
+      "ver": 2,
+      "date": "0330",
+      "desc": "end_of_prompt_training_pair",
+      "intent": "gemini_flash_enricher",
+      "tokens": 2078,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0330",
+          "desc": "end_of_prompt_training_pair",
+          "intent": "gemini_flash_enricher",
+          "tokens": 2078,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/unified_signal_seq026_v002_d0330__joins_all_telemetry_into_canonical_lc_gemini_flash_enricher.py",
+      "name": "unified_signal",
+      "seq": 26,
+      "ver": 2,
+      "date": "0330",
+      "desc": "joins_all_telemetry_into_canonical",
+      "intent": "gemini_flash_enricher",
+      "tokens": 2074,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0330",
+          "desc": "joins_all_telemetry_into_canonical",
+          "intent": "gemini_flash_enricher",
+          "tokens": 2074,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "src/unsaid_recon_seq024_v002_d0329__fires_on_high_deletion_prompts_lc_selection_aware_os.py",
       "name": "unsaid_recon",
       "seq": 24,
@@ -5795,6 +5919,26 @@
           "desc": "fires_on_high_deletion_prompts",
           "intent": "selection_aware_os",
           "tokens": 1112,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/voice_style_seq028_v002_d0330__voice_style_personality_adapter_lc_gemini_flash_enricher.py",
+      "name": "voice_style",
+      "seq": 28,
+      "ver": 2,
+      "date": "0330",
+      "desc": "voice_style_personality_adapter",
+      "intent": "gemini_flash_enricher",
+      "tokens": 3157,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0330",
+          "desc": "voice_style_personality_adapter",
+          "intent": "gemini_flash_enricher",
+          "tokens": 3157,
           "action": "registered"
         }
       ]

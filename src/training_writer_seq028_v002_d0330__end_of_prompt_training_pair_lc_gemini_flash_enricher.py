@@ -12,10 +12,10 @@ Writes to logs/shards/training_pairs.md as human-readable markdown.
 The anchor: pair programming. Copilot is the pair. This is the shared notebook.
 """
 # ── pigeon ────────────────────────────────────
-# SEQ: 028 | VER: v001 | ~120 lines | ~1,200 tokens
-# DESC:   training_pair_writer_per_prompt
-# INTENT: capture_muxed_state_training_data
-# LAST:   2026-03-30
+# SEQ: 028 | VER: v002 | 251 lines | ~2,113 tokens
+# DESC:   end_of_prompt_training_pair
+# INTENT: gemini_flash_enricher
+# LAST:   2026-03-30 @ 5018891
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
@@ -28,6 +28,7 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
+from src._resolve import src_import
 from datetime import datetime, timezone
 
 TRAINING_FILE = 'logs/shards/training_pairs.md'
@@ -66,7 +67,7 @@ def _get_cognitive_state(root: Path) -> dict:
 
 def _get_routed_shards(root: Path, query: str) -> list[dict]:
     try:
-        from src.context_router_seq027_v001 import route_context
+        route_context = src_import("context_router_seq027", "route_context")
         return route_context(root, query)
     except Exception:
         return []
@@ -74,7 +75,7 @@ def _get_routed_shards(root: Path, query: str) -> list[dict]:
 
 def _get_contradictions(root: Path) -> int:
     try:
-        from src.shard_manager_seq026_v001 import get_unresolved_contradictions
+        get_unresolved_contradictions = src_import("shard_manager_seq026", "get_unresolved_contradictions")
         return len(get_unresolved_contradictions(root))
     except Exception:
         return 0

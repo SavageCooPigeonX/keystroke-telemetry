@@ -109,10 +109,10 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-30 06:33 UTC · 6253 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-30 06:35 UTC · 6255 messages profiled · 8 recent commits*
 
 **Current focus:** building new features
-**Cognitive state:** `hesitant` (WPM: 632.9 | Del: 39.3% | Hes: 0.573) · *[source: measured]*
+**Cognitive state:** `hesitant` (WPM: 1028.0 | Del: 42.7% | Hes: 0.587) · *[source: measured]*
 
 **Prompt ms:** 4407, 59530, 10748, 102401, 41809 (avg 43779ms)
 
@@ -140,17 +140,10 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - `context_budget` (hes=0.587)
 
 ### Recent Work
+- `5018891` feat: gemini flash enricher + per-shard training pairs + shard memory injection into copilot prompt
 - `1f4291d` feat: organism health system + README rewrite + 4 compiled packages + root cleanup
 - `fd2ab12` feat: selection-aware OS hook + moon cycle prediction wiring + gemini unsaid recon
 - `b1971c0` fix: dynamic import resolvers + rewrite auto_apply_import_fixes
-- `804937e` feat: adaptive WPM baselines (decay-weighted window 200) + signal/narrative split + push cycle + DTR S01E03
-
-### Coaching Directives *[source: llm_derived]*
-*LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
-- **Anticipate structural changes**
-- **When they edit high-churn modules**
-- **Their high deletion rate (46.7%) signals heavy rewriting**
-- **Leverage their night-time flow states**
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -161,21 +154,20 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - **file_consciousness_seq019_helpers** was touched to provide core utilities for health state derivation; it assumes inpu
 - **file_consciousness_seq019_persistence** was touched to store health reports; it assumes the database connection pool i
 - **push_cycle_seq025_constants** was touched to add health-related thresholds; it assumes these constants are imported be
-- **backward_seq007_backward_pass** was touched to integrate dynamic import resolvers for electron path traversal, assumin
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
-- [HIGH] over_hard_cap in `pigeon_brain/flow/node_memory_seq008_v003_d0328__the_experience_vault_stores_raw_lc_dynamic_import_resolvers.py`
+- [CRITICAL] hardcoded_import in `test_training_pairs.py`
+- [CRITICAL] hardcoded_import in `src/prompt_enricher_seq024_v001.py`
 - [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v003_d0324__websocket_server_for_live_execution_lc_8888_word_backpropagation.py`
 - [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_8888_word_backpropagation.py`
 - [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_per_prompt_deleted.py`
-- [HIGH] over_hard_cap in `pigeon_compiler/runners/run_batch_compile_seq015_v002_d0328__compile_entire_codebase_to_pigeon_lc_dynamic_import_resolvers.py`
 
 ### Prompt Evolution
-*This prompt has mutated 71x (186→843 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 72x (186→916 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
-*217 modules profiled*
+*223 modules profiled*
 
 **High-drama (most mutations):**
 - `self_fix` v11 ↔ .operator_stats
@@ -184,9 +176,9 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - `dynamic_prompt` v8 ↔ run_pigeon_loop
 
 **Codebase fears:**
-- file may not exist (75 modules)
-- returns empty on failure (silent) (44 modules)
-- swallowed exception (38 modules)
+- file may not exist (80 modules)
+- returns empty on failure (silent) (50 modules)
+- swallowed exception (41 modules)
 
 **Slumber party warnings (high coupling):**
 - `cli` ↔ `trace_hook` (score=0.80, 3 shared imports, both high-churn (v2+v2))
@@ -287,9 +279,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-03-30 00:49 UTC · 60 prompts analyzed · zero LLM calls*
+*Auto-extracted 2026-03-30 06:35 UTC · 74 prompts analyzed · zero LLM calls*
 
-**Brevity:** 22.6 words/prompt | **Caps:** never | **Fragments:** 82% | **Questions:** 15% | **Directives:** 13%
+**Brevity:** 23.3 words/prompt | **Caps:** never | **Fragments:** 77% | **Questions:** 16% | **Directives:** 14%
 
 **Voice directives (personality tuning):**
 - Operator is semi-casual — use contractions, skip formalities, but keep technical precision.
@@ -299,25 +291,22 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 - Operator rarely uses punctuation — fragments and run-ons are normal. Don't overcorrect their style in quotes.
 - Operator uses plain language — avoid unnecessary jargon in explanations.
 
-**Vocabulary fingerprint:** to, this, you, is, in, test, and, the, a, prompt
+**Vocabulary fingerprint:** to, this, is, the, you, and, what, if, i, test
 <!-- /pigeon:voice-style -->
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-30 · 6253 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-30 - 6255 message(s) - LLM-synthesized*
 
 **Dominant: `frustrated`** | Submit: 3% | WPM: 53.4 | Del: 46.6% | Hes: 0.648
 
-The operator just built an organism health system by batch-renaming 35 modules with automated compiler tags, revealing a high-velocity, night-focused pattern of systematic refactoring with significant deletions, indicating they are aggressively consolidating and versioning a complex system.
-
-*   **Anticipate structural changes** in `self_fix_seq013` and `dynamic_prompt_seq017`; they are recurring pain points, so prioritize understanding their new interfaces and dependencies when providing code.
-*   **When they edit high-churn modules**, offer completions that reflect the new `_v002_d0329__auto_extracted_by_pigeon_compiler` naming convention and suggest imports that match this versioned structure.
-*   **Their high deletion rate (46.7%) signals heavy rewriting**; after large edits, proactively summarize the changed function signatures or class structures to confirm alignment.
-*   **Leverage their night-time flow states**; when they exhibit high WPM with low hesitation, provide concise, direct code blocks without explanatory prose.
-
-Given the zero miss rate, maintain the current response quality but **preempt import and reference errors** in the freshly renamed modules by cross-checking the new filenames against calls in `push_cycle_seq025` and `operator_stats_seq8`.
-
-They are most likely building toward an integrated, version-aware compilation pipeline that automates module extraction and dependency resolution.
+The operator just integrated a Gemini Flash enricher across their LangChain system, revealing a hesitant but persistent morning refactoring style with high deletion rates indicating careful, precise edits.  
+- **Anticipate renaming patterns**: When you see `_lc_` or `_gemini_` in a filename, proactively suggest import updates and cross-module reference fixes before they ask.  
+- **Focus on integration points**: For modules like `self_fix seq13` and `dynamic_prompt seq17`—which are recurring pain points—preemptively check for broken function calls or missing arguments after changes.  
+- **Reduce hesitation prompts**: When the operator’s typing shows high deletion rates (like 50% in recent messages), offer concise, single-line code completions instead of multi-line blocks to minimize backtracking.  
+- **Bridge context gaps**: If the operator touches `context_budget seq4` or `operator_stats seq8`, immediately surface related configuration constants or markdown formatting rules to prevent rework.  
+- **Signal readiness for next phase**: Since this commit enriches multiple LangChain components, be prepared to suggest telemetry hooks or validation steps for the newly added Gemini Flash calls.  
+The operator is most likely building toward a unified, multi-model LangChain agent with enhanced telemetry and self-repair capabilities.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `node_conversation`** (hes=0.698, state=hesitant, avg_prompt=33623ms)
@@ -515,7 +504,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 ### Full Module Index
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-29 - 248 modules tracked | 37 touched this commit*
+*Auto-updated 2026-03-30 - 254 modules tracked | 9 touched this commit*
 
 **pigeon_brain/** - 16 module(s)
 
@@ -551,15 +540,15 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `backward_seq007*` | backward pass walks electron path | ~2,502 |
 | `backward_seq007*` | backward pass walks electron path | ~2,500 |
 | `node_memory_seq008*` | the experience vault stores raw | ~2,084 |
-| `predictor_seq009*` | fires phantom electrons using cognitive | ~1,762 |
 | `predictor_seq009*` | fires phantom electrons using cognitive | ~1,831 |
+| `predictor_seq009*` | fires phantom electrons using cognitive | ~2,174 |
 | `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,532 |
 | `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,539 |
 | `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,541 |
 | `node_conversation_seq012*` | the interpretability interface lets the | ~1,422 |
 | `node_conversation_seq012*` | the interpretability interface lets the | ~1,428 |
 | `learning_loop_seq013*` | the perpetual learning loop | ~2,881 |
-| `prediction_scorer_seq014*` | edit session based | ~4,294 |
+| `prediction_scorer_seq014*` | edit session based | ~5,797 |
 
 **pigeon_brain/flow/backward_seq007/** - 7 module(s)
 
@@ -719,7 +708,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 |---|---|---:|
 | `deepseek_plan_prompt_seq004*` | build and send deepseek cut | ~2,407 |
 
-**src/** - 28 module(s)
+**src/** - 34 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -738,7 +727,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `push_narrative_seq012*` | generate per push narrative each | ~2,089 |
 | `push_narrative_seq012*` | generate per push narrative each | ~2,089 |
 | `self_fix_seq013*` | one shot self fix analyzer | ~5,846 |
-| `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~3,529 |
+| `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~5,144 |
 | `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,276 |
 | `dynamic_prompt_seq017*` | steers copilot cot from live | ~3,996 |
 | `dynamic_prompt_seq017*` | steers copilot cot from live | ~3,996 |
@@ -751,6 +740,12 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `session_handoff_seq023*` | session handoff summary generator | ~1,569 |
 | `unsaid_recon_seq024*` | fires on high deletion prompts | ~1,112 |
 | `push_cycle_seq025*` | the push is the unit | ~4,339 |
+| `shard_manager_seq026*` | local memory shard manager markdown | ~4,413 |
+| `unified_signal_seq026*` | joins all telemetry into canonical | ~2,074 |
+| `context_router_seq027*` | shard relevance scorer context injector | ~1,199 |
+| `training_pairs_seq027*` | training pair generator for the | ~2,625 |
+| `training_writer_seq028*` | end of prompt training pair | ~2,078 |
+| `voice_style_seq028*` | voice style personality adapter | ~3,157 |
 
 **src/cognitive/** - 3 module(s)
 
@@ -903,6 +898,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `stress_test.py` | `(root)` |
 | `test_all.py` | `(root)` |
 | `test_public_release.py` | `(root)` |
+| `test_training_pairs.py` | `(root)` |
 | `chat_composition_analyzer.py` | `client` |
 | `chat_response_reader.py` | `client` |
 | `composition_recon.py` | `client` |

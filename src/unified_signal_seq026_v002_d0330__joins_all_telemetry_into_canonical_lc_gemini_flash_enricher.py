@@ -29,10 +29,11 @@ Output: logs/unified_edits.jsonl — one event per file mutation with:
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 026 | VER: v001 | ~180 lines
-# DESC:   unified signal merger
-# INTENT: join all telemetry sources
-# LAST:   2026-03-30
+# SEQ: 026 | VER: v002 | 233 lines | ~2,074 tokens
+# DESC:   joins_all_telemetry_into_canonical
+# INTENT: gemini_flash_enricher
+# LAST:   2026-03-30 @ 5018891
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 
 from __future__ import annotations

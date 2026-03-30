@@ -26,11 +26,11 @@ penalizes overconfident wrong predictions harder.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 014 | VER: v004 | 492 lines | ~4,295 tokens
+# SEQ: 014 | VER: v005 | 650 lines | ~5,797 tokens
 # DESC:   edit_session_based
-# INTENT: dynamic_import_resolvers
-# LAST:   2026-03-28 @ b1971c0
-# SESSIONS: 3
+# INTENT: gemini_flash_enricher
+# LAST:   2026-03-30 @ 5018891
+# SESSIONS: 4
 # ──────────────────────────────────────────────
 # ── pigeon: SEQ 014 | v002 | edit_session_scoring | 2026-03-27 ──
 from __future__ import annotations
