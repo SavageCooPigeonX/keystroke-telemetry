@@ -109,14 +109,14 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-30 22:23 UTC · 6390 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-30 23:36 UTC · 6474 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `hesitant` (WPM: 2764.1 | Del: 49.9% | Hes: 0.657) · *[source: measured]*
+**Cognitive state:** `neutral` (WPM: 234.9 | Del: 51.0% | Hes: 0.703) · *[source: measured]*
 
-**Prompt ms:** 41809, 25002, 12155, 18472756, 44999 (avg 3719344ms)
+**Prompt ms:** 25002, 12155, 18472756, 44999, 8078 (avg 3712598ms)
 
-> **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
+> **CoT directive:** Standard mode. Be thorough and structured.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
@@ -135,8 +135,8 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `self_fix` (hes=0.644)
-- `.operator_stats` (hes=0.644)
+- `self_fix` (hes=0.7)
+- `.operator_stats` (hes=0.7)
 
 ### Recent Work
 - `8888287` feat: research lab â€” autonomous cognition research synthesizer
@@ -322,9 +322,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-30 · 6390 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-30 · 6474 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 3% | WPM: 54.2 | Del: 46.6% | Hes: 0.647
+**Dominant: `frustrated`** | Submit: 3% | WPM: 55.0 | Del: 46.6% | Hes: 0.647
 
 The operator just built an autonomous research lab system that studies itself, revealing a night-owl pattern of intense, high-deletion bursts where they restructure code in frustrated/hesitant states, often abandoning or heavily revising modules.
 

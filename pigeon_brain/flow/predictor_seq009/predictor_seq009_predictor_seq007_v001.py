@@ -48,7 +48,7 @@ def predict_next_needs(
             "mode": mode,
             "trend": trend,
             "result": task_output,
-            "confidence": _compute_confidence(trend),
+            "confidence": _compute_confidence(trend, root),
             "ts": batch_ts,
             "scored": False,
         }

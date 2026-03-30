@@ -1,629 +1,5 @@
 [
   {
-    "ts": "2026-03-30T07:16:39.457229+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:17:34.286389+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:18:34.614452+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:19:34.352359+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:20:37.254451+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:21:46.777003+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:23:28.463524+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:27:25.845528+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:28:08.699284+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:29:10.315793+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:30:08.849974+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:31:11.302229+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:32:13.950815+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:33:11.810070+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:34:10.726833+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:35:11.904997+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:36:12.790750+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:37:11.754125+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:38:11.593490+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:39:11.228070+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:40:21.390669+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:41:11.370926+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:42:10.733102+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:43:13.188513+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:44:12.589166+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:45:09.625947+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:46:10.364207+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:47:10.168380+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:48:12.316723+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:49:10.007181+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:50:12.591219+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:51:12.540215+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:52:10.690252+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:53:11.607673+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:54:11.093534+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:55:12.039680+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:56:11.054892+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:57:11.891016+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:58:11.623277+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:59:11.202022+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T08:00:09.481497+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T08:01:10.132711+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T08:02:11.056777+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T08:03:10.183098+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T08:04:09.648667+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T08:05:10.127760+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T08:06:09.916196+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T08:07:09.881306+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T08:08:11.200750+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T08:10:11.080767+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T08:11:01.384773+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T12:37:18.333226+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T16:46:57.920213+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T21:57:52.962707+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T21:58:52.277363+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T21:59:52.038765+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:00:52.044386+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:01:54.176544+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:02:55.517310+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:03:54.878056+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:04:54.914044+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:05:56.923158+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:06:54.769512+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:07:56.175003+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:08:53.938628+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:09:53.932738+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:10:54.427971+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:11:53.729104+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:12:56.094123+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:13:58.573783+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:14:53.936433+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:15:54.489286+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:16:53.736391+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:17:21.637707+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:17:54.183836+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:18:14.931884+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:18:55.016739+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T22:19:54.168897+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
     "ts": "2026-03-30T22:20:55.098864+00:00",
     "verdict": "ok",
     "rework_score": 0.003,
@@ -1717,5 +1093,629 @@
     "del_ratio": 0.005,
     "wpm": 52.7,
     "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:24:55.517004+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:25:53.674074+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:26:53.112793+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:27:53.217412+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:28:55.295736+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:29:54.969951+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:30:57.601817+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:31:57.157637+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:32:54.908395+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:33:54.509522+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:34:52.777283+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:35:52.774901+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:36:54.143117+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:37:56.686599+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:38:59.820154+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:39:57.177796+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:40:56.822663+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:41:58.160725+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:42:56.142862+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:43:54.269465+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:44:53.144931+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:45:53.096118+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:46:53.063169+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:47:31.105625+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:47:52.767569+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:48:17.246430+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:48:53.705841+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:48:57.626706+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:49:24.683896+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:49:33.112208+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:49:53.057570+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:50:55.656146+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:51:21.430620+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:51:53.261963+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:52:57.397696+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:53:58.698680+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:54:57.589520+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:55:53.531910+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:56:52.633536+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:57:53.239067+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:58:53.121259+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T22:59:52.793353+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:00:52.919500+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:01:52.824744+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:02:52.833009+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:03:52.834650+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:04:52.833450+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:05:53.078669+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:06:52.835538+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:07:53.004817+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:08:52.789383+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:09:53.040039+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:10:52.755188+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:11:52.856953+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:12:53.227771+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:13:52.848034+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:14:53.006910+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:15:52.634162+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:16:52.635677+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:17:52.628737+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:18:52.644511+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:19:52.721222+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:20:52.666584+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:21:52.702947+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:22:52.671083+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:23:52.707001+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:24:52.728293+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:25:52.721354+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:26:52.869696+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:27:52.679053+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:28:52.666121+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:29:52.720572+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:30:52.765915+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:31:53.921659+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:32:53.692459+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:35:09.979059+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:35:56.344937+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-30T23:36:56.829750+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 22.3,
+    "query_hint": "bg:RESEARCH_LOG.md"
   }
 ]

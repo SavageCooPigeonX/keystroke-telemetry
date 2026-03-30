@@ -51,6 +51,22 @@ def extract_cognitive_trend(journal_path: Path, n_recent: int = 10) -> dict[str,
     except Exception:
         pass
 
+    # Inject recently-edited modules from edit_pairs (actual edits > hesitation)
+    try:
+        pairs_path = root / "logs" / "edit_pairs.jsonl"
+        if pairs_path.exists():
+            for line in pairs_path.read_text(encoding="utf-8").strip().splitlines()[-10:]:
+                try:
+                    ep = json.loads(line)
+                    mod = ep.get("file", "").replace(".py", "")
+                    mod = mod.split("/")[-1].split("_seq")[0] if mod else ""
+                    if mod:
+                        all_modules.extend([mod, mod, mod])  # triple-weight
+                except json.JSONDecodeError:
+                    continue
+    except Exception:
+        pass
+
     module_counts = Counter(m for m in all_modules if m)
     # Lower threshold: top-5 modules regardless of count (was: count >= 2 only)
     clusters = [m for m, _c in module_counts.most_common(5)]

@@ -3,9 +3,9 @@
 # │  execution. pigeon_brain/flow                   │
 # └──────────────────────────────────────────────┘
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-30T06:00:00+00:00
+# EDIT_TS:   2026-03-31T00:15:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  live telemetry feed + calibrated confidence
+# EDIT_WHY:  fix module fixation + confidence calibration
 # ── /pulse ──
 """Fires phantom electrons using cognitive profile (no real task). Triggers:
 state change, every N prompts, or module cluster (3+ refs). Cost: ~$0.03/phantom."""
@@ -102,6 +102,22 @@ def extract_cognitive_trend(journal_path: Path, n_recent: int = 10) -> dict[str,
     except Exception:
         pass
 
+    # Inject recently-edited modules from edit_pairs (actual edits > hesitation)
+    try:
+        pairs_path = root / "logs" / "edit_pairs.jsonl"
+        if pairs_path.exists():
+            for line in pairs_path.read_text(encoding="utf-8").strip().splitlines()[-10:]:
+                try:
+                    ep = json.loads(line)
+                    mod = ep.get("file", "").replace(".py", "")
+                    mod = mod.split("/")[-1].split("_seq")[0] if mod else ""
+                    if mod:
+                        all_modules.extend([mod, mod, mod])  # triple-weight
+                except json.JSONDecodeError:
+                    continue
+    except Exception:
+        pass
+
     module_counts = Counter(m for m in all_modules if m)
     # Lower threshold: top-5 modules regardless of count (was: count >= 2 only)
     clusters = [m for m, _c in module_counts.most_common(5)]
@@ -189,7 +205,7 @@ def predict_next_needs(
             "mode": mode,
             "trend": trend,
             "result": task_output,
-            "confidence": _compute_confidence(trend),
+            "confidence": _compute_confidence(trend, root),
             "ts": batch_ts,
             "scored": False,
         }
@@ -203,10 +219,8 @@ def predict_next_needs(
     return predictions
 
 
-def _compute_confidence(trend: dict[str, Any]) -> float:
-    """Estimate prediction confidence from signal strength.
-    Calibrated: raw signal strength, no inflation.
-    """
+def _compute_confidence(trend: dict[str, Any], root: Path | None = None) -> float:
+    """Estimate prediction confidence from signal strength + historical accuracy."""
     score = 0.1  # low base — we haven't earned confidence yet
 
     # More data = modest boost (cap 0.15)
@@ -227,5 +241,19 @@ def _compute_confidence(trend: dict[str, Any]) -> float:
     # High deletion = uncertainty, penalize
     if trend.get("avg_del", 0) > 0.3:
         score *= 0.7
+
+    # Calibrate against historical prediction accuracy
+    if root:
+        try:
+            scores_path = root / "pigeon_brain" / "prediction_scores.json"
+            if scores_path.exists():
+                scored = json.loads(scores_path.read_text(encoding="utf-8")).get("scores", [])
+                if len(scored) >= 10:
+                    recent = scored[-50:]
+                    hit_rate = sum(1 for s in recent if s.get("score", {}).get("f1", 0) > 0) / len(recent)
+                    # Blend: 40% raw signal, 60% empirical hit rate
+                    score = score * 0.4 + hit_rate * 0.6
+        except Exception:
+            pass
 
     return min(round(score, 3), 0.75)  # hard cap — never claim >75% until we earn it

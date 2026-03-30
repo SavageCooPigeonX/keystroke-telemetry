@@ -308,15 +308,25 @@ def _load_chat_composition(root: Path) -> dict | None:
     """
     try:
         analyzer_path = root / 'client' / 'chat_composition_analyzer.py'
-        if not analyzer_path.exists():
-            return None
-        spec = importlib.util.spec_from_file_location('_comp_analyzer', analyzer_path)
-        mod = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(mod)
-        result = mod.analyze_and_log(root)
-        return result
+        if analyzer_path.exists():
+            spec = importlib.util.spec_from_file_location('_comp_analyzer', analyzer_path)
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            result = mod.analyze_and_log(root)
+            if result:
+                return result
     except Exception:
-        return None
+        pass
+    # Fallback: read latest entry from chat_compositions.jsonl (already logged)
+    try:
+        comp_path = root / 'logs' / 'chat_compositions.jsonl'
+        if comp_path.exists():
+            lines = comp_path.read_text('utf-8').strip().splitlines()
+            if lines:
+                return json.loads(lines[-1])
+    except Exception:
+        pass
+    return None
 
 
 def main():
