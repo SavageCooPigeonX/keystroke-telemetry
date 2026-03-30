@@ -1453,35 +1453,146 @@
     ],
     "avg_hes": 0.0
   },
-  "predictor": {
-    "personality": "stable",
-    "version": 3,
-    "tokens": 2174,
+  "predictor_seq009_confidence": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 419,
     "partners": [
       {
-        "name": "backward_seq007_deepseek_analyze",
+        "name": "backward_seq007_flow_log",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v3+v3)"
+        "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "learning_loop",
+        "name": "backward",
         "score": 0.8,
-        "reason": "5 shared imports, both high-churn (v3+v3)"
+        "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "node_memory",
+        "name": "flow_engine",
         "score": 0.8,
-        "reason": "5 shared imports, both high-churn (v3+v3)"
+        "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "prediction_scorer_seq014_node_backfill",
+        "name": "learning_loop_seq013_journal_loader",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v3+v3)"
+        "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "prediction_scorer_seq014_post_edit_scorer",
+        "name": "learning_loop_seq013_state_utils",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v3+v3)"
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "swallowed exception",
+      "file may not exist"
+    ],
+    "avg_hes": 0.0
+  },
+  "predictor_seq009_predictor": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 544,
+    "partners": [
+      {
+        "name": "dual_substrate",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "failure_detector",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "backward_seq007_flow_log",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "backward",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "dev_plan",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "file may not exist",
+      "returns empty on failure (silent)"
+    ],
+    "avg_hes": 0.0
+  },
+  "predictor_seq009_trend_extractor": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 865,
+    "partners": [
+      {
+        "name": "backward_seq007_flow_log",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "backward",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "flow_engine",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "learning_loop_seq013_journal_loader",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "learning_loop_seq013_state_utils",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "swallowed exception",
+      "file may not exist"
+    ],
+    "avg_hes": 0.0
+  },
+  "predictor": {
+    "personality": "stable",
+    "version": 4,
+    "tokens": 2506,
+    "partners": [
+      {
+        "name": "executor",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "heal",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "run_heal",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "reaudit_diff",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
+      },
+      {
+        "name": "cognitive_reactor",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v4+v4)"
       }
     ],
     "fears": [
@@ -1800,12 +1911,12 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "graph_heat_map",
+        "name": "predictor_seq009_confidence",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "loop_detector",
+        "name": "predictor_seq009_trend_extractor",
         "score": 0.8,
         "reason": "3 shared imports, both high-churn (v2+v2)"
       }
@@ -3881,7 +3992,7 @@
     "fears": [
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.652
+    "avg_hes": 0.694
   },
   "adapter": {
     "personality": "fresh",
@@ -5219,7 +5330,7 @@
       "returns empty on failure (silent)",
       "regex format dependency"
     ],
-    "avg_hes": 0.652
+    "avg_hes": 0.694
   },
   "file_consciousness_seq019_audit": {
     "personality": "fresh",
@@ -7053,7 +7164,7 @@
       "regex format dependency",
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.652
+    "avg_hes": 0.694
   },
   "session_handoff": {
     "personality": "fresh",

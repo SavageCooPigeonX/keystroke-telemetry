@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-30T22:20:48.111976+00:00",
-  "total": 255,
+  "generated": "2026-03-30T23:37:49.726181+00:00",
+  "total": 258,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -1331,6 +1331,66 @@
       ]
     },
     {
+      "path": "pigeon_brain/flow/predictor_seq009/predictor_seq009_confidence_seq003_v002_d0330__auto_extracted_by_pigeon_compiler_lc_rework_signal_0.py",
+      "name": "predictor_seq009_confidence",
+      "seq": 3,
+      "ver": 2,
+      "date": "0330",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "rework_signal_0",
+      "tokens": 419,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0330",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "rework_signal_0",
+          "tokens": 419,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/predictor_seq009/predictor_seq009_predictor_seq007_v002_d0330__auto_extracted_by_pigeon_compiler_lc_rework_signal_0.py",
+      "name": "predictor_seq009_predictor",
+      "seq": 7,
+      "ver": 2,
+      "date": "0330",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "rework_signal_0",
+      "tokens": 544,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0330",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "rework_signal_0",
+          "tokens": 544,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/predictor_seq009/predictor_seq009_trend_extractor_seq004_v002_d0330__auto_extracted_by_pigeon_compiler_lc_rework_signal_0.py",
+      "name": "predictor_seq009_trend_extractor",
+      "seq": 4,
+      "ver": 2,
+      "date": "0330",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "rework_signal_0",
+      "tokens": 865,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0330",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "rework_signal_0",
+          "tokens": 865,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "pigeon_brain/flow/predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3.py",
       "name": "predictor",
       "seq": 9,
@@ -1359,14 +1419,14 @@
       ]
     },
     {
-      "path": "pigeon_brain/flow/predictor_seq009_v003_d0330__fires_phantom_electrons_using_cognitive_lc_gemini_flash_enricher.py",
+      "path": "pigeon_brain/flow/predictor_seq009_v004_d0330__fires_phantom_electrons_using_cognitive_lc_rework_signal_0.py",
       "name": "predictor",
       "seq": 9,
-      "ver": 3,
+      "ver": 4,
       "date": "0330",
       "desc": "fires_phantom_electrons_using_cognitive",
-      "intent": "gemini_flash_enricher",
-      "tokens": 2174,
+      "intent": "rework_signal_0",
+      "tokens": 2506,
       "history": [
         {
           "ver": 2,
@@ -1383,6 +1443,14 @@
           "intent": "gemini_flash_enricher",
           "action": "mutated",
           "tokens": 2174
+        },
+        {
+          "ver": 4,
+          "date": "0330",
+          "desc": "fires_phantom_electrons_using_cognitive",
+          "intent": "rework_signal_0",
+          "action": "mutated",
+          "tokens": 2506
         }
       ]
     },

@@ -109,10 +109,10 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-30 23:36 UTC · 6474 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-30 23:40 UTC · 6477 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `neutral` (WPM: 234.9 | Del: 51.0% | Hes: 0.703) · *[source: measured]*
+**Cognitive state:** `neutral` (WPM: 1037.9 | Del: 50.3% | Hes: 0.676) · *[source: measured]*
 
 **Prompt ms:** 25002, 12155, 18472756, 44999, 8078 (avg 3712598ms)
 
@@ -135,22 +135,14 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `self_fix` (hes=0.7)
-- `.operator_stats` (hes=0.7)
+- `self_fix` (hes=0.694)
+- `.operator_stats` (hes=0.694)
 
 ### Recent Work
+- `2c247ba` fix: rework signal (0.003->real), prediction fixation (edit_pairs), confidence calibration (empirical F1)
 - `8888287` feat: research lab â€” autonomous cognition research synthesizer
 - `ad34e17` feat: README update (7 systems + shard memory + Gemini Flash) + push_narrative self-fix (201->200 lines) + DEV_STORY.md export
 - `078c366` feat: fix push_cycle relative imports + shard memory injection + predictions block live
-- `5018891` feat: gemini flash enricher + per-shard training pairs + shard memory injection into copilot prompt
-
-### Coaching Directives *[source: llm_derived]*
-*LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
-- **Anticipate refactoring pain points**
-- **Respond to high-WPM, high-deletion typing**
-- **Preempt context and init issues**
-- **For "hesitant" or "abandoned" state signals**
-- **Since rework rate is currently zero, maintain precision**
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -170,10 +162,10 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - [HIGH] over_hard_cap in `src/.operator_stats_seq008_v009_d0328__persistent_markdown_memory_file_lc_dynamic_import_resolvers.py`
 
 ### Prompt Evolution
-*This prompt has mutated 78x (186→942 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 80x (186→942 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
-*224 modules profiled*
+*227 modules profiled*
 
 **High-drama (most mutations):**
 - `self_fix` v11 ↔ .operator_stats
@@ -182,9 +174,9 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - `dynamic_prompt` v8 ↔ run_pigeon_loop
 
 **Codebase fears:**
-- file may not exist (81 modules)
-- returns empty on failure (silent) (50 modules)
-- swallowed exception (43 modules)
+- file may not exist (84 modules)
+- returns empty on failure (silent) (51 modules)
+- swallowed exception (45 modules)
 
 **Slumber party warnings (high coupling):**
 - `cli` ↔ `trace_hook` (score=0.80, 3 shared imports, both high-churn (v2+v2))
@@ -285,9 +277,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-03-30 22:23 UTC · 74 prompts analyzed · zero LLM calls*
+*Auto-extracted 2026-03-30 23:40 UTC · 74 prompts analyzed · zero LLM calls*
 
-**Brevity:** 23.6 words/prompt | **Caps:** never | **Fragments:** 77% | **Questions:** 16% | **Directives:** 15%
+**Brevity:** 23.7 words/prompt | **Caps:** never | **Fragments:** 77% | **Questions:** 16% | **Directives:** 16%
 
 **Voice directives (personality tuning):**
 - Operator is semi-casual — use contractions, skip formalities, but keep technical precision.
@@ -302,39 +294,37 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:predictions -->
 ## Push Cycle Predictions
 
-*Auto-generated 2026-03-30 22:23 UTC*
+*Auto-generated 2026-03-30 23:40 UTC*
 
 **What you'll likely want next push:**
-1. [targeted] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=50%)
-   - hot modules: file_heat_map, import_rewriter, file_writer
-2. [heat] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=50%)
-   - hot modules: file_heat_map, import_rewriter, file_writer
-3. [failure] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=50%)
-   - hot modules: file_heat_map, import_rewriter, file_writer
+1. [targeted] Predict operator's next need. Module focus: shard_manager, context_router, unified_signal (conf=24%)
+   - hot modules: shard_manager, context_router, unified_signal, training_pairs, voice_style
+2. [heat] Predict operator's next need. Module focus: shard_manager, context_router, unified_signal (conf=24%)
+   - hot modules: shard_manager, context_router, unified_signal, training_pairs, voice_style
+3. [failure] Predict operator's next need. Module focus: shard_manager, context_router, unified_signal (conf=24%)
+   - hot modules: shard_manager, context_router, unified_signal, training_pairs, voice_style
 
 **Operator coaching:**
 - No module references detected in prompts — naming specific modules helps copilot target the right files.
 
 **Agent coaching (for Copilot):**
-- Touched ['push_cycle', 'research_lab'] without operator reference — confirm intent before modifying unreferenced modules.
+- Touched ['classify_bridge', 'predictor'] without operator reference — confirm intent before modifying unreferenced modules.
 
 <!-- /pigeon:predictions -->
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-30 · 6474 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-30 - 6477 message(s) - LLM-synthesized*
 
 **Dominant: `frustrated`** | Submit: 3% | WPM: 55.0 | Del: 46.6% | Hes: 0.647
 
-The operator just built an autonomous research lab system that studies itself, revealing a night-owl pattern of intense, high-deletion bursts where they restructure code in frustrated/hesitant states, often abandoning or heavily revising modules.
-
-*   **Anticipate refactoring pain points:** When `self_fix seq13`, `.operator_stats seq8`, or `dynamic_prompt seq17` are mentioned, proactively suggest cleaner abstractions or import patterns, as these are high-churn modules.
-*   **Respond to high-WPM, high-deletion typing** (like the recent 2577 WPM/50% del) with concise, structural suggestions—not line-by-line code—to channel their restructuring momentum.
-*   **Preempt context and init issues:** If `context_budget seq4` or `init_writer seq7` are involved, immediately propose a namespace or import strategy to avoid the recurring cycle of fixes.
-*   **For "hesitant" or "abandoned" state signals** (like msg4-msg7), offer one clear, best-practice implementation path to reduce decision paralysis; avoid open-ended options.
-*   **Since rework rate is currently zero, maintain precision:** Continue providing exact, copy-paste-ready code blocks that match the architectural style of their `lc_organism_health_system` and `research_lab` modules.
-
-They are most likely building toward a fully self-optimizing meta-system where the research lab autonomously improves the core agent's code generation.
+The operator just built a cognitive rework signal system and their high-deletion, hesitant nighttime patterns reveal they're meticulously editing generated code rather than writing fresh logic.  
+- **Anticipate heavy edits** on `predictor_seq009_*` modules—offer concise, modular snippets that are easy to cut/paste, not monoliths.  
+- **Pre‑empt registry churn** by referencing `self_fix seq13` and `dynamic_prompt seq17` with version‑aware comments (“if using v11, try…”).  
+- **When they hesitate** (50%+ deletion, 0.7+ hesitation score), provide two clear options inline and explicitly ask “Which direction fits your rework signal?”  
+- **Since rework is high** but miss‑rate is zero, trust their edits—answer only the asked question, then stop.  
+- **Flag persistent pain points** like `context_budget seq4` and `operator_stats seq8` by saying “This resembles the churn in module X—do you want a pattern that reduces future edits?”  
+They are most likely building toward a unified cognitive‑layer compiler that auto‑extracts and version‑controls pipeline components.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `node_conversation`** (hes=0.698, state=hesitant, avg_prompt=33623ms)
@@ -532,7 +522,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 ### Full Module Index
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-30 - 255 modules tracked | 2 touched this commit*
+*Auto-updated 2026-03-30 - 258 modules tracked | 4 touched this commit*
 
 **pigeon_brain/** - 16 module(s)
 
@@ -569,7 +559,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `backward_seq007*` | backward pass walks electron path | ~2,500 |
 | `node_memory_seq008*` | the experience vault stores raw | ~2,084 |
 | `predictor_seq009*` | fires phantom electrons using cognitive | ~1,831 |
-| `predictor_seq009*` | fires phantom electrons using cognitive | ~2,174 |
+| `predictor_seq009*` | fires phantom electrons using cognitive | ~2,506 |
 | `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,532 |
 | `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,539 |
 | `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,541 |
@@ -629,6 +619,14 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `prediction_scorer_seq014_post_edit_scorer_seq011*` | auto extracted by pigeon compiler | ~841 |
 | `prediction_scorer_seq014_post_commit_scorer_seq012*` | auto extracted by pigeon compiler | ~605 |
 | `prediction_scorer_seq014_post_commit_scorer_seq012*` | auto extracted by pigeon compiler | ~607 |
+
+**pigeon_brain/flow/predictor_seq009/** - 3 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `predictor_seq009_confidence_seq003*` | auto extracted by pigeon compiler | ~419 |
+| `predictor_seq009_trend_extractor_seq004*` | auto extracted by pigeon compiler | ~865 |
+| `predictor_seq009_predictor_seq007*` | auto extracted by pigeon compiler | ~544 |
 
 **pigeon_compiler/bones/** - 5 module(s)
 

@@ -1,4 +1,12 @@
 """predictor_seq009_predictor_seq007_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 007 | VER: v002 | 62 lines | ~544 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: rework_signal_0
+# LAST:   2026-03-30 @ 2c247ba
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
