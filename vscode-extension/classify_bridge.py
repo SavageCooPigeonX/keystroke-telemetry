@@ -348,6 +348,38 @@ def main():
 
     # ── Chat composition analysis (deleted words, rewrites, hesitation) ──
     chat_comp = _load_chat_composition(root)
+    # Fallback: if chat_comp failed, try composition_recon (fuses OS hook + vscdb + journal)
+    if not chat_comp:
+        try:
+            recon_path = root / 'client' / 'composition_recon.py'
+            if recon_path.exists():
+                spec = importlib.util.spec_from_file_location('_comp_recon', recon_path)
+                recon_mod = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(recon_mod)
+                recon_results = recon_mod.reconstruct_composition(str(root))
+                # Convert the best result to chat_comp format
+                sessions = [r for r in recon_results if r.get('type') == 'os_hook_session']
+                if sessions:
+                    best = sessions[-1]  # most recent
+                    chat_comp = {
+                        'total_keystrokes': best.get('total_keystrokes', 0),
+                        'deletion_ratio': best.get('deletion_ratio', 0),
+                        'deleted_words': [],
+                        'rewrites': [],
+                        'peak_buffer': best.get('final_buffer', ''),
+                        'source': 'composition_recon',
+                    }
+                    # Merge abandoned drafts as pseudo-deleted-words
+                    for r in recon_results:
+                        if r.get('type') == 'abandoned_drafts':
+                            for d in r.get('drafts', [])[:5]:
+                                txt = d.get('abandoned_text', '')
+                                if txt:
+                                    chat_comp['deleted_words'].append({'word': txt[:60], 'start_ts': 0})
+                        if r.get('type') == 'rewrite_sequences':
+                            chat_comp['rewrites'] = r.get('rewrites', [])[:5]
+        except Exception:
+            pass
     chat_state_override = None
     if chat_comp:
         cs = chat_comp.get('chat_state', {})
@@ -383,21 +415,44 @@ def main():
         except Exception:
             pass
 
-    # â”€â”€ Rework detection â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    # ── Rework detection ─────────────────────────────────────────────
     rework_verdict = 'ok'
     try:
         rework_mod = _load_pigeon_module(root, 'src/rework_detector_seq009*.py')
         if rework_mod:
+            rw = None
             if chat_comp and chat_comp.get('total_keystrokes', 0) > 5:
                 rw_fn = getattr(rework_mod, 'score_rework_from_composition', None)
                 if rw_fn:
                     rw = rw_fn(chat_comp)
                 else:
                     rw = rework_mod.score_rework(post_evts)
-                rework_verdict = rw['verdict']
-                rework_mod.record_rework(root, rw, query_txt, resp_text)
             elif post_evts:
                 rw = rework_mod.score_rework(post_evts)
+            else:
+                # Fallback: score from prompt_telemetry signal data
+                try:
+                    pt_path = root / 'logs' / 'prompt_telemetry_latest.json'
+                    if pt_path.exists():
+                        pt = json.loads(pt_path.read_text('utf-8'))
+                        sig = pt.get('signals', {})
+                        dr = sig.get('deletion_ratio', 0)
+                        kc = sig.get('total_keystrokes', 0)
+                        dur = sig.get('duration_ms', 1)
+                        rw_count = len(pt.get('rewrites', []))
+                        if kc > 5 or dr > 0:
+                            rw_fn = getattr(rework_mod, 'score_rework_from_composition', None)
+                            if rw_fn:
+                                rw = rw_fn({
+                                    'deletion_ratio': dr,
+                                    'total_keystrokes': max(kc, 1),
+                                    'duration_ms': max(dur, 1),
+                                    'rewrites': pt.get('rewrites', []),
+                                    'deleted_words': pt.get('deleted_words', []),
+                                })
+                except Exception:
+                    pass
+            if rw:
                 rework_verdict = rw['verdict']
                 rework_mod.record_rework(root, rw, query_txt, resp_text)
     except Exception:
@@ -445,6 +500,29 @@ def main():
                             'length': len(dw['word']),
                             'deleted_at_ms': dw.get('start_ts', 0),
                         })
+    except Exception:
+        pass
+
+    # ── Unsaid reconstruction via Gemini (high-deletion prompts) ──────
+    try:
+        recon_comp = chat_comp
+        if not recon_comp:
+            # Build minimal composition from prompt_telemetry
+            pt_path = root / 'logs' / 'prompt_telemetry_latest.json'
+            if pt_path.exists():
+                pt = json.loads(pt_path.read_text('utf-8'))
+                sig = pt.get('signals', {})
+                if sig.get('deletion_ratio', 0) > 0.25:
+                    recon_comp = {
+                        'deletion_ratio': sig['deletion_ratio'],
+                        'deleted_words': pt.get('deleted_words', []),
+                        'rewrites': pt.get('rewrites', []),
+                        'final_text': query_txt,
+                    }
+        if recon_comp and recon_comp.get('deletion_ratio', 0) > 0.25:
+            unsaid_recon_mod = _load_pigeon_module(root, 'src/unsaid_recon_seq024*.py')
+            if unsaid_recon_mod:
+                unsaid_recon_mod.reconstruct_if_needed(root, recon_comp)
     except Exception:
         pass
 
@@ -582,6 +660,20 @@ def main():
             'peak_buffer': chat_comp.get('peak_buffer', '')[:100],
             'hesitation_windows': len(chat_comp.get('hesitation_windows', [])),
         }
+
+    # ── Training pair writer: muxed state per prompt ─────────────────────────
+    if submitted and query_txt and not query_txt.startswith('bg:'):
+        try:
+            tw_mod = _load_pigeon_module(root, 'src/training_writer_seq028*.py')
+            if tw_mod:
+                tw_mod.write_training_pair(
+                    root,
+                    prompt=query_txt[:500],
+                    response=resp_text[:1000] if resp_text else '(no response captured)',
+                    verdict=rework_verdict,
+                )
+        except Exception:
+            pass
 
     print(json.dumps({
         'state':            state,

@@ -19,9 +19,9 @@ No human trigger. The 60-second background flush IS the input.
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-29T01:00:00+00:00
+# EDIT_TS:   2026-03-30T03:15:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  fix state loading + active_files bugs
+# EDIT_WHY:  lower docstring patch threshold + track patches_applied
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -133,6 +133,8 @@ def ingest_flush(
     # Update state
     state['last_fire'][target_key] = now_ts
     state['total_fires'] = state.get('total_fires', 0) + 1
+    if result and result.get('patches_applied'):
+        state['patches_applied'] = state.get('patches_applied', 0) + 1
     target['count'] = 0  # reset streak after firing
     target['total_hes'] = 0
     _save_state(root, state)
@@ -238,10 +240,10 @@ def _fire_reactor(
 
     out_path.write_text(header + body + '\n', encoding='utf-8')
 
-    # Auto-apply docstring patch when confidence is high enough
+    # Auto-apply docstring patch — fires on every reactor activation now
+    # (reactor already gates on FRUSTRATION_STREAK + HESITATION_THRESHOLD + cooldown)
     staged = None
-    if (target_file and streak['count'] >= FRUSTRATION_STREAK * 2
-            and avg_hes >= HESITATION_THRESHOLD + 0.1):
+    if target_file:
         staged = _apply_docstring_patch(root, target_file, module_key, avg_hes, dominant_state)
 
     # Inject therapy into copilot-instructions (always, not just severe)
@@ -255,6 +257,7 @@ def _fire_reactor(
         'problems': len(problems),
         'patch_path': str(out_path.relative_to(root)),
         'staged_docstring_patch': staged,
+        'patches_applied': 1 if staged else 0,
         'therapy': therapy,
     }
 
@@ -382,7 +385,7 @@ def _apply_docstring_patch(
     # Build the cognitive note to append
     note = (
         f'\n\nCOGNITIVE NOTE (auto-added by reactor): This module triggered '
-        f'{FRUSTRATION_STREAK * 2}+ high-load flushes '
+        f'{streak_count}+ high-load flushes '
         f'(avg_hes={avg_hes:.3f}, state={dominant_state}). '
         f'Consider simplifying its public interface or adding examples.'
     )

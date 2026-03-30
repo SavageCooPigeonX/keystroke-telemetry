@@ -35,6 +35,17 @@ def main():
 
     rec = pair_pulse_to_prompt(root, filepath)
     if rec:
+        # ── Training pair capture — every edit is a label ──
+        try:
+            tp_matches = sorted(root.glob('src/training_pairs_seq027*.py'))
+            if tp_matches:
+                tp_spec = importlib.util.spec_from_file_location('_tp', tp_matches[-1])
+                tp_mod = importlib.util.module_from_spec(tp_spec)
+                tp_spec.loader.exec_module(tp_mod)
+                tp_mod.capture_training_pair(root)
+        except Exception:
+            pass  # non-fatal — training data is best-effort
+
         print(json.dumps({"paired": True, "latency_ms": rec["latency_ms"],
                           "file": rec["file"], "edit_why": rec["edit_why"]}))
     else:

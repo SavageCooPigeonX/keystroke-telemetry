@@ -1,7 +1,7 @@
-"""prompt_enricher_seq024_v001.py — Pre-process every prompt via DeepSeek.
+"""prompt_enricher_seq024_v001.py — Pre-process every prompt via Gemini Flash.
 
 Assembles full operator context (file heat, rework history, past attempts,
-deleted words, cognitive state) and calls DeepSeek to interpret what the
+deleted words, cognitive state) and calls Gemini 2.5 Flash to interpret what the
 operator actually means. Writes a <!-- pigeon:current-query --> block into
 copilot-instructions.md so Copilot reads the enriched context on the next turn.
 
@@ -15,17 +15,21 @@ Zero friction: called automatically from prompt_journal on every log_enriched_en
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-22T20:20:00+00:00
+# EDIT_TS:   2026-03-30T06:30:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  canonicalize current-query block cleanup
+# EDIT_WHY:  switch from deepseek to gemini flash
 # EDIT_STATE: harvested
 # ── /pulse ──
 from __future__ import annotations
 import json
 import re
 import os
+import urllib.request
 from pathlib import Path
 from datetime import datetime, timezone
+
+GEMINI_MODEL = 'gemini-2.5-flash'
+GEMINI_TIMEOUT = 12  # seconds — enricher prompt is bigger than unsaid recon
 
 BLOCK_START = '<!-- pigeon:current-query -->'
 BLOCK_END   = '<!-- /pigeon:current-query -->'
@@ -182,6 +186,7 @@ def _build_deepseek_prompt(raw_query: str, context: dict) -> str:
     state = context.get('cognitive_state', {})
     registry = context.get('registry_hits', [])
     journal = context.get('journal_trajectory', [])
+    shard_context = context.get('shard_context', '')
 
     hot_str = '\n'.join(
         f"  • {h['file']} (hes={h['hes']}, touched {h['touches']}x)" for h in hot
@@ -235,6 +240,7 @@ REWORK HISTORY (what failed before on similar queries):
 PAST COPILOT ATTEMPTS:
 {past_str}
 
+{shard_context}
 OUTPUT FORMAT — produce exactly this structure, no markdown fences, no extra text:
 COPILOT_QUERY: <The full rephrased query Copilot should execute. Be specific: name exact files, exact functions, exact variables. Use developer English. Make it unambiguous. 2-4 sentences max.>
 INTERPRETED INTENT: <1 sentence — what operator actually wants beneath the raw words>
@@ -251,6 +257,15 @@ def enrich_prompt(root: Path, raw_query: str,
     """Call DeepSeek to enrich a raw prompt. Returns the enriched interpretation text."""
     root = Path(root)
 
+    # Route memory shards
+    shard_text = ''
+    try:
+        from src.context_router_seq027_v001 import route_context, format_shard_context
+        routed = route_context(root, raw_query)
+        shard_text = format_shard_context(routed, root=root)
+    except Exception:
+        pass
+
     context = {
         'hot_files':          _hot_files(root),
         'rework_history':     _rework_for_query(root, raw_query),
@@ -259,37 +274,44 @@ def enrich_prompt(root: Path, raw_query: str,
         'cognitive_state':    cognitive_state or _cognitive_state(root),
         'registry_hits':      _registry_touches(root, raw_query),
         'journal_trajectory': _recent_journal_context(root),
+        'shard_context':      shard_text,
     }
 
     ds_prompt = _build_deepseek_prompt(raw_query, context)
 
+    # Load API key from .env
+    api_key = None
+    env_path = root / '.env'
+    if env_path.exists():
+        for line in env_path.read_text('utf-8').splitlines():
+            if line.startswith('GEMINI_API_KEY='):
+                api_key = line.split('=', 1)[1].strip()
+                break
+    if not api_key:
+        api_key = os.environ.get('GEMINI_API_KEY') or os.environ.get('GOOGLE_API_KEY')
+    if not api_key:
+        return ''
+
+    url = (
+        f'https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}'
+        f':generateContent?key={api_key}'
+    )
+    body = json.dumps({
+        'system_instruction': {'parts': [{'text':
+            'You are a concise developer context interpreter. Output only the structured block, no prose.'}]},
+        'contents': [{'parts': [{'text': ds_prompt}]}],
+        'generationConfig': {
+            'temperature': 0.2,
+            'maxOutputTokens': 2048,
+            'thinkingConfig': {'thinkingBudget': 256},
+        },
+    }).encode('utf-8')
+
     try:
-        import glob as _g, importlib.util as _ilu
-        matches = sorted(Path(root).glob(
-            'pigeon_compiler/integrations/deepseek_adapter_seq001*.py'))
-        if not matches:
-            return ''
-        spec = _ilu.spec_from_file_location('_ds', matches[-1])
-        if spec is None or spec.loader is None:
-            return ''
-        mod = _ilu.module_from_spec(spec)
-        spec.loader.exec_module(mod)
-
-        # Load .env so API key is available
-        env_path = root / '.env'
-        if env_path.exists():
-            for line in env_path.read_text('utf-8').splitlines():
-                if '=' in line and not line.startswith('#'):
-                    k, _, v = line.partition('=')
-                    os.environ.setdefault(k.strip(), v.strip())
-
-        result = mod.deepseek_query(
-            ds_prompt,
-            system="You are a concise developer context interpreter. Output only the structured block, no prose.",
-            max_tokens=300,
-            temperature=0.2,
-        )
-        return result.get('content', '').strip()
+        req = urllib.request.Request(url, data=body, headers={'Content-Type': 'application/json'})
+        with urllib.request.urlopen(req, timeout=GEMINI_TIMEOUT) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+            return data['candidates'][0]['content']['parts'][0]['text'].strip()
     except Exception as e:
         return f'(enrichment unavailable: {e})'
 

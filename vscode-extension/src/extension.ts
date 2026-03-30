@@ -203,10 +203,25 @@ class BackgroundTelemetry {
     private _flushTimer: NodeJS.Timeout | undefined;
     private _root: string;
     private _logPath: string;
+    private _copilotEditsPath: string;
     private _active = false;
     private _sessionId: string;
     private _totalFlushed = 0;
     private _statusItem!: vscode.StatusBarItem;
+
+    // ── Copilot edit detection ──
+    // Threshold: a single contentChange inserting >= this many chars is "AI-scale"
+    private static readonly AI_EDIT_CHAR_THRESHOLD = 8;
+    // Debounce: aggregate rapid multi-change events within this window
+    private _pendingAiEdits: Map<string, { chars: number; replaced: number; lines: number; ts: number }> = new Map();
+    private _aiEditFlushTimer: NodeJS.Timeout | undefined;
+
+    // ── Keystroke↔Edit cross-correlation ──
+    // The OS hook logs every physical keystroke to os_keystrokes.jsonl.
+    // If text appears in the editor with NO recent keystroke → it was Copilot/AI.
+    // If text appears right after Ctrl+V → it was paste.
+    // If text appears right after Tab → possibly Copilot inline accept.
+    // On-demand: read tail of os_keystrokes.jsonl when classifying edits.
 
     constructor(root: string) {
         this._root = root;
@@ -214,6 +229,7 @@ class BackgroundTelemetry {
         const logDir = path.join(root, 'logs');
         if (!fs.existsSync(logDir)) { fs.mkdirSync(logDir, { recursive: true }); }
         this._logPath = path.join(logDir, 'os_keystrokes.jsonl');
+        this._copilotEditsPath = path.join(logDir, 'copilot_edits.jsonl');
     }
 
     start(context: vscode.ExtensionContext) {
@@ -402,7 +418,159 @@ class BackgroundTelemetry {
                 this._push({ ts: now, type: 'backspace', len: change.rangeLength, file: relFile });
                 this._push({ ts: now, type: 'insert', len: change.text.length, file: relFile });
             }
+
+            // ── AI/Copilot edit detection ──
+            // A single contentChange with 8+ chars inserted is NOT keystroke typing.
+            // Could be: Copilot inline suggestion, Chat Apply, Edits mode, or paste.
+            // We log ALL of them — the analysis pipeline can filter paste vs AI later
+            // by correlating with os_hook clipboard events.
+            const inserted = change.text.length;
+            const replaced = change.rangeLength;
+            const isMultiline = change.text.includes('\n');
+
+            if (inserted >= BackgroundTelemetry.AI_EDIT_CHAR_THRESHOLD || isMultiline) {
+                // Aggregate rapid edits to the same file (Copilot often applies
+                // multiple contentChanges in a single event batch)
+                const pending = this._pendingAiEdits.get(relFile) ?? { chars: 0, replaced: 0, lines: 0, ts: now };
+                pending.chars += inserted;
+                pending.replaced += replaced;
+                pending.lines += (change.text.match(/\n/g) || []).length;
+                pending.ts = now;
+                this._pendingAiEdits.set(relFile, pending);
+
+                // Debounce: flush pending AI edits after 200ms of quiet
+                if (this._aiEditFlushTimer) clearTimeout(this._aiEditFlushTimer);
+                this._aiEditFlushTimer = setTimeout(() => this._flushAiEdits(), 200);
+            }
         }
+    }
+
+    private _flushAiEdits() {
+        if (this._pendingAiEdits.size === 0) return;
+
+        // ── Cross-correlate with OS hook keystrokes ──
+        // Read recent physical keystrokes from os_keystrokes.jsonl
+        // to determine if the edit was human-initiated or AI-generated.
+        const recentOsEvents = this._readRecentOsKeystrokes(10_000);
+
+        // Read recent AI response timing for Copilot Apply detection
+        let lastResponseTs = 0;
+        let lastResponseLen = 0;
+        try {
+            const respPath = path.join(this._root, 'logs', 'ai_responses.jsonl');
+            if (fs.existsSync(respPath)) {
+                const stat = fs.statSync(respPath);
+                const readSize = Math.min(4096, stat.size);
+                const fd = fs.openSync(respPath, 'r');
+                const buf = Buffer.alloc(readSize);
+                fs.readSync(fd, buf, 0, readSize, stat.size - readSize);
+                fs.closeSync(fd);
+                const lines = buf.toString('utf-8').split('\n').filter(l => l.trim());
+                const last = lines[lines.length - 1];
+                if (last) {
+                    const parsed = JSON.parse(last);
+                    lastResponseTs = parsed.response_end_ms || new Date(parsed.ts).getTime() || 0;
+                    lastResponseLen = (parsed.response || '').length;
+                }
+            }
+        } catch { /* non-fatal */ }
+
+        const entries: string[] = [];
+        for (const [file, data] of this._pendingAiEdits) {
+            const editTs = data.ts;
+            const KEYSTROKE_WINDOW = 300;  // ms — if a physical key happened within this window, human caused it
+            const PASTE_WINDOW = 500;
+
+            // Find OS hook events near this edit
+            const nearbyEvents = recentOsEvents.filter(e => Math.abs(e.ts - editTs) < PASTE_WINDOW);
+            const hasPaste = nearbyEvents.some(e => e.type === 'paste' || e.type === 'paste_replace');
+            const hasUndo = nearbyEvents.some(e => e.type === 'undo');
+            const hasTab = nearbyEvents.some(e =>
+                e.type === 'special' && e.key && e.key.toLowerCase().includes('tab')
+            );
+            const hasKeystroke = recentOsEvents.some(e =>
+                Math.abs(e.ts - editTs) < KEYSTROKE_WINDOW &&
+                (e.type === 'insert' || e.type === 'backspace' || e.type === 'selection_replace')
+            );
+            const timeSinceResponse = lastResponseTs > 0 ? editTs - lastResponseTs : Infinity;
+
+            // Classification priority:
+            // 1. Paste event near edit → paste
+            // 2. Undo event near edit → undo
+            // 3. Tab near edit → copilot_tab_accept (inline suggestion)
+            // 4. Recent AI response + no keystroke → copilot_apply / copilot_edit
+            // 5. Multiline + no keystroke + no recent response → copilot_inline
+            // 6. Physical keystroke near edit → human_edit (snippet, auto-format, etc.)
+            // 7. Fallback: unknown
+            let editSource = 'unknown';
+            if (hasPaste) {
+                editSource = 'paste';
+            } else if (hasUndo) {
+                editSource = 'undo';
+            } else if (hasTab && !hasKeystroke) {
+                editSource = 'copilot_tab_accept';
+            } else if (timeSinceResponse >= 0 && timeSinceResponse < 10_000 && !hasKeystroke) {
+                editSource = data.replaced > 0 ? 'copilot_edit' : 'copilot_apply';
+            } else if (data.lines > 0 && data.chars > 20 && !hasKeystroke) {
+                editSource = 'copilot_inline';
+            } else if (hasKeystroke) {
+                editSource = 'human_edit';
+            }
+
+            entries.push(JSON.stringify({
+                ts: data.ts,
+                file,
+                chars_inserted: data.chars,
+                chars_replaced: data.replaced,
+                lines_added: data.lines,
+                is_multiline: data.lines > 0,
+                edit_source: editSource,
+                time_since_ai_response_ms: timeSinceResponse === Infinity ? null : timeSinceResponse,
+                ai_response_len: lastResponseLen || null,
+                nearby_os_events: nearbyEvents.length,
+                had_physical_keystroke: hasKeystroke,
+                source: 'vscode',
+                sid: this._sessionId,
+            }));
+        }
+        this._pendingAiEdits.clear();
+
+        try {
+            fs.appendFileSync(this._copilotEditsPath, entries.join('\n') + '\n', 'utf-8');
+        } catch { /* non-fatal */ }
+    }
+
+    /**
+     * Read the tail of os_keystrokes.jsonl and return OS hook events
+     * within the last `windowMs` milliseconds. Only returns events
+     * with source='os_hook' (not the extension's own events).
+     */
+    private _readRecentOsKeystrokes(windowMs: number): Array<{ ts: number; type: string; key?: string }> {
+        try {
+            if (!fs.existsSync(this._logPath)) return [];
+            const stat = fs.statSync(this._logPath);
+            // Read last 8KB — at ~150 bytes/event, that's ~50 events
+            const readSize = Math.min(8192, stat.size);
+            const fd = fs.openSync(this._logPath, 'r');
+            const buf = Buffer.alloc(readSize);
+            fs.readSync(fd, buf, 0, readSize, stat.size - readSize);
+            fs.closeSync(fd);
+
+            const now = Date.now();
+            const cutoff = now - windowMs;
+            const lines = buf.toString('utf-8').split('\n').filter(l => l.trim());
+            const events: Array<{ ts: number; type: string; key?: string }> = [];
+
+            for (const line of lines) {
+                try {
+                    const evt = JSON.parse(line);
+                    if (evt.source !== 'os_hook') continue;
+                    if (evt.ts < cutoff) continue;
+                    events.push({ ts: evt.ts, type: evt.type, key: evt.key });
+                } catch { /* skip malformed */ }
+            }
+            return events;
+        } catch { return []; }
     }
 
     private _flushIfReady() {
@@ -558,15 +726,24 @@ class PigeonChatPanel {
             )
         ];
         const cts = new vscode.CancellationTokenSource();
+        const requestStartMs = Date.now();
         const res = await model.sendRequest(messages, {}, cts.token);
         let full = '';
+        let firstChunkMs = 0;
+        let chunkCount = 0;
         for await (const chunk of res.text) {
+            if (!firstChunkMs) firstChunkMs = Date.now();
+            chunkCount++;
             full += chunk;
             this._panel.webview.postMessage({ type: 'chunk', text: chunk });
         }
+        const responseEndMs = Date.now();
         this._history.push({ role: 'assistant', content: full });
         this._panel.webview.postMessage({ type: 'done' });
-        this._logResponse(this._history[this._history.length - 2]?.content ?? '', full, 'pigeon_panel_copilot');
+        this._logResponse(
+            this._history[this._history.length - 2]?.content ?? '', full,
+            'pigeon_panel_copilot', requestStartMs, firstChunkMs, responseEndMs, chunkCount
+        );
     }
 
     private async _callDeepSeek(opCtx: string) {
@@ -579,6 +756,7 @@ class PigeonChatPanel {
             ...(opCtx ? [{ role: 'system', content: opCtx }] : []),
             ...this._history
         ];
+        const requestStartMs = Date.now();
         const res = await fetch('https://api.deepseek.com/chat/completions', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` },
@@ -587,6 +765,8 @@ class PigeonChatPanel {
         const reader = res.body!.getReader();
         const dec = new TextDecoder();
         let full = '';
+        let firstChunkMs = 0;
+        let chunkCount = 0;
         while (true) {
             const { done, value } = await reader.read();
             if (done) break;
@@ -594,16 +774,29 @@ class PigeonChatPanel {
                 if (!line.startsWith('data: ') || line.includes('[DONE]')) continue;
                 try {
                     const chunk = JSON.parse(line.slice(6)).choices?.[0]?.delta?.content;
-                    if (chunk) { full += chunk; this._panel.webview.postMessage({ type: 'chunk', text: chunk }); }
+                    if (chunk) {
+                        if (!firstChunkMs) firstChunkMs = Date.now();
+                        chunkCount++;
+                        full += chunk;
+                        this._panel.webview.postMessage({ type: 'chunk', text: chunk });
+                    }
                 } catch { /* skip malformed */ }
             }
         }
+        const responseEndMs = Date.now();
         this._history.push({ role: 'assistant', content: full });
         this._panel.webview.postMessage({ type: 'done' });
-        this._logResponse(this._history[this._history.length - 2]?.content ?? '', full, 'pigeon_panel_deepseek');
+        this._logResponse(
+            this._history[this._history.length - 2]?.content ?? '', full,
+            'pigeon_panel_deepseek', requestStartMs, firstChunkMs, responseEndMs, chunkCount
+        );
     }
 
-    private _logResponse(prompt: string, response: string, source: string) {
+    private _logResponse(
+        prompt: string, response: string, source: string,
+        requestStartMs?: number, firstChunkMs?: number,
+        responseEndMs?: number, chunkCount?: number,
+    ) {
         const respLogPath = path.join(this._root, 'logs', 'ai_responses.jsonl');
         const entry = JSON.stringify({
             ts: new Date().toISOString(),
@@ -611,6 +804,16 @@ class PigeonChatPanel {
             response: response.slice(0, 5000),
             source,
             tokens_approx: Math.ceil(response.length / 4),
+            // ── AI cognition timing ──
+            ...(requestStartMs ? {
+                request_start_ms: requestStartMs,
+                first_chunk_ms: firstChunkMs || 0,
+                response_end_ms: responseEndMs || 0,
+                queue_latency_ms: (firstChunkMs || 0) - requestStartMs,
+                generation_time_ms: (responseEndMs || 0) - (firstChunkMs || requestStartMs),
+                total_latency_ms: (responseEndMs || 0) - requestStartMs,
+                chunk_count: chunkCount || 0,
+            } : {}),
         }) + '\n';
         try { fs.appendFileSync(respLogPath, entry, 'utf-8'); } catch { /* non-fatal */ }
     }
@@ -772,10 +975,15 @@ function registerChatParticipant(root: string, context: vscode.ExtensionContext)
         messages.push(vscode.LanguageModelChatMessage.User(request.prompt));
 
         let fullResponse = '';
+        const requestStartMs = Date.now();
+        let firstChunkMs = 0;
+        let chunkCount = 0;
         try {
             const res = await request.model.sendRequest(messages, {}, token);
             for await (const chunk of res.text) {
                 if (token.isCancellationRequested) break;
+                if (!firstChunkMs) firstChunkMs = Date.now();
+                chunkCount++;
                 fullResponse += chunk;
                 stream.markdown(chunk);
             }
@@ -783,8 +991,9 @@ function registerChatParticipant(root: string, context: vscode.ExtensionContext)
             fullResponse = `[error] ${e?.message ?? 'unknown'}`;
             stream.markdown(`*Error: ${e?.message ?? 'unknown'}*`);
         }
+        const responseEndMs = Date.now();
 
-        // ── Log response for coaching pipeline ──
+        // ── Log response with AI cognition timing ──
         const responseEntry = JSON.stringify({
             ts: new Date().toISOString(),
             prompt: request.prompt,
@@ -792,6 +1001,14 @@ function registerChatParticipant(root: string, context: vscode.ExtensionContext)
             model: request.model.id ?? 'unknown',
             tokens_approx: Math.ceil(fullResponse.length / 4),
             cancelled: token.isCancellationRequested,
+            // AI cognition timing
+            request_start_ms: requestStartMs,
+            first_chunk_ms: firstChunkMs || 0,
+            response_end_ms: responseEndMs,
+            queue_latency_ms: (firstChunkMs || 0) - requestStartMs,
+            generation_time_ms: responseEndMs - (firstChunkMs || requestStartMs),
+            total_latency_ms: responseEndMs - requestStartMs,
+            chunk_count: chunkCount,
         }) + '\n';
         try { fs.appendFileSync(responsePath, responseEntry, 'utf-8'); } catch { /* non-fatal */ }
     };

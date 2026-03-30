@@ -4,9 +4,9 @@
 # │  rework signals. pigeon_brain/flow             │
 # └──────────────────────────────────────────────┘
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-27T09:05:00+00:00
+# EDIT_TS:   2026-03-30T06:00:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  rewrite for edit session scoring
+# EDIT_WHY:  add copilot_edits as primary source
 # ── /pulse ──
 """
 Prediction scorer v2 — edit-session based.
@@ -97,6 +97,100 @@ def _load_rework_log(root: Path) -> list[dict[str, Any]]:
     if isinstance(data, list):
         return data
     return data.get("entries", data.get("events", []))
+
+
+def _load_copilot_edits(root: Path) -> list[dict[str, Any]]:
+    """Load copilot/AI edit events from the VS Code extension.
+
+    These are large text insertions (>=8 chars or multi-line) captured by
+    onDidChangeTextDocument — the primary source of file mutations in an
+    AI-assisted workflow. Includes Copilot inline completions, Chat Apply,
+    Edits mode, and paste operations.
+    """
+    p = root / "logs" / "copilot_edits.jsonl"
+    if not p.exists():
+        return []
+    edits = []
+    for line in p.read_text(encoding="utf-8").strip().splitlines():
+        try:
+            edits.append(json.loads(line))
+        except json.JSONDecodeError:
+            continue
+    return edits
+
+
+def _get_copilot_edit_modules_in_window(
+    copilot_edits: list[dict[str, Any]],
+    after_ts_ms: float,
+    window_ms: float = 600_000,  # 10 min default window
+) -> set[str]:
+    """Get modules that had AI edits in a time window.
+
+    Returns set of module names extracted from copilot_edits.jsonl entries
+    whose timestamp falls within (after_ts_ms, after_ts_ms + window_ms].
+    """
+    modules = set()
+    for ce in copilot_edits:
+        ts = ce.get("ts", 0)
+        if isinstance(ts, str):
+            try:
+                ts = datetime.fromisoformat(ts).timestamp() * 1000
+            except (ValueError, TypeError):
+                continue
+        if after_ts_ms < ts <= after_ts_ms + window_ms:
+            mod = extract_module_name(ce.get("file", ""))
+            if mod:
+                modules.add(mod)
+    return modules
+
+
+def _load_unified_edits(root: Path) -> list[dict[str, Any]]:
+    """Load unified edit events — the merged signal from all telemetry sources.
+
+    This is the HIGHEST FIDELITY source of "what actually changed" because it
+    merges copilot_edits, edit_pairs, AI response timing, and rework verdicts
+    into a single correlated stream.
+
+    Falls back to copilot_edits + edit_pairs if unified log doesn't exist yet.
+    """
+    p = root / "logs" / "unified_edits.jsonl"
+    if not p.exists():
+        return []
+    edits = []
+    for line in p.read_text(encoding="utf-8").strip().splitlines():
+        try:
+            edits.append(json.loads(line))
+        except json.JSONDecodeError:
+            continue
+    return edits
+
+
+def _get_unified_modules_in_window(
+    unified_edits: list[dict[str, Any]],
+    after_ts_ms: float,
+    window_ms: float = 600_000,
+) -> tuple[set[str], dict[str, list[str]]]:
+    """Get modules from unified edits in a time window.
+
+    Returns (module_names, source_map) where source_map maps each module
+    to the edit_source values that touched it.
+    """
+    modules: set[str] = set()
+    source_map: dict[str, list[str]] = {}
+    for ue in unified_edits:
+        ts = ue.get("ts", 0)
+        if isinstance(ts, str):
+            try:
+                ts = datetime.fromisoformat(ts).timestamp() * 1000
+            except (ValueError, TypeError):
+                continue
+        if after_ts_ms < ts <= after_ts_ms + window_ms:
+            mod = extract_module_name(ue.get("file", ""))
+            if mod:
+                modules.add(mod)
+                src = ue.get("edit_source", "unknown")
+                source_map.setdefault(mod, []).append(src)
+    return modules, source_map
 
 
 def _load_journal_window(root: Path, after_n: int, window: int) -> list[dict[str, Any]]:
@@ -354,7 +448,11 @@ def backfill_prediction_scores(root: Path, scored: list[dict[str, Any]]) -> int:
 def score_predictions_post_edit(root: Path) -> dict[str, Any]:
     """Score predictions against edit sessions (primary scoring method).
 
-    Uses edit_pairs.jsonl + rework_log.json as reality signals.
+    Uses THREE reality signals:
+      1. copilot_edits.jsonl — AI/Copilot file mutations (PRIMARY, real-time)
+      2. edit_pairs.jsonl — pulse-harvested prompt→file bindings
+      3. rework_log.json — did the edit land? (miss/partial/ok)
+
     Should be called frequently (every prediction cycle in the learning loop).
     """
     from .predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
@@ -366,6 +464,8 @@ def score_predictions_post_edit(root: Path) -> dict[str, Any]:
         return {"status": "no_predictions", "scored": 0}
 
     edit_pairs = _load_edit_pairs(root)
+    copilot_edits = _load_copilot_edits(root)
+    unified_edits = _load_unified_edits(root)
     rework_entries = _load_rework_log(root)
 
     # Only score predictions that haven't been scored yet
@@ -373,9 +473,13 @@ def score_predictions_post_edit(root: Path) -> dict[str, Any]:
     if not unscored:
         return {"status": "all_scored", "scored": 0}
 
-    # Need enough subsequent data to evaluate
+    # Need enough subsequent data to evaluate — check both sources
     max_session_n = max(
         (ep.get("session_n", 0) for ep in edit_pairs), default=0
+    )
+    # Also check if we have copilot edits (timestamp-based)
+    max_copilot_ts = max(
+        (ce.get("ts", 0) for ce in copilot_edits), default=0
     )
 
     scored_results = []
@@ -383,13 +487,41 @@ def score_predictions_post_edit(root: Path) -> dict[str, Any]:
 
     for pred in unscored:
         pred_sn = pred.get("session_n_at", 0)
-        # Skip if we don't have enough subsequent edits yet
-        if max_session_n < pred_sn + 2:
-            continue
+        pred_ts = pred.get("ts", "")
 
-        actual_modules, matching_edits = _get_edit_session_modules(
-            edit_pairs, pred_sn, EVAL_WINDOW,
-        )
+        # Convert prediction timestamp to epoch ms for time-windowed matching
+        pred_ts_ms = 0.0
+        if pred_ts:
+            try:
+                pred_ts_ms = datetime.fromisoformat(pred_ts).timestamp() * 1000
+            except (ValueError, TypeError):
+                pass
+
+        # ── TIER 1: Unified edits (highest fidelity — merged + correlated) ──
+        uf_modules: set[str] = set()
+        source_map: dict[str, list[str]] = {}
+        if unified_edits and pred_ts_ms > 0:
+            uf_modules, source_map = _get_unified_modules_in_window(
+                unified_edits, pred_ts_ms,
+            )
+
+        # ── TIER 2: copilot_edits (real-time, timestamp windowed) ──
+        ce_modules: set[str] = set()
+        if not uf_modules and pred_ts_ms > 0 and copilot_edits:
+            ce_modules = _get_copilot_edit_modules_in_window(
+                copilot_edits, pred_ts_ms,
+            )
+
+        # ── TIER 3: edit_pairs (session_n windowed, pulse-based) ──
+        ep_modules: set[str] = set()
+        matching_edits: list[dict[str, Any]] = []
+        if max_session_n >= pred_sn + 2:
+            ep_modules, matching_edits = _get_edit_session_modules(
+                edit_pairs, pred_sn, EVAL_WINDOW,
+            )
+
+        # Merge all tiers — unified is superset, others fill gaps
+        actual_modules = uf_modules | ce_modules | ep_modules
         if not actual_modules:
             continue
 
@@ -397,6 +529,13 @@ def score_predictions_post_edit(root: Path) -> dict[str, Any]:
         rework_signal = _get_rework_in_window(rework_entries, journal_window)
 
         result = score_prediction(pred, actual_modules, matching_edits, rework_signal)
+        # Tag source breakdown for diagnostics
+        result["source_breakdown"] = {
+            "unified_modules": sorted(uf_modules),
+            "copilot_edits_modules": sorted(ce_modules),
+            "edit_pairs_modules": sorted(ep_modules),
+            "edit_sources": {k: list(set(v)) for k, v in source_map.items()},
+        }
         scored_results.append(result)
         newly_scored_ids.add(pred.get("prediction_id"))
 
@@ -433,13 +572,16 @@ def score_predictions_post_edit(root: Path) -> dict[str, Any]:
         "nodes_updated": nodes_updated,
         "overconfidence_rate": cal.get("overconfidence_rate", 0.0),
         "edits_available": len(edit_pairs),
+        "copilot_edits_available": len(copilot_edits),
+        "unified_edits_available": len(unified_edits),
     }
 
 
 def score_predictions_post_commit(root: Path) -> dict[str, Any]:
-    """Secondary audit: score against git diff HEAD~1 (delayed confirmation).
+    """Secondary audit: score against git diff HEAD~1 + copilot_edits (delayed confirmation).
 
-    Supplements edit-session scoring with commit-level ground truth.
+    Supplements edit-session scoring with commit-level ground truth,
+    merged with real-time copilot edit data.
     """
     from .predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
         load_predictions,
@@ -449,22 +591,33 @@ def score_predictions_post_commit(root: Path) -> dict[str, Any]:
     if not predictions:
         return {"status": "no_predictions", "scored": 0}
 
+    # Source 1: git diff
+    git_modules: set[str] = set()
+    changed: list[str] = []
     try:
         result = subprocess.run(
             ["git", "diff", "--name-only", "HEAD~1", "HEAD"],
             capture_output=True, text=True, cwd=str(root), timeout=10,
         )
-        if result.returncode != 0:
-            return {"status": "no_diff", "scored": 0}
-        changed = [f.strip() for f in result.stdout.strip().splitlines() if f.strip()]
+        if result.returncode == 0:
+            changed = [f.strip() for f in result.stdout.strip().splitlines() if f.strip()]
+            git_modules = {extract_module_name(f) for f in changed}
+            git_modules.discard(None)
     except Exception:
-        return {"status": "no_diff", "scored": 0}
+        pass
 
-    if not changed:
-        return {"status": "no_diff", "scored": 0}
+    # Source 2: copilot_edits (last 30 min — covers the pre-commit editing session)
+    copilot_edits = _load_copilot_edits(root)
+    ce_modules: set[str] = set()
+    if copilot_edits:
+        now_ms = datetime.now(timezone.utc).timestamp() * 1000
+        ce_modules = _get_copilot_edit_modules_in_window(
+            copilot_edits, now_ms - 1_800_000, 1_800_000,
+        )
 
-    actual_modules = {extract_module_name(f) for f in changed}
-    actual_modules.discard(None)
+    actual_modules = git_modules | ce_modules
+    if not actual_modules:
+        return {"status": "no_diff", "scored": 0}
 
     rework_entries = _load_rework_log(root)
     rework_signal = {"avg_rework": 0.0, "miss_rate": 0.0, "n_matched": 0}
@@ -489,4 +642,9 @@ def score_predictions_post_commit(root: Path) -> dict[str, Any]:
         "nodes_updated": nodes_updated,
         "changed_files": len(changed),
         "actual_modules": sorted(actual_modules)[:15],
+        "source_breakdown": {
+            "git_diff_modules": len(git_modules),
+            "copilot_edits_modules": len(ce_modules),
+            "merged_total": len(actual_modules),
+        },
     }

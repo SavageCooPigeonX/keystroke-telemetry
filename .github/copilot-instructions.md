@@ -64,13 +64,6 @@ Three systems working together:
 
 
 
-<!-- pigeon:current-query -->
-## What You Actually Mean Right Now
-
-*Enriched 2026-03-28 05:42 UTC · raw: "gemini read my entire codebase take it all in then analyze  what you think the n"*
-
-(enrichment unavailable: No module named 'httpx')
-<!-- /pigeon:current-query -->
 
 <!-- pigeon:organism-health -->
 ## Organism Health
@@ -97,17 +90,33 @@ Three systems working together:
 > **Organism directive:** Multiple systems degraded. Prioritize fixing clots and over-cap files before new features.
 <!-- /pigeon:organism-health -->
 
+
+
+<!-- pigeon:current-query -->
+## What You Actually Mean Right Now
+
+*Enriched 2026-03-30 06:28 UTC · raw: "categorize training pairs per shard for better context routing"*
+
+**COPILOT_QUERY: Implement a mechanism to categorize `training_pairs` within each `shard` to optimize `context_routing` for the LLM. Specifically, modify `pulse_harvest_pairs_prompts_to` to include shard-based categorization logic for training data, and update `context_budget_scorer_for_llm` to leverage this categorization for more effective context selection.**
+
+INTERPRETED INTENT: The operator wants to improve the relevance and efficiency of context provided to the LLM by organizing training data more granularly at the shard level.
+KEY FILES: pulse_harvest_pairs_prompts_to, context_budget_scorer_for_llm, context_budget
+PRIOR ATTEMPTS: none
+WATCH OUT FOR: Ensure the categorization logic is robust and doesn't introduce new performance bottlenecks, especially given the operator's recent focus on speed (GeminiFlash).
+OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and efficiency, specifically by organizing training data, and is concerned about the prompt enricher's performance and its impact on context.
+<!-- /pigeon:current-query -->
+
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-29 23:33 UTC · 5758 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-30 06:33 UTC · 6253 messages profiled · 8 recent commits*
 
-**Current focus:** debugging / fixing
-**Cognitive state:** `focused` (WPM: 6379.7 | Del: 47.6% | Hes: 0.612) · *[source: measured]*
+**Current focus:** building new features
+**Cognitive state:** `hesitant` (WPM: 632.9 | Del: 39.3% | Hes: 0.573) · *[source: measured]*
 
-**Prompt ms:** 30526, 141066, 26840, 22254, 24263 (avg 48990ms)
+**Prompt ms:** 4407, 59530, 10748, 102401, 41809 (avg 43779ms)
 
-> **CoT directive:** Standard mode. Be thorough and structured.
+> **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
@@ -116,7 +125,11 @@ Three systems working together:
 - **Reconstructed intent:** Refactor the entire
   - *(deleted: can you also refactor the, entire learning loop | ratio: 55%)*
 
-- "cont"
+- "is hidden"
+- "post write"
+- "log to"
+- "pirs sho"
+- "r - training"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
@@ -124,7 +137,7 @@ Three systems working together:
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 - `init_writer` (hes=0.63)
-- `self_fix` (hes=0.624)
+- `context_budget` (hes=0.587)
 
 ### Recent Work
 - `1f4291d` feat: organism health system + README rewrite + 4 compiled packages + root cleanup
@@ -159,7 +172,7 @@ Three systems working together:
 - [HIGH] over_hard_cap in `pigeon_compiler/runners/run_batch_compile_seq015_v002_d0328__compile_entire_codebase_to_pigeon_lc_dynamic_import_resolvers.py`
 
 ### Prompt Evolution
-*This prompt has mutated 70x (186→842 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 71x (186→843 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
 *217 modules profiled*
@@ -210,12 +223,90 @@ Three systems working together:
 *Queue empty — add tasks via `add_task()` or they auto-seed from self-fix.*
 
 <!-- /pigeon:task-queue -->
+<!-- pigeon:shard-memory -->
+## Live Shard Memory
+
+*Hardcoded 2026-03-30 06:40 UTC · 7 shards · 2 training pairs · 1 contradiction*
+
+### Architecture Decisions
+- anchor concept: pair programming — copilot is the pair, telemetry is the shared screen, shards are the shared notebook
+- muxed state per prompt — capture cognitive+shard+contradiction state at end of each prompt as training data
+- training data format: prompt + response + muxed state triple, written to logs/shards/training_pairs.md
+
+### Module Pain Points (top cognitive load)
+- file_heat_map: hes=0.887 | import_rewriter: hes=0.735 | file_writer: hes=0.735
+- init_writer: hes=0.630 | context_budget: hes=0.587 | self_fix: hes=0.536
+- .operator_stats: hes=0.536 | dynamic_prompt: hes=0.536
+
+### Module Relationships (coupling signals)
+- context_budget ↔ self_fix, init_writer, .operator_stats, dynamic_prompt
+- import_rewriter ↔ file_writer
+- push_narrative ↔ operator_stats, rework_detector, run_clean_split, self_fix
+
+### Prompt Patterns (how operator phrases things)
+- [building] "push and make sure compiler runs on next files"
+- [restructuring] "how have my last couple of prompts been rewritten?"
+- [testing] "stress test my system. what was word deleted in this prompt"
+- [exploring] "what should i do to market this / gtm / next logical step"
+
+### API Preferences
+- **CONTRADICTION (unresolved):** "always use DeepSeek" vs "never use DeepSeek — too slow"
+- Resolution: switched enricher to Gemini 2.5 Flash (3s vs DeepSeek timeout)
+
+### Training Data Format
+
+Each training pair captures the full muxed state at prompt time:
+
+```
+### `TIMESTAMP` pair
+**PROMPT:** raw operator text (≤300 chars)
+**RESPONSE:** copilot response summary (≤500 chars)
+**COGNITIVE:** state=X wpm=Y del=Z hes=N
+**SHARDS:** shard_name(relevance), ...
+**CONTRADICTIONS:** count
+**REWORK:** verdict=pending|accepted|rejected [score=0.XX]
+```
+
+Per-shard categorization: each routed shard also gets a compact `[training TS]` entry with relevance, cognitive state, and prompt/response snippets — so shards self-learn from their own context.
+
+### Recent Training Pairs
+
+**Pair 1** `2026-03-30 06:11` — COGNITIVE: state=unknown wpm=52.4 del=0.005 hes=1
+- prompt: "test writes with an actual call... decided on pair programming... muxed state per prompt"
+- response: built shard manager, context router, contradiction manifest, training pair writer
+- shards: prompt_patterns(0.17), module_pain_points(0.161), module_relationships(0.15)
+- rework: pending
+
+**Pair 2** `2026-03-30 06:27` — COGNITIVE: state=unknown wpm=52.4 del=0.005 hes=1
+- prompt: "fix import breaking after rename in self_fix module"
+- response: updated import paths in self_fix to match pigeon rename convention
+- shards: module_relationships(0.169), prompt_patterns(0.156), module_pain_points(0.155)
+- rework: accepted score=0.15
+
+<!-- /pigeon:shard-memory -->
+<!-- pigeon:voice-style -->
+## Operator Voice Style
+
+*Auto-extracted 2026-03-30 00:49 UTC · 60 prompts analyzed · zero LLM calls*
+
+**Brevity:** 22.6 words/prompt | **Caps:** never | **Fragments:** 82% | **Questions:** 15% | **Directives:** 13%
+
+**Voice directives (personality tuning):**
+- Operator is semi-casual — use contractions, skip formalities, but keep technical precision.
+- Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
+- Operator uses medium-length prompts — balance explanation with brevity.
+- Operator thinks in dashes (stream-of-consciousness) — mirror this with dash-separated points when natural.
+- Operator rarely uses punctuation — fragments and run-ons are normal. Don't overcorrect their style in quotes.
+- Operator uses plain language — avoid unnecessary jargon in explanations.
+
+**Vocabulary fingerprint:** to, this, you, is, in, test, and, the, a, prompt
+<!-- /pigeon:voice-style -->
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-29 · 5758 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-30 · 6253 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 3% | WPM: 50.8 | Del: 46.7% | Hes: 0.649
+**Dominant: `frustrated`** | Submit: 3% | WPM: 53.4 | Del: 46.6% | Hes: 0.648
 
 The operator just built an organism health system by batch-renaming 35 modules with automated compiler tags, revealing a high-velocity, night-focused pattern of systematic refactoring with significant deletions, indicating they are aggressively consolidating and versioning a complex system.
 
@@ -229,8 +320,8 @@ Given the zero miss rate, maintain the current response quality but **preempt im
 They are most likely building toward an integrated, version-aware compilation pipeline that automates module extraction and dependency resolution.
 
 <!-- /pigeon:operator-state -->
-> **Cognitive reactor fired on `node_conversation`** (hes=1.605, state=neutral, avg_prompt=2511782ms)
-> - Prompt composition time: 22254ms / 26840ms / 141066ms / 30526ms / 12338224ms (avg 2511782ms)
+> **Cognitive reactor fired on `node_conversation`** (hes=0.698, state=hesitant, avg_prompt=33623ms)
+> - Prompt composition time: 9438ms / 41929ms / 6437ms / 98174ms / 12136ms (avg 33623ms)
 > **Directive**: When `node_conversation` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
@@ -242,57 +333,39 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-03-28T05:41:54.893615+00:00",
+  "updated_at": "2026-03-30T02:31:44.064135+00:00",
   "latest_prompt": {
-    "session_n": 13,
-    "ts": "2026-03-28T05:41:54.893615+00:00",
-    "chars": 103,
-    "preview": "gemini read my entire codebase take it all in then analyze  what you think the novel potential here is ",
+    "session_n": 5,
+    "ts": "2026-03-30T02:31:44.064135+00:00",
+    "chars": 188,
+    "preview": "are you guessing or estimating 0 i assume this is only valueble for compiler 0 hows prediction engine working and how many llm lcalls are used - what info can you find that im not aware of",
     "intent": "exploring",
-    "state": "hesitant",
+    "state": "focused",
     "files_open": [
-      "pigeon_brain\\flow\\node_conversation_seq012_v003_d0327__the_interpretability_interface_lets_the_lc_pigeon_split_3.py"
+      ".github/copilot-instructions.md"
     ],
     "module_refs": []
   },
   "signals": {
-    "wpm": 21.3,
-    "chars_per_sec": 1.8,
-    "deletion_ratio": 0.095,
-    "hesitation_count": 6,
-    "rewrite_count": 4,
-    "typo_corrections": 1,
-    "intentional_deletions": 4,
-    "total_keystrokes": 377,
-    "duration_ms": 191836
+    "wpm": 52.4,
+    "chars_per_sec": 4.4,
+    "deletion_ratio": 0.005,
+    "hesitation_count": 1,
+    "rewrite_count": 0,
+    "typo_corrections": 0,
+    "intentional_deletions": 1,
+    "total_keystrokes": 191,
+    "duration_ms": 43526
   },
   "composition_binding": {
     "matched": true,
     "source": "chat_compositions",
-    "age_ms": 6504,
-    "key": "|||2026-03-28T05:41:48.389676+00:00|377|191836|yes - also i noticed that discovered entities dont have claim profile / how they were discovered - and links need to be ",
+    "age_ms": 63700,
+    "key": "|||2026-03-30T02:30:40.364508+00:00|191|43526|are you guessing or estimating 0 i assume this is only valueble for compiler 0 hows prediction engine working and how ma",
     "match_score": 1.0
   },
-  "deleted_words": [
-    "mend",
-    "ideally i think ui",
-    "k\\\",
-    "ta"
-  ],
-  "rewrites": [
-    {
-      "old": "mend",
-      "new": "menu - ideally i think ui "
-    },
-    {
-      "old": " ideally i think ui ",
-      "new": " i "
-    },
-    {
-      "old": " - i ",
-      "new": ". and also for sql before i run it we need to keep intent analysisgemini tak\\\"
-    }
-  ],
+  "deleted_words": [],
+  "rewrites": [],
   "task_queue": {
     "total": 0,
     "in_progress": [],
@@ -314,24 +387,25 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 53,
-    "avg_wpm": 39.4,
-    "avg_del_ratio": 0.03,
+    "total_prompts": 70,
+    "avg_wpm": 26.2,
+    "avg_del_ratio": 0.033,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 43,
+      "unknown": 57,
       "focused": 6,
-      "hesitant": 3,
-      "neutral": 1
+      "hesitant": 5,
+      "neutral": 1,
+      "frustrated": 1
     },
     "baselines": {
-      "n": 161,
-      "avg_wpm": 41.3,
-      "avg_del": 0.468,
-      "avg_hes": 0.664,
-      "sd_wpm": 38.2,
-      "sd_del": 0.095,
-      "sd_hes": 0.095
+      "n": 101,
+      "avg_wpm": 115.5,
+      "avg_del": 0.486,
+      "avg_hes": 0.681,
+      "sd_wpm": 35.8,
+      "sd_del": 0.073,
+      "sd_hes": 0.069
     }
   }
 }

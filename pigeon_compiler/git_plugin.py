@@ -907,8 +907,33 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
                 print(f'     👤 operator: {tip}')
             for tip in coaching.get('agent_coaching', [])[:2]:
                 print(f'     🤖 agent: {tip}')
+
+            # ── Training cycle summary — intent alignment per push ──
+            try:
+                tp_mod = _load_glob_module(root, 'src', 'training_pairs_seq027*')
+                if tp_mod and hasattr(tp_mod, 'generate_cycle_summary'):
+                    summary = tp_mod.generate_cycle_summary(root, cycle)
+                    n = summary.get('pair_count', 0)
+                    m = summary.get('metrics', {})
+                    avg_rw = m.get('avg_rework_score')
+                    phys = m.get('physical_keystroke_rate', 0)
+                    print(f'  🎯 training: {n} pairs | rework={avg_rw} | physical_rate={phys}')
+            except Exception as te:
+                print(f'  ⚠️  training summary: {te}')
     except Exception as e:
         print(f'  ⚠️  push cycle: {e}')
+
+    # Voice style — personality adaptation from operator's actual language
+    try:
+        vs_mod = _load_glob_module(root, 'src', 'voice_style_seq028*')
+        if vs_mod and hasattr(vs_mod, 'inject_voice_style'):
+            ok = vs_mod.inject_voice_style(root)
+            if ok:
+                profile = vs_mod.build_voice_profile(root)
+                n_dir = len(profile.get('directives', []))
+                print(f'  🗣️  voice style: {profile.get("prompt_count", 0)} prompts → {n_dir} directives injected')
+    except Exception as e:
+        print(f'  ⚠️  voice style: {e}')
 
 
 def run():

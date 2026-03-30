@@ -1,8 +1,8 @@
 # MASTER MANIFEST — keystroke-telemetry
 
-*Auto-updated 2026-03-28 · 23 src modules · 19 streaming modules · ~62 compiler modules · 19 brain modules (13 core + 6 flow engine) · 7 React components*
+*Auto-updated 2026-03-30 · 28 src modules · 19 streaming modules · ~62 compiler modules · 19 brain modules (13 core + 6 flow engine) · 7 React components*
 
-**This codebase reads minds, rewires AI reasoning, refactors itself, watches the whole thing happen in a living neural visualization, reads its own deleted thoughts before starting work, and now routes context-accumulating intelligence packets through its own code graph.**
+**This codebase reads minds, rewires AI reasoning, refactors itself, watches the whole thing happen in a living neural visualization, reads its own deleted thoughts before starting work, routes context-accumulating intelligence packets through its own code graph, cross-correlates physical keystrokes with AI edits, outputs intent-alignment training data per edit, and auto-tunes its own personality to match how you actually talk.**
 
 ---
 
@@ -12,7 +12,7 @@ Four interlocking systems. Each one feeds the next. The last one watches all the
 
 | System | Entry Point | Modules | Status |
 |---|---|---:|---|
-| **Keystroke Telemetry** | `src/` | 23 + 3 cognitive | ✅ Live |
+| **Keystroke Telemetry** | `src/` | 28 + 3 cognitive | ✅ Live |
 | **Pigeon Code Compiler** | `pigeon_compiler/` | ~62 | ✅ Live |
 | **Pigeon Code Compilor (standalone)** | [`pip install pigeon-code-compilor`](https://myaifingerprint.com) | 13 | **✅ Released — open-source** |
 | **Streaming Layer** | `streaming_layer/` | 19 | ✅ Live · 100% compliant |
@@ -22,7 +22,7 @@ Four interlocking systems. Each one feeds the next. The last one watches all the
 
 ---
 
-## src/ — Core Telemetry (23 modules)
+## src/ — Core Telemetry (28 modules)
 
 | Seq | Module (search by) | Lines | Status | Role |
 |---|---|---:|---|---|
@@ -49,6 +49,11 @@ Four interlocking systems. Each one feeds the next. The last one watches all the
 | 021 | `mutation_scorer_seq021*` | ~120 | ✅ | Correlates prompt mutations to rework scores |
 | 022 | `rework_backfill_seq022*` | ~100 | ✅ | Reconstructs historical rework scores |
 | 023 | `session_handoff_seq023*` | ~120 | ✅ | Session handoff summary generator |
+| 024 | `unsaid_recon_seq024*` | ~100 | ✅ | Fires on high-deletion prompts, reconstructs unsaid intent via DeepSeek |
+| 025 | `push_cycle_seq025*` | ~200 | ✅ | **The push is the unit** — cycle state, sync score, moon predictions, coaching |
+| 026 | `unified_signal_seq026*` | ~200 | ✅ | Merges 6 telemetry sources → `unified_edits.jsonl` (3-tier waterfall) |
+| 027 | `training_pairs_seq027*` | ~200 | ✅ | **Intent alignment training data** — per-edit + per-push user↔copilot pairs |
+| 028 | `voice_style_seq028*` | ~250 | ✅ | **Personality adapter** — extracts operator voice from raw prompts, zero LLM |
 
 ### src/cognitive/ — Intelligence Layer (3 modules)
 
@@ -86,7 +91,12 @@ POST-COMMIT PIPELINE (git_plugin.py):
      └─ inject_task_context()           (incl. codebase health from context_veins.json)
   9. task_queue_seq018                  → task_queue.json
      └─ inject_task_queue()
- 10. auto-commit [pigeon-auto]
+ 10. push_cycle_seq025                  → push cycle state + moon predictions
+ 11. training_pairs_seq027              → logs/training_cycle_summaries.jsonl
+     └─ generate_cycle_summary()        (rework avg, latency, physical_keystroke_rate, intent distribution)
+ 12. voice_style_seq028                 → .github/copilot-instructions.md
+     └─ inject_voice_style()            (extracts operator voice from 60+ prompts, zero LLM)
+ 13. auto-commit [pigeon-auto]
 ```
 
 ### Per-Prompt Telemetry
@@ -108,6 +118,7 @@ Predictions surface in `prompt_telemetry_latest.json` as `predicted_struggles` a
 |---|---|---|
 | `<!-- pigeon:task-context -->` | `dynamic_prompt_seq017` | Task focus · Cognitive state + CoT directive · Unsaid threads · Module hot zones · AI rework surface · Recent work · **Coaching directives** · **Fragile contracts** · **Known issues** · **Persistent gaps** · Prompt evolution · **File consciousness** · **Codebase health (veins/clots)** |
 | `<!-- pigeon:operator-state -->` | `git_plugin._refresh_operator_state()` | LLM-synthesized behavioral instructions |
+| `<!-- pigeon:voice-style -->` | `voice_style_seq028` | Brevity · Caps · Fragments · Questions · Directives · Vocabulary fingerprint · Style directives |
 | `<!-- pigeon:auto-index -->` | `git_plugin._refresh_copilot_instructions()` | All module token counts |
 
 ---
@@ -274,6 +285,74 @@ Key entry points:
 
 ---
 
+## vscode-extension/ — VS Code Extension (TypeScript + Python helpers)
+
+The extension is the live nerve center — every keystroke, every AI edit, every chat response flows through it.
+
+### Cross-Correlation Edit Classification (NEW)
+
+Replaced naive 8-char threshold with **physical keystroke ↔ text mutation cross-correlation**. On every `onDidChangeTextDocument`, the extension reads the tail of `os_keystrokes.jsonl` and classifies edits:
+
+| Priority | Classification | Signal |
+|---:|---|---|
+| 1 | `paste` | Ctrl+V within ±500ms |
+| 2 | `undo` | Ctrl+Z within ±500ms |
+| 3 | `copilot_tab_accept` | Tab key within ±500ms |
+| 4 | `copilot_apply` / `copilot_edit` | Recent AI response + no physical keystroke |
+| 5 | `copilot_inline` | Multiline insert, no physical keystroke |
+| 6 | `human_edit` | Physical keystroke present |
+| 7 | `unknown` | Fallback |
+
+Each classified edit is logged to `logs/copilot_edits.jsonl` with `nearby_os_events` count and `had_physical_keystroke` boolean.
+
+### AI Cognition Timing
+
+All 3 response paths (`_callCopilot`, `_callDeepSeek`, `registerChatParticipant`) now track:
+- `queue_latency_ms` — time from request to first token
+- `generation_time_ms` — first token to completion
+- `total_latency_ms` — end-to-end
+- `chunk_count` — streaming chunk count
+
+### Python Helpers
+
+| File | Purpose |
+|---|---|
+| `pulse_watcher.py` | Watches edit_pairs.jsonl → pairs prompt to file edit → fires `training_pairs_seq027.capture_training_pair()` |
+| `classify_bridge.py` | Processes raw keystroke batches → cognitive state classification |
+
+---
+
+## Training Pairs — Intent Alignment Data (NEW)
+
+**Every edit is a training label.** `training_pairs_seq027` captures:
+
+```json
+{
+  "user_intent": { "raw_prompt", "classified_intent", "cognitive_state", "wpm", "deletion_ratio", "deleted_words", "composition_time_ms" },
+  "copilot_intent": { "edit_why", "file", "edit_sources", "had_physical_keystroke", "latency_ms" },
+  "alignment": { "rework_score", "rework_verdict", "latency_ms", "had_physical_keystroke" }
+}
+```
+
+**Per-edit:** Fires via `pulse_watcher.py` after each edit pair is written.
+**Per-push:** `generate_cycle_summary()` aggregates all pairs since last push → avg rework, latency, physical keystroke rate, intent/source distributions.
+
+Stress tested: 94 pairs/sec throughput, 20 concurrent threads zero corruption.
+
+---
+
+## Voice Style — Personality Adapter (NEW)
+
+**Zero LLM calls.** `voice_style_seq028` extracts the operator's actual voice from raw prompts using pure regex + counting.
+
+15 features extracted: `avg_prompt_words`, `avg_word_length`, `vocabulary_richness`, `slang_rate`, `contraction_rate`, `technical_density`, `question_rate`, `directive_rate`, `dash_rate`, `ellipsis_rate`, `exclamation_rate`, `no_caps_rate`, `fragment_rate`, `top_words`
+
+Derives actionable style directives (formality, caps, brevity, fragment tolerance, etc.) and injects `<!-- pigeon:voice-style -->` into copilot-instructions.md. Auto-fires on every push.
+
+Current profile (60 prompts): no_caps=100%, fragments=82%, dash_rate=1.08 → 6 directives generated.
+
+---
+
 ## Registry & State Files
 
 | File | Purpose | Updated |
@@ -294,6 +373,11 @@ Key entry points:
 | `logs/prompt_journal.jsonl` | Enriched prompt journal (cross-refs all telemetry per prompt) | Every message |
 | `logs/chat_compositions.jsonl` | Keystroke compositions incl. deleted words + cognitive state | Every message |
 | `logs/copilot_prompt_mutations.json` | Prompt file evolution snapshots | Every commit |
+| `logs/copilot_edits.jsonl` | AI edit classifications (paste/undo/copilot_tab/copilot_apply/human) with cross-correlation | Every edit |
+| `logs/unified_edits.jsonl` | Merged signal from 6 telemetry sources (edit_pairs + copilot_edits + compositions + journal + rework + heat) | Per merge run |
+| `logs/training_pairs.jsonl` | Per-edit intent alignment: user_intent vs copilot_intent vs alignment score | Every edit (via pulse_watcher) |
+| `logs/training_cycle_summaries.jsonl` | Per-push training aggregates: avg rework, latency, physical keystroke rate, intent distribution | Every commit |
+| `logs/voice_style.json` | Extracted operator voice features (15 metrics) + style directives | Every commit |
 
 ---
 
@@ -301,7 +385,7 @@ Key entry points:
 
 | Package | Files | Compliant | Compliance % |
 |---|---:|---:|---:|
-| `src/` | 23 | 13 | 57% |
+| `src/` | 28 | 18 | 64% |
 | `src/cognitive/` | 3 | 1 | 33% |
 | `pigeon_brain/` (core) | 13 | 12 | **92%** |
 | `pigeon_brain/flow/` | 6 | 6 | **100%** |

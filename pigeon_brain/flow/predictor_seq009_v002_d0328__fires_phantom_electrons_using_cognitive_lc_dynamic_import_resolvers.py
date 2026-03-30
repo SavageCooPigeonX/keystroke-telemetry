@@ -3,9 +3,9 @@
 # │  execution. pigeon_brain/flow                   │
 # └──────────────────────────────────────────────┘
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-27T09:00:00+00:00
+# EDIT_TS:   2026-03-30T06:00:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  add prediction_id + session_n binding
+# EDIT_WHY:  live telemetry feed + calibrated confidence
 # ── /pulse ──
 """Fires phantom electrons using cognitive profile (no real task). Triggers:
 state change, every N prompts, or module cluster (3+ refs). Cost: ~$0.03/phantom."""
@@ -56,7 +56,7 @@ def save_predictions(root: Path, predictions: list[dict[str, Any]]) -> None:
 
 
 def extract_cognitive_trend(journal_path: Path, n_recent: int = 10) -> dict[str, Any]:
-    """Extract cognitive trends from recent prompt journal entries."""
+    """Extract cognitive trends from recent prompt journal entries + live telemetry."""
     if not journal_path.exists():
         return {"states": [], "modules": [], "avg_del": 0.0, "avg_wpm": 0.0}
 
@@ -67,17 +67,44 @@ def extract_cognitive_trend(journal_path: Path, n_recent: int = 10) -> dict[str,
         except json.JSONDecodeError:
             continue
 
-    # Module frequency distribution
     if not entries:
         return {"states": [], "modules": [], "avg_del": 0.0, "avg_wpm": 0.0}
+
     states = [e.get("cognitive_state", "unknown") for e in entries]
     all_modules: list[str] = []
     for e in entries:
         all_modules.extend(e.get("module_refs", []))
         for hm in e.get("hot_modules", []):
             all_modules.append(hm.get("module", ""))
+
+    # Inject live hot_modules from prompt_telemetry + file_heat_map
+    root = journal_path.parent.parent  # logs/ -> project root
+    try:
+        telem_path = root / "logs" / "prompt_telemetry_latest.json"
+        if telem_path.exists():
+            telem = json.loads(telem_path.read_text(encoding="utf-8"))
+            for hm in telem.get("hot_modules", []):
+                mod = hm.get("module", "")
+                if mod:
+                    all_modules.append(mod)
+                    all_modules.append(mod)  # double-weight live signal
+    except Exception:
+        pass
+    try:
+        heat_path = root / "file_heat_map.json"
+        if heat_path.exists():
+            hm_data = json.loads(heat_path.read_text(encoding="utf-8"))
+            for entry in hm_data.get("files", [])[:5]:
+                mod = entry.get("file", "").replace(".py", "")
+                mod = mod.split("/")[-1].split("_seq")[0] if mod else ""
+                if mod:
+                    all_modules.append(mod)
+    except Exception:
+        pass
+
     module_counts = Counter(m for m in all_modules if m)
-    clusters = [m for m, c in module_counts.most_common(5) if c >= 2]
+    # Lower threshold: top-5 modules regardless of count (was: count >= 2 only)
+    clusters = [m for m, _c in module_counts.most_common(5)]
     signals = [e.get("signals", {}) for e in entries]
     avg_del = sum(s.get("deletion_ratio", 0) for s in signals) / max(len(signals), 1)
     avg_wpm = sum(s.get("wpm", 0) for s in signals) / max(len(signals), 1)
@@ -177,22 +204,28 @@ def predict_next_needs(
 
 
 def _compute_confidence(trend: dict[str, Any]) -> float:
-    """Estimate prediction confidence from signal strength."""
-    score = 0.3  # base
+    """Estimate prediction confidence from signal strength.
+    Calibrated: raw signal strength, no inflation.
+    """
+    score = 0.1  # low base — we haven't earned confidence yet
 
-    # More data = more confidence
+    # More data = modest boost (cap 0.15)
     n = trend.get("n_entries", 0)
-    score += min(n / 20, 0.3)
+    score += min(n / 30, 0.15)
 
-    # Strong module clustering = higher confidence
+    # Strong module clustering = moderate boost (cap 0.25)
     modules = trend.get("modules", [])
-    score += min(len(modules) * 0.1, 0.2)
+    score += min(len(modules) * 0.05, 0.25)
 
-    # Consistent state = higher confidence
+    # Consistent state = small boost (cap 0.15)
     states = trend.get("states", [])
     if states:
         dominant_count = Counter(states).most_common(1)[0][1]
         consistency = dominant_count / len(states)
-        score += consistency * 0.2
+        score += consistency * 0.15
 
-    return min(round(score, 3), 1.0)
+    # High deletion = uncertainty, penalize
+    if trend.get("avg_del", 0) > 0.3:
+        score *= 0.7
+
+    return min(round(score, 3), 0.75)  # hard cap — never claim >75% until we earn it
