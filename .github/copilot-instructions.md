@@ -109,14 +109,14 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-30 06:44 UTC · 6268 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-30 07:05 UTC · 6299 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `hesitant` (WPM: 1794.0 | Del: 43.2% | Hes: 0.577) · *[source: measured]*
+**Cognitive state:** `focused` (WPM: 2183.5 | Del: 35.4% | Hes: 0.467) · *[source: measured]*
 
-**Prompt ms:** 4407, 59530, 10748, 102401, 41809 (avg 43779ms)
+**Prompt ms:** 10748, 102401, 41809, 25002, 12155 (avg 38423ms)
 
-> **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
+> **CoT directive:** Standard mode. Be thorough and structured.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
@@ -125,7 +125,6 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - **Reconstructed intent:** Refactor the entire
   - *(deleted: can you also refactor the, entire learning loop | ratio: 55%)*
 
-- "is hidden"
 - "post write"
 - "log to"
 - "pirs sho"
@@ -315,9 +314,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-30 · 6268 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-30 · 6299 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 3% | WPM: 53.5 | Del: 46.6% | Hes: 0.647
+**Dominant: `frustrated`** | Submit: 3% | WPM: 53.7 | Del: 46.6% | Hes: 0.647
 
 This operator just fixed a push cycle bug in their selection-aware one-shot system, but their hesitant typing with 50% deletions shows they're wrestling with complex state logic under pressure.  
 - **When they edit `push_cycle_seq025_v003_d0330__the_push_is_the_unit_lc_fix_push_cycle.py`**, proactively infer they're debugging a state transition or loop condition—offer concise, inline code fixes, not explanations.  

@@ -1,174 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-29T23:18:36.047341+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:19:35.999366+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:20:36.805037+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:21:37.873872+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:22:27.841403+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:22:36.516249+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:22:47.899806+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:23:36.406209+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:24:36.334224+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:25:37.855210+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:26:04.139634+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:26:37.854552+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:26:40.514022+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:27:17.284904+00:00",
-      "text": "bg:MANIFEST.md",
-      "fingerprint": "bgmanifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:27:31.283761+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:27:38.172622+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:28:30.818342+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:28:40.662123+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:29:37.980033+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:30:36.202576+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:31:42.185027+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:32:38.355890+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:33:37.225291+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:34:38.401050+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:35:38.362139+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:36:36.603792+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:37:36.160296+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:38:03.802420+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-29T23:38:37.556483+00:00",
       "text": "bg:README.md",
       "fingerprint": "bgreadmemd",
@@ -2998,6 +2830,174 @@
       "ts": "2026-03-30T06:44:16.295136+00:00",
       "text": "bg:copilot-instructions.md",
       "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:45:17.996979+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:46:17.885948+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:47:14.289777+00:00",
+      "text": "bg:2026-03-30_5018891.md",
+      "fingerprint": "bg20260330_5018891md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:48:15.799695+00:00",
+      "text": "bg:2026-03-29_fd2ab12.md",
+      "fingerprint": "bg20260329_fd2ab12md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:48:59.899988+00:00",
+      "text": "bg:2026-03-18_482bd07.md",
+      "fingerprint": "bg20260318_482bd07md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:49:16.390697+00:00",
+      "text": "bg:2026-03-18_482bd07.md",
+      "fingerprint": "bg20260318_482bd07md",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:50:14.168742+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:51:13.936229+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:52:13.853070+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:53:14.534584+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:54:14.392176+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:55:13.846724+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:56:14.528554+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:56:46.646697+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:57:14.375580+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:58:14.307791+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:58:35.978358+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:58:44.416569+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T06:59:13.888004+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:00:14.241506+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:01:15.850316+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:02:15.445625+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:03:14.097968+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:03:21.663951+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:03:58.054593+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:04:10.876315+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:04:32.250403+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:05:14.341123+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
       "submitted": true
     }
   ],

@@ -1,7 +1,7 @@
 """Generate per-push narrative: each changed file speaks as its own agent."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 012 | VER: v006 | 201 lines | ~2,089 tokens
+# SEQ: 012 | VER: v006 | 200 lines | ~2,089 tokens
 # DESC:   generate_per_push_narrative_each
 # INTENT: dynamic_import_resolvers
 # LAST:   2026-03-28 @ b1971c0
@@ -68,7 +68,6 @@ def _load_composition_snapshot(root: Path) -> dict | None:
         lines = log.read_text(encoding='utf-8').strip().splitlines()
         return json.loads(lines[-1]) if lines else None
     except Exception: return None
-
 
 def _build_file_briefs(root: Path, changed_py: list[str], registry: dict) -> list[dict]:
     briefs = []

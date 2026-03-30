@@ -1,6 +1,6 @@
 ﻿# keystroke-telemetry
 
-> **Six systems. One organism. Zero LLM calls for the core signal. The codebase is alive — it has a circulatory system, a nervous system, a memory, and it diagnoses its own clots in real time. It reads your deleted thoughts before it starts working. It predicts which modules will break you next. And it injects its own health status into the AI's reasoning on every single prompt.**
+> **Seven systems. One organism. Zero LLM calls for the core signal. The codebase is alive — it has a circulatory system, a nervous system, a memory, and it diagnoses its own clots in real time. It reads your deleted thoughts before it starts working. It predicts which modules will break you next. It remembers what worked per-shard and routes context through local memory. And it injects its own health status into the AI's reasoning on every single prompt.**
 >
 > Keystroke patterns reveal cognitive state → cognitive state steers Copilot's chain-of-thought → AI behavior adapts in real time → rework detection measures if it worked → Pigeon Brain watches the whole thing happen live as a neural graph → the Organism Health layer synthesizes all 16 data pipelines into a live diagnostic that Copilot reads before writing a single line. If a pipeline goes stale, the organism knows. If a module clots, the organism flags it. If you hesitate for 3 seconds on a file, the organism remembers.
 
@@ -8,7 +8,7 @@
 
 ## Status (2026-03-30)
 
-The organism is online. 448 Python files across 8 packages — 87% pigeon-compliant (389/448). 16 data pipelines flowing. 57 prompts profiled. The codebase diagnoses its own clots and injects live health into every Copilot prompt via `<!-- pigeon:organism-health -->`. Four new modules compiled this session via the actual pigeon compiler + DeepSeek ($0.005 total). Root directory purged of 20 dead files. MANIFEST.md is now a living organism health dashboard, not a static file listing.
+The organism is online. 448 Python files across 8 packages — 87% pigeon-compliant (389/448). 16 data pipelines flowing. 6280+ messages profiled. Shard memory is live — 7 local markdown shards with contradiction detection, per-shard training pair categorization, and context routing. Prompt enricher switched from DeepSeek to **Gemini 2.5 Flash** (3s end-to-end, 256-token thinking budget). Prediction engine fires on every push — backward pass, phantom electrons, scoring, and auto-injection into the Copilot prompt. 35 push narratives archived in [`docs/DEV_STORY.md`](docs/DEV_STORY.md).
 
 | Phase | Status |
 |---|---|
@@ -29,6 +29,11 @@ The organism is online. 448 Python files across 8 packages — 87% pigeon-compli
 | Compiled packages | `compliance` → 12f, `heal` → 6f, `manifest_builder` → 32f, `nametag` → 9f, **`push_cycle` → 9f**, **`self_fix` → 12f**, **`file_consciousness` → 13f**, **`query_memory` → 7f** |
 | Remaining over-cap targets | 16 files (mostly monoliths + orchestrators) |
 | **Pigeon Code Compilor — standalone open-source tool** | **✅ Released (`pip install pigeon-code-compilor`)** |
+| **Shard Memory — local markdown memory with contradiction detection** | **✅ Live (7 shards, per-shard training pairs, context routing)** |
+| **Gemini 2.5 Flash enricher** | **✅ Live (3s, 256-token thinking cap, replaced DeepSeek)** |
+| **Per-shard training pair categorization** | **✅ Live — each shard self-learns from routed context** |
+| **Push-cycle prediction engine** | **✅ Live — backward pass + phantom electrons + scoring + injection** |
+| **DEV_STORY.md — combined push narratives** | **✅ 35 narratives, 113K chars** |
 | AI response capture (UIA → rework triple) | 🟨 Planned |
 
 ---
@@ -37,7 +42,7 @@ The organism is online. 448 Python files across 8 packages — 87% pigeon-compli
 
 This is a system that **reads your mind through your fingers**, **rewires the AI's reasoning in real time**, **refactors its own source code autonomously**, **visualizes the entire thing as a living neural network that lights up when you run code through it**, and **routes context-accumulating intelligence packets through the code graph to surface what matters**.
 
-Six systems working in concert:
+Seven systems working in concert:
 
 1. **Keystroke Telemetry** — captures typing patterns (pauses, deletions, rewrites, abandons) in LLM chat UIs, classifies operator cognitive state in real time, reconstructs unsaid thoughts, detects cross-session drift. Zero LLM calls — pure signal processing. Per-prompt deleted word binding — Copilot sees what you deleted before it starts thinking. **OS hook auto-populates the journal on every Enter keystroke** — no manual logging required.
 
@@ -50,6 +55,8 @@ Six systems working in concert:
 5. **Flow Engine** — context-accumulating dataflow through the code graph. A `ContextPacket` starts at any module and routes through dependencies. At each node, modules "wake up" if relevant and contribute intelligence (risks, warnings, fears). Edges amplify or decay signal based on vein health. Three routing modes — **targeted** (dependency chains), **heat** (dual-score hotspots), **failure** (death signals) — can run independently or merge via multi-perspective synthesis. Zero LLM calls — pure graph traversal + pattern matching.
 
 6. **Organism Health** — the codebase treated as a living organism. 16 data pipelines are its blood flow. Module compliance is its structural integrity. Context veins are its circulatory system. Clots are diagnosed. Stale pipelines turn red. AI rework rate is the immune response. The condensed health diagnostic is **injected directly into Copilot's prompt** via `<!-- pigeon:organism-health -->` — so the AI reasons with awareness of which parts of the codebase are healthy and which are dying. Full dashboard in `MANIFEST.md`, regenerated by `py _build_organism_health.py`.
+
+7. **Shard Memory** — local markdown-based memory shards that persist across sessions. 7 shards (architecture decisions, module pain points, module relationships, prompt patterns, API preferences, commit patterns, training pairs) plus a contradiction manifest. Per-shard training pair categorization — every prompt/response cycle writes muxed cognitive state into the relevant shards so they self-learn from their own routed context. Context router scores shard relevance per-prompt using keyword + trigram matching (zero LLM calls). Gemini 2.5 Flash enricher (3s, 256-token thinking budget) replaces DeepSeek for prompt enrichment. The push-cycle prediction engine runs a backward pass on every commit, fires phantom electrons, scores predictions against reality, and injects forecasts + coaching into the Copilot prompt.
 
 ---
 
@@ -728,7 +735,7 @@ Output: `logs/prompt_journal.jsonl` — one JSON object per line, append-only.
 keystroke-telemetry/
 ├── .github/
 │   └── copilot-instructions.md           ← auto-updated on every commit (608 lines, 44 mutations)
-├── src/                                  ← core telemetry (23 modules)
+├── src/                                  ← core telemetry (34 modules)
 │   ├── timestamp_utils_seq001*           ← epoch ms utility
 │   ├── models_seq002*                    ← KeyEvent, MessageDraft dataclasses
 │   ├── logger_seq003*                    ← core telemetry logger
@@ -752,6 +759,15 @@ keystroke-telemetry/
 │   ├── mutation_scorer_seq021*           ← correlates prompt mutations to rework
 │   ├── rework_backfill_seq022*           ← reconstructs historical rework scores
 │   ├── session_handoff_seq023*           ← session summary generator
+│   ├── unsaid_recon_seq024*              ← fires on high-deletion prompts (Gemini Flash)
+│   ├── push_cycle_seq025*                ← the push is the unit (predictions + coaching)
+│   ├── shard_manager_seq026*             ← local markdown shard CRUD
+│   ├── unified_signal_seq026*            ← joins all telemetry into canonical signal
+│   ├── context_router_seq027*            ← shard relevance scorer + context injection
+│   ├── training_pairs_seq027*            ← training pair generator (muxed state capture)
+│   ├── training_writer_seq028*           ← end-of-prompt training pair writer
+│   ├── voice_style_seq028*               ← operator voice style personality adapter
+│   ├── _resolve.py                       ← glob-based dynamic import helper
 │   └── cognitive/
 │       ├── adapter_seq001*               ← state → behavior adapter
 │       ├── unsaid_seq002*                ← detects unsaid thoughts
@@ -814,7 +830,16 @@ keystroke-telemetry/
 │   ├── prompt_journal.jsonl              ← enriched journal (cross-refs all telemetry per prompt)
 │   ├── chat_compositions.jsonl           ← keystroke compositions + deleted words + cognitive state
 │   ├── copilot_prompt_mutations.json     ← prompt file evolution snapshots
-│   └── ai_responses.jsonl                ← (planned) Copilot response text + rework triples
+│   ├── ai_responses.jsonl                ← (planned) Copilot response text + rework triples
+│   └── shards/                           ← local markdown memory shards (7 + contradictions)
+│       ├── architecture_decisions.md
+│       ├── module_pain_points.md
+│       ├── module_relationships.md
+│       ├── prompt_patterns.md
+│       ├── api_preferences.md
+│       ├── commit_patterns.md
+│       ├── training_pairs.md
+│       └── _contradictions.md
 ├── operator_profile.md                   ← living cognitive profile
 ├── operator_coaching.md                  ← DeepSeek behavioral synthesis
 ├── file_heat_map.json                    ← per-module cognitive load data
@@ -944,13 +969,16 @@ mod = importlib.import_module(f.replace('/', '.').rstrip('.py'))
 | **Live execution tracing** | **✅ Live (sys.settrace → WebSocket @ 20Hz)** |
 | **React graph UI** | **✅ Live (profiler cards, edge animation, observer panel)** |
 | **Pigeon Code Compiler — open-source standalone** | **✅ Released** ([pip install](https://myaifingerprint.com)) |
+| **Shard Memory — local markdown shards + training pairs** | **✅ Live (7 shards, per-shard categorization, contradiction detection)** |
+| **Gemini 2.5 Flash enricher (replaced DeepSeek)** | **✅ Live (3s, 256-token thinking budget)** |
+| **Push-cycle prediction engine** | **✅ Live (backward pass + phantom electrons + scoring)** |
+| **DEV_STORY.md** | **✅ 35 push narratives, 113K chars** |
 | MASTER_MANIFEST | ✅ Rebuilt |
 | Tests | ✅ 5/5 passing |
 
 **Known open issues:**
 - `operator_stats_seq008*` (532 lines) still needs pigeon compile
 - AI response capture not yet implemented
-- DeepSeek caching not yet wired (70-80% savings available)
 - 16 over-cap files flagged by organism health
 
 ---

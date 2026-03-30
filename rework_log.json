@@ -1,256 +1,5 @@
 [
   {
-    "ts": "2026-03-30T06:35:13.311497+00:00",
-    "verdict": "ok",
-    "rework_score": 0.099,
-    "del_ratio": 0.0,
-    "wpm": 13.5,
-    "query_hint": "audit renamer - thats probably wht broke it - i also didnt  retype ugh 47 times ",
-    "response_hint": "Found it. The renamer's  doesn't distinguish between intra-package imports and cross-package imports \u2014 it applies the same rewrite regardless. But the real root is upstream: look at what *generates* t"
-  },
-  {
-    "ts": "2026-03-30T06:35:13.395660+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "@agent Try Again",
-    "response_hint": "HEAD is at `3490a76` locally. Not yet pushed \u2014 there are also untracked files from the post-commit hook's auto-compile (v002 compliance files, drift/unsaid packages). Let me stage everything and push:"
-  },
-  {
-    "ts": "2026-03-30T06:35:13.472469+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "yes",
-    "response_hint": "Pushed. `3490a76..b48ee0a` is on remote.\n\nThe exit code 1 is just the hook's DeepSeek timeout on `cognitive_reactor_seq014` (417 lines \u2014 it tried to compile it but the API timed out mid-response). The"
-  },
-  {
-    "ts": "2026-03-30T06:35:13.539742+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "the api keeps timing out - i think deepseek isint able to complete a full compil",
-    "response_hint": "Found it.  with a  second timeout. For large files like `cognitive_reactor` (417 lines), DeepSeek needs to output a full JSON cut plan \u2014 6000 tokens at ~10 tokens/sec is 600 seconds. The 120s read tim"
-  },
-  {
-    "ts": "2026-03-30T06:35:13.620198+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "go ahead and try theres 78 changesin staged - verify the imports dont break on p",
-    "response_hint": "Hook-generated renames from the last commit are still unstaged. Let me run the tests first, then stage and push: 5/5 passed. Stage and push:  "
-  },
-  {
-    "ts": "2026-03-30T06:35:13.693520+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "why are you suggesting skip ?can you verify telemetry works? file heat map trigg",
-    "response_hint": "Now let me look at the heat map system and the extension watcher to verify what triggers what: Now let me see where  is actually called in : Found the call. Let me see the exact context around it and "
-  },
-  {
-    "ts": "2026-03-30T06:35:13.758063+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "why didn my last prompt get re writeen? ",
-    "response_hint": "The wire is there. The issue is the `except Exception: pass` silently swallowing any error. Let me run the enricher call directly to see what error it throws: It ran successfully now. That means the p"
-  },
-  {
-    "ts": "2026-03-30T06:35:13.818577+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "gpt 5.4 take over - see if you can figure out this bug ",
-    "response_hint": "I\u2019m checking the enricher implementation, the current instructions file state, and the journal hook path together so I can isolate whether the failure is in logging, enrichment, or block injection.I f"
-  },
-  {
-    "ts": "2026-03-30T06:35:13.878259+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "e2e test of every part of my system and what you think is the logical mutation f",
-    "response_hint": "I\u2019m going to do this in two tracks: run the system end to end through the main pipelines, and read the architecture artifacts so I can tell you what the project is evolving into versus what it actuall"
-  },
-  {
-    "ts": "2026-03-30T06:35:13.931303+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 209.8,
-    "query_hint": "next mutation approved implement all  changes and make it be what its trying to ",
-    "response_hint": "I\u2019ve got the mutation target: move the control plane from mostly commit-time to prompt-time without breaking the compiler hook. Now I\u2019m reading the current prompt journal, dynamic prompt, and extensio"
-  },
-  {
-    "ts": "2026-03-30T06:35:13.981381+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "push and make sure compiler runs on next files - we are almost fully complicit -",
-    "response_hint": "Next I\u2019m checking what actually changed and what the compiler still wants, because this town has enough fake progress bars already. After that I\u2019ll either commit and push straight away or patch any dr"
-  },
-  {
-    "ts": "2026-03-30T06:35:14.036247+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "how have my last couple of prompts been re writen? wht can you see if you analyz",
-    "response_hint": "I can already see the pattern: your recent prompts are being expanded from short raw asks into concrete execution prompts with inferred intent, failure history, hot files, and \u201cwatch out\u201d clauses. Nex"
-  },
-  {
-    "ts": "2026-03-30T06:35:14.099735+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "opus plese take over chat got is giving me a headache ",
-    "response_hint": "\n\nHere. Clean slate. Repo's clean at `9221596` on master, synced with origin. No pending changes, no leftover debris.\n\nWhat do you need done?"
-  },
-  {
-    "ts": "2026-03-30T06:35:14.154040+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "stress test my system. what was wordd deleted in this prompt ",
-    "response_hint": "\n\n You deleted **\"mufffin\"**.\n\nThe telemetry caught it: your `peak_buffer` was `\"stress test my system. what was wordd deleted in this prompt mufffin \"` \u2014 you typed \"mufffin\" at the end then backspace"
-  },
-  {
-    "ts": "2026-03-30T06:35:14.211368+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "what should i do to market this / gtm / next logical step - **BZZZZZZZZZZZZZZZZZ",
-    "response_hint": "\n\n Here's the straight answer. No theater.\n\n---\n\n**The Glossator document is great hype copy but it's doing something dangerous: it's telling you everything is already built.** It's not. You have raw "
-  },
-  {
-    "ts": "2026-03-30T06:35:14.259553+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 48.0,
-    "query_hint": "dont care- build it all out ",
-    "response_hint": "\n\n Good, I have all the patterns. Now let me build everything. Now building all the modules. Each one is pigeon-compliant (\u2264200 lines, single responsibility). "
-  },
-  {
-    "ts": "2026-03-30T06:35:14.309218+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "continue",
-    "response_hint": "\n\n Build succeeds. Let me verify the dual_view.json content and check the public folder setup: 125 nodes with proper dual scores. Let me check which nodes have the highest scores: "
-  },
-  {
-    "ts": "2026-03-30T06:35:14.359224+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "theres2k files in tree why?",
-    "response_hint": "\n\nThe `npm install` in  created a `node_modules/` folder with thousands of dependency files. That's standard for any npm project, but it's polluting your tree view.\n\nLet me check if there's a  coverin"
-  },
-  {
-    "ts": "2026-03-30T06:35:14.432242+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "continue previouswork ",
-    "response_hint": "Agent deaths now flow through. 4 nodes with deaths, dual_scores properly combine both substrates. No dual hotspots yet (the simulation randomly hit different nodes than the human hesitation nodes \u2014 th"
-  },
-  {
-    "ts": "2026-03-30T06:35:14.496794+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "this is what im seeing - i alredy see spacing is off ",
-    "response_hint": "It's alive! The rendering works \u2014 heat colors, death badges, observer panel all functional. The spacing issues are clear: 125 nodes on a single ring are way too cramped, labels overlap, and the layout"
-  },
-  {
-    "ts": "2026-03-30T06:35:14.568126+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "they are missing names now and i feel like they should all have their dting prof",
-    "response_hint": "Now let me check what extra data we can pull \u2014 the pigeon registry has description, line counts. Also check :   Excellent \u2014  has personality, partners (coupling), fears, avg_hes. Let me also check the"
-  },
-  {
-    "ts": "2026-03-30T06:35:14.629419+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "okay now i should be able to see data flows light up through my program as youre",
-    "response_hint": "\n\n Here's the gap analysis:\n\n**What exists**: Static graph with profiler cards, simulated electron data, file-based polling every 2s.\n\n**What's missing for \"see data flows light up as you work\"**:\n1. "
-  },
-  {
-    "ts": "2026-03-30T06:35:14.683452+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 64.3,
-    "query_hint": "master manifest is still empty - push test compiler - verify keystoke logging st",
-    "response_hint": " MASTER_MANIFEST is fully populated \u2014 4 systems, pigeon_brain section, all tables. The edits took. Let me now run the tests and compiler. "
-  },
-  {
-    "ts": "2026-03-30T06:35:14.736662+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "i want you to run bigeon brain while you work - verify all copilot mutations - t",
-    "response_hint": "\n\n The terminal output is still showing stale buffered output. Let me get a fresh terminal: The commit went through (`465cbfa`), AND the post-commit pipeline ran and created an auto-rename commit (`e5"
-  },
-  {
-    "ts": "2026-03-30T06:35:14.793086+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "let e make node size bigger i have otuchscreen",
-    "response_hint": "\nScaling everything up for touchscreen. Bigger cards, bigger text, bigger touch targets: "
-  },
-  {
-    "ts": "2026-03-30T06:35:14.823865+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-03-30T06:35:14.852811+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "the live streaming isint really live - i want the nodes to light up and be heat ",
-    "response_hint": "\n\nYou're not crazy \u2014 this is a great idea. Continuous import-chain testing where each node lights up and cascades through its dependencies, so dead endpoints get caught visually in real-time. Let me b"
-  },
-  {
-    "ts": "2026-03-30T06:35:14.908539+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "oh perfect and then the fucking narratives go right into the files from push nar",
-    "response_hint": "Good, live server is running on 8775. Now let me read the current state of all files I need to modify:        "
-  },
-  {
     "ts": "2026-03-30T06:35:14.965773+00:00",
     "verdict": "ok",
     "rework_score": 0.087,
@@ -1787,5 +1536,229 @@
     "del_ratio": 0.005,
     "wpm": 52.7,
     "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-03-30T06:45:17.891034+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-03-30T06:46:17.869149+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-03-30T06:47:14.281759+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:2026-03-30_5018891.md"
+  },
+  {
+    "ts": "2026-03-30T06:48:15.770602+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 43.7,
+    "query_hint": "bg:2026-03-29_fd2ab12.md"
+  },
+  {
+    "ts": "2026-03-30T06:48:59.890063+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:2026-03-18_482bd07.md"
+  },
+  {
+    "ts": "2026-03-30T06:49:16.373769+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:2026-03-18_482bd07.md"
+  },
+  {
+    "ts": "2026-03-30T06:50:14.156976+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T06:51:13.928558+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T06:52:13.845037+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T06:53:14.526406+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T06:54:14.380152+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T06:55:13.837984+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T06:56:14.497437+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T06:56:46.625724+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T06:57:14.368460+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T06:58:14.301365+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T06:58:35.971804+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T06:58:44.411170+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T06:59:13.879744+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:00:14.234934+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:01:15.829523+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:02:15.434674+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:03:14.091176+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:03:21.656120+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:03:57.936186+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:04:10.846632+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:04:32.234857+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:05:14.333918+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
   }
 ]
