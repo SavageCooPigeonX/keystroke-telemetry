@@ -39,6 +39,18 @@ def run_push_cycle(root: Path, commit_hash: str, intent: str,
     # 7. Fire new predictions (what will operator want next push?)
     predictions = _fire_predictions(root)
 
+    # 7b. Synthesize research log (the system studying itself)
+    try:
+        import glob, importlib
+        rl_files = glob.glob(str(root / 'src' / 'research_lab_seq029*.py'))
+        if rl_files:
+            spec = importlib.util.spec_from_file_location('research_lab', rl_files[0])
+            rl_mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(rl_mod)
+            rl_mod.synthesize_research(root)
+    except Exception:
+        pass  # research log is optional — never block push cycle
+
     # 8. Build cycle record
     now = datetime.now(timezone.utc).isoformat()
     total_journal_lines = state["last_journal_line"] + len(entries)

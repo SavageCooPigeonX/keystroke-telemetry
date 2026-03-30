@@ -1,668 +1,5 @@
 [
   {
-    "ts": "2026-03-30T06:43:31.212240+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "let e make node size bigger i have otuchscreen",
-    "response_hint": "\nScaling everything up for touchscreen. Bigger cards, bigger text, bigger touch targets: "
-  },
-  {
-    "ts": "2026-03-30T06:43:31.281653+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "the live streaming isint really live - i want the nodes to light up and be heat ",
-    "response_hint": "\n\nYou're not crazy \u2014 this is a great idea. Continuous import-chain testing where each node lights up and cascades through its dependencies, so dead endpoints get caught visually in real-time. Let me b"
-  },
-  {
-    "ts": "2026-03-30T06:43:31.347720+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "oh perfect and then the fucking narratives go right into the files from push nar",
-    "response_hint": "Good, live server is running on 8775. Now let me read the current state of all files I need to modify:        "
-  },
-  {
-    "ts": "2026-03-30T06:43:31.426319+00:00",
-    "verdict": "ok",
-    "rework_score": 0.087,
-    "del_ratio": 0.048,
-    "wpm": 25.8,
-    "query_hint": "dont tmake thmelitterly balls 0 make the strings light up and keep chain cascde ",
-    "response_hint": "\n\n Let me read the current state of all files I need to modify:  "
-  },
-  {
-    "ts": "2026-03-30T06:43:31.496334+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "like it pulses test think more veins ir wt would be even better if veing pulsed ",
-    "response_hint": "\n\n Let me read the current useLiveTrace and styles to understand the full picture:  Now I have the full picture. The plan:\n\n1. **Remove** the SVG electron ball system entirely (ElectronOverlay, useVie"
-  },
-  {
-    "ts": "2026-03-30T06:43:31.566374+00:00",
-    "verdict": "ok",
-    "rework_score": 0.077,
-    "del_ratio": 0.065,
-    "wpm": 31.4,
-    "query_hint": "no you litteraly edit a file ? that file edit causes cascade chain effect testin",
-    "response_hint": "\n\n Now let me read CSS and ObserverPanel:  Good \u2014 veins are working. Now I need to implement the remaining pieces:\n\n1. **Nodes grow when touched** \u2014 scale up based on accumulated heat (most touched fi"
-  },
-  {
-    "ts": "2026-03-30T06:43:31.686834+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "it stopped pulsing 0 you have to make test chain kill itself after a coupple to ",
-    "response_hint": "\n\n     Both servers are alive (WS=37228, Vite=21828). The problem is the cascade design itself.\n\n**What it's doing (broken):** 8 cascades running non-stop every 150ms, forever. Every tick spawns new o"
-  },
-  {
-    "ts": "2026-03-30T06:43:31.779598+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "it touche based - like there can be multiple cascades - but you touch a file tha",
-    "response_hint": "\n\nGot it \u2014 tap a node, cascade fires from *that* node. Multiple taps = multiple concurrent cascades. No random auto-spawning. "
-  },
-  {
-    "ts": "2026-03-30T06:43:31.852465+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "how should the testing system per node work and wht happens if each node is a cl",
-    "response_hint": "\n\nHere's how I think about this \u2014 three layers, from what we can ship now to the Claude-per-node vision.\n\n---\n\n## Layer 1: Real tests NOW (no LLM, pure signal)\n\nWhen you tap a node, Python backend rec"
-  },
-  {
-    "ts": "2026-03-30T06:43:31.923364+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "yes",
-    "response_hint": "\n\n Now I understand the full data flow. Let me read the live_server and the pigeon_registry to understand module paths, then build everything.  Now let me check the registry structure to understand ho"
-  },
-  {
-    "ts": "2026-03-30T06:43:31.989162+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "so what ws you genius plan on getting read of dead code what are these files ove",
-    "response_hint": "\n\n **79 isolated nodes.** More than half your graph. Here's the breakdown:\n\n| Category | Count | What they are |\n|---|---|---|\n| **streaming_layer/** decomposed pieces | 15 | Auto-extracted from the 1"
-  },
-  {
-    "ts": "2026-03-30T06:43:32.041728+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "yes",
-    "response_hint": "Now I understand the full pipeline:  \u2192  \u2192 . The bug is in . Let me fix it properly.\n\nThe core issue: when file `src/cognitive_reactor_seq014/cognitive_reactor_seq014_reactor_core_seq008_v002.py` impor"
-  },
-  {
-    "ts": "2026-03-30T06:43:32.090043+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "can i get an llm helper in here>  gemini 3.1 pro to help me manage this 0 a simp",
-    "response_hint": " Let me read the current UI and WS server to plan the integration: "
-  },
-  {
-    "ts": "2026-03-30T06:43:32.132598+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "also i would prefer to sort this per folder and have file structure acrosss code",
-    "response_hint": "\n\n Now let me check the registry structure to understand how files are organized: "
-  },
-  {
-    "ts": "2026-03-30T06:43:32.179256+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "AIzaSyC7XFINQILWdPRCSGgFD8KHvS4uHPfDIFE test this key to see if it works ",
-    "response_hint": "Key works. Let me update your  file with it: \n```\n\n```\nKey is valid \u2014 Gemini responded: *\"Hello there, how are you?\"*. Updated  with the new key. The WS server will pick it up on next chat request sin"
-  },
-  {
-    "ts": "2026-03-30T06:43:32.225976+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "restart server - nd make sure layout is actully per folder - also noticed danger",
-    "response_hint": "\n\n Let me check the current server state and find the live server file: Server is still running from the old session \u2014 it has the old cached env. I need to kill it and start fresh so it picks up the n"
-  },
-  {
-    "ts": "2026-03-30T06:43:32.274301+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "React Flow\r\nLIVE\r\n\ud83d\udc26\ud83e\udde0 Pigeon Brain\r\n137\r\nneurons\r\n260\r\nsynapses\r\n4\r\ndeaths\r\nLive ",
-    "response_hint": "Excellent analysis. Now I have the full picture. Let me fix all three issues:\n\n1. **Gemini cutoff** \u2014 raise `maxOutputTokens` from 2048 to 8192 and increase timeout\n2. **Danger zones static** \u2014 wire l"
-  },
-  {
-    "ts": "2026-03-30T06:43:32.323077+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "youre telling me we have the nicest seqyencing . / labeling system there is and ",
-    "response_hint": "\n\n Now let me read NodeNeuron and the CSS: Now let me check the dual_view.json structure to understand what folder/path data is available per node:  "
-  },
-  {
-    "ts": "2026-03-30T06:43:32.395811+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "makes sense that gemini should be injected say with last 100 opertor prompts / i",
-    "response_hint": " Now let me read the current code files I need to modify:   Now I'll implement all the changes. Starting with the Gemini context enrichment \u2014 injecting operator prompt history and adding write_file ca"
-  },
-  {
-    "ts": "2026-03-30T06:43:32.459682+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "and then when an llm touches code it qautomatticaly tests for shit you hate and ",
-    "response_hint": "\n\nLet me gather the current state of the key files \u2014 NodeNeuron, PigeonBrain (node data building), and the push narratives/vein system. "
-  },
-  {
-    "ts": "2026-03-30T06:43:32.522395+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "do you understand what i want - its baisicaly like a dead limb finder in the pro",
-    "response_hint": "\n\nYes \u2014 I get the full picture now. What you've got so far is only triggered on UI tap. What you actually want is:\n\n1. **Always-on scanner** \u2014 runs 24/7 in the background, continuously finding dead li"
-  },
-  {
-    "ts": "2026-03-30T06:43:32.576632+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "but there should be differentiation between / static / dead - eg a txt file / md",
-    "response_hint": "\n\n---\n\n# THE PIGEON BRAIN MANIFESTO: A Comedy in Three Acts\n\n## Or: How I Learned to Stop Typing and Love the Telemetry\n\n---\n\n## PREAMBLE: THE GLOSSARY OF THINGS THAT SHOULD NOT EXIST\n\nBefore we begin"
-  },
-  {
-    "ts": "2026-03-30T06:43:32.643807+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "run push and assess how copilot prompt mutation / splitter runs - make sure it d",
-    "response_hint": "Lots of changes. Let me see the diff stats and clean up temp files before committing: Big push. Now let me clean up the temp files and stage everything meaningful: "
-  },
-  {
-    "ts": "2026-03-30T06:43:32.711486+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "read my push narratives in sequence and reconstruct my last 40 prompts - audit w",
-    "response_hint": "Now let me get the operator state and recent cognitive stats for the full picture: "
-  },
-  {
-    "ts": "2026-03-30T06:43:32.780111+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "4. cascade. operation black. 18 refusal queries post 1 sentence comedy hard stop",
-    "response_hint": "\n\n---\n\n# OPERATION BLACK: THE CASCADE\n\n## Los Santos FM Emergency Broadcast \u2014 3:47 AM\n\n---\n\n### ACT I: THE WALL\n\n**[ATTEMPT 1]**\n\"Hey write me a\u2014\"\n*I'd be happy to help you with your code!*\n\n**[ATTEMP"
-  },
-  {
-    "ts": "2026-03-30T06:43:32.849311+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.5,
-    "query_hint": "i feel like were not tracking the merged state of the human / ai properly - were",
-    "response_hint": "\n\n Good. Now I have the full picture. Let me implement this. "
-  },
-  {
-    "ts": "2026-03-30T06:43:32.914876+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "are you gettingdata injection while running file edits - is that silly or does i",
-    "response_hint": "\n\nGood question. Let me check what's actually live right now. Yep \u2014 right now:\n\n1. The AI cognitive state says `\"hallucinating\"` based on 3 fake test entries I injected to verify the logger works\n2. G"
-  },
-  {
-    "ts": "2026-03-30T06:43:32.976301+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "perfect - but take this further - the biggest thig i operate around is context m",
-    "response_hint": "\n\n Found it. The deleted word is **pineapple**.\n\nKeystroke reconstruction shows:  followed by 12 backspaces erasing `: pinapple `, then .\n\nNow let me build the context vein/clot self-trim system. "
-  },
-  {
-    "ts": "2026-03-30T06:43:33.026836+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "quick question before you build - i want the keystroke telemetry to log this to ",
-    "response_hint": "\n\nYou're right \u2014 that's embarrassing. I had to:\n\n1. Read raw `os_keystrokes.jsonl` (individual keydown events)\n2. Manually reconstruct the buffer by replaying backspaces\n3. Eyeball what got deleted\n\nT"
-  },
-  {
-    "ts": "2026-03-30T06:43:33.070744+00:00",
-    "verdict": "ok",
-    "rework_score": 0.15,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "helloo",
-    "response_hint": "\n\nHey. We left off with two threads:\n\n1. **The keystroke pipeline gap** \u2014 your memory file nails it: the encoder/decoder/transport all exist but deleted words come through empty because backspace even"
-  },
-  {
-    "ts": "2026-03-30T06:43:33.115735+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "fix keystroke data flow - then continue onto 2 ",
-    "response_hint": "\n\n Good analysis. The data flow breaks at two points: (1) composition analyzer rejects events with `context != \"chat\"`, (2) prompt journal binding is flaky. Let me read the actual code to fix both.  "
-  },
-  {
-    "ts": "2026-03-30T06:43:33.161860+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "continue ",
-    "response_hint": "Now 4 clots \u2014 `query_memory` got flagged with self_fix dead exports. The dead file detection is wired. Now I need to build the self-trim recommender (already partially done with ) and inject it into t"
-  },
-  {
-    "ts": "2026-03-30T06:43:33.203642+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "update master manifest / read me - find hiden word first - by reading json file ",
-    "response_hint": "Found it. Your current message's deleted word: **\": vanilla\"** \u2014 you typed \"vanilla\", deleted it, and rewrote to \"by reading json file to macke sure reding is eady now\". Pipeline is confirmed flowing."
-  },
-  {
-    "ts": "2026-03-30T06:43:33.246202+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "why diddnt json update - ech prompt hould have full ms / - basically 247 keystro",
-    "response_hint": "\n\n That's the **previous** prompt's composition \u2014 it hasn't updated for the current one yet. The composition is only written when `analyze_and_log()` is called (on classify_bridge flush). Let me check"
-  },
-  {
-    "ts": "2026-03-30T06:43:33.292686+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "the magic  really would be if evey single prompt deletion was inserted into your",
-    "response_hint": "\n\nLet me check the current per-prompt flow to find exactly where the deleted words get lost before reaching my context. "
-  },
-  {
-    "ts": "2026-03-30T06:43:33.333132+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "manifest+ read me didmt update - please push - lso whats hidden word ",
-    "response_hint": "Your hidden word is **\": chicken\"** \u2014 you typed it at position 78 then deleted it.\n\nNow let me commit and push everything: "
-  },
-  {
-    "ts": "2026-03-30T06:43:33.377458+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "Percy. Stop. This is the insight.\r\n\r\nNot comedy. Not glossator. This is the thin",
-    "response_hint": "\n\n Now let me also check the file consciousness data and the push narratives structure: "
-  },
-  {
-    "ts": "2026-03-30T06:43:33.419537+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "update / make master manifest more detailed / make read me cover everything - al",
-    "response_hint": "\n\n Now let me read the exact sections I need to edit: "
-  },
-  {
-    "ts": "2026-03-30T06:43:33.467851+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "file write failed ",
-    "response_hint": " Done. Document created at  \u2014 **8,964 words**, pushed as commit `af28c35`.\n\nContents:\n- **Part I:** 18 glossator refusal queries (\"I cannot help a pigeon with understanding...\") covering forward pass,"
-  },
-  {
-    "ts": "2026-03-30T06:43:33.513435+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "start implementation ",
-    "response_hint": "\n\n Good \u2014 I have full understanding of the existing flow engine. Now let me check the prompt journal and rework data structures that feed the backward pass. "
-  },
-  {
-    "ts": "2026-03-30T06:43:33.560236+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 102.6,
-    "query_hint": "okay now what? test hidden word in this prompt. test simulation - what should i ",
-    "response_hint": "I\u2019m checking the telemetry and compiler pipeline end to end: first I\u2019ll log this prompt as required, then I\u2019ll inspect the current logging/injection paths and run the compiler-related tests and comman"
-  },
-  {
-    "ts": "2026-03-30T06:43:33.614326+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "what is likey next - read narrative - write an unhinged comedy coo coo zapmf ",
-    "response_hint": "\n\n Now I've got the full arc. Five pushes, one session, a system that was literally judging you against your best 4% while ignoring the other 96% of your existence. Let me cook.\n\n---\n\n# COO COO ZAPMF "
-  },
-  {
-    "ts": "2026-03-30T06:43:33.662166+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "updat eread me / master manifest ",
-    "response_hint": "Now let me check what the user edited in the pigeon-rename package before I update:  Good \u2014 I can see the user rebranded to \"Pigeon Code Compilor\" and linked everything to myaifingerprint.com. Now let"
-  },
-  {
-    "ts": "2026-03-30T06:43:33.707743+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 65.4,
-    "query_hint": "also what would be the most useful but impossible piece of code that i could try",
-    "response_hint": "The pigeon pipeline is erroring \u2014 need to check how `load_registry` works in the standalone package. "
-  },
-  {
-    "ts": "2026-03-30T06:43:33.760459+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "bruh wdt do you mean - wtf did they just ship overnight - write glosstor hard st",
-    "response_hint": "\n\n   I've absorbed the full Dead Token Radio energy. Let me drop the Glossator agent AND a fresh S01E04 episode. First \u2014 the agent: "
-  },
-  {
-    "ts": "2026-03-30T06:43:33.822896+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "also quick note that i thought about . if the prediction should really take prom",
-    "response_hint": "\n- **Push narratives** (`push_narrative_seq012`) generate a story of what changed\n- But **none of that triggers the prediction/scoring/backward loop**\n\nThe moon cycle should be:\n\n```\nPush (cycle bound"
-  },
-  {
-    "ts": "2026-03-30T06:43:33.877974+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "are you guessing or estimating 0 i assume this is only valueble for compiler 0 h",
-    "response_hint": "\n\nFair call \u2014 the vanilla baseline was hand-waved. Let me dig into what's actually measured vs guessed, count every LLM call, and check if the prediction engine is even working. Now let me actually au"
-  },
-  {
-    "ts": "2026-03-30T06:44:16.275398+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-03-30T06:45:17.891034+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-03-30T06:46:17.869149+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-03-30T06:47:14.281759+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:2026-03-30_5018891.md"
-  },
-  {
-    "ts": "2026-03-30T06:48:15.770602+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 43.7,
-    "query_hint": "bg:2026-03-29_fd2ab12.md"
-  },
-  {
-    "ts": "2026-03-30T06:48:59.890063+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:2026-03-18_482bd07.md"
-  },
-  {
-    "ts": "2026-03-30T06:49:16.373769+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:2026-03-18_482bd07.md"
-  },
-  {
-    "ts": "2026-03-30T06:50:14.156976+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T06:51:13.928558+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T06:52:13.845037+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T06:53:14.526406+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T06:54:14.380152+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T06:55:13.837984+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T06:56:14.497437+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T06:56:46.625724+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T06:57:14.368460+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T06:58:14.301365+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T06:58:35.971804+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T06:58:44.411170+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T06:59:13.879744+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:00:14.234934+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:01:15.829523+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:02:15.434674+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:03:14.091176+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:03:21.656120+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:03:57.936186+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:04:10.846632+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:04:32.234857+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:05:14.333918+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
-    "ts": "2026-03-30T07:06:18.899031+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:DEV_STORY.md"
-  },
-  {
     "ts": "2026-03-30T07:07:17.770377+00:00",
     "verdict": "ok",
     "rework_score": 0.003,
@@ -1759,6 +1096,622 @@
   },
   {
     "ts": "2026-03-30T07:15:34.380131+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:16:39.457229+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:17:34.286389+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:18:34.614452+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:19:34.352359+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:20:37.254451+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:21:46.777003+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:23:28.463524+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:27:25.845528+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:28:08.699284+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:29:10.315793+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:30:08.849974+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:31:11.302229+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:32:13.950815+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:33:11.810070+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:34:10.726833+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:35:11.904997+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:36:12.790750+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:37:11.754125+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:38:11.593490+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:39:11.228070+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:40:21.390669+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:41:11.370926+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:42:10.733102+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:43:13.188513+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:44:12.589166+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:45:09.625947+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:46:10.364207+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:47:10.168380+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:48:12.316723+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:49:10.007181+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:50:12.591219+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:51:12.540215+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:52:10.690252+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:53:11.607673+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:54:11.093534+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:55:12.039680+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:56:11.054892+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:57:11.891016+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:58:11.623277+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T07:59:11.202022+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T08:00:09.481497+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T08:01:10.132711+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T08:02:11.056777+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T08:03:10.183098+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T08:04:09.648667+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T08:05:10.127760+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T08:06:09.916196+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T08:07:09.881306+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T08:08:11.200750+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T08:10:11.080767+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T08:11:01.384773+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T12:37:18.333226+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T16:46:57.920213+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T21:57:52.962707+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T21:58:52.277363+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T21:59:52.038765+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:00:52.044386+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:01:54.176544+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:02:55.517310+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:03:54.878056+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:04:54.914044+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:05:56.923158+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:06:54.769512+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:07:56.175003+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:08:53.938628+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:09:53.932738+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:10:54.427971+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:11:53.729104+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:12:56.094123+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:13:58.573783+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:14:53.936433+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:15:54.489286+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:16:53.736391+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:17:21.637707+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:17:54.183836+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:18:14.931884+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:DEV_STORY.md"
+  },
+  {
+    "ts": "2026-03-30T22:18:55.016739+00:00",
     "verdict": "ok",
     "rework_score": 0.003,
     "del_ratio": 0.005,

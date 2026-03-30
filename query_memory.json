@@ -1,468 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-29T23:42:36.293070+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:43:36.309430+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:44:36.320281+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:45:36.273551+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:46:37.042350+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:47:37.568952+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:48:40.258986+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:49:41.776679+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:50:40.004113+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:52:00.671581+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:52:58.605633+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:53:57.198938+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:54:54.399875+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:55:54.398469+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:56:54.459134+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:57:55.152048+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:58:54.463557+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:59:22.297562+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:59:43.283705+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-29T23:59:54.318026+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:00:06.154557+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:00:21.334207+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:00:56.443629+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:00:56.614437+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:01:10.632887+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:01:30.104825+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:01:50.587270+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:01:54.575429+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:02:54.660771+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:03:55.957496+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:04:54.916837+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:05:55.254455+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:06:57.681719+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:07:59.586917+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:08:58.829164+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:09:57.128361+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:10:50.936363+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:11:25.602596+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:11:48.245193+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:12:16.386917+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:12:19.772043+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:12:51.509852+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:13:10.575382+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:14:12.655067+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:15:03.002517+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:15:43.170913+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:16:07.187556+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:16:32.043344+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:17:13.100421+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:18:10.662519+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:19:10.216166+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:20:09.453847+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:21:11.051356+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:22:08.485360+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:23:08.356982+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:23:26.090163+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:24:10.088416+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:25:08.068392+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:26:09.229589+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:27:10.497687+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:28:00.465830+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:28:09.429830+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:28:44.270085+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:29:13.532158+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:30:12.156356+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:31:11.078908+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:32:18.315521+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:34:18.034015+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:35:17.300421+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:36:16.340048+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:37:16.095809+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:38:17.045860+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:38:24.985823+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:38:47.756452+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:39:08.223819+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:39:17.335000+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T00:40:16.054705+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-30T00:41:16.100418+00:00",
       "text": "bg:README.md",
       "fingerprint": "bgreadmemd",
@@ -2996,6 +2534,468 @@
     },
     {
       "ts": "2026-03-30T07:15:34.394738+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:16:39.526129+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:17:34.302606+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:18:35.077655+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:19:34.370897+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:20:37.287835+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:21:46.856337+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:23:28.553791+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:27:25.993471+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:28:08.707129+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:29:10.330546+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:30:08.862438+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:31:11.327627+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:32:14.006294+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:33:12.267362+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:34:10.760335+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:35:11.945775+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:36:12.837167+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:37:11.797086+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:38:11.625602+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:39:11.248135+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:40:21.526670+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:41:11.399912+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:42:10.749824+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:43:13.267434+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:44:12.863302+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:45:09.648949+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:46:10.386262+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:47:10.324811+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:48:12.341058+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:49:10.035200+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:50:12.623906+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:51:12.607275+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:52:10.716249+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:53:11.697816+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:54:11.125444+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:55:12.575967+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:56:11.076889+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:57:11.913493+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:58:11.638363+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T07:59:11.224221+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T08:00:09.490946+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T08:01:10.144208+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T08:02:11.085963+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T08:03:10.192949+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T08:04:09.660763+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T08:05:10.157157+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T08:06:09.926567+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T08:07:09.893323+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T08:08:11.224030+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T08:10:11.131214+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T08:11:01.393230+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T12:37:18.345188+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T16:46:57.940202+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T21:57:52.979980+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T21:58:52.292143+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T21:59:52.048487+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:00:52.054039+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:01:54.195352+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:02:55.530129+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:03:54.908500+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:04:54.952402+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:05:56.942108+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:06:54.789878+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:07:56.253658+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:08:53.952791+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:09:53.951633+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:10:54.465973+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:11:53.750084+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:12:56.134734+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:13:58.921416+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:14:53.953480+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:15:54.515207+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:16:53.759251+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:17:21.665802+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:17:54.220161+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:18:14.974140+00:00",
+      "text": "bg:DEV_STORY.md",
+      "fingerprint": "bgdev_storymd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T22:18:55.184437+00:00",
       "text": "bg:DEV_STORY.md",
       "fingerprint": "bgdev_storymd",
       "submitted": true

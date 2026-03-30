@@ -109,14 +109,14 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-30 07:14 UTC · 6305 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-30 22:18 UTC · 6383 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `hesitant` (WPM: 2410.4 | Del: 49.9% | Hes: 0.621) · *[source: measured]*
+**Cognitive state:** `neutral` (WPM: 887.1 | Del: 39.9% | Hes: 0.528) · *[source: measured]*
 
-**Prompt ms:** 10748, 102401, 41809, 25002, 12155 (avg 38423ms)
+**Prompt ms:** 41809, 25002, 12155, 18472756, 44999 (avg 3719344ms)
 
-> **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
+> **CoT directive:** Standard mode. Be thorough and structured.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
@@ -125,18 +125,18 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - **Reconstructed intent:** Refactor the entire
   - *(deleted: can you also refactor the, entire learning loop | ratio: 55%)*
 
-- "post write"
 - "log to"
 - "pirs sho"
 - "r - training"
+- "what"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `init_writer` (hes=0.63)
-- `self_fix` (hes=0.596)
+- `self_fix` (hes=0.651)
+- `.operator_stats` (hes=0.651)
 
 ### Recent Work
 - `ad34e17` feat: README update (7 systems + shard memory + Gemini Flash) + push_narrative self-fix (201->200 lines) + DEV_STORY.md export
@@ -162,7 +162,7 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - [HIGH] over_hard_cap in `src/.operator_stats_seq008_v009_d0328__persistent_markdown_memory_file_lc_dynamic_import_resolvers.py`
 
 ### Prompt Evolution
-*This prompt has mutated 76x (186→930 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 76x (186→931 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
 *223 modules profiled*
@@ -314,9 +314,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-30 - 6305 message(s) - LLM-synthesized*
+*Auto-updated 2026-03-30 · 6383 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 3% | WPM: 53.8 | Del: 46.6% | Hes: 0.647
+**Dominant: `frustrated`** | Submit: 3% | WPM: 54.2 | Del: 46.6% | Hes: 0.647
 
 This operator just built a README update system for push narratives, and their typing patterns reveal a meticulous but hesitant editor who restructures heavily in morning sessions with high deletion rates.  
 - **Anticipate documentation focus**: When they touch `push_narrative` or `self_fix`, proactively suggest concise docstrings, markdown templates, or inline comments—they’re likely refining explanations.  
