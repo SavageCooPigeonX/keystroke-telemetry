@@ -12,11 +12,11 @@ Each git push = one learning cycle:
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 025 | VER: v002 | 436 lines | ~4,339 tokens
+# SEQ: 025 | VER: v003 | 483 lines | ~4,792 tokens
 # DESC:   the_push_is_the_unit
-# INTENT: selection_aware_os
-# LAST:   2026-03-29 @ fd2ab12
-# SESSIONS: 1
+# INTENT: fix_push_cycle
+# LAST:   2026-03-30 @ 078c366
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-03-29T15:40:00+00:00

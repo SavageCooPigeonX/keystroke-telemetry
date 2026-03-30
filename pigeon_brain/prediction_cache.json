@@ -1480,7 +1480,118 @@
       "confidence": 0.49,
       "ts": "2026-03-30T06:40:19.135688+00:00",
       "scored": false
+    },
+    {
+      "prediction_id": "269036613452",
+      "batch_id": "720c88f31bbf",
+      "session_n_at": 19,
+      "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
+      "mode": "targeted",
+      "trend": {
+        "states": [
+          "frustrated",
+          "unknown",
+          "frustrated",
+          "unknown",
+          "hesitant",
+          "unknown",
+          "unknown",
+          "unknown",
+          "hesitant",
+          "unknown"
+        ],
+        "modules": [
+          "file_heat_map",
+          "import_rewriter",
+          "file_writer"
+        ],
+        "avg_del": 0.0472,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "targeted",
+        "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer"
+      },
+      "confidence": 0.49,
+      "ts": "2026-03-30T06:43:48.725434+00:00",
+      "scored": false
+    },
+    {
+      "prediction_id": "7f5382bf146e",
+      "batch_id": "720c88f31bbf",
+      "session_n_at": 19,
+      "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
+      "mode": "heat",
+      "trend": {
+        "states": [
+          "frustrated",
+          "unknown",
+          "frustrated",
+          "unknown",
+          "hesitant",
+          "unknown",
+          "unknown",
+          "unknown",
+          "hesitant",
+          "unknown"
+        ],
+        "modules": [
+          "file_heat_map",
+          "import_rewriter",
+          "file_writer"
+        ],
+        "avg_del": 0.0472,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "heat",
+        "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer"
+      },
+      "confidence": 0.49,
+      "ts": "2026-03-30T06:43:48.725434+00:00",
+      "scored": false
+    },
+    {
+      "prediction_id": "f48e82cb5c5c",
+      "batch_id": "720c88f31bbf",
+      "session_n_at": 19,
+      "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
+      "mode": "failure",
+      "trend": {
+        "states": [
+          "frustrated",
+          "unknown",
+          "frustrated",
+          "unknown",
+          "hesitant",
+          "unknown",
+          "unknown",
+          "unknown",
+          "hesitant",
+          "unknown"
+        ],
+        "modules": [
+          "file_heat_map",
+          "import_rewriter",
+          "file_writer"
+        ],
+        "avg_del": 0.0472,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "failure",
+        "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer"
+      },
+      "confidence": 0.49,
+      "ts": "2026-03-30T06:43:48.725434+00:00",
+      "scored": false
     }
   ],
-  "updated": "2026-03-30T06:40:19.137020+00:00"
+  "updated": "2026-03-30T06:43:48.728265+00:00"
 }

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-30T06:33:41.700996+00:00",
+  "generated": "2026-03-30T06:41:33.700251+00:00",
   "total": 254,
   "files": [
     {
@@ -5047,14 +5047,14 @@
       ]
     },
     {
-      "path": "src/push_cycle_seq025_v002_d0329__the_push_is_the_unit_lc_selection_aware_os.py",
+      "path": "src/push_cycle_seq025_v003_d0330__the_push_is_the_unit_lc_fix_push_cycle.py",
       "name": "push_cycle",
       "seq": 25,
-      "ver": 2,
-      "date": "0329",
+      "ver": 3,
+      "date": "0330",
       "desc": "the_push_is_the_unit",
-      "intent": "selection_aware_os",
-      "tokens": 4339,
+      "intent": "fix_push_cycle",
+      "tokens": 4792,
       "history": [
         {
           "ver": 2,
@@ -5063,6 +5063,14 @@
           "intent": "selection_aware_os",
           "tokens": 4339,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0330",
+          "desc": "the_push_is_the_unit",
+          "intent": "fix_push_cycle",
+          "action": "mutated",
+          "tokens": 4792
         }
       ]
     },

@@ -3881,7 +3881,7 @@
     "fears": [
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.549
+    "avg_hes": 0.591
   },
   "adapter": {
     "personality": "fresh",
@@ -5219,7 +5219,7 @@
       "returns empty on failure (silent)",
       "regex format dependency"
     ],
-    "avg_hes": 0.549
+    "avg_hes": 0.591
   },
   "file_consciousness_seq019_audit": {
     "personality": "fresh",
@@ -6148,34 +6148,34 @@
     "avg_hes": 0.0
   },
   "push_cycle": {
-    "personality": "fresh",
-    "version": 2,
-    "tokens": 4339,
+    "personality": "stable",
+    "version": 3,
+    "tokens": 4792,
     "partners": [
       {
-        "name": "dual_substrate",
+        "name": "backward_seq007_deepseek_analyze",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "3 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "failure_detector",
+        "name": "learning_loop",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "5 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "backward_seq007_flow_log",
+        "name": "node_memory",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "5 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "backward",
+        "name": "prediction_scorer_seq014_post_edit_scorer",
         "score": 0.8,
-        "reason": "4 shared imports, both high-churn (v2+v2)"
+        "reason": "3 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "dev_plan",
+        "name": "predictor",
         "score": 0.8,
-        "reason": "4 shared imports, both high-churn (v2+v2)"
+        "reason": "5 shared imports, both high-churn (v3+v3)"
       }
     ],
     "fears": [
@@ -7014,7 +7014,7 @@
       "regex format dependency",
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.549
+    "avg_hes": 0.591
   },
   "session_handoff": {
     "personality": "fresh",
@@ -7540,12 +7540,12 @@
         "reason": "1 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "file_heat_map",
-        "score": 0.37,
-        "reason": "1 shared imports, both high-churn (v3+v4)"
+        "name": "push_cycle",
+        "score": 0.4,
+        "reason": "1 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "query_memory",
+        "name": "file_heat_map",
         "score": 0.37,
         "reason": "1 shared imports, both high-churn (v3+v4)"
       }

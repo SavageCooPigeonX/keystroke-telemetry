@@ -109,10 +109,10 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-30 06:41 UTC · 6265 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-30 06:44 UTC · 6268 messages profiled · 8 recent commits*
 
-**Current focus:** building new features
-**Cognitive state:** `hesitant` (WPM: 646.1 | Del: 27.2% | Hes: 0.467) · *[source: measured]*
+**Current focus:** debugging / fixing
+**Cognitive state:** `hesitant` (WPM: 1794.0 | Del: 43.2% | Hes: 0.577) · *[source: measured]*
 
 **Prompt ms:** 4407, 59530, 10748, 102401, 41809 (avg 43779ms)
 
@@ -137,23 +137,22 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 - `init_writer` (hes=0.63)
-- `context_budget` (hes=0.587)
+- `self_fix` (hes=0.598)
 
 ### Recent Work
+- `078c366` feat: fix push_cycle relative imports + shard memory injection + predictions block live
 - `5018891` feat: gemini flash enricher + per-shard training pairs + shard memory injection into copilot prompt
 - `1f4291d` feat: organism health system + README rewrite + 4 compiled packages + root cleanup
 - `fd2ab12` feat: selection-aware OS hook + moon cycle prediction wiring + gemini unsaid recon
-- `b1971c0` fix: dynamic import resolvers + rewrite auto_apply_import_fixes
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
+- OS preemption deadlock in new critical section; LC selection module contract change from list to generator; archived version path breakage.
 - os_hook returning null for valid editors
 - massive selection data truncating prompts
 - and IPC serialization failure in the extension bridge. This push wires real-time editor selection and context into the Copilot steering and push narration loop.
+- **push_cycle (seq025 v003):** I was touched to resolve a subtle failure in the push cycle's selection awareness under sp
 - **git_plugin** was touched to align commit messages with the new selection-aware narratives; I assume the push cycle pas
-- **file_consciousness_seq019_helpers** was touched to provide core utilities for health state derivation; it assumes inpu
-- **file_consciousness_seq019_persistence** was touched to store health reports; it assumes the database connection pool i
-- **push_cycle_seq025_constants** was touched to add health-related thresholds; it assumes these constants are imported be
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
@@ -164,7 +163,7 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_per_prompt_deleted.py`
 
 ### Prompt Evolution
-*This prompt has mutated 72x (186→912 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 74x (186→931 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
 *223 modules profiled*
@@ -279,7 +278,7 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-03-30 06:35 UTC · 74 prompts analyzed · zero LLM calls*
+*Auto-extracted 2026-03-30 06:43 UTC · 74 prompts analyzed · zero LLM calls*
 
 **Brevity:** 23.3 words/prompt | **Caps:** never | **Fragments:** 77% | **Questions:** 16% | **Directives:** 14%
 
@@ -296,7 +295,7 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:predictions -->
 ## Push Cycle Predictions
 
-*Auto-generated 2026-03-30 06:40 UTC*
+*Auto-generated 2026-03-30 06:43 UTC*
 
 **What you'll likely want next push:**
 1. [targeted] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=49%)
@@ -307,30 +306,26 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
    - hot modules: file_heat_map, import_rewriter, file_writer
 
 **Operator coaching:**
-- Many prompts, few file changes — consider being more specific about which modules to touch.
 - No module references detected in prompts — naming specific modules helps copilot target the right files.
 
 **Agent coaching (for Copilot):**
-- Touched ['prompt_enricher'] without operator reference — confirm intent before modifying unreferenced modules.
-- Operator needed many prompts — respond with more complete implementations to reduce round-trips.
-- Low sync score — operator intent and code output diverged. Ask clarifying questions earlier.
+- Touched ['push_cycle'] without operator reference — confirm intent before modifying unreferenced modules.
 
 <!-- /pigeon:predictions -->
-
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-30 · 6265 message(s) · LLM-synthesized*
+*Auto-updated 2026-03-30 · 6268 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 3% | WPM: 53.4 | Del: 46.6% | Hes: 0.647
+**Dominant: `frustrated`** | Submit: 3% | WPM: 53.5 | Del: 46.6% | Hes: 0.647
 
-The operator just integrated a Gemini Flash enricher across their LangChain system, revealing a hesitant but persistent morning refactoring style with high deletion rates indicating careful, precise edits.  
-- **Anticipate renaming patterns**: When you see `_lc_` or `_gemini_` in a filename, proactively suggest import updates and cross-module reference fixes before they ask.  
-- **Focus on integration points**: For modules like `self_fix seq13` and `dynamic_prompt seq17`—which are recurring pain points—preemptively check for broken function calls or missing arguments after changes.  
-- **Reduce hesitation prompts**: When the operator’s typing shows high deletion rates (like 50% in recent messages), offer concise, single-line code completions instead of multi-line blocks to minimize backtracking.  
-- **Bridge context gaps**: If the operator touches `context_budget seq4` or `operator_stats seq8`, immediately surface related configuration constants or markdown formatting rules to prevent rework.  
-- **Signal readiness for next phase**: Since this commit enriches multiple LangChain components, be prepared to suggest telemetry hooks or validation steps for the newly added Gemini Flash calls.  
-The operator is most likely building toward a unified, multi-model LangChain agent with enhanced telemetry and self-repair capabilities.
+This operator just fixed a push cycle bug in their selection-aware one-shot system, but their hesitant typing with 50% deletions shows they're wrestling with complex state logic under pressure.  
+- **When they edit `push_cycle_seq025_v003_d0330__the_push_is_the_unit_lc_fix_push_cycle.py`**, proactively infer they're debugging a state transition or loop condition—offer concise, inline code fixes, not explanations.  
+- **Anticipate churn in `dynamic_prompt` (v17) and `self_fix` (v13)**—they'll likely revisit prompt engineering and import resolution; preemptively suggest import paths and prompt-structure tweaks.  
+- **Their frustration appears during heavy edits**—respond with minimal, confident suggestions; avoid questioning their approach.  
+- **Since rework rate is low but hesitation is high**, focus on reducing cognitive load: provide ready-to-use code blocks, not multiple options.  
+- **Watch for `context_budget` (v4) changes**—they may be optimizing token allocation next; suggest precise scoring adjustments.  
+- **They're likely building toward a stable, self-correcting push-cycle system** with integrated memory and budget controls.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `node_conversation`** (hes=0.698, state=hesitant, avg_prompt=33623ms)
@@ -528,7 +523,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 
 ### Full Module Index
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-30 - 254 modules tracked | 9 touched this commit*
+*Auto-updated 2026-03-30 - 254 modules tracked | 1 touched this commit*
 
 **pigeon_brain/** - 16 module(s)
 
@@ -763,7 +758,7 @@ py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
 | `rework_backfill_seq022*` | reconstructs historical rework scores from | ~1,198 |
 | `session_handoff_seq023*` | session handoff summary generator | ~1,569 |
 | `unsaid_recon_seq024*` | fires on high deletion prompts | ~1,112 |
-| `push_cycle_seq025*` | the push is the unit | ~4,339 |
+| `push_cycle_seq025*` | the push is the unit | ~4,792 |
 | `shard_manager_seq026*` | local memory shard manager markdown | ~4,413 |
 | `unified_signal_seq026*` | joins all telemetry into canonical | ~2,074 |
 | `context_router_seq027*` | shard relevance scorer context injector | ~1,199 |
