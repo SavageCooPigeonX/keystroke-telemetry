@@ -109,10 +109,10 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-30 06:35 UTC · 6255 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-30 06:41 UTC · 6265 messages profiled · 8 recent commits*
 
 **Current focus:** building new features
-**Cognitive state:** `hesitant` (WPM: 1028.0 | Del: 42.7% | Hes: 0.587) · *[source: measured]*
+**Cognitive state:** `hesitant` (WPM: 646.1 | Del: 27.2% | Hes: 0.467) · *[source: measured]*
 
 **Prompt ms:** 4407, 59530, 10748, 102401, 41809 (avg 43779ms)
 
@@ -164,7 +164,7 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_per_prompt_deleted.py`
 
 ### Prompt Evolution
-*This prompt has mutated 72x (186→916 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 72x (186→912 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
 *223 modules profiled*
@@ -293,12 +293,36 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 
 **Vocabulary fingerprint:** to, this, is, the, you, and, what, if, i, test
 <!-- /pigeon:voice-style -->
+<!-- pigeon:predictions -->
+## Push Cycle Predictions
+
+*Auto-generated 2026-03-30 06:40 UTC*
+
+**What you'll likely want next push:**
+1. [targeted] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=49%)
+   - hot modules: file_heat_map, import_rewriter, file_writer
+2. [heat] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=49%)
+   - hot modules: file_heat_map, import_rewriter, file_writer
+3. [failure] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=49%)
+   - hot modules: file_heat_map, import_rewriter, file_writer
+
+**Operator coaching:**
+- Many prompts, few file changes — consider being more specific about which modules to touch.
+- No module references detected in prompts — naming specific modules helps copilot target the right files.
+
+**Agent coaching (for Copilot):**
+- Touched ['prompt_enricher'] without operator reference — confirm intent before modifying unreferenced modules.
+- Operator needed many prompts — respond with more complete implementations to reduce round-trips.
+- Low sync score — operator intent and code output diverged. Ask clarifying questions earlier.
+
+<!-- /pigeon:predictions -->
+
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-30 - 6255 message(s) - LLM-synthesized*
+*Auto-updated 2026-03-30 · 6265 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 3% | WPM: 53.4 | Del: 46.6% | Hes: 0.648
+**Dominant: `frustrated`** | Submit: 3% | WPM: 53.4 | Del: 46.6% | Hes: 0.647
 
 The operator just integrated a Gemini Flash enricher across their LangChain system, revealing a hesitant but persistent morning refactoring style with high deletion rates indicating careful, precise edits.  
 - **Anticipate renaming patterns**: When you see `_lc_` or `_gemini_` in a filename, proactively suggest import updates and cross-module reference fixes before they ask.  

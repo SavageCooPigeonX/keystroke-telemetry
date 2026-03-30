@@ -38,15 +38,54 @@ PREDICTION_LOG_PATH = "logs/push_predictions.jsonl"
 
 
 def _load_pigeon_module(root: Path, folder: str, pattern: str):
-    """Dynamically import a pigeon module by glob (filenames mutate)."""
-    import importlib.util
-    matches = sorted((root / folder).glob(f'{pattern}.py'))
+    """Dynamically import a pigeon module by glob (filenames mutate).
+
+    Sets __package__ so relative imports inside sub-packages (like backward_seq007)
+    resolve correctly via the parent folder as the package.
+    """
+    import importlib.util, sys
+    base = root / folder
+    matches = sorted(base.glob(f'{pattern}.py'))
     if not matches:
         return None
-    spec = importlib.util.spec_from_file_location(matches[-1].stem, matches[-1])
+    fpath = matches[-1]
+    # Derive package name from folder path (e.g. pigeon_brain/flow → pigeon_brain.flow)
+    pkg_name = folder.replace('/', '.').replace('\\', '.')
+    # Ensure parent package is in sys.modules
+    parts = pkg_name.split('.')
+    for i in range(len(parts)):
+        partial = '.'.join(parts[:i+1])
+        if partial not in sys.modules:
+            pkg_dir = root / '/'.join(parts[:i+1])
+            init_file = pkg_dir / '__init__.py'
+            if init_file.exists():
+                pspec = importlib.util.spec_from_file_location(
+                    partial, init_file,
+                    submodule_search_locations=[str(pkg_dir)])
+                if pspec and pspec.loader:
+                    pmod = importlib.util.module_from_spec(pspec)
+                    sys.modules[partial] = pmod
+                    try:
+                        pspec.loader.exec_module(pmod)
+                    except Exception:
+                        pass
+            else:
+                # Create a namespace package stub
+                import types
+                pmod = types.ModuleType(partial)
+                pmod.__path__ = [str(pkg_dir)]
+                pmod.__package__ = partial
+                sys.modules[partial] = pmod
+
+    mod_name = f'{pkg_name}.{fpath.stem}'
+    spec = importlib.util.spec_from_file_location(
+        mod_name, fpath,
+        submodule_search_locations=None)
     if not spec or not spec.loader:
         return None
     mod = importlib.util.module_from_spec(spec)
+    mod.__package__ = pkg_name
+    sys.modules[mod_name] = mod
     spec.loader.exec_module(mod)
     return mod
 

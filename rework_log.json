@@ -1,61 +1,5 @@
 [
   {
-    "ts": "2026-03-30T05:23:41.093372+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:0"
-  },
-  {
-    "ts": "2026-03-30T05:24:41.034505+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:0"
-  },
-  {
-    "ts": "2026-03-30T05:25:41.047933+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:0"
-  },
-  {
-    "ts": "2026-03-30T05:26:41.070060+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:0"
-  },
-  {
-    "ts": "2026-03-30T05:27:41.008826+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:0"
-  },
-  {
-    "ts": "2026-03-30T05:28:41.041295+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:0"
-  },
-  {
-    "ts": "2026-03-30T05:29:41.032504+00:00",
-    "verdict": "ok",
-    "rework_score": 0.003,
-    "del_ratio": 0.005,
-    "wpm": 52.7,
-    "query_hint": "bg:0"
-  },
-  {
     "ts": "2026-03-30T05:30:42.956168+00:00",
     "verdict": "ok",
     "rework_score": 0.003,
@@ -1716,5 +1660,61 @@
     "wpm": 0.0,
     "query_hint": "are you guessing or estimating 0 i assume this is only valueble for compiler 0 h",
     "response_hint": "\n\nFair call \u2014 the vanilla baseline was hand-waved. Let me dig into what's actually measured vs guessed, count every LLM call, and check if the prediction engine is even working. Now let me actually au"
+  },
+  {
+    "ts": "2026-03-30T06:36:14.298661+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-03-30T06:37:15.027664+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-03-30T06:38:13.844332+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-03-30T06:39:15.110636+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-03-30T06:40:08.108740+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-03-30T06:40:14.830620+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-03-30T06:41:14.913572+00:00",
+    "verdict": "ok",
+    "rework_score": 0.003,
+    "del_ratio": 0.005,
+    "wpm": 52.7,
+    "query_hint": "bg:copilot-instructions.md"
   }
 ]
