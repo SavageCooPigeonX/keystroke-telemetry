@@ -7,10 +7,10 @@ for timestamp staleness. If any per-prompt block hasn't updated, injects a loud
 When everything is fresh, the alert block is removed (clean state).
 """
 # ── pigeon ────────────────────────────────────
-# SEQ: 030 | VER: v001 | ~120 lines | ~1,200 tokens
-# DESC:   copilot_self_diagnostic_stale_block
-# INTENT: alert_on_write_failure
-# LAST:   2026-03-31
+# SEQ: 030 | VER: v002 | 205 lines | ~1,725 tokens
+# DESC:   copilot_self_diagnostic_detect_stale
+# INTENT: staleness_alerts_bg
+# LAST:   2026-03-31 @ e3c540b
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-31T04:23:52.279662+00:00",
-  "total": 259,
+  "generated": "2026-03-31T15:09:13.713600+00:00",
+  "total": 260,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -5423,14 +5423,14 @@
       ]
     },
     {
-      "path": "src/research_lab_seq029_v002_d0330__the_system_studying_the_system_lc_research_lab_autonomous.py",
+      "path": "src/research_lab_seq029_v003_d0331__the_system_studying_the_system_lc_staleness_alerts_bg.py",
       "name": "research_lab",
       "seq": 29,
-      "ver": 2,
-      "date": "0330",
+      "ver": 3,
+      "date": "0331",
       "desc": "the_system_studying_the_system",
-      "intent": "research_lab_autonomous",
-      "tokens": 2804,
+      "intent": "staleness_alerts_bg",
+      "tokens": 3407,
       "history": [
         {
           "ver": 2,
@@ -5439,6 +5439,14 @@
           "intent": "research_lab_autonomous",
           "tokens": 2804,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0331",
+          "desc": "the_system_studying_the_system",
+          "intent": "staleness_alerts_bg",
+          "action": "mutated",
+          "tokens": 3407
         }
       ]
     },
@@ -5889,6 +5897,26 @@
           "desc": "local_memory_shard_manager_markdown",
           "intent": "gemini_flash_enricher",
           "tokens": 4413,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/staleness_alert_seq030_v002_d0331__copilot_self_diagnostic_detect_stale_lc_staleness_alerts_bg.py",
+      "name": "staleness_alert",
+      "seq": 30,
+      "ver": 2,
+      "date": "0331",
+      "desc": "copilot_self_diagnostic_detect_stale",
+      "intent": "staleness_alerts_bg",
+      "tokens": 1725,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0331",
+          "desc": "copilot_self_diagnostic_detect_stale",
+          "intent": "staleness_alerts_bg",
+          "tokens": 1725,
           "action": "registered"
         }
       ]

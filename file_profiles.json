@@ -3992,7 +3992,7 @@
     "fears": [
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.625
+    "avg_hes": 0.59
   },
   "adapter": {
     "personality": "fresh",
@@ -4851,14 +4851,14 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
+        "name": "staleness_alert",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "training_writer",
         "score": 0.8,
         "reason": "4 shared imports, both high-churn (v2+v2)"
-      },
-      {
-        "name": "voice_style",
-        "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [
@@ -5319,8 +5319,8 @@
         "reason": "3 shared imports"
       },
       {
-        "name": "graph_heat_map",
-        "score": 0.67,
+        "name": "research_lab",
+        "score": 0.7,
         "reason": "3 shared imports"
       }
     ],
@@ -5330,7 +5330,7 @@
       "returns empty on failure (silent)",
       "regex format dependency"
     ],
-    "avg_hes": 0.625
+    "avg_hes": 0.59
   },
   "file_consciousness_seq019_audit": {
     "personality": "fresh",
@@ -6583,39 +6583,40 @@
     "avg_hes": 0.0
   },
   "research_lab": {
-    "personality": "fresh",
-    "version": 2,
-    "tokens": 2804,
+    "personality": "stable",
+    "version": 3,
+    "tokens": 3407,
     "partners": [
       {
-        "name": "dual_substrate",
+        "name": "learning_loop",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "3 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "failure_detector",
+        "name": "node_memory",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "3 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "learning_loop_seq013_state_utils",
+        "name": "predictor",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "4 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "prediction_scorer_seq014_calibration",
+        "name": "manifest_builder",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "3 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "prediction_scorer_seq014_data_loaders",
+        "name": "registry",
         "score": 0.8,
-        "reason": "3 shared imports, both high-churn (v2+v2)"
+        "reason": "3 shared imports, both high-churn (v3+v3)"
       }
     ],
     "fears": [
       "swallowed exception",
-      "file may not exist"
+      "file may not exist",
+      "regex format dependency"
     ],
     "avg_hes": 0.0
   },
@@ -7164,7 +7165,7 @@
       "regex format dependency",
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.625
+    "avg_hes": 0.59
   },
   "session_handoff": {
     "personality": "fresh",
@@ -7241,6 +7242,44 @@
       "returns empty on failure (silent)",
       "regex format dependency",
       "swallowed exception"
+    ],
+    "avg_hes": 0.0
+  },
+  "staleness_alert": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 1725,
+    "partners": [
+      {
+        "name": "backward",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "dev_plan",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "prediction_scorer_seq014_calibration",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "prediction_scorer_seq014_data_loaders",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "prediction_scorer_seq014_scores_io",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "regex format dependency",
+      "file may not exist",
+      "returns empty on failure (silent)"
     ],
     "avg_hes": 0.0
   },
