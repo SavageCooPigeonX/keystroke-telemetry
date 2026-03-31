@@ -249,6 +249,7 @@ KEY FILES: <comma-separated exact filenames>
 PRIOR ATTEMPTS: <1 sentence — what was tried and why it wasn't enough, or "none">
 WATCH OUT FOR: <1 sentence — the specific pitfall most likely to trip Copilot given the rework history>
 OPERATOR SIGNAL: <1 sentence — what deleted words + hesitation + trajectory reveal about the real frustration>
+UNSAID_RECONSTRUCTION: <If deleted words exist: reconstruct the full sentence the operator STARTED typing before they changed their mind. Combine submitted text + deleted fragments into what they originally intended. If no deleted words: "none">
 """
 
 
@@ -381,13 +382,34 @@ def inject_query_block(root: Path, raw_query: str,
 
     # Extract COPILOT_QUERY line from enriched output to place it prominently
     copilot_query_line = ''
+    unsaid_recon_line = ''
     rest_lines = []
     for line in enriched.splitlines():
         if line.startswith('COPILOT_QUERY:'):
             copilot_query_line = line
+        elif line.startswith('UNSAID_RECONSTRUCTION:'):
+            unsaid_recon_line = line.split(':', 1)[1].strip()
         else:
             rest_lines.append(line)
     rest = '\n'.join(rest_lines).strip()
+
+    # Write UNSAID_RECONSTRUCTION to unsaid_reconstructions.jsonl if non-trivial
+    if unsaid_recon_line and unsaid_recon_line.lower() != 'none':
+        recon_entry = {
+            'ts': datetime.now(timezone.utc).isoformat(),
+            'final_text': raw_query,
+            'deleted_words': deleted_words or [],
+            'deletion_ratio': (cognitive_state or {}).get('del_ratio', 0),
+            'reconstructed_intent': unsaid_recon_line,
+            'trigger': 'enricher',
+        }
+        recon_path = root / 'logs' / 'unsaid_reconstructions.jsonl'
+        recon_path.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            with open(recon_path, 'a', encoding='utf-8') as f:
+                f.write(json.dumps(recon_entry, ensure_ascii=False) + '\n')
+        except OSError:
+            pass
 
     block = (
         f'{BLOCK_START}\n'

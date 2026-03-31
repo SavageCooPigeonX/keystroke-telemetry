@@ -67,9 +67,18 @@ def _task_focus(commits):
 def _unsaid(comps):
     threads = []
     for c in comps[-8:]:
-        for w in (c.get('deleted_words') or []):
-            word = w.get('word', w) if isinstance(w, dict) else str(w)
-            if word and len(word) > 3: threads.append(word)
+        # Prefer intent_deleted_words (8+ backspace runs) over raw deleted_words
+        # Short backspace runs (1-7) are typo/habit noise, not real unsaid thoughts
+        intent_words = c.get('intent_deleted_words') or []
+        if intent_words:
+            for w in intent_words:
+                word = w.get('word', w) if isinstance(w, dict) else str(w)
+                if word and len(word) > 3: threads.append(word)
+        else:
+            # Fallback for old compositions without intent tracking
+            for w in (c.get('deleted_words') or []):
+                word = w.get('word', w) if isinstance(w, dict) else str(w)
+                if word and len(word) > 3: threads.append(word)
     return threads[-6:]
 
 def _unsaid_reconstructions(root):
@@ -391,12 +400,18 @@ def inject_task_context(root):
     cp = root / '.github' / 'copilot-instructions.md'
     if not cp.exists(): return False
     block = build_task_context(root)
-    text = _strip_task_context_blocks(cp.read_text(encoding='utf-8'))
+    original = cp.read_text(encoding='utf-8')
+    original_len = len(original)
+    text = _strip_task_context_blocks(original)
     idx = _find_task_context_anchor(text)
     if idx >= 0:
         text = text[:idx].rstrip() + '\n\n' + block + '\n\n' + text[idx:].lstrip()
     else:
         text = text.rstrip() + '\n\n---\n\n' + block + '\n'
+    # Safety guard: never write if output lost >50% of original content
+    # (protects against concurrent writer races nuking the file)
+    if original_len > 200 and len(text) < original_len * 0.5:
+        return False
     cp.write_text(text, encoding='utf-8')
     return True
 

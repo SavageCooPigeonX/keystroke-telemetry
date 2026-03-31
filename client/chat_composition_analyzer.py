@@ -29,6 +29,7 @@ from datetime import datetime, timezone
 PAUSE_THRESHOLD_MS = 2000      # 2s pause = hesitation
 TYPO_WINDOW_MS = 800           # delete within 800ms of insert = typo
 REWRITE_MIN_CHARS = 3          # 3+ chars deleted then retyped = rewrite
+INTENT_DELETE_MIN_RUN = 8      # 8+ consecutive backspaces = intent change (not typo)
 WORD_BOUNDARY = set(' .,;:!?-\n\t')
 
 
@@ -208,6 +209,10 @@ def reconstruct_composition(events: list) -> dict:
     typo_corrections, intentional_deletions = _classify_all_deletions(
         composition_events)
 
+    # Extract intent-only deletions (8+ consecutive backspaces = line-of-thinking change)
+    intent_deleted_words, intent_delete_chars = _extract_intent_deletions(
+        composition_events)
+
     # Extract rewrite sequences
     rewrites = _extract_rewrites(composition_events)
 
@@ -234,6 +239,9 @@ def reconstruct_composition(events: list) -> dict:
         'duration_ms': duration_ms,
         'chars_per_sec': round(total_inserts / max(duration_ms / 1000, 0.001), 1),
         'deletion_ratio': round(total_deletes / max(total_keys, 1), 3),
+        'intent_deleted_words': intent_deleted_words,
+        'intent_delete_chars': intent_delete_chars,
+        'intent_deletion_ratio': round(intent_delete_chars / max(total_keys, 1), 3),
     }
 
 
@@ -342,6 +350,65 @@ def _classify_all_deletions(comp_events: list) -> tuple[int, int]:
             intentional += 1
 
     return typos, intentional
+
+
+def _extract_intent_deletions(comp_events: list) -> tuple[list, int]:
+    """Extract deleted words ONLY from runs of 8+ consecutive backspaces.
+
+    Short runs (1-7) are typo/habit noise. 8+ consecutive backspaces signal
+    a genuine line-of-thinking change — the operator started saying X and
+    pivoted to Y. These are the real unsaid threads.
+
+    Also counts selection_delete/selection_replace/cut as intent deletions
+    since those are always deliberate (you select before deleting).
+
+    Returns:
+        (intent_deleted_words, intent_delete_char_count)
+    """
+    intent_words = []
+    intent_chars = 0
+    i = 0
+
+    while i < len(comp_events):
+        action = comp_events[i]['action']
+
+        if action == 'delete':
+            # Accumulate consecutive delete run
+            run_start = i
+            deleted_text = ''
+            while i < len(comp_events) and comp_events[i]['action'] == 'delete':
+                deleted_text = comp_events[i]['char'] + deleted_text  # prepend (right-to-left)
+                i += 1
+
+            if len(deleted_text) >= INTENT_DELETE_MIN_RUN:
+                intent_chars += len(deleted_text)
+                word = deleted_text.strip()
+                if len(word) >= 2:
+                    intent_words.append({
+                        'word': word,
+                        'ts': comp_events[run_start]['ts'],
+                        'position': len(comp_events[run_start].get('buffer', '')),
+                        'run_length': len(deleted_text),
+                    })
+
+        elif action in ('selection_delete', 'selection_replace', 'cut'):
+            # Selection-based deletions are always intentional
+            deleted = comp_events[i].get('deleted', '')
+            if deleted:
+                intent_chars += len(deleted)
+                word = deleted.strip()
+                if len(word) >= 2:
+                    intent_words.append({
+                        'word': word,
+                        'ts': comp_events[i]['ts'],
+                        'position': 0,
+                        'run_length': len(deleted),
+                    })
+            i += 1
+        else:
+            i += 1
+
+    return intent_words, intent_chars
 
 
 # ── Cognitive state from composition ─────────────────────────────────────────

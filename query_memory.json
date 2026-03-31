@@ -1,1782 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-30T02:00:17.177475+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:01:17.150065+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:02:17.199988+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:03:17.162718+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:04:17.173320+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:05:17.160777+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:06:17.179999+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:07:18.121597+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:08:17.267430+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:09:17.240642+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:10:17.195629+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:11:17.192442+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:12:17.359660+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:13:17.200685+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:14:17.215155+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:15:17.341726+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:16:17.371962+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:17:23.041058+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:18:22.058881+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:19:18.714935+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:20:17.751246+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:21:18.032240+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:22:19.642962+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:23:17.477701+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:24:17.336161+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:25:17.989858+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:26:17.424040+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:27:18.341149+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:28:19.202834+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:29:21.588225+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:30:23.055645+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:31:22.842617+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:32:21.040047+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:33:20.374849+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:34:19.479481+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:35:19.321088+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:36:19.911820+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:37:20.819309+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:38:24.250117+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:39:21.538194+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:40:21.326172+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:41:21.152594+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:42:20.472926+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:43:20.939100+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:44:20.660060+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:45:20.372366+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:46:20.649751+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:47:21.745109+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:48:22.075082+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:49:20.530335+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:50:21.136428+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:51:21.215718+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:52:22.279584+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:53:21.701888+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:54:21.860848+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:55:21.894232+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:56:22.195270+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:57:21.840398+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:58:25.522127+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:58:43.970107+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:59:04.692561+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:59:21.502917+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T02:59:28.374690+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:00:05.282613+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:00:21.421154+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:01:08.606423+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:01:22.938629+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:02:22.264295+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:03:22.714951+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:04:21.202259+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:05:22.388955+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:05:41.118202+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:05:56.803997+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:06:38.915739+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:07:04.236380+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:07:26.526969+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:08:25.324322+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:09:24.466761+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:10:24.766246+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:11:28.379216+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:12:32.940823+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:13:34.904345+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:14:26.647203+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:15:02.231886+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:15:29.809014+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:16:31.528880+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:17:25.604645+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:18:26.668711+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:19:29.661291+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:21:01.384773+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:21:33.626574+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:22:30.847437+00:00",
-      "text": "bg:MASTER_MANIFEST.md",
-      "fingerprint": "bgmaster_manifestmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:23:31.318104+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:24:31.429272+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:25:31.321673+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:26:31.223309+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:27:31.369848+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:28:31.046011+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:29:34.672241+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:30:31.057050+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:31:31.903702+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:32:30.670388+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:33:31.363884+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:34:33.051466+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:35:30.693893+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:36:30.951162+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:37:30.754967+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:38:30.915802+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:39:31.081245+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:40:32.382959+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:41:30.926278+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:42:31.261737+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:43:30.726451+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:44:31.644479+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:45:30.937047+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:46:30.882844+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:47:30.861644+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:48:30.971156+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:49:30.820497+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:50:31.099392+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:51:31.520264+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:52:30.678399+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:53:31.116182+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:54:30.634699+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:55:31.994636+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:56:31.291637+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:57:43.392387+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:58:41.872593+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T03:59:42.087028+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:00:42.151691+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:01:42.002430+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:02:42.255777+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:03:41.777108+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:04:41.957232+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:05:42.634751+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:06:42.108633+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:07:41.986855+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:08:42.444348+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:09:41.718159+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:10:43.067212+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:11:41.657016+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:12:41.844215+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:13:40.987583+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:14:41.010317+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:15:40.834706+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:16:40.812292+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:17:40.793441+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:18:40.886694+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:19:40.755154+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:20:40.730623+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:21:40.764642+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:22:40.839954+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:23:40.822401+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:24:40.795000+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:25:40.824809+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:26:40.805250+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:27:40.829686+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:28:40.852451+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:29:40.818019+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:30:40.870924+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:31:40.934544+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:32:40.884005+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:33:40.970571+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:34:40.975908+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:35:40.844670+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:36:40.879999+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:37:40.962134+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:38:40.837870+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:39:40.846168+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:40:40.870407+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:41:40.829692+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:42:40.969922+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:43:40.878856+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:44:40.865291+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:45:40.884812+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:46:40.843552+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:47:40.835266+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:48:40.830741+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:49:40.848592+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:50:40.992962+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:51:40.854862+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:52:40.841867+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:53:40.843143+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:54:40.864273+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:55:40.844187+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:56:40.876021+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:57:40.831370+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:58:40.844346+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T04:59:40.871678+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:00:40.865716+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:01:40.846506+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:02:40.875584+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:03:40.855798+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:04:40.850139+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:05:40.897064+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:06:40.912252+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:07:40.933494+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:08:40.887661+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:09:40.914043+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:10:41.649473+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:11:43.845137+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:12:41.029666+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:13:40.949562+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:14:40.933187+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:15:40.950125+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:16:40.952763+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:17:41.014074+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:18:40.979852+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:19:40.982866+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:20:41.055492+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:21:40.977101+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:22:40.982525+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:23:41.099168+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:24:41.041953+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:25:41.055259+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:26:41.078230+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:27:41.015229+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:28:41.048122+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:29:41.039533+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:30:42.970351+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:31:42.824081+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:32:42.410698+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:33:41.346855+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:34:41.767691+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:35:41.255903+00:00",
-      "text": "bg:0",
-      "fingerprint": "bg0",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:36:43.041765+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:37:41.466333+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:38:41.481399+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:39:41.489636+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:40:42.992640+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:41:43.592389+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:42:52.487480+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:43:18.454009+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:43:53.229804+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:44:17.805406+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:44:50.590799+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:45:54.527749+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:47:01.779181+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:47:59.283360+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T05:59:22.718488+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:00:16.749031+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:01:19.812657+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:02:22.971521+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:03:17.445140+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:03:22.875955+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:03:46.813713+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:04:16.946139+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:04:20.700103+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:04:34.521988+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:04:50.666522+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:05:16.002911+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:06:17.323739+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:07:14.725196+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:08:13.052007+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:09:13.771792+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:10:13.473373+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:11:13.178968+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:11:36.167127+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:12:14.334011+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:13:05.449289+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:13:16.892729+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:13:37.822893+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:14:15.791079+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:15:13.921019+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:16:13.920168+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:17:13.515964+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:18:13.535217+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:19:14.592689+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:20:13.727541+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:21:13.582819+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:22:13.612179+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:23:14.001117+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:23:48.020130+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:24:06.271897+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:24:21.070209+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:24:21.506165+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:24:30.118599+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:25:12.010999+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:25:35.715914+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:25:47.000999+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:26:15.740570+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:26:39.225321+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:27:00.583991+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:27:10.029677+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:27:14.772149+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:28:13.846225+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:29:13.523941+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:30:13.847952+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:31:19.449181+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:32:15.286353+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:33:02.444126+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:33:15.656501+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:34:16.091380+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:35:14.833284+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:36:14.308518+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-30T06:37:15.042212+00:00",
-      "text": "bg:copilot-instructions.md",
-      "fingerprint": "bgcopilotinstructionsmd",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-30T06:38:13.852399+00:00",
       "text": "bg:copilot-instructions.md",
       "fingerprint": "bgcopilotinstructionsmd",
@@ -2998,6 +1222,1782 @@
       "ts": "2026-03-30T23:40:00.716549+00:00",
       "text": "bg:RESEARCH_LOG.md",
       "fingerprint": "bgresearch_logmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:41:01.860998+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:41:57.739484+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:43:00.131654+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:43:56.264427+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:44:56.249839+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:45:56.133888+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:46:56.944367+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:47:56.200648+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:48:56.100784+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:49:56.175860+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:50:56.920457+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:52:09.374570+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:52:28.488617+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:52:59.376542+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:53:59.441530+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:54:58.930354+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:55:59.335479+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:57:00.826966+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:58:00.014482+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:59:00.772664+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-30T23:59:59.210072+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:00:58.975548+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:01:59.095388+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:02:59.214937+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:03:59.011782+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:04:59.022966+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:05:59.315928+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:06:58.929840+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:07:58.851240+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:08:58.908512+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:09:58.857425+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:10:58.873717+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:11:58.909738+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:12:58.909547+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:13:58.871954+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:14:58.892389+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:15:58.886245+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:16:58.915509+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:17:59.001545+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:18:58.937683+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:19:58.904131+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:20:59.031822+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:21:58.955132+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:22:58.937083+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:23:58.964125+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:24:58.985655+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:25:59.000540+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:26:59.000956+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:27:59.066130+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:28:59.066008+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:29:59.035895+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:30:59.050284+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:31:59.043016+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:32:59.052302+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:33:59.068044+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:34:59.192950+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:35:59.160411+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:36:59.093726+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:37:59.113428+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:38:59.148368+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:39:59.166125+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:40:59.114399+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:41:59.239196+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:42:59.163819+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:43:59.150940+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:44:59.175299+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:45:59.145757+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:46:59.409258+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:47:59.235222+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:48:59.222633+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:49:59.205578+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:50:59.198912+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:51:59.189769+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:52:59.232108+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:53:59.244615+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:54:59.262907+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:55:59.230833+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:56:59.211251+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:57:59.232015+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:58:59.304277+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T00:59:59.255910+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:00:59.271218+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:01:59.352969+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:02:59.289324+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:03:59.283793+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:04:59.315477+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:05:59.363434+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:06:59.353034+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:07:59.426481+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:08:59.338738+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:09:59.328596+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:10:59.446020+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:11:59.351300+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:12:59.327343+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:13:59.394544+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:14:59.346875+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:15:59.356902+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:16:59.400233+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:17:59.399885+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:18:59.417884+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:19:59.401563+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:20:59.406779+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:21:59.437902+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:22:59.515597+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:23:59.486296+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:24:59.530387+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:25:59.513757+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:26:59.441171+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:27:59.487040+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:28:59.463810+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:29:59.518720+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:30:59.489224+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:31:59.677730+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:32:59.554556+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:33:59.592329+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:34:59.648887+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:35:59.621255+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:36:59.549494+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:37:59.663167+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:38:59.642132+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:39:59.686394+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:40:59.730862+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:41:59.807218+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:42:59.633577+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:43:59.709841+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:44:59.667615+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:45:59.643927+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:46:59.681164+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:47:59.682457+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:48:59.691281+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:49:59.797706+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:50:59.680905+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:51:59.738315+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:52:59.732427+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:53:59.734673+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:54:59.708264+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:55:59.859561+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:56:59.712931+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:57:59.761868+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:58:59.748213+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T01:59:59.746567+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:00:59.812604+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:01:59.761997+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:02:59.842845+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:03:59.788595+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:04:59.777432+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:05:59.800376+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:06:59.831258+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:07:59.868478+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:08:59.818143+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:10:00.840153+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:11:00.107640+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:12:00.524767+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:13:00.056337+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:14:00.231443+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:15:01.675251+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:16:00.753631+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:17:00.536932+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:18:01.793036+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:19:01.830680+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:20:00.794044+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:21:03.178147+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:22:00.924956+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:23:00.869461+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:24:01.729864+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:25:02.518830+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:26:02.215893+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:27:01.386783+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:28:01.232661+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:29:01.159110+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:30:01.483680+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:31:00.475930+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:32:00.652534+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:33:01.239550+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:34:00.708472+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:35:01.310254+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:36:01.069255+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:37:00.977439+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:38:00.321779+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:39:00.800566+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:40:00.476626+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:41:00.882393+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:42:01.620051+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:43:00.564123+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:44:00.307631+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:45:01.112857+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:46:00.495596+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:47:00.379471+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:48:01.572912+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:49:00.747382+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:50:00.474076+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:51:01.414905+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:52:00.459166+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:53:01.033557+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:54:00.742104+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:55:00.949589+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:56:00.969083+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:57:01.365705+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:58:01.432527+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T02:59:01.050646+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:00:01.739701+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:01:01.428907+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:02:01.180402+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:03:01.074298+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:04:06.468292+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:05:01.992734+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:06:01.679248+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:07:01.346008+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:08:01.391117+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:09:02.633442+00:00",
+      "text": "bg:DEAD_TOKEN_RADIO_S01E04_HUSH_FEATURE.md",
+      "fingerprint": "bgdead_token_radio_s01e04_hush_featuremd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:10:01.950583+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:11:01.113233+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:12:01.354683+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:13:03.652448+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:14:01.427094+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:15:03.104619+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:16:05.000344+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:17:05.846597+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:18:01.500656+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:19:01.782924+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:20:01.364344+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:21:01.014373+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:22:00.996662+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:23:00.967107+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:24:02.341840+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:25:02.487606+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:26:11.088483+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:27:02.193617+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:28:01.661977+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:29:02.977459+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:30:02.796102+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:31:01.201637+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:32:01.599433+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:33:01.605059+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:34:01.590324+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:35:01.422476+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:36:01.747655+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:37:02.407976+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:37:11.332022+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:38:01.649835+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:39:02.713656+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:40:02.653256+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:41:02.446370+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:42:03.271492+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:42:36.670090+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:43:04.206315+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:44:04.311323+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:44:46.285874+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:45:03.648463+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:45:08.881900+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:45:49.990164+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:46:05.413432+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:46:19.488637+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:46:52.650679+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:47:06.461153+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:47:18.705031+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:47:48.409476+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:48:01.292929+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:48:27.813753+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:49:03.500585+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:49:24.874968+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:49:59.587693+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:50:03.460220+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:51:01.720563+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:52:01.626544+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:53:00.806168+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:54:00.816915+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:55:00.975729+00:00",
+      "text": "bg:_tmp_bs_analysis.py",
+      "fingerprint": "bg_tmp_bs_analysispy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:56:01.177629+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:57:01.242193+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:58:02.075018+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T03:59:01.977060+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:00:05.184699+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:01:07.892744+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:02:26.733448+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:04:50.711626+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:05:44.922409+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:06:38.805384+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:07:36.362458+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:08:37.120993+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:09:35.967298+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:10:37.168240+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:11:36.326335+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:11:45.697565+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:12:39.915719+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:13:38.669141+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:14:36.914919+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:15:36.519034+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:16:51.926521+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:17:45.306447+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:18:49.583056+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:19:48.889248+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:20:44.951289+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:21:50.568088+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:22:18.171990+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-03-31T04:22:47.500982+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
       "submitted": true
     }
   ],

@@ -18,7 +18,8 @@ import urllib.error
 from pathlib import Path
 from datetime import datetime, timezone
 
-DELETION_THRESHOLD = 0.30  # 30% deletion ratio triggers reconstruction
+DELETION_THRESHOLD = 0.15  # 15%+ deletion = uncertainty signal — fires reconstruction
+INTENT_DELETE_MIN_RUN = 8  # 8+ consecutive backspaces = intent change (matches composition analyzer)
 GEMINI_MODEL = 'gemini-2.5-flash'
 GEMINI_TIMEOUT = 4  # seconds — must be fast, runs synchronously on Enter
 
@@ -82,7 +83,13 @@ def _call_gemini(api_key: str, final_text: str, deleted_words: list, rewrites: l
 
 
 def reconstruct_if_needed(root: Path, composition: dict) -> dict | None:
-    """If deletion_ratio > threshold, call Gemini to reconstruct intent.
+    """Reconstruct unsaid intent when operator deletes significant text.
+
+    Triggers on:
+      1. intent_deleted_words exist (8+ consecutive backspaces = line-of-thinking change)
+      2. Fallback: deletion_ratio > 30% with any deleted words (legacy path)
+
+    Short backspace runs (1-7) are typo/habit noise and don't trigger.
 
     Args:
         root: project root
@@ -91,9 +98,17 @@ def reconstruct_if_needed(root: Path, composition: dict) -> dict | None:
     Returns:
         reconstruction dict or None if not triggered
     """
+    # Primary signal: intent deletions (8+ consecutive backspaces or selection ops)
+    intent_deleted = composition.get('intent_deleted_words', [])
+    # Fallback: raw deletion ratio for legacy compositions without intent tracking
     dr = composition.get('deletion_ratio', 0)
-    deleted = composition.get('deleted_words', [])
-    if dr < DELETION_THRESHOLD or not deleted:
+    all_deleted = composition.get('deleted_words', [])
+
+    if intent_deleted:
+        deleted = intent_deleted
+    elif dr >= DELETION_THRESHOLD and all_deleted:
+        deleted = all_deleted
+    else:
         return None
 
     api_key = _load_api_key(root)
@@ -109,6 +124,7 @@ def reconstruct_if_needed(root: Path, composition: dict) -> dict | None:
     if not intent:
         return None
 
+    intent_dr = composition.get('intent_deletion_ratio', dr)
     recon = {
         'ts': datetime.now(timezone.utc).isoformat(),
         'final_text': composition.get('final_text', ''),
@@ -116,8 +132,9 @@ def reconstruct_if_needed(root: Path, composition: dict) -> dict | None:
             w.get('word', str(w)) if isinstance(w, dict) else str(w)
             for w in deleted
         ],
-        'deletion_ratio': dr,
+        'deletion_ratio': intent_dr,
         'reconstructed_intent': intent,
+        'trigger': 'intent_deletion' if intent_deleted else 'high_ratio',
     }
 
     # Append to log

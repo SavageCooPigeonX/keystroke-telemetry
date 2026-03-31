@@ -418,6 +418,10 @@ def main():
             metrics['chat_rewrites'] = len(chat_comp.get('rewrites', []))
             metrics['chat_deletion_ratio'] = chat_comp.get('deletion_ratio', 0)
             metrics['chat_peak_buffer'] = chat_comp.get('peak_buffer', '')
+            # Intent-only deletion ratio (8+ backspace runs) — excludes typo noise
+            metrics['intent_deletion_ratio'] = chat_comp.get('intent_deletion_ratio', 0)
+            metrics['chat_intent_deleted_words'] = [
+                w['word'] for w in chat_comp.get('intent_deleted_words', [])]
         try:
             stats_mod.OperatorStats(
                 str(root / 'operator_profile.md'), write_every=1
@@ -513,7 +517,7 @@ def main():
     except Exception:
         pass
 
-    # ── Unsaid reconstruction via Gemini (high-deletion prompts) ──────
+    # ── Unsaid reconstruction via Gemini (intent deletions OR moderate uncertainty) ──
     try:
         recon_comp = chat_comp
         if not recon_comp:
@@ -522,17 +526,21 @@ def main():
             if pt_path.exists():
                 pt = json.loads(pt_path.read_text('utf-8'))
                 sig = pt.get('signals', {})
-                if sig.get('deletion_ratio', 0) > 0.25:
-                    recon_comp = {
-                        'deletion_ratio': sig['deletion_ratio'],
-                        'deleted_words': pt.get('deleted_words', []),
-                        'rewrites': pt.get('rewrites', []),
-                        'final_text': query_txt,
-                    }
-        if recon_comp and recon_comp.get('deletion_ratio', 0) > 0.25:
-            unsaid_recon_mod = _load_pigeon_module(root, 'src/unsaid_recon_seq024*.py')
-            if unsaid_recon_mod:
-                unsaid_recon_mod.reconstruct_if_needed(root, recon_comp)
+                recon_comp = {
+                    'deletion_ratio': sig.get('deletion_ratio', 0),
+                    'deleted_words': pt.get('deleted_words', []),
+                    'rewrites': pt.get('rewrites', []),
+                    'final_text': query_txt,
+                }
+        # Let reconstruct_if_needed decide: intent_deleted_words OR deletion_ratio >= 15%
+        if recon_comp:
+            has_intent = bool(recon_comp.get('intent_deleted_words'))
+            has_deletions = bool(recon_comp.get('deleted_words'))
+            dr = recon_comp.get('deletion_ratio', 0)
+            if has_intent or (dr >= 0.15 and has_deletions):
+                unsaid_recon_mod = _load_pigeon_module(root, 'src/unsaid_recon_seq024*.py')
+                if unsaid_recon_mod:
+                    unsaid_recon_mod.reconstruct_if_needed(root, recon_comp)
     except Exception:
         pass
 

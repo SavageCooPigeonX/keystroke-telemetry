@@ -501,7 +501,10 @@ class OperatorStats:
         pauses = msg.get("typing_pauses", [])
 
         wpm = round((inserts / 5) / max(duration_ms / 60_000, 0.001), 1)
-        del_ratio = round(dels / keys, 3)
+        # Prefer intent_deletion_ratio (8+ backspace runs only) over raw ratio
+        del_ratio = msg.get('intent_deletion_ratio',
+                           msg.get('chat_intent_deletion_ratio',
+                                   round(dels / keys, 3)))
         pause_time_ms = sum(p.get("duration_ms", 0) for p in pauses)
         hes = msg.get("hesitation_score", 0)
 

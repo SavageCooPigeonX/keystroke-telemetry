@@ -109,14 +109,14 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-03-30 23:40 UTC · 6477 messages profiled · 8 recent commits*
+*Auto-injected 2026-03-31 04:22 UTC · 6788 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `neutral` (WPM: 1037.9 | Del: 50.3% | Hes: 0.676) · *[source: measured]*
+**Cognitive state:** `hesitant` (WPM: 4953.1 | Del: 49.1% | Hes: 0.627) · *[source: measured]*
 
-**Prompt ms:** 25002, 12155, 18472756, 44999, 8078 (avg 3712598ms)
+**Prompt ms:** 112117, 139134, 53695, 16604, 60193 (avg 76349ms)
 
-> **CoT directive:** Standard mode. Be thorough and structured.
+> **CoT directive:** Operator is uncertain. Think through what they MIGHT mean. Offer 2 interpretations and address both. End with a clarifying question.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
@@ -124,19 +124,18 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
   - *(deleted: : donut | ratio: 35%)*
 - **Reconstructed intent:** Refactor the entire
   - *(deleted: can you also refactor the, entire learning loop | ratio: 55%)*
+- **Reconstructed intent:** Is there anything missing
+  - *(deleted: blueberry | ratio: 4%)*
 
-- "log to"
-- "pirs sho"
-- "r - training"
-- "what"
+- "blueberry"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `self_fix` (hes=0.694)
-- `.operator_stats` (hes=0.694)
+- `init_writer` (hes=0.63)
+- `self_fix` (hes=0.624)
 
 ### Recent Work
 - `2c247ba` fix: rework signal (0.003->real), prediction fixation (edit_pairs), confidence calibration (empirical F1)
@@ -162,7 +161,7 @@ OPERATOR SIGNAL: The operator is exploring ways to improve context relevance and
 - [HIGH] over_hard_cap in `src/.operator_stats_seq008_v009_d0328__persistent_markdown_memory_file_lc_dynamic_import_resolvers.py`
 
 ### Prompt Evolution
-*This prompt has mutated 80x (186→942 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 80x (186→940 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### File Consciousness
 *227 modules profiled*
@@ -314,9 +313,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-03-30 - 6477 message(s) - LLM-synthesized*
+*Auto-updated 2026-03-31 · 6788 message(s) · LLM-synthesized*
 
-**Dominant: `frustrated`** | Submit: 3% | WPM: 55.0 | Del: 46.6% | Hes: 0.647
+**Dominant: `frustrated`** | Submit: 3% | WPM: 56.5 | Del: 46.7% | Hes: 0.648
 
 The operator just built a cognitive rework signal system and their high-deletion, hesitant nighttime patterns reveal they're meticulously editing generated code rather than writing fresh logic.  
 - **Anticipate heavy edits** on `predictor_seq009_*` modules—offer concise, modular snippets that are easy to cut/paste, not monoliths.  

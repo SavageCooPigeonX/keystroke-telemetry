@@ -482,6 +482,7 @@ class KeystrokeRecorder:
             'wpm': composition.get('wpm', 0),
             'chars_per_sec': composition.get('chars_per_sec', 0),
             'deletion_ratio': composition.get('deletion_ratio', 0),
+            'intent_deletion_ratio': composition.get('intent_deletion_ratio', 0),
             'hesitation_count': len(composition.get('hesitation_windows', [])),
             'rewrite_count': len(composition.get('rewrites', [])),
             'typo_corrections': composition.get('typo_corrections', 0),
