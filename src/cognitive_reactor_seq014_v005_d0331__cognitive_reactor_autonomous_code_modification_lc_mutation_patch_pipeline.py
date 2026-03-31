@@ -12,11 +12,11 @@ No human trigger. The 60-second background flush IS the input.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 014 | VER: v004 | 553 lines | ~5,144 tokens
+# SEQ: 014 | VER: v005 | 586 lines | ~5,630 tokens
 # DESC:   cognitive_reactor_autonomous_code_modification
-# INTENT: gemini_flash_enricher
-# LAST:   2026-03-30 @ 5018891
-# SESSIONS: 2
+# INTENT: mutation_patch_pipeline
+# LAST:   2026-03-31 @ a9e145a
+# SESSIONS: 3
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-03-30T03:15:00+00:00
@@ -28,6 +28,7 @@ No human trigger. The 60-second background flush IS the input.
 import json
 import os
 import re
+from src._resolve import src_import
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -250,8 +251,8 @@ def _fire_reactor(
     code_patch_result = None
     if patch and target_file:
         try:
-            from src.cognitive_reactor_seq014.cognitive_reactor_seq014_patch_writer_seq011_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook import apply_patch
-            from src.cognitive_reactor_seq014.cognitive_reactor_seq014_decision_maker_seq012_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook import should_apply_patch
+            apply_patch = src_import("cognitive_reactor_seq014.cognitive_reactor_seq014_patch_writer_seq011", "apply_patch")
+            should_apply_patch = src_import("cognitive_reactor_seq014.cognitive_reactor_seq014_decision_maker_seq012", "should_apply_patch")
             code_patch_result = apply_patch(
                 root, target_file['path'], patch, module_key,
                 decision_fn=should_apply_patch,

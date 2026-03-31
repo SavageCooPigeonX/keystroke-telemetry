@@ -6,10 +6,10 @@ Logs every application to logs/patch_applications.jsonl.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 011 | VER: v002 | 95 lines | ~800 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: stage_78_hook
-# LAST:   2026-03-31 @ patch_impl
+# SEQ: 011 | VER: v003 | 128 lines | ~1,075 tokens
+# DESC:   apply_code_patches_to_source
+# INTENT: mutation_patch_pipeline
+# LAST:   2026-03-31 @ a9e145a
 # SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

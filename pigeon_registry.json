@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-31T15:09:13.713600+00:00",
+  "generated": "2026-03-31T17:35:18.434803+00:00",
   "total": 260,
   "files": [
     {
@@ -3820,14 +3820,14 @@
       ]
     },
     {
-      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_decision_maker_seq012_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_decision_maker_seq012_v003_d0331__patch_safety_gating_lc_mutation_patch_pipeline.py",
       "name": "cognitive_reactor_seq014_decision_maker",
       "seq": 12,
-      "ver": 2,
-      "date": "0322",
-      "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_78_hook",
-      "tokens": 25,
+      "ver": 3,
+      "date": "0331",
+      "desc": "patch_safety_gating",
+      "intent": "mutation_patch_pipeline",
+      "tokens": 832,
       "history": [
         {
           "ver": 2,
@@ -3836,6 +3836,14 @@
           "intent": "stage_78_hook",
           "tokens": 25,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0331",
+          "desc": "patch_safety_gating",
+          "intent": "mutation_patch_pipeline",
+          "action": "mutated",
+          "tokens": 832
         }
       ]
     },
@@ -3880,14 +3888,14 @@
       ]
     },
     {
-      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_patch_writer_seq011_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_patch_writer_seq011_v003_d0331__apply_code_patches_to_source_lc_mutation_patch_pipeline.py",
       "name": "cognitive_reactor_seq014_patch_writer",
       "seq": 11,
-      "ver": 2,
-      "date": "0322",
-      "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_78_hook",
-      "tokens": 24,
+      "ver": 3,
+      "date": "0331",
+      "desc": "apply_code_patches_to_source",
+      "intent": "mutation_patch_pipeline",
+      "tokens": 1075,
       "history": [
         {
           "ver": 2,
@@ -3896,6 +3904,14 @@
           "intent": "stage_78_hook",
           "tokens": 24,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0331",
+          "desc": "apply_code_patches_to_source",
+          "intent": "mutation_patch_pipeline",
+          "action": "mutated",
+          "tokens": 1075
         }
       ]
     },
@@ -4000,14 +4016,14 @@
       ]
     },
     {
-      "path": "src/cognitive_reactor_seq014_v004_d0330__cognitive_reactor_autonomous_code_modification_lc_gemini_flash_enricher.py",
+      "path": "src/cognitive_reactor_seq014_v005_d0331__cognitive_reactor_autonomous_code_modification_lc_mutation_patch_pipeline.py",
       "name": "cognitive_reactor",
       "seq": 14,
-      "ver": 4,
-      "date": "0330",
+      "ver": 5,
+      "date": "0331",
       "desc": "cognitive_reactor_autonomous_code_modification",
-      "intent": "gemini_flash_enricher",
-      "tokens": 5144,
+      "intent": "mutation_patch_pipeline",
+      "tokens": 5629,
       "history": [
         {
           "ver": 2,
@@ -4032,6 +4048,14 @@
           "intent": "gemini_flash_enricher",
           "action": "mutated",
           "tokens": 5144
+        },
+        {
+          "ver": 5,
+          "date": "0331",
+          "desc": "cognitive_reactor_autonomous_code_modification",
+          "intent": "mutation_patch_pipeline",
+          "action": "mutated",
+          "tokens": 5629
         }
       ]
     },
@@ -4458,14 +4482,14 @@
       ]
     },
     {
-      "path": "src/dynamic_prompt_seq017_v009_d0331__steers_copilot_cot_from_live_lc_intent_deletion_pipeline.py",
+      "path": "src/dynamic_prompt_seq017_v010_d0331__steers_copilot_cot_from_live_lc_mutation_patch_pipeline.py",
       "name": "dynamic_prompt",
       "seq": 17,
-      "ver": 9,
+      "ver": 10,
       "date": "0331",
       "desc": "steers_copilot_cot_from_live",
-      "intent": "intent_deletion_pipeline",
-      "tokens": 4655,
+      "intent": "mutation_patch_pipeline",
+      "tokens": 5239,
       "history": [
         {
           "ver": 7,
@@ -4490,6 +4514,14 @@
           "intent": "intent_deletion_pipeline",
           "action": "mutated",
           "tokens": 4655
+        },
+        {
+          "ver": 10,
+          "date": "0331",
+          "desc": "steers_copilot_cot_from_live",
+          "intent": "mutation_patch_pipeline",
+          "action": "mutated",
+          "tokens": 5239
         }
       ]
     },
@@ -5423,14 +5455,14 @@
       ]
     },
     {
-      "path": "src/research_lab_seq029_v003_d0331__the_system_studying_the_system_lc_staleness_alerts_bg.py",
+      "path": "src/research_lab_seq029_v004_d0331__the_system_studying_the_system_lc_mutation_patch_pipeline.py",
       "name": "research_lab",
       "seq": 29,
-      "ver": 3,
+      "ver": 4,
       "date": "0331",
       "desc": "the_system_studying_the_system",
-      "intent": "staleness_alerts_bg",
-      "tokens": 3407,
+      "intent": "mutation_patch_pipeline",
+      "tokens": 4701,
       "history": [
         {
           "ver": 2,
@@ -5447,6 +5479,14 @@
           "intent": "staleness_alerts_bg",
           "action": "mutated",
           "tokens": 3407
+        },
+        {
+          "ver": 4,
+          "date": "0331",
+          "desc": "the_system_studying_the_system",
+          "intent": "mutation_patch_pipeline",
+          "action": "mutated",
+          "tokens": 4701
         }
       ]
     },

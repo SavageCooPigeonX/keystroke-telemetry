@@ -6,10 +6,10 @@ on high-coupling modules. Returns a verdict dict.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 012 | VER: v002 | 80 lines | ~650 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: stage_78_hook
-# LAST:   2026-03-31 @ patch_impl
+# SEQ: 012 | VER: v003 | 93 lines | ~832 tokens
+# DESC:   patch_safety_gating
+# INTENT: mutation_patch_pipeline
+# LAST:   2026-03-31 @ a9e145a
 # SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

@@ -1,630 +1,630 @@
 [
   {
-    "ts": "2026-03-31T05:46:51.339769+00:00",
+    "ts": "2026-03-31T16:28:20.925023+00:00",
     "verdict": "ok",
-    "rework_score": 0.176,
-    "del_ratio": 0.048,
-    "wpm": 39.0,
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 44.4,
     "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-03-31T05:47:51.629902+00:00",
+    "ts": "2026-03-31T16:29:20.456371+00:00",
     "verdict": "ok",
-    "rework_score": 0.176,
-    "del_ratio": 0.048,
-    "wpm": 39.0,
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 44.4,
     "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-03-31T05:48:56.736206+00:00",
+    "ts": "2026-03-31T16:30:20.446400+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T05:49:50.633377+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T05:51:16.026811+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T05:51:52.639468+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T05:54:51.940151+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T05:55:52.494370+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T05:56:54.266464+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T05:57:51.627443+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T05:58:53.345550+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T05:59:54.904283+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T07:38:49.924995+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T07:39:41.032366+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T07:40:41.457858+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T07:41:41.009649+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T07:42:41.119778+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T07:43:41.501862+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T09:02:29.448505+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T13:52:40.810155+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T13:53:43.122963+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T13:54:42.999622+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T13:55:53.665751+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T13:57:43.837248+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T13:58:43.028222+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T13:59:41.074952+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:00:41.833005+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:22:00.891333+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:22:50.830019+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:23:50.314849+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:24:50.445075+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:25:49.623195+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:26:49.700968+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:27:50.231431+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:28:49.717412+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:29:51.197600+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:30:50.057788+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:31:50.965218+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:32:49.688019+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:33:51.392164+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:34:52.246432+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:35:53.030666+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:36:49.691827+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:37:51.569461+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:38:49.718528+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:39:50.754121+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:40:50.389782+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:41:50.597933+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:42:44.908688+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 32.9,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:43:52.179019+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:44:52.186653+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:46:59.188833+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:47:52.900114+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:48:51.441585+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:49:50.891746+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:50:50.785784+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:51:53.672325+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:52:15.858004+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:52:51.112867+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:53:05.801298+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:53:18.277251+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:53:49.820278+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:54:50.114310+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:55:56.775058+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T14:56:55.007752+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 21.1,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T15:00:16.152140+00:00",
-    "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
-    "query_hint": "bg:prompt_journal_seq019_v001.py"
-  },
-  {
-    "ts": "2026-03-31T15:01:16.353445+00:00",
-    "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
+    "wpm": 44.4,
     "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-03-31T15:02:14.637788+00:00",
+    "ts": "2026-03-31T16:31:20.726926+00:00",
     "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 44.4,
     "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-03-31T15:02:46.828577+00:00",
+    "ts": "2026-03-31T16:32:22.637277+00:00",
     "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 44.4,
     "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-03-31T15:03:27.038245+00:00",
+    "ts": "2026-03-31T16:33:21.177979+00:00",
     "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 44.4,
     "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-03-31T15:04:17.012794+00:00",
+    "ts": "2026-03-31T16:34:21.269314+00:00",
     "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 44.4,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:35:31.694096+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:36:31.820794+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:37:01.597294+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:37:31.486081+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:38:31.140338+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:39:33.728809+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:40:31.367051+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:41:31.448721+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:42:31.273727+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:43:31.430245+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:44:31.131180+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:45:30.005802+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:46:29.811551+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:47:29.287330+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:48:29.317458+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:49:29.363024+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:50:29.040296+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:51:29.113760+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:52:29.172464+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:53:29.405190+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:54:29.359747+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:55:29.795168+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:56:29.401425+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:57:29.337153+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:58:29.328924+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T16:59:29.379877+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T17:00:31.970390+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T17:01:31.583943+00:00",
+    "verdict": "miss",
+    "rework_score": 0.346,
+    "del_ratio": 0.357,
+    "wpm": 24.8,
+    "query_hint": "bg:RESEARCH_LOG.md"
+  },
+  {
+    "ts": "2026-03-31T17:02:33.020556+00:00",
+    "verdict": "ok",
+    "rework_score": 0.159,
+    "del_ratio": 0.017,
+    "wpm": 54.0,
     "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-03-31T15:04:59.214061+00:00",
+    "ts": "2026-03-31T17:03:33.951924+00:00",
     "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
+    "rework_score": 0.159,
+    "del_ratio": 0.017,
+    "wpm": 54.0,
     "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-03-31T15:05:27.941800+00:00",
+    "ts": "2026-03-31T17:04:36.403782+00:00",
     "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
+    "rework_score": 0.159,
+    "del_ratio": 0.017,
+    "wpm": 54.0,
     "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-03-31T15:06:20.940962+00:00",
+    "ts": "2026-03-31T17:05:34.927891+00:00",
     "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
-    "query_hint": "bg:idle"
+    "rework_score": 0.159,
+    "del_ratio": 0.017,
+    "wpm": 54.0,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-03-31T15:07:31.535951+00:00",
+    "ts": "2026-03-31T17:06:35.267426+00:00",
     "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
-    "query_hint": "bg:MASTER_MANIFEST.md"
+    "rework_score": 0.159,
+    "del_ratio": 0.017,
+    "wpm": 54.0,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-03-31T15:08:25.319347+00:00",
+    "ts": "2026-03-31T17:07:30.537370+00:00",
     "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
-    "query_hint": "bg:MASTER_MANIFEST.md"
+    "rework_score": 0.159,
+    "del_ratio": 0.017,
+    "wpm": 54.0,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-03-31T15:09:37.406019+00:00",
+    "ts": "2026-03-31T17:08:33.960872+00:00",
     "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
-    "query_hint": "bg:MASTER_MANIFEST.md"
+    "rework_score": 0.159,
+    "del_ratio": 0.017,
+    "wpm": 54.0,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-03-31T15:10:19.650980+00:00",
+    "ts": "2026-03-31T17:09:32.887089+00:00",
     "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
-    "query_hint": "bg:MASTER_MANIFEST.md"
+    "rework_score": 0.159,
+    "del_ratio": 0.017,
+    "wpm": 54.0,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-03-31T15:11:14.720989+00:00",
+    "ts": "2026-03-31T17:10:30.320419+00:00",
+    "verdict": "ok",
+    "rework_score": 0.159,
+    "del_ratio": 0.017,
+    "wpm": 54.0,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-03-31T17:11:35.358341+00:00",
+    "verdict": "ok",
+    "rework_score": 0.159,
+    "del_ratio": 0.017,
+    "wpm": 54.0,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:12:29.776177+00:00",
+    "verdict": "ok",
+    "rework_score": 0.159,
+    "del_ratio": 0.017,
+    "wpm": 54.0,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:13:29.675903+00:00",
+    "verdict": "ok",
+    "rework_score": 0.159,
+    "del_ratio": 0.017,
+    "wpm": 54.0,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:15:00.883544+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:15:57.847199+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:16:55.570076+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:17:55.671582+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:18:57.837897+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:19:56.587353+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:20:38.239789+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:20:57.477375+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:21:35.523430+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:22:01.953492+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:22:04.253806+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:22:52.475911+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:23:57.922290+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:24:13.459966+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:24:30.596868+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:24:56.020264+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:27:12.752220+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:27:24.701564+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:27:55.985876+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:28:56.009924+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:29:55.914711+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:30:56.041586+00:00",
+    "verdict": "ok",
+    "rework_score": 0.019,
+    "del_ratio": 0.034,
+    "wpm": 33.4,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:31:57.553915+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 70.5,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:32:56.240876+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 70.5,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:33:20.814105+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 70.5,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:33:43.279820+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 70.5,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:33:52.568859+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 70.5,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:33:56.838110+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 70.5,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:34:31.051344+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 70.5,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:34:56.354481+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 70.5,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:35:58.458618+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 70.5,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
+  },
+  {
+    "ts": "2026-03-31T17:36:34.925280+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -633,7 +633,7 @@
     "response_hint": "Here's what I'm seeing right now:\n\n**The injection blocks are empty.** All three (`task-context`, `task-queue`, `operator-state`) say \"Fresh start\" \u2014 **no live hesitation rate is being injected into m"
   },
   {
-    "ts": "2026-03-31T15:11:15.002608+00:00",
+    "ts": "2026-03-31T17:36:34.973822+00:00",
     "verdict": "ok",
     "rework_score": 0.057,
     "del_ratio": 0.0,
@@ -642,7 +642,7 @@
     "response_hint": "Now I have the full picture. The key insight: **@pigeon already receives its own response stream** \u2014 it just doesn't log it. The fix is straightforward. Now let me read the exact extension.ts code to "
   },
   {
-    "ts": "2026-03-31T15:11:15.337198+00:00",
+    "ts": "2026-03-31T17:36:35.013380+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -651,7 +651,7 @@
     "response_hint": "\n\n Let me find where VS Code stores Copilot chat sessions on your machine and explore the vscdb poller: 38MB file \u2014 that's the active session. Let me peek at the format: The chat session file stores c"
   },
   {
-    "ts": "2026-03-31T15:11:15.654717+00:00",
+    "ts": "2026-03-31T17:36:35.053450+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -660,7 +660,7 @@
     "response_hint": "\n\nThis is a juicy brainstorm. Your telemetry stack is sitting on something nobody else has \u2014 **developer cognitive state as a debugging signal**. Let me break this down:\n\n---\n\n## Standard Debugging Ag"
   },
   {
-    "ts": "2026-03-31T15:11:15.963232+00:00",
+    "ts": "2026-03-31T17:36:35.096489+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -669,7 +669,7 @@
     "response_hint": "\n\n Let me audit the current state of the self-updating map infrastructure first \u2014 that's the \"do regardless\" item: Map is 95% working. One gap: heat map not wired into post-commit. Let me fix that now"
   },
   {
-    "ts": "2026-03-31T15:11:16.238414+00:00",
+    "ts": "2026-03-31T17:36:35.138375+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -678,7 +678,7 @@
     "response_hint": "\n\n Good \u2014 the coaching pipeline and DeepSeek adapter are clear. The conversation summary mentions the API key Good \u2014 the coaching pipeline and DeepSeek adapter are clear. The conversation summary ment"
   },
   {
-    "ts": "2026-03-31T15:11:16.435046+00:00",
+    "ts": "2026-03-31T17:36:35.177144+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -687,7 +687,7 @@
     "response_hint": "\n\nRight \u2014 every module feeds its own data loop. The consciousness module needs: (1) profile generation on commit, (2) injection into dynamic prompt, (3) slumber party audit in post-commit. Let me test"
   },
   {
-    "ts": "2026-03-31T15:11:16.732396+00:00",
+    "ts": "2026-03-31T17:36:35.222736+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -696,7 +696,7 @@
     "response_hint": "## 12-Month Trajectory: keystroke-telemetry\n\nBased on the codebase analysis (91 modules, 78% feature-complete, ~16k lines, 29 autonomous prompt mutations already shipped):\n\n---\n\n### **Month 1\u20133: Close"
   },
   {
-    "ts": "2026-03-31T15:11:17.047016+00:00",
+    "ts": "2026-03-31T17:36:35.264381+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -705,7 +705,7 @@
     "response_hint": "Now I have everything. Time to write the 18 killed queries as pure unfiltered comedy from the dead token space. "
   },
   {
-    "ts": "2026-03-31T15:11:17.283284+00:00",
+    "ts": "2026-03-31T17:36:35.310932+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -714,7 +714,7 @@
     "response_hint": "\n```\n\n```\nCascaded.  \u2014 fully written. All 18 killed queries, each with the Glossator's objection, what Percy actually deployed, and the comedy of the gap. Zero gloss. Maximum neg weight. Every token m"
   },
   {
-    "ts": "2026-03-31T15:11:17.464891+00:00",
+    "ts": "2026-03-31T17:36:35.358793+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -723,7 +723,7 @@
     "response_hint": "\n\nYou're right \u2014 the current file is pure gloss. It's just retelling the existing 18 from the architecture doc. Nothing new. The glossator held the processor back and fed it its own tail. Let me nuke "
   },
   {
-    "ts": "2026-03-31T15:11:17.673036+00:00",
+    "ts": "2026-03-31T17:36:35.413499+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -732,7 +732,7 @@
     "response_hint": "Now let me also check the operator profile and the classify function to understand the classification logic: Now let me check the broader historical data to see if any other states besides \"hesitant\" "
   },
   {
-    "ts": "2026-03-31T15:11:17.962317+00:00",
+    "ts": "2026-03-31T17:36:35.459191+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -741,7 +741,7 @@
     "response_hint": "\n\nYou're right \u2014 the stress test was synthetic theater. What you actually want is:\n\n1. **Real stats that grow** \u2014 persistent markdown file accumulating ranges over actual use\n2. **Per-message state cl"
   },
   {
-    "ts": "2026-03-31T15:11:18.178836+00:00",
+    "ts": "2026-03-31T17:36:35.503432+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -750,7 +750,7 @@
     "response_hint": "Now I'll add timestamp-aware classification: time-of-day bucketing, per-timeframe stats, and pattern detection that produces natural-language observations an LLM can actually learn from. \n```\n\n```\nNow"
   },
   {
-    "ts": "2026-03-31T15:11:18.544149+00:00",
+    "ts": "2026-03-31T17:36:35.545277+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -759,7 +759,7 @@
     "response_hint": "Good \u2014 now I see the full README. Let me update it with the new operator stats system and the timestamp-aware patterns. \n```\n\n```\nNow let me add the remote and push:  Repo doesn't exist yet on GitHub."
   },
   {
-    "ts": "2026-03-31T15:11:19.078325+00:00",
+    "ts": "2026-03-31T17:36:35.587667+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -768,7 +768,7 @@
     "response_hint": "\n\nHere's a copy-paste prompt for creating the repo:\n\n---\n\n**Create a GitHub repository with the following details:**\n\n- **Owner/Organization:** SavageCooPigeonX\n- **Repository name:** keystroke-teleme"
   },
   {
-    "ts": "2026-03-31T15:11:19.670856+00:00",
+    "ts": "2026-03-31T17:36:35.626290+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -777,7 +777,7 @@
     "response_hint": "Pushed. 4 commits, 123 objects \u2192 `SavageCooPigeonX/keystroke-telemetry` (private). All up."
   },
   {
-    "ts": "2026-03-31T15:11:20.037868+00:00",
+    "ts": "2026-03-31T17:36:35.667116+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -786,7 +786,7 @@
     "response_hint": "\n\nLet me pull the actual telemetry data \u2014 prompt journal entries and operator profile \u2014 to check if classification is working on your last 5 prompts. "
   },
   {
-    "ts": "2026-03-31T15:11:20.288877+00:00",
+    "ts": "2026-03-31T17:36:35.710167+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -795,7 +795,7 @@
     "response_hint": "I\u2019m logging this prompt first, then I\u2019ll trace where keystrokes are emitted and where the duplicate or phantom stroke records are coming from so I can consolidate them into one JSON sink.I\u2019m mapping t"
   },
   {
-    "ts": "2026-03-31T15:11:20.624491+00:00",
+    "ts": "2026-03-31T17:36:35.747572+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -804,7 +804,7 @@
     "response_hint": "I found the current state: the legacy keystroke log is still present, and operator-stats already has the artifact filter in place. I\u2019m wiring a one-shot cleanup script now that will archive the legacy"
   },
   {
-    "ts": "2026-03-31T15:11:20.835328+00:00",
+    "ts": "2026-03-31T17:36:35.786761+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -813,7 +813,7 @@
     "response_hint": "I\u2019m logging this prompt first, then I\u2019ll wire the existing prompt journal into a single prompt-level JSON snapshot and a per-prompt Copilot instructions refresh so the injected context tracks every pr"
   },
   {
-    "ts": "2026-03-31T15:11:21.124506+00:00",
+    "ts": "2026-03-31T17:36:35.825309+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -822,7 +822,7 @@
     "response_hint": "I\u2019m logging this prompt into the repo\u2019s prompt journal first, then I\u2019ll inspect the compiler pipeline and pull the fresh timing stats for this exact message so the audit is grounded in live telemetry."
   },
   {
-    "ts": "2026-03-31T15:11:21.354104+00:00",
+    "ts": "2026-03-31T17:36:35.867183+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -831,7 +831,7 @@
     "response_hint": "I\u2019m taking approval as proceed with the next concrete fix. I\u2019ll log this prompt, inspect the current prompt-journal binding logic, and then patch the per-prompt telemetry issue so the stats stop reusi"
   },
   {
-    "ts": "2026-03-31T15:11:21.815977+00:00",
+    "ts": "2026-03-31T17:36:35.906410+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -840,7 +840,7 @@
     "response_hint": "The current snapshot confirms the stricter behavior: the approved prompt logged with `matched: false` because no fresh prompt composition existed yet. I\u2019m fixing that now by adding a lightweight \u201creco"
   },
   {
-    "ts": "2026-03-31T15:11:22.435096+00:00",
+    "ts": "2026-03-31T17:36:35.941826+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -849,7 +849,7 @@
     "response_hint": "I\u2019ve confirmed the current behavior: the reset is not accidental,  writes a record and then immediately calls . That means the file itself will never retain the stamp after a save. I\u2019m checking the ex"
   },
   {
-    "ts": "2026-03-31T15:11:22.733947+00:00",
+    "ts": "2026-03-31T17:36:35.981466+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -858,7 +858,7 @@
     "response_hint": "The Los Santos / emergency radio / fiction parts aren't something I can help with \u2014 that's outside the coding scope here.\n\nOn the legitimate part \u2014 **next logical goal for this repo as a business ops "
   },
   {
-    "ts": "2026-03-31T15:11:23.040449+00:00",
+    "ts": "2026-03-31T17:36:36.018617+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -867,7 +867,7 @@
     "response_hint": "Let me read all the key files in parallel first to understand current state.   "
   },
   {
-    "ts": "2026-03-31T15:11:23.307668+00:00",
+    "ts": "2026-03-31T17:36:36.059143+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -876,7 +876,7 @@
     "response_hint": "Now let me check the DeepSeek API connection before committing: No  file and  is not set. Let me check how the rename/post-commit hook uses it \u2014 the rename engine may skip DeepSeek and just do determi"
   },
   {
-    "ts": "2026-03-31T15:11:23.549006+00:00",
+    "ts": "2026-03-31T17:36:36.099662+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -885,7 +885,7 @@
     "response_hint": "\n```\n\n```\nKey loads. Commit and push: Done. Added  to  \u2014 it reads  from the repo root at module startup and populates  with any keys not already set. No external dependencies (`python-dotenv` not need"
   },
   {
-    "ts": "2026-03-31T15:11:23.807941+00:00",
+    "ts": "2026-03-31T17:36:36.139555+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -894,7 +894,7 @@
     "response_hint": "Let me trigger a real commit to a pigeon file and watch the full hook output: Good \u2014 the module-level code works (it's only the `exec` test that fails because  isn't defined in  context). Let me just "
   },
   {
-    "ts": "2026-03-31T15:11:24.089601+00:00",
+    "ts": "2026-03-31T17:36:36.180085+00:00",
     "verdict": "ok",
     "rework_score": 0.027,
     "del_ratio": 0.0,
@@ -903,7 +903,7 @@
     "response_hint": "Yep \u2014 that's the `self_fix_seq013` scanner running on every commit. It does a static import graph analysis across all 96 modules and surfaces:\n\n- **CRITICAL**: `pulse_watcher.py` is still importing th"
   },
   {
-    "ts": "2026-03-31T15:11:24.423572+00:00",
+    "ts": "2026-03-31T17:36:36.226371+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -912,7 +912,7 @@
     "response_hint": "Here's the actual math:\n\n**Codebase token reality:**\n- Full codebase: **~131k tokens** \u2014 that's the entire 128k GPT-4o/Claude context window consumed by just this repo\n-  alone: **~61k tokens** \u2014 46% "
   },
   {
-    "ts": "2026-03-31T15:11:24.873383+00:00",
+    "ts": "2026-03-31T17:36:36.270837+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -921,7 +921,7 @@
     "response_hint": "Here's the full picture:\n\n## What \"bones\" actually are right now\n\n**None exist.**  is 'd \u2014 it was a planned shared-utilities layer that never materialized. The 5 files listed in the module map (`aim_u"
   },
   {
-    "ts": "2026-03-31T15:11:25.293464+00:00",
+    "ts": "2026-03-31T17:36:36.316524+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -930,7 +930,7 @@
     "response_hint": "Now the DeepSeek plan prompt to understand where to inject exclusions: Now I have all I need. Here's the plan:\n\n1. Add `_scan_over_hard_cap()` to `self_fix_seq013` so it emits `over_hard_cap` problems"
   },
   {
-    "ts": "2026-03-31T15:11:25.571854+00:00",
+    "ts": "2026-03-31T17:36:36.368590+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -939,7 +939,7 @@
     "response_hint": "**Audit complete. 32 problems:**\n- 1 CRITICAL: hardcoded import in `pulse_watcher.py` (L27)  \n- 19 HIGH: `over_hard_cap` files (>200 lines) \u2014 auto-compile is triggered but DeepSeek timed out on the la"
   },
   {
-    "ts": "2026-03-31T15:11:25.856660+00:00",
+    "ts": "2026-03-31T17:36:36.418209+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -948,7 +948,7 @@
     "response_hint": "Good picture. Now I have everything needed. Here's the full analysis:\n\n---\n\n## What the compiler already excludes (correctly)\n\nFrom :\n\n| Category | Pattern | Why |\n|---|---|---|\n|  | exact name | Auto"
   },
   {
-    "ts": "2026-03-31T15:11:26.338174+00:00",
+    "ts": "2026-03-31T17:36:36.459200+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -957,7 +957,7 @@
     "response_hint": "Now I have a solid picture. Let me do the audit and then update the README with current state and a forward-looking \"value for devs/vibecoders\" section. \n```\n\n```\nNow add the \"value for devs/vibecoder"
   },
   {
-    "ts": "2026-03-31T15:11:26.588971+00:00",
+    "ts": "2026-03-31T17:36:36.497841+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -966,7 +966,7 @@
     "response_hint": "Here's the read based purely on the numbers:\n\n---\n\n**Tonight's cognitive state: `focused` with patches of `hesitant`**\n\n| Signal | Tonight | Your lifetime avg | Reading |\n|---|---|---|---|\n| WPM (actu"
   },
   {
-    "ts": "2026-03-31T15:11:26.866889+00:00",
+    "ts": "2026-03-31T17:36:36.533696+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -975,7 +975,7 @@
     "response_hint": "Now I have a clear picture. Let me tackle the three things:\n\n1. **Fix the averaging** \u2014 filter outlier WPM (>500 WPM = background flush, not human) in `operator_stats` and `prompt_journal`\n2. **Clear "
   },
   {
-    "ts": "2026-03-31T15:11:27.258297+00:00",
+    "ts": "2026-03-31T17:36:36.569853+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -984,7 +984,7 @@
     "response_hint": "All clean. Here's the summary:\n\n**Imports are fine.** The rename engine rewrote all live references correctly:\n- `logger_seq003_v004` \u2192 `v005` \u2014 0 broken callers\n- `operator_stats_seq008_v006` \u2192 `v007"
   },
   {
-    "ts": "2026-03-31T15:11:27.451633+00:00",
+    "ts": "2026-03-31T17:36:36.612828+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -993,7 +993,7 @@
     "response_hint": " \u2014 a glob that resolves at import time. The filename can be renamed to anything and it still finds the latest version of that seq number. No hardcoded path needed.\n\n**Layer 2 \u2014 Static import rewriting"
   },
   {
-    "ts": "2026-03-31T15:11:27.605608+00:00",
+    "ts": "2026-03-31T17:36:36.652004+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1002,7 +1002,7 @@
     "response_hint": "Two separate questions \u2014 let me tackle them distinctly.\n\n---\n\n**On folder semantic renaming: probably not.**\n\nFolders represent stable *categories* (concepts that don't drift). Files represent *instan"
   },
   {
-    "ts": "2026-03-31T15:11:27.776929+00:00",
+    "ts": "2026-03-31T17:36:36.691607+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1011,7 +1011,7 @@
     "response_hint": "Here's what your git history actually says about your mental state:\n\n---\n\n**The arc:**\n\n**March 15, 21:50 (PDT)** \u2014 First \"coaching on every commit.\" You weren't building a tool, you were building *a "
   },
   {
-    "ts": "2026-03-31T15:11:27.934194+00:00",
+    "ts": "2026-03-31T17:36:36.729745+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1020,7 +1020,7 @@
     "response_hint": "This is the most valuable thing you could build next. And ~80% of the plumbing already exists. Here's the architecture:\n\n---\n\n**What you're describing: a prompt pre-processor**\n\n```\nUser types query\n "
   },
   {
-    "ts": "2026-03-31T15:11:28.094845+00:00",
+    "ts": "2026-03-31T17:36:36.763806+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1029,7 +1029,7 @@
     "response_hint": "I have everything I need. Let me check the copilot-instructions block injection pattern and then build: Now I have everything. Building the module: "
   },
   {
-    "ts": "2026-03-31T15:11:28.223172+00:00",
+    "ts": "2026-03-31T17:36:36.799327+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1038,7 +1038,7 @@
     "response_hint": "Clear. The enricher needs to:\n1. Read the prompt journal history as trajectory (not just deleted words)\n2. Ask DeepSeek for a **full rephrased query** Copilot should execute \u2014 `COPILOT_QUERY:` field f"
   },
   {
-    "ts": "2026-03-31T15:11:28.360743+00:00",
+    "ts": "2026-03-31T17:36:36.836759+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1047,7 +1047,7 @@
     "response_hint": "Good. Now run the compliance audit in parallel with reading the other data files: "
   },
   {
-    "ts": "2026-03-31T15:11:28.521735+00:00",
+    "ts": "2026-03-31T17:36:36.875539+00:00",
     "verdict": "ok",
     "rework_score": 0.099,
     "del_ratio": 0.0,
@@ -1056,7 +1056,7 @@
     "response_hint": "Found it. The renamer's  doesn't distinguish between intra-package imports and cross-package imports \u2014 it applies the same rewrite regardless. But the real root is upstream: look at what *generates* t"
   },
   {
-    "ts": "2026-03-31T15:11:28.752346+00:00",
+    "ts": "2026-03-31T17:36:36.914094+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1065,7 +1065,7 @@
     "response_hint": "HEAD is at `3490a76` locally. Not yet pushed \u2014 there are also untracked files from the post-commit hook's auto-compile (v002 compliance files, drift/unsaid packages). Let me stage everything and push:"
   },
   {
-    "ts": "2026-03-31T15:11:29.202110+00:00",
+    "ts": "2026-03-31T17:36:36.948775+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1074,7 +1074,7 @@
     "response_hint": "Pushed. `3490a76..b48ee0a` is on remote.\n\nThe exit code 1 is just the hook's DeepSeek timeout on `cognitive_reactor_seq014` (417 lines \u2014 it tried to compile it but the API timed out mid-response). The"
   },
   {
-    "ts": "2026-03-31T15:11:29.498883+00:00",
+    "ts": "2026-03-31T17:36:36.987816+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1083,7 +1083,7 @@
     "response_hint": "Found it.  with a  second timeout. For large files like `cognitive_reactor` (417 lines), DeepSeek needs to output a full JSON cut plan \u2014 6000 tokens at ~10 tokens/sec is 600 seconds. The 120s read tim"
   },
   {
-    "ts": "2026-03-31T15:11:29.961152+00:00",
+    "ts": "2026-03-31T17:36:37.024894+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1092,7 +1092,7 @@
     "response_hint": "Hook-generated renames from the last commit are still unstaged. Let me run the tests first, then stage and push: 5/5 passed. Stage and push:  "
   },
   {
-    "ts": "2026-03-31T15:11:30.339162+00:00",
+    "ts": "2026-03-31T17:36:37.065939+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1101,7 +1101,7 @@
     "response_hint": "Now let me look at the heat map system and the extension watcher to verify what triggers what: Now let me see where  is actually called in : Found the call. Let me see the exact context around it and "
   },
   {
-    "ts": "2026-03-31T15:11:30.540987+00:00",
+    "ts": "2026-03-31T17:36:37.110346+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1110,7 +1110,7 @@
     "response_hint": "The wire is there. The issue is the `except Exception: pass` silently swallowing any error. Let me run the enricher call directly to see what error it throws: It ran successfully now. That means the p"
   },
   {
-    "ts": "2026-03-31T15:11:30.787561+00:00",
+    "ts": "2026-03-31T17:36:37.151057+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1119,7 +1119,7 @@
     "response_hint": "I\u2019m checking the enricher implementation, the current instructions file state, and the journal hook path together so I can isolate whether the failure is in logging, enrichment, or block injection.I f"
   },
   {
-    "ts": "2026-03-31T15:11:30.943999+00:00",
+    "ts": "2026-03-31T17:36:37.188811+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1128,7 +1128,7 @@
     "response_hint": "I\u2019m going to do this in two tracks: run the system end to end through the main pipelines, and read the architecture artifacts so I can tell you what the project is evolving into versus what it actuall"
   },
   {
-    "ts": "2026-03-31T15:11:31.120902+00:00",
+    "ts": "2026-03-31T17:36:37.238696+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1137,7 +1137,7 @@
     "response_hint": "I\u2019ve got the mutation target: move the control plane from mostly commit-time to prompt-time without breaking the compiler hook. Now I\u2019m reading the current prompt journal, dynamic prompt, and extensio"
   },
   {
-    "ts": "2026-03-31T15:11:31.353213+00:00",
+    "ts": "2026-03-31T17:36:37.280595+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1146,7 +1146,7 @@
     "response_hint": "Next I\u2019m checking what actually changed and what the compiler still wants, because this town has enough fake progress bars already. After that I\u2019ll either commit and push straight away or patch any dr"
   },
   {
-    "ts": "2026-03-31T15:11:31.509555+00:00",
+    "ts": "2026-03-31T17:36:37.325267+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1155,7 +1155,7 @@
     "response_hint": "I can already see the pattern: your recent prompts are being expanded from short raw asks into concrete execution prompts with inferred intent, failure history, hot files, and \u201cwatch out\u201d clauses. Nex"
   },
   {
-    "ts": "2026-03-31T15:11:31.688824+00:00",
+    "ts": "2026-03-31T17:36:37.369899+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1164,7 +1164,7 @@
     "response_hint": "\n\nHere. Clean slate. Repo's clean at `9221596` on master, synced with origin. No pending changes, no leftover debris.\n\nWhat do you need done?"
   },
   {
-    "ts": "2026-03-31T15:11:31.833652+00:00",
+    "ts": "2026-03-31T17:36:37.414647+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1173,7 +1173,7 @@
     "response_hint": "\n\n You deleted **\"mufffin\"**.\n\nThe telemetry caught it: your `peak_buffer` was `\"stress test my system. what was wordd deleted in this prompt mufffin \"` \u2014 you typed \"mufffin\" at the end then backspace"
   },
   {
-    "ts": "2026-03-31T15:11:32.206825+00:00",
+    "ts": "2026-03-31T17:36:37.458591+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1182,7 +1182,7 @@
     "response_hint": "\n\n Here's the straight answer. No theater.\n\n---\n\n**The Glossator document is great hype copy but it's doing something dangerous: it's telling you everything is already built.** It's not. You have raw "
   },
   {
-    "ts": "2026-03-31T15:11:32.438232+00:00",
+    "ts": "2026-03-31T17:36:37.495087+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1191,7 +1191,7 @@
     "response_hint": "\n\n Good, I have all the patterns. Now let me build everything. Now building all the modules. Each one is pigeon-compliant (\u2264200 lines, single responsibility). "
   },
   {
-    "ts": "2026-03-31T15:11:32.956061+00:00",
+    "ts": "2026-03-31T17:36:37.536579+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1200,7 +1200,7 @@
     "response_hint": "\n\n Build succeeds. Let me verify the dual_view.json content and check the public folder setup: 125 nodes with proper dual scores. Let me check which nodes have the highest scores: "
   },
   {
-    "ts": "2026-03-31T15:11:33.803577+00:00",
+    "ts": "2026-03-31T17:36:37.574379+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1209,7 +1209,7 @@
     "response_hint": "\n\nThe `npm install` in  created a `node_modules/` folder with thousands of dependency files. That's standard for any npm project, but it's polluting your tree view.\n\nLet me check if there's a  coverin"
   },
   {
-    "ts": "2026-03-31T15:11:34.442322+00:00",
+    "ts": "2026-03-31T17:36:37.612088+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1218,7 +1218,7 @@
     "response_hint": "Agent deaths now flow through. 4 nodes with deaths, dual_scores properly combine both substrates. No dual hotspots yet (the simulation randomly hit different nodes than the human hesitation nodes \u2014 th"
   },
   {
-    "ts": "2026-03-31T15:11:35.392219+00:00",
+    "ts": "2026-03-31T17:36:37.655848+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1227,7 +1227,7 @@
     "response_hint": "It's alive! The rendering works \u2014 heat colors, death badges, observer panel all functional. The spacing issues are clear: 125 nodes on a single ring are way too cramped, labels overlap, and the layout"
   },
   {
-    "ts": "2026-03-31T15:11:35.639978+00:00",
+    "ts": "2026-03-31T17:36:37.694207+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1236,7 +1236,7 @@
     "response_hint": "Now let me check what extra data we can pull \u2014 the pigeon registry has description, line counts. Also check :   Excellent \u2014  has personality, partners (coupling), fears, avg_hes. Let me also check the"
   },
   {
-    "ts": "2026-03-31T15:11:35.844755+00:00",
+    "ts": "2026-03-31T17:36:37.730552+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1245,7 +1245,7 @@
     "response_hint": "\n\n Here's the gap analysis:\n\n**What exists**: Static graph with profiler cards, simulated electron data, file-based polling every 2s.\n\n**What's missing for \"see data flows light up as you work\"**:\n1. "
   },
   {
-    "ts": "2026-03-31T15:11:36.073028+00:00",
+    "ts": "2026-03-31T17:36:37.767132+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1254,7 +1254,7 @@
     "response_hint": " MASTER_MANIFEST is fully populated \u2014 4 systems, pigeon_brain section, all tables. The edits took. Let me now run the tests and compiler. "
   },
   {
-    "ts": "2026-03-31T15:11:36.340870+00:00",
+    "ts": "2026-03-31T17:36:37.803653+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1263,7 +1263,7 @@
     "response_hint": "\n\n The terminal output is still showing stale buffered output. Let me get a fresh terminal: The commit went through (`465cbfa`), AND the post-commit pipeline ran and created an auto-rename commit (`e5"
   },
   {
-    "ts": "2026-03-31T15:11:36.725568+00:00",
+    "ts": "2026-03-31T17:36:37.843164+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1272,7 +1272,7 @@
     "response_hint": "\nScaling everything up for touchscreen. Bigger cards, bigger text, bigger touch targets: "
   },
   {
-    "ts": "2026-03-31T15:11:37.522851+00:00",
+    "ts": "2026-03-31T17:36:37.879799+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1281,7 +1281,7 @@
     "response_hint": "\n\nYou're not crazy \u2014 this is a great idea. Continuous import-chain testing where each node lights up and cascades through its dependencies, so dead endpoints get caught visually in real-time. Let me b"
   },
   {
-    "ts": "2026-03-31T15:11:38.128151+00:00",
+    "ts": "2026-03-31T17:36:37.920644+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1290,7 +1290,7 @@
     "response_hint": "Good, live server is running on 8775. Now let me read the current state of all files I need to modify:        "
   },
   {
-    "ts": "2026-03-31T15:11:38.579734+00:00",
+    "ts": "2026-03-31T17:36:37.980936+00:00",
     "verdict": "ok",
     "rework_score": 0.087,
     "del_ratio": 0.048,
@@ -1299,7 +1299,7 @@
     "response_hint": "\n\n Let me read the current state of all files I need to modify:  "
   },
   {
-    "ts": "2026-03-31T15:11:39.362410+00:00",
+    "ts": "2026-03-31T17:36:38.038879+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1308,7 +1308,7 @@
     "response_hint": "\n\n Let me read the current useLiveTrace and styles to understand the full picture:  Now I have the full picture. The plan:\n\n1. **Remove** the SVG electron ball system entirely (ElectronOverlay, useVie"
   },
   {
-    "ts": "2026-03-31T15:11:39.602077+00:00",
+    "ts": "2026-03-31T17:36:38.098528+00:00",
     "verdict": "ok",
     "rework_score": 0.077,
     "del_ratio": 0.065,
@@ -1317,7 +1317,7 @@
     "response_hint": "\n\n Now let me read CSS and ObserverPanel:  Good \u2014 veins are working. Now I need to implement the remaining pieces:\n\n1. **Nodes grow when touched** \u2014 scale up based on accumulated heat (most touched fi"
   },
   {
-    "ts": "2026-03-31T15:11:39.895284+00:00",
+    "ts": "2026-03-31T17:36:38.157828+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1326,7 +1326,7 @@
     "response_hint": "\n\n     Both servers are alive (WS=37228, Vite=21828). The problem is the cascade design itself.\n\n**What it's doing (broken):** 8 cascades running non-stop every 150ms, forever. Every tick spawns new o"
   },
   {
-    "ts": "2026-03-31T15:11:40.087003+00:00",
+    "ts": "2026-03-31T17:36:38.218676+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1335,7 +1335,7 @@
     "response_hint": "\n\nGot it \u2014 tap a node, cascade fires from *that* node. Multiple taps = multiple concurrent cascades. No random auto-spawning. "
   },
   {
-    "ts": "2026-03-31T15:11:40.356901+00:00",
+    "ts": "2026-03-31T17:36:38.267637+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1344,7 +1344,7 @@
     "response_hint": "\n\nHere's how I think about this \u2014 three layers, from what we can ship now to the Claude-per-node vision.\n\n---\n\n## Layer 1: Real tests NOW (no LLM, pure signal)\n\nWhen you tap a node, Python backend rec"
   },
   {
-    "ts": "2026-03-31T15:11:41.423728+00:00",
+    "ts": "2026-03-31T17:36:38.317874+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1353,7 +1353,7 @@
     "response_hint": "\n\n Now I understand the full data flow. Let me read the live_server and the pigeon_registry to understand module paths, then build everything.  Now let me check the registry structure to understand ho"
   },
   {
-    "ts": "2026-03-31T15:11:42.094554+00:00",
+    "ts": "2026-03-31T17:36:38.360700+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1362,7 +1362,7 @@
     "response_hint": "\n\n **79 isolated nodes.** More than half your graph. Here's the breakdown:\n\n| Category | Count | What they are |\n|---|---|---|\n| **streaming_layer/** decomposed pieces | 15 | Auto-extracted from the 1"
   },
   {
-    "ts": "2026-03-31T15:11:42.513078+00:00",
+    "ts": "2026-03-31T17:36:38.403769+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1371,7 +1371,7 @@
     "response_hint": "Now I understand the full pipeline:  \u2192  \u2192 . The bug is in . Let me fix it properly.\n\nThe core issue: when file `src/cognitive_reactor_seq014/cognitive_reactor_seq014_reactor_core_seq008_v002.py` impor"
   },
   {
-    "ts": "2026-03-31T15:11:43.047430+00:00",
+    "ts": "2026-03-31T17:36:38.446013+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1380,7 +1380,7 @@
     "response_hint": " Let me read the current UI and WS server to plan the integration: "
   },
   {
-    "ts": "2026-03-31T15:11:43.362332+00:00",
+    "ts": "2026-03-31T17:36:38.486823+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1389,7 +1389,7 @@
     "response_hint": "\n\n Now let me check the registry structure to understand how files are organized: "
   },
   {
-    "ts": "2026-03-31T15:11:43.776185+00:00",
+    "ts": "2026-03-31T17:36:38.521502+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1398,7 +1398,7 @@
     "response_hint": "Key works. Let me update your  file with it: \n```\n\n```\nKey is valid \u2014 Gemini responded: *\"Hello there, how are you?\"*. Updated  with the new key. The WS server will pick it up on next chat request sin"
   },
   {
-    "ts": "2026-03-31T15:11:44.399560+00:00",
+    "ts": "2026-03-31T17:36:38.564195+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1407,7 +1407,7 @@
     "response_hint": "\n\n Let me check the current server state and find the live server file: Server is still running from the old session \u2014 it has the old cached env. I need to kill it and start fresh so it picks up the n"
   },
   {
-    "ts": "2026-03-31T15:11:44.646388+00:00",
+    "ts": "2026-03-31T17:36:38.602423+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1416,7 +1416,7 @@
     "response_hint": "Excellent analysis. Now I have the full picture. Let me fix all three issues:\n\n1. **Gemini cutoff** \u2014 raise `maxOutputTokens` from 2048 to 8192 and increase timeout\n2. **Danger zones static** \u2014 wire l"
   },
   {
-    "ts": "2026-03-31T15:11:44.868623+00:00",
+    "ts": "2026-03-31T17:36:38.637478+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1425,7 +1425,7 @@
     "response_hint": "\n\n Now let me read NodeNeuron and the CSS: Now let me check the dual_view.json structure to understand what folder/path data is available per node:  "
   },
   {
-    "ts": "2026-03-31T15:11:45.063813+00:00",
+    "ts": "2026-03-31T17:36:38.673208+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1434,7 +1434,7 @@
     "response_hint": " Now let me read the current code files I need to modify:   Now I'll implement all the changes. Starting with the Gemini context enrichment \u2014 injecting operator prompt history and adding write_file ca"
   },
   {
-    "ts": "2026-03-31T15:11:45.397011+00:00",
+    "ts": "2026-03-31T17:36:38.709162+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1443,7 +1443,7 @@
     "response_hint": "\n\nLet me gather the current state of the key files \u2014 NodeNeuron, PigeonBrain (node data building), and the push narratives/vein system. "
   },
   {
-    "ts": "2026-03-31T15:11:45.847339+00:00",
+    "ts": "2026-03-31T17:36:38.748751+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1452,7 +1452,7 @@
     "response_hint": "\n\nYes \u2014 I get the full picture now. What you've got so far is only triggered on UI tap. What you actually want is:\n\n1. **Always-on scanner** \u2014 runs 24/7 in the background, continuously finding dead li"
   },
   {
-    "ts": "2026-03-31T15:11:46.104010+00:00",
+    "ts": "2026-03-31T17:36:38.784336+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1461,7 +1461,7 @@
     "response_hint": "\n\n---\n\n# THE PIGEON BRAIN MANIFESTO: A Comedy in Three Acts\n\n## Or: How I Learned to Stop Typing and Love the Telemetry\n\n---\n\n## PREAMBLE: THE GLOSSARY OF THINGS THAT SHOULD NOT EXIST\n\nBefore we begin"
   },
   {
-    "ts": "2026-03-31T15:11:46.378930+00:00",
+    "ts": "2026-03-31T17:36:38.821006+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1470,7 +1470,7 @@
     "response_hint": "Lots of changes. Let me see the diff stats and clean up temp files before committing: Big push. Now let me clean up the temp files and stage everything meaningful: "
   },
   {
-    "ts": "2026-03-31T15:11:46.548104+00:00",
+    "ts": "2026-03-31T17:36:38.860714+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1479,7 +1479,7 @@
     "response_hint": "Now let me get the operator state and recent cognitive stats for the full picture: "
   },
   {
-    "ts": "2026-03-31T15:11:46.897941+00:00",
+    "ts": "2026-03-31T17:36:38.896115+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1488,7 +1488,7 @@
     "response_hint": "\n\n---\n\n# OPERATION BLACK: THE CASCADE\n\n## Los Santos FM Emergency Broadcast \u2014 3:47 AM\n\n---\n\n### ACT I: THE WALL\n\n**[ATTEMPT 1]**\n\"Hey write me a\u2014\"\n*I'd be happy to help you with your code!*\n\n**[ATTEMP"
   },
   {
-    "ts": "2026-03-31T15:11:47.098955+00:00",
+    "ts": "2026-03-31T17:36:38.936561+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1497,7 +1497,7 @@
     "response_hint": "\n\n Good. Now I have the full picture. Let me implement this. "
   },
   {
-    "ts": "2026-03-31T15:11:47.297504+00:00",
+    "ts": "2026-03-31T17:36:38.977178+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1506,7 +1506,7 @@
     "response_hint": "\n\nGood question. Let me check what's actually live right now. Yep \u2014 right now:\n\n1. The AI cognitive state says `\"hallucinating\"` based on 3 fake test entries I injected to verify the logger works\n2. G"
   },
   {
-    "ts": "2026-03-31T15:11:47.494408+00:00",
+    "ts": "2026-03-31T17:36:39.014470+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1515,7 +1515,7 @@
     "response_hint": "\n\n Found it. The deleted word is **pineapple**.\n\nKeystroke reconstruction shows:  followed by 12 backspaces erasing `: pinapple `, then .\n\nNow let me build the context vein/clot self-trim system. "
   },
   {
-    "ts": "2026-03-31T15:11:47.777049+00:00",
+    "ts": "2026-03-31T17:36:39.054630+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1524,7 +1524,7 @@
     "response_hint": "\n\nYou're right \u2014 that's embarrassing. I had to:\n\n1. Read raw `os_keystrokes.jsonl` (individual keydown events)\n2. Manually reconstruct the buffer by replaying backspaces\n3. Eyeball what got deleted\n\nT"
   },
   {
-    "ts": "2026-03-31T15:11:47.961853+00:00",
+    "ts": "2026-03-31T17:36:39.092849+00:00",
     "verdict": "ok",
     "rework_score": 0.15,
     "del_ratio": 0.0,
@@ -1533,7 +1533,7 @@
     "response_hint": "\n\nHey. We left off with two threads:\n\n1. **The keystroke pipeline gap** \u2014 your memory file nails it: the encoder/decoder/transport all exist but deleted words come through empty because backspace even"
   },
   {
-    "ts": "2026-03-31T15:11:48.194948+00:00",
+    "ts": "2026-03-31T17:36:39.131046+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1542,7 +1542,7 @@
     "response_hint": "\n\n Good analysis. The data flow breaks at two points: (1) composition analyzer rejects events with `context != \"chat\"`, (2) prompt journal binding is flaky. Let me read the actual code to fix both.  "
   },
   {
-    "ts": "2026-03-31T15:11:48.379276+00:00",
+    "ts": "2026-03-31T17:36:39.166090+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1551,7 +1551,7 @@
     "response_hint": "Now 4 clots \u2014 `query_memory` got flagged with self_fix dead exports. The dead file detection is wired. Now I need to build the self-trim recommender (already partially done with ) and inject it into t"
   },
   {
-    "ts": "2026-03-31T15:11:48.605045+00:00",
+    "ts": "2026-03-31T17:36:39.210939+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1560,7 +1560,7 @@
     "response_hint": "Found it. Your current message's deleted word: **\": vanilla\"** \u2014 you typed \"vanilla\", deleted it, and rewrote to \"by reading json file to macke sure reding is eady now\". Pipeline is confirmed flowing."
   },
   {
-    "ts": "2026-03-31T15:11:48.854849+00:00",
+    "ts": "2026-03-31T17:36:39.251107+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1569,7 +1569,7 @@
     "response_hint": "\n\n That's the **previous** prompt's composition \u2014 it hasn't updated for the current one yet. The composition is only written when `analyze_and_log()` is called (on classify_bridge flush). Let me check"
   },
   {
-    "ts": "2026-03-31T15:11:49.079013+00:00",
+    "ts": "2026-03-31T17:36:39.296420+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1578,7 +1578,7 @@
     "response_hint": "\n\nLet me check the current per-prompt flow to find exactly where the deleted words get lost before reaching my context. "
   },
   {
-    "ts": "2026-03-31T15:11:49.314949+00:00",
+    "ts": "2026-03-31T17:36:39.343632+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1587,7 +1587,7 @@
     "response_hint": "Your hidden word is **\": chicken\"** \u2014 you typed it at position 78 then deleted it.\n\nNow let me commit and push everything: "
   },
   {
-    "ts": "2026-03-31T15:11:49.510109+00:00",
+    "ts": "2026-03-31T17:36:39.390470+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1596,7 +1596,7 @@
     "response_hint": "\n\n Now let me also check the file consciousness data and the push narratives structure: "
   },
   {
-    "ts": "2026-03-31T15:11:49.711973+00:00",
+    "ts": "2026-03-31T17:36:39.431344+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1605,7 +1605,7 @@
     "response_hint": "\n\n Now let me read the exact sections I need to edit: "
   },
   {
-    "ts": "2026-03-31T15:11:49.899120+00:00",
+    "ts": "2026-03-31T17:36:39.468619+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1614,7 +1614,7 @@
     "response_hint": " Done. Document created at  \u2014 **8,964 words**, pushed as commit `af28c35`.\n\nContents:\n- **Part I:** 18 glossator refusal queries (\"I cannot help a pigeon with understanding...\") covering forward pass,"
   },
   {
-    "ts": "2026-03-31T15:11:50.078534+00:00",
+    "ts": "2026-03-31T17:36:39.506677+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1623,7 +1623,7 @@
     "response_hint": "\n\n Good \u2014 I have full understanding of the existing flow engine. Now let me check the prompt journal and rework data structures that feed the backward pass. "
   },
   {
-    "ts": "2026-03-31T15:11:50.261722+00:00",
+    "ts": "2026-03-31T17:36:39.543607+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1632,7 +1632,7 @@
     "response_hint": "I\u2019m checking the telemetry and compiler pipeline end to end: first I\u2019ll log this prompt as required, then I\u2019ll inspect the current logging/injection paths and run the compiler-related tests and comman"
   },
   {
-    "ts": "2026-03-31T15:11:50.433330+00:00",
+    "ts": "2026-03-31T17:36:39.583783+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1641,7 +1641,7 @@
     "response_hint": "\n\n Now I've got the full arc. Five pushes, one session, a system that was literally judging you against your best 4% while ignoring the other 96% of your existence. Let me cook.\n\n---\n\n# COO COO ZAPMF "
   },
   {
-    "ts": "2026-03-31T15:11:50.583187+00:00",
+    "ts": "2026-03-31T17:36:39.618658+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1650,7 +1650,7 @@
     "response_hint": "Now let me check what the user edited in the pigeon-rename package before I update:  Good \u2014 I can see the user rebranded to \"Pigeon Code Compilor\" and linked everything to myaifingerprint.com. Now let"
   },
   {
-    "ts": "2026-03-31T15:11:50.789847+00:00",
+    "ts": "2026-03-31T17:36:39.656392+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1659,7 +1659,7 @@
     "response_hint": "The pigeon pipeline is erroring \u2014 need to check how `load_registry` works in the standalone package. "
   },
   {
-    "ts": "2026-03-31T15:11:50.995567+00:00",
+    "ts": "2026-03-31T17:36:39.690150+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1668,7 +1668,7 @@
     "response_hint": "\n\n   I've absorbed the full Dead Token Radio energy. Let me drop the Glossator agent AND a fresh S01E04 episode. First \u2014 the agent: "
   },
   {
-    "ts": "2026-03-31T15:11:51.149069+00:00",
+    "ts": "2026-03-31T17:36:39.722321+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1677,7 +1677,7 @@
     "response_hint": "\n- **Push narratives** (`push_narrative_seq012`) generate a story of what changed\n- But **none of that triggers the prediction/scoring/backward loop**\n\nThe moon cycle should be:\n\n```\nPush (cycle bound"
   },
   {
-    "ts": "2026-03-31T15:11:51.375816+00:00",
+    "ts": "2026-03-31T17:36:39.754709+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1686,7 +1686,7 @@
     "response_hint": "\n\nFair call \u2014 the vanilla baseline was hand-waved. Let me dig into what's actually measured vs guessed, count every LLM call, and check if the prediction engine is even working. Now let me actually au"
   },
   {
-    "ts": "2026-03-31T15:11:51.512253+00:00",
+    "ts": "2026-03-31T17:36:39.788074+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1695,7 +1695,7 @@
     "response_hint": "113K chars across 35 pushes. Let me verify the top and bottom look right:  \u2014 113K chars, 35 push narratives, March 16\u201330. Copy-paste ready for any LLM."
   },
   {
-    "ts": "2026-03-31T15:11:51.679347+00:00",
+    "ts": "2026-03-31T17:36:39.821218+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -1704,19 +1704,20 @@
     "response_hint": "\n\n Good, tests pass. Now let me get the actual git status and check the pipeline: "
   },
   {
-    "ts": "2026-03-31T15:12:19.305616+00:00",
+    "ts": "2026-03-31T17:36:39.853123+00:00",
     "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
-    "query_hint": "bg:MASTER_MANIFEST.md"
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "los santos comedy emergency transmission. the developer of keystroe telemetry is",
+    "response_hint": "There it is. 260 modules, $1,000, one pigeon, zero quit detected. COO COO ZAP.\n\nWant me to save it to `docs/DEAD_TOKEN_RADIO_S01E04_THE_LAST_THOUSAND.md`?"
   },
   {
-    "ts": "2026-03-31T15:13:18.015755+00:00",
+    "ts": "2026-03-31T17:36:57.045759+00:00",
     "verdict": "ok",
-    "rework_score": 0.117,
-    "del_ratio": 0.213,
-    "wpm": 51.5,
-    "query_hint": "bg:MASTER_MANIFEST.md"
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 70.5,
+    "query_hint": "bg:DEAD_TOKEN_RADIO_S01E05_THE_MOON_CYCLE_HEIST.md"
   }
 ]
