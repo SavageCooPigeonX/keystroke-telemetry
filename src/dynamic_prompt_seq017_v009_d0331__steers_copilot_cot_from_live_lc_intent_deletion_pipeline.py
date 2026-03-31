@@ -1,11 +1,11 @@
 """Dynamic task-aware prompt injection — steers Copilot CoT from live signals."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 017 | VER: v008 | 408 lines | ~4,458 tokens
+# SEQ: 017 | VER: v009 | 423 lines | ~4,655 tokens
 # DESC:   steers_copilot_cot_from_live
-# INTENT: selection_aware_os
-# LAST:   2026-03-29 @ fd2ab12
-# SESSIONS: 6
+# INTENT: intent_deletion_pipeline
+# LAST:   2026-03-31 @ 7e0ecab
+# SESSIONS: 7
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-03-22T20:28:42.5025062Z

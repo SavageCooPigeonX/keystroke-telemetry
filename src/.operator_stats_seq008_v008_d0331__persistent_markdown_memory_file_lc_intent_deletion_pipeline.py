@@ -10,11 +10,11 @@ a compact operator profile that sharpens with every message.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 008 | VER: v009 | 532 lines | ~4,617 tokens
+# SEQ: 008 | VER: v008 | 537 lines | ~4,711 tokens
 # DESC:   persistent_markdown_memory_file
-# INTENT: dynamic_import_resolvers
-# LAST:   2026-03-28 @ b1971c0
-# SESSIONS: 1
+# INTENT: intent_deletion_pipeline
+# LAST:   2026-03-31 @ 7e0ecab
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-03-22T23:00:00+00:00
@@ -502,6 +502,8 @@ class OperatorStats:
 
         wpm = round((inserts / 5) / max(duration_ms / 60_000, 0.001), 1)
         # Prefer intent_deletion_ratio (8+ backspace runs only) over raw ratio
+        # Raw ratio counts every backspace including typo corrections (1-5 chars)
+        # Intent ratio only counts runs of 8+ = genuine line-of-thinking changes
         del_ratio = msg.get('intent_deletion_ratio',
                            msg.get('chat_intent_deletion_ratio',
                                    round(dels / keys, 3)))

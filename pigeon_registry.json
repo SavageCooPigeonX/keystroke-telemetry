@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-30T23:37:49.726181+00:00",
-  "total": 258,
+  "generated": "2026-03-31T04:23:52.279662+00:00",
+  "total": 259,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -3435,14 +3435,34 @@
       ]
     },
     {
-      "path": "src/.operator_stats_seq008_v009_d0328__persistent_markdown_memory_file_lc_dynamic_import_resolvers.py",
+      "path": "src/.operator_stats_seq008_v008_d0331__persistent_markdown_memory_file_lc_intent_deletion_pipeline.py",
       "name": ".operator_stats",
       "seq": 8,
-      "ver": 9,
-      "date": "0328",
+      "ver": 8,
+      "date": "0331",
       "desc": "persistent_markdown_memory_file",
-      "intent": "dynamic_import_resolvers",
-      "tokens": 4617,
+      "intent": "intent_deletion_pipeline",
+      "tokens": 4711,
+      "history": [
+        {
+          "ver": 8,
+          "date": "0331",
+          "desc": "persistent_markdown_memory_file",
+          "intent": "intent_deletion_pipeline",
+          "tokens": 4711,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/.operator_stats_seq008_v010_d0331__persistent_markdown_memory_file_lc_intent_deletion_pipeline.py",
+      "name": ".operator_stats",
+      "seq": 8,
+      "ver": 10,
+      "date": "0331",
+      "desc": "persistent_markdown_memory_file",
+      "intent": "intent_deletion_pipeline",
+      "tokens": 4672,
       "history": [
         {
           "ver": 9,
@@ -3451,6 +3471,14 @@
           "intent": "dynamic_import_resolvers",
           "tokens": 4617,
           "action": "registered"
+        },
+        {
+          "ver": 10,
+          "date": "0331",
+          "desc": "persistent_markdown_memory_file",
+          "intent": "intent_deletion_pipeline",
+          "action": "mutated",
+          "tokens": 4672
         }
       ]
     },
@@ -4430,14 +4458,14 @@
       ]
     },
     {
-      "path": "src/dynamic_prompt_seq017_v008_d0329__steers_copilot_cot_from_live_lc_selection_aware_os.py",
+      "path": "src/dynamic_prompt_seq017_v009_d0331__steers_copilot_cot_from_live_lc_intent_deletion_pipeline.py",
       "name": "dynamic_prompt",
       "seq": 17,
-      "ver": 8,
-      "date": "0329",
+      "ver": 9,
+      "date": "0331",
       "desc": "steers_copilot_cot_from_live",
-      "intent": "selection_aware_os",
-      "tokens": 4458,
+      "intent": "intent_deletion_pipeline",
+      "tokens": 4655,
       "history": [
         {
           "ver": 7,
@@ -4454,6 +4482,14 @@
           "intent": "selection_aware_os",
           "action": "mutated",
           "tokens": 4458
+        },
+        {
+          "ver": 9,
+          "date": "0331",
+          "desc": "steers_copilot_cot_from_live",
+          "intent": "intent_deletion_pipeline",
+          "action": "mutated",
+          "tokens": 4655
         }
       ]
     },
@@ -6016,14 +6052,14 @@
       ]
     },
     {
-      "path": "src/unsaid_recon_seq024_v002_d0329__fires_on_high_deletion_prompts_lc_selection_aware_os.py",
+      "path": "src/unsaid_recon_seq024_v003_d0331__fires_on_high_deletion_prompts_lc_intent_deletion_pipeline.py",
       "name": "unsaid_recon",
       "seq": 24,
-      "ver": 2,
-      "date": "0329",
+      "ver": 3,
+      "date": "0331",
       "desc": "fires_on_high_deletion_prompts",
-      "intent": "selection_aware_os",
-      "tokens": 1112,
+      "intent": "intent_deletion_pipeline",
+      "tokens": 1328,
       "history": [
         {
           "ver": 2,
@@ -6032,6 +6068,14 @@
           "intent": "selection_aware_os",
           "tokens": 1112,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0331",
+          "desc": "fires_on_high_deletion_prompts",
+          "intent": "intent_deletion_pipeline",
+          "action": "mutated",
+          "tokens": 1328
         }
       ]
     },

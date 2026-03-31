@@ -1930,7 +1930,124 @@
       "confidence": 0.242,
       "ts": "2026-03-30T23:40:05.719090+00:00",
       "scored": false
+    },
+    {
+      "prediction_id": "167c7121dba4",
+      "batch_id": "6570371ca864",
+      "session_n_at": 34,
+      "phantom_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unified_signal",
+      "mode": "targeted",
+      "trend": {
+        "states": [
+          "unknown",
+          "unknown",
+          "unknown",
+          "hesitant",
+          "unknown",
+          "hesitant",
+          "frustrated",
+          "hesitant",
+          "unknown",
+          "unknown"
+        ],
+        "modules": [
+          "shard_manager",
+          "context_router",
+          "unified_signal",
+          "training_pairs",
+          "voice_style"
+        ],
+        "avg_del": 0.0362,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "targeted",
+        "phantom_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unified_signal"
+      },
+      "confidence": 0.404,
+      "ts": "2026-03-31T04:25:41.141516+00:00",
+      "scored": false
+    },
+    {
+      "prediction_id": "dd648a823ed5",
+      "batch_id": "6570371ca864",
+      "session_n_at": 34,
+      "phantom_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unified_signal",
+      "mode": "heat",
+      "trend": {
+        "states": [
+          "unknown",
+          "unknown",
+          "unknown",
+          "hesitant",
+          "unknown",
+          "hesitant",
+          "frustrated",
+          "hesitant",
+          "unknown",
+          "unknown"
+        ],
+        "modules": [
+          "shard_manager",
+          "context_router",
+          "unified_signal",
+          "training_pairs",
+          "voice_style"
+        ],
+        "avg_del": 0.0362,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "heat",
+        "phantom_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unified_signal"
+      },
+      "confidence": 0.404,
+      "ts": "2026-03-31T04:25:41.141516+00:00",
+      "scored": false
+    },
+    {
+      "prediction_id": "8c36aed8a190",
+      "batch_id": "6570371ca864",
+      "session_n_at": 34,
+      "phantom_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unified_signal",
+      "mode": "failure",
+      "trend": {
+        "states": [
+          "unknown",
+          "unknown",
+          "unknown",
+          "hesitant",
+          "unknown",
+          "hesitant",
+          "frustrated",
+          "hesitant",
+          "unknown",
+          "unknown"
+        ],
+        "modules": [
+          "shard_manager",
+          "context_router",
+          "unified_signal",
+          "training_pairs",
+          "voice_style"
+        ],
+        "avg_del": 0.0362,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "failure",
+        "phantom_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unified_signal"
+      },
+      "confidence": 0.404,
+      "ts": "2026-03-31T04:25:41.141516+00:00",
+      "scored": false
     }
   ],
-  "updated": "2026-03-30T23:40:05.800983+00:00"
+  "updated": "2026-03-31T04:25:41.210267+00:00"
 }
