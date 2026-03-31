@@ -422,12 +422,15 @@ def main():
             metrics['intent_deletion_ratio'] = chat_comp.get('intent_deletion_ratio', 0)
             metrics['chat_intent_deleted_words'] = [
                 w['word'] for w in chat_comp.get('intent_deleted_words', [])]
-        try:
-            stats_mod.OperatorStats(
-                str(root / 'operator_profile.md'), write_every=1
-            ).ingest(metrics)
-        except Exception:
-            pass
+        # Only ingest real chat submits — bg: flushes are editor keystroke batches
+        # that pollute the cognitive profile (inflated denominator, wrong del ratio)
+        if not query_txt.startswith('bg:'):
+            try:
+                stats_mod.OperatorStats(
+                    str(root / 'operator_profile.md'), write_every=1
+                ).ingest(metrics)
+            except Exception:
+                pass
 
     # ── Rework detection ─────────────────────────────────────────────
     rework_verdict = 'ok'
@@ -667,6 +670,29 @@ def main():
             dyn_mod.inject_task_context(root)
     except Exception:
         pass
+
+    # ── Enrich prompt via Gemini Flash (rewrite current-query block) ──────────
+    if submitted and query_txt and not query_txt.startswith('bg:'):
+        try:
+            enricher_mod = _load_pigeon_module(root, 'src/prompt_enricher_seq024*.py')
+            if enricher_mod:
+                enrich_dw = []
+                enrich_cog = {}
+                if chat_comp:
+                    enrich_dw = chat_comp.get('intent_deleted_words') or chat_comp.get('deleted_words', [])
+                    enrich_cog = {
+                        'state': state,
+                        'wpm': wpm,
+                        'del_ratio': chat_comp.get('intent_deletion_ratio', metrics.get('deletion_ratio', 0)),
+                        'hes': metrics.get('hesitation_score', 0),
+                    }
+                enricher_mod.inject_query_block(
+                    root, query_txt,
+                    deleted_words=enrich_dw,
+                    cognitive_state=enrich_cog,
+                )
+        except Exception:
+            pass
 
     # Build composition summary for output
     comp_summary = None

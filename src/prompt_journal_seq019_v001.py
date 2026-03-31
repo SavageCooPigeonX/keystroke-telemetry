@@ -731,7 +731,9 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
     _write_latest_snapshot(root, snapshot)
     _refresh_copilot_instructions(root, snapshot)
 
-    # ── DeepSeek prompt enrichment — inject what operator actually means ──
+    # ── Gemini prompt enrichment — inject what operator actually means ──
+    # NOTE: classify_bridge also fires this on every submit (primary path).
+    # This is the fallback path — fires from the journal command.
     try:
         import importlib.util as _ilu, glob as _g
         _matches = sorted(root.glob('src/prompt_enricher_seq024*.py'))
@@ -750,7 +752,49 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
                         'hes': signals.get('hesitation_count', 0),
                     },
                 )
+    except Exception as _enrich_err:
+        # Log enricher failures so they're not invisible
+        try:
+            _err_path = root / 'logs' / 'enricher_errors.jsonl'
+            _err_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(_err_path, 'a', encoding='utf-8') as _ef:
+                _ef.write(json.dumps({
+                    'ts': datetime.now(timezone.utc).isoformat(),
+                    'error': str(_enrich_err),
+                    'msg_preview': msg[:80],
+                }) + '\n')
+        except Exception:
+            pass
+
+    # ── Training pair (prompt-side) — response backfilled by rework detector ──
+    try:
+        import importlib.util as _tw_ilu
+        _tw_matches = sorted(root.glob('src/training_writer_seq028*.py'))
+        if _tw_matches:
+            _tw_spec = _tw_ilu.spec_from_file_location('_tw', _tw_matches[-1])
+            if _tw_spec is not None and _tw_spec.loader is not None:
+                _tw_mod = _tw_ilu.module_from_spec(_tw_spec)
+                _tw_spec.loader.exec_module(_tw_mod)
+                _tw_mod.write_training_pair(
+                    root,
+                    prompt=msg[:500],
+                    response='(pending — response not yet captured)',
+                    verdict='pending',
+                )
     except Exception:
-        pass  # enrichment is best-effort, never block the journal
+        pass
+
+    # ── Staleness alert — detect stale managed blocks ──
+    try:
+        import importlib.util as _sa_ilu
+        _sa_matches = sorted(root.glob('src/staleness_alert_seq030*.py'))
+        if _sa_matches:
+            _sa_spec = _sa_ilu.spec_from_file_location('_staleness', _sa_matches[-1])
+            if _sa_spec is not None and _sa_spec.loader is not None:
+                _sa_mod = _sa_ilu.module_from_spec(_sa_spec)
+                _sa_spec.loader.exec_module(_sa_mod)
+                _sa_mod.inject_staleness_alert(root)
+    except Exception:
+        pass
 
     return entry

@@ -8,9 +8,9 @@
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-31T00:00:00Z
+# EDIT_TS:   2026-03-31T15:00:00Z
 # EDIT_HASH: auto
-# EDIT_WHY:  initial research synthesizer
+# EDIT_WHY:  replace hardcoded stats with computed
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -133,14 +133,65 @@ def _cognitive_findings(root: Path) -> str:
     lines = ['## 2. Cognitive Patterns — What We Know About the Operator']
 
     # Parse operator profile for key stats
+    submit_rate_str = '?'
+    dominant_state = 'unknown'
+    avg_del_pct = '?'
     if profile.exists():
         text = profile.read_text(encoding='utf-8')
-        for marker in ['Total messages analyzed:', 'Dominant state:',
+        for marker in ['Dominant state:',
                        'Submit rate:', 'Longest struggle streak:']:
             for line in text.splitlines():
                 if marker.lower() in line.lower():
                     lines.append(f'- {line.strip().lstrip("- ")}')
                     break
+        # Extract actual numbers for interpretation
+        for line in text.splitlines():
+            if 'submit rate:' in line.lower():
+                import re as _re
+                m = _re.search(r'\((\d+)%\)', line)
+                if m:
+                    submit_rate_str = m.group(1) + '%'
+            if 'dominant state:' in line.lower():
+                parts = line.split('**')
+                if len(parts) >= 2:
+                    dominant_state = parts[-1].strip().rstrip('*').strip()
+                    if not dominant_state:
+                        dominant_state = parts[1].strip()
+            if 'deletion %' in line.lower() and 'avg' not in line.lower():
+                pass  # header row
+            if '| Deletion %' in line:
+                cells = [c.strip() for c in line.split('|')]
+                if len(cells) >= 5:
+                    avg_del_pct = cells[4]  # Avg column
+
+    # Prefer real data from prompt_journal + chat_compositions
+    journal = root / 'logs' / 'prompt_journal.jsonl'
+    compositions = root / 'logs' / 'chat_compositions.jsonl'
+    real_submit_count = 0
+    real_del_ratio = None
+    if journal.exists():
+        try:
+            jlines = journal.read_text(encoding='utf-8').strip().splitlines()
+            real_submit_count = len(jlines)
+        except Exception:
+            pass
+    if compositions.exists():
+        try:
+            clines = compositions.read_text(encoding='utf-8').strip().splitlines()
+            recent = clines[-50:] if len(clines) > 50 else clines
+            ratios = []
+            for cl in recent:
+                try:
+                    c = json.loads(cl)
+                    r = c.get('deletion_ratio', c.get('intent_deletion_ratio'))
+                    if r is not None:
+                        ratios.append(float(r))
+                except Exception:
+                    pass
+            if ratios:
+                real_del_ratio = sum(ratios) / len(ratios)
+        except Exception:
+            pass
 
     # Heat map — which modules cause most cognitive friction
     if heat.exists():
@@ -160,11 +211,16 @@ def _cognitive_findings(root: Path) -> str:
         except Exception:
             pass
 
+    # Build interpretation from actual computed data
     lines.append('')
-    lines.append('**Interpretation:** The operator deletes ~47% of what they type. '
-                 'They are frustrated 48% of the time and hesitant 31%. '
-                 'Only 3% of messages are submitted — 97% are abandoned drafts. '
-                 'The system captures the 97% that would otherwise be invisible.')
+    del_desc = f'{real_del_ratio:.1%}' if real_del_ratio is not None else avg_del_pct
+    lines.append(f'**Interpretation:** The operator deletes ~{del_desc} of what they type '
+                 f'(from chat compositions). '
+                 f'Dominant cognitive state: **{dominant_state}**. '
+                 f'{real_submit_count} real chat submits recorded in prompt journal'
+                 f'{" (submit rate: " + submit_rate_str + " of profiled messages)" if submit_rate_str != "?" else ""}. '
+                 'The system captures typing patterns, hesitation, and deleted words '
+                 'that would otherwise be invisible.')
     return '\n'.join(lines)
 
 
@@ -256,7 +312,7 @@ def _open_questions() -> str:
     return (
         '## 5. Open Research Questions\n\n'
         '1. **Hesitation ≠ intent** — can we separate "thinking about X" from "about to edit X"?\n'
-        '2. **Deletion ratio as confidence** — does 47% deletion mean uncertainty or refinement?\n'
+        '2. **Deletion ratio as confidence** — does deletion ratio indicate uncertainty or refinement?\n'
         '3. **Prediction calibration** — confidence is stuck at 0.49-0.50, needs dynamic update\n'
         '4. **Cross-session memory** — do shard patterns persist across conversations?\n'
         '5. **Rework signal** — is the 0.003 score a measurement or a default? Needs audit\n'
