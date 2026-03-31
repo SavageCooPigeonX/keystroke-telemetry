@@ -8,9 +8,9 @@
 # SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-31T15:00:00Z
+# EDIT_TS:   2026-03-31T21:30:00Z
 # EDIT_HASH: auto
-# EDIT_WHY:  replace hardcoded stats with computed
+# EDIT_WHY:  add pair dynamics section
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -27,6 +27,7 @@ def synthesize_research(root: Path) -> Path:
         _header(),
         _prediction_findings(root),
         _cognitive_findings(root),
+        _pair_dynamics(root),
         _recursive_evolution(root),
         _signal_quality(root),
         _open_questions(),
@@ -224,9 +225,127 @@ def _cognitive_findings(root: Path) -> str:
     return '\n'.join(lines)
 
 
+def _pair_dynamics(root: Path) -> str:
+    """Section 3: the human/AI pair — how we work together."""
+    lines = ['## 3. Pair Dynamics — How Human + AI Actually Collaborate']
+
+    # Rework verdicts — how good is copilot at answering?
+    rework_path = root / 'rework_log.json'
+    verdicts = {}
+    n_rework = 0
+    if rework_path.exists():
+        try:
+            data = json.loads(rework_path.read_text(encoding='utf-8'))
+            entries = data if isinstance(data, list) else data.get('entries', [])
+            n_rework = len(entries)
+            for e in entries:
+                v = e.get('verdict', '?')
+                verdicts[v] = verdicts.get(v, 0) + 1
+        except Exception:
+            pass
+    if n_rework:
+        ok = verdicts.get('ok', 0)
+        partial = verdicts.get('partial', 0)
+        miss = verdicts.get('miss', 0)
+        ok_pct = ok / n_rework * 100
+        miss_pct = miss / n_rework * 100
+        lines.append(f'\n**Rework verdicts** ({n_rework} responses scored):')
+        lines.append(f'- OK: {ok} ({ok_pct:.0f}%) — copilot nailed it')
+        lines.append(f'- Partial: {partial} ({partial/n_rework*100:.0f}%) — needed adjustment')
+        lines.append(f'- Miss: {miss} ({miss_pct:.0f}%) — operator had to redo')
+
+    # Edit pairs — prompt→file timing
+    ep_path = root / 'logs' / 'edit_pairs.jsonl'
+    n_pairs = 0
+    latencies = []
+    if ep_path.exists():
+        try:
+            for line in ep_path.read_text(encoding='utf-8').strip().splitlines():
+                obj = json.loads(line)
+                n_pairs += 1
+                lat = obj.get('latency_ms')
+                if lat and isinstance(lat, (int, float)):
+                    latencies.append(lat)
+        except Exception:
+            pass
+    if n_pairs:
+        lines.append(f'\n**Prompt→file pairings:** {n_pairs} edits traced back to prompts.')
+        if latencies:
+            avg_lat = sum(latencies) / len(latencies) / 1000
+            lines.append(f'- Avg prompt-to-edit latency: {avg_lat:.1f}s')
+
+    # Mutation tracking — how the prompt layer evolved
+    mut_path = root / 'logs' / 'mutation_scores.json'
+    if mut_path.exists():
+        try:
+            md = json.loads(mut_path.read_text(encoding='utf-8'))
+            total_mut = md.get('total_mutations', 0)
+            total_pairs = md.get('total_pairs', 0)
+            lines.append(f'\n**Prompt mutations:** {total_mut} changes to copilot-instructions.md, '
+                         f'scored against {total_pairs} rework pairs.')
+            sects = md.get('sections', {})
+            helpful = [k for k, v in sects.items() if v.get('hit_rate_delta', 0) > 0.05]
+            harmful = [k for k, v in sects.items() if v.get('hit_rate_delta', 0) < -0.05]
+            if helpful:
+                lines.append(f'- Helpful sections: {", ".join(helpful)}')
+            if harmful:
+                lines.append(f'- Harmful sections: {", ".join(harmful)}')
+            if not helpful and not harmful:
+                lines.append('- No significant signal yet — all sections scored neutral.')
+        except Exception:
+            pass
+
+    # Reactor — autonomous code modification attempts
+    reactor_path = root / 'logs' / 'cognitive_reactor_state.json'
+    if reactor_path.exists():
+        try:
+            rd = json.loads(reactor_path.read_text(encoding='utf-8'))
+            fires = rd.get('total_fires', 0)
+            applied = rd.get('patches_applied', 0) or 0
+            lines.append(f'\n**Cognitive reactor:** {fires} fires. '
+                         f'{applied} code patches applied '
+                         f'({applied/fires*100:.0f}% acceptance).' if fires else '')
+        except Exception:
+            pass
+
+    # Shard memory — what the system learned from interactions
+    shard_dir = root / 'logs' / 'shards'
+    if shard_dir.exists():
+        shard_files = list(shard_dir.glob('*.md'))
+        shard_names = [f.stem for f in shard_files if not f.stem.startswith('_')]
+        if shard_names:
+            lines.append(f'\n**Shared memory shards** ({len(shard_files)} active):')
+            for s in sorted(shard_names)[:8]:
+                lines.append(f'- `{s}`')
+
+    # Interpretation
+    lines.append('')
+    interp_parts = []
+    if n_rework:
+        interp_parts.append(
+            f'Copilot gets it right {ok_pct:.0f}% of the time, '
+            f'misses {miss_pct:.0f}%. '
+        )
+    interp_parts.append(
+        'The pair communicates through: keystrokes (operator→system), '
+        'rework verdicts (operator→copilot quality signal), '
+        'prompt mutations (system→copilot instruction tuning), '
+        'reactor patches (copilot→codebase autonomous edits), '
+        'and memory shards (shared context that persists across sessions). '
+    )
+    interp_parts.append(
+        'This is not one-way automation — it is a feedback loop where '
+        'both sides adapt. The operator\'s typing patterns steer the AI\'s '
+        'reasoning, and the AI\'s prompt mutations steer the operator\'s '
+        'workflow. Neither side is fully in control.'
+    )
+    lines.append('**Interpretation:** ' + ''.join(interp_parts))
+    return '\n'.join(lines)
+
+
 def _recursive_evolution(root: Path) -> str:
     sf_dir = root / 'docs' / 'self_fix'
-    lines = ['## 3. Recursive Code Evolution — The Codebase Changing Itself']
+    lines = ['## 4. Recursive Code Evolution — The Codebase Changing Itself']
 
     if sf_dir.exists():
         reports = sorted(sf_dir.glob('*.md'))
@@ -277,7 +396,7 @@ def _recursive_evolution(root: Path) -> str:
 
 
 def _signal_quality(root: Path) -> str:
-    lines = ['## 4. Signal Quality — How Good Is Our Data']
+    lines = ['## 5. Signal Quality — How Good Is Our Data']
     rework = root / 'rework_log.json'
     if rework.exists():
         try:
@@ -310,7 +429,7 @@ def _signal_quality(root: Path) -> str:
 
 def _open_questions() -> str:
     return (
-        '## 5. Open Research Questions\n\n'
+        '## 6. Open Research Questions\n\n'
         '1. **Hesitation ≠ intent** — can we separate "thinking about X" from "about to edit X"?\n'
         '2. **Deletion ratio as confidence** — does deletion ratio indicate uncertainty or refinement?\n'
         '3. **Prediction calibration** — confidence is stuck at 0.49-0.50, needs dynamic update\n'

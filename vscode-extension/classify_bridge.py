@@ -719,6 +719,30 @@ def main():
         except Exception:
             pass
 
+    # ── Shard learning: feed rework verdicts into memory shards ──────────────
+    if submitted and query_txt and not query_txt.startswith('bg:'):
+        try:
+            sm_mod = _load_pigeon_module(root, 'src/shard_manager_seq026*.py')
+            if sm_mod and hasattr(sm_mod, 'learn_from_rework'):
+                rw_score = rw['rework_score'] if rw else 0.0
+                sm_mod.learn_from_rework(
+                    root, query_txt[:300], rework_verdict,
+                    rw_score,
+                    response_hint=resp_text[:200] if resp_text else '',
+                )
+        except Exception:
+            pass
+
+    # ── Mutation scorer: correlate prompt mutations with rework on every submit ─
+    mutation_scores = None
+    if submitted and query_txt and not query_txt.startswith('bg:'):
+        try:
+            ms_mod = _load_pigeon_module(root, 'src/mutation_scorer_seq021*.py')
+            if ms_mod:
+                mutation_scores = ms_mod.score_mutations(root)
+        except Exception:
+            pass
+
     print(json.dumps({
         'state':            state,
         'hesitation':       metrics['hesitation_score'],

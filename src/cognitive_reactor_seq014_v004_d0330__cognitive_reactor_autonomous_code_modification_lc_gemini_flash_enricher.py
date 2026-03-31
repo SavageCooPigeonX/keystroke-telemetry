@@ -246,8 +246,40 @@ def _fire_reactor(
     if target_file:
         staged = _apply_docstring_patch(root, target_file, module_key, avg_hes, dominant_state)
 
+    # Auto-apply code patch from DeepSeek if available and safe
+    code_patch_result = None
+    if patch and target_file:
+        try:
+            from src.cognitive_reactor_seq014.cognitive_reactor_seq014_patch_writer_seq011_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook import apply_patch
+            from src.cognitive_reactor_seq014.cognitive_reactor_seq014_decision_maker_seq012_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook import should_apply_patch
+            code_patch_result = apply_patch(
+                root, target_file['path'], patch, module_key,
+                decision_fn=should_apply_patch,
+            )
+        except Exception:
+            # Decomposed imports may fail if filenames mutated — try glob fallback
+            try:
+                import importlib.util, glob
+                pw_files = sorted(glob.glob(str(root / 'src/cognitive_reactor_seq014/*patch_writer*.py')))
+                dm_files = sorted(glob.glob(str(root / 'src/cognitive_reactor_seq014/*decision_maker*.py')))
+                if pw_files and dm_files:
+                    pw_spec = importlib.util.spec_from_file_location('pw', pw_files[-1])
+                    pw_mod = importlib.util.module_from_spec(pw_spec)
+                    pw_spec.loader.exec_module(pw_mod)
+                    dm_spec = importlib.util.spec_from_file_location('dm', dm_files[-1])
+                    dm_mod = importlib.util.module_from_spec(dm_spec)
+                    dm_spec.loader.exec_module(dm_mod)
+                    code_patch_result = pw_mod.apply_patch(
+                        root, target_file['path'], patch, module_key,
+                        decision_fn=dm_mod.should_apply_patch,
+                    )
+            except Exception:
+                pass
+
     # Inject therapy into copilot-instructions (always, not just severe)
     _inject_cognitive_hint(root, module_key, avg_hes, dominant_state, patch, therapy)
+
+    patches_applied = (1 if staged else 0) + (1 if code_patch_result and code_patch_result.get('applied') else 0)
 
     return {
         'fired': True,
@@ -257,7 +289,8 @@ def _fire_reactor(
         'problems': len(problems),
         'patch_path': str(out_path.relative_to(root)),
         'staged_docstring_patch': staged,
-        'patches_applied': 1 if staged else 0,
+        'code_patch': code_patch_result,
+        'patches_applied': patches_applied,
         'therapy': therapy,
     }
 
