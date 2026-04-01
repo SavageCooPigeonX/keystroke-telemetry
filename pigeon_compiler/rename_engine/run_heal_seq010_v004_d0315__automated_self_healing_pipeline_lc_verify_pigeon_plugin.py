@@ -24,13 +24,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from pigeon_compiler.rename_engine.scanner_seq001_v004_d0315__walk_the_project_tree_and_lc_verify_pigeon_plugin import scan_project
-from pigeon_compiler.rename_engine.planner_seq002_v004_d0315__generate_rename_plan_for_non_lc_verify_pigeon_plugin import build_rename_plan
+from pigeon_compiler.rename_engine.planner_seq002_v005_d0401__generate_rename_plan_for_non_lc_confidence_scorer_glyph import build_rename_plan
 from pigeon_compiler.rename_engine.import_rewriter_seq003_v004_d0316__rewrite_all_imports_across_the_lc_import_rewriter_now import rewrite_all_imports
 from pigeon_compiler.rename_engine.executor_seq004_v004_d0315__execute_file_renames_with_rollback_lc_verify_pigeon_plugin import execute_rename
 from pigeon_compiler.rename_engine.validator_seq005_v004_d0315__post_rename_import_validation_lc_verify_pigeon_plugin import validate_imports
+from src._resolve import src_import
 from pigeon_compiler.rename_engine.manifest_builder_seq007_v003_d0314__generate_living_manifest_md_per_lc_desc_upgrade import build_all_manifests
 from pigeon_compiler.rename_engine.compliance_seq008_v004_d0315__line_count_enforcer_split_recommender_lc_verify_pigeon_plugin import audit_compliance
-from pigeon_compiler.rename_engine.nametag_seq011_v003_d0314__encode_file_description_intent_into_lc_desc_upgrade import scan_drift, scan_glyph_drift
+from pigeon_compiler.rename_engine.nametag_seq011_v004_d0401__encode_file_description_intent_into_lc_confidence_scorer_glyph import scan_drift, scan_glyph_drift
 from pigeon_compiler.rename_engine.registry_seq012_v003_d0314__local_name_registry_for_the_lc_desc_upgrade import (
     load_registry, save_registry, build_registry_from_scan,
     bump_all_versions,
@@ -44,14 +45,14 @@ def _load_glyph_context(root: Path) -> tuple[dict, dict, dict]:
     confidence_map: dict[str, str] = {}
     partners: dict[str, list[dict]] = {}
     try:
-        from src.symbol_dictionary_seq031_v002_d0401__symbol_dictionary_generator_for_pigeon_lc_glyph_compiler_symbol import (
+        from src.symbol_dictionary_seq031_v003_d0401__symbol_dictionary_generator_for_pigeon_lc_confidence_scorer_glyph import (
             _MNEMONIC_MAP,
         )
         glyph_map = dict(_MNEMONIC_MAP)
     except Exception:
         pass
     try:
-        from src.confidence_scorer_seq033_v001 import score_module_confidence
+        score_module_confidence = src_import("confidence_scorer_seq033", "score_module_confidence")
         confidence_map = score_module_confidence(root)
     except Exception:
         pass

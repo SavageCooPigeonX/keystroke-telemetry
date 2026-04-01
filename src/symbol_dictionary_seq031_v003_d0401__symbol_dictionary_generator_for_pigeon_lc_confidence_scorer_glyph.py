@@ -9,11 +9,11 @@ architecture vs thousands of tokens reading raw filenames.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 031 | VER: v002 | 453 lines | ~3,737 tokens
+# SEQ: 031 | VER: v003 | 530 lines | ~4,515 tokens
 # DESC:   symbol_dictionary_generator_for_pigeon
-# INTENT: glyph_compiler_symbol
-# LAST:   2026-04-01 @ 51c097d
-# SESSIONS: 1
+# INTENT: confidence_scorer_glyph
+# LAST:   2026-04-01 @ 11eb261
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-04-01T22:00:00+00:00
@@ -29,7 +29,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 try:
-    from src.confidence_scorer_seq033_v001 import (
+    from src.confidence_scorer_seq033_v002_d0401__per_module_copilot_confidence_scorer_lc_confidence_scorer_glyph import (
         score_module_confidence, compute_copilot_meta_state, format_confidence_line,
     )
 except ImportError:

@@ -11,10 +11,10 @@ Also computes a Copilot meta-state line for prompt injection.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 033 | VER: v001 | ~150 lines | ~1,200 tokens
+# SEQ: 033 | VER: v002 | 235 lines | ~1,928 tokens
 # DESC:   per_module_copilot_confidence_scorer
-# INTENT: confidence_scoring
-# LAST:   2026-04-01
+# INTENT: confidence_scorer_glyph
+# LAST:   2026-04-01 @ 11eb261
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

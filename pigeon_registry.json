@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-01T05:09:20.802870+00:00",
-  "total": 263,
+  "generated": "2026-04-01T19:20:25.716056+00:00",
+  "total": 264,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -2613,14 +2613,14 @@
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/nametag_seq011_v003_d0314__encode_file_description_intent_into_lc_desc_upgrade.py",
+      "path": "pigeon_compiler/rename_engine/nametag_seq011_v004_d0401__encode_file_description_intent_into_lc_confidence_scorer_glyph.py",
       "name": "nametag",
       "seq": 11,
-      "ver": 3,
-      "date": "0314",
+      "ver": 4,
+      "date": "0401",
       "desc": "encode_file_description_intent_into",
-      "intent": "desc_upgrade",
-      "tokens": 1924,
+      "intent": "confidence_scorer_glyph",
+      "tokens": 4028,
       "history": [
         {
           "ver": 3,
@@ -2628,18 +2628,26 @@
           "desc": "encode_file_description_intent_into",
           "intent": "desc_upgrade",
           "action": "discovered"
+        },
+        {
+          "ver": 4,
+          "date": "0401",
+          "desc": "encode_file_description_intent_into",
+          "intent": "confidence_scorer_glyph",
+          "action": "mutated",
+          "tokens": 4028
         }
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/planner_seq002_v004_d0315__generate_rename_plan_for_non_lc_verify_pigeon_plugin.py",
+      "path": "pigeon_compiler/rename_engine/planner_seq002_v005_d0401__generate_rename_plan_for_non_lc_confidence_scorer_glyph.py",
       "name": "planner",
       "seq": 2,
-      "ver": 4,
-      "date": "0315",
+      "ver": 5,
+      "date": "0401",
       "desc": "generate_rename_plan_for_non",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 919,
+      "intent": "confidence_scorer_glyph",
+      "tokens": 1380,
       "history": [
         {
           "ver": 3,
@@ -2655,6 +2663,14 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 919
+        },
+        {
+          "ver": 5,
+          "date": "0401",
+          "desc": "generate_rename_plan_for_non",
+          "intent": "confidence_scorer_glyph",
+          "action": "mutated",
+          "tokens": 1380
         }
       ]
     },
@@ -4056,6 +4072,26 @@
           "intent": "mutation_patch_pipeline",
           "action": "mutated",
           "tokens": 5629
+        }
+      ]
+    },
+    {
+      "path": "src/confidence_scorer_seq033_v002_d0401__per_module_copilot_confidence_scorer_lc_confidence_scorer_glyph.py",
+      "name": "confidence_scorer",
+      "seq": 33,
+      "ver": 2,
+      "date": "0401",
+      "desc": "per_module_copilot_confidence_scorer",
+      "intent": "confidence_scorer_glyph",
+      "tokens": 1928,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0401",
+          "desc": "per_module_copilot_confidence_scorer",
+          "intent": "confidence_scorer_glyph",
+          "tokens": 1928,
+          "action": "registered"
         }
       ]
     },
@@ -5503,14 +5539,14 @@
       ]
     },
     {
-      "path": "src/research_lab_seq029_v005_d0401__the_system_studying_the_system_lc_glyph_compiler_symbol.py",
+      "path": "src/research_lab_seq029_v006_d0401__the_system_studying_the_system_lc_confidence_scorer_glyph.py",
       "name": "research_lab",
       "seq": 29,
-      "ver": 5,
+      "ver": 6,
       "date": "0401",
       "desc": "the_system_studying_the_system",
-      "intent": "glyph_compiler_symbol",
-      "tokens": 5065,
+      "intent": "confidence_scorer_glyph",
+      "tokens": 6240,
       "history": [
         {
           "ver": 2,
@@ -5543,6 +5579,14 @@
           "intent": "glyph_compiler_symbol",
           "action": "mutated",
           "tokens": 5065
+        },
+        {
+          "ver": 6,
+          "date": "0401",
+          "desc": "the_system_studying_the_system",
+          "intent": "confidence_scorer_glyph",
+          "action": "mutated",
+          "tokens": 6240
         }
       ]
     },
@@ -6053,14 +6097,14 @@
       ]
     },
     {
-      "path": "src/symbol_dictionary_seq031_v002_d0401__symbol_dictionary_generator_for_pigeon_lc_glyph_compiler_symbol.py",
+      "path": "src/symbol_dictionary_seq031_v003_d0401__symbol_dictionary_generator_for_pigeon_lc_confidence_scorer_glyph.py",
       "name": "symbol_dictionary",
       "seq": 31,
-      "ver": 2,
+      "ver": 3,
       "date": "0401",
       "desc": "symbol_dictionary_generator_for_pigeon",
-      "intent": "glyph_compiler_symbol",
-      "tokens": 3737,
+      "intent": "confidence_scorer_glyph",
+      "tokens": 4497,
       "history": [
         {
           "ver": 2,
@@ -6069,6 +6113,14 @@
           "intent": "glyph_compiler_symbol",
           "tokens": 3737,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0401",
+          "desc": "symbol_dictionary_generator_for_pigeon",
+          "intent": "confidence_scorer_glyph",
+          "action": "mutated",
+          "tokens": 4497
         }
       ]
     },
