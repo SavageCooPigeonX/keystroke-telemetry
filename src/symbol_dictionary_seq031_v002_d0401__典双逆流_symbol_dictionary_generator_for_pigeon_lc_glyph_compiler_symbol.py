@@ -16,9 +16,9 @@ architecture vs thousands of tokens reading raw filenames.
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-04-01T22:00:00+00:00
+# EDIT_TS:   2026-04-02T10:00:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  swap to chinese chars + confidence
+# EDIT_WHY:  add 20 missing module glyphs
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -103,6 +103,41 @@ _MNEMONIC_MAP = {
     'cli': '令',                 # command
     'adapter': '适',             # adapt
     'drift': '偏',               # bias/drift
+    # ── compiler + runner modules ──
+    'node_awakener': '唤',       # awaken
+    'path_selector': '择',       # select/choose
+    'task_writer': '任',         # task
+    'vein_transport': '脉运',    # vein transport
+    'node_conversation': '话',   # conversation
+    'observer_synthesis': '观',  # observe
+    'loop_detector': '环检',     # loop detect
+    'manifest_builder': '谱建',  # build manifest
+    'manifest_bridge': '谱桥',   # bridge manifest
+    'plan_parser': '析',         # parse/analyze
+    'plan_validator': '验',      # verify
+    'resistance_analyzer': '阻',  # resistance
+    'registry': '册',            # registry
+    'run_heal': '追跑',          # heal-run
+    'run_rename': '改名',        # rename
+    'run_pigeon_loop': '鸽环',   # pigeon loop
+    'run_clean_split': '净拆',   # clean split
+    'run_clean_split_helpers': '净助', # clean split helpers
+    'run_clean_split_init': '净初',  # clean split init
+    'run_batch_compile': '批编',  # batch compile
+    'run_compiler_test': '测编',  # test compiler
+    'run_deepseek_plans': '深划',  # deepseek plans
+    'reaudit_diff': '复审',      # re-audit
+    'pq_manifest_utils': '清单',  # manifest utils
+    'press_release_gen_constants': '稿常',  # press constants
+    'press_release_gen_template_builders': '稿建',  # press builders
+    'press_release_gen_template_helpers': '稿助',  # press helpers
+    'nametag': '牌',             # tag/name plate
+    'shared_state_detector': '共态',  # shared state
+    'source_slicer': '切',       # slice
+    'resplit': '重拆',           # re-split
+    'resplit_binpack': '重箱',   # re-split bin
+    'resplit_helpers': '重助',   # re-split helpers
+    'init_writer': '初写',       # init writer
 }
 
 # ── Intent lambda codes ──

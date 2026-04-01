@@ -8,9 +8,9 @@
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-22T20:28:42.5025062Z
+# EDIT_TS:   2026-04-02T06:00:00Z
 # EDIT_HASH: auto
-# EDIT_WHY:  audit duplicate prompt blocks
+# EDIT_WHY:  compressed auto-index with keymap
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -125,7 +125,6 @@ def _render_prompt_block(snapshot: dict) -> str:
 
 
 def _append_infra_index(lines: list[str], root: Path) -> None:
-    # Scan client/, vscode-extension/ AND root-level .py files not already tracked
     infra_dirs = ['client', 'vscode-extension']
     infra_files: dict[str, list[str]] = {}
     for folder in infra_dirs:
@@ -134,24 +133,18 @@ def _append_infra_index(lines: list[str], root: Path) -> None:
             for py_file in sorted(folder_path.glob('*.py')):
                 if py_file.name.startswith('__'):
                     continue
-                infra_files.setdefault(folder, []).append(py_file.name)
-    # Add root-level Python files (non-pigeon, non-dunder)
+                infra_files.setdefault(folder, []).append(py_file.stem)
     root_py = sorted(
-        p.name for p in root.glob('*.py')
+        p.stem for p in root.glob('*.py')
         if not p.name.startswith('__') and '_seq' not in p.name
     )
     if root_py:
         infra_files['(root)'] = root_py
     if not infra_files:
         return
-    lines.append('**Infrastructure (non-pigeon)**')
-    lines.append('')
-    lines.append('| File | Folder |')
-    lines.append('|---|---|')
+    lines.append('**Infra**')
     for folder in sorted(infra_files):
-        for name in infra_files[folder]:
-            lines.append(f'| `{name}` | `{folder}` |')
-    lines.append('')
+        lines.append(f'{folder}: {", ".join(infra_files[folder])}')
 
 
 def _registry_items(registry: dict | None) -> list[tuple[str, dict]]:
@@ -172,34 +165,110 @@ def _registry_items(registry: dict | None) -> list[tuple[str, dict]]:
     return []
 
 
+def _load_keymap(root: Path) -> dict[str, str]:
+    pgd = root / 'dictionary.pgd'
+    if pgd.exists():
+        try:
+            d = json.loads(pgd.read_text('utf-8'))
+            mg = d.get('module_glyphs', {})
+            return {name: glyph for glyph, name in mg.items()}
+        except Exception:
+            pass
+    return {}
+
+
+def _find_glyph(name: str, keymap: dict[str, str]) -> str:
+    if name in keymap:
+        return keymap[name]
+    parts = name.split('_seq')
+    if len(parts) > 1 and parts[0] in keymap:
+        return keymap[parts[0]]
+    for key in sorted(keymap, key=len, reverse=True):
+        if name.startswith(key + '_') or name == key:
+            return keymap[key]
+    return ''
+
+
+def _child_suffix(name: str, parent_name: str) -> str:
+    m = re.match(rf'^{re.escape(parent_name)}_seq\d+_(.+)$', name)
+    if m:
+        return m.group(1)
+    if name.startswith(parent_name + '_'):
+        rest = name[len(parent_name) + 1:]
+        return re.sub(r'^seq\d+_', '', rest) or name
+    return name
+
+
 def _build_auto_index_block(root: Path, registry: dict, processed: int) -> str:
-    groups: dict[str, list] = {}
-    items = _registry_items(registry)
-    for path, entry in items:
+    keymap = _load_keymap(root)
+    items_raw = _registry_items(registry)
+
+    groups: dict[str, list[dict]] = {}
+    seen: set[str] = set()
+    for path, entry in items_raw:
+        name = entry.get('name', '')
+        seq = entry.get('seq', 0)
+        dedup_key = f"{name}_seq{seq:03d}"
+        if dedup_key in seen:
+            continue
+        seen.add(dedup_key)
         folder = str(Path(path).parent).replace('\\', '/')
+        if folder == '.':
+            folder = '(root)'
         groups.setdefault(folder, []).append({
-            'name': entry.get('name', ''),
-            'seq': entry.get('seq', 0),
-            'desc': (entry.get('desc') or '').replace('_', ' ')[:52],
+            'name': name, 'seq': seq,
+            'desc': (entry.get('desc') or '').replace('_', ' ')[:40],
             'tokens': entry.get('tokens', 0),
+            'glyph': _find_glyph(name, keymap),
         })
 
     today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+    total = sum(len(v) for v in groups.values())
     lines = [
         '<!-- pigeon:auto-index -->',
-        f'*Auto-updated {today} - {len(items)} modules tracked | {processed} touched this commit*',
+        f'*{today} · {total} modules · {processed} touched*',
+        '*Key: glyph·seq desc tokens | dictionary decodes glyphs*',
         '',
     ]
+
+    child_folders = set()
+    parent_lookup: dict[str, str] = {}
+    for folder in groups:
+        parts = folder.replace('\\', '/').split('/')
+        if len(parts) >= 2 and '_seq' in parts[-1]:
+            child_folders.add(folder)
+            m = re.match(r'^(\w+)_seq\d+', parts[-1])
+            if m:
+                parent_lookup[folder] = m.group(1)
+
     for folder in sorted(groups.keys()):
-        items = sorted(groups[folder], key=lambda item: (item['seq'], item['name']))
-        lines.append(f'**{folder}/** - {len(items)} module(s)')
-        lines.append('')
-        lines.append('| Search pattern | Desc | Tokens |')
-        lines.append('|---|---|---:|')
-        for item in items:
-            pattern = f'`{item["name"]}_seq{item["seq"]:03d}*`'
-            lines.append(f'| {pattern} | {item["desc"]} | ~{item["tokens"]:,} |')
-        lines.append('')
+        folder_items = sorted(groups[folder], key=lambda x: (x['seq'], x['name']))
+        if folder in child_folders:
+            parent_name = parent_lookup.get(folder, '')
+            g = _find_glyph(parent_name, keymap) if parent_name else ''
+            total_tok = sum(i['tokens'] for i in folder_items)
+            tok_s = f"{total_tok/1000:.1f}K" if total_tok >= 1000 else str(total_tok)
+            children = ' '.join(
+                f"{_child_suffix(i['name'], parent_name)}({i['seq']})"
+                for i in folder_items
+            )
+            lines.append(f'  {g}└ {children} [{tok_s}]' if g else f'  └ {children} [{tok_s}]')
+        else:
+            child_count = sum(
+                len(groups.get(cf, []))
+                for cf in child_folders if cf.startswith(folder + '/')
+            )
+            lines.append(f'**{folder}** ({len(folder_items) + child_count})')
+            for item in folder_items:
+                g = item['glyph']
+                desc = item['desc']
+                if desc in ('auto extracted by pigeon compiler', 'pigeon extracted by compiler'):
+                    desc = ''
+                tok = item['tokens']
+                tok_s = f"{tok/1000:.1f}K" if tok >= 1000 else str(tok)
+                label = g or item['name'][:16]
+                lines.append(f'{label}{item["seq"]} {desc} {tok_s}'.rstrip())
+            lines.append('')
 
     _append_infra_index(lines, root)
     lines.append('<!-- /pigeon:auto-index -->')

@@ -130,43 +130,48 @@ Three systems working together:
 
 
 
+
+
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Enriched 2026-04-01 06:09 UTC · raw: "can you make it run - i also want it to read like a prediction report"*
+*Enriched 2026-04-01 22:43 UTC · raw: "test enricher firing from journal"*
 
-**COPILOT_QUERY: Execute the `research` module, ensuring it runs successfully. After execution, format the output of the `research` module to resemble a `prediction report`, similar to the structure found in `electron_death_classification_port_of`. Focus on resolving any execution failures related to `research` and `failure_accumulator_per_node_port`.**
+**COPILOT_QUERY: Investigate the `generates_execution_telemetry_from_the` module to confirm if the `enricher` component is correctly processing and firing events from the `journal` data stream. Specifically, verify the integration points and data flow between the journal and the enricher, ensuring telemetry is generated as expected after the recent renaming and restructuring efforts.**
 
-INTERPRETED INTENT: The operator wants to successfully run a specific `research` module that previously failed to generate a report, and then format its output as a predictive analysis.
-KEY FILES: electron_death_classification_port_of, failure_accumulator_per_node_port, recurring_path_detection_port_of, coaching_from_execution_patterns_port, file_heat_map, import_rewriter, file_writer, self_fix
-PRIOR ATTEMPTS: The operator previously tried to identify which modules didn't run, specifically noting that "research didn't gen rep," indicating a module execution or report generation failure.
-WATCH OUT FOR: Copilot must not just run the module but also address the underlying failure that prevented the report generation, likely involving `failure_accumulator_per_node_port`.
-OPERATOR SIGNAL: The deletion of "fix al" before "can you make it run" suggests an initial broader intent to "fix all" issues, narrowed down to making a specific module run and report.
+INTERPRETED INTENT: The operator wants to verify the functionality of a specific data enrichment process, likely related to telemetry generation, after recent code restructuring.
+KEY FILES: generates_execution_telemetry_from_the, extract_the_cognition_graph_from, coaching_from_execution_patterns_port, file_heat_map, import_rewriter, file_writer, init_writer, context_budget
+PRIOR ATTEMPTS: none
+WATCH OUT FOR: Ensure the solution accounts for the recent renaming and restructuring, as previous prompts indicate issues with naming consistency and token efficiency.
+OPERATOR SIGNAL: The operator is testing a core system component after significant refactoring, indicating a need to validate that critical data processing (enrichment, telemetry) is still functional and correctly integrated.
 <!-- /pigeon:current-query -->
 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-01 21:47 UTC · 57 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-01 23:04 UTC · 66 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 49.0 | Del: 26.5% | Hes: 0.491) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 49.6 | Del: 26.5% | Hes: 0.491) · *[source: measured]*
 
-**Prompt ms:** 22457, 4255, 371727, 4935, 16057 (avg 83886ms)
+**Prompt ms:** 1122940, 7075, 89284, 84445, 186199 (avg 297989ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- **Reconstructed intent:** The rename operation should not
-  - *(deleted: renam | ratio: 35%)*
-- **Reconstructed intent:** The rename shouldn'
-  - *(deleted: renam | ratio: 35%)*
-- **Reconstructed intent:** Execute a rename
-  - *(deleted: explored | ratio: 1%)*
+- **Reconstructed intent:** check copilot instruction for accuracy post rename - audit how much more compression we can get - theres still lots of compression we can do in python files imo using keys - and we could even ginger could even - noticed the rephrased isint firing on every prompt.
+  - *(deleted: ginger, coul | ratio: 7%)*
+- **Reconstructed intent:** check copilot instruction for accuracy post rename - audit how much more compression we can get - theres still lots of coding even we can do in python files imo using keys - and we could even, could even - noticed the rephrased isint firing on every prompt. also find deleted word in this prompt: ginger
+  - *(deleted:  | ratio: 0%)*
+- **Reconstructed intent:** Go deeper into my key
+  - *(deleted: okay kill im talking about proces | ratio: 5%)*
 
-- "renam"
 - "explored"
+- "d eve"
+- "coul"
+- "ginger"
+- "okay kill im talking about proce"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
@@ -180,7 +185,6 @@ OPERATOR SIGNAL: The deletion of "fix al" before "can you make it run" suggests 
 - `aa32a3f` chore: add Chinese glyph prefixes to 245 pigeon modules
 - `11eb261` feat: confidence scorer + glyph rename pipeline + research lab prediction voice
 - `51c097d` feat: glyph compiler + symbol dictionary + response canonicalization + doc audit
-- `a9e145a` feat: mutation/patch pipeline + pair dynamics research report
 
 ### Coaching Directives *[source: llm_derived]*
 *LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
@@ -209,7 +213,7 @@ OPERATOR SIGNAL: The deletion of "fix al" before "can you make it run" suggests 
 - [CRITICAL] hardcoded_import in `pigeon_brain/live_server_seq012_v003_d0324__服漂忆思_websocket_server_for_live_execution_lc_8888_word_backpropagation.py`
 
 ### Prompt Evolution
-*This prompt has mutated 92x (186→1085 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 93x (186→835 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
 *200 rework pairs × 92 mutations scored*
@@ -344,6 +348,23 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 
 **Vocabulary fingerprint:** to, i, is, it, with, this, my, on, what, the
 <!-- /pigeon:voice-style -->
+<!-- pigeon:intent-simulation -->
+## Intent Simulation
+
+*Auto-generated 2026-04-01 22:00 UTC · zero LLM calls*
+
+**1 week:** `infrastructure` (conf=high) — ~48 commits
+**1 month:** `infrastructure` (conf=medium) — ~197 commits
+**3 months:** `infrastructure` (conf=speculative) — themes: for, signals, fix al
+
+**PM Directives:**
+- Intent bifurcation: `infrastructure` dominant but `telemetry` emerging — watch for context switches mid-session.
+- `self_heal` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
+- Unsaid themes detected: `for`, `signals`, `fix al` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
+- Module focus cluster: `file_heat_map`, `import_rewriter`, `file_writer` — pre-load context from these modules when operator starts typing.
+
+<!-- /pigeon:intent-simulation -->
+
 <!-- pigeon:predictions -->
 ## Push Cycle Predictions
 
@@ -368,7 +389,7 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-01 · 57 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-01 · 66 message(s) · LLM-synthesized*
 
 **Dominant: `focused`** | Submit: 66% | WPM: 52.9 | Del: 25.6% | Hes: 0.445
 
@@ -397,46 +418,28 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-04-01T06:09:24.051321+00:00",
+  "updated_at": "2026-04-01T22:43:40.754481+00:00",
   "latest_prompt": {
-    "session_n": 24,
-    "ts": "2026-04-01T06:09:24.051321+00:00",
-    "chars": 69,
-    "preview": "can you make it run - i also want it to read like a prediction report",
-    "intent": "building",
-    "state": "neutral",
+    "session_n": 99,
+    "ts": "2026-04-01T22:43:40.754481+00:00",
+    "chars": 33,
+    "preview": "test enricher firing from journal",
+    "intent": "testing",
+    "state": "unknown",
     "files_open": [
-      "pigeon_compiler/cut_executor/manifest_writer_seq005_v004_d0315__generate_manifest_md_for_a_lc_verify_pigeon_plugin.py"
+      ".github/copilot-instructions.md"
     ],
     "module_refs": []
   },
-  "signals": {
-    "wpm": 0.6,
-    "chars_per_sec": 0.0,
-    "deletion_ratio": 0.189,
-    "hesitation_count": 1,
-    "rewrite_count": 1,
-    "typo_corrections": 0,
-    "intentional_deletions": 1,
-    "total_keystrokes": 95,
-    "duration_ms": 1903934
-  },
+  "signals": {},
   "composition_binding": {
-    "matched": true,
-    "source": "chat_compositions",
-    "age_ms": 43377,
-    "key": "|||2026-04-01T06:08:40.674581+00:00|95|1903934|can you make it run - i also want it to read like a prediction report ",
-    "match_score": 1.0
+    "matched": false,
+    "source": null,
+    "age_ms": null,
+    "key": null
   },
-  "deleted_words": [
-    "fix al"
-  ],
-  "rewrites": [
-    {
-      "old": "fix all",
-      "new": "can you make it run - i also want it to read like a prediction report "
-    }
-  ],
+  "deleted_words": [],
+  "rewrites": [],
   "task_queue": {
     "total": 0,
     "in_progress": [],
@@ -458,33 +461,33 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 176,
-    "avg_wpm": 15.6,
-    "avg_del_ratio": 0.043,
+    "total_prompts": 194,
+    "avg_wpm": 13.9,
+    "avg_del_ratio": 0.046,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 113,
-      "hesitant": 25,
+      "unknown": 123,
+      "hesitant": 29,
       "focused": 25,
-      "frustrated": 9,
-      "neutral": 3
+      "frustrated": 12,
+      "neutral": 4
     },
     "baselines": {
-      "n": 36,
-      "avg_wpm": 52.3,
+      "n": 63,
+      "avg_wpm": 52.9,
       "avg_del": 0.259,
-      "avg_hes": 0.449,
-      "sd_wpm": 14.2,
+      "avg_hes": 0.448,
+      "sd_wpm": 14.5,
       "sd_del": 0.231,
-      "sd_hes": 0.165
+      "sd_hes": 0.164
     }
   },
   "coaching_directives": [
-    "Anticipate deep structural changes",
-    "When they hesitate (avg 0.445s) during heavy edits",
-    "For the 6% miss-rate queries",
-    "Preempt context-budget issues",
-    "During evening/night sessions"
+    "Anticipate cross-module edits:",
+    "Pre-empt restructuring fatigue:",
+    "Bridge abandoned thoughts:",
+    "Leverage low miss-rate confidence:",
+    "Focus on integration points:"
   ]
 }
 ```
@@ -643,443 +646,190 @@ c1f79553 chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
 ```
 <!-- /pigeon:dictionary -->
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-04-01 - 266 modules tracked | 13 touched this commit*
+*2026-04-01 · 242 modules · 0 touched*
+*Key: glyph·seq desc tokens | dictionary decodes glyphs*
 
-**pigeon_brain/** - 16 module(s)
+**pigeon_brain** (42)
+型1 isomorphic to keystroke models 424
+读2 isomorphic to telemetrylogger for agent 1.6K
+图3 extract the cognition graph from 1.7K
+描4 failure accumulator per node port 874
+环检5 recurring path detection port of 910
+缩6 electron death classification port of 1.0K
+观7 coaching from execution patterns port 1.5K
+双8 merges human and agent telemetry 1.3K
+令9 build graph run observer export 855
+仿10 generates execution telemetry from the 1.3K
+钩11 instruments python calls between pigeon 959
+服12 websocket server for live execution 2.5K
+跑13 run any python script with 855
 
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `models_seq001*` | isomorphic to keystroke models | ~424 |
-| `execution_logger_seq002*` | isomorphic to telemetrylogger for agent | ~1,626 |
-| `graph_extractor_seq003*` | extract the cognition graph from | ~1,744 |
-| `graph_extractor_seq003*` | extract the cognition graph from | ~1,744 |
-| `graph_heat_map_seq004*` | failure accumulator per node port | ~874 |
-| `loop_detector_seq005*` | recurring path detection port of | ~910 |
-| `failure_detector_seq006*` | electron death classification port of | ~1,018 |
-| `observer_synthesis_seq007*` | coaching from execution patterns port | ~1,489 |
-| `dual_substrate_seq008*` | merges human and agent telemetry | ~1,314 |
-| `cli_seq009*` | build graph run observer export | ~855 |
-| `demo_sim_seq010*` | generates execution telemetry from the | ~1,276 |
-| `trace_hook_seq011*` | instruments python calls between pigeon | ~959 |
-| `live_server_seq012*` | websocket server for live execution | ~2,495 |
-| `live_server_seq012*` | websocket server for live execution | ~2,857 |
-| `live_server_seq012*` | websocket server for live execution | ~2,857 |
-| `traced_runner_seq013*` | run any python script with | ~855 |
+**pigeon_brain/flow** (42)
+包1 the contextpacket is the unit 1.0K
+唤2 when a packet arrives at 1.3K
+流3 the flow engine is the 1.3K
+择4 path selection is the real 1.4K
+任5 the river delta where all 1.6K
+脉运6 as a packet flows along 965
+逆7 backward pass walks electron path 2.5K
+存8 the experience vault stores raw 2.1K
+预9 fires phantom electrons using cognitive 1.8K
+分10 the roadmap writer synthesizes the 1.5K
+话12 the interpretability interface lets the 1.4K
+学13 the perpetual learning loop 2.9K
+算14 edit session based 5.8K
 
-**pigeon_brain/flow/** - 18 module(s)
+  逆└ flow_log(1) loss_compute(2) tokenize(3) deepseek_analyze(4) backward_pass(5) [2.6K]
+  学└ state_utils(1) journal_loader(2) prediction_cycle(3) single_cycle_helpers(4) single_cycle(5) catch_up(6) loop_helpers(7) main_loop(8) [3.3K]
+  算└ constants(1) path_utils(2) data_loaders(3) scores_io(3) reality_loaders(4) module_extractor(5) edit_session_analyzer(6) rework_matcher(7) scoring_core(8) calibration(9) node_backfill(10) post_edit_scorer(11) post_commit_scorer(12) [5.1K]
+  预└ confidence(3) trend_extractor(4) predictor(7) [1.8K]
+**pigeon_compiler/bones** (5)
+规1 extracted from hush aim py 724
+联1 extracted from hush chat core 1.3K
+NL1 extracted from hush nl detection 1.8K
+清单1 extracted from hush pre query 879
+PQ1 extracted from hush pre query 3.3K
 
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `context_packet_seq001*` | the contextpacket is the unit | ~1,033 |
-| `node_awakener_seq002*` | when a packet arrives at | ~1,252 |
-| `flow_engine_seq003*` | the flow engine is the | ~1,316 |
-| `path_selector_seq004*` | path selection is the real | ~1,373 |
-| `task_writer_seq005*` | the river delta where all | ~1,558 |
-| `vein_transport_seq006*` | as a packet flows along | ~965 |
-| `backward_seq007*` | backward pass walks electron path | ~2,502 |
-| `backward_seq007*` | backward pass walks electron path | ~2,500 |
-| `node_memory_seq008*` | the experience vault stores raw | ~2,084 |
-| `predictor_seq009*` | fires phantom electrons using cognitive | ~1,831 |
-| `predictor_seq009*` | fires phantom electrons using cognitive | ~2,506 |
-| `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,532 |
-| `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,539 |
-| `dev_plan_seq010*` | the roadmap writer synthesizes the | ~1,541 |
-| `node_conversation_seq012*` | the interpretability interface lets the | ~1,422 |
-| `node_conversation_seq012*` | the interpretability interface lets the | ~1,428 |
-| `learning_loop_seq013*` | the perpetual learning loop | ~2,881 |
-| `prediction_scorer_seq014*` | edit session based | ~5,797 |
+**pigeon_compiler/cut_executor** (12)
+析1 parse deepseek json from raw 371
+切2 extract functions constants from source 486
+写3 write new pigeon compliant files 783
+踪4 update imports across the project 505
+MA5 generate manifest md for a 448
+验6 validate cut plan before execution 579
+初写7 generate init py for split 361
+译8 decompose oversized functions via deepse 644
+重拆9 deterministic ast bin packing re 841
+重拆10 bin packing file writing for 702
+重拆11 shared helpers for re splitter 501
+织13 decompose oversized classes via deepseek 2.0K
 
-**pigeon_brain/flow/backward_seq007/** - 7 module(s)
+**pigeon_compiler/integrations** (1)
+谱1 deepseek api client 1.2K
 
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `backward_seq007_flow_log_seq001*` | auto extracted by pigeon compiler | ~423 |
-| `backward_seq007_loss_compute_seq002*` | auto extracted by pigeon compiler | ~187 |
-| `backward_seq007_tokenize_seq003*` | auto extracted by pigeon compiler | ~307 |
-| `backward_seq007_deepseek_analyze_seq004*` | auto extracted by pigeon compiler | ~772 |
-| `backward_seq007_deepseek_analyze_seq004*` | auto extracted by pigeon compiler | ~774 |
-| `backward_seq007_backward_pass_seq005*` | auto extracted by pigeon compiler | ~908 |
-| `backward_seq007_backward_pass_seq005*` | auto extracted by pigeon compiler | ~910 |
+**pigeon_compiler/rename_engine** (22)
+扫1 walk the project tree and 972
+PL2 generate rename plan for non 1.4K
+引3 rewrite all imports across the 1.8K
+压4 execute file renames with rollback 712
+审5 post rename import validation 921
+改名6 full rename pipeline runner 1.4K
+谱建7 generate living manifest md per 2.9K
+正8 line count enforcer split recommender 1.7K
+追9 self healing orchestrator 2.0K
+追跑10 automated self healing pipeline 3.4K
+牌11 encode file description intent into 4.1K
+册12 local name registry for the 2.1K
 
-**pigeon_brain/flow/learning_loop_seq013/** - 14 module(s)
+  正└ helpers(2) classify(3) recommend_wrapper(6) audit_decomposed(7) audit_wrapper(9) check_file(10) format_report(11) [2.9K]
+  追└ orchestrator(5) [725]
+  牌└ scan(8) [298]
+  册└ diff(6) [194]
+**pigeon_compiler/runners** (9)
+测编7 self test pigeon compiler on 594
+深划8 phase 2 send ether maps 587
+鸽环9 the loop refactor until pigeon 2.8K
+净拆10 full clean pipeline deepseek plan 2.5K
+净拆11 helpers for run clean split 566
+净拆12 init manifest writers for clean 1.7K
+谱桥13 update master manifest md after 1.0K
+复审14 re audit with diff across 1.7K
+批编15 compile entire codebase to pigeon 2.0K
 
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `learning_loop_seq013_state_utils_seq001*` | auto extracted by pigeon compiler | ~284 |
-| `learning_loop_seq013_journal_loader_seq002*` | auto extracted by pigeon compiler | ~192 |
-| `learning_loop_seq013_prediction_cycle_seq003*` | auto extracted by pigeon compiler | ~415 |
-| `learning_loop_seq013_prediction_cycle_seq003*` | auto extracted by pigeon compiler | ~431 |
-| `learning_loop_seq013_prediction_cycle_seq003*` | auto extracted by pigeon compiler | ~431 |
-| `learning_loop_seq013_single_cycle_helpers_seq004*` | auto extracted by pigeon compiler | ~25 |
-| `learning_loop_seq013_single_cycle_seq005*` | auto extracted by pigeon compiler | ~880 |
-| `learning_loop_seq013_single_cycle_seq005*` | auto extracted by pigeon compiler | ~896 |
-| `learning_loop_seq013_single_cycle_seq005*` | auto extracted by pigeon compiler | ~896 |
-| `learning_loop_seq013_catch_up_seq006*` | auto extracted by pigeon compiler | ~431 |
-| `learning_loop_seq013_catch_up_seq006*` | auto extracted by pigeon compiler | ~431 |
-| `learning_loop_seq013_loop_helpers_seq007*` | auto extracted by pigeon compiler | ~23 |
-| `learning_loop_seq013_main_loop_seq008*` | auto extracted by pigeon compiler | ~1,044 |
-| `learning_loop_seq013_main_loop_seq008*` | auto extracted by pigeon compiler | ~1,044 |
+**pigeon_compiler/runners/compiler_output/press_release_gen** (8)
+press_release_ge1  641
+press_release_ge1  626
+press_release_ge1  661
+press_release_ge2  388
+press_release_ge2  662
+press_release_ge2  296
+press_release_ge3  296
+PR3  626
 
-**pigeon_brain/flow/prediction_scorer_seq014/** - 16 module(s)
+**pigeon_compiler/state_extractor** (6)
+查1 parse python file into function 734
+演2 build intra file call graph 847
+IM3 trace imports inbound and outbound 792
+共态4 detect module level shared state 618
+阻5 classify why a file resists 1.0K
+拆6 assemble full ether map json 697
 
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `prediction_scorer_seq014_constants_seq001*` | auto extracted by pigeon compiler | ~73 |
-| `prediction_scorer_seq014_path_utils_seq002*` | auto extracted by pigeon compiler | ~79 |
-| `prediction_scorer_seq014_data_loaders_seq003*` | auto extracted by pigeon compiler | ~514 |
-| `prediction_scorer_seq014_scores_io_seq003*` | auto extracted by pigeon compiler | ~181 |
-| `prediction_scorer_seq014_reality_loaders_seq004*` | auto extracted by pigeon compiler | ~374 |
-| `prediction_scorer_seq014_module_extractor_seq005*` | auto extracted by pigeon compiler | ~112 |
-| `prediction_scorer_seq014_edit_session_analyzer_seq006*` | auto extracted by pigeon compiler | ~187 |
-| `prediction_scorer_seq014_rework_matcher_seq007*` | auto extracted by pigeon compiler | ~460 |
-| `prediction_scorer_seq014_scoring_core_seq008*` | auto extracted by pigeon compiler | ~713 |
-| `prediction_scorer_seq014_calibration_seq009*` | auto extracted by pigeon compiler | ~419 |
-| `prediction_scorer_seq014_node_backfill_seq010*` | auto extracted by pigeon compiler | ~496 |
-| `prediction_scorer_seq014_node_backfill_seq010*` | auto extracted by pigeon compiler | ~499 |
-| `prediction_scorer_seq014_post_edit_scorer_seq011*` | auto extracted by pigeon compiler | ~839 |
-| `prediction_scorer_seq014_post_edit_scorer_seq011*` | auto extracted by pigeon compiler | ~841 |
-| `prediction_scorer_seq014_post_commit_scorer_seq012*` | auto extracted by pigeon compiler | ~605 |
-| `prediction_scorer_seq014_post_commit_scorer_seq012*` | auto extracted by pigeon compiler | ~607 |
+**pigeon_compiler/weakness_planner** (1)
+核4 build and send deepseek cut 2.4K
 
-**pigeon_brain/flow/predictor_seq009/** - 3 module(s)
+**src** (101)
+时1 millisecond epoch timestamp utility 156
+型2 dataclasses for keystroke events and 379
+录3 core keystroke telemetry logger 1.6K
+境4 context budget scorer for llm 715
+偏5 drift detection for live llm 1.1K
+桥6 bridge between keystroke telemetry and 1.2K
+层7 monolithic live streaming interface for 10.2K
+漂8 persistent markdown memory file 4.7K
+控8 persistent markdown memory file 5.0K
+测9 measures ai answer quality from 1.1K
+忆10 recurring query detector unsaid thought 2.3K
+热11 tracks cognitive load per module 1.3K
+叙12 generate per push narrative each 2.1K
+修13 one shot self fix analyzer 5.8K
+思14 cognitive reactor autonomous code modifi 5.6K
+脉15 pulse harvest pairs prompts to 2.3K
+推17 steers copilot cot from live 4.0K
+队18 copilot driven task tracking linked 1.6K
+觉19 ast derived function consciousness datin 4.3K
+管20 audits and manages all injected 4.5K
+变21 mutation scorer correlates prompt mutati 1.6K
+补22 reconstructs historical rework scores fr 1.2K
+递23 session handoff summary generator 1.6K
+隐24 fires on high deletion prompts 1.3K
+环25 the push is the unit 4.8K
+片26 local memory shard manager markdown 4.4K
+合26 joins all telemetry into canonical 2.1K
+路27 shard relevance scorer context injector 1.2K
+对27 training pair generator for the 2.6K
+训28 end of prompt training pair 2.1K
+声28 voice style personality adapter 3.2K
+研29 the system studying the system 5.1K
+警30 copilot self diagnostic detect stale 1.7K
+典31 symbol dictionary generator for pigeon 3.7K
+编32 glyph compiler python maximum symbolic 5.0K
 
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `predictor_seq009_confidence_seq003*` | auto extracted by pigeon compiler | ~419 |
-| `predictor_seq009_trend_extractor_seq004*` | auto extracted by pigeon compiler | ~865 |
-| `predictor_seq009_predictor_seq007*` | auto extracted by pigeon compiler | ~544 |
+**src/cognitive** (10)
+适1 cognitive state agent behavior adapter 1.3K
+隐2 detects what operators meant but 2.1K
+偏3 tracks operator typing patterns across 2.3K
 
-**pigeon_compiler/bones/** - 5 module(s)
+  偏└ baseline_store(1) compute_baseline(2) detect_session_drift(3) build_cognitive_context(4) [2.4K]
+  隐└ helpers(1) diff(2) orchestrator(3) [2.3K]
+  思└ constants(1) state_ops(2) docstring_patch(3) cognitive_hint(4) patch_generator(5) prompt_builder(6) api_client(7) reactor_core(8) registry_loader(9) self_fix_runner(10) patch_writer(11) decision_maker(12) [4.9K]
+  管└ constants(1) block_utils(2) json_utils(3) operator_profile(4) auto_index(5) operator_state_decomposed(6) telemetry_utils(7) audit_decomposed(8) injectors(9) orchestrator(10) [4.6K]
+  觉└ helpers(1) persistence(2) report(3) audit(4) derivation(5) dependencies(6) classify(7) profile_builder(8) main_orchestrator(9) dating_decomposed(10) dating_helpers(11) dating_wrapper(12) [5.0K]
+  环└ constants(1) loaders(2) signal_extractors(3) sync_decomposed(4) coaching(5) moon_cycle(6) predictions_injector_decomposed(7) orchestrator_decomposed(8) [4.5K]
+  忆└ constants(1) fingerprint(2) trigram_utils(3) clustering(4) record_query(5) load_memory_decomposed(6) [1.4K]
+  修└ scan_hardcoded(1) scan_query_noise(2) scan_duplicate_docstrings(3) scan_cross_file_coupling(4) scan_over_hard_cap_decomposed(5) scan_dead_exports_decomposed(6) write_report_decomposed(7) run_self_fix_decomposed(8) auto_compile_oversized_decomposed(9) seq_base(10) auto_apply_import_fixes_decomposed(11) [6.0K]
+**streaming_layer** (19)
+层1  261
+层2  204
+层4  717
+层4  546
+层5  969
+层5  247
+层6  934
+层6  154
+层7  824
+层8  1.4K
+层9  932
+层10  858
+层11  1.2K
+层13  456
+层13  365
+层14  280
+层14  256
+层16  1.4K
+层17  142
 
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `aim_utils_seq001*` | extracted from hush aim py | ~724 |
-| `core_formatters_seq001*` | extracted from hush chat core | ~1,291 |
-| `nl_parsers_seq001*` | extracted from hush nl detection | ~1,844 |
-| `pq_manifest_utils_seq001*` | extracted from hush pre query | ~879 |
-| `pq_search_utils_seq001*` | extracted from hush pre query | ~3,279 |
-
-**pigeon_compiler/cut_executor/** - 12 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `plan_parser_seq001*` | parse deepseek json from raw | ~371 |
-| `source_slicer_seq002*` | extract functions constants from source | ~486 |
-| `file_writer_seq003*` | write new pigeon compliant files | ~783 |
-| `import_fixer_seq004*` | update imports across the project | ~505 |
-| `manifest_writer_seq005*` | generate manifest md for a | ~448 |
-| `plan_validator_seq006*` | validate cut plan before execution | ~579 |
-| `init_writer_seq007*` | generate init py for split | ~361 |
-| `func_decomposer_seq008*` | decompose oversized functions via deepseek | ~644 |
-| `resplit_seq009*` | deterministic ast bin packing re | ~841 |
-| `resplit_binpack_seq010*` | bin packing file writing for | ~702 |
-| `resplit_helpers_seq011*` | shared helpers for re splitter | ~501 |
-| `class_decomposer_seq013*` | decompose oversized classes via deepseek | ~1,959 |
-
-**pigeon_compiler/integrations/** - 1 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `deepseek_adapter_seq001*` | deepseek api client | ~1,180 |
-
-**pigeon_compiler/rename_engine/** - 12 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `scanner_seq001*` | walk the project tree and | ~972 |
-| `planner_seq002*` | generate rename plan for non | ~1,381 |
-| `import_rewriter_seq003*` | rewrite all imports across the | ~1,750 |
-| `executor_seq004*` | execute file renames with rollback | ~712 |
-| `validator_seq005*` | post rename import validation | ~921 |
-| `run_rename_seq006*` | full rename pipeline runner | ~1,388 |
-| `manifest_builder_seq007*` | generate living manifest md per | ~2,927 |
-| `compliance_seq008*` | line count enforcer split recommender | ~1,673 |
-| `heal_seq009*` | self healing orchestrator | ~2,049 |
-| `run_heal_seq010*` | automated self healing pipeline | ~3,431 |
-| `nametag_seq011*` | encode file description intent into | ~4,052 |
-| `registry_seq012*` | local name registry for the | ~2,131 |
-
-**pigeon_compiler/rename_engine/compliance_seq008/** - 7 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `compliance_seq008_helpers_seq002*` | auto extracted by pigeon compiler | ~227 |
-| `compliance_seq008_classify_seq003*` | auto extracted by pigeon compiler | ~160 |
-| `compliance_seq008_recommend_wrapper_seq006*` | auto extracted by pigeon compiler | ~603 |
-| `compliance_seq008_audit_decomposed_seq007*` | auto extracted by pigeon compiler | ~638 |
-| `compliance_seq008_audit_wrapper_seq009*` | auto extracted by pigeon compiler | ~653 |
-| `compliance_seq008_check_file_seq010*` | auto extracted by pigeon compiler | ~311 |
-| `compliance_seq008_format_report_seq011*` | auto extracted by pigeon compiler | ~320 |
-
-**pigeon_compiler/rename_engine/heal_seq009/** - 1 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `heal_seq009_orchestrator_seq005*` | auto extracted by pigeon compiler | ~725 |
-
-**pigeon_compiler/rename_engine/nametag_seq011/** - 1 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `nametag_seq011_scan_seq008*` | auto extracted by pigeon compiler | ~298 |
-
-**pigeon_compiler/rename_engine/registry_seq012/** - 1 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `registry_seq012_diff_seq006*` | auto extracted by pigeon compiler | ~194 |
-
-**pigeon_compiler/runners/** - 9 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `run_compiler_test_seq007*` | self test pigeon compiler on | ~594 |
-| `run_deepseek_plans_seq008*` | phase 2 send ether maps | ~587 |
-| `run_pigeon_loop_seq009*` | the loop refactor until pigeon | ~2,836 |
-| `run_clean_split_seq010*` | full clean pipeline deepseek plan | ~2,509 |
-| `run_clean_split_helpers_seq011*` | helpers for run clean split | ~566 |
-| `run_clean_split_init_seq012*` | init manifest writers for clean | ~1,663 |
-| `manifest_bridge_seq013*` | update master manifest md after | ~1,016 |
-| `reaudit_diff_seq014*` | re audit with diff across | ~1,732 |
-| `run_batch_compile_seq015*` | compile entire codebase to pigeon | ~1,999 |
-
-**pigeon_compiler/runners/compiler_output/press_release_gen/** - 8 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `press_release_gen_constants_seq001_v001_seq001*` | pigeon extracted by compiler | ~641 |
-| `press_release_gen_template_builders_seq002_v001_seq001*` | pigeon extracted by compiler | ~626 |
-| `press_release_gen_template_helpers_seq004_v001_seq001*` | pigeon extracted by compiler | ~661 |
-| `press_release_gen_constants_seq001_v001_seq002*` | pigeon extracted by compiler | ~388 |
-| `press_release_gen_template_builders_seq002_v001_seq002*` | pigeon extracted by compiler | ~662 |
-| `press_release_gen_template_helpers_seq004_v001_seq002*` | pigeon extracted by compiler | ~296 |
-| `press_release_gen_template_builders_seq002_v001_seq003*` | pigeon extracted by compiler | ~296 |
-| `press_release_gen_template_key_findings_seq003*` | auto extracted by pigeon compiler | ~626 |
-
-**pigeon_compiler/state_extractor/** - 6 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `ast_parser_seq001*` | parse python file into function | ~734 |
-| `call_graph_seq002*` | build intra file call graph | ~847 |
-| `import_tracer_seq003*` | trace imports inbound and outbound | ~792 |
-| `shared_state_detector_seq004*` | detect module level shared state | ~618 |
-| `resistance_analyzer_seq005*` | classify why a file resists | ~1,037 |
-| `ether_map_builder_seq006*` | assemble full ether map json | ~697 |
-
-**pigeon_compiler/weakness_planner/** - 1 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `deepseek_plan_prompt_seq004*` | build and send deepseek cut | ~2,407 |
-
-**src/** - 40 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `timestamp_utils_seq001*` | millisecond epoch timestamp utility | ~156 |
-| `models_seq002*` | dataclasses for keystroke events and | ~379 |
-| `logger_seq003*` | core keystroke telemetry logger | ~1,636 |
-| `context_budget_seq004*` | context budget scorer for llm | ~715 |
-| `drift_watcher_seq005*` | drift detection for live llm | ~1,117 |
-| `resistance_bridge_seq006*` | bridge between keystroke telemetry and | ~1,222 |
-| `streaming_layer_seq007*` | monolithic live streaming interface for | ~10,189 |
-| `.operator_stats_seq008*` | persistent markdown memory file | ~4,711 |
-| `.operator_stats_seq008*` | persistent markdown memory file | ~4,672 |
-| `operator_stats_seq008*` | persistent markdown memory file | ~4,954 |
-| `rework_detector_seq009*` | measures ai answer quality from | ~1,083 |
-| `query_memory_seq010*` | recurring query detector unsaid thought | ~2,308 |
-| `file_heat_map_seq011*` | tracks cognitive load per module | ~1,347 |
-| `push_narrative_seq012*` | generate per push narrative each | ~2,089 |
-| `push_narrative_seq012*` | generate per push narrative each | ~2,088 |
-| `self_fix_seq013*` | one shot self fix analyzer | ~5,846 |
-| `cognitive_reactor_seq014*` | cognitive reactor autonomous code modification | ~5,629 |
-| `pulse_harvest_seq015*` | pulse harvest pairs prompts to | ~2,276 |
-| `dynamic_prompt_seq017*` | steers copilot cot from live | ~3,996 |
-| `dynamic_prompt_seq017*` | steers copilot cot from live | ~3,996 |
-| `dynamic_prompt_seq017*` | steers copilot cot from live | ~5,239 |
-| `task_queue_seq018*` | copilot driven task tracking linked | ~1,608 |
-| `file_consciousness_seq019*` | ast derived function consciousness dating | ~4,343 |
-| `copilot_prompt_manager_seq020*` | audits and manages all injected | ~4,488 |
-| `mutation_scorer_seq021*` | mutation scorer correlates prompt mutations | ~1,611 |
-| `rework_backfill_seq022*` | reconstructs historical rework scores from | ~1,198 |
-| `session_handoff_seq023*` | session handoff summary generator | ~1,569 |
-| `unsaid_recon_seq024*` | fires on high deletion prompts | ~1,328 |
-| `push_cycle_seq025*` | the push is the unit | ~4,792 |
-| `shard_manager_seq026*` | local memory shard manager markdown | ~4,413 |
-| `unified_signal_seq026*` | joins all telemetry into canonical | ~2,074 |
-| `context_router_seq027*` | shard relevance scorer context injector | ~1,199 |
-| `training_pairs_seq027*` | training pair generator for the | ~2,625 |
-| `training_writer_seq028*` | end of prompt training pair | ~2,078 |
-| `voice_style_seq028*` | voice style personality adapter | ~3,157 |
-| `research_lab_seq029*` | the system studying the system | ~5,065 |
-| `staleness_alert_seq030*` | copilot self diagnostic detect stale | ~1,725 |
-| `symbol_dictionary_seq031*` | symbol dictionary generator for pigeon | ~3,737 |
-| `glyph_compiler_seq032*` | glyph compiler python maximum symbolic | ~5,050 |
-| `glyph_compiler_seq032*` | glyph compiler v2 ast based | ~4,585 |
-
-**src/cognitive/** - 3 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `adapter_seq001*` | cognitive state agent behavior adapter | ~1,264 |
-| `unsaid_seq002*` | detects what operators meant but | ~2,108 |
-| `drift_seq003*` | tracks operator typing patterns across | ~2,262 |
-
-**src/cognitive/drift_seq003/** - 4 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `drift_seq003_baseline_store_seq001*` | auto extracted by pigeon compiler | ~299 |
-| `drift_seq003_compute_baseline_seq002*` | auto extracted by pigeon compiler | ~557 |
-| `drift_seq003_detect_session_drift_seq003*` | auto extracted by pigeon compiler | ~677 |
-| `drift_seq003_build_cognitive_context_seq004*` | auto extracted by pigeon compiler | ~828 |
-
-**src/cognitive/unsaid_seq002/** - 3 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `unsaid_seq002_helpers_seq001*` | auto extracted by pigeon compiler | ~561 |
-| `unsaid_seq002_diff_seq002*` | auto extracted by pigeon compiler | ~245 |
-| `unsaid_seq002_orchestrator_seq003*` | auto extracted by pigeon compiler | ~1,493 |
-
-**src/cognitive_reactor_seq014/** - 12 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `cognitive_reactor_seq014_constants_seq001*` | auto extracted by pigeon compiler | ~95 |
-| `cognitive_reactor_seq014_state_ops_seq002*` | auto extracted by pigeon compiler | ~146 |
-| `cognitive_reactor_seq014_docstring_patch_seq003*` | auto extracted by pigeon compiler | ~563 |
-| `cognitive_reactor_seq014_cognitive_hint_seq004*` | auto extracted by pigeon compiler | ~244 |
-| `cognitive_reactor_seq014_patch_generator_seq005*` | auto extracted by pigeon compiler | ~781 |
-| `cognitive_reactor_seq014_prompt_builder_seq006*` | auto extracted by pigeon compiler | ~25 |
-| `cognitive_reactor_seq014_api_client_seq007*` | auto extracted by pigeon compiler | ~24 |
-| `cognitive_reactor_seq014_reactor_core_seq008*` | auto extracted by pigeon compiler | ~1,026 |
-| `cognitive_reactor_seq014_registry_loader_seq009*` | auto extracted by pigeon compiler | ~25 |
-| `cognitive_reactor_seq014_self_fix_runner_seq010*` | auto extracted by pigeon compiler | ~25 |
-| `cognitive_reactor_seq014_patch_writer_seq011*` | apply code patches to source | ~1,075 |
-| `cognitive_reactor_seq014_decision_maker_seq012*` | patch safety gating | ~832 |
-
-**src/copilot_prompt_manager_seq020/** - 10 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `copilot_prompt_manager_seq020_constants_seq001*` | auto extracted by pigeon compiler | ~200 |
-| `copilot_prompt_manager_seq020_block_utils_seq002*` | auto extracted by pigeon compiler | ~288 |
-| `copilot_prompt_manager_seq020_json_utils_seq003*` | auto extracted by pigeon compiler | ~236 |
-| `copilot_prompt_manager_seq020_operator_profile_seq004*` | auto extracted by pigeon compiler | ~472 |
-| `copilot_prompt_manager_seq020_auto_index_seq005*` | auto extracted by pigeon compiler | ~665 |
-| `copilot_prompt_manager_seq020_operator_state_decomposed_seq006*` | auto extracted by pigeon compiler | ~632 |
-| `copilot_prompt_manager_seq020_telemetry_utils_seq007*` | auto extracted by pigeon compiler | ~329 |
-| `copilot_prompt_manager_seq020_audit_decomposed_seq008*` | auto extracted by pigeon compiler | ~729 |
-| `copilot_prompt_manager_seq020_injectors_seq009*` | auto extracted by pigeon compiler | ~461 |
-| `copilot_prompt_manager_seq020_orchestrator_seq010*` | auto extracted by pigeon compiler | ~636 |
-
-**src/file_consciousness_seq019/** - 12 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `file_consciousness_seq019_helpers_seq001*` | auto extracted by pigeon compiler | ~500 |
-| `file_consciousness_seq019_persistence_seq002*` | auto extracted by pigeon compiler | ~149 |
-| `file_consciousness_seq019_report_seq003*` | auto extracted by pigeon compiler | ~531 |
-| `file_consciousness_seq019_audit_seq004*` | auto extracted by pigeon compiler | ~333 |
-| `file_consciousness_seq019_derivation_seq005*` | auto extracted by pigeon compiler | ~649 |
-| `file_consciousness_seq019_dependencies_seq006*` | auto extracted by pigeon compiler | ~503 |
-| `file_consciousness_seq019_classify_seq007*` | auto extracted by pigeon compiler | ~222 |
-| `file_consciousness_seq019_profile_builder_seq008*` | auto extracted by pigeon compiler | ~199 |
-| `file_consciousness_seq019_main_orchestrator_seq009*` | auto extracted by pigeon compiler | ~269 |
-| `file_consciousness_seq019_dating_decomposed_seq010*` | auto extracted by pigeon compiler | ~807 |
-| `file_consciousness_seq019_dating_helpers_seq011*` | auto extracted by pigeon compiler | ~25 |
-| `file_consciousness_seq019_dating_wrapper_seq012*` | auto extracted by pigeon compiler | ~806 |
-
-**src/push_cycle_seq025/** - 8 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `push_cycle_seq025_constants_seq001*` | auto extracted by pigeon compiler | ~71 |
-| `push_cycle_seq025_loaders_seq002*` | auto extracted by pigeon compiler | ~401 |
-| `push_cycle_seq025_signal_extractors_seq003*` | auto extracted by pigeon compiler | ~614 |
-| `push_cycle_seq025_sync_decomposed_seq004*` | auto extracted by pigeon compiler | ~624 |
-| `push_cycle_seq025_coaching_seq005*` | auto extracted by pigeon compiler | ~554 |
-| `push_cycle_seq025_moon_cycle_seq006*` | auto extracted by pigeon compiler | ~802 |
-| `push_cycle_seq025_predictions_injector_decomposed_seq007*` | auto extracted by pigeon compiler | ~670 |
-| `push_cycle_seq025_orchestrator_decomposed_seq008*` | auto extracted by pigeon compiler | ~811 |
-
-**src/query_memory_seq010/** - 6 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `query_memory_seq010_constants_seq001*` | auto extracted by pigeon compiler | ~55 |
-| `query_memory_seq010_fingerprint_seq002*` | auto extracted by pigeon compiler | ~134 |
-| `query_memory_seq010_trigram_utils_seq003*` | auto extracted by pigeon compiler | ~138 |
-| `query_memory_seq010_clustering_seq004*` | auto extracted by pigeon compiler | ~258 |
-| `query_memory_seq010_record_query_seq005*` | auto extracted by pigeon compiler | ~452 |
-| `query_memory_seq010_load_memory_decomposed_seq006*` | auto extracted by pigeon compiler | ~374 |
-
-**src/self_fix_seq013/** - 11 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `self_fix_seq013_scan_hardcoded_seq001*` | auto extracted by pigeon compiler | ~428 |
-| `self_fix_seq013_scan_query_noise_seq002*` | auto extracted by pigeon compiler | ~237 |
-| `self_fix_seq013_scan_duplicate_docstrings_seq003*` | auto extracted by pigeon compiler | ~305 |
-| `self_fix_seq013_scan_cross_file_coupling_seq004*` | auto extracted by pigeon compiler | ~519 |
-| `self_fix_seq013_scan_over_hard_cap_decomposed_seq005*` | auto extracted by pigeon compiler | ~515 |
-| `self_fix_seq013_scan_dead_exports_decomposed_seq006*` | auto extracted by pigeon compiler | ~678 |
-| `self_fix_seq013_write_report_decomposed_seq007*` | auto extracted by pigeon compiler | ~593 |
-| `self_fix_seq013_run_self_fix_decomposed_seq008*` | auto extracted by pigeon compiler | ~547 |
-| `self_fix_seq013_auto_compile_oversized_decomposed_seq009*` | auto extracted by pigeon compiler | ~807 |
-| `self_fix_seq013_seq_base_seq010*` | auto extracted by pigeon compiler | ~169 |
-| `self_fix_seq013_auto_apply_import_fixes_decomposed_seq011*` | auto extracted by pigeon compiler | ~1,178 |
-
-**streaming_layer/** - 19 module(s)
-
-| Search pattern | Desc | Tokens |
-|---|---|---:|
-| `streaming_layer_constants_seq001*` | auto extracted by pigeon compiler | ~261 |
-| `streaming_layer_simulation_helpers_seq002*` | auto extracted by pigeon compiler | ~204 |
-| `streaming_layer_dataclasses_seq004*` | pigeon extracted by compiler | ~717 |
-| `streaming_layer_formatter_seq004*` | auto extracted by pigeon compiler | ~546 |
-| `streaming_layer_connection_pool_seq005*` | auto extracted by pigeon compiler | ~969 |
-| `streaming_layer_dataclasses_seq005*` | pigeon extracted by compiler | ~247 |
-| `streaming_layer_aggregator_seq006*` | auto extracted by pigeon compiler | ~934 |
-| `streaming_layer_dataclasses_seq006*` | pigeon extracted by compiler | ~154 |
-| `streaming_layer_metrics_seq007*` | auto extracted by pigeon compiler | ~824 |
-| `streaming_layer_alerts_seq008*` | auto extracted by pigeon compiler | ~1,371 |
-| `streaming_layer_replay_seq009*` | auto extracted by pigeon compiler | ~932 |
-| `streaming_layer_dashboard_seq010*` | auto extracted by pigeon compiler | ~858 |
-| `streaming_layer_http_handler_seq011*` | auto extracted by pigeon compiler | ~1,182 |
-| `streaming_layer_demo_functions_seq013*` | pigeon extracted by compiler | ~456 |
-| `streaming_layer_demo_summary_seq013*` | auto extracted by pigeon compiler | ~365 |
-| `streaming_layer_demo_functions_seq014*` | pigeon extracted by compiler | ~280 |
-| `streaming_layer_demo_simulate_seq014*` | auto extracted by pigeon compiler | ~256 |
-| `streaming_layer_orchestrator_seq016*` | pigeon extracted by compiler | ~1,408 |
-| `streaming_layer_orchestrator_seq017*` | pigeon extracted by compiler | ~142 |
-
-**Infrastructure (non-pigeon)**
-
-| File | Folder |
-|---|---|
-| `_build_organism_health.py` | `(root)` |
-| `_export_dev_story.py` | `(root)` |
-| `_run_glyph_rename.py` | `(root)` |
-| `_tmp_analyze_stats.py` | `(root)` |
-| `_tmp_survey.py` | `(root)` |
-| `_tmp_test_pipeline.py` | `(root)` |
-| `autonomous_dev_stress_test.py` | `(root)` |
-| `deep_test.py` | `(root)` |
-| `stress_test.py` | `(root)` |
-| `test_all.py` | `(root)` |
-| `test_public_release.py` | `(root)` |
-| `test_training_pairs.py` | `(root)` |
-| `chat_composition_analyzer.py` | `client` |
-| `chat_response_reader.py` | `client` |
-| `composition_recon.py` | `client` |
-| `os_hook.py` | `client` |
-| `telemetry_cleanup.py` | `client` |
-| `uia_reader.py` | `client` |
-| `vscdb_poller.py` | `client` |
-| `classify_bridge.py` | `vscode-extension` |
-| `pulse_watcher.py` | `vscode-extension` |
-
+**Infra**
+(root): _build_organism_health, _export_dev_story, _run_glyph_rename, _tmp_analyze_stats, _tmp_regen_dict, _tmp_survey, _tmp_test_pipeline, _tmp_token_audit, _tmp_token_optimizer, autonomous_dev_stress_test, deep_test, stress_test, test_all, test_public_release, test_training_pairs
+client: chat_composition_analyzer, chat_response_reader, composition_recon, os_hook, telemetry_cleanup, uia_reader, vscdb_poller
+vscode-extension: classify_bridge, pulse_watcher
 <!-- /pigeon:auto-index -->

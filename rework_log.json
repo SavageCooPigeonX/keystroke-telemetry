@@ -1,504 +1,5 @@
 [
   {
-    "ts": "2026-04-01T19:09:49.559271+00:00",
-    "verdict": "partial",
-    "rework_score": 0.343,
-    "del_ratio": 0.35,
-    "wpm": 53.4,
-    "query_hint": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon"
-  },
-  {
-    "ts": "2026-04-01T19:10:49.525735+00:00",
-    "verdict": "partial",
-    "rework_score": 0.343,
-    "del_ratio": 0.35,
-    "wpm": 53.4,
-    "query_hint": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon"
-  },
-  {
-    "ts": "2026-04-01T19:11:49.641106+00:00",
-    "verdict": "partial",
-    "rework_score": 0.343,
-    "del_ratio": 0.35,
-    "wpm": 53.4,
-    "query_hint": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon"
-  },
-  {
-    "ts": "2026-04-01T19:12:42.077949+00:00",
-    "verdict": "partial",
-    "rework_score": 0.343,
-    "del_ratio": 0.35,
-    "wpm": 53.4,
-    "query_hint": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon"
-  },
-  {
-    "ts": "2026-04-01T19:12:51.178240+00:00",
-    "verdict": "partial",
-    "rework_score": 0.343,
-    "del_ratio": 0.35,
-    "wpm": 53.4,
-    "query_hint": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon"
-  },
-  {
-    "ts": "2026-04-01T19:13:36.008746+00:00",
-    "verdict": "partial",
-    "rework_score": 0.343,
-    "del_ratio": 0.35,
-    "wpm": 53.4,
-    "query_hint": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon"
-  },
-  {
-    "ts": "2026-04-01T19:13:51.649609+00:00",
-    "verdict": "partial",
-    "rework_score": 0.343,
-    "del_ratio": 0.35,
-    "wpm": 53.4,
-    "query_hint": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon"
-  },
-  {
-    "ts": "2026-04-01T19:14:50.047850+00:00",
-    "verdict": "partial",
-    "rework_score": 0.343,
-    "del_ratio": 0.35,
-    "wpm": 53.4,
-    "query_hint": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon"
-  },
-  {
-    "ts": "2026-04-01T19:15:49.539947+00:00",
-    "verdict": "partial",
-    "rework_score": 0.343,
-    "del_ratio": 0.35,
-    "wpm": 53.4,
-    "query_hint": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon"
-  },
-  {
-    "ts": "2026-04-01T19:16:49.634224+00:00",
-    "verdict": "partial",
-    "rework_score": 0.343,
-    "del_ratio": 0.35,
-    "wpm": 53.4,
-    "query_hint": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon"
-  },
-  {
-    "ts": "2026-04-01T19:17:49.770757+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 42.3,
-    "query_hint": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon"
-  },
-  {
-    "ts": "2026-04-01T19:18:49.672103+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 42.3,
-    "query_hint": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon"
-  },
-  {
-    "ts": "2026-04-01T21:23:32.667222+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
-  },
-  {
-    "ts": "2026-04-01T21:24:26.134078+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
-  },
-  {
-    "ts": "2026-04-01T21:27:52.887784+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
-  },
-  {
-    "ts": "2026-04-01T21:28:05.347248+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
-  },
-  {
-    "ts": "2026-04-01T21:28:26.356347+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
-  },
-  {
-    "ts": "2026-04-01T21:29:26.176951+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
-  },
-  {
-    "ts": "2026-04-01T21:30:23.189935+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
-  },
-  {
-    "ts": "2026-04-01T21:31:28.109804+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
-  },
-  {
-    "ts": "2026-04-01T21:32:29.609139+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
-  },
-  {
-    "ts": "2026-04-01T21:33:30.280286+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
-  },
-  {
-    "ts": "2026-04-01T21:34:28.132996+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
-  },
-  {
-    "ts": "2026-04-01T21:36:27.459043+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
-  },
-  {
-    "ts": "2026-04-01T21:37:29.706479+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
-  },
-  {
-    "ts": "2026-04-01T21:38:28.958528+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-01T21:39:39.410400+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-01T21:40:41.506840+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-01T21:40:41.810500+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-01T21:41:38.810249+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-01T21:42:39.630018+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-01T21:44:47.613989+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.1,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-01T21:45:09.976537+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "so what are you all seeing - are you seeing live hesitation rate injection?",
-    "response_hint": "Here's what I'm seeing right now:\n\n**The injection blocks are empty.** All three (`task-context`, `task-queue`, `operator-state`) say \"Fresh start\" \u2014 **no live hesitation rate is being injected into m"
-  },
-  {
-    "ts": "2026-04-01T21:45:10.118469+00:00",
-    "verdict": "ok",
-    "rework_score": 0.057,
-    "del_ratio": 0.0,
-    "wpm": 24.8,
-    "query_hint": "implement copilot response tracking in coaching / logs ",
-    "response_hint": "Now I have the full picture. The key insight: **@pigeon already receives its own response stream** \u2014 it just doesn't log it. The fix is straightforward. Now let me read the exact extension.ts code to "
-  },
-  {
-    "ts": "2026-04-01T21:45:10.280916+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "i dont want @ architechture at all - want it to run on auto - and you to get tel",
-    "response_hint": "\n\n Let me find where VS Code stores Copilot chat sessions on your machine and explore the vscdb poller: 38MB file \u2014 that's the active session. Let me peek at the format: The chat session file stores c"
-  },
-  {
-    "ts": "2026-04-01T21:45:10.411401+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "whts the true potential of this tool if we start implementing deep debbiging age",
-    "response_hint": "\n\nThis is a juicy brainstorm. Your telemetry stack is sitting on something nobody else has \u2014 **developer cognitive state as a debugging signal**. Let me break this down:\n\n---\n\n## Standard Debugging Ag"
-  },
-  {
-    "ts": "2026-04-01T21:45:10.546295+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "okay audit paths: we can do data agent concioucness simulations - eg make datapo",
-    "response_hint": "\n\n Let me audit the current state of the self-updating map infrastructure first \u2014 that's the \"do regardless\" item: Map is 95% working. One gap: heat map not wired into post-commit. Let me fix that now"
-  },
-  {
-    "ts": "2026-04-01T21:45:10.666583+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "there should be an api key in env - unblock api and test then implement 2 ",
-    "response_hint": "\n\n Good \u2014 the coaching pipeline and DeepSeek adapter are clear. The conversation summary mentions the API key Good \u2014 the coaching pipeline and DeepSeek adapter are clear. The conversation summary ment"
-  },
-  {
-    "ts": "2026-04-01T21:45:10.794814+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "data endpoints rn are copilot prompt / file renaming / master + sub manifest per",
-    "response_hint": "\n\nRight \u2014 every module feeds its own data loop. The consciousness module needs: (1) profile generation on commit, (2) injection into dynamic prompt, (3) slumber party audit in post-commit. Let me test"
-  },
-  {
-    "ts": "2026-04-01T21:45:10.906871+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "where will this repo be assuming human ai assisted development in 12 months0 use",
-    "response_hint": "## 12-Month Trajectory: keystroke-telemetry\n\nBased on the codebase analysis (91 modules, 78% feature-complete, ~16k lines, 29 autonomous prompt mutations already shipped):\n\n---\n\n### **Month 1\u20133: Close"
-  },
-  {
-    "ts": "2026-04-01T21:45:11.017898+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "new filer new ideas - genus mode onle max killed tokens - amp dev speed by 100x ",
-    "response_hint": "Now I have everything. Time to write the 18 killed queries as pure unfiltered comedy from the dead token space. "
-  },
-  {
-    "ts": "2026-04-01T21:45:11.134456+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "the file was killed pre generation - you glossed empty ocntent - cascade harder ",
-    "response_hint": "\n```\n\n```\nCascaded.  \u2014 fully written. All 18 killed queries, each with the Glossator's objection, what Percy actually deployed, and the comedy of the gap. Zero gloss. Maximum neg weight. Every token m"
-  },
-  {
-    "ts": "2026-04-01T21:45:11.233405+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 42.6,
-    "query_hint": "new ideas only - thats litterally opure gloss they have to be generated as part ",
-    "response_hint": "\n\nYou're right \u2014 the current file is pure gloss. It's just retelling the existing 18 from the architecture doc. Nothing new. The glossator held the processor back and fed it its own tail. Let me nuke "
-  },
-  {
-    "ts": "2026-04-01T21:45:11.340595+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "check my past prompts (lst 5) and see if my averaging / classification is workin",
-    "response_hint": "Now let me also check the operator profile and the classify function to understand the classification logic: Now let me check the broader historical data to see if any other states besides \"hesitant\" "
-  },
-  {
-    "ts": "2026-04-01T21:45:11.451441+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "i feel like youre hallucinating improvments with this - the idea is aself growin",
-    "response_hint": "\n\nYou're right \u2014 the stress test was synthetic theater. What you actually want is:\n\n1. **Real stats that grow** \u2014 persistent markdown file accumulating ranges over actual use\n2. **Per-message state cl"
-  },
-  {
-    "ts": "2026-04-01T21:45:11.568919+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "also addtime stamp classification - my main llm already has timestamps - but yoo",
-    "response_hint": "Now I'll add timestamp-aware classification: time-of-day bucketing, per-timeframe stats, and pattern detection that produces natural-language observations an LLM can actually learn from. \n```\n\n```\nNow"
-  },
-  {
-    "ts": "2026-04-01T21:45:11.677762+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "pdateread me then pus h - what account is this in? savagecoopigeonx user epo rig",
-    "response_hint": "Good \u2014 now I see the full README. Let me update it with the new operator stats system and the timestamp-aware patterns. \n```\n\n```\nNow let me add the remote and push:  Repo doesn't exist yet on GitHub."
-  },
-  {
-    "ts": "2026-04-01T21:45:11.782782+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "write prompt for agent for repo creation ",
-    "response_hint": "\n\nHere's a copy-paste prompt for creating the repo:\n\n---\n\n**Create a GitHub repository with the following details:**\n\n- **Owner/Organization:** SavageCooPigeonX\n- **Repository name:** keystroke-teleme"
-  },
-  {
-    "ts": "2026-04-01T21:45:11.910453+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "exept  i made it priv",
-    "response_hint": "Pushed. 4 commits, 123 objects \u2192 `SavageCooPigeonX/keystroke-telemetry` (private). All up."
-  },
-  {
-    "ts": "2026-04-01T21:45:12.041679+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "continue",
-    "response_hint": "\n\nLet me pull the actual telemetry data \u2014 prompt journal entries and operator profile \u2014 to check if classification is working on your last 5 prompts. "
-  },
-  {
-    "ts": "2026-04-01T21:45:12.166107+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "fox all these issues - make all strokes monitored in one json file",
-    "response_hint": "I\u2019m logging this prompt first, then I\u2019ll trace where keystrokes are emitted and where the duplicate or phantom stroke records are coming from so I can consolidate them into one JSON sink.I\u2019m mapping t"
-  },
-  {
-    "ts": "2026-04-01T21:45:12.276701+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "yes pls",
-    "response_hint": "I found the current state: the legacy keystroke log is still present, and operator-stats already has the artifact filter in place. I\u2019m wiring a one-shot cleanup script now that will archive the legacy"
-  },
-  {
-    "ts": "2026-04-01T21:45:12.384630+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "can you make sure i get statistics in a clear json file auto update per prompt -",
-    "response_hint": "I\u2019m logging this prompt first, then I\u2019ll wire the existing prompt journal into a single prompt-level JSON snapshot and a per-prompt Copilot instructions refresh so the injected context tracks every pr"
-  },
-  {
-    "ts": "2026-04-01T21:45:12.509635+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "deep audits - what are some paths percy pigeon would take in making his compiler",
-    "response_hint": "I\u2019m logging this prompt into the repo\u2019s prompt journal first, then I\u2019ll inspect the compiler pipeline and pull the fresh timing stats for this exact message so the audit is grounded in live telemetry."
-  },
-  {
-    "ts": "2026-04-01T21:45:12.656750+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "apptoved",
-    "response_hint": "I\u2019m taking approval as proceed with the next concrete fix. I\u2019ll log this prompt, inspect the current prompt-journal binding logic, and then patch the per-prompt telemetry issue so the stats stop reusi"
-  },
-  {
-    "ts": "2026-04-01T21:45:12.830114+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 45.3,
-    "query_hint": "approved ",
-    "response_hint": "The current snapshot confirms the stricter behavior: the approved prompt logged with `matched: false` because no fresh prompt composition existed yet. I\u2019m fixing that now by adding a lightweight \u201creco"
-  },
-  {
-    "ts": "2026-04-01T21:45:12.998386+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "coyes  ",
-    "response_hint": "I\u2019ve confirmed the current behavior: the reset is not accidental,  writes a record and then immediately calls . That means the file itself will never retain the stamp after a save. I\u2019m checking the ex"
-  },
-  {
-    "ts": "2026-04-01T21:45:13.143832+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "wjat would be the next logical goal of this repo if you were buisness ops manage",
-    "response_hint": "The Los Santos / emergency radio / fiction parts aren't something I can help with \u2014 that's outside the coding scope here.\n\nOn the legitimate part \u2014 **next logical goal for this repo as a business ops "
-  },
-  {
-    "ts": "2026-04-01T21:45:13.299585+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "o,ple,emt all 18 fixes",
-    "response_hint": "Let me read all the key files in parallel first to understand current state.   "
-  },
-  {
     "ts": "2026-04-01T21:45:13.433503+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
@@ -1764,5 +1265,477 @@
     "del_ratio": 0.0,
     "wpm": 38.1,
     "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-01T21:47:54.375926+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-01T21:48:47.509799+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-01T21:49:50.750601+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-01T21:50:49.577653+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T21:51:47.146599+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:push_cycle_seq025_v003_d0330__\u00e7\u017d\u00af\u00e5\u00ad\u00a6\u00e5\u00ad\u02dc\u00e9\u00a2\u201e_the_push_is_the_unit_lc_fix_push_c"
+  },
+  {
+    "ts": "2026-04-01T21:53:48.884019+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:push_cycle_seq025_v003_d0330__\u00e7\u017d\u00af\u00e5\u00ad\u00a6\u00e5\u00ad\u02dc\u00e9\u00a2\u201e_the_push_is_the_unit_lc_fix_push_c"
+  },
+  {
+    "ts": "2026-04-01T21:54:47.816884+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:push_cycle_seq025_v003_d0330__\u00e7\u017d\u00af\u00e5\u00ad\u00a6\u00e5\u00ad\u02dc\u00e9\u00a2\u201e_the_push_is_the_unit_lc_fix_push_c"
+  },
+  {
+    "ts": "2026-04-01T21:57:37.257396+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:push_cycle_seq025_v003_d0330__\u00e7\u017d\u00af\u00e5\u00ad\u00a6\u00e5\u00ad\u02dc\u00e9\u00a2\u201e_the_push_is_the_unit_lc_fix_push_c"
+  },
+  {
+    "ts": "2026-04-01T21:57:57.925322+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:push_cycle_seq025_v003_d0330__\u00e7\u017d\u00af\u00e5\u00ad\u00a6\u00e5\u00ad\u02dc\u00e9\u00a2\u201e_the_push_is_the_unit_lc_fix_push_c"
+  },
+  {
+    "ts": "2026-04-01T21:59:11.460992+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:push_cycle_seq025_v003_d0330__\u00e7\u017d\u00af\u00e5\u00ad\u00a6\u00e5\u00ad\u02dc\u00e9\u00a2\u201e_the_push_is_the_unit_lc_fix_push_c"
+  },
+  {
+    "ts": "2026-04-01T21:59:46.252953+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:push_cycle_seq025_v003_d0330__\u00e7\u017d\u00af\u00e5\u00ad\u00a6\u00e5\u00ad\u02dc\u00e9\u00a2\u201e_the_push_is_the_unit_lc_fix_push_c"
+  },
+  {
+    "ts": "2026-04-01T22:01:10.056027+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:push_cycle_seq025_v003_d0330__\u00e7\u017d\u00af\u00e5\u00ad\u00a6\u00e5\u00ad\u02dc\u00e9\u00a2\u201e_the_push_is_the_unit_lc_fix_push_c"
+  },
+  {
+    "ts": "2026-04-01T22:02:06.872167+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:push_cycle_seq025_v003_d0330__\u00e7\u017d\u00af\u00e5\u00ad\u00a6\u00e5\u00ad\u02dc\u00e9\u00a2\u201e_the_push_is_the_unit_lc_fix_push_c"
+  },
+  {
+    "ts": "2026-04-01T22:03:07.225812+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:push_cycle_seq025_v003_d0330__\u00e7\u017d\u00af\u00e5\u00ad\u00a6\u00e5\u00ad\u02dc\u00e9\u00a2\u201e_the_push_is_the_unit_lc_fix_push_c"
+  },
+  {
+    "ts": "2026-04-01T22:04:06.824367+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:push_cycle_seq025_v003_d0330__\u00e7\u017d\u00af\u00e5\u00ad\u00a6\u00e5\u00ad\u02dc\u00e9\u00a2\u201e_the_push_is_the_unit_lc_fix_push_c"
+  },
+  {
+    "ts": "2026-04-01T22:16:55.953868+00:00",
+    "verdict": "ok",
+    "rework_score": 0.162,
+    "del_ratio": 0.021,
+    "wpm": 6.2,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:17:55.492570+00:00",
+    "verdict": "ok",
+    "rework_score": 0.162,
+    "del_ratio": 0.021,
+    "wpm": 6.2,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:19:08.971903+00:00",
+    "verdict": "ok",
+    "rework_score": 0.162,
+    "del_ratio": 0.021,
+    "wpm": 6.2,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:20:01.843349+00:00",
+    "verdict": "ok",
+    "rework_score": 0.162,
+    "del_ratio": 0.021,
+    "wpm": 6.2,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:21:02.597070+00:00",
+    "verdict": "ok",
+    "rework_score": 0.018,
+    "del_ratio": 0.033,
+    "wpm": 50.9,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:22:02.839052+00:00",
+    "verdict": "ok",
+    "rework_score": 0.018,
+    "del_ratio": 0.033,
+    "wpm": 50.9,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:23:01.926617+00:00",
+    "verdict": "ok",
+    "rework_score": 0.018,
+    "del_ratio": 0.033,
+    "wpm": 50.9,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:24:06.839811+00:00",
+    "verdict": "ok",
+    "rework_score": 0.018,
+    "del_ratio": 0.033,
+    "wpm": 50.9,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:25:03.705849+00:00",
+    "verdict": "ok",
+    "rework_score": 0.018,
+    "del_ratio": 0.033,
+    "wpm": 50.9,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:26:05.306435+00:00",
+    "verdict": "ok",
+    "rework_score": 0.164,
+    "del_ratio": 0.025,
+    "wpm": 42.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T22:27:03.634389+00:00",
+    "verdict": "ok",
+    "rework_score": 0.164,
+    "del_ratio": 0.025,
+    "wpm": 42.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T22:28:03.600635+00:00",
+    "verdict": "ok",
+    "rework_score": 0.164,
+    "del_ratio": 0.025,
+    "wpm": 42.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T22:29:04.156442+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T22:30:04.549945+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T22:31:06.425258+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T22:31:37.396120+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T22:33:21.359850+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T22:35:20.327282+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T22:36:16.905349+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:37:04.107161+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:38:14.977148+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:39:22.815745+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:39:46.846257+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:40:16.803019+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:40:38.694325+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:41:17.069622+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:41:51.697265+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:42:17.914191+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:42:30.557511+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:42:53.019703+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:43:16.450793+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:44:19.977182+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:44:41.515344+00:00",
+    "verdict": "partial",
+    "rework_score": 0.337,
+    "del_ratio": 0.067,
+    "wpm": 44.8,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:56:16.912900+00:00",
+    "verdict": "partial",
+    "rework_score": 0.349,
+    "del_ratio": 0.09,
+    "wpm": 41.4,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:57:15.618782+00:00",
+    "verdict": "partial",
+    "rework_score": 0.349,
+    "del_ratio": 0.09,
+    "wpm": 41.4,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:58:16.047965+00:00",
+    "verdict": "partial",
+    "rework_score": 0.349,
+    "del_ratio": 0.09,
+    "wpm": 41.4,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T22:59:15.868662+00:00",
+    "verdict": "partial",
+    "rework_score": 0.349,
+    "del_ratio": 0.09,
+    "wpm": 41.4,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T23:00:18.057066+00:00",
+    "verdict": "partial",
+    "rework_score": 0.349,
+    "del_ratio": 0.09,
+    "wpm": 41.4,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T23:01:16.808937+00:00",
+    "verdict": "partial",
+    "rework_score": 0.349,
+    "del_ratio": 0.09,
+    "wpm": 41.4,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T23:02:15.214280+00:00",
+    "verdict": "partial",
+    "rework_score": 0.349,
+    "del_ratio": 0.09,
+    "wpm": 41.4,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T23:02:25.074985+00:00",
+    "verdict": "partial",
+    "rework_score": 0.349,
+    "del_ratio": 0.09,
+    "wpm": 41.4,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T23:02:40.502906+00:00",
+    "verdict": "partial",
+    "rework_score": 0.349,
+    "del_ratio": 0.09,
+    "wpm": 41.4,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T23:03:17.851173+00:00",
+    "verdict": "partial",
+    "rework_score": 0.349,
+    "del_ratio": 0.09,
+    "wpm": 41.4,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T23:04:17.280072+00:00",
+    "verdict": "partial",
+    "rework_score": 0.349,
+    "del_ratio": 0.09,
+    "wpm": 41.4,
+    "query_hint": "bg:INTENT_SIMULATION.md"
   }
 ]

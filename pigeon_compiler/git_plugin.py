@@ -858,6 +858,16 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
     except Exception as e:
         print(f'  ⚠️  research lab: {e}')
 
+    # Intent simulator — forward projection of operator intent per push
+    try:
+        intent_mod = _load_glob_module(root, 'src', 'intent_simulator_seq034*')
+        if intent_mod:
+            sim_path = intent_mod.simulate_intent(root, inject=True)
+            if sim_path and sim_path.exists():
+                print(f'  🔮 intent simulation → {sim_path.relative_to(root)}')
+    except Exception as e:
+        print(f'  ⚠️  intent simulator: {e}')
+
     # Self-fix: auto-apply CRITICAL hardcoded import fixes
     try:
         sf_mod = _load_glob_module(root, 'src', 'self_fix_seq013*')

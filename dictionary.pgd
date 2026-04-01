@@ -1,48 +1,44 @@
 {
   "version": "0.1.0",
-  "generated": "2026-04-01T18:37:43.631425+00:00",
+  "generated": "2026-04-01T22:42:53.847189+00:00",
   "stats": {
-    "total_files": 263,
-    "modules": 89,
-    "intents": 31,
-    "total_glyphs": 138
+    "total_files": 266,
+    "modules": 104,
+    "intents": 32,
+    "total_glyphs": 139
   },
   "module_glyphs": {
     "IM": "import_tracer",
-    "IN": "init_writer",
-    "LO": "loop_detector",
     "MA": "manifest_writer",
-    "NA": "nametag",
     "NL": "nl_parsers",
-    "NO": "node_conversation",
-    "OB": "observer_synthesis",
-    "PA": "path_selector",
     "PL": "planner",
     "PQ": "pq_search_utils",
     "PR": "press_release_gen_template_key_findings",
-    "RE": "resplit",
-    "RU": "run_rename",
-    "SH": "shared_state_detector",
-    "SO": "source_slicer",
-    "TA": "task_writer",
-    "VE": "vein_transport",
     "令": "cli",
+    "任": "task_writer",
     "仿": "demo_sim",
     "修": "self_fix",
     "偏": "drift",
+    "共态": "shared_state_detector",
     "典": "symbol_dictionary",
+    "册": "registry",
     "写": "file_writer",
+    "净拆": "run_clean_split",
     "分": "dev_plan",
+    "切": "source_slicer",
+    "初写": "init_writer",
     "包": "context_packet",
     "压": "executor",
     "双": "dual_substrate",
     "变": "mutation_scorer",
     "叙": "push_narrative",
     "合": "unified_signal",
+    "唤": "node_awakener",
     "图": "graph_extractor",
     "型": "models",
     "境": "context_budget",
     "声": "voice_style",
+    "复审": "reaudit_diff",
     "存": "node_memory",
     "学": "learning_loop",
     "审": "validator",
@@ -53,23 +49,32 @@
     "忆": "query_memory",
     "思": "cognitive_reactor",
     "扫": "scanner",
+    "批编": "run_batch_compile",
     "拆": "ether_map_builder",
+    "择": "path_selector",
     "控": "operator_stats",
     "推": "dynamic_prompt",
     "描": "graph_heat_map",
+    "改名": "run_rename",
     "时": "timestamp_utils",
     "服": "live_server",
+    "析": "plan_parser",
     "查": "ast_parser",
     "核": "deepseek_plan_prompt",
     "桥": "resistance_bridge",
     "正": "compliance",
     "流": "flow_engine",
     "测": "rework_detector",
+    "测编": "run_compiler_test",
+    "深划": "run_deepseek_plans",
+    "清单": "pq_manifest_utils",
     "漂": ".operator_stats",
     "演": "call_graph",
     "热": "file_heat_map",
     "片": "shard_manager",
+    "牌": "nametag",
     "环": "push_cycle",
+    "环检": "loop_detector",
     "研": "research_lab",
     "算": "prediction_scorer",
     "管": "copilot_prompt_manager",
@@ -78,25 +83,35 @@
     "缩": "failure_detector",
     "联": "core_formatters",
     "脉": "pulse_harvest",
+    "脉运": "vein_transport",
     "补": "rework_backfill",
+    "观": "observer_synthesis",
     "规": "aim_utils",
     "觉": "file_consciousness",
     "警": "staleness_alert",
     "训": "training_writer",
     "译": "func_decomposer",
+    "话": "node_conversation",
     "读": "execution_logger",
     "谱": "deepseek_adapter",
+    "谱建": "manifest_builder",
+    "谱桥": "manifest_bridge",
     "跑": "traced_runner",
     "路": "context_router",
     "踪": "import_fixer",
     "追": "heal",
+    "追跑": "run_heal",
     "适": "adapter",
     "逆": "backward",
     "递": "session_handoff",
+    "重拆": "resplit",
     "钩": "trace_hook",
     "队": "task_queue",
+    "阻": "resistance_analyzer",
     "隐": "unsaid",
-    "预": "predictor"
+    "预": "predictor",
+    "验": "plan_validator",
+    "鸽环": "run_pigeon_loop"
   },
   "intent_glyphs": {
     "λ18": "implement_all_18",
@@ -116,7 +131,8 @@
     "λS": "pigeon_split_3",
     "λT": "push_narratives_timeout",
     "λW": "windows_max_path",
-    "λa": "glyph_compiler_symbol",
+    "λa": "add_chinese_glyph",
+    "λb": "glyph_compiler_symbol",
     "λΞ": "import_rewriter_now",
     "λΠ": "pulse_telemetry_prompt",
     "λγ": "fix_bare_globals",
@@ -208,17 +224,22 @@
         {
           "name": "execution_logger",
           "seq": 2,
-          "ver": 2,
-          "date": "0323",
+          "ver": 3,
+          "date": "0401",
           "desc": "isomorphic to telemetrylogger for agent",
-          "intent": "λP",
-          "tokens": 1541,
-          "path": "pigeon_brain/execution_logger_seq002_v002_d0323__isomorphic_to_telemetrylogger_for_agent_lc_pigeon_brain_system.py",
+          "intent": "λa",
+          "tokens": 1626,
+          "path": "pigeon_brain/execution_logger_seq002_v003_d0401__isomorphic_to_telemetrylogger_for_agent_lc_add_chinese_glyph.py",
           "history": [
             {
               "v": 2,
               "d": "0323",
               "action": "registered"
+            },
+            {
+              "v": 3,
+              "d": "0401",
+              "action": "mutated"
             }
           ]
         }
@@ -845,27 +866,38 @@
         }
       ]
     },
-    "NO": {
+    "唤": {
       "name": "node_awakener",
       "folder": "pigeon_brain/flow",
       "files": [
         {
           "name": "node_awakener",
           "seq": 2,
-          "ver": 2,
-          "date": "0324",
+          "ver": 3,
+          "date": "0401",
           "desc": "when a packet arrives at",
-          "intent": "λε",
-          "tokens": 1171,
-          "path": "pigeon_brain/flow/node_awakener_seq002_v002_d0324__when_a_packet_arrives_at_lc_flow_engine_context.py",
+          "intent": "λa",
+          "tokens": 1252,
+          "path": "pigeon_brain/flow/node_awakener_seq002_v003_d0401__when_a_packet_arrives_at_lc_add_chinese_glyph.py",
           "history": [
             {
               "v": 2,
               "d": "0324",
               "action": "registered"
+            },
+            {
+              "v": 3,
+              "d": "0401",
+              "action": "mutated"
             }
           ]
-        },
+        }
+      ]
+    },
+    "话": {
+      "name": "node_conversation",
+      "folder": "pigeon_brain/flow",
+      "files": [
         {
           "name": "node_conversation",
           "seq": 12,
@@ -935,7 +967,7 @@
         }
       ]
     },
-    "PA": {
+    "择": {
       "name": "path_selector",
       "folder": "pigeon_brain/flow",
       "files": [
@@ -1404,47 +1436,57 @@
         }
       ]
     },
-    "TA": {
+    "任": {
       "name": "task_writer",
       "folder": "pigeon_brain/flow",
       "files": [
         {
           "name": "task_writer",
           "seq": 5,
-          "ver": 2,
-          "date": "0324",
+          "ver": 3,
+          "date": "0401",
           "desc": "the river delta where all",
-          "intent": "λε",
-          "tokens": 1476,
-          "path": "pigeon_brain/flow/task_writer_seq005_v002_d0324__the_river_delta_where_all_lc_flow_engine_context.py",
+          "intent": "λa",
+          "tokens": 1558,
+          "path": "pigeon_brain/flow/task_writer_seq005_v003_d0401__the_river_delta_where_all_lc_add_chinese_glyph.py",
           "history": [
             {
               "v": 2,
               "d": "0324",
               "action": "registered"
+            },
+            {
+              "v": 3,
+              "d": "0401",
+              "action": "mutated"
             }
           ]
         }
       ]
     },
-    "VE": {
+    "脉运": {
       "name": "vein_transport",
       "folder": "pigeon_brain/flow",
       "files": [
         {
           "name": "vein_transport",
           "seq": 6,
-          "ver": 2,
-          "date": "0324",
+          "ver": 3,
+          "date": "0401",
           "desc": "as a packet flows along",
-          "intent": "λε",
-          "tokens": 884,
-          "path": "pigeon_brain/flow/vein_transport_seq006_v002_d0324__as_a_packet_flows_along_lc_flow_engine_context.py",
+          "intent": "λa",
+          "tokens": 965,
+          "path": "pigeon_brain/flow/vein_transport_seq006_v003_d0401__as_a_packet_flows_along_lc_add_chinese_glyph.py",
           "history": [
             {
               "v": 2,
               "d": "0324",
               "action": "registered"
+            },
+            {
+              "v": 3,
+              "d": "0401",
+              "action": "mutated"
             }
           ]
         }
@@ -1585,7 +1627,7 @@
         }
       ]
     },
-    "LO": {
+    "环检": {
       "name": "loop_detector",
       "folder": "pigeon_brain",
       "files": [
@@ -1658,24 +1700,29 @@
         }
       ]
     },
-    "OB": {
+    "观": {
       "name": "observer_synthesis",
       "folder": "pigeon_brain",
       "files": [
         {
           "name": "observer_synthesis",
           "seq": 7,
-          "ver": 2,
-          "date": "0323",
+          "ver": 3,
+          "date": "0401",
           "desc": "coaching from execution patterns port",
-          "intent": "λP",
-          "tokens": 1357,
-          "path": "pigeon_brain/observer_synthesis_seq007_v002_d0323__coaching_from_execution_patterns_port_lc_pigeon_brain_system.py",
+          "intent": "λa",
+          "tokens": 1489,
+          "path": "pigeon_brain/observer_synthesis_seq007_v003_d0401__coaching_from_execution_patterns_port_lc_add_chinese_glyph.py",
           "history": [
             {
               "v": 2,
               "d": "0323",
               "action": "registered"
+            },
+            {
+              "v": 3,
+              "d": "0401",
+              "action": "mutated"
             }
           ]
         }
@@ -1796,7 +1843,7 @@
         }
       ]
     },
-    "PQ": {
+    "清单": {
       "name": "pq_manifest_utils",
       "folder": "pigeon_compiler/bones",
       "files": [
@@ -1816,7 +1863,13 @@
               "action": "discovered"
             }
           ]
-        },
+        }
+      ]
+    },
+    "PQ": {
+      "name": "pq_search_utils",
+      "folder": "pigeon_compiler/bones",
+      "files": [
         {
           "name": "pq_search_utils",
           "seq": 1,
@@ -1953,7 +2006,7 @@
         }
       ]
     },
-    "IN": {
+    "初写": {
       "name": "init_writer",
       "folder": "pigeon_compiler/cut_executor",
       "files": [
@@ -2021,49 +2074,10 @@
               "action": "mutated"
             }
           ]
-        },
-        {
-          "name": "manifest_builder",
-          "seq": 7,
-          "ver": 3,
-          "date": "0314",
-          "desc": "generate living manifest md per",
-          "intent": "λD",
-          "tokens": 2927,
-          "path": "pigeon_compiler/rename_engine/manifest_builder_seq007_v003_d0314__generate_living_manifest_md_per_lc_desc_upgrade.py",
-          "history": [
-            {
-              "v": 3,
-              "d": "0314",
-              "action": "discovered"
-            }
-          ]
-        },
-        {
-          "name": "manifest_bridge",
-          "seq": 13,
-          "ver": 4,
-          "date": "0315",
-          "desc": "update master manifest md after",
-          "intent": "λν",
-          "tokens": 1016,
-          "path": "pigeon_compiler/runners/manifest_bridge_seq013_v004_d0315__update_master_manifest_md_after_lc_verify_pigeon_plugin.py",
-          "history": [
-            {
-              "v": 3,
-              "d": "0314",
-              "action": "discovered"
-            },
-            {
-              "v": 4,
-              "d": "0315",
-              "action": "mutated"
-            }
-          ]
         }
       ]
     },
-    "PL": {
+    "析": {
       "name": "plan_parser",
       "folder": "pigeon_compiler/cut_executor",
       "files": [
@@ -2088,7 +2102,13 @@
               "action": "mutated"
             }
           ]
-        },
+        }
+      ]
+    },
+    "验": {
+      "name": "plan_validator",
+      "folder": "pigeon_compiler/cut_executor",
+      "files": [
         {
           "name": "plan_validator",
           "seq": 6,
@@ -2110,32 +2130,10 @@
               "action": "mutated"
             }
           ]
-        },
-        {
-          "name": "planner",
-          "seq": 2,
-          "ver": 4,
-          "date": "0315",
-          "desc": "generate rename plan for non",
-          "intent": "λν",
-          "tokens": 919,
-          "path": "pigeon_compiler/rename_engine/planner_seq002_v004_d0315__generate_rename_plan_for_non_lc_verify_pigeon_plugin.py",
-          "history": [
-            {
-              "v": 3,
-              "d": "0314",
-              "action": "discovered"
-            },
-            {
-              "v": 4,
-              "d": "0315",
-              "action": "mutated"
-            }
-          ]
         }
       ]
     },
-    "RE": {
+    "重拆": {
       "name": "resplit",
       "folder": "pigeon_compiler/cut_executor",
       "files": [
@@ -2204,71 +2202,10 @@
               "action": "mutated"
             }
           ]
-        },
-        {
-          "name": "registry",
-          "seq": 12,
-          "ver": 3,
-          "date": "0314",
-          "desc": "local name registry for the",
-          "intent": "λD",
-          "tokens": 2129,
-          "path": "pigeon_compiler/rename_engine/registry_seq012_v003_d0314__local_name_registry_for_the_lc_desc_upgrade.py",
-          "history": [
-            {
-              "v": 3,
-              "d": "0314",
-              "action": "discovered"
-            }
-          ]
-        },
-        {
-          "name": "reaudit_diff",
-          "seq": 14,
-          "ver": 4,
-          "date": "0315",
-          "desc": "re audit with diff across",
-          "intent": "λν",
-          "tokens": 1732,
-          "path": "pigeon_compiler/runners/reaudit_diff_seq014_v004_d0315__re_audit_with_diff_across_lc_verify_pigeon_plugin.py",
-          "history": [
-            {
-              "v": 3,
-              "d": "0314",
-              "action": "discovered"
-            },
-            {
-              "v": 4,
-              "d": "0315",
-              "action": "mutated"
-            }
-          ]
-        },
-        {
-          "name": "resistance_analyzer",
-          "seq": 5,
-          "ver": 4,
-          "date": "0315",
-          "desc": "classify why a file resists",
-          "intent": "λν",
-          "tokens": 1037,
-          "path": "pigeon_compiler/state_extractor/resistance_analyzer_seq005_v004_d0315__classify_why_a_file_resists_lc_verify_pigeon_plugin.py",
-          "history": [
-            {
-              "v": 3,
-              "d": "0314",
-              "action": "discovered"
-            },
-            {
-              "v": 4,
-              "d": "0315",
-              "action": "mutated"
-            }
-          ]
         }
       ]
     },
-    "SO": {
+    "切": {
       "name": "source_slicer",
       "folder": "pigeon_compiler/cut_executor",
       "files": [
@@ -2581,17 +2518,34 @@
     },
     "追": {
       "name": "heal",
-      "folder": "pigeon_compiler/rename_engine",
+      "folder": "pigeon_compiler/rename_engine/heal_seq009",
       "files": [
+        {
+          "name": "heal_seq009_orchestrator",
+          "seq": 5,
+          "ver": 2,
+          "date": "0401",
+          "desc": "auto extracted by pigeon compiler",
+          "intent": "λa",
+          "tokens": 725,
+          "path": "pigeon_compiler/rename_engine/heal_seq009/heal_seq009_orchestrator_seq005_v002_d0401__auto_extracted_by_pigeon_compiler_lc_add_chinese_glyph.py",
+          "history": [
+            {
+              "v": 2,
+              "d": "0401",
+              "action": "registered"
+            }
+          ]
+        },
         {
           "name": "heal",
           "seq": 9,
-          "ver": 4,
-          "date": "0315",
+          "ver": 5,
+          "date": "0401",
           "desc": "self healing orchestrator",
-          "intent": "λν",
-          "tokens": 2044,
-          "path": "pigeon_compiler/rename_engine/heal_seq009_v004_d0315__self_healing_orchestrator_lc_verify_pigeon_plugin.py",
+          "intent": "λa",
+          "tokens": 2049,
+          "path": "pigeon_compiler/rename_engine/heal_seq009_v005_d0401__self_healing_orchestrator_lc_add_chinese_glyph.py",
           "history": [
             {
               "v": 3,
@@ -2601,6 +2555,11 @@
             {
               "v": 4,
               "d": "0315",
+              "action": "mutated"
+            },
+            {
+              "v": 5,
+              "d": "0401",
               "action": "mutated"
             }
           ]
@@ -2635,19 +2594,19 @@
         }
       ]
     },
-    "NA": {
-      "name": "nametag",
+    "谱建": {
+      "name": "manifest_builder",
       "folder": "pigeon_compiler/rename_engine",
       "files": [
         {
-          "name": "nametag",
-          "seq": 11,
+          "name": "manifest_builder",
+          "seq": 7,
           "ver": 3,
           "date": "0314",
-          "desc": "encode file description intent into",
+          "desc": "generate living manifest md per",
           "intent": "λD",
-          "tokens": 1924,
-          "path": "pigeon_compiler/rename_engine/nametag_seq011_v003_d0314__encode_file_description_intent_into_lc_desc_upgrade.py",
+          "tokens": 2927,
+          "path": "pigeon_compiler/rename_engine/manifest_builder_seq007_v003_d0314__generate_living_manifest_md_per_lc_desc_upgrade.py",
           "history": [
             {
               "v": 3,
@@ -2658,7 +2617,130 @@
         }
       ]
     },
-    "RU": {
+    "牌": {
+      "name": "nametag",
+      "folder": "pigeon_compiler/rename_engine/nametag_seq011",
+      "files": [
+        {
+          "name": "nametag_seq011_scan",
+          "seq": 8,
+          "ver": 2,
+          "date": "0401",
+          "desc": "auto extracted by pigeon compiler",
+          "intent": "λa",
+          "tokens": 298,
+          "path": "pigeon_compiler/rename_engine/nametag_seq011/nametag_seq011_scan_seq008_v002_d0401__auto_extracted_by_pigeon_compiler_lc_add_chinese_glyph.py",
+          "history": [
+            {
+              "v": 2,
+              "d": "0401",
+              "action": "registered"
+            }
+          ]
+        },
+        {
+          "name": "nametag",
+          "seq": 11,
+          "ver": 4,
+          "date": "0401",
+          "desc": "encode file description intent into",
+          "intent": "λa",
+          "tokens": 4052,
+          "path": "pigeon_compiler/rename_engine/nametag_seq011_v004_d0401__encode_file_description_intent_into_lc_add_chinese_glyph.py",
+          "history": [
+            {
+              "v": 3,
+              "d": "0314",
+              "action": "discovered"
+            },
+            {
+              "v": 4,
+              "d": "0401",
+              "action": "mutated"
+            }
+          ]
+        }
+      ]
+    },
+    "PL": {
+      "name": "planner",
+      "folder": "pigeon_compiler/rename_engine",
+      "files": [
+        {
+          "name": "planner",
+          "seq": 2,
+          "ver": 5,
+          "date": "0401",
+          "desc": "generate rename plan for non",
+          "intent": "λa",
+          "tokens": 1381,
+          "path": "pigeon_compiler/rename_engine/planner_seq002_v005_d0401__generate_rename_plan_for_non_lc_add_chinese_glyph.py",
+          "history": [
+            {
+              "v": 3,
+              "d": "0314",
+              "action": "discovered"
+            },
+            {
+              "v": 4,
+              "d": "0315",
+              "action": "mutated"
+            },
+            {
+              "v": 5,
+              "d": "0401",
+              "action": "mutated"
+            }
+          ]
+        }
+      ]
+    },
+    "册": {
+      "name": "registry",
+      "folder": "pigeon_compiler/rename_engine/registry_seq012",
+      "files": [
+        {
+          "name": "registry_seq012_diff",
+          "seq": 6,
+          "ver": 2,
+          "date": "0401",
+          "desc": "auto extracted by pigeon compiler",
+          "intent": "λa",
+          "tokens": 194,
+          "path": "pigeon_compiler/rename_engine/registry_seq012/registry_seq012_diff_seq006_v002_d0401__auto_extracted_by_pigeon_compiler_lc_add_chinese_glyph.py",
+          "history": [
+            {
+              "v": 2,
+              "d": "0401",
+              "action": "registered"
+            }
+          ]
+        },
+        {
+          "name": "registry",
+          "seq": 12,
+          "ver": 4,
+          "date": "0401",
+          "desc": "local name registry for the",
+          "intent": "λa",
+          "tokens": 2131,
+          "path": "pigeon_compiler/rename_engine/registry_seq012_v004_d0401__local_name_registry_for_the_lc_add_chinese_glyph.py",
+          "history": [
+            {
+              "v": 3,
+              "d": "0314",
+              "action": "discovered"
+            },
+            {
+              "v": 4,
+              "d": "0401",
+              "action": "mutated"
+            }
+          ]
+        }
+      ]
+    },
+    "追跑": {
       "name": "run_heal",
       "folder": "pigeon_compiler/rename_engine",
       "files": [
@@ -2683,99 +2765,22 @@
               "action": "mutated"
             }
           ]
-        },
+        }
+      ]
+    },
+    "改名": {
+      "name": "run_rename",
+      "folder": "pigeon_compiler/rename_engine",
+      "files": [
         {
           "name": "run_rename",
           "seq": 6,
-          "ver": 4,
-          "date": "0315",
+          "ver": 5,
+          "date": "0401",
           "desc": "full rename pipeline runner",
-          "intent": "λν",
-          "tokens": 1374,
-          "path": "pigeon_compiler/rename_engine/run_rename_seq006_v004_d0315__full_rename_pipeline_runner_lc_verify_pigeon_plugin.py",
-          "history": [
-            {
-              "v": 3,
-              "d": "0314",
-              "action": "discovered"
-            },
-            {
-              "v": 4,
-              "d": "0315",
-              "action": "mutated"
-            }
-          ]
-        },
-        {
-          "name": "run_batch_compile",
-          "seq": 15,
-          "ver": 2,
-          "date": "0328",
-          "desc": "compile entire codebase to pigeon",
-          "intent": "λR",
-          "tokens": 1999,
-          "path": "pigeon_compiler/runners/run_batch_compile_seq015_v002_d0328__compile_entire_codebase_to_pigeon_lc_dynamic_import_resolvers.py",
-          "history": [
-            {
-              "v": 2,
-              "d": "0328",
-              "action": "registered"
-            }
-          ]
-        },
-        {
-          "name": "run_clean_split_helpers",
-          "seq": 11,
-          "ver": 4,
-          "date": "0315",
-          "desc": "helpers for run clean split",
-          "intent": "λν",
-          "tokens": 566,
-          "path": "pigeon_compiler/runners/run_clean_split_helpers_seq011_v004_d0315__helpers_for_run_clean_split_lc_verify_pigeon_plugin.py",
-          "history": [
-            {
-              "v": 3,
-              "d": "0314",
-              "action": "discovered"
-            },
-            {
-              "v": 4,
-              "d": "0315",
-              "action": "mutated"
-            }
-          ]
-        },
-        {
-          "name": "run_clean_split_init",
-          "seq": 12,
-          "ver": 4,
-          "date": "0315",
-          "desc": "init manifest writers for clean",
-          "intent": "λν",
-          "tokens": 1663,
-          "path": "pigeon_compiler/runners/run_clean_split_init_seq012_v004_d0315__init_manifest_writers_for_clean_lc_verify_pigeon_plugin.py",
-          "history": [
-            {
-              "v": 3,
-              "d": "0314",
-              "action": "discovered"
-            },
-            {
-              "v": 4,
-              "d": "0315",
-              "action": "mutated"
-            }
-          ]
-        },
-        {
-          "name": "run_clean_split",
-          "seq": 10,
-          "ver": 6,
-          "date": "0322",
-          "desc": "full clean pipeline deepseek plan",
-          "intent": "λW",
-          "tokens": 2509,
-          "path": "pigeon_compiler/runners/run_clean_split_seq010_v006_d0322__full_clean_pipeline_deepseek_plan_lc_windows_max_path.py",
+          "intent": "λa",
+          "tokens": 1388,
+          "path": "pigeon_compiler/rename_engine/run_rename_seq006_v005_d0401__full_rename_pipeline_runner_lc_add_chinese_glyph.py",
           "history": [
             {
               "v": 3,
@@ -2789,78 +2794,7 @@
             },
             {
               "v": 5,
-              "d": "0322",
-              "action": "mutated"
-            },
-            {
-              "v": 6,
-              "d": "0322",
-              "action": "mutated"
-            }
-          ]
-        },
-        {
-          "name": "run_compiler_test",
-          "seq": 7,
-          "ver": 4,
-          "date": "0315",
-          "desc": "self test pigeon compiler on",
-          "intent": "λν",
-          "tokens": 594,
-          "path": "pigeon_compiler/runners/run_compiler_test_seq007_v004_d0315__self_test_pigeon_compiler_on_lc_verify_pigeon_plugin.py",
-          "history": [
-            {
-              "v": 3,
-              "d": "0314",
-              "action": "discovered"
-            },
-            {
-              "v": 4,
-              "d": "0315",
-              "action": "mutated"
-            }
-          ]
-        },
-        {
-          "name": "run_deepseek_plans",
-          "seq": 8,
-          "ver": 4,
-          "date": "0315",
-          "desc": "phase 2 send ether maps",
-          "intent": "λν",
-          "tokens": 587,
-          "path": "pigeon_compiler/runners/run_deepseek_plans_seq008_v004_d0315__phase_2_send_ether_maps_lc_verify_pigeon_plugin.py",
-          "history": [
-            {
-              "v": 3,
-              "d": "0314",
-              "action": "discovered"
-            },
-            {
-              "v": 4,
-              "d": "0315",
-              "action": "mutated"
-            }
-          ]
-        },
-        {
-          "name": "run_pigeon_loop",
-          "seq": 9,
-          "ver": 4,
-          "date": "0315",
-          "desc": "the loop refactor until pigeon",
-          "intent": "λν",
-          "tokens": 2836,
-          "path": "pigeon_compiler/runners/run_pigeon_loop_seq009_v004_d0315__the_loop_refactor_until_pigeon_lc_verify_pigeon_plugin.py",
-          "history": [
-            {
-              "v": 3,
-              "d": "0314",
-              "action": "discovered"
-            },
-            {
-              "v": 4,
-              "d": "0315",
+              "d": "0401",
               "action": "mutated"
             }
           ]
@@ -3105,6 +3039,251 @@
         }
       ]
     },
+    "谱桥": {
+      "name": "manifest_bridge",
+      "folder": "pigeon_compiler/runners",
+      "files": [
+        {
+          "name": "manifest_bridge",
+          "seq": 13,
+          "ver": 4,
+          "date": "0315",
+          "desc": "update master manifest md after",
+          "intent": "λν",
+          "tokens": 1016,
+          "path": "pigeon_compiler/runners/manifest_bridge_seq013_v004_d0315__update_master_manifest_md_after_lc_verify_pigeon_plugin.py",
+          "history": [
+            {
+              "v": 3,
+              "d": "0314",
+              "action": "discovered"
+            },
+            {
+              "v": 4,
+              "d": "0315",
+              "action": "mutated"
+            }
+          ]
+        }
+      ]
+    },
+    "复审": {
+      "name": "reaudit_diff",
+      "folder": "pigeon_compiler/runners",
+      "files": [
+        {
+          "name": "reaudit_diff",
+          "seq": 14,
+          "ver": 4,
+          "date": "0315",
+          "desc": "re audit with diff across",
+          "intent": "λν",
+          "tokens": 1732,
+          "path": "pigeon_compiler/runners/reaudit_diff_seq014_v004_d0315__re_audit_with_diff_across_lc_verify_pigeon_plugin.py",
+          "history": [
+            {
+              "v": 3,
+              "d": "0314",
+              "action": "discovered"
+            },
+            {
+              "v": 4,
+              "d": "0315",
+              "action": "mutated"
+            }
+          ]
+        }
+      ]
+    },
+    "批编": {
+      "name": "run_batch_compile",
+      "folder": "pigeon_compiler/runners",
+      "files": [
+        {
+          "name": "run_batch_compile",
+          "seq": 15,
+          "ver": 2,
+          "date": "0328",
+          "desc": "compile entire codebase to pigeon",
+          "intent": "λR",
+          "tokens": 1999,
+          "path": "pigeon_compiler/runners/run_batch_compile_seq015_v002_d0328__compile_entire_codebase_to_pigeon_lc_dynamic_import_resolvers.py",
+          "history": [
+            {
+              "v": 2,
+              "d": "0328",
+              "action": "registered"
+            }
+          ]
+        }
+      ]
+    },
+    "净拆": {
+      "name": "run_clean_split",
+      "folder": "pigeon_compiler/runners",
+      "files": [
+        {
+          "name": "run_clean_split_helpers",
+          "seq": 11,
+          "ver": 4,
+          "date": "0315",
+          "desc": "helpers for run clean split",
+          "intent": "λν",
+          "tokens": 566,
+          "path": "pigeon_compiler/runners/run_clean_split_helpers_seq011_v004_d0315__helpers_for_run_clean_split_lc_verify_pigeon_plugin.py",
+          "history": [
+            {
+              "v": 3,
+              "d": "0314",
+              "action": "discovered"
+            },
+            {
+              "v": 4,
+              "d": "0315",
+              "action": "mutated"
+            }
+          ]
+        },
+        {
+          "name": "run_clean_split_init",
+          "seq": 12,
+          "ver": 4,
+          "date": "0315",
+          "desc": "init manifest writers for clean",
+          "intent": "λν",
+          "tokens": 1663,
+          "path": "pigeon_compiler/runners/run_clean_split_init_seq012_v004_d0315__init_manifest_writers_for_clean_lc_verify_pigeon_plugin.py",
+          "history": [
+            {
+              "v": 3,
+              "d": "0314",
+              "action": "discovered"
+            },
+            {
+              "v": 4,
+              "d": "0315",
+              "action": "mutated"
+            }
+          ]
+        },
+        {
+          "name": "run_clean_split",
+          "seq": 10,
+          "ver": 6,
+          "date": "0322",
+          "desc": "full clean pipeline deepseek plan",
+          "intent": "λW",
+          "tokens": 2509,
+          "path": "pigeon_compiler/runners/run_clean_split_seq010_v006_d0322__full_clean_pipeline_deepseek_plan_lc_windows_max_path.py",
+          "history": [
+            {
+              "v": 3,
+              "d": "0314",
+              "action": "discovered"
+            },
+            {
+              "v": 4,
+              "d": "0315",
+              "action": "mutated"
+            },
+            {
+              "v": 5,
+              "d": "0322",
+              "action": "mutated"
+            },
+            {
+              "v": 6,
+              "d": "0322",
+              "action": "mutated"
+            }
+          ]
+        }
+      ]
+    },
+    "测编": {
+      "name": "run_compiler_test",
+      "folder": "pigeon_compiler/runners",
+      "files": [
+        {
+          "name": "run_compiler_test",
+          "seq": 7,
+          "ver": 4,
+          "date": "0315",
+          "desc": "self test pigeon compiler on",
+          "intent": "λν",
+          "tokens": 594,
+          "path": "pigeon_compiler/runners/run_compiler_test_seq007_v004_d0315__self_test_pigeon_compiler_on_lc_verify_pigeon_plugin.py",
+          "history": [
+            {
+              "v": 3,
+              "d": "0314",
+              "action": "discovered"
+            },
+            {
+              "v": 4,
+              "d": "0315",
+              "action": "mutated"
+            }
+          ]
+        }
+      ]
+    },
+    "深划": {
+      "name": "run_deepseek_plans",
+      "folder": "pigeon_compiler/runners",
+      "files": [
+        {
+          "name": "run_deepseek_plans",
+          "seq": 8,
+          "ver": 4,
+          "date": "0315",
+          "desc": "phase 2 send ether maps",
+          "intent": "λν",
+          "tokens": 587,
+          "path": "pigeon_compiler/runners/run_deepseek_plans_seq008_v004_d0315__phase_2_send_ether_maps_lc_verify_pigeon_plugin.py",
+          "history": [
+            {
+              "v": 3,
+              "d": "0314",
+              "action": "discovered"
+            },
+            {
+              "v": 4,
+              "d": "0315",
+              "action": "mutated"
+            }
+          ]
+        }
+      ]
+    },
+    "鸽环": {
+      "name": "run_pigeon_loop",
+      "folder": "pigeon_compiler/runners",
+      "files": [
+        {
+          "name": "run_pigeon_loop",
+          "seq": 9,
+          "ver": 4,
+          "date": "0315",
+          "desc": "the loop refactor until pigeon",
+          "intent": "λν",
+          "tokens": 2836,
+          "path": "pigeon_compiler/runners/run_pigeon_loop_seq009_v004_d0315__the_loop_refactor_until_pigeon_lc_verify_pigeon_plugin.py",
+          "history": [
+            {
+              "v": 3,
+              "d": "0314",
+              "action": "discovered"
+            },
+            {
+              "v": 4,
+              "d": "0315",
+              "action": "mutated"
+            }
+          ]
+        }
+      ]
+    },
     "查": {
       "name": "ast_parser",
       "folder": "pigeon_compiler/state_extractor",
@@ -3217,7 +3396,35 @@
         }
       ]
     },
-    "SH": {
+    "阻": {
+      "name": "resistance_analyzer",
+      "folder": "pigeon_compiler/state_extractor",
+      "files": [
+        {
+          "name": "resistance_analyzer",
+          "seq": 5,
+          "ver": 4,
+          "date": "0315",
+          "desc": "classify why a file resists",
+          "intent": "λν",
+          "tokens": 1037,
+          "path": "pigeon_compiler/state_extractor/resistance_analyzer_seq005_v004_d0315__classify_why_a_file_resists_lc_verify_pigeon_plugin.py",
+          "history": [
+            {
+              "v": 3,
+              "d": "0314",
+              "action": "discovered"
+            },
+            {
+              "v": 4,
+              "d": "0315",
+              "action": "mutated"
+            }
+          ]
+        }
+      ]
+    },
+    "共态": {
       "name": "shared_state_detector",
       "folder": "pigeon_compiler/state_extractor",
       "files": [
@@ -4084,7 +4291,7 @@
           "ver": 3,
           "date": "0401",
           "desc": "auto extracted by pigeon compiler",
-          "intent": "λa",
+          "intent": "λb",
           "tokens": 636,
           "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_orchestrator_seq010_v003_d0401__auto_extracted_by_pigeon_compiler_lc_glyph_compiler_symbol.py",
           "history": [
@@ -4493,7 +4700,7 @@
           "ver": 2,
           "date": "0401",
           "desc": "glyph compiler python maximum symbolic",
-          "intent": "λa",
+          "intent": "λb",
           "tokens": 5050,
           "path": "src/glyph_compiler_seq032_v002_d0401__glyph_compiler_python_maximum_symbolic_lc_glyph_compiler_symbol.py",
           "history": [
@@ -4510,7 +4717,7 @@
           "ver": 3,
           "date": "0401",
           "desc": "glyph compiler v2 ast based",
-          "intent": "λa",
+          "intent": "λb",
           "tokens": 4585,
           "path": "src/glyph_compiler_seq032_v003_d0401__glyph_compiler_v2_ast_based_lc_glyph_compiler_symbol.py",
           "history": [
@@ -5049,7 +5256,7 @@
           "ver": 5,
           "date": "0401",
           "desc": "the system studying the system",
-          "intent": "λa",
+          "intent": "λb",
           "tokens": 5065,
           "path": "src/research_lab_seq029_v005_d0401__the_system_studying_the_system_lc_glyph_compiler_symbol.py",
           "history": [
@@ -5991,7 +6198,7 @@
           "ver": 2,
           "date": "0401",
           "desc": "symbol dictionary generator for pigeon",
-          "intent": "λa",
+          "intent": "λb",
           "tokens": 3737,
           "path": "src/symbol_dictionary_seq031_v002_d0401__symbol_dictionary_generator_for_pigeon_lc_glyph_compiler_symbol.py",
           "history": [
@@ -6160,6 +6367,31 @@
   },
   "recent_changes": [
     {
+      "hash": "135a3975",
+      "date": "2026-04-01",
+      "msg": "chore(pigeon): auto-rename 13 file(s) [pigeon-auto]"
+    },
+    {
+      "hash": "aa32a3f1",
+      "date": "2026-04-01",
+      "msg": "chore: add Chinese glyph prefixes to 245 pigeon modules"
+    },
+    {
+      "hash": "c77f412d",
+      "date": "2026-04-01",
+      "msg": "Revert \"chore(pigeon): auto-rename 5 file(s) [pigeon-auto]\""
+    },
+    {
+      "hash": "9a3fc2fc",
+      "date": "2026-04-01",
+      "msg": "chore(pigeon): auto-rename 5 file(s) [pigeon-auto]"
+    },
+    {
+      "hash": "11eb261d",
+      "date": "2026-04-01",
+      "msg": "feat: confidence scorer + glyph rename pipeline + research lab prediction voice"
+    },
+    {
       "hash": "c1f79553",
       "date": "2026-04-01",
       "msg": "chore(pigeon): auto-rename 5 file(s) [pigeon-auto]"
@@ -6183,31 +6415,6 @@
       "hash": "30814514",
       "date": "2026-03-31",
       "msg": "chore(pigeon): auto-rename 2 file(s) [pigeon-auto]"
-    },
-    {
-      "hash": "e3c540b5",
-      "date": "2026-03-31",
-      "msg": "feat: staleness alerts + bg-flush filtering + research data fix"
-    },
-    {
-      "hash": "fe888d51",
-      "date": "2026-03-30",
-      "msg": "chore(pigeon): auto-rename 4 file(s) [pigeon-auto]"
-    },
-    {
-      "hash": "7e0ecab2",
-      "date": "2026-03-30",
-      "msg": "feat: intent deletion pipeline + unsaid reconstruction + copilot-instructions sa"
-    },
-    {
-      "hash": "fc8ceebe",
-      "date": "2026-03-31",
-      "msg": "chore(pigeon): auto-rename 4 file(s) [pigeon-auto]"
-    },
-    {
-      "hash": "2c247baa",
-      "date": "2026-03-31",
-      "msg": "fix: rework signal (0.003->real), prediction fixation (edit_pairs), confidence c"
     }
   ],
   "meta_glyphs": {
@@ -6260,7 +6467,7 @@
     "compliance_seq008_recommend_wrapper": "✓",
     "context_budget": "~",
     "context_packet": "✓",
-    "context_router": "~",
+    "context_router": "!",
     "copilot_prompt_manager": "~",
     "copilot_prompt_manager_seq020_audit_decomposed": "✓",
     "copilot_prompt_manager_seq020_auto_index": "✓",
@@ -6276,7 +6483,7 @@
     "deepseek_adapter": "✓",
     "deepseek_plan_prompt": "~",
     "demo_sim": "!",
-    "dev_plan": "✓",
+    "dev_plan": "!",
     "drift": "✓",
     "drift_seq003_baseline_store": "✓",
     "drift_seq003_build_cognitive_context": "✓",
@@ -6302,14 +6509,15 @@
     "file_consciousness_seq019_persistence": "✓",
     "file_consciousness_seq019_profile_builder": "✓",
     "file_consciousness_seq019_report": "✓",
-    "file_heat_map": "!",
+    "file_heat_map": "✓",
     "file_writer": "~",
     "flow_engine": "!",
-    "func_decomposer": "~",
-    "glyph_compiler": "!",
+    "func_decomposer": "!",
+    "glyph_compiler": "~",
     "graph_extractor": "✓",
     "graph_heat_map": "✓",
     "heal": "!",
+    "heal_seq009_orchestrator": "✓",
     "import_fixer": "✓",
     "import_rewriter": "~",
     "import_tracer": "✓",
@@ -6327,20 +6535,21 @@
     "logger": "✓",
     "loop_detector": "✓",
     "manifest_bridge": "✓",
-    "manifest_builder": "✓",
+    "manifest_builder": "!",
     "manifest_writer": "✓",
     "models": "✓",
     "mutation_scorer": "✓",
     "nametag": "!",
+    "nametag_seq011_scan": "✓",
     "nl_parsers": "✓",
     "node_awakener": "~",
-    "node_conversation": "✓",
+    "node_conversation": "!",
     "node_memory": "✓",
     "observer_synthesis": "!",
     "operator_stats": "!",
     "path_selector": "✓",
     "plan_parser": "✓",
-    "plan_validator": "✓",
+    "plan_validator": "~",
     "planner": "~",
     "pq_manifest_utils": "✓",
     "pq_search_utils": "~",
@@ -6376,7 +6585,7 @@
     "push_cycle_seq025_predictions_injector_decomposed": "✓",
     "push_cycle_seq025_signal_extractors": "✓",
     "push_cycle_seq025_sync_decomposed": "✓",
-    "push_narrative": "~",
+    "push_narrative": "✓",
     "query_memory": "✓",
     "query_memory_seq010_clustering": "✓",
     "query_memory_seq010_constants": "✓",
@@ -6386,18 +6595,19 @@
     "query_memory_seq010_trigram_utils": "✓",
     "reaudit_diff": "✓",
     "registry": "!",
+    "registry_seq012_diff": "✓",
     "research_lab": "~",
     "resistance_analyzer": "~",
     "resistance_bridge": "✓",
     "resplit": "!",
-    "resplit_binpack": "~",
+    "resplit_binpack": "!",
     "resplit_helpers": "✓",
     "rework_backfill": "✓",
-    "rework_detector": "~",
-    "run_batch_compile": "~",
+    "rework_detector": "✓",
+    "run_batch_compile": "!",
     "run_clean_split": "!",
     "run_clean_split_helpers": "!",
-    "run_clean_split_init": "✓",
+    "run_clean_split_init": "~",
     "run_compiler_test": "~",
     "run_deepseek_plans": "~",
     "run_heal": "!",
@@ -6417,14 +6627,14 @@
     "self_fix_seq013_seq_base": "✓",
     "self_fix_seq013_write_report_decomposed": "✓",
     "session_handoff": "✓",
-    "shard_manager": "!",
+    "shard_manager": "~",
     "shared_state_detector": "✓",
     "source_slicer": "✓",
-    "staleness_alert": "~",
+    "staleness_alert": "✓",
     "streaming_layer": "~",
-    "streaming_layer_aggregator": "✓",
-    "streaming_layer_alerts": "✓",
-    "streaming_layer_connection_pool": "✓",
+    "streaming_layer_aggregator": "!",
+    "streaming_layer_alerts": "!",
+    "streaming_layer_connection_pool": "!",
     "streaming_layer_constants": "✓",
     "streaming_layer_dashboard": "✓",
     "streaming_layer_dataclasses": "✓",
@@ -6432,20 +6642,20 @@
     "streaming_layer_demo_simulate": "✓",
     "streaming_layer_demo_summary": "✓",
     "streaming_layer_formatter": "✓",
-    "streaming_layer_http_handler": "✓",
-    "streaming_layer_metrics": "✓",
-    "streaming_layer_orchestrator": "✓",
+    "streaming_layer_http_handler": "~",
+    "streaming_layer_metrics": "~",
+    "streaming_layer_orchestrator": "!",
     "streaming_layer_replay": "✓",
     "streaming_layer_simulation_helpers": "✓",
-    "symbol_dictionary": "!",
-    "task_queue": "~",
+    "symbol_dictionary": "~",
+    "task_queue": "✓",
     "task_writer": "~",
     "timestamp_utils": "✓",
-    "trace_hook": "✓",
-    "traced_runner": "~",
-    "training_pairs": "~",
-    "training_writer": "!",
-    "unified_signal": "~",
+    "trace_hook": "~",
+    "traced_runner": "!",
+    "training_pairs": "✓",
+    "training_writer": "~",
+    "unified_signal": "✓",
     "unsaid": "✓",
     "unsaid_recon": "✓",
     "unsaid_seq002_diff": "✓",
@@ -6457,10 +6667,10 @@
   },
   "copilot_meta": {
     "state": "✓",
-    "confident_pct": 73.5,
-    "uncertain_pct": 13.9,
-    "degraded_pct": 12.6,
+    "confident_pct": 71.7,
+    "uncertain_pct": 12.9,
+    "degraded_pct": 15.5,
     "blind_pct": 0.0,
-    "total_modules": 230
+    "total_modules": 233
   }
 }
