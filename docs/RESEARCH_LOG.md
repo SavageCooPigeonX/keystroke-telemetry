@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-01 21:45 UTC · 190 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-01 23:09 UTC · 196 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -14,22 +14,22 @@
 
 ### Blind Spots *[source: measured]*
 *Edited without being predicted — the real surprises:*
-- `classify_bridge` — 200x unpredicted
+- `classify_bridge` — 150x unpredicted
 - `research_lab` — 145x unpredicted
-- `dynamic_prompt` — 82x unpredicted
 - `cognitive_reactor_seq014_patch_writer` — 50x unpredicted
 - `chat_response_reader` — 50x unpredicted
+- `copilot_prompt_manager_seq020_orchestrator` — 50x unpredicted
 
 ## Live Operator State
 
-*190 prompts profiled · source: measured*
+*196 prompts profiled · source: measured*
 
-**Dominant: `focused` | Submit: 66% | Del: 8.9%**
+**Dominant: `focused` | Submit: 66% | Del: 8.1%**
 - operator entering flow state — productive building, less backtracking
 
 ## Pair Performance
 
-*166 responses scored · 34 background excluded*
+*173 responses scored · 27 background excluded*
 
 **Accuracy: 100% OK | 0% miss** *[source: measured]*
 - trend: **stable** (100% → 100%)
@@ -37,7 +37,7 @@
 **Prompt→edit latency:** 239.2s median (40 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*92 mutations scored*
+*94 mutations scored*
 - no significant signal yet — all sections scored neutral
 
 **Reactor:** 216 fires, 0 accepted (0%)
@@ -45,10 +45,14 @@
 
 ## Codebase Health
 
-*43 self-fix reports · 2026-03-16 → 2026-04-01*
+*44 self-fix reports · 2026-03-16 → 2026-04-01*
 
-**Problem trend: growing** (early avg 24 → recent avg 161) *[source: measured]*
-- problems growing ~137/push — expect more over_hard_cap and dead_exports without intervention
+**Problem trend: growing** (early avg 24 → recent avg 245) *[source: measured]*
+- problems growing ~221/push — expect more over_hard_cap and dead_exports without intervention
+
+### Fragile Contracts *[source: llm_derived]*
+*From push narratives — treat as hypothesis:*
+- intent_simulator_seq034_v001** was created as a placeholder but is currently empty; its assumption of future implementation is fragile—if referenced before being built, it will cause import failures.
 
 ### Recent Deaths *[source: measured]*
 - `exception`: 3
@@ -64,24 +68,24 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "- generate"
-- "fixed arent"
 - "i ha"
-- "and"
-- "is it coh"
 - "coonti"
-- "what about glypg as signals for breakbruh"
-- "/ impor"
-- "te - change"
+- "fixed arent"
+- "yes bu"
+- "even"
 - "age - like we have file append and if test run"
+- "/ impor"
+- "but h"
+- "is it coh"
+- "what about glypg as signals for breakbruh"
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20, 34 bg noise
-- **Training pairs:** 31 captured
-- **Prediction accuracy:** F1=0.017, calibration=0.334 (200 scored)
+- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20, 27 bg noise
+- **Training pairs:** 32 captured
+- **Prediction accuracy:** F1=0.010, calibration=0.326 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
 - **Memory shards:** 10 active (zero LLM calls)
 

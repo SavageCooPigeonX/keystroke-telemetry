@@ -1,4 +1,4 @@
-""".operator_stats_seq008_v008_d0331__persi_baselines_seq004_v001.py — Auto-extracted by Pigeon Compiler."""
+""".operator_stats_seq008_v010_d0331__persi_baselines_seq004_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
 
 def compute_baselines(history: list[dict], window: int = 200) -> dict:

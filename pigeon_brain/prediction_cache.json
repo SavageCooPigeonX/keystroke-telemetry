@@ -32,160 +32,6 @@
         "mode": "heat",
         "path": [
           "file_heat_map",
-          "logger",
-          "models",
-          "mutation_scorer",
-          "operator_stats",
-          "pulse_harvest",
-          "push_narrative",
-          "query_memory"
-        ],
-        "depth": 8,
-        "heat": 0.73,
-        "importance": 0.513,
-        "alive": true,
-        "nodes_touched": 6,
-        "fears_collected": 10,
-        "dead_veins": 0,
-        "narrative_fragments": 6
-      },
-      "confidence": 0.96,
-      "ts": "2026-03-27T06:41:43.784673+00:00",
-      "scored": true
-    },
-    {
-      "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-      "mode": "failure",
-      "trend": {
-        "states": [
-          "unknown",
-          "unknown",
-          "unknown",
-          "unknown",
-          "unknown",
-          "unknown",
-          "focused",
-          "hesitant",
-          "unknown",
-          "unknown"
-        ],
-        "modules": [
-          "file_heat_map",
-          "import_rewriter",
-          "file_writer"
-        ],
-        "avg_del": 0.0338,
-        "avg_wpm": 17.2,
-        "dominant_state": "unknown",
-        "n_entries": 10
-      },
-      "result": {
-        "origin": "file_heat_map",
-        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-        "mode": "failure",
-        "path": [
-          "file_heat_map"
-        ],
-        "depth": 1,
-        "heat": 0.355,
-        "importance": 0.92,
-        "alive": true,
-        "nodes_touched": 1,
-        "fears_collected": 2,
-        "dead_veins": 0,
-        "narrative_fragments": 1
-      },
-      "confidence": 0.96,
-      "ts": "2026-03-27T06:41:43.796777+00:00",
-      "scored": true
-    },
-    {
-      "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-      "mode": "targeted",
-      "trend": {
-        "states": [
-          "unknown",
-          "unknown",
-          "unknown",
-          "unknown",
-          "unknown",
-          "unknown",
-          "focused",
-          "hesitant",
-          "unknown",
-          "unknown"
-        ],
-        "modules": [
-          "file_heat_map",
-          "import_rewriter",
-          "file_writer"
-        ],
-        "avg_del": 0.0338,
-        "avg_wpm": 17.2,
-        "dominant_state": "unknown",
-        "n_entries": 10
-      },
-      "result": {
-        "origin": "file_heat_map",
-        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-        "mode": "targeted",
-        "path": [
-          "file_heat_map",
-          "logger",
-          "models",
-          "mutation_scorer",
-          "operator_stats",
-          "pulse_harvest",
-          "push_narrative",
-          "query_memory",
-          "resistance_bridge",
-          "rework_backfill"
-        ],
-        "depth": 10,
-        "heat": 0.73,
-        "importance": 0.434,
-        "alive": true,
-        "nodes_touched": 7,
-        "fears_collected": 13,
-        "dead_veins": 0,
-        "narrative_fragments": 7
-      },
-      "confidence": 0.96,
-      "ts": "2026-03-27T06:42:39.485723+00:00",
-      "scored": true
-    },
-    {
-      "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-      "mode": "heat",
-      "trend": {
-        "states": [
-          "unknown",
-          "unknown",
-          "unknown",
-          "unknown",
-          "unknown",
-          "unknown",
-          "focused",
-          "hesitant",
-          "unknown",
-          "unknown"
-        ],
-        "modules": [
-          "file_heat_map",
-          "import_rewriter",
-          "file_writer"
-        ],
-        "avg_del": 0.0338,
-        "avg_wpm": 17.2,
-        "dominant_state": "unknown",
-        "n_entries": 10
-      },
-      "result": {
-        "origin": "file_heat_map",
-        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-        "mode": "heat",
-        "path": [
-          "file_heat_map",
           "file_consciousness",
           "dynamic_prompt",
           "drift_watcher",
@@ -2136,7 +1982,124 @@
       "confidence": 0.254,
       "ts": "2026-04-01T21:46:23.805794+00:00",
       "scored": false
+    },
+    {
+      "prediction_id": "4c0db3f1b52f",
+      "batch_id": "0b91b9974317",
+      "session_n_at": 100,
+      "phantom_seed": "Predict operator's next need. Module focus: glyph_compiler, research_lab, symbol_dictionary",
+      "mode": "targeted",
+      "trend": {
+        "states": [
+          "hesitant",
+          "unknown",
+          "frustrated",
+          "unknown",
+          "frustrated",
+          "unknown",
+          "hesitant",
+          "hesitant",
+          "unknown",
+          "frustrated"
+        ],
+        "modules": [
+          "glyph_compiler",
+          "research_lab",
+          "symbol_dictionary",
+          "file_heat_map",
+          "import_rewriter"
+        ],
+        "avg_del": 0.061,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "targeted",
+        "phantom_seed": "Predict operator's next need. Module focus: glyph_compiler, research_lab, symbol_dictionary"
+      },
+      "confidence": 0.224,
+      "ts": "2026-04-01T23:09:56.609166+00:00",
+      "scored": false
+    },
+    {
+      "prediction_id": "e1bbc3cdcd1b",
+      "batch_id": "0b91b9974317",
+      "session_n_at": 100,
+      "phantom_seed": "Predict operator's next need. Module focus: glyph_compiler, research_lab, symbol_dictionary",
+      "mode": "heat",
+      "trend": {
+        "states": [
+          "hesitant",
+          "unknown",
+          "frustrated",
+          "unknown",
+          "frustrated",
+          "unknown",
+          "hesitant",
+          "hesitant",
+          "unknown",
+          "frustrated"
+        ],
+        "modules": [
+          "glyph_compiler",
+          "research_lab",
+          "symbol_dictionary",
+          "file_heat_map",
+          "import_rewriter"
+        ],
+        "avg_del": 0.061,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "heat",
+        "phantom_seed": "Predict operator's next need. Module focus: glyph_compiler, research_lab, symbol_dictionary"
+      },
+      "confidence": 0.224,
+      "ts": "2026-04-01T23:09:56.609166+00:00",
+      "scored": false
+    },
+    {
+      "prediction_id": "ceb3822b96a9",
+      "batch_id": "0b91b9974317",
+      "session_n_at": 100,
+      "phantom_seed": "Predict operator's next need. Module focus: glyph_compiler, research_lab, symbol_dictionary",
+      "mode": "failure",
+      "trend": {
+        "states": [
+          "hesitant",
+          "unknown",
+          "frustrated",
+          "unknown",
+          "frustrated",
+          "unknown",
+          "hesitant",
+          "hesitant",
+          "unknown",
+          "frustrated"
+        ],
+        "modules": [
+          "glyph_compiler",
+          "research_lab",
+          "symbol_dictionary",
+          "file_heat_map",
+          "import_rewriter"
+        ],
+        "avg_del": 0.061,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "failure",
+        "phantom_seed": "Predict operator's next need. Module focus: glyph_compiler, research_lab, symbol_dictionary"
+      },
+      "confidence": 0.224,
+      "ts": "2026-04-01T23:09:56.609166+00:00",
+      "scored": false
     }
   ],
-  "updated": "2026-04-01T21:46:23.927926+00:00"
+  "updated": "2026-04-01T23:09:56.640171+00:00"
 }

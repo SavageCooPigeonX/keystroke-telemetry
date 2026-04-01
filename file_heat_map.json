@@ -1109,48 +1109,6 @@
   "self_fix": {
     "samples": [
       {
-        "ts": "2026-04-01T22:40:38.747255+00:00",
-        "hes": 0.578,
-        "wpm": 2075.6,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:41:17.130881+00:00",
-        "hes": 0.346,
-        "wpm": 5232.3,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:41:51.736897+00:00",
-        "hes": 0.486,
-        "wpm": 78.4,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:42:18.107923+00:00",
-        "hes": 0.4,
-        "wpm": 1634.8,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:42:30.590860+00:00",
-        "hes": 0.476,
-        "wpm": 16082.9,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:42:53.062328+00:00",
-        "hes": 0.475,
-        "wpm": 10804.6,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
         "ts": "2026-04-01T22:43:16.542855+00:00",
         "hes": 0.499,
         "wpm": 11374.7,
@@ -1247,10 +1205,52 @@
         "wpm": 331.7,
         "state": "focused",
         "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:05:17.442771+00:00",
+        "hes": 0.695,
+        "wpm": 144.9,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:06:15.144516+00:00",
+        "hes": 0.687,
+        "wpm": 746.0,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:07:15.170734+00:00",
+        "hes": 0.7,
+        "wpm": 33.7,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:08:16.008529+00:00",
+        "hes": 0.63,
+        "wpm": 4422.5,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:09:16.470975+00:00",
+        "hes": 0.701,
+        "wpm": 1278.1,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:10:17.000115+00:00",
+        "hes": 0.509,
+        "wpm": 15874.7,
+        "state": "focused",
+        "rework": "partial"
       }
     ],
-    "avg_hes": 0.553,
-    "avg_wpm": 6200.9,
+    "avg_hes": 0.611,
+    "avg_wpm": 5530.4,
     "miss_count": 0,
     "total": 20
   },
@@ -1405,48 +1405,6 @@
   ".operator_stats": {
     "samples": [
       {
-        "ts": "2026-04-01T22:40:38.747396+00:00",
-        "hes": 0.578,
-        "wpm": 2075.6,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:41:17.132196+00:00",
-        "hes": 0.346,
-        "wpm": 5232.3,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:41:51.737005+00:00",
-        "hes": 0.486,
-        "wpm": 78.4,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:42:18.108089+00:00",
-        "hes": 0.4,
-        "wpm": 1634.8,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:42:30.590944+00:00",
-        "hes": 0.476,
-        "wpm": 16082.9,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:42:53.062604+00:00",
-        "hes": 0.475,
-        "wpm": 10804.6,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
         "ts": "2026-04-01T22:43:16.542955+00:00",
         "hes": 0.499,
         "wpm": 11374.7,
@@ -1543,57 +1501,57 @@
         "wpm": 331.7,
         "state": "focused",
         "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:05:17.442853+00:00",
+        "hes": 0.695,
+        "wpm": 144.9,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:06:15.144554+00:00",
+        "hes": 0.687,
+        "wpm": 746.0,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:07:15.170766+00:00",
+        "hes": 0.7,
+        "wpm": 33.7,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:08:16.008582+00:00",
+        "hes": 0.63,
+        "wpm": 4422.5,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:09:16.471064+00:00",
+        "hes": 0.701,
+        "wpm": 1278.1,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:10:17.000229+00:00",
+        "hes": 0.509,
+        "wpm": 15874.7,
+        "state": "focused",
+        "rework": "partial"
       }
     ],
-    "avg_hes": 0.553,
-    "avg_wpm": 6200.9,
+    "avg_hes": 0.611,
+    "avg_wpm": 5530.4,
     "miss_count": 0,
     "total": 20
   },
   "dynamic_prompt": {
     "samples": [
-      {
-        "ts": "2026-04-01T22:40:38.747442+00:00",
-        "hes": 0.578,
-        "wpm": 2075.6,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:41:17.132271+00:00",
-        "hes": 0.346,
-        "wpm": 5232.3,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:41:51.737057+00:00",
-        "hes": 0.486,
-        "wpm": 78.4,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:42:18.108136+00:00",
-        "hes": 0.4,
-        "wpm": 1634.8,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:42:30.590981+00:00",
-        "hes": 0.476,
-        "wpm": 16082.9,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T22:42:53.062661+00:00",
-        "hes": 0.475,
-        "wpm": 10804.6,
-        "state": "focused",
-        "rework": "partial"
-      },
       {
         "ts": "2026-04-01T22:43:16.543015+00:00",
         "hes": 0.499,
@@ -1691,10 +1649,52 @@
         "wpm": 331.7,
         "state": "focused",
         "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:05:17.442894+00:00",
+        "hes": 0.695,
+        "wpm": 144.9,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:06:15.144569+00:00",
+        "hes": 0.687,
+        "wpm": 746.0,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:07:15.170780+00:00",
+        "hes": 0.7,
+        "wpm": 33.7,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:08:16.008609+00:00",
+        "hes": 0.63,
+        "wpm": 4422.5,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:09:16.471106+00:00",
+        "hes": 0.701,
+        "wpm": 1278.1,
+        "state": "focused",
+        "rework": "partial"
+      },
+      {
+        "ts": "2026-04-01T23:10:17.000295+00:00",
+        "hes": 0.509,
+        "wpm": 15874.7,
+        "state": "focused",
+        "rework": "partial"
       }
     ],
-    "avg_hes": 0.553,
-    "avg_wpm": 6200.9,
+    "avg_hes": 0.611,
+    "avg_wpm": 5530.4,
     "miss_count": 0,
     "total": 20
   }

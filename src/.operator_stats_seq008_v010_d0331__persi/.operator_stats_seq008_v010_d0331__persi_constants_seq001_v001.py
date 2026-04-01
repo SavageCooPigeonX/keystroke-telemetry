@@ -1,4 +1,4 @@
-""".operator_stats_seq008_v008_d0331__persi_constants_seq001_v001.py — Auto-extracted by Pigeon Compiler."""
+""".operator_stats_seq008_v010_d0331__persi_constants_seq001_v001.py — Auto-extracted by Pigeon Compiler."""
 
 WPM_HUMAN_MAX = 300
 

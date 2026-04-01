@@ -1,4 +1,4 @@
-""".operator_stats_seq008_v008_d0331__persi_operator_stats_class_seq009_v001.py — Auto-extracted by Pigeon Compiler."""
+""".operator_stats_seq008_v010_d0331__persi_operator_stats_seq009_v001.py — Auto-extracted by Pigeon Compiler."""
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 import json
@@ -53,8 +53,6 @@ class OperatorStats:
 
         wpm = round((inserts / 5) / max(duration_ms / 60_000, 0.001), 1)
         # Prefer intent_deletion_ratio (8+ backspace runs only) over raw ratio
-        # Raw ratio counts every backspace including typo corrections (1-5 chars)
-        # Intent ratio only counts runs of 8+ = genuine line-of-thinking changes
         del_ratio = msg.get('intent_deletion_ratio',
                            msg.get('chat_intent_deletion_ratio',
                                    round(dels / keys, 3)))

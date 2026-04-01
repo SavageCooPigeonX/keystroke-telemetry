@@ -1,42 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-04-01T08:09:22.980797+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T08:10:22.481375+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T08:11:22.879730+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T08:12:22.704582+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T08:13:22.211811+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T08:14:22.881790+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
       "ts": "2026-04-01T08:15:22.652063+00:00",
       "text": "bg:RESEARCH_LOG.md",
       "fingerprint": "bgresearch_logmd",
@@ -2996,6 +2960,42 @@
     },
     {
       "ts": "2026-04-01T23:04:17.299256+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T23:05:17.399756+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T23:06:15.135658+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T23:07:15.163861+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T23:08:15.996629+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T23:09:16.448181+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T23:10:16.982301+00:00",
       "text": "bg:INTENT_SIMULATION.md",
       "fingerprint": "bgintent_simulationmd",
       "submitted": true

@@ -1,9 +1,10 @@
 """Regenerate dictionary.pgd with new glyphs."""
 from pathlib import Path
 import sys, json
+from src._resolve import src_import
 sys.path.insert(0, '.')
 
-from src.symbol_dictionary_seq031_v002_d0401__典双逆流_symbol_dictionary_generator_for_pigeon_lc_glyph_compiler_symbol import generate_dictionary
+generate_dictionary = src_import("symbol_dictionary_seq031", "generate_dictionary")
 
 root = Path('.')
 d = generate_dictionary(root)

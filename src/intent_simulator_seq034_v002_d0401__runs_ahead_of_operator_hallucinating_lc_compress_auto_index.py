@@ -7,10 +7,10 @@ Adapts intent quickly based on recent prompts. Zero LLM calls.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 034 | VER: v001 | ~200 lines | ~3,500 tokens
-# DESC:   intent_simulator_project_manager
-# INTENT: intent_predictor_build
-# LAST:   2026-04-01
+# SEQ: 034 | VER: v002 | 564 lines | ~5,306 tokens
+# DESC:   runs_ahead_of_operator_hallucinating
+# INTENT: compress_auto_index
+# LAST:   2026-04-01 @ 9cdc756
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

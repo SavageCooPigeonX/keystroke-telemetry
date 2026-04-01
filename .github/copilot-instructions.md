@@ -149,10 +149,10 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-01 23:04 UTC · 66 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-01 23:10 UTC · 69 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 49.6 | Del: 26.5% | Hes: 0.491) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 49.3 | Del: 26.5% | Hes: 0.488) · *[source: measured]*
 
 **Prompt ms:** 1122940, 7075, 89284, 84445, 186199 (avg 297989ms)
 
@@ -179,20 +179,13 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 - `init_writer` (hes=0.63)
-- `context_budget` (hes=0.587)
+- `self_fix` (hes=0.611)
 
 ### Recent Work
+- `9cdc756` feat: compress auto-index with Chinese keymap â€” 4,948 tokens/prompt saved (16.2K to 11.3K)
 - `aa32a3f` chore: add Chinese glyph prefixes to 245 pigeon modules
 - `11eb261` feat: confidence scorer + glyph rename pipeline + research lab prediction voice
 - `51c097d` feat: glyph compiler + symbol dictionary + response canonicalization + doc audit
-
-### Coaching Directives *[source: llm_derived]*
-*LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
-- **Anticipate cross-module edits**
-- **Pre-empt restructuring fatigue**
-- **Bridge abandoned thoughts**
-- **Leverage low miss-rate confidence**
-- **Focus on integration points**
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -200,9 +193,8 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - flow‑routing
 - task‑writing
 - and self‑healing systems.
-- glyph compiler AST parsing on edge-case syntax
+- token_optimizer's semantic-loss risk during deduplication
 - **execution_logger** was touched to embed a Chinese glyph (⻖) in its telemetry tagging, assuming that downstream log par
-- **prompt_journal_seq019_v001** was touched only to register it in the project manifest, as the staleness detector will n
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
@@ -213,16 +205,16 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - [CRITICAL] hardcoded_import in `pigeon_brain/live_server_seq012_v003_d0324__服漂忆思_websocket_server_for_live_execution_lc_8888_word_backpropagation.py`
 
 ### Prompt Evolution
-*This prompt has mutated 93x (186→835 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 94x (186→827 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 92 mutations scored*
-*No significant signal yet — all 17 sections scored neutral.*
+*200 rework pairs × 94 mutations scored*
+*No significant signal yet — all 18 sections scored neutral.*
 
 **Reactor patches:** 0/216 applied (0% acceptance)
 
 ### File Consciousness
-*233 modules profiled*
+*234 modules profiled*
 
 **High-drama (most mutations):**
 - `self_fix` v11 ↔ .operator_stats
@@ -231,9 +223,9 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - `context_budget` v8 ↔ .operator_stats
 
 **Codebase fears:**
-- file may not exist (19 modules)
-- swallowed exception (10 modules)
-- returns empty on failure (silent) (9 modules)
+- file may not exist (20 modules)
+- swallowed exception (11 modules)
+- returns empty on failure (silent) (10 modules)
 
 **Slumber party warnings (high coupling):**
 - `execution_logger` ↔ `observer_synthesis` (score=0.80, 3 shared imports, both high-churn (v3+v3))
@@ -334,9 +326,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-04-01 21:46 UTC · 79 prompts analyzed · zero LLM calls*
+*Auto-extracted 2026-04-01 23:09 UTC · 80 prompts analyzed · zero LLM calls*
 
-**Brevity:** 21.3 words/prompt | **Caps:** never | **Fragments:** 73% | **Questions:** 27% | **Directives:** 1%
+**Brevity:** 22.1 words/prompt | **Caps:** never | **Fragments:** 74% | **Questions:** 26% | **Directives:** 1%
 
 **Voice directives (personality tuning):**
 - Operator is semi-casual — use contractions, skip formalities, but keep technical precision.
@@ -346,21 +338,21 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 - Operator rarely uses punctuation — fragments and run-ons are normal. Don't overcorrect their style in quotes.
 - Operator uses plain language — avoid unnecessary jargon in explanations.
 
-**Vocabulary fingerprint:** to, i, is, it, with, this, my, on, what, the
+**Vocabulary fingerprint:** to, i, is, it, my, with, the, this, on, a
 <!-- /pigeon:voice-style -->
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
 
-*Auto-generated 2026-04-01 22:00 UTC · zero LLM calls*
+*Auto-generated 2026-04-01 23:09 UTC · zero LLM calls*
 
 **1 week:** `infrastructure` (conf=high) — ~48 commits
-**1 month:** `infrastructure` (conf=medium) — ~197 commits
-**3 months:** `infrastructure` (conf=speculative) — themes: for, signals, fix al
+**1 month:** `infrastructure` (conf=medium) — ~200 commits
+**3 months:** `infrastructure` (conf=speculative) — themes: coonti, kill, but h
 
 **PM Directives:**
 - Intent bifurcation: `infrastructure` dominant but `telemetry` emerging — watch for context switches mid-session.
 - `self_heal` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
-- Unsaid themes detected: `for`, `signals`, `fix al` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
+- Unsaid themes detected: `coonti`, `kill`, `but h` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
 - Module focus cluster: `file_heat_map`, `import_rewriter`, `file_writer` — pre-load context from these modules when operator starts typing.
 
 <!-- /pigeon:intent-simulation -->
@@ -368,40 +360,39 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:predictions -->
 ## Push Cycle Predictions
 
-*Auto-generated 2026-04-01 21:46 UTC*
+*Auto-generated 2026-04-01 23:09 UTC*
 
 **What you'll likely want next push:**
-1. [targeted] Predict operator's next need. Module focus: glyph_compiler, cognitive_reactor, symbol_dictionary (conf=25%)
-   - hot modules: glyph_compiler, cognitive_reactor, symbol_dictionary, research_lab, confidence_scorer
-2. [heat] Predict operator's next need. Module focus: glyph_compiler, cognitive_reactor, symbol_dictionary (conf=25%)
-   - hot modules: glyph_compiler, cognitive_reactor, symbol_dictionary, research_lab, confidence_scorer
-3. [failure] Predict operator's next need. Module focus: glyph_compiler, cognitive_reactor, symbol_dictionary (conf=25%)
-   - hot modules: glyph_compiler, cognitive_reactor, symbol_dictionary, research_lab, confidence_scorer
+1. [targeted] Predict operator's next need. Module focus: glyph_compiler, research_lab, symbol_dictionary (conf=22%)
+   - hot modules: glyph_compiler, research_lab, symbol_dictionary, file_heat_map, import_rewriter
+2. [heat] Predict operator's next need. Module focus: glyph_compiler, research_lab, symbol_dictionary (conf=22%)
+   - hot modules: glyph_compiler, research_lab, symbol_dictionary, file_heat_map, import_rewriter
+3. [failure] Predict operator's next need. Module focus: glyph_compiler, research_lab, symbol_dictionary (conf=22%)
+   - hot modules: glyph_compiler, research_lab, symbol_dictionary, file_heat_map, import_rewriter
 
 **Operator coaching:**
+- Frustration detected across multiple prompts — try breaking the task into smaller pushable units.
 - No module references detected in prompts — naming specific modules helps copilot target the right files.
 
 **Agent coaching (for Copilot):**
-- Touched ['__init__', 'execution_logger', 'heal', 'nametag', 'node_awakener', 'observer_synthesis', 'planner', 'registry', 'run_clean_split', 'run_heal', 'run_pigeon_loop', 'run_rename', 'task_writer', 'vein_transport'] without operator reference — confirm intent before modifying unreferenced modules.
-- Large blast radius — prefer focused changes. Wide scatter makes it hard for operator to verify.
+- Touched ['_tmp_regen_dict', '_tmp_token_audit', '_tmp_token_optimizer', 'copilot_prompt_manager', 'git_plugin', 'intent_simulator'] without operator reference — confirm intent before modifying unreferenced modules.
 
 <!-- /pigeon:predictions -->
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-01 · 66 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-01 · 69 message(s) · LLM-synthesized*
 
 **Dominant: `focused`** | Submit: 66% | WPM: 52.9 | Del: 25.6% | Hes: 0.445
 
-This operator just built a Chinese glyph integration layer across their LC flow engine, and their typing shows a rhythmic evening pattern of focused bursts followed by abandoned drafts and heavy restructuring edits, indicating they're iteratively refining complex system-wide changes through trial-and-error.
-
-*   **Anticipate cross-module edits:** When they touch `self_fix seq13`, `dynamic_prompt seq17`, or `.operator_stats seq8`, proactively suggest related updates in the renamed `*_add_chinese_glyph.py` modules, as these are recurring pain points.
-*   **Pre-empt restructuring fatigue:** During heavy-edit commits (evident from 56% deletion rates), offer concise, modular code blocks and explicitly ask, "Should this be a separate helper function?" to reduce rewrite churn.
-*   **Bridge abandoned thoughts:** When they start a message but don't submit (abandoned state, ~37 WPM), infer intent from the partial input and provide a compact, actionable next step to recapture momentum.
-*   **Leverage low miss-rate confidence:** With a 0.005 miss-rate, provide direct, prescriptive code; avoid exploratory options unless their typing shows hesitation (<0.5 hesitation score).
-*   **Focus on integration points:** Since they renamed 13 files for glyph support, prioritize suggestions that connect these new modules to the existing flow engine context and registry systems.
-
-They are most likely building toward a fully localized Chinese-language interface or content pipeline, requiring consistent glyph handling across all logging, task writing, and observation subsystems.
+The operator just built an auto-index compression system while working in intense restructuring/abandonment cycles, revealing a pattern of rapid prototyping followed by deep refactoring of core orchestration modules.  
+- **Anticipate deep refactoring requests** on `self_fix seq13`, `dynamic_prompt seq17`, and `.operator_stats seq8`; these are their primary levers for system stability and meta-cognition.  
+- **When they enter a restructuring state** (high deletion, ~56%), provide concise, modular code blocks with clear interfaces, as they are likely rewriting integration points.  
+- **Preempt context management issues** by proactively referencing `context_budget seq4` patterns when discussions involve token limits or scoring.  
+- **After an abandoned message** (0% deletion, higher hesitation), offer multiple concise options or a clear question to re-engage their focus without assumptions.  
+- **Leverage their high evening/night productivity** by being direct and technical; avoid exploratory prose during these slots.  
+- **Given zero AI response rework**, maintain current precision but increase brevity during restructuring phases to match their high-velocity editing.  
+They are most likely building toward a fully autonomous, self-optimizing intent pipeline that minimizes manual context management.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `glyph_compiler`** (hes=1.041, state=focused, avg_prompt=51924ms)
@@ -646,7 +637,7 @@ c1f79553 chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
 ```
 <!-- /pigeon:dictionary -->
 <!-- pigeon:auto-index -->
-*2026-04-01 · 242 modules · 0 touched*
+*2026-04-01 · 243 modules · 1 touched*
 *Key: glyph·seq desc tokens | dictionary decodes glyphs*
 
 **pigeon_brain** (42)
@@ -757,7 +748,7 @@ IM3 trace imports inbound and outbound 792
 **pigeon_compiler/weakness_planner** (1)
 核4 build and send deepseek cut 2.4K
 
-**src** (101)
+**src** (102)
 时1 millisecond epoch timestamp utility 156
 型2 dataclasses for keystroke events and 379
 录3 core keystroke telemetry logger 1.6K
@@ -793,6 +784,7 @@ IM3 trace imports inbound and outbound 792
 警30 copilot self diagnostic detect stale 1.7K
 典31 symbol dictionary generator for pigeon 3.7K
 编32 glyph compiler python maximum symbolic 5.0K
+intent_simulator34 runs ahead of operator hallucinating 5.3K
 
 **src/cognitive** (10)
 适1 cognitive state agent behavior adapter 1.3K

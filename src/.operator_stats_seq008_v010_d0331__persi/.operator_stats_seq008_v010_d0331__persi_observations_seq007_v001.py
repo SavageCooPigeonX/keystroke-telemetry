@@ -1,4 +1,4 @@
-""".operator_stats_seq008_v008_d0331__persi_observations_wrapper_seq007_v003.py — Auto-extracted by Pigeon Compiler."""
+""".operator_stats_seq008_v010_d0331__persi_observations_seq007_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
 
 def _render_observations(h: list[dict]) -> list[str]:

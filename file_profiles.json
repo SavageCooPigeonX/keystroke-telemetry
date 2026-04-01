@@ -151,6 +151,11 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
+        "name": "intent_simulator",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "observer_synthesis",
         "score": 0.76,
         "reason": "3 shared imports, both high-churn (v2+v3)"
@@ -159,11 +164,6 @@
         "name": "manifest_builder",
         "score": 0.76,
         "reason": "3 shared imports, both high-churn (v2+v3)"
-      },
-      {
-        "name": "executor",
-        "score": 0.73,
-        "reason": "3 shared imports, both high-churn (v2+v4)"
       }
     ],
     "fears": [
@@ -436,9 +436,9 @@
         "reason": "4 shared imports, both high-churn (v4+v2)"
       },
       {
-        "name": "manifest_writer",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v4+v4)"
+        "name": "intent_simulator",
+        "score": 0.73,
+        "reason": "3 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -916,7 +916,7 @@
         "reason": "2 shared imports, both high-churn (v2+v3)"
       },
       {
-        "name": "streaming_layer_replay",
+        "name": "intent_simulator",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
@@ -1656,6 +1656,11 @@
         "reason": "4 shared imports, both high-churn (v2+v2)"
       },
       {
+        "name": "intent_simulator",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "observer_synthesis",
         "score": 0.76,
         "reason": "3 shared imports, both high-churn (v2+v3)"
@@ -1664,11 +1669,6 @@
         "name": "manifest_builder",
         "score": 0.76,
         "reason": "3 shared imports, both high-churn (v2+v3)"
-      },
-      {
-        "name": "executor",
-        "score": 0.73,
-        "reason": "3 shared imports, both high-churn (v2+v4)"
       }
     ],
     "fears": [
@@ -1732,14 +1732,14 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
+        "name": "intent_simulator",
+        "score": 0.8,
+        "reason": "5 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "observer_synthesis",
         "score": 0.76,
         "reason": "3 shared imports, both high-churn (v2+v3)"
-      },
-      {
-        "name": "manifest_builder",
-        "score": 0.76,
-        "reason": "4 shared imports, both high-churn (v2+v3)"
       }
     ],
     "fears": [
@@ -2820,6 +2820,11 @@
         "reason": "3 shared imports, both high-churn (v2+v2)"
       },
       {
+        "name": "intent_simulator",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.76,
         "reason": "4 shared imports, both high-churn (v2+v3)"
@@ -2831,11 +2836,6 @@
       },
       {
         "name": "run_heal",
-        "score": 0.73,
-        "reason": "3 shared imports, both high-churn (v2+v4)"
-      },
-      {
-        "name": "manifest_bridge",
         "score": 0.73,
         "reason": "3 shared imports, both high-churn (v2+v4)"
       }
@@ -2976,14 +2976,14 @@
         "reason": "2 shared imports, both high-churn (v2+v2)"
       },
       {
+        "name": "intent_simulator",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.56,
         "reason": "2 shared imports, both high-churn (v2+v3)"
-      },
-      {
-        "name": "import_fixer",
-        "score": 0.53,
-        "reason": "2 shared imports, both high-churn (v2+v4)"
       }
     ],
     "fears": [
@@ -3087,14 +3087,14 @@
         "reason": "2 shared imports, both high-churn (v2+v2)"
       },
       {
+        "name": "intent_simulator",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      },
+      {
         "name": "manifest_builder",
         "score": 0.56,
         "reason": "2 shared imports, both high-churn (v2+v3)"
-      },
-      {
-        "name": "import_fixer",
-        "score": 0.53,
-        "reason": "2 shared imports, both high-churn (v2+v4)"
       }
     ],
     "fears": [],
@@ -4014,7 +4014,7 @@
     "fears": [
       "returns empty on failure (silent)"
     ],
-    "avg_hes": 0.571
+    "avg_hes": 0.609
   },
   "adapter": {
     "personality": "fresh",
@@ -5306,7 +5306,7 @@
       }
     ],
     "fears": [],
-    "avg_hes": 0.571
+    "avg_hes": 0.609
   },
   "file_consciousness_seq019_audit": {
     "personality": "fresh",
@@ -5816,6 +5816,44 @@
       }
     ],
     "fears": [],
+    "avg_hes": 0.0
+  },
+  "intent_simulator": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 5306,
+    "partners": [
+      {
+        "name": "failure_detector",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "dev_plan",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "node_conversation",
+        "score": 0.8,
+        "reason": "3 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "graph_heat_map",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "loop_detector",
+        "score": 0.8,
+        "reason": "5 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "returns empty on failure (silent)",
+      "swallowed exception",
+      "file may not exist"
+    ],
     "avg_hes": 0.0
   },
   "logger": {
@@ -7074,7 +7112,7 @@
       }
     ],
     "fears": [],
-    "avg_hes": 0.571
+    "avg_hes": 0.609
   },
   "session_handoff": {
     "personality": "fresh",
@@ -7510,7 +7548,7 @@
         "reason": "2 shared imports, both high-churn (v3+v3)"
       },
       {
-        "name": "streaming_layer_replay",
+        "name": "intent_simulator",
         "score": 0.56,
         "reason": "2 shared imports, both high-churn (v3+v2)"
       }
@@ -7612,7 +7650,7 @@
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "streaming_layer_demo_summary",
+        "name": "intent_simulator",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
@@ -7782,7 +7820,7 @@
         "reason": "1 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "streaming_layer_constants",
+        "name": "intent_simulator",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v2+v2)"
       }
@@ -7874,17 +7912,17 @@
         "reason": "3 shared imports, both high-churn (v3+v3)"
       },
       {
+        "name": "intent_simulator",
+        "score": 0.56,
+        "reason": "2 shared imports, both high-churn (v3+v2)"
+      },
+      {
         "name": "streaming_layer_connection_pool",
         "score": 0.4,
         "reason": "1 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "graph_heat_map",
-        "score": 0.36,
-        "reason": "1 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "loop_detector",
         "score": 0.36,
         "reason": "1 shared imports, both high-churn (v3+v2)"
       }
