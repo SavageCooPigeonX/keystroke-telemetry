@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-01 19:21 UTC · 188 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-01 06:41 UTC · 179 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -22,14 +22,14 @@
 
 ## Live Operator State
 
-*188 prompts profiled · source: measured*
+*179 prompts profiled · source: measured*
 
-**Dominant: `focused` | Submit: 66% | Del: 9.1%**
-- operator entering flow state — productive building, less backtracking
+**Dominant: `focused` | Submit: 66% | Del: 6.7%**
+- operator entering restructuring mode — expect more deletions than new code
 
 ## Pair Performance
 
-*161 responses scored · 39 background excluded*
+*108 responses scored · 92 background excluded*
 
 **Accuracy: 100% OK | 0% miss** *[source: measured]*
 - trend: **stable** (100% → 100%)
@@ -37,7 +37,7 @@
 **Prompt→edit latency:** 239.2s median (40 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*89 mutations scored*
+*87 mutations scored*
 - no significant signal yet — all sections scored neutral
 
 **Reactor:** 216 fires, 0 accepted (0%)
@@ -45,10 +45,10 @@
 
 ## Codebase Health
 
-*43 self-fix reports · 2026-03-16 → 2026-04-01*
+*42 self-fix reports · 2026-03-16 → 2026-04-01*
 
-**Problem trend: growing** (early avg 24 → recent avg 120) *[source: measured]*
-- problems growing ~96/push — expect more over_hard_cap and dead_exports without intervention
+**Problem trend: growing** (early avg 24 → recent avg 71) *[source: measured]*
+- problems growing ~47/push — expect more over_hard_cap and dead_exports without intervention
 
 ### Recent Deaths *[source: measured]*
 - `exception`: 3
@@ -64,22 +64,22 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "fix al"
-- "- s"
-- "and"
-- "te - change"
+- "blueberry"
+- "what about glypg as signals for breakbruh"
 - "age - like we have file append and if test run"
-- "coonti"
-- "can"
-- "last change - t"
-- "- generate"
-- "or like"
+- "fix al"
+- "fixed arent"
+- "even"
+- "you edit a files > copilo"
+- "and"
+- "IKA"
+- "/ impor"
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20, 39 bg noise
+- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20, 92 bg noise
 - **Training pairs:** 31 captured
 - **Prediction accuracy:** F1=0.017, calibration=0.334 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses

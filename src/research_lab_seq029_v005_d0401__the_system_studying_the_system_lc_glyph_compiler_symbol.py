@@ -1,11 +1,11 @@
 """Intent-fused prediction report — the system studying the system."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 029 | VER: v006 | 626 lines | ~6,240 tokens
+# SEQ: 029 | VER: v005 | ~500 lines | ~5,065 tokens
 # DESC:   the_system_studying_the_system
-# INTENT: confidence_scorer_glyph
-# LAST:   2026-04-01 @ 11eb261
-# SESSIONS: 5
+# INTENT: glyph_compiler_symbol
+# LAST:   2026-04-01 @ 51c097d
+# SESSIONS: 4
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-04-01T08:30:00Z

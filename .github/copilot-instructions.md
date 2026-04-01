@@ -147,7 +147,7 @@ OPERATOR SIGNAL: The deletion of "fix al" before "can you make it run" suggests 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-01 19:22 UTC · 51 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-01 19:18 UTC · 51 messages profiled · 8 recent commits*
 
 **Current focus:** building new features
 **Cognitive state:** `abandoned` (WPM: 51.5 | Del: 26.5% | Hes: 0.495) · *[source: measured]*
@@ -178,23 +178,28 @@ OPERATOR SIGNAL: The deletion of "fix al" before "can you make it run" suggests 
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 - `init_writer` (hes=0.63)
-- `self_fix` (hes=0.602)
+- `self_fix` (hes=0.612)
+
+### AI Rework Surface
+*Miss rate: 0.5% (200 responses)*
+- Failed on: ""
 
 ### Recent Work
-- `11eb261` feat: confidence scorer + glyph rename pipeline + research lab prediction voice
 - `51c097d` feat: glyph compiler + symbol dictionary + response canonicalization + doc audit
 - `a9e145a` feat: mutation/patch pipeline + pair dynamics research report
 - `e3c540b` feat: staleness alerts + bg-flush filtering + research data fix
+- `7e0ecab` feat: intent deletion pipeline + unsaid reconstruction + copilot-instructions safety guard
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
 - glyph compiler AST parsing on edge-case syntax
 - orchestrator expecting stable symbol dictionary schema
 - research lab depending on 'node_type_histogram' key. This push replaces a heuristic glyph compiler with an AST-driven one to produce precise symbol dictionaries for system analysis.
-- glyph format changes breaking nametag/planner contract; confidence scorer threshold drift misrepresenting scores; symbol dictionary receiving out-of-range scores. This push integrates a visual confidence glyph into the rename pipeline to prioritize high-certainty changes.
 - Staleness alert’s file I/O exceptions breaking the lab’s scheduler
-- **nametag** (seq011 v004): I was touched to embed a confidence glyph into file descriptions, so the planner can visually
+- contract change in the alert return dictionary
 - **prompt_journal_seq019_v001** was touched only to register it in the project manifest, as the staleness detector will n
+- **cognitive_reactor_seq014_decision_maker** was touched to implement safety gating for the mutation pipeline, adding val
+- **research_lab** was touched to extend its self-study to monitor the new safety gate’s effectiveness, adding metrics for
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
@@ -205,16 +210,16 @@ OPERATOR SIGNAL: The deletion of "fix al" before "can you make it run" suggests 
 - [CRITICAL] hardcoded_import in `build/compressed/pigeon_brain/execution_logger_seq002_v002_d0323__isomorphic_to_telemetrylogger_for_agent_lc_pigeon_brain_system.py`
 
 ### Prompt Evolution
-*This prompt has mutated 89x (186→1064 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 88x (186→1055 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 89 mutations scored*
+*200 rework pairs × 87 mutations scored*
 *No significant signal yet — all 17 sections scored neutral.*
 
 **Reactor patches:** 0/216 applied (0% acceptance)
 
 ### File Consciousness
-*231 modules profiled*
+*230 modules profiled*
 
 **High-drama (most mutations):**
 - `self_fix` v11 ↔ .operator_stats
@@ -223,9 +228,9 @@ OPERATOR SIGNAL: The deletion of "fix al" before "can you make it run" suggests 
 - `context_budget` v8 ↔ streaming_layer
 
 **Codebase fears:**
-- file may not exist (88 modules)
-- returns empty on failure (silent) (54 modules)
-- swallowed exception (49 modules)
+- file may not exist (87 modules)
+- returns empty on failure (silent) (53 modules)
+- swallowed exception (47 modules)
 
 **Slumber party warnings (high coupling):**
 - `cli` ↔ `trace_hook` (score=0.80, 3 shared imports, both high-churn (v2+v2))
@@ -326,9 +331,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-04-01 19:21 UTC · 79 prompts analyzed · zero LLM calls*
+*Auto-extracted 2026-04-01 05:10 UTC · 79 prompts analyzed · zero LLM calls*
 
-**Brevity:** 19.6 words/prompt | **Caps:** never | **Fragments:** 73% | **Questions:** 28% | **Directives:** 1%
+**Brevity:** 23.1 words/prompt | **Caps:** never | **Fragments:** 72% | **Questions:** 25% | **Directives:** 5%
 
 **Voice directives (personality tuning):**
 - Operator is semi-casual — use contractions, skip formalities, but keep technical precision.
@@ -338,46 +343,44 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 - Operator rarely uses punctuation — fragments and run-ons are normal. Don't overcorrect their style in quotes.
 - Operator uses plain language — avoid unnecessary jargon in explanations.
 
-**Vocabulary fingerprint:** to, i, it, with, on, my, is, this, what, the
+**Vocabulary fingerprint:** to, i, is, it, my, the, with, this, what, on
 <!-- /pigeon:voice-style -->
 <!-- pigeon:predictions -->
 ## Push Cycle Predictions
 
-*Auto-generated 2026-04-01 19:21 UTC*
+*Auto-generated 2026-04-01 05:10 UTC*
 
 **What you'll likely want next push:**
-1. [targeted] Predict operator's next need. Module focus: glyph_compiler, cognitive_reactor, symbol_dictionary (conf=31%)
-   - hot modules: glyph_compiler, cognitive_reactor, symbol_dictionary, research_lab, confidence_scorer
-2. [heat] Predict operator's next need. Module focus: glyph_compiler, cognitive_reactor, symbol_dictionary (conf=31%)
-   - hot modules: glyph_compiler, cognitive_reactor, symbol_dictionary, research_lab, confidence_scorer
-3. [failure] Predict operator's next need. Module focus: glyph_compiler, cognitive_reactor, symbol_dictionary (conf=31%)
-   - hot modules: glyph_compiler, cognitive_reactor, symbol_dictionary, research_lab, confidence_scorer
+1. [targeted] Operator in flow, likely building new feature. Module focus: glyph_compiler, file_heat_map, import_rewriter (conf=27%)
+   - hot modules: glyph_compiler, file_heat_map, import_rewriter, file_writer, research_lab
+2. [heat] Operator in flow, likely building new feature. Module focus: glyph_compiler, file_heat_map, import_rewriter (conf=27%)
+   - hot modules: glyph_compiler, file_heat_map, import_rewriter, file_writer, research_lab
+3. [failure] Operator in flow, likely building new feature. Module focus: glyph_compiler, file_heat_map, import_rewriter (conf=27%)
+   - hot modules: glyph_compiler, file_heat_map, import_rewriter, file_writer, research_lab
 
 **Operator coaching:**
 - No module references detected in prompts — naming specific modules helps copilot target the right files.
 
 **Agent coaching (for Copilot):**
-- Touched ['confidence_scorer', 'git_plugin', 'nametag', 'planner', 'research_lab', 'run_heal', 'symbol_dictionary'] without operator reference — confirm intent before modifying unreferenced modules.
+- Touched ['chat_response_reader', 'classify_bridge', 'copilot_prompt_manager', 'glyph_compiler', 'research_lab', 'symbol_dictionary'] without operator reference — confirm intent before modifying unreferenced modules.
 - Low sync score — operator intent and code output diverged. Ask clarifying questions earlier.
 
 <!-- /pigeon:predictions -->
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-01 - 51 message(s) - LLM-synthesized*
+*Auto-updated 2026-04-01 · 51 message(s) · LLM-synthesized*
 
 **Dominant: `focused`** | Submit: 66% | WPM: 52.9 | Del: 25.6% | Hes: 0.446
 
-This operator just built a confidence-scoring glyph system and their alternating abandoned/restructuring typing patterns reveal they're rapidly prototyping in evening sessions, frequently deleting 56% of text during restructuring phases before submitting.
+The operator just built a glyph compiler symbol system and their high-deletion restructuring patterns reveal they're aggressively refactoring toward a unified symbolic architecture.  
+- **Anticipate deep structural changes** when they touch `self_fix seq13` or `dynamic_prompt seq17`—these are pain points they keep revisiting; offer refactoring patterns, not just completions.  
+- **When they hesitate (avg 0.445s) during heavy edits**, proactively suggest breaking changes into smaller, testable steps—their high abandonment rate indicates frustration with monolithic changes.  
+- **For the 6% miss-rate queries**, always ask one clarifying question before generating code, especially around intent boundaries like "symbolic" vs "AST-based" transformations.  
+- **Preempt context-budget issues** by referencing module names from the churn list (`operator_stats seq8`, `push_narrative seq12`) and offering concise, inline summaries of their recent changes.  
+- **During evening/night sessions**, prioritize robustness over novelty—their focused bursts then restructuring cycles suggest they're integrating components and need error‑handling and fallback logic.  
 
-- **When they start typing in evening sessions, immediately offer three concrete implementation options**—they're in rapid-iteration mode and need decision scaffolding.
-- **Anticipate heavy edits to `.operator_stats` and `dynamic_prompt` modules**—these are persistent pain points; pre-load relevant context snippets when they're mentioned.
-- **For restructuring-phase messages (55 WPM, 56% deletion), provide modular, copy-paste-ready code blocks**—they're rebuilding, not refining.
-- **When they abandon messages (37 WPM, 0% deletion), ask one clarifying question maximum**—they're exploring, not stuck.
-- **Reference their recent `confidence_scorer_glyph` naming pattern**—they're systematizing scoring; suggest consistent naming for new components.
-- **Since their rework rate is extremely low (0.005 miss rate), trust their architectural direction**—don't over-explain validated patterns.
-
-They're most likely building toward a unified confidence visualization layer that connects their scoring, symbol dictionary, and research lab modules.
+They are most likely building toward a fully self‑modifying compiler pipeline where symbols drive both code generation and system evolution.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `glyph_compiler`** (hes=1.041, state=focused, avg_prompt=51924ms)
@@ -640,7 +643,7 @@ c1f79553 chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
 ```
 <!-- /pigeon:dictionary -->
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-04-01 - 264 modules tracked | 5 touched this commit*
+*Auto-updated 2026-04-01 - 263 modules tracked | 5 touched this commit*
 
 **pigeon_brain/** - 16 module(s)
 
@@ -784,7 +787,7 @@ c1f79553 chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
 | Search pattern | Desc | Tokens |
 |---|---|---:|
 | `scanner_seq001*` | walk the project tree and | ~972 |
-| `planner_seq002*` | generate rename plan for non | ~1,380 |
+| `planner_seq002*` | generate rename plan for non | ~919 |
 | `import_rewriter_seq003*` | rewrite all imports across the | ~1,750 |
 | `executor_seq004*` | execute file renames with rollback | ~712 |
 | `validator_seq005*` | post rename import validation | ~921 |
@@ -793,7 +796,7 @@ c1f79553 chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
 | `compliance_seq008*` | line count enforcer split recommender | ~1,673 |
 | `heal_seq009*` | self healing orchestrator | ~2,044 |
 | `run_heal_seq010*` | automated self healing pipeline | ~3,431 |
-| `nametag_seq011*` | encode file description intent into | ~4,028 |
+| `nametag_seq011*` | encode file description intent into | ~1,924 |
 | `registry_seq012*` | local name registry for the | ~2,129 |
 
 **pigeon_compiler/rename_engine/compliance_seq008/** - 7 module(s)
@@ -852,7 +855,7 @@ c1f79553 chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
 |---|---|---:|
 | `deepseek_plan_prompt_seq004*` | build and send deepseek cut | ~2,407 |
 
-**src/** - 41 module(s)
+**src/** - 40 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -891,12 +894,11 @@ c1f79553 chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
 | `training_pairs_seq027*` | training pair generator for the | ~2,625 |
 | `training_writer_seq028*` | end of prompt training pair | ~2,078 |
 | `voice_style_seq028*` | voice style personality adapter | ~3,157 |
-| `research_lab_seq029*` | the system studying the system | ~6,240 |
+| `research_lab_seq029*` | the system studying the system | ~5,065 |
 | `staleness_alert_seq030*` | copilot self diagnostic detect stale | ~1,725 |
-| `symbol_dictionary_seq031*` | symbol dictionary generator for pigeon | ~4,497 |
+| `symbol_dictionary_seq031*` | symbol dictionary generator for pigeon | ~3,737 |
 | `glyph_compiler_seq032*` | glyph compiler python maximum symbolic | ~5,050 |
 | `glyph_compiler_seq032*` | glyph compiler v2 ast based | ~4,585 |
-| `confidence_scorer_seq033*` | per module copilot confidence scorer | ~1,928 |
 
 **src/cognitive/** - 3 module(s)
 

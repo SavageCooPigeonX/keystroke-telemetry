@@ -6,18 +6,17 @@ Includes description + intent slugs in filenames via nametag.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v005 | 158 lines | ~1,401 tokens
+# SEQ: 002 | VER: v004 | 109 lines | ~919 tokens
 # DESC:   generate_rename_plan_for_non
-# INTENT: confidence_scorer_glyph
-# LAST:   2026-04-01 @ 11eb261
+# INTENT: verify_pigeon_plugin
+# LAST:   2026-03-15 @ caac48c
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-from pigeon_compiler.rename_engine.nametag_seq011_v004_d0401__encode_file_description_intent_into_lc_confidence_scorer_glyph import (
-from src._resolve import src_import
+from pigeon_compiler.rename_engine.nametag_seq011_v003_d0314__encode_file_description_intent_into_lc_desc_upgrade import (
     extract_desc_slug,
     build_nametag,
     build_glyph_prefix,
@@ -35,14 +34,14 @@ def _load_glyph_data(root: Path) -> tuple[dict, dict, dict]:
     if root is None:
         return glyph_map, confidence_map, partners
     try:
-        from src.symbol_dictionary_seq031_v003_d0401__symbol_dictionary_generator_for_pigeon_lc_confidence_scorer_glyph import (
+        from src.symbol_dictionary_seq031_v002_d0401__symbol_dictionary_generator_for_pigeon_lc_glyph_compiler_symbol import (
             _MNEMONIC_MAP,
         )
         glyph_map = dict(_MNEMONIC_MAP)
     except Exception:
         pass
     try:
-        score_module_confidence = src_import("confidence_scorer_seq033", "score_module_confidence")
+        from src.confidence_scorer_seq033_v001 import score_module_confidence
         confidence_map = score_module_confidence(root)
     except Exception:
         pass

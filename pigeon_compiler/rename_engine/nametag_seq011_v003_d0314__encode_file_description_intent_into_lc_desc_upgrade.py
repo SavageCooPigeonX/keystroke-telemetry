@@ -22,11 +22,10 @@ Rules:
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 011 | VER: v004 | 495 lines | ~4,028 tokens
+# SEQ: 011 | VER: v003 | ~280 lines | ~2,200 tokens
 # DESC:   encode_file_description_intent_into
-# INTENT: confidence_scorer_glyph
-# LAST:   2026-04-01 @ 11eb261
-# SESSIONS: 1
+# INTENT: glyph_filename_encoding
+# LAST:   2026-04-01
 # ──────────────────────────────────────────────
 import ast
 import re

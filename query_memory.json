@@ -1,6 +1,18 @@
 {
   "queries": [
     {
+      "ts": "2026-04-01T06:48:21.267299+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T06:49:21.629613+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
+      "submitted": true
+    },
+    {
       "ts": "2026-04-01T06:50:22.127263+00:00",
       "text": "bg:RESEARCH_LOG.md",
       "fingerprint": "bgresearch_logmd",
@@ -2986,18 +2998,6 @@
       "ts": "2026-04-01T19:18:49.678114+00:00",
       "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
       "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T19:20:51.180535+00:00",
-      "text": "bg:2026-03-31_e3c540b.md",
-      "fingerprint": "bg20260331_e3c540bmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T19:21:50.840997+00:00",
-      "text": "bg:2026-03-31_e3c540b.md",
-      "fingerprint": "bg20260331_e3c540bmd",
       "submitted": true
     }
   ],
