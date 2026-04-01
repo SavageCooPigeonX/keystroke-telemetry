@@ -503,18 +503,22 @@ COPILOT_PATH = '.github/copilot-instructions.md'
 
 
 def inject_dictionary_block(root: Path) -> bool:
-    """Regenerate the symbol dictionary and inject into copilot-instructions.md."""
+    """Regenerate dictionary.pgd and inject minimal stub into copilot-instructions.
+
+    Full glyph mappings are now inline in the auto-index block.
+    Dictionary block is kept as a stub for block-marker compatibility.
+    """
     cp_path = root / COPILOT_PATH
     if not cp_path.exists():
         return False
 
     dictionary = generate_dictionary(root)
-    compact = generate_compact_injection(dictionary)
-    block = f'{DICT_BLOCK_START}\n## Symbol Dictionary\n\n```\n{compact}\n```\n{DICT_BLOCK_END}'
+
+    # Minimal stub — all glyph info is now in auto-index
+    block = f'{DICT_BLOCK_START}\n<!-- glyph mappings merged into auto-index -->\n{DICT_BLOCK_END}'
 
     text = cp_path.read_text(encoding='utf-8')
 
-    # Use same upsert logic as other managed blocks
     import re
     pattern = re.compile(
         rf'(?ms)^\s*{re.escape(DICT_BLOCK_START)}\s*$\n.*?^\s*{re.escape(DICT_BLOCK_END)}\s*$',
@@ -522,7 +526,6 @@ def inject_dictionary_block(root: Path) -> bool:
     if pattern.search(text):
         new_text = pattern.sub(block, text)
     else:
-        # Insert before auto-index (first managed block in the Module Map section)
         anchor = '<!-- pigeon:auto-index -->'
         if anchor in text:
             idx = text.index(anchor)
@@ -533,10 +536,11 @@ def inject_dictionary_block(root: Path) -> bool:
     if new_text != text:
         cp_path.write_text(new_text, encoding='utf-8')
 
-    # Also write standalone files
+    # Still write data files for other consumers
     (root / 'dictionary.pgd').write_text(
         json.dumps(dictionary, indent=2, ensure_ascii=False), encoding='utf-8'
     )
+    compact = generate_compact_injection(dictionary)
     (root / 'dictionary_compact.txt').write_text(compact, encoding='utf-8')
     return True
 

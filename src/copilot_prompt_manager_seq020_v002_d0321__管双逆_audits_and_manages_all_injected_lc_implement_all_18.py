@@ -177,6 +177,32 @@ def _load_keymap(root: Path) -> dict[str, str]:
     return {}
 
 
+def _load_confidence(root: Path) -> dict[str, str]:
+    pgd = root / 'dictionary.pgd'
+    if pgd.exists():
+        try:
+            d = json.loads(pgd.read_text('utf-8'))
+            return d.get('confidence', {})
+        except Exception:
+            pass
+    return {}
+
+
+def _load_dict_extras(root: Path) -> tuple[dict[str, str], dict[str, str]]:
+    """Load 2-letter codes and intent glyphs from dictionary.pgd."""
+    pgd = root / 'dictionary.pgd'
+    if pgd.exists():
+        try:
+            d = json.loads(pgd.read_text('utf-8'))
+            mg = d.get('module_glyphs', {})
+            ig = d.get('intent_glyphs', {})
+            two_letter = {g: n for g, n in mg.items() if g.isascii()}
+            return two_letter, ig
+        except Exception:
+            pass
+    return {}, {}
+
+
 def _find_glyph(name: str, keymap: dict[str, str]) -> str:
     if name in keymap:
         return keymap[name]
@@ -201,6 +227,8 @@ def _child_suffix(name: str, parent_name: str) -> str:
 
 def _build_auto_index_block(root: Path, registry: dict, processed: int) -> str:
     keymap = _load_keymap(root)
+    confidence = _load_confidence(root)
+    two_letter, intents = _load_dict_extras(root)
     items_raw = _registry_items(registry)
 
     groups: dict[str, list[dict]] = {}
@@ -217,19 +245,29 @@ def _build_auto_index_block(root: Path, registry: dict, processed: int) -> str:
             folder = '(root)'
         groups.setdefault(folder, []).append({
             'name': name, 'seq': seq,
-            'desc': (entry.get('desc') or '').replace('_', ' ')[:40],
             'tokens': entry.get('tokens', 0),
             'glyph': _find_glyph(name, keymap),
         })
 
     today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
     total = sum(len(v) for v in groups.values())
+
+    # Confidence summary
+    states = list(confidence.values())
+    n = len(states) or 1
+    conf = f'✓{states.count("✓")*100//n}% ~{states.count("~")*100//n}% !{states.count("!")*100//n}%'
+
     lines = [
         '<!-- pigeon:auto-index -->',
-        f'*{today} · {total} modules · {processed} touched*',
-        '*Key: glyph·seq desc tokens | dictionary decodes glyphs*',
-        '',
+        f'*{today} · {total} modules · {processed} touched · {conf}*',
+        '*Format: glyph=name seq tokens·state*',
     ]
+
+    # 2-letter codes legend (for modules without Chinese glyphs)
+    if two_letter:
+        codes = ' '.join(f'{g}={n}' for g, n in sorted(two_letter.items()))
+        lines.append(f'*{codes}*')
+    lines.append('')
 
     child_folders = set()
     parent_lookup: dict[str, str] = {}
@@ -261,13 +299,14 @@ def _build_auto_index_block(root: Path, registry: dict, processed: int) -> str:
             lines.append(f'**{folder}** ({len(folder_items) + child_count})')
             for item in folder_items:
                 g = item['glyph']
-                desc = item['desc']
-                if desc in ('auto extracted by pigeon compiler', 'pigeon extracted by compiler'):
-                    desc = ''
+                name = item['name']
+                state = confidence.get(name, '')
                 tok = item['tokens']
                 tok_s = f"{tok/1000:.1f}K" if tok >= 1000 else str(tok)
-                label = g or item['name'][:16]
-                lines.append(f'{label}{item["seq"]} {desc} {tok_s}'.rstrip())
+                if g:
+                    lines.append(f'{g}={name} {item["seq"]} {tok_s}{state}')
+                else:
+                    lines.append(f'{name} {item["seq"]} {tok_s}{state}')
             lines.append('')
 
     _append_infra_index(lines, root)

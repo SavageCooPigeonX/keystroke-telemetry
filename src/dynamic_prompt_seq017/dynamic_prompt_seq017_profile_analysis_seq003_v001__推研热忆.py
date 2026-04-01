@@ -11,10 +11,31 @@ def _profile_history(root):
     except Exception: return []
 
 
-def _unsaid(comps):
+def _unsaid(comps, root=None):
+    """Extract unsaid threads: raw deleted words + thought completions."""
     threads = []
     for c in comps[-8:]:
         for w in (c.get('deleted_words') or []):
             word = w.get('word', w) if isinstance(w, dict) else str(w)
             if word and len(word) > 3: threads.append(word)
-    return threads[-6:]
+    raw = threads[-6:]
+
+    # Load thought completions from unsaid_reconstructions.jsonl
+    completions = []
+    if root:
+        recon_path = root / 'logs' / 'unsaid_reconstructions.jsonl'
+        if recon_path.exists():
+            try:
+                lines = recon_path.read_text('utf-8', errors='replace').strip().splitlines()
+                for line in lines[-5:]:
+                    try:
+                        r = json.loads(line)
+                        tc = r.get('thought_completion', '')
+                        if tc and tc.lower() not in ('typo correction only', ''):
+                            completions.append(tc)
+                    except json.JSONDecodeError:
+                        pass
+            except OSError:
+                pass
+
+    return {'raw': raw, 'completions': completions[-3:]}

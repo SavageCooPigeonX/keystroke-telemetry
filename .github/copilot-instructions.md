@@ -48,6 +48,28 @@ Rules:
 
 ---
 
+## MANDATORY: Unsaid Thread Protocol
+
+When the **Unsaid Threads** section (in `<!-- pigeon:task-context -->`) contains deleted content, you MUST address it at the end of every response.
+
+**Format:**
+```
+---
+**You were also gonna say...** [complete the deleted thought in 1-2 sentences,
+then briefly address/answer it]
+```
+
+Rules:
+- Only fire when unsaid threads exist with non-typo content (>4 chars deleted)
+- Complete the thought — don't just echo the fragment. "proce" → "you were about to say 'process of compilation'"
+- If thought completions are available (from Gemini reconstruction), use those
+- If only raw fragments exist, infer the completed thought from context
+- Address the completed thought — give a brief answer or acknowledgment
+- Place after a `---` separator at the very end of your response
+- Keep it to 2-3 sentences max
+
+---
+
 ## What this repo is
 
 Three systems working together:
@@ -149,29 +171,30 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-01 23:10 UTC · 69 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-01 23:39 UTC · 81 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 49.3 | Del: 26.5% | Hes: 0.488) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 42.7 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
 
-**Prompt ms:** 1122940, 7075, 89284, 84445, 186199 (avg 297989ms)
+**Prompt ms:** 84445, 186199, 79501, 146279, 64412 (avg 112167ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- **Reconstructed intent:** check copilot instruction for accuracy post rename - audit how much more compression we can get - theres still lots of compression we can do in python files imo using keys - and we could even ginger could even - noticed the rephrased isint firing on every prompt.
-  - *(deleted: ginger, coul | ratio: 7%)*
-- **Reconstructed intent:** check copilot instruction for accuracy post rename - audit how much more compression we can get - theres still lots of coding even we can do in python files imo using keys - and we could even, could even - noticed the rephrased isint firing on every prompt. also find deleted word in this prompt: ginger
-  - *(deleted:  | ratio: 0%)*
-- **Reconstructed intent:** Go deeper into my key
-  - *(deleted: okay kill im talking about proces | ratio: 5%)*
+- **Reconstructed intent:** The operator was about to say
+  - *(deleted: mmm -- gonna | ratio: 5%)*
+- **Reconstructed intent:** Mmm, I'm
+  - *(deleted: mmm -- gonna | ratio: 5%)*
+- **Reconstructed intent:** Mmm, I'm
+  - *(deleted: mmm -- gonna | ratio: 5%)*
 
-- "explored"
-- "d eve"
-- "coul"
-- "ginger"
-- "okay kill im talking about proce"
+- "implement all - andt"
+- "ng if"
+- "just aski"
+- "missin"
+- "nd my\"
+- "mmm -- gonna"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
@@ -179,13 +202,12 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 - `init_writer` (hes=0.63)
-- `self_fix` (hes=0.611)
+- `context_budget` (hes=0.587)
 
 ### Recent Work
 - `9cdc756` feat: compress auto-index with Chinese keymap â€” 4,948 tokens/prompt saved (16.2K to 11.3K)
 - `aa32a3f` chore: add Chinese glyph prefixes to 245 pigeon modules
 - `11eb261` feat: confidence scorer + glyph rename pipeline + research lab prediction voice
-- `51c097d` feat: glyph compiler + symbol dictionary + response canonicalization + doc audit
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -205,13 +227,13 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - [CRITICAL] hardcoded_import in `pigeon_brain/live_server_seq012_v003_d0324__服漂忆思_websocket_server_for_live_execution_lc_8888_word_backpropagation.py`
 
 ### Prompt Evolution
-*This prompt has mutated 94x (186→827 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 95x (186→710 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
 *200 rework pairs × 94 mutations scored*
 *No significant signal yet — all 18 sections scored neutral.*
 
-**Reactor patches:** 0/216 applied (0% acceptance)
+**Reactor patches:** 0/217 applied (0% acceptance)
 
 ### File Consciousness
 *234 modules profiled*
@@ -381,9 +403,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-01 · 69 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-01 · 81 message(s) · LLM-synthesized*
 
-**Dominant: `focused`** | Submit: 66% | WPM: 52.9 | Del: 25.6% | Hes: 0.445
+**Dominant: `abandoned`** | Submit: 66% | WPM: 52.3 | Del: 25.6% | Hes: 0.444
 
 The operator just built an auto-index compression system while working in intense restructuring/abandonment cycles, revealing a pattern of rapid prototyping followed by deep refactoring of core orchestration modules.  
 - **Anticipate deep refactoring requests** on `self_fix seq13`, `dynamic_prompt seq17`, and `.operator_stats seq8`; these are their primary levers for system stability and meta-cognition.  
@@ -395,10 +417,9 @@ The operator just built an auto-index compression system while working in intens
 They are most likely building toward a fully autonomous, self-optimizing intent pipeline that minimizes manual context management.
 
 <!-- /pigeon:operator-state -->
-> **Cognitive reactor fired on `glyph_compiler`** (hes=1.041, state=focused, avg_prompt=51924ms)
-> - Rework miss rate: 4% (7/200)
-> - Prompt composition time: 107396ms / 54331ms / 76173ms / 11236ms / 10482ms (avg 51924ms)
-> **Directive**: When `glyph_compiler` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
+> **Cognitive reactor fired on `cognitive_reactor`** (hes=0.698, state=frustrated, avg_prompt=117142ms)
+> - Prompt composition time: 146279ms / 79501ms / 186199ms / 84445ms / 89284ms (avg 117142ms)
+> **Directive**: When `cognitive_reactor` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
@@ -486,310 +507,172 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 <!-- /pigeon:prompt-telemetry -->
 ---
 
-## Module Map
+## Quick Reference
 
-### src/ — Core Telemetry
-| Module (search by) | Role | Key exports |
-|---|---|---|
-| `timestamp_utils_seq001*` | epoch ms utility | `_now_ms` |
-| `models_seq002*` | dataclasses | `KeyEvent`, `MessageDraft` |
-| `logger_seq003*` | core logger | `TelemetryLogger`, `SCHEMA_VERSION` |
-| `context_budget_seq004*` | token cost scorer | `score_context_budget`, `estimate_tokens` |
-| `drift_watcher_seq005*` | file-size drift | `DriftWatcher` |
-| `resistance_bridge_seq006*` | telemetry→compiler bridge | `HesitationAnalyzer` |
-| `streaming_layer_seq007*` | **MONOLITH 1150 lines** (test harness only) | 8 classes |
-| `operator_stats_seq008*` | persistent profile writer | `OperatorStats` |
-| `rework_detector_seq009*` | AI answer quality measurement | `score_rework`, `record_rework` |
-| `query_memory_seq010*` | recurring query + unsaid detector | `QueryMemory` |
-| `file_heat_map_seq011*` | cognitive load per module | `FileHeatMap` |
-| `push_narrative_seq012*` | per-push narrative generation | `generate_push_narrative` |
-| `self_fix_seq013*` | one-shot self-fix analyzer | `analyze_and_fix` |
-| `cognitive_reactor_seq014*` | autonomous code modification | `CognitiveReactor` |
-| `pulse_harvest_seq015*` | prompt→file edit pairing | `harvest_pulse` |
-| `prompt_recon_seq016*` | prompt reconstruction + mutation tracking | `reconstruct_all`, `track_copilot_prompt_mutations` |
-| `dynamic_prompt_seq017*` | **task-aware CoT injection** | `build_task_context`, `inject_task_context` |
+**Tests:** `py test_all.py` (4 tests, zero deps). Always run after edits.
+**Registry:** `pigeon_registry.json` (module map), `operator_profile.md` (cognitive profile), `MASTER_MANIFEST.md` (auto-rebuilt)
+**Entry points:** `py -m pigeon_compiler.runners.run_clean_split_seq010*` (compile), `py -m pigeon_compiler.git_plugin` (post-commit)
 
-### src/cognitive/ — Intelligence Layer
-| Module | Role |
-|---|---|
-| `adapter_seq001*` | state → prompt modifier |
-| `unsaid_seq002*` | **monolith** (compiled package: `src/cognitive/unsaid/`) |
-| `drift_seq003*` | **monolith** (compiled package: `src/cognitive/drift/`) |
+**Pitfalls:** Never hardcode pigeon filenames (they mutate — use `file_search("name_seq*")`). Use `py` not `python`. Always `$env:PYTHONIOENCODING = "utf-8"`. Don't delete monolith originals yet. `streaming_layer_seq007*` is intentionally over-cap (test harness).
 
-**Note**: `src/cognitive/unsaid/` and `src/cognitive/drift/` are compiled packages (pigeon-compliant). The `unsaid_seq002*` and `drift_seq003*` monolith files in `src/cognitive/` are legacy artifacts — prefer importing from the packages.
-
-### src/operator_stats/ — Compiled Package (14 files)
-Source was `src/operator_stats_seq008*` (394 lines). Compiled to `src/operator_stats/` package. Both exist currently.
-
-### streaming_layer/ — 19 files, 100% compliant
-Compiled streaming interface. `streaming_layer_orchestrator_seq016/017` are the entry points.
-
-### pigeon_compiler/ — The Compiler (~62 modules)
-| Subpackage | Role |
-|---|---|
-| `state_extractor/` | AST parsing, call graphs, resistance scoring |
-| `weakness_planner/` | DeepSeek cut plan generation |
-| `cut_executor/` | file slicing, bin-packing, class decomposition |
-| `rename_engine/` | autonomous renames, import rewriting, self-healing |
-| `runners/` | pipeline orchestrators |
-| `integrations/` | DeepSeek API adapter |
-| `bones/` | shared utilities |
-
-**Key compiler entry points**:
-- `py -m pigeon_compiler.runners.run_clean_split_seq010*` — compile one file
-- `py -m pigeon_compiler.runners.run_batch_compile_seq015*` — compile entire codebase
-- `py -m pigeon_compiler.runners.run_heap_seq010*` — self-heal pipeline
-- `py -m pigeon_compiler.git_plugin` — post-commit hook
-
----
-
-## Registry & State Files
-
-| File | Purpose |
-|---|---|
-| `pigeon_registry.json` | tracks every module: seq, ver, date, desc, intent, token history |
-| `operator_profile.md` | living operator cognitive profile (auto-updated every 8 messages) |
-| `MASTER_MANIFEST.md` | auto-generated project map (rebuilt on every commit) |
-| `**/MANIFEST.md` | per-folder manifest, auto-rebuilt |
-| `logs/pigeon_sessions/{name}.jsonl` | mutation audit trail per module |
-| `test_logs/`, `demo_logs/`, `stress_logs/` | telemetry session data |
-
----
-
-## Tests
-
-```bash
-py test_all.py   # 4 tests, all must pass, zero deps beyond stdlib
-```
-
-| Test | Covers |
-|---|---|
-| TEST 1 | TelemetryLogger — v2 schema, 3 turns, submit + discard |
-| TEST 2 | Context Budget Scorer — hard cap, budget, coupling |
-| TEST 3 | DriftWatcher — baseline + versioned filename drift |
-| TEST 4 | Resistance Bridge — telemetry → compiler signal |
-
-**Always run tests after edits.** If a test imports a file by full name, it will break after a pigeon rename — use glob/search patterns in tests.
-
----
-
-## Common Pitfalls
-
-- **Never hardcode full pigeon filenames** — they mutate on every commit. Use `file_search("module_name_seq*")`.
-- **`py` not `python`** — this is Windows, use `py` launcher.
-- **UTF-8 encoding** — always `$env:PYTHONIOENCODING = "utf-8"` in PowerShell terminal.
-- **Imports follow the pigeon name** — when a file is renamed, all `import` / `from` statements across the codebase are auto-rewritten by `rewrite_all_imports()`.
-- **Don't delete monolith originals yet** — `src/operator_stats_seq008*`, `src/cognitive/unsaid_seq002*`, `src/cognitive/drift_seq003*` are still imported in some places. Verify before removing.
-- **`streaming_layer_seq007*` is intentionally left as a 1150-line test harness** — drift_watcher tests flag it as OVER_HARD_CAP on purpose.
-- **DeepSeek timeout** — phase 2 LLM calls can timeout; retry with a fresh call, don't loop.
-
----
-
-### Full Module Index
 <!-- pigeon:dictionary -->
-## Symbol Dictionary
-
-```
-[PIGEON DICT v0.2.0 | 263 files | 89 modules | 138 glyphs]
-Copilot confidence: ✓ (73.5% ✓ | 13.9% ~ | 12.6% ! | 0.0% ?) across 230 modules
-IM=import_tracer✓ | IN=init_writer✓ | LO=loop_detector✓ | MA=manifest_writer✓
-NA=nametag! | NL=nl_parsers✓ | NO=node_conversation✓ | OB=observer_synthesis!
-PA=path_selector✓ | PL=planner~ | PQ=pq_search_utils~ | PR=press_release_gen_template_key_findings✓
-RE=resplit! | RU=run_rename! | SH=shared_state_detector✓ | SO=source_slicer✓
-TA=task_writer~ | VE=vein_transport~ | 令=cli! | 仿=demo_sim!
-修=self_fix! | 偏=drift✓ | 典=symbol_dictionary! | 写=file_writer~
-分=dev_plan✓ | 包=context_packet✓ | 压=executor✓ | 双=dual_substrate!
-变=mutation_scorer✓ | 叙=push_narrative~ | 合=unified_signal~ | 图=graph_extractor✓
-型=models✓ | 境=context_budget~ | 声=voice_style~ | 存=node_memory✓
-学=learning_loop! | 审=validator✓ | 对=training_pairs~ | 层=streaming_layer~
-引=import_rewriter~ | 录=logger✓ | 忆=query_memory✓ | 思=cognitive_reactor!
-扫=scanner✓ | 拆=ether_map_builder! | 控=operator_stats! | 推=dynamic_prompt~
-描=graph_heat_map✓ | 时=timestamp_utils✓ | 服=live_server! | 查=ast_parser✓
-核=deepseek_plan_prompt~ | 桥=resistance_bridge✓ | 正=compliance! | 流=flow_engine!
-测=rework_detector~ | 漂=.operator_stats~ | 演=call_graph✓ | 热=file_heat_map!
-片=shard_manager! | 环=push_cycle~ | 研=research_lab~ | 算=prediction_scorer!
-管=copilot_prompt_manager~ | 织=class_decomposer! | 编=glyph_compiler! | 缩=failure_detector✓
-联=core_formatters✓ | 脉=pulse_harvest✓ | 补=rework_backfill✓ | 规=aim_utils✓
-觉=file_consciousness~ | 警=staleness_alert~ | 训=training_writer! | 译=func_decomposer~
-读=execution_logger~ | 谱=deepseek_adapter✓ | 跑=traced_runner~ | 路=context_router~
-踪=import_fixer✓ | 追=heal! | 适=adapter✓ | 逆=backward!
-递=session_handoff✓ | 钩=trace_hook✓ | 队=task_queue~ | 隐=unsaid✓
-预=predictor✓
-
-Intents: λ18=implement_all_18, λ7=stage_78_hook, λ7u=readme_update_7, λA=staleness_alerts_bg, λB=8888_word_backpropagation, λD=desc_upgrade, λF=gemini_flash_enricher, λH=organism_health_system, λI=intent_deletion_pipeline, λL=research_lab_autonomous, λM=mutation_patch_pipeline, λP=pigeon_brain_system, λQ=task_queue_system, λR=dynamic_import_resolvers, λS=pigeon_split_3, λT=push_narratives_timeout, λW=windows_max_path, λa=glyph_compiler_symbol, λΞ=import_rewriter_now, λΠ=pulse_telemetry_prompt, λγ=fix_bare_globals, λδ=per_prompt_deleted, λε=flow_engine_context, λμ=multi_line_import, λν=verify_pigeon_plugin, λπ=fix_push_cycle, λρ=rework_signal_0, λτ=trigger_pigeon_rename, λφ=fire_full_post, λχ=gemini_chat_dead, λω=wpm_outlier_filter
-
-Hot:
-层~ streaming_layer v3 22295tok [v1→v2→v3 v1→v2→v3]
-正! compliance v4 4585tok [v2→v3→v4 v2→v3→v4]
-RU! run_heal v6 15559tok [v3→v4 v3→v4]
-PR✓ press_release_gen_constants_seq001_v001 v2 4196tok [v1→v2 v1→v2]
-偏✓ drift v4 5740tok [v2→v3 v2→v3]
-算! prediction_scorer v5 12796tok [v2→v3→v4 v2→v3→v4]
-学! learning_loop v4 10304tok [v2→v3 v2→v3]
-隐✓ unsaid v3 5735tok [v2→v3 v2→v3]
-修! self_fix v11 11822tok [v9→v10→v11]
-RE! resplit v4 6942tok [v3→v4 v3→v4]
-
-c1f79553 chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
-51c097d0 feat: glyph compiler + symbol dictionary + respons
-282afb7a chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
-[/DICT]
-```
+<!-- glyph mappings merged into auto-index -->
 <!-- /pigeon:dictionary -->
 <!-- pigeon:auto-index -->
-*2026-04-01 · 243 modules · 1 touched*
-*Key: glyph·seq desc tokens | dictionary decodes glyphs*
+*2026-04-01 · 243 modules · 0 touched · ✓71% ~12% !15%*
+*Format: glyph=name seq tokens·state*
+*IM=import_tracer MA=manifest_writer NL=nl_parsers PL=planner PQ=pq_search_utils PR=press_release_gen_template_key_findings*
 
 **pigeon_brain** (42)
-型1 isomorphic to keystroke models 424
-读2 isomorphic to telemetrylogger for agent 1.6K
-图3 extract the cognition graph from 1.7K
-描4 failure accumulator per node port 874
-环检5 recurring path detection port of 910
-缩6 electron death classification port of 1.0K
-观7 coaching from execution patterns port 1.5K
-双8 merges human and agent telemetry 1.3K
-令9 build graph run observer export 855
-仿10 generates execution telemetry from the 1.3K
-钩11 instruments python calls between pigeon 959
-服12 websocket server for live execution 2.5K
-跑13 run any python script with 855
+型=models 1 424✓
+读=execution_logger 2 1.6K~
+图=graph_extractor 3 1.7K✓
+描=graph_heat_map 4 874✓
+环检=loop_detector 5 910✓
+缩=failure_detector 6 1.0K✓
+观=observer_synthesis 7 1.5K!
+双=dual_substrate 8 1.3K!
+令=cli 9 855!
+仿=demo_sim 10 1.3K!
+钩=trace_hook 11 959~
+服=live_server 12 2.5K!
+跑=traced_runner 13 855!
 
 **pigeon_brain/flow** (42)
-包1 the contextpacket is the unit 1.0K
-唤2 when a packet arrives at 1.3K
-流3 the flow engine is the 1.3K
-择4 path selection is the real 1.4K
-任5 the river delta where all 1.6K
-脉运6 as a packet flows along 965
-逆7 backward pass walks electron path 2.5K
-存8 the experience vault stores raw 2.1K
-预9 fires phantom electrons using cognitive 1.8K
-分10 the roadmap writer synthesizes the 1.5K
-话12 the interpretability interface lets the 1.4K
-学13 the perpetual learning loop 2.9K
-算14 edit session based 5.8K
+包=context_packet 1 1.0K✓
+唤=node_awakener 2 1.3K~
+流=flow_engine 3 1.3K!
+择=path_selector 4 1.4K✓
+任=task_writer 5 1.6K~
+脉运=vein_transport 6 965~
+逆=backward 7 2.5K!
+存=node_memory 8 2.1K✓
+预=predictor 9 1.8K✓
+分=dev_plan 10 1.5K!
+话=node_conversation 12 1.4K!
+学=learning_loop 13 2.9K!
+算=prediction_scorer 14 5.8K!
 
   逆└ flow_log(1) loss_compute(2) tokenize(3) deepseek_analyze(4) backward_pass(5) [2.6K]
   学└ state_utils(1) journal_loader(2) prediction_cycle(3) single_cycle_helpers(4) single_cycle(5) catch_up(6) loop_helpers(7) main_loop(8) [3.3K]
   算└ constants(1) path_utils(2) data_loaders(3) scores_io(3) reality_loaders(4) module_extractor(5) edit_session_analyzer(6) rework_matcher(7) scoring_core(8) calibration(9) node_backfill(10) post_edit_scorer(11) post_commit_scorer(12) [5.1K]
   预└ confidence(3) trend_extractor(4) predictor(7) [1.8K]
 **pigeon_compiler/bones** (5)
-规1 extracted from hush aim py 724
-联1 extracted from hush chat core 1.3K
-NL1 extracted from hush nl detection 1.8K
-清单1 extracted from hush pre query 879
-PQ1 extracted from hush pre query 3.3K
+规=aim_utils 1 724✓
+联=core_formatters 1 1.3K✓
+NL=nl_parsers 1 1.8K✓
+清单=pq_manifest_utils 1 879✓
+PQ=pq_search_utils 1 3.3K~
 
 **pigeon_compiler/cut_executor** (12)
-析1 parse deepseek json from raw 371
-切2 extract functions constants from source 486
-写3 write new pigeon compliant files 783
-踪4 update imports across the project 505
-MA5 generate manifest md for a 448
-验6 validate cut plan before execution 579
-初写7 generate init py for split 361
-译8 decompose oversized functions via deepse 644
-重拆9 deterministic ast bin packing re 841
-重拆10 bin packing file writing for 702
-重拆11 shared helpers for re splitter 501
-织13 decompose oversized classes via deepseek 2.0K
+析=plan_parser 1 371✓
+切=source_slicer 2 486✓
+写=file_writer 3 783~
+踪=import_fixer 4 505✓
+MA=manifest_writer 5 448✓
+验=plan_validator 6 579~
+初写=init_writer 7 361✓
+译=func_decomposer 8 644!
+重拆=resplit 9 841!
+重拆=resplit_binpack 10 702!
+重拆=resplit_helpers 11 501✓
+织=class_decomposer 13 2.0K!
 
 **pigeon_compiler/integrations** (1)
-谱1 deepseek api client 1.2K
+谱=deepseek_adapter 1 1.2K✓
 
 **pigeon_compiler/rename_engine** (22)
-扫1 walk the project tree and 972
-PL2 generate rename plan for non 1.4K
-引3 rewrite all imports across the 1.8K
-压4 execute file renames with rollback 712
-审5 post rename import validation 921
-改名6 full rename pipeline runner 1.4K
-谱建7 generate living manifest md per 2.9K
-正8 line count enforcer split recommender 1.7K
-追9 self healing orchestrator 2.0K
-追跑10 automated self healing pipeline 3.4K
-牌11 encode file description intent into 4.1K
-册12 local name registry for the 2.1K
+扫=scanner 1 972✓
+PL=planner 2 1.4K~
+引=import_rewriter 3 1.8K~
+压=executor 4 712✓
+审=validator 5 921✓
+改名=run_rename 6 1.4K!
+谱建=manifest_builder 7 2.9K!
+正=compliance 8 1.7K!
+追=heal 9 2.0K!
+追跑=run_heal 10 3.4K!
+牌=nametag 11 4.1K!
+册=registry 12 2.1K!
 
   正└ helpers(2) classify(3) recommend_wrapper(6) audit_decomposed(7) audit_wrapper(9) check_file(10) format_report(11) [2.9K]
   追└ orchestrator(5) [725]
   牌└ scan(8) [298]
   册└ diff(6) [194]
 **pigeon_compiler/runners** (9)
-测编7 self test pigeon compiler on 594
-深划8 phase 2 send ether maps 587
-鸽环9 the loop refactor until pigeon 2.8K
-净拆10 full clean pipeline deepseek plan 2.5K
-净拆11 helpers for run clean split 566
-净拆12 init manifest writers for clean 1.7K
-谱桥13 update master manifest md after 1.0K
-复审14 re audit with diff across 1.7K
-批编15 compile entire codebase to pigeon 2.0K
+测编=run_compiler_test 7 594~
+深划=run_deepseek_plans 8 587~
+鸽环=run_pigeon_loop 9 2.8K!
+净拆=run_clean_split 10 2.5K!
+净拆=run_clean_split_helpers 11 566!
+净拆=run_clean_split_init 12 1.7K~
+谱桥=manifest_bridge 13 1.0K✓
+复审=reaudit_diff 14 1.7K✓
+批编=run_batch_compile 15 2.0K!
 
 **pigeon_compiler/runners/compiler_output/press_release_gen** (8)
-press_release_ge1  641
-press_release_ge1  626
-press_release_ge1  661
-press_release_ge2  388
-press_release_ge2  662
-press_release_ge2  296
-press_release_ge3  296
-PR3  626
+press_release_gen_constants_seq001_v001 1 641✓
+press_release_gen_template_builders_seq002_v001 1 626✓
+press_release_gen_template_helpers_seq004_v001 1 661✓
+press_release_gen_constants_seq001_v001 2 388✓
+press_release_gen_template_builders_seq002_v001 2 662✓
+press_release_gen_template_helpers_seq004_v001 2 296✓
+press_release_gen_template_builders_seq002_v001 3 296✓
+PR=press_release_gen_template_key_findings 3 626✓
 
 **pigeon_compiler/state_extractor** (6)
-查1 parse python file into function 734
-演2 build intra file call graph 847
-IM3 trace imports inbound and outbound 792
-共态4 detect module level shared state 618
-阻5 classify why a file resists 1.0K
-拆6 assemble full ether map json 697
+查=ast_parser 1 734✓
+演=call_graph 2 847✓
+IM=import_tracer 3 792✓
+共态=shared_state_detector 4 618✓
+阻=resistance_analyzer 5 1.0K~
+拆=ether_map_builder 6 697!
 
 **pigeon_compiler/weakness_planner** (1)
-核4 build and send deepseek cut 2.4K
+核=deepseek_plan_prompt 4 2.4K~
 
 **src** (102)
-时1 millisecond epoch timestamp utility 156
-型2 dataclasses for keystroke events and 379
-录3 core keystroke telemetry logger 1.6K
-境4 context budget scorer for llm 715
-偏5 drift detection for live llm 1.1K
-桥6 bridge between keystroke telemetry and 1.2K
-层7 monolithic live streaming interface for 10.2K
-漂8 persistent markdown memory file 4.7K
-控8 persistent markdown memory file 5.0K
-测9 measures ai answer quality from 1.1K
-忆10 recurring query detector unsaid thought 2.3K
-热11 tracks cognitive load per module 1.3K
-叙12 generate per push narrative each 2.1K
-修13 one shot self fix analyzer 5.8K
-思14 cognitive reactor autonomous code modifi 5.6K
-脉15 pulse harvest pairs prompts to 2.3K
-推17 steers copilot cot from live 4.0K
-队18 copilot driven task tracking linked 1.6K
-觉19 ast derived function consciousness datin 4.3K
-管20 audits and manages all injected 4.5K
-变21 mutation scorer correlates prompt mutati 1.6K
-补22 reconstructs historical rework scores fr 1.2K
-递23 session handoff summary generator 1.6K
-隐24 fires on high deletion prompts 1.3K
-环25 the push is the unit 4.8K
-片26 local memory shard manager markdown 4.4K
-合26 joins all telemetry into canonical 2.1K
-路27 shard relevance scorer context injector 1.2K
-对27 training pair generator for the 2.6K
-训28 end of prompt training pair 2.1K
-声28 voice style personality adapter 3.2K
-研29 the system studying the system 5.1K
-警30 copilot self diagnostic detect stale 1.7K
-典31 symbol dictionary generator for pigeon 3.7K
-编32 glyph compiler python maximum symbolic 5.0K
-intent_simulator34 runs ahead of operator hallucinating 5.3K
+时=timestamp_utils 1 156✓
+型=models 2 379✓
+录=logger 3 1.6K✓
+境=context_budget 4 715~
+偏=drift_watcher 5 1.1K✓
+桥=resistance_bridge 6 1.2K✓
+层=streaming_layer 7 10.2K~
+漂=.operator_stats 8 4.7K~
+控=operator_stats 8 5.0K!
+测=rework_detector 9 1.1K✓
+忆=query_memory 10 2.3K✓
+热=file_heat_map 11 1.3K✓
+叙=push_narrative 12 2.1K✓
+修=self_fix 13 5.8K!
+思=cognitive_reactor 14 5.6K!
+脉=pulse_harvest 15 2.3K✓
+推=dynamic_prompt 17 4.0K~
+队=task_queue 18 1.6K✓
+觉=file_consciousness 19 4.3K~
+管=copilot_prompt_manager 20 4.5K~
+变=mutation_scorer 21 1.6K✓
+补=rework_backfill 22 1.2K✓
+递=session_handoff 23 1.6K✓
+隐=unsaid_recon 24 1.3K✓
+环=push_cycle 25 4.8K~
+片=shard_manager 26 4.4K~
+合=unified_signal 26 2.1K✓
+路=context_router 27 1.2K!
+对=training_pairs 27 2.6K✓
+训=training_writer 28 2.1K~
+声=voice_style 28 3.2K~
+研=research_lab 29 5.1K~
+警=staleness_alert 30 1.7K✓
+典=symbol_dictionary 31 3.7K~
+编=glyph_compiler 32 5.0K~
+intent_simulator 34 5.3K
 
 **src/cognitive** (10)
-适1 cognitive state agent behavior adapter 1.3K
-隐2 detects what operators meant but 2.1K
-偏3 tracks operator typing patterns across 2.3K
+适=adapter 1 1.3K✓
+隐=unsaid 2 2.1K✓
+偏=drift 3 2.3K✓
 
   偏└ baseline_store(1) compute_baseline(2) detect_session_drift(3) build_cognitive_context(4) [2.4K]
   隐└ helpers(1) diff(2) orchestrator(3) [2.3K]
@@ -800,25 +683,25 @@ intent_simulator34 runs ahead of operator hallucinating 5.3K
   忆└ constants(1) fingerprint(2) trigram_utils(3) clustering(4) record_query(5) load_memory_decomposed(6) [1.4K]
   修└ scan_hardcoded(1) scan_query_noise(2) scan_duplicate_docstrings(3) scan_cross_file_coupling(4) scan_over_hard_cap_decomposed(5) scan_dead_exports_decomposed(6) write_report_decomposed(7) run_self_fix_decomposed(8) auto_compile_oversized_decomposed(9) seq_base(10) auto_apply_import_fixes_decomposed(11) [6.0K]
 **streaming_layer** (19)
-层1  261
-层2  204
-层4  717
-层4  546
-层5  969
-层5  247
-层6  934
-层6  154
-层7  824
-层8  1.4K
-层9  932
-层10  858
-层11  1.2K
-层13  456
-层13  365
-层14  280
-层14  256
-层16  1.4K
-层17  142
+层=streaming_layer_constants 1 261✓
+层=streaming_layer_simulation_helpers 2 204✓
+层=streaming_layer_dataclasses 4 717✓
+层=streaming_layer_formatter 4 546✓
+层=streaming_layer_connection_pool 5 969!
+层=streaming_layer_dataclasses 5 247✓
+层=streaming_layer_aggregator 6 934!
+层=streaming_layer_dataclasses 6 154✓
+层=streaming_layer_metrics 7 824~
+层=streaming_layer_alerts 8 1.4K!
+层=streaming_layer_replay 9 932✓
+层=streaming_layer_dashboard 10 858✓
+层=streaming_layer_http_handler 11 1.2K~
+层=streaming_layer_demo_functions 13 456✓
+层=streaming_layer_demo_summary 13 365✓
+层=streaming_layer_demo_functions 14 280✓
+层=streaming_layer_demo_simulate 14 256✓
+层=streaming_layer_orchestrator 16 1.4K!
+层=streaming_layer_orchestrator 17 142!
 
 **Infra**
 (root): _build_organism_health, _export_dev_story, _run_glyph_rename, _tmp_analyze_stats, _tmp_regen_dict, _tmp_survey, _tmp_test_pipeline, _tmp_token_audit, _tmp_token_optimizer, autonomous_dev_stress_test, deep_test, stress_test, test_all, test_public_release, test_training_pairs

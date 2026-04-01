@@ -19,7 +19,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 DELETION_THRESHOLD = 0.15  # 15%+ deletion = uncertainty signal — fires reconstruction
-INTENT_DELETE_MIN_RUN = 8  # 8+ consecutive backspaces = intent change (matches composition analyzer)
+INTENT_DELETE_MIN_RUN = 5  # 5+ consecutive backspaces = intent change (matches composition analyzer)
 GEMINI_MODEL = 'gemini-2.5-flash'
 GEMINI_TIMEOUT = 4  # seconds — must be fast, runs synchronously on Enter
 

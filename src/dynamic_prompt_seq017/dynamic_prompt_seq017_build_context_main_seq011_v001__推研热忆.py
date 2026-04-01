@@ -11,7 +11,7 @@ def build_task_context(root):
     comps = _jsonl(root / 'logs' / 'prompt_compositions.jsonl', n=12)
     coms = _commits(root, n=8)
     focus = _task_focus(coms)
-    unsaid = _unsaid(comps)
+    unsaid = _unsaid(comps, root)
     hot = _hot_modules(root)
     rw = _rework(root)
     traj = _trajectory(root)
@@ -35,9 +35,18 @@ def build_task_context(root):
          f'**Current focus:** {focus}',
          f'**Cognitive state:** `{dom}` (WPM: {wpm} | Del: {dl}% | Hes: {hes})', '',
          f'> **CoT directive:** {_COT.get(dom, "Standard mode. Be thorough and structured.")}', '']
-    if unsaid:
+    if unsaid and (unsaid.get('raw') or unsaid.get('completions')):
         L += ['### Unsaid Threads', "*Deleted from prompts \u2014 operator wanted this but didn't ask:*"]
-        L += [f'- "{t}"' for t in unsaid] + ['']
+        if unsaid.get('completions'):
+            L += ['', '*Thought completions (what they were about to say):*']
+            for tc in unsaid['completions']:
+                L += [f'- **\u201c{tc}\u201d**']
+        if unsaid.get('raw'):
+            L += ['', '*Raw deleted fragments:*']
+            L += [f'- "{t}"' for t in unsaid['raw']]
+        L += ['', '> **Copilot directive:** At the end of your response, add a "---" then '
+              '"**You were also gonna say...** [complete their deleted thought in 1-2 sentences '
+              'and briefly address it]". Only do this when unsaid threads exist above.', '']
     if hot:
         L += ['### Module Hot Zones', '*High cognitive load \u2014 take extra care with these files:*']
         L += [f'- `{m["m"]}` (hes={m["h"]}' + (f', {m["x"]} AI misses' if m["x"] else '') + ')' for m in hot] + ['']

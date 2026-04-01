@@ -1,276 +1,5 @@
 [
   {
-    "ts": "2026-04-01T22:40:16.803019+00:00",
-    "verdict": "partial",
-    "rework_score": 0.337,
-    "del_ratio": 0.067,
-    "wpm": 44.8,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T22:40:38.694325+00:00",
-    "verdict": "partial",
-    "rework_score": 0.337,
-    "del_ratio": 0.067,
-    "wpm": 44.8,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T22:41:17.069622+00:00",
-    "verdict": "partial",
-    "rework_score": 0.337,
-    "del_ratio": 0.067,
-    "wpm": 44.8,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T22:41:51.697265+00:00",
-    "verdict": "partial",
-    "rework_score": 0.337,
-    "del_ratio": 0.067,
-    "wpm": 44.8,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T22:42:17.914191+00:00",
-    "verdict": "partial",
-    "rework_score": 0.337,
-    "del_ratio": 0.067,
-    "wpm": 44.8,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T22:42:30.557511+00:00",
-    "verdict": "partial",
-    "rework_score": 0.337,
-    "del_ratio": 0.067,
-    "wpm": 44.8,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T22:42:53.019703+00:00",
-    "verdict": "partial",
-    "rework_score": 0.337,
-    "del_ratio": 0.067,
-    "wpm": 44.8,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T22:43:16.450793+00:00",
-    "verdict": "partial",
-    "rework_score": 0.337,
-    "del_ratio": 0.067,
-    "wpm": 44.8,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T22:44:19.977182+00:00",
-    "verdict": "partial",
-    "rework_score": 0.337,
-    "del_ratio": 0.067,
-    "wpm": 44.8,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T22:44:41.515344+00:00",
-    "verdict": "partial",
-    "rework_score": 0.337,
-    "del_ratio": 0.067,
-    "wpm": 44.8,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T22:56:16.912900+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T22:57:15.618782+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T22:58:16.047965+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T22:59:15.868662+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T23:00:18.057066+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T23:01:16.808937+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T23:02:15.214280+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T23:02:25.074985+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T23:02:40.502906+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T23:03:17.851173+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T23:04:17.280072+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T23:05:17.384991+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T23:06:15.129065+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T23:07:15.156203+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T23:08:15.988129+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T23:09:16.411725+00:00",
-    "verdict": "partial",
-    "rework_score": 0.349,
-    "del_ratio": 0.09,
-    "wpm": 41.4,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-01T23:09:29.239547+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "so what are you all seeing - are you seeing live hesitation rate injection?",
-    "response_hint": "Here's what I'm seeing right now:\n\n**The injection blocks are empty.** All three (`task-context`, `task-queue`, `operator-state`) say \"Fresh start\" \u2014 **no live hesitation rate is being injected into m"
-  },
-  {
-    "ts": "2026-04-01T23:09:29.280497+00:00",
-    "verdict": "ok",
-    "rework_score": 0.057,
-    "del_ratio": 0.0,
-    "wpm": 24.8,
-    "query_hint": "implement copilot response tracking in coaching / logs ",
-    "response_hint": "Now I have the full picture. The key insight: **@pigeon already receives its own response stream** \u2014 it just doesn't log it. The fix is straightforward. Now let me read the exact extension.ts code to "
-  },
-  {
-    "ts": "2026-04-01T23:09:29.326317+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "i dont want @ architechture at all - want it to run on auto - and you to get tel",
-    "response_hint": "\n\n Let me find where VS Code stores Copilot chat sessions on your machine and explore the vscdb poller: 38MB file \u2014 that's the active session. Let me peek at the format: The chat session file stores c"
-  },
-  {
-    "ts": "2026-04-01T23:09:29.372631+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "whts the true potential of this tool if we start implementing deep debbiging age",
-    "response_hint": "\n\nThis is a juicy brainstorm. Your telemetry stack is sitting on something nobody else has \u2014 **developer cognitive state as a debugging signal**. Let me break this down:\n\n---\n\n## Standard Debugging Ag"
-  },
-  {
-    "ts": "2026-04-01T23:09:29.422617+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "okay audit paths: we can do data agent concioucness simulations - eg make datapo",
-    "response_hint": "\n\n Let me audit the current state of the self-updating map infrastructure first \u2014 that's the \"do regardless\" item: Map is 95% working. One gap: heat map not wired into post-commit. Let me fix that now"
-  },
-  {
-    "ts": "2026-04-01T23:09:29.462697+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "there should be an api key in env - unblock api and test then implement 2 ",
-    "response_hint": "\n\n Good \u2014 the coaching pipeline and DeepSeek adapter are clear. The conversation summary mentions the API key Good \u2014 the coaching pipeline and DeepSeek adapter are clear. The conversation summary ment"
-  },
-  {
-    "ts": "2026-04-01T23:09:29.510532+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "data endpoints rn are copilot prompt / file renaming / master + sub manifest per",
-    "response_hint": "\n\nRight \u2014 every module feeds its own data loop. The consciousness module needs: (1) profile generation on commit, (2) injection into dynamic prompt, (3) slumber party audit in post-commit. Let me test"
-  },
-  {
     "ts": "2026-04-01T23:09:29.559029+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
@@ -1771,5 +1500,269 @@
     "del_ratio": 0.09,
     "wpm": 41.4,
     "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T23:11:16.041518+00:00",
+    "verdict": "partial",
+    "rework_score": 0.349,
+    "del_ratio": 0.09,
+    "wpm": 41.4,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T23:12:19.753865+00:00",
+    "verdict": "partial",
+    "rework_score": 0.418,
+    "del_ratio": 0.215,
+    "wpm": 41.4,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T23:13:18.865265+00:00",
+    "verdict": "partial",
+    "rework_score": 0.418,
+    "del_ratio": 0.215,
+    "wpm": 41.4,
+    "query_hint": "bg:INTENT_SIMULATION.md"
+  },
+  {
+    "ts": "2026-04-01T23:14:18.082162+00:00",
+    "verdict": "partial",
+    "rework_score": 0.418,
+    "del_ratio": 0.215,
+    "wpm": 41.4,
+    "query_hint": "bg:cognitive_reactor_seq014_v005_d0331__\u00e6\u20ac\udc9d\u00e7\u00ae\u2014\u00e7\u00a0\u201d\u00e6\u00b5\u2039_cognitive_reactor_autonomou"
+  },
+  {
+    "ts": "2026-04-01T23:15:16.941472+00:00",
+    "verdict": "partial",
+    "rework_score": 0.418,
+    "del_ratio": 0.215,
+    "wpm": 41.4,
+    "query_hint": "bg:cognitive_reactor_seq014_v005_d0331__\u00e6\u20ac\udc9d\u00e7\u00ae\u2014\u00e7\u00a0\u201d\u00e6\u00b5\u2039_cognitive_reactor_autonomou"
+  },
+  {
+    "ts": "2026-04-01T23:15:49.053274+00:00",
+    "verdict": "partial",
+    "rework_score": 0.418,
+    "del_ratio": 0.215,
+    "wpm": 41.4,
+    "query_hint": "bg:cognitive_reactor_seq014_v005_d0331__\u00e6\u20ac\udc9d\u00e7\u00ae\u2014\u00e7\u00a0\u201d\u00e6\u00b5\u2039_cognitive_reactor_autonomou"
+  },
+  {
+    "ts": "2026-04-01T23:16:10.891167+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-01T23:16:22.437084+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:16:26.169510+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:16:44.739759+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:17:00.432943+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:17:13.307999+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:17:20.799937+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:17:55.139870+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:18:24.303897+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:18:30.460035+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:18:52.663040+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:19:22.220806+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:20:23.867230+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:21:22.495381+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:22:02.643224+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:22:12.834953+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:22:20.866162+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:22:26.073262+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:32:02.653113+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:32:21.446385+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:33:47.082070+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:34:20.223789+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:35:21.555578+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:36:19.658861+00:00",
+    "verdict": "partial",
+    "rework_score": 0.329,
+    "del_ratio": 0.053,
+    "wpm": 32.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:37:24.133560+00:00",
+    "verdict": "partial",
+    "rework_score": 0.363,
+    "del_ratio": 0.115,
+    "wpm": 48.8,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:38:24.124341+00:00",
+    "verdict": "partial",
+    "rework_score": 0.363,
+    "del_ratio": 0.115,
+    "wpm": 48.8,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-01T23:39:22.758395+00:00",
+    "verdict": "partial",
+    "rework_score": 0.363,
+    "del_ratio": 0.115,
+    "wpm": 48.8,
+    "query_hint": "bg:copilot-instructions.md"
   }
 ]

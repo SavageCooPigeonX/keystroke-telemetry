@@ -29,7 +29,7 @@ from datetime import datetime, timezone
 PAUSE_THRESHOLD_MS = 2000      # 2s pause = hesitation
 TYPO_WINDOW_MS = 800           # delete within 800ms of insert = typo
 REWRITE_MIN_CHARS = 3          # 3+ chars deleted then retyped = rewrite
-INTENT_DELETE_MIN_RUN = 8      # 8+ consecutive backspaces = intent change (not typo)
+INTENT_DELETE_MIN_RUN = 5      # 5+ consecutive backspaces = intent change (not typo)
 WORD_BOUNDARY = set(' .,;:!?-\n\t')
 
 
@@ -573,9 +573,11 @@ def analyze_and_log(root: Path) -> dict | None:
         'final_text': result['final_text'],
         'chat_state': result['chat_state'],
         'deleted_words': result['deleted_words'],
+        'intent_deleted_words': result.get('intent_deleted_words', []),
         'rewrites': result['rewrites'],
         'hesitation_windows': result['hesitation_windows'],
         'deletion_ratio': result['deletion_ratio'],
+        'intent_deletion_ratio': result.get('intent_deletion_ratio', 0),
         'peak_buffer': result['peak_buffer'],
         'duration_ms': result['duration_ms'],
         'total_keystrokes': result['total_keystrokes'],

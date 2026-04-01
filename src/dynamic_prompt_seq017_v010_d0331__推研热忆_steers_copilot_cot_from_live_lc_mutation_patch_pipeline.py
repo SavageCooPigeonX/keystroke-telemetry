@@ -67,8 +67,8 @@ def _task_focus(commits):
 def _unsaid(comps):
     threads = []
     for c in comps[-8:]:
-        # Prefer intent_deleted_words (8+ backspace runs) over raw deleted_words
-        # Short backspace runs (1-7) are typo/habit noise, not real unsaid thoughts
+        # Prefer intent_deleted_words (5+ backspace runs) over raw deleted_words
+        # Short backspace runs (1-4) are typo/habit noise, not real unsaid thoughts
         intent_words = c.get('intent_deleted_words') or []
         if intent_words:
             for w in intent_words:
@@ -396,7 +396,9 @@ def build_task_context(root):
         if unsaid_recons:
             for r in unsaid_recons[-3:]:
                 dw = ', '.join(r.get('deleted_words', []))
-                L.append(f'- **Reconstructed intent:** {r["reconstructed_intent"]}')
+                tc = r.get('thought_completion', r.get('reconstructed_intent', ''))
+                dr = r.get('deletion_reason', '')
+                L.append(f'- **Reconstructed intent:** {tc}')
                 L.append(f'  - *(deleted: {dw} | ratio: {r.get("deletion_ratio", 0):.0%})*')
             L.append('')
         if unsaid:

@@ -8,9 +8,10 @@
 # SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
+# EDIT_TS:   2026-04-02T23:14:00+00:00
+# EDIT_HASH: auto
+# EDIT_WHY:  improve thought completion + lower threshold to 5
+# EDIT_STATE: harvested
 # ── /pulse ──
 import json
 import urllib.request
@@ -19,20 +20,27 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 DELETION_THRESHOLD = 0.15  # 15%+ deletion = uncertainty signal — fires reconstruction
-INTENT_DELETE_MIN_RUN = 8  # 8+ consecutive backspaces = intent change (matches composition analyzer)
+INTENT_DELETE_MIN_RUN = 5  # 5+ consecutive backspaces = intent change (matches composition analyzer)
 GEMINI_MODEL = 'gemini-2.5-flash'
-GEMINI_TIMEOUT = 4  # seconds — must be fast, runs synchronously on Enter
+GEMINI_TIMEOUT = 8  # seconds — must be fast, runs synchronously on Enter
 
 SYSTEM_PROMPT = (
-    "You are an intent reconstruction engine. The operator typed a prompt to an AI coding assistant "
-    "but deleted some words/phrases before submitting. Your job: reconstruct what they ACTUALLY "
-    "wanted to say — the full unfiltered intent combining both the submitted text and deleted fragments.\n\n"
+    "You are an unsaid-thought completion engine. The operator typed a prompt to an AI coding assistant "
+    "but deleted some words/phrases before submitting. You see:\n"
+    "- The SUBMITTED text (what they actually sent)\n"
+    "- DELETED words/phrases (what they typed then backspaced away)\n"
+    "- PEAK BUFFER (the longest the text got before they started deleting)\n"
+    "- REWRITES (old→new text replacements)\n\n"
+    "Your job: COMPLETE THE DELETED THOUGHT. What was the operator about to say before they pivoted?\n\n"
     "Rules:\n"
-    "- Output a single sentence: the reconstructed full intent\n"
-    "- Be specific and actionable — this will be injected as a custom instruction\n"
-    "- If deleted words seem like typos, ignore them\n"
-    "- If deleted words reveal a suppressed request, surface it\n"
-    "- No explanations, no preamble — just the reconstructed intent sentence"
+    "- Output format: ONE sentence completing the deleted thought, then '---', then ONE sentence "
+    "explaining why they probably deleted it\n"
+    "- Focus on the DELETED content — what thought was abandoned?\n"
+    "- If the peak buffer shows a longer sentence that was trimmed, complete that sentence\n"
+    "- If deleted words are fragments (e.g. 'proce'), complete the word and the thought\n"
+    "- Be specific — 'process of compilation' not 'something about processes'\n"
+    "- If deleted words are clearly just typos of what was retyped, say 'typo correction only'\n"
+    "- No preamble, no explanations beyond the two lines"
 )
 
 
@@ -46,7 +54,8 @@ def _load_api_key(root: Path) -> str | None:
     return None
 
 
-def _call_gemini(api_key: str, final_text: str, deleted_words: list, rewrites: list) -> str | None:
+def _call_gemini(api_key: str, final_text: str, deleted_words: list,
+                 rewrites: list, peak_buffer: str = '') -> str | None:
     deleted_str = ', '.join(
         w.get('word', str(w)) if isinstance(w, dict) else str(w)
         for w in deleted_words
@@ -59,8 +68,9 @@ def _call_gemini(api_key: str, final_text: str, deleted_words: list, rewrites: l
     user_msg = (
         f"Submitted prompt: \"{final_text}\"\n"
         f"Deleted words/phrases: [{deleted_str}]\n"
+        f"Peak buffer (longest text before deletion): \"{peak_buffer}\"\n"
         f"Rewrites: [{rewrite_str}]\n\n"
-        f"Reconstruct the operator's full intent:"
+        f"Complete the deleted thought:"
     )
 
     url = (
@@ -120,9 +130,15 @@ def reconstruct_if_needed(root: Path, composition: dict) -> dict | None:
         composition.get('final_text', ''),
         deleted,
         composition.get('rewrites', []),
+        composition.get('peak_buffer', ''),
     )
     if not intent:
         return None
+
+    # Parse thought completion (line 1) and deletion reason (line 2, after ---)
+    parts = intent.split('---', 1)
+    thought = parts[0].strip()
+    reason = parts[1].strip() if len(parts) > 1 else ''
 
     intent_dr = composition.get('intent_deletion_ratio', dr)
     recon = {
@@ -132,8 +148,11 @@ def reconstruct_if_needed(root: Path, composition: dict) -> dict | None:
             w.get('word', str(w)) if isinstance(w, dict) else str(w)
             for w in deleted
         ],
+        'peak_buffer': composition.get('peak_buffer', ''),
         'deletion_ratio': intent_dr,
         'reconstructed_intent': intent,
+        'thought_completion': thought,
+        'deletion_reason': reason,
         'trigger': 'intent_deletion' if intent_deleted else 'high_ratio',
     }
 
