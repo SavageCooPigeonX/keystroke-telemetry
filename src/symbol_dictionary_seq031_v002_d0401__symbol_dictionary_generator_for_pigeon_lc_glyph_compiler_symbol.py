@@ -16,9 +16,9 @@ architecture vs thousands of tokens reading raw filenames.
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-04-01T04:00:00+00:00
+# EDIT_TS:   2026-04-01T22:00:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  initial symbol dictionary generator
+# EDIT_WHY:  swap to chinese chars + confidence
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -28,34 +28,81 @@ import subprocess
 from pathlib import Path
 from datetime import datetime, timezone
 
-# ── Greek uppercase pool for top-level modules ──
-_GREEK_UPPER = list(
-    'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ'
-)
-# Extended pool if we run out of 24 Greek letters
-_EXTENDED_POOL = list(
-    'ℵℶℷℸ𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ'
+try:
+    from src.confidence_scorer_seq033_v001 import (
+        score_module_confidence, compute_copilot_meta_state, format_confidence_line,
+    )
+except ImportError:
+    score_module_confidence = None
+    compute_copilot_meta_state = None
+    format_confidence_line = None
+
+# ── Chinese character pool for top-level modules ──
+# Each char is 1 token, semantically self-documenting.
+_PRIMARY_POOL = list(
+    '修算境流热漂正思叙规引录桥查忆推演测层控'
+    '织联脉图谱核分拆补审写读压缩编译扫描追踪'
 )
 
-# ── Mnemonic hints: try to match glyph to module meaning ──
+# ── Mnemonic hints: Chinese chars matched to module meaning ──
 _MNEMONIC_MAP = {
-    'prediction_scorer': 'Ψ',   # psi → prediction
-    'self_fix': 'Σ',            # sigma → self
-    'context_budget': 'Θ',     # theta → threshold/budget
-    'dynamic_prompt': 'Δ',     # delta → dynamic
-    'push_narrative': 'Ω',     # omega → output/push
-    'cognitive_reactor': 'Φ',  # phi → cognition
-    'flow_engine': 'Λ',        # lambda → flow
-    'pigeon_compiler': 'Π',    # pi → pigeon
-    'graph_extractor': 'Γ',    # gamma → graph
-    'logger': 'Λ',             # (will be reassigned if conflict)
-    'models': 'Μ',             # mu → models
-    'drift_watcher': 'Δ',      # (will be reassigned if conflict)
-    'streaming_layer': 'Σ',    # (will be reassigned if conflict)
-    'resistance_bridge': 'Ρ',  # rho → resistance
-    'operator_stats': 'Ο',     # omicron → operator
-    'file_heat_map': 'Η',      # eta → heat
-    'research_lab': 'Ρ',       # (will be reassigned if conflict)
+    'self_fix': '修',            # repair/fix
+    'prediction_scorer': '算',   # calculate/predict
+    'context_budget': '境',      # boundary/context
+    'flow_engine': '流',         # flow/stream
+    'file_heat_map': '热',       # heat
+    'drift_watcher': '漂',       # drift/float
+    'compliance': '正',          # correct/standard
+    'cognitive_reactor': '思',   # thought/cognition
+    'push_narrative': '叙',      # narrate/tell
+    'import_rewriter': '引',     # lead/import
+    'logger': '录',              # record/log
+    'resistance_bridge': '桥',   # bridge
+    'query_memory': '忆',        # memory/recall
+    'dynamic_prompt': '推',      # push/infer
+    'streaming_layer': '层',     # layer
+    'operator_stats': '控',      # control/operator
+    'research_lab': '研',        # research
+    'models': '型',              # model/type
+    'graph_extractor': '图',     # graph/diagram
+    'file_writer': '写',         # write
+    'scanner': '扫',             # scan
+    'validator': '审',           # audit/validate
+    'file_consciousness': '觉',  # consciousness/awareness
+    'rework_detector': '测',     # measure/detect
+    'symbol_dictionary': '典',   # dictionary/canon
+    'glyph_compiler': '编',      # compile/weave
+    'copilot_prompt_manager': '管', # manage
+    'mutation_scorer': '变',     # mutate/change
+    'unsaid': '隐',              # hidden/unsaid
+    'training_writer': '训',     # train
+    'voice_style': '声',         # voice/sound
+    'session_handoff': '递',     # hand off/pass
+    'staleness_alert': '警',     # alert/warn
+    'shard_manager': '片',       # shard/piece
+    'context_router': '路',      # route/path
+    'push_cycle': '环',          # cycle/loop
+    'task_queue': '队',          # queue
+    'pulse_harvest': '脉',       # pulse
+    'unified_signal': '合',      # combine/unify
+    'training_pairs': '对',      # pair
+    'rework_backfill': '补',     # patch/backfill
+    'unsaid_recon': '探',        # explore/recon
+    'pigeon_compiler': '鸽',     # pigeon
+    'timestamp_utils': '时',     # time
+    'context_packet': '包',      # packet
+    'backward': '逆',            # backward/reverse
+    'node_memory': '存',         # store/memory
+    'predictor': '预',           # predict
+    'learning_loop': '学',       # learn
+    'demo_sim': '仿',            # simulate
+    'dual_substrate': '双',      # dual
+    'live_server': '服',         # serve
+    'traced_runner': '跑',       # run
+    'trace_hook': '钩',          # hook
+    'cli': '令',                 # command
+    'adapter': '适',             # adapt
+    'drift': '偏',               # bias/drift
 }
 
 # ── Intent lambda codes ──
@@ -137,15 +184,14 @@ def _assign_module_glyphs(
 
     # Second pass: sequential for unassigned
     pool_idx = 0
-    full_pool = _GREEK_UPPER + _EXTENDED_POOL
     for mod in top_modules:
         if mod in assigned:
             continue
-        while pool_idx < len(full_pool) and full_pool[pool_idx] in used_glyphs:
+        while pool_idx < len(_PRIMARY_POOL) and _PRIMARY_POOL[pool_idx] in used_glyphs:
             pool_idx += 1
-        if pool_idx < len(full_pool):
-            assigned[mod] = full_pool[pool_idx]
-            used_glyphs.add(full_pool[pool_idx])
+        if pool_idx < len(_PRIMARY_POOL):
+            assigned[mod] = _PRIMARY_POOL[pool_idx]
+            used_glyphs.add(_PRIMARY_POOL[pool_idx])
             pool_idx += 1
         else:
             # Fallback: use first 2 chars uppercase
@@ -294,6 +340,13 @@ def generate_dictionary(root: Path) -> dict:
     # Get git history
     git_log = _get_git_log(root)
 
+    # Score module confidence
+    confidence = {}
+    copilot_meta = {}
+    if score_module_confidence is not None:
+        confidence = score_module_confidence(root)
+        copilot_meta = compute_copilot_meta_state(confidence)
+
     # Build the dictionary
     now = datetime.now(timezone.utc).isoformat()
     dictionary = {
@@ -325,7 +378,13 @@ def generate_dictionary(root: Path) -> dict:
             '‡': 'manually created',
             '→': 'return / produces',
             '←': 'imports from / depends on',
+            '✓': 'confident (low rework, no issues)',
+            '~': 'uncertain (some rework or heat)',
+            '!': 'degraded (known issues)',
+            '?': 'blind (no data)',
         },
+        'confidence': confidence,
+        'copilot_meta': copilot_meta,
     }
 
     return dictionary
@@ -339,14 +398,23 @@ def generate_compact_injection(dictionary: dict) -> str:
     lines = []
     stats = dictionary['stats']
     lines.append(
-        f'[PIGEON DICT v0.1.0 | {stats["total_files"]} files '
+        f'[PIGEON DICT v0.2.0 | {stats["total_files"]} files '
         f'| {stats["modules"]} modules | {stats["total_glyphs"]} glyphs]'
     )
 
+    # Copilot meta-state line
+    meta = dictionary.get('copilot_meta', {})
+    if meta and format_confidence_line is not None:
+        lines.append(format_confidence_line(meta))
+
     # Module glyph table — one line per glyph, dense
     mg = dictionary.get('module_glyphs', {})
-    # Group into rows of 4 for density
-    items = [f'{g}={n}' for g, n in mg.items()]
+    confidence = dictionary.get('confidence', {})
+    # Group into rows of 4 for density, append state symbol
+    items = []
+    for g, n in mg.items():
+        state = confidence.get(n, '')
+        items.append(f'{g}={n}{state}' if state else f'{g}={n}')
     for i in range(0, len(items), 4):
         lines.append(' | '.join(items[i:i+4]))
 
@@ -380,8 +448,9 @@ def generate_compact_injection(dictionary: dict) -> str:
         ))
     churn_ranked.sort(reverse=True)
     for _, glyph, name, max_v, tok, chains in churn_ranked[:10]:
+        state = confidence.get(name, '')
         lines.append(
-            f'{glyph} {name} v{max_v} {tok}tok [{" ".join(chains)}]'
+            f'{glyph}{state} {name} v{max_v} {tok}tok [{" ".join(chains)}]'
         )
 
     # Recent git commits — just 3

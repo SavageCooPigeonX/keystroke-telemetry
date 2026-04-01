@@ -848,6 +848,16 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
     except Exception as e:
         print(f'  ⚠️  rework backfill: {e}')
 
+    # Research lab — synthesize prediction report from all telemetry
+    try:
+        research_mod = _load_glob_module(root, 'src', 'research_lab_seq029*')
+        if research_mod:
+            report_path = research_mod.synthesize_research(root)
+            if report_path and report_path.exists():
+                print(f'  🔬 research report → {report_path.relative_to(root)}')
+    except Exception as e:
+        print(f'  ⚠️  research lab: {e}')
+
     # Self-fix: auto-apply CRITICAL hardcoded import fixes
     try:
         sf_mod = _load_glob_module(root, 'src', 'self_fix_seq013*')

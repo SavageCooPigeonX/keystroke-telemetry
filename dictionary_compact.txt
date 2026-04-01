@@ -1,39 +1,44 @@
-[PIGEON DICT v0.1.0 | 260 files | 76 modules | 135 glyphs]
-NO=node_memory | OB=observer_synthesis | PA=path_selector | PL=planner
-PQ=pq_search_utils | PR=press_release_gen_template_key_findings | PU=push_cycle | QU=query_memory
-RE=rework_detector | RU=run_rename | SC=scanner | SE=session_handoff
-SH=shared_state_detector | SO=source_slicer | ST=streaming_layer | TA=task_writer
-TI=timestamp_utils | TR=training_writer | UN=unsaid | VA=validator
-VE=vein_transport | VO=voice_style | Α=.operator_stats | Β=adapter
-Γ=graph_extractor | Δ=dynamic_prompt | Ε=aim_utils | Ζ=ast_parser
-Η=file_heat_map | Θ=context_budget | Ι=backward | Κ=call_graph
-Λ=flow_engine | Μ=models | Ν=class_decomposer | Ξ=cli
-Ο=operator_stats | Π=compliance | Ρ=research_lab | Σ=self_fix
-Τ=context_packet | Υ=context_router | Φ=cognitive_reactor | Χ=copilot_prompt_manager
-Ψ=prediction_scorer | Ω=push_narrative | ℌ=file_consciousness | ℑ=file_writer
-ℜ=live_server | ℨ=nl_parsers | ℭ=dual_substrate | ℵ=core_formatters
-ℶ=deepseek_adapter | ℷ=deepseek_plan_prompt | ℸ=demo_sim | 𝔄=dev_plan
-𝔅=drift | 𝔇=ether_map_builder | 𝔈=execution_logger | 𝔉=executor
-𝔊=failure_detector | 𝔍=func_decomposer | 𝔎=graph_heat_map | 𝔏=heal
-𝔐=import_fixer | 𝔑=import_rewriter | 𝔒=import_tracer | 𝔓=init_writer
-𝔔=learning_loop | 𝔖=logger | 𝔗=loop_detector | 𝔘=manifest_bridge
-𝔙=manifest_builder | 𝔚=manifest_writer | 𝔛=mutation_scorer | 𝔜=nametag
+[PIGEON DICT v0.2.0 | 263 files | 89 modules | 138 glyphs]
+Copilot confidence: ✓ (73.5% ✓ | 13.9% ~ | 12.6% ! | 0.0% ?) across 230 modules
+IM=import_tracer✓ | IN=init_writer✓ | LO=loop_detector✓ | MA=manifest_writer✓
+NA=nametag! | NL=nl_parsers✓ | NO=node_conversation✓ | OB=observer_synthesis!
+PA=path_selector✓ | PL=planner~ | PQ=pq_search_utils~ | PR=press_release_gen_template_key_findings✓
+RE=resplit! | RU=run_rename! | SH=shared_state_detector✓ | SO=source_slicer✓
+TA=task_writer~ | VE=vein_transport~ | 令=cli! | 仿=demo_sim!
+修=self_fix! | 偏=drift✓ | 典=symbol_dictionary! | 写=file_writer~
+分=dev_plan✓ | 包=context_packet✓ | 压=executor✓ | 双=dual_substrate!
+变=mutation_scorer✓ | 叙=push_narrative~ | 合=unified_signal~ | 图=graph_extractor✓
+型=models✓ | 境=context_budget~ | 声=voice_style~ | 存=node_memory✓
+学=learning_loop! | 审=validator✓ | 对=training_pairs~ | 层=streaming_layer~
+引=import_rewriter~ | 录=logger✓ | 忆=query_memory✓ | 思=cognitive_reactor!
+扫=scanner✓ | 拆=ether_map_builder! | 控=operator_stats! | 推=dynamic_prompt~
+描=graph_heat_map✓ | 时=timestamp_utils✓ | 服=live_server! | 查=ast_parser✓
+核=deepseek_plan_prompt~ | 桥=resistance_bridge✓ | 正=compliance! | 流=flow_engine!
+测=rework_detector~ | 漂=.operator_stats~ | 演=call_graph✓ | 热=file_heat_map!
+片=shard_manager! | 环=push_cycle~ | 研=research_lab~ | 算=prediction_scorer!
+管=copilot_prompt_manager~ | 织=class_decomposer! | 编=glyph_compiler! | 缩=failure_detector✓
+联=core_formatters✓ | 脉=pulse_harvest✓ | 补=rework_backfill✓ | 规=aim_utils✓
+觉=file_consciousness~ | 警=staleness_alert~ | 训=training_writer! | 译=func_decomposer~
+读=execution_logger~ | 谱=deepseek_adapter✓ | 跑=traced_runner~ | 路=context_router~
+踪=import_fixer✓ | 追=heal! | 适=adapter✓ | 逆=backward!
+递=session_handoff✓ | 钩=trace_hook✓ | 队=task_queue~ | 隐=unsaid✓
+预=predictor✓
 
-Intents: λ18=implement_all_18, λ7=stage_78_hook, λ7u=readme_update_7, λA=staleness_alerts_bg, λB=8888_word_backpropagation, λD=desc_upgrade, λF=gemini_flash_enricher, λH=organism_health_system, λI=intent_deletion_pipeline, λL=research_lab_autonomous, λM=mutation_patch_pipeline, λP=pigeon_brain_system, λQ=task_queue_system, λR=dynamic_import_resolvers, λS=pigeon_split_3, λT=push_narratives_timeout, λW=windows_max_path, λΞ=import_rewriter_now, λΠ=pulse_telemetry_prompt, λγ=fix_bare_globals, λδ=per_prompt_deleted, λε=flow_engine_context, λμ=multi_line_import, λν=verify_pigeon_plugin, λπ=fix_push_cycle, λρ=rework_signal_0, λτ=trigger_pigeon_rename, λφ=fire_full_post, λχ=gemini_chat_dead, λω=wpm_outlier_filter
+Intents: λ18=implement_all_18, λ7=stage_78_hook, λ7u=readme_update_7, λA=staleness_alerts_bg, λB=8888_word_backpropagation, λD=desc_upgrade, λF=gemini_flash_enricher, λH=organism_health_system, λI=intent_deletion_pipeline, λL=research_lab_autonomous, λM=mutation_patch_pipeline, λP=pigeon_brain_system, λQ=task_queue_system, λR=dynamic_import_resolvers, λS=pigeon_split_3, λT=push_narratives_timeout, λW=windows_max_path, λa=glyph_compiler_symbol, λΞ=import_rewriter_now, λΠ=pulse_telemetry_prompt, λγ=fix_bare_globals, λδ=per_prompt_deleted, λε=flow_engine_context, λμ=multi_line_import, λν=verify_pigeon_plugin, λπ=fix_push_cycle, λρ=rework_signal_0, λτ=trigger_pigeon_rename, λφ=fire_full_post, λχ=gemini_chat_dead, λω=wpm_outlier_filter
 
 Hot:
-ST staleness_alert v3 24020tok [v1→v2→v3 v1→v2→v3]
-Π compliance v4 4585tok [v2→v3→v4 v2→v3→v4]
-PR predictor v4 10361tok [v2→v3 v2→v3→v4]
-RU run_heal v6 15559tok [v3→v4 v3→v4]
-RE resplit v5 10445tok [v3→v4 v3→v4]
-𝔅 drift v4 5740tok [v2→v3 v2→v3]
-Ψ prediction_scorer v5 12796tok [v2→v3→v4 v2→v3→v4]
-𝔔 learning_loop v4 10304tok [v2→v3 v2→v3]
-Σ self_fix v11 11822tok [v9→v10→v11]
-UN unsaid v3 7809tok [v2→v3 v2→v3]
+层~ streaming_layer v3 22295tok [v1→v2→v3 v1→v2→v3]
+正! compliance v4 4585tok [v2→v3→v4 v2→v3→v4]
+RU! run_heal v6 15559tok [v3→v4 v3→v4]
+PR✓ press_release_gen_constants_seq001_v001 v2 4196tok [v1→v2 v1→v2]
+偏✓ drift v4 5740tok [v2→v3 v2→v3]
+算! prediction_scorer v5 12796tok [v2→v3→v4 v2→v3→v4]
+学! learning_loop v4 10304tok [v2→v3 v2→v3]
+隐✓ unsaid v3 5735tok [v2→v3 v2→v3]
+修! self_fix v11 11822tok [v9→v10→v11]
+RE! resplit v4 6942tok [v3→v4 v3→v4]
 
+c1f79553 chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
+51c097d0 feat: glyph compiler + symbol dictionary + respons
 282afb7a chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
-a9e145a8 feat: mutation/patch pipeline + pair dynamics rese
-30814514 chore(pigeon): auto-rename 2 file(s) [pigeon-auto]
 [/DICT]

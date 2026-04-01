@@ -1,98 +1,95 @@
-# Research Log — The System Studying Us
+# What The System Knows Right Now
 
-*Auto-generated 2026-03-31 17:54 UTC by `research_lab_seq029`. This document is rewritten on every push. It contains what the prediction engine, self-fix scanner, and cognitive profiler have learned about human/AI pair programming.*
+*Auto-generated 2026-04-01 06:41 UTC · 179 prompts · 200 rework entries · zero LLM calls*
 
-## 1. Prediction Engine — What It Gets Right and Wrong
-**200 predictions scored** across 3 modes.
+> This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
+> All signals are measured from live telemetry — nothing is inferred or hallucinated.
 
-| Mode | N | Avg F1 | Hit Rate | Avg Calibration Error |
-|------|---|--------|----------|-----------------------|
-| failure | 67 | 0.000 | 0.0% | 0.374 |
-| heat | 67 | 0.031 | 16.4% | 0.355 |
-| targeted | 66 | 0.013 | 12.1% | 0.363 |
+## What Gets Touched Next
 
-### The Fixation Problem
+*200 scored predictions · zero LLM calls*
 
-The predictor keeps guessing the same modules — the ones the operator *hesitates* on — not the ones they *actually edit*.
 
-**Most over-predicted (false positives):**
-- `file_heat_map` — predicted 179x, rarely edited
-- `file_writer` — predicted 179x, rarely edited
-- `import_rewriter` — predicted 179x, rarely edited
-- `logger` — predicted 47x, rarely edited
-- `models` — predicted 47x, rarely edited
+> **Prediction bias:** chronically over-predicts `file_heat_map`, `file_writer`, `import_rewriter` — operator thinks about them more than they touch them
 
-**Actually edited (true hits):**
-- `dynamic_prompt` — correctly predicted 10x
-- `operator_stats` — correctly predicted 9x
-- `cognitive_reactor` — correctly predicted 5x
-- `cognitive_reactor_seq014_decision_maker` — correctly predicted 1x
+### Blind Spots *[source: measured]*
+*Edited without being predicted — the real surprises:*
+- `classify_bridge` — 200x unpredicted
+- `research_lab` — 145x unpredicted
+- `dynamic_prompt` — 82x unpredicted
+- `cognitive_reactor_seq014_patch_writer` — 50x unpredicted
+- `chat_response_reader` — 50x unpredicted
 
-**Interpretation:** Hesitation ≠ intent. The operator hesitates on scary/complex modules but edits familiar ones. The prediction engine confuses cognitive load with task selection. This is a fundamental insight about human/AI pair programming — the AI watches where you sweat, but you work where you're comfortable.
+## Live Operator State
 
-**24 predictions still unscored** (awaiting next push cycle).
+*179 prompts profiled · source: measured*
 
-## 2. Cognitive Patterns — What We Know About the Operator
-- **Dominant state: focused**
-- **Submit rate: 14/21 (66%)**
+**Dominant: `focused` | Submit: 66% | Del: 6.7%**
+- operator entering restructuring mode — expect more deletions than new code
 
-**Interpretation:** The operator deletes ~4.1% of what they type (from chat compositions). Dominant cognitive state: **focused**. 121 prompts recorded in prompt journal (submit rate: 66% of profiled messages). The system captures typing patterns, hesitation, and deleted words that would otherwise be invisible.
+## Pair Performance
 
-## 3. Pair Dynamics — How Human + AI Actually Collaborate
+*108 responses scored · 92 background excluded*
 
-**Rework verdicts** (121 foreground responses scored):
-- OK: 121 (100%) — copilot nailed it
-- Partial: 0 (0%) — needed adjustment
-- Miss: 0 (0%) — operator had to redo
-- Data quality note: excluded 79 background rework entries (`bg:` queries)
-- Data quality note: all non-background verdicts are currently `ok`, which suggests the miss signal is still incomplete or misrouted
+**Accuracy: 100% OK | 0% miss** *[source: measured]*
+- trend: **stable** (100% → 100%)
 
-**Prompt→file pairings:** 65 edits traced back to prompts.
-- Filtered median prompt-to-edit latency: 235.7s
-- Filtered average prompt-to-edit latency: 473.2s across 35 sane pairs
-- Data quality note: 30 pairings had negative or outlier latencies and were excluded
+**Prompt→edit latency:** 239.2s median (40 pairs)
 
-**Prompt mutations:** 85 changes to copilot-instructions.md, scored against 200 rework pairs.
-- No significant signal yet — all sections scored neutral.
+### Mutation Effectiveness *[source: measured]*
+*87 mutations scored*
+- no significant signal yet — all sections scored neutral
 
-**Cognitive reactor:** 179 fires. 0 code patches applied (0% acceptance).
+**Reactor:** 216 fires, 0 accepted (0%)
+> **Directive:** Reactor patches near-zero acceptance — tune confidence threshold or disable
 
-**Shared memory shards** (10 active):
-- `api_preferences`
-- `architecture_decisions`
-- `commit_patterns`
-- `frustration_triggers`
-- `module_pain_points`
-- `module_relationships`
-- `prompt_patterns`
-- `success_patterns`
+## Codebase Health
 
-**Interpretation:** Copilot gets it right 100% of the time, misses 0%. The pair communicates through: keystrokes (operator→system), rework verdicts (operator→copilot quality signal), prompt mutations (system→copilot instruction tuning), reactor patches (copilot→codebase autonomous edits), and memory shards (shared context that persists across sessions). This is not one-way automation — it is a feedback loop where both sides adapt. The operator's typing patterns steer the AI's reasoning, and the AI's prompt mutations steer the operator's workflow. Neither side is fully in control.
+*42 self-fix reports · 2026-03-16 → 2026-04-01*
 
-## 4. Recursive Code Evolution — The Codebase Changing Itself
+**Problem trend: growing** (early avg 24 → recent avg 71) *[source: measured]*
+- problems growing ~47/push — expect more over_hard_cap and dead_exports without intervention
 
-**41 self-fix reports** from 2026-03-16 to 2026-03-31.
-- Early avg problems: 24
-- Recent avg problems: 21
-- Trend: **improving**
+### Recent Deaths *[source: measured]*
+- `exception`: 3
+- `loop`: 3
+- `timeout`: 2
+- `stale_import`: 2
+> **Prediction:** `exception` remains dominant failure mode until root cause is addressed
 
-**10 push cycles** completed. Latest sync score: 0.55
+### Electron Killers *[source: measured]*
+- `graph_heat_map` — 2 deaths/4 calls (50%)
 
-**41 push narratives** — each file explains why it was touched, what assumption could break, and what regression to watch for.
+## Unsaid Threads
 
-**Interpretation:** The codebase rewrites its own module boundaries, catches its own stale imports, and compiles its own size violations. Each commit triggers: rename → self-fix scan → backward pass → prediction → coaching injection. The code evolves through its own diagnostic pipeline, not just through human edits.
+*Deleted from prompts — operator wanted this but did not ask:*
 
-## 5. Signal Quality — How Good Is Our Data
-- **Rework log:** 200 entries. Last 20 unique scores: 1 ⚠️ (likely placeholder data)
-- **Background rework noise:** 79/200 entries come from `bg:` queries and can distort answer-quality analysis
-- **Training pairs:** 6 captured with muxed cognitive state
-- **Memory shards:** 10 active (local markdown, zero LLM calls)
+- "blueberry"
+- "what about glypg as signals for breakbruh"
+- "age - like we have file append and if test run"
+- "fix al"
+- "fixed arent"
+- "even"
+- "you edit a files > copilo"
+- "and"
+- "IKA"
+- "/ impor"
 
-## 6. Open Research Questions
+## Confidence
 
-1. **Hesitation ≠ intent** — can we separate "thinking about X" from "about to edit X"?
-2. **Deletion ratio as confidence** — does deletion ratio indicate uncertainty or refinement?
-3. **Prediction calibration** — confidence is stuck at 0.49-0.50, needs dynamic update
-4. **Cross-session memory** — do shard patterns persist across conversations?
-5. **Rework signal** — is the 0.003 score a measurement or a default? Needs audit
-6. **Recursive depth** — at what point does the system's self-modification change the operator's behavior? When does the observer change the observed?
+*How much to trust this report:*
+
+- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20, 92 bg noise
+- **Training pairs:** 31 captured
+- **Prediction accuracy:** F1=0.017, calibration=0.334 (200 scored)
+  - predictions near-random — treat all forecasts as hypotheses
+- **Memory shards:** 10 active (zero LLM calls)
+
+### Hypotheses Under Test
+*These predictions become pass/fail on next push:*
+
+1. **Hesitation ≠ intent** — high-hes modules will NOT be the ones actually edited
+2. **Deletion trend predicts mode** — rising deletion → restructuring, not building
+3. **Rework trajectory holds** — if improving, fewer misses next push
+4. **Self-fix converging** — if problem count falling, fewer violations next push
+5. **Reactor acceptance stays <5%** — confidence threshold is miscalibrated

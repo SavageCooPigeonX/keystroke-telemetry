@@ -22,10 +22,10 @@ Rules:
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 011 | VER: v003 | 237 lines | ~1,862 tokens
+# SEQ: 011 | VER: v003 | ~280 lines | ~2,200 tokens
 # DESC:   encode_file_description_intent_into
-# INTENT: desc_upgrade
-# LAST:   2026-03-15 @ 855fd50
+# INTENT: glyph_filename_encoding
+# LAST:   2026-04-01
 # ──────────────────────────────────────────────
 import ast
 import re
@@ -242,3 +242,254 @@ def _docstring_first_line(text: str) -> str:
                 line = parts[1]
         return line.rstrip('.')
     return ''
+
+
+# ── Glyph filename encoding ──────────────────
+
+def _extract_internal_imports(py_path: Path) -> list[str]:
+    """AST-parse a file's imports, return internal module root names.
+
+    Returns de-duped list like ['dynamic_prompt', 'cognitive_reactor', 'file_heat_map'].
+    If the file has a decomposed package directory alongside it, aggregates
+    imports from all children too.
+    """
+    paths_to_scan = [py_path]
+
+    # Check for decomposed package directory
+    # e.g. self_fix_seq013_v011_d0328__*.py → self_fix_seq013/ directory
+    stem = py_path.stem
+    seq_match = re.match(r'^(.+_seq\d{3})', stem)
+    if seq_match:
+        pkg_prefix = seq_match.group(1)
+        pkg_dir = py_path.parent / pkg_prefix
+        if pkg_dir.is_dir():
+            paths_to_scan.extend(pkg_dir.rglob('*.py'))
+        # Also check for directory patterns like name_seq013/
+        for d in py_path.parent.iterdir():
+            if d.is_dir() and d.name.startswith(pkg_prefix) and d != pkg_dir:
+                paths_to_scan.extend(d.rglob('*.py'))
+
+    KNOWN_ROOTS = {
+        'src', 'pigeon_compiler', 'pigeon_brain', 'streaming_layer',
+        'client', 'vscode_extension',
+    }
+    all_modules = []
+    for p in paths_to_scan:
+        try:
+            text = p.read_text(encoding='utf-8', errors='ignore')
+            tree = ast.parse(text)
+        except Exception:
+            continue
+        for node in ast.walk(tree):
+            mod = None
+            if isinstance(node, ast.Import):
+                for alias in node.names:
+                    mod = alias.name
+            elif isinstance(node, ast.ImportFrom):
+                mod = node.module or ''
+            if not mod:
+                continue
+            parts = mod.split('.')
+            if not parts:
+                continue
+            top = parts[0]
+            if top not in KNOWN_ROOTS:
+                continue
+            for p_part in parts[1:]:
+                root_name = re.sub(r'_seq\d{3}.*$', '', p_part).lstrip('.')
+                if root_name and root_name not in KNOWN_ROOTS:
+                    all_modules.append(root_name)
+                    break
+
+    # De-dupe preserving order
+    seen = set()
+    result = []
+    for m in all_modules:
+        if m not in seen:
+            seen.add(m)
+            result.append(m)
+    return result
+
+
+def build_glyph_prefix(
+    py_path: Path,
+    module_name: str,
+    glyph_map: dict[str, str],
+    confidence_map: dict[str, str],
+    partners: dict[str, list[dict]] | None = None,
+    max_deps: int = 3,
+) -> str:
+    """Build a glyph prefix encoding identity + confidence + dependencies.
+
+    Example: '修!推思热' = self_fix(degraded), deps: dynamic_prompt, cognitive_reactor, file_heat_map
+
+    Args:
+        py_path: path to the .py file (for import extraction fallback)
+        module_name: root module name (e.g. 'self_fix')
+        glyph_map: {module_name: chinese_char} from symbol dictionary
+        confidence_map: {module_name: state_symbol} from confidence scorer
+        partners: {module_name: [{name, score, reason}]} from file_profiles.json
+        max_deps: maximum dependency glyphs to include
+    """
+    # Module's own glyph
+    own_glyph = glyph_map.get(module_name, '')
+    if not own_glyph:
+        return ''
+
+    # Confidence state
+    state = confidence_map.get(module_name, '')
+
+    # Dependency glyphs — from partners (coupling data) first, AST fallback
+    dep_chars = []
+    if partners and module_name in partners:
+        # Partners are sorted by coupling score. Take top-N that have glyphs.
+        for p in partners[module_name]:
+            pname = p.get('name', '')
+            g = glyph_map.get(pname, '')
+            if g and g != own_glyph and g not in dep_chars:
+                dep_chars.append(g)
+            if len(dep_chars) >= max_deps:
+                break
+
+    # AST fallback if no partner data
+    if not dep_chars and py_path and py_path.exists():
+        imports = _extract_internal_imports(py_path)
+        for imp in imports:
+            if imp == module_name:
+                continue
+            g = glyph_map.get(imp, '')
+            if g and g != own_glyph and g not in dep_chars:
+                dep_chars.append(g)
+            if len(dep_chars) >= max_deps:
+                break
+
+    dep_glyphs = ''.join(dep_chars)
+    return f'{own_glyph}{state}{dep_glyphs}'
+
+
+def build_nametag_with_glyphs(
+    stem: str,
+    desc_slug: str,
+    intent_slug: str = '',
+    glyph_prefix: str = '',
+) -> str:
+    """Like build_nametag but prepends glyph encoding to desc slug.
+
+    'noise_filter_seq007_v001' + '修!推思' + 'filter_live_noise' + 'added_drift'
+    → 'noise_filter_seq007_v001__修!推思_filter_live_noise_lc_added_drift.py'
+    """
+    if glyph_prefix and desc_slug:
+        full_desc = f'{glyph_prefix}_{desc_slug}'
+    elif glyph_prefix:
+        full_desc = glyph_prefix
+    else:
+        full_desc = desc_slug
+    return build_nametag(stem, full_desc, intent_slug)
+
+
+# ── Glyph drift detection ────────────────────
+
+# Matches glyph prefix at start of desc slug: one or more non-ASCII chars
+# followed by optional state symbol (✓~!?) and more non-ASCII, then underscore
+_GLYPH_PREFIX_RE = re.compile(
+    r'^([\u4e00-\u9fff\u0370-\u03ff✓~!?]+)(?:_|$)'
+)
+
+
+def _extract_glyph_prefix_from_name(filename: str) -> str:
+    """Extract the existing glyph prefix from a filename's desc slug.
+
+    'self_fix_seq013_v011_d0328__修!叙算思_one_shot...' → '修!叙算思'
+    'logger_seq003_v004__core_keystroke...' → ''
+    """
+    parsed = parse_nametag(filename)
+    slug = parsed.get('desc_slug', '')
+    if not slug:
+        return ''
+    m = _GLYPH_PREFIX_RE.match(slug)
+    return m.group(1) if m else ''
+
+
+def detect_glyph_drift(
+    py_path: Path,
+    glyph_map: dict[str, str],
+    confidence_map: dict[str, str],
+    partners: dict[str, list[dict]] | None = None,
+) -> dict:
+    """Check if a file's glyph prefix is stale.
+
+    Returns {drifted, current_prefix, expected_prefix, suggested_name}
+    """
+    parsed = parse_nametag(py_path.name)
+    if not parsed['seq']:
+        return {'drifted': False, 'current_prefix': '', 'expected_prefix': '',
+                'suggested_name': py_path.name}
+
+    mod_root = re.sub(r'_seq\d{3}.*$', '', py_path.stem).lstrip('.')
+    current_prefix = _extract_glyph_prefix_from_name(py_path.name)
+    expected_prefix = build_glyph_prefix(
+        py_path, mod_root, glyph_map, confidence_map,
+        partners=partners,
+    )
+
+    drifted = current_prefix != expected_prefix
+
+    suggested = py_path.name
+    if drifted:
+        # Rebuild filename with updated glyph prefix
+        desc_slug = parsed['desc_slug']
+        # Strip old glyph prefix from desc slug
+        if current_prefix and desc_slug.startswith(current_prefix):
+            desc_slug = desc_slug[len(current_prefix):].lstrip('_')
+        suggested = build_nametag_with_glyphs(
+            parsed['base_stem'], desc_slug, parsed['intent_slug'],
+            expected_prefix,
+        )
+
+    return {
+        'drifted': drifted,
+        'current_prefix': current_prefix,
+        'expected_prefix': expected_prefix,
+        'suggested_name': suggested,
+    }
+
+
+def scan_glyph_drift(
+    root: Path,
+    glyph_map: dict[str, str],
+    confidence_map: dict[str, str],
+    partners: dict[str, list[dict]] | None = None,
+    folders: list[str] | None = None,
+) -> list[dict]:
+    """Scan all pigeon files for stale glyph prefixes.
+
+    Returns list of {path, current, suggested, current_prefix, expected_prefix}.
+    Flows into the heal pipeline's rename path (rollback + import rewrite).
+    """
+    from pigeon_compiler.rename_engine.scanner_seq001_v004_d0315__walk_the_project_tree_and_lc_verify_pigeon_plugin import (
+        scan_project,
+    )
+
+    catalog = scan_project(root, folders)
+    drifts = []
+
+    for f in catalog['files']:
+        if f['is_init'] or not f.get('is_pigeon', False):
+            continue
+        py = root / f['path']
+        if not py.exists():
+            continue
+
+        result = detect_glyph_drift(
+            py, glyph_map, confidence_map, partners=partners,
+        )
+        if result['drifted']:
+            drifts.append({
+                'path': f['path'],
+                'current': py.name,
+                'suggested': result['suggested_name'],
+                'current_prefix': result['current_prefix'],
+                'expected_prefix': result['expected_prefix'],
+            })
+
+    return drifts

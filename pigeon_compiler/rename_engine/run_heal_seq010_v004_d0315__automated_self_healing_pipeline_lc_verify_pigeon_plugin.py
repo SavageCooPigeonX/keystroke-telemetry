@@ -30,11 +30,42 @@ from pigeon_compiler.rename_engine.executor_seq004_v004_d0315__execute_file_rena
 from pigeon_compiler.rename_engine.validator_seq005_v004_d0315__post_rename_import_validation_lc_verify_pigeon_plugin import validate_imports
 from pigeon_compiler.rename_engine.manifest_builder_seq007_v003_d0314__generate_living_manifest_md_per_lc_desc_upgrade import build_all_manifests
 from pigeon_compiler.rename_engine.compliance_seq008_v004_d0315__line_count_enforcer_split_recommender_lc_verify_pigeon_plugin import audit_compliance
-from pigeon_compiler.rename_engine.nametag_seq011_v003_d0314__encode_file_description_intent_into_lc_desc_upgrade import scan_drift
+from pigeon_compiler.rename_engine.nametag_seq011_v003_d0314__encode_file_description_intent_into_lc_desc_upgrade import scan_drift, scan_glyph_drift
 from pigeon_compiler.rename_engine.registry_seq012_v003_d0314__local_name_registry_for_the_lc_desc_upgrade import (
     load_registry, save_registry, build_registry_from_scan,
     bump_all_versions,
 )
+
+
+def _load_glyph_context(root: Path) -> tuple[dict, dict, dict]:
+    """Load glyph map, confidence map, and partner data for glyph drift detection."""
+    import json as _json
+    glyph_map: dict[str, str] = {}
+    confidence_map: dict[str, str] = {}
+    partners: dict[str, list[dict]] = {}
+    try:
+        from src.symbol_dictionary_seq031_v002_d0401__symbol_dictionary_generator_for_pigeon_lc_glyph_compiler_symbol import (
+            _MNEMONIC_MAP,
+        )
+        glyph_map = dict(_MNEMONIC_MAP)
+    except Exception:
+        pass
+    try:
+        from src.confidence_scorer_seq033_v001 import score_module_confidence
+        confidence_map = score_module_confidence(root)
+    except Exception:
+        pass
+    try:
+        fp = root / 'file_profiles.json'
+        if fp.exists():
+            profiles = _json.loads(fp.read_text('utf-8'))
+            for mod, data in profiles.items():
+                p = data.get('partners', [])
+                if p:
+                    partners[mod] = p
+    except Exception:
+        pass
+    return glyph_map, confidence_map, partners
 
 
 def run_heal_pipeline(root: str, execute: bool = False,
@@ -167,6 +198,78 @@ def run_heal_pipeline(root: str, execute: bool = False,
             print(f'      DRY RUN — {len(drifts)} files would be renamed for drift')
         else:
             print('      All nametags up to date')
+
+    # ── Stage 1c: Glyph prefix drift detection ──
+    if not manifests_only and not skip_rename:
+        print('[1c/5] Checking glyph prefix drift...')
+        try:
+            glyph_map, confidence_map, partner_data = _load_glyph_context(root)
+            if glyph_map:
+                glyph_drifts = scan_glyph_drift(
+                    root, glyph_map, confidence_map, partners=partner_data,
+                )
+                report['stages']['glyph_drift'] = {
+                    'drifted': len(glyph_drifts),
+                    'files': [d['current'] + ' → ' + d['suggested']
+                              for d in glyph_drifts[:20]],
+                }
+                if glyph_drifts and execute:
+                    glyph_map_renames = {}
+                    glyph_renames = []
+                    for d in glyph_drifts:
+                        old_path = d['path']
+                        new_path = str(Path(old_path).parent / d['suggested'])
+                        old_mod = old_path.replace('/', '.').replace('\\', '.').removesuffix('.py')
+                        new_mod = new_path.replace('/', '.').replace('\\', '.').removesuffix('.py')
+                        glyph_map_renames[old_mod] = new_mod
+                        glyph_renames.append({
+                            'old_path': old_path,
+                            'new_path': new_path,
+                            'old_module': old_mod,
+                            'new_module': new_mod,
+                        })
+                    if glyph_renames:
+                        print(f'      Rewriting imports for {len(glyph_renames)} glyph-drifted files...')
+                        glyph_changes = rewrite_all_imports(root, glyph_map_renames, dry_run=False)
+                        print(f'      Renaming {len(glyph_renames)} files for glyph update...')
+                        glyph_plan = {'renames': glyph_renames, 'import_map': glyph_map_renames}
+                        glyph_result = execute_rename(root, glyph_plan, dry_run=False)
+                        report['stages']['glyph_drift']['renamed'] = len(glyph_result['renamed'])
+                        report['stages']['glyph_drift']['import_changes'] = len(glyph_changes)
+                        print(f'      {len(glyph_result["renamed"])} glyph renames applied')
+
+                        # Validate after glyph renames
+                        print('      Validating imports after glyph renames...')
+                        val = validate_imports(root)
+                        report['stages']['glyph_drift']['valid'] = val['valid']
+                        if not val['valid']:
+                            print(f'      WARNING: {len(val["broken"])} broken imports after glyph rename')
+                            # Rollback if validation fails
+                            rollback_log = glyph_result.get('rollback_log')
+                            if rollback_log:
+                                from pigeon_compiler.rename_engine.executor_seq004_v004_d0315__execute_file_renames_with_rollback_lc_verify_pigeon_plugin import rollback_rename
+                                print('      ROLLING BACK glyph renames...')
+                                rb = rollback_rename(root, Path(rollback_log))
+                                report['stages']['glyph_drift']['rollback'] = {
+                                    'restored': len(rb['restored']),
+                                    'errors': rb['errors'],
+                                }
+                                # Also rollback import rewrites by re-running with inverted map
+                                inverted = {v: k for k, v in glyph_map_renames.items()}
+                                rewrite_all_imports(root, inverted, dry_run=False)
+                                print(f'      Rolled back {len(rb["restored"])} files')
+                        else:
+                            print('      Import validation passed')
+                elif glyph_drifts:
+                    print(f'      DRY RUN — {len(glyph_drifts)} files would get glyph update')
+                else:
+                    print('      All glyph prefixes current')
+            else:
+                report['stages']['glyph_drift'] = {'skipped': True, 'reason': 'no glyph map'}
+                print('      No glyph map available — skipping')
+        except Exception as e:
+            report['stages']['glyph_drift'] = {'error': str(e)}
+            print(f'      Glyph drift check failed: {e}')
 
     # ── Stage 2: Rebuild all MANIFESTs ──
     stage_num = '5' if not manifests_only else '1'

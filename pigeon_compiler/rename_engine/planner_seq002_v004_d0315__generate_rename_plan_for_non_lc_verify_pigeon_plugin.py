@@ -19,9 +19,44 @@ from pathlib import Path
 from pigeon_compiler.rename_engine.nametag_seq011_v003_d0314__encode_file_description_intent_into_lc_desc_upgrade import (
     extract_desc_slug,
     build_nametag,
+    build_glyph_prefix,
+    build_nametag_with_glyphs,
 )
 
 SEQ_PATTERN = re.compile(r'_seq(\d{3})_v(\d{3})\.py$')
+
+
+def _load_glyph_data(root: Path) -> tuple[dict, dict, dict]:
+    """Load glyph map + confidence map + partners for filename encoding."""
+    glyph_map: dict[str, str] = {}
+    confidence_map: dict[str, str] = {}
+    partners: dict[str, list[dict]] = {}
+    if root is None:
+        return glyph_map, confidence_map, partners
+    try:
+        from src.symbol_dictionary_seq031_v002_d0401__symbol_dictionary_generator_for_pigeon_lc_glyph_compiler_symbol import (
+            _MNEMONIC_MAP,
+        )
+        glyph_map = dict(_MNEMONIC_MAP)
+    except Exception:
+        pass
+    try:
+        from src.confidence_scorer_seq033_v001 import score_module_confidence
+        confidence_map = score_module_confidence(root)
+    except Exception:
+        pass
+    try:
+        import json
+        fp = root / 'file_profiles.json'
+        if fp.exists():
+            profiles = json.loads(fp.read_text('utf-8'))
+            for mod, data in profiles.items():
+                p = data.get('partners', [])
+                if p:
+                    partners[mod] = p
+    except Exception:
+        pass
+    return glyph_map, confidence_map, partners
 
 
 def build_rename_plan(catalog: dict, version: str = '001',
@@ -39,6 +74,7 @@ def build_rename_plan(catalog: dict, version: str = '001',
     renames = []
     import_map = {}
     today = datetime.now(timezone.utc).strftime('%m%d')
+    glyph_map, confidence_map, partners = _load_glyph_data(root)
 
     for folder, folder_files in sorted(by_folder.items()):
         used_seqs = _collect_existing_seqs(folder_files)
@@ -52,7 +88,20 @@ def build_rename_plan(catalog: dict, version: str = '001',
             desc_slug = ''
             if py_path and py_path.exists():
                 desc_slug = extract_desc_slug(py_path)
-            new_name = build_nametag(base_name, desc_slug, intent)
+            # Build glyph prefix if data available
+            mod_root = re.sub(r'_seq\d{3}.*$', '', f['stem']).lstrip('.')
+            glyph_prefix = ''
+            if glyph_map and py_path and py_path.exists():
+                glyph_prefix = build_glyph_prefix(
+                    py_path, mod_root, glyph_map, confidence_map,
+                    partners=partners,
+                )
+            if glyph_prefix:
+                new_name = build_nametag_with_glyphs(
+                    base_name, desc_slug, intent, glyph_prefix,
+                )
+            else:
+                new_name = build_nametag(base_name, desc_slug, intent)
             new_path = f"{folder}/{new_name}" if folder else new_name
             old_module = f['module_path']
             new_module = new_path.replace('/', '.').removesuffix('.py')

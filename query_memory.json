@@ -1,3003 +1,3003 @@
 {
   "queries": [
     {
-      "ts": "2026-03-31T19:19:53.849551+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
+      "ts": "2026-04-01T06:48:21.267299+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:20:53.614476+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
+      "ts": "2026-04-01T06:49:21.629613+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:21:52.965553+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
+      "ts": "2026-04-01T06:50:22.127263+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:22:53.618055+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
+      "ts": "2026-04-01T06:51:21.275187+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:23:57.403461+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
+      "ts": "2026-04-01T06:52:21.014662+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:24:58.266246+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T06:53:21.692561+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:26:16.776234+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T06:54:22.185903+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:27:20.215752+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T06:55:21.753064+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:28:07.101392+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T06:56:21.107663+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:29:04.916242+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T06:57:21.220573+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:30:05.519732+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T06:58:21.347762+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:31:04.719566+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T06:59:21.215947+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:32:09.978194+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:00:21.275445+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:33:12.562717+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:01:21.006871+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:34:11.090051+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:02:21.147251+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:35:10.426663+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:03:21.359250+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:36:13.175499+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:04:21.636573+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:37:14.244703+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:05:21.619013+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:38:11.600292+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:06:21.233291+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:39:11.986500+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:07:21.119130+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:40:14.266767+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:08:21.368553+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:41:14.981248+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:09:21.730713+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:42:13.009582+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:10:21.741413+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:43:13.003030+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:11:21.423608+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:44:12.645127+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:12:21.704246+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:45:16.200677+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:13:21.527129+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:46:14.382121+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:14:21.692669+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:47:11.662711+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:15:21.601877+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:48:16.389105+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:16:21.317874+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:50:03.339486+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:17:21.681103+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T19:51:11.572329+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:18:21.591191+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:20:10.803249+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:19:22.084640+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:21:09.826394+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:20:21.596966+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:22:09.633964+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:21:21.761788+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:23:09.678269+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:22:21.752814+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:24:09.981896+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:23:21.532484+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:24:53.928152+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:24:21.906307+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:25:09.401910+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:25:22.152390+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:26:09.395930+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:26:21.793772+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:27:09.376185+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:27:22.001727+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:28:09.394513+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:28:21.833008+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:29:09.393317+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:29:22.217855+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:30:09.381294+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:30:22.215604+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:31:09.392970+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:31:21.910560+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:32:09.400838+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T07:32:22.018881+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:33:09.413127+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:33:21.985512+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:34:09.418101+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:34:21.962421+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:35:09.407149+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:35:21.787766+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:36:09.415486+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:36:21.844628+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:37:09.448915+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:37:21.864373+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:38:09.437295+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:38:21.919819+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:39:09.488326+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:39:21.888707+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:40:09.470142+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:40:22.237919+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:41:11.473129+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:41:22.443210+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:42:13.196384+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:42:21.970590+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:43:09.536826+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:43:22.286865+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:44:10.090006+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:44:22.037355+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:45:09.995596+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:45:22.514875+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:46:09.827867+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:46:21.965458+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:47:10.266569+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:47:22.037926+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:48:25.414421+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:48:21.959249+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:48:36.790552+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:49:22.243491+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:49:18.263908+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:50:22.404797+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:50:18.356522+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:51:22.056693+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:51:18.517662+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:52:22.046674+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:52:17.822670+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:53:22.020033+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:53:19.273843+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:54:22.511489+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:54:19.041523+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:55:22.380028+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:55:17.900033+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:56:22.054607+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:56:19.066284+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:57:22.168564+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:57:19.102932+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:58:22.367486+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:58:19.053798+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T07:59:22.505429+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T21:59:18.947005+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:00:22.550200+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:00:19.148622+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:01:22.233934+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:01:19.382802+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:02:22.195324+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:02:18.742527+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:03:22.436217+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:03:19.046933+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:04:22.370281+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:04:18.913718+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:05:22.129193+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:05:18.782526+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:06:22.424015+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:06:19.170948+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:07:22.533922+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:07:18.047557+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:08:22.441131+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:08:18.287364+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:09:22.980797+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:09:18.252836+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:10:22.481375+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:10:18.187764+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:11:22.879730+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:11:18.258881+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:12:22.704582+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:12:19.701682+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:13:22.211811+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:13:19.614952+00:00",
-      "text": "bg:DEAD_TOKEN_RADIO_S01E04_SALT_CIRCUIT_REQUIEM.md",
-      "fingerprint": "bgdead_token_radio_s01e04_salt_circuit_requiemmd",
+      "ts": "2026-04-01T08:14:22.881790+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:14:19.687019+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:15:22.652063+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:15:18.533295+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:16:22.503122+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:16:18.654529+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:17:22.520652+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:17:18.617442+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:18:22.598625+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:18:18.715321+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:19:22.715797+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:19:18.647523+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:20:22.856915+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:20:18.554246+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:21:22.729949+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:21:19.504821+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:22:22.682700+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:22:18.498664+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:23:22.745593+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:23:19.395041+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:24:22.833538+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:24:18.647700+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:25:22.931428+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:25:19.463065+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:26:22.997366+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:26:19.394076+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:27:22.815985+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:27:19.115126+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:28:22.922102+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:28:18.775452+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:29:22.668524+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:29:19.284705+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:30:22.933370+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:30:19.051068+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:31:22.739516+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:31:18.867536+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:32:22.777589+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:32:18.791578+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:33:22.980628+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:33:18.734303+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:34:22.933484+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:34:18.981302+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:35:23.041213+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:35:18.878000+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:36:22.865210+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:36:18.764767+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:37:22.421415+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:37:18.577726+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:38:22.917884+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:38:18.827453+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:39:22.618592+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:39:18.864675+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:40:22.897768+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:40:18.530764+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:41:23.128376+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:41:18.531922+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:42:22.996724+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:42:18.522451+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:43:23.123705+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:43:18.564080+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:44:22.622694+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:44:18.651717+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:45:22.307978+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:45:18.614516+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:46:22.865567+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:46:18.574157+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:47:23.056686+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:47:18.823642+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:48:22.823154+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:48:18.580837+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:49:22.988788+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:49:18.627363+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:50:22.949553+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:50:18.643288+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:51:22.637944+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:51:18.675222+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:52:22.992847+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:52:18.659418+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:53:22.730836+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:53:18.800619+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:54:22.793149+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:54:19.136936+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:55:22.719527+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:55:18.615099+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:56:22.742454+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:56:18.712990+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:57:22.726700+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:57:18.709293+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:58:22.735880+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:58:18.730371+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T08:59:22.821047+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T22:59:18.712220+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:00:22.676363+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:00:19.502010+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:01:23.426390+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:01:18.899156+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:02:22.862577+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:02:19.100043+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:03:22.722763+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:03:18.789155+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:04:22.754952+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:04:20.100118+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:05:22.412498+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:05:19.197854+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:06:22.513982+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:06:19.222133+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:07:22.627797+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:07:18.786111+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:08:22.618343+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:08:18.934453+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:09:22.662518+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:09:20.393311+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:10:22.644954+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:10:19.016283+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:11:22.632748+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:11:21.828240+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:12:22.692156+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:12:28.718811+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:13:22.690327+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:13:20.425784+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:14:22.433848+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:14:28.985322+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:15:22.790824+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:15:19.152013+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:16:22.598458+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:16:18.699906+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:17:22.748337+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:17:18.713736+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:18:22.552522+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:18:18.787920+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:19:22.452468+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:19:18.801722+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:20:22.513544+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:20:18.813231+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:21:22.743512+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:21:18.818333+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:22:22.563854+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:22:18.826367+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:23:22.551185+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:23:18.803284+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:24:22.556353+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:24:19.415233+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:25:22.558783+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:25:18.808501+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:26:22.516703+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:26:18.829937+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:27:22.448599+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:27:18.721765+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:28:22.489610+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:28:18.933802+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:29:22.569563+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:29:20.180287+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:30:22.476758+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:30:18.761685+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:31:23.054648+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:31:20.063962+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:32:22.591217+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:32:18.846891+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:33:22.634653+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:33:18.641500+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:34:23.006414+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:34:18.679892+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:35:22.581285+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:35:18.634901+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:36:22.557415+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:36:18.668039+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:37:22.719761+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:37:18.643486+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:38:22.662391+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:38:18.654261+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:39:22.621478+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:39:18.652354+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:40:22.699113+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:40:18.674274+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:41:22.656613+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:41:18.695376+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:42:22.617831+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:42:18.689609+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:43:22.611282+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:43:20.377099+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:44:22.734202+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:44:21.309164+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:45:22.699608+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:45:19.143965+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:46:22.693711+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:46:18.723468+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:47:23.420689+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:47:18.761687+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:48:22.854351+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:48:18.731436+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:49:22.768797+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:49:20.641633+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:50:22.738909+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:50:24.039722+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:51:22.672789+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:51:19.135828+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:52:22.739157+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:52:18.742850+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:53:22.770452+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:53:20.324293+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:54:22.853915+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:54:25.652498+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:55:22.770978+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:55:19.920004+00:00",
-      "text": "bg:_tmp_survey.py",
-      "fingerprint": "bg_tmp_surveypy",
+      "ts": "2026-04-01T09:56:22.763824+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:56:03.997196+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T09:57:22.745861+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:56:21.501175+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T09:58:22.788982+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:57:24.925046+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T09:59:22.826480+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:58:23.221088+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:00:22.873444+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-03-31T23:59:24.308241+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:01:22.814523+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:00:19.894882+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:02:22.786181+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:01:18.900211+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:03:22.800232+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:02:20.311026+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:04:22.821850+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:03:19.018493+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:05:22.882311+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:04:19.471910+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:06:22.901888+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:05:19.911581+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:07:22.831941+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:06:20.122058+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:08:22.867647+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:07:19.274959+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:09:22.823086+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:08:18.968314+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:10:22.887786+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:09:20.366660+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:11:22.937966+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:10:19.144325+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:12:22.825001+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:11:19.222007+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:13:22.894906+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:12:20.132098+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:14:22.993845+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:13:19.044590+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:15:22.925663+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:14:21.363768+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:16:22.955723+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:15:19.156753+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:17:22.915674+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:16:18.942369+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:18:22.926673+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:17:18.989220+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:19:23.082084+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:18:19.002064+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:20:23.180369+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:19:18.945872+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:21:22.949859+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:20:18.964067+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:22:23.022064+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:21:18.948136+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:23:23.055486+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:22:18.984387+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:24:23.146565+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:23:18.993529+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:25:23.039704+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:24:19.053230+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:26:23.339896+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:25:18.991961+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:27:23.013292+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:26:18.970261+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:28:23.073806+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:27:19.190030+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:29:23.090502+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:28:18.980655+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:30:23.183254+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:29:19.001912+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:31:23.072444+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:30:19.062158+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:32:23.214650+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:31:18.998590+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:33:23.146292+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:32:19.122106+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:34:23.395227+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:33:19.695252+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:35:23.476443+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:34:19.612329+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:36:23.276773+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:35:18.951859+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:37:23.106630+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:36:18.926875+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:38:23.153410+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:37:18.947709+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:39:23.488128+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:38:18.985241+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:40:23.256962+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:39:18.923853+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:41:23.440722+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:40:18.941542+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:42:23.365731+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:41:18.954494+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:43:23.627978+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:42:19.001389+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:44:23.476263+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:43:18.955244+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:45:23.503579+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:44:18.965404+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:46:23.256713+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:45:18.926201+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:47:23.370585+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:46:18.978495+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:48:23.341186+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:47:18.948918+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:49:23.230328+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:48:18.985313+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:50:23.497330+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:49:18.993023+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:51:23.575382+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:50:19.211160+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:52:23.459055+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:51:19.016170+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:53:23.670286+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:52:19.021854+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:54:23.803908+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:53:18.988856+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:55:23.866422+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:54:19.058987+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:56:23.796366+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:55:19.022123+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:57:23.706083+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:56:19.004363+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:58:23.613971+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:57:18.998995+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T10:59:23.738873+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:58:19.038703+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:00:23.904354+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T00:59:18.994864+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:01:23.750712+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:00:19.023131+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:02:23.554298+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:01:19.018381+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:03:23.808910+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:02:19.017820+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:04:23.783476+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:03:19.006320+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:05:23.873165+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:04:19.057734+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:06:23.832461+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:05:19.114355+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:07:23.766764+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:06:19.068768+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:08:23.890912+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:07:19.057522+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:09:23.970123+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:08:19.030515+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:10:23.601649+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:09:19.088922+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:11:24.020983+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:10:19.042047+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:12:23.954560+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:11:19.043144+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:13:23.880455+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:12:19.055240+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:14:24.150327+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:13:19.064627+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:15:24.325235+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:14:19.084969+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:16:24.059101+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:15:19.063578+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:17:24.031832+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:16:19.040333+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:18:24.142162+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:17:19.063796+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:19:23.771946+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:18:19.066774+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:20:24.105905+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:19:19.116937+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:21:24.141554+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:20:19.077905+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:22:24.153129+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:21:19.063576+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:23:24.132499+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:22:19.064810+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:24:24.107949+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:23:19.064482+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:25:24.236819+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:24:19.135625+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:26:24.113282+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:25:19.083970+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:27:24.162796+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:26:19.142233+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:28:23.819358+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:27:19.072853+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:29:24.130892+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:28:19.085913+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:30:24.094665+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:29:19.076537+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:31:23.880643+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:30:19.089799+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:32:24.184482+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:31:19.060396+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:33:24.134218+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:32:19.067460+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:34:24.131274+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:33:19.099934+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:35:24.128700+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:34:19.096685+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:36:24.137412+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:35:19.069625+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:37:24.284278+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:36:19.084709+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:38:24.158484+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:37:19.100015+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:39:24.136979+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:38:19.127304+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:40:24.231216+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:39:19.144044+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:41:23.911155+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:40:19.124743+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:42:24.157390+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:41:19.155621+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:43:23.916083+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:42:19.139264+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:44:24.224712+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:43:19.168348+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:45:24.294188+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:44:19.330528+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:46:24.275817+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:45:19.186614+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:47:24.280333+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:46:19.209023+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:48:24.298111+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:47:19.397332+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:49:24.341833+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:48:19.215711+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:50:24.368163+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:49:19.188706+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:51:24.266077+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:50:19.226844+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:52:24.350044+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:51:19.200080+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:53:24.321317+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:52:19.208368+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:54:24.126505+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:53:19.205867+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:55:24.019647+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:54:19.239407+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:56:24.279461+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:55:19.774870+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:57:24.319244+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:56:19.266056+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:58:24.375133+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:57:19.272471+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T11:59:24.194922+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:58:19.276273+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:00:24.286001+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T01:59:19.336739+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:01:24.324989+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:00:19.318902+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:02:24.283714+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:01:19.292733+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:03:24.326761+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:02:19.362237+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:04:24.441363+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:03:19.285088+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:05:24.390999+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:04:19.286900+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:06:24.243639+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:05:19.316337+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:07:24.272847+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:06:19.315290+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:08:24.262518+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:07:19.294160+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:09:24.353462+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:08:19.312024+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:10:24.397935+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:09:19.330227+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:11:24.222689+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:10:19.363469+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:12:24.110991+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:11:19.351214+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:13:24.151847+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:12:19.345494+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:14:24.176617+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:13:19.357820+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:15:24.146845+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:14:19.362991+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:16:24.239143+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:15:19.371751+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:17:24.192886+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:16:19.341020+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:18:24.217807+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:17:19.345293+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:19:24.261081+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:18:19.351961+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:20:24.184789+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:19:19.359280+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:21:24.259031+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:20:19.624657+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:22:24.261163+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:21:19.368642+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:23:24.551573+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:22:19.372998+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:24:24.371913+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:23:19.365714+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:25:24.264102+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:24:19.447361+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:26:24.259288+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:25:19.370668+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:27:24.270212+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:26:19.388858+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:28:24.306223+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:27:19.385663+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:29:24.318070+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:28:19.409878+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:30:24.341010+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:29:19.415383+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:31:24.344734+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:30:19.386665+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:32:24.796506+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:31:19.378369+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:33:24.372859+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:32:19.407797+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:34:24.361739+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:33:19.381891+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:35:24.379488+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:34:19.431268+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:36:24.425867+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:35:19.377943+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:37:24.337920+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:36:19.424767+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:38:24.396113+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:37:19.382228+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:39:24.412421+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:38:19.396682+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:40:24.399579+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:39:19.393744+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:41:24.386857+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:40:19.418116+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:42:24.369188+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:41:19.433179+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:43:24.408980+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:42:19.428516+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:44:24.437887+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:43:19.439362+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:45:24.407395+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:44:19.553752+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:46:24.433180+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:45:19.431294+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:47:24.385544+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:46:19.411069+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:48:24.408209+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:47:19.437879+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:49:25.132280+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:48:19.491408+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:50:24.567039+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:49:19.462329+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:51:24.697619+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:50:20.390249+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:52:24.469063+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:51:20.099797+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:53:24.507572+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:52:19.591573+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:54:25.071910+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:53:19.741937+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:55:24.509617+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:54:19.754784+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:56:24.509129+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:55:19.887756+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:57:25.080499+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:56:19.814258+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:58:24.495004+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:57:20.044900+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T12:59:25.222446+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:58:20.046061+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:00:24.580895+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T02:59:19.669143+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:01:24.583848+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:00:19.678102+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:02:24.618794+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:01:21.199438+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:03:24.643858+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:02:19.762748+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:04:24.630488+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:03:19.666839+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:05:25.198141+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:04:20.717903+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:06:24.896226+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:05:21.397967+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:07:24.746209+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:06:20.419804+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:08:24.705292+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:07:20.055887+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:09:25.271189+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:08:19.625869+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:10:24.719638+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:09:19.867066+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:11:24.627300+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:10:19.652864+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:12:24.701547+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:11:19.772565+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:13:24.719711+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:12:19.639146+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:14:31.382518+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:13:19.692043+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T13:15:26.430189+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:14:20.309842+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T14:50:42.732499+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:15:19.770139+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T14:51:41.974579+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:16:19.629741+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T14:52:42.146142+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:17:20.165157+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T14:53:42.330571+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:18:19.684404+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T14:54:41.781635+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:19:20.247752+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T14:55:41.538146+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:20:20.413800+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T14:56:41.455696+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:21:19.740041+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T14:57:41.538507+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:22:24.798434+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T14:58:41.444591+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:23:22.116532+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T14:59:41.441494+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:24:22.701492+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:00:41.583390+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:25:21.895611+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:01:41.185023+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:26:25.625399+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:02:41.054635+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:27:21.743211+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:03:40.986385+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:28:23.354700+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:04:41.116348+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:29:23.412935+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:05:40.864448+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:30:28.752426+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:06:40.851430+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:31:21.663576+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:07:40.885411+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:32:21.549961+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:08:40.938161+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:33:21.858153+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:09:40.871240+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:34:20.633656+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:10:40.882452+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:35:20.132564+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:11:40.854615+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:36:21.071172+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:12:40.875588+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:36:49.233319+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:13:40.918058+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:37:24.801374+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:14:41.046558+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:38:11.446881+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:15:40.988619+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:38:36.135281+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:16:40.963471+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:38:44.174903+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:17:41.018380+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:39:11.221574+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:18:41.040322+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:39:24.986360+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:19:41.015900+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:40:27.442154+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:20:41.075557+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:41:20.904172+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:21:41.176112+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:42:21.359213+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:22:41.354654+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:43:21.168533+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:23:43.034121+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:43:38.909178+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:24:41.298399+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:45:05.741058+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:29:51.566722+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:45:10.142887+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:30:50.974384+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T03:45:21.362836+00:00",
-      "text": "bg:glossator.agent.md",
-      "fingerprint": "bgglossatoragentmd",
+      "ts": "2026-04-01T15:31:50.627959+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:05:20.539181+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T15:32:50.945880+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:06:20.058512+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T15:33:50.649271+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:07:20.095001+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T15:34:53.222700+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:08:20.053287+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T15:35:50.827787+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:09:20.098090+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T15:36:50.797329+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:10:20.150951+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T15:37:50.482980+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:11:20.076666+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T15:38:50.457354+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:12:20.420326+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T18:17:51.761673+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:13:21.515208+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T18:18:51.614390+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:14:20.516928+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T18:19:53.293658+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:15:20.462816+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T18:20:52.178385+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:15:47.776598+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T18:21:57.282910+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:16:20.215039+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T18:23:51.654517+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:16:58.850989+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T18:24:51.756678+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:17:20.224493+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T18:25:51.489538+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:18:20.240881+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T18:26:51.493417+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:19:20.262552+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T18:27:52.015503+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:20:15.583379+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T18:28:51.563227+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:20:20.254815+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T18:29:51.785143+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:20:33.867339+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T18:30:49.406525+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:20:47.368738+00:00",
-      "text": "bg:symbol_dictionary_seq031_v001.py",
-      "fingerprint": "bgsymbol_dictionary_seq031_v001py",
+      "ts": "2026-04-01T18:31:49.925332+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:20:58.987191+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:32:50.633499+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:21:10.338360+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:33:49.590496+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:21:20.255905+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:34:49.554482+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:22:20.251413+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:35:19.202249+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:23:21.663234+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:35:49.889507+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:24:22.629870+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:36:19.198457+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:25:21.725403+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:36:49.648328+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:26:21.614272+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:37:10.379724+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:27:22.286902+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:37:49.663802+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:28:20.271402+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:40:50.184247+00:00",
+      "text": "bg:cognitive_reactor_seq014_v005_d0331__cognitive_reactor_autonomous_code_modification_lc_mutation_patch_pipeline.py",
+      "fingerprint": "bgcognitive_reactor_seq014_v005_d0331__cognitive_reactor_autonomous_code_modification_lc_mutation_patch_pipelinepy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:29:20.256693+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:41:49.785389+00:00",
+      "text": "bg:cognitive_reactor_seq014_v005_d0331__cognitive_reactor_autonomous_code_modification_lc_mutation_patch_pipeline.py",
+      "fingerprint": "bgcognitive_reactor_seq014_v005_d0331__cognitive_reactor_autonomous_code_modification_lc_mutation_patch_pipelinepy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:30:20.228448+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:47:12.494017+00:00",
+      "text": "bg:cognitive_reactor_seq014_v005_d0331__cognitive_reactor_autonomous_code_modification_lc_mutation_patch_pipeline.py",
+      "fingerprint": "bgcognitive_reactor_seq014_v005_d0331__cognitive_reactor_autonomous_code_modification_lc_mutation_patch_pipelinepy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:31:20.279570+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:47:37.469624+00:00",
+      "text": "bg:cognitive_reactor_seq014_v005_d0331__cognitive_reactor_autonomous_code_modification_lc_mutation_patch_pipeline.py",
+      "fingerprint": "bgcognitive_reactor_seq014_v005_d0331__cognitive_reactor_autonomous_code_modification_lc_mutation_patch_pipelinepy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:32:20.423287+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:47:51.442980+00:00",
+      "text": "bg:.operator_stats_seq008_v009_d0328__persistent_markdown_memory_file_lc_dynamic_import_resolvers.py",
+      "fingerprint": "bgoperator_stats_seq008_v009_d0328__persistent_markdown_memory_file_lc_dynamic_import_resolverspy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:33:20.298921+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:48:23.809903+00:00",
+      "text": "bg:drift_watcher_seq005_v004_d0321__drift_detection_for_live_llm_lc_implement_all_18.py",
+      "fingerprint": "bgdrift_watcher_seq005_v004_d0321__drift_detection_for_live_llm_lc_implement_all_18py",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:34:20.651818+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:48:51.799069+00:00",
+      "text": "bg:drift_watcher_seq005_v004_d0321__drift_detection_for_live_llm_lc_implement_all_18.py",
+      "fingerprint": "bgdrift_watcher_seq005_v004_d0321__drift_detection_for_live_llm_lc_implement_all_18py",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:35:25.104757+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:49:50.383065+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:36:20.861765+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:50:03.643766+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:37:20.364702+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:50:49.947222+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:38:20.560756+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:51:50.086469+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:39:21.810481+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:52:10.510547+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:40:21.831675+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:52:24.289249+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:41:20.543558+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:52:33.196294+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:42:20.522983+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:52:44.513145+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:43:21.402353+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:52:52.393475+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:44:21.167547+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:53:50.144250+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:44:51.346722+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:54:50.045372+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:45:22.704292+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:55:49.662708+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:46:20.758144+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:56:49.614752+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:47:20.781968+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:57:49.847131+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:48:21.650723+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:58:49.624747+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:49:23.583417+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T18:59:49.507466+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:50:22.803931+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:00:49.444750+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:50:47.637257+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:01:49.485720+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:51:21.025570+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:02:49.563768+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:52:21.691685+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:03:49.647976+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:53:24.774686+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:04:49.614577+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:54:22.075700+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:05:50.006361+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:55:46.722037+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:06:52.029302+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:55:48.636377+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:07:51.202533+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:56:51.061604+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:08:51.217746+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:58:03.865289+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:09:51.252602+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T04:58:50.434338+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:10:51.126748+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T05:00:46.223979+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:11:51.231925+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T05:02:40.234274+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:12:44.005930+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T05:03:39.640907+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:12:52.740987+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T05:04:40.460131+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:13:37.849650+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T05:05:46.453761+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:13:53.406459+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T05:06:45.265877+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:14:51.635775+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T05:07:47.292296+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:15:51.063852+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T05:08:47.807155+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:16:51.713053+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T05:09:45.877956+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:17:49.781253+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     },
     {
-      "ts": "2026-04-01T05:10:45.495227+00:00",
-      "text": "bg:glyph_compiler_seq032_v001.py",
-      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "ts": "2026-04-01T19:18:49.678114+00:00",
+      "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
+      "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
       "submitted": true
     }
   ],
