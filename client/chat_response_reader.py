@@ -11,7 +11,46 @@ Usage:
 """
 import json
 import os
+import hashlib
 from datetime import datetime, timezone
+
+
+def _normalize_text(text: str, limit: int) -> str:
+    if not isinstance(text, str):
+        text = str(text or '')
+    return text.replace('\r\n', '\n').strip()[:limit]
+
+
+def _fingerprint_response(prompt: str, response: str) -> str:
+    payload = f'{_normalize_text(prompt, 500)}\n\x1f{_normalize_text(response, 5000)}'
+    return hashlib.sha1(payload.encode('utf-8', errors='replace')).hexdigest()[:20]
+
+
+def _build_log_entry(pair: dict, session_file: str | None) -> dict:
+    prompt = _normalize_text(pair.get('prompt', ''), 500)
+    response = _normalize_text(pair.get('response', ''), 5000)
+    request_idx = pair.get('request_idx', -1)
+    try:
+        request_idx = int(request_idx)
+    except (TypeError, ValueError):
+        request_idx = -1
+    session_id = ''
+    if session_file:
+        session_id = os.path.splitext(os.path.basename(session_file))[0]
+    fingerprint = _fingerprint_response(prompt, response)
+    response_id = f'chat:{session_id}:{request_idx}' if session_id and request_idx >= 0 else f'chat:{fingerprint}'
+    return {
+        'ts': pair.get('ts') or datetime.now(timezone.utc).isoformat(),
+        'prompt': prompt,
+        'response': response,
+        'source': 'chat_session_auto',
+        'capture_surface': 'vscode_chat',
+        'schema_version': 2,
+        'session_id': session_id,
+        'request_idx': request_idx,
+        'response_id': response_id,
+        'response_fingerprint': fingerprint,
+    }
 
 
 def _find_chat_sessions_dir(project_root: str) -> str | None:
@@ -193,7 +232,7 @@ def read_recent_responses(project_root: str, limit: int = 5) -> list[dict]:
     Read the last `limit` complete prompt→response pairs from VS Code's
     chatSessions storage. Works automatically — no @pigeon needed.
 
-    Returns list of dicts: [{"prompt": str, "response": str, "ts": str, "request_idx": int}]
+    Returns list of dicts with canonical response identity fields.
     """
     sessions_dir = _find_chat_sessions_dir(project_root)
     if not sessions_dir:
@@ -218,12 +257,12 @@ def read_recent_responses(project_root: str, limit: int = 5) -> list[dict]:
                     ).isoformat()
                 except (OSError, ValueError):
                     pass
-            result.append({
-                'prompt': p.get('prompt', '')[:500],
-                'response': p['response'][:5000],
+            result.append(_build_log_entry({
+                'prompt': p.get('prompt', ''),
+                'response': p['response'],
                 'ts': ts_str,
                 'request_idx': p.get('request_idx', -1),
-            })
+            }, session_file))
 
     return result[-limit:]
 
@@ -231,22 +270,40 @@ def read_recent_responses(project_root: str, limit: int = 5) -> list[dict]:
 def sync_to_log(project_root: str, limit: int = 5) -> int:
     """
     Read recent responses and append any NEW ones to logs/ai_responses.jsonl.
-    Returns count of new entries written. Deduplicates by request_idx.
+    Returns count of new entries written. Deduplicates by canonical response ID
+    and prompt→response fingerprint across capture sources.
     """
     pairs = read_recent_responses(project_root, limit=limit)
     if not pairs:
         return 0
 
     log_path = os.path.join(project_root, 'logs', 'ai_responses.jsonl')
-    existing_idxs = set()
+    existing_ids = set()
+    existing_fingerprints = set()
+    existing_session_keys = set()
     if os.path.exists(log_path):
         try:
             with open(log_path, 'r', encoding='utf-8') as f:
                 for line in f:
                     try:
                         entry = json.loads(line)
-                        if 'request_idx' in entry:
-                            existing_idxs.add(entry['request_idx'])
+                        if entry.get('response_id'):
+                            existing_ids.add(entry['response_id'])
+                        fingerprint = entry.get('response_fingerprint')
+                        if not fingerprint and entry.get('response'):
+                            fingerprint = _fingerprint_response(
+                                entry.get('prompt', ''), entry.get('response', ''),
+                            )
+                        if fingerprint:
+                            existing_fingerprints.add(fingerprint)
+                        session_id = str(entry.get('session_id') or '')
+                        request_idx = entry.get('request_idx', -1)
+                        try:
+                            request_idx = int(request_idx)
+                        except (TypeError, ValueError):
+                            request_idx = -1
+                        if session_id and request_idx >= 0:
+                            existing_session_keys.add((session_id, request_idx))
                     except json.JSONDecodeError:
                         continue
         except OSError:
@@ -256,18 +313,22 @@ def sync_to_log(project_root: str, limit: int = 5) -> int:
     os.makedirs(os.path.dirname(log_path), exist_ok=True)
     with open(log_path, 'a', encoding='utf-8') as f:
         for p in pairs:
-            idx = p.get('request_idx', -1)
-            if idx in existing_idxs or idx == -1:
+            response_id = p.get('response_id', '')
+            fingerprint = p.get('response_fingerprint', '')
+            session_key = (p.get('session_id', ''), p.get('request_idx', -1))
+            if (
+                response_id in existing_ids
+                or fingerprint in existing_fingerprints
+                or session_key in existing_session_keys
+            ):
                 continue
-            entry = {
-                'ts': p.get('ts', datetime.now(timezone.utc).isoformat()),
-                'prompt': p['prompt'],
-                'response': p['response'],
-                'source': 'chat_session_auto',
-                'request_idx': idx,
-            }
-            f.write(json.dumps(entry) + '\n')
-            existing_idxs.add(idx)
+            f.write(json.dumps(p) + '\n')
+            if response_id:
+                existing_ids.add(response_id)
+            if fingerprint:
+                existing_fingerprints.add(fingerprint)
+            if p.get('session_id') and p.get('request_idx', -1) >= 0:
+                existing_session_keys.add(session_key)
             written += 1
 
     return written

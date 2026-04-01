@@ -294,18 +294,19 @@ Each entry: original query → what changed since V2 planning doc → what's act
 
 **V2 status:** Response capture planned (tq-003). Mutation scorer planned (tq-014).
 
-**Current status: 🔴 NOT IMPLEMENTED — BLOCKED ON RESPONSE CAPTURE**  
-- `vscode-extension/src/extension.ts` has UIA reader spawning but `client/uia_reader.py` captures chat input text, not AI response text.
-- `@pigeon` chat participant captures prompt text via `request.prompt` but has NO access to Copilot's response text (VS Code API limitation — chat participants can't intercept other participants' responses).
-- `logs/ai_responses.jsonl` was planned but never created.
-- The mutation scorer (which sections of the prompt reduce rework?) can't run without response data.
+**Current status: 🟠 PARTIAL — RESPONSE CAPTURE EXISTS, BUT NOT AS A CLEAN SOURCE OF TRUTH**  
+- `client/chat_response_reader.py` reads regular Copilot prompt→response pairs from VS Code chatSessions storage and syncs them into `logs/ai_responses.jsonl`
+- `vscode-extension/src/extension.ts` logs responses directly for Pigeon-owned chat surfaces
+- `vscode-extension/classify_bridge.py` auto-syncs recent responses before loading them for downstream use
+- `client/uia_reader.py` still captures live chat input much better than assistant output
 
-**What changed since V2:** Built the UIA reader and chat participant. Neither can capture Copilot's response text. The VS Code API doesn't expose it. UIA can potentially read it from the DOM but the accessibility tree for chat responses is complex and unreliable.
+**What changed since V2:** Built the UIA reader, custom-panel response logging, and a chatSessions reader. Response capture is no longer hypothetical. The repo can already capture some Copilot response text without `@pigeon`.
 
-**What's broken:** The critical blocker is getting Copilot's response text. Three attempted paths:
-1. **UIA (Windows UI Automation)** — can read focused element text but chat response elements aren't reliably accessible
-2. **Chat participant** — can send to model and read its own response, but can't intercept GitHub Copilot's responses
-3. **state.vscdb** — stores some chat state but response text isn't reliably persisted
+**What's broken:** The blocker is no longer "can we capture anything?" It is "can we trust the captured response as the canonical cause of later rework?" Current gaps:
+1. **UIA (Windows UI Automation)** — still unreliable for assistant response elements
+2. **chatSessions reader** — works for normal Copilot chat, but pairing and freshness can still drift
+3. **Multiple capture paths** — custom panel, chatSessions, and possible UIA output are not yet unified into one authoritative event stream
+4. **Quality loop join** — captured responses exist, but the rework/mutation loop is still too noisy to optimize against confidently
 
 The loop (AI output → judge → rewrite personality → better AI output) is the LAST piece. Everything else is deployed.
 
@@ -332,7 +333,7 @@ The loop (AI output → judge → rewrite personality → better AI output) is t
 | 15 | Auto-delete bad code | 🟠 | 🟠 | 23→4 problems (cleanup) |
 | 16 | Idle work | 🟡 | 🟡 | no progress |
 | 17 | Dating profiles | 🔴 | 🔴 | expanded brainstorm only |
-| 18 | Response capture | 🔴 | 🔴 | 3 attempts, all blocked |
+| 18 | Response capture | 🔴 | 🟠 | Partial capture exists; canonical join still blocked |
 
 **Deployed: 14/18 | Partial: 2/18 | Not built: 2/18**
 
@@ -507,3 +508,79 @@ The architecture consensus: move the trigger from commit to prompt for the 4 fas
 The two systems that aren't built (Q17: function consciousness, Q18: response capture) become incrementally buildable once the per-prompt tier exists — they're just new data sources feeding the same injection point.
 
 The files want to be conscious. The prompt wants to be fresh. The operator wants to stop waiting for commits. Build the trigger, and the rest follows.
+
+---
+
+## 2026-03-31 AUDIT ADDENDUM
+
+This is the product-level read after the March 31 audit.
+
+### What is actually working
+
+- The telemetry substrate is real: keystrokes, compositions, deleted words, prompt journal entries, operator-state classification, and rework verdicts are all landing on disk.
+- The context-control plane is real: dynamic prompt injection, organism health, shard memory, and mutation scoring are all wired into the Copilot context path.
+- The codebase-structure substrate is real: Pigeon compile, rename, import rewrite, manifests, and self-fix scanning are not a concept demo anymore.
+- The observability layer is real: Pigeon Brain, context veins, graph extraction, and observer synthesis give the project a differentiated “codebase nervous system” story.
+
+### What is still mostly theater or partial
+
+- Autonomous patching is instrumented but not yet effective. The reactor fires, the safety gate exists, patch application is wired, but acceptance is still 0%.
+- Prompt mutation optimization is instrumented but not yet learning much. All tracked sections are still scoring neutral.
+- Rework scoring is directionally useful but not yet trustworthy enough for fine-grained optimization because the raw score surface still looks placeholder-heavy.
+- Edit-pair timing exists, but the raw data is polluted by negative and outlier latencies, so any unfiltered average is wrong.
+- Some generated reports lag behind code reality, which means the project can currently diagnose itself and still tell a stale story about itself.
+
+### What this should become
+
+The strongest version of this project is not “an autonomous codebase that edits itself for the spectacle.” It is a control plane for operator-aware coding agents.
+
+That product has three layers:
+
+1. Capture layer. Understand what the operator is doing before they finish saying it: hesitation, deletions, rewrites, focus shifts, active files, and response rework.
+2. Steering layer. Feed those signals into the assistant in a form that changes reasoning quality, not just dashboards.
+3. Learning layer. Persist what worked, what failed, where the AI missed, and which contexts improve outcomes, then reuse that per operator, per team, and per codebase.
+
+Everything else in the repo should support those three layers. Pigeon Brain, flow routing, organism health, and self-fix matter because they make the steering layer smarter and the learning layer more durable.
+
+### Product wedge
+
+The near-term wedge is a Windows-first VS Code product for power users and small teams:
+
+- Install extension
+- Capture operator telemetry locally
+- Inject fresh task context into Copilot/agent sessions
+- Show answer-quality and rework analytics
+- Build a per-repo memory of what works
+
+That is already closer to real than the broader “self-editing organism” story.
+
+### Revenue-quality roadmap
+
+#### Phase 1 — make the loop honest
+
+- Ship AI response capture
+- De-noise edit-pair timing and diagnostics
+- Tighten generated-doc truthfulness
+- Prove that operator-aware context reduces rework
+
+#### Phase 2 — make the loop useful
+
+- Add team-level dashboards for rework, hot modules, and prompt drift
+- Turn shard memory into explicit reusable playbooks
+- Promote the best prompt mutations automatically and retire neutral ones
+
+#### Phase 3 — make the loop compounding
+
+- Safe reactor auto-apply on low-risk fixes
+- Cross-session and cross-repo memory transfer
+- Agent orchestration driven by cognitive state, codebase health, and observed failure modes
+
+### Success metrics that matter
+
+- Rework rate down
+- Median time from prompt to useful edit down
+- Acceptance rate of AI-generated changes up
+- Prediction hit rate up without fixation on the same hot modules
+- Ratio of detected issues to auto-resolved issues up
+
+If those numbers do not move, the organism is interesting but not yet a product. If they do move, this becomes a genuine operator-intelligence layer for coding agents.

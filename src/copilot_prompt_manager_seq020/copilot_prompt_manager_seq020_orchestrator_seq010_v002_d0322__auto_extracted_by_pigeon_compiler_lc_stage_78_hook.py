@@ -19,6 +19,11 @@ def refresh_managed_prompt(
 ) -> dict:
     root = Path(root)
     auto_index_refreshed = inject_auto_index(root, registry=registry, processed=processed)
+    dictionary_refreshed = _run_refresher(
+        root,
+        'src/symbol_dictionary_seq031_v001.py',
+        'inject_dictionary_block',
+    )
     task_context_refreshed = _run_refresher(
         root,
         'src/dynamic_prompt_seq017_v003_d0317__steers_copilot_cot_from_live_lc_wire_narratives_self.py',
@@ -52,6 +57,7 @@ def refresh_managed_prompt(
     audit = audit_copilot_prompt(root)
     return {
         'auto_index_refreshed': auto_index_refreshed,
+        'dictionary_refreshed': dictionary_refreshed,
         'task_context_refreshed': task_context_refreshed,
         'task_queue_refreshed': task_queue_refreshed,
         'operator_state_refreshed': operator_state_refreshed,

@@ -34,7 +34,7 @@ The organism is online. 448 Python files across 8 packages — 87% pigeon-compli
 | **Per-shard training pair categorization** | **✅ Live — each shard self-learns from routed context** |
 | **Push-cycle prediction engine** | **✅ Live — backward pass + phantom electrons + scoring + injection** |
 | **DEV_STORY.md — combined push narratives** | **✅ 35 narratives, 113K chars** |
-| AI response capture (UIA → rework triple) | 🟨 Planned |
+| AI response capture | 🟨 Partial — chatSessions sync and custom-panel logging exist, but the quality join is still noisy |
 
 ---
 
@@ -328,7 +328,7 @@ This repo is a bet on a different model: **the bottleneck isn't the AI's capabil
 
 | Gap | Impact | Mitigation |
 |---|---|---|
-| **No response text captured** | Can't correlate *what was said* with *why it failed*. | UIA reader stub exists. Needs accessibility tree walking. |
+| **Response capture is partial and inconsistent** | The repo can capture some Copilot responses, but not yet as one authoritative truth source. | chatSessions sync works for normal Copilot chat, custom Pigeon surfaces log directly, and UIA still is not reliable for assistant output. |
 | **Classification noise at session start** | First few prompts unreliable. | Self-calibrating baselines in v008. |
 | **Windows-only core** | UIA, OS hook, VS Code extension path assumptions. | Acknowledged. Not a priority. |
 | **DeepSeek dependency for coaching** | Remove the key and coaching goes silent; rest still works. | Graceful degradation. |
@@ -648,21 +648,27 @@ Tasks auto-seed from `self_fix` reports (CRITICAL issues become pending queue it
 
 ---
 
-## Planned: AI Response Capture (`logs/ai_responses.jsonl`)
+## AI Response Capture (`logs/ai_responses.jsonl`)
 
-The one missing sensor in the closed loop: **Copilot's actual response text is never captured**. The rework detector knows a response failed (heavy deletion after) but has no record of what was said.
+This is no longer purely planned. The repo already has partial response capture, but the loop is not clean enough to treat it as canonical yet.
 
-Planned implementation via UIA (Windows UI Automation — already used in `client/os_hook.py`):
-- After each message submit, walk the Copilot chat panel's accessibility tree
-- Read the last assistant response text via `IUIAutomationTextPattern` or `ValuePattern`
-- Hash + store alongside the prompt journal entry and subsequent rework score
+What exists now:
+- `client/chat_response_reader.py` reads prompt→response pairs from VS Code chatSessions storage for regular Copilot chat and syncs them into `logs/ai_responses.jsonl`
+- `vscode-extension/src/extension.ts` logs responses directly for Pigeon-owned chat surfaces such as the `@pigeon` participant and PigeonChatPanel
+- `vscode-extension/classify_bridge.py` auto-syncs recent responses before loading them for downstream enrichment
 
-This gives `(prompt_snapshot → response_hash → rework_score)` triples that enable:
+What is still missing:
+- A single response stream that works across every Copilot surface
+- Reliable joining between captured responses, prompt snapshots, and later rework
+- Confidence that the captured response is the exact one that caused downstream edits
+- A trustworthy UIA-based assistant-output reader; the current UIA reader is stronger on chat input than assistant output
+
+The target is still `(prompt_snapshot → response_hash/text → rework_score)` triples that enable:
 - **Narrative grounding** — push narratives can reference what Copilot actually said, not just that it failed
 - **Prompt mutation scoring** — correlate which injected sections reduced miss rate over time
 - **Dead section pruning** — sections with no empirical correlation to rework reduction get flagged for removal from `copilot-instructions.md`
 
-The self-upgrade loop then closes: inject → measure response → measure rework → score injected sections → rewrite prompt.
+The self-upgrade loop is therefore partially closed today: inject → capture some responses → measure some rework → score injected sections. The missing work is making that capture/join path reliable enough to optimize against.
 
 ---
 
@@ -940,46 +946,60 @@ mod = importlib.import_module(f.replace('/', '.').rstrip('.py'))
 
 ---
 
-## Current Status (2026-03-30)
+## Audit Snapshot (2026-03-31)
 
-| Component | Status |
+This is the honest repo state after the March 31 audit. The system is real and unusually deep, but it is not uniformly mature: the telemetry/data plane is strong, the adaptation loop is partial, and the autonomous code-modification story is still mostly instrumentation plus safety rails.
+
+### Verified Working
+
+| Area | Evidence |
 |---|---|
-| VS Code extension keystroke capture | ✅ Live (110+ session flushes) |
-| Cognitive state classification | ✅ Live (5 states, 45+ profile entries) |
-| Operator stats accumulation | ✅ Fixed (DATA block regex) |
-| **Deleted word capture (per-prompt)** | **✅ Live — bound per-prompt, injected into CoT** |
-| **Predictive debug** | **✅ Live — frustration→module + build→debug cycle mining** |
-| Unsaid thread detection | ✅ Live |
-| File heat map per-module | ✅ Live (12 modules tracked) |
-| Rework detection | ✅ Live (200 scored, 38% rework rate) |
-| Push narratives | ✅ Live (8 narratives) |
-| Self-fix scanner | ✅ Live (21 problems detected last scan) |
-| Prompt reconstruction | ✅ Live (48 mutations tracked) |
-| Dynamic CoT injection | ✅ Live (12 sections, all data sources wired) |
-| Task queue | ✅ Live (auto-seeded, manifest-linked, Copilot-managed) |
-| Post-commit pipeline | ✅ Fully wired (10-step auto-commit) |
-| Pigeon compiler | ✅ Operational (8 compiled packages, ~$0.01 total DeepSeek cost) |
-| **Organism health — live codebase diagnostics** | **✅ Live — 16 pipelines monitored, injected into Copilot prompt** |
-| **OS hook auto-journal** | **✅ Live — selection + clipboard + mouse → prompt_journal** |
-| **Moon cycle predictions** | **✅ Live — backward pass + predict + score + inject** |
-| **Context veins (codebase health)** | **✅ Live (137 nodes, 4 clots, 21 arteries)** |
-| **Flow Engine — context-accumulating dataflow** | **✅ Live (6 modules, 3 modes, multi-perspective)** |
-| **Pigeon Brain — neural visualizer** | **✅ Live (137 neurons, 260 synapses)** |
-| **Dual-substrate heat mapping** | **✅ Live (human + agent heat merged per node)** |
-| **Live execution tracing** | **✅ Live (sys.settrace → WebSocket @ 20Hz)** |
-| **React graph UI** | **✅ Live (profiler cards, edge animation, observer panel)** |
-| **Pigeon Code Compiler — open-source standalone** | **✅ Released** ([pip install](https://myaifingerprint.com)) |
-| **Shard Memory — local markdown shards + training pairs** | **✅ Live (7 shards, per-shard categorization, contradiction detection)** |
-| **Gemini 2.5 Flash enricher (replaced DeepSeek)** | **✅ Live (3s, 256-token thinking budget)** |
-| **Push-cycle prediction engine** | **✅ Live (backward pass + phantom electrons + scoring)** |
-| **DEV_STORY.md** | **✅ 35 push narratives, 113K chars** |
-| MASTER_MANIFEST | ✅ Rebuilt |
-| Tests | ✅ 5/5 passing |
+| Core telemetry and logger | `test_all.py` passes 5/5, including pulse harvest and edit-pair tests. |
+| Prompt/context injection | `copilot-instructions.md` is being regenerated with operator state, task context, organism health, and mutation effectiveness. |
+| Composition analysis | Deleted words, rewrites, hesitation windows, and prompt journal entries are continuously landing in logs. |
+| Rework loop | `rework_log.json` has 200 scored responses and `classify_bridge.py` now feeds shard learning plus mutation scoring on real submits. |
+| Shard memory | 10 active shards, training pairs on disk, contradiction tracking, and routed context are live. |
+| Pigeon compiler + rename engine | Versioned renames, import rewriting, manifest rebuilds, and compile passes are still operating across the repo. |
+| Pigeon Brain / organism health | Graph extraction, veins/clots, observer reports, and injected health summaries are live. |
+| Research synthesis | [docs/RESEARCH_LOG.md](docs/RESEARCH_LOG.md) regenerates from live telemetry and now includes pair dynamics. |
 
-**Known open issues:**
-- `operator_stats_seq008*` (532 lines) still needs pigeon compile
-- AI response capture not yet implemented
-- 16 over-cap files flagged by organism health
+### Partial Or Weak
+
+| Area | Current reality | Why it matters |
+|---|---|---|
+| Cognitive reactor | Fires are logged and safety gating exists, but patch acceptance is still 0%. | The self-modifying loop is not yet proving value in production. |
+| Mutation scorer | Runs per-prompt, but all tracked sections are still scoring neutral. | Prompt evolution is being measured without a strong optimization signal yet. |
+| Rework scoring | Verdict distribution is useful, but raw rework scores still look placeholder-heavy. | Hard to optimize prompt mutations confidently. |
+| Edit-pair analytics | Pairings exist, but raw latencies contain negative and multi-day values. | Naive averages mislead; filtered medians are more trustworthy. |
+| Prompt freshness | Better than commit-only, but parts of the synthesis loop are still slow or stale. | The system remembers more than it can act on immediately. |
+
+### Needs Attention Now
+
+| Priority | Issue | Current evidence |
+|---|---|---|
+| P0 | AI response capture | Still not implemented; without response text the loop cannot explain why an answer failed. |
+| P0 | Structural debt | Latest self-fix report shows 24 issues, including 14 over-hard-cap files. |
+| P1 | Documentation truthfulness | Generated and hand-written docs drift from the actual shipped/partial state unless re-audited. |
+| P1 | Diagnostics noise | Workspace diagnostics are noisy because optional Windows dependencies and adjacent package imports are mixed into the signal. |
+| P2 | Scanner freshness | Self-fix still reports some dead exports that are already wired or renamed in newer module versions. |
+
+### Product Direction
+
+This repo already contains three product surfaces, but only one should be the near-term wedge.
+
+1. Operator-aware coding runtime. This is the strongest product today: a Windows/VS Code layer that captures typing, deletions, hesitation, rework, and active-file context, then steers the assistant in real time.
+2. Pigeon compiler and rename engine. This is already separable and sellable as code-structure infrastructure.
+3. Codebase nervous system. Pigeon Brain, flow routing, organism health, and safe self-fix are the long-term moat, but they still need a tighter product story before they become the wedge.
+
+### Next 90 Days
+
+| Horizon | Goal | Deliverables |
+|---|---|---|
+| 0-30 days | Stabilize the data plane | Ship response capture, clean edit-pair latency math, and kill stale/false-positive diagnostics. |
+| 30-60 days | Prove assistant lift | Show reduced rework, faster fix time, and higher answer acceptance from operator-aware prompt steering. |
+| 60-90 days | Productize the strongest wedge | Turn the operator-aware runtime into a clear installable product with opinionated dashboards, onboarding, and team-facing reporting. |
+
+For a deeper product and architecture read, see [docs/ARCHITECTURE_CONSENSUS_v3.md](docs/ARCHITECTURE_CONSENSUS_v3.md).
 
 ---
 

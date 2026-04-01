@@ -8,9 +8,9 @@
 # SESSIONS: 3
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-31T21:30:00Z
+# EDIT_TS:   2026-03-31T17:53:50.4081875Z
 # EDIT_HASH: auto
-# EDIT_WHY:  add pair dynamics section
+# EDIT_WHY:  filter noisy research signals
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -18,6 +18,7 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 from collections import Counter
+from statistics import median
 
 
 def synthesize_research(root: Path) -> Path:
@@ -153,11 +154,7 @@ def _cognitive_findings(root: Path) -> str:
                 if m:
                     submit_rate_str = m.group(1) + '%'
             if 'dominant state:' in line.lower():
-                parts = line.split('**')
-                if len(parts) >= 2:
-                    dominant_state = parts[-1].strip().rstrip('*').strip()
-                    if not dominant_state:
-                        dominant_state = parts[1].strip()
+                dominant_state = line.replace('*', '').split(':', 1)[1].strip()
             if 'deletion %' in line.lower() and 'avg' not in line.lower():
                 pass  # header row
             if '| Deletion %' in line:
@@ -168,12 +165,12 @@ def _cognitive_findings(root: Path) -> str:
     # Prefer real data from prompt_journal + chat_compositions
     journal = root / 'logs' / 'prompt_journal.jsonl'
     compositions = root / 'logs' / 'chat_compositions.jsonl'
-    real_submit_count = 0
+    prompt_count = 0
     real_del_ratio = None
     if journal.exists():
         try:
             jlines = journal.read_text(encoding='utf-8').strip().splitlines()
-            real_submit_count = len(jlines)
+            prompt_count = len(jlines)
         except Exception:
             pass
     if compositions.exists():
@@ -218,7 +215,7 @@ def _cognitive_findings(root: Path) -> str:
     lines.append(f'**Interpretation:** The operator deletes ~{del_desc} of what they type '
                  f'(from chat compositions). '
                  f'Dominant cognitive state: **{dominant_state}**. '
-                 f'{real_submit_count} real chat submits recorded in prompt journal'
+                 f'{prompt_count} prompts recorded in prompt journal'
                  f'{" (submit rate: " + submit_rate_str + " of profiled messages)" if submit_rate_str != "?" else ""}. '
                  'The system captures typing patterns, hesitation, and deleted words '
                  'that would otherwise be invisible.')
@@ -233,12 +230,18 @@ def _pair_dynamics(root: Path) -> str:
     rework_path = root / 'rework_log.json'
     verdicts = {}
     n_rework = 0
+    bg_excluded = 0
+    foreground_only = False
     if rework_path.exists():
         try:
             data = json.loads(rework_path.read_text(encoding='utf-8'))
             entries = data if isinstance(data, list) else data.get('entries', [])
-            n_rework = len(entries)
-            for e in entries:
+            fg_entries = [e for e in entries if not str(e.get('query_hint', '')).startswith('bg:')]
+            bg_excluded = len(entries) - len(fg_entries)
+            source_entries = fg_entries if fg_entries else entries
+            foreground_only = bool(fg_entries)
+            n_rework = len(source_entries)
+            for e in source_entries:
                 v = e.get('verdict', '?')
                 verdicts[v] = verdicts.get(v, 0) + 1
         except Exception:
@@ -249,30 +252,44 @@ def _pair_dynamics(root: Path) -> str:
         miss = verdicts.get('miss', 0)
         ok_pct = ok / n_rework * 100
         miss_pct = miss / n_rework * 100
-        lines.append(f'\n**Rework verdicts** ({n_rework} responses scored):')
+        label = 'foreground responses scored' if foreground_only else 'responses scored'
+        lines.append(f'\n**Rework verdicts** ({n_rework} {label}):')
         lines.append(f'- OK: {ok} ({ok_pct:.0f}%) — copilot nailed it')
         lines.append(f'- Partial: {partial} ({partial/n_rework*100:.0f}%) — needed adjustment')
         lines.append(f'- Miss: {miss} ({miss_pct:.0f}%) — operator had to redo')
+        if bg_excluded:
+            lines.append(f'- Data quality note: excluded {bg_excluded} background rework entries (`bg:` queries)')
+        if foreground_only and partial == 0 and miss == 0:
+            lines.append('- Data quality note: all non-background verdicts are currently `ok`, which suggests the miss signal is still incomplete or misrouted')
 
     # Edit pairs — prompt→file timing
     ep_path = root / 'logs' / 'edit_pairs.jsonl'
     n_pairs = 0
-    latencies = []
+    valid_latencies = []
+    invalid_latency_count = 0
     if ep_path.exists():
         try:
             for line in ep_path.read_text(encoding='utf-8').strip().splitlines():
                 obj = json.loads(line)
                 n_pairs += 1
                 lat = obj.get('latency_ms')
-                if lat and isinstance(lat, (int, float)):
-                    latencies.append(lat)
+                if not isinstance(lat, (int, float)):
+                    continue
+                if 0 <= lat <= 3_600_000:
+                    valid_latencies.append(lat)
+                else:
+                    invalid_latency_count += 1
         except Exception:
             pass
     if n_pairs:
         lines.append(f'\n**Prompt→file pairings:** {n_pairs} edits traced back to prompts.')
-        if latencies:
-            avg_lat = sum(latencies) / len(latencies) / 1000
-            lines.append(f'- Avg prompt-to-edit latency: {avg_lat:.1f}s')
+        if valid_latencies:
+            med_lat = median(valid_latencies) / 1000
+            avg_lat = sum(valid_latencies) / len(valid_latencies) / 1000
+            lines.append(f'- Filtered median prompt-to-edit latency: {med_lat:.1f}s')
+            lines.append(f'- Filtered average prompt-to-edit latency: {avg_lat:.1f}s across {len(valid_latencies)} sane pairs')
+        if invalid_latency_count:
+            lines.append(f'- Data quality note: {invalid_latency_count} pairings had negative or outlier latencies and were excluded')
 
     # Mutation tracking — how the prompt layer evolved
     mut_path = root / 'logs' / 'mutation_scores.json'
@@ -405,9 +422,12 @@ def _signal_quality(root: Path) -> str:
             n = len(entries)
             scores = [e.get('rework_score', 0) for e in entries[-20:]]
             unique = len(set(round(s, 4) for s in scores))
+            bg_entries = sum(1 for e in entries if str(e.get('query_hint', '')).startswith('bg:'))
             lines.append(f'- **Rework log:** {n} entries. '
                          f'Last 20 unique scores: {unique} '
                          f'{"⚠️ (likely placeholder data)" if unique <= 2 else "✓ (real variation)"}')
+            if bg_entries:
+                lines.append(f'- **Background rework noise:** {bg_entries}/{n} entries come from `bg:` queries and can distort answer-quality analysis')
         except Exception:
             pass
 

@@ -22,12 +22,130 @@ Stdout: {"state", "hesitation", "wpm", "coaching_updated", "rework_verdict"}
 import sys
 import json
 import os
+import hashlib
 import importlib.util
 import urllib.request
 from pathlib import Path
 from datetime import datetime, timezone
 
 LLM_REWRITE_EVERY = 8
+
+
+def _parse_ts(value) -> float:
+    if isinstance(value, (int, float)):
+        return float(value)
+    if not value:
+        return 0.0
+    try:
+        return datetime.fromisoformat(str(value).replace('Z', '+00:00')).timestamp() * 1000
+    except ValueError:
+        return 0.0
+
+
+def _normalize_response_text(text: str, limit: int) -> str:
+    if not isinstance(text, str):
+        text = str(text or '')
+    return text.replace('\r\n', '\n').strip()[:limit]
+
+
+def _response_fingerprint(prompt: str, response: str) -> str:
+    payload = f'{_normalize_response_text(prompt, 500)}\n\x1f{_normalize_response_text(response, 5000)}'
+    return hashlib.sha1(payload.encode('utf-8', errors='replace')).hexdigest()[:20]
+
+
+def _normalize_ai_response_entry(entry: dict) -> dict | None:
+    prompt = _normalize_response_text(entry.get('prompt', ''), 500)
+    response = _normalize_response_text(entry.get('response', ''), 5000)
+    if not response:
+        return None
+    normalized = dict(entry)
+    normalized['ts'] = entry.get('ts') or datetime.now(timezone.utc).isoformat()
+    normalized['prompt'] = prompt
+    normalized['response'] = response
+    normalized['source'] = entry.get('source') or 'unknown'
+    normalized['capture_surface'] = entry.get('capture_surface') or 'vscode_chat'
+    normalized['schema_version'] = entry.get('schema_version', 2)
+    session_id = str(entry.get('session_id') or '')
+    normalized['session_id'] = session_id
+    request_idx = entry.get('request_idx', -1)
+    try:
+        request_idx = int(request_idx)
+    except (TypeError, ValueError):
+        request_idx = -1
+    normalized['request_idx'] = request_idx
+    fingerprint = entry.get('response_fingerprint') or _response_fingerprint(prompt, response)
+    normalized['response_fingerprint'] = fingerprint
+    response_id = entry.get('response_id')
+    if not response_id:
+        if session_id and request_idx >= 0:
+            response_id = f'chat:{session_id}:{request_idx}'
+        else:
+            response_id = f"{normalized['source']}:{fingerprint}"
+    normalized['response_id'] = response_id
+    return normalized
+
+
+def _response_entry_score(entry: dict) -> tuple:
+    source_rank = {
+        'pigeon_panel_copilot': 4,
+        'pigeon_panel_deepseek': 3,
+        'classify_bridge': 2,
+        'chat_session_auto': 1,
+    }.get(entry.get('source', ''), 0)
+    return (
+        1 if entry.get('rework_verdict') else 0,
+        1 if entry.get('prompt') else 0,
+        1 if entry.get('request_idx', -1) != -1 else 0,
+        source_rank,
+        _parse_ts(entry.get('ts', 0)),
+    )
+
+
+def _dedupe_ai_responses(entries: list[dict], limit: int) -> list[dict]:
+    best_by_key = {}
+    for entry in entries:
+        normalized = _normalize_ai_response_entry(entry)
+        if not normalized:
+            continue
+        key = normalized.get('response_fingerprint') or normalized.get('response_id')
+        previous = best_by_key.get(key)
+        if previous is None or _response_entry_score(normalized) > _response_entry_score(previous):
+            best_by_key[key] = normalized
+    ordered = sorted(best_by_key.values(), key=lambda item: _parse_ts(item.get('ts', 0)))
+    return ordered[-limit:]
+
+
+def _read_ai_response_entries(root: Path, limit: int) -> list[dict]:
+    resp_log = root / 'logs' / 'ai_responses.jsonl'
+    if not resp_log.exists():
+        return []
+    try:
+        lines = resp_log.read_text(encoding='utf-8').strip().splitlines()
+        entries = []
+        for line in lines[-limit:]:
+            try:
+                entries.append(json.loads(line))
+            except json.JSONDecodeError:
+                continue
+        return entries
+    except Exception:
+        return []
+
+
+def _append_ai_response(root: Path, entry: dict) -> None:
+    normalized = _normalize_ai_response_entry(entry)
+    if not normalized:
+        return
+    for existing in _dedupe_ai_responses(_read_ai_response_entries(root, limit=40), limit=40):
+        if (
+            existing.get('response_id') == normalized.get('response_id')
+            or existing.get('response_fingerprint') == normalized.get('response_fingerprint')
+        ):
+            return
+    resp_log = root / 'logs' / 'ai_responses.jsonl'
+    resp_log.parent.mkdir(parents=True, exist_ok=True)
+    with open(resp_log, 'a', encoding='utf-8') as fh:
+        fh.write(json.dumps(normalized) + '\n')
 
 
 def _load_pigeon_module(root: Path, pattern: str):
@@ -254,14 +372,8 @@ def _load_recent_responses(root: Path, limit: int = 10) -> list:
     if not resp_log.exists():
         return []
     try:
-        all_lines = resp_log.read_text(encoding='utf-8').strip().splitlines()
-        entries = []
-        for line in all_lines[-limit:]:
-            try:
-                entries.append(json.loads(line))
-            except json.JSONDecodeError:
-                continue
-        return entries
+        raw_entries = _read_ai_response_entries(root, limit=max(limit * 8, 40))
+        return _dedupe_ai_responses(raw_entries, limit=limit)
     except Exception:
         return []
 
@@ -606,15 +718,15 @@ def main():
     if resp_text and query_txt and not query_txt.startswith('bg:'):
         resp_log = root / 'logs' / 'ai_responses.jsonl'
         try:
-            entry = json.dumps({
+            _append_ai_response(root, {
                 'ts': datetime.now(timezone.utc).isoformat(),
                 'prompt': query_txt[:500],
                 'response': resp_text[:5000],
                 'source': 'classify_bridge',
+                'capture_surface': 'vscode_chat',
+                'schema_version': 2,
                 'rework_verdict': rework_verdict,
             })
-            with open(resp_log, 'a', encoding='utf-8') as fh:
-                fh.write(entry + '\n')
         except Exception:
             pass
 
