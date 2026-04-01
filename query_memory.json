@@ -1,18 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-03-31T19:18:02.931315+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-03-31T19:18:57.838568+00:00",
-      "text": "bg:README.md",
-      "fingerprint": "bgreadmemd",
-      "submitted": true
-    },
-    {
       "ts": "2026-03-31T19:19:53.849551+00:00",
       "text": "bg:README.md",
       "fingerprint": "bgreadmemd",
@@ -2996,6 +2984,18 @@
     },
     {
       "ts": "2026-04-01T05:08:47.807155+00:00",
+      "text": "bg:glyph_compiler_seq032_v001.py",
+      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T05:09:45.877956+00:00",
+      "text": "bg:glyph_compiler_seq032_v001.py",
+      "fingerprint": "bgglyph_compiler_seq032_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T05:10:45.495227+00:00",
       "text": "bg:glyph_compiler_seq032_v001.py",
       "fingerprint": "bgglyph_compiler_seq032_v001py",
       "submitted": true

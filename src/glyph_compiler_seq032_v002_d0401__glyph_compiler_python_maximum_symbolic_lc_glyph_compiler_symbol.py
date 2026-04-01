@@ -14,6 +14,14 @@ a .psg (Pigeon Symbolic Glyph) file where:
 The output is UNREADABLE without the dictionary.
 That's the point.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 032 | VER: v002 | 565 lines | ~5,050 tokens
+# DESC:   glyph_compiler_python_maximum_symbolic
+# INTENT: glyph_compiler_symbol
+# LAST:   2026-04-01 @ 51c097d
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-04-01T04:30:00+00:00
 # EDIT_HASH: auto

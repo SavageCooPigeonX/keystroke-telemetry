@@ -145,10 +145,10 @@ OPERATOR SIGNAL: The repeated prompt and high hesitation on core files indicate 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-01 05:07 UTC · 33 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-01 05:10 UTC · 36 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 51.3 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 51.4 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
 
 **Prompt ms:** 11236, 76173, 54331, 107396, 21295 (avg 54086ms)
 
@@ -178,63 +178,63 @@ OPERATOR SIGNAL: The repeated prompt and high hesitation on core files indicate 
 - `context_budget` (hes=0.587)
 
 ### AI Rework Surface
-*Miss rate: 6.0% (200 responses)*
+*Miss rate: 3.5% (200 responses)*
 - Failed on: ""
 - Failed on: ""
 - Failed on: ""
 
 ### Recent Work
+- `51c097d` feat: glyph compiler + symbol dictionary + response canonicalization + doc audit
 - `a9e145a` feat: mutation/patch pipeline + pair dynamics research report
 - `e3c540b` feat: staleness alerts + bg-flush filtering + research data fix
 - `7e0ecab` feat: intent deletion pipeline + unsaid reconstruction + copilot-instructions safety guard
-- `2c247ba` fix: rework signal (0.003->real), prediction fixation (edit_pairs), confidence calibration (empirical F1)
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
+- glyph compiler AST parsing on edge-case syntax
+- orchestrator expecting stable symbol dictionary schema
+- research lab depending on 'node_type_histogram' key. This push replaces a heuristic glyph compiler with an AST-driven one to produce precise symbol dictionaries for system analysis.
 - Staleness alert’s file I/O exceptions breaking the lab’s scheduler
 - contract change in the alert return dictionary
-- false-positive staleness floods from threshold misconfiguration.
-- patch_writer ignoring safety_override flag
-- cognitive_reactor breaking on subcomponent API drift
 - **prompt_journal_seq019_v001** was touched only to register it in the project manifest, as the staleness detector will n
 - **cognitive_reactor_seq014_decision_maker** was touched to implement safety gating for the mutation pipeline, adding val
 - **research_lab** was touched to extend its self-study to monitor the new safety gate’s effectiveness, adding metrics for
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
-- [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v003_d0324__websocket_server_for_live_execution_lc_8888_word_backpropagation.py`
-- [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_8888_word_backpropagation.py`
-- [HIGH] over_hard_cap in `pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_per_prompt_deleted.py`
-- [HIGH] over_hard_cap in `pigeon_compiler/runners/run_batch_compile_seq015_v002_d0328__compile_entire_codebase_to_pigeon_lc_dynamic_import_resolvers.py`
-- [HIGH] over_hard_cap in `src/.operator_stats_seq008_v008_d0331__persistent_markdown_memory_file_lc_intent_deletion_pipeline.py`
+- [CRITICAL] hardcoded_import in `src/cognitive_reactor_seq014_v004_d0330__cognitive_reactor_autonomous_code_modification_lc_gemini_flash_enricher.py`
+- [CRITICAL] hardcoded_import in `build/compressed/pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py`
+- [CRITICAL] hardcoded_import in `build/compressed/pigeon_brain/demo_sim_seq010_v002_d0323__generates_execution_telemetry_from_the_lc_pigeon_brain_system.py`
+- [CRITICAL] hardcoded_import in `build/compressed/pigeon_brain/dual_substrate_seq008_v002_d0323__merges_human_and_agent_telemetry_lc_pigeon_brain_system.py`
+- [CRITICAL] hardcoded_import in `build/compressed/pigeon_brain/execution_logger_seq002_v002_d0323__isomorphic_to_telemetrylogger_for_agent_lc_pigeon_brain_system.py`
 
 ### Prompt Evolution
-*This prompt has mutated 86x (186→1035 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 87x (186→1042 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 85 mutations scored*
-*No significant signal yet — all 16 sections scored neutral.*
+*200 rework pairs × 87 mutations scored*
+*No significant signal yet — all 17 sections scored neutral.*
 
 **Reactor patches:** 0/216 applied (0% acceptance)
 
 ### File Consciousness
-*228 modules profiled*
+*230 modules profiled*
 
 **High-drama (most mutations):**
 - `self_fix` v11 ↔ .operator_stats
 - `.operator_stats` v10 ↔ self_fix
-- `dynamic_prompt` v10 ↔ run_pigeon_loop
+- `dynamic_prompt` v10 ↔ research_lab
 - `context_budget` v8 ↔ streaming_layer
 
 **Codebase fears:**
-- file may not exist (86 modules)
-- returns empty on failure (silent) (52 modules)
-- swallowed exception (46 modules)
+- file may not exist (87 modules)
+- returns empty on failure (silent) (53 modules)
+- swallowed exception (47 modules)
 
 **Slumber party warnings (high coupling):**
 - `cli` ↔ `trace_hook` (score=0.80, 3 shared imports, both high-churn (v2+v2))
 - `cli` ↔ `traced_runner` (score=0.80, 3 shared imports, both high-churn (v2+v2))
-- `demo_sim` ↔ `execution_logger` (score=0.80, 3 shared imports, both high-churn (v2+v2))
+- `cli` ↔ `glyph_compiler` (score=0.80, 3 shared imports, both high-churn (v2+v2))
 
 ### Codebase Health (Veins / Clots)
 *133/137 alive, 4 clots, avg vein health 0.53*
@@ -330,9 +330,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-03-31 17:36 UTC · 79 prompts analyzed · zero LLM calls*
+*Auto-extracted 2026-04-01 05:10 UTC · 79 prompts analyzed · zero LLM calls*
 
-**Brevity:** 24.9 words/prompt | **Caps:** never | **Fragments:** 77% | **Questions:** 19% | **Directives:** 22%
+**Brevity:** 23.1 words/prompt | **Caps:** never | **Fragments:** 72% | **Questions:** 25% | **Directives:** 5%
 
 **Voice directives (personality tuning):**
 - Operator is semi-casual — use contractions, skip formalities, but keep technical precision.
@@ -342,44 +342,44 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 - Operator rarely uses punctuation — fragments and run-ons are normal. Don't overcorrect their style in quotes.
 - Operator uses plain language — avoid unnecessary jargon in explanations.
 
-**Vocabulary fingerprint:** to, is, this, i, you, the, it, test, and, what
+**Vocabulary fingerprint:** to, i, is, it, my, the, with, this, what, on
 <!-- /pigeon:voice-style -->
 <!-- pigeon:predictions -->
 ## Push Cycle Predictions
 
-*Auto-generated 2026-03-31 17:36 UTC*
+*Auto-generated 2026-04-01 05:10 UTC*
 
 **What you'll likely want next push:**
-1. [targeted] Predict operator's next need. Module focus: shard_manager, context_router, research_lab (conf=30%)
-   - hot modules: shard_manager, context_router, research_lab, cognitive_reactor, file_heat_map
-2. [heat] Predict operator's next need. Module focus: shard_manager, context_router, research_lab (conf=30%)
-   - hot modules: shard_manager, context_router, research_lab, cognitive_reactor, file_heat_map
-3. [failure] Predict operator's next need. Module focus: shard_manager, context_router, research_lab (conf=30%)
-   - hot modules: shard_manager, context_router, research_lab, cognitive_reactor, file_heat_map
+1. [targeted] Operator in flow, likely building new feature. Module focus: glyph_compiler, file_heat_map, import_rewriter (conf=27%)
+   - hot modules: glyph_compiler, file_heat_map, import_rewriter, file_writer, research_lab
+2. [heat] Operator in flow, likely building new feature. Module focus: glyph_compiler, file_heat_map, import_rewriter (conf=27%)
+   - hot modules: glyph_compiler, file_heat_map, import_rewriter, file_writer, research_lab
+3. [failure] Operator in flow, likely building new feature. Module focus: glyph_compiler, file_heat_map, import_rewriter (conf=27%)
+   - hot modules: glyph_compiler, file_heat_map, import_rewriter, file_writer, research_lab
 
 **Operator coaching:**
 - No module references detected in prompts — naming specific modules helps copilot target the right files.
 
 **Agent coaching (for Copilot):**
-- Touched ['classify_bridge', 'cognitive_reactor', 'dynamic_prompt', 'research_lab'] without operator reference — confirm intent before modifying unreferenced modules.
+- Touched ['chat_response_reader', 'classify_bridge', 'copilot_prompt_manager', 'glyph_compiler', 'research_lab', 'symbol_dictionary'] without operator reference — confirm intent before modifying unreferenced modules.
+- Low sync score — operator intent and code output diverged. Ask clarifying questions earlier.
 
 <!-- /pigeon:predictions -->
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-01 · 33 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-01 - 36 message(s) - LLM-synthesized*
 
-**Dominant: `focused`** | Submit: 66% | WPM: 51.8 | Del: 25.6% | Hes: 0.444
+**Dominant: `focused`** | Submit: 66% | WPM: 52.1 | Del: 25.6% | Hes: 0.445
 
-This operator just built a mutation patch pipeline for autonomous code modification, and their typing patterns reveal they work in intense evening bursts with high deletion rates (56%) during restructuring phases, indicating heavy refactoring rather than new code creation.
+The operator just built a glyph compiler symbol system and their high-deletion restructuring patterns reveal they're aggressively refactoring toward a unified symbolic architecture.  
+- **Anticipate deep structural changes** when they touch `self_fix seq13` or `dynamic_prompt seq17`—these are pain points they keep revisiting; offer refactoring patterns, not just completions.  
+- **When they hesitate (avg 0.445s) during heavy edits**, proactively suggest breaking changes into smaller, testable steps—their high abandonment rate indicates frustration with monolithic changes.  
+- **For the 6% miss-rate queries**, always ask one clarifying question before generating code, especially around intent boundaries like "symbolic" vs "AST-based" transformations.  
+- **Preempt context-budget issues** by referencing module names from the churn list (`operator_stats seq8`, `push_narrative seq12`) and offering concise, inline summaries of their recent changes.  
+- **During evening/night sessions**, prioritize robustness over novelty—their focused bursts then restructuring cycles suggest they're integrating components and need error‑handling and fallback logic.  
 
-- **When they start editing high-churn modules** (self_fix seq13, dynamic_prompt seq17, operator_stats seq8), immediately provide concise, modular code blocks focused on the specific mutation or patch logic they're likely adjusting, not full-file rewrites.
-- **During high-deletion-rate commits** (restructuring state, 56% del), infer they are pruning or simplifying; offer minimal, atomic suggestions that can be accepted or rejected with a single keystroke to reduce cognitive load.
-- **Anticipate pain points** in `dynamic_prompt_seq017_v010` (steering Copilot) and `research_lab_seq029_v004` (system self-study); preemptively structure responses to clarify the control flow between these modules.
-- **For the 14% miss rate**, especially on ambiguous queries, if their intent is unclear, ask a single, specific clarifying question about the mutation's target (e.g., "Should this patch apply before or after the safety gate?") before generating code.
-- **When they pause after a high-hesitation message** (>0.55), provide one clear, best-practice implementation option first, avoiding open-ended questions that require more decision fatigue.
-
-They are most likely building toward a fully autonomous, self-patching system where the reactor can safely modify its own core logic.
+They are most likely building toward a fully self‑modifying compiler pipeline where symbols drive both code generation and system evolution.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `glyph_compiler`** (hes=1.041, state=focused, avg_prompt=51924ms)
@@ -623,7 +623,7 @@ a9e145a8 feat: mutation/patch pipeline + pair dynamics rese
 ```
 <!-- /pigeon:dictionary -->
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-03-31 - 260 modules tracked | 5 touched this commit*
+*Auto-updated 2026-04-01 - 263 modules tracked | 5 touched this commit*
 
 **pigeon_brain/** - 16 module(s)
 
@@ -835,7 +835,7 @@ a9e145a8 feat: mutation/patch pipeline + pair dynamics rese
 |---|---|---:|
 | `deepseek_plan_prompt_seq004*` | build and send deepseek cut | ~2,407 |
 
-**src/** - 37 module(s)
+**src/** - 40 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
@@ -874,8 +874,11 @@ a9e145a8 feat: mutation/patch pipeline + pair dynamics rese
 | `training_pairs_seq027*` | training pair generator for the | ~2,625 |
 | `training_writer_seq028*` | end of prompt training pair | ~2,078 |
 | `voice_style_seq028*` | voice style personality adapter | ~3,157 |
-| `research_lab_seq029*` | the system studying the system | ~4,701 |
+| `research_lab_seq029*` | the system studying the system | ~5,065 |
 | `staleness_alert_seq030*` | copilot self diagnostic detect stale | ~1,725 |
+| `symbol_dictionary_seq031*` | symbol dictionary generator for pigeon | ~3,737 |
+| `glyph_compiler_seq032*` | glyph compiler python maximum symbolic | ~5,050 |
+| `glyph_compiler_seq032*` | glyph compiler v2 ast based | ~4,585 |
 
 **src/cognitive/** - 3 module(s)
 
@@ -932,7 +935,7 @@ a9e145a8 feat: mutation/patch pipeline + pair dynamics rese
 | `copilot_prompt_manager_seq020_telemetry_utils_seq007*` | auto extracted by pigeon compiler | ~329 |
 | `copilot_prompt_manager_seq020_audit_decomposed_seq008*` | auto extracted by pigeon compiler | ~729 |
 | `copilot_prompt_manager_seq020_injectors_seq009*` | auto extracted by pigeon compiler | ~461 |
-| `copilot_prompt_manager_seq020_orchestrator_seq010*` | auto extracted by pigeon compiler | ~521 |
+| `copilot_prompt_manager_seq020_orchestrator_seq010*` | auto extracted by pigeon compiler | ~636 |
 
 **src/file_consciousness_seq019/** - 12 module(s)
 
@@ -1021,6 +1024,7 @@ a9e145a8 feat: mutation/patch pipeline + pair dynamics rese
 |---|---|
 | `_build_organism_health.py` | `(root)` |
 | `_export_dev_story.py` | `(root)` |
+| `_tmp_analyze_stats.py` | `(root)` |
 | `_tmp_survey.py` | `(root)` |
 | `_tmp_test_pipeline.py` | `(root)` |
 | `autonomous_dev_stress_test.py` | `(root)` |

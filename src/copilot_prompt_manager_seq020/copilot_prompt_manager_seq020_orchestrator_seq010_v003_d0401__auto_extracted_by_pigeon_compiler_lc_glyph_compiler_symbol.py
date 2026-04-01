@@ -1,11 +1,11 @@
 """copilot_prompt_manager_seq020_orchestrator_seq010_v001.py — Auto-extracted by Pigeon Compiler."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v002 | 53 lines | ~521 tokens
+# SEQ: 010 | VER: v003 | 67 lines | ~636 tokens
 # DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: stage_78_hook
-# LAST:   2026-03-22 @ 276af14
-# SESSIONS: 1
+# INTENT: glyph_compiler_symbol
+# LAST:   2026-04-01 @ 51c097d
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 from pathlib import Path
 import re

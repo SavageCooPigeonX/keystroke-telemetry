@@ -1,0 +1,122 @@
+# Σ013.v011.0328.λR.psg
+
+⊕ ast
+⊕ json
+⊕ os
+⊕ re
+⊕ request
+⊕ Ṗ ← pathlib
+ƒ ƒ(α: Path, β: set[str] | None = None):
+·α = []
+·β = re.compile(r'(←|⊕)\s+([\w.]+_seq\d+_v\d+_d\d+__[\w]+)')
+·γ = β ∨ ⟬⟭()
+·∀ py ∈ α.⊛('*.py'):
+··⟨? '.git' ∈ py.parts ∨ '__pycache__' ∈ py.parts:
+···⟳
+··δ = ˢ(py.⊖(α)).ℛ('\\', '/')
+··⟨? py.name == '__init__.py':
+···⟳
+··⟨? δ.⊢('pigeon_compiler/'):
+···⟳
+··⟨? py.name.⊢('_test_'):
+···⟳
+··⟨? δ ∈ γ:
+···⟳
+··⟨⚡:
+···ε = py.⊲(enc=U8)
+··⟨✗ ⚡X:
+···⟳
+··∀ m ∈ β.finditer(ε):
+···α.←+({
+····'type': 'hardcoded_import',
+····'file': δ,
+····'line': ε[:m.start()].#('\n') + 1,
+····'⊕': m.group(2),
+····'severity': 'critical',
+····'fix': f'Use glob-based dynamic ⊕ instead of hardcoded name',
+···})
+·→ α
+ƒ α(α: Path, β: dict):
+·α = []
+·β = ⟬⟭()
+·γ = ⟬⟭()
+·∀ py ∈ α.⊛('*.py'):
+··⟨? '.git' ∈ py.parts ∨ '__pycache__' ∈ py.parts:
+···⟳
+··⟨⚡:
+···θ = py.⊲(enc=U8)
+···ι = ast.parse(θ)
+··⟨✗ ⚡X:
+···⟳
+··∀ node ∈ ast.walk(ι):
+···⟨? ∈?(node, ast.ImportFrom) ∧ node.names:
+····∀ alias ∈ node.names:
+·····β.add(alias.name)
+···⟨? ∈?(node, ast.Call) ∧ ∈?(node.func, ast.Attribute):
+····γ.add(node.func.attr)
+···⟨? ∈?(node, ast.Call) ∧ ∈?(node.func, ast.Name):
+····γ.add(node.func.id)
+·δ = α / 'vscode-extension'
+·⟨? δ.∃():
+··∀ py ∈ δ.⊛('*.py'):
+···⟨⚡:
+····θ = py.⊲(enc=U8)
+····ι = ast.parse(θ)
+···⟨✗ ⚡X:
+····⟳
+···∀ node ∈ ast.walk(ι):
+····⟨? ∈?(node, ast.Call) ∧ ∈?(node.func, ast.Attribute):
+·····γ.add(node.func.attr)
+·ε = β | γ
+·∀ entry ∈ β:
+··ζ = entry.⊙g('ζ', '')
+··⟨? ¬ ζ.⊢('src/') ∨ '/' ∈ ζ.ℛ('src/', '', 1):
+···⟳
+··η = α / ζ
+··⟨? ¬ η.∃():
+···⟳
+··⟨⚡:
+···ι = ast.parse(η.⊲(enc=U8))
+··⟨✗ ⚡X:
+···⟳
+··∀ node ∈ ast.iter_child_nodes(ι):
+···⟨? ∈?(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+····⟨? ¬ node.name.⊢('_') ∧ node.name ∉ ε:
+·····α.←+({
+······'type': 'dead_export',
+······'file': ζ,
+······'function': node.name,
+······'line': node.lineno,
+······'severity': 'low',
+······'fix': f'Consider removing ∨ wiring {node.name}() into pipeline',
+·····})
+·→ α
+ƒ β(α: Path, β: dict):
+·α = []
+·∀ entry ∈ β:
+··β = α / entry['path']
+··⟨? ¬ β.∃():
+···⟳
+··⟨⚡:
+···ζ = β.⊲(enc=U8).⫾()
+··⟨✗ ⚡X:
+···⟳
+··⟨? |·|(ζ) < 20:
+···⟳
+··γ = 0
+··∀ i, ln ∈ ∀#(ζ):
+·Skips files matched by pigeon_limits.is_excluded() — compiler orchestrators,
+·prompt templates, intentional monoliths, vscode-extension entry points, client
+·scripts, ∧ test harnesses are never auto-compiled.
+·Called ← git_plugin after run_@_fix. Invokes run_clean_split on each
+·oversized file, passing dead exports ↦ exclusions to the DeepSeek prompt
+·so they are pruned ← the split output — never survive a compile cycle.
+·Returns ⟨⟩ of dicts: {file, status, output_dir, error}.
+·Does NOT loop ∨ auto-fix — produces a report ⟨⊃ targeted resolutions.
+·Also handles dotted paths: `cognitive.adapter_seq001_v002_...`
+·→ `cognitive.adapter_seq001`.
+·Rewrites `← src.module_seq003_v003_... ⊕ Foo, Bar` to:
+        ⊕ src_import ← _resolve
+··Foo, Bar = src_import("module_seq003", "Foo", "Bar")
+·This ≡ safe because src_import() resolves at runtime via glob,
+·surviving any pigeon rename. No more naive ˢ.ℛ corruption.

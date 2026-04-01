@@ -1,6 +1,6 @@
 {
-  "generated": "2026-03-31T17:35:18.434803+00:00",
-  "total": 260,
+  "generated": "2026-04-01T05:09:20.802870+00:00",
+  "total": 263,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -4315,14 +4315,14 @@
       ]
     },
     {
-      "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_orchestrator_seq010_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
+      "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_orchestrator_seq010_v003_d0401__auto_extracted_by_pigeon_compiler_lc_glyph_compiler_symbol.py",
       "name": "copilot_prompt_manager_seq020_orchestrator",
       "seq": 10,
-      "ver": 2,
-      "date": "0322",
+      "ver": 3,
+      "date": "0401",
       "desc": "auto_extracted_by_pigeon_compiler",
-      "intent": "stage_78_hook",
-      "tokens": 521,
+      "intent": "glyph_compiler_symbol",
+      "tokens": 636,
       "history": [
         {
           "ver": 2,
@@ -4331,6 +4331,14 @@
           "intent": "stage_78_hook",
           "tokens": 521,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0401",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "glyph_compiler_symbol",
+          "action": "mutated",
+          "tokens": 636
         }
       ]
     },
@@ -4818,6 +4826,46 @@
           "intent": "pulse_telemetry_prompt",
           "action": "mutated",
           "tokens": 1347
+        }
+      ]
+    },
+    {
+      "path": "src/glyph_compiler_seq032_v002_d0401__glyph_compiler_python_maximum_symbolic_lc_glyph_compiler_symbol.py",
+      "name": "glyph_compiler",
+      "seq": 32,
+      "ver": 2,
+      "date": "0401",
+      "desc": "glyph_compiler_python_maximum_symbolic",
+      "intent": "glyph_compiler_symbol",
+      "tokens": 5050,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0401",
+          "desc": "glyph_compiler_python_maximum_symbolic",
+          "intent": "glyph_compiler_symbol",
+          "tokens": 5050,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/glyph_compiler_seq032_v003_d0401__glyph_compiler_v2_ast_based_lc_glyph_compiler_symbol.py",
+      "name": "glyph_compiler",
+      "seq": 32,
+      "ver": 3,
+      "date": "0401",
+      "desc": "glyph_compiler_v2_ast_based",
+      "intent": "glyph_compiler_symbol",
+      "tokens": 4585,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0401",
+          "desc": "glyph_compiler_v2_ast_based",
+          "intent": "glyph_compiler_symbol",
+          "tokens": 4585,
+          "action": "registered"
         }
       ]
     },
@@ -5455,14 +5503,14 @@
       ]
     },
     {
-      "path": "src/research_lab_seq029_v004_d0331__the_system_studying_the_system_lc_mutation_patch_pipeline.py",
+      "path": "src/research_lab_seq029_v005_d0401__the_system_studying_the_system_lc_glyph_compiler_symbol.py",
       "name": "research_lab",
       "seq": 29,
-      "ver": 4,
-      "date": "0331",
+      "ver": 5,
+      "date": "0401",
       "desc": "the_system_studying_the_system",
-      "intent": "mutation_patch_pipeline",
-      "tokens": 4701,
+      "intent": "glyph_compiler_symbol",
+      "tokens": 5065,
       "history": [
         {
           "ver": 2,
@@ -5487,6 +5535,14 @@
           "intent": "mutation_patch_pipeline",
           "action": "mutated",
           "tokens": 4701
+        },
+        {
+          "ver": 5,
+          "date": "0401",
+          "desc": "the_system_studying_the_system",
+          "intent": "glyph_compiler_symbol",
+          "action": "mutated",
+          "tokens": 5065
         }
       ]
     },
@@ -5993,6 +6049,26 @@
           "intent": "pulse_telemetry_prompt",
           "action": "mutated",
           "tokens": 10189
+        }
+      ]
+    },
+    {
+      "path": "src/symbol_dictionary_seq031_v002_d0401__symbol_dictionary_generator_for_pigeon_lc_glyph_compiler_symbol.py",
+      "name": "symbol_dictionary",
+      "seq": 31,
+      "ver": 2,
+      "date": "0401",
+      "desc": "symbol_dictionary_generator_for_pigeon",
+      "intent": "glyph_compiler_symbol",
+      "tokens": 3737,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0401",
+          "desc": "symbol_dictionary_generator_for_pigeon",
+          "intent": "glyph_compiler_symbol",
+          "tokens": 3737,
+          "action": "registered"
         }
       ]
     },

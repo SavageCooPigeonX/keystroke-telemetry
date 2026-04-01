@@ -1,0 +1,176 @@
+﻿[
+    {
+        "Id":  1380,
+        "WS_GB":  0,
+        "CPU_s":  2.6,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  6492,
+        "WS_GB":  0.02,
+        "CPU_s":  107.6,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  13872,
+        "WS_GB":  0.17,
+        "CPU_s":  1581.6,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  15168,
+        "WS_GB":  1.24,
+        "CPU_s":  66731.5,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  15324,
+        "WS_GB":  0,
+        "CPU_s":  8.5,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  15440,
+        "WS_GB":  0.01,
+        "CPU_s":  2.4,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  17016,
+        "WS_GB":  0,
+        "CPU_s":  2.6,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  18296,
+        "WS_GB":  0.01,
+        "CPU_s":  260,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  19360,
+        "WS_GB":  1.73,
+        "CPU_s":  1392.3,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  21492,
+        "WS_GB":  0.01,
+        "CPU_s":  9.5,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  21880,
+        "WS_GB":  0,
+        "CPU_s":  2.5,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  22412,
+        "WS_GB":  0,
+        "CPU_s":  2,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  22508,
+        "WS_GB":  0,
+        "CPU_s":  7.2,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  24132,
+        "WS_GB":  0,
+        "CPU_s":  32.7,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  25704,
+        "WS_GB":  0,
+        "CPU_s":  2.2,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  25716,
+        "WS_GB":  1.78,
+        "CPU_s":  19546.8,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  29604,
+        "WS_GB":  0.04,
+        "CPU_s":  595.8,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  31916,
+        "WS_GB":  0.15,
+        "CPU_s":  308.4,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  32420,
+        "WS_GB":  0,
+        "CPU_s":  38,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  33320,
+        "WS_GB":  0,
+        "CPU_s":  37.3,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  33720,
+        "WS_GB":  0.02,
+        "CPU_s":  254.2,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  36476,
+        "WS_GB":  0,
+        "CPU_s":  235.4,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  36496,
+        "WS_GB":  0.41,
+        "CPU_s":  335.5,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  37328,
+        "WS_GB":  0.06,
+        "CPU_s":  26259.5,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  37820,
+        "WS_GB":  0.01,
+        "CPU_s":  1.7,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  38904,
+        "WS_GB":  0.12,
+        "CPU_s":  7794.3,
+        "MainWindowTitle":  "dashboard_events.sql - LinkRouter.ai (Workspace) - Visual Studio Code"
+    },
+    {
+        "Id":  39892,
+        "WS_GB":  0.01,
+        "CPU_s":  1.6,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  39960,
+        "WS_GB":  0,
+        "CPU_s":  1.6,
+        "MainWindowTitle":  ""
+    },
+    {
+        "Id":  41388,
+        "WS_GB":  0.02,
+        "CPU_s":  184.3,
+        "MainWindowTitle":  ""
+    }
+]

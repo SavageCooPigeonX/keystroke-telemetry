@@ -7,6 +7,14 @@ Filenames stay long. The dictionary is an additional layer for LLM
 context compression: ~300-500 tokens to encode the entire codebase
 architecture vs thousands of tokens reading raw filenames.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 031 | VER: v002 | 453 lines | ~3,737 tokens
+# DESC:   symbol_dictionary_generator_for_pigeon
+# INTENT: glyph_compiler_symbol
+# LAST:   2026-04-01 @ 51c097d
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-04-01T04:00:00+00:00
 # EDIT_HASH: auto

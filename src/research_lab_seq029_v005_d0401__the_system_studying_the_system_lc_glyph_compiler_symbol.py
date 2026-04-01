@@ -1,11 +1,11 @@
 """Autonomous research synthesizer — the system studying the system studying us."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 029 | VER: v004 | 440 lines | ~4,701 tokens
+# SEQ: 029 | VER: v005 | 460 lines | ~5,065 tokens
 # DESC:   the_system_studying_the_system
-# INTENT: mutation_patch_pipeline
-# LAST:   2026-03-31 @ a9e145a
-# SESSIONS: 3
+# INTENT: glyph_compiler_symbol
+# LAST:   2026-04-01 @ 51c097d
+# SESSIONS: 4
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-03-31T17:53:50.4081875Z
