@@ -6,17 +6,17 @@ Includes description + intent slugs in filenames via nametag.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v004 | 109 lines | ~919 tokens
+# SEQ: 002 | VER: v005 | 158 lines | ~1,382 tokens
 # DESC:   generate_rename_plan_for_non
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
+# INTENT: add_chinese_glyph
+# LAST:   2026-04-01 @ aa32a3f
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-from pigeon_compiler.rename_engine.nametag_seq011_v003_d0314__encode_file_description_intent_into_lc_desc_upgrade import (
+from pigeon_compiler.rename_engine.nametag_seq011_v004_d0401__encode_file_description_intent_into_lc_add_chinese_glyph import (
     extract_desc_slug,
     build_nametag,
     build_glyph_prefix,

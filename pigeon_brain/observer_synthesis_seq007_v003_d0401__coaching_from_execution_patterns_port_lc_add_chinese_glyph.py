@@ -7,11 +7,11 @@ Isomorphic to operator coaching synthesis but for agent execution substrate.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 007 | VER: v002 | 142 lines | ~1,421 tokens
+# SEQ: 007 | VER: v003 | 150 lines | ~1,489 tokens
 # DESC:   coaching_from_execution_patterns_port
-# INTENT: pigeon_brain_system
-# LAST:   2026-03-23 @ 465cbfa
-# SESSIONS: 1
+# INTENT: add_chinese_glyph
+# LAST:   2026-04-01 @ aa32a3f
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 
 import json

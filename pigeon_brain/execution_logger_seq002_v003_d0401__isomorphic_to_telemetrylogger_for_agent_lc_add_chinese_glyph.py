@@ -7,11 +7,11 @@ electrons (intent units) through their lifecycle.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v002 | 157 lines | ~1,556 tokens
+# SEQ: 002 | VER: v003 | 165 lines | ~1,626 tokens
 # DESC:   isomorphic_to_telemetrylogger_for_agent
-# INTENT: pigeon_brain_system
-# LAST:   2026-03-23 @ 465cbfa
-# SESSIONS: 1
+# INTENT: add_chinese_glyph
+# LAST:   2026-04-01 @ aa32a3f
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 
 import json

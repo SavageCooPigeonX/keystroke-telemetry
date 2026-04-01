@@ -1,36 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-04-01T07:05:21.619013+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T07:06:21.233291+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T07:07:21.119130+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T07:08:21.368553+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T07:09:21.730713+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
       "ts": "2026-04-01T07:10:21.741413+00:00",
       "text": "bg:RESEARCH_LOG.md",
       "fingerprint": "bgresearch_logmd",
@@ -2996,6 +2966,36 @@
     },
     {
       "ts": "2026-04-01T21:40:41.873206+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:41:38.826701+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:42:39.687866+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:44:47.636430+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:45:41.871915+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:46:41.761481+00:00",
       "text": "bg:idle",
       "fingerprint": "bgidle",
       "submitted": true

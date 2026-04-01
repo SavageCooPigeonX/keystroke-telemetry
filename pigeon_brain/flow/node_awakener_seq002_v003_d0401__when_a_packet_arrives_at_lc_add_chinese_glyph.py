@@ -21,11 +21,11 @@ Relevance is computed from:
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v002 | 152 lines | ~1,186 tokens
+# SEQ: 002 | VER: v003 | 160 lines | ~1,252 tokens
 # DESC:   when_a_packet_arrives_at
-# INTENT: flow_engine_context
-# LAST:   2026-03-24 @ c0caa0a
-# SESSIONS: 1
+# INTENT: add_chinese_glyph
+# LAST:   2026-04-01 @ aa32a3f
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 from __future__ import annotations
 

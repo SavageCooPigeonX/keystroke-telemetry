@@ -18,11 +18,11 @@ The vein is not passive plumbing. It's a transformation channel.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 006 | VER: v002 | 120 lines | ~899 tokens
+# SEQ: 006 | VER: v003 | 128 lines | ~965 tokens
 # DESC:   as_a_packet_flows_along
-# INTENT: flow_engine_context
-# LAST:   2026-03-24 @ c0caa0a
-# SESSIONS: 1
+# INTENT: add_chinese_glyph
+# LAST:   2026-04-01 @ aa32a3f
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 from __future__ import annotations
 

@@ -22,11 +22,11 @@ Two output modes:
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v002 | 167 lines | ~1,491 tokens
+# SEQ: 005 | VER: v003 | 175 lines | ~1,558 tokens
 # DESC:   the_river_delta_where_all
-# INTENT: flow_engine_context
-# LAST:   2026-03-24 @ c0caa0a
-# SESSIONS: 1
+# INTENT: add_chinese_glyph
+# LAST:   2026-04-01 @ aa32a3f
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 from __future__ import annotations
 

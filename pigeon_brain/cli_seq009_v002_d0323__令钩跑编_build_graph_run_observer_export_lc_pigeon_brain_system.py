@@ -46,7 +46,7 @@ def main():
             print(f"  bottleneck: {b['name']} (in_degree={b['in_degree']})")
 
     elif args.command == "observe":
-        from .observer_synthesis_seq007_v002_d0323__coaching_from_execution_patterns_port_lc_pigeon_brain_system import synthesize_observation, write_agent_coaching
+        from .observer_synthesis_seq007_v003_d0401__coaching_from_execution_patterns_port_lc_add_chinese_glyph import synthesize_observation, write_agent_coaching
         obs = synthesize_observation(root)
         out = write_agent_coaching(root, obs)
         print(f"Observation written to {out}")

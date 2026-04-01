@@ -5,10 +5,10 @@ Supports --dry-run, --folders, --rollback flags.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 006 | VER: v004 | 143 lines | ~1,382 tokens
+# SEQ: 006 | VER: v005 | 143 lines | ~1,387 tokens
 # DESC:   full_rename_pipeline_runner
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
+# INTENT: add_chinese_glyph
+# LAST:   2026-04-01 @ aa32a3f
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 import argparse
@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 from pigeon_compiler.rename_engine.scanner_seq001_v004_d0315__扫_walk_the_project_tree_and_lc_verify_pigeon_plugin import scan_project
-from pigeon_compiler.rename_engine.planner_seq002_v004_d0315__generate_rename_plan_for_non_lc_verify_pigeon_plugin import build_rename_plan
+from pigeon_compiler.rename_engine.planner_seq002_v005_d0401__generate_rename_plan_for_non_lc_add_chinese_glyph import build_rename_plan
 from pigeon_compiler.rename_engine.import_rewriter_seq003_v004_d0316__引_rewrite_all_imports_across_the_lc_import_rewriter_now import rewrite_all_imports
 from pigeon_compiler.rename_engine.executor_seq004_v004_d0315__execute_file_renames_with_rollback_lc_verify_pigeon_plugin import execute_rename, rollback_rename
 from pigeon_compiler.rename_engine.validator_seq005_v004_d0315__审正图_post_rename_import_validation_lc_verify_pigeon_plugin import validate_imports

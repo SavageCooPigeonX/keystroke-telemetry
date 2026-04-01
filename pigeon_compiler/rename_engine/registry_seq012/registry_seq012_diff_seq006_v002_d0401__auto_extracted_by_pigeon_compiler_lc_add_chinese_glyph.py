@@ -1,4 +1,12 @@
 """registry_seq012_diff_seq006_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 006 | VER: v002 | 20 lines | ~194 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: add_chinese_glyph
+# LAST:   2026-04-01 @ aa32a3f
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 from pathlib import Path
 import re
 

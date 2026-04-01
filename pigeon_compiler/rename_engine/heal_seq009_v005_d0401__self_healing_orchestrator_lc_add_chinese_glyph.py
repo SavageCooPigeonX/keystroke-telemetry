@@ -18,10 +18,10 @@ The MANIFEST description column IS the living filename extension.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 009 | VER: v004 | 263 lines | ~2,046 tokens
+# SEQ: 009 | VER: v005 | 263 lines | ~2,049 tokens
 # DESC:   self_healing_orchestrator
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
+# INTENT: add_chinese_glyph
+# LAST:   2026-04-01 @ aa32a3f
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 import json

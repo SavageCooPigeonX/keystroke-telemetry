@@ -1,4 +1,12 @@
 """nametag_seq011_scan_seq008_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 008 | VER: v002 | 37 lines | ~298 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: add_chinese_glyph
+# LAST:   2026-04-01 @ aa32a3f
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 from pathlib import Path
 import re
 

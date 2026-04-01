@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-01 06:41 UTC · 179 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-01 21:45 UTC · 190 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -22,14 +22,14 @@
 
 ## Live Operator State
 
-*179 prompts profiled · source: measured*
+*190 prompts profiled · source: measured*
 
-**Dominant: `focused` | Submit: 66% | Del: 6.7%**
-- operator entering restructuring mode — expect more deletions than new code
+**Dominant: `focused` | Submit: 66% | Del: 8.9%**
+- operator entering flow state — productive building, less backtracking
 
 ## Pair Performance
 
-*108 responses scored · 92 background excluded*
+*166 responses scored · 34 background excluded*
 
 **Accuracy: 100% OK | 0% miss** *[source: measured]*
 - trend: **stable** (100% → 100%)
@@ -37,7 +37,7 @@
 **Prompt→edit latency:** 239.2s median (40 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*87 mutations scored*
+*92 mutations scored*
 - no significant signal yet — all sections scored neutral
 
 **Reactor:** 216 fires, 0 accepted (0%)
@@ -45,10 +45,10 @@
 
 ## Codebase Health
 
-*42 self-fix reports · 2026-03-16 → 2026-04-01*
+*43 self-fix reports · 2026-03-16 → 2026-04-01*
 
-**Problem trend: growing** (early avg 24 → recent avg 71) *[source: measured]*
-- problems growing ~47/push — expect more over_hard_cap and dead_exports without intervention
+**Problem trend: growing** (early avg 24 → recent avg 161) *[source: measured]*
+- problems growing ~137/push — expect more over_hard_cap and dead_exports without intervention
 
 ### Recent Deaths *[source: measured]*
 - `exception`: 3
@@ -64,22 +64,22 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "blueberry"
-- "what about glypg as signals for breakbruh"
-- "age - like we have file append and if test run"
-- "fix al"
+- "- generate"
 - "fixed arent"
-- "even"
-- "you edit a files > copilo"
+- "i ha"
 - "and"
-- "IKA"
+- "is it coh"
+- "coonti"
+- "what about glypg as signals for breakbruh"
 - "/ impor"
+- "te - change"
+- "age - like we have file append and if test run"
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20, 92 bg noise
+- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20, 34 bg noise
 - **Training pairs:** 31 captured
 - **Prediction accuracy:** F1=0.017, calibration=0.334 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses

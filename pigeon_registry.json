@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-01T05:09:20.802870+00:00",
-  "total": 263,
+  "generated": "2026-04-01T21:42:08.534630+00:00",
+  "total": 266,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -63,14 +63,14 @@
       ]
     },
     {
-      "path": "pigeon_brain/execution_logger_seq002_v002_d0323__isomorphic_to_telemetrylogger_for_agent_lc_pigeon_brain_system.py",
+      "path": "pigeon_brain/execution_logger_seq002_v003_d0401__isomorphic_to_telemetrylogger_for_agent_lc_add_chinese_glyph.py",
       "name": "execution_logger",
       "seq": 2,
-      "ver": 2,
-      "date": "0323",
+      "ver": 3,
+      "date": "0401",
       "desc": "isomorphic_to_telemetrylogger_for_agent",
-      "intent": "pigeon_brain_system",
-      "tokens": 1541,
+      "intent": "add_chinese_glyph",
+      "tokens": 1626,
       "history": [
         {
           "ver": 2,
@@ -79,6 +79,14 @@
           "intent": "pigeon_brain_system",
           "tokens": 1541,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0401",
+          "desc": "isomorphic_to_telemetrylogger_for_agent",
+          "intent": "add_chinese_glyph",
+          "action": "mutated",
+          "tokens": 1626
         }
       ]
     },
@@ -803,14 +811,14 @@
       ]
     },
     {
-      "path": "pigeon_brain/flow/node_awakener_seq002_v002_d0324__when_a_packet_arrives_at_lc_flow_engine_context.py",
+      "path": "pigeon_brain/flow/node_awakener_seq002_v003_d0401__when_a_packet_arrives_at_lc_add_chinese_glyph.py",
       "name": "node_awakener",
       "seq": 2,
-      "ver": 2,
-      "date": "0324",
+      "ver": 3,
+      "date": "0401",
       "desc": "when_a_packet_arrives_at",
-      "intent": "flow_engine_context",
-      "tokens": 1171,
+      "intent": "add_chinese_glyph",
+      "tokens": 1252,
       "history": [
         {
           "ver": 2,
@@ -819,6 +827,14 @@
           "intent": "flow_engine_context",
           "tokens": 1171,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0401",
+          "desc": "when_a_packet_arrives_at",
+          "intent": "add_chinese_glyph",
+          "action": "mutated",
+          "tokens": 1252
         }
       ]
     },
@@ -1455,14 +1471,14 @@
       ]
     },
     {
-      "path": "pigeon_brain/flow/task_writer_seq005_v002_d0324__the_river_delta_where_all_lc_flow_engine_context.py",
+      "path": "pigeon_brain/flow/task_writer_seq005_v003_d0401__the_river_delta_where_all_lc_add_chinese_glyph.py",
       "name": "task_writer",
       "seq": 5,
-      "ver": 2,
-      "date": "0324",
+      "ver": 3,
+      "date": "0401",
       "desc": "the_river_delta_where_all",
-      "intent": "flow_engine_context",
-      "tokens": 1476,
+      "intent": "add_chinese_glyph",
+      "tokens": 1558,
       "history": [
         {
           "ver": 2,
@@ -1471,18 +1487,26 @@
           "intent": "flow_engine_context",
           "tokens": 1476,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0401",
+          "desc": "the_river_delta_where_all",
+          "intent": "add_chinese_glyph",
+          "action": "mutated",
+          "tokens": 1558
         }
       ]
     },
     {
-      "path": "pigeon_brain/flow/vein_transport_seq006_v002_d0324__as_a_packet_flows_along_lc_flow_engine_context.py",
+      "path": "pigeon_brain/flow/vein_transport_seq006_v003_d0401__as_a_packet_flows_along_lc_add_chinese_glyph.py",
       "name": "vein_transport",
       "seq": 6,
-      "ver": 2,
-      "date": "0324",
+      "ver": 3,
+      "date": "0401",
       "desc": "as_a_packet_flows_along",
-      "intent": "flow_engine_context",
-      "tokens": 884,
+      "intent": "add_chinese_glyph",
+      "tokens": 965,
       "history": [
         {
           "ver": 2,
@@ -1491,6 +1515,14 @@
           "intent": "flow_engine_context",
           "tokens": 884,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0401",
+          "desc": "as_a_packet_flows_along",
+          "intent": "add_chinese_glyph",
+          "action": "mutated",
+          "tokens": 965
         }
       ]
     },
@@ -1679,14 +1711,14 @@
       ]
     },
     {
-      "path": "pigeon_brain/observer_synthesis_seq007_v002_d0323__coaching_from_execution_patterns_port_lc_pigeon_brain_system.py",
+      "path": "pigeon_brain/observer_synthesis_seq007_v003_d0401__coaching_from_execution_patterns_port_lc_add_chinese_glyph.py",
       "name": "observer_synthesis",
       "seq": 7,
-      "ver": 2,
-      "date": "0323",
+      "ver": 3,
+      "date": "0401",
       "desc": "coaching_from_execution_patterns_port",
-      "intent": "pigeon_brain_system",
-      "tokens": 1357,
+      "intent": "add_chinese_glyph",
+      "tokens": 1489,
       "history": [
         {
           "ver": 2,
@@ -1695,6 +1727,14 @@
           "intent": "pigeon_brain_system",
           "tokens": 1357,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0401",
+          "desc": "coaching_from_execution_patterns_port",
+          "intent": "add_chinese_glyph",
+          "action": "mutated",
+          "tokens": 1489
         }
       ]
     },
@@ -2540,14 +2580,34 @@
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/heal_seq009_v004_d0315__self_healing_orchestrator_lc_verify_pigeon_plugin.py",
+      "path": "pigeon_compiler/rename_engine/heal_seq009/heal_seq009_orchestrator_seq005_v002_d0401__auto_extracted_by_pigeon_compiler_lc_add_chinese_glyph.py",
+      "name": "heal_seq009_orchestrator",
+      "seq": 5,
+      "ver": 2,
+      "date": "0401",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "add_chinese_glyph",
+      "tokens": 725,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0401",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "add_chinese_glyph",
+          "tokens": 725,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/heal_seq009_v005_d0401__self_healing_orchestrator_lc_add_chinese_glyph.py",
       "name": "heal",
       "seq": 9,
-      "ver": 4,
-      "date": "0315",
+      "ver": 5,
+      "date": "0401",
       "desc": "self_healing_orchestrator",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 2044,
+      "intent": "add_chinese_glyph",
+      "tokens": 2049,
       "history": [
         {
           "ver": 3,
@@ -2563,6 +2623,14 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 2044
+        },
+        {
+          "ver": 5,
+          "date": "0401",
+          "desc": "self_healing_orchestrator",
+          "intent": "add_chinese_glyph",
+          "action": "mutated",
+          "tokens": 2049
         }
       ]
     },
@@ -2613,14 +2681,34 @@
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/nametag_seq011_v003_d0314__encode_file_description_intent_into_lc_desc_upgrade.py",
+      "path": "pigeon_compiler/rename_engine/nametag_seq011/nametag_seq011_scan_seq008_v002_d0401__auto_extracted_by_pigeon_compiler_lc_add_chinese_glyph.py",
+      "name": "nametag_seq011_scan",
+      "seq": 8,
+      "ver": 2,
+      "date": "0401",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "add_chinese_glyph",
+      "tokens": 298,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0401",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "add_chinese_glyph",
+          "tokens": 298,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/nametag_seq011_v004_d0401__encode_file_description_intent_into_lc_add_chinese_glyph.py",
       "name": "nametag",
       "seq": 11,
-      "ver": 3,
-      "date": "0314",
+      "ver": 4,
+      "date": "0401",
       "desc": "encode_file_description_intent_into",
-      "intent": "desc_upgrade",
-      "tokens": 1924,
+      "intent": "add_chinese_glyph",
+      "tokens": 4052,
       "history": [
         {
           "ver": 3,
@@ -2628,18 +2716,26 @@
           "desc": "encode_file_description_intent_into",
           "intent": "desc_upgrade",
           "action": "discovered"
+        },
+        {
+          "ver": 4,
+          "date": "0401",
+          "desc": "encode_file_description_intent_into",
+          "intent": "add_chinese_glyph",
+          "action": "mutated",
+          "tokens": 4052
         }
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/planner_seq002_v004_d0315__generate_rename_plan_for_non_lc_verify_pigeon_plugin.py",
+      "path": "pigeon_compiler/rename_engine/planner_seq002_v005_d0401__generate_rename_plan_for_non_lc_add_chinese_glyph.py",
       "name": "planner",
       "seq": 2,
-      "ver": 4,
-      "date": "0315",
+      "ver": 5,
+      "date": "0401",
       "desc": "generate_rename_plan_for_non",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 919,
+      "intent": "add_chinese_glyph",
+      "tokens": 1381,
       "history": [
         {
           "ver": 3,
@@ -2655,18 +2751,46 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 919
+        },
+        {
+          "ver": 5,
+          "date": "0401",
+          "desc": "generate_rename_plan_for_non",
+          "intent": "add_chinese_glyph",
+          "action": "mutated",
+          "tokens": 1381
         }
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/registry_seq012_v003_d0314__local_name_registry_for_the_lc_desc_upgrade.py",
+      "path": "pigeon_compiler/rename_engine/registry_seq012/registry_seq012_diff_seq006_v002_d0401__auto_extracted_by_pigeon_compiler_lc_add_chinese_glyph.py",
+      "name": "registry_seq012_diff",
+      "seq": 6,
+      "ver": 2,
+      "date": "0401",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "add_chinese_glyph",
+      "tokens": 194,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0401",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "add_chinese_glyph",
+          "tokens": 194,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/registry_seq012_v004_d0401__local_name_registry_for_the_lc_add_chinese_glyph.py",
       "name": "registry",
       "seq": 12,
-      "ver": 3,
-      "date": "0314",
+      "ver": 4,
+      "date": "0401",
       "desc": "local_name_registry_for_the",
-      "intent": "desc_upgrade",
-      "tokens": 2129,
+      "intent": "add_chinese_glyph",
+      "tokens": 2131,
       "history": [
         {
           "ver": 3,
@@ -2674,6 +2798,14 @@
           "desc": "local_name_registry_for_the",
           "intent": "desc_upgrade",
           "action": "discovered"
+        },
+        {
+          "ver": 4,
+          "date": "0401",
+          "desc": "local_name_registry_for_the",
+          "intent": "add_chinese_glyph",
+          "action": "mutated",
+          "tokens": 2131
         }
       ]
     },
@@ -2705,14 +2837,14 @@
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/run_rename_seq006_v004_d0315__full_rename_pipeline_runner_lc_verify_pigeon_plugin.py",
+      "path": "pigeon_compiler/rename_engine/run_rename_seq006_v005_d0401__full_rename_pipeline_runner_lc_add_chinese_glyph.py",
       "name": "run_rename",
       "seq": 6,
-      "ver": 4,
-      "date": "0315",
+      "ver": 5,
+      "date": "0401",
       "desc": "full_rename_pipeline_runner",
-      "intent": "verify_pigeon_plugin",
-      "tokens": 1374,
+      "intent": "add_chinese_glyph",
+      "tokens": 1388,
       "history": [
         {
           "ver": 3,
@@ -2728,6 +2860,14 @@
           "intent": "verify_pigeon_plugin",
           "action": "mutated",
           "tokens": 1374
+        },
+        {
+          "ver": 5,
+          "date": "0401",
+          "desc": "full_rename_pipeline_runner",
+          "intent": "add_chinese_glyph",
+          "action": "mutated",
+          "tokens": 1388
         }
       ]
     },

@@ -27,10 +27,11 @@ _lc_  = separator between desc and intent
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 012 | VER: v003 | 246 lines | ~2,068 tokens
+# SEQ: 012 | VER: v004 | 253 lines | ~2,131 tokens
 # DESC:   local_name_registry_for_the
-# INTENT: desc_upgrade
-# LAST:   2026-03-15 @ 855fd50
+# INTENT: add_chinese_glyph
+# LAST:   2026-04-01 @ aa32a3f
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 import json
 import re

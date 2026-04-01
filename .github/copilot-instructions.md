@@ -147,9 +147,9 @@ OPERATOR SIGNAL: The deletion of "fix al" before "can you make it run" suggests 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-01 21:41 UTC · 57 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-01 21:47 UTC · 57 messages profiled · 8 recent commits*
 
-**Current focus:** building new features
+**Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 49.0 | Del: 26.5% | Hes: 0.491) · *[source: measured]*
 
 **Prompt ms:** 22457, 4255, 371727, 4935, 16057 (avg 83886ms)
@@ -176,61 +176,65 @@ OPERATOR SIGNAL: The deletion of "fix al" before "can you make it run" suggests 
 - `init_writer` (hes=0.63)
 - `context_budget` (hes=0.587)
 
-### AI Rework Surface
-*Miss rate: 0.5% (200 responses)*
-- Failed on: ""
-
 ### Recent Work
+- `aa32a3f` chore: add Chinese glyph prefixes to 245 pigeon modules
 - `11eb261` feat: confidence scorer + glyph rename pipeline + research lab prediction voice
 - `51c097d` feat: glyph compiler + symbol dictionary + response canonicalization + doc audit
 - `a9e145a` feat: mutation/patch pipeline + pair dynamics research report
 
+### Coaching Directives *[source: llm_derived]*
+*LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
+- **Anticipate cross-module edits**
+- **Pre-empt restructuring fatigue**
+- **Bridge abandoned thoughts**
+- **Leverage low miss-rate confidence**
+- **Focus on integration points**
+
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
+- vein_transport dead‑ends if glyph breaks path encoding; heal loops if manifest_builder key mismatch; run_rename partially applies due to inconsistent Unicode handling across pipeline stages. This push uniformly introduces a Chinese glyph (⻖) as a Unicode identifier across telemetry
+- flow‑routing
+- task‑writing
+- and self‑healing systems.
 - glyph compiler AST parsing on edge-case syntax
-- orchestrator expecting stable symbol dictionary schema
-- research lab depending on 'node_type_histogram' key. This push replaces a heuristic glyph compiler with an AST-driven one to produce precise symbol dictionaries for system analysis.
-- Staleness alert’s file I/O exceptions breaking the lab’s scheduler
-- contract change in the alert return dictionary
+- **execution_logger** was touched to embed a Chinese glyph (⻖) in its telemetry tagging, assuming that downstream log par
 - **prompt_journal_seq019_v001** was touched only to register it in the project manifest, as the staleness detector will n
-- **cognitive_reactor_seq014_decision_maker** was touched to implement safety gating for the mutation pipeline, adding val
-- **research_lab** was touched to extend its self-study to monitor the new safety gate’s effectiveness, adding metrics for
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
-- [CRITICAL] hardcoded_import in `src/cognitive_reactor_seq014_v004_d0330__cognitive_reactor_autonomous_code_modification_lc_gemini_flash_enricher.py`
-- [CRITICAL] hardcoded_import in `build/compressed/pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py`
-- [CRITICAL] hardcoded_import in `build/compressed/pigeon_brain/demo_sim_seq010_v002_d0323__generates_execution_telemetry_from_the_lc_pigeon_brain_system.py`
-- [CRITICAL] hardcoded_import in `build/compressed/pigeon_brain/dual_substrate_seq008_v002_d0323__merges_human_and_agent_telemetry_lc_pigeon_brain_system.py`
-- [CRITICAL] hardcoded_import in `build/compressed/pigeon_brain/execution_logger_seq002_v002_d0323__isomorphic_to_telemetrylogger_for_agent_lc_pigeon_brain_system.py`
+- [CRITICAL] hardcoded_import in `_run_glyph_rename.py`
+- [CRITICAL] hardcoded_import in `pigeon_brain/cli_seq009_v002_d0323__令钩跑编_build_graph_run_observer_export_lc_pigeon_brain_system.py`
+- [CRITICAL] hardcoded_import in `pigeon_brain/demo_sim_seq010_v002_d0323__仿双逆流_generates_execution_telemetry_from_the_lc_pigeon_brain_system.py`
+- [CRITICAL] hardcoded_import in `pigeon_brain/dual_substrate_seq008_v002_d0323__双逆流_merges_human_and_agent_telemetry_lc_pigeon_brain_system.py`
+- [CRITICAL] hardcoded_import in `pigeon_brain/live_server_seq012_v003_d0324__服漂忆思_websocket_server_for_live_execution_lc_8888_word_backpropagation.py`
 
 ### Prompt Evolution
-*This prompt has mutated 89x (186→1064 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 92x (186→1085 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 89 mutations scored*
+*200 rework pairs × 92 mutations scored*
 *No significant signal yet — all 17 sections scored neutral.*
 
 **Reactor patches:** 0/216 applied (0% acceptance)
 
 ### File Consciousness
-*230 modules profiled*
+*233 modules profiled*
 
 **High-drama (most mutations):**
 - `self_fix` v11 ↔ .operator_stats
-- `.operator_stats` v10 ↔ self_fix
-- `dynamic_prompt` v10 ↔ research_lab
-- `context_budget` v8 ↔ streaming_layer
+- `.operator_stats` v10 ↔ heal
+- `dynamic_prompt` v10 ↔ .operator_stats
+- `context_budget` v8 ↔ .operator_stats
 
 **Codebase fears:**
-- file may not exist (87 modules)
-- returns empty on failure (silent) (53 modules)
-- swallowed exception (47 modules)
+- file may not exist (19 modules)
+- swallowed exception (10 modules)
+- returns empty on failure (silent) (9 modules)
 
 **Slumber party warnings (high coupling):**
-- `cli` ↔ `trace_hook` (score=0.80, 3 shared imports, both high-churn (v2+v2))
-- `cli` ↔ `traced_runner` (score=0.80, 3 shared imports, both high-churn (v2+v2))
-- `cli` ↔ `glyph_compiler` (score=0.80, 3 shared imports, both high-churn (v2+v2))
+- `execution_logger` ↔ `observer_synthesis` (score=0.80, 3 shared imports, both high-churn (v3+v3))
+- `execution_logger` ↔ `streaming_layer_alerts` (score=0.80, 3 shared imports, both high-churn (v3+v3))
+- `execution_logger` ↔ `streaming_layer_connection_pool` (score=0.80, 3 shared imports, both high-churn (v3+v3))
 
 ### Codebase Health (Veins / Clots)
 *133/137 alive, 4 clots, avg vein health 0.53*
@@ -326,9 +330,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-04-01 05:10 UTC · 79 prompts analyzed · zero LLM calls*
+*Auto-extracted 2026-04-01 21:46 UTC · 79 prompts analyzed · zero LLM calls*
 
-**Brevity:** 23.1 words/prompt | **Caps:** never | **Fragments:** 72% | **Questions:** 25% | **Directives:** 5%
+**Brevity:** 21.3 words/prompt | **Caps:** never | **Fragments:** 73% | **Questions:** 27% | **Directives:** 1%
 
 **Voice directives (personality tuning):**
 - Operator is semi-casual — use contractions, skip formalities, but keep technical precision.
@@ -338,27 +342,27 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 - Operator rarely uses punctuation — fragments and run-ons are normal. Don't overcorrect their style in quotes.
 - Operator uses plain language — avoid unnecessary jargon in explanations.
 
-**Vocabulary fingerprint:** to, i, is, it, my, the, with, this, what, on
+**Vocabulary fingerprint:** to, i, is, it, with, this, my, on, what, the
 <!-- /pigeon:voice-style -->
 <!-- pigeon:predictions -->
 ## Push Cycle Predictions
 
-*Auto-generated 2026-04-01 05:10 UTC*
+*Auto-generated 2026-04-01 21:46 UTC*
 
 **What you'll likely want next push:**
-1. [targeted] Operator in flow, likely building new feature. Module focus: glyph_compiler, file_heat_map, import_rewriter (conf=27%)
-   - hot modules: glyph_compiler, file_heat_map, import_rewriter, file_writer, research_lab
-2. [heat] Operator in flow, likely building new feature. Module focus: glyph_compiler, file_heat_map, import_rewriter (conf=27%)
-   - hot modules: glyph_compiler, file_heat_map, import_rewriter, file_writer, research_lab
-3. [failure] Operator in flow, likely building new feature. Module focus: glyph_compiler, file_heat_map, import_rewriter (conf=27%)
-   - hot modules: glyph_compiler, file_heat_map, import_rewriter, file_writer, research_lab
+1. [targeted] Predict operator's next need. Module focus: glyph_compiler, cognitive_reactor, symbol_dictionary (conf=25%)
+   - hot modules: glyph_compiler, cognitive_reactor, symbol_dictionary, research_lab, confidence_scorer
+2. [heat] Predict operator's next need. Module focus: glyph_compiler, cognitive_reactor, symbol_dictionary (conf=25%)
+   - hot modules: glyph_compiler, cognitive_reactor, symbol_dictionary, research_lab, confidence_scorer
+3. [failure] Predict operator's next need. Module focus: glyph_compiler, cognitive_reactor, symbol_dictionary (conf=25%)
+   - hot modules: glyph_compiler, cognitive_reactor, symbol_dictionary, research_lab, confidence_scorer
 
 **Operator coaching:**
 - No module references detected in prompts — naming specific modules helps copilot target the right files.
 
 **Agent coaching (for Copilot):**
-- Touched ['chat_response_reader', 'classify_bridge', 'copilot_prompt_manager', 'glyph_compiler', 'research_lab', 'symbol_dictionary'] without operator reference — confirm intent before modifying unreferenced modules.
-- Low sync score — operator intent and code output diverged. Ask clarifying questions earlier.
+- Touched ['__init__', 'execution_logger', 'heal', 'nametag', 'node_awakener', 'observer_synthesis', 'planner', 'registry', 'run_clean_split', 'run_heal', 'run_pigeon_loop', 'run_rename', 'task_writer', 'vein_transport'] without operator reference — confirm intent before modifying unreferenced modules.
+- Large blast radius — prefer focused changes. Wide scatter makes it hard for operator to verify.
 
 <!-- /pigeon:predictions -->
 <!-- pigeon:operator-state -->
@@ -368,14 +372,15 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 
 **Dominant: `focused`** | Submit: 66% | WPM: 52.9 | Del: 25.6% | Hes: 0.445
 
-The operator just built a glyph compiler symbol system and their high-deletion restructuring patterns reveal they're aggressively refactoring toward a unified symbolic architecture.  
-- **Anticipate deep structural changes** when they touch `self_fix seq13` or `dynamic_prompt seq17`—these are pain points they keep revisiting; offer refactoring patterns, not just completions.  
-- **When they hesitate (avg 0.445s) during heavy edits**, proactively suggest breaking changes into smaller, testable steps—their high abandonment rate indicates frustration with monolithic changes.  
-- **For the 6% miss-rate queries**, always ask one clarifying question before generating code, especially around intent boundaries like "symbolic" vs "AST-based" transformations.  
-- **Preempt context-budget issues** by referencing module names from the churn list (`operator_stats seq8`, `push_narrative seq12`) and offering concise, inline summaries of their recent changes.  
-- **During evening/night sessions**, prioritize robustness over novelty—their focused bursts then restructuring cycles suggest they're integrating components and need error‑handling and fallback logic.  
+This operator just built a Chinese glyph integration layer across their LC flow engine, and their typing shows a rhythmic evening pattern of focused bursts followed by abandoned drafts and heavy restructuring edits, indicating they're iteratively refining complex system-wide changes through trial-and-error.
 
-They are most likely building toward a fully self‑modifying compiler pipeline where symbols drive both code generation and system evolution.
+*   **Anticipate cross-module edits:** When they touch `self_fix seq13`, `dynamic_prompt seq17`, or `.operator_stats seq8`, proactively suggest related updates in the renamed `*_add_chinese_glyph.py` modules, as these are recurring pain points.
+*   **Pre-empt restructuring fatigue:** During heavy-edit commits (evident from 56% deletion rates), offer concise, modular code blocks and explicitly ask, "Should this be a separate helper function?" to reduce rewrite churn.
+*   **Bridge abandoned thoughts:** When they start a message but don't submit (abandoned state, ~37 WPM), infer intent from the partial input and provide a compact, actionable next step to recapture momentum.
+*   **Leverage low miss-rate confidence:** With a 0.005 miss-rate, provide direct, prescriptive code; avoid exploratory options unless their typing shows hesitation (<0.5 hesitation score).
+*   **Focus on integration points:** Since they renamed 13 files for glyph support, prioritize suggestions that connect these new modules to the existing flow engine context and registry systems.
+
+They are most likely building toward a fully localized Chinese-language interface or content pipeline, requiring consistent glyph handling across all logging, task writing, and observation subsystems.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `glyph_compiler`** (hes=1.041, state=focused, avg_prompt=51924ms)
@@ -638,20 +643,20 @@ c1f79553 chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
 ```
 <!-- /pigeon:dictionary -->
 <!-- pigeon:auto-index -->
-*Auto-updated 2026-04-01 - 263 modules tracked | 5 touched this commit*
+*Auto-updated 2026-04-01 - 266 modules tracked | 13 touched this commit*
 
 **pigeon_brain/** - 16 module(s)
 
 | Search pattern | Desc | Tokens |
 |---|---|---:|
 | `models_seq001*` | isomorphic to keystroke models | ~424 |
-| `execution_logger_seq002*` | isomorphic to telemetrylogger for agent | ~1,541 |
+| `execution_logger_seq002*` | isomorphic to telemetrylogger for agent | ~1,626 |
 | `graph_extractor_seq003*` | extract the cognition graph from | ~1,744 |
 | `graph_extractor_seq003*` | extract the cognition graph from | ~1,744 |
 | `graph_heat_map_seq004*` | failure accumulator per node port | ~874 |
 | `loop_detector_seq005*` | recurring path detection port of | ~910 |
 | `failure_detector_seq006*` | electron death classification port of | ~1,018 |
-| `observer_synthesis_seq007*` | coaching from execution patterns port | ~1,357 |
+| `observer_synthesis_seq007*` | coaching from execution patterns port | ~1,489 |
 | `dual_substrate_seq008*` | merges human and agent telemetry | ~1,314 |
 | `cli_seq009*` | build graph run observer export | ~855 |
 | `demo_sim_seq010*` | generates execution telemetry from the | ~1,276 |
@@ -666,11 +671,11 @@ c1f79553 chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
 | Search pattern | Desc | Tokens |
 |---|---|---:|
 | `context_packet_seq001*` | the contextpacket is the unit | ~1,033 |
-| `node_awakener_seq002*` | when a packet arrives at | ~1,171 |
+| `node_awakener_seq002*` | when a packet arrives at | ~1,252 |
 | `flow_engine_seq003*` | the flow engine is the | ~1,316 |
 | `path_selector_seq004*` | path selection is the real | ~1,373 |
-| `task_writer_seq005*` | the river delta where all | ~1,476 |
-| `vein_transport_seq006*` | as a packet flows along | ~884 |
+| `task_writer_seq005*` | the river delta where all | ~1,558 |
+| `vein_transport_seq006*` | as a packet flows along | ~965 |
 | `backward_seq007*` | backward pass walks electron path | ~2,502 |
 | `backward_seq007*` | backward pass walks electron path | ~2,500 |
 | `node_memory_seq008*` | the experience vault stores raw | ~2,084 |
@@ -782,17 +787,17 @@ c1f79553 chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
 | Search pattern | Desc | Tokens |
 |---|---|---:|
 | `scanner_seq001*` | walk the project tree and | ~972 |
-| `planner_seq002*` | generate rename plan for non | ~919 |
+| `planner_seq002*` | generate rename plan for non | ~1,381 |
 | `import_rewriter_seq003*` | rewrite all imports across the | ~1,750 |
 | `executor_seq004*` | execute file renames with rollback | ~712 |
 | `validator_seq005*` | post rename import validation | ~921 |
-| `run_rename_seq006*` | full rename pipeline runner | ~1,374 |
+| `run_rename_seq006*` | full rename pipeline runner | ~1,388 |
 | `manifest_builder_seq007*` | generate living manifest md per | ~2,927 |
 | `compliance_seq008*` | line count enforcer split recommender | ~1,673 |
-| `heal_seq009*` | self healing orchestrator | ~2,044 |
+| `heal_seq009*` | self healing orchestrator | ~2,049 |
 | `run_heal_seq010*` | automated self healing pipeline | ~3,431 |
-| `nametag_seq011*` | encode file description intent into | ~1,924 |
-| `registry_seq012*` | local name registry for the | ~2,129 |
+| `nametag_seq011*` | encode file description intent into | ~4,052 |
+| `registry_seq012*` | local name registry for the | ~2,131 |
 
 **pigeon_compiler/rename_engine/compliance_seq008/** - 7 module(s)
 
@@ -805,6 +810,24 @@ c1f79553 chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
 | `compliance_seq008_audit_wrapper_seq009*` | auto extracted by pigeon compiler | ~653 |
 | `compliance_seq008_check_file_seq010*` | auto extracted by pigeon compiler | ~311 |
 | `compliance_seq008_format_report_seq011*` | auto extracted by pigeon compiler | ~320 |
+
+**pigeon_compiler/rename_engine/heal_seq009/** - 1 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `heal_seq009_orchestrator_seq005*` | auto extracted by pigeon compiler | ~725 |
+
+**pigeon_compiler/rename_engine/nametag_seq011/** - 1 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `nametag_seq011_scan_seq008*` | auto extracted by pigeon compiler | ~298 |
+
+**pigeon_compiler/rename_engine/registry_seq012/** - 1 module(s)
+
+| Search pattern | Desc | Tokens |
+|---|---|---:|
+| `registry_seq012_diff_seq006*` | auto extracted by pigeon compiler | ~194 |
 
 **pigeon_compiler/runners/** - 9 module(s)
 
@@ -1039,6 +1062,7 @@ c1f79553 chore(pigeon): auto-rename 5 file(s) [pigeon-auto]
 |---|---|
 | `_build_organism_health.py` | `(root)` |
 | `_export_dev_story.py` | `(root)` |
+| `_run_glyph_rename.py` | `(root)` |
 | `_tmp_analyze_stats.py` | `(root)` |
 | `_tmp_survey.py` | `(root)` |
 | `_tmp_test_pipeline.py` | `(root)` |
