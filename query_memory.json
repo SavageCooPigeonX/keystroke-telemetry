@@ -1,108 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-04-01T06:48:21.267299+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T06:49:21.629613+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T06:50:22.127263+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T06:51:21.275187+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T06:52:21.014662+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T06:53:21.692561+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T06:54:22.185903+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T06:55:21.753064+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T06:56:21.107663+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T06:57:21.220573+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T06:58:21.347762+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T06:59:21.215947+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T07:00:21.275445+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T07:01:21.006871+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T07:02:21.147251+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T07:03:21.359250+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T07:04:21.636573+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
       "ts": "2026-04-01T07:05:21.619013+00:00",
       "text": "bg:RESEARCH_LOG.md",
       "fingerprint": "bgresearch_logmd",
@@ -2998,6 +2896,108 @@
       "ts": "2026-04-01T19:18:49.678114+00:00",
       "text": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
       "fingerprint": "bggraph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_systempy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:23:32.689319+00:00",
+      "text": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001__pre_process_every_prompt_viapy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:24:26.142873+00:00",
+      "text": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001__pre_process_every_prompt_viapy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:27:52.902183+00:00",
+      "text": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001__pre_process_every_prompt_viapy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:28:05.594648+00:00",
+      "text": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001__pre_process_every_prompt_viapy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:28:26.366576+00:00",
+      "text": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001__pre_process_every_prompt_viapy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:29:26.186532+00:00",
+      "text": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001__pre_process_every_prompt_viapy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:30:23.218805+00:00",
+      "text": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001__pre_process_every_prompt_viapy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:31:28.146611+00:00",
+      "text": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001__pre_process_every_prompt_viapy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:32:29.640249+00:00",
+      "text": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001__pre_process_every_prompt_viapy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:33:30.312140+00:00",
+      "text": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001__pre_process_every_prompt_viapy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:34:28.183876+00:00",
+      "text": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001__pre_process_every_prompt_viapy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:36:27.474421+00:00",
+      "text": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001__pre_process_every_prompt_viapy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:37:29.724955+00:00",
+      "text": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001__pre_process_every_prompt_viapy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:38:28.976136+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:39:39.427407+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:40:41.539900+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-01T21:40:41.873206+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
       "submitted": true
     }
   ],

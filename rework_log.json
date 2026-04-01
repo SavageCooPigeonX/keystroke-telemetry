@@ -1,141 +1,5 @@
 [
   {
-    "ts": "2026-04-01T11:48:24.290538+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T11:49:24.333446+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T11:50:24.361627+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T11:51:24.258893+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T11:52:24.343731+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T11:53:24.313060+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T11:54:24.102326+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T11:55:24.013862+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T11:56:24.268105+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T11:57:24.311416+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T11:58:24.366519+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T11:59:24.175072+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T12:00:24.244439+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T12:01:24.317034+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T12:02:24.216303+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T12:03:24.318645+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-01T12:04:24.422333+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
     "ts": "2026-04-01T12:05:24.350645+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
@@ -1598,5 +1462,141 @@
     "del_ratio": 0.0,
     "wpm": 42.3,
     "query_hint": "bg:graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon"
+  },
+  {
+    "ts": "2026-04-01T21:23:32.667222+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
+  },
+  {
+    "ts": "2026-04-01T21:24:26.134078+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
+  },
+  {
+    "ts": "2026-04-01T21:27:52.887784+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
+  },
+  {
+    "ts": "2026-04-01T21:28:05.347248+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
+  },
+  {
+    "ts": "2026-04-01T21:28:26.356347+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
+  },
+  {
+    "ts": "2026-04-01T21:29:26.176951+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
+  },
+  {
+    "ts": "2026-04-01T21:30:23.189935+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
+  },
+  {
+    "ts": "2026-04-01T21:31:28.109804+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
+  },
+  {
+    "ts": "2026-04-01T21:32:29.609139+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
+  },
+  {
+    "ts": "2026-04-01T21:33:30.280286+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
+  },
+  {
+    "ts": "2026-04-01T21:34:28.132996+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
+  },
+  {
+    "ts": "2026-04-01T21:36:27.459043+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
+  },
+  {
+    "ts": "2026-04-01T21:37:29.706479+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001__pre_process_every_prompt_via.py"
+  },
+  {
+    "ts": "2026-04-01T21:38:28.958528+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-01T21:39:39.410400+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-01T21:40:41.506840+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-01T21:40:41.810500+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 38.1,
+    "query_hint": "bg:idle"
   }
 ]

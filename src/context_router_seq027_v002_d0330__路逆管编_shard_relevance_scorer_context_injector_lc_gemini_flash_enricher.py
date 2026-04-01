@@ -23,7 +23,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from src.shard_manager_seq026_v002_d0330__local_memory_shard_manager_markdown_lc_gemini_flash_enricher import (
+from src.shard_manager_seq026_v002_d0330__片双逆_local_memory_shard_manager_markdown_lc_gemini_flash_enricher import (
     SHARD_SCHEMA, read_shard_entries, get_shard_summary, list_shards,
     get_unresolved_contradictions,
 )

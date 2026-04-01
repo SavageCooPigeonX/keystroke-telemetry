@@ -9,7 +9,7 @@
 # ──────────────────────────────────────────────
 from pathlib import Path
 import re
-from .compliance_seq008_constants_seq001_v001 import SKIP_DIRS
+from .compliance_seq008_constants_seq001_v001__正审图 import SKIP_DIRS
 
 def _snake(name: str) -> str:
     """Convert CamelCase or title to snake_case."""

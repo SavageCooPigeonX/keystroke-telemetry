@@ -32,7 +32,7 @@ from __future__ import annotations
 import re
 from typing import Any
 
-from .context_packet_seq001_v002_d0324__the_contextpacket_is_the_unit_lc_flow_engine_context import ContextPacket, NodeIntel
+from .context_packet_seq001_v002_d0324__包逆流_the_contextpacket_is_the_unit_lc_flow_engine_context import ContextPacket, NodeIntel
 
 RELEVANCE_THRESHOLD = 0.3
 HEAT_AUTO_RELEVANT = 0.5     # dual_score above this = always relevant

@@ -181,7 +181,7 @@ def scan_drift(root: Path, folders: list[str] = None) -> list[dict]:
 
     Returns list of {path, current, suggested, slug_current, slug_new}
     """
-    from pigeon_compiler.rename_engine.scanner_seq001_v004_d0315__walk_the_project_tree_and_lc_verify_pigeon_plugin import (
+    from pigeon_compiler.rename_engine.scanner_seq001_v004_d0315__扫_walk_the_project_tree_and_lc_verify_pigeon_plugin import (
         scan_project,
     )
 
@@ -336,8 +336,9 @@ def build_glyph_prefix(
     if not own_glyph:
         return ''
 
-    # Confidence state
-    state = confidence_map.get(module_name, '')
+    # Confidence state — NOT included in filename (symbols like ✓!~? break Python imports)
+    # State is stored in the symbol dictionary only, not in filenames.
+    state = ''
 
     # Dependency glyphs — from partners (coupling data) first, AST fallback
     dep_chars = []
@@ -389,10 +390,10 @@ def build_nametag_with_glyphs(
 
 # ── Glyph drift detection ────────────────────
 
-# Matches glyph prefix at start of desc slug: one or more non-ASCII chars
-# followed by optional state symbol (✓~!?) and more non-ASCII, then underscore
+# Matches glyph prefix at start of desc slug: one or more CJK chars then underscore
+# State symbols (✓~!?) are NOT included — they break Python identifiers
 _GLYPH_PREFIX_RE = re.compile(
-    r'^([\u4e00-\u9fff\u0370-\u03ff✓~!?]+)(?:_|$)'
+    r'^([\u4e00-\u9fff]+)(?:_|$)'
 )
 
 
@@ -466,7 +467,7 @@ def scan_glyph_drift(
     Returns list of {path, current, suggested, current_prefix, expected_prefix}.
     Flows into the heal pipeline's rename path (rollback + import rewrite).
     """
-    from pigeon_compiler.rename_engine.scanner_seq001_v004_d0315__walk_the_project_tree_and_lc_verify_pigeon_plugin import (
+    from pigeon_compiler.rename_engine.scanner_seq001_v004_d0315__扫_walk_the_project_tree_and_lc_verify_pigeon_plugin import (
         scan_project,
     )
 

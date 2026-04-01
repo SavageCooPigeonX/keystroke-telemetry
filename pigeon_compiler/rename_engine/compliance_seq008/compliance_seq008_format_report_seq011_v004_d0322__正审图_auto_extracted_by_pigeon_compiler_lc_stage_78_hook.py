@@ -8,7 +8,7 @@
 # SESSIONS: 3
 # ──────────────────────────────────────────────
 import re
-from .compliance_seq008_constants_seq001_v001 import MAX_LINES
+from .compliance_seq008_constants_seq001_v001__正审图 import MAX_LINES
 
 def format_report(audit: dict) -> str:
     """Format audit results as readable text."""

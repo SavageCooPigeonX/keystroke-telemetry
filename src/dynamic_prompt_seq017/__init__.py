@@ -1,4 +1,4 @@
 """dynamic_prompt_seq017/ — Pigeon-compliant module."""
-from .dynamic_prompt_seq017_build_context_main_seq011_v001 import build_task_context
-from .dynamic_prompt_seq017_cot_constants_seq009_v001 import _COT
-from .dynamic_prompt_seq017_inject_context_seq012_v001 import inject_task_context
+from .dynamic_prompt_seq017_build_context_main_seq011_v001__推研热忆 import build_task_context
+from .dynamic_prompt_seq017_cot_constants_seq009_v001__推研热忆 import _COT
+from .dynamic_prompt_seq017_inject_context_seq012_v001__推研热忆 import inject_task_context

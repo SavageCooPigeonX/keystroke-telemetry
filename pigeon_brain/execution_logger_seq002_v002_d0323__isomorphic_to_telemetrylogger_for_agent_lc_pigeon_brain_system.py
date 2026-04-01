@@ -20,7 +20,7 @@ import time
 from pathlib import Path
 from dataclasses import asdict
 
-from .models_seq001_v002_d0323__isomorphic_to_keystroke_models_lc_pigeon_brain_system import (
+from .models_seq001_v002_d0323__型层包_isomorphic_to_keystroke_models_lc_pigeon_brain_system import (
     SCHEMA_VERSION, ExecutionEvent, Electron,
     ElectronStatus, EventType, DeathCause,
 )

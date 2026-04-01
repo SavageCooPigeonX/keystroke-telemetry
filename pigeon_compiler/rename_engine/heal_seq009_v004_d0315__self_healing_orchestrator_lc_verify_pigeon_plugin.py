@@ -34,7 +34,7 @@ from pigeon_compiler.rename_engine.manifest_builder_seq007_v003_d0314__generate_
     build_all_manifests,
     build_manifest,
 )
-from pigeon_compiler.rename_engine.compliance_seq008_v004_d0315__line_count_enforcer_split_recommender_lc_verify_pigeon_plugin import (
+from pigeon_compiler.rename_engine.compliance_seq008_v004_d0315__正审图_line_count_enforcer_split_recommender_lc_verify_pigeon_plugin import (
     audit_compliance,
     check_file,
 )

@@ -34,7 +34,7 @@ def _load_glyph_data(root: Path) -> tuple[dict, dict, dict]:
     if root is None:
         return glyph_map, confidence_map, partners
     try:
-        from src.symbol_dictionary_seq031_v002_d0401__symbol_dictionary_generator_for_pigeon_lc_glyph_compiler_symbol import (
+        from src.symbol_dictionary_seq031_v002_d0401__典双逆流_symbol_dictionary_generator_for_pigeon_lc_glyph_compiler_symbol import (
             _MNEMONIC_MAP,
         )
         glyph_map = dict(_MNEMONIC_MAP)

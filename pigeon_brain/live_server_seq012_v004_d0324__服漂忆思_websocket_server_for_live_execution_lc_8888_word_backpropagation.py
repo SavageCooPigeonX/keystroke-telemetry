@@ -34,7 +34,7 @@ try:
 except ImportError:
     HAS_WS = False
 
-from pigeon_brain.trace_hook_seq011_v002_d0323__instruments_python_calls_between_pigeon_lc_pigeon_brain_system import (
+from pigeon_brain.trace_hook_seq011_v002_d0323__钩令_instruments_python_calls_between_pigeon_lc_pigeon_brain_system import (
     drain_events,
     peek_recent,
     start_trace,

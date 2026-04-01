@@ -403,7 +403,7 @@ def _update_calibration(root: Path, scored: list[dict[str, Any]]) -> dict[str, A
 
 def backfill_prediction_scores(root: Path, scored: list[dict[str, Any]]) -> int:
     """Feed prediction accuracy into node_memory with calibration-weighted penalties."""
-    from .node_memory_seq008_v003_d0328__the_experience_vault_stores_raw_lc_dynamic_import_resolvers import (
+    from .node_memory_seq008_v003_d0328__存学预_the_experience_vault_stores_raw_lc_dynamic_import_resolvers import (
         append_learning,
     )
 
@@ -455,7 +455,7 @@ def score_predictions_post_edit(root: Path) -> dict[str, Any]:
 
     Should be called frequently (every prediction cycle in the learning loop).
     """
-    from .predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
+    from .predictor_seq009_v003_d0327__预热_fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
         load_predictions, save_predictions,
     )
 
@@ -583,7 +583,7 @@ def score_predictions_post_commit(root: Path) -> dict[str, Any]:
     Supplements edit-session scoring with commit-level ground truth,
     merged with real-time copilot edit data.
     """
-    from .predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
+    from .predictor_seq009_v003_d0327__预热_fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
         load_predictions,
     )
 

@@ -40,7 +40,7 @@ def run_traced(script_path: str, root: Path = None):
         print(f"Error: {script} not found")
         return
 
-    from pigeon_brain.trace_hook_seq011_v002_d0323__instruments_python_calls_between_pigeon_lc_pigeon_brain_system import start_trace, stop_trace, drain_events
+    from pigeon_brain.trace_hook_seq011_v002_d0323__钩令_instruments_python_calls_between_pigeon_lc_pigeon_brain_system import start_trace, stop_trace, drain_events
 
     # Start tracing
     start_trace(root)

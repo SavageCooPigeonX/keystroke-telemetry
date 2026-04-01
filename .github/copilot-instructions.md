@@ -147,30 +147,26 @@ OPERATOR SIGNAL: The deletion of "fix al" before "can you make it run" suggests 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-01 19:18 UTC · 51 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-01 21:41 UTC · 57 messages profiled · 8 recent commits*
 
 **Current focus:** building new features
-**Cognitive state:** `abandoned` (WPM: 51.5 | Del: 26.5% | Hes: 0.495) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 49.0 | Del: 26.5% | Hes: 0.491) · *[source: measured]*
 
-**Prompt ms:** 4767, 3938, 18626, 22457, 4255 (avg 10809ms)
+**Prompt ms:** 22457, 4255, 371727, 4935, 16057 (avg 83886ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- **Reconstructed intent:** The rename shouldn
-  - *(deleted: renam | ratio: 35%)*
 - **Reconstructed intent:** The rename operation should not
   - *(deleted: renam | ratio: 35%)*
 - **Reconstructed intent:** The rename shouldn'
   - *(deleted: renam | ratio: 35%)*
+- **Reconstructed intent:** Execute a rename
+  - *(deleted: explored | ratio: 1%)*
 
-- "last change - t"
-- "te - change"
-- "trcke"
-- "or like"
-- "coonti"
 - "renam"
+- "explored"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
@@ -178,17 +174,16 @@ OPERATOR SIGNAL: The deletion of "fix al" before "can you make it run" suggests 
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 - `init_writer` (hes=0.63)
-- `self_fix` (hes=0.612)
+- `context_budget` (hes=0.587)
 
 ### AI Rework Surface
 *Miss rate: 0.5% (200 responses)*
 - Failed on: ""
 
 ### Recent Work
+- `11eb261` feat: confidence scorer + glyph rename pipeline + research lab prediction voice
 - `51c097d` feat: glyph compiler + symbol dictionary + response canonicalization + doc audit
 - `a9e145a` feat: mutation/patch pipeline + pair dynamics research report
-- `e3c540b` feat: staleness alerts + bg-flush filtering + research data fix
-- `7e0ecab` feat: intent deletion pipeline + unsaid reconstruction + copilot-instructions safety guard
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -210,10 +205,10 @@ OPERATOR SIGNAL: The deletion of "fix al" before "can you make it run" suggests 
 - [CRITICAL] hardcoded_import in `build/compressed/pigeon_brain/execution_logger_seq002_v002_d0323__isomorphic_to_telemetrylogger_for_agent_lc_pigeon_brain_system.py`
 
 ### Prompt Evolution
-*This prompt has mutated 88x (186→1055 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 89x (186→1064 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 87 mutations scored*
+*200 rework pairs × 89 mutations scored*
 *No significant signal yet — all 17 sections scored neutral.*
 
 **Reactor patches:** 0/216 applied (0% acceptance)
@@ -369,9 +364,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-01 · 51 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-01 · 57 message(s) · LLM-synthesized*
 
-**Dominant: `focused`** | Submit: 66% | WPM: 52.9 | Del: 25.6% | Hes: 0.446
+**Dominant: `focused`** | Submit: 66% | WPM: 52.9 | Del: 25.6% | Hes: 0.445
 
 The operator just built a glyph compiler symbol system and their high-deletion restructuring patterns reveal they're aggressively refactoring toward a unified symbolic architecture.  
 - **Anticipate deep structural changes** when they touch `self_fix seq13` or `dynamic_prompt seq17`—these are pain points they keep revisiting; offer refactoring patterns, not just completions.  

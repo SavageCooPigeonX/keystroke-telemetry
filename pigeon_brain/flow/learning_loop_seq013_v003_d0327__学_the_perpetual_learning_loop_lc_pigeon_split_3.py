@@ -108,13 +108,13 @@ def run_single_cycle(
 
     Returns cycle result dict.
     """
-    from .flow_engine_seq003_v002_d0324__the_flow_engine_is_the_lc_flow_engine_context import (
+    from .flow_engine_seq003_v002_d0324__流双逆_the_flow_engine_is_the_lc_flow_engine_context import (
         run_flow, run_multi, load_graph_data,
     )
     from .task_writer_seq005_v002_d0324__the_river_delta_where_all_lc_flow_engine_context import (
         write_task,
     )
-    from .backward_seq007_v004_d0328__backward_pass_walks_electron_path_lc_dynamic_import_resolvers import (
+    from .backward_seq007_v004_d0328__逆_backward_pass_walks_electron_path_lc_dynamic_import_resolvers import (
         backward_pass, log_forward_pass,
     )
 
@@ -195,15 +195,15 @@ def run_single_cycle(
 
 def run_prediction_cycle(root: Path, state: dict[str, Any]) -> int:
     """Fire phantom electrons from cognitive profile."""
-    from .predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
+    from .predictor_seq009_v003_d0327__预热_fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
         predict_next_needs,
     )
-    from .flow_engine_seq003_v002_d0324__the_flow_engine_is_the_lc_flow_engine_context import (
+    from .flow_engine_seq003_v002_d0324__流双逆_the_flow_engine_is_the_lc_flow_engine_context import (
         run_flow,
     )
     # Score any existing predictions against edit sessions (primary)
     try:
-        from .prediction_scorer_seq014_v005_d0330__edit_session_based_lc_gemini_flash_enricher import (
+        from .prediction_scorer_seq014_v005_d0330__算思录研_edit_session_based_lc_gemini_flash_enricher import (
             score_predictions_post_edit,
         )
         score_result = score_predictions_post_edit(root)
