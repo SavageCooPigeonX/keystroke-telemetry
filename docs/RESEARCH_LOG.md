@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-02 07:47 UTC · 249 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-02 15:34 UTC · 250 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -22,14 +22,14 @@
 
 ## Live Operator State
 
-*249 prompts profiled · source: measured*
+*250 prompts profiled · source: measured*
 
-**Dominant: `abandoned` | Submit: 66% | Del: 4.0%**
-- operator entering flow state — productive building, less backtracking
+**Dominant: `abandoned` | Submit: 66% | Del: 4.1%**
+- deletion ratio stable — no major mode shift detected
 
 ## Pair Performance
 
-*200 responses scored · 0 background excluded*
+*199 responses scored · 1 background excluded*
 
 **Accuracy: 100% OK | 0% miss** *[source: measured]*
 - trend: **stable** (100% → 100%)
@@ -37,7 +37,7 @@
 **Prompt→edit latency:** 325.2s median (46 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*101 mutations scored*
+*103 mutations scored*
 - no significant signal yet — all sections scored neutral
 
 **Reactor:** 231 fires, 0 accepted (0%)
@@ -49,6 +49,10 @@
 
 **Problem trend: growing** (early avg 24 → recent avg 409) *[source: measured]*
 - problems growing ~385/push — expect more over_hard_cap and dead_exports without intervention
+
+### Fragile Contracts *[source: llm_derived]*
+*From push narratives — treat as hypothesis:*
+- REGRESSION WATCHLIST: System locale mismatch causing mis-decoded git history, loss of information from 'replace' error handler, incorrect display of legacy commit encodings.
 
 ### Recent Deaths *[source: measured]*
 - `exception`: 3
@@ -64,22 +68,22 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "d eve"
-- "just aski"
-- "uncrt"
-- "intencom"
-- "ginger"
-- "but"
-- "okay kill im talking about proce"
-- "but h"
-- "test"
+- "coonti"
 - "coul"
+- "my fv fyi"
+- "meta"
+- "renam"
+- "test"
+- "mmm -- gon"
+- "and"
+- "o please continue s"
+- "nd my\"
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20
+- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20, 1 bg noise
 - **Training pairs:** 41 captured
 - **Prediction accuracy:** F1=0.010, calibration=0.305 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses

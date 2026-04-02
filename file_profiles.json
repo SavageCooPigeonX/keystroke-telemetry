@@ -2717,7 +2717,7 @@
     "tokens": 4672,
     "partners": [],
     "fears": [],
-    "avg_hes": 0.601
+    "avg_hes": 0.667
   },
   "adapter": {
     "personality": "fresh",
@@ -3592,7 +3592,7 @@
     "tokens": 5239,
     "partners": [],
     "fears": [],
-    "avg_hes": 0.601
+    "avg_hes": 0.667
   },
   "file_consciousness_seq019_audit": {
     "personality": "fresh",
@@ -4816,7 +4816,7 @@
     "tokens": 5846,
     "partners": [],
     "fears": [],
-    "avg_hes": 0.601
+    "avg_hes": 0.667
   },
   "session_handoff": {
     "personality": "fresh",

@@ -1,30 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-04-01T18:36:49.648328+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T18:37:10.379724+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T18:37:49.663802+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T18:40:50.184247+00:00",
-      "text": "bg:cognitive_reactor_seq014_v005_d0331__cognitive_reactor_autonomous_code_modification_lc_mutation_patch_pipeline.py",
-      "fingerprint": "bgcognitive_reactor_seq014_v005_d0331__cognitive_reactor_autonomous_code_modification_lc_mutation_patch_pipelinepy",
-      "submitted": true
-    },
-    {
       "ts": "2026-04-01T18:41:49.785389+00:00",
       "text": "bg:cognitive_reactor_seq014_v005_d0331__cognitive_reactor_autonomous_code_modification_lc_mutation_patch_pipeline.py",
       "fingerprint": "bgcognitive_reactor_seq014_v005_d0331__cognitive_reactor_autonomous_code_modification_lc_mutation_patch_pipelinepy",
@@ -2996,6 +2972,30 @@
     },
     {
       "ts": "2026-04-02T15:32:06.859244+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T15:33:06.572109+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T15:34:06.506713+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T15:35:06.623455+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T15:35:12.172897+00:00",
       "text": "bg:copilot-instructions.md",
       "fingerprint": "bgcopilotinstructionsmd",
       "submitted": true

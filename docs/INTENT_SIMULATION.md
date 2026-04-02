@@ -1,48 +1,48 @@
 # Intent Simulation Report
 
-*Auto-generated 2026-04-02 07:47 UTC · 154 commits analyzed · zero LLM calls*
+*Auto-generated 2026-04-02 15:34 UTC · 156 commits analyzed · zero LLM calls*
 
 > This is a forward projection of operator intent based on development timeline, prompt patterns,
 > deleted words, and cognitive load signals. Predictions become pass/fail on next push.
 
 ## Development Velocity
 
-**7.3 commits/day** · 16 active days · acceleration: -9% *[source: measured]*
-- early: 7.6/day → recent: 7.0/day (decelerating)
+**7.2 commits/day** · 16 active days · acceleration: -12% *[source: measured]*
+- early: 7.7/day → recent: 6.8/day (decelerating)
 
 ## Intent Trajectory
 
 **Dominant: `infrastructure`** *[source: measured]*
 - **emerging:** `telemetry`, `unclassified`
-- **declining:** `self_heal`, `prediction`, `compression`
+- **declining:** `self_heal`, `compression`, `prediction`
 
 | Intent | Trend |
 |---|---|
-| `telemetry` | ↑ +0.156 |
-| `self_heal` | ↓ -0.130 |
-| `unclassified` | ↑ +0.130 |
-| `prediction` | ↓ -0.117 |
-| `compression` | ↓ -0.104 |
-| `flow_engine` | ↓ -0.104 |
-| `infrastructure` | ↓ -0.065 |
-| `research` | ↓ -0.065 |
+| `telemetry` | ↑ +0.154 |
+| `self_heal` | ↓ -0.141 |
+| `unclassified` | ↑ +0.128 |
+| `compression` | ↓ -0.115 |
+| `prediction` | ↓ -0.115 |
+| `flow_engine` | ↓ -0.103 |
+| `research` | ↓ -0.064 |
+| `infrastructure` | ↓ -0.051 |
 | `product` | ↑ +0.026 |
 
 ## Forward Projection
 
 ### 1 Week *[confidence: high]*
-- ~49 commits expected
+- ~47 commits expected
 - primary: `infrastructure`
 - secondary: `telemetry`
 
 ### 1 Month *[confidence: medium]*
-- ~199 commits expected
+- ~190 commits expected
 - primary: `infrastructure`
 - **risk of abandonment:** `self_heal`
 
 ### 3 Months *[confidence: speculative]*
 - primary: `infrastructure`
-- **from deleted words:** `my fv fyi`, `meta`, `blueberry`, `tays`, `o please continue s`
+- **from deleted words:** `you`, `blueberry`, `cles re`, `nto`, `tays`
 - predicted module focus: `file_heat_map`, `import_rewriter`, `file_writer`, `run_batch_compile_seq015`, `logger_seq003`
 
 ## Deleted Thought Archaeology
@@ -71,7 +71,7 @@
 
 - Intent bifurcation: `infrastructure` dominant but `telemetry` emerging — watch for context switches mid-session.
 - `self_heal` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
-- Unsaid themes detected: `my fv fyi`, `meta`, `blueberry` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
+- Unsaid themes detected: `you`, `blueberry`, `cles re` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
 - Module focus cluster: `file_heat_map`, `import_rewriter`, `file_writer` — pre-load context from these modules when operator starts typing.
 
 ## Testable Predictions

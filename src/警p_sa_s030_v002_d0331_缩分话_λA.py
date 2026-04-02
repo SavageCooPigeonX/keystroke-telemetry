@@ -14,9 +14,9 @@ When everything is fresh, the alert block is removed (clean state).
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-04-02T06:09:00Z
+# EDIT_TS:   2026-04-02T16:00:00Z
 # EDIT_HASH: auto
-# EDIT_WHY:  fix stale block scan
+# EDIT_WHY:  test rename mutation
 # EDIT_STATE: harvested
 # ── /pulse ──
 from __future__ import annotations
