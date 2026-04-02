@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-02 15:39 UTC · 250 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-02 23:32 UTC · 269 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -22,10 +22,10 @@
 
 ## Live Operator State
 
-*250 prompts profiled · source: measured*
+*269 prompts profiled · source: measured*
 
-**Dominant: `abandoned` | Submit: 66% | Del: 4.1%**
-- deletion ratio stable — no major mode shift detected
+**Dominant: `abandoned` | Submit: 66% | Del: 4.5%**
+- operator entering flow state — productive building, less backtracking
 
 ## Pair Performance
 
@@ -34,20 +34,20 @@
 **Accuracy: 100% OK | 0% miss** *[source: measured]*
 - trend: **stable** (100% → 100%)
 
-**Prompt→edit latency:** 360.2s median (47 pairs)
+**Prompt→edit latency:** 365.4s median (48 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*104 mutations scored*
+*106 mutations scored*
 - no significant signal yet — all sections scored neutral
 
-**Reactor:** 231 fires, 0 accepted (0%)
+**Reactor:** 232 fires, 0 accepted (0%)
 > **Directive:** Reactor patches near-zero acceptance — tune confidence threshold or disable
 
 ## Codebase Health
 
-*47 self-fix reports · 2026-03-16 → 2026-04-02*
+*48 self-fix reports · 2026-03-16 → 2026-04-02*
 
-**Problem trend: growing** (early avg 24 → recent avg 442) *[source: measured]*
+**Problem trend: growing** (early avg 24 → recent avg 441) *[source: measured]*
 - problems growing ~417/push — expect more over_hard_cap and dead_exports without intervention
 
 ### Fragile Contracts *[source: llm_derived]*
@@ -68,23 +68,23 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "and"
-- "orange ici"
-- "coul"
+- "my fv fyi"
+- "ned"
+- "intencom"
+- "we have t"
 - "meta"
-- "renam"
-- "blueberry"
-- "uncrt"
-- "o please continue s"
-- "but"
-- "the"
+- "ginger"
+- "implement all - andt"
+- "cop"
+- "nto"
+- "d eve"
 
 ## Confidence
 
 *How much to trust this report:*
 
 - **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20
-- **Training pairs:** 41 captured
+- **Training pairs:** 49 captured
 - **Prediction accuracy:** F1=0.010, calibration=0.305 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
 - **Memory shards:** 10 active (zero LLM calls)

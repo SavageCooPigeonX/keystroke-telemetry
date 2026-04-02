@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-02T19:39:05.586913+00:00",
-  "total": 271,
+  "generated": "2026-04-02T23:30:18.289752+00:00",
+  "total": 278,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -3508,6 +3508,37 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": ""
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc.py",
+      "name": "册f_reg",
+      "seq": 12,
+      "ver": 5,
+      "date": "0402",
+      "desc": "local_name_registry_for_the",
+      "intent": "verify_filename_mutation",
+      "intent_code": "VR",
+      "bug_keys": [
+        "oc"
+      ],
+      "bug_counts": {
+        "oc": 1
+      },
+      "bug_entities": {
+        "oc": "Split Fiend of freg"
+      },
+      "last_bug_mark": "d0402v005",
+      "tokens": 3160,
+      "history": [
+        {
+          "ver": 5,
+          "date": "0402",
+          "desc": "local_name_registry_for_the",
+          "intent": "verify_filename_mutation",
+          "tokens": 3160,
+          "action": "registered"
+        }
+      ]
     },
     {
       "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_constants_seq001_v001_seq001_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -7656,7 +7687,7 @@
       ],
       "last_bug_mark": "d0402v002",
       "bug_counts": {
-        "oc": 1
+        "oc": 2
       },
       "bug_entities": {
         "oc": "Overcap Maw of upe"
@@ -7687,7 +7718,7 @@
       ],
       "last_bug_mark": "d0402v002",
       "bug_counts": {
-        "oc": 1
+        "oc": 2
       },
       "bug_entities": {
         "oc": "Split Fiend of upj"
@@ -7778,6 +7809,155 @@
       "last_bug_mark": ""
     },
     {
+      "path": "src/修_sf_s013/修f_sf_aco_s009_v003_d0402_λVR.py",
+      "name": "修f_sf_aco",
+      "seq": 9,
+      "ver": 3,
+      "date": "0402",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "verify_filename_mutation",
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": "",
+      "tokens": 857,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0402",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "verify_filename_mutation",
+          "tokens": 857,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc.py",
+      "name": "修f_sf",
+      "seq": 13,
+      "ver": 12,
+      "date": "0402",
+      "desc": "one_shot_self_fix_analyzer",
+      "intent": "verify_filename_mutation",
+      "intent_code": "VR",
+      "bug_keys": [
+        "oc"
+      ],
+      "bug_counts": {
+        "oc": 1
+      },
+      "bug_entities": {
+        "oc": "Overcap Maw of fsf"
+      },
+      "last_bug_mark": "d0402v012",
+      "tokens": 5829,
+      "history": [
+        {
+          "ver": 12,
+          "date": "0402",
+          "desc": "one_shot_self_fix_analyzer",
+          "intent": "verify_filename_mutation",
+          "tokens": 5829,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/对p_tp_s027_v003_d0402_缩分话_λVR_βoc.py",
+      "name": "对p_tp",
+      "seq": 27,
+      "ver": 3,
+      "date": "0402",
+      "desc": "training_pair_generator_for_the",
+      "intent": "verify_filename_mutation",
+      "intent_code": "VR",
+      "bug_keys": [
+        "oc"
+      ],
+      "bug_counts": {
+        "oc": 1
+      },
+      "bug_entities": {
+        "oc": "Split Fiend of ptp"
+      },
+      "last_bug_mark": "d0402v003",
+      "tokens": 3834,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0402",
+          "desc": "training_pair_generator_for_the",
+          "intent": "verify_filename_mutation",
+          "tokens": 3834,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/推w_dp_s017_v011_d0402_初写谱净拆_λVR_βoc.py",
+      "name": "推w_dp",
+      "seq": 17,
+      "ver": 11,
+      "date": "0402",
+      "desc": "steers_copilot_cot_from_live",
+      "intent": "verify_filename_mutation",
+      "intent_code": "VR",
+      "bug_keys": [
+        "oc"
+      ],
+      "bug_counts": {
+        "oc": 1
+      },
+      "bug_entities": {
+        "oc": "Shard Hunger of wdp"
+      },
+      "last_bug_mark": "d0402v011",
+      "tokens": 5443,
+      "history": [
+        {
+          "ver": 11,
+          "date": "0402",
+          "desc": "steers_copilot_cot_from_live",
+          "intent": "verify_filename_mutation",
+          "tokens": 5443,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/管w_cpm_s020_v003_d0402_缩分话_λVR_βoc.py",
+      "name": "管w_cpm",
+      "seq": 20,
+      "ver": 3,
+      "date": "0402",
+      "desc": "audits_and_manages_all_injected",
+      "intent": "verify_filename_mutation",
+      "intent_code": "VR",
+      "bug_keys": [
+        "oc"
+      ],
+      "bug_counts": {
+        "oc": 1
+      },
+      "bug_entities": {
+        "oc": "Overcap Maw of wcpm"
+      },
+      "last_bug_mark": "d0402v003",
+      "tokens": 7179,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0402",
+          "desc": "audits_and_manages_all_injected",
+          "intent": "verify_filename_mutation",
+          "tokens": 7179,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "src/警p_sa_s030_v003_d0402_缩分话_λV.py",
       "name": "警p_sa",
       "seq": 30,
@@ -7803,11 +7983,43 @@
       ],
       "last_bug_mark": "d0402v003",
       "bug_counts": {
-        "oc": 1
+        "oc": 2
       },
       "bug_entities": {
         "oc": "Shard Hunger of psa"
       }
+    },
+    {
+      "path": "src/警p_sa_s030_v003_d0402_缩分话_λVR_βoc.py",
+      "name": "警p_sa",
+      "seq": 30,
+      "ver": 3,
+      "date": "0402",
+      "desc": "copilot_self_diagnostic_detect_stale",
+      "intent": "verify_filename_mutation",
+      "intent_code": "VR",
+      "bug_keys": [
+        "oc"
+      ],
+      "bug_counts": {
+        "oc": 1
+      },
+      "bug_entities": {
+        "oc": "Shard Hunger of psa"
+      },
+      "last_bug_mark": "d0402v003",
+      "tokens": 1796,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0402",
+          "desc": "copilot_self_diagnostic_detect_stale",
+          "intent": "verify_filename_mutation",
+          "tokens": 1796,
+          "action": "registered"
+        }
+      ],
+      "last_change": "test rename mutation"
     },
     {
       "path": "streaming_layer/streaming_layer_aggregator_seq006_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",

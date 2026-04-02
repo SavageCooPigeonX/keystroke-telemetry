@@ -20,7 +20,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -49,7 +54,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -78,7 +88,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -92,22 +107,27 @@
     "tokens": 1626,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -136,7 +156,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -150,24 +175,29 @@
     "tokens": 910,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -179,24 +209,29 @@
     "tokens": 774,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -223,7 +258,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -252,7 +292,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -281,7 +326,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -295,24 +345,29 @@
     "tokens": 2500,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -339,7 +394,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -353,24 +413,29 @@
     "tokens": 1541,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -397,7 +462,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -411,22 +481,27 @@
     "tokens": 431,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -455,7 +530,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -484,7 +564,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -498,22 +583,27 @@
     "tokens": 1044,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -527,24 +617,29 @@
     "tokens": 431,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -571,7 +666,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -585,24 +685,29 @@
     "tokens": 896,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -629,7 +734,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -643,22 +753,27 @@
     "tokens": 2881,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -672,22 +787,27 @@
     "tokens": 1252,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -701,24 +821,29 @@
     "tokens": 1428,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -730,22 +855,27 @@
     "tokens": 2084,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -774,7 +904,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -803,7 +938,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -832,7 +972,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -861,7 +1006,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -890,7 +1040,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -919,7 +1074,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -933,24 +1093,29 @@
     "tokens": 499,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -977,7 +1142,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -991,24 +1161,29 @@
     "tokens": 607,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -1020,24 +1195,29 @@
     "tokens": 841,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -1064,7 +1244,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -1093,7 +1278,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -1122,7 +1312,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -1151,7 +1346,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -1165,24 +1365,29 @@
     "tokens": 5797,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v5+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.15,
         "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "对p_tp",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "管w_cpm",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "警p_sa",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       }
     ],
     "fears": [],
@@ -1209,7 +1414,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -1238,7 +1448,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -1267,7 +1482,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -1281,24 +1501,29 @@
     "tokens": 2506,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -1310,22 +1535,27 @@
     "tokens": 1558,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1339,22 +1569,27 @@
     "tokens": 965,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1368,22 +1603,27 @@
     "tokens": 1744,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1412,7 +1652,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -1426,24 +1671,29 @@
     "tokens": 2857,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -1470,7 +1720,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -1484,22 +1739,27 @@
     "tokens": 379,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1513,22 +1773,27 @@
     "tokens": 1489,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1557,7 +1822,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -1586,7 +1856,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -1600,22 +1875,27 @@
     "tokens": 724,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1629,22 +1909,27 @@
     "tokens": 1291,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1658,22 +1943,27 @@
     "tokens": 1844,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1687,22 +1977,27 @@
     "tokens": 879,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1716,22 +2011,27 @@
     "tokens": 3279,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1760,7 +2060,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -1774,24 +2079,29 @@
     "tokens": 783,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v5+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.15,
         "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "对p_tp",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "管w_cpm",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "警p_sa",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       }
     ],
     "fears": [],
@@ -1803,24 +2113,29 @@
     "tokens": 644,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v5+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.15,
         "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "对p_tp",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "管w_cpm",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "警p_sa",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       }
     ],
     "fears": [],
@@ -1832,24 +2147,29 @@
     "tokens": 505,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -1861,7 +2181,27 @@
     "tokens": 361,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v7+v5)"
+      },
+      {
+        "name": "推w_dp",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v7+v11)"
+      },
+      {
+        "name": "修f_sf",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v7+v12)"
+      },
+      {
+        "name": "修f_sf_aco",
+        "score": 0.12,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.12,
         "reason": "0 shared imports"
       }
@@ -1875,24 +2215,29 @@
     "tokens": 448,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -1904,24 +2249,29 @@
     "tokens": 371,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -1933,24 +2283,29 @@
     "tokens": 579,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -1962,24 +2317,29 @@
     "tokens": 702,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -1991,24 +2351,29 @@
     "tokens": 501,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2020,24 +2385,29 @@
     "tokens": 841,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2049,24 +2419,29 @@
     "tokens": 486,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2078,7 +2453,27 @@
     "tokens": 1180,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v6+v5)"
+      },
+      {
+        "name": "推w_dp",
+        "score": 0.14,
+        "reason": "0 shared imports, both high-churn (v6+v11)"
+      },
+      {
+        "name": "修f_sf_aco",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v6+v3)"
+      },
+      {
+        "name": "修f_sf",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v6+v12)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v6+v3)"
       }
@@ -2092,24 +2487,29 @@
     "tokens": 638,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2121,24 +2521,29 @@
     "tokens": 653,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2150,24 +2555,29 @@
     "tokens": 311,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2179,24 +2589,29 @@
     "tokens": 160,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2208,24 +2623,29 @@
     "tokens": 320,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2237,24 +2657,29 @@
     "tokens": 227,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2266,24 +2691,29 @@
     "tokens": 603,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2295,24 +2725,29 @@
     "tokens": 1673,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2324,24 +2759,29 @@
     "tokens": 712,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2368,7 +2808,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -2382,24 +2827,29 @@
     "tokens": 2049,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v5+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.15,
         "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "对p_tp",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "管w_cpm",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "警p_sa",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       }
     ],
     "fears": [],
@@ -2411,24 +2861,29 @@
     "tokens": 1750,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2440,22 +2895,27 @@
     "tokens": 2927,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -2484,7 +2944,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -2498,24 +2963,29 @@
     "tokens": 4052,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2527,24 +2997,29 @@
     "tokens": 1381,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v5+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.15,
         "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "对p_tp",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "管w_cpm",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "警p_sa",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       }
     ],
     "fears": [],
@@ -2571,7 +3046,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -2585,24 +3065,29 @@
     "tokens": 2131,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2614,24 +3099,29 @@
     "tokens": 3431,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2643,24 +3133,29 @@
     "tokens": 1388,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v5+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.15,
         "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "对p_tp",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "管w_cpm",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "警p_sa",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       }
     ],
     "fears": [],
@@ -2672,24 +3167,29 @@
     "tokens": 972,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2701,27 +3201,69 @@
     "tokens": 921,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
+    "avg_hes": 0.0
+  },
+  "册f_reg": {
+    "personality": "veteran",
+    "version": 5,
+    "tokens": 3160,
+    "partners": [
+      {
+        "name": "对p_tp",
+        "score": 0.75,
+        "reason": "4 shared imports, both high-churn (v5+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.75,
+        "reason": "4 shared imports, both high-churn (v5+v3)"
+      },
+      {
+        "name": "警p_sa",
+        "score": 0.75,
+        "reason": "3 shared imports, both high-churn (v5+v3)"
+      },
+      {
+        "name": "修f_sf",
+        "score": 0.72,
+        "reason": "3 shared imports"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.71,
+        "reason": "4 shared imports"
+      }
+    ],
+    "fears": [
+      "file may not exist",
+      "returns empty on failure (silent)"
+    ],
     "avg_hes": 0.0
   },
   "press_release_gen_constants_seq001_v001": {
@@ -2745,7 +3287,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -2774,7 +3321,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -2803,7 +3355,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -2832,7 +3389,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -2846,24 +3408,29 @@
     "tokens": 1016,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2875,24 +3442,29 @@
     "tokens": 1732,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2919,7 +3491,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -2933,24 +3510,29 @@
     "tokens": 566,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2962,24 +3544,29 @@
     "tokens": 1663,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -2991,7 +3578,27 @@
     "tokens": 2509,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v6+v5)"
+      },
+      {
+        "name": "推w_dp",
+        "score": 0.14,
+        "reason": "0 shared imports, both high-churn (v6+v11)"
+      },
+      {
+        "name": "修f_sf_aco",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v6+v3)"
+      },
+      {
+        "name": "修f_sf",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v6+v12)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v6+v3)"
       }
@@ -3005,24 +3612,29 @@
     "tokens": 594,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -3034,24 +3646,29 @@
     "tokens": 587,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -3063,24 +3680,29 @@
     "tokens": 2836,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -3092,24 +3714,29 @@
     "tokens": 734,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -3121,24 +3748,29 @@
     "tokens": 847,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -3150,24 +3782,29 @@
     "tokens": 697,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -3179,24 +3816,29 @@
     "tokens": 792,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -3208,24 +3850,29 @@
     "tokens": 1037,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -3237,24 +3884,29 @@
     "tokens": 618,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -3266,22 +3918,27 @@
     "tokens": 2407,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -3293,7 +3950,23 @@
     "personality": "veteran",
     "version": 10,
     "tokens": 4672,
-    "partners": [],
+    "partners": [
+      {
+        "name": "推w_dp",
+        "score": 0.19,
+        "reason": "0 shared imports, both high-churn (v10+v11)"
+      },
+      {
+        "name": "修f_sf",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v10+v12)"
+      },
+      {
+        "name": "册f_reg",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v10+v5)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.66
   },
@@ -3318,7 +3991,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -3332,22 +4010,27 @@
     "tokens": 299,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -3361,22 +4044,27 @@
     "tokens": 828,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -3390,22 +4078,27 @@
     "tokens": 557,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -3419,22 +4112,27 @@
     "tokens": 677,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -3463,7 +4161,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -3477,22 +4180,27 @@
     "tokens": 245,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -3506,22 +4214,27 @@
     "tokens": 561,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -3535,22 +4248,27 @@
     "tokens": 1493,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -3579,7 +4297,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -3608,7 +4331,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -3637,7 +4365,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -3666,7 +4399,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -3680,22 +4418,27 @@
     "tokens": 832,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -3724,7 +4467,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -3753,7 +4501,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -3767,22 +4520,27 @@
     "tokens": 1075,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -3811,7 +4569,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -3840,7 +4603,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -3869,7 +4637,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -3898,7 +4671,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -3927,7 +4705,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -3941,24 +4724,29 @@
     "tokens": 5629,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v5+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.15,
         "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "对p_tp",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "管w_cpm",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "警p_sa",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       }
     ],
     "fears": [],
@@ -3970,7 +4758,27 @@
     "tokens": 715,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "推w_dp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v8+v11)"
+      },
+      {
+        "name": "修f_sf",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v8+v12)"
+      },
+      {
+        "name": "册f_reg",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v8+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.11,
         "reason": "0 shared imports"
       }
@@ -3999,7 +4807,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4028,7 +4841,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4057,7 +4875,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4086,7 +4909,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4115,7 +4943,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4144,7 +4977,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4173,7 +5011,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4202,7 +5045,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4231,7 +5079,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4245,22 +5098,27 @@
     "tokens": 636,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -4289,7 +5147,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4302,6 +5165,16 @@
     "version": 3,
     "tokens": 324,
     "partners": [
+      {
+        "name": "对p_tp",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v3+v3)"
+      },
       {
         "name": "警p_sa",
         "score": 0.6,
@@ -4327,24 +5200,29 @@
     "tokens": 1117,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -4354,7 +5232,23 @@
     "personality": "veteran",
     "version": 10,
     "tokens": 5239,
-    "partners": [],
+    "partners": [
+      {
+        "name": "推w_dp",
+        "score": 0.19,
+        "reason": "0 shared imports, both high-churn (v10+v11)"
+      },
+      {
+        "name": "修f_sf",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v10+v12)"
+      },
+      {
+        "name": "册f_reg",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v10+v5)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.66
   },
@@ -4379,7 +5273,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4408,7 +5307,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4437,7 +5341,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4466,7 +5375,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4495,7 +5409,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4524,7 +5443,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4553,7 +5477,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4582,7 +5511,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4611,7 +5545,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4640,7 +5579,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4669,7 +5613,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4698,7 +5647,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4727,7 +5681,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4741,24 +5700,29 @@
     "tokens": 1347,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -4770,22 +5734,27 @@
     "tokens": 4585,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -4814,7 +5783,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4828,24 +5802,29 @@
     "tokens": 1636,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v5+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.15,
         "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "对p_tp",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "管w_cpm",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "警p_sa",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       }
     ],
     "fears": [],
@@ -4872,7 +5851,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4886,7 +5870,27 @@
     "tokens": 4954,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v7+v5)"
+      },
+      {
+        "name": "推w_dp",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v7+v11)"
+      },
+      {
+        "name": "修f_sf",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v7+v12)"
+      },
+      {
+        "name": "修f_sf_aco",
+        "score": 0.12,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.12,
         "reason": "0 shared imports"
       }
@@ -4900,22 +5904,27 @@
     "tokens": 2276,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -4944,7 +5953,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -4973,7 +5987,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5002,7 +6021,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5031,7 +6055,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5045,22 +6074,27 @@
     "tokens": 811,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -5089,7 +6123,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5118,7 +6157,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5147,7 +6191,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5161,22 +6210,27 @@
     "tokens": 4792,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -5190,7 +6244,27 @@
     "tokens": 2088,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v7+v5)"
+      },
+      {
+        "name": "推w_dp",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v7+v11)"
+      },
+      {
+        "name": "修f_sf",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v7+v12)"
+      },
+      {
+        "name": "修f_sf_aco",
+        "score": 0.12,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.12,
         "reason": "0 shared imports"
       }
@@ -5219,7 +6293,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5248,7 +6327,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5277,7 +6361,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5306,7 +6395,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5335,7 +6429,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5364,7 +6463,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5378,24 +6482,29 @@
     "tokens": 2308,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -5407,24 +6516,29 @@
     "tokens": 5065,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v5+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.15,
         "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "对p_tp",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "管w_cpm",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "警p_sa",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       }
     ],
     "fears": [],
@@ -5436,22 +6550,27 @@
     "tokens": 1222,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -5480,7 +6599,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5494,24 +6618,29 @@
     "tokens": 1083,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v5+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.15,
         "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "对p_tp",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "管w_cpm",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.11,
-        "reason": "0 shared imports"
+        "name": "警p_sa",
+        "score": 0.15,
+        "reason": "0 shared imports, both high-churn (v5+v3)"
       }
     ],
     "fears": [],
@@ -5538,7 +6667,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5567,7 +6701,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5596,7 +6735,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5625,7 +6769,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5654,7 +6803,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5683,7 +6837,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5712,7 +6871,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5741,7 +6905,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5770,7 +6939,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5799,7 +6973,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5828,7 +7007,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5840,9 +7024,25 @@
     "personality": "veteran",
     "version": 11,
     "tokens": 5846,
-    "partners": [],
+    "partners": [
+      {
+        "name": "推w_dp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v11+v11)"
+      },
+      {
+        "name": "修f_sf",
+        "score": 0.19,
+        "reason": "0 shared imports, both high-churn (v11+v12)"
+      },
+      {
+        "name": "册f_reg",
+        "score": 0.12,
+        "reason": "0 shared imports, both high-churn (v11+v5)"
+      }
+    ],
     "fears": [],
-    "avg_hes": 0.66
+    "avg_hes": 0.667
   },
   "session_handoff": {
     "personality": "fresh",
@@ -5865,7 +7065,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5894,7 +7099,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5923,7 +7133,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -5937,22 +7152,27 @@
     "tokens": 10189,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -5981,7 +7201,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -6010,7 +7235,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -6024,24 +7254,29 @@
     "tokens": 156,
     "partners": [
       {
-        "name": "警p_sa",
+        "name": "册f_reg",
+        "score": 0.18,
+        "reason": "0 shared imports, both high-churn (v4+v5)"
+      },
+      {
+        "name": "修f_sf_aco",
         "score": 0.17,
         "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "对p_tp",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pe",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "管w_cpm",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       },
       {
-        "name": "u_pj",
-        "score": 0.13,
-        "reason": "0 shared imports, both high-churn (v4+v2)"
+        "name": "警p_sa",
+        "score": 0.17,
+        "reason": "0 shared imports, both high-churn (v4+v3)"
       }
     ],
     "fears": [],
@@ -6068,7 +7303,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -6097,7 +7337,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -6116,14 +7361,24 @@
         "reason": "5 shared imports, both high-churn (v2+v2)"
       },
       {
+        "name": "对p_tp",
+        "score": 0.76,
+        "reason": "5 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.76,
+        "reason": "5 shared imports, both high-churn (v2+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.76,
         "reason": "4 shared imports, both high-churn (v2+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v2+v2)"
+        "name": "册f_reg",
+        "score": 0.71,
+        "reason": "4 shared imports"
       }
     ],
     "fears": [
@@ -6145,14 +7400,24 @@
         "reason": "5 shared imports, both high-churn (v2+v2)"
       },
       {
+        "name": "对p_tp",
+        "score": 0.76,
+        "reason": "5 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.76,
+        "reason": "5 shared imports, both high-churn (v2+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.76,
         "reason": "4 shared imports, both high-churn (v2+v3)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.6,
-        "reason": "2 shared imports, both high-churn (v2+v2)"
+        "name": "册f_reg",
+        "score": 0.71,
+        "reason": "4 shared imports"
       }
     ],
     "fears": [
@@ -6184,7 +7449,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -6198,22 +7468,27 @@
     "tokens": 1328,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -6242,7 +7517,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -6250,11 +7530,212 @@
     "fears": [],
     "avg_hes": 0.0
   },
+  "修f_sf_aco": {
+    "personality": "stable",
+    "version": 3,
+    "tokens": 857,
+    "partners": [
+      {
+        "name": "对p_tp",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "警p_sa",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.56,
+        "reason": "2 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.56,
+        "reason": "2 shared imports, both high-churn (v3+v2)"
+      }
+    ],
+    "fears": [
+      "regex format dependency",
+      "returns empty on failure (silent)"
+    ],
+    "avg_hes": 0.0
+  },
+  "修f_sf": {
+    "personality": "veteran",
+    "version": 12,
+    "tokens": 5829,
+    "partners": [
+      {
+        "name": "册f_reg",
+        "score": 0.72,
+        "reason": "3 shared imports"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.68,
+        "reason": "3 shared imports"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.68,
+        "reason": "3 shared imports"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.66,
+        "reason": "5 shared imports"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.66,
+        "reason": "3 shared imports"
+      }
+    ],
+    "fears": [
+      "swallowed exception",
+      "file may not exist",
+      "regex format dependency",
+      "returns empty on failure (silent)"
+    ],
+    "avg_hes": 0.691
+  },
+  "对p_tp": {
+    "personality": "stable",
+    "version": 3,
+    "tokens": 3834,
+    "partners": [
+      {
+        "name": "管w_cpm",
+        "score": 0.8,
+        "reason": "5 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "警p_sa",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.76,
+        "reason": "5 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.76,
+        "reason": "5 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "册f_reg",
+        "score": 0.75,
+        "reason": "4 shared imports, both high-churn (v3+v5)"
+      }
+    ],
+    "fears": [
+      "file may not exist",
+      "returns empty on failure (silent)"
+    ],
+    "avg_hes": 0.0
+  },
+  "推w_dp": {
+    "personality": "veteran",
+    "version": 11,
+    "tokens": 5443,
+    "partners": [
+      {
+        "name": "册f_reg",
+        "score": 0.52,
+        "reason": "2 shared imports, both high-churn (v11+v5)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.49,
+        "reason": "2 shared imports"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.49,
+        "reason": "2 shared imports"
+      },
+      {
+        "name": "警p_sa",
+        "score": 0.49,
+        "reason": "2 shared imports"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.46,
+        "reason": "2 shared imports"
+      }
+    ],
+    "fears": [
+      "swallowed exception",
+      "file may not exist",
+      "returns empty on failure (silent)",
+      "regex format dependency"
+    ],
+    "avg_hes": 0.691
+  },
+  "管w_cpm": {
+    "personality": "stable",
+    "version": 3,
+    "tokens": 7179,
+    "partners": [
+      {
+        "name": "对p_tp",
+        "score": 0.8,
+        "reason": "5 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "警p_sa",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.76,
+        "reason": "5 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.76,
+        "reason": "5 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "册f_reg",
+        "score": 0.75,
+        "reason": "4 shared imports, both high-churn (v3+v5)"
+      }
+    ],
+    "fears": [
+      "file may not exist",
+      "returns empty on failure (silent)",
+      "swallowed exception",
+      "regex format dependency"
+    ],
+    "avg_hes": 0.0
+  },
   "警p_sa": {
     "personality": "stable",
     "version": 3,
     "tokens": 1796,
     "partners": [
+      {
+        "name": "对p_tp",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.8,
+        "reason": "4 shared imports, both high-churn (v3+v3)"
+      },
       {
         "name": "u_pe",
         "score": 0.76,
@@ -6266,9 +7747,9 @@
         "reason": "4 shared imports, both high-churn (v3+v2)"
       },
       {
-        "name": "copilot_prompt_manager",
-        "score": 0.56,
-        "reason": "2 shared imports, both high-churn (v3+v2)"
+        "name": "册f_reg",
+        "score": 0.75,
+        "reason": "3 shared imports, both high-churn (v3+v5)"
       }
     ],
     "fears": [
@@ -6284,22 +7765,27 @@
     "tokens": 934,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -6313,22 +7799,27 @@
     "tokens": 1371,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -6342,22 +7833,27 @@
     "tokens": 969,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -6386,7 +7882,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -6400,22 +7901,27 @@
     "tokens": 858,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -6444,7 +7950,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -6473,7 +7984,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -6502,7 +8018,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -6531,7 +8052,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -6560,7 +8086,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -6574,22 +8105,27 @@
     "tokens": 1182,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -6603,22 +8139,27 @@
     "tokens": 824,
     "partners": [
       {
+        "name": "修f_sf_aco",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
+        "name": "管w_cpm",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v3+v3)"
+      },
+      {
         "name": "警p_sa",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v3+v3)"
       },
       {
         "name": "copilot_prompt_manager",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pe",
-        "score": 0.16,
-        "reason": "0 shared imports, both high-churn (v3+v2)"
-      },
-      {
-        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -6647,7 +8188,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -6676,7 +8222,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }
@@ -6705,7 +8256,12 @@
         "reason": "0 shared imports, both high-churn (v2+v2)"
       },
       {
-        "name": "警p_sa",
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v2+v3)"
       }

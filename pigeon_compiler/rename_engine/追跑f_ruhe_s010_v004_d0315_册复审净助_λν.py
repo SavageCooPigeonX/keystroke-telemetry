@@ -31,7 +31,7 @@ from pigeon_compiler.rename_engine.审p_va_s005_v004_d0315_踪稿析_λν import
 from pigeon_compiler.rename_engine.谱建f_mb_s007_v003_d0314_观重箱重拆_λD import build_all_manifests
 from pigeon_compiler.rename_engine.正f_cmp_s008_v004_d0315_踪稿析_λν import audit_compliance
 from pigeon_compiler.rename_engine.牌f_nam_s011_v004_d0401_追谱建踪_λA import scan_drift, scan_glyph_drift
-from pigeon_compiler.rename_engine.册f_reg_s012_v004_d0401_追跑谱桥复审_λA import (
+from pigeon_compiler.rename_engine.册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_βoc import (
     load_registry, save_registry, build_registry_from_scan,
     bump_all_versions,
 )
