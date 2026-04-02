@@ -66,6 +66,7 @@ def _task_focus(commits):
 
 def _unsaid(comps):
     threads = []
+    seen = set()
     for c in comps[-8:]:
         # Prefer intent_deleted_words (5+ backspace runs) over raw deleted_words
         # Short backspace runs (1-4) are typo/habit noise, not real unsaid thoughts
@@ -73,18 +74,27 @@ def _unsaid(comps):
         if intent_words:
             for w in intent_words:
                 word = w.get('word', w) if isinstance(w, dict) else str(w)
-                if word and len(word) > 3: threads.append(word)
+                if word and len(word) > 3 and word not in seen:
+                    threads.append(word)
+                    seen.add(word)
         else:
             # Fallback for old compositions without intent tracking
             for w in (c.get('deleted_words') or []):
                 word = w.get('word', w) if isinstance(w, dict) else str(w)
-                if word and len(word) > 3: threads.append(word)
+                if word and len(word) > 3 and word not in seen:
+                    threads.append(word)
+                    seen.add(word)
     return threads[-6:]
 
 def _unsaid_reconstructions(root):
     """Load LLM-reconstructed intents from high-deletion prompts."""
     recs = _jsonl(root / 'logs' / 'unsaid_reconstructions.jsonl', n=5)
-    return [r for r in recs if r.get('reconstructed_intent')]
+    good = []
+    for r in recs:
+        tc = r.get('thought_completion', r.get('reconstructed_intent', ''))
+        if tc and len(tc) >= 30:
+            good.append(r)
+    return good
 
 def _hot_modules(root):
     raw = _json(root / 'file_heat_map.json')

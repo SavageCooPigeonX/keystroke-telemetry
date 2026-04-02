@@ -7,16 +7,16 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-02 04:39 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-02 04:47 UTC — 2 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 356min old (max 10min)
+- **`current-query`**: STALE — 365min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-01 22:43
 
-- **`task-context`**: STALE — 4642min old (max 120min)
+- **`task-context`**: STALE — 4651min old (max 120min)
   - Writer: `dynamic_prompt.inject_task_context (via classify_bridge)`
   - Last updated: 2026-03-29 23:17
 
@@ -192,27 +192,25 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-02 04:43 UTC · 111 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-02 05:01 UTC · 114 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 51.2 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 51.5 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
 
-**Prompt ms:** 1844003, 77491, 52444, 53058, 33646 (avg 412128ms)
+**Prompt ms:** 53058, 33646, 56815, 18736, 74779 (avg 47407ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- **Reconstructed intent:** The user was likely about to
-  - *(deleted: o please continue ss | ratio: 23%)*
-- **Reconstructed intent:** The user was about to type
-  - *(deleted: blueberry, test | ratio: 8%)*
 - **Reconstructed intent:** The operator was about to provide
   - *(deleted: blueberry, test | ratio: 8%)*
 
 - "o please continue ss"
 - "blueberry"
 - "test"
+- "yiu gonna say"
+- "orange icicles re my fv fyi"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
@@ -220,7 +218,7 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 - `init_writer` (hes=0.63)
-- `context_budget` (hes=0.587)
+- `self_fix` (hes=0.612)
 
 ### Recent Work
 - `f8ea95a` fix: restore rename-safe runtime hooks and training pair capture
@@ -248,7 +246,7 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - [CRITICAL] hardcoded_import in `pigeon_brain/读w_el_s002_v003_d0401_观话_λA.py`
 
 ### Prompt Evolution
-*This prompt has mutated 97x (186→733 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 99x (186→737 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
 *200 rework pairs × 97 mutations scored*
@@ -414,7 +412,7 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-02 · 111 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-02 · 114 message(s) · LLM-synthesized*
 
 **Dominant: `abandoned`** | Submit: 66% | WPM: 52.5 | Del: 25.6% | Hes: 0.444
 
@@ -443,13 +441,13 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-04-02T04:38:57.799843+00:00",
+  "updated_at": "2026-04-02T04:47:37.416630+00:00",
   "latest_prompt": {
-    "session_n": 11,
-    "ts": "2026-04-02T04:38:57.799843+00:00",
-    "chars": 128,
-    "preview": "push nd test tht everything updtes - also i noticed that in memory shrs training pir doentresolve - are they even being used ?? ",
-    "intent": "testing",
+    "session_n": 14,
+    "ts": "2026-04-02T04:47:37.416630+00:00",
+    "chars": 73,
+    "preview": "yyes okease -it realy is starting to feel like its healing itself now no?",
+    "intent": "unknown",
     "state": "focused",
     "files_open": [
       ".github/copilot-instructions.md"
@@ -457,21 +455,21 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     "module_refs": []
   },
   "signals": {
-    "wpm": 47.1,
+    "wpm": 47.4,
     "chars_per_sec": 3.9,
-    "deletion_ratio": 0.029,
-    "hesitation_count": 1,
+    "deletion_ratio": 0.0,
+    "hesitation_count": 0,
     "rewrite_count": 0,
-    "typo_corrections": 3,
+    "typo_corrections": 0,
     "intentional_deletions": 0,
-    "total_keystrokes": 136,
-    "duration_ms": 33646
+    "total_keystrokes": 74,
+    "duration_ms": 18736
   },
   "composition_binding": {
     "matched": true,
     "source": "chat_compositions",
-    "age_ms": 92196,
-    "key": "|||2026-04-02T04:37:25.603484+00:00|136|33646|push nd test tht everything updtes - also i noticed that in memory shrs training pir doentresolve - are they even being ",
+    "age_ms": 36668,
+    "key": "|||2026-04-02T04:47:00.748062+00:00|74|18736|yyes okease -it realy is starting to feel like its healing itself now no? ",
     "match_score": 1.0
   },
   "deleted_words": [],
@@ -497,27 +495,35 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 229,
-    "avg_wpm": 12.2,
+    "total_prompts": 232,
+    "avg_wpm": 12.3,
     "avg_del_ratio": 0.048,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 141,
-      "hesitant": 39,
-      "focused": 26,
+      "unknown": 142,
+      "hesitant": 40,
+      "focused": 27,
       "frustrated": 17,
       "neutral": 5
     },
     "baselines": {
-      "n": 102,
-      "avg_wpm": 51.7,
+      "n": 111,
+      "avg_wpm": 52.4,
       "avg_del": 0.259,
       "avg_hes": 0.447,
-      "sd_wpm": 14.8,
+      "sd_wpm": 14.9,
       "sd_del": 0.231,
       "sd_hes": 0.164
     }
-  }
+  },
+  "coaching_directives": [
+    "When they start restructuring",
+    "Anticipate mutations in `dynamic_prompt seq17` and `self_fix seq13`",
+    "Preempt context budget issues",
+    "For `.operator_stats` churn",
+    "Since their rework rate is currently zero",
+    "During high-deletion phases"
+  ]
 }
 ```
 

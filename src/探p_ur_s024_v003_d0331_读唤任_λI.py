@@ -8,9 +8,9 @@
 # SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-04-02T23:14:00+00:00
+# EDIT_TS:   2026-04-02T05:30:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  improve thought completion + lower threshold to 5
+# EDIT_WHY:  fix gemini truncation + quality filter
 # EDIT_STATE: harvested
 # ── /pulse ──
 import json
@@ -33,14 +33,17 @@ SYSTEM_PROMPT = (
     "- REWRITES (old→new text replacements)\n\n"
     "Your job: COMPLETE THE DELETED THOUGHT. What was the operator about to say before they pivoted?\n\n"
     "Rules:\n"
-    "- Output format: ONE sentence completing the deleted thought, then '---', then ONE sentence "
+    "- Output format: ONE COMPLETE sentence finishing the deleted thought, then '---', then ONE sentence "
     "explaining why they probably deleted it\n"
+    "- You MUST write at least 2 full sentences total. NEVER stop mid-sentence.\n"
     "- Focus on the DELETED content — what thought was abandoned?\n"
     "- If the peak buffer shows a longer sentence that was trimmed, complete that sentence\n"
-    "- If deleted words are fragments (e.g. 'proce'), complete the word and the thought\n"
-    "- Be specific — 'process of compilation' not 'something about processes'\n"
+    "- If deleted words are fragments (e.g. 'proce'), complete the word AND the full thought: "
+    "'The operator was about to ask about the process of compilation and whether it handles edge cases.'\n"
+    "- Be specific and complete — 'The operator wanted to ask about the compilation process and its error handling' "
+    "NOT 'The user was about to type'\n"
     "- If deleted words are clearly just typos of what was retyped, say 'typo correction only'\n"
-    "- No preamble, no explanations beyond the two lines"
+    "- No preamble. Start directly with the completed thought. No 'The user was...' — just state what they meant."
 )
 
 
@@ -80,7 +83,7 @@ def _call_gemini(api_key: str, final_text: str, deleted_words: list,
     body = json.dumps({
         'system_instruction': {'parts': [{'text': SYSTEM_PROMPT}]},
         'contents': [{'parts': [{'text': user_msg}]}],
-        'generationConfig': {'temperature': 0.2, 'maxOutputTokens': 150},
+        'generationConfig': {'temperature': 0.4, 'maxOutputTokens': 400},
     }).encode('utf-8')
 
     req = urllib.request.Request(url, data=body, headers={'Content-Type': 'application/json'})
@@ -139,6 +142,10 @@ def reconstruct_if_needed(root: Path, composition: dict) -> dict | None:
     parts = intent.split('---', 1)
     thought = parts[0].strip()
     reason = parts[1].strip() if len(parts) > 1 else ''
+
+    # Quality gate: reject truncated garbage (< 30 chars = Gemini stopped mid-sentence)
+    if len(thought) < 30 and thought.lower() != 'typo correction only':
+        return None
 
     intent_dr = composition.get('intent_deletion_ratio', dr)
     recon = {
