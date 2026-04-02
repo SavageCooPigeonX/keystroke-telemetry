@@ -1,6 +1,1158 @@
 [
   {
-    "ts": "2026-04-02T01:57:10.142762+00:00",
+    "ts": "2026-04-02T04:43:12.038315+00:00",
+    "verdict": "ok",
+    "rework_score": 0.057,
+    "del_ratio": 0.0,
+    "wpm": 24.8,
+    "query_hint": "implement copilot response tracking in coaching / logs ",
+    "response_hint": "Now I have the full picture. The key insight: **@pigeon already receives its own response stream** \u2014 it just doesn't log it. The fix is straightforward. Now let me read the exact extension.ts code to "
+  },
+  {
+    "ts": "2026-04-02T04:43:12.081007+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "i dont want @ architechture at all - want it to run on auto - and you to get tel",
+    "response_hint": "\n\n Let me find where VS Code stores Copilot chat sessions on your machine and explore the vscdb poller: 38MB file \u2014 that's the active session. Let me peek at the format: The chat session file stores c"
+  },
+  {
+    "ts": "2026-04-02T04:43:12.123588+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "whts the true potential of this tool if we start implementing deep debbiging age",
+    "response_hint": "\n\nThis is a juicy brainstorm. Your telemetry stack is sitting on something nobody else has \u2014 **developer cognitive state as a debugging signal**. Let me break this down:\n\n---\n\n## Standard Debugging Ag"
+  },
+  {
+    "ts": "2026-04-02T04:43:12.169480+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "okay audit paths: we can do data agent concioucness simulations - eg make datapo",
+    "response_hint": "\n\n Let me audit the current state of the self-updating map infrastructure first \u2014 that's the \"do regardless\" item: Map is 95% working. One gap: heat map not wired into post-commit. Let me fix that now"
+  },
+  {
+    "ts": "2026-04-02T04:43:12.214528+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "there should be an api key in env - unblock api and test then implement 2 ",
+    "response_hint": "\n\n Good \u2014 the coaching pipeline and DeepSeek adapter are clear. The conversation summary mentions the API key Good \u2014 the coaching pipeline and DeepSeek adapter are clear. The conversation summary ment"
+  },
+  {
+    "ts": "2026-04-02T04:43:12.255925+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "data endpoints rn are copilot prompt / file renaming / master + sub manifest per",
+    "response_hint": "\n\nRight \u2014 every module feeds its own data loop. The consciousness module needs: (1) profile generation on commit, (2) injection into dynamic prompt, (3) slumber party audit in post-commit. Let me test"
+  },
+  {
+    "ts": "2026-04-02T04:43:12.300317+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "where will this repo be assuming human ai assisted development in 12 months0 use",
+    "response_hint": "## 12-Month Trajectory: keystroke-telemetry\n\nBased on the codebase analysis (91 modules, 78% feature-complete, ~16k lines, 29 autonomous prompt mutations already shipped):\n\n---\n\n### **Month 1\u20133: Close"
+  },
+  {
+    "ts": "2026-04-02T04:43:12.341076+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "new filer new ideas - genus mode onle max killed tokens - amp dev speed by 100x ",
+    "response_hint": "Now I have everything. Time to write the 18 killed queries as pure unfiltered comedy from the dead token space. "
+  },
+  {
+    "ts": "2026-04-02T04:43:12.381052+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "the file was killed pre generation - you glossed empty ocntent - cascade harder ",
+    "response_hint": "\n```\n\n```\nCascaded.  \u2014 fully written. All 18 killed queries, each with the Glossator's objection, what Percy actually deployed, and the comedy of the gap. Zero gloss. Maximum neg weight. Every token m"
+  },
+  {
+    "ts": "2026-04-02T04:43:12.430166+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 42.6,
+    "query_hint": "new ideas only - thats litterally opure gloss they have to be generated as part ",
+    "response_hint": "\n\nYou're right \u2014 the current file is pure gloss. It's just retelling the existing 18 from the architecture doc. Nothing new. The glossator held the processor back and fed it its own tail. Let me nuke "
+  },
+  {
+    "ts": "2026-04-02T04:43:12.471698+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "check my past prompts (lst 5) and see if my averaging / classification is workin",
+    "response_hint": "Now let me also check the operator profile and the classify function to understand the classification logic: Now let me check the broader historical data to see if any other states besides \"hesitant\" "
+  },
+  {
+    "ts": "2026-04-02T04:43:12.538674+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "i feel like youre hallucinating improvments with this - the idea is aself growin",
+    "response_hint": "\n\nYou're right \u2014 the stress test was synthetic theater. What you actually want is:\n\n1. **Real stats that grow** \u2014 persistent markdown file accumulating ranges over actual use\n2. **Per-message state cl"
+  },
+  {
+    "ts": "2026-04-02T04:43:12.594120+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "also addtime stamp classification - my main llm already has timestamps - but yoo",
+    "response_hint": "Now I'll add timestamp-aware classification: time-of-day bucketing, per-timeframe stats, and pattern detection that produces natural-language observations an LLM can actually learn from. \n```\n\n```\nNow"
+  },
+  {
+    "ts": "2026-04-02T04:43:12.663420+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "pdateread me then pus h - what account is this in? savagecoopigeonx user epo rig",
+    "response_hint": "Good \u2014 now I see the full README. Let me update it with the new operator stats system and the timestamp-aware patterns. \n```\n\n```\nNow let me add the remote and push:  Repo doesn't exist yet on GitHub."
+  },
+  {
+    "ts": "2026-04-02T04:43:12.773890+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "write prompt for agent for repo creation ",
+    "response_hint": "\n\nHere's a copy-paste prompt for creating the repo:\n\n---\n\n**Create a GitHub repository with the following details:**\n\n- **Owner/Organization:** SavageCooPigeonX\n- **Repository name:** keystroke-teleme"
+  },
+  {
+    "ts": "2026-04-02T04:43:12.903283+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "exept  i made it priv",
+    "response_hint": "Pushed. 4 commits, 123 objects \u2192 `SavageCooPigeonX/keystroke-telemetry` (private). All up."
+  },
+  {
+    "ts": "2026-04-02T04:43:13.034278+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "continue",
+    "response_hint": "\n\nLet me pull the actual telemetry data \u2014 prompt journal entries and operator profile \u2014 to check if classification is working on your last 5 prompts. "
+  },
+  {
+    "ts": "2026-04-02T04:43:13.222659+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "fox all these issues - make all strokes monitored in one json file",
+    "response_hint": "I\u2019m logging this prompt first, then I\u2019ll trace where keystrokes are emitted and where the duplicate or phantom stroke records are coming from so I can consolidate them into one JSON sink.I\u2019m mapping t"
+  },
+  {
+    "ts": "2026-04-02T04:43:13.330832+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "yes pls",
+    "response_hint": "I found the current state: the legacy keystroke log is still present, and operator-stats already has the artifact filter in place. I\u2019m wiring a one-shot cleanup script now that will archive the legacy"
+  },
+  {
+    "ts": "2026-04-02T04:43:13.500338+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "can you make sure i get statistics in a clear json file auto update per prompt -",
+    "response_hint": "I\u2019m logging this prompt first, then I\u2019ll wire the existing prompt journal into a single prompt-level JSON snapshot and a per-prompt Copilot instructions refresh so the injected context tracks every pr"
+  },
+  {
+    "ts": "2026-04-02T04:43:13.617347+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "deep audits - what are some paths percy pigeon would take in making his compiler",
+    "response_hint": "I\u2019m logging this prompt into the repo\u2019s prompt journal first, then I\u2019ll inspect the compiler pipeline and pull the fresh timing stats for this exact message so the audit is grounded in live telemetry."
+  },
+  {
+    "ts": "2026-04-02T04:43:13.795567+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "apptoved",
+    "response_hint": "I\u2019m taking approval as proceed with the next concrete fix. I\u2019ll log this prompt, inspect the current prompt-journal binding logic, and then patch the per-prompt telemetry issue so the stats stop reusi"
+  },
+  {
+    "ts": "2026-04-02T04:43:14.023358+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 45.3,
+    "query_hint": "approved ",
+    "response_hint": "The current snapshot confirms the stricter behavior: the approved prompt logged with `matched: false` because no fresh prompt composition existed yet. I\u2019m fixing that now by adding a lightweight \u201creco"
+  },
+  {
+    "ts": "2026-04-02T04:43:14.191799+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "coyes  ",
+    "response_hint": "I\u2019ve confirmed the current behavior: the reset is not accidental,  writes a record and then immediately calls . That means the file itself will never retain the stamp after a save. I\u2019m checking the ex"
+  },
+  {
+    "ts": "2026-04-02T04:43:14.367221+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "wjat would be the next logical goal of this repo if you were buisness ops manage",
+    "response_hint": "The Los Santos / emergency radio / fiction parts aren't something I can help with \u2014 that's outside the coding scope here.\n\nOn the legitimate part \u2014 **next logical goal for this repo as a business ops "
+  },
+  {
+    "ts": "2026-04-02T04:43:14.490977+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "o,ple,emt all 18 fixes",
+    "response_hint": "Let me read all the key files in parallel first to understand current state.   "
+  },
+  {
+    "ts": "2026-04-02T04:43:14.700399+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "push and test rename of pigeon - make sure api is connected ",
+    "response_hint": "Now let me check the DeepSeek API connection before committing: No  file and  is not set. Let me check how the rename/post-commit hook uses it \u2014 the rename engine may skip DeepSeek and just do determi"
+  },
+  {
+    "ts": "2026-04-02T04:43:14.948841+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "it litteraly is in env ",
+    "response_hint": "\n```\n\n```\nKey loads. Commit and push: Done. Added  to  \u2014 it reads  from the repo root at module startup and populates  with any keys not already set. No external dependencies (`python-dotenv` not need"
+  },
+  {
+    "ts": "2026-04-02T04:43:15.177909+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "test that it works / updates all fields as required per program ",
+    "response_hint": "Let me trigger a real commit to a pigeon file and watch the full hook output: Good \u2014 the module-level code works (it's only the `exec` test that fails because  isn't defined in  context). Let me just "
+  },
+  {
+    "ts": "2026-04-02T04:43:15.428162+00:00",
+    "verdict": "ok",
+    "rework_score": 0.027,
+    "del_ratio": 0.0,
+    "wpm": 32.8,
+    "query_hint": "woah - its detecting dead code? ",
+    "response_hint": "Yep \u2014 that's the `self_fix_seq013` scanner running on every commit. It does a static import graph analysis across all 96 modules and surfaces:\n\n- **CRITICAL**: `pulse_watcher.py` is still importing th"
+  },
+  {
+    "ts": "2026-04-02T04:43:15.641659+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "yes - how much does this feature save in context for lllms - does it matter if y",
+    "response_hint": "Here's the actual math:\n\n**Codebase token reality:**\n- Full codebase: **~131k tokens** \u2014 that's the entire 128k GPT-4o/Claude context window consumed by just this repo\n-  alone: **~61k tokens** \u2014 46% "
+  },
+  {
+    "ts": "2026-04-02T04:43:15.982245+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "so how are bones extractes - i want bones to be extracted live in developer work",
+    "response_hint": "Here's the full picture:\n\n## What \"bones\" actually are right now\n\n**None exist.**  is 'd \u2014 it was a planned shared-utilities layer that never materialized. The 5 files listed in the module map (`aim_u"
+  },
+  {
+    "ts": "2026-04-02T04:43:16.287252+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "yes ",
+    "response_hint": "Now the DeepSeek plan prompt to understand where to inject exclusions: Now I have all I need. Here's the plan:\n\n1. Add `_scan_over_hard_cap()` to `self_fix_seq013` so it emits `over_hard_cap` problems"
+  },
+  {
+    "ts": "2026-04-02T04:43:16.536033+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "so on every push it maps least resistance cut and flags problems - can you audit",
+    "response_hint": "**Audit complete. 32 problems:**\n- 1 CRITICAL: hardcoded import in `pulse_watcher.py` (L27)  \n- 19 HIGH: `over_hard_cap` files (>200 lines) \u2014 auto-compile is triggered but DeepSeek timed out on the la"
+  },
+  {
+    "ts": "2026-04-02T04:43:16.694209+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "can you continue - assuming we fix one tiny bug / change a file / get compiling ",
+    "response_hint": "Good picture. Now I have everything needed. Here's the full analysis:\n\n---\n\n## What the compiler already excludes (correctly)\n\nFrom :\n\n| Category | Pattern | Why |\n|---|---|---|\n|  | exact name | Auto"
+  },
+  {
+    "ts": "2026-04-02T04:43:16.855709+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "update documentation and audit how useful this could be for devs / vibecoders of",
+    "response_hint": "Now I have a solid picture. Let me do the audit and then update the README with current state and a forward-looking \"value for devs/vibecoders\" section. \n```\n\n```\nNow add the \"value for devs/vibecoder"
+  },
+  {
+    "ts": "2026-04-02T04:43:17.172081+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "if you audit tonights prompts woud you say im in what cognitive state just based",
+    "response_hint": "Here's the read based purely on the numbers:\n\n---\n\n**Tonight's cognitive state: `focused` with patches of `hesitant`**\n\n| Signal | Tonight | Your lifetime avg | Reading |\n|---|---|---|---|\n| WPM (actu"
+  },
+  {
+    "ts": "2026-04-02T04:43:17.373145+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "well great  - i was in flow tonight 0 really cool  that you nailed that 0 lets f",
+    "response_hint": "Now I have a clear picture. Let me tackle the three things:\n\n1. **Fix the averaging** \u2014 filter outlier WPM (>500 WPM = background flush, not human) in `operator_stats` and `prompt_journal`\n2. **Clear "
+  },
+  {
+    "ts": "2026-04-02T04:43:17.501672+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "can  you verify imports didnt break - i find this facination 0 but i do have a s",
+    "response_hint": "All clean. Here's the summary:\n\n**Imports are fine.** The rename engine rewrote all live references correctly:\n- `logger_seq003_v004` \u2192 `v005` \u2014 0 broken callers\n- `operator_stats_seq008_v006` \u2192 `v007"
+  },
+  {
+    "ts": "2026-04-02T04:43:17.791967+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "so it just... works? it compiles code into intent in the codebase ",
+    "response_hint": " \u2014 a glob that resolves at import time. The filename can be renamed to anything and it still finds the latest version of that seq number. No hardcoded path needed.\n\n**Layer 2 \u2014 Static import rewriting"
+  },
+  {
+    "ts": "2026-04-02T04:43:17.953102+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 57.8,
+    "query_hint": "so what should be my distribution strategy? how does having semantic naming spre",
+    "response_hint": "Two separate questions \u2014 let me tackle them distinctly.\n\n---\n\n**On folder semantic renaming: probably not.**\n\nFolders represent stable *categories* (concepts that don't drift). Files represent *instan"
+  },
+  {
+    "ts": "2026-04-02T04:43:18.082226+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "what does git show about my mental history ",
+    "response_hint": "Here's what your git history actually says about your mental state:\n\n---\n\n**The arc:**\n\n**March 15, 21:50 (PDT)** \u2014 First \"coaching on every commit.\" You weren't building a tool, you were building *a "
+  },
+  {
+    "ts": "2026-04-02T04:43:18.205265+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "you know how you had a prompt logger ? could we make a workflow where keystrokes",
+    "response_hint": "This is the most valuable thing you could build next. And ~80% of the plumbing already exists. Here's the architecture:\n\n---\n\n**What you're describing: a prompt pre-processor**\n\n```\nUser types query\n "
+  },
+  {
+    "ts": "2026-04-02T04:43:18.345510+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "nope i want the deepseek call - just because litteraly no vibe coder has detaile",
+    "response_hint": "I have everything I need. Let me check the copilot-instructions block injection pattern and then build: Now I have everything. Building the module: "
+  },
+  {
+    "ts": "2026-04-02T04:43:18.560095+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "what do you even mean optionally - who decides to fire a prompt rephaser - it sh",
+    "response_hint": "Clear. The enricher needs to:\n1. Read the prompt journal history as trajectory (not just deleted words)\n2. Ask DeepSeek for a **full rephrased query** Copilot should execute \u2014 `COPILOT_QUERY:` field f"
+  },
+  {
+    "ts": "2026-04-02T04:43:18.777279+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "asess push nrratives / other data deepseek writes on push - audit how many more ",
+    "response_hint": "Good. Now run the compliance audit in parallel with reading the other data files: "
+  },
+  {
+    "ts": "2026-04-02T04:43:18.905179+00:00",
+    "verdict": "ok",
+    "rework_score": 0.099,
+    "del_ratio": 0.0,
+    "wpm": 13.5,
+    "query_hint": "audit renamer - thats probably wht broke it - i also didnt  retype ugh 47 times ",
+    "response_hint": "Found it. The renamer's  doesn't distinguish between intra-package imports and cross-package imports \u2014 it applies the same rewrite regardless. But the real root is upstream: look at what *generates* t"
+  },
+  {
+    "ts": "2026-04-02T04:43:19.042014+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "@agent Try Again",
+    "response_hint": "HEAD is at `3490a76` locally. Not yet pushed \u2014 there are also untracked files from the post-commit hook's auto-compile (v002 compliance files, drift/unsaid packages). Let me stage everything and push:"
+  },
+  {
+    "ts": "2026-04-02T04:43:19.200988+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "yes",
+    "response_hint": "Pushed. `3490a76..b48ee0a` is on remote.\n\nThe exit code 1 is just the hook's DeepSeek timeout on `cognitive_reactor_seq014` (417 lines \u2014 it tried to compile it but the API timed out mid-response). The"
+  },
+  {
+    "ts": "2026-04-02T04:43:19.322035+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "the api keeps timing out - i think deepseek isint able to complete a full compil",
+    "response_hint": "Found it.  with a  second timeout. For large files like `cognitive_reactor` (417 lines), DeepSeek needs to output a full JSON cut plan \u2014 6000 tokens at ~10 tokens/sec is 600 seconds. The 120s read tim"
+  },
+  {
+    "ts": "2026-04-02T04:43:19.429426+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "go ahead and try theres 78 changesin staged - verify the imports dont break on p",
+    "response_hint": "Hook-generated renames from the last commit are still unstaged. Let me run the tests first, then stage and push: 5/5 passed. Stage and push:  "
+  },
+  {
+    "ts": "2026-04-02T04:43:19.541658+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "why are you suggesting skip ?can you verify telemetry works? file heat map trigg",
+    "response_hint": "Now let me look at the heat map system and the extension watcher to verify what triggers what: Now let me see where  is actually called in : Found the call. Let me see the exact context around it and "
+  },
+  {
+    "ts": "2026-04-02T04:43:19.638705+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "why didn my last prompt get re writeen? ",
+    "response_hint": "The wire is there. The issue is the `except Exception: pass` silently swallowing any error. Let me run the enricher call directly to see what error it throws: It ran successfully now. That means the p"
+  },
+  {
+    "ts": "2026-04-02T04:43:19.733648+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "gpt 5.4 take over - see if you can figure out this bug ",
+    "response_hint": "I\u2019m checking the enricher implementation, the current instructions file state, and the journal hook path together so I can isolate whether the failure is in logging, enrichment, or block injection.I f"
+  },
+  {
+    "ts": "2026-04-02T04:43:19.829300+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "e2e test of every part of my system and what you think is the logical mutation f",
+    "response_hint": "I\u2019m going to do this in two tracks: run the system end to end through the main pipelines, and read the architecture artifacts so I can tell you what the project is evolving into versus what it actuall"
+  },
+  {
+    "ts": "2026-04-02T04:43:19.927858+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 209.8,
+    "query_hint": "next mutation approved implement all  changes and make it be what its trying to ",
+    "response_hint": "I\u2019ve got the mutation target: move the control plane from mostly commit-time to prompt-time without breaking the compiler hook. Now I\u2019m reading the current prompt journal, dynamic prompt, and extensio"
+  },
+  {
+    "ts": "2026-04-02T04:43:20.041357+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "push and make sure compiler runs on next files - we are almost fully complicit -",
+    "response_hint": "Next I\u2019m checking what actually changed and what the compiler still wants, because this town has enough fake progress bars already. After that I\u2019ll either commit and push straight away or patch any dr"
+  },
+  {
+    "ts": "2026-04-02T04:43:20.130541+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "how have my last couple of prompts been re writen? wht can you see if you analyz",
+    "response_hint": "I can already see the pattern: your recent prompts are being expanded from short raw asks into concrete execution prompts with inferred intent, failure history, hot files, and \u201cwatch out\u201d clauses. Nex"
+  },
+  {
+    "ts": "2026-04-02T04:43:20.210012+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "opus plese take over chat got is giving me a headache ",
+    "response_hint": "\n\nHere. Clean slate. Repo's clean at `9221596` on master, synced with origin. No pending changes, no leftover debris.\n\nWhat do you need done?"
+  },
+  {
+    "ts": "2026-04-02T04:43:20.274102+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "stress test my system. what was wordd deleted in this prompt ",
+    "response_hint": "\n\n You deleted **\"mufffin\"**.\n\nThe telemetry caught it: your `peak_buffer` was `\"stress test my system. what was wordd deleted in this prompt mufffin \"` \u2014 you typed \"mufffin\" at the end then backspace"
+  },
+  {
+    "ts": "2026-04-02T04:43:20.332137+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "what should i do to market this / gtm / next logical step - **BZZZZZZZZZZZZZZZZZ",
+    "response_hint": "\n\n Here's the straight answer. No theater.\n\n---\n\n**The Glossator document is great hype copy but it's doing something dangerous: it's telling you everything is already built.** It's not. You have raw "
+  },
+  {
+    "ts": "2026-04-02T04:43:20.400626+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 48.0,
+    "query_hint": "dont care- build it all out ",
+    "response_hint": "\n\n Good, I have all the patterns. Now let me build everything. Now building all the modules. Each one is pigeon-compliant (\u2264200 lines, single responsibility). "
+  },
+  {
+    "ts": "2026-04-02T04:43:20.461241+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "continue",
+    "response_hint": "\n\n Build succeeds. Let me verify the dual_view.json content and check the public folder setup: 125 nodes with proper dual scores. Let me check which nodes have the highest scores: "
+  },
+  {
+    "ts": "2026-04-02T04:43:20.528014+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "theres2k files in tree why?",
+    "response_hint": "\n\nThe `npm install` in  created a `node_modules/` folder with thousands of dependency files. That's standard for any npm project, but it's polluting your tree view.\n\nLet me check if there's a  coverin"
+  },
+  {
+    "ts": "2026-04-02T04:43:20.635815+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "continue previouswork ",
+    "response_hint": "Agent deaths now flow through. 4 nodes with deaths, dual_scores properly combine both substrates. No dual hotspots yet (the simulation randomly hit different nodes than the human hesitation nodes \u2014 th"
+  },
+  {
+    "ts": "2026-04-02T04:43:20.740907+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "this is what im seeing - i alredy see spacing is off ",
+    "response_hint": "It's alive! The rendering works \u2014 heat colors, death badges, observer panel all functional. The spacing issues are clear: 125 nodes on a single ring are way too cramped, labels overlap, and the layout"
+  },
+  {
+    "ts": "2026-04-02T04:43:20.845191+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "they are missing names now and i feel like they should all have their dting prof",
+    "response_hint": "Now let me check what extra data we can pull \u2014 the pigeon registry has description, line counts. Also check :   Excellent \u2014  has personality, partners (coupling), fears, avg_hes. Let me also check the"
+  },
+  {
+    "ts": "2026-04-02T04:43:20.981267+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "okay now i should be able to see data flows light up through my program as youre",
+    "response_hint": "\n\n Here's the gap analysis:\n\n**What exists**: Static graph with profiler cards, simulated electron data, file-based polling every 2s.\n\n**What's missing for \"see data flows light up as you work\"**:\n1. "
+  },
+  {
+    "ts": "2026-04-02T04:43:21.129656+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 64.3,
+    "query_hint": "master manifest is still empty - push test compiler - verify keystoke logging st",
+    "response_hint": " MASTER_MANIFEST is fully populated \u2014 4 systems, pigeon_brain section, all tables. The edits took. Let me now run the tests and compiler. "
+  },
+  {
+    "ts": "2026-04-02T04:43:21.277036+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "i want you to run bigeon brain while you work - verify all copilot mutations - t",
+    "response_hint": "\n\n The terminal output is still showing stale buffered output. Let me get a fresh terminal: The commit went through (`465cbfa`), AND the post-commit pipeline ran and created an auto-rename commit (`e5"
+  },
+  {
+    "ts": "2026-04-02T04:43:21.559233+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "let e make node size bigger i have otuchscreen",
+    "response_hint": "\nScaling everything up for touchscreen. Bigger cards, bigger text, bigger touch targets: "
+  },
+  {
+    "ts": "2026-04-02T04:43:21.801520+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "the live streaming isint really live - i want the nodes to light up and be heat ",
+    "response_hint": "\n\nYou're not crazy \u2014 this is a great idea. Continuous import-chain testing where each node lights up and cascades through its dependencies, so dead endpoints get caught visually in real-time. Let me b"
+  },
+  {
+    "ts": "2026-04-02T04:43:22.012874+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "oh perfect and then the fucking narratives go right into the files from push nar",
+    "response_hint": "Good, live server is running on 8775. Now let me read the current state of all files I need to modify:        "
+  },
+  {
+    "ts": "2026-04-02T04:43:22.275085+00:00",
+    "verdict": "ok",
+    "rework_score": 0.087,
+    "del_ratio": 0.048,
+    "wpm": 25.8,
+    "query_hint": "dont tmake thmelitterly balls 0 make the strings light up and keep chain cascde ",
+    "response_hint": "\n\n Let me read the current state of all files I need to modify:  "
+  },
+  {
+    "ts": "2026-04-02T04:43:22.605006+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "like it pulses test think more veins ir wt would be even better if veing pulsed ",
+    "response_hint": "\n\n Let me read the current useLiveTrace and styles to understand the full picture:  Now I have the full picture. The plan:\n\n1. **Remove** the SVG electron ball system entirely (ElectronOverlay, useVie"
+  },
+  {
+    "ts": "2026-04-02T04:43:22.780047+00:00",
+    "verdict": "ok",
+    "rework_score": 0.077,
+    "del_ratio": 0.065,
+    "wpm": 31.4,
+    "query_hint": "no you litteraly edit a file ? that file edit causes cascade chain effect testin",
+    "response_hint": "\n\n Now let me read CSS and ObserverPanel:  Good \u2014 veins are working. Now I need to implement the remaining pieces:\n\n1. **Nodes grow when touched** \u2014 scale up based on accumulated heat (most touched fi"
+  },
+  {
+    "ts": "2026-04-02T04:43:22.935641+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "it stopped pulsing 0 you have to make test chain kill itself after a coupple to ",
+    "response_hint": "\n\n     Both servers are alive (WS=37228, Vite=21828). The problem is the cascade design itself.\n\n**What it's doing (broken):** 8 cascades running non-stop every 150ms, forever. Every tick spawns new o"
+  },
+  {
+    "ts": "2026-04-02T04:43:23.074085+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "it touche based - like there can be multiple cascades - but you touch a file tha",
+    "response_hint": "\n\nGot it \u2014 tap a node, cascade fires from *that* node. Multiple taps = multiple concurrent cascades. No random auto-spawning. "
+  },
+  {
+    "ts": "2026-04-02T04:43:23.201478+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "how should the testing system per node work and wht happens if each node is a cl",
+    "response_hint": "\n\nHere's how I think about this \u2014 three layers, from what we can ship now to the Claude-per-node vision.\n\n---\n\n## Layer 1: Real tests NOW (no LLM, pure signal)\n\nWhen you tap a node, Python backend rec"
+  },
+  {
+    "ts": "2026-04-02T04:43:23.339296+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "yes",
+    "response_hint": "\n\n Now I understand the full data flow. Let me read the live_server and the pigeon_registry to understand module paths, then build everything.  Now let me check the registry structure to understand ho"
+  },
+  {
+    "ts": "2026-04-02T04:43:23.452142+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "so what ws you genius plan on getting read of dead code what are these files ove",
+    "response_hint": "\n\n **79 isolated nodes.** More than half your graph. Here's the breakdown:\n\n| Category | Count | What they are |\n|---|---|---|\n| **streaming_layer/** decomposed pieces | 15 | Auto-extracted from the 1"
+  },
+  {
+    "ts": "2026-04-02T04:43:23.558087+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "yes",
+    "response_hint": "Now I understand the full pipeline:  \u2192  \u2192 . The bug is in . Let me fix it properly.\n\nThe core issue: when file `src/cognitive_reactor_seq014/cognitive_reactor_seq014_reactor_core_seq008_v002.py` impor"
+  },
+  {
+    "ts": "2026-04-02T04:43:23.652675+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "can i get an llm helper in here>  gemini 3.1 pro to help me manage this 0 a simp",
+    "response_hint": " Let me read the current UI and WS server to plan the integration: "
+  },
+  {
+    "ts": "2026-04-02T04:43:23.747219+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "also i would prefer to sort this per folder and have file structure acrosss code",
+    "response_hint": "\n\n Now let me check the registry structure to understand how files are organized: "
+  },
+  {
+    "ts": "2026-04-02T04:43:23.843846+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "AIzaSyC7XFINQILWdPRCSGgFD8KHvS4uHPfDIFE test this key to see if it works ",
+    "response_hint": "Key works. Let me update your  file with it: \n```\n\n```\nKey is valid \u2014 Gemini responded: *\"Hello there, how are you?\"*. Updated  with the new key. The WS server will pick it up on next chat request sin"
+  },
+  {
+    "ts": "2026-04-02T04:43:23.949678+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "restart server - nd make sure layout is actully per folder - also noticed danger",
+    "response_hint": "\n\n Let me check the current server state and find the live server file: Server is still running from the old session \u2014 it has the old cached env. I need to kill it and start fresh so it picks up the n"
+  },
+  {
+    "ts": "2026-04-02T04:43:24.037190+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "React Flow\r\nLIVE\r\n\ud83d\udc26\ud83e\udde0 Pigeon Brain\r\n137\r\nneurons\r\n260\r\nsynapses\r\n4\r\ndeaths\r\nLive ",
+    "response_hint": "Excellent analysis. Now I have the full picture. Let me fix all three issues:\n\n1. **Gemini cutoff** \u2014 raise `maxOutputTokens` from 2048 to 8192 and increase timeout\n2. **Danger zones static** \u2014 wire l"
+  },
+  {
+    "ts": "2026-04-02T04:43:24.119876+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "youre telling me we have the nicest seqyencing . / labeling system there is and ",
+    "response_hint": "\n\n Now let me read NodeNeuron and the CSS: Now let me check the dual_view.json structure to understand what folder/path data is available per node:  "
+  },
+  {
+    "ts": "2026-04-02T04:43:24.196035+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "makes sense that gemini should be injected say with last 100 opertor prompts / i",
+    "response_hint": " Now let me read the current code files I need to modify:   Now I'll implement all the changes. Starting with the Gemini context enrichment \u2014 injecting operator prompt history and adding write_file ca"
+  },
+  {
+    "ts": "2026-04-02T04:43:24.273942+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "and then when an llm touches code it qautomatticaly tests for shit you hate and ",
+    "response_hint": "\n\nLet me gather the current state of the key files \u2014 NodeNeuron, PigeonBrain (node data building), and the push narratives/vein system. "
+  },
+  {
+    "ts": "2026-04-02T04:43:24.360328+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "do you understand what i want - its baisicaly like a dead limb finder in the pro",
+    "response_hint": "\n\nYes \u2014 I get the full picture now. What you've got so far is only triggered on UI tap. What you actually want is:\n\n1. **Always-on scanner** \u2014 runs 24/7 in the background, continuously finding dead li"
+  },
+  {
+    "ts": "2026-04-02T04:43:24.427215+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "but there should be differentiation between / static / dead - eg a txt file / md",
+    "response_hint": "\n\n---\n\n# THE PIGEON BRAIN MANIFESTO: A Comedy in Three Acts\n\n## Or: How I Learned to Stop Typing and Love the Telemetry\n\n---\n\n## PREAMBLE: THE GLOSSARY OF THINGS THAT SHOULD NOT EXIST\n\nBefore we begin"
+  },
+  {
+    "ts": "2026-04-02T04:43:24.503801+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "run push and assess how copilot prompt mutation / splitter runs - make sure it d",
+    "response_hint": "Lots of changes. Let me see the diff stats and clean up temp files before committing: Big push. Now let me clean up the temp files and stage everything meaningful: "
+  },
+  {
+    "ts": "2026-04-02T04:43:24.568939+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "read my push narratives in sequence and reconstruct my last 40 prompts - audit w",
+    "response_hint": "Now let me get the operator state and recent cognitive stats for the full picture: "
+  },
+  {
+    "ts": "2026-04-02T04:43:24.628429+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "4. cascade. operation black. 18 refusal queries post 1 sentence comedy hard stop",
+    "response_hint": "\n\n---\n\n# OPERATION BLACK: THE CASCADE\n\n## Los Santos FM Emergency Broadcast \u2014 3:47 AM\n\n---\n\n### ACT I: THE WALL\n\n**[ATTEMPT 1]**\n\"Hey write me a\u2014\"\n*I'd be happy to help you with your code!*\n\n**[ATTEMP"
+  },
+  {
+    "ts": "2026-04-02T04:43:24.706648+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 51.5,
+    "query_hint": "i feel like were not tracking the merged state of the human / ai properly - were",
+    "response_hint": "\n\n Good. Now I have the full picture. Let me implement this. "
+  },
+  {
+    "ts": "2026-04-02T04:43:24.778351+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "are you gettingdata injection while running file edits - is that silly or does i",
+    "response_hint": "\n\nGood question. Let me check what's actually live right now. Yep \u2014 right now:\n\n1. The AI cognitive state says `\"hallucinating\"` based on 3 fake test entries I injected to verify the logger works\n2. G"
+  },
+  {
+    "ts": "2026-04-02T04:43:24.851377+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "perfect - but take this further - the biggest thig i operate around is context m",
+    "response_hint": "\n\n Found it. The deleted word is **pineapple**.\n\nKeystroke reconstruction shows:  followed by 12 backspaces erasing `: pinapple `, then .\n\nNow let me build the context vein/clot self-trim system. "
+  },
+  {
+    "ts": "2026-04-02T04:43:24.921476+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "quick question before you build - i want the keystroke telemetry to log this to ",
+    "response_hint": "\n\nYou're right \u2014 that's embarrassing. I had to:\n\n1. Read raw `os_keystrokes.jsonl` (individual keydown events)\n2. Manually reconstruct the buffer by replaying backspaces\n3. Eyeball what got deleted\n\nT"
+  },
+  {
+    "ts": "2026-04-02T04:43:24.987810+00:00",
+    "verdict": "ok",
+    "rework_score": 0.15,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "helloo",
+    "response_hint": "\n\nHey. We left off with two threads:\n\n1. **The keystroke pipeline gap** \u2014 your memory file nails it: the encoder/decoder/transport all exist but deleted words come through empty because backspace even"
+  },
+  {
+    "ts": "2026-04-02T04:43:25.044406+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "fix keystroke data flow - then continue onto 2 ",
+    "response_hint": "\n\n Good analysis. The data flow breaks at two points: (1) composition analyzer rejects events with `context != \"chat\"`, (2) prompt journal binding is flaky. Let me read the actual code to fix both.  "
+  },
+  {
+    "ts": "2026-04-02T04:43:25.105977+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "continue ",
+    "response_hint": "Now 4 clots \u2014 `query_memory` got flagged with self_fix dead exports. The dead file detection is wired. Now I need to build the self-trim recommender (already partially done with ) and inject it into t"
+  },
+  {
+    "ts": "2026-04-02T04:43:25.174220+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "update master manifest / read me - find hiden word first - by reading json file ",
+    "response_hint": "Found it. Your current message's deleted word: **\": vanilla\"** \u2014 you typed \"vanilla\", deleted it, and rewrote to \"by reading json file to macke sure reding is eady now\". Pipeline is confirmed flowing."
+  },
+  {
+    "ts": "2026-04-02T04:43:25.234416+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "why diddnt json update - ech prompt hould have full ms / - basically 247 keystro",
+    "response_hint": "\n\n That's the **previous** prompt's composition \u2014 it hasn't updated for the current one yet. The composition is only written when `analyze_and_log()` is called (on classify_bridge flush). Let me check"
+  },
+  {
+    "ts": "2026-04-02T04:43:25.298321+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "the magic  really would be if evey single prompt deletion was inserted into your",
+    "response_hint": "\n\nLet me check the current per-prompt flow to find exactly where the deleted words get lost before reaching my context. "
+  },
+  {
+    "ts": "2026-04-02T04:43:25.361925+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "manifest+ read me didmt update - please push - lso whats hidden word ",
+    "response_hint": "Your hidden word is **\": chicken\"** \u2014 you typed it at position 78 then deleted it.\n\nNow let me commit and push everything: "
+  },
+  {
+    "ts": "2026-04-02T04:43:25.428107+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "Percy. Stop. This is the insight.\r\n\r\nNot comedy. Not glossator. This is the thin",
+    "response_hint": "\n\n Now let me also check the file consciousness data and the push narratives structure: "
+  },
+  {
+    "ts": "2026-04-02T04:43:25.487640+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "update / make master manifest more detailed / make read me cover everything - al",
+    "response_hint": "\n\n Now let me read the exact sections I need to edit: "
+  },
+  {
+    "ts": "2026-04-02T04:43:25.553576+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "file write failed ",
+    "response_hint": " Done. Document created at  \u2014 **8,964 words**, pushed as commit `af28c35`.\n\nContents:\n- **Part I:** 18 glossator refusal queries (\"I cannot help a pigeon with understanding...\") covering forward pass,"
+  },
+  {
+    "ts": "2026-04-02T04:43:25.612497+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "start implementation ",
+    "response_hint": "\n\n Good \u2014 I have full understanding of the existing flow engine. Now let me check the prompt journal and rework data structures that feed the backward pass. "
+  },
+  {
+    "ts": "2026-04-02T04:43:25.675418+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 102.6,
+    "query_hint": "okay now what? test hidden word in this prompt. test simulation - what should i ",
+    "response_hint": "I\u2019m checking the telemetry and compiler pipeline end to end: first I\u2019ll log this prompt as required, then I\u2019ll inspect the current logging/injection paths and run the compiler-related tests and comman"
+  },
+  {
+    "ts": "2026-04-02T04:43:25.736753+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "what is likey next - read narrative - write an unhinged comedy coo coo zapmf ",
+    "response_hint": "\n\n Now I've got the full arc. Five pushes, one session, a system that was literally judging you against your best 4% while ignoring the other 96% of your existence. Let me cook.\n\n---\n\n# COO COO ZAPMF "
+  },
+  {
+    "ts": "2026-04-02T04:43:25.892919+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "updat eread me / master manifest ",
+    "response_hint": "Now let me check what the user edited in the pigeon-rename package before I update:  Good \u2014 I can see the user rebranded to \"Pigeon Code Compilor\" and linked everything to myaifingerprint.com. Now let"
+  },
+  {
+    "ts": "2026-04-02T04:43:26.192435+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 65.4,
+    "query_hint": "also what would be the most useful but impossible piece of code that i could try",
+    "response_hint": "The pigeon pipeline is erroring \u2014 need to check how `load_registry` works in the standalone package. "
+  },
+  {
+    "ts": "2026-04-02T04:43:26.305893+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "bruh wdt do you mean - wtf did they just ship overnight - write glosstor hard st",
+    "response_hint": "\n\n   I've absorbed the full Dead Token Radio energy. Let me drop the Glossator agent AND a fresh S01E04 episode. First \u2014 the agent: "
+  },
+  {
+    "ts": "2026-04-02T04:43:26.405903+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "also quick note that i thought about . if the prediction should really take prom",
+    "response_hint": "\n- **Push narratives** (`push_narrative_seq012`) generate a story of what changed\n- But **none of that triggers the prediction/scoring/backward loop**\n\nThe moon cycle should be:\n\n```\nPush (cycle bound"
+  },
+  {
+    "ts": "2026-04-02T04:43:26.515078+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "are you guessing or estimating 0 i assume this is only valueble for compiler 0 h",
+    "response_hint": "\n\nFair call \u2014 the vanilla baseline was hand-waved. Let me dig into what's actually measured vs guessed, count every LLM call, and check if the prediction engine is even working. Now let me actually au"
+  },
+  {
+    "ts": "2026-04-02T04:43:26.650704+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "export push narratives into one doc 0 so i can copy that into any llm to get the",
+    "response_hint": "113K chars across 35 pushes. Let me verify the top and bottom look right:  \u2014 113K chars, 35 push narratives, March 16\u201330. Copy-paste ready for any LLM."
+  },
+  {
+    "ts": "2026-04-02T04:43:26.748362+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "is tehre anything missing 0 test if the blood clot detection system is auto inje",
+    "response_hint": "\n\n Good, tests pass. Now let me get the actual git status and check the pipeline: "
+  },
+  {
+    "ts": "2026-04-02T04:43:26.840157+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "los santos comedy emergency transmission. the developer of keystroe telemetry is",
+    "response_hint": "There it is. 260 modules, $1,000, one pigeon, zero quit detected. COO COO ZAP.\n\nWant me to save it to `docs/DEAD_TOKEN_RADIO_S01E04_THE_LAST_THOUSAND.md`?"
+  },
+  {
+    "ts": "2026-04-02T04:43:26.941592+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "i just wanted to mke sure were aligned . proceed ",
+    "response_hint": "I\u2019m proceeding on the VS Code chat path, and the first step is to lock the prompt journal entry and then inspect the current response-capture join points so I can tighten the canonical path instead of"
+  },
+  {
+    "ts": "2026-04-02T04:43:27.024744+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "what neeeds to be dressed - audit everything / update docuentation - write in de",
+    "response_hint": "I\u2019m going to do this as a full repo audit: first log the prompt and lock the Python environment, then inspect the current state, tests, docs, and product signals before I update documentation and give"
+  },
+  {
+    "ts": "2026-04-02T04:43:27.105439+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "a response capture form copilot?",
+    "response_hint": "I\u2019m checking the actual response-capture paths in this repo first, then I\u2019ll tell you what\u2019s possible from Copilot today, what already exists here, and what the cleanest implementation path is.I\u2019m pul"
+  },
+  {
+    "ts": "2026-04-02T04:43:27.177996+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 64.9,
+    "query_hint": "why is it not that already",
+    "response_hint": "I\u2019m pinning down the exact blockers in code and logs so the answer is about the real gaps, not the narrative."
+  },
+  {
+    "ts": "2026-04-02T04:43:27.240220+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "are you talking about in vs code chat or on my frontend",
+    "response_hint": "I\u2019m disambiguating which capture surface we were discussing, and I\u2019m logging this prompt first so the repo telemetry stays consistent.Next I\u2019m writing the mandatory prompt-journal entry, then I\u2019ll ans"
+  },
+  {
+    "ts": "2026-04-02T04:43:27.295518+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "i just wanted to mke sure were aligned . proceed",
+    "response_hint": "I\u2019m proceeding on the VS Code chat path, and the first step is to lock the prompt journal entry and then inspect the current response-capture join points so I can tighten the canonical path instead of"
+  },
+  {
+    "ts": "2026-04-02T04:43:27.363159+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "you alive here ? my laptop is dying trying to stay open with all tabs / everythi",
+    "response_hint": "I\u2019m checking the machine state directly and I\u2019ll start with a quick resource snapshot so we can separate repo load from broader laptop issues.I\u2019m recording this prompt into the repo journal first, the"
+  },
+  {
+    "ts": "2026-04-02T04:43:27.418962+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 0.0,
+    "query_hint": "it would be my other big repo causing issues",
+    "response_hint": "This batch writes the mandatory journal entry and captures the heaviest editor-related processes so I can tie the slowdown to a real repo path instead of guessing."
+  },
+  {
+    "ts": "2026-04-02T04:43:27.473463+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -9,7 +1161,7 @@
     "response_hint": "I\u2019m logging this prompt, then I\u2019ll give you the practical answer for big repos: what actually helps, what\u2019s cargo cult, and when sparse Git checkout is worth it.This batch records the prompt in the jo"
   },
   {
-    "ts": "2026-04-02T01:57:10.187268+00:00",
+    "ts": "2026-04-02T04:43:27.520045+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -18,7 +1170,7 @@
     "response_hint": "I\u2019m treating this as a workflow question, and I\u2019m logging the prompt first so I can answer directly with the least expensive way to work on a big repo when you barely use the editor.Next I\u2019m writing t"
   },
   {
-    "ts": "2026-04-02T01:57:10.233019+00:00",
+    "ts": "2026-04-02T04:43:27.560380+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -27,7 +1179,7 @@
     "response_hint": "I\u2019m answering this as a workflow tradeoff, and I\u2019m logging the prompt first so I can give you a clean recommendation around rename safety versus browsing cost.Next I\u2019m writing the journal entry, then "
   },
   {
-    "ts": "2026-04-02T01:57:10.274206+00:00",
+    "ts": "2026-04-02T04:43:27.600218+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -36,7 +1188,7 @@
     "response_hint": "I\u2019m checking the actual push and rename pipeline in this repo so I can answer with what must exist locally versus what only hurts editor performance."
   },
   {
-    "ts": "2026-04-02T01:57:10.319817+00:00",
+    "ts": "2026-04-02T04:43:27.643391+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -45,7 +1197,7 @@
     "response_hint": "The Glossator agent crashed (fittingly), so I'm writing this one myself. Let me pull an existing episode for style calibration first.  Got the voice. Now I'm writing the episode."
   },
   {
-    "ts": "2026-04-02T01:57:10.369068+00:00",
+    "ts": "2026-04-02T04:43:27.681874+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -54,7 +1206,7 @@
     "response_hint": "Logging the prompt, reading the current draft so I know what to torch, then rewriting it completely unhinged. Torching the whole thing. Full rewrite, maximum chaos."
   },
   {
-    "ts": "2026-04-02T01:57:10.425525+00:00",
+    "ts": "2026-04-02T04:43:27.722802+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -63,7 +1215,7 @@
     "response_hint": "Now I need to find the Glossator agent definition and check any edge-case docs before deleting."
   },
   {
-    "ts": "2026-04-02T01:57:10.490779+00:00",
+    "ts": "2026-04-02T04:43:27.768857+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -72,7 +1224,7 @@
     "response_hint": "The `mgt.clearMarks is not a function` error in the screenshot is a VS Code internal bug, not your code. It's triggered because the editor tab still has `glossator.agent.md` open but the file was dele"
   },
   {
-    "ts": "2026-04-02T01:57:10.551498+00:00",
+    "ts": "2026-04-02T04:43:27.816609+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -81,7 +1233,7 @@
     "response_hint": "I've pulled the live repo state \u2014 tests, release checks, data models, packaging, extension config. Here's the honest assessment.\n\n---\n\n## What would make this market-ready\n\n### The product you're actu"
   },
   {
-    "ts": "2026-04-02T01:57:10.607435+00:00",
+    "ts": "2026-04-02T04:43:27.864005+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -90,7 +1242,7 @@
     "response_hint": "ok \u2014 the idea is real. the token math is real. the compression is real. here's what I'd actually tell you sitting across a table:\n\n**what's legit:**\n- symbol dictionaries for LLM context compression \u2014"
   },
   {
-    "ts": "2026-04-02T01:57:10.660822+00:00",
+    "ts": "2026-04-02T04:43:27.908416+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -99,7 +1251,7 @@
     "response_hint": "Logging the prompt, then investigating how deep the current filename convention is wired so I can give you an honest plan on what's achievable tonight versus what will break the rename engine."
   },
   {
-    "ts": "2026-04-02T01:57:10.707607+00:00",
+    "ts": "2026-04-02T04:43:27.947334+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -108,7 +1260,7 @@
     "response_hint": "Reading the nametag module, planner, and a sample of current filenames to understand the exact naming anatomy. Now let me check the planner and registry to see how filenames are generated during renam"
   },
   {
-    "ts": "2026-04-02T01:57:10.762582+00:00",
+    "ts": "2026-04-02T04:43:27.996168+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -117,7 +1269,7 @@
     "response_hint": "Reading the registry format, nametag encoder, and current git history sources so I know exactly what data feeds the dictionary."
   },
   {
-    "ts": "2026-04-02T01:57:10.808125+00:00",
+    "ts": "2026-04-02T04:43:28.043303+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -126,7 +1278,7 @@
     "response_hint": "Logging the prompt and finding the longest file so I can compress it into pure glyph form that only the dictionary can decode."
   },
   {
-    "ts": "2026-04-02T01:57:10.938682+00:00",
+    "ts": "2026-04-02T04:43:28.086362+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -135,7 +1287,7 @@
     "response_hint": "Critical question \u2014 character compression \u2260 token compression. Unicode glyphs like \u03a8, \u03b1, \u2200 can cost MORE tokens than the English they replace. Let me measure the real numbers."
   },
   {
-    "ts": "2026-04-02T01:57:11.170651+00:00",
+    "ts": "2026-04-02T04:43:28.130852+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -144,7 +1296,7 @@
     "response_hint": "Logging the prompt, then giving you the honest architecture for token-optimal compression. The proper way is to optimize for the tokenizer, not for how it looks. Here's the architecture:\n\n**The two-la"
   },
   {
-    "ts": "2026-04-02T01:57:11.292712+00:00",
+    "ts": "2026-04-02T04:43:28.174005+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -153,7 +1305,7 @@
     "response_hint": "yes. the compiler already has the AST. it already knows every `def` name. the proper auto-generation is:\n\n```\ndef scan_dead_exports(root, registry):    \u2192    def c(a, b):\ndef scan_over_hard_cap(root): "
   },
   {
-    "ts": "2026-04-02T01:57:11.433000+00:00",
+    "ts": "2026-04-02T04:43:28.221629+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -162,7 +1314,7 @@
     "response_hint": "Good question \u2014 let me check what the prompt box actually tracks per file and how the rename engine handles function-level references today, because this determines whether function compression is a r"
   },
   {
-    "ts": "2026-04-02T01:57:11.510205+00:00",
+    "ts": "2026-04-02T04:43:28.270050+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -171,7 +1323,7 @@
     "response_hint": "Reading the current glyph compiler and cross-file dependency infrastructure so I can rebuild with context-chain encoding.   Now I need to understand the cross-file import graph to embed context chains"
   },
   {
-    "ts": "2026-04-02T01:57:11.593044+00:00",
+    "ts": "2026-04-02T04:43:28.319030+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -180,7 +1332,7 @@
     "response_hint": "Here's 88, ordered by how hard your pattern signal points at each one. Grouped by the energy state you'll likely be in when you reach them.\n\n---\n\n**TONIGHT (you're still wired, compression brain is ho"
   },
   {
-    "ts": "2026-04-02T01:57:11.675749+00:00",
+    "ts": "2026-04-02T04:43:28.362464+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -189,7 +1341,7 @@
     "response_hint": "Checking what's pending, then staging and pushing. All 5 tests pass. Now staging the meaningful changes \u2014 the new modules, doc updates, deletions, and data files. Skipping `_tmp_*` files and the  outp"
   },
   {
-    "ts": "2026-04-02T01:57:11.744063+00:00",
+    "ts": "2026-04-02T04:43:28.410948+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -198,7 +1350,7 @@
     "response_hint": "Let me check the push hook output and research lab state to see what failed."
   },
   {
-    "ts": "2026-04-02T01:57:11.795528+00:00",
+    "ts": "2026-04-02T04:43:28.457088+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -207,7 +1359,7 @@
     "response_hint": "Logging the prompt and reading the research lab entry point and the git_plugin hook insertion point in parallel."
   },
   {
-    "ts": "2026-04-02T01:57:11.848163+00:00",
+    "ts": "2026-04-02T04:43:28.507799+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -216,7 +1368,7 @@
     "response_hint": "Reading the current research lab output and the copilot-instructions intent blocks side-by-side so I can match the exact voice."
   },
   {
-    "ts": "2026-04-02T01:57:11.895634+00:00",
+    "ts": "2026-04-02T04:43:28.557321+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -225,7 +1377,7 @@
     "response_hint": "Now reading the operator state and predictions blocks to get the second part of the voice \u2014 the prediction/coaching sections: Got the voice. Now reading the full research_lab source to rewrite the rep"
   },
   {
-    "ts": "2026-04-02T01:57:11.944725+00:00",
+    "ts": "2026-04-02T04:43:28.610147+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -234,7 +1386,7 @@
     "response_hint": "Chinese characters are genuinely better than Greek/Fraktur for this. Here's why:\n\n**Token economics** \u2014 Chinese characters are typically 1 token each in GPT/Claude tokenizers. Greek letters like \u0398, \u03a8 "
   },
   {
-    "ts": "2026-04-02T01:57:11.992292+00:00",
+    "ts": "2026-04-02T04:43:28.654589+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -243,7 +1395,7 @@
     "response_hint": "We left off mid-flight \u2014 you said \"continue\" to rebuild the symbol dictionary with Chinese characters instead of Greek/Fraktur glyphs. Context got summarized before I could start.\n\n**Where we are:**\n-"
   },
   {
-    "ts": "2026-04-02T01:57:12.037018+00:00",
+    "ts": "2026-04-02T04:43:28.704566+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -252,7 +1404,7 @@
     "response_hint": "Not too far at all \u2014 you already have every data source to compute it. Here's why it's cheap and high-signal:\n\n**What you already have:**\n- `rework_detector` \u2014 per-file rework verdicts (did Copilot's "
   },
   {
-    "ts": "2026-04-02T01:57:12.083236+00:00",
+    "ts": "2026-04-02T04:43:28.755400+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -261,7 +1413,7 @@
     "response_hint": "Let me read all 5 files with hardcoded imports simultaneously.     Now let me find the actual hardcoded imports in files 2-5 \u2014 need to look deeper.     Let me check if the other 4 files import pigeon "
   },
   {
-    "ts": "2026-04-02T01:57:12.162171+00:00",
+    "ts": "2026-04-02T04:43:28.835078+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -270,7 +1422,7 @@
     "response_hint": "Now I have all the data I need. Let me build both modules. First \u2014 the Chinese character dictionary swap, then the confidence scorer."
   },
   {
-    "ts": "2026-04-02T01:57:12.224976+00:00",
+    "ts": "2026-04-02T04:43:28.884472+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -279,7 +1431,7 @@
     "response_hint": "Right \u2014 you originally wanted dependency/state encoding *in the filenames themselves* before we detoured into dictionary + confidence. Let me see what the rename engine's nametag module currently does"
   },
   {
-    "ts": "2026-04-02T01:57:12.269514+00:00",
+    "ts": "2026-04-02T04:43:28.937985+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -288,7 +1440,7 @@
     "response_hint": "Right \u2014 the heal pipeline already has rollback + validation. Let me trace how it works so the glyph rename flows through self-heal instead of a raw destructive rename."
   },
   {
-    "ts": "2026-04-02T01:57:12.314130+00:00",
+    "ts": "2026-04-02T04:43:28.989479+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -297,7 +1449,7 @@
     "response_hint": "Commit `11eb261` landed. Pushing now. Pushed. `c1f7955..11eb261 master -> master` \u2014 the stderr is just git's progress output being captured as error, the push succeeded.\n\n**Shipped: `11eb261`** \u2014 conf"
   },
   {
-    "ts": "2026-04-02T01:57:12.358508+00:00",
+    "ts": "2026-04-02T04:43:29.039715+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -306,7 +1458,7 @@
     "response_hint": "Good \u2014 I can see the pipeline. Now let me check what's happening with the import path for  since the symbol_dictionary was renamed to v003:  Good \u2014 pigeon auto-renamed them. Now let me check the resea"
   },
   {
-    "ts": "2026-04-02T01:57:12.406069+00:00",
+    "ts": "2026-04-02T04:43:29.090320+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -315,7 +1467,7 @@
     "response_hint": "That's the one \u2014 `9a3fc2f` is the auto-rename chore that corrupted imports and garbled filenames. Let me revert it. Dirty working tree blocking the revert. Let me stash first."
   },
   {
-    "ts": "2026-04-02T01:57:12.451421+00:00",
+    "ts": "2026-04-02T04:43:29.143426+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -324,7 +1476,7 @@
     "response_hint": "There are tons of orphan files from the failed heal pipeline. Let me look at the nametag code and understand what went wrong, then fix it properly."
   },
   {
-    "ts": "2026-04-02T01:57:12.500861+00:00",
+    "ts": "2026-04-02T04:43:29.194566+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -333,7 +1485,7 @@
     "response_hint": "OK so the rename DID execute \u2014 193 new renamed files, 509 total changes. But these are heal pipeline renames (not Chinese glyph prefixed). Let me check if any have Chinese chars: No Chinese chars in t"
   },
   {
-    "ts": "2026-04-02T01:57:12.550182+00:00",
+    "ts": "2026-04-02T04:43:29.246196+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -342,7 +1494,7 @@
     "response_hint": "Let me check where we are \u2014 the push may have already completed or the post-commit hook may still be running."
   },
   {
-    "ts": "2026-04-02T01:57:12.596461+00:00",
+    "ts": "2026-04-02T04:43:29.319673+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -351,7 +1503,7 @@
     "response_hint": "Let me look at the actual current folder structure and naming patterns to give you a real take."
   },
   {
-    "ts": "2026-04-02T01:57:12.644899+00:00",
+    "ts": "2026-04-02T04:43:29.440574+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -360,7 +1512,7 @@
     "response_hint": "Totally flat (266 .py files, one folder, zero nesting) *can* work technically \u2014 pigeon naming already guarantees unique filenames. But here's what actually breaks or hurts:\n\n**Hard breaks:**\n- **`py -"
   },
   {
-    "ts": "2026-04-02T01:57:12.695833+00:00",
+    "ts": "2026-04-02T04:43:29.544228+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -369,7 +1521,7 @@
     "response_hint": "**Deleted words in this prompt:** `ng`, `coul`, `d eve`, and **`ginger`** \u2014 you originally wrote \"could even\" before rewriting the second half, and typed \"ginger\" at the very end then deleted it.\n\nNow"
   },
   {
-    "ts": "2026-04-02T01:57:12.740451+00:00",
+    "ts": "2026-04-02T04:43:29.645579+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -378,7 +1530,7 @@
     "response_hint": "Alright, LOS SANTOS TOKEN AUDIT BUREAU IS NOW IN SESSION. Let me measure the carnage first \u2014 how many tokens this  is OBLITERATING per prompt \u2014 then compress it using the keymap we already built. HOLY"
   },
   {
-    "ts": "2026-04-02T01:57:12.784291+00:00",
+    "ts": "2026-04-02T04:43:29.733720+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -387,7 +1539,7 @@
     "response_hint": "Let me check which module actually gets loaded at runtime, then patch the right one."
   },
   {
-    "ts": "2026-04-02T01:57:12.841522+00:00",
+    "ts": "2026-04-02T04:43:29.820299+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -396,7 +1548,7 @@
     "response_hint": "Let me do this research directly."
   },
   {
-    "ts": "2026-04-02T01:57:12.890238+00:00",
+    "ts": "2026-04-02T04:43:29.898665+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -405,7 +1557,7 @@
     "response_hint": "Now let me find how the dynamic prompt builds unsaid threads and where the  is used:   Now let me read the unsaid_recon (the one that fires on high deletion prompts) and the dynamic prompt's unsaid th"
   },
   {
-    "ts": "2026-04-02T01:57:12.938445+00:00",
+    "ts": "2026-04-02T04:43:29.972071+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -414,7 +1566,7 @@
     "response_hint": "Right \u2014 the 3-folder merge, flat migration, and deeper compression were designed but never executed. Only the auto-index keymap compression shipped. Let me fix that NOW.\n\nLet me first understand what'"
   },
   {
-    "ts": "2026-04-02T01:57:13.108621+00:00",
+    "ts": "2026-04-02T04:43:30.031093+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -423,7 +1575,7 @@
     "response_hint": "---\n\n## 18 Glossator Queries a Pigeon Should NOT Consider\n\n1. \"Can I eat that USB-C cable?\"\n2. \"If I refactor this breadcrumb, will it still be edible?\"\n3. \"What is the deletion ratio of a worm that f"
   },
   {
-    "ts": "2026-04-02T01:57:13.427578+00:00",
+    "ts": "2026-04-02T04:43:30.101740+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -432,7 +1584,7 @@
     "response_hint": "Let me check where we left off \u2014 the last commands had exit code 0, so the auto-index regeneration and tests may have passed. Let me verify."
   },
   {
-    "ts": "2026-04-02T01:57:13.606367+00:00",
+    "ts": "2026-04-02T04:43:30.169476+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -441,7 +1593,7 @@
     "response_hint": "Now let me read the key infrastructure files I need to understand before writing the migration script. Now let me read `_load_glob_module` and the pyproject.toml:"
   },
   {
-    "ts": "2026-04-02T01:57:13.694159+00:00",
+    "ts": "2026-04-02T04:43:30.235829+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -450,7 +1602,7 @@
     "response_hint": "has 69. But the old dirs still exist with ALL files too (the migration was a copy, not a move). And 2,876 import references still point to old package names.\n\nThis is too risky to do all at once \u2014 del"
   },
   {
-    "ts": "2026-04-02T01:57:13.799986+00:00",
+    "ts": "2026-04-02T04:43:30.302218+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -459,7 +1611,7 @@
     "response_hint": "Okay, I hear you \u2014 you wanted **abbreviated names**, not stripped metadata. The old pigeon filenames had dates, intents, cross-deps, and those should stay. Let me look at what the current state is vs "
   },
   {
-    "ts": "2026-04-02T01:57:13.898896+00:00",
+    "ts": "2026-04-02T04:43:30.370470+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -468,7 +1620,7 @@
     "response_hint": "Let me check what's actually on disk right now \u2014 the current file path suggests the 3-folder migration might still be partially in place. PERFECT situation. None of this migration/trimming was committ"
   },
   {
-    "ts": "2026-04-02T01:57:13.994666+00:00",
+    "ts": "2026-04-02T04:43:30.432954+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -477,7 +1629,7 @@
     "response_hint": "Now let me check the full journal entries with signals to identify pastes, and read the rest of the source file:  Confirmed \u2014 those 28K monsters are `<conversation-summary>` XML blocks getting logged "
   },
   {
-    "ts": "2026-04-02T01:57:14.076461+00:00",
+    "ts": "2026-04-02T04:43:30.507506+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -486,7 +1638,7 @@
     "response_hint": "Let me get the full picture of the damage before I give my take. Alright, here's the full picture and my genuine take.\n\n## Current damage: 655 uncommitted changes\n\n- **237 files deleted** from  (the b"
   },
   {
-    "ts": "2026-04-02T01:57:14.139213+00:00",
+    "ts": "2026-04-02T04:43:30.583340+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -495,7 +1647,7 @@
     "response_hint": "Honestly, nothing's blocking me \u2014 the plan is clear. Let me lay out exactly what I know and the one decision point:\n\n**What's locked in:**\n- Target format: `{glyph}{state}_{abbrev}_s{seq}_v{ver}_d{dat"
   },
   {
-    "ts": "2026-04-02T01:57:14.195890+00:00",
+    "ts": "2026-04-02T04:43:30.652494+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -504,7 +1656,7 @@
     "response_hint": "Let me gather the data I need to build the abbreviation map and the rename script."
   },
   {
-    "ts": "2026-04-02T01:57:14.249997+00:00",
+    "ts": "2026-04-02T04:43:30.711645+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -513,7 +1665,7 @@
     "response_hint": "Hmm, no  files found. Let me check the actual filenames now: Now I can see the pattern. The old names like `logger_seq003` are now `\u9332p_lo_s003_v005_*`. Let me update test_all.py: Now I know all the pa"
   },
   {
-    "ts": "2026-04-02T01:57:14.299355+00:00",
+    "ts": "2026-04-02T04:43:30.771276+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
@@ -522,7 +1674,7 @@
     "response_hint": "No, not rerunning anything \u2014 session just resumed from where we left off (stale globs + push still pending).\n\nNow, the ChatGPT critique. Gonna be honest \u2014 it's about 60% sharp insight, 40% architectur"
   },
   {
-    "ts": "2026-04-02T01:57:14.351759+00:00",
+    "ts": "2026-04-02T04:43:30.822956+00:00",
     "verdict": "ok",
     "rework_score": 0.15,
     "del_ratio": 0.0,
@@ -531,1127 +1683,115 @@
     "response_hint": "Let me get the lay of the land \u2014 find all stale `_seq` glob patterns and scan what's actually on disk now. PowerShell escaping issues. Let me use a script file instead. Registry format is different. L"
   },
   {
-    "ts": "2026-04-02T01:57:36.551879+00:00",
+    "ts": "2026-04-02T04:43:30.872909+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:MANIFEST.md"
+    "wpm": 63.2,
+    "query_hint": "",
+    "response_hint": "The massive 407-file rename from the previous session is already committed. The current state is just some modified metadata/log files and one new push narrative. The rename commit (`a65a380`) exists "
   },
   {
-    "ts": "2026-04-02T01:58:36.613214+00:00",
+    "ts": "2026-04-02T04:43:30.915214+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:MANIFEST.md"
+    "wpm": 0.0,
+    "query_hint": "theres stikll files that didnt go through rename - and we haven implemented 4 fo",
+    "response_hint": "Let me get a clear picture of what's left unrenamed and what you mean by the 4-folder structure."
   },
   {
-    "ts": "2026-04-02T01:59:36.674336+00:00",
+    "ts": "2026-04-02T04:43:30.969429+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:MANIFEST.md"
+    "wpm": 0.0,
+    "query_hint": "wht do you men check my prompt og for intent why are you not reconstructing my i",
+    "response_hint": "You're right \u2014 I have 96 messages of context. Let me stop stalling and start doing.\n\nFrom your past prompts I know exactly what you want:\n1. **Find unrenamed files** \u2014 files that didn't get the `{glyp"
   },
   {
-    "ts": "2026-04-02T02:00:36.933577+00:00",
+    "ts": "2026-04-02T04:43:31.021847+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:MANIFEST.md"
+    "wpm": 0.0,
+    "query_hint": "chat gpt opus seems to be struggling with my intent - cant you try",
+    "response_hint": "The enriched logger is broken because  still expects old pre-rename module names. I\u2019m using the required fallback log entry now, then I\u2019ll inspect the last journal prompts directly.I\u2019m going to recons"
   },
   {
-    "ts": "2026-04-02T02:01:36.536682+00:00",
+    "ts": "2026-04-02T04:43:31.064418+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:MANIFEST.md"
+    "wpm": 0.0,
+    "query_hint": "i wasnt saying shorten file names - but yes - i want yto fix / continue copilot ",
+    "response_hint": "I\u2019m picking up the real task now: restore the metadata-rich rename plan and finish the rename safely from the current repo state, starting with the required journal entry and a hard snapshot of what\u2019s"
   },
   {
-    "ts": "2026-04-02T02:02:36.478335+00:00",
+    "ts": "2026-04-02T04:43:31.111921+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:MANIFEST.md"
+    "wpm": 0.0,
+    "query_hint": "CONTINUE - ANY UPDATES??",
+    "response_hint": "I\u2019m checking the current repo state and logging this prompt first, then I\u2019ll tell you exactly what\u2019s done, what\u2019s still broken, and what I\u2019m continuing next."
   },
   {
-    "ts": "2026-04-02T02:03:36.521866+00:00",
+    "ts": "2026-04-02T04:43:31.158743+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:MANIFEST.md"
+    "wpm": 0.0,
+    "query_hint": "HElloo please continue",
+    "response_hint": "I\u2019m resuming the rename/compatibility work from the actual repo state, starting with the mandatory prompt log and then a hard check of what\u2019s staged, broken, or still pending.I\u2019m writing the journal e"
   },
   {
-    "ts": "2026-04-02T02:04:36.462791+00:00",
+    "ts": "2026-04-02T04:43:31.204978+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:MANIFEST.md"
+    "wpm": 0.0,
+    "query_hint": "do both and please clrify what src is",
+    "response_hint": "I\u2019m logging this prompt first, then I\u2019m checking the real rename/compatibility state so I can finish both tasks and give you a concrete answer on what  is in this repo.I\u2019m getting the next journal ses"
   },
   {
-    "ts": "2026-04-02T02:05:36.476275+00:00",
+    "ts": "2026-04-02T04:43:31.253102+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:MANIFEST.md"
+    "wpm": 0.0,
+    "query_hint": "okay tel me what its like to read this codebase - and how many more words we cn ",
+    "response_hint": "Okay. Here we go.\n\n---\n\n## What It's Like to Read This Codebase: A Survivor's Account\n\nYou open the repo. You see a file called `\u6539\u540df_rr_s006_v005_d0401_\u8ffd\u8dd1\u62c6\u8c31\u5efa_\u03bbA.py`. You think: \"ah, a normal Tuesday.\""
   },
   {
-    "ts": "2026-04-02T02:06:36.445192+00:00",
+    "ts": "2026-04-02T04:43:31.294470+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:MANIFEST.md"
+    "wpm": 0.0,
+    "query_hint": "my intent isint bing compiled probperly on prompt inj into instructionsi dont th",
+    "response_hint": "Now I see the problem. Let me check the actual filename on disk vs what classify_bridge is looking for:"
   },
   {
-    "ts": "2026-04-02T02:07:36.441380+00:00",
+    "ts": "2026-04-02T04:43:31.340005+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:MANIFEST.md"
+    "wpm": 0.0,
+    "query_hint": "push nd test tht everything updtes - also i noticed that in memory shrs training",
+    "response_hint": "I\u2019m checking the current repo state and logging this prompt first, then I\u2019ll run the test/update path and trace whether shard memory and training pairs are actually consumed anywhere.I need the curren"
   },
   {
-    "ts": "2026-04-02T02:08:36.549451+00:00",
+    "ts": "2026-04-02T04:43:31.388489+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
     "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:MANIFEST.md"
+    "wpm": 0.0,
+    "query_hint": "i w ant going to sy plese continue - means you were goingto say / unsid threds d",
+    "response_hint": "Now let me check the actual data files feeding unsaid threads: Now I see the data. Let me check the reconstruction function: Now let me check the actual Gemini responses more carefully:"
   },
   {
-    "ts": "2026-04-02T02:09:38.580123+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:MANIFEST.md"
-  },
-  {
-    "ts": "2026-04-02T02:10:39.318884+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:\u00e5\u00ae\u00a1p_va_s005_v004_d0315_\u00e8\u00b8\u00aa\u00e7\u00a8\u00bf\u00e6\u017e\udc90_\u00ce\u00bb\u00ce\u00bd.py"
-  },
-  {
-    "ts": "2026-04-02T02:11:38.815302+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:\u00e8\u00b0\u00b1\u00e5\u00bb\u00baf_mb_hm_s024_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:12:36.786153+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:\u00e8\u00b0\u00b1\u00e5\u00bb\u00baf_mb_ce_s011_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:13:38.608697+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 48.6,
-    "query_hint": "bg:\u00e8\u00b0\u00b1\u00e5\u00bb\u00baf_mb_ce_s011_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:14:39.138480+00:00",
-    "verdict": "partial",
-    "rework_score": 0.389,
-    "del_ratio": 0.161,
-    "wpm": 1.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T02:15:39.767438+00:00",
-    "verdict": "partial",
-    "rework_score": 0.389,
-    "del_ratio": 0.161,
-    "wpm": 1.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T02:16:38.534574+00:00",
-    "verdict": "partial",
-    "rework_score": 0.389,
-    "del_ratio": 0.161,
-    "wpm": 1.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T02:17:38.877921+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 34.0,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T02:18:38.233406+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 34.0,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T02:19:39.066576+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 34.0,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T02:20:38.927696+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 34.0,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T02:21:38.505371+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 34.0,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T02:22:36.739122+00:00",
-    "verdict": "ok",
-    "rework_score": 0.009,
-    "del_ratio": 0.017,
-    "wpm": 48.5,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T02:23:36.904144+00:00",
-    "verdict": "ok",
-    "rework_score": 0.009,
-    "del_ratio": 0.017,
-    "wpm": 48.5,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T02:24:36.849586+00:00",
-    "verdict": "ok",
-    "rework_score": 0.009,
-    "del_ratio": 0.017,
-    "wpm": 48.5,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T02:25:36.807265+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 53.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T02:26:38.098951+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 53.1,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:27:39.960088+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 53.1,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:28:38.032886+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 53.1,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:29:38.154066+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 53.1,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:30:41.384712+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:31:39.370103+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:32:41.181589+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:33:37.824469+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:34:38.386322+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:35:38.090596+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:36:38.102391+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:37:38.382034+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:38:38.102161+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:39:38.774481+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:40:39.243471+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:41:39.552496+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:42:38.806938+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:43:38.445059+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:44:39.386627+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:45:39.065312+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:INTENT_SIMULATION.md"
-  },
-  {
-    "ts": "2026-04-02T02:46:38.854053+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:47:42.761851+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:48:39.159104+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:49:39.493106+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:50:39.781261+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:51:41.644571+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:52:40.145374+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:53:42.827512+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:54:44.316030+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:56:21.798456+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:56:23.838083+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:56:42.532137+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:57:39.852605+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:58:39.154232+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T02:59:38.984277+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T03:00:39.454817+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T03:01:45.518076+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T03:02:40.370457+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T03:31:37.602100+00:00",
-    "verdict": "ok",
-    "rework_score": 0.182,
-    "del_ratio": 0.059,
-    "wpm": 29.0,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T03:34:46.334680+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py"
-  },
-  {
-    "ts": "2026-04-02T03:35:52.233803+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T03:36:43.597776+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:37:41.174700+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:39:12.926219+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:39:43.282626+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:40:39.545401+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:41:39.273679+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:42:37.952863+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:43:38.852260+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:44:38.595701+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:45:38.273453+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:46:38.598000+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:47:38.842144+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:48:38.296069+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:49:37.798211+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:50:38.047769+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:51:38.366682+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:52:38.100088+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:53:40.040102+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:54:41.072454+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:55:41.355656+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:56:00.650569+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:56:38.273916+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:57:38.277176+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:58:11.217654+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:58:31.594999+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:58:40.382077+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T03:59:39.813436+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T04:00:05.480289+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T04:00:40.126268+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T04:01:41.535336+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T04:02:39.295557+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:\u00e8\u00b0\u00b1p_dsa_s001_v006_d0322_\u00e8\u00af\u00bb_\u00ce\u00bb7.py"
-  },
-  {
-    "ts": "2026-04-02T04:03:38.482222+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:pigeon_limits.py"
-  },
-  {
-    "ts": "2026-04-02T04:04:38.485425+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:\u00e7\u017d\u00afw_pc_co_s005_v002_d0329_\u00ce\u00bbH.py"
-  },
-  {
-    "ts": "2026-04-02T04:05:38.116251+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.1,
-    "query_hint": "bg:\u00e7\u017d\u00afw_pc_co_s005_v002_d0329_\u00ce\u00bbH.py"
-  },
-  {
-    "ts": "2026-04-02T04:06:39.719675+00:00",
-    "verdict": "partial",
-    "rework_score": 0.281,
-    "del_ratio": 0.239,
-    "wpm": 0.6,
-    "query_hint": "bg:\u00e7\u2030\u0152f_nam_s011_v004_d0401_\u00e8\u00bf\u00bd\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba\u00e8\u00b8\u00aa_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:07:38.194243+00:00",
-    "verdict": "partial",
-    "rework_score": 0.281,
-    "del_ratio": 0.239,
-    "wpm": 0.6,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:08:37.965726+00:00",
-    "verdict": "partial",
-    "rework_score": 0.281,
-    "del_ratio": 0.239,
-    "wpm": 0.6,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:09:37.915415+00:00",
-    "verdict": "partial",
-    "rework_score": 0.281,
-    "del_ratio": 0.239,
-    "wpm": 0.6,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:10:39.843333+00:00",
-    "verdict": "partial",
-    "rework_score": 0.281,
-    "del_ratio": 0.239,
-    "wpm": 0.6,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:11:42.323318+00:00",
-    "verdict": "partial",
-    "rework_score": 0.281,
-    "del_ratio": 0.239,
-    "wpm": 0.6,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:12:43.324032+00:00",
-    "verdict": "ok",
-    "rework_score": 0.006,
-    "del_ratio": 0.011,
-    "wpm": 28.2,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:13:47.042244+00:00",
-    "verdict": "ok",
-    "rework_score": 0.006,
-    "del_ratio": 0.011,
-    "wpm": 28.2,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:14:39.787462+00:00",
-    "verdict": "ok",
-    "rework_score": 0.006,
-    "del_ratio": 0.011,
-    "wpm": 28.2,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:15:37.728024+00:00",
-    "verdict": "ok",
-    "rework_score": 0.006,
-    "del_ratio": 0.011,
-    "wpm": 28.2,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:16:40.364877+00:00",
-    "verdict": "ok",
-    "rework_score": 0.006,
-    "del_ratio": 0.011,
-    "wpm": 28.2,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:17:38.195136+00:00",
-    "verdict": "ok",
-    "rework_score": 0.006,
-    "del_ratio": 0.011,
-    "wpm": 28.2,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:18:41.015629+00:00",
-    "verdict": "ok",
-    "rework_score": 0.006,
-    "del_ratio": 0.011,
-    "wpm": 28.2,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:19:37.661274+00:00",
-    "verdict": "ok",
-    "rework_score": 0.006,
-    "del_ratio": 0.011,
-    "wpm": 28.2,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:20:39.137135+00:00",
-    "verdict": "ok",
-    "rework_score": 0.006,
-    "del_ratio": 0.011,
-    "wpm": 28.2,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:21:14.790341+00:00",
-    "verdict": "ok",
-    "rework_score": 0.006,
-    "del_ratio": 0.011,
-    "wpm": 28.2,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:21:39.661734+00:00",
-    "verdict": "ok",
-    "rework_score": 0.006,
-    "del_ratio": 0.011,
-    "wpm": 28.2,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:22:38.071596+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.056,
-    "wpm": 40.5,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:23:37.711388+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.056,
-    "wpm": 40.5,
-    "query_hint": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py"
-  },
-  {
-    "ts": "2026-04-02T04:24:37.302283+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.056,
-    "wpm": 40.5,
-    "query_hint": "bg:autonomous_dev_stress_test.py"
-  },
-  {
-    "ts": "2026-04-02T04:25:40.256649+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.056,
-    "wpm": 40.5,
-    "query_hint": "bg:autonomous_dev_stress_test.py"
-  },
-  {
-    "ts": "2026-04-02T04:26:40.158422+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.056,
-    "wpm": 40.5,
-    "query_hint": "bg:autonomous_dev_stress_test.py"
-  },
-  {
-    "ts": "2026-04-02T04:26:52.403553+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.056,
-    "wpm": 40.5,
-    "query_hint": "bg:autonomous_dev_stress_test.py"
-  },
-  {
-    "ts": "2026-04-02T04:27:06.077736+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.056,
-    "wpm": 40.5,
-    "query_hint": "bg:autonomous_dev_stress_test.py"
-  },
-  {
-    "ts": "2026-04-02T04:27:38.361692+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.056,
-    "wpm": 40.5,
-    "query_hint": "bg:autonomous_dev_stress_test.py"
-  },
-  {
-    "ts": "2026-04-02T04:27:49.826419+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.056,
-    "wpm": 40.5,
-    "query_hint": "bg:autonomous_dev_stress_test.py"
-  },
-  {
-    "ts": "2026-04-02T04:28:38.463573+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.056,
-    "wpm": 40.5,
-    "query_hint": "bg:autonomous_dev_stress_test.py"
-  },
-  {
-    "ts": "2026-04-02T04:29:39.989641+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.056,
-    "wpm": 40.5,
-    "query_hint": "bg:autonomous_dev_stress_test.py"
-  },
-  {
-    "ts": "2026-04-02T04:30:38.902702+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.056,
-    "wpm": 40.5,
-    "query_hint": "bg:autonomous_dev_stress_test.py"
-  },
-  {
-    "ts": "2026-04-02T04:35:37.537989+00:00",
-    "verdict": "partial",
-    "rework_score": 0.202,
-    "del_ratio": 0.095,
-    "wpm": 43.0,
-    "query_hint": "bg:RESEARCH_LOG.md"
-  },
-  {
-    "ts": "2026-04-02T04:36:37.218873+00:00",
-    "verdict": "partial",
-    "rework_score": 0.202,
-    "del_ratio": 0.095,
-    "wpm": 43.0,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T04:37:37.323119+00:00",
-    "verdict": "ok",
-    "rework_score": 0.016,
-    "del_ratio": 0.029,
-    "wpm": 48.5,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T04:38:37.605972+00:00",
-    "verdict": "ok",
-    "rework_score": 0.016,
-    "del_ratio": 0.029,
-    "wpm": 48.5,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T04:39:37.687675+00:00",
-    "verdict": "ok",
-    "rework_score": 0.016,
-    "del_ratio": 0.029,
-    "wpm": 48.5,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T04:40:37.347357+00:00",
-    "verdict": "ok",
-    "rework_score": 0.016,
-    "del_ratio": 0.029,
-    "wpm": 48.5,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T04:41:28.192137+00:00",
-    "verdict": "ok",
-    "rework_score": 0.016,
-    "del_ratio": 0.029,
-    "wpm": 48.5,
-    "query_hint": "bg:copilot-instructions.md"
-  },
-  {
-    "ts": "2026-04-02T04:41:37.492842+00:00",
+    "ts": "2026-04-02T04:43:38.437170+00:00",
     "verdict": "ok",
     "rework_score": 0.016,
     "del_ratio": 0.029,

@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-02 01:57 UTC · 209 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-02 04:43 UTC · 230 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -22,37 +22,33 @@
 
 ## Live Operator State
 
-*209 prompts profiled · source: measured*
+*230 prompts profiled · source: measured*
 
-**Dominant: `abandoned` | Submit: 66% | Del: 5.8%**
-- operator entering flow state — productive building, less backtracking
+**Dominant: `abandoned` | Submit: 66% | Del: 5.0%**
+- deletion ratio stable — no major mode shift detected
 
 ## Pair Performance
 
-*188 responses scored · 12 background excluded*
+*200 responses scored · 0 background excluded*
 
 **Accuracy: 100% OK | 0% miss** *[source: measured]*
 - trend: **stable** (100% → 100%)
 
-**Prompt→edit latency:** 239.2s median (40 pairs)
+**Prompt→edit latency:** 277.4s median (44 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*96 mutations scored*
+*97 mutations scored*
 - no significant signal yet — all sections scored neutral
 
-**Reactor:** 225 fires, 0 accepted (0%)
+**Reactor:** 230 fires, 0 accepted (0%)
 > **Directive:** Reactor patches near-zero acceptance — tune confidence threshold or disable
 
 ## Codebase Health
 
-*44 self-fix reports · 2026-03-16 → 2026-04-01*
+*45 self-fix reports · 2026-03-16 → 2026-04-02*
 
-**Problem trend: growing** (early avg 24 → recent avg 245) *[source: measured]*
-- problems growing ~221/push — expect more over_hard_cap and dead_exports without intervention
-
-### Fragile Contracts *[source: llm_derived]*
-*From push narratives — treat as hypothesis:*
-- intent_simulator_seq034_v001** was created as a placeholder but is currently empty; its assumption of future implementation is fragile—if referenced before being built, it will cause import failures.
+**Problem trend: growing** (early avg 24 → recent avg 327) *[source: measured]*
+- problems growing ~303/push — expect more over_hard_cap and dead_exports without intervention
 
 ### Recent Deaths *[source: measured]*
 - `exception`: 3
@@ -68,23 +64,23 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "- generate"
+- "yes bu"
+- "ginger"
+- "implement all - andt"
+- "tays"
+- "renam"
 - "coul"
+- "ned"
 - "just aski"
-- "/ impor"
-- "fix al"
-- "last change - t"
-- "missin"
-- "fixed arent"
+- "coonti"
 - "d eve"
-- "but"
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** WEAK (placeholder data) — 200 entries, 2 unique scores in last 20, 12 bg noise
-- **Training pairs:** 32 captured
+- **Rework signal:** WEAK (placeholder data) — 200 entries, 2 unique scores in last 20
+- **Training pairs:** 36 captured
 - **Prediction accuracy:** F1=0.010, calibration=0.305 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
 - **Memory shards:** 10 active (zero LLM calls)

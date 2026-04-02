@@ -3,7 +3,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 855,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -11,7 +17,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1276,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -19,7 +31,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1314,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -27,7 +45,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 1626,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -35,7 +59,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1018,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -43,7 +73,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 910,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -51,7 +87,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 774,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -59,7 +101,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 423,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -67,7 +115,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 187,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -75,7 +129,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 307,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -83,7 +143,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 2500,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -91,7 +157,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1033,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -99,7 +171,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 1541,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -107,7 +185,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1316,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -115,7 +199,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 431,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -123,7 +213,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 192,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -131,7 +227,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 23,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -139,7 +241,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 1044,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -147,7 +255,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 431,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -155,7 +269,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 25,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -163,7 +283,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 896,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -171,7 +297,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 284,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -179,7 +311,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 2881,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -187,7 +325,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 1252,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -195,7 +339,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 1428,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -203,7 +353,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 2084,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -211,7 +367,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1373,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -219,7 +381,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 419,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -227,7 +395,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 73,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -235,7 +409,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 514,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -243,7 +423,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 187,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -251,7 +437,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 112,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -259,7 +451,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 499,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -267,7 +465,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 79,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -275,7 +479,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 607,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -283,7 +493,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 841,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -291,7 +507,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 374,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -299,7 +521,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 460,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -307,7 +535,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 181,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -315,7 +549,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 713,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -323,7 +563,13 @@
     "personality": "veteran",
     "version": 5,
     "tokens": 5797,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -331,7 +577,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 419,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -339,7 +591,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 544,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -347,7 +605,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 865,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -355,7 +619,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 2506,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -363,7 +633,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 1558,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -371,7 +647,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 965,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -379,7 +661,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 1744,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -387,7 +675,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 874,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -395,7 +689,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 2857,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -403,7 +703,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 910,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -411,7 +717,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 379,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -419,7 +731,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 1489,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -427,7 +745,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 959,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -435,7 +759,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 855,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -443,7 +773,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 724,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -451,7 +787,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 1291,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -459,7 +801,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 1844,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -467,7 +815,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 879,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -475,7 +829,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 3279,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -483,7 +843,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1959,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -491,7 +857,13 @@
     "personality": "veteran",
     "version": 5,
     "tokens": 783,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.735
   },
@@ -499,7 +871,13 @@
     "personality": "veteran",
     "version": 5,
     "tokens": 644,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -507,7 +885,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 505,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -523,7 +907,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 448,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -531,7 +921,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 371,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -539,7 +935,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 579,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -547,7 +949,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 702,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -555,7 +963,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 501,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -563,7 +977,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 841,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -571,7 +991,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 486,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -587,7 +1013,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 638,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -595,7 +1027,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 653,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -603,7 +1041,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 311,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -611,7 +1055,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 160,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -619,7 +1069,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 320,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -627,7 +1083,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 227,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -635,7 +1097,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 603,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -643,7 +1111,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 1673,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -651,7 +1125,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 712,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -659,7 +1139,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 725,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -667,7 +1153,13 @@
     "personality": "veteran",
     "version": 5,
     "tokens": 2049,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -675,7 +1167,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 1750,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.735
   },
@@ -683,7 +1181,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 2927,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -691,7 +1195,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 298,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -699,7 +1209,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 4052,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -707,7 +1223,13 @@
     "personality": "veteran",
     "version": 5,
     "tokens": 1381,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -715,7 +1237,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 194,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -723,7 +1251,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 2131,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -731,7 +1265,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 3431,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -739,7 +1279,13 @@
     "personality": "veteran",
     "version": 5,
     "tokens": 1388,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -747,7 +1293,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 972,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -755,7 +1307,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 921,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -763,7 +1321,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 388,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -771,7 +1335,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 296,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -779,7 +1349,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 296,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -787,7 +1363,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 626,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -795,7 +1377,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 1016,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -803,7 +1391,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 1732,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -811,7 +1405,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1999,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -819,7 +1419,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 566,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -827,7 +1433,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 1663,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -843,7 +1455,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 594,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -851,7 +1469,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 587,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -859,7 +1483,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 2836,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -867,7 +1497,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 734,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -875,7 +1511,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 847,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -883,7 +1525,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 697,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -891,7 +1539,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 792,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -899,7 +1553,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 1037,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -907,7 +1567,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 618,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -915,7 +1581,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 2407,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -925,13 +1597,19 @@
     "tokens": 4672,
     "partners": [],
     "fears": [],
-    "avg_hes": 0.489
+    "avg_hes": 0.58
   },
   "adapter": {
     "personality": "fresh",
     "version": 2,
     "tokens": 1264,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -939,7 +1617,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 299,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -947,7 +1631,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 828,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -955,7 +1645,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 557,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -963,7 +1659,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 677,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -971,7 +1673,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 2262,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -979,7 +1687,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 245,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -987,7 +1701,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 561,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -995,7 +1715,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 1493,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1003,7 +1729,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 2108,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1011,7 +1743,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 24,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1019,7 +1757,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 244,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1027,7 +1771,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 95,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1035,7 +1785,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 832,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1043,7 +1799,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 563,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1051,7 +1813,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 781,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1059,7 +1827,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 1075,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1067,7 +1841,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 25,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1075,7 +1855,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1026,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1083,7 +1869,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 25,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1091,7 +1883,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 25,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1099,7 +1897,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 146,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1107,7 +1911,13 @@
     "personality": "veteran",
     "version": 5,
     "tokens": 5629,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1123,7 +1933,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1199,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1131,7 +1947,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 729,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1139,7 +1961,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 665,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1147,7 +1975,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 288,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1155,7 +1989,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 200,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1163,7 +2003,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 461,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1171,7 +2017,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 236,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1179,7 +2031,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 472,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1187,7 +2045,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 632,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1195,7 +2059,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 636,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1203,14 +2073,20 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 329,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
   "copilot_prompt_manager": {
-    "personality": "fresh",
-    "version": 2,
-    "tokens": 4488,
+    "personality": "stable",
+    "version": 3,
+    "tokens": 324,
     "partners": [],
     "fears": [],
     "avg_hes": 0.0
@@ -1219,7 +2095,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 1117,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1229,13 +2111,19 @@
     "tokens": 5239,
     "partners": [],
     "fears": [],
-    "avg_hes": 0.489
+    "avg_hes": 0.58
   },
   "file_consciousness_seq019_audit": {
     "personality": "fresh",
     "version": 2,
     "tokens": 333,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1243,7 +2131,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 222,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1251,7 +2145,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 807,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1259,7 +2159,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 25,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1267,7 +2173,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 806,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1275,7 +2187,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 503,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1283,7 +2201,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 649,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1291,7 +2215,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 500,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1299,7 +2229,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 269,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1307,7 +2243,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 149,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1315,7 +2257,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 199,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1323,7 +2271,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 531,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1331,7 +2285,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 4343,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1339,7 +2299,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 1347,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.887
   },
@@ -1347,7 +2313,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 4585,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1355,7 +2327,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 5306,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1363,7 +2341,13 @@
     "personality": "veteran",
     "version": 5,
     "tokens": 1636,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1371,7 +2355,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1611,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1387,7 +2377,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 2276,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1395,7 +2391,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 554,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1403,7 +2405,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 71,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1411,7 +2419,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 401,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1419,7 +2433,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 802,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1427,7 +2447,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 811,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1435,7 +2461,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 670,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1443,7 +2475,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 614,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1451,7 +2489,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 624,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1459,7 +2503,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 4792,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1475,7 +2525,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 258,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1483,7 +2539,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 55,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1491,7 +2553,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 134,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1499,7 +2567,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 374,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1507,7 +2581,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 452,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1515,7 +2595,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 138,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1523,7 +2609,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 2308,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1531,7 +2623,13 @@
     "personality": "veteran",
     "version": 5,
     "tokens": 5065,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1539,7 +2637,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 1222,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1547,7 +2651,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1198,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1555,7 +2665,13 @@
     "personality": "veteran",
     "version": 5,
     "tokens": 1083,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.361
   },
@@ -1563,7 +2679,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1178,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1571,7 +2693,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 807,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1579,7 +2707,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 547,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1587,7 +2721,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 519,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1595,7 +2735,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 678,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1603,7 +2749,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 305,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1611,7 +2763,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 428,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1619,7 +2777,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 515,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1627,7 +2791,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 237,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1635,7 +2805,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 169,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1643,7 +2819,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 593,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1653,13 +2835,19 @@
     "tokens": 5846,
     "partners": [],
     "fears": [],
-    "avg_hes": 0.489
+    "avg_hes": 0.58
   },
   "session_handoff": {
     "personality": "fresh",
     "version": 2,
     "tokens": 1569,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1667,7 +2855,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 4413,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1675,7 +2869,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1725,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1683,7 +2883,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 10189,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1691,7 +2897,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 3737,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1699,7 +2911,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 1608,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1707,7 +2925,13 @@
     "personality": "stable",
     "version": 4,
     "tokens": 156,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1715,7 +2939,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 2625,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1723,7 +2953,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 2078,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1731,7 +2967,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 2074,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1739,7 +2981,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 1328,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1747,7 +2995,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 3157,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1755,7 +3009,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 934,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1763,7 +3023,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 1371,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1771,7 +3037,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 969,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1779,7 +3051,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 261,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1787,7 +3065,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 858,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1795,7 +3079,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 154,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1803,7 +3093,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 280,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1811,7 +3107,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 256,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1819,7 +3121,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 365,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1827,7 +3135,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 546,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1835,7 +3149,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 1182,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1843,7 +3163,13 @@
     "personality": "stable",
     "version": 3,
     "tokens": 824,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1851,7 +3177,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 142,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1859,7 +3191,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 932,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -1867,7 +3205,13 @@
     "personality": "fresh",
     "version": 2,
     "tokens": 204,
-    "partners": [],
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   }

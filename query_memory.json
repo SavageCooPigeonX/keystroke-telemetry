@@ -1,12 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-04-01T12:07:24.272847+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
       "ts": "2026-04-01T12:08:24.262518+00:00",
       "text": "bg:RESEARCH_LOG.md",
       "fingerprint": "bgresearch_logmd",
@@ -2996,6 +2990,12 @@
     },
     {
       "ts": "2026-04-02T04:41:37.499406+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:43:38.443513+00:00",
       "text": "bg:copilot-instructions.md",
       "fingerprint": "bgcopilotinstructionsmd",
       "submitted": true

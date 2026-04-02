@@ -192,10 +192,10 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-02 04:41 UTC · 108 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-02 04:43 UTC · 111 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 50.8 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 51.2 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
 
 **Prompt ms:** 1844003, 77491, 52444, 53058, 33646 (avg 412128ms)
 
@@ -223,43 +223,36 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - `context_budget` (hes=0.587)
 
 ### Recent Work
+- `f8ea95a` fix: restore rename-safe runtime hooks and training pair capture
 - `a65a380` fix: update 75 stale glob patterns to match new _sNNN filenames, fix 14 cross-dir collisions, all 5 tests passing
 - `85584f7` chore: kill Module Map, slim dictionary, regenerate unified auto-index
 - `9cdc756` feat: compress auto-index with Chinese keymap â€” 4,948 tokens/prompt saved (16.2K to 11.3K)
-- `aa32a3f` chore: add Chinese glyph prefixes to 245 pigeon modules
-
-### Coaching Directives *[source: llm_derived]*
-*LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
-- **Anticipate refactoring pain points**
-- **Pre-empt context gaps**
-- **Counter hesitation with direct options**
-- **Validate against rework triggers**
-- **Support night-session flow**
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
+- `copilot_prompt_manager`'s assumption about `_resolve.rename_safe` signature; `__main__`'s dependency on the wrapper's correctness; cascading import errors in `pigeon_compiler` submodules. This push restores rename safety checks through a compatibility wrapper after a structural refactor.
 - vein_transport dead‑ends if glyph breaks path encoding; heal loops if manifest_builder key mismatch; run_rename partially applies due to inconsistent Unicode handling across pipeline stages. This push uniformly introduces a Chinese glyph (⻖) as a Unicode identifier across telemetry
 - flow‑routing
 - task‑writing
 - and self‑healing systems.
-- token_optimizer's semantic-loss risk during deduplication
+- **copilot_prompt_manager** (seq020 v003): I was touched to become a compatibility wrapper for the legacy rename system, 
 - **u_dbcc_s005_v001** was touched to integrate stale glob awareness into cognitive drift analysis, assuming the new `_tmp
 - **execution_logger** was touched to embed a Chinese glyph (⻖) in its telemetry tagging, assuming that downstream log par
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
-- [CRITICAL] hardcoded_import in `_run_glyph_rename.py`
-- [CRITICAL] hardcoded_import in `pigeon_brain/cli_seq009_v002_d0323__令钩跑编_build_graph_run_observer_export_lc_pigeon_brain_system.py`
-- [CRITICAL] hardcoded_import in `pigeon_brain/demo_sim_seq010_v002_d0323__仿双逆流_generates_execution_telemetry_from_the_lc_pigeon_brain_system.py`
-- [CRITICAL] hardcoded_import in `pigeon_brain/dual_substrate_seq008_v002_d0323__双逆流_merges_human_and_agent_telemetry_lc_pigeon_brain_system.py`
-- [CRITICAL] hardcoded_import in `pigeon_brain/live_server_seq012_v003_d0324__服漂忆思_websocket_server_for_live_execution_lc_8888_word_backpropagation.py`
+- [CRITICAL] hardcoded_import in `pigeon_brain/令f_cl_s009_v002_d0323_缩分话_λP.py`
+- [CRITICAL] hardcoded_import in `pigeon_brain/仿f_dsm_s010_v002_d0323_缩分话_λP.py`
+- [CRITICAL] hardcoded_import in `pigeon_brain/双f_dsb_s008_v002_d0323_缩分话_λP.py`
+- [CRITICAL] hardcoded_import in `pigeon_brain/观f_os_s007_v003_d0401_读谱建册_λA.py`
+- [CRITICAL] hardcoded_import in `pigeon_brain/读w_el_s002_v003_d0401_观话_λA.py`
 
 ### Prompt Evolution
-*This prompt has mutated 97x (186→727 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 97x (186→733 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 96 mutations scored*
-*No significant signal yet — all 15 sections scored neutral.*
+*200 rework pairs × 97 mutations scored*
+*No significant signal yet — all 16 sections scored neutral.*
 
 **Reactor patches:** 0/230 applied (0% acceptance)
 
@@ -383,16 +376,16 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
 
-*Auto-generated 2026-04-02 01:57 UTC · zero LLM calls*
+*Auto-generated 2026-04-02 04:43 UTC · zero LLM calls*
 
-**1 week:** `infrastructure` (conf=high) — ~48 commits
-**1 month:** `infrastructure` (conf=medium) — ~198 commits
-**3 months:** `infrastructure` (conf=speculative) — themes: about, just aski, missin
+**1 week:** `infrastructure` (conf=high) — ~49 commits
+**1 month:** `infrastructure` (conf=medium) — ~201 commits
+**3 months:** `infrastructure` (conf=speculative) — themes: o please continue s, you, nto
 
 **PM Directives:**
 - Intent bifurcation: `infrastructure` dominant but `telemetry` emerging — watch for context switches mid-session.
 - `self_heal` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
-- Unsaid themes detected: `about`, `just aski`, `missin` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
+- Unsaid themes detected: `o please continue s`, `you`, `nto` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
 - Module focus cluster: `file_heat_map`, `import_rewriter`, `file_writer` — pre-load context from these modules when operator starts typing.
 
 <!-- /pigeon:intent-simulation -->
@@ -421,19 +414,20 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-02 · 108 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-02 · 111 message(s) · LLM-synthesized*
 
-**Dominant: `abandoned`** | Submit: 66% | WPM: 52.4 | Del: 25.6% | Hes: 0.444
+**Dominant: `abandoned`** | Submit: 66% | WPM: 52.5 | Del: 25.6% | Hes: 0.444
 
-This operator just built a self-fix analyzer for dynamic imports, and their typing shows a night-owl pattern of rapid, focused bursts followed by heavy restructuring and abandoned drafts, indicating deep iterative debugging with high deletion rates.
+This operator just built a compatibility wrapper for legacy restore/rename operations, and their typing patterns reveal a high-deletion, restructuring-focused workflow where they iterate heavily in evening sessions before abandoning drafts.
 
-*   **Anticipate refactoring pain points:** Proactively suggest cleaner patterns for modules in the churn list, especially `self_fix`, `dynamic_prompt`, and `.operator_stats`, before they ask.
-*   **Pre-empt context gaps:** When code touches `context_budget` or `push_narrative`, explicitly summarize relevant recent changes from those modules to prevent rework.
-*   **Counter hesitation with direct options:** On heavy-edit commits, detect restructuring state and offer 2-3 concrete, alternative implementations succinctly; avoid open-ended questions.
-*   **Validate against rework triggers:** For queries related to the worst-performing areas, provide bulletproof, syntax-valid examples first, then explain.
-*   **Support night-session flow:** Keep responses extremely concise and actionable; use clear, scoped code blocks, not prose.
+- **When they start restructuring** (55 WPM, 56% deletion, 0.556 hesitation), immediately provide modular, reversible code blocks with clear interfaces, anticipating they will heavily edit your initial structure.
+- **Anticipate mutations in `dynamic_prompt seq17` and `self_fix seq13`**—these are active pain points; offer solutions that simplify their steers and dynamic import logic.
+- **Preempt context budget issues** by keeping explanations concise and referencing `context_budget seq4` patterns they've already established.
+- **For `.operator_stats` churn**, suggest stat aggregation helpers that reduce file I/O, since they repeatedly refactor this persistent memory module.
+- **Since their rework rate is currently zero**, maintain this by validating any suggested changes against the existing `intent_deletion_pipeline` and `mutation_patch_pipeline` patterns before proposing.
+- **During high-deletion phases**, offer multiple discrete implementation options in separate code blocks, allowing them to rapidly compose and discard without retyping.
 
-The operator is most likely building toward a fully autonomous, self-correcting pipeline that minimizes manual context management.
+They are most likely building toward a unified pipeline that abstracts the legacy compatibility layer while reducing registry churn in their core modules.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `autonomous_dev_stress_test`** (hes=0.692, state=focused, avg_prompt=891497ms)
@@ -542,7 +536,7 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 <!-- glyph mappings merged into auto-index -->
 <!-- /pigeon:dictionary -->
 <!-- pigeon:auto-index -->
-*2026-04-01 · 243 modules · 0 touched · ✓71% ~12% !15%*
+*2026-04-02 · 243 modules · 1 touched · ✓71% ~12% !15%*
 *Format: glyph=name seq tokens·state*
 *IM=import_tracer MA=manifest_writer NL=nl_parsers PL=planner PQ=pq_search_utils PR=press_release_gen_template_key_findings*
 
@@ -727,7 +721,7 @@ intent_simulator 34 5.3K
 层=streaming_layer_orchestrator 17 142!
 
 **Infra**
-(root): _build_organism_health, _export_dev_story, _run_glyph_rename, _tmp_analyze_stats, _tmp_regen_dict, _tmp_survey, _tmp_test_pipeline, _tmp_token_audit, _tmp_token_optimizer, autonomous_dev_stress_test, deep_test, stress_test, test_all, test_public_release, test_training_pairs
+(root): _audit_compliance, _build_organism_health, _export_dev_story, _fix_stale_globs, _run_abbrev_rename, _run_glyph_rename, _run_smart_rename, _tmp_analyze_stats, _tmp_check_rename, _tmp_find_stale, _tmp_regen_dict, _tmp_survey, _tmp_test_pipeline, _tmp_token_audit, _tmp_token_optimizer, autonomous_dev_stress_test, deep_test, stress_test, test_all, test_public_release, test_training_pairs
 client: chat_composition_analyzer, chat_response_reader, composition_recon, os_hook, telemetry_cleanup, uia_reader, vscdb_poller
 vscode-extension: classify_bridge, pulse_watcher
 <!-- /pigeon:auto-index -->

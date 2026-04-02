@@ -1109,13 +1109,6 @@
   "self_fix": {
     "samples": [
       {
-        "ts": "2026-04-02T04:22:38.088261+00:00",
-        "hes": 0.532,
-        "wpm": 17412.0,
-        "state": "focused",
-        "rework": "ok"
-      },
-      {
         "ts": "2026-04-02T04:23:37.737045+00:00",
         "hes": 0.52,
         "wpm": 54591.0,
@@ -1247,10 +1240,17 @@
         "wpm": 6278.7,
         "state": "focused",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T04:43:38.451210+00:00",
+        "hes": 0.643,
+        "wpm": 5047.5,
+        "state": "focused",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.58,
-    "avg_wpm": 9622.6,
+    "avg_hes": 0.585,
+    "avg_wpm": 9004.3,
     "miss_count": 0,
     "total": 20
   },
@@ -1405,13 +1405,6 @@
   ".operator_stats": {
     "samples": [
       {
-        "ts": "2026-04-02T04:22:38.088304+00:00",
-        "hes": 0.532,
-        "wpm": 17412.0,
-        "state": "focused",
-        "rework": "ok"
-      },
-      {
         "ts": "2026-04-02T04:23:37.737095+00:00",
         "hes": 0.52,
         "wpm": 54591.0,
@@ -1543,22 +1536,22 @@
         "wpm": 6278.7,
         "state": "focused",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T04:43:38.451250+00:00",
+        "hes": 0.643,
+        "wpm": 5047.5,
+        "state": "focused",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.58,
-    "avg_wpm": 9622.6,
+    "avg_hes": 0.585,
+    "avg_wpm": 9004.3,
     "miss_count": 0,
     "total": 20
   },
   "dynamic_prompt": {
     "samples": [
-      {
-        "ts": "2026-04-02T04:22:38.088324+00:00",
-        "hes": 0.532,
-        "wpm": 17412.0,
-        "state": "focused",
-        "rework": "ok"
-      },
       {
         "ts": "2026-04-02T04:23:37.737117+00:00",
         "hes": 0.52,
@@ -1691,10 +1684,17 @@
         "wpm": 6278.7,
         "state": "focused",
         "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T04:43:38.451268+00:00",
+        "hes": 0.643,
+        "wpm": 5047.5,
+        "state": "focused",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.58,
-    "avg_wpm": 9622.6,
+    "avg_hes": 0.585,
+    "avg_wpm": 9004.3,
     "miss_count": 0,
     "total": 20
   }

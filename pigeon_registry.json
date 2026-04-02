@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-01T23:05:04.984267+00:00",
-  "total": 267,
+  "generated": "2026-04-02T04:42:23.033815+00:00",
+  "total": 268,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -4518,6 +4518,26 @@
           "desc": "audits_and_manages_all_injected",
           "intent": "implement_all_18",
           "tokens": 4488,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/copilot_prompt_manager_seq020_v003_d0402__compatibility_wrapper_for_the_legacy_lc_restore_rename_safe.py",
+      "name": "copilot_prompt_manager",
+      "seq": 20,
+      "ver": 3,
+      "date": "0402",
+      "desc": "compatibility_wrapper_for_the_legacy",
+      "intent": "restore_rename_safe",
+      "tokens": 324,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0402",
+          "desc": "compatibility_wrapper_for_the_legacy",
+          "intent": "restore_rename_safe",
+          "tokens": 324,
           "action": "registered"
         }
       ]
