@@ -27,7 +27,7 @@ def _timestamp_slug() -> str:
 
 
 def _load_operator_stats_module(root: Path):
-    matches = sorted(root.glob("src/operator_stats_seq008*.py"))
+    matches = sorted(root.glob("src/控w_ops_s008*.py"))
     if not matches:
         raise FileNotFoundError("operator_stats module not found under src/")
     module_path = matches[-1]

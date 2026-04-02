@@ -509,7 +509,7 @@ def main():
             chat_state_override = cs
 
     # â"€â"€ Classify state â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
-    stats_mod = _load_pigeon_module(root, 'src/operator_stats_seq008*.py')
+    stats_mod = _load_pigeon_module(root, 'src/控w_ops_s008*.py')
     state = 'neutral'
     if stats_mod:
         # Load operator history for self-calibrating baselines
@@ -547,7 +547,7 @@ def main():
     # ── Rework detection ─────────────────────────────────────────────
     rework_verdict = 'ok'
     try:
-        rework_mod = _load_pigeon_module(root, 'src/rework_detector_seq009*.py')
+        rework_mod = _load_pigeon_module(root, 'src/测p_rwd_s009*.py')
         if rework_mod:
             rw = None
             if chat_comp and chat_comp.get('total_keystrokes', 0) > 5:
@@ -590,7 +590,7 @@ def main():
     # ── Unsaid analysis (composition-enriched) ─────────────────────────
     unsaid = None
     try:
-        unsaid_mod = _load_pigeon_module(root, 'src/cognitive/unsaid_seq002*.py')
+        unsaid_mod = _load_pigeon_module(root, 'src/cognitive/隐p_un_s002*.py')
         if unsaid_mod:
             # Build enriched events from chat composition (highest fidelity)
             enriched_events = events[:]
@@ -653,7 +653,7 @@ def main():
             has_deletions = bool(recon_comp.get('deleted_words'))
             dr = recon_comp.get('deletion_ratio', 0)
             if has_intent or (dr >= 0.15 and has_deletions):
-                unsaid_recon_mod = _load_pigeon_module(root, 'src/unsaid_recon_seq024*.py')
+                unsaid_recon_mod = _load_pigeon_module(root, 'src/探p_ur_s024*.py')
                 if unsaid_recon_mod:
                     unsaid_recon_mod.reconstruct_if_needed(root, recon_comp)
     except Exception:
@@ -661,7 +661,7 @@ def main():
 
     # â”€â”€ Query memory + unsaid integration â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     try:
-        qmem_mod = _load_pigeon_module(root, 'src/query_memory_seq010*.py')
+        qmem_mod = _load_pigeon_module(root, 'src/忆p_qm_s010*.py')
         if qmem_mod:
             qmem_mod.record_query(root, query_txt, submitted, unsaid)
     except Exception:
@@ -669,7 +669,7 @@ def main():
 
     # â”€â”€ File heat map update â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     try:
-        heat_mod = _load_pigeon_module(root, 'src/file_heat_map_seq011*.py')
+        heat_mod = _load_pigeon_module(root, 'src/热p_fhm_s011*.py')
         if heat_mod:
             heat_mod.update_heat_map(root, state, metrics['hesitation_score'],
                                      rework_verdict, wpm)
@@ -679,7 +679,7 @@ def main():
     # ── Cognitive reactor: autonomous code modification from telemetry ────
     reactor_result = None
     try:
-        reactor_mod = _load_pigeon_module(root, 'src/cognitive_reactor_seq014*.py')
+        reactor_mod = _load_pigeon_module(root, 'src/思f_cr_s014*.py')
         if reactor_mod:
             # Gather active files from all available sources
             active_files = []
@@ -750,9 +750,9 @@ def main():
         history = _parse_history(root)
         if _should_rewrite(history, coaching_path):
             try:
-                rework_mod = _load_pigeon_module(root, 'src/rework_detector_seq009*.py')
-                qmem_mod   = _load_pigeon_module(root, 'src/query_memory_seq010*.py')
-                heat_mod   = _load_pigeon_module(root, 'src/file_heat_map_seq011*.py')
+                rework_mod = _load_pigeon_module(root, 'src/测p_rwd_s009*.py')
+                qmem_mod   = _load_pigeon_module(root, 'src/忆p_qm_s010*.py')
+                heat_mod   = _load_pigeon_module(root, 'src/热p_fhm_s011*.py')
                 rw_stats  = rework_mod.load_rework_stats(root) if rework_mod else {}
                 q_mem     = qmem_mod.load_query_memory(root) if qmem_mod else {}
                 heat      = heat_mod.load_heat_map(root) if heat_mod else {}
@@ -777,7 +777,7 @@ def main():
         pass
     # Refresh task context (Prompt ms, unsaid, hot modules) on every flush
     try:
-        dyn_mod = _load_pigeon_module(root, 'src/dynamic_prompt_seq017*.py')
+        dyn_mod = _load_pigeon_module(root, 'src/推w_dp_s017*.py')
         if dyn_mod and hasattr(dyn_mod, 'inject_task_context'):
             dyn_mod.inject_task_context(root)
     except Exception:
@@ -786,7 +786,7 @@ def main():
     # ── Enrich prompt via Gemini Flash (rewrite current-query block) ──────────
     if submitted and query_txt and not query_txt.startswith('bg:'):
         try:
-            enricher_mod = _load_pigeon_module(root, 'src/prompt_enricher_seq024*.py')
+            enricher_mod = _load_pigeon_module(root, 'src/探p_ur_s024*.py')
             if enricher_mod:
                 enrich_dw = []
                 enrich_cog = {}
@@ -820,7 +820,7 @@ def main():
     # ── Training pair writer: muxed state per prompt ─────────────────────────
     if submitted and query_txt and not query_txt.startswith('bg:'):
         try:
-            tw_mod = _load_pigeon_module(root, 'src/training_writer_seq028*.py')
+            tw_mod = _load_pigeon_module(root, 'src/训w_trwr_s028*.py')
             if tw_mod:
                 tw_mod.write_training_pair(
                     root,
@@ -834,7 +834,7 @@ def main():
     # ── Shard learning: feed rework verdicts into memory shards ──────────────
     if submitted and query_txt and not query_txt.startswith('bg:'):
         try:
-            sm_mod = _load_pigeon_module(root, 'src/shard_manager_seq026*.py')
+            sm_mod = _load_pigeon_module(root, 'src/片w_sm_s026*.py')
             if sm_mod and hasattr(sm_mod, 'learn_from_rework'):
                 rw_score = rw['rework_score'] if rw else 0.0
                 sm_mod.learn_from_rework(
@@ -849,7 +849,7 @@ def main():
     mutation_scores = None
     if submitted and query_txt and not query_txt.startswith('bg:'):
         try:
-            ms_mod = _load_pigeon_module(root, 'src/mutation_scorer_seq021*.py')
+            ms_mod = _load_pigeon_module(root, 'src/变p_ms_s021*.py')
             if ms_mod:
                 mutation_scores = ms_mod.score_mutations(root)
         except Exception:

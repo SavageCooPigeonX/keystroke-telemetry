@@ -326,7 +326,7 @@ def _load_graph(root: Path) -> dict:
     # Fallback: build fresh
     try:
         from glob import glob as _glob
-        hits = _glob(str(root / "pigeon_brain" / "graph_extractor_seq003*"))
+        hits = _glob(str(root / "pigeon_brain" / "图p_ge_s003*"))
         if hits:
             import importlib, os
             mod_name = "pigeon_brain." + os.path.splitext(os.path.basename(hits[0]))[0]

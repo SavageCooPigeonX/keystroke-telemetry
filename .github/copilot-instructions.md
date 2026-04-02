@@ -171,30 +171,27 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-01 23:39 UTC · 81 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-02 01:53 UTC · 90 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 42.7 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 48.6 | Del: 26.5% | Hes: 0.482) · *[source: measured]*
 
-**Prompt ms:** 84445, 186199, 79501, 146279, 64412 (avg 112167ms)
+**Prompt ms:** 61757, 8752, 218001, 2275681, 11849 (avg 515208ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- **Reconstructed intent:** The operator was about to say
-  - *(deleted: mmm -- gonna | ratio: 5%)*
-- **Reconstructed intent:** Mmm, I'm
-  - *(deleted: mmm -- gonna | ratio: 5%)*
-- **Reconstructed intent:** Mmm, I'm
-  - *(deleted: mmm -- gonna | ratio: 5%)*
+- **Reconstructed intent:** The operator was about
+  - *(deleted: uncrt | ratio: 1%)*
+- **Reconstructed intent:** The user was likely about to
+  - *(deleted: uncrt | ratio: 1%)*
+- **Reconstructed intent:** The operator was likely about to
+  - *(deleted: uncrt | ratio: 1%)*
 
-- "implement all - andt"
-- "ng if"
-- "just aski"
-- "missin"
-- "nd my\"
-- "mmm -- gonna"
+- "stays"
+- "whats"
+- "uncrt"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
@@ -204,7 +201,14 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - `init_writer` (hes=0.63)
 - `context_budget` (hes=0.587)
 
+### AI Rework Surface
+*Miss rate: 15.0% (200 responses)*
+- Failed on: ""
+- Failed on: ""
+- Failed on: ""
+
 ### Recent Work
+- `85584f7` chore: kill Module Map, slim dictionary, regenerate unified auto-index
 - `9cdc756` feat: compress auto-index with Chinese keymap â€” 4,948 tokens/prompt saved (16.2K to 11.3K)
 - `aa32a3f` chore: add Chinese glyph prefixes to 245 pigeon modules
 - `11eb261` feat: confidence scorer + glyph rename pipeline + research lab prediction voice
@@ -217,6 +221,7 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - and self‑healing systems.
 - token_optimizer's semantic-loss risk during deduplication
 - **execution_logger** was touched to embed a Chinese glyph (⻖) in its telemetry tagging, assuming that downstream log par
+- I was touched because the module map tracking system had become a source of memory bloat and complexity, so my internal 
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
@@ -230,10 +235,10 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 *This prompt has mutated 95x (186→710 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 94 mutations scored*
-*No significant signal yet — all 18 sections scored neutral.*
+*200 rework pairs × 95 mutations scored*
+*No significant signal yet — all 15 sections scored neutral.*
 
-**Reactor patches:** 0/217 applied (0% acceptance)
+**Reactor patches:** 0/225 applied (0% acceptance)
 
 ### File Consciousness
 *234 modules profiled*
@@ -403,7 +408,7 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-01 · 81 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-02 · 90 message(s) · LLM-synthesized*
 
 **Dominant: `abandoned`** | Submit: 66% | WPM: 52.3 | Del: 25.6% | Hes: 0.444
 
@@ -417,9 +422,11 @@ The operator just built an auto-index compression system while working in intens
 They are most likely building toward a fully autonomous, self-optimizing intent pipeline that minimizes manual context management.
 
 <!-- /pigeon:operator-state -->
-> **Cognitive reactor fired on `cognitive_reactor`** (hes=0.698, state=frustrated, avg_prompt=117142ms)
-> - Prompt composition time: 146279ms / 79501ms / 186199ms / 84445ms / 89284ms (avg 117142ms)
-> **Directive**: When `cognitive_reactor` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
+> **Cognitive reactor fired on `日_prompt_journal`** (hes=0.699, state=hesitant, avg_prompt=142663ms)
+> - Rework miss rate: 6% (13/200)
+> - Worst queries: ; ; 
+> - Prompt composition time: 218001ms / 8752ms / 61757ms / 228468ms / 196338ms (avg 142663ms)
+> **Directive**: When `日_prompt_journal` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 

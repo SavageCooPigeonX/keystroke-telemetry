@@ -440,7 +440,7 @@ class KeystrokeRecorder:
             try:
                 from glob import glob as _g
                 import importlib.util as _il
-                recon_hits = sorted(_g(str(root / 'src' / 'unsaid_recon_seq024*.py')))
+                recon_hits = sorted(_g(str(root / 'src' / '探p_ur_s024*.py')))
                 if recon_hits:
                     sp = _il.spec_from_file_location('unsaid_recon', recon_hits[-1])
                     rm = _il.module_from_spec(sp)
@@ -452,7 +452,7 @@ class KeystrokeRecorder:
         try:
             from glob import glob as _glob
             import importlib.util as _ilu
-            hits = sorted(_glob(str(root / 'src' / 'dynamic_prompt_seq017*.py')))
+            hits = sorted(_glob(str(root / 'src' / '推w_dp_s017*.py')))
             if hits:
                 sp = _ilu.spec_from_file_location('dynamic_prompt', hits[-1])
                 dm = _ilu.module_from_spec(sp)

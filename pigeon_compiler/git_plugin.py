@@ -784,7 +784,7 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
 
     # Auto-reconstruct prompt compositions from os_keystrokes before narrative
     try:
-        recon_mod = _load_glob_module(root, 'src', 'prompt_recon_seq016*')
+        recon_mod = _load_glob_module(root, 'src', 'u_prc_s016*')
         if recon_mod:
             new_entries = recon_mod.reconstruct_all(root)
             if new_entries:
@@ -799,7 +799,7 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
 
     # Push narrative — include ALL changed code files, not just pigeon
     try:
-        narr_mod = _load_glob_module(root, 'src', 'push_narrative_seq012*')
+        narr_mod = _load_glob_module(root, 'src', '叙p_pn_s012*')
         if narr_mod:
             deep = _load_deep_signals(root)
             print(f'  📝 generating push narrative ({len(changed_files)} files)...')
@@ -829,7 +829,7 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
 
     # Mutation scorer — correlate prompt evolution with rework verdicts
     try:
-        ms_mod = _load_glob_module(root, 'src', 'mutation_scorer_seq021*')
+        ms_mod = _load_glob_module(root, 'src', '变p_ms_s021*')
         if ms_mod:
             ms_result = ms_mod.score_mutations(root)
             pairs = ms_result.get('total_pairs', 0)
@@ -840,7 +840,7 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
 
     # Rework backfill — score historical AI responses from chat history
     try:
-        rb_mod = _load_glob_module(root, 'src', 'rework_backfill_seq022*')
+        rb_mod = _load_glob_module(root, 'src', '补p_rwb_s022*')
         if rb_mod:
             added = rb_mod.backfill(root)
             if added:
@@ -850,7 +850,7 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
 
     # Research lab — synthesize prediction report from all telemetry
     try:
-        research_mod = _load_glob_module(root, 'src', 'research_lab_seq029*')
+        research_mod = _load_glob_module(root, 'src', '研w_rl_s029*')
         if research_mod:
             report_path = research_mod.synthesize_research(root)
             if report_path and report_path.exists():
@@ -860,7 +860,7 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
 
     # Intent simulator — forward projection of operator intent per push
     try:
-        intent_mod = _load_glob_module(root, 'src', 'intent_simulator_seq034*')
+        intent_mod = _load_glob_module(root, 'src', '意w_is_s034*')
         if intent_mod:
             sim_path = intent_mod.simulate_intent(root, inject=True)
             if sim_path and sim_path.exists():
@@ -870,7 +870,7 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
 
     # Self-fix: auto-apply CRITICAL hardcoded import fixes
     try:
-        sf_mod = _load_glob_module(root, 'src', 'self_fix_seq013*')
+        sf_mod = _load_glob_module(root, 'src', '修f_sf_s013*')
         if sf_mod and hasattr(sf_mod, 'auto_apply_import_fixes'):
             fixes = sf_mod.auto_apply_import_fixes(root)
             if fixes:
@@ -881,7 +881,7 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
 
     # Task queue — mark any task IDs mentioned in commit as done
     try:
-        tq_mod = _load_glob_module(root, 'src', 'task_queue_seq018*')
+        tq_mod = _load_glob_module(root, 'src', '队p_tq_s018*')
         if tq_mod and hasattr(tq_mod, 'mark_done'):
             task_ids = re.findall(r'\btq-\d{3}\b', msg)
             for tid in task_ids:
@@ -894,7 +894,7 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
 
     # File consciousness — rebuild dating profiles + slumber party audit
     try:
-        fc_mod = _load_glob_module(root, 'src', 'file_consciousness_seq019*')
+        fc_mod = _load_glob_module(root, 'src', '觉w_fc_s019*')
         if fc_mod:
             profiles = fc_mod.build_dating_profiles(root)
             fc_mod.save_profiles(root, profiles)
@@ -909,7 +909,7 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
 
     # Push learning cycle — the PUSH is the unit of learning
     try:
-        pc_mod = _load_glob_module(root, 'src', 'push_cycle_seq025*')
+        pc_mod = _load_glob_module(root, 'src', '环w_pc_s025*')
         if pc_mod and hasattr(pc_mod, 'run_push_cycle'):
             cycle = pc_mod.run_push_cycle(root, h, intent, changed_files)
             sync = cycle.get('sync', {})
@@ -930,7 +930,7 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
 
             # ── Training cycle summary — intent alignment per push ──
             try:
-                tp_mod = _load_glob_module(root, 'src', 'training_pairs_seq027*')
+                tp_mod = _load_glob_module(root, 'src', '路f_cxr_s027*')
                 if tp_mod and hasattr(tp_mod, 'generate_cycle_summary'):
                     summary = tp_mod.generate_cycle_summary(root, cycle)
                     n = summary.get('pair_count', 0)
@@ -945,7 +945,7 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
 
     # Voice style — personality adaptation from operator's actual language
     try:
-        vs_mod = _load_glob_module(root, 'src', 'voice_style_seq028*')
+        vs_mod = _load_glob_module(root, 'src', '训w_trwr_s028*')
         if vs_mod and hasattr(vs_mod, 'inject_voice_style'):
             ok = vs_mod.inject_voice_style(root)
             if ok:
@@ -1087,7 +1087,7 @@ def run():
     changed_py = [nr for _, nr, _, _, _ in renames] + [r for _, _, r, _, _ in box_only]
     cross_context = {}
     try:
-        fix_mod = _load_glob_module(root, 'src', 'self_fix_seq013*')
+        fix_mod = _load_glob_module(root, 'src', '修f_sf_s013*')
         if fix_mod:
             fix_report = fix_mod.run_self_fix(
                 root, registry, changed_py=changed_py, intent=intent)
@@ -1115,7 +1115,7 @@ def run():
 
     # ── Pulse harvest: failsafe for any un-cleared pulse blocks ──
     try:
-        pulse_mod = _load_glob_module(root, 'src', 'pulse_harvest_seq015*')
+        pulse_mod = _load_glob_module(root, 'src', '脉p_ph_s015*')
         if pulse_mod:
             recs = pulse_mod.harvest_all_pulses(root)
             if recs:
@@ -1137,7 +1137,7 @@ def run():
 
     # Unified Copilot prompt management — ensure all managed prompt blocks and audits stay in sync
     try:
-        prompt_mod = _load_glob_module(root, 'src', 'copilot_prompt_manager_seq020*')
+        prompt_mod = _load_glob_module(root, 'src', '管w_cpm_s020*')
         if prompt_mod:
             result = prompt_mod.refresh_managed_prompt(root, registry=registry, processed=processed)
             audit = result.get('audit', {}) if isinstance(result, dict) else {}

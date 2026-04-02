@@ -26,10 +26,10 @@ def _load_src(pattern: str, *symbols):
     return tuple(getattr(mod, s) for s in symbols)
 
 
-TelemetryLogger = _load_src('logger_seq003*.py', 'TelemetryLogger')
-score_context_budget, estimate_tokens = _load_src('context_budget_seq004*.py', 'score_context_budget', 'estimate_tokens')
-DriftWatcher = _load_src('drift_watcher_seq005*.py', 'DriftWatcher')
-HesitationAnalyzer = _load_src('resistance_bridge_seq006*.py', 'HesitationAnalyzer')
+TelemetryLogger = _load_src('*lo_s003*.py', 'TelemetryLogger')
+score_context_budget, estimate_tokens = _load_src('*cb_s004*.py', 'score_context_budget', 'estimate_tokens')
+DriftWatcher = _load_src('*dw_s005*.py', 'DriftWatcher')
+HesitationAnalyzer = _load_src('*rb_s006*.py', 'HesitationAnalyzer')
 
 
 # ─────────────── helpers ───────────────
@@ -186,9 +186,9 @@ def test_drift_watcher():
 
     # logger_seq003 should trigger OVER_HARD_CAP even as pigeon renames versions over time
     over_files = [s["file"] for s in signals if s["verdict"] == "OVER_HARD_CAP"]
-    assert any(name.startswith("logger_seq003_") for name in over_files), \
+    assert any("lo_s003" in name for name in over_files), \
         f"Expected logger to be over hard cap, got: {over_files}"
-    print("✓ Drift correctly flags logger_seq003 as OVER_HARD_CAP")
+    print("✓ Drift correctly flags logger (lo_s003) as OVER_HARD_CAP")
 
     print("✓ TEST 3 PASSED\n")
 
@@ -231,7 +231,7 @@ def test_edit_pairs_pipeline():
     from pathlib import Path
 
     stamp_pulse, pair_pulse_to_prompt, read_pulse = _load_src(
-        'pulse_harvest_seq015*.py', 'stamp_pulse', 'pair_pulse_to_prompt', 'read_pulse'
+        '*ph_s015*.py', 'stamp_pulse', 'pair_pulse_to_prompt', 'read_pulse'
     )
 
     tmpdir = Path(tempfile.mkdtemp())

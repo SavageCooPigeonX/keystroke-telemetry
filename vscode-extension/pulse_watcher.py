@@ -24,7 +24,7 @@ def main():
     sys.path.insert(0, str(root))
 
     import importlib.util
-    matches = sorted(root.glob('src/pulse_harvest_seq015*.py'))
+    matches = sorted(root.glob('src/脉p_ph_s015*.py'))
     if not matches:
         print(json.dumps({"paired": False, "error": "no pulse_harvest module"}))
         return
@@ -37,7 +37,7 @@ def main():
     if rec:
         # ── Training pair capture — every edit is a label ──
         try:
-            tp_matches = sorted(root.glob('src/training_pairs_seq027*.py'))
+            tp_matches = sorted(root.glob('src/路f_cxr_s027*.py'))
             if tp_matches:
                 tp_spec = importlib.util.spec_from_file_location('_tp', tp_matches[-1])
                 tp_mod = importlib.util.module_from_spec(tp_spec)

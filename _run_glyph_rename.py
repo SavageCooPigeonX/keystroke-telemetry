@@ -19,7 +19,7 @@ ROOT = Path(__file__).parent.resolve()
 # ── Load glyph map ──────────────────────────
 def _load_glyph_map():
     try:
-        from src.symbol_dictionary_seq031_v002_d0401__典双逆流_symbol_dictionary_generator_for_pigeon_lc_glyph_compiler_symbol import (
+        from src.典w_sd_s031_v002_d0401_缩分话_λG import (
             _MNEMONIC_MAP,
         )
         return dict(_MNEMONIC_MAP)
@@ -249,7 +249,7 @@ def execute_renames(renames, dry_run=True):
 
     # Step 1: Rewrite imports FIRST (before files move)
     print(f'\n[1/3] Rewriting imports ({len(import_map)} mappings)...')
-    from pigeon_compiler.rename_engine.import_rewriter_seq003_v004_d0316__引_rewrite_all_imports_across_the_lc_import_rewriter_now import rewrite_all_imports
+    from pigeon_compiler.rename_engine.引w_ir_s003_v004_d0316_踪稿析_λΞ import rewrite_all_imports
     changes = rewrite_all_imports(ROOT, import_map, dry_run=False)
     print(f'      Rewrote {len(changes)} import lines')
 
@@ -278,7 +278,7 @@ def execute_renames(renames, dry_run=True):
 
     # Step 3: Validate imports
     print(f'[3/3] Validating imports...')
-    from pigeon_compiler.rename_engine.validator_seq005_v004_d0315__审正图_post_rename_import_validation_lc_verify_pigeon_plugin import validate_imports
+    from pigeon_compiler.rename_engine.审p_va_s005_v004_d0315_踪稿析_λν import validate_imports
     val = validate_imports(ROOT)
     if val['valid']:
         print(f'      PASS — all imports valid')

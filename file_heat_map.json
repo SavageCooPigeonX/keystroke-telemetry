@@ -1109,149 +1109,149 @@
   "self_fix": {
     "samples": [
       {
-        "ts": "2026-04-01T23:17:55.254196+00:00",
-        "hes": 0.445,
-        "wpm": 5321.1,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:18:24.372596+00:00",
-        "hes": 0.482,
-        "wpm": 12286.5,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:18:30.516156+00:00",
-        "hes": 0.505,
-        "wpm": 813.2,
-        "state": "hesitant",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:18:52.745476+00:00",
-        "hes": 0.492,
-        "wpm": 4101.5,
-        "state": "restructuring",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:19:22.261989+00:00",
-        "hes": 0.489,
-        "wpm": 9703.5,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:20:23.947593+00:00",
-        "hes": 0.7,
-        "wpm": 263.4,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:21:22.549050+00:00",
-        "hes": 0.696,
-        "wpm": 101.2,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:22:02.683760+00:00",
-        "hes": 0.571,
-        "wpm": 93.5,
-        "state": "hesitant",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:22:12.910883+00:00",
-        "hes": 0.494,
-        "wpm": 31084.9,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:22:20.919154+00:00",
+        "ts": "2026-04-02T01:12:26.859438+00:00",
         "hes": 0.5,
-        "wpm": 63865.2,
-        "state": "frustrated",
-        "rework": "partial"
+        "wpm": 2656.8,
+        "state": "hesitant",
+        "rework": "miss"
       },
       {
-        "ts": "2026-04-01T23:22:26.105679+00:00",
-        "hes": 0.695,
-        "wpm": 13.1,
-        "state": "frustrated",
-        "rework": "partial"
+        "ts": "2026-04-02T01:13:14.818981+00:00",
+        "hes": 0.458,
+        "wpm": 288.9,
+        "state": "hesitant",
+        "rework": "miss"
       },
       {
-        "ts": "2026-04-01T23:32:02.683988+00:00",
-        "hes": 0.492,
-        "wpm": 4864.9,
-        "state": "restructuring",
-        "rework": "partial"
+        "ts": "2026-04-02T01:13:27.942352+00:00",
+        "hes": 0.486,
+        "wpm": 23618.9,
+        "state": "hesitant",
+        "rework": "miss"
       },
       {
-        "ts": "2026-04-01T23:32:21.476458+00:00",
-        "hes": 0.485,
-        "wpm": 28631.3,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:33:47.110838+00:00",
-        "hes": 0.954,
-        "wpm": 84.7,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:34:20.253083+00:00",
-        "hes": 0.5,
-        "wpm": 20778.6,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:35:21.600195+00:00",
-        "hes": 0.496,
-        "wpm": 8727.7,
-        "state": "restructuring",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:36:19.676311+00:00",
-        "hes": 0.303,
-        "wpm": 2635.8,
-        "state": "flow",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:37:25.770993+00:00",
-        "hes": 0.545,
-        "wpm": 717.7,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:38:27.318741+00:00",
-        "hes": 0.712,
-        "wpm": 328.7,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:39:24.331164+00:00",
+        "ts": "2026-04-02T01:14:27.042017+00:00",
         "hes": 0.703,
-        "wpm": 289.2,
+        "wpm": 1384.0,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:14:46.207170+00:00",
+        "hes": 0.4,
+        "wpm": 4962.0,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:15:27.831781+00:00",
+        "hes": 0.494,
+        "wpm": 13001.4,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:16:20.878783+00:00",
+        "hes": 0.307,
+        "wpm": 2922.8,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:16:33.659040+00:00",
+        "hes": 0.295,
+        "wpm": 4866000.0,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:17:30.512511+00:00",
+        "hes": 0.293,
+        "wpm": 3277.8,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:18:20.534292+00:00",
+        "hes": 0.437,
+        "wpm": 1035.7,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:19:33.915221+00:00",
+        "hes": 0.292,
+        "wpm": 3341.3,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:48:37.355348+00:00",
+        "hes": 0.527,
+        "wpm": 38306.4,
         "state": "focused",
-        "rework": "partial"
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:49:36.443776+00:00",
+        "hes": 0.703,
+        "wpm": 555.9,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:50:37.378236+00:00",
+        "hes": 0.7,
+        "wpm": 32.8,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:51:36.734623+00:00",
+        "hes": 0.7,
+        "wpm": 31.4,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:52:37.068124+00:00",
+        "hes": 0.7,
+        "wpm": 32.3,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:53:10.670371+00:00",
+        "hes": 0.609,
+        "wpm": 34.5,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:53:11.568730+00:00",
+        "hes": 0.3,
+        "wpm": 3644792.5,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:53:25.125717+00:00",
+        "hes": 0.577,
+        "wpm": 90.9,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:53:37.531113+00:00",
+        "hes": 0.3,
+        "wpm": 19314600.0,
+        "state": "focused",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.563,
-    "avg_wpm": 9735.3,
-    "miss_count": 0,
+    "avg_hes": 0.489,
+    "avg_wpm": 1396048.3,
+    "miss_count": 11,
     "total": 20
   },
   "init_writer": {
@@ -1405,297 +1405,297 @@
   ".operator_stats": {
     "samples": [
       {
-        "ts": "2026-04-01T23:17:55.254303+00:00",
-        "hes": 0.445,
-        "wpm": 5321.1,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:18:24.372699+00:00",
-        "hes": 0.482,
-        "wpm": 12286.5,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:18:30.516271+00:00",
-        "hes": 0.505,
-        "wpm": 813.2,
-        "state": "hesitant",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:18:52.745600+00:00",
-        "hes": 0.492,
-        "wpm": 4101.5,
-        "state": "restructuring",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:19:22.262055+00:00",
-        "hes": 0.489,
-        "wpm": 9703.5,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:20:23.947706+00:00",
-        "hes": 0.7,
-        "wpm": 263.4,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:21:22.549163+00:00",
-        "hes": 0.696,
-        "wpm": 101.2,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:22:02.683827+00:00",
-        "hes": 0.571,
-        "wpm": 93.5,
-        "state": "hesitant",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:22:12.910989+00:00",
-        "hes": 0.494,
-        "wpm": 31084.9,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:22:20.919244+00:00",
+        "ts": "2026-04-02T01:12:26.859526+00:00",
         "hes": 0.5,
-        "wpm": 63865.2,
-        "state": "frustrated",
-        "rework": "partial"
+        "wpm": 2656.8,
+        "state": "hesitant",
+        "rework": "miss"
       },
       {
-        "ts": "2026-04-01T23:22:26.105752+00:00",
-        "hes": 0.695,
-        "wpm": 13.1,
-        "state": "frustrated",
-        "rework": "partial"
+        "ts": "2026-04-02T01:13:14.819141+00:00",
+        "hes": 0.458,
+        "wpm": 288.9,
+        "state": "hesitant",
+        "rework": "miss"
       },
       {
-        "ts": "2026-04-01T23:32:02.684045+00:00",
-        "hes": 0.492,
-        "wpm": 4864.9,
-        "state": "restructuring",
-        "rework": "partial"
+        "ts": "2026-04-02T01:13:27.942441+00:00",
+        "hes": 0.486,
+        "wpm": 23618.9,
+        "state": "hesitant",
+        "rework": "miss"
       },
       {
-        "ts": "2026-04-01T23:32:21.476523+00:00",
-        "hes": 0.485,
-        "wpm": 28631.3,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:33:47.110934+00:00",
-        "hes": 0.954,
-        "wpm": 84.7,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:34:20.253161+00:00",
-        "hes": 0.5,
-        "wpm": 20778.6,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:35:21.600289+00:00",
-        "hes": 0.496,
-        "wpm": 8727.7,
-        "state": "restructuring",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:36:19.676367+00:00",
-        "hes": 0.303,
-        "wpm": 2635.8,
-        "state": "flow",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:37:25.771076+00:00",
-        "hes": 0.545,
-        "wpm": 717.7,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:38:27.318786+00:00",
-        "hes": 0.712,
-        "wpm": 328.7,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:39:24.331294+00:00",
+        "ts": "2026-04-02T01:14:27.042116+00:00",
         "hes": 0.703,
-        "wpm": 289.2,
+        "wpm": 1384.0,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:14:46.207354+00:00",
+        "hes": 0.4,
+        "wpm": 4962.0,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:15:27.831892+00:00",
+        "hes": 0.494,
+        "wpm": 13001.4,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:16:20.878906+00:00",
+        "hes": 0.307,
+        "wpm": 2922.8,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:16:33.659133+00:00",
+        "hes": 0.295,
+        "wpm": 4866000.0,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:17:30.512559+00:00",
+        "hes": 0.293,
+        "wpm": 3277.8,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:18:20.534405+00:00",
+        "hes": 0.437,
+        "wpm": 1035.7,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:19:33.915342+00:00",
+        "hes": 0.292,
+        "wpm": 3341.3,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:48:37.355422+00:00",
+        "hes": 0.527,
+        "wpm": 38306.4,
         "state": "focused",
-        "rework": "partial"
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:49:36.443851+00:00",
+        "hes": 0.703,
+        "wpm": 555.9,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:50:37.378285+00:00",
+        "hes": 0.7,
+        "wpm": 32.8,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:51:36.734717+00:00",
+        "hes": 0.7,
+        "wpm": 31.4,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:52:37.068181+00:00",
+        "hes": 0.7,
+        "wpm": 32.3,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:53:10.670472+00:00",
+        "hes": 0.609,
+        "wpm": 34.5,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:53:11.568948+00:00",
+        "hes": 0.3,
+        "wpm": 3644792.5,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:53:25.125789+00:00",
+        "hes": 0.577,
+        "wpm": 90.9,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:53:37.531165+00:00",
+        "hes": 0.3,
+        "wpm": 19314600.0,
+        "state": "focused",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.563,
-    "avg_wpm": 9735.3,
-    "miss_count": 0,
+    "avg_hes": 0.489,
+    "avg_wpm": 1396048.3,
+    "miss_count": 11,
     "total": 20
   },
   "dynamic_prompt": {
     "samples": [
       {
-        "ts": "2026-04-01T23:17:55.254358+00:00",
-        "hes": 0.445,
-        "wpm": 5321.1,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:18:24.372755+00:00",
-        "hes": 0.482,
-        "wpm": 12286.5,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:18:30.516355+00:00",
-        "hes": 0.505,
-        "wpm": 813.2,
-        "state": "hesitant",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:18:52.745662+00:00",
-        "hes": 0.492,
-        "wpm": 4101.5,
-        "state": "restructuring",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:19:22.262089+00:00",
-        "hes": 0.489,
-        "wpm": 9703.5,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:20:23.947792+00:00",
-        "hes": 0.7,
-        "wpm": 263.4,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:21:22.549232+00:00",
-        "hes": 0.696,
-        "wpm": 101.2,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:22:02.683863+00:00",
-        "hes": 0.571,
-        "wpm": 93.5,
-        "state": "hesitant",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:22:12.911172+00:00",
-        "hes": 0.494,
-        "wpm": 31084.9,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:22:20.919292+00:00",
+        "ts": "2026-04-02T01:12:26.859574+00:00",
         "hes": 0.5,
-        "wpm": 63865.2,
-        "state": "frustrated",
-        "rework": "partial"
+        "wpm": 2656.8,
+        "state": "hesitant",
+        "rework": "miss"
       },
       {
-        "ts": "2026-04-01T23:22:26.105785+00:00",
-        "hes": 0.695,
-        "wpm": 13.1,
-        "state": "frustrated",
-        "rework": "partial"
+        "ts": "2026-04-02T01:13:14.819207+00:00",
+        "hes": 0.458,
+        "wpm": 288.9,
+        "state": "hesitant",
+        "rework": "miss"
       },
       {
-        "ts": "2026-04-01T23:32:02.684076+00:00",
-        "hes": 0.492,
-        "wpm": 4864.9,
-        "state": "restructuring",
-        "rework": "partial"
+        "ts": "2026-04-02T01:13:27.942489+00:00",
+        "hes": 0.486,
+        "wpm": 23618.9,
+        "state": "hesitant",
+        "rework": "miss"
       },
       {
-        "ts": "2026-04-01T23:32:21.476560+00:00",
-        "hes": 0.485,
-        "wpm": 28631.3,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:33:47.110959+00:00",
-        "hes": 0.954,
-        "wpm": 84.7,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:34:20.253198+00:00",
-        "hes": 0.5,
-        "wpm": 20778.6,
-        "state": "frustrated",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:35:21.600333+00:00",
-        "hes": 0.496,
-        "wpm": 8727.7,
-        "state": "restructuring",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:36:19.676394+00:00",
-        "hes": 0.303,
-        "wpm": 2635.8,
-        "state": "flow",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:37:25.771115+00:00",
-        "hes": 0.545,
-        "wpm": 717.7,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:38:27.318802+00:00",
-        "hes": 0.712,
-        "wpm": 328.7,
-        "state": "focused",
-        "rework": "partial"
-      },
-      {
-        "ts": "2026-04-01T23:39:24.331337+00:00",
+        "ts": "2026-04-02T01:14:27.042178+00:00",
         "hes": 0.703,
-        "wpm": 289.2,
+        "wpm": 1384.0,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:14:46.207423+00:00",
+        "hes": 0.4,
+        "wpm": 4962.0,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:15:27.831957+00:00",
+        "hes": 0.494,
+        "wpm": 13001.4,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:16:20.878979+00:00",
+        "hes": 0.307,
+        "wpm": 2922.8,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:16:33.659179+00:00",
+        "hes": 0.295,
+        "wpm": 4866000.0,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:17:30.512585+00:00",
+        "hes": 0.293,
+        "wpm": 3277.8,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:18:20.534465+00:00",
+        "hes": 0.437,
+        "wpm": 1035.7,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:19:33.915405+00:00",
+        "hes": 0.292,
+        "wpm": 3341.3,
+        "state": "hesitant",
+        "rework": "miss"
+      },
+      {
+        "ts": "2026-04-02T01:48:37.355448+00:00",
+        "hes": 0.527,
+        "wpm": 38306.4,
         "state": "focused",
-        "rework": "partial"
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:49:36.443869+00:00",
+        "hes": 0.703,
+        "wpm": 555.9,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:50:37.378309+00:00",
+        "hes": 0.7,
+        "wpm": 32.8,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:51:36.734762+00:00",
+        "hes": 0.7,
+        "wpm": 31.4,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:52:37.068210+00:00",
+        "hes": 0.7,
+        "wpm": 32.3,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:53:10.670524+00:00",
+        "hes": 0.609,
+        "wpm": 34.5,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:53:11.569052+00:00",
+        "hes": 0.3,
+        "wpm": 3644792.5,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:53:25.125813+00:00",
+        "hes": 0.577,
+        "wpm": 90.9,
+        "state": "focused",
+        "rework": "ok"
+      },
+      {
+        "ts": "2026-04-02T01:53:37.531191+00:00",
+        "hes": 0.3,
+        "wpm": 19314600.0,
+        "state": "focused",
+        "rework": "ok"
       }
     ],
-    "avg_hes": 0.563,
-    "avg_wpm": 9735.3,
-    "miss_count": 0,
+    "avg_hes": 0.489,
+    "avg_wpm": 1396048.3,
+    "miss_count": 11,
     "total": 20
   }
 }
