@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-02 04:43 UTC · 230 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-02 07:47 UTC · 249 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -22,10 +22,10 @@
 
 ## Live Operator State
 
-*230 prompts profiled · source: measured*
+*249 prompts profiled · source: measured*
 
-**Dominant: `abandoned` | Submit: 66% | Del: 5.0%**
-- deletion ratio stable — no major mode shift detected
+**Dominant: `abandoned` | Submit: 66% | Del: 4.0%**
+- operator entering flow state — productive building, less backtracking
 
 ## Pair Performance
 
@@ -34,21 +34,21 @@
 **Accuracy: 100% OK | 0% miss** *[source: measured]*
 - trend: **stable** (100% → 100%)
 
-**Prompt→edit latency:** 277.4s median (44 pairs)
+**Prompt→edit latency:** 325.2s median (46 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*97 mutations scored*
+*101 mutations scored*
 - no significant signal yet — all sections scored neutral
 
-**Reactor:** 230 fires, 0 accepted (0%)
+**Reactor:** 231 fires, 0 accepted (0%)
 > **Directive:** Reactor patches near-zero acceptance — tune confidence threshold or disable
 
 ## Codebase Health
 
-*45 self-fix reports · 2026-03-16 → 2026-04-02*
+*46 self-fix reports · 2026-03-16 → 2026-04-02*
 
-**Problem trend: growing** (early avg 24 → recent avg 327) *[source: measured]*
-- problems growing ~303/push — expect more over_hard_cap and dead_exports without intervention
+**Problem trend: growing** (early avg 24 → recent avg 409) *[source: measured]*
+- problems growing ~385/push — expect more over_hard_cap and dead_exports without intervention
 
 ### Recent Deaths *[source: measured]*
 - `exception`: 3
@@ -64,23 +64,23 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "yes bu"
-- "ginger"
-- "implement all - andt"
-- "tays"
-- "renam"
-- "coul"
-- "ned"
-- "just aski"
-- "coonti"
 - "d eve"
+- "just aski"
+- "uncrt"
+- "intencom"
+- "ginger"
+- "but"
+- "okay kill im talking about proce"
+- "but h"
+- "test"
+- "coul"
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** WEAK (placeholder data) — 200 entries, 2 unique scores in last 20
-- **Training pairs:** 36 captured
+- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20
+- **Training pairs:** 41 captured
 - **Prediction accuracy:** F1=0.010, calibration=0.305 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
 - **Memory shards:** 10 active (zero LLM calls)

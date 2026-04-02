@@ -8,6 +8,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -20,6 +30,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -36,6 +56,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -48,6 +78,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -64,6 +104,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -76,6 +126,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -92,6 +152,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -104,6 +174,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -120,6 +200,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -132,6 +222,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -148,6 +248,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -160,6 +270,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -176,6 +296,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -188,6 +318,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -204,6 +344,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -216,6 +366,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -232,6 +392,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -244,6 +414,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -260,6 +440,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -272,6 +462,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -288,6 +488,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -300,6 +510,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -316,6 +536,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -328,6 +558,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -344,6 +584,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -356,6 +606,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -372,6 +632,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -384,6 +654,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -400,6 +680,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -412,6 +702,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -428,6 +728,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -440,6 +750,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -456,6 +776,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -468,6 +798,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -484,6 +824,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -496,6 +846,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -512,6 +872,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -524,6 +894,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -540,6 +920,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -552,6 +942,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -568,6 +968,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.11,
         "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.11,
+        "reason": "0 shared imports"
       }
     ],
     "fears": [],
@@ -580,6 +990,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -596,6 +1016,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -608,6 +1038,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -624,6 +1064,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -636,6 +1086,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -652,6 +1112,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -664,6 +1134,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -680,6 +1160,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -692,6 +1182,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -708,6 +1208,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -720,6 +1230,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -736,6 +1256,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -748,6 +1278,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -764,6 +1304,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -776,6 +1326,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -792,6 +1352,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -804,6 +1374,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -820,6 +1400,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -832,6 +1422,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -848,6 +1448,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -860,6 +1470,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pj",
         "score": 0.11,
         "reason": "0 shared imports"
       }
@@ -876,6 +1496,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.11,
         "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.11,
+        "reason": "0 shared imports"
       }
     ],
     "fears": [],
@@ -888,6 +1518,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -912,6 +1552,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -924,6 +1574,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -940,6 +1600,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -952,6 +1622,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -968,6 +1648,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -982,6 +1672,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -994,6 +1694,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -1018,6 +1728,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1030,6 +1750,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -1046,6 +1776,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1058,6 +1798,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -1074,6 +1824,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1086,6 +1846,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -1102,6 +1872,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1114,6 +1894,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -1130,6 +1920,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1142,6 +1942,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1158,6 +1968,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.11,
         "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.11,
+        "reason": "0 shared imports"
       }
     ],
     "fears": [],
@@ -1170,6 +1990,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -1186,6 +2016,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -1198,6 +2038,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1214,6 +2064,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1226,6 +2086,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pj",
         "score": 0.11,
         "reason": "0 shared imports"
       }
@@ -1242,6 +2112,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -1254,6 +2134,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -1270,6 +2160,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1282,6 +2182,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pj",
         "score": 0.11,
         "reason": "0 shared imports"
       }
@@ -1298,6 +2208,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1310,6 +2230,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -1326,6 +2256,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -1338,6 +2278,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1354,6 +2304,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -1366,6 +2326,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1382,6 +2352,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1394,6 +2374,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -1410,6 +2400,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -1424,6 +2424,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1436,6 +2446,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -1460,6 +2480,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1472,6 +2502,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -1488,6 +2528,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1500,6 +2550,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -1516,6 +2576,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1528,6 +2598,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -1544,6 +2624,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1556,6 +2646,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -1572,6 +2672,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -1586,6 +2696,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -1597,7 +2717,7 @@
     "tokens": 4672,
     "partners": [],
     "fears": [],
-    "avg_hes": 0.58
+    "avg_hes": 0.601
   },
   "adapter": {
     "personality": "fresh",
@@ -1606,6 +2726,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1622,6 +2752,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -1634,6 +2774,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1650,6 +2800,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -1662,6 +2822,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1678,6 +2848,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -1690,6 +2870,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1706,6 +2896,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -1718,6 +2918,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1734,6 +2944,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -1746,6 +2966,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1762,6 +2992,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -1774,6 +3014,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1790,6 +3040,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -1802,6 +3062,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1818,6 +3088,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -1830,6 +3110,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -1846,6 +3136,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -1858,6 +3158,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1874,6 +3184,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -1886,6 +3206,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1902,6 +3232,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -1914,6 +3254,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pj",
         "score": 0.11,
         "reason": "0 shared imports"
       }
@@ -1938,6 +3288,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -1950,6 +3310,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1966,6 +3336,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -1978,6 +3358,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -1994,6 +3384,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2006,6 +3406,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2022,6 +3432,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2034,6 +3454,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2050,6 +3480,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2062,6 +3502,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -2078,6 +3528,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2087,7 +3547,18 @@
     "personality": "stable",
     "version": 3,
     "tokens": 324,
-    "partners": [],
+    "partners": [
+      {
+        "name": "u_pe",
+        "score": 0.56,
+        "reason": "2 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.56,
+        "reason": "2 shared imports, both high-churn (v3+v2)"
+      }
+    ],
     "fears": [],
     "avg_hes": 0.0
   },
@@ -2098,6 +3569,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -2111,7 +3592,7 @@
     "tokens": 5239,
     "partners": [],
     "fears": [],
-    "avg_hes": 0.58
+    "avg_hes": 0.601
   },
   "file_consciousness_seq019_audit": {
     "personality": "fresh",
@@ -2120,6 +3601,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2136,6 +3627,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2148,6 +3649,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2164,6 +3675,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2176,6 +3697,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2192,6 +3723,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2204,6 +3745,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2220,6 +3771,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2232,6 +3793,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2248,6 +3819,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2260,6 +3841,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2276,6 +3867,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2288,6 +3889,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2304,6 +3915,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -2316,6 +3937,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -2332,6 +3963,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2346,6 +3987,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.11,
         "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.11,
+        "reason": "0 shared imports"
       }
     ],
     "fears": [],
@@ -2358,6 +4009,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2382,6 +4043,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -2394,6 +4065,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2410,6 +4091,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2422,6 +4113,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2438,6 +4139,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2450,6 +4161,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -2466,6 +4187,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2478,6 +4209,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2494,6 +4235,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2506,6 +4257,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -2530,6 +4291,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2542,6 +4313,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2558,6 +4339,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2570,6 +4361,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2586,6 +4387,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2598,6 +4409,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2614,6 +4435,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
       }
     ],
     "fears": [],
@@ -2626,6 +4457,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pj",
         "score": 0.11,
         "reason": "0 shared imports"
       }
@@ -2642,6 +4483,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -2654,6 +4505,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2670,6 +4531,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.11,
         "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.11,
+        "reason": "0 shared imports"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.11,
+        "reason": "0 shared imports"
       }
     ],
     "fears": [],
@@ -2682,6 +4553,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2698,6 +4579,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2710,6 +4601,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2726,6 +4627,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2738,6 +4649,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2754,6 +4675,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2766,6 +4697,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2782,6 +4723,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2794,6 +4745,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2810,6 +4771,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2824,6 +4795,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2835,7 +4816,7 @@
     "tokens": 5846,
     "partners": [],
     "fears": [],
-    "avg_hes": 0.58
+    "avg_hes": 0.601
   },
   "session_handoff": {
     "personality": "fresh",
@@ -2844,6 +4825,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2860,6 +4851,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2872,6 +4873,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2888,6 +4899,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -2900,6 +4921,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2916,6 +4947,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2928,6 +4969,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.13,
+        "reason": "0 shared imports, both high-churn (v4+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.13,
         "reason": "0 shared imports, both high-churn (v4+v2)"
       }
@@ -2944,6 +4995,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -2958,9 +5019,67 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
+    "avg_hes": 0.0
+  },
+  "u_pe": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 4212,
+    "partners": [
+      {
+        "name": "u_pj",
+        "score": 0.8,
+        "reason": "5 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "file may not exist",
+      "swallowed exception",
+      "returns empty on failure (silent)",
+      "regex format dependency"
+    ],
+    "avg_hes": 0.0
+  },
+  "u_pj": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 7801,
+    "partners": [
+      {
+        "name": "u_pe",
+        "score": 0.8,
+        "reason": "5 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.6,
+        "reason": "2 shared imports, both high-churn (v2+v2)"
+      }
+    ],
+    "fears": [
+      "regex format dependency",
+      "file may not exist",
+      "returns empty on failure (silent)",
+      "swallowed exception"
+    ],
     "avg_hes": 0.0
   },
   "unified_signal": {
@@ -2970,6 +5089,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -2986,6 +5115,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -2998,6 +5137,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -3014,6 +5163,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -3026,6 +5185,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -3042,6 +5211,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -3054,6 +5233,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -3070,6 +5259,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -3082,6 +5281,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -3098,6 +5307,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -3110,6 +5329,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -3126,6 +5355,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -3138,6 +5377,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }
@@ -3154,6 +5403,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
       }
     ],
     "fears": [],
@@ -3166,6 +5425,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v3+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.16,
         "reason": "0 shared imports, both high-churn (v3+v2)"
       }
@@ -3182,6 +5451,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -3196,6 +5475,16 @@
         "name": "copilot_prompt_manager",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
       }
     ],
     "fears": [],
@@ -3208,6 +5497,16 @@
     "partners": [
       {
         "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pe",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
         "score": 0.2,
         "reason": "0 shared imports, both high-churn (v2+v2)"
       }

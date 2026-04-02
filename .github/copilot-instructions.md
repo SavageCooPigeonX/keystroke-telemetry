@@ -7,16 +7,16 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-02 06:24 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-02 07:48 UTC — 2 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 28min old (max 10min)
+- **`current-query`**: STALE — 112min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-02 05:56
 
-- **`prompt-telemetry`**: STALE — 34min old (max 10min)
+- **`prompt-telemetry`**: STALE — 118min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-02T05:50:23
 
@@ -149,7 +149,7 @@ OPERATOR SIGNAL: The repeated "go ahead" combined with the final, more detailed 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-02 06:24 UTC · 147 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-02 07:48 UTC · 147 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 51.2 | Del: 26.5% | Hes: 0.492) · *[source: measured]*
@@ -175,13 +175,13 @@ OPERATOR SIGNAL: The repeated "go ahead" combined with the final, more detailed 
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 - `init_writer` (hes=0.63)
-- `context_budget` (hes=0.587)
+- `self_fix` (hes=0.602)
 
 ### Recent Work
+- `d3e0d03` feat: compressed filename mutation on commit - last_change tracking, parse both formats, 389 files visible to git_plugin
 - `4bb7ba1` fix: unsaid thread pipeline â€” bump gemini tokens, add quality gate, deduplicate entries
 - `f8ea95a` fix: restore rename-safe runtime hooks and training pair capture
 - `a65a380` fix: update 75 stale glob patterns to match new _sNNN filenames, fix 14 cross-dir collisions, all 5 tests passing
-- `85584f7` chore: kill Module Map, slim dictionary, regenerate unified auto-index
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -203,22 +203,32 @@ OPERATOR SIGNAL: The repeated "go ahead" combined with the final, more detailed 
 - [CRITICAL] hardcoded_import in `pigeon_brain/读w_el_s002_v003_d0401_观话_λA.py`
 
 ### Prompt Evolution
-*This prompt has mutated 100x (186→724 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 101x (186→684 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 97 mutations scored*
+*200 rework pairs × 101 mutations scored*
 *No significant signal yet — all 16 sections scored neutral.*
 
 **Reactor patches:** 0/231 applied (0% acceptance)
 
 ### File Consciousness
-*234 modules profiled*
+*236 modules profiled*
 
 **High-drama (most mutations):**
 - `self_fix` v11
 - `.operator_stats` v10
 - `dynamic_prompt` v10
 - `context_budget` v8
+
+**Codebase fears:**
+- file may not exist (2 modules)
+- swallowed exception (2 modules)
+- returns empty on failure (silent) (2 modules)
+
+**Slumber party warnings (high coupling):**
+- `u_pe` ↔ `u_pj` (score=0.80, 5 shared imports, both high-churn (v2+v2))
+- `u_pj` ↔ `u_pe` (score=0.80, 5 shared imports, both high-churn (v2+v2))
+- `u_pe` ↔ `copilot_prompt_manager` (score=0.60, 2 shared imports, both high-churn (v2+v2))
 
 ### Codebase Health (Veins / Clots)
 *133/137 alive, 4 clots, avg vein health 0.53*
@@ -331,16 +341,16 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
 
-*Auto-generated 2026-04-02 04:43 UTC · zero LLM calls*
+*Auto-generated 2026-04-02 07:47 UTC · zero LLM calls*
 
 **1 week:** `infrastructure` (conf=high) — ~49 commits
-**1 month:** `infrastructure` (conf=medium) — ~201 commits
-**3 months:** `infrastructure` (conf=speculative) — themes: o please continue s, you, nto
+**1 month:** `infrastructure` (conf=medium) — ~199 commits
+**3 months:** `infrastructure` (conf=speculative) — themes: my fv fyi, meta, blueberry
 
 **PM Directives:**
 - Intent bifurcation: `infrastructure` dominant but `telemetry` emerging — watch for context switches mid-session.
 - `self_heal` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
-- Unsaid themes detected: `o please continue s`, `you`, `nto` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
+- Unsaid themes detected: `my fv fyi`, `meta`, `blueberry` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
 - Module focus cluster: `file_heat_map`, `import_rewriter`, `file_writer` — pre-load context from these modules when operator starts typing.
 
 <!-- /pigeon:intent-simulation -->
@@ -499,14 +509,14 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 <!-- glyph mappings merged into auto-index -->
 <!-- /pigeon:dictionary -->
 <!-- pigeon:auto-index -->
-*2026-04-02 · 243 modules · 1 touched · ✓71% ~12% !15%*
-*Format: glyph=name seq tokens·state*
+*2026-04-02 · 245 modules · 2 touched · ✓71% ~12% !15%*
+*Format: glyph=name seq tokens·state |last change*
 *IM=import_tracer MA=manifest_writer NL=nl_parsers PL=planner PQ=pq_search_utils PR=press_release_gen_template_key_findings*
 
 **pigeon_brain** (42)
 型=models 1 424✓
 读=execution_logger 2 1.6K~
-图=graph_extractor 3 1.7K✓
+图=graph_extractor 3 1.7K✓ |8888 word backpropagation
 描=graph_heat_map 4 874✓
 环检=loop_detector 5 910✓
 缩=failure_detector 6 1.0K✓
@@ -515,14 +525,14 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 令=cli 9 855!
 仿=demo_sim 10 1.3K!
 钩=trace_hook 11 959~
-服=live_server 12 2.5K!
+服=live_server 12 2.5K! |8888 word backpropagation
 跑=traced_runner 13 855!
 
 **pigeon_brain/flow** (42)
-包=context_packet 1 1.0K✓
+包=context_packet 1 1.0K✓ |flow engine context
 唤=node_awakener 2 1.3K~
-流=flow_engine 3 1.3K!
-择=path_selector 4 1.4K✓
+流=flow_engine 3 1.3K! |flow engine context
+择=path_selector 4 1.4K✓ |flow engine context
 任=task_writer 5 1.6K~
 脉运=vein_transport 6 965~
 逆=backward 7 2.5K!
@@ -547,7 +557,7 @@ PQ=pq_search_utils 1 3.3K~
 **pigeon_compiler/cut_executor** (12)
 析=plan_parser 1 371✓
 切=source_slicer 2 486✓
-写=file_writer 3 783~
+写=file_writer 3 783~ |multi line import
 踪=import_fixer 4 505✓
 MA=manifest_writer 5 448✓
 验=plan_validator 6 579~
@@ -564,7 +574,7 @@ MA=manifest_writer 5 448✓
 **pigeon_compiler/rename_engine** (22)
 扫=scanner 1 972✓
 PL=planner 2 1.4K~
-引=import_rewriter 3 1.8K~
+引=import_rewriter 3 1.8K~ |import rewriter now
 压=executor 4 712✓
 审=validator 5 921✓
 改名=run_rename 6 1.4K!
@@ -583,7 +593,7 @@ PL=planner 2 1.4K~
 测编=run_compiler_test 7 594~
 深划=run_deepseek_plans 8 587~
 鸽环=run_pigeon_loop 9 2.8K!
-净拆=run_clean_split 10 2.5K!
+净拆=run_clean_split 10 2.5K! |windows max path
 净拆=run_clean_split_helpers 11 566!
 净拆=run_clean_split_init 12 1.7K~
 谱桥=manifest_bridge 13 1.0K✓
@@ -611,43 +621,45 @@ IM=import_tracer 3 792✓
 **pigeon_compiler/weakness_planner** (1)
 核=deepseek_plan_prompt 4 2.4K~
 
-**src** (102)
-时=timestamp_utils 1 156✓
-型=models 2 379✓
-录=logger 3 1.6K✓
-境=context_budget 4 715~
+**src** (104)
+时=timestamp_utils 1 156✓ |test rename hook
+型=models 2 379✓ |pulse telemetry prompt
+录=logger 3 1.6K✓ |wpm outlier filter
+境=context_budget 4 715~ |test full hook
 偏=drift_watcher 5 1.1K✓
-桥=resistance_bridge 6 1.2K✓
-层=streaming_layer 7 10.2K~
-漂=.operator_stats 8 4.7K~
-控=operator_stats 8 5.0K!
-测=rework_detector 9 1.1K✓
+桥=resistance_bridge 6 1.2K✓ |pulse telemetry prompt
+层=streaming_layer 7 10.2K~ |pulse telemetry prompt
+漂=.operator_stats 8 4.7K~ |intent deletion pipeline
+控=operator_stats 8 5.0K! |fix degenerate classifier:
+测=rework_detector 9 1.1K✓ |add composition-based scoring,
 忆=query_memory 10 2.3K✓
-热=file_heat_map 11 1.3K✓
-叙=push_narrative 12 2.1K✓
+热=file_heat_map 11 1.3K✓ |pulse telemetry prompt
+叙=push_narrative 12 2.1K✓ |push narratives timeout
 修=self_fix 13 5.8K!
-思=cognitive_reactor 14 5.6K!
+思=cognitive_reactor 14 5.6K! |mutation patch pipeline
 脉=pulse_harvest 15 2.3K✓
-推=dynamic_prompt 17 4.0K~
-队=task_queue 18 1.6K✓
+推=dynamic_prompt 17 4.0K~ |8888 word backpropagation
+队=task_queue 18 1.6K✓ |task queue system
 觉=file_consciousness 19 4.3K~
-管=copilot_prompt_manager 20 4.5K~
+u_pj 19 7.8K
+管=copilot_prompt_manager 20 4.5K~ |resolve latest runtime
 变=mutation_scorer 21 1.6K✓
 补=rework_backfill 22 1.2K✓
 递=session_handoff 23 1.6K✓
-隐=unsaid_recon 24 1.3K✓
-环=push_cycle 25 4.8K~
+u_pe 24 4.2K
+隐=unsaid_recon 24 1.3K✓ |intent deletion pipeline
+环=push_cycle 25 4.8K~ |fix push cycle
 片=shard_manager 26 4.4K~
 合=unified_signal 26 2.1K✓
 路=context_router 27 1.2K!
 对=training_pairs 27 2.6K✓
 训=training_writer 28 2.1K~
 声=voice_style 28 3.2K~
-研=research_lab 29 5.1K~
-警=staleness_alert 30 1.7K✓
-典=symbol_dictionary 31 3.7K~
-编=glyph_compiler 32 5.0K~
-intent_simulator 34 5.3K
+研=research_lab 29 5.1K~ |rewrite in intent
+警=staleness_alert 30 1.7K✓ |staleness alerts bg
+典=symbol_dictionary 31 3.7K~ |swap to chinese
+编=glyph_compiler 32 5.0K~ |glyph compiler symbol
+intent_simulator 34 5.3K |compress auto index
 
 **src/cognitive** (10)
 适=adapter 1 1.3K✓
@@ -684,7 +696,7 @@ intent_simulator 34 5.3K
 层=streaming_layer_orchestrator 17 142!
 
 **Infra**
-(root): _audit_compliance, _build_organism_health, _export_dev_story, _fix_stale_globs, _run_abbrev_rename, _run_glyph_rename, _run_smart_rename, _tmp_analyze_stats, _tmp_check_rename, _tmp_find_stale, _tmp_regen_dict, _tmp_survey, _tmp_test_pipeline, _tmp_token_audit, _tmp_token_optimizer, autonomous_dev_stress_test, deep_test, stress_test, test_all, test_public_release, test_training_pairs
+(root): _audit_compliance, _build_organism_health, _export_dev_story, _fix_stale_globs, _run_abbrev_rename, _run_glyph_rename, _run_smart_rename, _tmp_analyze_stats, _tmp_backfill_lastchange, _tmp_check_rename, _tmp_find_stale, _tmp_regen_dict, _tmp_survey, _tmp_test_pipeline, _tmp_token_audit, _tmp_token_optimizer, autonomous_dev_stress_test, deep_test, stress_test, test_all, test_public_release, test_training_pairs
 client: chat_composition_analyzer, chat_response_reader, composition_recon, os_hook, telemetry_cleanup, uia_reader, vscdb_poller
 vscode-extension: classify_bridge, pulse_watcher
 <!-- /pigeon:auto-index -->

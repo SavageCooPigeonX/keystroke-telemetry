@@ -8,10 +8,10 @@ copilot-instructions.md so Copilot reads the enriched context on the next turn.
 Zero friction: called automatically from prompt_journal on every log_enriched_entry.
 """
 # ── pigeon ────────────────────────────────────
-# SEQ: 024 | VER: v001 | ~180 lines | ~1,800 tokens
-# DESC:   deepseek_prompt_enricher_query_context
-# INTENT: enrich_every_prompt
-# LAST:   2026-03-22
+# SEQ: 024 | VER: v002 | 452 lines | ~4,212 tokens
+# DESC:   pre_process_every_prompt_via
+# INTENT: compressed_filename_mutation
+# LAST:   2026-04-02 @ d3e0d03
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──

@@ -8,11 +8,11 @@ Designed for live analysis: grep any field, plot any metric, no aggregation need
 Zero LLM calls — pure signal cross-referencing.
 """
 # ── pigeon ────────────────────────────────────
-# SEQ: 019 | VER: v001 | ~190 lines | ~1,800 tokens
-# DESC:   enriched_prompt_journal_telemetry
-# INTENT: live_telemetry_analysis
-# LAST:   2026-03-17
-# SESSIONS: 0
+# SEQ: 019 | VER: v002 | 800 lines | ~7,801 tokens
+# DESC:   every_entry_cross_references_all
+# INTENT: compressed_filename_mutation
+# LAST:   2026-04-02 @ d3e0d03
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-04-02T17:18:00Z

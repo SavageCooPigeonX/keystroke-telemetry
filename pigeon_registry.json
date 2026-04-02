@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-02T04:42:23.033815+00:00",
-  "total": 268,
+  "generated": "2026-04-02T06:24:53.341546+00:00",
+  "total": 270,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -6397,6 +6397,46 @@
           "desc": "end_of_prompt_training_pair",
           "intent": "gemini_flash_enricher",
           "tokens": 2078,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/u_pe_s024_v002_d0402_λC.py",
+      "name": "u_pe",
+      "seq": 24,
+      "ver": 2,
+      "date": "0402",
+      "desc": "pre_process_every_prompt_via",
+      "intent": "compressed_filename_mutation",
+      "tokens": 4212,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0402",
+          "desc": "pre_process_every_prompt_via",
+          "intent": "compressed_filename_mutation",
+          "tokens": 4212,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/u_pj_s019_v002_d0402_λC.py",
+      "name": "u_pj",
+      "seq": 19,
+      "ver": 2,
+      "date": "0402",
+      "desc": "every_entry_cross_references_all",
+      "intent": "compressed_filename_mutation",
+      "tokens": 7801,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0402",
+          "desc": "every_entry_cross_references_all",
+          "intent": "compressed_filename_mutation",
+          "tokens": 7801,
           "action": "registered"
         }
       ]
