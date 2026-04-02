@@ -1,140 +1,5 @@
 [
   {
-    "ts": "2026-04-02T07:47:28.307798+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "also addtime stamp classification - my main llm already has timestamps - but yoo",
-    "response_hint": "Now I'll add timestamp-aware classification: time-of-day bucketing, per-timeframe stats, and pattern detection that produces natural-language observations an LLM can actually learn from. \n```\n\n```\nNow"
-  },
-  {
-    "ts": "2026-04-02T07:47:28.705790+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "pdateread me then pus h - what account is this in? savagecoopigeonx user epo rig",
-    "response_hint": "Good \u2014 now I see the full README. Let me update it with the new operator stats system and the timestamp-aware patterns. \n```\n\n```\nNow let me add the remote and push:  Repo doesn't exist yet on GitHub."
-  },
-  {
-    "ts": "2026-04-02T07:47:28.897332+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "write prompt for agent for repo creation ",
-    "response_hint": "\n\nHere's a copy-paste prompt for creating the repo:\n\n---\n\n**Create a GitHub repository with the following details:**\n\n- **Owner/Organization:** SavageCooPigeonX\n- **Repository name:** keystroke-teleme"
-  },
-  {
-    "ts": "2026-04-02T07:47:29.136964+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "exept  i made it priv",
-    "response_hint": "Pushed. 4 commits, 123 objects \u2192 `SavageCooPigeonX/keystroke-telemetry` (private). All up."
-  },
-  {
-    "ts": "2026-04-02T07:47:29.317096+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "continue",
-    "response_hint": "\n\nLet me pull the actual telemetry data \u2014 prompt journal entries and operator profile \u2014 to check if classification is working on your last 5 prompts. "
-  },
-  {
-    "ts": "2026-04-02T07:47:29.546068+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "fox all these issues - make all strokes monitored in one json file",
-    "response_hint": "I\u2019m logging this prompt first, then I\u2019ll trace where keystrokes are emitted and where the duplicate or phantom stroke records are coming from so I can consolidate them into one JSON sink.I\u2019m mapping t"
-  },
-  {
-    "ts": "2026-04-02T07:47:29.785209+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "yes pls",
-    "response_hint": "I found the current state: the legacy keystroke log is still present, and operator-stats already has the artifact filter in place. I\u2019m wiring a one-shot cleanup script now that will archive the legacy"
-  },
-  {
-    "ts": "2026-04-02T07:47:29.946234+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "can you make sure i get statistics in a clear json file auto update per prompt -",
-    "response_hint": "I\u2019m logging this prompt first, then I\u2019ll wire the existing prompt journal into a single prompt-level JSON snapshot and a per-prompt Copilot instructions refresh so the injected context tracks every pr"
-  },
-  {
-    "ts": "2026-04-02T07:47:30.256843+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "deep audits - what are some paths percy pigeon would take in making his compiler",
-    "response_hint": "I\u2019m logging this prompt into the repo\u2019s prompt journal first, then I\u2019ll inspect the compiler pipeline and pull the fresh timing stats for this exact message so the audit is grounded in live telemetry."
-  },
-  {
-    "ts": "2026-04-02T07:47:30.466524+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "apptoved",
-    "response_hint": "I\u2019m taking approval as proceed with the next concrete fix. I\u2019ll log this prompt, inspect the current prompt-journal binding logic, and then patch the per-prompt telemetry issue so the stats stop reusi"
-  },
-  {
-    "ts": "2026-04-02T07:47:30.736455+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 45.3,
-    "query_hint": "approved ",
-    "response_hint": "The current snapshot confirms the stricter behavior: the approved prompt logged with `matched: false` because no fresh prompt composition existed yet. I\u2019m fixing that now by adding a lightweight \u201creco"
-  },
-  {
-    "ts": "2026-04-02T07:47:30.966466+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "coyes  ",
-    "response_hint": "I\u2019ve confirmed the current behavior: the reset is not accidental,  writes a record and then immediately calls . That means the file itself will never retain the stamp after a save. I\u2019m checking the ex"
-  },
-  {
-    "ts": "2026-04-02T07:47:31.318693+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "wjat would be the next logical goal of this repo if you were buisness ops manage",
-    "response_hint": "The Los Santos / emergency radio / fiction parts aren't something I can help with \u2014 that's outside the coding scope here.\n\nOn the legitimate part \u2014 **next logical goal for this repo as a business ops "
-  },
-  {
-    "ts": "2026-04-02T07:47:31.983266+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "o,ple,emt all 18 fixes",
-    "response_hint": "Let me read all the key files in parallel first to understand current state.   "
-  },
-  {
-    "ts": "2026-04-02T07:47:32.538576+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "push and test rename of pigeon - make sure api is connected ",
-    "response_hint": "Now let me check the DeepSeek API connection before committing: No  file and  is not set. Let me check how the rename/post-commit hook uses it \u2014 the rename engine may skip DeepSeek and just do determi"
-  },
-  {
     "ts": "2026-04-02T07:47:32.767971+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
@@ -1797,5 +1662,125 @@
     "del_ratio": 0.0,
     "wpm": 19.5,
     "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T07:49:03.727843+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 19.5,
+    "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T07:50:03.747688+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 19.5,
+    "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T07:51:03.760740+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 19.5,
+    "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T07:52:03.646871+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 19.5,
+    "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T08:26:36.070842+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 19.5,
+    "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T15:24:09.796399+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 32.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T15:25:09.898119+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 32.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T15:26:07.566178+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 32.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T15:27:10.194150+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 32.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T15:28:12.237572+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 32.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T15:29:09.672108+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 32.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T15:29:25.765599+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 32.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T15:30:19.578860+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 32.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T15:31:09.730179+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 32.1,
+    "query_hint": "bg:prompt_enricher_seq024_v001.py"
+  },
+  {
+    "ts": "2026-04-02T15:32:06.848446+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 32.1,
+    "query_hint": "bg:copilot-instructions.md"
   }
 ]

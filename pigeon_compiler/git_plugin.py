@@ -134,7 +134,11 @@ def _commit_hash() -> str:
 
 def _changed_files() -> list[str]:
     try:
-        raw = _git('diff', '--name-only', 'HEAD~1', 'HEAD')
+        raw = subprocess.run(
+            ['git', '-c', 'core.quotepath=false', 'diff', '--name-only', 'HEAD~1', 'HEAD'],
+            capture_output=True, text=True, encoding='utf-8',
+            cwd=str(_root()), timeout=30,
+        ).stdout.strip()
         return [f for f in raw.splitlines() if f.strip()]
     except Exception:
         return []

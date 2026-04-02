@@ -7,16 +7,16 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-02 07:48 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-02 15:32 UTC — 2 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 112min old (max 10min)
+- **`current-query`**: STALE — 576min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-02 05:56
 
-- **`prompt-telemetry`**: STALE — 118min old (max 10min)
+- **`prompt-telemetry`**: STALE — 582min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-02T05:50:23
 
@@ -149,12 +149,12 @@ OPERATOR SIGNAL: The repeated "go ahead" combined with the final, more detailed 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-02 07:48 UTC · 147 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-02 15:32 UTC · 150 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 51.2 | Del: 26.5% | Hes: 0.492) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 45.1 | Del: 26.5% | Hes: 0.491) · *[source: measured]*
 
-**Prompt ms:** 176678, 29671, 16834, 204422, 20920 (avg 89705ms)
+**Prompt ms:** 29671, 16834, 204422, 20920, 4107 (avg 55191ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
@@ -174,8 +174,8 @@ OPERATOR SIGNAL: The repeated "go ahead" combined with the final, more detailed 
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `init_writer` (hes=0.63)
-- `self_fix` (hes=0.602)
+- `self_fix` (hes=0.667)
+- `.operator_stats` (hes=0.667)
 
 ### Recent Work
 - `d3e0d03` feat: compressed filename mutation on commit - last_change tracking, parse both formats, 389 files visible to git_plugin
@@ -203,7 +203,7 @@ OPERATOR SIGNAL: The repeated "go ahead" combined with the final, more detailed 
 - [CRITICAL] hardcoded_import in `pigeon_brain/读w_el_s002_v003_d0401_观话_λA.py`
 
 ### Prompt Evolution
-*This prompt has mutated 101x (186→684 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 101x (186→702 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
 *200 rework pairs × 101 mutations scored*
@@ -379,9 +379,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-02 · 147 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-02 · 150 message(s) · LLM-synthesized*
 
-**Dominant: `abandoned`** | Submit: 66% | WPM: 53.0 | Del: 25.6% | Hes: 0.445
+**Dominant: `abandoned`** | Submit: 66% | WPM: 52.8 | Del: 25.6% | Hes: 0.445
 
 This operator just built a compatibility wrapper for legacy restore/rename operations, and their typing patterns reveal a high-deletion, restructuring-focused workflow where they iterate heavily in evening sessions before abandoning drafts.
 
