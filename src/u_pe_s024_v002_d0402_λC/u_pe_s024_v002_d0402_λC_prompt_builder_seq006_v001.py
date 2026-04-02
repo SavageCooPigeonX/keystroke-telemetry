@@ -1,4 +1,4 @@
-"""u_pe_s024_v002_d0402_λC_prompt_builder_seq008_v001.py — Auto-extracted by Pigeon Compiler."""
+"""u_pe_s024_v002_d0402_λC_prompt_builder_seq006_v001.py — Auto-extracted by Pigeon Compiler."""
 import os
 import re
 

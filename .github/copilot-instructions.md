@@ -7,16 +7,16 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-02 15:35 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-02 15:39 UTC — 2 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 579min old (max 10min)
+- **`current-query`**: STALE — 583min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-02 05:56
 
-- **`prompt-telemetry`**: STALE — 585min old (max 10min)
+- **`prompt-telemetry`**: STALE — 589min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-02T05:50:23
 
@@ -149,7 +149,7 @@ OPERATOR SIGNAL: The repeated "go ahead" combined with the final, more detailed 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-02 15:35 UTC · 153 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-02 15:39 UTC · 153 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 45.3 | Del: 26.5% | Hes: 0.492) · *[source: measured]*
@@ -174,31 +174,23 @@ OPERATOR SIGNAL: The repeated "go ahead" combined with the final, more detailed 
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `self_fix` (hes=0.665)
-- `.operator_stats` (hes=0.665)
+- `self_fix` (hes=0.66)
+- `.operator_stats` (hes=0.66)
 
 ### Recent Work
+- `79b615b` test: verify compressed filename mutation pipeline
 - `61ccaf1` fix: git_plugin Unicode path escaping - core.quotepath=false for compressed filename detection
 - `d3e0d03` feat: compressed filename mutation on commit - last_change tracking, parse both formats, 389 files visible to git_plugin
 - `4bb7ba1` fix: unsaid thread pipeline â€” bump gemini tokens, add quality gate, deduplicate entries
-- `f8ea95a` fix: restore rename-safe runtime hooks and training pair capture
-
-### Coaching Directives *[source: llm_derived]*
-*LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
-- **Anticipate refactoring requests**
-- **Preempt context budget issues**
-- **When you see high deletion rates (56%) with "restructuring" state**
-- **Since rework rate is currently zero, maintain precision**
-- **For "abandoned" message patterns**
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
 - `copilot_prompt_manager`'s assumption about `_resolve.rename_safe` signature; `__main__`'s dependency on the wrapper's correctness; cascading import errors in `pigeon_compiler` submodules. This push restores rename safety checks through a compatibility wrapper after a structural refactor.
-- System locale mismatch causing mis-decoded git history
-- loss of information from 'replace' error handler
-- incorrect display of legacy commit encodings.
+- Regex pattern overfitting on extensions; missing dependency on external pattern configuration; silent pass on empty pattern list.
 - **copilot_prompt_manager** (seq020 v003): I was touched to become a compatibility wrapper for the legacy rename system, 
 - **u_dbcc_s005_v001** was touched to integrate stale glob awareness into cognitive drift analysis, assuming the new `_tmp
+- **警p_sa** speaks: I was touched to finalize the `verify_compressed_filename` intent, embedding logic to validate archive
+- **警p_sa_s030_v002_d0331_缩分话_λA** speaks: I was created as the new source module to implement the verification logic defi
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
@@ -209,32 +201,32 @@ OPERATOR SIGNAL: The repeated "go ahead" combined with the final, more detailed 
 - [CRITICAL] hardcoded_import in `pigeon_brain/读w_el_s002_v003_d0401_观话_λA.py`
 
 ### Prompt Evolution
-*This prompt has mutated 103x (186→702 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 104x (186→706 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 103 mutations scored*
+*200 rework pairs × 104 mutations scored*
 *No significant signal yet — all 16 sections scored neutral.*
 
 **Reactor patches:** 0/231 applied (0% acceptance)
 
 ### File Consciousness
-*236 modules profiled*
+*237 modules profiled*
 
 **High-drama (most mutations):**
 - `self_fix` v11
 - `.operator_stats` v10
 - `dynamic_prompt` v10
-- `context_budget` v8
+- `context_budget` v8 ↔ 警p_sa
 
 **Codebase fears:**
-- file may not exist (2 modules)
-- swallowed exception (2 modules)
-- returns empty on failure (silent) (2 modules)
+- file may not exist (3 modules)
+- returns empty on failure (silent) (3 modules)
+- regex format dependency (3 modules)
 
 **Slumber party warnings (high coupling):**
 - `u_pe` ↔ `u_pj` (score=0.80, 5 shared imports, both high-churn (v2+v2))
 - `u_pj` ↔ `u_pe` (score=0.80, 5 shared imports, both high-churn (v2+v2))
-- `u_pe` ↔ `copilot_prompt_manager` (score=0.60, 2 shared imports, both high-churn (v2+v2))
+- `u_pe` ↔ `警p_sa` (score=0.76, 4 shared imports, both high-churn (v2+v3))
 
 ### Codebase Health (Veins / Clots)
 *133/137 alive, 4 clots, avg vein health 0.53*
@@ -347,16 +339,16 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
 
-*Auto-generated 2026-04-02 15:34 UTC · zero LLM calls*
+*Auto-generated 2026-04-02 15:39 UTC · zero LLM calls*
 
-**1 week:** `infrastructure` (conf=high) — ~47 commits
-**1 month:** `infrastructure` (conf=medium) — ~190 commits
-**3 months:** `infrastructure` (conf=speculative) — themes: you, blueberry, cles re
+**1 week:** `infrastructure` (conf=high) — ~48 commits
+**1 month:** `infrastructure` (conf=medium) — ~195 commits
+**3 months:** `infrastructure` (conf=speculative) — themes: blueberry, uncrt, intencom
 
 **PM Directives:**
 - Intent bifurcation: `infrastructure` dominant but `telemetry` emerging — watch for context switches mid-session.
-- `self_heal` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
-- Unsaid themes detected: `you`, `blueberry`, `cles re` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
+- `compression` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
+- Unsaid themes detected: `blueberry`, `uncrt`, `intencom` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
 - Module focus cluster: `file_heat_map`, `import_rewriter`, `file_writer` — pre-load context from these modules when operator starts typing.
 
 <!-- /pigeon:intent-simulation -->
@@ -385,18 +377,19 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-02 · 153 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-02 - 153 message(s) - LLM-synthesized*
 
 **Dominant: `abandoned`** | Submit: 66% | WPM: 52.9 | Del: 25.6% | Hes: 0.445
 
-This operator just built a git plugin with Unicode handling, and their typing patterns reveal a high-deletion, oscillating workflow where they frequently restructure code in afternoon/evening sessions before abandoning drafts.  
-*   **Anticipate refactoring requests** on `dynamic_prompt` and `self_fix seq13`; they are recurring pain points—offer concise, modular alternatives when edits start there.
-*   **Preempt context budget issues** by keeping summaries of `context_budget` and `operator_stats` modules ultra-compact; they are often revisited.
-*   **When you see high deletion rates (56%) with "restructuring" state**, provide multiple discrete, copy-pasteable options instead of monoliths—this pattern indicates decision fatigue.
-*   **Since rework rate is currently zero, maintain precision** by anchoring suggestions directly to the last successful commit's style and structure.
-*   **For "abandoned" message patterns** (low WPM, no deletions), respond with a direct, clarifying question to re-engage focus before offering code.
+This operator just built a filename verification system and their typing patterns reveal they work in intense evening restructuring bursts with high deletion rates, indicating they're aggressively refining code through trial-and-error.  
+- **Respond with concise, modular suggestions**—they abandon verbose explanations (36% abandoned messages).  
+- **Anticipate mutations in `dynamic_prompt` and `self_fix seq13`**—these are recurring pain points for import/resolver logic and prompt-steering systems.  
+- **When they rename or version files (like `_v002`→`_v003`)**, immediately infer they're iterating on pipeline stages and offer version-aware code snippets.  
+- **During high-deletion commits (56% rate)**, preempt their frustration by offering multiple discrete options instead of monolithic blocks.  
+- **Flag any pattern matching `_缩分话` or `λ` suffixes**—these likely denote Chinese-language compression or lambda-driven modules they're actively debugging.  
+- **Since rework rate is currently zero**, maintain this by validating edge cases in their churn modules before they manually discover gaps.  
 
-The operator is most likely building toward a self-correcting prompt pipeline that integrates git operations with real-time analytics from the `.operator_stats` memory file.
+They are most likely building toward a self-correcting pipeline for multilingual code generation with dynamic prompt chaining.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `prompt_enricher`** (hes=0.665, state=hesitant, avg_prompt=94838ms)
@@ -513,7 +506,7 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 <!-- glyph mappings merged into auto-index -->
 <!-- /pigeon:dictionary -->
 <!-- pigeon:auto-index -->
-*2026-04-02 · 245 modules · 2 touched · ✓71% ~12% !15%*
+*2026-04-02 · 246 modules · 1 touched · ✓71% ~12% !15%*
 *Format: glyph=name seq tokens·state |last change*
 *IM=import_tracer MA=manifest_writer NL=nl_parsers PL=planner PQ=pq_search_utils PR=press_release_gen_template_key_findings*
 
@@ -625,7 +618,7 @@ IM=import_tracer 3 792✓
 **pigeon_compiler/weakness_planner** (1)
 核=deepseek_plan_prompt 4 2.4K~
 
-**src** (104)
+**src** (105)
 时=timestamp_utils 1 156✓ |test rename hook
 型=models 2 379✓ |pulse telemetry prompt
 录=logger 3 1.6K✓ |wpm outlier filter
@@ -661,6 +654,7 @@ u_pe 24 4.2K
 声=voice_style 28 3.2K~
 研=research_lab 29 5.1K~ |rewrite in intent
 警=staleness_alert 30 1.7K✓ |staleness alerts bg
+警p_sa 30 1.8K |test rename mutation
 典=symbol_dictionary 31 3.7K~ |swap to chinese
 编=glyph_compiler 32 5.0K~ |glyph compiler symbol
 intent_simulator 34 5.3K |compress auto index

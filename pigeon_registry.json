@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-02T06:24:53.341546+00:00",
-  "total": 270,
+  "generated": "2026-04-02T15:35:20.313812+00:00",
+  "total": 271,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -6509,6 +6509,27 @@
           "action": "registered"
         }
       ]
+    },
+    {
+      "path": "src/警p_sa_s030_v003_d0402_缩分话_λV.py",
+      "name": "警p_sa",
+      "seq": 30,
+      "ver": 3,
+      "date": "0402",
+      "desc": "copilot_self_diagnostic_detect_stale",
+      "intent": "verify_compressed_filename",
+      "tokens": 1796,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0402",
+          "desc": "copilot_self_diagnostic_detect_stale",
+          "intent": "verify_compressed_filename",
+          "tokens": 1796,
+          "action": "registered"
+        }
+      ],
+      "last_change": "test rename mutation"
     },
     {
       "path": "streaming_layer/streaming_layer_aggregator_seq006_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",

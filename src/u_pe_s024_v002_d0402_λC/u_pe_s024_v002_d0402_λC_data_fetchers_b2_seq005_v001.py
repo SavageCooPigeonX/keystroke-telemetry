@@ -1,19 +1,18 @@
-"""u_pe_s024_v002_d0402_λC_context_fetchers_b2_seq007_v001.py — Auto-extracted by Pigeon Compiler."""
+"""u_pe_s024_v002_d0402_λC_data_fetchers_b2_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
 from pathlib import Path
 import json
 import re
 
-def _cognitive_state(root: Path) -> dict:
-    snap = _jload(root / 'logs' / 'prompt_telemetry_latest.json')
-    if not snap: return {}
-    signals = snap.get('signals', {})
-    summary = snap.get('running_summary', {})
-    return {
-        'state': summary.get('dominant_state', 'unknown'),
-        'wpm': signals.get('wpm', 0),
-        'del_ratio': signals.get('deletion_ratio', 0),
-        'hes': signals.get('hesitation_count', 0),
-    }
+def _deleted_words_from_journal(root: Path, n: int = 3) -> list[str]:
+    """Pull deleted words from the last N journal entries."""
+    entries = _jsonl(root / 'logs' / 'prompt_journal.jsonl', n=n)
+    words = []
+    for e in entries:
+        for w in (e.get('deleted_words') or []):
+            word = w.get('word', w) if isinstance(w, dict) else str(w)
+            if word and len(word) > 2:
+                words.append(word)
+    return words[-MAX_DELETED_WORDS:]
 
 
 def _recent_journal_context(root: Path, n: int = 6) -> list[dict]:

@@ -1,4 +1,4 @@
-"""u_pe_s024_v002_d0402_λC_context_fetchers_a_seq004_v001.py — Auto-extracted by Pigeon Compiler."""
+"""u_pe_s024_v002_d0402_λC_data_fetchers_a_seq003_v001.py — Auto-extracted by Pigeon Compiler."""
 from pathlib import Path
 import json
 import re
@@ -37,15 +37,14 @@ def _registry_touches(root: Path, query: str) -> list[dict]:
     return hits[:4]
 
 
-def _rework_for_query(root: Path, query: str) -> list[dict]:
-    """Find rework log entries related to the current query topic."""
-    entries = _jsonl(root / 'rework_log.json', n=50)
-    query_words = set(re.findall(r'\b\w{4,}\b', query.lower()))
-    scored = []
-    for e in entries:
-        hint = (e.get('query_hint') or '').lower()
-        overlap = len(query_words & set(re.findall(r'\b\w{4,}\b', hint)))
-        if overlap >= 1:
-            scored.append((overlap, e))
-    scored.sort(key=lambda x: -x[0])
-    return [e for _, e in scored[:MAX_REWORK_ENTRIES]]
+def _cognitive_state(root: Path) -> dict:
+    snap = _jload(root / 'logs' / 'prompt_telemetry_latest.json')
+    if not snap: return {}
+    signals = snap.get('signals', {})
+    summary = snap.get('running_summary', {})
+    return {
+        'state': summary.get('dominant_state', 'unknown'),
+        'wpm': signals.get('wpm', 0),
+        'del_ratio': signals.get('deletion_ratio', 0),
+        'hes': signals.get('hesitation_count', 0),
+    }

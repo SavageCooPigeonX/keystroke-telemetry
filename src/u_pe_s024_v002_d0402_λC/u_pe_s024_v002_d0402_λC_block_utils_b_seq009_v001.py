@@ -1,4 +1,4 @@
-"""u_pe_s024_v002_d0402_λC_find_anchor_seq011_v001.py — Auto-extracted by Pigeon Compiler."""
+"""u_pe_s024_v002_d0402_λC_block_utils_b_seq009_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
 
 def _find_insert_anchor(text: str) -> int:

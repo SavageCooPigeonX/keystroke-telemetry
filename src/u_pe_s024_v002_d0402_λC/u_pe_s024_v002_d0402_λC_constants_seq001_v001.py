@@ -1,4 +1,4 @@
-"""u_pe_s024_v002_d0402_λC_constants_seq002_v001.py — Auto-extracted by Pigeon Compiler."""
+"""u_pe_s024_v002_d0402_λC_constants_seq001_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
 
 GEMINI_MODEL = 'gemini-2.5-flash'

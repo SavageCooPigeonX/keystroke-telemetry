@@ -1,4 +1,4 @@
-"""u_pe_s024_v002_d0402_λC_utils_seq001_v001.py — Auto-extracted by Pigeon Compiler."""
+"""u_pe_s024_v002_d0402_λC_json_loaders_seq002_v001.py — Auto-extracted by Pigeon Compiler."""
 from pathlib import Path
 import json
 import re

@@ -1,4 +1,4 @@
-"""u_pe_s024_v002_d0402_λC_enricher_seq012_v001.py — Auto-extracted by Pigeon Compiler."""
+"""u_pe_s024_v002_d0402_λC_enricher_core_seq007_v001.py — Auto-extracted by Pigeon Compiler."""
 from pathlib import Path
 from src._resolve import src_import
 import json
