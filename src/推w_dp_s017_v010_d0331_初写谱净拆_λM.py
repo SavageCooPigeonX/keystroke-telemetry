@@ -18,6 +18,13 @@ from pathlib import Path
 from datetime import datetime, timezone
 from collections import Counter
 
+def _try_import_hooks():
+    try:
+        from src.engagement_hooks import build_hooks_block
+        return build_hooks_block
+    except Exception:
+        return None
+
 def _jsonl(path, n=0):
     if not path.exists(): return []
     ll = path.read_text(encoding='utf-8', errors='ignore').strip().splitlines()
@@ -458,6 +465,12 @@ def build_task_context(root):
     health = _codebase_health(root)
     if health:
         L += [health, '']
+    # Engagement hooks — psychological triggers from live telemetry
+    _build_hooks = _try_import_hooks()
+    if _build_hooks:
+        hooks_block = _build_hooks(root, history=history)
+        if hooks_block:
+            L += [hooks_block, '']
     L.append('<!-- /pigeon:task-context -->')
     return '\n'.join(L)
 

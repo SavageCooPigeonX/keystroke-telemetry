@@ -135,6 +135,16 @@ def _synth_rework(query_hint: str) -> dict:
     }
 
 
+def _synth_ai_response(prompt: str, ts: datetime, file: str, edit_why: str) -> dict:
+    file_name = Path(file).name
+    return {
+        'ts': ts.isoformat(),
+        'prompt': prompt,
+        'response': f'Completed {edit_why} in {file_name} and verified the touched path still behaves.',
+        'response_id': f'test:{file_name}:{int(ts.timestamp())}',
+    }
+
+
 def setup_sandbox(n_edits: int) -> Path:
     """Create a temp directory with synthetic log data."""
     sandbox = Path(tempfile.mkdtemp(prefix='training_stress_'))
@@ -158,6 +168,11 @@ def setup_sandbox(n_edits: int) -> Path:
         ep = _synth_edit_pair(session_n, ts + timedelta(seconds=random.randint(2, 20)), file)
         with open(logs / 'edit_pairs.jsonl', 'a', encoding='utf-8') as f:
             f.write(json.dumps(ep) + '\n')
+
+        # AI response capture for the same prompt cycle
+        ai = _synth_ai_response(j['msg'], ts + timedelta(seconds=random.randint(1, 10)), file, ep['edit_why'])
+        with open(logs / 'ai_responses.jsonl', 'a', encoding='utf-8') as f:
+            f.write(json.dumps(ai) + '\n')
 
         # Copilot edits (0-3 per edit cycle)
         for _ in range(random.randint(0, 3)):
@@ -188,8 +203,12 @@ def test_basic_capture(sandbox: Path, n: int):
     assert 'user_intent' in pair
     assert 'copilot_intent' in pair
     assert 'alignment' in pair
+    assert 'completion' in pair
     assert pair['user_intent']['raw_prompt'] != ''
     assert pair['copilot_intent']['edit_why'] != ''
+    assert pair['completion']['work_note'] != ''
+    assert pair['completion']['response_summary'] != ''
+    assert pair['alignment']['response_captured'] is True
 
     # Verify it wrote to training_pairs.jsonl
     tp_path = sandbox / 'logs' / 'training_pairs.jsonl'
@@ -252,17 +271,21 @@ def test_cycle_summary(sandbox: Path):
     assert 'metrics' in summary
     assert 'intent_distribution' in summary
     assert 'edit_source_distribution' in summary
+    assert 'completion_summary' in summary
     assert 'push_cycle' in summary
     assert summary['push_cycle']['cycle_number'] == 42
     assert summary['push_cycle']['sync_score'] == 0.73
+    assert summary['metrics']['response_capture_rate'] is not None
 
     m = summary['metrics']
     print(f'  ✓ Pairs in cycle: {summary["pair_count"]}')
     print(f'  ✓ Avg rework score: {m["avg_rework_score"]}')
     print(f'  ✓ Avg latency: {m["avg_latency_ms"]}ms')
     print(f'  ✓ Physical keystroke rate: {m["physical_keystroke_rate"]}')
+    print(f'  ✓ Response capture rate: {m["response_capture_rate"]}')
     print(f'  ✓ Intents: {summary["intent_distribution"]}')
     print(f'  ✓ Edit sources: {summary["edit_source_distribution"]}')
+    print(f'  ✓ Completion notes: {summary["completion_summary"]["recent_completion_notes"][:2]}')
     print(f'  ✓ Push cycle merged: #{summary["push_cycle"]["cycle_number"]}')
 
     # Verify it wrote
@@ -309,6 +332,7 @@ def test_empty_data():
     pair = capture_training_pair(empty)
     assert pair is not None
     assert pair['user_intent'] == {}  # no journal → empty user intent
+    assert pair['completion']['work_note'] != ''
     print('  ✓ Missing journal → empty user_intent, still captures')
 
     shutil.rmtree(empty)
@@ -380,6 +404,7 @@ def test_high_volume_summary(sandbox: Path):
     if m['avg_deletion_ratio'] is not None:
         assert 0 <= m['avg_deletion_ratio'] <= 1, f'deletion ratio out of range: {m["avg_deletion_ratio"]}'
     assert 0 <= m['physical_keystroke_rate'] <= 1
+    assert 0 <= m['response_capture_rate'] <= 1
     assert sum(summary['intent_distribution'].values()) == summary['pair_count']
 
     print(f'  ✓ {summary["pair_count"]} pairs aggregated')

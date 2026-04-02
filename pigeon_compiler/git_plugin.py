@@ -68,6 +68,7 @@ from pigeon_compiler.rename_engine import (
     build_all_manifests,
     validate_imports,
     mutate_compressed_stem,
+    bug_marker_from_keys,
 )
 from pigeon_compiler.pigeon_limits import is_excluded
 from pigeon_compiler.session_logger import log_session, count_sessions
@@ -173,6 +174,99 @@ def _parse_intent(msg: str) -> str:
     slug = re.sub(r'[^a-z0-9]+', '_', line.lower()).strip('_')
     words = [w for w in slug.split('_') if w][:3]
     return '_'.join(words) or 'manual_edit'
+
+
+_INTENT_CODE_RULES: list[tuple[tuple[str, ...], str]] = [
+    (('fix', 'bug', 'repair', 'heal', 'restore', 'wrong', 'broken'), 'FX'),
+    (('rename', 'nametag'), 'RN'),
+    (('refactor', 'restructure'), 'RF'),
+    (('split', 'decompose', 'compile'), 'SP'),
+    (('telemetry', 'prompt', 'operator', 'journal', 'context', 'unsaid', 'voice', 'engagement'), 'TL'),
+    (('compress', 'glyph', 'dictionary', 'token'), 'CP'),
+    (('verify', 'test', 'audit', 'validate', 'check'), 'VR'),
+    (('feature', 'add', 'implement', 'build', 'create'), 'FT'),
+    (('cleanup', 'chore', 'docs', 'update'), 'CL'),
+]
+
+_BUG_KEY_MAP = {
+    'hardcoded_import': 'hi',
+    'dead_export': 'de',
+    'duplicate_docstring': 'dd',
+    'high_coupling': 'hc',
+    'over_hard_cap': 'oc',
+    'query_noise': 'qn',
+}
+
+_BUG_KEY_ORDER = ('oc', 'hi', 'hc', 'de', 'dd', 'qn')
+
+_BUG_ENTITY_POOL = {
+    'hi': ('Needle Imp', 'Path Wraith', 'Anchor Gremlin'),
+    'de': ('Export Shade', 'Dead Echo', 'Null Moth'),
+    'dd': ('Mirror Imp', 'Echo Quill', 'Twin Static'),
+    'hc': ('Coupling Leech', 'Knot Familiar', 'Tangle Fiend'),
+    'oc': ('Overcap Maw', 'Shard Hunger', 'Split Fiend'),
+    'qn': ('Noise Imp', 'Query Moth', 'Static Gremlin'),
+}
+
+
+def _intent_code(intent: str) -> str:
+    text = (intent or '').lower()
+    for needles, code in _INTENT_CODE_RULES:
+        if any(needle in text for needle in needles):
+            return code
+    if not text:
+        return 'OT'
+    return text[:2].upper()
+
+
+def _collect_bug_keys(problems: list[dict]) -> dict[str, list[str]]:
+    bug_keys: dict[str, set[str]] = {}
+    for problem in problems:
+        rel = problem.get('file', '')
+        key = _BUG_KEY_MAP.get(problem.get('type', ''))
+        if rel and key:
+            bug_keys.setdefault(rel, set()).add(key)
+    return {rel: _ordered_bug_keys(keys) for rel, keys in bug_keys.items()}
+
+
+def _ordered_bug_keys(keys) -> list[str]:
+    unique = {str(key).lower() for key in keys if key}
+    ordered = [key for key in _BUG_KEY_ORDER if key in unique]
+    ordered.extend(sorted(key for key in unique if key not in _BUG_KEY_ORDER))
+    return ordered
+
+
+def _mint_bug_entity(file_name: str, bug_key: str) -> str:
+    pool = _BUG_ENTITY_POOL.get(bug_key, ('Bug Imp',))
+    seed = sum(ord(ch) for ch in f'{file_name}:{bug_key}')
+    title = pool[seed % len(pool)]
+    stem = re.sub(r'[^a-z0-9]+', '', file_name.lower())[:8] or 'host'
+    return f'{title} of {stem}'
+
+
+def _sync_bug_metadata(entry: dict, current_keys: list[str], today: str) -> None:
+    current_keys = _ordered_bug_keys(current_keys)
+    previous_keys = _ordered_bug_keys(entry.get('bug_keys', []))
+    counts = {
+        str(key): int(val)
+        for key, val in (entry.get('bug_counts') or {}).items()
+        if str(key)
+    }
+    entities = {
+        str(key): str(val)
+        for key, val in (entry.get('bug_entities') or {}).items()
+        if str(key) and str(val)
+    }
+    for key in current_keys:
+        counts[key] = counts.get(key, 0) + 1
+        entities.setdefault(key, _mint_bug_entity(entry.get('name', ''), key))
+    if current_keys and (current_keys != previous_keys or not entry.get('last_bug_mark')):
+        entry['last_bug_mark'] = f'd{today}v{entry.get("ver", 0):03d}'
+    else:
+        entry.setdefault('last_bug_mark', '')
+    entry['bug_keys'] = current_keys
+    entry['bug_counts'] = {key: counts[key] for key in sorted(counts)}
+    entry['bug_entities'] = {key: entities[key] for key in sorted(entities)}
 
 
 # ── Prompt box ──────────────────────────────────────────
@@ -935,7 +1029,7 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
 
             # ── Training cycle summary — intent alignment per push ──
             try:
-                tp_mod = _load_glob_module(root, 'src', '路f_cxr_s027*')
+                tp_mod = _load_glob_module(root, 'src', '对p_tp_s027*')
                 if tp_mod and hasattr(tp_mod, 'generate_cycle_summary'):
                     summary = tp_mod.generate_cycle_summary(root, cycle)
                     n = summary.get('pair_count', 0)
@@ -1001,6 +1095,7 @@ def run():
     renames = []        # (old_rel, new_rel, entry, tokens_before, diff_stat)
     box_only = []       # (abs_path, entry, old_rel, tokens_before, diff_stat)
     import_map = {}     # old_module → new_module
+    today = datetime.now(timezone.utc).strftime('%m%d')
 
     for rel in changed:
         p = Path(rel)
@@ -1030,13 +1125,18 @@ def run():
         if entry:
             entry = bump_version(entry, new_desc=desc, new_intent=intent)
             entry['tokens'] = tokens
+            entry['intent_code'] = _intent_code(entry.get('intent', intent))
             entry['history'][-1]['tokens'] = tokens
         else:
-            today = datetime.now(timezone.utc).strftime('%m%d')
             entry = {
                 'path': rel, 'name': parsed['name'],
                 'seq': parsed['seq'], 'ver': parsed['ver'] + 1,
                 'date': today, 'desc': desc, 'intent': intent,
+                'intent_code': _intent_code(intent),
+                'bug_keys': [],
+                'bug_counts': {},
+                'bug_entities': {},
+                'last_bug_mark': '',
                 'tokens': tokens,
                 'history': [{'ver': parsed['ver'] + 1, 'date': today,
                              'desc': desc, 'intent': intent,
@@ -1057,13 +1157,11 @@ def run():
 
         # Compressed files — mutate filename in-place (bump ver, date, intent)
         if parsed.get('compressed'):
-            today = datetime.now(timezone.utc).strftime('%m%d')
-            intent_letter = intent.replace('_', ' ').strip()[0].upper() if intent else parsed.get('intent', '')
             new_name = mutate_compressed_stem(
                 p.stem,
                 new_ver=entry['ver'],
                 new_date=today,
-                new_intent=intent_letter,
+                new_intent=entry.get('intent_code') or _intent_code(intent),
             )
             if new_name and Path(new_name).stem != p.stem:
                 folder = str(p.parent).replace('\\', '/')
@@ -1158,13 +1256,18 @@ def run():
             fix_report = fix_mod.run_self_fix(
                 root, registry, changed_py=changed_py, intent=intent)
             cross_context = fix_report.get('cross_context', {})
+            bug_keys = _collect_bug_keys(fix_report.get('problems', []))
+            for path, entry in registry.items():
+                entry['intent_code'] = _intent_code(entry.get('intent', ''))
+                _sync_bug_metadata(entry, bug_keys.get(path, []), today)
+            save_registry(root, registry)
             fix_path = fix_mod.write_self_fix_report(root, fix_report, h)
             n_probs = len(fix_report.get('problems', []))
             print(f'  🔧 self-fix → {fix_path.relative_to(root)} ({n_probs} problems)')
             # Auto-compile: split any pigeon files over 200-line hard cap, pruning dead exports
             try:
                 if hasattr(fix_mod, 'auto_compile_oversized'):
-                    compiled = fix_mod.auto_compile_oversized(root, fix_report, max_files=2)
+                    compiled = fix_mod.auto_compile_oversized(root, fix_report, max_files=5)
                     for c in compiled:
                         if c.get('status') == 'ok':
                             pruned = c.get('dead_pruned', [])
@@ -1178,6 +1281,67 @@ def run():
                 print(f'  ⚠️  auto-compile oversized: {e}')
     except Exception as e:
         print(f'  ⚠️  self-fix: {e}')
+
+    bug_renames = []
+    bug_import_map = {}
+    bug_path_map = {}
+    for rel in list(changed_py):
+        entry = registry.get(rel)
+        if not entry:
+            continue
+        p = Path(rel)
+        parsed = parse_pigeon_stem(p.stem)
+        if not parsed or not parsed.get('compressed'):
+            continue
+        bug_marker = bug_marker_from_keys(entry.get('bug_keys', []))
+        new_name = mutate_compressed_stem(
+            p.stem,
+            new_ver=entry.get('ver'),
+            new_date=entry.get('date') or today,
+            new_intent=entry.get('intent_code') or _intent_code(entry.get('intent', '')),
+            new_bugs=bug_marker,
+        )
+        if not new_name or Path(new_name).stem == p.stem:
+            continue
+        folder = str(p.parent).replace('\\', '/')
+        new_rel = f'{folder}/{new_name}' if folder != '.' else new_name
+        bug_renames.append((rel, new_rel, entry))
+        bug_path_map[rel] = new_rel
+        old_mod = str(Path(rel).with_suffix('')).replace('\\', '.').replace('/', '.')
+        new_mod = str(Path(new_rel).with_suffix('')).replace('\\', '.').replace('/', '.')
+        bug_import_map[old_mod] = new_mod
+
+    if bug_import_map:
+        bug_changes = rewrite_all_imports(root, bug_import_map)
+        if bug_changes:
+            files_hit = len({c['file'] for c in bug_changes})
+            print(f'  🐛 {len(bug_changes)} bug-mark import(s) rewritten in {files_hit} file(s)')
+        import_map.update(bug_import_map)
+
+    for old_rel, new_rel, entry in bug_renames:
+        old_abs, new_abs = root / old_rel, root / new_rel
+        if not old_abs.exists():
+            continue
+        new_abs.parent.mkdir(parents=True, exist_ok=True)
+        old_abs.rename(new_abs)
+        if old_rel in registry:
+            del registry[old_rel]
+        entry['path'] = new_rel
+        registry[new_rel] = entry
+        print(f'  👹 {Path(old_rel).name}')
+        print(f'     → {Path(new_rel).name}')
+
+    if bug_path_map:
+        changed_py = [bug_path_map.get(path, path) for path in changed_py]
+        save_registry(root, registry)
+
+    for entry in registry.values():
+        entry['intent_code'] = _intent_code(entry.get('intent', ''))
+        entry.setdefault('bug_keys', [])
+        entry.setdefault('bug_counts', {})
+        entry.setdefault('bug_entities', {})
+        entry.setdefault('last_bug_mark', '')
+    save_registry(root, registry)
 
     # ── Pulse harvest: failsafe for any un-cleared pulse blocks ──
     try:
@@ -1232,7 +1396,8 @@ def run():
     )
 
     # Validate imports before committing — catch broken state early
-    if renames:
+    rename_count = len(renames) + len(bug_renames)
+    if rename_count:
         val = validate_imports(root)
         if not val['valid']:
             broken = val['broken']
@@ -1247,7 +1412,7 @@ def run():
     # Auto-commit
     _git('add', '-A')
     if _git('status', '--porcelain').strip():
-        n = len(renames)
+        n = rename_count
         _git('commit', '-m',
              f'chore(pigeon): auto-rename {n} file(s) [pigeon-auto]\n\n'
              f'Intent: {intent}\n'

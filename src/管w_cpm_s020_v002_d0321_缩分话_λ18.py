@@ -8,9 +8,9 @@
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-04-02T06:00:00Z
+# EDIT_TS:   2026-04-02T19:57:36.8206812Z
 # EDIT_HASH: auto
-# EDIT_WHY:  compressed auto-index with keymap
+# EDIT_WHY:  inject bug voices layer
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -34,6 +34,7 @@ BLOCK_MARKERS = {
     'operator_state': ('<!-- pigeon:operator-state -->', '<!-- /pigeon:operator-state -->'),
     'prompt_telemetry': (PROMPT_BLOCK_START, PROMPT_BLOCK_END),
     'auto_index': ('<!-- pigeon:auto-index -->', '<!-- /pigeon:auto-index -->'),
+    'bug_voices': ('<!-- pigeon:bug-voices -->', '<!-- /pigeon:bug-voices -->'),
 }
 
 _STATE_HINTS: dict[str, str] = {
@@ -203,6 +204,142 @@ def _load_dict_extras(root: Path) -> tuple[dict[str, str], dict[str, str]]:
     return {}, {}
 
 
+_INTENT_LABELS = {
+    'FX': 'fix',
+    'RN': 'rename',
+    'RF': 'refactor',
+    'SP': 'split',
+    'TL': 'telemetry',
+    'CP': 'compress',
+    'VR': 'verify',
+    'FT': 'feature',
+    'CL': 'cleanup',
+    'OT': 'other',
+}
+
+_BUG_LEGEND = {
+    'hi': 'hardcoded_import',
+    'de': 'dead_export',
+    'dd': 'duplicate_docstring',
+    'hc': 'high_coupling',
+    'oc': 'over_hard_cap',
+    'qn': 'query_noise',
+}
+
+_BUG_KEY_ORDER = ('oc', 'hi', 'hc', 'de', 'dd', 'qn')
+
+_BUG_PERSONAS = {
+    'hi': ('Hardcode Gremlin', 'I weld imports to exact paths and squeal when rename day comes.'),
+    'de': ('Dead Export Shade', 'I leave dead functions standing so everyone thinks they still matter.'),
+    'dd': ('Mirror Imp', 'I duplicate the same explanation until nobody remembers which copy was first.'),
+    'hc': ('Coupling Leech', 'I braid modules together until one cut hurts five files.'),
+    'oc': ('Overcap Maw', 'I keep swelling this file past the hard cap. Split me before I eat context.'),
+    'qn': ('Noise Imp', 'I fog the query stream until the real intent has to fight to stay visible.'),
+}
+
+_INTENT_CODE_RULES: list[tuple[tuple[str, ...], str]] = [
+    (('fix', 'bug', 'repair', 'heal', 'restore', 'wrong', 'broken'), 'FX'),
+    (('rename', 'nametag'), 'RN'),
+    (('refactor', 'restructure'), 'RF'),
+    (('split', 'decompose', 'compile'), 'SP'),
+    (('telemetry', 'prompt', 'operator', 'journal', 'context', 'unsaid', 'voice', 'engagement'), 'TL'),
+    (('compress', 'glyph', 'dictionary', 'token'), 'CP'),
+    (('verify', 'test', 'audit', 'validate', 'check'), 'VR'),
+    (('feature', 'add', 'implement', 'build', 'create'), 'FT'),
+    (('cleanup', 'chore', 'docs', 'update'), 'CL'),
+]
+
+
+def _intent_code(intent: str) -> str:
+    text = (intent or '').lower()
+    for needles, code in _INTENT_CODE_RULES:
+        if any(needle in text for needle in needles):
+            return code
+    if not text:
+        return 'OT'
+    return text[:2].upper()
+
+
+def _intent_label(intent: str) -> str:
+    words = [w for w in (intent or '').split('_') if w][:2]
+    return '_'.join(words) or 'other'
+
+
+def _build_intent_legend(items_raw: list[tuple[str, dict]]) -> dict[str, str]:
+    legend = dict(_INTENT_LABELS)
+    for _, entry in items_raw:
+        code = entry.get('intent_code') or _intent_code(entry.get('intent', ''))
+        if code and code not in legend:
+            legend[code] = _intent_label(entry.get('intent', ''))
+    return legend
+
+
+def _fmt_bug_keys(keys: list[str]) -> str:
+    keys = [k for k in keys if k]
+    if not keys:
+        return ''
+    if len(keys) <= 3:
+        return '+'.join(keys)
+    return f'{"+".join(keys[:3])}+{len(keys) - 3}'
+
+
+def _primary_bug(entry: dict) -> str:
+    keys = [key for key in entry.get('bug_keys', []) if key]
+    counts = entry.get('bug_counts', {}) or {}
+    if not keys:
+        return ''
+    order = {key: idx for idx, key in enumerate(_BUG_KEY_ORDER)}
+    return max(
+        keys,
+        key=lambda key: (int(counts.get(key, 0)), -order.get(key, len(order)), key),
+    )
+
+
+def _bug_voice_score(entry: dict) -> int:
+    counts = entry.get('bug_counts', {}) or {}
+    active = [key for key in entry.get('bug_keys', []) if key]
+    return len(active) * 10 + sum(int(counts.get(key, 0)) for key in active)
+
+
+def _build_bug_voices_block(root: Path, registry: dict | None) -> str:
+    if registry is None:
+        registry = _load_json(root / 'pigeon_registry.json')
+    items = [
+        (path, entry)
+        for path, entry in _registry_items(registry)
+        if entry.get('bug_keys')
+    ]
+    lines = [
+        '<!-- pigeon:bug-voices -->',
+        '## Bug Voices',
+        '',
+        '*Persistent bug demons minted from registry scars - active filename bugs first.*',
+        '',
+    ]
+    if not items:
+        lines.append('- No active bug demons. The trapdoors are quiet for now.')
+        lines.append('<!-- /pigeon:bug-voices -->')
+        return '\n'.join(lines)
+
+    items.sort(key=lambda item: (-_bug_voice_score(item[1]), item[1].get('name', '')))
+    for _, entry in items[:5]:
+        key = _primary_bug(entry)
+        persona_name, voice = _BUG_PERSONAS.get(key, ('Bug Imp', 'I keep coming back.'))
+        entity = (entry.get('bug_entities') or {}).get(key) or persona_name
+        recur = int((entry.get('bug_counts') or {}).get(key, 1) or 1)
+        others = [bug for bug in entry.get('bug_keys', []) if bug != key]
+        others_s = f' other={"+".join(others)}' if others else ''
+        mark = entry.get('last_bug_mark', 'unmarked')
+        last_change = entry.get('last_change', '')
+        last_s = f' last={last_change}' if last_change else ''
+        lines.append(
+            f'- `{entry.get("name", "?")}` {mark} · {key} `{entity}` x{recur}{others_s}: "{voice}"{last_s}'
+        )
+
+    lines.append('<!-- /pigeon:bug-voices -->')
+    return '\n'.join(lines)
+
+
 def _find_glyph(name: str, keymap: dict[str, str]) -> str:
     if name in keymap:
         return keymap[name]
@@ -230,6 +367,7 @@ def _build_auto_index_block(root: Path, registry: dict, processed: int) -> str:
     confidence = _load_confidence(root)
     two_letter, intents = _load_dict_extras(root)
     items_raw = _registry_items(registry)
+    intent_legend = _build_intent_legend(items_raw)
 
     groups: dict[str, list[dict]] = {}
     seen: set[str] = set()
@@ -247,6 +385,8 @@ def _build_auto_index_block(root: Path, registry: dict, processed: int) -> str:
             'name': name, 'seq': seq,
             'tokens': entry.get('tokens', 0),
             'glyph': _find_glyph(name, keymap),
+            'intent_code': entry.get('intent_code') or _intent_code(entry.get('intent', '')),
+            'bug_keys': entry.get('bug_keys', []),
             'last_change': entry.get('last_change', ''),
         })
 
@@ -261,13 +401,15 @@ def _build_auto_index_block(root: Path, registry: dict, processed: int) -> str:
     lines = [
         '<!-- pigeon:auto-index -->',
         f'*{today} · {total} modules · {processed} touched · {conf}*',
-        f'*Format: glyph=name seq tokens·state |last change*',
+        f'*Format: glyph=name seq tokens·state·intent·bugs |last change*',
     ]
 
     # 2-letter codes legend (for modules without Chinese glyphs)
     if two_letter:
         codes = ' '.join(f'{g}={n}' for g, n in sorted(two_letter.items()))
         lines.append(f'*{codes}*')
+    lines.append('*Intent: ' + ' '.join(f'{code}={label}' for code, label in intent_legend.items()) + '*')
+    lines.append('*Bugs: ' + ' '.join(f'{code}={label}' for code, label in _BUG_LEGEND.items()) + '*')
     lines.append('')
 
     child_folders = set()
@@ -304,12 +446,20 @@ def _build_auto_index_block(root: Path, registry: dict, processed: int) -> str:
                 state = confidence.get(name, '')
                 tok = item['tokens']
                 tok_s = f"{tok/1000:.1f}K" if tok >= 1000 else str(tok)
+                intent_code = item.get('intent_code', '')
+                bug_code = _fmt_bug_keys(item.get('bug_keys', []))
                 lc = item.get('last_change', '')
                 lc_suffix = f' |{lc}' if lc else ''
+                meta = [f'{tok_s}{state}' if state else tok_s]
+                if intent_code:
+                    meta.append(intent_code)
+                if bug_code:
+                    meta.append(bug_code)
+                meta_s = '·'.join(meta)
                 if g:
-                    lines.append(f'{g}={name} {item["seq"]} {tok_s}{state}{lc_suffix}')
+                    lines.append(f'{g}={name} {item["seq"]} {meta_s}{lc_suffix}')
                 else:
-                    lines.append(f'{name} {item["seq"]} {tok_s}{state}{lc_suffix}')
+                    lines.append(f'{name} {item["seq"]} {meta_s}{lc_suffix}')
             lines.append('')
 
     _append_infra_index(lines, root)
@@ -463,6 +613,24 @@ def inject_auto_index(root: Path, registry: dict | None = None, processed: int =
     return True
 
 
+def inject_bug_voices(root: Path, registry: dict | None = None) -> bool:
+    cp_path = root / COPILOT_PATH
+    if not cp_path.exists():
+        return False
+    text = cp_path.read_text(encoding='utf-8')
+    block = _build_bug_voices_block(root, registry)
+    new_text = _upsert_block(
+        text,
+        '<!-- pigeon:bug-voices -->',
+        '<!-- /pigeon:bug-voices -->',
+        block,
+        anchor='<!-- /pigeon:auto-index -->',
+    )
+    if new_text != text:
+        cp_path.write_text(new_text, encoding='utf-8')
+    return True
+
+
 def inject_operator_state(root: Path) -> bool:
     cp_path = root / COPILOT_PATH
     if not cp_path.exists():
@@ -561,6 +729,7 @@ def refresh_managed_prompt(
 ) -> dict:
     root = Path(root)
     auto_index_refreshed = inject_auto_index(root, registry=registry, processed=processed)
+    bug_voices_refreshed = inject_bug_voices(root, registry=registry)
     task_context_refreshed = _run_refresher(
         root,
         'src/推w_dp_s017*.py',
@@ -594,6 +763,7 @@ def refresh_managed_prompt(
     audit = audit_copilot_prompt(root)
     return {
         'auto_index_refreshed': auto_index_refreshed,
+        'bug_voices_refreshed': bug_voices_refreshed,
         'task_context_refreshed': task_context_refreshed,
         'task_queue_refreshed': task_queue_refreshed,
         'operator_state_refreshed': operator_state_refreshed,

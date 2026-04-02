@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-02T15:35:20.313812+00:00",
+  "generated": "2026-04-02T19:39:05.586913+00:00",
   "total": 271,
   "files": [
     {
@@ -20,7 +20,12 @@
           "tokens": 855,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "PI",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/demo_sim_seq010_v002_d0323__generates_execution_telemetry_from_the_lc_pigeon_brain_system.py",
@@ -40,7 +45,12 @@
           "tokens": 1276,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "PI",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/dual_substrate_seq008_v002_d0323__merges_human_and_agent_telemetry_lc_pigeon_brain_system.py",
@@ -60,7 +70,12 @@
           "tokens": 1314,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "PI",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/execution_logger_seq002_v003_d0401__isomorphic_to_telemetrylogger_for_agent_lc_add_chinese_glyph.py",
@@ -88,7 +103,12 @@
           "action": "mutated",
           "tokens": 1626
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/failure_detector_seq006_v002_d0323__electron_death_classification_port_of_lc_pigeon_brain_system.py",
@@ -108,7 +128,12 @@
           "tokens": 1018,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "PI",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/backward_seq007/backward_seq007_backward_pass_seq005_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -128,7 +153,12 @@
           "tokens": 908,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/backward_seq007/backward_seq007_backward_pass_seq005_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
@@ -164,7 +194,12 @@
           "action": "mutated",
           "tokens": 910
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/backward_seq007/backward_seq007_deepseek_analyze_seq004_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -184,7 +219,12 @@
           "tokens": 772,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/backward_seq007/backward_seq007_deepseek_analyze_seq004_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
@@ -220,7 +260,12 @@
           "action": "mutated",
           "tokens": 774
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/backward_seq007/backward_seq007_flow_log_seq001_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -240,7 +285,12 @@
           "tokens": 423,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/backward_seq007/backward_seq007_loss_compute_seq002_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -260,7 +310,12 @@
           "tokens": 187,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/backward_seq007/backward_seq007_tokenize_seq003_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -280,7 +335,12 @@
           "tokens": 307,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/backward_seq007_v002_d0328__backward_pass_walks_electron_path_lc_dynamic_import_resolvers.py",
@@ -300,7 +360,12 @@
           "tokens": 2502,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/backward_seq007_v004_d0328__backward_pass_walks_electron_path_lc_dynamic_import_resolvers.py",
@@ -336,7 +401,12 @@
           "action": "mutated",
           "tokens": 2500
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/context_packet_seq001_v002_d0324__the_contextpacket_is_the_unit_lc_flow_engine_context.py",
@@ -357,7 +427,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "flow engine context"
+      "last_change": "flow engine context",
+      "intent_code": "TL",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/dev_plan_seq010_v002_d0328__the_roadmap_writer_synthesizes_the_lc_dynamic_import_resolvers.py",
@@ -377,7 +452,12 @@
           "tokens": 1532,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/dev_plan_seq010_v003_d0328__the_roadmap_writer_synthesizes_the_lc_dynamic_import_resolvers.py",
@@ -397,7 +477,12 @@
           "tokens": 1539,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/dev_plan_seq010_v004_d0327__the_roadmap_writer_synthesizes_the_lc_fix_bare_globals.py",
@@ -433,7 +518,12 @@
           "action": "mutated",
           "tokens": 1541
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/flow_engine_seq003_v002_d0324__the_flow_engine_is_the_lc_flow_engine_context.py",
@@ -454,7 +544,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "flow engine context"
+      "last_change": "flow engine context",
+      "intent_code": "TL",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_catch_up_seq006_v003_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
@@ -482,7 +577,12 @@
           "action": "mutated",
           "tokens": 431
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_catch_up_seq006_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -502,7 +602,12 @@
           "tokens": 431,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_journal_loader_seq002_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -522,7 +627,12 @@
           "tokens": 192,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_loop_helpers_seq007_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -542,7 +652,12 @@
           "tokens": 23,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_main_loop_seq008_v003_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
@@ -570,7 +685,12 @@
           "action": "mutated",
           "tokens": 1044
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_main_loop_seq008_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -590,7 +710,12 @@
           "tokens": 1044,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_prediction_cycle_seq003_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -610,7 +735,12 @@
           "tokens": 415,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_prediction_cycle_seq003_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
@@ -646,7 +776,12 @@
           "action": "mutated",
           "tokens": 431
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_prediction_cycle_seq003_v004_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -666,7 +801,12 @@
           "tokens": 431,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_single_cycle_helpers_seq004_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -686,7 +826,12 @@
           "tokens": 25,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_single_cycle_seq005_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -706,7 +851,12 @@
           "tokens": 880,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_single_cycle_seq005_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
@@ -742,7 +892,12 @@
           "action": "mutated",
           "tokens": 896
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_single_cycle_seq005_v004_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -762,7 +917,12 @@
           "tokens": 896,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_state_utils_seq001_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -782,7 +942,12 @@
           "tokens": 284,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013_v003_d0327__the_perpetual_learning_loop_lc_pigeon_split_3.py",
@@ -810,7 +975,12 @@
           "action": "mutated",
           "tokens": 2881
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/node_awakener_seq002_v003_d0401__when_a_packet_arrives_at_lc_add_chinese_glyph.py",
@@ -838,7 +1008,12 @@
           "action": "mutated",
           "tokens": 1252
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/node_conversation_seq012_v002_d0328__the_interpretability_interface_lets_the_lc_dynamic_import_resolvers.py",
@@ -858,7 +1033,12 @@
           "tokens": 1422,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/node_conversation_seq012_v004_d0328__the_interpretability_interface_lets_the_lc_dynamic_import_resolvers.py",
@@ -894,7 +1074,12 @@
           "action": "mutated",
           "tokens": 1428
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/node_memory_seq008_v003_d0328__the_experience_vault_stores_raw_lc_dynamic_import_resolvers.py",
@@ -914,7 +1099,12 @@
           "tokens": 2084,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/path_selector_seq004_v002_d0324__path_selection_is_the_real_lc_flow_engine_context.py",
@@ -935,7 +1125,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "flow engine context"
+      "last_change": "flow engine context",
+      "intent_code": "TL",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_calibration_seq009_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -955,7 +1150,12 @@
           "tokens": 419,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_constants_seq001_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -975,7 +1175,12 @@
           "tokens": 73,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_data_loaders_seq003_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -995,7 +1200,12 @@
           "tokens": 514,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_edit_session_analyzer_seq006_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -1015,7 +1225,12 @@
           "tokens": 187,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_module_extractor_seq005_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -1035,7 +1250,12 @@
           "tokens": 112,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_node_backfill_seq010_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -1055,7 +1275,12 @@
           "tokens": 496,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_node_backfill_seq010_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
@@ -1091,7 +1316,12 @@
           "action": "mutated",
           "tokens": 499
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_path_utils_seq002_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -1111,7 +1341,12 @@
           "tokens": 79,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_post_commit_scorer_seq012_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -1131,7 +1366,12 @@
           "tokens": 605,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_post_commit_scorer_seq012_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
@@ -1167,7 +1407,12 @@
           "action": "mutated",
           "tokens": 607
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_post_edit_scorer_seq011_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -1187,7 +1432,12 @@
           "tokens": 839,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_post_edit_scorer_seq011_v004_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
@@ -1223,7 +1473,12 @@
           "action": "mutated",
           "tokens": 841
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_reality_loaders_seq004_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -1243,7 +1498,12 @@
           "tokens": 374,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_rework_matcher_seq007_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -1263,7 +1523,12 @@
           "tokens": 460,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_scores_io_seq003_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -1283,7 +1548,12 @@
           "tokens": 181,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_scoring_core_seq008_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -1303,7 +1573,12 @@
           "tokens": 713,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014_v005_d0330__edit_session_based_lc_gemini_flash_enricher.py",
@@ -1347,7 +1622,12 @@
           "action": "mutated",
           "tokens": 5797
         }
-      ]
+      ],
+      "intent_code": "GE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/predictor_seq009/predictor_seq009_confidence_seq003_v002_d0330__auto_extracted_by_pigeon_compiler_lc_rework_signal_0.py",
@@ -1368,7 +1648,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "rework signal 0"
+      "last_change": "rework signal 0",
+      "intent_code": "RE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/predictor_seq009/predictor_seq009_predictor_seq007_v002_d0330__auto_extracted_by_pigeon_compiler_lc_rework_signal_0.py",
@@ -1389,7 +1674,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "rework signal 0"
+      "last_change": "rework signal 0",
+      "intent_code": "RE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/predictor_seq009/predictor_seq009_trend_extractor_seq004_v002_d0330__auto_extracted_by_pigeon_compiler_lc_rework_signal_0.py",
@@ -1410,7 +1700,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "rework signal 0"
+      "last_change": "rework signal 0",
+      "intent_code": "RE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3.py",
@@ -1438,7 +1733,12 @@
           "action": "mutated",
           "tokens": 1831
         }
-      ]
+      ],
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/predictor_seq009_v004_d0330__fires_phantom_electrons_using_cognitive_lc_rework_signal_0.py",
@@ -1475,7 +1775,12 @@
           "tokens": 2506
         }
       ],
-      "last_change": "rework signal 0"
+      "last_change": "rework signal 0",
+      "intent_code": "RE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/task_writer_seq005_v003_d0401__the_river_delta_where_all_lc_add_chinese_glyph.py",
@@ -1503,7 +1808,12 @@
           "action": "mutated",
           "tokens": 1558
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/flow/vein_transport_seq006_v003_d0401__as_a_packet_flows_along_lc_add_chinese_glyph.py",
@@ -1531,7 +1841,12 @@
           "action": "mutated",
           "tokens": 965
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/graph_extractor_seq003_v003_d0324__extract_the_cognition_graph_from_lc_8888_word_backpropagation.py",
@@ -1552,7 +1867,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "8888 word backpropagation"
+      "last_change": "8888 word backpropagation",
+      "intent_code": "88",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/graph_extractor_seq003_v003_d0324__extract_the_cognition_graph_from_lc_gemini_chat_dead.py",
@@ -1581,7 +1901,12 @@
           "tokens": 1744
         }
       ],
-      "last_change": "gemini chat dead"
+      "last_change": "gemini chat dead",
+      "intent_code": "GE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
@@ -1601,7 +1926,12 @@
           "tokens": 874,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "PI",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/live_server_seq012_v003_d0324__websocket_server_for_live_execution_lc_8888_word_backpropagation.py",
@@ -1622,7 +1952,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "8888 word backpropagation"
+      "last_change": "8888 word backpropagation",
+      "intent_code": "88",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_8888_word_backpropagation.py",
@@ -1643,7 +1978,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "8888 word backpropagation"
+      "last_change": "8888 word backpropagation",
+      "intent_code": "88",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_per_prompt_deleted.py",
@@ -1680,7 +2020,12 @@
           "tokens": 2857
         }
       ],
-      "last_change": "per prompt deleted"
+      "last_change": "per prompt deleted",
+      "intent_code": "TL",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/loop_detector_seq005_v002_d0323__recurring_path_detection_port_of_lc_pigeon_brain_system.py",
@@ -1700,7 +2045,12 @@
           "tokens": 910,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "PI",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/models_seq001_v002_d0323__isomorphic_to_keystroke_models_lc_pigeon_brain_system.py",
@@ -1720,7 +2070,12 @@
           "tokens": 424,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "PI",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/observer_synthesis_seq007_v003_d0401__coaching_from_execution_patterns_port_lc_add_chinese_glyph.py",
@@ -1748,7 +2103,12 @@
           "action": "mutated",
           "tokens": 1489
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/trace_hook_seq011_v002_d0323__instruments_python_calls_between_pigeon_lc_pigeon_brain_system.py",
@@ -1768,7 +2128,12 @@
           "tokens": 959,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "PI",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_brain/traced_runner_seq013_v002_d0323__run_any_python_script_with_lc_pigeon_brain_system.py",
@@ -1788,7 +2153,12 @@
           "tokens": 855,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "PI",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/bones/aim_utils_seq001_v003_d0314__extracted_from_hush_aim_py_lc_desc_upgrade.py",
@@ -1807,7 +2177,12 @@
           "intent": "desc_upgrade",
           "action": "discovered"
         }
-      ]
+      ],
+      "intent_code": "DE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/bones/core_formatters_seq001_v003_d0314__extracted_from_hush_chat_core_lc_desc_upgrade.py",
@@ -1826,7 +2201,12 @@
           "intent": "desc_upgrade",
           "action": "discovered"
         }
-      ]
+      ],
+      "intent_code": "DE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/bones/nl_parsers_seq001_v003_d0314__extracted_from_hush_nl_detection_lc_desc_upgrade.py",
@@ -1845,7 +2225,12 @@
           "intent": "desc_upgrade",
           "action": "discovered"
         }
-      ]
+      ],
+      "intent_code": "DE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/bones/pq_manifest_utils_seq001_v003_d0314__extracted_from_hush_pre_query_lc_desc_upgrade.py",
@@ -1864,7 +2249,12 @@
           "intent": "desc_upgrade",
           "action": "discovered"
         }
-      ]
+      ],
+      "intent_code": "DE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/bones/pq_search_utils_seq001_v003_d0314__extracted_from_hush_pre_query_lc_desc_upgrade.py",
@@ -1883,7 +2273,12 @@
           "intent": "desc_upgrade",
           "action": "discovered"
         }
-      ]
+      ],
+      "intent_code": "DE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/cut_executor/class_decomposer_seq013_v002_d0322__decompose_oversized_classes_via_deepseek_lc_stage_78_hook.py",
@@ -1903,7 +2298,12 @@
           "tokens": 1959,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/cut_executor/file_writer_seq003_v005_d0322__write_new_pigeon_compliant_files_lc_multi_line_import.py",
@@ -1939,7 +2339,12 @@
           "tokens": 783
         }
       ],
-      "last_change": "multi line import"
+      "last_change": "multi line import",
+      "intent_code": "MU",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/cut_executor/func_decomposer_seq008_v005_d0322__decompose_oversized_functions_via_deepseek_lc_stage_78_hook.py",
@@ -1974,7 +2379,12 @@
           "action": "mutated",
           "tokens": 644
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/cut_executor/import_fixer_seq004_v004_d0315__update_imports_across_the_project_lc_verify_pigeon_plugin.py",
@@ -2001,7 +2411,12 @@
           "action": "mutated",
           "tokens": 505
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/cut_executor/init_writer_seq007_v007_d0322__generate_init_py_for_split_lc_stage_78_hook.py",
@@ -2052,7 +2467,12 @@
           "action": "mutated",
           "tokens": 361
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/cut_executor/manifest_writer_seq005_v004_d0315__generate_manifest_md_for_a_lc_verify_pigeon_plugin.py",
@@ -2079,7 +2499,12 @@
           "action": "mutated",
           "tokens": 448
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/cut_executor/plan_parser_seq001_v004_d0315__parse_deepseek_json_from_raw_lc_verify_pigeon_plugin.py",
@@ -2106,7 +2531,12 @@
           "action": "mutated",
           "tokens": 371
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/cut_executor/plan_validator_seq006_v004_d0315__validate_cut_plan_before_execution_lc_verify_pigeon_plugin.py",
@@ -2133,7 +2563,12 @@
           "action": "mutated",
           "tokens": 579
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/cut_executor/resplit_binpack_seq010_v004_d0315__bin_packing_file_writing_for_lc_verify_pigeon_plugin.py",
@@ -2160,7 +2595,12 @@
           "action": "mutated",
           "tokens": 702
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/cut_executor/resplit_helpers_seq011_v004_d0315__shared_helpers_for_re_splitter_lc_verify_pigeon_plugin.py",
@@ -2187,7 +2627,12 @@
           "action": "mutated",
           "tokens": 501
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/cut_executor/resplit_seq009_v004_d0315__deterministic_ast_bin_packing_re_lc_verify_pigeon_plugin.py",
@@ -2214,7 +2659,12 @@
           "action": "mutated",
           "tokens": 841
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/cut_executor/source_slicer_seq002_v004_d0315__extract_functions_constants_from_source_lc_verify_pigeon_plugin.py",
@@ -2241,7 +2691,12 @@
           "action": "mutated",
           "tokens": 486
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/integrations/deepseek_adapter_seq001_v006_d0322__deepseek_api_client_lc_stage_78_hook.py",
@@ -2284,7 +2739,12 @@
           "action": "mutated",
           "tokens": 1180
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_audit_decomposed_seq007_v004_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -2320,7 +2780,12 @@
           "action": "mutated",
           "tokens": 638
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_audit_wrapper_seq009_v004_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -2356,7 +2821,12 @@
           "action": "mutated",
           "tokens": 653
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_check_file_seq010_v004_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -2392,7 +2862,12 @@
           "action": "mutated",
           "tokens": 311
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_classify_seq003_v004_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -2428,7 +2903,12 @@
           "action": "mutated",
           "tokens": 160
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_format_report_seq011_v004_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -2464,7 +2944,12 @@
           "action": "mutated",
           "tokens": 320
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_helpers_seq002_v004_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -2500,7 +2985,12 @@
           "action": "mutated",
           "tokens": 227
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/compliance_seq008/compliance_seq008_recommend_wrapper_seq006_v004_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -2536,7 +3026,12 @@
           "action": "mutated",
           "tokens": 603
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/compliance_seq008_v004_d0315__line_count_enforcer_split_recommender_lc_verify_pigeon_plugin.py",
@@ -2563,7 +3058,12 @@
           "action": "mutated",
           "tokens": 1673
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/executor_seq004_v004_d0315__execute_file_renames_with_rollback_lc_verify_pigeon_plugin.py",
@@ -2590,7 +3090,12 @@
           "action": "mutated",
           "tokens": 712
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/heal_seq009/heal_seq009_orchestrator_seq005_v002_d0401__auto_extracted_by_pigeon_compiler_lc_add_chinese_glyph.py",
@@ -2610,7 +3115,12 @@
           "tokens": 725,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/heal_seq009_v005_d0401__self_healing_orchestrator_lc_add_chinese_glyph.py",
@@ -2645,7 +3155,12 @@
           "action": "mutated",
           "tokens": 2049
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/import_rewriter_seq003_v004_d0316__rewrite_all_imports_across_the_lc_import_rewriter_now.py",
@@ -2673,7 +3188,12 @@
           "tokens": 1750
         }
       ],
-      "last_change": "import rewriter now"
+      "last_change": "import rewriter now",
+      "intent_code": "IM",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/manifest_builder_seq007_v003_d0314__generate_living_manifest_md_per_lc_desc_upgrade.py",
@@ -2692,7 +3212,12 @@
           "intent": "desc_upgrade",
           "action": "discovered"
         }
-      ]
+      ],
+      "intent_code": "DE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/nametag_seq011/nametag_seq011_scan_seq008_v002_d0401__auto_extracted_by_pigeon_compiler_lc_add_chinese_glyph.py",
@@ -2712,7 +3237,12 @@
           "tokens": 298,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/nametag_seq011_v004_d0401__encode_file_description_intent_into_lc_add_chinese_glyph.py",
@@ -2739,7 +3269,12 @@
           "action": "mutated",
           "tokens": 4052
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/planner_seq002_v005_d0401__generate_rename_plan_for_non_lc_add_chinese_glyph.py",
@@ -2774,7 +3309,12 @@
           "action": "mutated",
           "tokens": 1381
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/registry_seq012/registry_seq012_diff_seq006_v002_d0401__auto_extracted_by_pigeon_compiler_lc_add_chinese_glyph.py",
@@ -2794,7 +3334,12 @@
           "tokens": 194,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/registry_seq012_v004_d0401__local_name_registry_for_the_lc_add_chinese_glyph.py",
@@ -2821,7 +3366,12 @@
           "action": "mutated",
           "tokens": 2131
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/run_heal_seq010_v004_d0315__automated_self_healing_pipeline_lc_verify_pigeon_plugin.py",
@@ -2848,7 +3398,12 @@
           "action": "mutated",
           "tokens": 3431
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/run_rename_seq006_v005_d0401__full_rename_pipeline_runner_lc_add_chinese_glyph.py",
@@ -2883,7 +3438,12 @@
           "action": "mutated",
           "tokens": 1388
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/scanner_seq001_v004_d0315__walk_the_project_tree_and_lc_verify_pigeon_plugin.py",
@@ -2910,7 +3470,12 @@
           "action": "mutated",
           "tokens": 972
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/rename_engine/validator_seq005_v004_d0315__post_rename_import_validation_lc_verify_pigeon_plugin.py",
@@ -2937,7 +3502,12 @@
           "action": "mutated",
           "tokens": 921
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_constants_seq001_v001_seq001_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -2964,7 +3534,12 @@
           "action": "mutated",
           "tokens": 641
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_constants_seq001_v001_seq002_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -2991,7 +3566,12 @@
           "action": "mutated",
           "tokens": 388
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_builders_seq002_v001_seq001_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -3018,7 +3598,12 @@
           "action": "mutated",
           "tokens": 626
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_builders_seq002_v001_seq002_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -3045,7 +3630,12 @@
           "action": "mutated",
           "tokens": 662
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_builders_seq002_v001_seq003_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -3072,7 +3662,12 @@
           "action": "mutated",
           "tokens": 296
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_helpers_seq004_v001_seq001_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -3099,7 +3694,12 @@
           "action": "mutated",
           "tokens": 661
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_helpers_seq004_v001_seq002_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -3126,7 +3726,12 @@
           "action": "mutated",
           "tokens": 296
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_template_key_findings_seq003_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin.py",
@@ -3153,7 +3758,12 @@
           "action": "mutated",
           "tokens": 626
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/manifest_bridge_seq013_v004_d0315__update_master_manifest_md_after_lc_verify_pigeon_plugin.py",
@@ -3180,7 +3790,12 @@
           "action": "mutated",
           "tokens": 1016
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/reaudit_diff_seq014_v004_d0315__re_audit_with_diff_across_lc_verify_pigeon_plugin.py",
@@ -3207,7 +3822,12 @@
           "action": "mutated",
           "tokens": 1732
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/run_batch_compile_seq015_v002_d0328__compile_entire_codebase_to_pigeon_lc_dynamic_import_resolvers.py",
@@ -3227,7 +3847,12 @@
           "tokens": 1999,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/run_clean_split_helpers_seq011_v004_d0315__helpers_for_run_clean_split_lc_verify_pigeon_plugin.py",
@@ -3254,7 +3879,12 @@
           "action": "mutated",
           "tokens": 566
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/run_clean_split_init_seq012_v004_d0315__init_manifest_writers_for_clean_lc_verify_pigeon_plugin.py",
@@ -3281,7 +3911,12 @@
           "action": "mutated",
           "tokens": 1663
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/run_clean_split_seq010_v006_d0322__full_clean_pipeline_deepseek_plan_lc_windows_max_path.py",
@@ -3325,7 +3960,12 @@
           "tokens": 2509
         }
       ],
-      "last_change": "windows max path"
+      "last_change": "windows max path",
+      "intent_code": "WI",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/run_compiler_test_seq007_v004_d0315__self_test_pigeon_compiler_on_lc_verify_pigeon_plugin.py",
@@ -3352,7 +3992,12 @@
           "action": "mutated",
           "tokens": 594
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/run_deepseek_plans_seq008_v004_d0315__phase_2_send_ether_maps_lc_verify_pigeon_plugin.py",
@@ -3379,7 +4024,12 @@
           "action": "mutated",
           "tokens": 587
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/runners/run_pigeon_loop_seq009_v004_d0315__the_loop_refactor_until_pigeon_lc_verify_pigeon_plugin.py",
@@ -3406,7 +4056,12 @@
           "action": "mutated",
           "tokens": 2836
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/state_extractor/ast_parser_seq001_v004_d0315__parse_python_file_into_function_lc_verify_pigeon_plugin.py",
@@ -3433,7 +4088,12 @@
           "action": "mutated",
           "tokens": 734
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/state_extractor/call_graph_seq002_v004_d0315__build_intra_file_call_graph_lc_verify_pigeon_plugin.py",
@@ -3460,7 +4120,12 @@
           "action": "mutated",
           "tokens": 847
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/state_extractor/ether_map_builder_seq006_v004_d0315__assemble_full_ether_map_json_lc_verify_pigeon_plugin.py",
@@ -3487,7 +4152,12 @@
           "action": "mutated",
           "tokens": 697
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/state_extractor/import_tracer_seq003_v004_d0315__trace_imports_inbound_and_outbound_lc_verify_pigeon_plugin.py",
@@ -3514,7 +4184,12 @@
           "action": "mutated",
           "tokens": 792
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/state_extractor/resistance_analyzer_seq005_v004_d0315__classify_why_a_file_resists_lc_verify_pigeon_plugin.py",
@@ -3541,7 +4216,12 @@
           "action": "mutated",
           "tokens": 1037
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/state_extractor/shared_state_detector_seq004_v004_d0315__detect_module_level_shared_state_lc_verify_pigeon_plugin.py",
@@ -3568,7 +4248,12 @@
           "action": "mutated",
           "tokens": 618
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "pigeon_compiler/weakness_planner/deepseek_plan_prompt_seq004_v003_d0314__build_and_send_deepseek_cut_lc_desc_upgrade.py",
@@ -3587,7 +4272,12 @@
           "intent": "desc_upgrade",
           "action": "discovered"
         }
-      ]
+      ],
+      "intent_code": "DE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/.operator_stats_seq008_v008_d0331__persistent_markdown_memory_file_lc_intent_deletion_pipeline.py",
@@ -3608,7 +4298,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "intent deletion pipeline"
+      "last_change": "intent deletion pipeline",
+      "intent_code": "IN",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/.operator_stats_seq008_v010_d0331__persistent_markdown_memory_file_lc_intent_deletion_pipeline.py",
@@ -3637,7 +4332,12 @@
           "tokens": 4672
         }
       ],
-      "last_change": "intent deletion pipeline"
+      "last_change": "intent deletion pipeline",
+      "intent_code": "IN",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive/adapter_seq001_v002_d0315__cognitive_state_agent_behavior_adapter_lc_verify_pigeon_plugin.py",
@@ -3664,7 +4364,12 @@
           "action": "mutated",
           "tokens": 1264
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive/drift_seq003/drift_seq003_baseline_store_seq001_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -3692,7 +4397,12 @@
           "action": "mutated",
           "tokens": 299
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive/drift_seq003/drift_seq003_build_cognitive_context_seq004_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -3720,7 +4430,12 @@
           "action": "mutated",
           "tokens": 828
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive/drift_seq003/drift_seq003_compute_baseline_seq002_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -3748,7 +4463,12 @@
           "action": "mutated",
           "tokens": 557
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive/drift_seq003/drift_seq003_detect_session_drift_seq003_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -3776,7 +4496,12 @@
           "action": "mutated",
           "tokens": 677
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive/drift_seq003_v002_d0315__tracks_operator_typing_patterns_across_lc_verify_pigeon_plugin.py",
@@ -3803,7 +4528,12 @@
           "action": "mutated",
           "tokens": 2262
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive/unsaid_seq002/unsaid_seq002_diff_seq002_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -3831,7 +4561,12 @@
           "action": "mutated",
           "tokens": 245
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive/unsaid_seq002/unsaid_seq002_helpers_seq001_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -3859,7 +4594,12 @@
           "action": "mutated",
           "tokens": 561
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive/unsaid_seq002/unsaid_seq002_orchestrator_seq003_v003_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -3887,7 +4627,12 @@
           "action": "mutated",
           "tokens": 1493
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive/unsaid_seq002_v002_d0315__detects_what_operators_meant_but_lc_verify_pigeon_plugin.py",
@@ -3914,7 +4659,12 @@
           "action": "mutated",
           "tokens": 2108
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_api_client_seq007_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -3934,7 +4684,12 @@
           "tokens": 24,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_cognitive_hint_seq004_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -3954,7 +4709,12 @@
           "tokens": 244,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_constants_seq001_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -3974,7 +4734,12 @@
           "tokens": 95,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_decision_maker_seq012_v003_d0331__patch_safety_gating_lc_mutation_patch_pipeline.py",
@@ -4003,7 +4768,12 @@
           "tokens": 832
         }
       ],
-      "last_change": "mutation patch pipeline"
+      "last_change": "mutation patch pipeline",
+      "intent_code": "MU",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_docstring_patch_seq003_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4023,7 +4793,12 @@
           "tokens": 563,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_patch_generator_seq005_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4043,7 +4818,12 @@
           "tokens": 781,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_patch_writer_seq011_v003_d0331__apply_code_patches_to_source_lc_mutation_patch_pipeline.py",
@@ -4072,7 +4852,12 @@
           "tokens": 1075
         }
       ],
-      "last_change": "mutation patch pipeline"
+      "last_change": "mutation patch pipeline",
+      "intent_code": "MU",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_prompt_builder_seq006_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4092,7 +4877,12 @@
           "tokens": 25,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_reactor_core_seq008_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4112,7 +4902,12 @@
           "tokens": 1026,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_registry_loader_seq009_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4132,7 +4927,12 @@
           "tokens": 25,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_self_fix_runner_seq010_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4152,7 +4952,12 @@
           "tokens": 25,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_state_ops_seq002_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4172,7 +4977,12 @@
           "tokens": 146,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/cognitive_reactor_seq014_v005_d0331__cognitive_reactor_autonomous_code_modification_lc_mutation_patch_pipeline.py",
@@ -4217,7 +5027,12 @@
           "tokens": 5629
         }
       ],
-      "last_change": "mutation patch pipeline"
+      "last_change": "mutation patch pipeline",
+      "intent_code": "MU",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/context_budget_seq004_v008_d0321__context_budget_scorer_for_llm_lc_fire_full_post.py",
@@ -4293,7 +5108,12 @@
           "tokens": 715
         }
       ],
-      "last_change": "test full hook"
+      "last_change": "test full hook",
+      "intent_code": "FI",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/context_router_seq027_v002_d0330__shard_relevance_scorer_context_injector_lc_gemini_flash_enricher.py",
@@ -4313,7 +5133,12 @@
           "tokens": 1199,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "GE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_audit_decomposed_seq008_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4333,7 +5158,12 @@
           "tokens": 729,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_auto_index_seq005_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4353,7 +5183,12 @@
           "tokens": 665,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_block_utils_seq002_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4373,7 +5208,12 @@
           "tokens": 288,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_constants_seq001_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4393,7 +5233,12 @@
           "tokens": 200,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_injectors_seq009_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4413,7 +5258,12 @@
           "tokens": 461,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_json_utils_seq003_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4433,7 +5283,12 @@
           "tokens": 236,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_operator_profile_seq004_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4453,7 +5308,12 @@
           "tokens": 472,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_operator_state_decomposed_seq006_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4473,7 +5333,12 @@
           "tokens": 632,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_orchestrator_seq010_v003_d0401__auto_extracted_by_pigeon_compiler_lc_glyph_compiler_symbol.py",
@@ -4502,7 +5367,12 @@
           "tokens": 636
         }
       ],
-      "last_change": "glyph compiler symbol"
+      "last_change": "glyph compiler symbol",
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_telemetry_utils_seq007_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4522,7 +5392,12 @@
           "tokens": 329,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/copilot_prompt_manager_seq020_v002_d0321__audits_and_manages_all_injected_lc_implement_all_18.py",
@@ -4543,7 +5418,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "resolve latest runtime"
+      "last_change": "resolve latest runtime",
+      "intent_code": "FT",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/copilot_prompt_manager_seq020_v003_d0402__compatibility_wrapper_for_the_legacy_lc_restore_rename_safe.py",
@@ -4564,7 +5444,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "restore rename safe"
+      "last_change": "restore rename safe",
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/drift_watcher_seq005_v004_d0321__drift_detection_for_live_llm_lc_implement_all_18.py",
@@ -4607,7 +5492,12 @@
           "action": "mutated",
           "tokens": 1117
         }
-      ]
+      ],
+      "intent_code": "FT",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/dynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_8888_word_backpropagation.py",
@@ -4628,7 +5518,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "8888 word backpropagation"
+      "last_change": "8888 word backpropagation",
+      "intent_code": "88",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/dynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_per_prompt_deleted.py",
@@ -4673,7 +5568,12 @@
           "tokens": 3996
         }
       ],
-      "last_change": "per prompt deleted"
+      "last_change": "per prompt deleted",
+      "intent_code": "TL",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/dynamic_prompt_seq017_v010_d0331__steers_copilot_cot_from_live_lc_mutation_patch_pipeline.py",
@@ -4718,7 +5618,12 @@
           "tokens": 5239
         }
       ],
-      "last_change": "mutation patch pipeline"
+      "last_change": "mutation patch pipeline",
+      "intent_code": "MU",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/file_consciousness_seq019/file_consciousness_seq019_audit_seq004_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -4738,7 +5643,12 @@
           "tokens": 333,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/file_consciousness_seq019/file_consciousness_seq019_classify_seq007_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -4758,7 +5668,12 @@
           "tokens": 222,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/file_consciousness_seq019/file_consciousness_seq019_dating_decomposed_seq010_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -4778,7 +5693,12 @@
           "tokens": 807,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/file_consciousness_seq019/file_consciousness_seq019_dating_helpers_seq011_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -4798,7 +5718,12 @@
           "tokens": 25,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/file_consciousness_seq019/file_consciousness_seq019_dating_wrapper_seq012_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -4818,7 +5743,12 @@
           "tokens": 806,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/file_consciousness_seq019/file_consciousness_seq019_dependencies_seq006_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -4838,7 +5768,12 @@
           "tokens": 503,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/file_consciousness_seq019/file_consciousness_seq019_derivation_seq005_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -4858,7 +5793,12 @@
           "tokens": 649,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/file_consciousness_seq019/file_consciousness_seq019_helpers_seq001_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -4878,7 +5818,12 @@
           "tokens": 500,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/file_consciousness_seq019/file_consciousness_seq019_main_orchestrator_seq009_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -4898,7 +5843,12 @@
           "tokens": 269,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/file_consciousness_seq019/file_consciousness_seq019_persistence_seq002_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -4918,7 +5868,12 @@
           "tokens": 149,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/file_consciousness_seq019/file_consciousness_seq019_profile_builder_seq008_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -4938,7 +5893,12 @@
           "tokens": 199,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/file_consciousness_seq019/file_consciousness_seq019_report_seq003_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -4958,7 +5918,12 @@
           "tokens": 531,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/file_consciousness_seq019_v002_d0321__ast_derived_function_consciousness_dating_lc_implement_all_18.py",
@@ -4978,7 +5943,12 @@
           "tokens": 4343,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FT",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/file_heat_map_seq011_v004_d0317__tracks_cognitive_load_per_module_lc_pulse_telemetry_prompt.py",
@@ -5015,7 +5985,12 @@
           "tokens": 1347
         }
       ],
-      "last_change": "pulse telemetry prompt"
+      "last_change": "pulse telemetry prompt",
+      "intent_code": "TL",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/glyph_compiler_seq032_v002_d0401__glyph_compiler_python_maximum_symbolic_lc_glyph_compiler_symbol.py",
@@ -5036,7 +6011,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "glyph compiler symbol"
+      "last_change": "glyph compiler symbol",
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/glyph_compiler_seq032_v003_d0401__glyph_compiler_v2_ast_based_lc_glyph_compiler_symbol.py",
@@ -5057,7 +6037,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "glyph compiler symbol"
+      "last_change": "glyph compiler symbol",
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/intent_simulator_seq034_v002_d0401__runs_ahead_of_operator_hallucinating_lc_compress_auto_index.py",
@@ -5078,7 +6063,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "compress auto index"
+      "last_change": "compress auto index",
+      "intent_code": "CP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/logger_seq003_v005_d0322__core_keystroke_telemetry_logger_lc_wpm_outlier_filter.py",
@@ -5130,7 +6120,12 @@
           "tokens": 1636
         }
       ],
-      "last_change": "wpm outlier filter"
+      "last_change": "wpm outlier filter",
+      "intent_code": "WP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/models_seq002_v003_d0317__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt.py",
@@ -5166,7 +6161,12 @@
           "tokens": 379
         }
       ],
-      "last_change": "pulse telemetry prompt"
+      "last_change": "pulse telemetry prompt",
+      "intent_code": "TL",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/mutation_scorer_seq021_v002_d0321__mutation_scorer_correlates_prompt_mutations_lc_implement_all_18.py",
@@ -5186,7 +6186,12 @@
           "tokens": 1611,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FT",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/operator_stats_seq008_v007_d0322__persistent_markdown_memory_file_lc_wpm_outlier_filter.py",
@@ -5254,7 +6259,12 @@
           "tokens": 4954
         }
       ],
-      "last_change": "fix degenerate classifier:"
+      "last_change": "fix degenerate classifier:",
+      "intent_code": "WP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/pulse_harvest_seq015_v003_d0321__pulse_harvest_pairs_prompts_to_lc_implement_all_18.py",
@@ -5282,7 +6292,12 @@
           "action": "mutated",
           "tokens": 2276
         }
-      ]
+      ],
+      "intent_code": "FT",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/push_cycle_seq025/push_cycle_seq025_coaching_seq005_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5302,7 +6317,12 @@
           "tokens": 554,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/push_cycle_seq025/push_cycle_seq025_constants_seq001_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5322,7 +6342,12 @@
           "tokens": 71,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/push_cycle_seq025/push_cycle_seq025_loaders_seq002_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5342,7 +6367,12 @@
           "tokens": 401,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/push_cycle_seq025/push_cycle_seq025_moon_cycle_seq006_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5362,7 +6392,12 @@
           "tokens": 802,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/push_cycle_seq025/push_cycle_seq025_orchestrator_decomposed_seq008_v003_d0330__auto_extracted_by_pigeon_compiler_lc_research_lab_autonomous.py",
@@ -5391,7 +6426,12 @@
           "tokens": 811
         }
       ],
-      "last_change": "research lab autonomous"
+      "last_change": "research lab autonomous",
+      "intent_code": "RE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/push_cycle_seq025/push_cycle_seq025_predictions_injector_decomposed_seq007_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5411,7 +6451,12 @@
           "tokens": 670,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/push_cycle_seq025/push_cycle_seq025_signal_extractors_seq003_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5431,7 +6476,12 @@
           "tokens": 614,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/push_cycle_seq025/push_cycle_seq025_sync_decomposed_seq004_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5451,7 +6501,12 @@
           "tokens": 624,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/push_cycle_seq025_v003_d0330__the_push_is_the_unit_lc_fix_push_cycle.py",
@@ -5480,7 +6535,12 @@
           "tokens": 4792
         }
       ],
-      "last_change": "fix push cycle"
+      "last_change": "fix push cycle",
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/push_narrative_seq012_v006_d0327__generate_per_push_narrative_each_lc_push_narratives_timeout.py",
@@ -5533,7 +6593,12 @@
           "tokens": 2089
         }
       ],
-      "last_change": "push narratives timeout"
+      "last_change": "push narratives timeout",
+      "intent_code": "PU",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/push_narrative_seq012_v007_d0330__generate_per_push_narrative_each_lc_readme_update_7.py",
@@ -5562,7 +6627,12 @@
           "tokens": 2088
         }
       ],
-      "last_change": "readme update 7"
+      "last_change": "readme update 7",
+      "intent_code": "CL",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/query_memory_seq010/query_memory_seq010_clustering_seq004_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5582,7 +6652,12 @@
           "tokens": 258,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/query_memory_seq010/query_memory_seq010_constants_seq001_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5602,7 +6677,12 @@
           "tokens": 55,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/query_memory_seq010/query_memory_seq010_fingerprint_seq002_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5622,7 +6702,12 @@
           "tokens": 134,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/query_memory_seq010/query_memory_seq010_load_memory_decomposed_seq006_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5642,7 +6727,12 @@
           "tokens": 374,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/query_memory_seq010/query_memory_seq010_record_query_seq005_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5662,7 +6752,12 @@
           "tokens": 452,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/query_memory_seq010/query_memory_seq010_trigram_utils_seq003_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5682,7 +6777,12 @@
           "tokens": 138,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/query_memory_seq010_v004_d0321__recurring_query_detector_unsaid_thought_lc_implement_all_18.py",
@@ -5718,7 +6818,12 @@
           "action": "mutated",
           "tokens": 2308
         }
-      ]
+      ],
+      "intent_code": "FT",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/research_lab_seq029_v005_d0401__the_system_studying_the_system_lc_glyph_compiler_symbol.py",
@@ -5763,7 +6868,12 @@
           "tokens": 5065
         }
       ],
-      "last_change": "rewrite in intent"
+      "last_change": "rewrite in intent",
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/resistance_bridge_seq006_v003_d0317__bridge_between_keystroke_telemetry_and_lc_pulse_telemetry_prompt.py",
@@ -5799,7 +6909,12 @@
           "tokens": 1222
         }
       ],
-      "last_change": "pulse telemetry prompt"
+      "last_change": "pulse telemetry prompt",
+      "intent_code": "TL",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/rework_backfill_seq022_v002_d0321__reconstructs_historical_rework_scores_from_lc_implement_all_18.py",
@@ -5819,7 +6934,12 @@
           "tokens": 1198,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FT",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/rework_detector_seq009_v005_d0321__measures_ai_answer_quality_from_lc_implement_all_18.py",
@@ -5864,7 +6984,12 @@
           "tokens": 1083
         }
       ],
-      "last_change": "add composition-based scoring,"
+      "last_change": "add composition-based scoring,",
+      "intent_code": "FT",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/self_fix_seq013/self_fix_seq013_auto_apply_import_fixes_decomposed_seq011_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5884,7 +7009,12 @@
           "tokens": 1178,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/self_fix_seq013/self_fix_seq013_auto_compile_oversized_decomposed_seq009_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5904,7 +7034,12 @@
           "tokens": 807,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/self_fix_seq013/self_fix_seq013_run_self_fix_decomposed_seq008_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5924,7 +7059,12 @@
           "tokens": 547,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/self_fix_seq013/self_fix_seq013_scan_cross_file_coupling_seq004_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5944,7 +7084,12 @@
           "tokens": 519,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/self_fix_seq013/self_fix_seq013_scan_dead_exports_decomposed_seq006_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5964,7 +7109,12 @@
           "tokens": 678,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/self_fix_seq013/self_fix_seq013_scan_duplicate_docstrings_seq003_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5984,7 +7134,12 @@
           "tokens": 305,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/self_fix_seq013/self_fix_seq013_scan_hardcoded_seq001_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -6004,7 +7159,12 @@
           "tokens": 428,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/self_fix_seq013/self_fix_seq013_scan_over_hard_cap_decomposed_seq005_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -6024,7 +7184,12 @@
           "tokens": 515,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/self_fix_seq013/self_fix_seq013_scan_query_noise_seq002_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -6044,7 +7209,12 @@
           "tokens": 237,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/self_fix_seq013/self_fix_seq013_seq_base_seq010_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -6064,7 +7234,12 @@
           "tokens": 169,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/self_fix_seq013/self_fix_seq013_write_report_decomposed_seq007_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -6084,7 +7259,12 @@
           "tokens": 593,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/self_fix_seq013_v011_d0328__one_shot_self_fix_analyzer_lc_dynamic_import_resolvers.py",
@@ -6176,7 +7356,12 @@
           "action": "mutated",
           "tokens": 5846
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/session_handoff_seq023_v002_d0321__session_handoff_summary_generator_lc_implement_all_18.py",
@@ -6196,7 +7381,12 @@
           "tokens": 1569,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "FT",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/shard_manager_seq026_v002_d0330__local_memory_shard_manager_markdown_lc_gemini_flash_enricher.py",
@@ -6216,7 +7406,12 @@
           "tokens": 4413,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "GE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/staleness_alert_seq030_v002_d0331__copilot_self_diagnostic_detect_stale_lc_staleness_alerts_bg.py",
@@ -6237,7 +7432,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "staleness alerts bg"
+      "last_change": "staleness alerts bg",
+      "intent_code": "ST",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/streaming_layer_seq007_v003_d0317__monolithic_live_streaming_interface_for_lc_pulse_telemetry_prompt.py",
@@ -6273,7 +7473,12 @@
           "tokens": 10189
         }
       ],
-      "last_change": "pulse telemetry prompt"
+      "last_change": "pulse telemetry prompt",
+      "intent_code": "TL",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/symbol_dictionary_seq031_v002_d0401__symbol_dictionary_generator_for_pigeon_lc_glyph_compiler_symbol.py",
@@ -6294,7 +7499,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "swap to chinese"
+      "last_change": "swap to chinese",
+      "intent_code": "SP",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/task_queue_seq018_v002_d0317__copilot_driven_task_tracking_linked_lc_task_queue_system.py",
@@ -6315,7 +7525,12 @@
           "action": "registered"
         }
       ],
-      "last_change": "task queue system"
+      "last_change": "task queue system",
+      "intent_code": "TA",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/timestamp_utils_seq001_v004_d0321__millisecond_epoch_timestamp_utility_lc_trigger_pigeon_rename.py",
@@ -6359,7 +7574,12 @@
           "tokens": 156
         }
       ],
-      "last_change": "test rename hook"
+      "last_change": "test rename hook",
+      "intent_code": "RN",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/training_pairs_seq027_v002_d0330__training_pair_generator_for_the_lc_gemini_flash_enricher.py",
@@ -6379,7 +7599,12 @@
           "tokens": 2625,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "GE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/training_writer_seq028_v002_d0330__end_of_prompt_training_pair_lc_gemini_flash_enricher.py",
@@ -6399,7 +7624,12 @@
           "tokens": 2078,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "GE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/u_pe_s024_v002_d0402_λC.py",
@@ -6419,7 +7649,18 @@
           "tokens": 4212,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [
+        "oc"
+      ],
+      "last_bug_mark": "d0402v002",
+      "bug_counts": {
+        "oc": 1
+      },
+      "bug_entities": {
+        "oc": "Overcap Maw of upe"
+      }
     },
     {
       "path": "src/u_pj_s019_v002_d0402_λC.py",
@@ -6439,7 +7680,18 @@
           "tokens": 7801,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "CP",
+      "bug_keys": [
+        "oc"
+      ],
+      "last_bug_mark": "d0402v002",
+      "bug_counts": {
+        "oc": 1
+      },
+      "bug_entities": {
+        "oc": "Split Fiend of upj"
+      }
     },
     {
       "path": "src/unified_signal_seq026_v002_d0330__joins_all_telemetry_into_canonical_lc_gemini_flash_enricher.py",
@@ -6459,7 +7711,12 @@
           "tokens": 2074,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "GE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/unsaid_recon_seq024_v003_d0331__fires_on_high_deletion_prompts_lc_intent_deletion_pipeline.py",
@@ -6488,7 +7745,12 @@
           "tokens": 1328
         }
       ],
-      "last_change": "intent deletion pipeline"
+      "last_change": "intent deletion pipeline",
+      "intent_code": "IN",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/voice_style_seq028_v002_d0330__voice_style_personality_adapter_lc_gemini_flash_enricher.py",
@@ -6508,7 +7770,12 @@
           "tokens": 3157,
           "action": "registered"
         }
-      ]
+      ],
+      "intent_code": "GE",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "src/警p_sa_s030_v003_d0402_缩分话_λV.py",
@@ -6529,7 +7796,18 @@
           "action": "registered"
         }
       ],
-      "last_change": "test rename mutation"
+      "last_change": "test rename mutation",
+      "intent_code": "CP",
+      "bug_keys": [
+        "oc"
+      ],
+      "last_bug_mark": "d0402v003",
+      "bug_counts": {
+        "oc": 1
+      },
+      "bug_entities": {
+        "oc": "Shard Hunger of psa"
+      }
     },
     {
       "path": "streaming_layer/streaming_layer_aggregator_seq006_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -6564,7 +7842,12 @@
           "action": "mutated",
           "tokens": 934
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_alerts_seq008_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -6599,7 +7882,12 @@
           "action": "mutated",
           "tokens": 1371
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_connection_pool_seq005_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -6634,7 +7922,12 @@
           "action": "mutated",
           "tokens": 969
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_constants_seq001_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin.py",
@@ -6661,7 +7954,12 @@
           "action": "mutated",
           "tokens": 261
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_dashboard_seq010_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -6696,7 +7994,12 @@
           "action": "mutated",
           "tokens": 858
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_dataclasses_seq004_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -6723,7 +8026,12 @@
           "action": "mutated",
           "tokens": 717
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_dataclasses_seq005_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -6750,7 +8058,12 @@
           "action": "mutated",
           "tokens": 247
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_dataclasses_seq006_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -6777,7 +8090,12 @@
           "action": "mutated",
           "tokens": 154
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_demo_functions_seq013_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -6804,7 +8122,12 @@
           "action": "mutated",
           "tokens": 456
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_demo_functions_seq014_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -6831,7 +8154,12 @@
           "action": "mutated",
           "tokens": 280
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_demo_simulate_seq014_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin.py",
@@ -6858,7 +8186,12 @@
           "action": "mutated",
           "tokens": 256
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_demo_summary_seq013_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin.py",
@@ -6885,7 +8218,12 @@
           "action": "mutated",
           "tokens": 365
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_formatter_seq004_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin.py",
@@ -6912,7 +8250,12 @@
           "action": "mutated",
           "tokens": 546
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_http_handler_seq011_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -6947,7 +8290,12 @@
           "action": "mutated",
           "tokens": 1182
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_metrics_seq007_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",
@@ -6982,7 +8330,12 @@
           "action": "mutated",
           "tokens": 824
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_orchestrator_seq016_v003_d0328__pigeon_extracted_by_compiler_lc_dynamic_import_resolvers.py",
@@ -7017,7 +8370,12 @@
           "action": "mutated",
           "tokens": 1408
         }
-      ]
+      ],
+      "intent_code": "DY",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_orchestrator_seq017_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -7044,7 +8402,12 @@
           "action": "mutated",
           "tokens": 142
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_replay_seq009_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin.py",
@@ -7071,7 +8434,12 @@
           "action": "mutated",
           "tokens": 932
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     },
     {
       "path": "streaming_layer/streaming_layer_simulation_helpers_seq002_v002_d0315__auto_extracted_by_pigeon_compiler_lc_verify_pigeon_plugin.py",
@@ -7098,7 +8466,12 @@
           "action": "mutated",
           "tokens": 204
         }
-      ]
+      ],
+      "intent_code": "VR",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": ""
     }
   ]
 }

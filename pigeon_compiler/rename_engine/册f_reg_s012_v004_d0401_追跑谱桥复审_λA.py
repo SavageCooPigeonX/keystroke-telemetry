@@ -50,9 +50,35 @@ COMPRESSED_STEM_RE = re.compile(
     r'^(?P<glyph>[^\x00-\x7f]*)(?P<state>[pfwu])_(?P<abbrev>[a-z_]+)_s(?P<seq>\d{3,4})_v(?P<ver>\d{3})'
     r'(?:_d(?P<date>\d{4}))?'
     r'(?:_(?P<deps>[^\x00-\x7f]+))?'
-    r'(?:_λ(?P<intent>\S+))?$'
+    r'(?:_λ(?P<intent>[^_]+))?'
+    r'(?:_β(?P<bugs>[a-z]+))?$'
 )
 LC_SEP = '_lc_'  # separator between desc and intent in filename slug
+BUG_KEY_ORDER = ('oc', 'hi', 'hc', 'de', 'dd', 'qn')
+
+
+def bug_keys_from_marker(marker: str) -> list[str]:
+    """Decode a compact bug marker string into 2-letter bug keys.
+
+    'ochi' -> ['oc', 'hi']
+    """
+    marker = (marker or '').strip().lower()
+    return [marker[i:i + 2] for i in range(0, len(marker), 2)
+            if len(marker[i:i + 2]) == 2]
+
+
+def bug_marker_from_keys(keys: list[str] | tuple[str, ...]) -> str:
+    """Encode ordered bug keys into an identifier-safe filename marker.
+
+    ['oc', 'hi'] -> 'ochi'
+    """
+    unique = {
+        str(key).lower() for key in keys
+        if isinstance(key, str) and len(str(key).strip()) == 2
+    }
+    ordered = [key for key in BUG_KEY_ORDER if key in unique]
+    ordered.extend(sorted(key for key in unique if key not in BUG_KEY_ORDER))
+    return ''.join(ordered)
 
 
 def _today() -> str:
@@ -126,6 +152,7 @@ def parse_pigeon_stem(stem: str) -> dict | None:
         glyph = mc.group('glyph') or ''
         state = mc.group('state')
         abbrev = mc.group('abbrev')
+        bugs = mc.group('bugs') or ''
         return {
             'name': f'{glyph}{state}_{abbrev}',
             'seq': int(mc.group('seq')),
@@ -138,6 +165,8 @@ def parse_pigeon_stem(stem: str) -> dict | None:
             'state': state,
             'abbrev': abbrev,
             'deps': mc.group('deps') or '',
+            'bugs': bugs,
+            'bug_keys': bug_keys_from_marker(bugs),
         }
     return None
 
@@ -163,11 +192,12 @@ def build_pigeon_filename(name: str, seq: int, ver: int,
 
 def build_compressed_filename(glyph: str, state: str, abbrev: str,
                               seq: int, ver: int, date: str = '',
-                              deps: str = '', intent: str = '') -> str:
+                              deps: str = '', intent: str = '',
+                              bugs: str = '') -> str:
     """Construct a compressed Pigeon filename from components.
 
-    build_compressed_filename('改名', 'f', 'rr', 6, 5, '0401', '追跑拆谱建', 'A')
-    → '改名f_rr_s006_v005_d0401_追跑拆谱建_λA.py'
+    build_compressed_filename('改名', 'f', 'rr', 6, 5, '0401', '追跑拆谱建', 'FX', 'ochi')
+    → '改名f_rr_s006_v005_d0401_追跑拆谱建_λFX_βochi.py'
     """
     parts = [f'{glyph}{state}_{abbrev}_s{seq:03d}_v{ver:03d}']
     if date:
@@ -176,20 +206,23 @@ def build_compressed_filename(glyph: str, state: str, abbrev: str,
         parts.append(deps)
     if intent:
         parts.append(f'λ{intent}')
+    if bugs:
+        parts.append(f'β{bugs}')
     return '_'.join(parts) + '.py'
 
 
-def mutate_compressed_stem(stem: str, new_ver: int = None,
-                           new_date: str = None,
-                           new_state: str = None,
-                           new_intent: str = None) -> str | None:
+def mutate_compressed_stem(stem: str, new_ver: int | None = None,
+                           new_date: str | None = None,
+                           new_state: str | None = None,
+                           new_intent: str | None = None,
+                           new_bugs: str | None = None) -> str | None:
     """Mutate a compressed filename stem in-place, updating specified fields.
 
     Returns the new filename (with .py) or None if stem doesn't parse.
 
-    mutate_compressed_stem('改名f_rr_s006_v005_d0401_追跑拆谱建_λA',
-                           new_ver=6, new_date='0402', new_intent='F')
-    → '改名f_rr_s006_v006_d0402_追跑拆谱建_λF.py'
+    mutate_compressed_stem('改名f_rr_s006_v005_d0401_追跑拆谱建_λFX_βochi',
+                           new_ver=6, new_date='0402', new_intent='FX', new_bugs='oc')
+    → '改名f_rr_s006_v006_d0402_追跑拆谱建_λFX_βoc.py'
     """
     parsed = parse_pigeon_stem(stem)
     if not parsed or not parsed.get('compressed'):
@@ -203,6 +236,7 @@ def mutate_compressed_stem(stem: str, new_ver: int = None,
         date=new_date or parsed['date'],
         deps=parsed.get('deps', ''),
         intent=new_intent or parsed.get('intent', ''),
+        bugs=parsed.get('bugs', '') if new_bugs is None else new_bugs,
     )
 
 

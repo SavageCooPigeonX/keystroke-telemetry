@@ -8,9 +8,9 @@
 # SESSIONS: 8
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-22T01:45:00+00:00
+# EDIT_TS:   2026-04-02T19:30:01.8857153Z
 # EDIT_HASH: auto
-# EDIT_WHY:  fix registry files key + skip compiled subdir
+# EDIT_WHY:  raise auto compile throughput
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -268,7 +268,7 @@ def _scan_over_hard_cap(root: Path, registry: dict) -> list[dict]:
 def auto_compile_oversized(
     root: Path,
     fix_report: dict,
-    max_files: int = 2,
+    max_files: int = 5,
 ) -> list[dict]:
     """Auto-compile files flagged over_hard_cap, pruning confirmed dead exports.
 

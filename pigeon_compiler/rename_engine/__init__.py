@@ -34,7 +34,7 @@ extract_desc_slug, build_nametag, scan_drift = _load_package_attrs(
     'build_nametag',
     'scan_drift',
 )
-load_registry, save_registry, build_registry_from_scan, build_pigeon_filename, parse_pigeon_stem, bump_version, bump_all_versions, build_compressed_filename, mutate_compressed_stem = _load_package_attrs(
+load_registry, save_registry, build_registry_from_scan, build_pigeon_filename, parse_pigeon_stem, bump_version, bump_all_versions, build_compressed_filename, mutate_compressed_stem, bug_keys_from_marker, bug_marker_from_keys = _load_package_attrs(
     __name__,
     _PACKAGE_DIR,
     's012',
@@ -47,6 +47,8 @@ load_registry, save_registry, build_registry_from_scan, build_pigeon_filename, p
     'bump_all_versions',
     'build_compressed_filename',
     'mutate_compressed_stem',
+    'bug_keys_from_marker',
+    'bug_marker_from_keys',
 )
 
 __all__ = [
@@ -73,4 +75,6 @@ __all__ = [
     'bump_all_versions',
     'build_compressed_filename',
     'mutate_compressed_stem',
+    'bug_keys_from_marker',
+    'bug_marker_from_keys',
 ]

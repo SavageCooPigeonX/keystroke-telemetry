@@ -6,9 +6,9 @@
 # └────────────────────────────────────────────────────────────┘
 
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-30T01:00:00+00:00
+# EDIT_TS:   2026-04-02T23:06:35.2273093Z
 # EDIT_HASH: auto
-# EDIT_WHY:  initial training pairs module
+# EDIT_WHY:  log response aligned notes
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -34,6 +34,7 @@ The delta between user_intent and copilot_intent IS the gradient.
 
 from __future__ import annotations
 import json
+import re
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -57,6 +58,78 @@ def _load_jsonl_tail(filepath: Path, max_lines: int = 50) -> list[dict]:
         return results
     except OSError:
         return []
+
+
+def _normalize_text(text: str) -> str:
+    return ' '.join(str(text or '').lower().split())
+
+
+def _summarize_text(text: str, max_chars: int = 220) -> str:
+    cleaned = re.sub(r'\s+', ' ', str(text or '')).strip()
+    if not cleaned:
+        return ''
+    if len(cleaned) <= max_chars:
+        return cleaned
+    for sep in ('. ', '! ', '? '):
+        idx = cleaned.find(sep)
+        if 0 < idx < max_chars:
+            return cleaned[:idx + 1].strip()
+    return cleaned[:max_chars - 3].rstrip() + '...'
+
+
+def _find_response_for_prompt(prompt_msg: str, response_entries: list[dict]) -> dict | None:
+    prompt_norm = _normalize_text(prompt_msg)
+    if not prompt_norm:
+        return None
+    prompt_head = prompt_norm[:80]
+    for entry in reversed(response_entries):
+        response_prompt = _normalize_text(entry.get('prompt', ''))
+        if not response_prompt:
+            continue
+        if response_prompt == prompt_norm:
+            return entry
+        if prompt_head and response_prompt[:80] == prompt_head:
+            return entry
+        if len(prompt_head) >= 24 and (prompt_head in response_prompt or response_prompt[:48] in prompt_norm):
+            return entry
+    return None
+
+
+def _build_work_note(edit_pair: dict, copilot_intent: dict) -> str:
+    parts = []
+    edit_why = str(edit_pair.get('edit_why', '')).strip()
+    if edit_why:
+        parts.append(edit_why)
+    file_name = Path(str(copilot_intent.get('file', '') or edit_pair.get('file', ''))).name
+    if file_name:
+        parts.append(f'@{file_name}')
+    deltas = []
+    lines_added = int(copilot_intent.get('lines_added', 0) or 0)
+    chars_inserted = int(copilot_intent.get('chars_inserted', 0) or 0)
+    if lines_added:
+        deltas.append(f'+{lines_added}L')
+    if chars_inserted:
+        deltas.append(f'+{chars_inserted}c')
+    if deltas:
+        parts.append(f'({", ".join(deltas)})')
+    return ' '.join(parts).strip()[:220]
+
+
+def _build_completion_note(work_note: str, response_summary: str) -> str:
+    if work_note and response_summary:
+        return _summarize_text(f'{work_note}. {response_summary}', max_chars=240)
+    return work_note or response_summary
+
+
+def _top_counts(items: list[str], limit: int = 5) -> list[dict]:
+    counts: dict[str, int] = {}
+    for item in items:
+        key = str(item or '').strip()
+        if not key:
+            continue
+        counts[key] = counts.get(key, 0) + 1
+    ranked = sorted(counts.items(), key=lambda item: (-item[1], item[0]))
+    return [{'value': value, 'count': count} for value, count in ranked[:limit]]
 
 
 def _classify_user_intent(journal_entry: dict) -> dict:
@@ -146,6 +219,9 @@ def capture_training_pair(root: Path) -> dict | None:
     # Load recent copilot edits
     copilot_edits = _load_jsonl_tail(logs / 'copilot_edits.jsonl', max_lines=50)
 
+    # Load recent captured AI responses for this prompt
+    ai_responses = _load_jsonl_tail(logs / 'ai_responses.jsonl', max_lines=100)
+
     # Load rework log
     rework_entries = []
     rework_path = root / 'rework_log.json'
@@ -163,6 +239,13 @@ def capture_training_pair(root: Path) -> dict | None:
     rework = _find_rework_for_prompt(
         user_intent.get('raw_prompt', ''), rework_entries
     )
+    response_match = _find_response_for_prompt(
+        user_intent.get('raw_prompt', '') or latest_edit.get('prompt_msg', ''),
+        ai_responses,
+    )
+    response_summary = _summarize_text((response_match or {}).get('response', ''))
+    work_note = _build_work_note(latest_edit, copilot_intent)
+    completion_note = _build_completion_note(work_note, response_summary)
 
     record = {
         'ts': datetime.now(timezone.utc).isoformat(),
@@ -177,6 +260,14 @@ def capture_training_pair(root: Path) -> dict | None:
             'had_physical_keystroke': copilot_intent.get('had_physical_keystroke', False),
             'user_deletion_ratio': user_intent.get('deletion_ratio', 0),
             'user_hesitation': user_intent.get('hesitation_count', 0),
+            'response_captured': bool(response_match),
+        },
+        'completion': {
+            'work_note': work_note,
+            'completion_note': completion_note,
+            'response_summary': response_summary,
+            'response_ts': (response_match or {}).get('ts', ''),
+            'response_id': (response_match or {}).get('response_id', ''),
         },
     }
 
@@ -242,6 +333,10 @@ def generate_cycle_summary(root: Path, cycle: dict | None = None) -> dict:
         sum(1 for p in cycle_pairs if p.get('alignment', {}).get('had_physical_keystroke'))
         / len(cycle_pairs) if cycle_pairs else 0
     )
+    response_capture_rate = (
+        sum(1 for p in cycle_pairs if p.get('alignment', {}).get('response_captured'))
+        / len(cycle_pairs) if cycle_pairs else 0
+    )
 
     # Intent classification distribution
     intents = {}
@@ -257,6 +352,21 @@ def generate_cycle_summary(root: Path, cycle: dict | None = None) -> dict:
 
     # Files touched
     files = list({p.get('copilot_intent', {}).get('file', '') for p in cycle_pairs})
+    completion_notes = [
+        p.get('completion', {}).get('completion_note', '')
+        for p in cycle_pairs
+        if p.get('completion', {}).get('completion_note')
+    ]
+    work_notes = [
+        p.get('completion', {}).get('work_note', '')
+        for p in cycle_pairs
+        if p.get('completion', {}).get('work_note')
+    ]
+    response_summaries = [
+        p.get('completion', {}).get('response_summary', '')
+        for p in cycle_pairs
+        if p.get('completion', {}).get('response_summary')
+    ]
 
     summary = {
         'ts': datetime.now(timezone.utc).isoformat(),
@@ -267,11 +377,17 @@ def generate_cycle_summary(root: Path, cycle: dict | None = None) -> dict:
             'avg_latency_ms': round(sum(latencies) / len(latencies)) if latencies else None,
             'avg_deletion_ratio': round(sum(deletion_ratios) / len(deletion_ratios), 3) if deletion_ratios else None,
             'physical_keystroke_rate': round(physical_keystroke_rate, 3),
+            'response_capture_rate': round(response_capture_rate, 3),
             'rework_scored_count': len(rework_scores),
         },
         'intent_distribution': intents,
         'edit_source_distribution': sources,
         'files_touched': files[:20],
+        'completion_summary': {
+            'recent_completion_notes': completion_notes[-5:],
+            'response_samples': response_summaries[-3:],
+            'top_work_notes': _top_counts(work_notes),
+        },
     }
 
     # Merge push cycle data if available
@@ -282,6 +398,8 @@ def generate_cycle_summary(root: Path, cycle: dict | None = None) -> dict:
             'prediction_f1': cycle.get('prediction_score', {}).get('avg_f1'),
             'predictions_fired': cycle.get('new_predictions', 0),
             'backward_runs': cycle.get('backward_runs', 0),
+            'prompt_count': cycle.get('operator_signal', {}).get('prompt_count', 0),
+            'response_count': len(response_summaries),
         }
 
     # Write

@@ -13,7 +13,7 @@ import re
 def auto_compile_oversized(
     root: Path,
     fix_report: dict,
-    max_files: int = 2,
+    max_files: int = 5,
 ) -> list[dict]:
     """Auto-compile files flagged over_hard_cap, pruning confirmed dead exports.
 
