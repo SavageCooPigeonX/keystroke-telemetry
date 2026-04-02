@@ -786,7 +786,7 @@ def main():
     # ── Enrich prompt via Gemini Flash (rewrite current-query block) ──────────
     if submitted and query_txt and not query_txt.startswith('bg:'):
         try:
-            enricher_mod = _load_pigeon_module(root, 'src/探p_ur_s024*.py')
+            enricher_mod = _load_pigeon_module(root, 'src/u_pe_s024*.py')
             if enricher_mod:
                 enrich_dw = []
                 enrich_cog = {}

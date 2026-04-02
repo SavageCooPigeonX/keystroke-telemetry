@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-01 23:09 UTC · 196 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-02 01:57 UTC · 209 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -14,22 +14,22 @@
 
 ### Blind Spots *[source: measured]*
 *Edited without being predicted — the real surprises:*
-- `classify_bridge` — 150x unpredicted
-- `research_lab` — 145x unpredicted
+- `classify_bridge` — 100x unpredicted
+- `research_lab` — 97x unpredicted
 - `cognitive_reactor_seq014_patch_writer` — 50x unpredicted
 - `chat_response_reader` — 50x unpredicted
 - `copilot_prompt_manager_seq020_orchestrator` — 50x unpredicted
 
 ## Live Operator State
 
-*196 prompts profiled · source: measured*
+*209 prompts profiled · source: measured*
 
-**Dominant: `focused` | Submit: 66% | Del: 8.1%**
+**Dominant: `abandoned` | Submit: 66% | Del: 5.8%**
 - operator entering flow state — productive building, less backtracking
 
 ## Pair Performance
 
-*173 responses scored · 27 background excluded*
+*188 responses scored · 12 background excluded*
 
 **Accuracy: 100% OK | 0% miss** *[source: measured]*
 - trend: **stable** (100% → 100%)
@@ -37,10 +37,10 @@
 **Prompt→edit latency:** 239.2s median (40 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*94 mutations scored*
+*96 mutations scored*
 - no significant signal yet — all sections scored neutral
 
-**Reactor:** 216 fires, 0 accepted (0%)
+**Reactor:** 225 fires, 0 accepted (0%)
 > **Directive:** Reactor patches near-zero acceptance — tune confidence threshold or disable
 
 ## Codebase Health
@@ -68,24 +68,24 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "i ha"
-- "coonti"
-- "fixed arent"
-- "yes bu"
-- "even"
-- "age - like we have file append and if test run"
+- "- generate"
+- "coul"
+- "just aski"
 - "/ impor"
-- "but h"
-- "is it coh"
-- "what about glypg as signals for breakbruh"
+- "fix al"
+- "last change - t"
+- "missin"
+- "fixed arent"
+- "d eve"
+- "but"
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20, 27 bg noise
+- **Rework signal:** WEAK (placeholder data) — 200 entries, 2 unique scores in last 20, 12 bg noise
 - **Training pairs:** 32 captured
-- **Prediction accuracy:** F1=0.010, calibration=0.326 (200 scored)
+- **Prediction accuracy:** F1=0.010, calibration=0.305 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
 - **Memory shards:** 10 active (zero LLM calls)
 

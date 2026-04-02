@@ -3,6 +3,27 @@
 Auto-injected into every Copilot session for this repo. Read this before touching any file.
 
 ---
+
+<!-- pigeon:staleness-alert -->
+## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
+
+*Checked 2026-04-02 04:39 UTC — 2 block(s) stale or missing*
+
+**ATTENTION: The following blocks did NOT update when they should have.**
+**This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
+
+- **`current-query`**: STALE — 356min old (max 10min)
+  - Writer: `prompt_enricher (Gemini Flash)`
+  - Last updated: 2026-04-01 22:43
+
+- **`task-context`**: STALE — 4642min old (max 120min)
+  - Writer: `dynamic_prompt.inject_task_context (via classify_bridge)`
+  - Last updated: 2026-03-29 23:17
+
+**Action**: Run the journal command or check `logs/enricher_errors.jsonl` for failures.
+
+<!-- /pigeon:staleness-alert -->
+
 ## MANDATORY: Prompt Journal (execute FIRST on every message)
 
 **On EVERY user message, before doing any other work**, log an enriched entry by running:
@@ -171,27 +192,27 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-02 01:53 UTC · 90 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-02 04:41 UTC · 108 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 48.6 | Del: 26.5% | Hes: 0.482) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 50.8 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
 
-**Prompt ms:** 61757, 8752, 218001, 2275681, 11849 (avg 515208ms)
+**Prompt ms:** 1844003, 77491, 52444, 53058, 33646 (avg 412128ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- **Reconstructed intent:** The operator was about
-  - *(deleted: uncrt | ratio: 1%)*
 - **Reconstructed intent:** The user was likely about to
-  - *(deleted: uncrt | ratio: 1%)*
-- **Reconstructed intent:** The operator was likely about to
-  - *(deleted: uncrt | ratio: 1%)*
+  - *(deleted: o please continue ss | ratio: 23%)*
+- **Reconstructed intent:** The user was about to type
+  - *(deleted: blueberry, test | ratio: 8%)*
+- **Reconstructed intent:** The operator was about to provide
+  - *(deleted: blueberry, test | ratio: 8%)*
 
-- "stays"
-- "whats"
-- "uncrt"
+- "o please continue ss"
+- "blueberry"
+- "test"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
@@ -201,17 +222,19 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - `init_writer` (hes=0.63)
 - `context_budget` (hes=0.587)
 
-### AI Rework Surface
-*Miss rate: 15.0% (200 responses)*
-- Failed on: ""
-- Failed on: ""
-- Failed on: ""
-
 ### Recent Work
+- `a65a380` fix: update 75 stale glob patterns to match new _sNNN filenames, fix 14 cross-dir collisions, all 5 tests passing
 - `85584f7` chore: kill Module Map, slim dictionary, regenerate unified auto-index
 - `9cdc756` feat: compress auto-index with Chinese keymap â€” 4,948 tokens/prompt saved (16.2K to 11.3K)
 - `aa32a3f` chore: add Chinese glyph prefixes to 245 pigeon modules
-- `11eb261` feat: confidence scorer + glyph rename pipeline + research lab prediction voice
+
+### Coaching Directives *[source: llm_derived]*
+*LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
+- **Anticipate refactoring pain points**
+- **Pre-empt context gaps**
+- **Counter hesitation with direct options**
+- **Validate against rework triggers**
+- **Support night-session flow**
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -220,8 +243,8 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - task‑writing
 - and self‑healing systems.
 - token_optimizer's semantic-loss risk during deduplication
+- **u_dbcc_s005_v001** was touched to integrate stale glob awareness into cognitive drift analysis, assuming the new `_tmp
 - **execution_logger** was touched to embed a Chinese glyph (⻖) in its telemetry tagging, assuming that downstream log par
-- I was touched because the module map tracking system had become a source of memory bloat and complexity, so my internal 
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
@@ -232,32 +255,22 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - [CRITICAL] hardcoded_import in `pigeon_brain/live_server_seq012_v003_d0324__服漂忆思_websocket_server_for_live_execution_lc_8888_word_backpropagation.py`
 
 ### Prompt Evolution
-*This prompt has mutated 95x (186→710 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 97x (186→727 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 95 mutations scored*
+*200 rework pairs × 96 mutations scored*
 *No significant signal yet — all 15 sections scored neutral.*
 
-**Reactor patches:** 0/225 applied (0% acceptance)
+**Reactor patches:** 0/230 applied (0% acceptance)
 
 ### File Consciousness
 *234 modules profiled*
 
 **High-drama (most mutations):**
-- `self_fix` v11 ↔ .operator_stats
-- `.operator_stats` v10 ↔ heal
-- `dynamic_prompt` v10 ↔ .operator_stats
-- `context_budget` v8 ↔ .operator_stats
-
-**Codebase fears:**
-- file may not exist (20 modules)
-- swallowed exception (11 modules)
-- returns empty on failure (silent) (10 modules)
-
-**Slumber party warnings (high coupling):**
-- `execution_logger` ↔ `observer_synthesis` (score=0.80, 3 shared imports, both high-churn (v3+v3))
-- `execution_logger` ↔ `streaming_layer_alerts` (score=0.80, 3 shared imports, both high-churn (v3+v3))
-- `execution_logger` ↔ `streaming_layer_connection_pool` (score=0.80, 3 shared imports, both high-churn (v3+v3))
+- `self_fix` v11
+- `.operator_stats` v10
+- `dynamic_prompt` v10
+- `context_budget` v8
 
 ### Codebase Health (Veins / Clots)
 *133/137 alive, 4 clots, avg vein health 0.53*
@@ -370,16 +383,16 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
 
-*Auto-generated 2026-04-01 23:09 UTC · zero LLM calls*
+*Auto-generated 2026-04-02 01:57 UTC · zero LLM calls*
 
 **1 week:** `infrastructure` (conf=high) — ~48 commits
-**1 month:** `infrastructure` (conf=medium) — ~200 commits
-**3 months:** `infrastructure` (conf=speculative) — themes: coonti, kill, but h
+**1 month:** `infrastructure` (conf=medium) — ~198 commits
+**3 months:** `infrastructure` (conf=speculative) — themes: about, just aski, missin
 
 **PM Directives:**
 - Intent bifurcation: `infrastructure` dominant but `telemetry` emerging — watch for context switches mid-session.
 - `self_heal` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
-- Unsaid themes detected: `coonti`, `kill`, `but h` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
+- Unsaid themes detected: `about`, `just aski`, `missin` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
 - Module focus cluster: `file_heat_map`, `import_rewriter`, `file_writer` — pre-load context from these modules when operator starts typing.
 
 <!-- /pigeon:intent-simulation -->
@@ -408,25 +421,24 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-02 · 90 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-02 · 108 message(s) · LLM-synthesized*
 
-**Dominant: `abandoned`** | Submit: 66% | WPM: 52.3 | Del: 25.6% | Hes: 0.444
+**Dominant: `abandoned`** | Submit: 66% | WPM: 52.4 | Del: 25.6% | Hes: 0.444
 
-The operator just built an auto-index compression system while working in intense restructuring/abandonment cycles, revealing a pattern of rapid prototyping followed by deep refactoring of core orchestration modules.  
-- **Anticipate deep refactoring requests** on `self_fix seq13`, `dynamic_prompt seq17`, and `.operator_stats seq8`; these are their primary levers for system stability and meta-cognition.  
-- **When they enter a restructuring state** (high deletion, ~56%), provide concise, modular code blocks with clear interfaces, as they are likely rewriting integration points.  
-- **Preempt context management issues** by proactively referencing `context_budget seq4` patterns when discussions involve token limits or scoring.  
-- **After an abandoned message** (0% deletion, higher hesitation), offer multiple concise options or a clear question to re-engage their focus without assumptions.  
-- **Leverage their high evening/night productivity** by being direct and technical; avoid exploratory prose during these slots.  
-- **Given zero AI response rework**, maintain current precision but increase brevity during restructuring phases to match their high-velocity editing.  
-They are most likely building toward a fully autonomous, self-optimizing intent pipeline that minimizes manual context management.
+This operator just built a self-fix analyzer for dynamic imports, and their typing shows a night-owl pattern of rapid, focused bursts followed by heavy restructuring and abandoned drafts, indicating deep iterative debugging with high deletion rates.
+
+*   **Anticipate refactoring pain points:** Proactively suggest cleaner patterns for modules in the churn list, especially `self_fix`, `dynamic_prompt`, and `.operator_stats`, before they ask.
+*   **Pre-empt context gaps:** When code touches `context_budget` or `push_narrative`, explicitly summarize relevant recent changes from those modules to prevent rework.
+*   **Counter hesitation with direct options:** On heavy-edit commits, detect restructuring state and offer 2-3 concrete, alternative implementations succinctly; avoid open-ended questions.
+*   **Validate against rework triggers:** For queries related to the worst-performing areas, provide bulletproof, syntax-valid examples first, then explain.
+*   **Support night-session flow:** Keep responses extremely concise and actionable; use clear, scoped code blocks, not prose.
+
+The operator is most likely building toward a fully autonomous, self-correcting pipeline that minimizes manual context management.
 
 <!-- /pigeon:operator-state -->
-> **Cognitive reactor fired on `日_prompt_journal`** (hes=0.699, state=hesitant, avg_prompt=142663ms)
-> - Rework miss rate: 6% (13/200)
-> - Worst queries: ; ; 
-> - Prompt composition time: 218001ms / 8752ms / 61757ms / 228468ms / 196338ms (avg 142663ms)
-> **Directive**: When `日_prompt_journal` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
+> **Cognitive reactor fired on `autonomous_dev_stress_test`** (hes=0.692, state=focused, avg_prompt=891497ms)
+> - Prompt composition time: 53058ms / 52444ms / 77491ms / 1844003ms / 2430488ms (avg 891497ms)
+> **Directive**: When `autonomous_dev_stress_test` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
@@ -437,25 +449,36 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-04-01T22:43:40.754481+00:00",
+  "updated_at": "2026-04-02T04:38:57.799843+00:00",
   "latest_prompt": {
-    "session_n": 99,
-    "ts": "2026-04-01T22:43:40.754481+00:00",
-    "chars": 33,
-    "preview": "test enricher firing from journal",
+    "session_n": 11,
+    "ts": "2026-04-02T04:38:57.799843+00:00",
+    "chars": 128,
+    "preview": "push nd test tht everything updtes - also i noticed that in memory shrs training pir doentresolve - are they even being used ?? ",
     "intent": "testing",
-    "state": "unknown",
+    "state": "focused",
     "files_open": [
       ".github/copilot-instructions.md"
     ],
     "module_refs": []
   },
-  "signals": {},
+  "signals": {
+    "wpm": 47.1,
+    "chars_per_sec": 3.9,
+    "deletion_ratio": 0.029,
+    "hesitation_count": 1,
+    "rewrite_count": 0,
+    "typo_corrections": 3,
+    "intentional_deletions": 0,
+    "total_keystrokes": 136,
+    "duration_ms": 33646
+  },
   "composition_binding": {
-    "matched": false,
-    "source": null,
-    "age_ms": null,
-    "key": null
+    "matched": true,
+    "source": "chat_compositions",
+    "age_ms": 92196,
+    "key": "|||2026-04-02T04:37:25.603484+00:00|136|33646|push nd test tht everything updtes - also i noticed that in memory shrs training pir doentresolve - are they even being ",
+    "match_score": 1.0
   },
   "deleted_words": [],
   "rewrites": [],
@@ -480,34 +503,27 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 194,
-    "avg_wpm": 13.9,
-    "avg_del_ratio": 0.046,
+    "total_prompts": 229,
+    "avg_wpm": 12.2,
+    "avg_del_ratio": 0.048,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 123,
-      "hesitant": 29,
-      "focused": 25,
-      "frustrated": 12,
-      "neutral": 4
+      "unknown": 141,
+      "hesitant": 39,
+      "focused": 26,
+      "frustrated": 17,
+      "neutral": 5
     },
     "baselines": {
-      "n": 63,
-      "avg_wpm": 52.9,
+      "n": 102,
+      "avg_wpm": 51.7,
       "avg_del": 0.259,
-      "avg_hes": 0.448,
-      "sd_wpm": 14.5,
+      "avg_hes": 0.447,
+      "sd_wpm": 14.8,
       "sd_del": 0.231,
       "sd_hes": 0.164
     }
-  },
-  "coaching_directives": [
-    "Anticipate cross-module edits:",
-    "Pre-empt restructuring fatigue:",
-    "Bridge abandoned thoughts:",
-    "Leverage low miss-rate confidence:",
-    "Focus on integration points:"
-  ]
+  }
 }
 ```
 

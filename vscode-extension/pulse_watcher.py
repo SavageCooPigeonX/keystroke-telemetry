@@ -37,7 +37,7 @@ def main():
     if rec:
         # ── Training pair capture — every edit is a label ──
         try:
-            tp_matches = sorted(root.glob('src/路f_cxr_s027*.py'))
+            tp_matches = sorted(root.glob('src/对p_tp_s027*.py'))
             if tp_matches:
                 tp_spec = importlib.util.spec_from_file_location('_tp', tp_matches[-1])
                 tp_mod = importlib.util.module_from_spec(tp_spec)

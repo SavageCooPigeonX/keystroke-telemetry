@@ -1,852 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-04-01T09:46:22.693711+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T09:47:23.420689+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T09:48:22.854351+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T09:49:22.768797+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T09:50:22.738909+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T09:51:22.672789+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T09:52:22.739157+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T09:53:22.770452+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T09:54:22.853915+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T09:55:22.770978+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T09:56:22.763824+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T09:57:22.745861+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T09:58:22.788982+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T09:59:22.826480+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:00:22.873444+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:01:22.814523+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:02:22.786181+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:03:22.800232+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:04:22.821850+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:05:22.882311+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:06:22.901888+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:07:22.831941+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:08:22.867647+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:09:22.823086+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:10:22.887786+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:11:22.937966+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:12:22.825001+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:13:22.894906+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:14:22.993845+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:15:22.925663+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:16:22.955723+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:17:22.915674+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:18:22.926673+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:19:23.082084+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:20:23.180369+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:21:22.949859+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:22:23.022064+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:23:23.055486+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:24:23.146565+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:25:23.039704+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:26:23.339896+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:27:23.013292+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:28:23.073806+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:29:23.090502+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:30:23.183254+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:31:23.072444+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:32:23.214650+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:33:23.146292+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:34:23.395227+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:35:23.476443+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:36:23.276773+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:37:23.106630+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:38:23.153410+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:39:23.488128+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:40:23.256962+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:41:23.440722+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:42:23.365731+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:43:23.627978+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:44:23.476263+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:45:23.503579+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:46:23.256713+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:47:23.370585+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:48:23.341186+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:49:23.230328+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:50:23.497330+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:51:23.575382+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:52:23.459055+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:53:23.670286+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:54:23.803908+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:55:23.866422+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:56:23.796366+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:57:23.706083+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:58:23.613971+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T10:59:23.738873+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:00:23.904354+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:01:23.750712+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:02:23.554298+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:03:23.808910+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:04:23.783476+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:05:23.873165+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:06:23.832461+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:07:23.766764+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:08:23.890912+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:09:23.970123+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:10:23.601649+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:11:24.020983+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:12:23.954560+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:13:23.880455+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:14:24.150327+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:15:24.325235+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:16:24.059101+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:17:24.031832+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:18:24.142162+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:19:23.771946+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:20:24.105905+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:21:24.141554+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:22:24.153129+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:23:24.132499+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:24:24.107949+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:25:24.236819+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:26:24.113282+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:27:24.162796+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:28:23.819358+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:29:24.130892+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:30:24.094665+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:31:23.880643+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:32:24.184482+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:33:24.134218+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:34:24.131274+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:35:24.128700+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:36:24.137412+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:37:24.284278+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:38:24.158484+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:39:24.136979+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:40:24.231216+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:41:23.911155+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:42:24.157390+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:43:23.916083+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:44:24.224712+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:45:24.294188+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:46:24.275817+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:47:24.280333+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:48:24.298111+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:49:24.341833+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:50:24.368163+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:51:24.266077+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:52:24.350044+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:53:24.321317+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:54:24.126505+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:55:24.019647+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:56:24.279461+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:57:24.319244+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:58:24.375133+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T11:59:24.194922+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:00:24.286001+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:01:24.324989+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:02:24.283714+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:03:24.326761+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:04:24.441363+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:05:24.390999+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:06:24.243639+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
       "ts": "2026-04-01T12:07:24.272847+00:00",
       "text": "bg:RESEARCH_LOG.md",
       "fingerprint": "bgresearch_logmd",
@@ -2998,6 +2152,852 @@
       "ts": "2026-04-02T01:53:37.514159+00:00",
       "text": "bg:MANIFEST.md",
       "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T01:57:36.559171+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T01:58:36.622594+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T01:59:36.686551+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:00:36.943284+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:01:36.545334+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:02:36.485800+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:03:36.529975+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:04:36.471807+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:05:36.484521+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:06:36.453108+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:07:36.447860+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:08:36.557611+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:09:38.595618+00:00",
+      "text": "bg:MANIFEST.md",
+      "fingerprint": "bgmanifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:10:39.335827+00:00",
+      "text": "bg:\u00e5\u00ae\u00a1p_va_s005_v004_d0315_\u00e8\u00b8\u00aa\u00e7\u00a8\u00bf\u00e6\u017e\udc90_\u00ce\u00bb\u00ce\u00bd.py",
+      "fingerprint": "bg\u00e5p_va_s005_v004_d0315_\u00e8\u00aa\u00e7\u00e6\u017e_\u00ee\u00ee\u00bdpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:11:38.829494+00:00",
+      "text": "bg:\u00e8\u00b0\u00b1\u00e5\u00bb\u00baf_mb_hm_s024_v001.py",
+      "fingerprint": "bg\u00e8\u00e5\u00baf_mb_hm_s024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:12:36.798684+00:00",
+      "text": "bg:\u00e8\u00b0\u00b1\u00e5\u00bb\u00baf_mb_ce_s011_v001.py",
+      "fingerprint": "bg\u00e8\u00e5\u00baf_mb_ce_s011_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:13:38.621330+00:00",
+      "text": "bg:\u00e8\u00b0\u00b1\u00e5\u00bb\u00baf_mb_ce_s011_v001.py",
+      "fingerprint": "bg\u00e8\u00e5\u00baf_mb_ce_s011_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:14:40.639910+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:15:41.289485+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:16:40.149040+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:17:38.893720+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:18:38.246487+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:19:39.084429+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:20:38.949074+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:21:38.534924+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:22:36.747561+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:23:36.919672+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:24:36.862060+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:25:36.816659+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:26:38.114544+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:27:40.713141+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:28:38.048279+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:29:38.168123+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:30:41.508298+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:31:39.451882+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:32:41.208344+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:33:37.847782+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:34:38.433099+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:35:38.110667+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:36:38.118638+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:37:38.402427+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:38:38.120235+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:39:38.800367+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:40:39.274319+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:41:39.578401+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:42:38.821375+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:43:38.462394+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:44:39.424644+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:45:39.088435+00:00",
+      "text": "bg:INTENT_SIMULATION.md",
+      "fingerprint": "bgintent_simulationmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:46:38.886216+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:47:42.837981+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:48:39.176334+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:49:39.533879+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:50:39.815463+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:51:41.676673+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:52:40.162285+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:53:42.851524+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:54:44.349513+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:56:21.950810+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:56:23.935628+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:56:42.854394+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:57:39.883933+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:58:39.209259+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T02:59:39.004750+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:00:39.473637+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:01:45.584502+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:02:40.392434+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:31:37.823470+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:34:46.747794+00:00",
+      "text": "bg:\u00e6\u017d\u00a8w_dp_da_s006_v001.py",
+      "fingerprint": "bg\u00e6\u017ew_dp_da_s006_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:35:52.297416+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:36:43.684180+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:37:41.291218+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:39:12.950818+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:39:43.304564+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:40:39.587516+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:41:39.303270+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:42:37.975215+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:43:38.883327+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:44:38.616868+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:45:38.286078+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:46:38.618292+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:47:38.874877+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:48:38.315231+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:49:37.820151+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:50:38.077167+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:51:38.403661+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:52:38.115808+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:53:40.072629+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:54:41.098305+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:55:41.403984+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:56:00.709828+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:56:38.294906+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:57:38.316744+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:58:11.246923+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:58:31.618300+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:58:40.458137+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T03:59:39.839167+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:00:05.612827+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:00:40.144531+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:01:41.592443+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:02:39.319704+00:00",
+      "text": "bg:\u00e8\u00b0\u00b1p_dsa_s001_v006_d0322_\u00e8\u00af\u00bb_\u00ce\u00bb7.py",
+      "fingerprint": "bg\u00e8p_dsa_s001_v006_d0322_\u00e8_\u00ee7py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:03:38.498173+00:00",
+      "text": "bg:pigeon_limits.py",
+      "fingerprint": "bgpigeon_limitspy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:04:38.494130+00:00",
+      "text": "bg:\u00e7\u017d\u00afw_pc_co_s005_v002_d0329_\u00ce\u00bbH.py",
+      "fingerprint": "bg\u00e7\u017ew_pc_co_s005_v002_d0329_\u00eehpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:05:38.134576+00:00",
+      "text": "bg:\u00e7\u017d\u00afw_pc_co_s005_v002_d0329_\u00ce\u00bbH.py",
+      "fingerprint": "bg\u00e7\u017ew_pc_co_s005_v002_d0329_\u00eehpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:06:41.386388+00:00",
+      "text": "bg:\u00e7\u2030\u0152f_nam_s011_v004_d0401_\u00e8\u00bf\u00bd\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba\u00e8\u00b8\u00aa_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e7\u0153f_nam_s011_v004_d0401_\u00e8\u00bd\u00e8\u00e5\u00ba\u00e8\u00aa_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:07:39.744798+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:08:39.616011+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:09:42.687628+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:10:41.393385+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:11:44.367151+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:12:43.354096+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:13:47.061062+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:14:39.800220+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:15:37.737119+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:16:40.414145+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:17:38.203167+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:18:41.038531+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:19:37.669682+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:20:39.159214+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:21:14.855130+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:21:39.673802+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:22:38.078152+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:23:37.723330+00:00",
+      "text": "bg:\u00e6\u201d\u00b9\u00e5\udc90\udc8df_rr_s006_v005_d0401_\u00e8\u00bf\u00bd\u00e8\u00b7\u2018\u00e6\u2039\u2020\u00e8\u00b0\u00b1\u00e5\u00bb\u00ba_\u00ce\u00bbA.py",
+      "fingerprint": "bg\u00e6\u00b9\u00e5f_rr_s006_v005_d0401_\u00e8\u00bd\u00e8\u00e6\u00e8\u00e5\u00ba_\u00eepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:24:37.310420+00:00",
+      "text": "bg:autonomous_dev_stress_test.py",
+      "fingerprint": "bgautonomous_dev_stress_testpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:25:40.299188+00:00",
+      "text": "bg:autonomous_dev_stress_test.py",
+      "fingerprint": "bgautonomous_dev_stress_testpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:26:40.177677+00:00",
+      "text": "bg:autonomous_dev_stress_test.py",
+      "fingerprint": "bgautonomous_dev_stress_testpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:26:52.415018+00:00",
+      "text": "bg:autonomous_dev_stress_test.py",
+      "fingerprint": "bgautonomous_dev_stress_testpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:27:06.119135+00:00",
+      "text": "bg:autonomous_dev_stress_test.py",
+      "fingerprint": "bgautonomous_dev_stress_testpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:27:38.375565+00:00",
+      "text": "bg:autonomous_dev_stress_test.py",
+      "fingerprint": "bgautonomous_dev_stress_testpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:27:49.839166+00:00",
+      "text": "bg:autonomous_dev_stress_test.py",
+      "fingerprint": "bgautonomous_dev_stress_testpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:28:38.474812+00:00",
+      "text": "bg:autonomous_dev_stress_test.py",
+      "fingerprint": "bgautonomous_dev_stress_testpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:29:40.016543+00:00",
+      "text": "bg:autonomous_dev_stress_test.py",
+      "fingerprint": "bgautonomous_dev_stress_testpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:30:38.919127+00:00",
+      "text": "bg:autonomous_dev_stress_test.py",
+      "fingerprint": "bgautonomous_dev_stress_testpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:35:39.462744+00:00",
+      "text": "bg:RESEARCH_LOG.md",
+      "fingerprint": "bgresearch_logmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:36:38.641880+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:37:37.333957+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:38:37.613421+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:39:37.694815+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:40:37.354083+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:41:28.198370+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T04:41:37.499406+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
       "submitted": true
     }
   ],

@@ -1,4 +1,39 @@
 """run_batch_compile_seq015/ — Pigeon-compliant module."""
-from .run_batch_compile_seq015_main_seq001_v001 import PROJECT_ROOT, main
-from .run_batch_compile_seq015_orchestrator_seq003_v001 import batch_compile
-from .run_batch_compile_seq015_scanner_seq002_v001 import COMPILER_DIRS, SKIP_DIRS, SKIP_NAMES, scan_oversized
+from pathlib import Path
+
+from pigeon_compiler import _load_package_attrs
+
+_PACKAGE_DIR = Path(__file__).resolve().parent
+
+PROJECT_ROOT, main = _load_package_attrs(
+	__name__,
+	_PACKAGE_DIR,
+	'seq001',
+	'PROJECT_ROOT',
+	'main',
+)
+COMPILER_DIRS, SKIP_DIRS, SKIP_NAMES, scan_oversized = _load_package_attrs(
+	__name__,
+	_PACKAGE_DIR,
+	'seq002',
+	'COMPILER_DIRS',
+	'SKIP_DIRS',
+	'SKIP_NAMES',
+	'scan_oversized',
+)
+batch_compile = _load_package_attrs(
+	__name__,
+	_PACKAGE_DIR,
+	'seq003',
+	'batch_compile',
+)
+
+__all__ = [
+	'PROJECT_ROOT',
+	'main',
+	'COMPILER_DIRS',
+	'SKIP_DIRS',
+	'SKIP_NAMES',
+	'scan_oversized',
+	'batch_compile',
+]

@@ -3,9 +3,24 @@
 Takes JSON cut plans, slices source by AST, writes Pigeon-compliant files,
 fixes imports, writes manifests. The refactoring engine.
 """
-from pigeon_compiler.cut_executor.析p_pp_s001_v004_d0315_测编深划鸽环_λν import parse_plan
-from pigeon_compiler.cut_executor.切p_ss_s002_v004_d0315_重箱重助重拆_λν import slice_source
-from pigeon_compiler.cut_executor.写w_fw_s003_v005_d0322_译改名踪_λμ import write_cut_files
-from pigeon_compiler.cut_executor.踪p_if_s004_v004_d0315_牌册谱桥_λν import fix_imports
-from pigeon_compiler.cut_executor.稿p_mw_s005_v004_d0315_册追跑谱桥_λν import write_manifest
-from pigeon_compiler.cut_executor.验w_pv_s006_v004_d0315_重箱重拆追跑_λν import validate_plan
+from pathlib import Path
+
+from pigeon_compiler import _load_package_attrs
+
+_PACKAGE_DIR = Path(__file__).resolve().parent
+
+parse_plan = _load_package_attrs(__name__, _PACKAGE_DIR, 's001', 'parse_plan')
+slice_source = _load_package_attrs(__name__, _PACKAGE_DIR, 's002', 'slice_source')
+write_cut_files = _load_package_attrs(__name__, _PACKAGE_DIR, 's003', 'write_cut_files')
+fix_imports = _load_package_attrs(__name__, _PACKAGE_DIR, 's004', 'fix_imports')
+write_manifest = _load_package_attrs(__name__, _PACKAGE_DIR, 's005', 'write_manifest')
+validate_plan = _load_package_attrs(__name__, _PACKAGE_DIR, 's006', 'validate_plan')
+
+__all__ = [
+	'parse_plan',
+	'slice_source',
+	'write_cut_files',
+	'fix_imports',
+	'write_manifest',
+	'validate_plan',
+]
