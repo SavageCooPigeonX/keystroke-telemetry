@@ -29,8 +29,8 @@ _lc_  = separator between desc and intent
 # ── pigeon ────────────────────────────────────
 # SEQ: 012 | VER: v004 | 253 lines | ~2,131 tokens
 # DESC:   local_name_registry_for_the
-# INTENT: add_chinese_glyph
-# LAST:   2026-04-01 @ aa32a3f
+# INTENT: add_compressed_filename_mutator
+# LAST:   2026-04-02 @ aa32a3f
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 import json
@@ -43,6 +43,14 @@ PIGEON_STEM_RE = re.compile(
     r'^(?P<name>.+)_seq(?P<seq>\d{3})_v(?P<ver>\d{3})'
     r'(?:_d(?P<date>\d{4}))?'
     r'(?:__(?P<slug>[a-z0-9_]+))?$'
+)
+# Compressed format: {glyph}{state}_{abbrev}_s{seq}_v{ver}[_d{date}][_{deps}][_λ{intent}]
+# State codes: p=pass w=warn f=fail u=unknown
+COMPRESSED_STEM_RE = re.compile(
+    r'^(?P<glyph>[^\x00-\x7f]*)(?P<state>[pfwu])_(?P<abbrev>[a-z_]+)_s(?P<seq>\d{3,4})_v(?P<ver>\d{3})'
+    r'(?:_d(?P<date>\d{4}))?'
+    r'(?:_(?P<deps>[^\x00-\x7f]+))?'
+    r'(?:_λ(?P<intent>\S+))?$'
 )
 LC_SEP = '_lc_'  # separator between desc and intent in filename slug
 
@@ -83,30 +91,55 @@ def save_registry(root: Path, entries: dict):
 def parse_pigeon_stem(stem: str) -> dict | None:
     """Parse a Pigeon filename stem into components.
 
-    'noise_filter_seq007_v003_d0315__filter_live_noise_lc_added_drift'
-    → {name: 'noise_filter', seq: 7, ver: 3, date: '0315',
-       desc: 'filter_live_noise', intent: 'added_drift'}
+    Old format:
+      'noise_filter_seq007_v003_d0315__filter_live_noise_lc_added_drift'
+      → {name: 'noise_filter', seq: 7, ver: 3, date: '0315', ...}
+
+    Compressed format:
+      '改名f_rr_s006_v005_d0401_追跑拆谱建_λA'
+      → {name: '改名f_rr', seq: 6, ver: 5, date: '0401', ..., compressed: True}
 
     Legacy (no _lc_): treats full slug as desc, intent=''.
     """
+    # Try old format first
     m = PIGEON_STEM_RE.match(stem)
-    if not m:
-        return None
-    slug = m.group('slug') or ''
-    desc, intent = '', ''
-    if slug:
-        if LC_SEP in slug:
-            desc, intent = slug.split(LC_SEP, 1)
-        else:
-            desc = slug  # legacy: whole slug is desc
-    return {
-        'name': m.group('name'),
-        'seq': int(m.group('seq')),
-        'ver': int(m.group('ver')),
-        'date': m.group('date') or '',
-        'desc': desc,
-        'intent': intent,
-    }
+    if m:
+        slug = m.group('slug') or ''
+        desc, intent = '', ''
+        if slug:
+            if LC_SEP in slug:
+                desc, intent = slug.split(LC_SEP, 1)
+            else:
+                desc = slug
+        return {
+            'name': m.group('name'),
+            'seq': int(m.group('seq')),
+            'ver': int(m.group('ver')),
+            'date': m.group('date') or '',
+            'desc': desc,
+            'intent': intent,
+            'compressed': False,
+        }
+    # Try compressed format
+    mc = COMPRESSED_STEM_RE.match(stem)
+    if mc:
+        glyph = mc.group('glyph') or ''
+        state = mc.group('state')
+        abbrev = mc.group('abbrev')
+        return {
+            'name': f'{glyph}{state}_{abbrev}',
+            'seq': int(mc.group('seq')),
+            'ver': int(mc.group('ver')),
+            'date': mc.group('date') or '',
+            'desc': '',
+            'intent': mc.group('intent') or '',
+            'compressed': True,
+            'glyph': glyph,
+            'state': state,
+            'abbrev': abbrev,
+            'deps': mc.group('deps') or '',
+        }
+    return None
 
 
 def build_pigeon_filename(name: str, seq: int, ver: int,
@@ -126,6 +159,51 @@ def build_pigeon_filename(name: str, seq: int, ver: int,
     elif desc:
         parts += f'__{desc}'
     return parts + '.py'
+
+
+def build_compressed_filename(glyph: str, state: str, abbrev: str,
+                              seq: int, ver: int, date: str = '',
+                              deps: str = '', intent: str = '') -> str:
+    """Construct a compressed Pigeon filename from components.
+
+    build_compressed_filename('改名', 'f', 'rr', 6, 5, '0401', '追跑拆谱建', 'A')
+    → '改名f_rr_s006_v005_d0401_追跑拆谱建_λA.py'
+    """
+    parts = [f'{glyph}{state}_{abbrev}_s{seq:03d}_v{ver:03d}']
+    if date:
+        parts.append(f'd{date}')
+    if deps:
+        parts.append(deps)
+    if intent:
+        parts.append(f'λ{intent}')
+    return '_'.join(parts) + '.py'
+
+
+def mutate_compressed_stem(stem: str, new_ver: int = None,
+                           new_date: str = None,
+                           new_state: str = None,
+                           new_intent: str = None) -> str | None:
+    """Mutate a compressed filename stem in-place, updating specified fields.
+
+    Returns the new filename (with .py) or None if stem doesn't parse.
+
+    mutate_compressed_stem('改名f_rr_s006_v005_d0401_追跑拆谱建_λA',
+                           new_ver=6, new_date='0402', new_intent='F')
+    → '改名f_rr_s006_v006_d0402_追跑拆谱建_λF.py'
+    """
+    parsed = parse_pigeon_stem(stem)
+    if not parsed or not parsed.get('compressed'):
+        return None
+    return build_compressed_filename(
+        glyph=parsed['glyph'],
+        state=new_state or parsed['state'],
+        abbrev=parsed['abbrev'],
+        seq=parsed['seq'],
+        ver=new_ver if new_ver is not None else parsed['ver'],
+        date=new_date or parsed['date'],
+        deps=parsed.get('deps', ''),
+        intent=new_intent or parsed.get('intent', ''),
+    )
 
 
 def build_registry_from_scan(root: Path, catalog: dict) -> dict:

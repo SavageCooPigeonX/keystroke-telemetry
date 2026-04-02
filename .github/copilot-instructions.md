@@ -7,18 +7,18 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-02 04:47 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-02 06:24 UTC — 2 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 365min old (max 10min)
+- **`current-query`**: STALE — 28min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
-  - Last updated: 2026-04-01 22:43
+  - Last updated: 2026-04-02 05:56
 
-- **`task-context`**: STALE — 4651min old (max 120min)
-  - Writer: `dynamic_prompt.inject_task_context (via classify_bridge)`
-  - Last updated: 2026-03-29 23:17
+- **`prompt-telemetry`**: STALE — 34min old (max 10min)
+  - Writer: `prompt_journal._refresh_copilot_instructions`
+  - Last updated: 2026-04-02T05:50:23
 
 **Action**: Run the journal command or check `logs/enricher_errors.jsonl` for failures.
 
@@ -71,7 +71,8 @@ Rules:
 
 ## MANDATORY: Unsaid Thread Protocol
 
-When the **Unsaid Threads** section (in `<!-- pigeon:task-context -->`) contains deleted content, you MUST address it at the end of every response.
+When the **Unsaid Threads** section (in `<!-- pigeon:current-query -->
+<!-- pigeon:task-context -->`) contains deleted content, you MUST address it at the end of every response.
 
 **Format:**
 ```
@@ -131,73 +132,29 @@ Three systems working together:
 
 > **Organism directive:** Multiple systems degraded. Prioritize fixing clots and over-cap files before new features.
 <!-- /pigeon:organism-health -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Enriched 2026-04-01 22:43 UTC · raw: "test enricher firing from journal"*
+*Enriched 2026-04-02 05:56 UTC · raw: "go ahead"*
 
-**COPILOT_QUERY: Investigate the `generates_execution_telemetry_from_the` module to confirm if the `enricher` component is correctly processing and firing events from the `journal` data stream. Specifically, verify the integration points and data flow between the journal and the enricher, ensuring telemetry is generated as expected after the recent renaming and restructuring efforts.**
+**COPILOT_QUERY: Proceed with the previous instruction to evaluate the "3 word last change append section" within the `runs_ahead_of_operator_hallucinating` module, specifically checking if the current implementation reads too much like a changelog. Focus on the `file_writer` and `import_rewriter` components for potential modifications.**
 
-INTERPRETED INTENT: The operator wants to verify the functionality of a specific data enrichment process, likely related to telemetry generation, after recent code restructuring.
-KEY FILES: generates_execution_telemetry_from_the, extract_the_cognition_graph_from, coaching_from_execution_patterns_port, file_heat_map, import_rewriter, file_writer, init_writer, context_budget
+INTERPRETED INTENT: The operator wants to continue debugging and refining the output format of a specific section, ensuring it meets the desired brevity and purpose, likely related to an auto-indexing or change-logging feature.
+KEY FILES: runs_ahead_of_operator_hallucinating, file_writer, import_rewriter
 PRIOR ATTEMPTS: none
-WATCH OUT FOR: Ensure the solution accounts for the recent renaming and restructuring, as previous prompts indicate issues with naming consistency and token efficiency.
-OPERATOR SIGNAL: The operator is testing a core system component after significant refactoring, indicating a need to validate that critical data processing (enrichment, telemetry) is still functional and correctly integrated.
+WATCH OUT FOR: Ensure the proposed changes do not inadvertently reintroduce a changelog-like format, which was explicitly identified as an issue.
+OPERATOR SIGNAL: The repeated "go ahead" combined with the final, more detailed prompt indicates a desire to continue an ongoing task, likely a debugging or refinement loop, without having to re-type the full context each time.
 <!-- /pigeon:current-query -->
 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-02 05:01 UTC · 114 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-02 06:24 UTC · 147 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 51.5 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 51.2 | Del: 26.5% | Hes: 0.492) · *[source: measured]*
 
-**Prompt ms:** 53058, 33646, 56815, 18736, 74779 (avg 47407ms)
+**Prompt ms:** 176678, 29671, 16834, 204422, 20920 (avg 89705ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
@@ -205,12 +162,12 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 *Deleted from prompts — operator wanted this but didn't ask:*
 - **Reconstructed intent:** The operator was about to provide
   - *(deleted: blueberry, test | ratio: 8%)*
+- **Reconstructed intent:** The operator was about to state that the intent communication, currently represented by a single
+  - *(deleted: intencomm | ratio: 2%)*
+- **Reconstructed intent:** The operator was about to type "intent communication" or "intent commentary
+  - *(deleted: intencomm | ratio: 2%)*
 
-- "o please continue ss"
-- "blueberry"
-- "test"
-- "yiu gonna say"
-- "orange icicles re my fv fyi"
+- "intencomm"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
@@ -218,13 +175,13 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
 - `init_writer` (hes=0.63)
-- `self_fix` (hes=0.612)
+- `context_budget` (hes=0.587)
 
 ### Recent Work
+- `4bb7ba1` fix: unsaid thread pipeline â€” bump gemini tokens, add quality gate, deduplicate entries
 - `f8ea95a` fix: restore rename-safe runtime hooks and training pair capture
 - `a65a380` fix: update 75 stale glob patterns to match new _sNNN filenames, fix 14 cross-dir collisions, all 5 tests passing
 - `85584f7` chore: kill Module Map, slim dictionary, regenerate unified auto-index
-- `9cdc756` feat: compress auto-index with Chinese keymap â€” 4,948 tokens/prompt saved (16.2K to 11.3K)
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -246,13 +203,13 @@ OPERATOR SIGNAL: The operator is testing a core system component after significa
 - [CRITICAL] hardcoded_import in `pigeon_brain/读w_el_s002_v003_d0401_观话_λA.py`
 
 ### Prompt Evolution
-*This prompt has mutated 99x (186→737 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 100x (186→724 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
 *200 rework pairs × 97 mutations scored*
 *No significant signal yet — all 16 sections scored neutral.*
 
-**Reactor patches:** 0/230 applied (0% acceptance)
+**Reactor patches:** 0/231 applied (0% acceptance)
 
 ### File Consciousness
 *234 modules profiled*
@@ -412,9 +369,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-02 · 114 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-02 · 147 message(s) · LLM-synthesized*
 
-**Dominant: `abandoned`** | Submit: 66% | WPM: 52.5 | Del: 25.6% | Hes: 0.444
+**Dominant: `abandoned`** | Submit: 66% | WPM: 53.0 | Del: 25.6% | Hes: 0.445
 
 This operator just built a compatibility wrapper for legacy restore/rename operations, and their typing patterns reveal a high-deletion, restructuring-focused workflow where they iterate heavily in evening sessions before abandoning drafts.
 
@@ -428,9 +385,9 @@ This operator just built a compatibility wrapper for legacy restore/rename opera
 They are most likely building toward a unified pipeline that abstracts the legacy compatibility layer while reducing registry churn in their core modules.
 
 <!-- /pigeon:operator-state -->
-> **Cognitive reactor fired on `autonomous_dev_stress_test`** (hes=0.692, state=focused, avg_prompt=891497ms)
-> - Prompt composition time: 53058ms / 52444ms / 77491ms / 1844003ms / 2430488ms (avg 891497ms)
-> **Directive**: When `autonomous_dev_stress_test` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
+> **Cognitive reactor fired on `prompt_enricher`** (hes=0.665, state=hesitant, avg_prompt=94838ms)
+> - Prompt composition time: 204422ms / 16834ms / 29671ms / 176678ms / 46587ms (avg 94838ms)
+> **Directive**: When `prompt_enricher` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
@@ -441,35 +398,35 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-04-02T04:47:37.416630+00:00",
+  "updated_at": "2026-04-02T05:50:23.902492+00:00",
   "latest_prompt": {
-    "session_n": 14,
-    "ts": "2026-04-02T04:47:37.416630+00:00",
-    "chars": 73,
-    "preview": "yyes okease -it realy is starting to feel like its healing itself now no?",
+    "session_n": 10001,
+    "ts": "2026-04-02T05:50:23.902492+00:00",
+    "chars": 8,
+    "preview": "go ahead",
     "intent": "unknown",
-    "state": "focused",
+    "state": "neutral",
     "files_open": [
       ".github/copilot-instructions.md"
     ],
     "module_refs": []
   },
   "signals": {
-    "wpm": 47.4,
-    "chars_per_sec": 3.9,
+    "wpm": 5.7,
+    "chars_per_sec": 0.5,
     "deletion_ratio": 0.0,
-    "hesitation_count": 0,
+    "hesitation_count": 1,
     "rewrite_count": 0,
     "typo_corrections": 0,
     "intentional_deletions": 0,
-    "total_keystrokes": 74,
-    "duration_ms": 18736
+    "total_keystrokes": 8,
+    "duration_ms": 16834
   },
   "composition_binding": {
     "matched": true,
     "source": "chat_compositions",
-    "age_ms": 36668,
-    "key": "|||2026-04-02T04:47:00.748062+00:00|74|18736|yyes okease -it realy is starting to feel like its healing itself now no? ",
+    "age_ms": 59860,
+    "key": "|||2026-04-02T05:49:24.042348+00:00|8|16834|go ahead",
     "match_score": 1.0
   },
   "deleted_words": [],
@@ -495,25 +452,25 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 232,
-    "avg_wpm": 12.3,
-    "avg_del_ratio": 0.048,
+    "total_prompts": 245,
+    "avg_wpm": 12.4,
+    "avg_del_ratio": 0.046,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 142,
-      "hesitant": 40,
-      "focused": 27,
-      "frustrated": 17,
-      "neutral": 5
+      "unknown": 149,
+      "hesitant": 41,
+      "focused": 29,
+      "frustrated": 19,
+      "neutral": 6
     },
     "baselines": {
-      "n": 111,
-      "avg_wpm": 52.4,
+      "n": 132,
+      "avg_wpm": 53.5,
       "avg_del": 0.259,
-      "avg_hes": 0.447,
-      "sd_wpm": 14.9,
+      "avg_hes": 0.449,
+      "sd_wpm": 15.0,
       "sd_del": 0.231,
-      "sd_hes": 0.164
+      "sd_hes": 0.166
     }
   },
   "coaching_directives": [

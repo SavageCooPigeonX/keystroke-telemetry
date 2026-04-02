@@ -806,6 +806,14 @@ def main():
         except Exception:
             pass
 
+    # Refresh staleness alert after prompt blocks may have changed.
+    try:
+        stale_mod = _load_pigeon_module(root, 'src/警p_sa_s030*.py')
+        if stale_mod and hasattr(stale_mod, 'inject_staleness_alert'):
+            stale_mod.inject_staleness_alert(root)
+    except Exception:
+        pass
+
     # Build composition summary for output
     comp_summary = None
     if chat_comp:

@@ -139,6 +139,9 @@ def parse_nametag(filename: str) -> dict:
             desc_slug = slug_raw  # legacy: no intent yet
 
     seq_m = re.search(r'_seq(\d{3})_v(\d{3})', base)
+    if not seq_m:
+        # Try compressed format: _s{NNN}_v{NNN}
+        seq_m = re.search(r'_s(\d{3,4})_v(\d{3})', base)
     seq = seq_m.group(1) if seq_m else ''
     ver = seq_m.group(2) if seq_m else ''
 
@@ -258,8 +261,12 @@ def _extract_internal_imports(py_path: Path) -> list[str]:
 
     # Check for decomposed package directory
     # e.g. self_fix_seq013_v011_d0328__*.py → self_fix_seq013/ directory
+    # or compressed: 修f_sf_s013/ directory
     stem = py_path.stem
     seq_match = re.match(r'^(.+_seq\d{3})', stem)
+    if not seq_match:
+        # Try compressed format: glyph+state_abbrev_s{NNN}
+        seq_match = re.match(r'^(.+_s\d{3,4})', stem)
     if seq_match:
         pkg_prefix = seq_match.group(1)
         pkg_dir = py_path.parent / pkg_prefix

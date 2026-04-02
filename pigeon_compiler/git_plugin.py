@@ -67,6 +67,7 @@ from pigeon_compiler.rename_engine import (
     rewrite_all_imports,
     build_all_manifests,
     validate_imports,
+    mutate_compressed_stem,
 )
 from pigeon_compiler.pigeon_limits import is_excluded
 from pigeon_compiler.session_logger import log_session, count_sessions
@@ -956,6 +957,28 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
         print(f'  ⚠️  voice style: {e}')
 
 
+def _load_edit_whys(root: Path) -> dict[str, str]:
+    """Load latest edit_why per file from edit_pairs.jsonl."""
+    ep = root / 'logs' / 'edit_pairs.jsonl'
+    whys: dict[str, str] = {}
+    if not ep.exists():
+        return whys
+    try:
+        for line in ep.read_text(encoding='utf-8').splitlines():
+            if not line.strip():
+                continue
+            d = json.loads(line)
+            f = d.get('file', '')
+            w = d.get('edit_why', '')
+            if f and w and w != 'None':
+                # Truncate to 3 words
+                words = w.split()[:3]
+                whys[f] = ' '.join(words)
+    except Exception:
+        pass
+    return whys
+
+
 def run():
     root = _root()
     msg = _commit_msg()
@@ -970,6 +993,7 @@ def run():
         return
 
     registry = load_registry(root)
+    edit_whys = _load_edit_whys(root)
     renames = []        # (old_rel, new_rel, entry, tokens_before, diff_stat)
     box_only = []       # (abs_path, entry, old_rel, tokens_before, diff_stat)
     import_map = {}     # old_module → new_module
@@ -1015,6 +1039,44 @@ def run():
                              'tokens': tokens,
                              'action': 'registered'}],
             }
+
+        # Attach 3-word last_change from pulse EDIT_WHY
+        why = edit_whys.get(rel, '')
+        if not why:
+            # Try matching by filename only (edit_pairs stores relative paths)
+            for ew_path, ew_val in edit_whys.items():
+                if ew_path.endswith(p.name) or ew_path.endswith(rel):
+                    why = ew_val
+                    break
+        if why:
+            entry['last_change'] = why
+
+        # Compressed files — mutate filename in-place (bump ver, date, intent)
+        if parsed.get('compressed'):
+            today = datetime.now(timezone.utc).strftime('%m%d')
+            intent_letter = intent.replace('_', ' ').strip()[0].upper() if intent else parsed.get('intent', '')
+            new_name = mutate_compressed_stem(
+                p.stem,
+                new_ver=entry['ver'],
+                new_date=today,
+                new_intent=intent_letter,
+            )
+            if new_name and Path(new_name).stem != p.stem:
+                folder = str(p.parent).replace('\\', '/')
+                new_rel = f'{folder}/{new_name}' if folder != '.' else new_name
+                entry['path'] = new_rel
+                if rel in registry:
+                    del registry[rel]
+                registry[new_rel] = entry
+                renames.append((rel, new_rel, entry, tokens_before, diff_stat))
+                old_mod = str(Path(rel).with_suffix('')).replace('\\', '.').replace('/', '.')
+                new_mod = str(Path(new_rel).with_suffix('')).replace('\\', '.').replace('/', '.')
+                import_map[old_mod] = new_mod
+            else:
+                entry['path'] = rel
+                registry[rel] = entry
+                box_only.append((abs_p, entry, rel, tokens_before, diff_stat))
+            continue
 
         new_name = build_pigeon_filename(
             parsed['name'], parsed['seq'], entry['ver'],

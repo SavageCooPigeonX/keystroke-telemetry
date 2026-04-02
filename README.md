@@ -977,7 +977,7 @@ This is the honest repo state after the March 31 audit. The system is real and u
 
 | Priority | Issue | Current evidence |
 |---|---|---|
-| P0 | AI response capture | Still not implemented; without response text the loop cannot explain why an answer failed. |
+| P0 | AI response capture quality | Response capture exists, but the canonical join is still fragile and parts of the loop can silently drift after renames. |
 | P0 | Structural debt | Latest self-fix report shows 24 issues, including 14 over-hard-cap files. |
 | P1 | Documentation truthfulness | Generated and hand-written docs drift from the actual shipped/partial state unless re-audited. |
 | P1 | Diagnostics noise | Workspace diagnostics are noisy because optional Windows dependencies and adjacent package imports are mixed into the signal. |
@@ -990,6 +990,22 @@ This repo already contains three product surfaces, but only one should be the ne
 1. Operator-aware coding runtime. This is the strongest product today: a Windows/VS Code layer that captures typing, deletions, hesitation, rework, and active-file context, then steers the assistant in real time.
 2. Pigeon compiler and rename engine. This is already separable and sellable as code-structure infrastructure.
 3. Codebase nervous system. Pigeon Brain, flow routing, organism health, and safe self-fix are the long-term moat, but they still need a tighter product story before they become the wedge.
+
+### Are We Actually Close To Something Novel?
+
+Yes, but not because any single subsystem is unprecedented on its own.
+
+Telemetry is not novel by itself. Prompt injection is not novel by itself. Code splitting, rename engines, graph UIs, and self-fix scanners are not novel by themselves either. The novelty is the closed loop the repo is getting close to completing:
+
+1. Read operator state from raw typing before the prompt is even submitted.
+2. Bind deleted intent, hesitation, and task context into the assistant's reasoning surface.
+3. Measure the assistant's miss rate from downstream rework, file heat, and edit-pair timing.
+4. Feed that back into prompt steering, coaching, file-state surfaces, and eventually the naming/debug layer.
+5. Keep the whole thing self-updating on every prompt and every push.
+
+If this stays one integrated reasoning surface, it is close to something genuinely novel: an operator-aware development runtime where the model adapts to the human, the codebase exposes its own state, and the repo learns from every edit loop. If it fragments into separate telemetry, compiler, brain, and narrative projects, it becomes impressive tooling rather than a new category.
+
+The strongest thesis right now is not "AI that writes code better." It is: **a development environment that models the operator, the assistant, and the codebase at the same time, then continuously adjusts all three.**
 
 ### Next 90 Days
 

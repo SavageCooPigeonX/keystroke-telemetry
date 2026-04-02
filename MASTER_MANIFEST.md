@@ -22,6 +22,30 @@ Four interlocking systems. Each one feeds the next. The last one watches all the
 
 ---
 
+## Novelty Thesis
+
+This repo is close to something novel, but only if it is treated as one closed-loop system instead of a pile of adjacent experiments.
+
+What is **not** novel on its own:
+- keystroke telemetry
+- prompt injection
+- rename engines and compilers
+- graph visualization
+- narrative reports and coaching summaries
+
+What is getting close to novel is the way those parts are being closed together into one adaptive surface:
+
+1. The operator is modeled from raw typing before prompt submit.
+2. The assistant is steered from deleted intent, hesitation, task context, and live codebase health.
+3. The codebase exposes its own state through self-fix, veins/clots, rework, flow routing, and evolving metadata.
+4. Every push and every prompt feed the next loop instead of producing dead reports.
+
+That combination points at a different category than a normal coding assistant or a normal instrumentation stack. The emerging product is an **operator-aware development runtime**: a system that models the human, the assistant, and the repo simultaneously, then updates its own reasoning surface on every cycle.
+
+The practical consequence is important: the canonical artifact should not be a dozen parallel dashboards. It should be one compressed reasoning surface that the model can actually use. The prompt blocks, auto-index, registry, file-state surfaces, and future filename encoding should converge toward that single control plane.
+
+---
+
 ## src/ — Core Telemetry (28 modules)
 
 | Seq | Module (search by) | Lines | Status | Role |

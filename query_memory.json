@@ -1,552 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-04-01T12:29:24.318070+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:30:24.341010+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:31:24.344734+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:32:24.796506+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:33:24.372859+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:34:24.361739+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:35:24.379488+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:36:24.425867+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:37:24.337920+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:38:24.396113+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:39:24.412421+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:40:24.399579+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:41:24.386857+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:42:24.369188+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:43:24.408980+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:44:24.437887+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:45:24.407395+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:46:24.433180+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:47:24.385544+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:48:24.408209+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:49:25.132280+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:50:24.567039+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:51:24.697619+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:52:24.469063+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:53:24.507572+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:54:25.071910+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:55:24.509617+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:56:24.509129+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:57:25.080499+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:58:24.495004+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T12:59:25.222446+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:00:24.580895+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:01:24.583848+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:02:24.618794+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:03:24.643858+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:04:24.630488+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:05:25.198141+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:06:24.896226+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:07:24.746209+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:08:24.705292+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:09:25.271189+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:10:24.719638+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:11:24.627300+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:12:24.701547+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:13:24.719711+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:14:31.382518+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T13:15:26.430189+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T14:50:42.732499+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T14:51:41.974579+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T14:52:42.146142+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T14:53:42.330571+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T14:54:41.781635+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T14:55:41.538146+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T14:56:41.455696+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T14:57:41.538507+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T14:58:41.444591+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T14:59:41.441494+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:00:41.583390+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:01:41.185023+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:02:41.054635+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:03:40.986385+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:04:41.116348+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:05:40.864448+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:06:40.851430+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:07:40.885411+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:08:40.938161+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:09:40.871240+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:10:40.882452+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:11:40.854615+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:12:40.875588+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:13:40.918058+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:14:41.046558+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:15:40.988619+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:16:40.963471+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:17:41.018380+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:18:41.040322+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:19:41.015900+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:20:41.075557+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:21:41.176112+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:22:41.354654+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:23:43.034121+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:24:41.298399+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:29:51.566722+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:30:50.974384+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:31:50.627959+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:32:50.945880+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:33:50.649271+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:34:53.222700+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:35:50.827787+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:36:50.797329+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-01T15:37:50.482980+00:00",
-      "text": "bg:RESEARCH_LOG.md",
-      "fingerprint": "bgresearch_logmd",
-      "submitted": true
-    },
-    {
       "ts": "2026-04-01T15:38:50.457354+00:00",
       "text": "bg:RESEARCH_LOG.md",
       "fingerprint": "bgresearch_logmd",
@@ -2998,6 +2452,552 @@
       "ts": "2026-04-02T05:01:41.535912+00:00",
       "text": "bg:copilot-instructions.md",
       "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:02:40.145011+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:03:38.204302+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:04:38.647609+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:05:38.324744+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:06:30.729755+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:06:37.623586+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:06:50.677819+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:07:37.763760+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:08:40.425420+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:09:39.090265+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:14:02.636672+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:14:39.036067+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:14:42.095475+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:15:09.977388+00:00",
+      "text": "bg:README.md",
+      "fingerprint": "bgreadmemd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:15:42.058645+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:15:44.946418+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:16:02.297335+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:16:38.711674+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:20:39.148779+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:21:38.793182+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:22:39.424337+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:23:38.810409+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:24:08.966498+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:24:18.730270+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:24:27.134479+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:24:40.896644+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:24:59.529008+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:25:09.575122+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:25:40.306202+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:26:41.384229+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:27:39.037827+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:28:39.362097+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:29:38.949007+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:30:39.423630+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:31:39.863319+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:32:39.864966+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:33:40.006264+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:34:43.128551+00:00",
+      "text": "bg:MASTER_MANIFEST.md",
+      "fingerprint": "bgmaster_manifestmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:35:42.820803+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:36:40.358391+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:37:39.552003+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:38:39.449256+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:39:39.884771+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:40:42.978580+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:40:51.528650+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:41:39.807348+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:42:40.399779+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:43:40.131233+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:44:40.053251+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:45:39.967606+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:46:40.193997+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:47:39.489406+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:48:41.022217+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:49:43.605157+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:50:41.947197+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:51:42.042150+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:52:41.737600+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:53:41.047308+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:53:51.489907+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:54:41.399048+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:55:45.771921+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:56:21.291710+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:56:42.918642+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:57:42.483249+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:58:41.947489+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T05:59:41.503494+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:00:41.570220+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:01:42.307473+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:02:44.128281+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:03:43.451108+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:03:48.440006+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:04:22.763049+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:04:42.216581+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:04:58.380441+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:05:06.840199+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:05:17.608320+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:05:43.205886+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:06:43.006627+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:13:08.079876+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:15:01.314237+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:15:02.283139+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:15:59.294437+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:16:59.248625+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:17:59.322495+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:18:32.045968+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:18:59.346661+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:20:00.434143+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:21:00.085545+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:22:00.455653+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:22:59.380445+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-02T06:23:59.563882+00:00",
+      "text": "bg:prompt_enricher_seq024_v001.py",
+      "fingerprint": "bgprompt_enricher_seq024_v001py",
       "submitted": true
     }
   ],

@@ -14,9 +14,10 @@ When everything is fresh, the alert block is removed (clean state).
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
+# EDIT_TS:   2026-04-02T06:09:00Z
+# EDIT_HASH: auto
+# EDIT_WHY:  fix stale block scan
+# EDIT_STATE: harvested
 # ── /pulse ──
 from __future__ import annotations
 import re
@@ -71,6 +72,17 @@ def _strip_alert_block(text: str) -> str:
     return pat.sub('', text)
 
 
+def _extract_managed_block(text: str, block_start: str, block_end: str) -> str | None:
+    """Return the actual managed block, not an inline example mention."""
+    pat = re.compile(
+        rf'(?ms)^\s*{re.escape(block_start)}\s*$\n.*?^\s*{re.escape(block_end)}\s*$'
+    )
+    m = pat.search(text)
+    if not m:
+        return None
+    return m.group(0)
+
+
 def check_staleness(root: Path) -> list[dict]:
     """Check all per-prompt blocks for staleness. Returns list of stale block dicts."""
     root = Path(root)
@@ -83,12 +95,8 @@ def check_staleness(root: Path) -> list[dict]:
     stale = []
 
     for block_name, cfg in PER_PROMPT_BLOCKS.items():
-        # Extract the specific block content first
-        bs = cfg['block_start']
-        be = cfg['block_end']
-        bi = text.find(bs)
-        ei = text.find(be, bi + 1) if bi >= 0 else -1
-        if bi < 0 or ei < 0:
+        block_text = _extract_managed_block(text, cfg['block_start'], cfg['block_end'])
+        if block_text is None:
             stale.append({
                 'block': block_name,
                 'reason': 'MISSING — block not found in file',
@@ -96,8 +104,6 @@ def check_staleness(root: Path) -> list[dict]:
                 'age_min': None,
             })
             continue
-
-        block_text = text[bi:ei]
         m = re.search(cfg['pattern'], block_text)
         if not m:
             stale.append({

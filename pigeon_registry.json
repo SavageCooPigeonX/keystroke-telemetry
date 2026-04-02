@@ -356,7 +356,8 @@
           "tokens": 1033,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "flow engine context"
     },
     {
       "path": "pigeon_brain/flow/dev_plan_seq010_v002_d0328__the_roadmap_writer_synthesizes_the_lc_dynamic_import_resolvers.py",
@@ -452,7 +453,8 @@
           "tokens": 1316,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "flow engine context"
     },
     {
       "path": "pigeon_brain/flow/learning_loop_seq013/learning_loop_seq013_catch_up_seq006_v003_d0327__auto_extracted_by_pigeon_compiler_lc_fix_bare_globals.py",
@@ -932,7 +934,8 @@
           "tokens": 1373,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "flow engine context"
     },
     {
       "path": "pigeon_brain/flow/prediction_scorer_seq014/prediction_scorer_seq014_calibration_seq009_v002_d0327__auto_extracted_by_pigeon_compiler_lc_pigeon_split_3.py",
@@ -1364,7 +1367,8 @@
           "tokens": 419,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "rework signal 0"
     },
     {
       "path": "pigeon_brain/flow/predictor_seq009/predictor_seq009_predictor_seq007_v002_d0330__auto_extracted_by_pigeon_compiler_lc_rework_signal_0.py",
@@ -1384,7 +1388,8 @@
           "tokens": 544,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "rework signal 0"
     },
     {
       "path": "pigeon_brain/flow/predictor_seq009/predictor_seq009_trend_extractor_seq004_v002_d0330__auto_extracted_by_pigeon_compiler_lc_rework_signal_0.py",
@@ -1404,7 +1409,8 @@
           "tokens": 865,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "rework signal 0"
     },
     {
       "path": "pigeon_brain/flow/predictor_seq009_v003_d0327__fires_phantom_electrons_using_cognitive_lc_pigeon_split_3.py",
@@ -1468,7 +1474,8 @@
           "action": "mutated",
           "tokens": 2506
         }
-      ]
+      ],
+      "last_change": "rework signal 0"
     },
     {
       "path": "pigeon_brain/flow/task_writer_seq005_v003_d0401__the_river_delta_where_all_lc_add_chinese_glyph.py",
@@ -1544,7 +1551,8 @@
           "tokens": 1744,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "8888 word backpropagation"
     },
     {
       "path": "pigeon_brain/graph_extractor_seq003_v003_d0324__extract_the_cognition_graph_from_lc_gemini_chat_dead.py",
@@ -1572,7 +1580,8 @@
           "action": "mutated",
           "tokens": 1744
         }
-      ]
+      ],
+      "last_change": "gemini chat dead"
     },
     {
       "path": "pigeon_brain/graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system.py",
@@ -1612,7 +1621,8 @@
           "tokens": 2495,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "8888 word backpropagation"
     },
     {
       "path": "pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_8888_word_backpropagation.py",
@@ -1632,7 +1642,8 @@
           "tokens": 2857,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "8888 word backpropagation"
     },
     {
       "path": "pigeon_brain/live_server_seq012_v004_d0324__websocket_server_for_live_execution_lc_per_prompt_deleted.py",
@@ -1668,7 +1679,8 @@
           "action": "mutated",
           "tokens": 2857
         }
-      ]
+      ],
+      "last_change": "per prompt deleted"
     },
     {
       "path": "pigeon_brain/loop_detector_seq005_v002_d0323__recurring_path_detection_port_of_lc_pigeon_brain_system.py",
@@ -1926,7 +1938,8 @@
           "action": "mutated",
           "tokens": 783
         }
-      ]
+      ],
+      "last_change": "multi line import"
     },
     {
       "path": "pigeon_compiler/cut_executor/func_decomposer_seq008_v005_d0322__decompose_oversized_functions_via_deepseek_lc_stage_78_hook.py",
@@ -2659,7 +2672,8 @@
           "action": "mutated",
           "tokens": 1750
         }
-      ]
+      ],
+      "last_change": "import rewriter now"
     },
     {
       "path": "pigeon_compiler/rename_engine/manifest_builder_seq007_v003_d0314__generate_living_manifest_md_per_lc_desc_upgrade.py",
@@ -3310,7 +3324,8 @@
           "action": "mutated",
           "tokens": 2509
         }
-      ]
+      ],
+      "last_change": "windows max path"
     },
     {
       "path": "pigeon_compiler/runners/run_compiler_test_seq007_v004_d0315__self_test_pigeon_compiler_on_lc_verify_pigeon_plugin.py",
@@ -3592,7 +3607,8 @@
           "tokens": 4711,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "intent deletion pipeline"
     },
     {
       "path": "src/.operator_stats_seq008_v010_d0331__persistent_markdown_memory_file_lc_intent_deletion_pipeline.py",
@@ -3620,7 +3636,8 @@
           "action": "mutated",
           "tokens": 4672
         }
-      ]
+      ],
+      "last_change": "intent deletion pipeline"
     },
     {
       "path": "src/cognitive/adapter_seq001_v002_d0315__cognitive_state_agent_behavior_adapter_lc_verify_pigeon_plugin.py",
@@ -3985,7 +4002,8 @@
           "action": "mutated",
           "tokens": 832
         }
-      ]
+      ],
+      "last_change": "mutation patch pipeline"
     },
     {
       "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_docstring_patch_seq003_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4053,7 +4071,8 @@
           "action": "mutated",
           "tokens": 1075
         }
-      ]
+      ],
+      "last_change": "mutation patch pipeline"
     },
     {
       "path": "src/cognitive_reactor_seq014/cognitive_reactor_seq014_prompt_builder_seq006_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4197,7 +4216,8 @@
           "action": "mutated",
           "tokens": 5629
         }
-      ]
+      ],
+      "last_change": "mutation patch pipeline"
     },
     {
       "path": "src/context_budget_seq004_v008_d0321__context_budget_scorer_for_llm_lc_fire_full_post.py",
@@ -4272,7 +4292,8 @@
           "action": "mutated",
           "tokens": 715
         }
-      ]
+      ],
+      "last_change": "test full hook"
     },
     {
       "path": "src/context_router_seq027_v002_d0330__shard_relevance_scorer_context_injector_lc_gemini_flash_enricher.py",
@@ -4480,7 +4501,8 @@
           "action": "mutated",
           "tokens": 636
         }
-      ]
+      ],
+      "last_change": "glyph compiler symbol"
     },
     {
       "path": "src/copilot_prompt_manager_seq020/copilot_prompt_manager_seq020_telemetry_utils_seq007_v002_d0322__auto_extracted_by_pigeon_compiler_lc_stage_78_hook.py",
@@ -4520,7 +4542,8 @@
           "tokens": 4488,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "resolve latest runtime"
     },
     {
       "path": "src/copilot_prompt_manager_seq020_v003_d0402__compatibility_wrapper_for_the_legacy_lc_restore_rename_safe.py",
@@ -4540,7 +4563,8 @@
           "tokens": 324,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "restore rename safe"
     },
     {
       "path": "src/drift_watcher_seq005_v004_d0321__drift_detection_for_live_llm_lc_implement_all_18.py",
@@ -4603,7 +4627,8 @@
           "tokens": 3996,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "8888 word backpropagation"
     },
     {
       "path": "src/dynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_per_prompt_deleted.py",
@@ -4647,7 +4672,8 @@
           "action": "mutated",
           "tokens": 3996
         }
-      ]
+      ],
+      "last_change": "per prompt deleted"
     },
     {
       "path": "src/dynamic_prompt_seq017_v010_d0331__steers_copilot_cot_from_live_lc_mutation_patch_pipeline.py",
@@ -4691,7 +4717,8 @@
           "action": "mutated",
           "tokens": 5239
         }
-      ]
+      ],
+      "last_change": "mutation patch pipeline"
     },
     {
       "path": "src/file_consciousness_seq019/file_consciousness_seq019_audit_seq004_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -4987,7 +5014,8 @@
           "action": "mutated",
           "tokens": 1347
         }
-      ]
+      ],
+      "last_change": "pulse telemetry prompt"
     },
     {
       "path": "src/glyph_compiler_seq032_v002_d0401__glyph_compiler_python_maximum_symbolic_lc_glyph_compiler_symbol.py",
@@ -5007,7 +5035,8 @@
           "tokens": 5050,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "glyph compiler symbol"
     },
     {
       "path": "src/glyph_compiler_seq032_v003_d0401__glyph_compiler_v2_ast_based_lc_glyph_compiler_symbol.py",
@@ -5027,7 +5056,8 @@
           "tokens": 4585,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "glyph compiler symbol"
     },
     {
       "path": "src/intent_simulator_seq034_v002_d0401__runs_ahead_of_operator_hallucinating_lc_compress_auto_index.py",
@@ -5047,7 +5077,8 @@
           "tokens": 5306,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "compress auto index"
     },
     {
       "path": "src/logger_seq003_v005_d0322__core_keystroke_telemetry_logger_lc_wpm_outlier_filter.py",
@@ -5098,7 +5129,8 @@
           "action": "mutated",
           "tokens": 1636
         }
-      ]
+      ],
+      "last_change": "wpm outlier filter"
     },
     {
       "path": "src/models_seq002_v003_d0317__dataclasses_for_keystroke_events_and_lc_pulse_telemetry_prompt.py",
@@ -5133,7 +5165,8 @@
           "action": "mutated",
           "tokens": 379
         }
-      ]
+      ],
+      "last_change": "pulse telemetry prompt"
     },
     {
       "path": "src/mutation_scorer_seq021_v002_d0321__mutation_scorer_correlates_prompt_mutations_lc_implement_all_18.py",
@@ -5220,7 +5253,8 @@
           "action": "mutated",
           "tokens": 4954
         }
-      ]
+      ],
+      "last_change": "fix degenerate classifier:"
     },
     {
       "path": "src/pulse_harvest_seq015_v003_d0321__pulse_harvest_pairs_prompts_to_lc_implement_all_18.py",
@@ -5356,7 +5390,8 @@
           "action": "mutated",
           "tokens": 811
         }
-      ]
+      ],
+      "last_change": "research lab autonomous"
     },
     {
       "path": "src/push_cycle_seq025/push_cycle_seq025_predictions_injector_decomposed_seq007_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5444,7 +5479,8 @@
           "action": "mutated",
           "tokens": 4792
         }
-      ]
+      ],
+      "last_change": "fix push cycle"
     },
     {
       "path": "src/push_narrative_seq012_v006_d0327__generate_per_push_narrative_each_lc_push_narratives_timeout.py",
@@ -5496,7 +5532,8 @@
           "action": "mutated",
           "tokens": 2089
         }
-      ]
+      ],
+      "last_change": "push narratives timeout"
     },
     {
       "path": "src/push_narrative_seq012_v007_d0330__generate_per_push_narrative_each_lc_readme_update_7.py",
@@ -5524,7 +5561,8 @@
           "action": "mutated",
           "tokens": 2088
         }
-      ]
+      ],
+      "last_change": "readme update 7"
     },
     {
       "path": "src/query_memory_seq010/query_memory_seq010_clustering_seq004_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -5724,7 +5762,8 @@
           "action": "mutated",
           "tokens": 5065
         }
-      ]
+      ],
+      "last_change": "rewrite in intent"
     },
     {
       "path": "src/resistance_bridge_seq006_v003_d0317__bridge_between_keystroke_telemetry_and_lc_pulse_telemetry_prompt.py",
@@ -5759,7 +5798,8 @@
           "action": "mutated",
           "tokens": 1222
         }
-      ]
+      ],
+      "last_change": "pulse telemetry prompt"
     },
     {
       "path": "src/rework_backfill_seq022_v002_d0321__reconstructs_historical_rework_scores_from_lc_implement_all_18.py",
@@ -5823,7 +5863,8 @@
           "action": "mutated",
           "tokens": 1083
         }
-      ]
+      ],
+      "last_change": "add composition-based scoring,"
     },
     {
       "path": "src/self_fix_seq013/self_fix_seq013_auto_apply_import_fixes_decomposed_seq011_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -6195,7 +6236,8 @@
           "tokens": 1725,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "staleness alerts bg"
     },
     {
       "path": "src/streaming_layer_seq007_v003_d0317__monolithic_live_streaming_interface_for_lc_pulse_telemetry_prompt.py",
@@ -6230,7 +6272,8 @@
           "action": "mutated",
           "tokens": 10189
         }
-      ]
+      ],
+      "last_change": "pulse telemetry prompt"
     },
     {
       "path": "src/symbol_dictionary_seq031_v002_d0401__symbol_dictionary_generator_for_pigeon_lc_glyph_compiler_symbol.py",
@@ -6250,7 +6293,8 @@
           "tokens": 3737,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "swap to chinese"
     },
     {
       "path": "src/task_queue_seq018_v002_d0317__copilot_driven_task_tracking_linked_lc_task_queue_system.py",
@@ -6270,7 +6314,8 @@
           "tokens": 1608,
           "action": "registered"
         }
-      ]
+      ],
+      "last_change": "task queue system"
     },
     {
       "path": "src/timestamp_utils_seq001_v004_d0321__millisecond_epoch_timestamp_utility_lc_trigger_pigeon_rename.py",
@@ -6313,7 +6358,8 @@
           "action": "mutated",
           "tokens": 156
         }
-      ]
+      ],
+      "last_change": "test rename hook"
     },
     {
       "path": "src/training_pairs_seq027_v002_d0330__training_pair_generator_for_the_lc_gemini_flash_enricher.py",
@@ -6401,7 +6447,8 @@
           "action": "mutated",
           "tokens": 1328
         }
-      ]
+      ],
+      "last_change": "intent deletion pipeline"
     },
     {
       "path": "src/voice_style_seq028_v002_d0330__voice_style_personality_adapter_lc_gemini_flash_enricher.py",

@@ -15,9 +15,9 @@ Zero LLM calls — pure signal cross-referencing.
 # SESSIONS: 0
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-22T20:23:00.1028921Z
+# EDIT_TS:   2026-04-02T17:18:00Z
 # EDIT_HASH: auto
-# EDIT_WHY:  refresh latest prompt manager
+# EDIT_WHY:  fix enricher module path
 # EDIT_STATE: harvested
 # ── /pulse ──
 from __future__ import annotations
@@ -736,7 +736,7 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
     # This is the fallback path — fires from the journal command.
     try:
         import importlib.util as _ilu, glob as _g
-        _matches = sorted(root.glob('src/探p_ur_s024*.py'))
+        _matches = sorted(root.glob('src/u_pe_s024*.py'))
         if _matches:
             _spec = _ilu.spec_from_file_location('_enricher', _matches[-1])
             if _spec is not None and _spec.loader is not None:

@@ -247,6 +247,7 @@ def _build_auto_index_block(root: Path, registry: dict, processed: int) -> str:
             'name': name, 'seq': seq,
             'tokens': entry.get('tokens', 0),
             'glyph': _find_glyph(name, keymap),
+            'last_change': entry.get('last_change', ''),
         })
 
     today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
@@ -260,7 +261,7 @@ def _build_auto_index_block(root: Path, registry: dict, processed: int) -> str:
     lines = [
         '<!-- pigeon:auto-index -->',
         f'*{today} · {total} modules · {processed} touched · {conf}*',
-        '*Format: glyph=name seq tokens·state*',
+        f'*Format: glyph=name seq tokens·state |last change*',
     ]
 
     # 2-letter codes legend (for modules without Chinese glyphs)
@@ -303,10 +304,12 @@ def _build_auto_index_block(root: Path, registry: dict, processed: int) -> str:
                 state = confidence.get(name, '')
                 tok = item['tokens']
                 tok_s = f"{tok/1000:.1f}K" if tok >= 1000 else str(tok)
+                lc = item.get('last_change', '')
+                lc_suffix = f' |{lc}' if lc else ''
                 if g:
-                    lines.append(f'{g}={name} {item["seq"]} {tok_s}{state}')
+                    lines.append(f'{g}={name} {item["seq"]} {tok_s}{state}{lc_suffix}')
                 else:
-                    lines.append(f'{name} {item["seq"]} {tok_s}{state}')
+                    lines.append(f'{name} {item["seq"]} {tok_s}{state}{lc_suffix}')
             lines.append('')
 
     _append_infra_index(lines, root)
