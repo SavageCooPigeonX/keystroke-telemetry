@@ -1077,6 +1077,26 @@ def _load_edit_whys(root: Path) -> dict[str, str]:
     return whys
 
 
+def _load_edit_authors(root: Path) -> dict[str, str]:
+    """Load latest edit_author per file from edit_pairs.jsonl."""
+    ep = root / 'logs' / 'edit_pairs.jsonl'
+    authors: dict[str, str] = {}
+    if not ep.exists():
+        return authors
+    try:
+        for line in ep.read_text(encoding='utf-8').splitlines():
+            if not line.strip():
+                continue
+            d = json.loads(line)
+            f = d.get('file', '')
+            a = d.get('edit_author', '')
+            if f and a:
+                authors[f] = a
+    except Exception:
+        pass
+    return authors
+
+
 def run():
     root = _root()
     msg = _commit_msg()
@@ -1092,6 +1112,7 @@ def run():
 
     registry = load_registry(root)
     edit_whys = _load_edit_whys(root)
+    edit_authors = _load_edit_authors(root)
     renames = []        # (old_rel, new_rel, entry, tokens_before, diff_stat)
     box_only = []       # (abs_path, entry, old_rel, tokens_before, diff_stat)
     import_map = {}     # old_module → new_module
@@ -1154,6 +1175,14 @@ def run():
                     break
         if why:
             entry['last_change'] = why
+            # Attribute the change to its actual author
+            author = edit_authors.get(rel, '')
+            if not author:
+                for ea_path, ea_val in edit_authors.items():
+                    if ea_path.endswith(p.name) or ea_path.endswith(rel):
+                        author = ea_val
+                        break
+            entry['last_change_author'] = author or 'copilot'
 
         # Compressed files — mutate filename in-place (bump ver, date, intent)
         if parsed.get('compressed'):

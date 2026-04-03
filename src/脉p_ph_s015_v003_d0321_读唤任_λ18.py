@@ -49,6 +49,7 @@ PULSE_RE = re.compile(
     r'# EDIT_TS:\s*(.*)\n'
     r'# EDIT_HASH:\s*(.*)\n'
     r'# EDIT_WHY:\s*(.*)\n'
+    r'(?:# EDIT_AUTHOR:\s*(.*)\n)?'
     r'(?:# EDIT_STATE:\s*(.*)\n)?'
     r'# ── /pulse ──$',
     re.MULTILINE,
@@ -59,6 +60,7 @@ PULSE_BLOCK = (
     '# EDIT_TS:   None\n'
     '# EDIT_HASH: None\n'
     '# EDIT_WHY:  None\n'
+    '# EDIT_AUTHOR: None\n'
     '# EDIT_STATE: idle\n'
     '# ── /pulse ──'
 )
@@ -67,12 +69,14 @@ PULSE_BLOCK = (
 def make_pulse_block(edit_ts: str = 'None',
                      edit_hash: str = 'None',
                      edit_why: str = 'None',
+                     edit_author: str = 'None',
                      edit_state: str = 'idle') -> str:
     return (
         '# ── telemetry:pulse ──\n'
         f'# EDIT_TS:   {edit_ts}\n'
         f'# EDIT_HASH: {edit_hash}\n'
         f'# EDIT_WHY:  {edit_why}\n'
+        f'# EDIT_AUTHOR: {edit_author}\n'
         f'# EDIT_STATE: {edit_state}\n'
         '# ── /pulse ──'
     )
@@ -94,14 +98,16 @@ def read_pulse(filepath: Path) -> dict | None:
     if not m:
         return None
     ts_val, hash_val, why_val = m.group(1).strip(), m.group(2).strip(), m.group(3).strip()
-    state_val = (m.group(4) or '').strip()
+    author_val = (m.group(4) or '').strip() or 'copilot'
+    state_val = (m.group(5) or '').strip()
     if not state_val:
         state_val = 'pending' if not (ts_val == 'None' and hash_val == 'None') else 'idle'
     if ts_val == 'None' and hash_val == 'None':
         return None  # pulse is blank — no edit recorded
     if state_val != 'pending':
         return None
-    return {'edit_ts': ts_val, 'edit_hash': hash_val, 'edit_why': why_val, 'edit_state': state_val}
+    return {'edit_ts': ts_val, 'edit_hash': hash_val, 'edit_why': why_val,
+            'edit_author': author_val, 'edit_state': state_val}
 
 
 def clear_pulse(filepath: Path) -> bool:
@@ -114,19 +120,21 @@ def clear_pulse(filepath: Path) -> bool:
     if not m:
         return False
     ts_val, hash_val, why_val = m.group(1).strip(), m.group(2).strip(), m.group(3).strip()
-    state_val = (m.group(4) or '').strip()
+    author_val = (m.group(4) or '').strip() or 'copilot'
+    state_val = (m.group(5) or '').strip()
     if not state_val:
         state_val = 'pending' if not (ts_val == 'None' and hash_val == 'None') else 'idle'
     if state_val == 'harvested':
         return False
-    new_text = PULSE_RE.sub(make_pulse_block(ts_val, hash_val, why_val, 'harvested'), text)
+    new_text = PULSE_RE.sub(make_pulse_block(ts_val, hash_val, why_val, author_val, 'harvested'), text)
     if new_text == text:
         return False
     filepath.write_text(new_text, encoding='utf-8')
     return True
 
 
-def stamp_pulse(filepath: Path, edit_why: str = 'auto') -> bool:
+def stamp_pulse(filepath: Path, edit_why: str = 'auto',
+                edit_author: str = 'copilot') -> bool:
     """Stamp the pulse block with current time + content hash."""
     try:
         text = filepath.read_text(encoding='utf-8')
@@ -136,7 +144,7 @@ def stamp_pulse(filepath: Path, edit_why: str = 'auto') -> bool:
         return False
     ts = datetime.now(timezone.utc).isoformat()
     h = content_hash(text)
-    new_block = make_pulse_block(ts, h, edit_why, 'pending')
+    new_block = make_pulse_block(ts, h, edit_why, edit_author, 'pending')
     new_text = PULSE_RE.sub(new_block, text)
     filepath.write_text(new_text, encoding='utf-8')
     return True
@@ -224,6 +232,7 @@ def pair_pulse_to_prompt(root: Path, filepath: Path,
         'edit_ts': pulse['edit_ts'],
         'edit_why': pulse['edit_why'],
         'edit_hash': pulse['edit_hash'],
+        'edit_author': pulse.get('edit_author', 'copilot'),
         'latency_ms': latency_ms,
         'state': cognitive_state,
         'session_n': session_n,

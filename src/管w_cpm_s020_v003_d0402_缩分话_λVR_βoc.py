@@ -369,6 +369,27 @@ def _build_auto_index_block(root: Path, registry: dict, processed: int) -> str:
     items_raw = _registry_items(registry)
     intent_legend = _build_intent_legend(items_raw)
 
+    # Dossier routing: if active, filter to focus modules only
+    dossier_conf, focus_mods, focus_bugs = 0.0, [], []
+    dossier_path = root / 'logs' / 'active_dossier.json'
+    if dossier_path.exists():
+        try:
+            d = json.loads(dossier_path.read_text('utf-8', errors='ignore'))
+            ts = d.get('ts', '')
+            if ts:
+                age = (datetime.now(timezone.utc) - datetime.fromisoformat(ts)).total_seconds()
+                if age <= 300:
+                    dossier_conf = d.get('confidence', 0.0)
+                    focus_mods = d.get('focus_modules', [])
+                    focus_bugs = d.get('focus_bugs', [])
+        except Exception:
+            pass
+    slim_index = dossier_conf >= 0.7 and focus_mods
+    focus_stems = set()
+    if slim_index:
+        for m in focus_mods:
+            focus_stems.add(m.lower().split('_seq')[0].split('_s0')[0].split('_s1')[0])
+
     groups: dict[str, list[dict]] = {}
     seen: set[str] = set()
     for path, entry in items_raw:
@@ -378,6 +399,12 @@ def _build_auto_index_block(root: Path, registry: dict, processed: int) -> str:
         if dedup_key in seen:
             continue
         seen.add(dedup_key)
+        # In slim mode, only include focus modules + bugged modules
+        if slim_index:
+            name_stem = name.lower().split('_seq')[0].split('_s0')[0].split('_s1')[0]
+            has_bugs = bool(entry.get('bug_keys'))
+            if name_stem not in focus_stems and not has_bugs:
+                continue
         folder = str(Path(path).parent).replace('\\', '/')
         if folder == '.':
             folder = '(root)'
@@ -401,8 +428,11 @@ def _build_auto_index_block(root: Path, registry: dict, processed: int) -> str:
     lines = [
         '<!-- pigeon:auto-index -->',
         f'*{today} · {total} modules · {processed} touched · {conf}*',
-        f'*Format: glyph=name seq tokens·state·intent·bugs |last change*',
     ]
+    if slim_index:
+        lines.append(f'*🎯 DOSSIER ROUTED — showing {total} focus+bugged modules '
+                      f'(conf={dossier_conf:.2f}, focus: {", ".join(focus_mods[:3])})*')
+    lines.append(f'*Format: glyph=name seq tokens·state·intent·bugs |last change*')
 
     # 2-letter codes legend (for modules without Chinese glyphs)
     if two_letter:
@@ -743,6 +773,31 @@ def refresh_managed_prompt(
     operator_state_refreshed = inject_operator_state(root)
     injected = inject_prompt_telemetry(root, snapshot=snapshot)
 
+    # Engagement hooks — own managed block, inspectable by operator
+    hooks_refreshed = False
+    try:
+        from src.engagement_hooks import inject_hooks
+        # Load journal tail for history-dependent hooks
+        _jpath = root / 'logs' / 'prompt_journal.jsonl'
+        _hist = []
+        if _jpath.exists():
+            import json as _hj
+            for ln in _jpath.read_text('utf-8').strip().splitlines()[-20:]:
+                try: _hist.append(_hj.loads(ln))
+                except Exception: pass
+        hooks_refreshed = inject_hooks(root, history=_hist)
+    except Exception:
+        pass
+
+    # Template selector — hydrate .prompt.md files AND inject active template block
+    templates_result = None
+    try:
+        from src.template_selector import hydrate_templates, inject_active_template
+        templates_result = hydrate_templates(root)
+        inject_active_template(root)
+    except Exception:
+        pass
+
     mutation_result = None
     if track_mutations:
         try:
@@ -769,6 +824,7 @@ def refresh_managed_prompt(
         'operator_state_refreshed': operator_state_refreshed,
         'prompt_telemetry_injected': injected,
         'mutation_result': mutation_result,
+        'templates': templates_result,
         'audit': audit,
     }
 

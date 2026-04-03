@@ -83,6 +83,7 @@ def _build_file_briefs(root: Path, changed_py: list[str], registry: dict) -> lis
                 'intent': entry.get('intent', ''),
                 'tokens': entry.get('tokens', 0),
                 'history_len': len(entry.get('history', [])),
+                'author': entry.get('last_change_author', 'copilot'),
             })
         else:
             p = root / rel
@@ -107,7 +108,8 @@ def _build_narrative_prompt(
         seq = b['seq']
         ver = b['ver']
         tag = f'seq{seq:03d} v{ver:03d}' if isinstance(seq, int) else b['path']
-        return (f'- **{b["name"]}** ({tag}, {b["tokens"]}tok): '
+        author = b.get('author', 'copilot')
+        return (f'- **{b["name"]}** ({tag}, {b["tokens"]}tok, author={author}): '
                 f'desc="{b["desc"]}", last_intent="{b["intent"]}", '
                 f'{b["history_len"]} versions')
 
@@ -156,15 +158,21 @@ def _build_narrative_prompt(
         comp_block = '\n\nOPERATOR COMPOSITION (what they typed then deleted while writing this commit):\n' + ', '.join(comp_parts)
 
     return (
-        f'You are writing a debugging-grade development narrative for a code push.\n\n'
+        f'You are writing a debugging-grade development narrative for a code push.\n'
+        f'This codebase has THREE actors. Attribute every action to the correct one:\n'
+        f'- **Operator**: the human who types prompts and gives directions\n'
+        f'- **Copilot**: the AI that executes edits based on operator prompts\n'
+        f'- **Pigeon**: the autonomous rename/split/compile engine that fires post-commit\n'
+        f'NEVER say "the developer did X" when Copilot or Pigeon did X.\n\n'
         f'COMMIT INTENT: {intent}\n\n'
         f'FILES CHANGED:\n{files_block}\n\n'
         f'OPERATOR DEEP SIGNALS:\n{signals_block}{cross_block}{comp_block}\n\n'
         f'INSTRUCTIONS:\n'
         f'Write a development narrative (200-350 words) optimized for future debugging. '
         f'Each changed file "speaks" in first person — one paragraph each — '
-        f'explaining: (1) why it was touched, (2) what assumption it makes that '
-        f'could break, (3) one specific regression to watch for. '
+        f'explaining: (1) why it was touched and BY WHOM (operator prompt, copilot edit, or pigeon rename), '
+        f'(2) what assumption it makes that could break, '
+        f'(3) one specific regression to watch for. '
         f'If cross-file dependencies exist, each file names what it gives/receives '
         f'and the exact failure mode if that contract changes. '
         f'If operator composition data shows deleted words or high deletion ratio, '

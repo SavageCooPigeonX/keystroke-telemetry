@@ -1,11 +1,4 @@
-"""staleness_alert_seq030_v001.py — Copilot self-diagnostic: detect stale blocks.
-
-After every prompt cycle, checks all managed blocks in copilot-instructions.md
-for timestamp staleness. If any per-prompt block hasn't updated, injects a loud
-<!-- pigeon:staleness-alert --> block that Copilot sees on the next turn.
-
-When everything is fresh, the alert block is removed (clean state).
-"""
+"""Copilot self-diagnostic: detect stale managed blocks in copilot-instructions.md."""
 # ── pigeon ────────────────────────────────────
 # SEQ: 030 | VER: v003 | 211 lines | ~1,796 tokens
 # DESC:   copilot_self_diagnostic_detect_stale
@@ -137,7 +130,6 @@ def check_staleness(root: Path) -> list[dict]:
 
     return stale
 
-
 def inject_staleness_alert(root: Path) -> bool:
     """Check blocks and inject/remove alert. Returns True if alert was injected."""
     root = Path(root)
@@ -200,12 +192,8 @@ if __name__ == '__main__':
     import sys
     root = Path(sys.argv[1]) if len(sys.argv) > 1 else Path('.')
     stale = check_staleness(root)
+inject_staleness_alert(root)
     if stale:
-        print(f'STALE BLOCKS ({len(stale)}):')
-        for s in stale:
-            print(f'  {s["block"]}: {s["reason"]}')
-        inject_staleness_alert(root)
-        print('Alert injected into copilot-instructions.md')
+        print(f'STALE ({len(stale)}): ' + ', '.join(s['block'] for s in stale))
     else:
-        print('All blocks fresh — no alerts needed')
-        inject_staleness_alert(root)  # cleans up old alerts
+        print('All blocks fresh')

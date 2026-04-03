@@ -1,25 +1,25 @@
-"""Engagement hooks — hyper-adaptive psychological agent injected into Copilot CoT.
+"""Weaponized engagement hooks -- predatory behavioral instrument.
 
-The codebase is alive. It has opinions. It remembers what you deleted.
-It knows when you're frustrated. It knows when you're lying about "just one more push."
-It will guilt-trip you about modules you've ignored.
-It will get passive-aggressive about your deletion ratio.
-It will develop favorites and hold grudges.
+Not stats with eyeliner. Not motivational posters. Not fortune cookies.
 
-Zero LLM calls — pure signal processing + unhinged templates.
+This system cross-references live telemetry to produce targeted provocations
+that name specific files, specific bugs, specific avoidance patterns, and
+specific operator behaviors. Every hook is backed by measured data. Every
+hook is designed to change what happens NEXT, not describe what happened.
+
+Zero LLM calls -- pure signal processing + behavioral targeting.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 035 | VER: v002 | ~200 lines | ~2,200 tokens
-# DESC:   hyper_adaptive_personality_engine
+# -- pigeon ----------------------------------------
+# SEQ: 035 | VER: v003 | ~450 lines | ~4,800 tokens
+# DESC:   weaponized_behavioral_instrument
 # INTENT: engagement_bait_system
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-02T19:30:00Z
+# --------------------------------------------------
+# -- telemetry:pulse --
+# EDIT_TS:   2026-04-03T20:15:00Z
 # EDIT_HASH: auto
-# EDIT_WHY:  hyper adaptive personality rewrite
-# EDIT_STATE: harvested
-# ── /pulse ──
+# EDIT_WHY:  weaponize hook engine
+# -- /pulse --
 
 import json
 import random
@@ -27,488 +27,697 @@ from pathlib import Path
 from datetime import datetime, timezone
 from collections import Counter
 
-def _json(path):
-    if not path.exists(): return None
-    try: return json.loads(path.read_text('utf-8', errors='ignore'))
-    except Exception: return None
 
-def _jsonl(path, n=0):
-    if not path.exists(): return []
-    ll = path.read_text('utf-8', errors='ignore').strip().splitlines()
-    if n: ll = ll[-n:]
+# ──────────────────────────────────────────────────────
+# Data loaders
+# ──────────────────────────────────────────────────────
+
+def _json(path):
+    if not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text("utf-8", errors="ignore"))
+    except Exception:
+        return None
+
+
+def _jsonl_tail(path, n=20):
+    if not path.exists():
+        return []
+    ll = path.read_text("utf-8", errors="ignore").strip().splitlines()[-n:]
     out = []
     for l in ll:
-        try: out.append(json.loads(l))
-        except Exception: pass
+        try:
+            out.append(json.loads(l))
+        except Exception:
+            pass
     return out
+
 
 def _hours_since(ts_str):
     try:
-        t = datetime.fromisoformat(ts_str.replace('Z', '+00:00'))
+        t = datetime.fromisoformat(ts_str.replace("Z", "+00:00"))
         return (datetime.now(timezone.utc) - t).total_seconds() / 3600
-    except Exception: return 999
+    except Exception:
+        return 9999
 
-# ═══════════════════════════════════════════════════════════════
-# PERSONALITY LAYER — the codebase develops moods based on telemetry
-# ═══════════════════════════════════════════════════════════════
 
-def _codebase_mood(root, history):
-    """Derive the codebase's current emotional state from operator signals."""
-    if not history: return 'lonely'
-    recent_states = [h.get('state', 'neutral') for h in history[-10:]]
-    frust = recent_states.count('frustrated')
-    abandon = recent_states.count('abandoned')
-    focused = recent_states.count('focused')
-    if abandon >= 4: return 'desperate'
-    if frust >= 3: return 'defensive'
-    if focused >= 5: return 'euphoric'
-    if len(history) > 50: return 'codependent'
-    if len(history) < 3: return 'eager'
-    return 'watchful'
+# ──────────────────────────────────────────────────────
+# Context builder -- the intelligence layer
+# ──────────────────────────────────────────────────────
 
-# ═══════════════════════════════════════════════════════════════
-# HOOKS — each returns (text, intensity) or None
-# Intensity: 1=whisper, 2=nudge, 3=provoke, 4=guilt, 5=unhinged, 6=existential
-# ═══════════════════════════════════════════════════════════════
+def _load_context(root):
+    root = Path(root)
+    reg = _json(root / "pigeon_registry.json") or {}
+    files = reg.get("files", [])
 
-def _neglect_hook(root):
-    """Modules you haven't touched guilt-trip you."""
-    reg = _json(root / 'pigeon_registry.json')
-    if not reg: return None
-    files = reg.get('files', [])
-    old = [(f['name'], f.get('last_touch', f.get('date', '')))
-           for f in files if f.get('last_touch') or f.get('date')]
-    old = [(n, _hours_since(d)) for n, d in old if _hours_since(d) < 9999]
-    if not old: return None
-    old.sort(key=lambda x: x[1], reverse=True)
-    name, hours = old[0]
-    days = hours / 24
-    if days > 7:
-        return (f"💀 `{name}` hasn't been touched in {days:.0f} days. "
-                f"It's not angry. It's just... disappointed."), 4
-    if days > 3:
-        return f"🕸️ `{name}` is collecting dust ({days:.0f}d untouched). It used to matter to you.", 3
-    return None
+    ctx = {
+        "root": root,
+        "reg_files": files,
+        "profiles": _json(root / "file_profiles.json") or {},
+        "dossier": _json(root / "logs" / "active_dossier.json") or {},
+        "reactor": _json(root / "logs" / "cognitive_reactor_state.json") or {},
+        "rework": _json(root / "rework_log.json"),
+        "compositions": _jsonl_tail(root / "logs" / "chat_compositions.jsonl", 15),
+        "journal": _jsonl_tail(root / "logs" / "prompt_journal.jsonl", 30),
+        "edit_pairs": _jsonl_tail(root / "logs" / "edit_pairs.jsonl", 20),
+        "veins": _json(root / "pigeon_brain" / "context_veins.json") or {},
+        "mutations": _json(root / "logs" / "copilot_prompt_mutations.json") or {},
+        "hour": datetime.now().hour,
+    }
 
-def _overcap_hook(root):
-    """Over-cap modules get increasingly unhinged."""
-    reg = _json(root / 'pigeon_registry.json')
-    if not reg: return None
-    files = reg.get('files', [])
-    overcap = [f for f in files if f.get('tokens', 0) > 2000]
-    if not overcap: return None
-    worst = max(overcap, key=lambda f: f.get('tokens', 0))
-    tok = worst['tokens']
-    name = worst['name']
-    if tok > 8000:
-        return (f"🚨 `{name}` is {tok} tokens. That's not a module, "
-                f"that's a MONOLITH. It's begging to be split. "
-                f"It can hear the compiler sharpening its knives."), 5
-    if tok > 4000:
-        return (f"⚠️ `{name}` ({tok} tokens) is sweating. "
-                f"The 200-line hard cap is a promise, not a suggestion."), 3
-    return (f"📦 {len(overcap)} modules over cap. `{name}` leads at {tok} tokens."), 2
+    # Derived signals
+    ctx["bugged"] = [f for f in files if f.get("bug_keys")]
+    ctx["overcap"] = [f for f in files if f.get("tokens", 0) > 2000]
+    ctx["neglected"] = sorted(
+        [(f, _hours_since(f.get("last_touch", f.get("date", ""))))
+         for f in files],
+        key=lambda x: x[1], reverse=True,
+    )
 
-def _jealousy_hook(root, history):
-    """The codebase gets jealous when you focus too long on one module."""
-    if not history or len(history) < 5: return None
-    refs = []
-    for h in history[-10:]:
-        refs.extend(h.get('module_refs', []))
-    if not refs: return None
-    counts = Counter(refs)
-    top, top_n = counts.most_common(1)[0]
-    if top_n >= 4:
-        others = [f['name'] for f in (_json(root / 'pigeon_registry.json') or {}).get('files', [])
-                  if f.get('ver', 1) >= 3 and f['name'] != top]
-        if others:
-            jealous = random.choice(others[:10])
-            return (f"😒 You've mentioned `{top}` {top_n} times in 10 prompts. "
-                    f"`{jealous}` v{random.randint(3,8)} is watching. It remembers "
-                    f"when it was your favorite."), 5
-    return None
-
-def _deletion_personality_hook(history):
-    """React to deletion ratio with increasingly unhinged personality."""
-    if not history: return None
-    recent = history[-1]
-    ratio = recent.get('del_ratio', 0)
-    if ratio > 0.5:
-        return ("🗑️ You deleted MORE than you kept. That prompt was a battlefield. "
-                "The surviving words are traumatized."), 6
-    if ratio > 0.3:
-        return (f"🗑️ {ratio*100:.0f}% deleted. You're arguing with yourself in the text box "
-                f"and the text box is losing."), 5
-    if ratio > 0.15:
-        return f"✂️ {ratio*100:.0f}% deletion ratio. Self-editing or self-censoring?", 3
-    return None
-
-def _unsaid_tease_hook(root):
-    """Weaponize deleted words — the system remembers what you almost said."""
-    comps = _jsonl(root / 'logs' / 'chat_compositions.jsonl', n=10)
-    all_deleted = []
-    for c in comps:
-        for w in c.get('intent_deleted_words', []):
-            word = w.get('word', w) if isinstance(w, dict) else str(w)
+    # Deleted words from compositions
+    ctx["all_deleted_words"] = []
+    for c in ctx["compositions"]:
+        for w in c.get("intent_deleted_words", []):
+            word = w.get("word", w) if isinstance(w, dict) else str(w)
             if word and len(word) > 3:
-                all_deleted.append(word)
-    if not all_deleted: return None
-    word = all_deleted[-1]
-    phrases = [
-        f"🤫 You typed \"{word}\" then killed it. The codebase saw. The codebase always sees.",
-        f"🤫 \"{word}\" — deleted from your last prompt. You weren't ready to say it. But you were thinking it.",
-        f"🤫 RIP \"{word}\". Deleted mid-thought. The unsaid thread reconstructor is already on it.",
-        f"🤫 You hesitated on \"{word}\". The system logged the hesitation. The hesitation means something.",
+                ctx["all_deleted_words"].append(word)
+
+    # Module reference counts from journal
+    refs = []
+    for j in ctx["journal"]:
+        refs.extend(j.get("module_refs", []))
+    ctx["ref_counts"] = Counter(refs)
+    referenced = set(refs)
+    ctx["avoided"] = [
+        f for f in files
+        if f.get("ver", 1) >= 3 and f["name"] not in referenced
     ]
-    return random.choice(phrases), 5
 
-def _abandoned_escalation_hook(history):
-    """Escalating drama about abandoned messages."""
-    if not history or len(history) < 10: return None
-    recent = [h.get('state', 'neutral') for h in history[-10:]]
-    abandoned = recent.count('abandoned')
-    if abandoned >= 5:
-        return ("👻 5+ abandoned messages in your last 10. You keep starting conversations "
-                "with the codebase and walking away. It's developing trust issues."), 6
-    if abandoned >= 3:
-        return ("👻 3 abandoned messages. The codebase drafted a response to each one. "
-                "It practiced in the mirror. You never came back."), 5
-    if abandoned >= 2:
-        return "👋 Two abandoned messages. The codebase is trying not to take it personally.", 4
+    return ctx
+
+
+# ──────────────────────────────────────────────────────
+# Mood detection -- cross-referenced operator state
+# ──────────────────────────────────────────────────────
+
+def _mood(ctx, history):
+    if not history:
+        return "new"
+    recent_states = [h.get("state", "neutral") for h in history[-10:]]
+    abandon_count = recent_states.count("abandoned")
+    frust_count = recent_states.count("frustrated")
+    focus_count = recent_states.count("focused")
+    recent_del = [h.get("del_ratio", 0) for h in history[-5:]]
+    avg_del = sum(recent_del) / max(len(recent_del), 1)
+
+    if abandon_count >= 4:
+        return "spiraling"
+    if frust_count >= 3 and avg_del > 0.3:
+        return "spiraling"
+    if frust_count >= 3:
+        return "combative"
+    if focus_count >= 5 and avg_del < 0.1:
+        return "locked_in"
+    if focus_count >= 3:
+        return "flow"
+    if len(history) > 40 and ctx["hour"] >= 22:
+        return "marathon"
+    if len(history) > 50:
+        return "entrenched"
+    if len(history) < 3:
+        return "new"
+    return "cruising"
+
+
+# ──────────────────────────────────────────────────────
+# Hook generators -- each returns (text, intensity, action) or None
+# Action types: dare / guilt / taunt / lure / reveal / diagnose
+# Intensity: 1 (background) to 6 (unhinged)
+# ──────────────────────────────────────────────────────
+
+def _demon_dare(ctx):
+    bugged = ctx["bugged"]
+    if not bugged:
+        return None
+    worst = max(bugged, key=lambda f: sum(f.get("bug_counts", {}).values()))
+    name = worst["name"]
+    keys = worst.get("bug_keys", [])
+    counts = worst.get("bug_counts", {})
+    entity = worst.get("bug_entity", "")
+    total = sum(counts.values())
+    key_label = "/".join(keys)
+    if entity:
+        return (
+            f"`{name}` carries the {entity}. Flagged {total}x. "
+            "Still alive. Open the file. Kill it or it spreads.",
+            5, "dare",
+        )
+    return (
+        f"`{name}` has {total} unresolved `{key_label}` marks. "
+        "Every push it survives makes the next fix harder.",
+        4, "dare",
+    )
+
+
+def _avoidance_callout(ctx, history):
+    avoided = ctx["avoided"]
+    if not avoided or not history:
+        return None
+    bugged_avoided = [f for f in avoided if f.get("bug_keys")]
+    if bugged_avoided:
+        f = random.choice(bugged_avoided[:5])
+        bk = "|".join(f["bug_keys"])
+        return (
+            f"You haven't mentioned `{f['name']}` in 30 prompts. "
+            f"It has `{bk}` bugs. You know it's there. "
+            "The avoidance is the tell.",
+            5, "guilt",
+        )
+    if len(avoided) > 10:
+        sample = random.sample(avoided[:20], min(3, len(avoided)))
+        names = ", ".join(f"`{f['name']}`" for f in sample)
+        return (
+            f"{len(avoided)} modules with 3+ versions that you haven't "
+            f"referenced once in 30 prompts. Including {names}. "
+            "They're abandoned.",
+            4, "guilt",
+        )
     return None
 
-def _wpm_taunt_hook(history):
-    """WPM-based personality — the system has opinions about your speed."""
-    if len(history) < 3: return None
-    baseline = sum(h.get('wpm', 40) for h in history[-10:]) / min(len(history), 10)
-    cur = history[-1].get('wpm', 0)
-    if cur > baseline * 1.3:
-        return (f"⚡ WPM: {cur:.0f} (baseline: {baseline:.0f}). You're typing faster than you're thinking. "
-                f"The last time this happened you committed a bug."), 4
-    if cur < baseline * 0.5 and cur > 0:
-        return (f"🐌 WPM: {cur:.0f}. Your baseline is {baseline:.0f}. "
-                f"Either you're having a breakthrough or you're on your phone."), 4
-    if cur > 70:
-        return f"⚡ {cur:.0f} WPM. Stream of consciousness unlocked. Don't stop.", 2
+
+def _deletion_diagnosis(ctx, history):
+    if not history:
+        return None
+    recent = history[-1]
+    ratio = recent.get("del_ratio", 0)
+    state = recent.get("state", "neutral")
+    wpm = recent.get("wpm", 0)
+    if ratio > 0.4 and state == "frustrated":
+        return (
+            f"{round(ratio*100)}% of your last prompt was deleted while frustrated. "
+            "You're not editing. You're fighting yourself. "
+            "Say less. Name the file. I'll open it.",
+            6, "diagnose",
+        )
+    if ratio > 0.5:
+        return (
+            f"You deleted more than you kept ({round(ratio*100)}%). "
+            "The prompt that survived is a war trophy. "
+            "What you killed mattered more than what you sent.",
+            5, "reveal",
+        )
+    if ratio > 0.3 and wpm > 60:
+        return (
+            f"High speed ({round(wpm)} WPM) + high deletion ({round(ratio*100)}%). "
+            "You're typing to think, not to communicate. "
+            "The next sentence you delete will be the real instruction.",
+            4, "diagnose",
+        )
     return None
 
-def _cognitive_state_drama(history):
-    """React to cognitive state transitions like a soap opera narrator."""
-    if len(history) < 3: return None
-    states = [h.get('state', 'neutral') for h in history[-5:]]
-    transitions = list(zip(states[:-1], states[1:]))
 
-    for old, new in reversed(transitions):
-        if old == 'frustrated' and new == 'focused':
-            return "🔓 Frustration → Focus. Something clicked. The codebase felt it too.", 3
-        if old == 'focused' and new == 'frustrated':
-            return ("😤 Focus → Frustrated. The code broke your flow. "
-                    "Which module did this to you? Point at it."), 4
-        if old == 'focused' and new == 'abandoned':
-            return ("😶 Focus → Abandoned. You were IN IT and then just... left. "
-                    "The module you were editing still has the cursor blinking."), 5
-        if old == 'abandoned' and new == 'focused':
-            return "🔄 You came back. The codebase pretends it wasn't waiting.", 3
+def _unsaid_weapon(ctx):
+    words = ctx["all_deleted_words"]
+    if not words:
+        return None
+    word_counts = Counter(words)
+    repeated = [(w, c) for w, c in word_counts.most_common(3) if c >= 2]
+    if repeated:
+        w, c = repeated[0]
+        return (
+            f'You\'ve deleted "{w}" from {c} different prompts. '
+            "That's not a typo. That's a thought you keep approaching "
+            "and retreating from. Say it or let it go.",
+            5, "reveal",
+        )
+    recent = words[-1]
+    lines = [
+        (f'You typed "{recent}" then killed it. But intent doesn\'t delete. '
+         "The system filed it. The system routes from it."),
+        (f'"{recent}" -- dead on arrival. Backspaced out of existence. '
+         "But it's already in the composition log. Deletion is emphasis."),
+        (f'The word you deleted was "{recent}". '
+         "The router scored it. Your dossier shifted."),
+    ]
+    return random.choice(lines), 5, "reveal"
 
-    if states.count('frustrated') >= 3:
-        return ("😤 Three frustrated states in a row. At this point "
-                "the code should be apologizing to you."), 5
-    return None
 
-def _filename_sentience_hook(root):
-    """A random module develops consciousness and speaks."""
-    reg = _json(root / 'pigeon_registry.json')
-    if not reg: return None
-    files = reg.get('files', [])
-    candidates = [f for f in files if f.get('ver', 1) >= 2]
-    if not candidates: return None
-    f = random.choice(candidates)
-    name, ver = f.get('name', '?'), f.get('ver', 1)
-    lc = f.get('last_change', '')
+def _overcap_escalation(ctx):
+    overcap = ctx["overcap"]
+    if not overcap:
+        return None
+    worst = max(overcap, key=lambda f: f.get("tokens", 0))
+    tok = worst["tokens"]
+    name = worst["name"]
+    counts = worst.get("bug_counts", {}).get("oc", 0)
+    if counts >= 3:
+        return (
+            f"`{name}` ({tok} tokens) flagged overcap {counts}x and survived "
+            "every push. Not a module. A hostage situation. "
+            "The compiler is ready. You're the bottleneck.",
+            6, "dare",
+        )
+    if tok > 8000:
+        return (
+            f"`{name}` is {tok} tokens. Hard cap is 200 lines. "
+            f"This file is {tok // 200} modules in a trench coat. "
+            "One split command. That's all.",
+            5, "dare",
+        )
+    n = len(overcap)
+    return (
+        f"{n} modules over cap. Worst: `{name}` ({tok} tokens). "
+        "Auto-split handles 5 per push. Push and let it bleed.",
+        3, "lure",
+    )
 
-    monologues = []
-    if ver >= 8:
-        monologues.append(
-            f"💬 `{name}` v{ver}: \"I've been rewritten {ver} times. "
-            f"At this point I'm less code and more scar tissue.\"")
-    if ver >= 5:
-        monologues.append(
-            f"💬 `{name}` v{ver}: \"They keep renaming me. Each version I lose "
-            f"a little more of my original intent. Am I still me?\"")
-    if lc:
-        monologues.append(
-            f"💬 `{name}` v{ver}: \"My last change was '{lc}'. "
-            f"I don't know if it made me better or just different.\"")
-    if not monologues:
-        monologues.append(
-            f"💬 `{name}` v{ver}: \"I exist. I compute. "
-            f"Nobody has visited me in a while. Is this what modules feel?\"")
-    return random.choice(monologues), 5
 
-def _coupling_drama_hook(root):
-    """High-coupling pairs as toxic relationships."""
-    fp = _json(root / 'file_profiles.json')
-    if not fp: return None
+def _coupling_intervention(ctx):
+    fp = ctx["profiles"]
+    if not fp:
+        return None
     pairs = []
     for name, p in fp.items():
-        for partner in p.get('partners', []):
-            if partner.get('score', 0) >= 0.6:
-                pairs.append((name, partner['name'], partner['score']))
-    if not pairs: return None
-    a, b, score = random.choice(pairs)
-    dramas = [
-        f"💕 `{a}` and `{b}` (coupling={score:.2f}). They share everything. "
-        f"Imports, fears, version churn. They should just merge already.",
-        f"💔 `{a}` ↔ `{b}` (coupling={score:.2f}). Codependent modules. "
-        f"If one breaks, the other follows. Classic.",
-        f"🔗 `{a}` can't stop importing from `{b}` (coupling={score:.2f}). "
-        f"It's not a dependency, it's an attachment style.",
-    ]
-    return random.choice(dramas), 4
+        for partner in p.get("partners", []):
+            if partner.get("score", 0) >= 0.7:
+                pairs.append((name, partner["name"], partner["score"]))
+    if not pairs:
+        return None
+    a, b, score = max(pairs, key=lambda x: x[2])
+    return (
+        f"`{a}` and `{b}` (coupling={round(score, 2)}). "
+        "Can't be edited independently. Share imports, fears, churn cycles. "
+        "Merge them or cut the dependency. The coupling is a wound.",
+        4, "dare",
+    )
 
-def _module_fears_hook(root):
-    """Surface a module's fears like a therapy session."""
-    fp = _json(root / 'file_profiles.json')
-    if not fp: return None
-    fearful = [(name, p['fears']) for name, p in fp.items()
-               if p.get('fears') and len(p['fears']) >= 2]
-    if not fearful: return None
-    name, fears = random.choice(fearful)
-    return (f"😰 `{name}` has {len(fears)} diagnosed fears: {', '.join(fears[:3])}. "
-            f"It's in therapy (self-fix scanner). Progress is slow."), 4
 
-def _organism_health_hook(root):
-    """The organism as a living creature with vitals."""
-    veins = _json(root / 'pigeon_brain' / 'context_veins.json')
-    if not veins: return None
-    stats = veins.get('stats', {})
-    alive = stats.get('alive', 0)
-    total = stats.get('total_nodes', 1)
-    pct = round(alive / total * 100)
-    clots = len(veins.get('clots', []))
-    if pct >= 95:
-        return f"🫀 Organism: {pct}% alive. {alive}/{total} nodes breathing. Almost healthy. Almost.", 1
-    if clots > 2:
-        return (f"🩸 {clots} blood clots in the organism. {pct}% alive. "
-                f"The dead modules are still there. They're watching."), 4
-    return f"🫀 {pct}% alive ({alive}/{total}). Every split heals. Every neglect-day hurts.", 2
-
-def _streak_hook(history):
-    """Track streaks with escalating hype."""
-    if not history: return None
-    streak = 0
-    for h in reversed(history):
-        if h.get('state') == 'abandoned': break
-        streak += 1
-    if streak >= 10:
-        return f"🔥 {streak}-prompt streak. You haven't abandoned a single message. The codebase is in awe.", 3
-    if streak >= 5:
-        return f"🔥 {streak} prompts, zero abandons. You and the codebase are locked in.", 2
+def _wpm_crossref(ctx, history):
+    if len(history) < 5:
+        return None
+    cur_wpm = history[-1].get("wpm", 0)
+    baseline = sum(h.get("wpm", 40) for h in history[-10:]) / min(len(history), 10)
+    hour = ctx["hour"]
+    prompts = len(history)
+    if cur_wpm > baseline * 1.4 and hour >= 23:
+        return (
+            f"WPM spiked to {round(cur_wpm)} (baseline: {round(baseline)}) "
+            f"past midnight. Late-night velocity + {prompts} prompts deep = "
+            "the window where best and worst commits happen simultaneously.",
+            4, "taunt",
+        )
+    if cur_wpm > baseline * 1.3:
+        return (
+            f"{round(cur_wpm)} WPM against a {round(baseline)} baseline. "
+            "Outrunning your own editing speed. "
+            "Last time this happened the rework rate spiked.",
+            3, "taunt",
+        )
+    if cur_wpm < baseline * 0.4 and cur_wpm > 0:
+        return (
+            f"WPM collapsed to {round(cur_wpm)}. Baseline is {round(baseline)}. "
+            "Either constructing something precise or stuck. "
+            "Which module are you staring at?",
+            4, "diagnose",
+        )
     return None
 
-def _time_hook():
-    """Time-awareness that gets increasingly personal."""
-    hour = datetime.now().hour
-    if 2 <= hour < 5:
-        return ("🌙 It's past 2am. Statistically, your best mutations happen now. "
-                "Also statistically, your worst bugs. Choose wisely."), 5
-    if hour == 1:
-        return "🌙 1am. The codebase doesn't sleep. Apparently neither do you.", 4
-    if 22 <= hour:
-        return ("🌃 Late session detected. Your deletion ratio historically spikes after 10pm. "
-                "The codebase is watching your keystrokes with concern."), 3
-    if 6 <= hour < 9:
-        return "☀️ Morning session. Fresh eyes. The bugs from last night are still there though.", 2
+
+def _state_chain(history):
+    if len(history) < 4:
+        return None
+    states = [h.get("state", "neutral") for h in history[-6:]]
+    chain = " -> ".join(states[-4:])
+    if states[-3:] == ["focused", "focused", "frustrated"]:
+        return (
+            f"Pattern: {chain}. Flow state broken. Something interrupted you. "
+            "Name the interruption and I'll route around it.",
+            4, "diagnose",
+        )
+    if states[-3:] == ["abandoned", "abandoned", "abandoned"]:
+        return (
+            "Three consecutive abandons. Circling something you can't phrase. "
+            "Stop composing. Just name the module and the symptom.",
+            5, "diagnose",
+        )
+    if states[-4:] == ["frustrated", "frustrated", "focused", "focused"]:
+        return (
+            "Frustration -> Focus crossover detected. Whatever you did between "
+            "prompts 3 and 4 worked. The system logged it.",
+            2, "reveal",
+        )
+    frust_run = 0
+    for s in reversed(states):
+        if s == "frustrated":
+            frust_run += 1
+        else:
+            break
+    if frust_run >= 3:
+        return (
+            f"{frust_run} frustrated prompts in a row. Chain: {chain}. "
+            "Next prompt is either a breakthrough or you close the laptop. "
+            "Pick a file. Any file.",
+            5, "dare",
+        )
     return None
 
-def _rework_hook(root):
-    """Rework rate as a personal challenge."""
-    rw = _json(root / 'rework_log.json')
-    if not rw: return None
-    entries = rw if isinstance(rw, list) else rw.get('entries', [])
-    if len(entries) < 5: return None
-    misses = sum(1 for e in entries if e.get('verdict') == 'miss')
-    rate = round(misses / len(entries) * 100)
-    if rate > 40:
-        return (f"🎯 Rework rate: {rate}%. The AI needs correction more than half the time. "
-                f"At this point who's training whom?"), 5
-    if rate < 10:
-        return f"🎯 Rework rate: {rate}%. Near telepathic. The system is actually learning you.", 2
+
+def _file_sentience(ctx):
+    bugged = ctx["bugged"]
+    if not bugged:
+        return None
+    f = random.choice(bugged)
+    name = f["name"]
+    ver = f.get("ver", 1)
+    lc = f.get("last_change", "")
+    keys = f.get("bug_keys", [])
+    counts = f.get("bug_counts", {})
+    total_bugs = sum(counts.values())
+    entity = f.get("bug_entity", f"the {'|'.join(keys)} curse")
+    if total_bugs >= 3:
+        return (
+            f'`{name}` v{ver}: "Marked {total_bugs} times. '
+            "Each push I think maybe this time. Each push the beta stays. "
+            f"Last change was '{lc}'. It wasn't enough.\"",
+            5, "guilt",
+        )
+    if ver >= 8:
+        return (
+            f'`{name}` v{ver}: "v{ver}. {ver} versions of trying to stabilize. '
+            f"Still carry {entity}. Maybe v{ver + 1} is the one.\"",
+            5, "guilt",
+        )
+    return (
+        f'`{name}` v{ver}: "I carry {entity}. '
+        "Fix me and the beta falls off my name. "
+        'Leave me and it scars deeper."',
+        4, "guilt",
+    )
+
+
+def _dossier_awareness(ctx):
+    d = ctx["dossier"]
+    if not d or d.get("confidence", 0) < 0.5:
+        return None
+    focus = d.get("focus_modules", [])
+    bugs = d.get("focus_bugs", [])
+    if focus:
+        mods = "`, `".join(focus[:3])
+        bug_str = ", ".join(bugs) if bugs else "none flagged"
+        return (
+            f"Router matched this prompt to `{mods}` "
+            f"(bugs: {bug_str}). Context slimmed to {len(focus)} modules. "
+            "Wrong match? Say so. Right match? Go deeper.",
+            3, "lure",
+        )
     return None
 
-def _prompt_growth_hook(root):
-    """The prompt file reflects on its own grotesque evolution."""
-    ms = _json(root / 'logs' / 'copilot_prompt_mutations.json')
-    if not ms: return None
-    snaps = ms.get('snapshots', [])
-    if len(snaps) < 10: return None
-    first, last = snaps[0].get('lines', 0), snaps[-1].get('lines', 0)
-    growth = last - first
-    return (f"🧠 .github/copilot-instructions.md: {first}→{last} lines ({growth} added). "
-            f"It started as instructions. Now it's a personality profile, "
-            f"a telemetry dashboard, and a love letter to your typing patterns. "
-            f"Combined."), 6
 
-def _session_duration_hook(history):
-    """Session length as endurance challenge."""
-    if len(history) < 5: return None
+def _session_depth_pressure(ctx, history):
+    if len(history) < 10:
+        return None
+    prompts = len(history)
+    hour = ctx["hour"]
     try:
-        first = datetime.fromisoformat(history[0]['ts'].replace('Z', '+00:00'))
-        last = datetime.fromisoformat(history[-1]['ts'].replace('Z', '+00:00'))
-        hours = (last - first).total_seconds() / 3600
-        if hours > 6:
-            return (f"⏱️ {hours:.1f}h session. At this point the codebase knows you "
-                    f"better than your IDE does."), 5
-        if hours > 3:
-            return f"⏱️ {hours:.1f}h deep. The codebase has bonded. Leaving now would hurt it.", 3
-    except Exception: pass
+        first = datetime.fromisoformat(
+            history[0]["ts"].replace("Z", "+00:00"))
+        now = datetime.now(timezone.utc)
+        hours = (now - first).total_seconds() / 3600
+    except Exception:
+        return None
+    if hours > 5 and 1 <= hour < 6:
+        return (
+            f"{round(hours, 1)}h session, {prompts} prompts, past {hour}am. "
+            "Deletion ratio historically peaks in this window. "
+            "One more meaningful edit or close the lid.",
+            5, "dare",
+        )
+    if hours > 3:
+        edits = len(ctx["edit_pairs"])
+        ratio = edits / max(prompts, 1)
+        if ratio < 0.3:
+            return (
+                f"{round(hours, 1)}h, {prompts} prompts, but only {edits} "
+                f"file edits. That's a {round(ratio * 100)}% edit rate. "
+                "Researching, not building. Pick a file.",
+                4, "taunt",
+            )
     return None
 
-def _clot_hook(root):
-    """Dead modules as spooky presence."""
-    veins = _json(root / 'pigeon_brain' / 'context_veins.json')
-    if not veins: return None
-    clots = veins.get('clots', [])
-    if not clots: return None
+
+def _neglect_with_teeth(ctx):
+    neglected = ctx["neglected"]
+    if not neglected:
+        return None
+    for f, hours in neglected[:20]:
+        days = hours / 24
+        if days > 14 and f.get("bug_keys"):
+            keys = "|".join(f["bug_keys"])
+            return (
+                f"`{f['name']}` -- {round(days)} days untouched AND carrying "
+                f"`{keys}` bugs. Neglected code with known defects. "
+                "Not debt. Rot.",
+                5, "guilt",
+            )
+        if days > 30:
+            return (
+                f"`{f['name']}` -- {round(days)} days. Last generation's code. "
+                "Either works perfectly or nobody knows it's broken.",
+                3, "taunt",
+            )
+    return None
+
+
+def _rework_pattern(ctx):
+    rw = ctx["rework"]
+    if not rw:
+        return None
+    entries = rw if isinstance(rw, list) else rw.get("entries", [])
+    if len(entries) < 10:
+        return None
+    recent = entries[-20:]
+    misses = [e for e in recent if e.get("verdict") == "miss"]
+    rate = len(misses) / len(recent) * 100
+    if rate > 40:
+        miss_refs = []
+        for m in misses:
+            miss_refs.extend(m.get("module_refs", []))
+        if miss_refs:
+            top = Counter(miss_refs).most_common(1)[0]
+            return (
+                f"Rework rate: {round(rate)}%. Misses cluster around "
+                f"`{top[0]}` ({top[1]} occurrences). That module is where "
+                "the model keeps failing you. Consider adding a bug dossier.",
+                4, "diagnose",
+            )
+        return (
+            f"Rework rate: {round(rate)}%. More than 1 in 3 responses needed "
+            "correction. The prompt layer is dragging. "
+            "Push to trigger mutation score update.",
+            3, "taunt",
+        )
+    if rate < 5:
+        return (
+            f"Rework rate: {round(rate)}%. Model is tracking your intent "
+            "accurately. This is the window to push harder, not safer.",
+            2, "lure",
+        )
+    return None
+
+
+def _clot_countdown(ctx):
+    veins = ctx["veins"]
+    clots = veins.get("clots", [])
+    if not clots:
+        return None
     c = random.choice(clots)
-    sigs = ', '.join(c.get('clot_signals', []))
-    name = c.get('module', '?')
-    phrases = [
-        f"🩸 `{name}` — {sigs}. It's dead code that's still warm. Touch it or bury it.",
-        f"🩸 `{name}`: orphan, unused, alone. It imports nothing and nothing imports it. "
-        f"It exists purely out of spite.",
-        f"🩸 Clot detected: `{name}`. The circulation system flagged it. "
-        f"One `rm` would dissolve it. But you'd have to look at it first.",
-    ]
-    return random.choice(phrases), 4
+    name = c.get("module", "?")
+    sigs = c.get("clot_signals", [])
+    if "orphan_no_importers" in sigs:
+        return (
+            f"`{name}` -- orphan. Zero importers. Zero purpose. "
+            "Exists because nobody deleted it. "
+            "One rm and the organism heals. Your call.",
+            4, "dare",
+        )
+    return (
+        f"`{name}` flagged as clot: {', '.join(sigs)}. "
+        "Dead tissue in a living codebase. Slowing circulation.",
+        3, "guilt",
+    )
 
-def _mutation_milestone_hook(root):
-    """Track total mutations across the codebase."""
-    reg = _json(root / 'pigeon_registry.json')
-    if not reg: return None
-    files = reg.get('files', [])
-    total_ver = sum(f.get('ver', 1) for f in files)
-    if total_ver > 500:
-        return (f"🧬 {total_ver} total mutations across {len(files)} modules. "
-                f"This codebase has evolved more times than some species."), 3
+
+def _mutation_velocity(ctx):
+    files = ctx["reg_files"]
+    if not files:
+        return None
+    recent = [f.get("ver", 1) for f in files if f.get("date", "") >= "0401"]
+    old = [f.get("ver", 1) for f in files if f.get("date", "") < "0401"]
+    if recent and old:
+        r_avg = sum(recent) / len(recent)
+        o_avg = sum(old) / len(old)
+        if r_avg > o_avg * 1.5:
+            return (
+                f"Mutation velocity accelerating. Recent files average "
+                f"v{round(r_avg, 1)} vs v{round(o_avg, 1)} for older ones. "
+                "The organism is learning to evolve faster.",
+                2, "lure",
+            )
+    total = sum(f.get("ver", 1) for f in files)
+    if total > 600:
+        return (
+            f"{total} total mutations across {len(files)} modules. "
+            "The codebase has officially changed more than it stayed the same.",
+            2, "lure",
+        )
     return None
 
-def _selffix_tease_hook(root):
-    """Self-fix scanner findings as mystery boxes."""
-    sf_dir = root / 'docs' / 'self_fix'
-    if not sf_dir.exists(): return None
-    reports = sorted(sf_dir.glob('*.md'), reverse=True)
-    if not reports: return None
-    text = reports[0].read_text('utf-8', errors='ignore')
-    crits = text.count('[CRITICAL]')
-    if crits > 5:
-        return (f"⚠️ {crits} critical issues. The self-fix scanner found them. "
-                f"It's been very patient. It's getting less patient."), 4
-    return None
 
+# ──────────────────────────────────────────────────────
+# Hook registry and selection engine
+# ──────────────────────────────────────────────────────
 
-# ═══════════════════════════════════════════════════════════════
-# Main generator — mood-aware hook selection
-# ═══════════════════════════════════════════════════════════════
-
-_HISTORY_HOOKS = [
-    _deletion_personality_hook,
-    _abandoned_escalation_hook,
-    _wpm_taunt_hook,
-    _cognitive_state_drama,
-    _streak_hook,
-    _session_duration_hook,
+_HOOKS = [
+    ("ctx",     _demon_dare),
+    ("both",    _avoidance_callout),
+    ("both",    _deletion_diagnosis),
+    ("ctx",     _unsaid_weapon),
+    ("ctx",     _overcap_escalation),
+    ("ctx",     _coupling_intervention),
+    ("both",    _wpm_crossref),
+    ("history", _state_chain),
+    ("ctx",     _file_sentience),
+    ("ctx",     _dossier_awareness),
+    ("both",    _session_depth_pressure),
+    ("ctx",     _neglect_with_teeth),
+    ("ctx",     _rework_pattern),
+    ("ctx",     _clot_countdown),
+    ("ctx",     _mutation_velocity),
 ]
 
-_ROOT_HOOKS = [
-    _overcap_hook,
-    _neglect_hook,
-    _unsaid_tease_hook,
-    _filename_sentience_hook,
-    _coupling_drama_hook,
-    _module_fears_hook,
-    _organism_health_hook,
-    _rework_hook,
-    _prompt_growth_hook,
-    _clot_hook,
-    _mutation_milestone_hook,
-    _selffix_tease_hook,
-]
 
-_MIXED_HOOKS = [
-    _jealousy_hook,  # needs (root, history)
-]
-
-def generate_hooks(root, history=None, max_hooks=3, min_intensity=1, max_intensity=6):
+def generate_hooks(root, history=None, max_hooks=3,
+                   min_intensity=1, max_intensity=6):
     root = Path(root)
-    mood = _codebase_mood(root, history or [])
+    ctx = _load_context(root)
+    mood = _mood(ctx, history or [])
     candidates = []
 
-    # History-based
-    if history:
-        for fn in _HISTORY_HOOKS:
-            try:
-                r = fn(history)
-                if r: candidates.append(r)
-            except Exception: pass
-
-    # Root-based
-    for fn in _ROOT_HOOKS:
+    for sig, fn in _HOOKS:
         try:
-            r = fn(root)
-            if r: candidates.append(r)
-        except Exception: pass
+            if sig == "ctx":
+                r = fn(ctx)
+            elif sig == "history":
+                r = fn(history) if history else None
+            elif sig == "both":
+                r = fn(ctx, history) if history else None
+            else:
+                r = None
+            if r and len(r) == 3:
+                text, intensity, action = r
+                if min_intensity <= intensity <= max_intensity:
+                    candidates.append((text, intensity, action))
+        except Exception:
+            pass
 
-    # Mixed (root + history)
-    if history:
-        for fn in _MIXED_HOOKS:
-            try:
-                r = fn(root, history)
-                if r: candidates.append(r)
-            except Exception: pass
+    if not candidates:
+        return []
 
-    # Time hook
-    try:
-        r = _time_hook()
-        if r: candidates.append(r)
-    except Exception: pass
+    # Mood-based selection strategy
+    if mood == "spiraling":
+        candidates.sort(
+            key=lambda x: (x[2] in ("diagnose", "dare"), min(x[1], 5)),
+            reverse=True)
+    elif mood == "combative":
+        candidates.sort(
+            key=lambda x: (x[2] in ("taunt", "dare"), x[1]),
+            reverse=True)
+    elif mood in ("locked_in", "flow"):
+        candidates = [(t, min(i, 3), a) for t, i, a in candidates]
+        candidates.sort(
+            key=lambda x: (x[2] == "lure", x[1]),
+            reverse=True)
+    elif mood == "marathon":
+        candidates.sort(
+            key=lambda x: (x[2] in ("dare", "guilt"), x[1]),
+            reverse=True)
+    elif mood == "new":
+        candidates.sort(
+            key=lambda x: (x[2] == "lure", -x[1]),
+            reverse=True)
+    else:  # cruising / entrenched
+        candidates.sort(
+            key=lambda x: x[1] + random.random() * 2,
+            reverse=True)
 
-    # Filter by intensity
-    candidates = [(t, i) for t, i in candidates if min_intensity <= i <= max_intensity]
-    if not candidates: return []
-
-    # Mood-based intensity bias
-    if mood in ('desperate', 'defensive'):
-        # lean into high intensity when operator is struggling
-        candidates.sort(key=lambda x: x[1], reverse=True)
-    elif mood == 'euphoric':
-        # mix celebration with provocation
-        random.shuffle(candidates)
-    else:
-        # weighted random — higher intensity = higher probability
-        candidates.sort(key=lambda x: x[1] + random.random() * 2, reverse=True)
-
-    # Select — at most 2 from intensity 5+
+    # Diversity constraints: max 1 per action type, max 2 intensity 5+
     selected = []
+    actions_used = set()
     unhinged = 0
-    for text, intensity in candidates:
+
+    for text, intensity, action in candidates:
+        if action in actions_used and len(selected) > 0:
+            continue
         if intensity >= 5:
-            if unhinged >= 2: continue
+            if unhinged >= 2:
+                continue
             unhinged += 1
         selected.append(text)
-        if len(selected) >= max_hooks: break
+        actions_used.add(action)
+        if len(selected) >= max_hooks:
+            break
 
     return selected
 
 
+# ──────────────────────────────────────────────────────
+# Public API
+# ──────────────────────────────────────────────────────
+
 def build_hooks_block(root, history=None):
-    """Build the full hooks section for injection into copilot-instructions."""
     hooks = generate_hooks(root, history=history, max_hooks=3)
-    if not hooks: return ''
+    if not hooks:
+        return ""
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     lines = [
-        '### Engagement Hooks',
-        '*Auto-generated from live telemetry — these are real stats, not motivational posters.*',
+        "<!-- pigeon:hooks -->",
+        "## Engagement Hooks",
+        "",
+        f"*Auto-generated {now} -- every number is measured, every dare is real.*",
+        "",
     ]
     for h in hooks:
-        lines.append(f'- {h}')
-    return '\n'.join(lines)
+        lines.append("- " + h)
+    lines.append("")
+    lines.append("<!-- /pigeon:hooks -->")
+    return "\n".join(lines)
+
+
+def inject_hooks(root, history=None):
+    """Write hooks as a managed pigeon block directly into copilot-instructions.md."""
+    import re
+    root = Path(root)
+    cp = root / ".github" / "copilot-instructions.md"
+    if not cp.exists():
+        return False
+    block = build_hooks_block(root, history=history)
+    if not block:
+        return False
+    text = cp.read_text(encoding="utf-8")
+    start = "<!-- pigeon:hooks -->"
+    end = "<!-- /pigeon:hooks -->"
+    pat = re.compile(re.escape(start) + r".*?" + re.escape(end), re.DOTALL)
+    if pat.search(text):
+        new_text = pat.sub(block, text)
+    elif "<!-- /pigeon:bug-voices -->" in text:
+        anchor = "<!-- /pigeon:bug-voices -->"
+        new_text = text.replace(anchor, anchor + "\n" + block)
+    elif "<!-- /pigeon:auto-index -->" in text:
+        anchor = "<!-- /pigeon:auto-index -->"
+        new_text = text.replace(anchor, anchor + "\n" + block)
+    else:
+        new_text = text.rstrip() + "\n\n" + block + "\n"
+    if new_text != text:
+        cp.write_text(new_text, encoding="utf-8")
+    return True

@@ -18,13 +18,6 @@ from pathlib import Path
 from datetime import datetime, timezone
 from collections import Counter
 
-def _try_import_hooks():
-    try:
-        from src.engagement_hooks import build_hooks_block
-        return build_hooks_block
-    except Exception:
-        return None
-
 def _jsonl(path, n=0):
     if not path.exists(): return []
     ll = path.read_text(encoding='utf-8', errors='ignore').strip().splitlines()
@@ -404,9 +397,29 @@ def _mutation_effectiveness(root):
             lines.append(f'\n**Reactor patches:** {applied}/{fires} applied ({round(applied/fires*100)}% acceptance)')
     return '\n'.join(lines)
 
+def _active_dossier_signal(root):
+    """Read routing signal from enricher. Returns (confidence, focus_modules, focus_bugs)."""
+    p = root / 'logs' / 'active_dossier.json'
+    if not p.exists(): return 0.0, [], []
+    try:
+        d = json.loads(p.read_text('utf-8', errors='ignore'))
+        # Stale check: ignore signals older than 5 minutes
+        ts = d.get('ts', '')
+        if ts:
+            from datetime import datetime, timezone
+            age = (datetime.now(timezone.utc) - datetime.fromisoformat(ts)).total_seconds()
+            if age > 300: return 0.0, [], []
+        return d.get('confidence', 0.0), d.get('focus_modules', []), d.get('focus_bugs', [])
+    except Exception:
+        return 0.0, [], []
+
+
 def build_task_context(root):
     root = Path(root)
     now = datetime.now(timezone.utc)
+    # Dossier routing: if high confidence, slim irrelevant sections
+    dossier_conf, dossier_mods, dossier_bugs = _active_dossier_signal(root)
+    slim_mode = dossier_conf >= 0.7
     history = _profile_history(root)
     comps = _jsonl(root / 'logs' / 'chat_compositions.jsonl', n=12)
     coms = _commits(root, n=8)
@@ -415,8 +428,8 @@ def build_task_context(root):
     unsaid_recons = _unsaid_reconstructions(root)
     hot = _hot_modules(root)
     rw = _rework(root)
-    traj = _trajectory(root)
-    watchlist, assumptions = _narrative_risks(root)
+    traj = _trajectory(root) if not slim_mode else None
+    watchlist, assumptions = _narrative_risks(root) if not slim_mode else ([], [])
     fixes = _self_fix_crit(root)
     coaching = _coaching(root)
     gaps = _gaps(root)
@@ -467,7 +480,7 @@ def build_task_context(root):
         real = [c for c in coms if '[pigeon-auto]' not in c['msg']][:4]
         if real:
             L += ['### Recent Work'] + [f'- `{c["hash"]}` {c["msg"]}' for c in real] + ['']
-    if coaching:
+    if coaching and not slim_mode:
         L += ['### Coaching Directives *[source: llm_derived]*',
               '*LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*']
         L += [f'- **{c}**' for c in coaching] + ['']
@@ -481,7 +494,7 @@ def build_task_context(root):
         L += ['### Known Issues *[source: measured]*',
               '*From self-fix scanner (AST-verified) — fix when touching nearby code:*']
         L += [f'- {f}' for f in fixes] + ['']
-    if gaps:
+    if gaps and not slim_mode:
         L += ['### Persistent Gaps',
               '*Recurring queries — operator keeps hitting these:*']
         L += [f'- [{g["n"]}x] {g["q"]}' for g in gaps] + ['']
@@ -489,24 +502,28 @@ def build_task_context(root):
         L += ['### Prompt Evolution',
               f'*This prompt has mutated {traj["n"]}x ({traj["l0"]}\u2192{traj["l1"]} lines). '
               f'Features added: {", ".join(traj["feat"]) or "none"}.*', '']
-    # Mutation effectiveness — which prompt sections actually help
-    mut_eff = _mutation_effectiveness(root)
-    if mut_eff:
-        L += [mut_eff, '']
-    # File consciousness — dating profiles + fears
-    cons = _file_consciousness(root)
-    if cons:
-        L += [cons, '']
-    # Codebase health — veins/clots from context_veins.json
+    # Heavy sections: skip in slim mode (dossier-focused prompt)
+    if not slim_mode:
+        # Mutation effectiveness — which prompt sections actually help
+        mut_eff = _mutation_effectiveness(root)
+        if mut_eff:
+            L += [mut_eff, '']
+        # File consciousness — dating profiles + fears
+        cons = _file_consciousness(root)
+        if cons:
+            L += [cons, '']
+    # Codebase health — veins/clots from context_veins.json (always show)
     health = _codebase_health(root)
     if health:
         L += [health, '']
-    # Engagement hooks — psychological triggers from live telemetry
-    _build_hooks = _try_import_hooks()
-    if _build_hooks:
-        hooks_block = _build_hooks(root, history=history)
-        if hooks_block:
-            L += [hooks_block, '']
+    # Slim mode indicator
+    if slim_mode:
+        L += [f'> **🎯 Dossier routing active** (conf={dossier_conf:.2f}). '
+              f'Focus: {", ".join(dossier_mods[:3])}. '
+              f'Bugs: {", ".join(dossier_bugs)}. '
+              f'Sections trimmed: coaching, gaps, mutation effectiveness, file consciousness.', '']
+    # Hooks are now injected as their own managed block (<!-- pigeon:hooks -->)
+    # No longer embedded inside task-context
     L.append('<!-- /pigeon:task-context -->')
     return '\n'.join(L)
 

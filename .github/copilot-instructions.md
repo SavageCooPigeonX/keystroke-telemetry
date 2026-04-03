@@ -7,18 +7,18 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-03 02:17 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-03 03:47 UTC — 2 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 53min old (max 10min)
+- **`current-query`**: STALE — 87min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
-  - Last updated: 2026-04-03 01:24
+  - Last updated: 2026-04-03 02:21
 
-- **`prompt-telemetry`**: STALE — 53min old (max 10min)
+- **`prompt-telemetry`**: STALE — 87min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
-  - Last updated: 2026-04-03T01:24:15
+  - Last updated: 2026-04-03T02:20:59
 
 **Action**: Run the journal command or check `logs/enricher_errors.jsonl` for failures.
 
@@ -135,39 +135,32 @@ Three systems working together:
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Enriched 2026-04-03 01:24 UTC · raw: "what would get intense now is if copilot instructions were paired with bug repor"*
+*Enriched 2026-04-03 02:21 UTC · raw: "yes"*
 
-**COPILOT_QUERY: Implement a system where Copilot's instructions are dynamically generated from bug report templates. This system should allow for pre-query selection of a bug template or enable Copilot to autonomously select the most relevant template for documentation injection. Investigate `electron_death_classification_port_of`, `edit_session_based`, `failure_accumulator_per_node_port`, and `recurring_path_detection_port_of` for integration points.**
+**COPILOT_QUERY: Confirm the previous plan to address the "Copilot dump truck instructions problem" by implementing dynamic Copilot instruction template selection. Verify that Copilot will not begin work until these dynamic templates are fully loaded, ensuring bug-based templates are prioritized.**
 
-UNSAID_RECONSTRUCTION: what would get intense now is if copilot instructions were paired with bug report identity injection and how insane would it be is if copilot intructions were bug based templates nowand were dynamic - pre query could select template to write to or maybe even copilot itself could select doc injection - i wonder howmay tokens are waster for recurring research - bet you its a scam lmfao
-
-INTERPRETED INTENT: The operator wants to explore and implement a dynamic, bug-report-driven templating system for Copilot's instruction generation, aiming to reduce wasted tokens on recurring research.
-KEY FILES: electron_death_classification_port_of, edit_session_based, failure_accumulator_per_node_port, recurring_path_detection_port_of
-PRIOR ATTEMPTS: Previous attempts focused on injecting bugs into filenames and persistent memory, which did not address the core idea of dynamic, bug-based instruction templates for Copilot.
-WATCH OUT FOR: Copilot might focus too much on literal "bug injection" rather than using "bug reports" as a source for dynamic instruction templates.
-OPERATOR SIGNAL: The operator is brainstorming a complex, dynamic system for Copilot's instruction generation, indicating a desire to optimize Copilot's efficiency and relevance.
+INTERPRETED INTENT: The operator is confirming the previous instruction to implement dynamic Copilot instruction templates, specifically to resolve the "dump truck instructions problem" and ensure Copilot waits for templates to load.
+KEY FILES: dynamic_prompt, .operator_stats, file_heat_map, import_rewriter, file_writer
+PRIOR ATTEMPTS: none
+WATCH OUT FOR: Ensure the solution explicitly addresses the "dump truck instructions problem" and the loading dependency for Copilot.
+OPERATOR SIGNAL: The repeated "yes" after a detailed planning prompt indicates confirmation and a desire to proceed with the previously discussed solution.
 <!-- /pigeon:current-query -->
 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-03 02:17 UTC · 195 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-03 06:06 UTC · 216 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 51.5 | Del: 26.5% | Hes: 0.495) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 48.3 | Del: 26.5% | Hes: 0.487) · *[source: measured]*
 
-**Prompt ms:** 36609, 139258, 136138, 151292, 66760 (avg 106011ms)
+**Prompt ms:** 30648, 43100, 12441, 3269, 12677 (avg 20427ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- "rephraser"
-- "with"
-- "whts the hidden word"
-- "-actually i know that part wo"
-- "s - whats the"
-- "0 push"
+- "route"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
@@ -200,13 +193,13 @@ OPERATOR SIGNAL: The operator is brainstorming a complex, dynamic system for Cop
 - [CRITICAL] hardcoded_import in `pigeon_brain/读w_el_s002_v003_d0401_观话_λA.py`
 
 ### Prompt Evolution
-*This prompt has mutated 108x (186→735 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 109x (186→784 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
 *200 rework pairs × 107 mutations scored*
 *No significant signal yet — all 17 sections scored neutral.*
 
-**Reactor patches:** 0/232 applied (0% acceptance)
+**Reactor patches:** 0/237 applied (0% acceptance)
 
 ### File Consciousness
 *246 modules profiled*
@@ -246,12 +239,6 @@ OPERATOR SIGNAL: The operator is brainstorming a complex, dynamic system for Cop
 - `compliance` (vein=1.00, in=7)
 - `drift` (vein=1.00, in=5)
 - `cognitive_reactor` (vein=1.00, in=12)
-
-### Engagement Hooks
-*Auto-generated from live telemetry — these are real stats, not motivational posters.*
-- 🗑️ You deleted MORE than you kept. That prompt was a battlefield. The surviving words are traumatized.
-- ⏱️ 59.2h session. At this point the codebase knows you better than your IDE does.
-- 💕 `册f_reg` and `u_pe` (coupling=0.75). They share everything. Imports, fears, version churn. They should just merge already.
 
 <!-- /pigeon:task-context -->
 
@@ -382,9 +369,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-03 · 195 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-03 · 216 message(s) · LLM-synthesized*
 
-**Dominant: `abandoned`** | Submit: 66% | WPM: 52.5 | Del: 25.6% | Hes: 0.444
+**Dominant: `abandoned`** | Submit: 66% | WPM: 52.2 | Del: 25.6% | Hes: 0.443
 
 The operator just injected bug dossiers into multiple modules while showing a high-deletion, high-hesitation "restructuring" pattern, indicating they are deep in debugging and refining complex, interconnected systems.  
 - **Anticipate debugging context**: When `推w_dp_s017` or `修f_sf` are active, proactively surface related variable flows and recent mutation logic from the renamed files, as they are central pain points.
@@ -397,9 +384,9 @@ The operator just injected bug dossiers into multiple modules while showing a hi
 They are most likely building toward a unified, self-correcting pipeline where bug injection triggers automated analysis and fixes across the system.
 
 <!-- /pigeon:operator-state -->
-> **Cognitive reactor fired on `合p_us_s026_v002_d0330_缩分话_λF`** (hes=1.132, state=focused, avg_prompt=37725ms)
-> - Prompt composition time: 3946ms / 9017ms / 21588ms / 65561ms / 88511ms (avg 37725ms)
-> **Directive**: When `合p_us_s026_v002_d0330_缩分话_λF` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
+> **Cognitive reactor fired on `engagement_hooks`** (hes=0.7, state=frustrated, avg_prompt=20427ms)
+> - Prompt composition time: 12677ms / 3269ms / 12441ms / 43100ms / 30648ms (avg 20427ms)
+> **Directive**: When `engagement_hooks` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
@@ -410,13 +397,13 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-04-03T01:24:15.223790+00:00",
+  "updated_at": "2026-04-03T02:20:59.576373+00:00",
   "latest_prompt": {
-    "session_n": 8,
-    "ts": "2026-04-03T01:24:15.223790+00:00",
-    "chars": 388,
-    "preview": "what would get intense now is if copilot instructions were paired with bug report identity injection and how insane would it be is  if copilot intructions were bug based templates nowand were dynamic - pre query could...",
-    "intent": "debugging",
+    "session_n": 22,
+    "ts": "2026-04-03T02:20:59.576373+00:00",
+    "chars": 3,
+    "preview": "yes",
+    "intent": "unknown",
     "state": "neutral",
     "files_open": [
       ".github/copilot-instructions.md"
@@ -424,30 +411,31 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     "module_refs": []
   },
   "signals": {
-    "wpm": 34.0,
-    "chars_per_sec": 2.8,
-    "deletion_ratio": 0.015,
-    "hesitation_count": 8,
+    "wpm": 15.9,
+    "chars_per_sec": 1.3,
+    "deletion_ratio": 0.357,
+    "hesitation_count": 0,
     "rewrite_count": 1,
-    "typo_corrections": 1,
-    "intentional_deletions": 1,
-    "total_keystrokes": 400,
-    "duration_ms": 139258
+    "typo_corrections": 0,
+    "intentional_deletions": 2,
+    "total_keystrokes": 14,
+    "duration_ms": 6787
   },
   "composition_binding": {
     "matched": true,
     "source": "chat_compositions",
-    "age_ms": 38694,
-    "key": "|||2026-04-03T01:23:36.529996+00:00|400|139258|what would get intense now is if copilot instructions were paired with bug report identity injection and how insane woul",
+    "age_ms": 207942991,
+    "key": "|||2026-03-31T16:35:16.585847+00:00|14|6787|yes ",
     "match_score": 1.0
   },
   "deleted_words": [
-    "wit"
+    "d\",
+    "rs"
   ],
   "rewrites": [
     {
-      "old": " with",
-      "new": " with bug report identity injection and how insane would it be is  if copilot..."
+      "old": "rs ",
+      "new": "es "
     }
   ],
   "task_queue": {
@@ -471,33 +459,34 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 277,
-    "avg_wpm": 12.9,
-    "avg_del_ratio": 0.051,
+    "total_prompts": 282,
+    "avg_wpm": 12.8,
+    "avg_del_ratio": 0.052,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 162,
+      "unknown": 165,
       "hesitant": 46,
       "focused": 37,
-      "frustrated": 23,
-      "neutral": 8
+      "frustrated": 24,
+      "neutral": 9
     },
     "baselines": {
-      "n": 189,
-      "avg_wpm": 50.3,
+      "n": 195,
+      "avg_wpm": 51.1,
       "avg_del": 0.259,
-      "avg_hes": 0.442,
+      "avg_hes": 0.443,
       "sd_wpm": 15.9,
       "sd_del": 0.231,
-      "sd_hes": 0.161
+      "sd_hes": 0.162
     }
   },
   "coaching_directives": [
-    "Anticipate version bumps and λ-tag changes:",
-    "Pre-empt churn in `修f_sf_s013` and `推w_dp_s017`:",
-    "Flag high-deletion restructuring:",
-    "Simplify evening-session suggestions:",
-    "Bridge to the next likely step:"
+    "Anticipate debugging context",
+    "Preempt import/resolver issues",
+    "Counter hesitation with precision",
+    "Bridge the 5.5% miss-rate gap",
+    "Leverage evening/night focus",
+    "Flag mutation side effects"
   ]
 }
 ```
@@ -733,3 +722,69 @@ vscode-extension: classify_bridge, pulse_watcher
 - `修f_sf` d0402v012 · oc `Overcap Maw of fsf` x2: "I keep swelling this file past the hard cap. Split me before I eat context."
 - `册f_reg` d0402v005 · oc `Split Fiend of freg` x2: "I keep swelling this file past the hard cap. Split me before I eat context."
 <!-- /pigeon:bug-voices -->
+<!-- pigeon:hooks -->
+## Engagement Hooks
+
+*Auto-generated 2026-04-03 05:59 UTC -- every number is measured, every dare is real.*
+
+- `streaming_layer` is 10189 tokens. Hard cap is 200 lines. This file is 50 modules in a trench coat. One split command. That's all.
+- `u_pj` v2: "Marked 3 times. Each push I think maybe this time. Each push the beta stays. Last change was ''. It wasn't enough."
+- `cli` -- 417 days. Last generation's code. Either works perfectly or nobody knows it's broken.
+
+<!-- /pigeon:hooks -->
+<!-- pigeon:active-template -->
+## Active Template: /debug
+
+*Auto-selected 2026-04-03 05:59 UTC · mode: debug*
+
+## Live Signals
+
+**Cognitive:** `neutral` | WPM: 16 | Del: 36%
+**Deleted words:** route
+**Unsaid threads:** route
+**Rewrites:** "route" → "write injections"
+**Hot modules:** `file_heat_map` (hes=0.89), `import_rewriter` (hes=0.73), `file_writer` (hes=0.73)
+**Active bugs:** `u_pe` (oc), `u_pj` (oc), `警p_sa` (oc), `册f_reg` (oc)
+**Coaching:** Anticipate debugging context; Preempt import/resolver issues; Counter hesitation with precision
+**Codes:** intent=`unknown` state=`neutral` bl_wpm=51 bl_del=26%
+**Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
+
+---
+
+## Known Issues (from self-fix scanner)
+
+- [CRITICAL] hardcoded_import in `pigeon_brain/令f_cl_s009_v002_d0323_缩分话_λP.py`
+
+## Fragile Contracts
+
+- break here cascades.
+- breaking all rename operations. They receive cleanup triggers from the rename context.
+- assumption, `git_plugin`'s new method integration point. This push adds automated cleanup of obsolete glob patterns from configs to reduce tooling noi
+- break silently, causing the rename safety check to always pass or fail. Watch for uncontrolled renames on protected files.
+- contract changes, the extension's rename UI will malfunction. Watch for the extension failing to reflect rename safety status.
+- assumption about `_resolve.rename_safe` signature; `__main__`'s dependency on the wrapper's correctness; cascading import errors in `pigeon_compiler` 
+
+## Codebase Clots (dead/bloated)
+
+- `aim_utils`: orphan_no_importers, unused_exports:1
+- `press_release_gen_constants_seq001_v001`: orphan_no_importers, unused_exports:1
+- `adapter`: orphan_no_importers, unused_exports:1
+- `query_memory`: dead_imports:2, oversize:252, self_fix:dead_export:record_query, self_fix:dead_export:load_query_memory, self_fix:dead_export:load_query_memory
+
+## Overcap Files (split candidates)
+
+- `streaming_layer` (10189 tok)
+- `u_pj` (7801 tok)
+- `管w_cpm` (7179 tok)
+- `self_fix` (5846 tok)
+- `修f_sf` (5829 tok)
+- `prediction_scorer` (5797 tok)
+- `推w_dp` (5695 tok)
+- `cognitive_reactor` (5629 tok)
+
+## Active Bug Dossier
+
+**Focus modules:** pre_process_every_prompt_via, every_entry_cross_references_all, copilot_self_diagnostic_detect_stale, local_name_registry_for_the, one_shot_self_fix_analyzer
+**Focus bugs:** oc
+
+<!-- /pigeon:active-template -->

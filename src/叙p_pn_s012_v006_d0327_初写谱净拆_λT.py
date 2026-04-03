@@ -19,7 +19,6 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-
 def generate_push_narrative(
     root: Path, intent: str, commit_hash: str, changed_py: list[str],
     registry: dict, rework_stats: dict | None = None,

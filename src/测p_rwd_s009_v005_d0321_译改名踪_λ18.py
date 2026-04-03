@@ -100,6 +100,37 @@ def score_rework_from_composition(composition: dict) -> dict:
     }
 
 
+def _update_dossier_scores(root: Path, verdict: str):
+    """Feed rework verdict back into registry dossier_score for active bug entries."""
+    dossier_path = root / 'logs' / 'active_dossier.json'
+    if not dossier_path.exists(): return
+    try:
+        d = json.loads(dossier_path.read_text('utf-8'))
+    except Exception: return
+    focus = d.get('focus_modules', [])
+    if not focus or d.get('confidence', 0) < 0.3: return
+    reg_path = root / 'pigeon_registry.json'
+    if not reg_path.exists(): return
+    try:
+        reg = json.loads(reg_path.read_text('utf-8'))
+    except Exception: return
+    files = reg if isinstance(reg, list) else reg.get('files', [])
+    # Reward signal: ok → +0.05, partial → -0.02, miss → -0.1
+    delta = {'ok': 0.05, 'partial': -0.02, 'miss': -0.1}.get(verdict, 0)
+    if delta == 0: return
+    changed = False
+    for f in files:
+        name = f.get('file', '') or f.get('desc', '')
+        if name in focus:
+            old = f.get('dossier_score', 0)
+            f['dossier_score'] = round(max(-1.0, min(1.0, old + delta)), 3)
+            changed = True
+    if changed:
+        try:
+            reg_path.write_text(json.dumps(reg, indent=2, default=str), 'utf-8')
+        except Exception: pass
+
+
 def record_rework(root: Path, score: dict, query_text: str = '',
                   response_text: str = '') -> None:
     """Append a rework event to rework_log.json."""
@@ -121,6 +152,8 @@ def record_rework(root: Path, score: dict, query_text: str = '',
     existing.append(entry)
     # Keep last 200 events
     log_path.write_text(json.dumps(existing[-200:], indent=2), encoding='utf-8')
+    # Feed rework verdict back into active bug dossier scores
+    _update_dossier_scores(root, score['verdict'])
 
 
 def load_rework_stats(root: Path) -> dict:

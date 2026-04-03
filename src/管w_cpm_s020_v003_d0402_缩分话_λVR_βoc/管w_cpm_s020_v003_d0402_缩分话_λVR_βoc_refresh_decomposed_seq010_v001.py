@@ -2,6 +2,11 @@
 from pathlib import Path
 import re
 
+from .管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_telemetry_seq012_v001 import inject_auto_index, inject_prompt_telemetry
+from .管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_voices_state_seq013_v001 import inject_bug_voices, inject_operator_state
+from .管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_audit_decomposed_seq009_v001 import audit_copilot_prompt
+from .管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_file_utils_seq003_v001 import _run_refresher
+
 def refresh_managed_prompt(
     root: Path,
     snapshot: dict | None = None,
@@ -43,6 +48,15 @@ def refresh_managed_prompt(
             mutation_result = None
 
     audit = audit_copilot_prompt(root)
+
+    # Template selector — hydrate .prompt.md files for /debug, /build, /review
+    templates_result = None
+    try:
+        from src.template_selector import hydrate_templates
+        templates_result = hydrate_templates(root)
+    except Exception:
+        pass
+
     return {
         'auto_index_refreshed': auto_index_refreshed,
         'bug_voices_refreshed': bug_voices_refreshed,
@@ -51,5 +65,6 @@ def refresh_managed_prompt(
         'operator_state_refreshed': operator_state_refreshed,
         'prompt_telemetry_injected': injected,
         'mutation_result': mutation_result,
+        'templates': templates_result,
         'audit': audit,
     }

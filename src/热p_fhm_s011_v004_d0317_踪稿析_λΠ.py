@@ -32,26 +32,23 @@ HIGH_VER_THRESH = 5    # ≥5 versions = recurring pain point
 
 
 def update_heat_map(root: Path, state: str, hesitation: float,
-                    rework_verdict: str, wpm: float) -> None:
-    """Associate current message metrics with recently-touched pigeon files."""
-    registry_path = root / 'pigeon_registry.json'
-    if not registry_path.exists():
-        return
-    try:
-        registry = json.loads(registry_path.read_text('utf-8'))
-    except Exception:
-        return
-
+                    rework_verdict: str, wpm: float,
+                    module_refs: list[str] | None = None,
+                    open_files: list[str] | None = None) -> None:
+    """Associate current message metrics with modules the operator is engaging with.
+    
+    Uses module_refs (from prompt text) and open_files (editor tabs) instead of
+    recently-versioned registry files, so heat accurately reflects operator focus."""
     heat_path = root / HEAT_STORE
     try:
         heat = json.loads(heat_path.read_text('utf-8')) if heat_path.exists() else {}
     except Exception:
         heat = {}
 
-    # Find recently-modified files (sorted by date in filename)
-    recent_files = _get_recent_files(registry, top_n=RECENT_MSGS)
+    # Derive target modules from operator signals, not registry recency
+    target_modules = _get_operator_focus_modules(root, module_refs, open_files)
 
-    for module_name in recent_files:
+    for module_name in target_modules:
         entry = heat.setdefault(module_name, {
             'samples': [], 'avg_hes': 0.0, 'avg_wpm': 0.0,
             'miss_count': 0, 'total': 0,
@@ -72,6 +69,50 @@ def update_heat_map(root: Path, state: str, hesitation: float,
         entry['total']      = len(samples)
 
     heat_path.write_text(json.dumps(heat, indent=2), encoding='utf-8')
+
+
+def _get_operator_focus_modules(root: Path,
+                                module_refs: list[str] | None = None,
+                                open_files: list[str] | None = None,
+                                top_n: int = 5) -> list[str]:
+    """Derive modules from operator signals: prompt refs + open files + dossier."""
+    targets = set()
+
+    # 1. Module names explicitly mentioned in the prompt
+    for ref in (module_refs or []):
+        targets.add(ref)
+
+    # 2. Open editor files → extract module name from filename
+    for fp in (open_files or []):
+        stem = Path(fp).stem
+        # Strip seq/ver suffixes to get base name
+        import re as _re
+        base = _re.split(r'_s(?:eq)?\d{3}', stem)[0]
+        if base:
+            targets.add(base)
+
+    # 3. Active bug dossier focus modules
+    dossier = root / 'logs' / 'active_dossier.json'
+    if dossier.exists():
+        try:
+            d = json.loads(dossier.read_text('utf-8'))
+            for mod in d.get('focus_modules', []):
+                targets.add(mod)
+        except Exception:
+            pass
+
+    # 4. Fallback to registry recency if no operator signal
+    if not targets:
+        reg_path = root / 'pigeon_registry.json'
+        if reg_path.exists():
+            try:
+                reg = json.loads(reg_path.read_text('utf-8'))
+                return _get_recent_files(reg, top_n)
+            except Exception:
+                pass
+        return []
+
+    return list(targets)[:top_n]
 
 
 def _get_recent_files(registry: dict, top_n: int = 3) -> list[str]:
