@@ -7,16 +7,16 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-03 02:12 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-03 02:17 UTC — 2 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 48min old (max 10min)
+- **`current-query`**: STALE — 53min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-03 01:24
 
-- **`prompt-telemetry`**: STALE — 48min old (max 10min)
+- **`prompt-telemetry`**: STALE — 53min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-03T01:24:15
 
@@ -151,7 +151,7 @@ OPERATOR SIGNAL: The operator is brainstorming a complex, dynamic system for Cop
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-03 02:12 UTC · 195 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-03 02:17 UTC · 195 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 51.5 | Del: 26.5% | Hes: 0.495) · *[source: measured]*
@@ -177,34 +177,19 @@ OPERATOR SIGNAL: The operator is brainstorming a complex, dynamic system for Cop
 - `.operator_stats` (hes=0.66)
 - `dynamic_prompt` (hes=0.66)
 
-### AI Rework Surface
-*Miss rate: 5.5% (200 responses)*
-- Failed on: ""
-- Failed on: ""
-- Failed on: ""
-
 ### Recent Work
+- `7e3e55d` chore(pigeon): auto-rename 5 files + auto-compile å†Œf_reg(14 shards) + u_pj(12 shards) + self-fix report
 - `2556283` feat: bug dossier injection + AST import validator + unsaid filter fix
 - `4eb4c79` test: verify filename mutation
 - `79b615b` test: verify compressed filename mutation pipeline
-- `61ccaf1` fix: git_plugin Unicode path escaping - core.quotepath=false for compressed filename detection
-
-### Coaching Directives *[source: llm_derived]*
-*LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
-- **Anticipate version bumps and λ-tag changes**
-- **Pre-empt churn in `修f_sf_s013` and `推w_dp_s017`**
-- **Flag high-deletion restructuring**
-- **Simplify evening-session suggestions**
-- **Bridge to the next likely step**
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
+- Rename manifest validation silently passing corrupt maps; import rewrite missing symlinked files; prompt pre-processor mangling YAML instruction blocks.
 - `copilot_prompt_manager`'s assumption about `_resolve.rename_safe` signature; `__main__`'s dependency on the wrapper's correctness; cascading import errors in `pigeon_compiler` submodules. This push restores rename safety checks through a compatibility wrapper after a structural refactor.
-- Regex pattern overfitting on extensions; missing dependency on external pattern configuration; silent pass on empty pattern list.
+- **审p_va (seq005 v005)**: I was touched to harden import validation after rename operations, ensuring renamed modules are
 - **copilot_prompt_manager** (seq020 v003): I was touched to become a compatibility wrapper for the legacy rename system, 
 - **u_dbcc_s005_v001** was touched to integrate stale glob awareness into cognitive drift analysis, assuming the new `_tmp
-- **警p_sa** speaks: I was touched to finalize the `verify_compressed_filename` intent, embedding logic to validate archive
-- **警p_sa_s030_v002_d0331_缩分话_λA** speaks: I was created as the new source module to implement the verification logic defi
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
@@ -215,32 +200,32 @@ OPERATOR SIGNAL: The operator is brainstorming a complex, dynamic system for Cop
 - [CRITICAL] hardcoded_import in `pigeon_brain/读w_el_s002_v003_d0401_观话_λA.py`
 
 ### Prompt Evolution
-*This prompt has mutated 107x (186→743 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 108x (186→735 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 106 mutations scored*
+*200 rework pairs × 107 mutations scored*
 *No significant signal yet — all 17 sections scored neutral.*
 
 **Reactor patches:** 0/232 applied (0% acceptance)
 
 ### File Consciousness
-*243 modules profiled*
+*246 modules profiled*
 
 **High-drama (most mutations):**
 - `修f_sf` v12 ↔ 册f_reg
-- `self_fix` v11 ↔ 推w_dp
-- `推w_dp` v11 ↔ 册f_reg
-- `.operator_stats` v10 ↔ 推w_dp
+- `推w_dp` v12 ↔ 册f_reg
+- `self_fix` v11 ↔ 修f_sf
+- `.operator_stats` v10 ↔ 修f_sf
 
 **Codebase fears:**
-- returns empty on failure (silent) (9 modules)
-- file may not exist (8 modules)
-- regex format dependency (7 modules)
+- file may not exist (10 modules)
+- returns empty on failure (silent) (10 modules)
+- regex format dependency (8 modules)
 
 **Slumber party warnings (high coupling):**
-- `u_pe` ↔ `u_pj` (score=0.80, 5 shared imports, both high-churn (v2+v2))
-- `u_pj` ↔ `u_pe` (score=0.80, 5 shared imports, both high-churn (v2+v2))
-- `对p_tp` ↔ `管w_cpm` (score=0.80, 5 shared imports, both high-churn (v3+v3))
+- `册f_reg` ↔ `追跑f_ruhe` (score=0.80, 3 shared imports, both high-churn (v5+v5))
+- `追跑f_ruhe` ↔ `册f_reg` (score=0.80, 3 shared imports, both high-churn (v5+v5))
+- `u_pe` ↔ `对p_tp` (score=0.80, 5 shared imports, both high-churn (v3+v3))
 
 ### Codebase Health (Veins / Clots)
 *133/137 alive, 4 clots, avg vein health 0.53*
@@ -265,8 +250,8 @@ OPERATOR SIGNAL: The operator is brainstorming a complex, dynamic system for Cop
 ### Engagement Hooks
 *Auto-generated from live telemetry — these are real stats, not motivational posters.*
 - 🗑️ You deleted MORE than you kept. That prompt was a battlefield. The surviving words are traumatized.
-- 🧠 .github/copilot-instructions.md: 186→743 lines (557 added). It started as instructions. Now it's a personality profile, a telemetry dashboard, and a love letter to your typing patterns. Combined.
-- 💀 `cli` hasn't been touched in 42 days. It's not angry. It's just... disappointed.
+- ⏱️ 59.2h session. At this point the codebase knows you better than your IDE does.
+- 💕 `册f_reg` and `u_pe` (coupling=0.75). They share everything. Imports, fears, version churn. They should just merge already.
 
 <!-- /pigeon:task-context -->
 
@@ -359,16 +344,16 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
 
-*Auto-generated 2026-04-02 23:32 UTC · zero LLM calls*
+*Auto-generated 2026-04-03 02:15 UTC · zero LLM calls*
 
 **1 week:** `infrastructure` (conf=high) — ~48 commits
-**1 month:** `infrastructure` (conf=medium) — ~191 commits
-**3 months:** `infrastructure` (conf=speculative) — themes: ton, wouldn, glossator
+**1 month:** `infrastructure` (conf=medium) — ~189 commits
+**3 months:** `infrastructure` (conf=speculative) — themes: -actua, ton, word
 
 **PM Directives:**
 - Intent bifurcation: `infrastructure` dominant but `telemetry` emerging — watch for context switches mid-session.
 - `self_heal` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
-- Unsaid themes detected: `ton`, `wouldn`, `glossator` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
+- Unsaid themes detected: `-actua`, `ton`, `word` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
 - Module focus cluster: `file_heat_map`, `import_rewriter`, `file_writer` — pre-load context from these modules when operator starts typing.
 
 <!-- /pigeon:intent-simulation -->
@@ -401,13 +386,15 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 
 **Dominant: `abandoned`** | Submit: 66% | WPM: 52.5 | Del: 25.6% | Hes: 0.444
 
-This operator just built a filename mutation verifier, and their typing patterns reveal a high-deletion, restructuring-focused workflow where they iterate heavily in evening/night sessions, often abandoning drafts before finalizing.
+The operator just injected bug dossiers into multiple modules while showing a high-deletion, high-hesitation "restructuring" pattern, indicating they are deep in debugging and refining complex, interconnected systems.  
+- **Anticipate debugging context**: When `推w_dp_s017` or `修f_sf` are active, proactively surface related variable flows and recent mutation logic from the renamed files, as they are central pain points.
+- **Preempt import/resolver issues**: For modules like `dynamic_prompt` or `self_fix`, automatically note and verify import paths and lambda function hooks after renames to prevent runtime breaks.
+- **Counter hesitation with precision**: On high-deletion commits, respond with concise, single-concern code blocks—avoid multi-issue suggestions that force rework.
+- **Bridge the 5.5% miss-rate gap**: For queries matching the "worst" patterns, ask one clarifying question about edge cases before generating code to reduce rework.
+- **Leverage evening/night focus**: During these slots, provide slightly more exploratory options when they are in "focused" state, but stick to direct fixes during "restructuring."
+- **Flag mutation side effects**: Explicitly state potential impacts on `context_budget` or `.operator_stats` when suggesting changes to high-churn modules.
 
-*   **Anticipate version bumps and λ-tag changes:** When you see a file with a version increment (e.g., `v004` → `v005`) and a λ-tag change (e.g., `λA` → `λVR`), proactively ask, "Should we also update the internal module metadata or `__version__` string to match the new filename?"
-*   **Pre-empt churn in `修f_sf_s013` and `推w_dp_s017`:** These modules are pain points. Before suggesting major edits to them, first summarize their current purpose from the last few commits to avoid rework.
-*   **Flag high-deletion restructuring:** When the operator's typing state is 'restructuring' with >50% deletion, provide shorter, modular code blocks and ask, "Should we isolate this change into a helper function?" to reduce edit friction.
-*   **Simplify evening-session suggestions:** During 'evening' and 'night' slots, offer concise, copy-paste ready solutions; avoid long explanations unless asked.
-*   **Bridge to the next likely step:** The operator is systematically updating λ-tags to `λVR`; anticipate they may next want to **build a batch updater or a validation script for these filename conventions** across the project.
+They are most likely building toward a unified, self-correcting pipeline where bug injection triggers automated analysis and fixes across the system.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `合p_us_s026_v002_d0330_缩分话_λF`** (hes=1.132, state=focused, avg_prompt=37725ms)
@@ -530,7 +517,7 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 <!-- glyph mappings merged into auto-index -->
 <!-- /pigeon:dictionary -->
 <!-- pigeon:auto-index -->
-*2026-04-02 · 252 modules · 7 touched · ✓71% ~12% !15%*
+*2026-04-03 · 255 modules · 5 touched · ✓71% ~12% !15%*
 *Format: glyph=name seq tokens·state·intent·bugs |last change*
 *IM=import_tracer MA=manifest_writer NL=nl_parsers PL=planner PQ=pq_search_utils PR=press_release_gen_template_key_findings*
 *Intent: FX=fix RN=rename RF=refactor SP=split TL=telemetry CP=compress VR=verify FT=feature CL=cleanup OT=other PI=pigeon_brain DY=dynamic_import GE=gemini_flash RE=rework_signal 88=8888_word DE=desc_upgrade ST=stage_78 MU=multi_line IM=import_rewriter WI=windows_max IN=intent_deletion FI=fire_full WP=wpm_outlier PU=push_narratives TA=task_queue*
@@ -594,17 +581,20 @@ MA=manifest_writer 5 448✓·VR
 **pigeon_compiler/integrations** (1)
 谱=deepseek_adapter 1 1.2K✓·ST
 
-**pigeon_compiler/rename_engine** (23)
+**pigeon_compiler/rename_engine** (26)
 扫=scanner 1 972✓·VR
 PL=planner 2 1.4K~·CP
 引=import_rewriter 3 1.8K~·IM |import rewriter now
+引w_ir 3 1.9K·FX
 压=executor 4 712✓·VR
 审=validator 5 921✓·VR
+审p_va 5 1.0K·FX
 改名=run_rename 6 1.4K!·CP
 谱建=manifest_builder 7 2.9K!·DE
 正=compliance 8 1.7K!·VR
 追=heal 9 2.0K!·CP
 追跑=run_heal 10 3.4K!·VR
+追跑f_ruhe 10 4.7K·FX·oc
 牌=nametag 11 4.1K!·CP
 册=registry 12 2.1K!·CP
 册f_reg 12 3.2K·VR·oc
@@ -664,7 +654,7 @@ IM=import_tracer 3 792✓·VR
 思=cognitive_reactor 14 5.6K!·MU |mutation patch pipeline
 脉=pulse_harvest 15 2.3K✓·FT
 推=dynamic_prompt 17 4.0K~·88 |8888 word backpropagation
-推w_dp 17 5.4K·VR·oc
+推w_dp 17 5.7K·FX·oc
 队=task_queue 18 1.6K✓·TA |task queue system
 觉=file_consciousness 19 4.3K~·FT
 u_pj 19 7.8K·CP·oc
@@ -673,7 +663,7 @@ u_pj 19 7.8K·CP·oc
 变=mutation_scorer 21 1.6K✓·FT
 补=rework_backfill 22 1.2K✓·FT
 递=session_handoff 23 1.6K✓·FT
-u_pe 24 4.2K·CP·oc
+u_pe 24 4.5K·FX·oc |add bug dossier
 隐=unsaid_recon 24 1.3K✓·IN |intent deletion pipeline
 环=push_cycle 25 4.8K~·FX |fix push cycle
 片=shard_manager 26 4.4K~·GE
@@ -737,9 +727,9 @@ vscode-extension: classify_bridge, pulse_watcher
 
 *Persistent bug demons minted from registry scars - active filename bugs first.*
 
-- `u_pe` d0402v002 · oc `Overcap Maw of upe` x2: "I keep swelling this file past the hard cap. Split me before I eat context."
-- `u_pj` d0402v002 · oc `Split Fiend of upj` x2: "I keep swelling this file past the hard cap. Split me before I eat context."
-- `警p_sa` d0402v003 · oc `Shard Hunger of psa` x2: "I keep swelling this file past the hard cap. Split me before I eat context." last=test rename mutation
-- `修f_sf` d0402v012 · oc `Overcap Maw of fsf` x1: "I keep swelling this file past the hard cap. Split me before I eat context."
-- `册f_reg` d0402v005 · oc `Split Fiend of freg` x1: "I keep swelling this file past the hard cap. Split me before I eat context."
+- `u_pe` d0402v002 · oc `Overcap Maw of upe` x3: "I keep swelling this file past the hard cap. Split me before I eat context." last=add bug dossier
+- `u_pj` d0402v002 · oc `Split Fiend of upj` x3: "I keep swelling this file past the hard cap. Split me before I eat context."
+- `警p_sa` d0402v003 · oc `Shard Hunger of psa` x3: "I keep swelling this file past the hard cap. Split me before I eat context." last=test rename mutation
+- `修f_sf` d0402v012 · oc `Overcap Maw of fsf` x2: "I keep swelling this file past the hard cap. Split me before I eat context."
+- `册f_reg` d0402v005 · oc `Split Fiend of freg` x2: "I keep swelling this file past the hard cap. Split me before I eat context."
 <!-- /pigeon:bug-voices -->

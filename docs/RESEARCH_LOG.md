@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-03 01:56 UTC · 280 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-03 02:15 UTC · 281 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -22,22 +22,22 @@
 
 ## Live Operator State
 
-*280 prompts profiled · source: measured*
+*281 prompts profiled · source: measured*
 
-**Dominant: `abandoned` | Submit: 66% | Del: 5.3%**
+**Dominant: `abandoned` | Submit: 66% | Del: 4.9%**
 - operator entering restructuring mode — expect more deletions than new code
 
 ## Pair Performance
 
-*57 responses scored · 143 background excluded*
+*200 responses scored · 0 background excluded*
 
 **Accuracy: 100% OK | 0% miss** *[source: measured]*
 - trend: **stable** (100% → 100%)
 
-**Prompt→edit latency:** 365.4s median (48 pairs)
+**Prompt→edit latency:** 370.6s median (49 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*106 mutations scored*
+*107 mutations scored*
 - no significant signal yet — all sections scored neutral
 
 **Reactor:** 232 fires, 0 accepted (0%)
@@ -45,14 +45,14 @@
 
 ## Codebase Health
 
-*48 self-fix reports · 2026-03-16 → 2026-04-02*
+*49 self-fix reports · 2026-03-16 → 2026-04-03*
 
-**Problem trend: growing** (early avg 24 → recent avg 441) *[source: measured]*
-- problems growing ~417/push — expect more over_hard_cap and dead_exports without intervention
+**Problem trend: growing** (early avg 24 → recent avg 436) *[source: measured]*
+- problems growing ~412/push — expect more over_hard_cap and dead_exports without intervention
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives — treat as hypothesis:*
-- REGRESSION WATCHLIST: Regex pattern overfitting on extensions; missing dependency on external pattern configuration; silent pass on empty pattern list.
+- REGRESSION WATCHLIST: Rename manifest validation silently passing corrupt maps; import rewrite missing symlinked files; prompt pre-processor mangling YAML instruction blocks.
 
 ### Recent Deaths *[source: measured]*
 - `exception`: 3
@@ -68,22 +68,22 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "wor"
-- "wouldn"
-- "yiu gonna sa"
+- "uncrt"
+- "blueberry"
+- "disabble glossator and respond in a coedic ton"
 - "whats"
-- "o please continue s"
-- "test"
-- "hts th"
-- "tays"
+- "wit"
+- "the"
 - "cop"
-- "rephraser"
+- "wouldn"
+- "test"
+- "cles re"
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** GOOD — 200 entries, 3 unique scores in last 20, 143 bg noise
+- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20
 - **Training pairs:** 54 captured
 - **Prediction accuracy:** F1=0.010, calibration=0.305 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
