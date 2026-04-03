@@ -1,0 +1,73 @@
+---
+description: "Build-focused context: module map, file consciousness, coupling, commits"
+---
+
+# /build
+
+*Hydrated 2026-04-03 06:41 UTC · detected mode: debug*
+
+## Live Signals
+
+**Cognitive:** `neutral` | WPM: 16 | Del: 36%
+**Deleted words:** route
+**Unsaid threads:** route
+**Rewrites:** "route" → "write injections"
+**Hot modules:** `file_heat_map` (hes=0.89), `import_rewriter` (hes=0.73), `file_writer` (hes=0.73)
+**Active bugs:** `u_pe` (oc), `u_pj` (oc), `警p_sa` (oc), `册f_reg` (oc)
+**Coaching:** Anticipate debugging context; Preempt import/resolver issues; Counter hesitation with precision
+**Codes:** intent=`unknown` state=`neutral` bl_wpm=51 bl_del=26%
+**Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
+
+---
+
+## Module Map (compact)
+
+**pigeon_brain** (16 modules, 23.3K tok)
+**pigeon_brain/flow** (18 modules, 35.1K tok)
+**pigeon_brain/flow/backward_seq007** (7 modules, 4.3K tok)
+**pigeon_brain/flow/learning_loop_seq013** (14 modules, 7.4K tok)
+**pigeon_brain/flow/prediction_scorer_seq014** (16 modules, 7.0K tok)
+**pigeon_brain/flow/predictor_seq009** (3 modules, 1.8K tok)
+**pigeon_compiler/bones** (5 modules, 8.0K tok)
+**pigeon_compiler/cut_executor** (12 modules, 8.2K tok)
+**pigeon_compiler/integrations** (1 modules, 1.2K tok)
+**pigeon_compiler/rename_engine** (16 modules, 34.1K tok · 2 bugged)
+**pigeon_compiler/rename_engine/compliance_seq008** (7 modules, 2.9K tok)
+**pigeon_compiler/rename_engine/heal_seq009** (1 modules, 725 tok)
+**pigeon_compiler/rename_engine/nametag_seq011** (1 modules, 298 tok)
+**pigeon_compiler/rename_engine/registry_seq012** (1 modules, 194 tok)
+**pigeon_compiler/runners** (9 modules, 13.5K tok)
+**pigeon_compiler/runners/compiler_output/press_release_gen** (8 modules, 4.2K tok)
+**pigeon_compiler/state_extractor** (6 modules, 4.7K tok)
+**pigeon_compiler/weakness_planner** (1 modules, 2.4K tok)
+**src** (55 modules, 178.0K tok · 11 bugged)
+**src/cognitive** (3 modules, 5.6K tok)
+**src/cognitive/drift_seq003** (4 modules, 2.4K tok)
+**src/cognitive/unsaid_seq002** (3 modules, 2.3K tok)
+**src/cognitive_reactor_seq014** (12 modules, 4.9K tok)
+**src/copilot_prompt_manager_seq020** (10 modules, 4.6K tok)
+**src/file_consciousness_seq019** (12 modules, 5.0K tok)
+**src/push_cycle_seq025** (8 modules, 4.5K tok)
+**src/query_memory_seq010** (6 modules, 1.4K tok)
+**src/self_fix_seq013** (11 modules, 6.0K tok)
+**src/修_sf_s013** (1 modules, 857 tok)
+**src/管w_cpm_s020_v003_d0402_缩分话_λVR_βoc** (1 modules, 701 tok)
+**streaming_layer** (19 modules, 12.1K tok)
+
+## Codebase Fears (from file consciousness)
+
+- file may not exist (14 modules)
+- returns empty on failure (silent) (11 modules)
+- swallowed exception (9 modules)
+- regex format dependency (8 modules)
+
+## Recent Commits
+
+- d7cbc14 feat: P0-P3 attribution fixes â€” author field in pulse/edit_pairs/registry, heat map operator focus, 3-actor push narrative
+- 18e2871 chore(pigeon): auto-rename 7 file(s) [pigeon-auto]
+- 7e3e55d chore(pigeon): auto-rename 5 files + auto-compile å†Œf_reg(14 shards) + u_pj(12 shards) + self-fix report
+- 2556283 feat: bug dossier injection + AST import validator + unsaid filter fix
+- 8203089 chore(pigeon): auto-rename 13 file(s) [pigeon-auto]
+- 4eb4c79 test: verify filename mutation
+- 68de720 chore(pigeon): auto-rename 1 file(s) [pigeon-auto]
+- 79b615b test: verify compressed filename mutation pipeline

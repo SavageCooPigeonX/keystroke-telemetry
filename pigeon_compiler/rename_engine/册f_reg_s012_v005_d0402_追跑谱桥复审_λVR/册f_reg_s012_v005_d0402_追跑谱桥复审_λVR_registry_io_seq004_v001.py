@@ -4,6 +4,8 @@ from pathlib import Path
 import json
 import re
 
+from .册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_constants_seq001_v001 import REGISTRY_FILE
+
 def registry_path(root: Path) -> Path:
     return Path(root) / REGISTRY_FILE
 

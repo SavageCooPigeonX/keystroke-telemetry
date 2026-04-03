@@ -37,12 +37,12 @@ def _mutation_count(root: Path) -> int:
     return len(data.get('snapshots', []))
 
 
+def _latest_runtime_module(root: Path, pattern: str) -> Path | None:
+    matches = sorted(root.glob(pattern))
+    return matches[-1] if matches else None
+
+
 def _dominant_state(state_dist: dict) -> str | None:
     if not state_dist:
         return None
     return next(iter(state_dist))
-
-
-def _latest_runtime_module(root: Path, pattern: str) -> Path | None:
-    matches = sorted(root.glob(pattern))
-    return matches[-1] if matches else None

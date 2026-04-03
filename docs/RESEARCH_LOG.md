@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-03 02:15 UTC · 281 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-03 06:41 UTC · 290 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -22,9 +22,9 @@
 
 ## Live Operator State
 
-*281 prompts profiled · source: measured*
+*290 prompts profiled · source: measured*
 
-**Dominant: `abandoned` | Submit: 66% | Del: 4.9%**
+**Dominant: `abandoned` | Submit: 66% | Del: 5.6%**
 - operator entering restructuring mode — expect more deletions than new code
 
 ## Pair Performance
@@ -37,18 +37,18 @@
 **Prompt→edit latency:** 370.6s median (49 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*107 mutations scored*
+*110 mutations scored*
 - no significant signal yet — all sections scored neutral
 
-**Reactor:** 232 fires, 0 accepted (0%)
+**Reactor:** 237 fires, 0 accepted (0%)
 > **Directive:** Reactor patches near-zero acceptance — tune confidence threshold or disable
 
 ## Codebase Health
 
-*49 self-fix reports · 2026-03-16 → 2026-04-03*
+*50 self-fix reports · 2026-03-16 → 2026-04-03*
 
-**Problem trend: growing** (early avg 24 → recent avg 436) *[source: measured]*
-- problems growing ~412/push — expect more over_hard_cap and dead_exports without intervention
+**Problem trend: growing** (early avg 24 → recent avg 437) *[source: measured]*
+- problems growing ~413/push — expect more over_hard_cap and dead_exports without intervention
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives — treat as hypothesis:*
@@ -68,23 +68,23 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "uncrt"
+- "-actua"
+- "route"
 - "blueberry"
-- "disabble glossator and respond in a coedic ton"
-- "whats"
-- "wit"
 - "the"
-- "cop"
-- "wouldn"
+- "intencom"
 - "test"
-- "cles re"
+- "s - whats th"
+- "yiu gonna sa"
+- "word"
+- "doe"
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20
-- **Training pairs:** 54 captured
+- **Rework signal:** WEAK (placeholder data) — 200 entries, 2 unique scores in last 20
+- **Training pairs:** 55 captured
 - **Prediction accuracy:** F1=0.010, calibration=0.305 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
 - **Memory shards:** 10 active (zero LLM calls)

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-03T02:12:36.170073+00:00",
-  "total": 281,
+  "generated": "2026-04-03T06:40:37.043650+00:00",
+  "total": 287,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -3371,7 +3371,8 @@
       "bug_keys": [],
       "bug_counts": {},
       "bug_entities": {},
-      "last_bug_mark": ""
+      "last_bug_mark": "",
+      "dossier_score": 1.0
     },
     {
       "path": "pigeon_compiler/rename_engine/run_heal_seq010_v004_d0315__automated_self_healing_pipeline_lc_verify_pigeon_plugin.py",
@@ -3510,8 +3511,8 @@
       "last_bug_mark": ""
     },
     {
-      "path": "pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc.py",
-      "name": "册f_reg",
+      "path": "pigeon_compiler/rename_engine/\u518cf_reg_s012_v005_d0402_\u8ffd\u8dd1\u8c31\u6865\u590d\u5ba1_\u03bbVR_\u03b2oc.py",
+      "name": "\u518cf_reg",
       "seq": 12,
       "ver": 5,
       "date": "0402",
@@ -3522,7 +3523,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 2
+        "oc": 3
       },
       "bug_entities": {
         "oc": "Split Fiend of freg"
@@ -3538,11 +3539,12 @@
           "tokens": 3160,
           "action": "registered"
         }
-      ]
+      ],
+      "dossier_score": 1.0
     },
     {
-      "path": "pigeon_compiler/rename_engine/审p_va_s005_v005_d0403_踪稿析_λFX.py",
-      "name": "审p_va",
+      "path": "pigeon_compiler/rename_engine/\u5ba1p_va_s005_v005_d0403_\u8e2a\u7a3f\u6790_\u03bbFX.py",
+      "name": "\u5ba1p_va",
       "seq": 5,
       "ver": 5,
       "date": "0403",
@@ -3566,8 +3568,8 @@
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX.py",
-      "name": "引w_ir",
+      "path": "pigeon_compiler/rename_engine/\u5f15w_ir_s003_v005_d0403_\u8e2a\u7a3f\u6790_\u03bbFX.py",
+      "name": "\u5f15w_ir",
       "seq": 3,
       "ver": 5,
       "date": "0403",
@@ -3591,8 +3593,8 @@
       ]
     },
     {
-      "path": "pigeon_compiler/rename_engine/追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc.py",
-      "name": "追跑f_ruhe",
+      "path": "pigeon_compiler/rename_engine/\u8ffd\u8dd1f_ruhe_s010_v005_d0403_\u518c\u590d\u5ba1\u51c0\u52a9_\u03bbFX_\u03b2oc.py",
+      "name": "\u8ffd\u8dd1f_ruhe",
       "seq": 10,
       "ver": 5,
       "date": "0403",
@@ -3603,7 +3605,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 1
+        "oc": 2
       },
       "bug_entities": {
         "oc": "Overcap Maw of fruhe"
@@ -7473,7 +7475,8 @@
       "bug_keys": [],
       "bug_counts": {},
       "bug_entities": {},
-      "last_bug_mark": ""
+      "last_bug_mark": "",
+      "dossier_score": 1.0
     },
     {
       "path": "src/session_handoff_seq023_v002_d0321__session_handoff_summary_generator_lc_implement_all_18.py",
@@ -7549,7 +7552,8 @@
       "bug_keys": [],
       "bug_counts": {},
       "bug_entities": {},
-      "last_bug_mark": ""
+      "last_bug_mark": "",
+      "dossier_score": 1.0
     },
     {
       "path": "src/streaming_layer_seq007_v003_d0317__monolithic_live_streaming_interface_for_lc_pulse_telemetry_prompt.py",
@@ -7744,14 +7748,14 @@
       "last_bug_mark": ""
     },
     {
-      "path": "src/u_pe_s024_v003_d0403_λFX_βoc.py",
+      "path": "src/u_pe_s024_v004_d0403_\u03bbP0_\u03b2oc.py",
       "name": "u_pe",
       "seq": 24,
-      "ver": 3,
+      "ver": 4,
       "date": "0403",
       "desc": "pre_process_every_prompt_via",
-      "intent": "bug_dossier_injection",
-      "tokens": 4519,
+      "intent": "p0_p3_attribution",
+      "tokens": 5128,
       "history": [
         {
           "ver": 2,
@@ -7768,23 +7772,32 @@
           "intent": "bug_dossier_injection",
           "action": "mutated",
           "tokens": 4519
+        },
+        {
+          "ver": 4,
+          "date": "0403",
+          "desc": "pre_process_every_prompt_via",
+          "intent": "p0_p3_attribution",
+          "action": "mutated",
+          "tokens": 5128
         }
       ],
-      "intent_code": "FX",
+      "intent_code": "P0",
       "bug_keys": [
         "oc"
       ],
       "last_bug_mark": "d0402v002",
       "bug_counts": {
-        "oc": 3
+        "oc": 4
       },
       "bug_entities": {
         "oc": "Overcap Maw of upe"
       },
-      "last_change": "add bug dossier"
+      "last_change": "add bug dossier",
+      "dossier_score": 1.0
     },
     {
-      "path": "src/u_pj_s019_v002_d0402_λC.py",
+      "path": "src/u_pj_s019_v002_d0402_\u03bbC.py",
       "name": "u_pj",
       "seq": 19,
       "ver": 2,
@@ -7808,11 +7821,12 @@
       ],
       "last_bug_mark": "d0402v002",
       "bug_counts": {
-        "oc": 3
+        "oc": 4
       },
       "bug_entities": {
         "oc": "Split Fiend of upj"
-      }
+      },
+      "dossier_score": 1.0
     },
     {
       "path": "src/unified_signal_seq026_v002_d0330__joins_all_telemetry_into_canonical_lc_gemini_flash_enricher.py",
@@ -7899,8 +7913,8 @@
       "last_bug_mark": ""
     },
     {
-      "path": "src/修_sf_s013/修f_sf_aco_s009_v003_d0402_λVR.py",
-      "name": "修f_sf_aco",
+      "path": "src/\u4fee_sf_s013/\u4feef_sf_aco_s009_v003_d0402_\u03bbVR.py",
+      "name": "\u4feef_sf_aco",
       "seq": 9,
       "ver": 3,
       "date": "0402",
@@ -7924,8 +7938,8 @@
       ]
     },
     {
-      "path": "src/修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc.py",
-      "name": "修f_sf",
+      "path": "src/\u4feef_sf_s013_v012_d0402_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbVR_\u03b2oc.py",
+      "name": "\u4feef_sf",
       "seq": 13,
       "ver": 12,
       "date": "0402",
@@ -7936,7 +7950,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 2
+        "oc": 3
       },
       "bug_entities": {
         "oc": "Overcap Maw of fsf"
@@ -7952,11 +7966,68 @@
           "tokens": 5829,
           "action": "registered"
         }
+      ],
+      "dossier_score": 1.0
+    },
+    {
+      "path": "src/\u53d9p_pn_s012_v007_d0403_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbP0.py",
+      "name": "\u53d9p_pn",
+      "seq": 12,
+      "ver": 7,
+      "date": "0403",
+      "desc": "generate_per_push_narrative_each",
+      "intent": "p0_p3_attribution",
+      "intent_code": "P0",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": "",
+      "tokens": 2088,
+      "history": [
+        {
+          "ver": 7,
+          "date": "0403",
+          "desc": "generate_per_push_narrative_each",
+          "intent": "p0_p3_attribution",
+          "tokens": 2088,
+          "action": "registered"
+        }
       ]
     },
     {
-      "path": "src/对p_tp_s027_v003_d0402_缩分话_λVR_βoc.py",
-      "name": "对p_tp",
+      "path": "src/\u53d9p_pn_s012_v008_d0403_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbP0_\u03b2oc.py",
+      "name": "\u53d9p_pn",
+      "seq": 12,
+      "ver": 8,
+      "date": "0403",
+      "desc": "generate_per_push_narrative_each",
+      "intent": "p0_p3_attribution",
+      "intent_code": "P0",
+      "bug_keys": [
+        "oc"
+      ],
+      "bug_counts": {
+        "oc": 1
+      },
+      "bug_entities": {
+        "oc": "Shard Hunger of ppn"
+      },
+      "last_bug_mark": "d0403v008",
+      "tokens": 2241,
+      "history": [
+        {
+          "ver": 8,
+          "date": "0403",
+          "desc": "generate_per_push_narrative_each",
+          "intent": "p0_p3_attribution",
+          "tokens": 2241,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/\u5bf9p_tp_s027_v003_d0402_\u7f29\u5206\u8bdd_\u03bbVR_\u03b2oc.py",
+      "name": "\u5bf9p_tp",
       "seq": 27,
       "ver": 3,
       "date": "0402",
@@ -7967,7 +8038,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 2
+        "oc": 3
       },
       "bug_entities": {
         "oc": "Split Fiend of ptp"
@@ -7986,25 +8057,25 @@
       ]
     },
     {
-      "path": "src/推w_dp_s017_v012_d0403_初写谱净拆_λFX_βoc.py",
-      "name": "推w_dp",
+      "path": "src/\u63a8w_dp_s017_v013_d0403_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbP0_\u03b2oc.py",
+      "name": "\u63a8w_dp",
       "seq": 17,
-      "ver": 12,
+      "ver": 13,
       "date": "0403",
       "desc": "steers_copilot_cot_from_live",
-      "intent": "bug_dossier_injection",
-      "intent_code": "FX",
+      "intent": "p0_p3_attribution",
+      "intent_code": "P0",
       "bug_keys": [
         "oc"
       ],
       "bug_counts": {
-        "oc": 2
+        "oc": 3
       },
       "bug_entities": {
         "oc": "Shard Hunger of wdp"
       },
       "last_bug_mark": "d0402v011",
-      "tokens": 5695,
+      "tokens": 5987,
       "history": [
         {
           "ver": 11,
@@ -8021,29 +8092,124 @@
           "intent": "bug_dossier_injection",
           "action": "mutated",
           "tokens": 5695
+        },
+        {
+          "ver": 13,
+          "date": "0403",
+          "desc": "steers_copilot_cot_from_live",
+          "intent": "p0_p3_attribution",
+          "action": "mutated",
+          "tokens": 5987
         }
       ]
     },
     {
-      "path": "src/管w_cpm_s020_v003_d0402_缩分话_λVR_βoc.py",
-      "name": "管w_cpm",
+      "path": "src/\u6d4bp_rwd_s009_v006_d0403_\u8bd1\u6539\u540d\u8e2a_\u03bbP0_\u03b2de.py",
+      "name": "\u6d4bp_rwd",
+      "seq": 9,
+      "ver": 6,
+      "date": "0403",
+      "desc": "measures_ai_answer_quality_from",
+      "intent": "p0_p3_attribution",
+      "intent_code": "P0",
+      "bug_keys": [
+        "de"
+      ],
+      "bug_counts": {
+        "de": 1
+      },
+      "bug_entities": {
+        "de": "Null Moth of prwd"
+      },
+      "last_bug_mark": "d0403v006",
+      "tokens": 1785,
+      "history": [
+        {
+          "ver": 6,
+          "date": "0403",
+          "desc": "measures_ai_answer_quality_from",
+          "intent": "p0_p3_attribution",
+          "tokens": 1785,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/\u70edp_fhm_s011_v005_d0403_\u8e2a\u7a3f\u6790_\u03bbP0_\u03b2de.py",
+      "name": "\u70edp_fhm",
+      "seq": 11,
+      "ver": 5,
+      "date": "0403",
+      "desc": "tracks_cognitive_load_per_module",
+      "intent": "p0_p3_attribution",
+      "intent_code": "P0",
+      "bug_keys": [
+        "de"
+      ],
+      "bug_counts": {
+        "de": 1
+      },
+      "bug_entities": {
+        "de": "Null Moth of pfhm"
+      },
+      "last_bug_mark": "d0403v005",
+      "tokens": 1745,
+      "history": [
+        {
+          "ver": 5,
+          "date": "0403",
+          "desc": "tracks_cognitive_load_per_module",
+          "intent": "p0_p3_attribution",
+          "tokens": 1745,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/\u7ba1w_cpm_s020_v003_d0402_\u7f29\u5206\u8bdd_\u03bbVR_\u03b2oc/\u7ba1w_cpm_s020_v003_d0402_\u7f29\u5206\u8bdd_\u03bbVR_\u03b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attribution.py",
+      "name": "\u7ba1w_cpm_s020_v003_d0402_\u7f29\u5206\u8bdd_\u03bbVR_\u03b2oc_refresh_decomposed",
+      "seq": 10,
+      "ver": 2,
+      "date": "0403",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "p0_p3_attribution",
+      "intent_code": "P0",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": "",
+      "tokens": 701,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0403",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "p0_p3_attribution",
+          "tokens": 701,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/\u7ba1w_cpm_s020_v004_d0403_\u7f29\u5206\u8bdd_\u03bbP0_\u03b2oc.py",
+      "name": "\u7ba1w_cpm",
       "seq": 20,
-      "ver": 3,
-      "date": "0402",
+      "ver": 4,
+      "date": "0403",
       "desc": "audits_and_manages_all_injected",
-      "intent": "verify_filename_mutation",
-      "intent_code": "VR",
+      "intent": "p0_p3_attribution",
+      "intent_code": "P0",
       "bug_keys": [
         "oc"
       ],
       "bug_counts": {
-        "oc": 2
+        "oc": 3
       },
       "bug_entities": {
         "oc": "Overcap Maw of wcpm"
       },
       "last_bug_mark": "d0402v003",
-      "tokens": 7179,
+      "tokens": 7781,
       "history": [
         {
           "ver": 3,
@@ -8052,12 +8218,51 @@
           "intent": "verify_filename_mutation",
           "tokens": 7179,
           "action": "registered"
+        },
+        {
+          "ver": 4,
+          "date": "0403",
+          "desc": "audits_and_manages_all_injected",
+          "intent": "p0_p3_attribution",
+          "action": "mutated",
+          "tokens": 7781
         }
       ]
     },
     {
-      "path": "src/警p_sa_s030_v003_d0402_缩分话_λV.py",
-      "name": "警p_sa",
+      "path": "src/\u8109p_ph_s015_v004_d0403_\u8bfb\u5524\u4efb_\u03bbP0_\u03b2oc.py",
+      "name": "\u8109p_ph",
+      "seq": 15,
+      "ver": 4,
+      "date": "0403",
+      "desc": "pulse_harvest_pairs_prompts_to",
+      "intent": "p0_p3_attribution",
+      "intent_code": "P0",
+      "bug_keys": [
+        "oc"
+      ],
+      "bug_counts": {
+        "oc": 1
+      },
+      "bug_entities": {
+        "oc": "Shard Hunger of pph"
+      },
+      "last_bug_mark": "d0403v004",
+      "tokens": 2385,
+      "history": [
+        {
+          "ver": 4,
+          "date": "0403",
+          "desc": "pulse_harvest_pairs_prompts_to",
+          "intent": "p0_p3_attribution",
+          "tokens": 2385,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "src/\u8b66p_sa_s030_v003_d0402_\u7f29\u5206\u8bdd_\u03bbV.py",
+      "name": "\u8b66p_sa",
       "seq": 30,
       "ver": 3,
       "date": "0402",
@@ -8081,24 +8286,23 @@
       ],
       "last_bug_mark": "d0402v003",
       "bug_counts": {
-        "oc": 3
+        "oc": 4
       },
       "bug_entities": {
         "oc": "Shard Hunger of psa"
-      }
+      },
+      "dossier_score": 1.0
     },
     {
-      "path": "src/警p_sa_s030_v003_d0402_缩分话_λVR_βoc.py",
-      "name": "警p_sa",
+      "path": "src/\u8b66p_sa_s030_v004_d0403_\u7f29\u5206\u8bdd_\u03bbP0.py",
+      "name": "\u8b66p_sa",
       "seq": 30,
-      "ver": 3,
-      "date": "0402",
+      "ver": 4,
+      "date": "0403",
       "desc": "copilot_self_diagnostic_detect_stale",
-      "intent": "verify_filename_mutation",
-      "intent_code": "VR",
-      "bug_keys": [
-        "oc"
-      ],
+      "intent": "p0_p3_attribution",
+      "intent_code": "P0",
+      "bug_keys": [],
       "bug_counts": {
         "oc": 2
       },
@@ -8106,7 +8310,7 @@
         "oc": "Shard Hunger of psa"
       },
       "last_bug_mark": "d0402v003",
-      "tokens": 1796,
+      "tokens": 1673,
       "history": [
         {
           "ver": 3,
@@ -8115,9 +8319,18 @@
           "intent": "verify_filename_mutation",
           "tokens": 1796,
           "action": "registered"
+        },
+        {
+          "ver": 4,
+          "date": "0403",
+          "desc": "copilot_self_diagnostic_detect_stale",
+          "intent": "p0_p3_attribution",
+          "action": "mutated",
+          "tokens": 1673
         }
       ],
-      "last_change": "test rename mutation"
+      "last_change": "test rename mutation",
+      "dossier_score": 1.0
     },
     {
       "path": "streaming_layer/streaming_layer_aggregator_seq006_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",

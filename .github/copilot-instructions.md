@@ -149,10 +149,10 @@ OPERATOR SIGNAL: The repeated "yes" after a detailed planning prompt indicates c
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-03 06:06 UTC · 216 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-03 06:42 UTC · 219 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 48.3 | Del: 26.5% | Hes: 0.487) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 48.3 | Del: 26.5% | Hes: 0.491) · *[source: measured]*
 
 **Prompt ms:** 30648, 43100, 12441, 3269, 12677 (avg 20427ms)
 
@@ -171,18 +171,26 @@ OPERATOR SIGNAL: The repeated "yes" after a detailed planning prompt indicates c
 - `dynamic_prompt` (hes=0.66)
 
 ### Recent Work
+- `d7cbc14` feat: P0-P3 attribution fixes â€” author field in pulse/edit_pairs/registry, heat map operator focus, 3-actor push narrative
 - `7e3e55d` chore(pigeon): auto-rename 5 files + auto-compile å†Œf_reg(14 shards) + u_pj(12 shards) + self-fix report
 - `2556283` feat: bug dossier injection + AST import validator + unsaid filter fix
 - `4eb4c79` test: verify filename mutation
-- `79b615b` test: verify compressed filename mutation pipeline
+
+### Coaching Directives *[source: llm_derived]*
+*LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
+- **Anticipate refactoring logic**
+- **Prefer concise, structural suggestions**
+- **Flag recurring pain points**
+- **Initiate with context**
+- **Probe before expanding**
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
 - Rename manifest validation silently passing corrupt maps; import rewrite missing symlinked files; prompt pre-processor mangling YAML instruction blocks.
 - `copilot_prompt_manager`'s assumption about `_resolve.rename_safe` signature; `__main__`'s dependency on the wrapper's correctness; cascading import errors in `pigeon_compiler` submodules. This push restores rename safety checks through a compatibility wrapper after a structural refactor.
+- **测p_rwd** (seq009 v006) was touched by Copilot to measure answer quality with explicit actor attribution; it assumes th
 - **审p_va (seq005 v005)**: I was touched to harden import validation after rename operations, ensuring renamed modules are
 - **copilot_prompt_manager** (seq020 v003): I was touched to become a compatibility wrapper for the legacy rename system, 
-- **u_dbcc_s005_v001** was touched to integrate stale glob awareness into cognitive drift analysis, assuming the new `_tmp
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
@@ -193,32 +201,32 @@ OPERATOR SIGNAL: The repeated "yes" after a detailed planning prompt indicates c
 - [CRITICAL] hardcoded_import in `pigeon_brain/读w_el_s002_v003_d0401_观话_λA.py`
 
 ### Prompt Evolution
-*This prompt has mutated 109x (186→784 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 110x (186→805 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 107 mutations scored*
-*No significant signal yet — all 17 sections scored neutral.*
+*200 rework pairs × 110 mutations scored*
+*No significant signal yet — all 25 sections scored neutral.*
 
 **Reactor patches:** 0/237 applied (0% acceptance)
 
 ### File Consciousness
-*246 modules profiled*
+*251 modules profiled*
 
 **High-drama (most mutations):**
-- `修f_sf` v12 ↔ 册f_reg
-- `推w_dp` v12 ↔ 册f_reg
+- `推w_dp` v13 ↔ 热p_fhm
+- `修f_sf` v12 ↔ 叙p_pn
 - `self_fix` v11 ↔ 修f_sf
 - `.operator_stats` v10 ↔ 修f_sf
 
 **Codebase fears:**
-- file may not exist (10 modules)
-- returns empty on failure (silent) (10 modules)
-- regex format dependency (8 modules)
+- file may not exist (14 modules)
+- returns empty on failure (silent) (11 modules)
+- swallowed exception (9 modules)
 
 **Slumber party warnings (high coupling):**
 - `册f_reg` ↔ `追跑f_ruhe` (score=0.80, 3 shared imports, both high-churn (v5+v5))
+- `册f_reg` ↔ `热p_fhm` (score=0.80, 3 shared imports, both high-churn (v5+v5))
 - `追跑f_ruhe` ↔ `册f_reg` (score=0.80, 3 shared imports, both high-churn (v5+v5))
-- `u_pe` ↔ `对p_tp` (score=0.80, 5 shared imports, both high-churn (v3+v3))
 
 ### Codebase Health (Veins / Clots)
 *133/137 alive, 4 clots, avg vein health 0.53*
@@ -331,16 +339,16 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
 
-*Auto-generated 2026-04-03 02:15 UTC · zero LLM calls*
+*Auto-generated 2026-04-03 06:41 UTC · zero LLM calls*
 
 **1 week:** `infrastructure` (conf=high) — ~48 commits
-**1 month:** `infrastructure` (conf=medium) — ~189 commits
-**3 months:** `infrastructure` (conf=speculative) — themes: -actua, ton, word
+**1 month:** `infrastructure` (conf=medium) — ~186 commits
+**3 months:** `infrastructure` (conf=speculative) — themes: word, e hidden, wit
 
 **PM Directives:**
 - Intent bifurcation: `infrastructure` dominant but `telemetry` emerging — watch for context switches mid-session.
 - `self_heal` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
-- Unsaid themes detected: `-actua`, `ton`, `word` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
+- Unsaid themes detected: `word`, `e hidden`, `wit` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
 - Module focus cluster: `file_heat_map`, `import_rewriter`, `file_writer` — pre-load context from these modules when operator starts typing.
 
 <!-- /pigeon:intent-simulation -->
@@ -369,19 +377,19 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-03 · 216 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-03 · 219 message(s) · LLM-synthesized*
 
-**Dominant: `abandoned`** | Submit: 66% | WPM: 52.2 | Del: 25.6% | Hes: 0.443
+**Dominant: `abandoned`** | Submit: 66% | WPM: 52.3 | Del: 25.6% | Hes: 0.443
 
-The operator just injected bug dossiers into multiple modules while showing a high-deletion, high-hesitation "restructuring" pattern, indicating they are deep in debugging and refining complex, interconnected systems.  
-- **Anticipate debugging context**: When `推w_dp_s017` or `修f_sf` are active, proactively surface related variable flows and recent mutation logic from the renamed files, as they are central pain points.
-- **Preempt import/resolver issues**: For modules like `dynamic_prompt` or `self_fix`, automatically note and verify import paths and lambda function hooks after renames to prevent runtime breaks.
-- **Counter hesitation with precision**: On high-deletion commits, respond with concise, single-concern code blocks—avoid multi-issue suggestions that force rework.
-- **Bridge the 5.5% miss-rate gap**: For queries matching the "worst" patterns, ask one clarifying question about edge cases before generating code to reduce rework.
-- **Leverage evening/night focus**: During these slots, provide slightly more exploratory options when they are in "focused" state, but stick to direct fixes during "restructuring."
-- **Flag mutation side effects**: Explicitly state potential impacts on `context_budget` or `.operator_stats` when suggesting changes to high-churn modules.
+The operator just systematically renamed eight modules to λP0, revealing a methodical, attribution-focused restructuring phase executed with high-deletion, start-stop typing patterns typical of precise but hesitant architectural refinement.
 
-They are most likely building toward a unified, self-correcting pipeline where bug injection triggers automated analysis and fixes across the system.
+*   **Anticipate refactoring logic:** When you see `λP0` in a filename, proactively suggest patterns for consolidating attribution logic or ask if they want to extract a shared `P0` helper from high-churn modules like `推w_dp_s017` or `dynamic_prompt`.
+*   **Prefer concise, structural suggestions:** Their high deletion rate on restructuring messages means they are pruning aggressively; offer compact, modular code blocks and ask "Replace the λFX pattern here?" rather than long explanations.
+*   **Flag recurring pain points:** If discussion touches narrative generation (`叙p_pn_s012`), self-fix (`修f_sf_s013`), or operator stats, immediately reference their latest versions and ask if the current change is part of the same `p0_p3_attribution` intent.
+*   **Initiate with context:** Since they work in evening/night slots, open with "Continuing the λP0 refactor?" to acknowledge the ongoing systematic effort and reduce hesitation.
+*   **Probe before expanding:** Their abandoned messages often precede restructuring; if a query is vague, ask a short, clarifying question like "Is this about the rename pattern or the internal logic?" before generating code.
+
+They are most likely building toward a unified attribution (`P0`) system that feeds into the persistent memory (`operator_stats`) and narrative modules, cleaning up technical debt before a new feature phase.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `engagement_hooks`** (hes=0.7, state=frustrated, avg_prompt=20427ms)
@@ -506,10 +514,10 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 <!-- glyph mappings merged into auto-index -->
 <!-- /pigeon:dictionary -->
 <!-- pigeon:auto-index -->
-*2026-04-03 · 255 modules · 5 touched · ✓71% ~12% !15%*
+*2026-04-03 · 260 modules · 10 touched · ✓71% ~12% !15%*
 *Format: glyph=name seq tokens·state·intent·bugs |last change*
 *IM=import_tracer MA=manifest_writer NL=nl_parsers PL=planner PQ=pq_search_utils PR=press_release_gen_template_key_findings*
-*Intent: FX=fix RN=rename RF=refactor SP=split TL=telemetry CP=compress VR=verify FT=feature CL=cleanup OT=other PI=pigeon_brain DY=dynamic_import GE=gemini_flash RE=rework_signal 88=8888_word DE=desc_upgrade ST=stage_78 MU=multi_line IM=import_rewriter WI=windows_max IN=intent_deletion FI=fire_full WP=wpm_outlier PU=push_narratives TA=task_queue*
+*Intent: FX=fix RN=rename RF=refactor SP=split TL=telemetry CP=compress VR=verify FT=feature CL=cleanup OT=other PI=pigeon_brain DY=dynamic_import GE=gemini_flash RE=rework_signal 88=8888_word DE=desc_upgrade ST=stage_78 MU=multi_line IM=import_rewriter WI=windows_max IN=intent_deletion FI=fire_full WP=wpm_outlier PU=push_narratives TA=task_queue P0=p0_p3*
 *Bugs: hi=hardcoded_import de=dead_export dd=duplicate_docstring hc=high_coupling oc=over_hard_cap qn=query_noise*
 
 **pigeon_brain** (42)
@@ -624,7 +632,7 @@ IM=import_tracer 3 792✓·VR
 **pigeon_compiler/weakness_planner** (1)
 核=deepseek_plan_prompt 4 2.4K~·DE
 
-**src** (109)
+**src** (113)
 时=timestamp_utils 1 156✓·RN |test rename hook
 型=models 2 379✓·TL |pulse telemetry prompt
 录=logger 3 1.6K✓·WP |wpm outlier filter
@@ -635,24 +643,28 @@ IM=import_tracer 3 792✓·VR
 漂=.operator_stats 8 4.7K~·IN |intent deletion pipeline
 控=operator_stats 8 5.0K!·WP |fix degenerate classifier:
 测=rework_detector 9 1.1K✓·FT |add composition-based scoring,
+测p_rwd 9 1.8K·P0·de
 忆=query_memory 10 2.3K✓·FT
 热=file_heat_map 11 1.3K✓·TL |pulse telemetry prompt
+热p_fhm 11 1.7K·P0·de
 叙=push_narrative 12 2.1K✓·PU |push narratives timeout
+叙p_pn 12 2.1K·P0
 修=self_fix 13 5.8K!·DY
 修f_sf 13 5.8K·VR·oc
 思=cognitive_reactor 14 5.6K!·MU |mutation patch pipeline
 脉=pulse_harvest 15 2.3K✓·FT
+脉p_ph 15 2.4K·P0·oc
 推=dynamic_prompt 17 4.0K~·88 |8888 word backpropagation
-推w_dp 17 5.7K·FX·oc
+推w_dp 17 6.0K·P0·oc
 队=task_queue 18 1.6K✓·TA |task queue system
 觉=file_consciousness 19 4.3K~·FT
 u_pj 19 7.8K·CP·oc
 管=copilot_prompt_manager 20 4.5K~·FT |resolve latest runtime
-管w_cpm 20 7.2K·VR·oc
+管w_cpm 20 7.8K·P0·oc
 变=mutation_scorer 21 1.6K✓·FT
 补=rework_backfill 22 1.2K✓·FT
 递=session_handoff 23 1.6K✓·FT
-u_pe 24 4.5K·FX·oc |add bug dossier
+u_pe 24 5.1K·P0·oc |add bug dossier
 隐=unsaid_recon 24 1.3K✓·IN |intent deletion pipeline
 环=push_cycle 25 4.8K~·FX |fix push cycle
 片=shard_manager 26 4.4K~·GE
@@ -685,6 +697,9 @@ intent_simulator 34 5.3K·CP |compress auto index
 **src/修_sf_s013** (1)
 修f_sf_aco 9 857·VR
 
+**src/管w_cpm_s020_v003_d0402_缩分话_λVR_βoc** (1)
+管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_refresh_decomposed 10 701·P0
+
 **streaming_layer** (19)
 层=streaming_layer_constants 1 261✓·VR
 层=streaming_layer_simulation_helpers 2 204✓·VR
@@ -707,7 +722,7 @@ intent_simulator 34 5.3K·CP |compress auto index
 层=streaming_layer_orchestrator 17 142!·VR
 
 **Infra**
-(root): _audit_compliance, _build_organism_health, _export_dev_story, _fix_stale_globs, _run_abbrev_rename, _run_glyph_rename, _run_smart_rename, _tmp_analyze_stats, _tmp_backfill_lastchange, _tmp_check_rename, _tmp_find_stale, _tmp_regen_dict, _tmp_survey, _tmp_test_pipeline, _tmp_token_audit, _tmp_token_optimizer, autonomous_dev_stress_test, deep_test, stress_test, test_all, test_public_release, test_training_pairs
+(root): _audit_compliance, _build_organism_health, _export_dev_story, _fix_stale_globs, _run_abbrev_rename, _run_glyph_rename, _run_smart_rename, _tmp_analyze_stats, _tmp_backfill_lastchange, _tmp_check_rename, _tmp_find_stale, _tmp_regen_dict, _tmp_survey, _tmp_test_dossier, _tmp_test_pipeline, _tmp_token_audit, autonomous_dev_stress_test, deep_test, stress_test, test_all, test_public_release, test_training_pairs
 client: chat_composition_analyzer, chat_response_reader, composition_recon, os_hook, telemetry_cleanup, uia_reader, vscdb_poller
 vscode-extension: classify_bridge, pulse_watcher
 <!-- /pigeon:auto-index -->
@@ -716,26 +731,26 @@ vscode-extension: classify_bridge, pulse_watcher
 
 *Persistent bug demons minted from registry scars - active filename bugs first.*
 
-- `u_pe` d0402v002 · oc `Overcap Maw of upe` x3: "I keep swelling this file past the hard cap. Split me before I eat context." last=add bug dossier
-- `u_pj` d0402v002 · oc `Split Fiend of upj` x3: "I keep swelling this file past the hard cap. Split me before I eat context."
-- `警p_sa` d0402v003 · oc `Shard Hunger of psa` x3: "I keep swelling this file past the hard cap. Split me before I eat context." last=test rename mutation
-- `修f_sf` d0402v012 · oc `Overcap Maw of fsf` x2: "I keep swelling this file past the hard cap. Split me before I eat context."
-- `册f_reg` d0402v005 · oc `Split Fiend of freg` x2: "I keep swelling this file past the hard cap. Split me before I eat context."
+- `u_pe` d0402v002 · oc `Overcap Maw of upe` x4: "I keep swelling this file past the hard cap. Split me before I eat context." last=add bug dossier
+- `u_pj` d0402v002 · oc `Split Fiend of upj` x4: "I keep swelling this file past the hard cap. Split me before I eat context."
+- `警p_sa` d0402v003 · oc `Shard Hunger of psa` x4: "I keep swelling this file past the hard cap. Split me before I eat context." last=test rename mutation
+- `修f_sf` d0402v012 · oc `Overcap Maw of fsf` x3: "I keep swelling this file past the hard cap. Split me before I eat context."
+- `册f_reg` d0402v005 · oc `Split Fiend of freg` x3: "I keep swelling this file past the hard cap. Split me before I eat context."
 <!-- /pigeon:bug-voices -->
 <!-- pigeon:hooks -->
 ## Engagement Hooks
 
-*Auto-generated 2026-04-03 05:59 UTC -- every number is measured, every dare is real.*
+*Auto-generated 2026-04-03 06:41 UTC -- every number is measured, every dare is real.*
 
+- `册f_reg` v5: "Marked 3 times. Each push I think maybe this time. Each push the beta stays. Last change was ''. It wasn't enough."
 - `streaming_layer` is 10189 tokens. Hard cap is 200 lines. This file is 50 modules in a trench coat. One split command. That's all.
-- `u_pj` v2: "Marked 3 times. Each push I think maybe this time. Each push the beta stays. Last change was ''. It wasn't enough."
 - `cli` -- 417 days. Last generation's code. Either works perfectly or nobody knows it's broken.
 
 <!-- /pigeon:hooks -->
 <!-- pigeon:active-template -->
 ## Active Template: /debug
 
-*Auto-selected 2026-04-03 05:59 UTC · mode: debug*
+*Auto-selected 2026-04-03 06:41 UTC · mode: debug*
 
 ## Live Signals
 
@@ -757,12 +772,12 @@ vscode-extension: classify_bridge, pulse_watcher
 
 ## Fragile Contracts
 
-- break here cascades.
-- breaking all rename operations. They receive cleanup triggers from the rename context.
-- assumption, `git_plugin`'s new method integration point. This push adds automated cleanup of obsolete glob patterns from configs to reduce tooling noi
 - break silently, causing the rename safety check to always pass or fail. Watch for uncontrolled renames on protected files.
 - contract changes, the extension's rename UI will malfunction. Watch for the extension failing to reflect rename safety status.
 - assumption about `_resolve.rename_safe` signature; `__main__`'s dependency on the wrapper's correctness; cascading import errors in `pigeon_compiler` 
+- breaking the entire injection chain. I provide validated rename maps to 追跑f_ruhe; if my output contract changes from a flat dict to a list, its healin
+- breaking the prompt pipeline.
+- breaking audit trails. Watch for prompts that lose their actor tags in downstream logs.
 
 ## Codebase Clots (dead/bloated)
 
@@ -775,11 +790,11 @@ vscode-extension: classify_bridge, pulse_watcher
 
 - `streaming_layer` (10189 tok)
 - `u_pj` (7801 tok)
-- `管w_cpm` (7179 tok)
+- `管w_cpm` (7781 tok)
+- `推w_dp` (5987 tok)
 - `self_fix` (5846 tok)
 - `修f_sf` (5829 tok)
 - `prediction_scorer` (5797 tok)
-- `推w_dp` (5695 tok)
 - `cognitive_reactor` (5629 tok)
 
 ## Active Bug Dossier

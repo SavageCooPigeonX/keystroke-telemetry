@@ -1,5 +1,6 @@
 """册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_bug_utils_seq002_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
+from .册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_constants_seq001_v001 import BUG_KEY_ORDER
 
 def bug_keys_from_marker(marker: str) -> list[str]:
     """Decode a compact bug marker string into 2-letter bug keys.

@@ -1,6 +1,8 @@
 """nametag_seq011_build_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
 
+from .牌f_nam_co_s001_v001 import DESC_SEPARATOR, LC_SEP
+
 def build_nametag(stem: str, desc_slug: str, intent_slug: str = '') -> str:
     """Combine a Pigeon stem with desc + intent.
 

@@ -2,6 +2,8 @@
 from pathlib import Path
 import re
 
+from .牌f_nam_co_s001_v001 import LC_SEP
+
 def parse_nametag(filename: str) -> dict:
     """Parse a nametag filename into components.
 

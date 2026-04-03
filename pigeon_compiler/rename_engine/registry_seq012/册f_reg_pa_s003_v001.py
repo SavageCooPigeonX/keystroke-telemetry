@@ -1,6 +1,8 @@
 """registry_seq012_parser_seq003_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
 
+from .册f_reg_co_s001_v001 import LC_SEP, PIGEON_STEM_RE
+
 def parse_pigeon_stem(stem: str) -> dict | None:
     """Parse a Pigeon filename stem into components.
 
