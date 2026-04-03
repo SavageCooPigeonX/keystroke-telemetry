@@ -1,6 +1,8 @@
 """册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_registry_build_seq008_v001.py — Auto-extracted by Pigeon Compiler."""
 from pathlib import Path
 import re
+from .册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_date_utils_seq003_v001 import _today
+from .册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_parse_decomposed_seq006_v001 import parse_pigeon_stem
 
 def build_registry_from_scan(root: Path, catalog: dict) -> dict:
     """Bootstrap a registry from a scanner catalog (first-time setup).
