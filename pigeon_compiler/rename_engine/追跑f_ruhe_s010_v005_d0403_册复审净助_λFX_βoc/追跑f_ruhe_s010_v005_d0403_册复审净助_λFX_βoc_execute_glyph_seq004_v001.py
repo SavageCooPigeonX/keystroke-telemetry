@@ -4,7 +4,7 @@ from pigeon_compiler.rename_engine.p_ex_s004_v004_d0315_册追跑复审_λν imp
 from pigeon_compiler.rename_engine.审p_va_s005_v005_d0403_踪稿析_λFX import validate_imports
 from pigeon_compiler.rename_engine.引w_ir_s003_v005_d0403_踪稿析_λFX import rewrite_all_imports
 
-def _run_heal_pipeline_execute_glyph_renames(root: Path, report: dict, glyph_drifts: list):
+def _run_heal_pipeline_execute_glyph_renames(root: Path, report: dict, glyph_drifts):
     """Execute glyph renames and validate."""
     glyph_map_renames = {}
     glyph_renames = []

@@ -4,7 +4,7 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 # /debug (RECOMMENDED)
 
-*Hydrated 2026-04-03 06:41 UTC · detected mode: debug*
+*Hydrated 2026-04-03 07:12 UTC · detected mode: debug*
 
 ## Live Signals
 
@@ -26,12 +26,11 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 ## Fragile Contracts
 
-- break silently, causing the rename safety check to always pass or fail. Watch for uncontrolled renames on protected files.
-- contract changes, the extension's rename UI will malfunction. Watch for the extension failing to reflect rename safety status.
-- assumption about `_resolve.rename_safe` signature; `__main__`'s dependency on the wrapper's correctness; cascading import errors in `pigeon_compiler` 
 - breaking the entire injection chain. I provide validated rename maps to 追跑f_ruhe; if my output contract changes from a flat dict to a list, its healin
 - breaking the prompt pipeline.
 - breaking audit trails. Watch for prompts that lose their actor tags in downstream logs.
+- contract changes and tags are not passed, the audit will flag valid prompts as invalid, causing narrative generation to halt. Watch for false‑positive
+- breaking downstream attribution.
 
 ## Codebase Clots (dead/bloated)
 

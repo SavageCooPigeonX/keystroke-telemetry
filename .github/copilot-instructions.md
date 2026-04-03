@@ -149,7 +149,7 @@ OPERATOR SIGNAL: The repeated "yes" after a detailed planning prompt indicates c
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-03 06:42 UTC · 219 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-03 07:13 UTC · 219 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 48.3 | Del: 26.5% | Hes: 0.491) · *[source: measured]*
@@ -171,26 +171,17 @@ OPERATOR SIGNAL: The repeated "yes" after a detailed planning prompt indicates c
 - `dynamic_prompt` (hes=0.66)
 
 ### Recent Work
+- `08b2b56` fix: add REGISTRY_FILE import to registry_io shard
+- `54518b7` fix: add missing cross-shard imports in decomposed registry package (critical path for post-commit hook)
 - `d7cbc14` feat: P0-P3 attribution fixes â€” author field in pulse/edit_pairs/registry, heat map operator focus, 3-actor push narrative
 - `7e3e55d` chore(pigeon): auto-rename 5 files + auto-compile å†Œf_reg(14 shards) + u_pj(12 shards) + self-fix report
-- `2556283` feat: bug dossier injection + AST import validator + unsaid filter fix
-- `4eb4c79` test: verify filename mutation
-
-### Coaching Directives *[source: llm_derived]*
-*LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
-- **Anticipate refactoring logic**
-- **Prefer concise, structural suggestions**
-- **Flag recurring pain points**
-- **Initiate with context**
-- **Probe before expanding**
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
 - Rename manifest validation silently passing corrupt maps; import rewrite missing symlinked files; prompt pre-processor mangling YAML instruction blocks.
-- `copilot_prompt_manager`'s assumption about `_resolve.rename_safe` signature; `__main__`'s dependency on the wrapper's correctness; cascading import errors in `pigeon_compiler` submodules. This push restores rename safety checks through a compatibility wrapper after a structural refactor.
+- Registry I/O module assuming exclusive control of data paths; pigeon rename creating orphaned versioned file artifacts; implicit dependency on engagement_hooks.py for directory structure. This push introduces a centralized registry I/O file to standardize data access for the复审 system.
 - **测p_rwd** (seq009 v006) was touched by Copilot to measure answer quality with explicit actor attribution; it assumes th
 - **审p_va (seq005 v005)**: I was touched to harden import validation after rename operations, ensuring renamed modules are
-- **copilot_prompt_manager** (seq020 v003): I was touched to become a compatibility wrapper for the legacy rename system, 
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
@@ -201,16 +192,16 @@ OPERATOR SIGNAL: The repeated "yes" after a detailed planning prompt indicates c
 - [CRITICAL] hardcoded_import in `pigeon_brain/读w_el_s002_v003_d0401_观话_λA.py`
 
 ### Prompt Evolution
-*This prompt has mutated 110x (186→805 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 111x (186→796 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 110 mutations scored*
+*200 rework pairs × 111 mutations scored*
 *No significant signal yet — all 25 sections scored neutral.*
 
 **Reactor patches:** 0/237 applied (0% acceptance)
 
 ### File Consciousness
-*251 modules profiled*
+*252 modules profiled*
 
 **High-drama (most mutations):**
 - `推w_dp` v13 ↔ 热p_fhm
@@ -339,16 +330,16 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
 
-*Auto-generated 2026-04-03 06:41 UTC · zero LLM calls*
+*Auto-generated 2026-04-03 07:12 UTC · zero LLM calls*
 
-**1 week:** `infrastructure` (conf=high) — ~48 commits
-**1 month:** `infrastructure` (conf=medium) — ~186 commits
-**3 months:** `infrastructure` (conf=speculative) — themes: word, e hidden, wit
+**1 week:** `infrastructure` (conf=high) — ~49 commits
+**1 month:** `infrastructure` (conf=medium) — ~191 commits
+**3 months:** `infrastructure` (conf=speculative) — themes: can we find a way to s, respond, wit
 
 **PM Directives:**
 - Intent bifurcation: `infrastructure` dominant but `telemetry` emerging — watch for context switches mid-session.
 - `self_heal` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
-- Unsaid themes detected: `word`, `e hidden`, `wit` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
+- Unsaid themes detected: `can we find a way to s`, `respond`, `wit` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
 - Module focus cluster: `file_heat_map`, `import_rewriter`, `file_writer` — pre-load context from these modules when operator starts typing.
 
 <!-- /pigeon:intent-simulation -->
@@ -381,15 +372,13 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 
 **Dominant: `abandoned`** | Submit: 66% | WPM: 52.3 | Del: 25.6% | Hes: 0.443
 
-The operator just systematically renamed eight modules to λP0, revealing a methodical, attribution-focused restructuring phase executed with high-deletion, start-stop typing patterns typical of precise but hesitant architectural refinement.
-
-*   **Anticipate refactoring logic:** When you see `λP0` in a filename, proactively suggest patterns for consolidating attribution logic or ask if they want to extract a shared `P0` helper from high-churn modules like `推w_dp_s017` or `dynamic_prompt`.
-*   **Prefer concise, structural suggestions:** Their high deletion rate on restructuring messages means they are pruning aggressively; offer compact, modular code blocks and ask "Replace the λFX pattern here?" rather than long explanations.
-*   **Flag recurring pain points:** If discussion touches narrative generation (`叙p_pn_s012`), self-fix (`修f_sf_s013`), or operator stats, immediately reference their latest versions and ask if the current change is part of the same `p0_p3_attribution` intent.
-*   **Initiate with context:** Since they work in evening/night slots, open with "Continuing the λP0 refactor?" to acknowledge the ongoing systematic effort and reduce hesitation.
-*   **Probe before expanding:** Their abandoned messages often precede restructuring; if a query is vague, ask a short, clarifying question like "Is this about the rename pattern or the internal logic?" before generating code.
-
-They are most likely building toward a unified attribution (`P0`) system that feeds into the persistent memory (`operator_stats`) and narrative modules, cleaning up technical debt before a new feature phase.
+This operator just built a registry file system and their rapid cycling between abandoned, restructuring, and focused states with high deletion rates reveals they're aggressively iterating through trial-and-error, often in morning sessions.  
+- **Anticipate heavy refactoring** in `推w_dp seq17` (steering) and `修f_sf seq13` (self-fix) — they are core pain points; proactively suggest modular, reversible changes.  
+- **When they enter a "restructuring" state** (55 WPM, 56% deletions), immediately offer concise, bulleted options instead of prose, and pre-emptively flag potential side-effects in `dynamic_prompt seq17`.  
+- **Cut explanatory text** during "focused" states (73 WPM); provide direct code blocks referencing patterns from `self_fix seq13` and `.operator_stats seq8`.  
+- **After an "abandoned" message** (high hesitation, unsubmitted), the next query will be a restructuring attempt—open with a crisp summary of the last relevant context to re-anchor them.  
+- **Zero miss-rate is good, but high churn means they're doing the AI's integration work** — when they touch `叙p_pn seq12`, infer they're documenting a cross-module flow and draft the narrative connector.  
+They are most likely building toward an automated pipeline that compiles registry entries into a unified coordination layer.
 
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `engagement_hooks`** (hes=0.7, state=frustrated, avg_prompt=20427ms)
@@ -514,7 +503,7 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 <!-- glyph mappings merged into auto-index -->
 <!-- /pigeon:dictionary -->
 <!-- pigeon:auto-index -->
-*2026-04-03 · 260 modules · 10 touched · ✓71% ~12% !15%*
+*2026-04-03 · 261 modules · 1 touched · ✓71% ~12% !15%*
 *Format: glyph=name seq tokens·state·intent·bugs |last change*
 *IM=import_tracer MA=manifest_writer NL=nl_parsers PL=planner PQ=pq_search_utils PR=press_release_gen_template_key_findings*
 *Intent: FX=fix RN=rename RF=refactor SP=split TL=telemetry CP=compress VR=verify FT=feature CL=cleanup OT=other PI=pigeon_brain DY=dynamic_import GE=gemini_flash RE=rework_signal 88=8888_word DE=desc_upgrade ST=stage_78 MU=multi_line IM=import_rewriter WI=windows_max IN=intent_deletion FI=fire_full WP=wpm_outlier PU=push_narratives TA=task_queue P0=p0_p3*
@@ -600,6 +589,9 @@ PL=planner 2 1.4K~·CP
   追└ orchestrator(5) [725]
   牌└ scan(8) [298]
   册└ diff(6) [194]
+**pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc** (1)
+册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_registry_io 4 285·FT
+
 **pigeon_compiler/runners** (9)
 测编=run_compiler_test 7 594~·VR
 深划=run_deepseek_plans 8 587~·VR
@@ -731,26 +723,26 @@ vscode-extension: classify_bridge, pulse_watcher
 
 *Persistent bug demons minted from registry scars - active filename bugs first.*
 
-- `u_pe` d0402v002 · oc `Overcap Maw of upe` x4: "I keep swelling this file past the hard cap. Split me before I eat context." last=add bug dossier
-- `u_pj` d0402v002 · oc `Split Fiend of upj` x4: "I keep swelling this file past the hard cap. Split me before I eat context."
-- `警p_sa` d0402v003 · oc `Shard Hunger of psa` x4: "I keep swelling this file past the hard cap. Split me before I eat context." last=test rename mutation
-- `修f_sf` d0402v012 · oc `Overcap Maw of fsf` x3: "I keep swelling this file past the hard cap. Split me before I eat context."
-- `册f_reg` d0402v005 · oc `Split Fiend of freg` x3: "I keep swelling this file past the hard cap. Split me before I eat context."
+- `u_pe` d0402v002 · oc `Overcap Maw of upe` x5: "I keep swelling this file past the hard cap. Split me before I eat context." last=add bug dossier
+- `u_pj` d0402v002 · oc `Split Fiend of upj` x5: "I keep swelling this file past the hard cap. Split me before I eat context."
+- `警p_sa` d0402v003 · oc `Shard Hunger of psa` x5: "I keep swelling this file past the hard cap. Split me before I eat context." last=test rename mutation
+- `修f_sf` d0402v012 · oc `Overcap Maw of fsf` x4: "I keep swelling this file past the hard cap. Split me before I eat context."
+- `册f_reg` d0402v005 · oc `Split Fiend of freg` x4: "I keep swelling this file past the hard cap. Split me before I eat context."
 <!-- /pigeon:bug-voices -->
 <!-- pigeon:hooks -->
 ## Engagement Hooks
 
-*Auto-generated 2026-04-03 06:41 UTC -- every number is measured, every dare is real.*
+*Auto-generated 2026-04-03 07:12 UTC -- every number is measured, every dare is real.*
 
-- `册f_reg` v5: "Marked 3 times. Each push I think maybe this time. Each push the beta stays. Last change was ''. It wasn't enough."
-- `streaming_layer` is 10189 tokens. Hard cap is 200 lines. This file is 50 modules in a trench coat. One split command. That's all.
-- `cli` -- 417 days. Last generation's code. Either works perfectly or nobody knows it's broken.
+- `警p_sa` v3: "Marked 5 times. Each push I think maybe this time. Each push the beta stays. Last change was 'test rename mutation'. It wasn't enough."
+- The word you deleted was "route". The router scored it. Your dossier shifted.
+- `aim_utils` -- orphan. Zero importers. Zero purpose. Exists because nobody deleted it. One rm and the organism heals. Your call.
 
 <!-- /pigeon:hooks -->
 <!-- pigeon:active-template -->
 ## Active Template: /debug
 
-*Auto-selected 2026-04-03 06:41 UTC · mode: debug*
+*Auto-selected 2026-04-03 07:12 UTC · mode: debug*
 
 ## Live Signals
 
@@ -772,12 +764,11 @@ vscode-extension: classify_bridge, pulse_watcher
 
 ## Fragile Contracts
 
-- break silently, causing the rename safety check to always pass or fail. Watch for uncontrolled renames on protected files.
-- contract changes, the extension's rename UI will malfunction. Watch for the extension failing to reflect rename safety status.
-- assumption about `_resolve.rename_safe` signature; `__main__`'s dependency on the wrapper's correctness; cascading import errors in `pigeon_compiler` 
 - breaking the entire injection chain. I provide validated rename maps to 追跑f_ruhe; if my output contract changes from a flat dict to a list, its healin
 - breaking the prompt pipeline.
 - breaking audit trails. Watch for prompts that lose their actor tags in downstream logs.
+- contract changes and tags are not passed, the audit will flag valid prompts as invalid, causing narrative generation to halt. Watch for false‑positive
+- breaking downstream attribution.
 
 ## Codebase Clots (dead/bloated)
 

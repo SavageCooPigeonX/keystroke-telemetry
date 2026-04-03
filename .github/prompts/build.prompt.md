@@ -4,7 +4,7 @@ description: "Build-focused context: module map, file consciousness, coupling, c
 
 # /build
 
-*Hydrated 2026-04-03 06:41 UTC · detected mode: debug*
+*Hydrated 2026-04-03 07:12 UTC · detected mode: debug*
 
 ## Live Signals
 
@@ -36,6 +36,7 @@ description: "Build-focused context: module map, file consciousness, coupling, c
 **pigeon_compiler/rename_engine/heal_seq009** (1 modules, 725 tok)
 **pigeon_compiler/rename_engine/nametag_seq011** (1 modules, 298 tok)
 **pigeon_compiler/rename_engine/registry_seq012** (1 modules, 194 tok)
+**pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc** (1 modules, 285 tok)
 **pigeon_compiler/runners** (9 modules, 13.5K tok)
 **pigeon_compiler/runners/compiler_output/press_release_gen** (8 modules, 4.2K tok)
 **pigeon_compiler/state_extractor** (6 modules, 4.7K tok)
@@ -63,11 +64,11 @@ description: "Build-focused context: module map, file consciousness, coupling, c
 
 ## Recent Commits
 
+- 08b2b56 fix: add REGISTRY_FILE import to registry_io shard
+- 54518b7 fix: add missing cross-shard imports in decomposed registry package (critical path for post-commit hook)
+- d6c22c7 chore(pigeon): auto-rename 15 file(s) [pigeon-auto]
 - d7cbc14 feat: P0-P3 attribution fixes â€” author field in pulse/edit_pairs/registry, heat map operator focus, 3-actor push narrative
 - 18e2871 chore(pigeon): auto-rename 7 file(s) [pigeon-auto]
 - 7e3e55d chore(pigeon): auto-rename 5 files + auto-compile å†Œf_reg(14 shards) + u_pj(12 shards) + self-fix report
 - 2556283 feat: bug dossier injection + AST import validator + unsaid filter fix
 - 8203089 chore(pigeon): auto-rename 13 file(s) [pigeon-auto]
-- 4eb4c79 test: verify filename mutation
-- 68de720 chore(pigeon): auto-rename 1 file(s) [pigeon-auto]
-- 79b615b test: verify compressed filename mutation pipeline

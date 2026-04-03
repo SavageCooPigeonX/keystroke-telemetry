@@ -36,16 +36,3 @@ def _text_match_score(msg: str, comp: dict) -> float:
 
     containment = 1.0 if msg_norm in comp_norm or comp_norm in msg_norm else 0.0
     return max(overlap, containment)
-
-
-def _composition_key(comp: dict) -> str:
-    parts = [
-        str(comp.get('event_hash', '')),
-        str(comp.get('first_key_ts', '')),
-        str(comp.get('last_key_ts', '')),
-        str(comp.get('ts', '')),
-        str(comp.get('total_keystrokes', '')),
-        str(comp.get('duration_ms', '')),
-        str(comp.get('final_text', ''))[:120],
-    ]
-    return '|'.join(parts)

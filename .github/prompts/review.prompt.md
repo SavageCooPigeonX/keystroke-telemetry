@@ -4,7 +4,7 @@ description: "Review-focused context: rework rate, mutation scores, edit pattern
 
 # /review
 
-*Hydrated 2026-04-03 06:41 UTC · detected mode: debug*
+*Hydrated 2026-04-03 07:12 UTC · detected mode: debug*
 
 ## Live Signals
 
@@ -26,14 +26,14 @@ description: "Review-focused context: rework rate, mutation scores, edit pattern
 
 ## Mutation Effectiveness
 
-- `Seven Cognitive States`: score=?
-- `Quick Reference`: score=?
-- `Known Issues (from self-fix scanner)`: score=?
-- `Fragile Contracts`: score=?
-- `Symbol Dictionary`: score=?
-- `Tests`: score=?
+- `Active Bug Dossier`: score=?
+- `Live Task Context`: score=?
+- `Data Flow: Keystroke → Cognitive State → LLM`: score=?
 - `Live Signals`: score=?
-- `Live Operator State`: score=?
+- `Symbol Dictionary`: score=?
+- `Overcap Files (split candidates)`: score=?
+- `Live Prompt Telemetry`: score=?
+- `Intent Simulation`: score=?
 
 ## Coaching Directives
 
@@ -46,6 +46,9 @@ description: "Review-focused context: rework rate, mutation scores, edit pattern
 
 ## Recent Work
 
+- 08b2b56 fix: add REGISTRY_FILE import to registry_io shard
+- 54518b7 fix: add missing cross-shard imports in decomposed registry package (critical path for post-commit hook)
+- d6c22c7 chore(pigeon): auto-rename 15 file(s) [pigeon-auto]
 - d7cbc14 feat: P0-P3 attribution fixes â€” author field in pulse/edit_pairs/registry, heat map operator focus, 3-actor push narrative
 - 18e2871 chore(pigeon): auto-rename 7 file(s) [pigeon-auto]
 - 7e3e55d chore(pigeon): auto-rename 5 files + auto-compile å†Œf_reg(14 shards) + u_pj(12 shards) + self-fix report
@@ -53,6 +56,3 @@ description: "Review-focused context: rework rate, mutation scores, edit pattern
 - 8203089 chore(pigeon): auto-rename 13 file(s) [pigeon-auto]
 - 4eb4c79 test: verify filename mutation
 - 68de720 chore(pigeon): auto-rename 1 file(s) [pigeon-auto]
-- 79b615b test: verify compressed filename mutation pipeline
-- 61ccaf1 fix: git_plugin Unicode path escaping - core.quotepath=false for compressed filename detection
-- a939ef8 chore(pigeon): auto-rename 2 file(s) [pigeon-auto]

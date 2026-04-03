@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-03 06:41 UTC · 290 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-03 07:12 UTC · 290 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -37,7 +37,7 @@
 **Prompt→edit latency:** 370.6s median (49 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*110 mutations scored*
+*111 mutations scored*
 - no significant signal yet — all sections scored neutral
 
 **Reactor:** 237 fires, 0 accepted (0%)
@@ -45,10 +45,10 @@
 
 ## Codebase Health
 
-*50 self-fix reports · 2026-03-16 → 2026-04-03*
+*51 self-fix reports · 2026-03-16 → 2026-04-03*
 
-**Problem trend: growing** (early avg 24 → recent avg 437) *[source: measured]*
-- problems growing ~413/push — expect more over_hard_cap and dead_exports without intervention
+**Problem trend: growing** (early avg 24 → recent avg 439) *[source: measured]*
+- problems growing ~415/push — expect more over_hard_cap and dead_exports without intervention
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives — treat as hypothesis:*
@@ -68,16 +68,16 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "-actua"
-- "route"
 - "blueberry"
-- "the"
-- "intencom"
-- "test"
 - "s - whats th"
-- "yiu gonna sa"
-- "word"
-- "doe"
+- "rephraser"
+- "hts th"
+- "test"
+- "cles re"
+- "can we find a way to s"
+- "route"
+- "intencom"
+- "my fv fyi"
 
 ## Confidence
 

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-03T06:40:37.043650+00:00",
-  "total": 287,
+  "generated": "2026-04-03T07:11:45.495483+00:00",
+  "total": 288,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -3523,7 +3523,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 3
+        "oc": 4
       },
       "bug_entities": {
         "oc": "Split Fiend of freg"
@@ -3541,6 +3541,31 @@
         }
       ],
       "dossier_score": 1.0
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/\u518cf_reg_s012_v005_d0402_\u8ffd\u8dd1\u8c31\u6865\u590d\u5ba1_\u03bbVR_\u03b2oc/\u518cf_reg_s012_v005_d0402_\u8ffd\u8dd1\u8c31\u6865\u590d\u5ba1_\u03bbVR_\u03b2oc_registry_io_seq004_v002_d0403__auto_extracted_by_pigeon_compiler_lc_add_registry_file.py",
+      "name": "\u518cf_reg_s012_v005_d0402_\u8ffd\u8dd1\u8c31\u6865\u590d\u5ba1_\u03bbVR_\u03b2oc_registry_io",
+      "seq": 4,
+      "ver": 2,
+      "date": "0403",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "add_registry_file",
+      "intent_code": "FT",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": "",
+      "tokens": 285,
+      "history": [
+        {
+          "ver": 2,
+          "date": "0403",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "add_registry_file",
+          "tokens": 285,
+          "action": "registered"
+        }
+      ]
     },
     {
       "path": "pigeon_compiler/rename_engine/\u5ba1p_va_s005_v005_d0403_\u8e2a\u7a3f\u6790_\u03bbFX.py",
@@ -3605,7 +3630,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 2
+        "oc": 3
       },
       "bug_entities": {
         "oc": "Overcap Maw of fruhe"
@@ -7788,7 +7813,7 @@
       ],
       "last_bug_mark": "d0402v002",
       "bug_counts": {
-        "oc": 4
+        "oc": 5
       },
       "bug_entities": {
         "oc": "Overcap Maw of upe"
@@ -7821,7 +7846,7 @@
       ],
       "last_bug_mark": "d0402v002",
       "bug_counts": {
-        "oc": 4
+        "oc": 5
       },
       "bug_entities": {
         "oc": "Split Fiend of upj"
@@ -7950,7 +7975,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 3
+        "oc": 4
       },
       "bug_entities": {
         "oc": "Overcap Maw of fsf"
@@ -8007,7 +8032,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 1
+        "oc": 2
       },
       "bug_entities": {
         "oc": "Shard Hunger of ppn"
@@ -8038,7 +8063,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 3
+        "oc": 4
       },
       "bug_entities": {
         "oc": "Split Fiend of ptp"
@@ -8069,7 +8094,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 3
+        "oc": 4
       },
       "bug_entities": {
         "oc": "Shard Hunger of wdp"
@@ -8116,7 +8141,7 @@
         "de"
       ],
       "bug_counts": {
-        "de": 1
+        "de": 2
       },
       "bug_entities": {
         "de": "Null Moth of prwd"
@@ -8147,7 +8172,7 @@
         "de"
       ],
       "bug_counts": {
-        "de": 1
+        "de": 2
       },
       "bug_entities": {
         "de": "Null Moth of pfhm"
@@ -8203,7 +8228,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 3
+        "oc": 4
       },
       "bug_entities": {
         "oc": "Overcap Maw of wcpm"
@@ -8242,7 +8267,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 1
+        "oc": 2
       },
       "bug_entities": {
         "oc": "Shard Hunger of pph"
@@ -8286,7 +8311,7 @@
       ],
       "last_bug_mark": "d0402v003",
       "bug_counts": {
-        "oc": 4
+        "oc": 5
       },
       "bug_entities": {
         "oc": "Shard Hunger of psa"

@@ -3266,6 +3266,40 @@
     ],
     "avg_hes": 0.0
   },
+  "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_registry_io": {
+    "personality": "fresh",
+    "version": 2,
+    "tokens": 285,
+    "partners": [
+      {
+        "name": "copilot_prompt_manager",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "u_pj",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_refresh_decomposed",
+        "score": 0.2,
+        "reason": "0 shared imports, both high-churn (v2+v2)"
+      },
+      {
+        "name": "修f_sf_aco",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      },
+      {
+        "name": "对p_tp",
+        "score": 0.16,
+        "reason": "0 shared imports, both high-churn (v2+v3)"
+      }
+    ],
+    "fears": [],
+    "avg_hes": 0.0
+  },
   "审p_va": {
     "personality": "veteran",
     "version": 5,
