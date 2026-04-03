@@ -15,9 +15,9 @@ Zero friction: called automatically from prompt_journal on every log_enriched_en
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-04-02T06:12:00Z
+# EDIT_TS:   2026-04-03T02:10:00Z
 # EDIT_HASH: auto
-# EDIT_WHY:  fix query block anchor
+# EDIT_WHY:  add bug dossier injection
 # EDIT_STATE: harvested
 # ── /pulse ──
 from __future__ import annotations
@@ -92,6 +92,44 @@ def _registry_touches(root: Path, query: str) -> list[dict]:
                 'intent': f.get('intent', ''),
             })
     return hits[:4]
+
+
+def _active_bug_dossier(root: Path, query: str) -> str:
+    """Build a compact dossier from registry bug_keys matching the query context."""
+    reg = _jload(root / 'pigeon_registry.json')
+    if not reg: return ''
+    files = reg if isinstance(reg, list) else reg.get('files', [])
+    query_lower = query.lower()
+    # Bug keywords that signal a bug-focused prompt
+    bug_signals = {'bug', 'fix', 'broke', 'broken', 'error', 'fail', 'crash',
+                   'import', 'stale', 'wrong', 'missing', 'dead', 'overcap',
+                   'split', 'cap', 'rename', 'fallout'}
+    query_words = set(re.findall(r'\b\w{3,}\b', query_lower))
+    is_bug_prompt = bool(query_words & bug_signals)
+    entries = []
+    for f in files:
+        bugs = f.get('bug_keys') or []
+        if not bugs:
+            continue
+        name = f.get('file', '') or f.get('desc', '')
+        entity = f.get('bug_entity', '')
+        counts = f.get('bug_counts', {})
+        last_mark = f.get('last_bug_mark', '')
+        lc = f.get('last_change', '')
+        # Include if bug-focused prompt OR if module is mentioned
+        name_parts = set(name.lower().split('_'))
+        if is_bug_prompt or any(p in query_lower for p in name_parts if len(p) > 3):
+            bug_str = ','.join(bugs)
+            recur = sum(counts.values()) if counts else 0
+            entries.append(
+                f"  • {name} [{bug_str}] recur={recur}"
+                + (f" demon=\"{entity}\"" if entity else '')
+                + (f" last_mark={last_mark}" if last_mark else '')
+                + (f" last_change=\"{lc}\"" if lc else '')
+            )
+    if not entries:
+        return ''
+    return 'ACTIVE BUG DOSSIER (files with known structural debt):\n' + '\n'.join(entries[:8])
 
 
 def _rework_for_query(root: Path, query: str) -> list[dict]:
@@ -188,6 +226,7 @@ def _build_deepseek_prompt(raw_query: str, context: dict) -> str:
     registry = context.get('registry_hits', [])
     journal = context.get('journal_trajectory', [])
     shard_context = context.get('shard_context', '')
+    bug_dossier = context.get('bug_dossier', '')
 
     hot_str = '\n'.join(
         f"  • {h['file']} (hes={h['hes']}, touched {h['touches']}x)" for h in hot
@@ -241,6 +280,7 @@ REWORK HISTORY (what failed before on similar queries):
 PAST COPILOT ATTEMPTS:
 {past_str}
 
+{bug_dossier}
 {shard_context}
 OUTPUT FORMAT — produce exactly this structure, no markdown fences, no extra text:
 COPILOT_QUERY: <The full rephrased query Copilot should execute. Be specific: name exact files, exact functions, exact variables. Use developer English. Make it unambiguous. 2-4 sentences max.>
@@ -277,6 +317,7 @@ def enrich_prompt(root: Path, raw_query: str,
         'registry_hits':      _registry_touches(root, raw_query),
         'journal_trajectory': _recent_journal_context(root),
         'shard_context':      shard_text,
+        'bug_dossier':        _active_bug_dossier(root, raw_query),
     }
 
     ds_prompt = _build_deepseek_prompt(raw_query, context)
@@ -397,29 +438,14 @@ def inject_query_block(root: Path, raw_query: str,
             rest_lines.append(line)
     rest = '\n'.join(rest_lines).strip()
 
-    # Write UNSAID_RECONSTRUCTION to unsaid_reconstructions.jsonl if non-trivial
-    if unsaid_recon_line and unsaid_recon_line.lower() != 'none':
-        recon_entry = {
-            'ts': datetime.now(timezone.utc).isoformat(),
-            'final_text': raw_query,
-            'deleted_words': deleted_words or [],
-            'deletion_ratio': (cognitive_state or {}).get('del_ratio', 0),
-            'reconstructed_intent': unsaid_recon_line,
-            'trigger': 'enricher',
-        }
-        recon_path = root / 'logs' / 'unsaid_reconstructions.jsonl'
-        recon_path.parent.mkdir(parents=True, exist_ok=True)
-        try:
-            with open(recon_path, 'a', encoding='utf-8') as f:
-                f.write(json.dumps(recon_entry, ensure_ascii=False) + '\n')
-        except OSError:
-            pass
-
     block = (
         f'{BLOCK_START}\n'
         f'## What You Actually Mean Right Now\n\n'
         f'*Enriched {now} · raw: "{raw_query[:80]}"*\n\n'
         + (f'**{copilot_query_line}**\n\n' if copilot_query_line else '')
+        + (f'UNSAID_RECONSTRUCTION: {unsaid_recon_line}\n\n'
+           if unsaid_recon_line and unsaid_recon_line.lower() != 'none'
+           else '')
         + f'{rest}\n'
         f'{BLOCK_END}'
     )

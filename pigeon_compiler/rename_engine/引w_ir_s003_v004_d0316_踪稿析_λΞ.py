@@ -113,6 +113,14 @@ def _rewrite_file(text: str, import_map: dict, stem_map: dict) -> tuple:
     return '\n'.join(new_lines), changes
 
 
+def _replace_exact_module_path(line: str, old_mod: str, new_mod: str) -> str:
+    """Rewrite only exact module-path tokens inside import statements."""
+    pattern = re.compile(
+        rf'(?<![\w.]){re.escape(old_mod)}(?=(?:\.|\s|,|$))'
+    )
+    return pattern.sub(new_mod, line)
+
+
 def _rewrite_line(line: str, import_map: dict, stem_map: dict) -> str:
     stripped = line.lstrip()
     if not stripped.startswith(('from ', 'import ')):
@@ -122,9 +130,14 @@ def _rewrite_line(line: str, import_map: dict, stem_map: dict) -> str:
     if top_mod and top_mod.lower() in KNOWN_EXTERNAL:
         return line
     # Try each old_module → new_module replacement (dotted path in line)
-    for old_mod, new_mod in import_map.items():
-        if old_mod in line:
-            return line.replace(old_mod, new_mod)
+    for old_mod, new_mod in sorted(import_map.items(),
+                                   key=lambda item: len(item[0]),
+                                   reverse=True):
+        if old_mod not in line or old_mod == new_mod:
+            continue
+        new_line = _replace_exact_module_path(line, old_mod, new_mod)
+        if new_line != line:
+            return new_line
     # Try stem-based matching for all import styles
     for stem, (old_mod, new_mod) in stem_map.items():
         new_stem = new_mod.rsplit('.', 1)[-1]

@@ -8,9 +8,9 @@
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-22T20:28:42.5025062Z
+# EDIT_TS:   2026-04-03T00:56:59.9154421Z
 # EDIT_HASH: auto
-# EDIT_WHY:  dedupe task context blocks
+# EDIT_WHY:  filter novel unsaid threads
 # EDIT_STATE: harvested
 # ── /pulse ──
 import json, re, subprocess
@@ -93,15 +93,51 @@ def _unsaid(comps):
                     seen.add(word)
     return threads[-6:]
 
+
+_GENERIC_UNSAID_PREFIXES = (
+    'the user was',
+    'the operator was',
+    'it seems the user was',
+    'it seems the operator was',
+    'perhaps the user was',
+    'perhaps the operator was',
+)
+
+
+def _normalize_unsaid_text(text: str) -> str:
+    return re.sub(r'\W+', ' ', (text or '').lower()).strip()
+
+
+def _is_novel_unsaid_reconstruction(text: str) -> bool:
+    norm = _normalize_unsaid_text(text)
+    if len(norm) < 30:
+        return False
+    return not any(norm.startswith(prefix) for prefix in _GENERIC_UNSAID_PREFIXES)
+
 def _unsaid_reconstructions(root):
     """Load LLM-reconstructed intents from high-deletion prompts."""
-    recs = _jsonl(root / 'logs' / 'unsaid_reconstructions.jsonl', n=5)
+    recs = _jsonl(root / 'logs' / 'unsaid_reconstructions.jsonl', n=40)
     good = []
-    for r in recs:
+    seen = set()
+    for r in reversed(recs):
+        if r.get('trigger') == 'enricher':
+            continue
         tc = r.get('thought_completion', r.get('reconstructed_intent', ''))
-        if tc and len(tc) >= 30:
-            good.append(r)
-    return good
+        if not _is_novel_unsaid_reconstruction(tc):
+            continue
+        deleted = tuple(sorted(
+            str(word).strip().lower()
+            for word in r.get('deleted_words', [])
+            if str(word).strip()
+        ))
+        key = (_normalize_unsaid_text(tc), deleted)
+        if key in seen:
+            continue
+        seen.add(key)
+        good.append(r)
+        if len(good) >= 3:
+            break
+    return list(reversed(good))
 
 def _hot_modules(root):
     raw = _json(root / 'file_heat_map.json')

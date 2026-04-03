@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-02 23:32 UTC · 269 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-03 01:56 UTC · 280 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -22,14 +22,14 @@
 
 ## Live Operator State
 
-*269 prompts profiled · source: measured*
+*280 prompts profiled · source: measured*
 
-**Dominant: `abandoned` | Submit: 66% | Del: 4.5%**
-- operator entering flow state — productive building, less backtracking
+**Dominant: `abandoned` | Submit: 66% | Del: 5.3%**
+- operator entering restructuring mode — expect more deletions than new code
 
 ## Pair Performance
 
-*200 responses scored · 0 background excluded*
+*57 responses scored · 143 background excluded*
 
 **Accuracy: 100% OK | 0% miss** *[source: measured]*
 - trend: **stable** (100% → 100%)
@@ -68,23 +68,23 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "my fv fyi"
-- "ned"
-- "intencom"
-- "we have t"
-- "meta"
-- "ginger"
-- "implement all - andt"
+- "wor"
+- "wouldn"
+- "yiu gonna sa"
+- "whats"
+- "o please continue s"
+- "test"
+- "hts th"
+- "tays"
 - "cop"
-- "nto"
-- "d eve"
+- "rephraser"
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20
-- **Training pairs:** 49 captured
+- **Rework signal:** GOOD — 200 entries, 3 unique scores in last 20, 143 bg noise
+- **Training pairs:** 54 captured
 - **Prediction accuracy:** F1=0.010, calibration=0.305 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
 - **Memory shards:** 10 active (zero LLM calls)

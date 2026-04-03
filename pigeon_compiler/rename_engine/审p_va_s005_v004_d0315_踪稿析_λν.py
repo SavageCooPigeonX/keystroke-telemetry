@@ -17,7 +17,7 @@ from pathlib import Path
 
 SKIP_DIRS = {'.venv', '__pycache__', 'node_modules', '.git',
              '_llm_tests_put_all_test_and_debug_scripts_here',
-             '.next', '.pytest_cache', 'compiler_output'}
+             '.next', '.pytest_cache', 'compiler_output', 'build'}
 
 KNOWN_INTERNAL = {'config', 'integrations', 'storage_maif', 'models',
                   'auth', 'consensus', 'delivery', 'harvester', 'runner',
@@ -64,17 +64,31 @@ def validate_imports(root: Path) -> dict:
 
 
 def _extract_imports(text: str) -> list:
+    try:
+        tree = ast.parse(text)
+    except SyntaxError:
+        return []
+
     results = []
-    for i, line in enumerate(text.split('\n'), 1):
-        s = line.strip()
-        if s.startswith('from '):
-            m = re.match(r'from\s+([\w.]+)\s+import', s)
-            if m:
-                results.append({'module': m.group(1), 'line': i, 'raw': s})
-        elif s.startswith('import '):
-            m = re.match(r'import\s+([\w.]+)', s)
-            if m:
-                results.append({'module': m.group(1), 'line': i, 'raw': s})
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            for alias in node.names:
+                results.append({
+                    'module': alias.name,
+                    'line': getattr(node, 'lineno', 0),
+                    'raw': f'import {alias.name}',
+                })
+        elif isinstance(node, ast.ImportFrom):
+            if node.level or not node.module:
+                continue
+            raw = 'from ' + node.module + ' import ' + ', '.join(
+                alias.name for alias in node.names
+            )
+            results.append({
+                'module': node.module,
+                'line': getattr(node, 'lineno', 0),
+                'raw': raw,
+            })
     return results
 
 
