@@ -1,4 +1,4 @@
-"""u_pj_s019_v002_d0402_λC_intent_refs_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
+"""u_pj_s019_v002_d0402_λC_intent_classification_seq007_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
 
 def _classify_intent(msg: str) -> str:

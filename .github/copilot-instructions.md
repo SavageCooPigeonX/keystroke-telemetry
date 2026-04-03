@@ -7,18 +7,18 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-02 23:33 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-03 02:12 UTC — 2 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 15min old (max 10min)
+- **`current-query`**: STALE — 48min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
-  - Last updated: 2026-04-02 23:18
+  - Last updated: 2026-04-03 01:24
 
-- **`prompt-telemetry`**: STALE — 16min old (max 10min)
+- **`prompt-telemetry`**: STALE — 48min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
-  - Last updated: 2026-04-02T23:17:12
+  - Last updated: 2026-04-03T01:24:15
 
 **Action**: Run the journal command or check `logs/enricher_errors.jsonl` for failures.
 
@@ -135,54 +135,59 @@ Three systems working together:
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Enriched 2026-04-02 23:18 UTC · raw: "please push and tust file name mutation see if bugs get inputted - check last 10"*
+*Enriched 2026-04-03 01:24 UTC · raw: "what would get intense now is if copilot instructions were paired with bug repor"*
 
-**COPILOT_QUERY: Execute a push cycle to test the `execute_file_renames_with_rollback` function for file name mutation bugs, specifically checking if new bugs are introduced. After the push, analyze the last 10 prompts for a hidden word and provide it. Then, generate an unhinged comedy script about the next steps in this debugging process, including how this prompt was rephrased. Finally, check for and report any `staleness_alert` conditions.**
+**COPILOT_QUERY: Implement a system where Copilot's instructions are dynamically generated from bug report templates. This system should allow for pre-query selection of a bug template or enable Copilot to autonomously select the most relevant template for documentation injection. Investigate `electron_death_classification_port_of`, `edit_session_based`, `failure_accumulator_per_node_port`, and `recurring_path_detection_port_of` for integration points.**
 
-INTERPRETED INTENT: The operator wants to test the file renaming mechanism for bug injection, extract specific information from recent prompts, and receive a creative, self-referential comedic response, while also checking for system staleness.
-KEY FILES: execute_file_renames_with_rollback, .operator_stats, file_heat_map, import_rewriter, file_writer, self_fix
-PRIOR ATTEMPTS: Previous attempts to inject bugs and test file renames resulted in Copilot focusing on internal telemetry or repo state checks, not directly executing the requested test or providing the specific outputs.
-WATCH OUT FOR: Copilot might get sidetracked by internal system checks or fail to provide the specific multi-part output (hidden word, comedy, rephrasing, staleness alert) as requested.
-OPERATOR SIGNAL: The operator is focused on debugging file name mutations and wants a comprehensive, multi-faceted response that includes system checks, specific data extraction, and a creative, self-aware component, indicating a desire for more direct action and a less rigid interaction.
+UNSAID_RECONSTRUCTION: what would get intense now is if copilot instructions were paired with bug report identity injection and how insane would it be is if copilot intructions were bug based templates nowand were dynamic - pre query could select template to write to or maybe even copilot itself could select doc injection - i wonder howmay tokens are waster for recurring research - bet you its a scam lmfao
+
+INTERPRETED INTENT: The operator wants to explore and implement a dynamic, bug-report-driven templating system for Copilot's instruction generation, aiming to reduce wasted tokens on recurring research.
+KEY FILES: electron_death_classification_port_of, edit_session_based, failure_accumulator_per_node_port, recurring_path_detection_port_of
+PRIOR ATTEMPTS: Previous attempts focused on injecting bugs into filenames and persistent memory, which did not address the core idea of dynamic, bug-based instruction templates for Copilot.
+WATCH OUT FOR: Copilot might focus too much on literal "bug injection" rather than using "bug reports" as a source for dynamic instruction templates.
+OPERATOR SIGNAL: The operator is brainstorming a complex, dynamic system for Copilot's instruction generation, indicating a desire to optimize Copilot's efficiency and relevance.
 <!-- /pigeon:current-query -->
 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-02 23:33 UTC · 180 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-03 02:12 UTC · 195 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 48.3 | Del: 26.5% | Hes: 0.484) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 51.5 | Del: 26.5% | Hes: 0.495) · *[source: measured]*
 
-**Prompt ms:** 103363, 24749, 119689, 4415, 81936 (avg 66830ms)
+**Prompt ms:** 36609, 139258, 136138, 151292, 66760 (avg 106011ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- **Reconstructed intent:** The operator was about to instruct the AI to disable its glossator and respond in a comedic tone.
-  - *(deleted: disabble glossator and respond in a coedic tone | ratio: 14%)*
-- **Reconstructed intent:** The operator was about to instruct the AI to disable its 'glossator' feature and adopt a generally comedic tone for its entire response.
-  - *(deleted: disabble glossator and respond in a coedic tone | ratio: 14%)*
-- **Reconstructed intent:** The operator was about to instruct the AI to disable its explanatory or commentary function and adopt a comedic tone for its entire response.
-  - *(deleted: disabble glossator and respond in a coedic tone | ratio: 14%)*
-
-- "wouldnt we have t"
-- "disabble glossator and respond in a coedic tone"
+- "rephraser"
+- "with"
+- "whts the hidden word"
+- "-actually i know that part wo"
+- "s - whats the"
+- "0 push"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
-- `修f_sf` (hes=0.678)
-- `推w_dp` (hes=0.678)
+- `.operator_stats` (hes=0.66)
+- `dynamic_prompt` (hes=0.66)
+
+### AI Rework Surface
+*Miss rate: 5.5% (200 responses)*
+- Failed on: ""
+- Failed on: ""
+- Failed on: ""
 
 ### Recent Work
+- `2556283` feat: bug dossier injection + AST import validator + unsaid filter fix
 - `4eb4c79` test: verify filename mutation
 - `79b615b` test: verify compressed filename mutation pipeline
 - `61ccaf1` fix: git_plugin Unicode path escaping - core.quotepath=false for compressed filename detection
-- `d3e0d03` feat: compressed filename mutation on commit - last_change tracking, parse both formats, 389 files visible to git_plugin
 
 ### Coaching Directives *[source: llm_derived]*
 *LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
@@ -210,7 +215,7 @@ OPERATOR SIGNAL: The operator is focused on debugging file name mutations and wa
 - [CRITICAL] hardcoded_import in `pigeon_brain/读w_el_s002_v003_d0401_观话_λA.py`
 
 ### Prompt Evolution
-*This prompt has mutated 106x (186→722 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 107x (186→743 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
 *200 rework pairs × 106 mutations scored*
@@ -259,9 +264,9 @@ OPERATOR SIGNAL: The operator is focused on debugging file name mutations and wa
 
 ### Engagement Hooks
 *Auto-generated from live telemetry — these are real stats, not motivational posters.*
-- 👻 3 abandoned messages. The codebase drafted a response to each one. It practiced in the mirror. You never came back.
-- 😶 Focus → Abandoned. You were IN IT and then just... left. The module you were editing still has the cursor blinking.
-- 😰 `u_pj` has 4 diagnosed fears: regex format dependency, file may not exist, returns empty on failure (silent). It's in therapy (self-fix scanner). Progress is slow.
+- 🗑️ You deleted MORE than you kept. That prompt was a battlefield. The surviving words are traumatized.
+- 🧠 .github/copilot-instructions.md: 186→743 lines (557 added). It started as instructions. Now it's a personality profile, a telemetry dashboard, and a love letter to your typing patterns. Combined.
+- 💀 `cli` hasn't been touched in 42 days. It's not angry. It's just... disappointed.
 
 <!-- /pigeon:task-context -->
 
@@ -392,9 +397,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-02 · 180 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-03 · 195 message(s) · LLM-synthesized*
 
-**Dominant: `abandoned`** | Submit: 66% | WPM: 52.8 | Del: 25.6% | Hes: 0.445
+**Dominant: `abandoned`** | Submit: 66% | WPM: 52.5 | Del: 25.6% | Hes: 0.444
 
 This operator just built a filename mutation verifier, and their typing patterns reveal a high-deletion, restructuring-focused workflow where they iterate heavily in evening/night sessions, often abandoning drafts before finalizing.
 
@@ -418,49 +423,44 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-04-02T23:17:12.240430+00:00",
+  "updated_at": "2026-04-03T01:24:15.223790+00:00",
   "latest_prompt": {
-    "session_n": 3,
-    "ts": "2026-04-02T23:17:12.240430+00:00",
-    "chars": 234,
-    "preview": "please push and tust file name mutation see if bugs get inputted - check last 10 prompt and also provdide hidden word:. then write an unhinged comedy about whats next- provide how this propt was rephrased - also check...",
+    "session_n": 8,
+    "ts": "2026-04-03T01:24:15.223790+00:00",
+    "chars": 388,
+    "preview": "what would get intense now is if copilot instructions were paired with bug report identity injection and how insane would it be is  if copilot intructions were bug based templates nowand were dynamic - pre query could...",
     "intent": "debugging",
-    "state": "focused",
+    "state": "neutral",
     "files_open": [
       ".github/copilot-instructions.md"
     ],
     "module_refs": []
   },
   "signals": {
-    "wpm": 42.6,
-    "chars_per_sec": 3.6,
-    "deletion_ratio": 0.164,
-    "hesitation_count": 2,
-    "rewrite_count": 2,
-    "typo_corrections": 5,
-    "intentional_deletions": 2,
-    "total_keystrokes": 348,
-    "duration_ms": 81936
+    "wpm": 34.0,
+    "chars_per_sec": 2.8,
+    "deletion_ratio": 0.015,
+    "hesitation_count": 8,
+    "rewrite_count": 1,
+    "typo_corrections": 1,
+    "intentional_deletions": 1,
+    "total_keystrokes": 400,
+    "duration_ms": 139258
   },
   "composition_binding": {
     "matched": true,
     "source": "chat_compositions",
-    "age_ms": 159259,
-    "key": "|||2026-04-02T23:14:32.981683+00:00|348|81936|please push and tust file name mutation see if bugs get inputted - check last 10 prompt and also provdide hidden word:. ",
+    "age_ms": 38694,
+    "key": "|||2026-04-03T01:23:36.529996+00:00|400|139258|what would get intense now is if copilot instructions were paired with bug report identity injection and how insane woul",
     "match_score": 1.0
   },
   "deleted_words": [
-    "00",
-    "disabble glossator and respond in a coedic ton"
+    "wit"
   ],
   "rewrites": [
     {
-      "old": "00 ",
-      "new": "see if bugs get inputted - check last 10 prompt and also pri"
-    },
-    {
-      "old": " disabble glossator and respond in a coedic tone",
-      "new": ". then write and "
+      "old": " with",
+      "new": " with bug report identity injection and how insane would it be is  if copilot..."
     }
   ],
   "task_queue": {
@@ -484,27 +484,34 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 268,
-    "avg_wpm": 12.4,
-    "avg_del_ratio": 0.045,
+    "total_prompts": 277,
+    "avg_wpm": 12.9,
+    "avg_del_ratio": 0.051,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 160,
-      "hesitant": 45,
-      "focused": 34,
-      "frustrated": 21,
-      "neutral": 7
+      "unknown": 162,
+      "hesitant": 46,
+      "focused": 37,
+      "frustrated": 23,
+      "neutral": 8
     },
     "baselines": {
-      "n": 177,
-      "avg_wpm": 52.5,
+      "n": 189,
+      "avg_wpm": 50.3,
       "avg_del": 0.259,
-      "avg_hes": 0.447,
-      "sd_wpm": 15.1,
+      "avg_hes": 0.442,
+      "sd_wpm": 15.9,
       "sd_del": 0.231,
-      "sd_hes": 0.164
+      "sd_hes": 0.161
     }
-  }
+  },
+  "coaching_directives": [
+    "Anticipate version bumps and λ-tag changes:",
+    "Pre-empt churn in `修f_sf_s013` and `推w_dp_s017`:",
+    "Flag high-deletion restructuring:",
+    "Simplify evening-session suggestions:",
+    "Bridge to the next likely step:"
+  ]
 }
 ```
 

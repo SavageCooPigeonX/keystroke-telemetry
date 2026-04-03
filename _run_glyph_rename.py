@@ -249,7 +249,7 @@ def execute_renames(renames, dry_run=True):
 
     # Step 1: Rewrite imports FIRST (before files move)
     print(f'\n[1/3] Rewriting imports ({len(import_map)} mappings)...')
-    from pigeon_compiler.rename_engine.引w_ir_s003_v004_d0316_踪稿析_λΞ import rewrite_all_imports
+    from pigeon_compiler.rename_engine.引w_ir_s003_v005_d0403_踪稿析_λFX import rewrite_all_imports
     changes = rewrite_all_imports(ROOT, import_map, dry_run=False)
     print(f'      Rewrote {len(changes)} import lines')
 
@@ -278,7 +278,7 @@ def execute_renames(renames, dry_run=True):
 
     # Step 3: Validate imports
     print(f'[3/3] Validating imports...')
-    from pigeon_compiler.rename_engine.审p_va_s005_v004_d0315_踪稿析_λν import validate_imports
+    from pigeon_compiler.rename_engine.审p_va_s005_v005_d0403_踪稿析_λFX import validate_imports
     val = validate_imports(ROOT)
     if val['valid']:
         print(f'      PASS — all imports valid')

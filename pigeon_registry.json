@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-02T23:30:18.289752+00:00",
-  "total": 278,
+  "generated": "2026-04-03T02:05:47.581268+00:00",
+  "total": 281,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -3522,7 +3522,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 1
+        "oc": 2
       },
       "bug_entities": {
         "oc": "Split Fiend of freg"
@@ -3536,6 +3536,87 @@
           "desc": "local_name_registry_for_the",
           "intent": "verify_filename_mutation",
           "tokens": 3160,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/审p_va_s005_v005_d0403_踪稿析_λFX.py",
+      "name": "审p_va",
+      "seq": 5,
+      "ver": 5,
+      "date": "0403",
+      "desc": "post_rename_import_validation",
+      "intent": "bug_dossier_injection",
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": "",
+      "tokens": 1017,
+      "history": [
+        {
+          "ver": 5,
+          "date": "0403",
+          "desc": "post_rename_import_validation",
+          "intent": "bug_dossier_injection",
+          "tokens": 1017,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX.py",
+      "name": "引w_ir",
+      "seq": 3,
+      "ver": 5,
+      "date": "0403",
+      "desc": "rewrite_all_imports_across_the",
+      "intent": "bug_dossier_injection",
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": "",
+      "tokens": 1888,
+      "history": [
+        {
+          "ver": 5,
+          "date": "0403",
+          "desc": "rewrite_all_imports_across_the",
+          "intent": "bug_dossier_injection",
+          "tokens": 1888,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/rename_engine/追跑f_ruhe_s010_v005_d0403_册复审净助_λFX.py",
+      "name": "追跑f_ruhe",
+      "seq": 10,
+      "ver": 5,
+      "date": "0403",
+      "desc": "automated_self_healing_pipeline",
+      "intent": "bug_dossier_injection",
+      "intent_code": "FX",
+      "bug_keys": [
+        "oc"
+      ],
+      "bug_counts": {
+        "oc": 1
+      },
+      "bug_entities": {
+        "oc": "Overcap Maw of fruhe"
+      },
+      "last_bug_mark": "d0403v005",
+      "tokens": 4689,
+      "history": [
+        {
+          "ver": 5,
+          "date": "0403",
+          "desc": "automated_self_healing_pipeline",
+          "intent": "bug_dossier_injection",
+          "tokens": 4689,
           "action": "registered"
         }
       ]
@@ -7663,14 +7744,14 @@
       "last_bug_mark": ""
     },
     {
-      "path": "src/u_pe_s024_v002_d0402_λC.py",
+      "path": "src/u_pe_s024_v003_d0403_λFX.py",
       "name": "u_pe",
       "seq": 24,
-      "ver": 2,
-      "date": "0402",
+      "ver": 3,
+      "date": "0403",
       "desc": "pre_process_every_prompt_via",
-      "intent": "compressed_filename_mutation",
-      "tokens": 4212,
+      "intent": "bug_dossier_injection",
+      "tokens": 4519,
       "history": [
         {
           "ver": 2,
@@ -7679,19 +7760,28 @@
           "intent": "compressed_filename_mutation",
           "tokens": 4212,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0403",
+          "desc": "pre_process_every_prompt_via",
+          "intent": "bug_dossier_injection",
+          "action": "mutated",
+          "tokens": 4519
         }
       ],
-      "intent_code": "CP",
+      "intent_code": "FX",
       "bug_keys": [
         "oc"
       ],
       "last_bug_mark": "d0402v002",
       "bug_counts": {
-        "oc": 2
+        "oc": 3
       },
       "bug_entities": {
         "oc": "Overcap Maw of upe"
-      }
+      },
+      "last_change": "add bug dossier"
     },
     {
       "path": "src/u_pj_s019_v002_d0402_λC.py",
@@ -7718,7 +7808,7 @@
       ],
       "last_bug_mark": "d0402v002",
       "bug_counts": {
-        "oc": 2
+        "oc": 3
       },
       "bug_entities": {
         "oc": "Split Fiend of upj"
@@ -7846,7 +7936,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 1
+        "oc": 2
       },
       "bug_entities": {
         "oc": "Overcap Maw of fsf"
@@ -7877,7 +7967,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 1
+        "oc": 2
       },
       "bug_entities": {
         "oc": "Split Fiend of ptp"
@@ -7896,25 +7986,25 @@
       ]
     },
     {
-      "path": "src/推w_dp_s017_v011_d0402_初写谱净拆_λVR_βoc.py",
+      "path": "src/推w_dp_s017_v012_d0403_初写谱净拆_λFX_βoc.py",
       "name": "推w_dp",
       "seq": 17,
-      "ver": 11,
-      "date": "0402",
+      "ver": 12,
+      "date": "0403",
       "desc": "steers_copilot_cot_from_live",
-      "intent": "verify_filename_mutation",
-      "intent_code": "VR",
+      "intent": "bug_dossier_injection",
+      "intent_code": "FX",
       "bug_keys": [
         "oc"
       ],
       "bug_counts": {
-        "oc": 1
+        "oc": 2
       },
       "bug_entities": {
         "oc": "Shard Hunger of wdp"
       },
       "last_bug_mark": "d0402v011",
-      "tokens": 5443,
+      "tokens": 5695,
       "history": [
         {
           "ver": 11,
@@ -7923,6 +8013,14 @@
           "intent": "verify_filename_mutation",
           "tokens": 5443,
           "action": "registered"
+        },
+        {
+          "ver": 12,
+          "date": "0403",
+          "desc": "steers_copilot_cot_from_live",
+          "intent": "bug_dossier_injection",
+          "action": "mutated",
+          "tokens": 5695
         }
       ]
     },
@@ -7939,7 +8037,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 1
+        "oc": 2
       },
       "bug_entities": {
         "oc": "Overcap Maw of wcpm"
@@ -7983,7 +8081,7 @@
       ],
       "last_bug_mark": "d0402v003",
       "bug_counts": {
-        "oc": 2
+        "oc": 3
       },
       "bug_entities": {
         "oc": "Shard Hunger of psa"
@@ -8002,7 +8100,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 1
+        "oc": 2
       },
       "bug_entities": {
         "oc": "Shard Hunger of psa"

@@ -5,10 +5,10 @@ checks that every internal import resolves to an existing file.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v004 | 114 lines | ~921 tokens
+# SEQ: 005 | VER: v005 | 128 lines | ~1,017 tokens
 # DESC:   post_rename_import_validation
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
+# INTENT: bug_dossier_injection
+# LAST:   2026-04-03 @ 2556283
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 import ast

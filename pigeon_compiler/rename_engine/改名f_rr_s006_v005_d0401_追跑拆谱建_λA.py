@@ -18,9 +18,9 @@ from pathlib import Path
 
 from pigeon_compiler.rename_engine.扫p_sc_s001_v004_d0315_踪稿析_λν import scan_project
 from pigeon_compiler.rename_engine.w_pl_s002_v005_d0401_册追跑谱桥_λA import build_rename_plan
-from pigeon_compiler.rename_engine.引w_ir_s003_v004_d0316_踪稿析_λΞ import rewrite_all_imports
+from pigeon_compiler.rename_engine.引w_ir_s003_v005_d0403_踪稿析_λFX import rewrite_all_imports
 from pigeon_compiler.rename_engine.p_ex_s004_v004_d0315_册追跑复审_λν import execute_rename, rollback_rename
-from pigeon_compiler.rename_engine.审p_va_s005_v004_d0315_踪稿析_λν import validate_imports
+from pigeon_compiler.rename_engine.审p_va_s005_v005_d0403_踪稿析_λFX import validate_imports
 
 
 def run_full_rename(root: str, folders: list = None,

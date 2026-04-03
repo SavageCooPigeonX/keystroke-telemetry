@@ -1,4 +1,4 @@
-"""u_pj_s019_v002_d0402_λC_coaching_utils_seq012_v001.py — Auto-extracted by Pigeon Compiler."""
+"""u_pj_s019_v002_d0402_λC_coaching_bullets_seq015_v001.py — Auto-extracted by Pigeon Compiler."""
 from pathlib import Path
 import re
 

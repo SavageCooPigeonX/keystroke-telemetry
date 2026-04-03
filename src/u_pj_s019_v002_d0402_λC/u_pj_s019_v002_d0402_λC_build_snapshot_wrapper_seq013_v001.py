@@ -1,4 +1,4 @@
-"""u_pj_s019_v002_d0402_λC_build_snapshot_decomposed_seq011_v001.py — Auto-extracted by Pigeon Compiler."""
+"""u_pj_s019_v002_d0402_λC_build_snapshot_wrapper_seq013_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
 
 def _build_snapshot(entry: dict) -> dict:

@@ -580,7 +580,7 @@ def execute_renames(file_renames, dir_renames, dry_run=True):
     # ── Step 5: Validate ──
     print(f'[4/4] Validating...')
     try:
-        from pigeon_compiler.rename_engine.审p_va_s005_v004_d0315_踪稿析_λν import validate_imports
+        from pigeon_compiler.rename_engine.审p_va_s005_v005_d0403_踪稿析_λFX import validate_imports
         val = validate_imports(ROOT)
         if val.get('valid'):
             print(f'      PASS — all imports valid')
