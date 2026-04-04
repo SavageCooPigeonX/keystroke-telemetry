@@ -4,11 +4,11 @@ description: "Build-focused context: module map, file consciousness, coupling, c
 
 # /build
 
-*Hydrated 2026-04-04 03:30 UTC · detected mode: debug*
+*Hydrated 2026-04-04 03:59 UTC · detected mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.491
+**Cognitive:** `abandoned` | WPM: 52 | Del: 26% | Hes: 0.495
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
 **Deleted words:** should we clea, ouse
 **Unsaid threads:** should we clea
@@ -23,7 +23,7 @@ description: "Build-focused context: module map, file consciousness, coupling, c
 ## Module Map (compact)
 
 **pigeon_brain** (16 modules, 23.3K tok)
-**pigeon_brain/flow** (18 modules, 35.1K tok)
+**pigeon_brain/flow** (20 modules, 43.3K tok · 2 bugged)
 **pigeon_brain/flow/backward_seq007** (7 modules, 4.3K tok)
 **pigeon_brain/flow/learning_loop_seq013** (14 modules, 7.4K tok)
 **pigeon_brain/flow/prediction_scorer_seq014** (16 modules, 7.0K tok)
@@ -41,7 +41,7 @@ description: "Build-focused context: module map, file consciousness, coupling, c
 **pigeon_compiler/runners/compiler_output/press_release_gen** (8 modules, 4.2K tok)
 **pigeon_compiler/state_extractor** (6 modules, 4.7K tok)
 **pigeon_compiler/weakness_planner** (1 modules, 2.4K tok)
-**src** (55 modules, 178.0K tok · 11 bugged)
+**src** (55 modules, 178.3K tok · 11 bugged)
 **src/cognitive** (3 modules, 5.6K tok)
 **src/cognitive/drift_seq003** (4 modules, 2.4K tok)
 **src/cognitive/unsaid_seq002** (3 modules, 2.3K tok)
@@ -57,13 +57,14 @@ description: "Build-focused context: module map, file consciousness, coupling, c
 
 ## Codebase Fears (from file consciousness)
 
-- file may not exist (14 modules)
-- returns empty on failure (silent) (11 modules)
-- swallowed exception (9 modules)
-- regex format dependency (8 modules)
+- file may not exist (17 modules)
+- returns empty on failure (silent) (14 modules)
+- regex format dependency (11 modules)
+- swallowed exception (10 modules)
 
 ## Recent Commits
 
+- 5e29260 feat: numeric surface layer + narrative bug profiles + stale import fixes
 - 38ea651 chore(pigeon): auto-rename 1 file(s) [pigeon-auto]
 - 08b2b56 fix: add REGISTRY_FILE import to registry_io shard
 - 54518b7 fix: add missing cross-shard imports in decomposed registry package (critical path for post-commit hook)
@@ -71,4 +72,3 @@ description: "Build-focused context: module map, file consciousness, coupling, c
 - d7cbc14 feat: P0-P3 attribution fixes â€” author field in pulse/edit_pairs/registry, heat map operator focus, 3-actor push narrative
 - 18e2871 chore(pigeon): auto-rename 7 file(s) [pigeon-auto]
 - 7e3e55d chore(pigeon): auto-rename 5 files + auto-compile å†Œf_reg(14 shards) + u_pj(12 shards) + self-fix report
-- 2556283 feat: bug dossier injection + AST import validator + unsaid filter fix

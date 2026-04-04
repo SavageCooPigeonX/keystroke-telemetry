@@ -4,11 +4,11 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 # /debug (RECOMMENDED)
 
-*Hydrated 2026-04-04 03:30 UTC · detected mode: debug*
+*Hydrated 2026-04-04 03:59 UTC · detected mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.491
+**Cognitive:** `abandoned` | WPM: 52 | Del: 26% | Hes: 0.495
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
 **Deleted words:** should we clea, ouse
 **Unsaid threads:** should we clea
@@ -31,6 +31,7 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 - breaking audit trails. Watch for prompts that lose their actor tags in downstream logs.
 - contract changes and tags are not passed, the audit will flag valid prompts as invalid, causing narrative generation to halt. Watch for false‑positive
 - breaking downstream attribution.
+- break mid-cycle. I receive all cross-referenced data from u_pj and manage the injection lifecycle. If the surface object size balloons, my memory trac
 
 ## Codebase Clots (dead/bloated)
 
@@ -42,15 +43,15 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 ## Overcap Files (split candidates)
 
 - `streaming_layer` (10189 tok)
-- `u_pj` (7801 tok)
-- `管w_cpm` (7781 tok)
+- `管w_cpm` (8012 tok)
+- `u_pj` (7903 tok)
 - `推w_dp` (5987 tok)
 - `self_fix` (5846 tok)
 - `修f_sf` (5829 tok)
 - `prediction_scorer` (5797 tok)
-- `cognitive_reactor` (5629 tok)
+- `算f_ps` (5782 tok)
 
 ## Active Bug Dossier
 
-**Focus modules:** local_name_registry_for_the, pre_process_every_prompt_via, every_entry_cross_references_all, one_shot_self_fix_analyzer, copilot_self_diagnostic_detect_stale
+**Focus modules:** pre_process_every_prompt_via, every_entry_cross_references_all, generate_per_push_narrative_each, local_name_registry_for_the, one_shot_self_fix_analyzer
 **Focus bugs:** oc

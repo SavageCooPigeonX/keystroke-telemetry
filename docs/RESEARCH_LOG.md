@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-03 07:12 UTC · 290 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-04 03:59 UTC · 309 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -22,10 +22,10 @@
 
 ## Live Operator State
 
-*290 prompts profiled · source: measured*
+*309 prompts profiled · source: measured*
 
-**Dominant: `abandoned` | Submit: 66% | Del: 5.6%**
-- operator entering restructuring mode — expect more deletions than new code
+**Dominant: `abandoned` | Submit: 66% | Del: 6.0%**
+- operator entering flow state — productive building, less backtracking
 
 ## Pair Performance
 
@@ -34,25 +34,26 @@
 **Accuracy: 100% OK | 0% miss** *[source: measured]*
 - trend: **stable** (100% → 100%)
 
-**Prompt→edit latency:** 370.6s median (49 pairs)
+**Prompt→edit latency:** 391.4s median (52 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*111 mutations scored*
+*113 mutations scored*
 - no significant signal yet — all sections scored neutral
 
-**Reactor:** 237 fires, 0 accepted (0%)
+**Reactor:** 430 fires, 0 accepted (0%)
 > **Directive:** Reactor patches near-zero acceptance — tune confidence threshold or disable
 
 ## Codebase Health
 
-*51 self-fix reports · 2026-03-16 → 2026-04-03*
+*52 self-fix reports · 2026-03-16 → 2026-04-04*
 
-**Problem trend: growing** (early avg 24 → recent avg 439) *[source: measured]*
-- problems growing ~415/push — expect more over_hard_cap and dead_exports without intervention
+**Problem trend: growing** (early avg 24 → recent avg 440) *[source: measured]*
+- problems growing ~416/push — expect more over_hard_cap and dead_exports without intervention
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives — treat as hypothesis:*
 - REGRESSION WATCHLIST: Rename manifest validation silently passing corrupt maps; import rewrite missing symlinked files; prompt pre-processor mangling YAML instruction blocks.
+- REGRESSION WATCHLIST: (1) predictor.get_surface_tensor shape contract change, (2) node_memory key `'numeric_surface'` missing or None, (3) surface object
 
 ### Recent Deaths *[source: measured]*
 - `exception`: 3
@@ -68,23 +69,23 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "blueberry"
-- "s - whats th"
-- "rephraser"
-- "hts th"
-- "test"
+- "0 pus"
+- "and"
 - "cles re"
-- "can we find a way to s"
-- "route"
-- "intencom"
-- "my fv fyi"
+- "s - whats th"
+- "we have t"
+- "doe"
+- "-actua"
+- "word"
+- "wouldn"
+- "rephraser"
 
 ## Confidence
 
 *How much to trust this report:*
 
 - **Rework signal:** WEAK (placeholder data) — 200 entries, 2 unique scores in last 20
-- **Training pairs:** 55 captured
+- **Training pairs:** 64 captured
 - **Prediction accuracy:** F1=0.010, calibration=0.305 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
 - **Memory shards:** 10 active (zero LLM calls)

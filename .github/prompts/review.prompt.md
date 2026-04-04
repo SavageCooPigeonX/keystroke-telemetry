@@ -4,11 +4,11 @@ description: "Review-focused context: rework rate, mutation scores, edit pattern
 
 # /review
 
-*Hydrated 2026-04-04 03:30 UTC · detected mode: debug*
+*Hydrated 2026-04-04 03:59 UTC · detected mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.491
+**Cognitive:** `abandoned` | WPM: 52 | Del: 26% | Hes: 0.495
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
 **Deleted words:** should we clea, ouse
 **Unsaid threads:** should we clea
@@ -26,17 +26,18 @@ description: "Review-focused context: rework rate, mutation scores, edit pattern
 
 ## Mutation Effectiveness
 
-- `Active Bug Dossier`: score=?
-- `Live Task Context`: score=?
-- `Data Flow: Keystroke → Cognitive State → LLM`: score=?
-- `Live Signals`: score=?
-- `Symbol Dictionary`: score=?
-- `Overcap Files (split candidates)`: score=?
-- `Live Prompt Telemetry`: score=?
+- `Operator Voice Style`: score=?
+- `Engagement Hooks`: score=?
 - `Intent Simulation`: score=?
+- `MANDATORY: Prompt Journal (execute FIRST on every message)`: score=?
+- `Active Bug Dossier`: score=?
+- `Live Prompt Telemetry`: score=?
+- `Push Cycle Predictions`: score=?
+- `Fragile Contracts`: score=?
 
 ## Recent Work
 
+- 5e29260 feat: numeric surface layer + narrative bug profiles + stale import fixes
 - 38ea651 chore(pigeon): auto-rename 1 file(s) [pigeon-auto]
 - 08b2b56 fix: add REGISTRY_FILE import to registry_io shard
 - 54518b7 fix: add missing cross-shard imports in decomposed registry package (critical path for post-commit hook)
@@ -46,4 +47,3 @@ description: "Review-focused context: rework rate, mutation scores, edit pattern
 - 7e3e55d chore(pigeon): auto-rename 5 files + auto-compile å†Œf_reg(14 shards) + u_pj(12 shards) + self-fix report
 - 2556283 feat: bug dossier injection + AST import validator + unsaid filter fix
 - 8203089 chore(pigeon): auto-rename 13 file(s) [pigeon-auto]
-- 4eb4c79 test: verify filename mutation

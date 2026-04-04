@@ -1,6 +1,6 @@
 {
-  "generated": "2026-04-03T07:11:45.495483+00:00",
-  "total": 288,
+  "generated": "2026-04-04T03:58:54.121543+00:00",
+  "total": 290,
   "files": [
     {
       "path": "pigeon_brain/cli_seq009_v002_d0323__build_graph_run_observer_export_lc_pigeon_brain_system.py",
@@ -1849,6 +1849,68 @@
       "last_bug_mark": ""
     },
     {
+      "path": "pigeon_brain/flow/\u7b97f_ps_s014_v006_d0404_\u8bd1\u6539\u540d\u8e2a_\u03bbNU_\u03b2oc.py",
+      "name": "\u7b97f_ps",
+      "seq": 14,
+      "ver": 6,
+      "date": "0404",
+      "desc": "edit_session_based",
+      "intent": "numeric_surface_layer",
+      "intent_code": "NU",
+      "bug_keys": [
+        "oc"
+      ],
+      "bug_counts": {
+        "oc": 1
+      },
+      "bug_entities": {
+        "oc": "Overcap Maw of fps"
+      },
+      "last_bug_mark": "d0404v006",
+      "tokens": 5782,
+      "history": [
+        {
+          "ver": 6,
+          "date": "0404",
+          "desc": "edit_session_based",
+          "intent": "numeric_surface_layer",
+          "tokens": 5782,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_brain/flow/\u9006f_ba_s007_v005_d0404_\u8e2a\u7a3f\u6790_\u03bbNU_\u03b2oc.py",
+      "name": "\u9006f_ba",
+      "seq": 7,
+      "ver": 5,
+      "date": "0404",
+      "desc": "backward_pass_walks_electron_path",
+      "intent": "numeric_surface_layer",
+      "intent_code": "NU",
+      "bug_keys": [
+        "oc"
+      ],
+      "bug_counts": {
+        "oc": 1
+      },
+      "bug_entities": {
+        "oc": "Overcap Maw of fba"
+      },
+      "last_bug_mark": "d0404v005",
+      "tokens": 2479,
+      "history": [
+        {
+          "ver": 5,
+          "date": "0404",
+          "desc": "backward_pass_walks_electron_path",
+          "intent": "numeric_surface_layer",
+          "tokens": 2479,
+          "action": "registered"
+        }
+      ]
+    },
+    {
       "path": "pigeon_brain/graph_extractor_seq003_v003_d0324__extract_the_cognition_graph_from_lc_8888_word_backpropagation.py",
       "name": "graph_extractor",
       "seq": 3,
@@ -3523,7 +3585,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 4
+        "oc": 5
       },
       "bug_entities": {
         "oc": "Split Fiend of freg"
@@ -3630,7 +3692,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 3
+        "oc": 4
       },
       "bug_entities": {
         "oc": "Overcap Maw of fruhe"
@@ -6738,7 +6800,7 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": "",
-      "dossier_score": 0.1
+      "dossier_score": 1.0
     },
     {
       "path": "src/push_narrative_seq012_v007_d0330__generate_per_push_narrative_each_lc_readme_update_7.py",
@@ -6773,7 +6835,7 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": "",
-      "dossier_score": 0.1
+      "dossier_score": 1.0
     },
     {
       "path": "src/query_memory_seq010/query_memory_seq010_clustering_seq004_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -7815,7 +7877,7 @@
       ],
       "last_bug_mark": "d0402v002",
       "bug_counts": {
-        "oc": 5
+        "oc": 6
       },
       "bug_entities": {
         "oc": "Overcap Maw of upe"
@@ -7824,14 +7886,14 @@
       "dossier_score": 1.0
     },
     {
-      "path": "src/u_pj_s019_v002_d0402_\u03bbC.py",
+      "path": "src/u_pj_s019_v003_d0404_\u03bbNU_\u03b2oc.py",
       "name": "u_pj",
       "seq": 19,
-      "ver": 2,
-      "date": "0402",
+      "ver": 3,
+      "date": "0404",
       "desc": "every_entry_cross_references_all",
-      "intent": "compressed_filename_mutation",
-      "tokens": 7801,
+      "intent": "numeric_surface_layer",
+      "tokens": 7903,
       "history": [
         {
           "ver": 2,
@@ -7840,15 +7902,23 @@
           "intent": "compressed_filename_mutation",
           "tokens": 7801,
           "action": "registered"
+        },
+        {
+          "ver": 3,
+          "date": "0404",
+          "desc": "every_entry_cross_references_all",
+          "intent": "numeric_surface_layer",
+          "action": "mutated",
+          "tokens": 7903
         }
       ],
-      "intent_code": "CP",
+      "intent_code": "NU",
       "bug_keys": [
         "oc"
       ],
       "last_bug_mark": "d0402v002",
       "bug_counts": {
-        "oc": 5
+        "oc": 6
       },
       "bug_entities": {
         "oc": "Split Fiend of upj"
@@ -7977,7 +8047,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 4
+        "oc": 5
       },
       "bug_entities": {
         "oc": "Overcap Maw of fsf"
@@ -8020,7 +8090,7 @@
           "action": "registered"
         }
       ],
-      "dossier_score": 0.1
+      "dossier_score": 1.0
     },
     {
       "path": "src/\u53d9p_pn_s012_v008_d0403_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbP0_\u03b2oc.py",
@@ -8035,7 +8105,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 2
+        "oc": 3
       },
       "bug_entities": {
         "oc": "Shard Hunger of ppn"
@@ -8052,7 +8122,7 @@
           "action": "registered"
         }
       ],
-      "dossier_score": 0.1
+      "dossier_score": 1.0
     },
     {
       "path": "src/\u5bf9p_tp_s027_v003_d0402_\u7f29\u5206\u8bdd_\u03bbVR_\u03b2oc.py",
@@ -8067,7 +8137,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 4
+        "oc": 5
       },
       "bug_entities": {
         "oc": "Split Fiend of ptp"
@@ -8098,7 +8168,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 4
+        "oc": 5
       },
       "bug_entities": {
         "oc": "Shard Hunger of wdp"
@@ -8145,7 +8215,7 @@
         "de"
       ],
       "bug_counts": {
-        "de": 2
+        "de": 3
       },
       "bug_entities": {
         "de": "Null Moth of prwd"
@@ -8176,7 +8246,7 @@
         "de"
       ],
       "bug_counts": {
-        "de": 2
+        "de": 3
       },
       "bug_entities": {
         "de": "Null Moth of pfhm"
@@ -8220,25 +8290,25 @@
       ]
     },
     {
-      "path": "src/\u7ba1w_cpm_s020_v004_d0403_\u7f29\u5206\u8bdd_\u03bbP0_\u03b2oc.py",
+      "path": "src/\u7ba1w_cpm_s020_v005_d0404_\u7f29\u5206\u8bdd_\u03bbNU_\u03b2oc.py",
       "name": "\u7ba1w_cpm",
       "seq": 20,
-      "ver": 4,
-      "date": "0403",
+      "ver": 5,
+      "date": "0404",
       "desc": "audits_and_manages_all_injected",
-      "intent": "p0_p3_attribution",
-      "intent_code": "P0",
+      "intent": "numeric_surface_layer",
+      "intent_code": "NU",
       "bug_keys": [
         "oc"
       ],
       "bug_counts": {
-        "oc": 4
+        "oc": 5
       },
       "bug_entities": {
         "oc": "Overcap Maw of wcpm"
       },
       "last_bug_mark": "d0402v003",
-      "tokens": 7781,
+      "tokens": 8012,
       "history": [
         {
           "ver": 3,
@@ -8255,6 +8325,14 @@
           "intent": "p0_p3_attribution",
           "action": "mutated",
           "tokens": 7781
+        },
+        {
+          "ver": 5,
+          "date": "0404",
+          "desc": "audits_and_manages_all_injected",
+          "intent": "numeric_surface_layer",
+          "action": "mutated",
+          "tokens": 8012
         }
       ]
     },
@@ -8271,7 +8349,7 @@
         "oc"
       ],
       "bug_counts": {
-        "oc": 2
+        "oc": 3
       },
       "bug_entities": {
         "oc": "Shard Hunger of pph"
@@ -8315,7 +8393,7 @@
       ],
       "last_bug_mark": "d0402v003",
       "bug_counts": {
-        "oc": 5
+        "oc": 6
       },
       "bug_entities": {
         "oc": "Shard Hunger of psa"
@@ -8323,14 +8401,14 @@
       "dossier_score": 1.0
     },
     {
-      "path": "src/\u8b66p_sa_s030_v004_d0403_\u7f29\u5206\u8bdd_\u03bbP0.py",
+      "path": "src/\u8b66p_sa_s030_v005_d0404_\u7f29\u5206\u8bdd_\u03bbNU.py",
       "name": "\u8b66p_sa",
       "seq": 30,
-      "ver": 4,
-      "date": "0403",
+      "ver": 5,
+      "date": "0404",
       "desc": "copilot_self_diagnostic_detect_stale",
-      "intent": "p0_p3_attribution",
-      "intent_code": "P0",
+      "intent": "numeric_surface_layer",
+      "intent_code": "NU",
       "bug_keys": [],
       "bug_counts": {
         "oc": 2
@@ -8354,6 +8432,14 @@
           "date": "0403",
           "desc": "copilot_self_diagnostic_detect_stale",
           "intent": "p0_p3_attribution",
+          "action": "mutated",
+          "tokens": 1673
+        },
+        {
+          "ver": 5,
+          "date": "0404",
+          "desc": "copilot_self_diagnostic_detect_stale",
+          "intent": "numeric_surface_layer",
           "action": "mutated",
           "tokens": 1673
         }
