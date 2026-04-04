@@ -760,6 +760,23 @@ def refresh_managed_prompt(
     root = Path(root)
     auto_index_refreshed = inject_auto_index(root, registry=registry, processed=processed)
     bug_voices_refreshed = inject_bug_voices(root, registry=registry)
+
+    # Bug profiles — regenerate browsable docs/BUG_PROFILES.md + logs/bug_profiles.json
+    bug_profiles_path = None
+    try:
+        from src.bug_profiles import generate_profiles
+        bug_profiles_path = generate_profiles(root)
+    except Exception:
+        pass
+
+    # Numeric surface — project codebase into pure topology (logs/numeric_surface.json)
+    numeric_surface_path = None
+    try:
+        from src.numeric_surface import generate_surface
+        numeric_surface_path = generate_surface(root)
+    except Exception:
+        pass
+
     task_context_refreshed = _run_refresher(
         root,
         'src/推w_dp_s017*.py',
@@ -788,6 +805,13 @@ def refresh_managed_prompt(
         hooks_refreshed = inject_hooks(root, history=_hist)
     except Exception:
         pass
+
+    # Voice style — refresh operator voice directives
+    voice_refreshed = _run_refresher(
+        root,
+        'src/声w_vs_s028*.py',
+        'inject_voice_style',
+    )
 
     # Template selector — hydrate .prompt.md files AND inject active template block
     templates_result = None
@@ -819,11 +843,14 @@ def refresh_managed_prompt(
     return {
         'auto_index_refreshed': auto_index_refreshed,
         'bug_voices_refreshed': bug_voices_refreshed,
+        'bug_profiles': str(bug_profiles_path) if bug_profiles_path else None,
+        'numeric_surface': str(numeric_surface_path) if numeric_surface_path else None,
         'task_context_refreshed': task_context_refreshed,
         'task_queue_refreshed': task_queue_refreshed,
         'operator_state_refreshed': operator_state_refreshed,
         'prompt_telemetry_injected': injected,
         'mutation_result': mutation_result,
+        'voice_refreshed': voice_refreshed,
         'templates': templates_result,
         'audit': audit,
     }

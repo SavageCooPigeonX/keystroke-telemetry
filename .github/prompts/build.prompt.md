@@ -4,18 +4,18 @@ description: "Build-focused context: module map, file consciousness, coupling, c
 
 # /build
 
-*Hydrated 2026-04-03 07:12 UTC · detected mode: debug*
+*Hydrated 2026-04-04 03:30 UTC · detected mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `neutral` | WPM: 16 | Del: 36%
-**Deleted words:** route
-**Unsaid threads:** route
-**Rewrites:** "route" → "write injections"
+**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.491
+**CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
+**Deleted words:** should we clea, ouse
+**Unsaid threads:** should we clea
+**Rewrites:** "ouse" → "rowse bug profiles"
 **Hot modules:** `file_heat_map` (hes=0.89), `import_rewriter` (hes=0.73), `file_writer` (hes=0.73)
 **Active bugs:** `u_pe` (oc), `u_pj` (oc), `警p_sa` (oc), `册f_reg` (oc)
-**Coaching:** Anticipate debugging context; Preempt import/resolver issues; Counter hesitation with precision
-**Codes:** intent=`unknown` state=`neutral` bl_wpm=51 bl_del=26%
+**Codes:** intent=`testing` state=`neutral` bl_wpm=52 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
@@ -64,6 +64,7 @@ description: "Build-focused context: module map, file consciousness, coupling, c
 
 ## Recent Commits
 
+- 38ea651 chore(pigeon): auto-rename 1 file(s) [pigeon-auto]
 - 08b2b56 fix: add REGISTRY_FILE import to registry_io shard
 - 54518b7 fix: add missing cross-shard imports in decomposed registry package (critical path for post-commit hook)
 - d6c22c7 chore(pigeon): auto-rename 15 file(s) [pigeon-auto]
@@ -71,4 +72,3 @@ description: "Build-focused context: module map, file consciousness, coupling, c
 - 18e2871 chore(pigeon): auto-rename 7 file(s) [pigeon-auto]
 - 7e3e55d chore(pigeon): auto-rename 5 files + auto-compile å†Œf_reg(14 shards) + u_pj(12 shards) + self-fix report
 - 2556283 feat: bug dossier injection + AST import validator + unsaid filter fix
-- 8203089 chore(pigeon): auto-rename 13 file(s) [pigeon-auto]

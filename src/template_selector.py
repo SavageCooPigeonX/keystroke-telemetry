@@ -115,15 +115,51 @@ def _voice_directives(root):
     return lines[:4]
 
 
-def _cognitive_line(snapshot):
-    if not snapshot:
-        return '`unknown` | WPM: ? | Del: ?%'
-    lp = snapshot.get('latest_prompt', {})
-    sig = snapshot.get('signals', {})
-    state = lp.get('state', 'unknown')
-    wpm = sig.get('wpm', 0)
-    del_r = sig.get('deletion_ratio', 0)
-    return f'`{state}` | WPM: {wpm:.0f} | Del: {del_r * 100:.0f}%'
+def _cognitive_line(snapshot, root=None):
+    """Build cognitive state line from best available source.
+
+    Priority: operator_profile.md history (measured) > snapshot signals > unknown.
+    """
+    state, wpm, del_r, hes = 'unknown', 0, 0, 0
+    source = None
+
+    # Try operator_profile.md first — has REAL measured data
+    if root:
+        profile = root / 'operator_profile.md'
+        if profile.exists():
+            try:
+                text = profile.read_text('utf-8', errors='ignore')
+                m = re.search(r'<!--\nDATA\n(.+?)\nDATA\n-->', text, re.S)
+                if m:
+                    data = json.loads(m.group(1))
+                    hist = data.get('history', [])
+                    rec = hist[-5:] if hist else []
+                    if rec:
+                        from collections import Counter
+                        st = Counter(r.get('state', 'neutral') for r in rec)
+                        state = st.most_common(1)[0][0]
+                        wpm = sum(r.get('wpm', 0) for r in rec) / len(rec)
+                        del_r = sum(r.get('del_ratio', 0) for r in rec) / len(rec)
+                        hes = sum(r.get('hesitation', 0) for r in rec) / len(rec)
+                        source = 'measured'
+            except Exception:
+                pass
+
+    # Fallback to snapshot signals
+    if source is None and snapshot:
+        sig = snapshot.get('signals', {})
+        lp = snapshot.get('latest_prompt', {})
+        if sig.get('wpm'):
+            state = lp.get('state', 'unknown')
+            wpm = sig.get('wpm', 0)
+            del_r = sig.get('deletion_ratio', 0)
+            hes = sig.get('hesitation_count', 0)
+            source = 'snapshot'
+
+    line = f'`{state}` | WPM: {wpm:.0f} | Del: {del_r * 100:.0f}%'
+    if hes:
+        line += f' | Hes: {hes:.3f}'
+    return line
 
 
 def detect_mode(root):
@@ -142,6 +178,40 @@ def detect_mode(root):
     return 'build'
 
 
+_COT_DIRECTIVES = {
+    'focused': 'Operator is locked in. Assume expertise — go deeper than asked. Direct code, skip preamble.',
+    'frustrated': 'Operator is frustrated. Lead with the fix. Skip explanations unless asked.',
+    'hesitant': 'Operator is uncertain. Offer 2 concrete options and address both. End with a clarifying question.',
+    'abandoned': 'Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.',
+    'restructuring': 'Operator is rethinking approach. Offer bulleted options, flag side-effects, keep it concise.',
+    'neutral': None,
+    'unknown': None,
+}
+
+
+def _cot_directive(root):
+    """Return a CoT steering directive based on current cognitive state."""
+    profile = root / 'operator_profile.md'
+    if not profile.exists():
+        return None
+    try:
+        text = profile.read_text('utf-8', errors='ignore')
+        m = re.search(r'<!--\nDATA\n(.+?)\nDATA\n-->', text, re.S)
+        if not m:
+            return None
+        data = json.loads(m.group(1))
+        hist = data.get('history', [])
+        rec = hist[-5:] if hist else []
+        if not rec:
+            return None
+        from collections import Counter
+        st = Counter(r.get('state', 'neutral') for r in rec)
+        dom = st.most_common(1)[0][0]
+        return _COT_DIRECTIVES.get(dom)
+    except Exception:
+        return None
+
+
 # ── shared signal block ──────────────────────
 
 def _shared_signals(root):
@@ -152,13 +222,18 @@ def _shared_signals(root):
     unsaid = _unsaid_threads(comps)
     voice = _voice_directives(root)
     hot = (snapshot or {}).get('hot_modules', [])[:5]
-    cog = _cognitive_line(snapshot)
+    cog = _cognitive_line(snapshot, root=root)
 
     lines = [
         '## Live Signals',
         '',
         f'**Cognitive:** {cog}',
     ]
+
+    # CoT directive — state-dependent behavior steering
+    cot = _cot_directive(root)
+    if cot:
+        lines.append(f'**CoT:** {cot}')
     if deleted:
         lines.append(f'**Deleted words:** {", ".join(deleted)}')
     if unsaid:

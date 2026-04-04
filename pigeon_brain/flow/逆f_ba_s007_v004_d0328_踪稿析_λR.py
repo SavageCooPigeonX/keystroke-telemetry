@@ -30,9 +30,7 @@ import uuid
 from pathlib import Path
 from typing import Any
 
-from .node_memory_seq008_v003_d0328__存学预_the_experience_vault_stores_raw_lc_dynamic_import_resolvers import (
-    append_learning,
-)
+from .node_memory_seq008 import append_learning  # pigeon package re-export
 
 logger = logging.getLogger(__name__)
 

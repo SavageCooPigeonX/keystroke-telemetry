@@ -2,12 +2,18 @@
 
 Decomposed shards have broken cross-imports (missing COPILOT_PATH etc).
 Route everything through the monolith via importlib until shards are fixed.
+Monolith filename mutates on every commit — resolve via glob.
 """
 import importlib.util
 import sys
 from pathlib import Path
 
-_MONOLITH = Path(__file__).parent.parent / '管w_cpm_s020_v003_d0402_缩分话_λVR_βoc.py'
+_parent = Path(__file__).parent.parent
+# Find monolith by glob — pigeon renames it every commit
+_candidates = sorted(_parent.glob('管w_cpm_s020*.py'), key=lambda p: p.stat().st_mtime, reverse=True)
+if not _candidates:
+    raise ImportError('Cannot find 管w_cpm monolith .py file in src/')
+_MONOLITH = _candidates[0]
 _spec = importlib.util.spec_from_file_location(
     'src._管w_cpm_monolith', str(_MONOLITH))
 _mod = importlib.util.module_from_spec(_spec)

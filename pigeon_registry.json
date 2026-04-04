@@ -6737,7 +6737,8 @@
       "bug_keys": [],
       "bug_counts": {},
       "bug_entities": {},
-      "last_bug_mark": ""
+      "last_bug_mark": "",
+      "dossier_score": 0.1
     },
     {
       "path": "src/push_narrative_seq012_v007_d0330__generate_per_push_narrative_each_lc_readme_update_7.py",
@@ -6771,7 +6772,8 @@
       "bug_keys": [],
       "bug_counts": {},
       "bug_entities": {},
-      "last_bug_mark": ""
+      "last_bug_mark": "",
+      "dossier_score": 0.1
     },
     {
       "path": "src/query_memory_seq010/query_memory_seq010_clustering_seq004_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -8017,7 +8019,8 @@
           "tokens": 2088,
           "action": "registered"
         }
-      ]
+      ],
+      "dossier_score": 0.1
     },
     {
       "path": "src/\u53d9p_pn_s012_v008_d0403_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbP0_\u03b2oc.py",
@@ -8048,7 +8051,8 @@
           "tokens": 2241,
           "action": "registered"
         }
-      ]
+      ],
+      "dossier_score": 0.1
     },
     {
       "path": "src/\u5bf9p_tp_s027_v003_d0402_\u7f29\u5206\u8bdd_\u03bbVR_\u03b2oc.py",

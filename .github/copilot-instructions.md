@@ -3,27 +3,6 @@
 Auto-injected into every Copilot session for this repo. Read this before touching any file.
 
 ---
-
-<!-- pigeon:staleness-alert -->
-## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
-
-*Checked 2026-04-03 03:47 UTC — 2 block(s) stale or missing*
-
-**ATTENTION: The following blocks did NOT update when they should have.**
-**This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
-
-- **`current-query`**: STALE — 87min old (max 10min)
-  - Writer: `prompt_enricher (Gemini Flash)`
-  - Last updated: 2026-04-03 02:21
-
-- **`prompt-telemetry`**: STALE — 87min old (max 10min)
-  - Writer: `prompt_journal._refresh_copilot_instructions`
-  - Last updated: 2026-04-03T02:20:59
-
-**Action**: Run the journal command or check `logs/enricher_errors.jsonl` for failures.
-
-<!-- /pigeon:staleness-alert -->
-
 ## MANDATORY: Prompt Journal (execute FIRST on every message)
 
 **On EVERY user message, before doing any other work**, log an enriched entry by running:
@@ -135,32 +114,35 @@ Three systems working together:
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Enriched 2026-04-03 02:21 UTC · raw: "yes"*
+*Enriched 2026-04-04 03:30 UTC · raw: "push / oberve mutation - test how organism mutates"*
 
-**COPILOT_QUERY: Confirm the previous plan to address the "Copilot dump truck instructions problem" by implementing dynamic Copilot instruction template selection. Verify that Copilot will not begin work until these dynamic templates are fully loaded, ensuring bug-based templates are prioritized.**
+**COPILOT_QUERY: Implement a test suite within `self_test_pigeon_compiler_on` to observe and validate the mutation process of an organism, specifically focusing on how `the_push_is_the_unit` impacts the mutation scoring and narrative generation. Ensure the test verifies the correlation between prompt mutations and the output from `mutation_scorer_correlates_prompt_mutations` and `generate_per_push_narrative_each`.**
 
-INTERPRETED INTENT: The operator is confirming the previous instruction to implement dynamic Copilot instruction templates, specifically to resolve the "dump truck instructions problem" and ensure Copilot waits for templates to load.
-KEY FILES: dynamic_prompt, .operator_stats, file_heat_map, import_rewriter, file_writer
+UNSAID_RECONSTRUCTION: push / observe mutation - test how organism mutates process
+
+INTERPRETED INTENT: The operator wants to test the system's mutation mechanics, specifically how "pushes" lead to observable mutations and their corresponding narrative and scoring.
+KEY FILES: self_test_pigeon_compiler_on, mutation_scorer_correlates_prompt_mutations, the_push_is_the_unit, generate_per_push_narrative_each
 PRIOR ATTEMPTS: none
-WATCH OUT FOR: Ensure the solution explicitly addresses the "dump truck instructions problem" and the loading dependency for Copilot.
-OPERATOR SIGNAL: The repeated "yes" after a detailed planning prompt indicates confirmation and a desire to proceed with the previously discussed solution.
+WATCH OUT FOR: Avoid generating generic mutation tests; focus on the specific interaction between "push" events, mutation scoring, and narrative generation, as these modules have been problematic.
+OPERATOR SIGNAL: The repetition of the prompt and the deletion of "ce" suggest the operator is trying to be precise about the "observe" aspect of mutation testing, possibly related to a specific "process" or "sequence".
 <!-- /pigeon:current-query -->
 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-03 07:13 UTC · 219 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-04 03:31 UTC · 243 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 48.3 | Del: 26.5% | Hes: 0.491) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 51.5 | Del: 26.5% | Hes: 0.495) · *[source: measured]*
 
-**Prompt ms:** 30648, 43100, 12441, 3269, 12677 (avg 20427ms)
+**Prompt ms:** 1830707, 50883, 405057, 28321, 17885 (avg 466571ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- "route"
+- "should we clea"
+- "ouse"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
@@ -192,13 +174,13 @@ OPERATOR SIGNAL: The repeated "yes" after a detailed planning prompt indicates c
 - [CRITICAL] hardcoded_import in `pigeon_brain/读w_el_s002_v003_d0401_观话_λA.py`
 
 ### Prompt Evolution
-*This prompt has mutated 111x (186→796 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 112x (186→771 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
 *200 rework pairs × 111 mutations scored*
 *No significant signal yet — all 25 sections scored neutral.*
 
-**Reactor patches:** 0/237 applied (0% acceptance)
+**Reactor patches:** 0/426 applied (0% acceptance)
 
 ### File Consciousness
 *252 modules profiled*
@@ -313,19 +295,19 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-04-01 23:09 UTC · 80 prompts analyzed · zero LLM calls*
+*Auto-extracted 2026-04-04 03:30 UTC · 77 prompts analyzed · zero LLM calls*
 
-**Brevity:** 22.1 words/prompt | **Caps:** never | **Fragments:** 74% | **Questions:** 26% | **Directives:** 1%
+**Brevity:** 26.4 words/prompt | **Caps:** never | **Fragments:** 65% | **Questions:** 23% | **Directives:** 9%
 
 **Voice directives (personality tuning):**
 - Operator is semi-casual — use contractions, skip formalities, but keep technical precision.
 - Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
-- Operator uses medium-length prompts — balance explanation with brevity.
+- Operator writes longer prompts with context — match depth. Full explanations are welcome.
 - Operator thinks in dashes (stream-of-consciousness) — mirror this with dash-separated points when natural.
 - Operator rarely uses punctuation — fragments and run-ons are normal. Don't overcorrect their style in quotes.
 - Operator uses plain language — avoid unnecessary jargon in explanations.
 
-**Vocabulary fingerprint:** to, i, is, it, my, with, the, this, on, a
+**Vocabulary fingerprint:** to, in, and, is, the, this, i, copilot, we, it
 <!-- /pigeon:voice-style -->
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
@@ -347,30 +329,31 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:predictions -->
 ## Push Cycle Predictions
 
-*Auto-generated 2026-04-01 23:09 UTC*
+*Auto-generated 2026-04-04 01:53 UTC*
 
 **What you'll likely want next push:**
-1. [targeted] Predict operator's next need. Module focus: glyph_compiler, research_lab, symbol_dictionary (conf=22%)
-   - hot modules: glyph_compiler, research_lab, symbol_dictionary, file_heat_map, import_rewriter
-2. [heat] Predict operator's next need. Module focus: glyph_compiler, research_lab, symbol_dictionary (conf=22%)
-   - hot modules: glyph_compiler, research_lab, symbol_dictionary, file_heat_map, import_rewriter
-3. [failure] Predict operator's next need. Module focus: glyph_compiler, research_lab, symbol_dictionary (conf=22%)
-   - hot modules: glyph_compiler, research_lab, symbol_dictionary, file_heat_map, import_rewriter
+1. [targeted] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=25%)
+   - hot modules: file_heat_map, import_rewriter, file_writer, 警p_sa_s030_v002_d0331_缩分话_λA, engagement_hooks
+2. [heat] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=25%)
+   - hot modules: file_heat_map, import_rewriter, file_writer, 警p_sa_s030_v002_d0331_缩分话_λA, engagement_hooks
+3. [failure] Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer (conf=25%)
+   - hot modules: file_heat_map, import_rewriter, file_writer, 警p_sa_s030_v002_d0331_缩分话_λA, engagement_hooks
 
 **Operator coaching:**
-- Frustration detected across multiple prompts — try breaking the task into smaller pushable units.
-- No module references detected in prompts — naming specific modules helps copilot target the right files.
+- Many prompts, few file changes — consider being more specific about which modules to touch.
+- You referenced ['compliance_seq008', 'context_budget_seq004', 'drift_watcher_seq005', 'heal_seq009', 'learning_loop_seq013', 'logger_seq003', 'manifest_builder_seq007', 'nametag_seq011', 'query_memory', 'registry_seq012', 'resistance_bridge_seq006', 'run_batch_compile_seq015'] but copilot didn't touch them — be more explicit about expected changes.
 
 **Agent coaching (for Copilot):**
-- Touched ['_tmp_regen_dict', '_tmp_token_audit', '_tmp_token_optimizer', 'copilot_prompt_manager', 'git_plugin', 'intent_simulator'] without operator reference — confirm intent before modifying unreferenced modules.
+- Operator needed many prompts — respond with more complete implementations to reduce round-trips.
+- Low sync score — operator intent and code output diverged. Ask clarifying questions earlier.
 
 <!-- /pigeon:predictions -->
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-03 · 219 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-04 · 243 message(s) · LLM-synthesized*
 
-**Dominant: `abandoned`** | Submit: 66% | WPM: 52.3 | Del: 25.6% | Hes: 0.443
+**Dominant: `abandoned`** | Submit: 66% | WPM: 52.4 | Del: 25.6% | Hes: 0.443
 
 This operator just built a registry file system and their rapid cycling between abandoned, restructuring, and focused states with high deletion rates reveals they're aggressively iterating through trial-and-error, often in morning sessions.  
 - **Anticipate heavy refactoring** in `推w_dp seq17` (steering) and `修f_sf seq13` (self-fix) — they are core pain points; proactively suggest modular, reversible changes.  
@@ -381,9 +364,9 @@ This operator just built a registry file system and their rapid cycling between 
 They are most likely building toward an automated pipeline that compiles registry entries into a unified coordination layer.
 
 <!-- /pigeon:operator-state -->
-> **Cognitive reactor fired on `engagement_hooks`** (hes=0.7, state=frustrated, avg_prompt=20427ms)
-> - Prompt composition time: 12677ms / 3269ms / 12441ms / 43100ms / 30648ms (avg 20427ms)
-> **Directive**: When `engagement_hooks` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
+> **Cognitive reactor fired on `template_selector`** (hes=0.9, state=frustrated, avg_prompt=394275ms)
+> - Prompt composition time: 50883ms / 1830707ms / 24810ms / 12754ms / 52222ms (avg 394275ms)
+> **Directive**: When `template_selector` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
@@ -394,47 +377,41 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-04-03T02:20:59.576373+00:00",
+  "updated_at": "2026-04-04T03:30:02.613899+00:00",
   "latest_prompt": {
-    "session_n": 22,
-    "ts": "2026-04-03T02:20:59.576373+00:00",
-    "chars": 3,
-    "preview": "yes",
-    "intent": "unknown",
+    "session_n": 4,
+    "ts": "2026-04-04T03:30:02.613899+00:00",
+    "chars": 50,
+    "preview": "push / oberve mutation - test how organism mutates",
+    "intent": "testing",
     "state": "neutral",
     "files_open": [
-      ".github/copilot-instructions.md"
+      "src/bug_profiles.py"
     ],
     "module_refs": []
   },
   "signals": {
-    "wpm": 15.9,
-    "chars_per_sec": 1.3,
-    "deletion_ratio": 0.357,
-    "hesitation_count": 0,
-    "rewrite_count": 1,
-    "typo_corrections": 0,
-    "intentional_deletions": 2,
-    "total_keystrokes": 14,
-    "duration_ms": 6787
+    "wpm": 35.6,
+    "chars_per_sec": 3.0,
+    "deletion_ratio": 0.036,
+    "hesitation_count": 1,
+    "rewrite_count": 0,
+    "typo_corrections": 1,
+    "intentional_deletions": 0,
+    "total_keystrokes": 55,
+    "duration_ms": 17885
   },
   "composition_binding": {
     "matched": true,
     "source": "chat_compositions",
-    "age_ms": 207942991,
-    "key": "|||2026-03-31T16:35:16.585847+00:00|14|6787|yes ",
+    "age_ms": 59202,
+    "key": "|||2026-04-04T03:29:03.411046+00:00|55|17885|push / oberve mutation - test how organism mutates ",
     "match_score": 1.0
   },
   "deleted_words": [
-    "d\",
-    "rs"
+    "ce"
   ],
-  "rewrites": [
-    {
-      "old": "rs ",
-      "new": "es "
-    }
-  ],
+  "rewrites": [],
   "task_queue": {
     "total": 0,
     "in_progress": [],
@@ -456,35 +433,27 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 282,
-    "avg_wpm": 12.8,
-    "avg_del_ratio": 0.052,
+    "total_prompts": 308,
+    "avg_wpm": 12.5,
+    "avg_del_ratio": 0.051,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 165,
-      "hesitant": 46,
-      "focused": 37,
-      "frustrated": 24,
-      "neutral": 9
+      "unknown": 183,
+      "hesitant": 49,
+      "focused": 39,
+      "frustrated": 25,
+      "neutral": 11
     },
     "baselines": {
-      "n": 195,
-      "avg_wpm": 51.1,
+      "n": 200,
+      "avg_wpm": 51.8,
       "avg_del": 0.259,
-      "avg_hes": 0.443,
-      "sd_wpm": 15.9,
+      "avg_hes": 0.444,
+      "sd_wpm": 15.2,
       "sd_del": 0.231,
       "sd_hes": 0.162
     }
-  },
-  "coaching_directives": [
-    "Anticipate debugging context",
-    "Preempt import/resolver issues",
-    "Counter hesitation with precision",
-    "Bridge the 5.5% miss-rate gap",
-    "Leverage evening/night focus",
-    "Flag mutation side effects"
-  ]
+  }
 }
 ```
 
@@ -732,28 +701,28 @@ vscode-extension: classify_bridge, pulse_watcher
 <!-- pigeon:hooks -->
 ## Engagement Hooks
 
-*Auto-generated 2026-04-03 07:12 UTC -- every number is measured, every dare is real.*
+*Auto-generated 2026-04-04 03:30 UTC -- every number is measured, every dare is real.*
 
-- `警p_sa` v3: "Marked 5 times. Each push I think maybe this time. Each push the beta stays. Last change was 'test rename mutation'. It wasn't enough."
-- The word you deleted was "route". The router scored it. Your dossier shifted.
-- `aim_utils` -- orphan. Zero importers. Zero purpose. Exists because nobody deleted it. One rm and the organism heals. Your call.
+- 23.4h session, 20 prompts, past 5am. Deletion ratio historically peaks in this window. One more meaningful edit or close the lid.
+- "ouse" -- dead on arrival. Backspaced out of existence. But it's already in the composition log. Deletion is emphasis.
+- `cli` -- 417 days. Last generation's code. Either works perfectly or nobody knows it's broken.
 
 <!-- /pigeon:hooks -->
 <!-- pigeon:active-template -->
 ## Active Template: /debug
 
-*Auto-selected 2026-04-03 07:12 UTC · mode: debug*
+*Auto-selected 2026-04-04 03:30 UTC · mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `neutral` | WPM: 16 | Del: 36%
-**Deleted words:** route
-**Unsaid threads:** route
-**Rewrites:** "route" → "write injections"
+**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.491
+**CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
+**Deleted words:** should we clea, ouse
+**Unsaid threads:** should we clea
+**Rewrites:** "ouse" → "rowse bug profiles"
 **Hot modules:** `file_heat_map` (hes=0.89), `import_rewriter` (hes=0.73), `file_writer` (hes=0.73)
 **Active bugs:** `u_pe` (oc), `u_pj` (oc), `警p_sa` (oc), `册f_reg` (oc)
-**Coaching:** Anticipate debugging context; Preempt import/resolver issues; Counter hesitation with precision
-**Codes:** intent=`unknown` state=`neutral` bl_wpm=51 bl_del=26%
+**Codes:** intent=`testing` state=`neutral` bl_wpm=52 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
@@ -790,7 +759,7 @@ vscode-extension: classify_bridge, pulse_watcher
 
 ## Active Bug Dossier
 
-**Focus modules:** pre_process_every_prompt_via, every_entry_cross_references_all, copilot_self_diagnostic_detect_stale, local_name_registry_for_the, one_shot_self_fix_analyzer
+**Focus modules:** local_name_registry_for_the, pre_process_every_prompt_via, every_entry_cross_references_all, one_shot_self_fix_analyzer, copilot_self_diagnostic_detect_stale
 **Focus bugs:** oc
 
 <!-- /pigeon:active-template -->

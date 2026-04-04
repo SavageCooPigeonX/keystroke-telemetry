@@ -4,18 +4,18 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 # /debug (RECOMMENDED)
 
-*Hydrated 2026-04-03 07:12 UTC · detected mode: debug*
+*Hydrated 2026-04-04 03:30 UTC · detected mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `neutral` | WPM: 16 | Del: 36%
-**Deleted words:** route
-**Unsaid threads:** route
-**Rewrites:** "route" → "write injections"
+**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.491
+**CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
+**Deleted words:** should we clea, ouse
+**Unsaid threads:** should we clea
+**Rewrites:** "ouse" → "rowse bug profiles"
 **Hot modules:** `file_heat_map` (hes=0.89), `import_rewriter` (hes=0.73), `file_writer` (hes=0.73)
 **Active bugs:** `u_pe` (oc), `u_pj` (oc), `警p_sa` (oc), `册f_reg` (oc)
-**Coaching:** Anticipate debugging context; Preempt import/resolver issues; Counter hesitation with precision
-**Codes:** intent=`unknown` state=`neutral` bl_wpm=51 bl_del=26%
+**Codes:** intent=`testing` state=`neutral` bl_wpm=52 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
@@ -52,5 +52,5 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 ## Active Bug Dossier
 
-**Focus modules:** pre_process_every_prompt_via, every_entry_cross_references_all, copilot_self_diagnostic_detect_stale, local_name_registry_for_the, one_shot_self_fix_analyzer
+**Focus modules:** local_name_registry_for_the, pre_process_every_prompt_via, every_entry_cross_references_all, one_shot_self_fix_analyzer, copilot_self_diagnostic_detect_stale
 **Focus bugs:** oc

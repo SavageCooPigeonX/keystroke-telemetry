@@ -559,7 +559,7 @@ def _refresh_copilot_instructions(root: Path, snapshot: dict) -> None:
                 spec.loader.exec_module(mod)
                 refresh = getattr(mod, 'refresh_managed_prompt', None)
                 if callable(refresh):
-                    refresh(root, snapshot=snapshot)
+                    refresh(root, snapshot=snapshot, track_mutations=False)
                     return
     except Exception:
         pass
@@ -673,7 +673,7 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
     # ── STEP 1: Write raw signal (measured truth only) ──
     try:
         import importlib.util
-        _sig_matches = sorted(root.glob('src/片w_sm_s026*.py'))
+        _sig_matches = sorted(root.glob('src/u_psg_s026*.py'))
         if _sig_matches:
             _sig_spec = importlib.util.spec_from_file_location('_prompt_signal', _sig_matches[-1])
             if _sig_spec and _sig_spec.loader:
@@ -734,24 +734,31 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
     # ── Gemini prompt enrichment — inject what operator actually means ──
     # NOTE: classify_bridge also fires this on every submit (primary path).
     # This is the fallback path — fires from the journal command.
+    # Wrapped in subprocess with timeout so it can't stall the journal.
     try:
-        import importlib.util as _ilu, glob as _g
+        import subprocess as _sp
         _matches = sorted(root.glob('src/u_pe_s024*.py'))
         if _matches:
-            _spec = _ilu.spec_from_file_location('_enricher', _matches[-1])
-            if _spec is not None and _spec.loader is not None:
-                _mod = _ilu.module_from_spec(_spec)
-                _spec.loader.exec_module(_mod)
-                _mod.inject_query_block(
-                    root, msg,
-                    deleted_words=deleted_words,
-                    cognitive_state={
-                        'state': cog_state,
-                        'wpm': signals.get('wpm', 0),
-                        'del_ratio': signals.get('deletion_ratio', 0),
-                        'hes': signals.get('hesitation_count', 0),
-                    },
-                )
+            _enricher_path = str(_matches[-1])
+            _cog_json = json.dumps({
+                'state': cog_state,
+                'wpm': signals.get('wpm', 0),
+                'del_ratio': signals.get('deletion_ratio', 0),
+                'hes': signals.get('hesitation_count', 0),
+            })
+            _del_json = json.dumps(deleted_words)
+            _script = (
+                f'import importlib.util, json, sys; '
+                f'spec = importlib.util.spec_from_file_location("_e", r"{_enricher_path}"); '
+                f'mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod); '
+                f'mod.inject_query_block(sys.argv[1], sys.argv[2], '
+                f'deleted_words=json.loads(sys.argv[3]), '
+                f'cognitive_state=json.loads(sys.argv[4]))'
+            )
+            _sp.Popen(
+                ['py', '-c', _script, str(root), msg, _del_json, _cog_json],
+                stdout=_sp.DEVNULL, stderr=_sp.DEVNULL,
+            )
     except Exception as _enrich_err:
         # Log enricher failures so they're not invisible
         try:

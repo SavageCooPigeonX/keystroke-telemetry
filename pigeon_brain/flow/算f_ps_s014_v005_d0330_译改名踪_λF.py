@@ -403,9 +403,7 @@ def _update_calibration(root: Path, scored: list[dict[str, Any]]) -> dict[str, A
 
 def backfill_prediction_scores(root: Path, scored: list[dict[str, Any]]) -> int:
     """Feed prediction accuracy into node_memory with calibration-weighted penalties."""
-    from .node_memory_seq008_v003_d0328__存学预_the_experience_vault_stores_raw_lc_dynamic_import_resolvers import (
-        append_learning,
-    )
+    from .node_memory_seq008 import append_learning  # pigeon package re-export
 
     updated = 0
     for s in scored:

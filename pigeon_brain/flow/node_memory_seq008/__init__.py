@@ -1,5 +1,5 @@
 """node_memory_seq008/ — Pigeon-compliant module."""
-from .node_memory_seq008_constants_seq001_v001__存学预 import DECAY_ALPHA, MAX_RAW_ENTRIES, MEMORY_FILE, MIN_CONFIDENCE_SAMPLES
-from .node_memory_seq008_learning_append_seq008_v001__存学预 import append_learning
-from .node_memory_seq008_policy_getters_seq009_v001__存学预 import get_all_policies, get_policy
-from .node_memory_seq008_storage_seq003_v001__存学预 import load_memory, save_memory
+from .存p_nm_co_s001_v001 import DECAY_ALPHA, MAX_RAW_ENTRIES, MEMORY_FILE, MIN_CONFIDENCE_SAMPLES
+from .存p_nm_la_s008_v001 import append_learning
+from .存p_nm_pg_s009_v001 import get_all_policies, get_policy
+from .存p_nm_st_s003_v001 import load_memory, save_memory

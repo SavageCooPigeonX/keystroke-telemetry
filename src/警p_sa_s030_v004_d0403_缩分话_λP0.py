@@ -192,7 +192,7 @@ if __name__ == '__main__':
     import sys
     root = Path(sys.argv[1]) if len(sys.argv) > 1 else Path('.')
     stale = check_staleness(root)
-inject_staleness_alert(root)
+    inject_staleness_alert(root)
     if stale:
         print(f'STALE ({len(stale)}): ' + ', '.join(s['block'] for s in stale))
     else:
