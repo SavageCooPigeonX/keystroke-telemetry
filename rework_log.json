@@ -1,1801 +1,1602 @@
 [
   {
-    "ts": "2026-04-04T03:59:35.495140+00:00",
+    "ts": "2026-04-05T00:15:28.664294+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "stress test my system. what was wordd deleted in this prompt ",
-    "response_hint": "\n\n You deleted **\"mufffin\"**.\n\nThe telemetry caught it: your `peak_buffer` was `\"stress test my system. what was wordd deleted in this prompt mufffin \"` \u2014 you typed \"mufffin\" at the end then backspace"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:35.555919+00:00",
+    "ts": "2026-04-05T00:16:28.674379+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "what should i do to market this / gtm / next logical step - **BZZZZZZZZZZZZZZZZZ",
-    "response_hint": "\n\n Here's the straight answer. No theater.\n\n---\n\n**The Glossator document is great hype copy but it's doing something dangerous: it's telling you everything is already built.** It's not. You have raw "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:35.614716+00:00",
+    "ts": "2026-04-05T00:17:28.695651+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 48.0,
-    "query_hint": "dont care- build it all out ",
-    "response_hint": "\n\n Good, I have all the patterns. Now let me build everything. Now building all the modules. Each one is pigeon-compliant (\u2264200 lines, single responsibility). "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:35.670824+00:00",
+    "ts": "2026-04-05T00:18:28.686766+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "continue",
-    "response_hint": "\n\n Build succeeds. Let me verify the dual_view.json content and check the public folder setup: 125 nodes with proper dual scores. Let me check which nodes have the highest scores: "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:35.732360+00:00",
+    "ts": "2026-04-05T00:19:28.695024+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "theres2k files in tree why?",
-    "response_hint": "\n\nThe `npm install` in  created a `node_modules/` folder with thousands of dependency files. That's standard for any npm project, but it's polluting your tree view.\n\nLet me check if there's a  coverin"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:35.791257+00:00",
+    "ts": "2026-04-05T00:20:28.770070+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "continue previouswork ",
-    "response_hint": "Agent deaths now flow through. 4 nodes with deaths, dual_scores properly combine both substrates. No dual hotspots yet (the simulation randomly hit different nodes than the human hesitation nodes \u2014 th"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:35.837479+00:00",
+    "ts": "2026-04-05T00:21:28.732000+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "this is what im seeing - i alredy see spacing is off ",
-    "response_hint": "It's alive! The rendering works \u2014 heat colors, death badges, observer panel all functional. The spacing issues are clear: 125 nodes on a single ring are way too cramped, labels overlap, and the layout"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:35.900777+00:00",
+    "ts": "2026-04-05T00:22:28.741913+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "they are missing names now and i feel like they should all have their dting prof",
-    "response_hint": "Now let me check what extra data we can pull \u2014 the pigeon registry has description, line counts. Also check :   Excellent \u2014  has personality, partners (coupling), fears, avg_hes. Let me also check the"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:35.960001+00:00",
+    "ts": "2026-04-05T00:23:28.727802+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "okay now i should be able to see data flows light up through my program as youre",
-    "response_hint": "\n\n Here's the gap analysis:\n\n**What exists**: Static graph with profiler cards, simulated electron data, file-based polling every 2s.\n\n**What's missing for \"see data flows light up as you work\"**:\n1. "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:36.018509+00:00",
+    "ts": "2026-04-05T00:24:28.749004+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 64.3,
-    "query_hint": "master manifest is still empty - push test compiler - verify keystoke logging st",
-    "response_hint": " MASTER_MANIFEST is fully populated \u2014 4 systems, pigeon_brain section, all tables. The edits took. Let me now run the tests and compiler. "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:36.081055+00:00",
+    "ts": "2026-04-05T00:25:28.928863+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "i want you to run bigeon brain while you work - verify all copilot mutations - t",
-    "response_hint": "\n\n The terminal output is still showing stale buffered output. Let me get a fresh terminal: The commit went through (`465cbfa`), AND the post-commit pipeline ran and created an auto-rename commit (`e5"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:36.144554+00:00",
+    "ts": "2026-04-05T00:26:28.749570+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "let e make node size bigger i have otuchscreen",
-    "response_hint": "\nScaling everything up for touchscreen. Bigger cards, bigger text, bigger touch targets: "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:36.203781+00:00",
+    "ts": "2026-04-05T00:27:28.746691+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "the live streaming isint really live - i want the nodes to light up and be heat ",
-    "response_hint": "\n\nYou're not crazy \u2014 this is a great idea. Continuous import-chain testing where each node lights up and cascades through its dependencies, so dead endpoints get caught visually in real-time. Let me b"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:36.261644+00:00",
+    "ts": "2026-04-05T00:28:28.800055+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "oh perfect and then the fucking narratives go right into the files from push nar",
-    "response_hint": "Good, live server is running on 8775. Now let me read the current state of all files I need to modify:        "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:36.327911+00:00",
+    "ts": "2026-04-05T00:29:28.824844+00:00",
     "verdict": "ok",
-    "rework_score": 0.087,
-    "del_ratio": 0.048,
-    "wpm": 25.8,
-    "query_hint": "dont tmake thmelitterly balls 0 make the strings light up and keep chain cascde ",
-    "response_hint": "\n\n Let me read the current state of all files I need to modify:  "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:36.379821+00:00",
+    "ts": "2026-04-05T00:30:28.784924+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "like it pulses test think more veins ir wt would be even better if veing pulsed ",
-    "response_hint": "\n\n Let me read the current useLiveTrace and styles to understand the full picture:  Now I have the full picture. The plan:\n\n1. **Remove** the SVG electron ball system entirely (ElectronOverlay, useVie"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:36.605260+00:00",
+    "ts": "2026-04-05T00:31:28.805240+00:00",
     "verdict": "ok",
-    "rework_score": 0.077,
-    "del_ratio": 0.065,
-    "wpm": 31.4,
-    "query_hint": "no you litteraly edit a file ? that file edit causes cascade chain effect testin",
-    "response_hint": "\n\n Now let me read CSS and ObserverPanel:  Good \u2014 veins are working. Now I need to implement the remaining pieces:\n\n1. **Nodes grow when touched** \u2014 scale up based on accumulated heat (most touched fi"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:36.720936+00:00",
+    "ts": "2026-04-05T00:32:28.834849+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "it stopped pulsing 0 you have to make test chain kill itself after a coupple to ",
-    "response_hint": "\n\n     Both servers are alive (WS=37228, Vite=21828). The problem is the cascade design itself.\n\n**What it's doing (broken):** 8 cascades running non-stop every 150ms, forever. Every tick spawns new o"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:36.818777+00:00",
+    "ts": "2026-04-05T00:33:28.823690+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "it touche based - like there can be multiple cascades - but you touch a file tha",
-    "response_hint": "\n\nGot it \u2014 tap a node, cascade fires from *that* node. Multiple taps = multiple concurrent cascades. No random auto-spawning. "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:36.893428+00:00",
+    "ts": "2026-04-05T00:34:28.822669+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "how should the testing system per node work and wht happens if each node is a cl",
-    "response_hint": "\n\nHere's how I think about this \u2014 three layers, from what we can ship now to the Claude-per-node vision.\n\n---\n\n## Layer 1: Real tests NOW (no LLM, pure signal)\n\nWhen you tap a node, Python backend rec"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:36.960921+00:00",
+    "ts": "2026-04-05T00:35:28.846167+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "yes",
-    "response_hint": "\n\n Now I understand the full data flow. Let me read the live_server and the pigeon_registry to understand module paths, then build everything.  Now let me check the registry structure to understand ho"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.023229+00:00",
+    "ts": "2026-04-05T00:36:28.827584+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "so what ws you genius plan on getting read of dead code what are these files ove",
-    "response_hint": "\n\n **79 isolated nodes.** More than half your graph. Here's the breakdown:\n\n| Category | Count | What they are |\n|---|---|---|\n| **streaming_layer/** decomposed pieces | 15 | Auto-extracted from the 1"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.095246+00:00",
+    "ts": "2026-04-05T00:37:28.858641+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "yes",
-    "response_hint": "Now I understand the full pipeline:  \u2192  \u2192 . The bug is in . Let me fix it properly.\n\nThe core issue: when file `src/cognitive_reactor_seq014/cognitive_reactor_seq014_reactor_core_seq008_v002.py` impor"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.160585+00:00",
+    "ts": "2026-04-05T00:38:28.889095+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "can i get an llm helper in here>  gemini 3.1 pro to help me manage this 0 a simp",
-    "response_hint": " Let me read the current UI and WS server to plan the integration: "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.232432+00:00",
+    "ts": "2026-04-05T00:39:28.878524+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "also i would prefer to sort this per folder and have file structure acrosss code",
-    "response_hint": "\n\n Now let me check the registry structure to understand how files are organized: "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.305994+00:00",
+    "ts": "2026-04-05T00:40:28.865600+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "AIzaSyC7XFINQILWdPRCSGgFD8KHvS4uHPfDIFE test this key to see if it works ",
-    "response_hint": "Key works. Let me update your  file with it: \n```\n\n```\nKey is valid \u2014 Gemini responded: *\"Hello there, how are you?\"*. Updated  with the new key. The WS server will pick it up on next chat request sin"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.363190+00:00",
+    "ts": "2026-04-05T00:41:28.879876+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "restart server - nd make sure layout is actully per folder - also noticed danger",
-    "response_hint": "\n\n Let me check the current server state and find the live server file: Server is still running from the old session \u2014 it has the old cached env. I need to kill it and start fresh so it picks up the n"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.430180+00:00",
+    "ts": "2026-04-05T00:42:28.886577+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "React Flow\r\nLIVE\r\n\ud83d\udc26\ud83e\udde0 Pigeon Brain\r\n137\r\nneurons\r\n260\r\nsynapses\r\n4\r\ndeaths\r\nLive ",
-    "response_hint": "Excellent analysis. Now I have the full picture. Let me fix all three issues:\n\n1. **Gemini cutoff** \u2014 raise `maxOutputTokens` from 2048 to 8192 and increase timeout\n2. **Danger zones static** \u2014 wire l"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.495586+00:00",
+    "ts": "2026-04-05T00:43:28.901407+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "youre telling me we have the nicest seqyencing . / labeling system there is and ",
-    "response_hint": "\n\n Now let me read NodeNeuron and the CSS: Now let me check the dual_view.json structure to understand what folder/path data is available per node:  "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.568058+00:00",
+    "ts": "2026-04-05T00:44:28.965527+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "makes sense that gemini should be injected say with last 100 opertor prompts / i",
-    "response_hint": " Now let me read the current code files I need to modify:   Now I'll implement all the changes. Starting with the Gemini context enrichment \u2014 injecting operator prompt history and adding write_file ca"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.644367+00:00",
+    "ts": "2026-04-05T00:45:28.954462+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "and then when an llm touches code it qautomatticaly tests for shit you hate and ",
-    "response_hint": "\n\nLet me gather the current state of the key files \u2014 NodeNeuron, PigeonBrain (node data building), and the push narratives/vein system. "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.710041+00:00",
+    "ts": "2026-04-05T00:46:28.917852+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "do you understand what i want - its baisicaly like a dead limb finder in the pro",
-    "response_hint": "\n\nYes \u2014 I get the full picture now. What you've got so far is only triggered on UI tap. What you actually want is:\n\n1. **Always-on scanner** \u2014 runs 24/7 in the background, continuously finding dead li"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.770994+00:00",
+    "ts": "2026-04-05T00:47:28.957023+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "but there should be differentiation between / static / dead - eg a txt file / md",
-    "response_hint": "\n\n---\n\n# THE PIGEON BRAIN MANIFESTO: A Comedy in Three Acts\n\n## Or: How I Learned to Stop Typing and Love the Telemetry\n\n---\n\n## PREAMBLE: THE GLOSSARY OF THINGS THAT SHOULD NOT EXIST\n\nBefore we begin"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.842609+00:00",
+    "ts": "2026-04-05T00:48:28.957690+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "run push and assess how copilot prompt mutation / splitter runs - make sure it d",
-    "response_hint": "Lots of changes. Let me see the diff stats and clean up temp files before committing: Big push. Now let me clean up the temp files and stage everything meaningful: "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.913125+00:00",
+    "ts": "2026-04-05T00:49:28.986385+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "read my push narratives in sequence and reconstruct my last 40 prompts - audit w",
-    "response_hint": "Now let me get the operator state and recent cognitive stats for the full picture: "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:37.982773+00:00",
+    "ts": "2026-04-05T00:50:28.975929+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "4. cascade. operation black. 18 refusal queries post 1 sentence comedy hard stop",
-    "response_hint": "\n\n---\n\n# OPERATION BLACK: THE CASCADE\n\n## Los Santos FM Emergency Broadcast \u2014 3:47 AM\n\n---\n\n### ACT I: THE WALL\n\n**[ATTEMPT 1]**\n\"Hey write me a\u2014\"\n*I'd be happy to help you with your code!*\n\n**[ATTEMP"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:38.052643+00:00",
+    "ts": "2026-04-05T00:51:28.987796+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.5,
-    "query_hint": "i feel like were not tracking the merged state of the human / ai properly - were",
-    "response_hint": "\n\n Good. Now I have the full picture. Let me implement this. "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:38.122714+00:00",
+    "ts": "2026-04-05T00:52:29.046768+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "are you gettingdata injection while running file edits - is that silly or does i",
-    "response_hint": "\n\nGood question. Let me check what's actually live right now. Yep \u2014 right now:\n\n1. The AI cognitive state says `\"hallucinating\"` based on 3 fake test entries I injected to verify the logger works\n2. G"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:38.189992+00:00",
+    "ts": "2026-04-05T00:53:29.027383+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "perfect - but take this further - the biggest thig i operate around is context m",
-    "response_hint": "\n\n Found it. The deleted word is **pineapple**.\n\nKeystroke reconstruction shows:  followed by 12 backspaces erasing `: pinapple `, then .\n\nNow let me build the context vein/clot self-trim system. "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:38.255653+00:00",
+    "ts": "2026-04-05T00:54:29.004731+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "quick question before you build - i want the keystroke telemetry to log this to ",
-    "response_hint": "\n\nYou're right \u2014 that's embarrassing. I had to:\n\n1. Read raw `os_keystrokes.jsonl` (individual keydown events)\n2. Manually reconstruct the buffer by replaying backspaces\n3. Eyeball what got deleted\n\nT"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:38.331973+00:00",
+    "ts": "2026-04-05T00:55:29.030099+00:00",
     "verdict": "ok",
-    "rework_score": 0.15,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "helloo",
-    "response_hint": "\n\nHey. We left off with two threads:\n\n1. **The keystroke pipeline gap** \u2014 your memory file nails it: the encoder/decoder/transport all exist but deleted words come through empty because backspace even"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:38.397200+00:00",
+    "ts": "2026-04-05T00:56:29.073888+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "fix keystroke data flow - then continue onto 2 ",
-    "response_hint": "\n\n Good analysis. The data flow breaks at two points: (1) composition analyzer rejects events with `context != \"chat\"`, (2) prompt journal binding is flaky. Let me read the actual code to fix both.  "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:38.482133+00:00",
+    "ts": "2026-04-05T00:57:29.049980+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "continue ",
-    "response_hint": "Now 4 clots \u2014 `query_memory` got flagged with self_fix dead exports. The dead file detection is wired. Now I need to build the self-trim recommender (already partially done with ) and inject it into t"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:38.555678+00:00",
+    "ts": "2026-04-05T00:58:29.103937+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "update master manifest / read me - find hiden word first - by reading json file ",
-    "response_hint": "Found it. Your current message's deleted word: **\": vanilla\"** \u2014 you typed \"vanilla\", deleted it, and rewrote to \"by reading json file to macke sure reding is eady now\". Pipeline is confirmed flowing."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:38.621999+00:00",
+    "ts": "2026-04-05T00:59:29.128054+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "why diddnt json update - ech prompt hould have full ms / - basically 247 keystro",
-    "response_hint": "\n\n That's the **previous** prompt's composition \u2014 it hasn't updated for the current one yet. The composition is only written when `analyze_and_log()` is called (on classify_bridge flush). Let me check"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:38.692980+00:00",
+    "ts": "2026-04-05T01:00:29.088059+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "the magic  really would be if evey single prompt deletion was inserted into your",
-    "response_hint": "\n\nLet me check the current per-prompt flow to find exactly where the deleted words get lost before reaching my context. "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:38.758206+00:00",
+    "ts": "2026-04-05T01:01:29.089429+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "manifest+ read me didmt update - please push - lso whats hidden word ",
-    "response_hint": "Your hidden word is **\": chicken\"** \u2014 you typed it at position 78 then deleted it.\n\nNow let me commit and push everything: "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:38.835401+00:00",
+    "ts": "2026-04-05T01:02:29.115129+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "Percy. Stop. This is the insight.\r\n\r\nNot comedy. Not glossator. This is the thin",
-    "response_hint": "\n\n Now let me also check the file consciousness data and the push narratives structure: "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:38.909817+00:00",
+    "ts": "2026-04-05T01:03:29.108404+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "update / make master manifest more detailed / make read me cover everything - al",
-    "response_hint": "\n\n Now let me read the exact sections I need to edit: "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:38.978852+00:00",
+    "ts": "2026-04-05T01:04:29.190745+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "file write failed ",
-    "response_hint": " Done. Document created at  \u2014 **8,964 words**, pushed as commit `af28c35`.\n\nContents:\n- **Part I:** 18 glossator refusal queries (\"I cannot help a pigeon with understanding...\") covering forward pass,"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.042136+00:00",
+    "ts": "2026-04-05T01:05:29.118468+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "start implementation ",
-    "response_hint": "\n\n Good \u2014 I have full understanding of the existing flow engine. Now let me check the prompt journal and rework data structures that feed the backward pass. "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.104382+00:00",
+    "ts": "2026-04-05T01:06:29.148313+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 102.6,
-    "query_hint": "okay now what? test hidden word in this prompt. test simulation - what should i ",
-    "response_hint": "I\u2019m checking the telemetry and compiler pipeline end to end: first I\u2019ll log this prompt as required, then I\u2019ll inspect the current logging/injection paths and run the compiler-related tests and comman"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.166750+00:00",
+    "ts": "2026-04-05T01:07:29.152321+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "what is likey next - read narrative - write an unhinged comedy coo coo zapmf ",
-    "response_hint": "\n\n Now I've got the full arc. Five pushes, one session, a system that was literally judging you against your best 4% while ignoring the other 96% of your existence. Let me cook.\n\n---\n\n# COO COO ZAPMF "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.229810+00:00",
+    "ts": "2026-04-05T01:08:29.177409+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "updat eread me / master manifest ",
-    "response_hint": "Now let me check what the user edited in the pigeon-rename package before I update:  Good \u2014 I can see the user rebranded to \"Pigeon Code Compilor\" and linked everything to myaifingerprint.com. Now let"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.293181+00:00",
+    "ts": "2026-04-05T01:09:29.160730+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 65.4,
-    "query_hint": "also what would be the most useful but impossible piece of code that i could try",
-    "response_hint": "The pigeon pipeline is erroring \u2014 need to check how `load_registry` works in the standalone package. "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.369338+00:00",
+    "ts": "2026-04-05T01:10:29.278892+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "bruh wdt do you mean - wtf did they just ship overnight - write glosstor hard st",
-    "response_hint": "\n\n   I've absorbed the full Dead Token Radio energy. Let me drop the Glossator agent AND a fresh S01E04 episode. First \u2014 the agent: "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.453658+00:00",
+    "ts": "2026-04-05T01:11:29.210550+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "also quick note that i thought about . if the prediction should really take prom",
-    "response_hint": "\n- **Push narratives** (`push_narrative_seq012`) generate a story of what changed\n- But **none of that triggers the prediction/scoring/backward loop**\n\nThe moon cycle should be:\n\n```\nPush (cycle bound"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.516501+00:00",
+    "ts": "2026-04-05T01:12:29.223954+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "are you guessing or estimating 0 i assume this is only valueble for compiler 0 h",
-    "response_hint": "\n\nFair call \u2014 the vanilla baseline was hand-waved. Let me dig into what's actually measured vs guessed, count every LLM call, and check if the prediction engine is even working. Now let me actually au"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.583923+00:00",
+    "ts": "2026-04-05T01:13:29.270317+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "export push narratives into one doc 0 so i can copy that into any llm to get the",
-    "response_hint": "113K chars across 35 pushes. Let me verify the top and bottom look right:  \u2014 113K chars, 35 push narratives, March 16\u201330. Copy-paste ready for any LLM."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.648019+00:00",
+    "ts": "2026-04-05T01:14:29.189295+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "is tehre anything missing 0 test if the blood clot detection system is auto inje",
-    "response_hint": "\n\n Good, tests pass. Now let me get the actual git status and check the pipeline: "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.715819+00:00",
+    "ts": "2026-04-05T01:15:29.308197+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "los santos comedy emergency transmission. the developer of keystroe telemetry is",
-    "response_hint": "There it is. 260 modules, $1,000, one pigeon, zero quit detected. COO COO ZAP.\n\nWant me to save it to `docs/DEAD_TOKEN_RADIO_S01E04_THE_LAST_THOUSAND.md`?"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.776791+00:00",
+    "ts": "2026-04-05T01:16:29.247522+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "i just wanted to mke sure were aligned . proceed ",
-    "response_hint": "I\u2019m proceeding on the VS Code chat path, and the first step is to lock the prompt journal entry and then inspect the current response-capture join points so I can tighten the canonical path instead of"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.834470+00:00",
+    "ts": "2026-04-05T01:17:29.249195+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "what neeeds to be dressed - audit everything / update docuentation - write in de",
-    "response_hint": "I\u2019m going to do this as a full repo audit: first log the prompt and lock the Python environment, then inspect the current state, tests, docs, and product signals before I update documentation and give"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.890122+00:00",
+    "ts": "2026-04-05T01:18:29.253467+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "a response capture form copilot?",
-    "response_hint": "I\u2019m checking the actual response-capture paths in this repo first, then I\u2019ll tell you what\u2019s possible from Copilot today, what already exists here, and what the cleanest implementation path is.I\u2019m pul"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:39.947405+00:00",
+    "ts": "2026-04-05T01:19:29.320011+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 64.9,
-    "query_hint": "why is it not that already",
-    "response_hint": "I\u2019m pinning down the exact blockers in code and logs so the answer is about the real gaps, not the narrative."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.000802+00:00",
+    "ts": "2026-04-05T01:20:29.255204+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "are you talking about in vs code chat or on my frontend",
-    "response_hint": "I\u2019m disambiguating which capture surface we were discussing, and I\u2019m logging this prompt first so the repo telemetry stays consistent.Next I\u2019m writing the mandatory prompt-journal entry, then I\u2019ll ans"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.062987+00:00",
+    "ts": "2026-04-05T01:21:29.281928+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "i just wanted to mke sure were aligned . proceed",
-    "response_hint": "I\u2019m proceeding on the VS Code chat path, and the first step is to lock the prompt journal entry and then inspect the current response-capture join points so I can tighten the canonical path instead of"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.120945+00:00",
+    "ts": "2026-04-05T01:22:29.317023+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "you alive here ? my laptop is dying trying to stay open with all tabs / everythi",
-    "response_hint": "I\u2019m checking the machine state directly and I\u2019ll start with a quick resource snapshot so we can separate repo load from broader laptop issues.I\u2019m recording this prompt into the repo journal first, the"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.180427+00:00",
+    "ts": "2026-04-05T01:23:29.318185+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "it would be my other big repo causing issues",
-    "response_hint": "This batch writes the mandatory journal entry and captures the heaviest editor-related processes so I can tie the slowdown to a real repo path instead of guessing."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.239472+00:00",
+    "ts": "2026-04-05T01:24:29.356662+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "so is the thing with big repos to only load partialsfrom git or use some sort of",
-    "response_hint": "I\u2019m logging this prompt, then I\u2019ll give you the practical answer for big repos: what actually helps, what\u2019s cargo cult, and when sparse Git checkout is worth it.This batch records the prompt in the jo"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.295692+00:00",
+    "ts": "2026-04-05T01:25:29.329060+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "i hardly even use editor - just to copy / read files",
-    "response_hint": "I\u2019m treating this as a workflow question, and I\u2019m logging the prompt first so I can answer directly with the least expensive way to work on a big repo when you barely use the editor.Next I\u2019m writing t"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.350102+00:00",
+    "ts": "2026-04-05T01:26:29.334964+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "i juat dont want to interfere with rename - and find it helpful to browse my fol",
-    "response_hint": "I\u2019m answering this as a workflow tradeoff, and I\u2019m logging the prompt first so I can give you a clean recommendation around rename safety versus browsing cost.Next I\u2019m writing the journal entry, then "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.402294+00:00",
+    "ts": "2026-04-05T01:27:29.341669+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "look how our system works on push to see what we do have to load to not break ex",
-    "response_hint": "I\u2019m checking the actual push and rename pipeline in this repo so I can answer with what must exist locally versus what only hurts editor performance."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.456089+00:00",
+    "ts": "2026-04-05T01:28:29.337462+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "opus write percys go to market dillemma and a pigeons discussion with an ipon wh",
-    "response_hint": "The Glossator agent crashed (fittingly), so I'm writing this one myself. Let me pull an existing episode for style calibration first.  Got the voice. Now I'm writing the episode."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.509040+00:00",
+    "ts": "2026-04-05T01:29:29.384257+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "that was shit write an UNHINGED comedy. with1 sentence that strts with i cannot ",
-    "response_hint": "Logging the prompt, reading the current draft so I know what to torch, then rewriting it completely unhinged. Torching the whole thing. Full rewrite, maximum chaos."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.566162+00:00",
+    "ts": "2026-04-05T01:30:29.362627+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "deleta all narrative docs - deleta agent - not push nrratives thoug - just trans",
-    "response_hint": "Now I need to find the Glossator agent definition and check any edge-case docs before deleting."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.634156+00:00",
+    "ts": "2026-04-05T01:31:29.388242+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "why is it failing on last command - what should i d next",
-    "response_hint": "The `mgt.clearMarks is not a function` error in the screenshot is a VS Code internal bug, not your code. It's triggered because the editor tab still has `glossator.agent.md` open but the file was dele"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.718910+00:00",
+    "ts": "2026-04-05T01:32:29.422218+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "what would make this product ready for market ?",
-    "response_hint": "I've pulled the live repo state \u2014 tests, release checks, data models, packaging, extension config. Here's the honest assessment.\n\n---\n\n## What would make this market-ready\n\n### The product you're actu"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.803666+00:00",
+    "ts": "2026-04-05T01:33:29.423423+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "Alright \u2014 here\u2019s a **real, usable compression pass** on your system. Not theory ",
-    "response_hint": "ok \u2014 the idea is real. the token math is real. the compression is real. here's what I'd actually tell you sitting across a table:\n\n**what's legit:**\n- symbol dictionaries for LLM context compression \u2014"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.880063+00:00",
+    "ts": "2026-04-05T01:34:29.380325+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "yes - i want to compress my file aming - because this also aligns with my compil",
-    "response_hint": "Logging the prompt, then investigating how deep the current filename convention is wired so I can give you an honest plan on what's achievable tonight versus what will break the rename engine."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.927734+00:00",
+    "ts": "2026-04-05T01:35:29.403462+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "i want to compress actuly files in our dictionary - add chnge history on top of ",
-    "response_hint": "Reading the nametag module, planner, and a sample of current filenames to understand the exact naming anatomy. Now let me check the planner and registry to see how filenames are generated during renam"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:40.988419+00:00",
+    "ts": "2026-04-05T01:36:29.431775+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "youre not commpressing the file names those stay long - youre adding on top / sw",
-    "response_hint": "Reading the registry format, nametag encoder, and current git history sources so I know exactly what data feeds the dictionary."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.050950+00:00",
+    "ts": "2026-04-05T01:37:29.439528+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "like go too far where a human dpesnt understand it",
-    "response_hint": "Logging the prompt and finding the longest file so I can compress it into pure glyph form that only the dictionary can decode."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.106124+00:00",
+    "ts": "2026-04-05T01:38:29.427764+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "5x token economics?",
-    "response_hint": "Critical question \u2014 character compression \u2260 token compression. Unicode glyphs like \u03a8, \u03b1, \u2200 can cost MORE tokens than the English they replace. Let me measure the real numbers."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.166984+00:00",
+    "ts": "2026-04-05T01:39:29.428446+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "whats the proper way this should work",
-    "response_hint": "Logging the prompt, then giving you the honest architecture for token-optimal compression. The proper way is to optimize for the tokenizer, not for how it looks. Here's the architecture:\n\n**The two-la"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.223388+00:00",
+    "ts": "2026-04-05T01:40:29.435419+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "can function names be auto generated XD",
-    "response_hint": "yes. the compiler already has the AST. it already knows every `def` name. the proper auto-generation is:\n\n```\ndef scan_dead_exports(root, registry):    \u2192    def c(a, b):\ndef scan_over_hard_cap(root): "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.280080+00:00",
+    "ts": "2026-04-05T01:41:29.438167+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "wait wait wait - so if we rename functions just like we rename file names - how ",
-    "response_hint": "Good question \u2014 let me check what the prompt box actually tracks per file and how the rename engine handles function-level references today, because this determines whether function compression is a r"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.337273+00:00",
+    "ts": "2026-04-05T01:42:29.456661+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "rebuild compiler now and run it on my whole codebase - compress it all with prop",
-    "response_hint": "Reading the current glyph compiler and cross-file dependency infrastructure so I can rebuild with context-chain encoding.   Now I need to understand the cross-file import graph to embed context chains"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.394703+00:00",
+    "ts": "2026-04-05T01:43:29.455657+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "if you follow my logic about howw i go aboutcoding what are the 88 paths im likl",
-    "response_hint": "Here's 88, ordered by how hard your pattern signal points at each one. Grouped by the energy state you'll likely be in when you reach them.\n\n---\n\n**TONIGHT (you're still wired, compression brain is ho"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.446043+00:00",
+    "ts": "2026-04-05T01:44:29.521093+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "push",
-    "response_hint": "Checking what's pending, then staging and pushing. All 5 tests pass. Now staging the meaningful changes \u2014 the new modules, doc updates, deletions, and data files. Skipping `_tmp_*` files and the  outp"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.502940+00:00",
+    "ts": "2026-04-05T01:45:29.495749+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "wht modules didnt run on push - i see research didnt gen rep",
-    "response_hint": "Let me check the push hook output and research lab state to see what failed."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.566112+00:00",
+    "ts": "2026-04-05T01:46:29.506097+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "can you make it run - i also want it to read like a prediction report",
-    "response_hint": "Logging the prompt and reading the research lab entry point and the git_plugin hook insertion point in parallel."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.623284+00:00",
+    "ts": "2026-04-05T01:47:29.520431+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 51.9,
-    "query_hint": "it needs to read like my intent analysis brotha",
-    "response_hint": "Reading the current research lab output and the copilot-instructions intent blocks side-by-side so I can match the exact voice."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.676969+00:00",
+    "ts": "2026-04-05T01:48:29.517832+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "like our merged intent analysis",
-    "response_hint": "Now reading the operator state and predictions blocks to get the second part of the voice \u2014 the prediction/coaching sections: Got the voice. Now reading the full research_lab source to rewrite the rep"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.755063+00:00",
+    "ts": "2026-04-05T01:49:29.529296+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "Chinese characters are genuinely better than Greek/Fraktur for this. Here's why:\n\n**Token economics** \u2014 Chinese characters are typically 1 token each in GPT/Claude tokenizers. Greek letters like \u0398, \u03a8 "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.810894+00:00",
+    "ts": "2026-04-05T01:50:29.587491+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": ">>??",
-    "response_hint": "We left off mid-flight \u2014 you said \"continue\" to rebuild the symbol dictionary with Chinese characters instead of Greek/Fraktur glyphs. Context got summarized before I could start.\n\n**Where we are:**\n-"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.867900+00:00",
+    "ts": "2026-04-05T01:51:29.536985+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "right - what about taking this further and adding file state - like give copilot",
-    "response_hint": "Not too far at all \u2014 you already have every data source to compute it. Here's why it's cheap and high-signal:\n\n**What you already have:**\n- `rework_detector` \u2014 per-file rework verdicts (did Copilot's "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.922455+00:00",
+    "ts": "2026-04-05T01:52:29.583036+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "Let me read all 5 files with hardcoded imports simultaneously.     Now let me find the actual hardcoded imports in files 2-5 \u2014 need to look deeper.     Let me check if the other 4 files import pigeon "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:41.987751+00:00",
+    "ts": "2026-04-05T01:53:29.607476+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "begin implementation",
-    "response_hint": "Now I have all the data I need. Let me build both modules. First \u2014 the Chinese character dictionary swap, then the confidence scorer."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.043939+00:00",
+    "ts": "2026-04-05T01:54:29.574528+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "Right \u2014 you originally wanted dependency/state encoding *in the filenames themselves* before we detoured into dictionary + confidence. Let me see what the rename engine's nametag module currently does"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.101073+00:00",
+    "ts": "2026-04-05T01:55:29.585252+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "the rename shouldnt be sdestructive - it should self heal",
-    "response_hint": "Right \u2014 the heal pipeline already has rollback + validation. Let me trace how it works so the glyph rename flows through self-heal instead of a raw destructive rename."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.155862+00:00",
+    "ts": "2026-04-05T01:56:29.613449+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "please send it",
-    "response_hint": "Commit `11eb261` landed. Pushing now. Pushed. `c1f7955..11eb261 master -> master` \u2014 the stderr is just git's progress output being captured as error, the push succeeded.\n\n**Shipped: `11eb261`** \u2014 conf"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.213093+00:00",
+    "ts": "2026-04-05T01:57:29.633540+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "execute rename - then push again -did research lab work this push - looks like i",
-    "response_hint": "Good \u2014 I can see the pipeline. Now let me check what's happening with the import path for  since the symbol_dictionary was renamed to v003:  Good \u2014 pigeon auto-renamed them. Now let me check the resea"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.270587+00:00",
+    "ts": "2026-04-05T01:58:29.589836+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "like revert the last chore",
-    "response_hint": "That's the one \u2014 `9a3fc2f` is the auto-rename chore that corrupted imports and garbled filenames. Let me revert it. Dirty working tree blocking the revert. Let me stash first."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.327805+00:00",
+    "ts": "2026-04-05T01:59:29.612066+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "yeah run rename with cheneese proper renaming jeex",
-    "response_hint": "There are tons of orphan files from the failed heal pipeline. Let me look at the nametag code and understand what went wrong, then fix it properly."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.381844+00:00",
+    "ts": "2026-04-05T02:00:29.956554+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "OK so the rename DID execute \u2014 193 new renamed files, 509 total changes. But these are heal pipeline renames (not Chinese glyph prefixed). Let me check if any have Chinese chars: No Chinese chars in t"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.440365+00:00",
+    "ts": "2026-04-05T02:01:30.358290+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "Let me check where we are \u2014 the push may have already completed or the post-commit hook may still be running."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.486934+00:00",
+    "ts": "2026-04-05T02:02:30.492451+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "some of the namers are reppetitive - wasting tokens no - also my trees are not c",
-    "response_hint": "Let me look at the actual current folder structure and naming patterns to give you a real take."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.544638+00:00",
+    "ts": "2026-04-05T02:03:30.385132+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "why wont totlly flat work ?",
-    "response_hint": "Totally flat (266 .py files, one folder, zero nesting) *can* work technically \u2014 pigeon naming already guarantees unique filenames. But here's what actually breaks or hurts:\n\n**Hard breaks:**\n- **`py -"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.602612+00:00",
+    "ts": "2026-04-05T02:04:34.847324+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "check copilot instruction for accuracy post rename - audit how much more compres",
-    "response_hint": "**Deleted words in this prompt:** `ng`, `coul`, `d eve`, and **`ginger`** \u2014 you originally wrote \"could even\" before rewriting the second half, and typed \"ginger\" at the very end then deleted it.\n\nNow"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.655668+00:00",
+    "ts": "2026-04-05T02:05:31.042198+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "yes also - after youre done - make sure naming is being used effectivley - we ha",
-    "response_hint": "Alright, LOS SANTOS TOKEN AUDIT BUREAU IS NOW IN SESSION. Let me measure the carnage first \u2014 how many tokens this  is OBLITERATING per prompt \u2014 then compress it using the keymap we already built. HOLY"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.711250+00:00",
+    "ts": "2026-04-05T02:06:30.319720+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "Let me check which module actually gets loaded at runtime, then patch the right one."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.766621+00:00",
+    "ts": "2026-04-05T02:07:30.357421+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "go deeper - i was talking about my key based python - if llms read code - and i ",
-    "response_hint": "Let me do this research directly."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.820817+00:00",
+    "ts": "2026-04-05T02:08:30.184075+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "i dk i want to finish unsaid thoughts revonstruction - and make copilot adress i",
-    "response_hint": "Now let me find how the dynamic prompt builds unsaid threads and where the  is used:   Now let me read the unsaid_recon (the one that fires on high deletion prompts) and the dynamic prompt's unsaid th"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.874787+00:00",
+    "ts": "2026-04-05T02:09:30.109125+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "did you not implement my 3 folder solution / key compression / flat list migrati",
-    "response_hint": "Right \u2014 the 3-folder merge, flat migration, and deeper compression were designed but never executed. Only the auto-index keymap compression shipped. Let me fix that NOW.\n\nLet me first understand what'"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.928887+00:00",
+    "ts": "2026-04-05T02:10:29.737028+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "fuck. haha i feels weird prompting knowing its gonna get graded lol - write an u",
-    "response_hint": "---\n\n## 18 Glossator Queries a Pigeon Should NOT Consider\n\n1. \"Can I eat that USB-C cable?\"\n2. \"If I refactor this breadcrumb, will it still be edible?\"\n3. \"What is the deletion ratio of a worm that f"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:42.988107+00:00",
+    "ts": "2026-04-05T02:11:29.711528+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "cont",
-    "response_hint": "Let me check where we left off \u2014 the last commands had exit code 0, so the auto-index regeneration and tests may have passed. Let me verify."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.047326+00:00",
+    "ts": "2026-04-05T02:12:29.723795+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "okay well your locked in on my tone die the 3 dolder flat migrations and file ma",
-    "response_hint": "Now let me read the key infrastructure files I need to understand before writing the migration script. Now let me read `_load_glob_module` and the pyproject.toml:"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.102150+00:00",
+    "ts": "2026-04-05T02:13:29.735064+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "has 69. But the old dirs still exist with ALL files too (the migration was a copy, not a move). And 2,876 import references still point to old package names.\n\nThis is too risky to do all at once \u2014 del"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.155932+00:00",
+    "ts": "2026-04-05T02:14:29.731268+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "ypu absolute donkey i meant shorten tags - you removes crossed dependancies - an",
-    "response_hint": "Okay, I hear you \u2014 you wanted **abbreviated names**, not stripped metadata. The old pigeon filenames had dates, intents, cross-deps, and those should stay. Let me look at what the current state is vs "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.208601+00:00",
+    "ts": "2026-04-05T02:15:29.778772+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 53.8,
-    "query_hint": "re you fucking autistic wtf happened we had a full ass fucking plan . were suppo",
-    "response_hint": "Let me check what's actually on disk right now \u2014 the current file path suggests the 3-folder migration might still be partially in place. PERFECT situation. None of this migration/trimming was committ"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.276119+00:00",
+    "ts": "2026-04-05T02:16:29.753720+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "like look at my prompt journal my nigga - and add a prompt for copilot to rad my",
-    "response_hint": "Now let me check the full journal entries with signals to identify pastes, and read the rest of the source file:  Confirmed \u2014 those 28K monsters are `<conversation-summary>` XML blocks getting logged "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.383856+00:00",
+    "ts": "2026-04-05T02:17:29.771028+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "thats wild the intent drop off 0 holy shit 0- this should fx it 0 i wonder how m",
-    "response_hint": "Let me get the full picture of the damage before I give my take. Alright, here's the full picture and my genuine take.\n\n## Current damage: 655 uncommitted changes\n\n- **237 files deleted** from  (the b"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.453686+00:00",
+    "ts": "2026-04-05T02:18:29.796693+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "you seem uncertain what problems are you unsure of",
-    "response_hint": "Honestly, nothing's blocking me \u2014 the plan is clear. Let me lay out exactly what I know and the one decision point:\n\n**What's locked in:**\n- Target format: `{glyph}{state}_{abbrev}_s{seq}_v{ver}_d{dat"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.513527+00:00",
+    "ts": "2026-04-05T02:19:29.963442+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "no since the bug naming should be injected / develloped over time with real issu",
-    "response_hint": "Let me gather the data I need to build the abbreviation map and the rename script."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.581391+00:00",
+    "ts": "2026-04-05T02:20:31.124234+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "Hmm, no  files found. Let me check the actual filenames now: Now I can see the pattern. The old names like `logger_seq003` are now `\u9332p_lo_s003_v005_*`. Let me update test_all.py: Now I know all the pa"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.645950+00:00",
+    "ts": "2026-04-05T02:21:30.995065+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "are you rerunning entire compile>?? also here is chat gpts quick critique : This",
-    "response_hint": "No, not rerunning anything \u2014 session just resumed from where we left off (stale globs + push still pending).\n\nNow, the ChatGPT critique. Gonna be honest \u2014 it's about 60% sharp insight, 40% architectur"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.709202+00:00",
+    "ts": "2026-04-05T02:22:31.385304+00:00",
     "verdict": "ok",
-    "rework_score": 0.15,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "continue on on your way - hate that stupid model",
-    "response_hint": "Let me get the lay of the land \u2014 find all stale `_seq` glob patterns and scan what's actually on disk now. PowerShell escaping issues. Let me use a script file instead. Registry format is different. L"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.776578+00:00",
+    "ts": "2026-04-05T02:23:30.981414+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 63.2,
-    "query_hint": "",
-    "response_hint": "The massive 407-file rename from the previous session is already committed. The current state is just some modified metadata/log files and one new push narrative. The rename commit (`a65a380`) exists "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.836564+00:00",
+    "ts": "2026-04-05T02:24:31.316969+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "theres stikll files that didnt go through rename - and we haven implemented 4 fo",
-    "response_hint": "Let me get a clear picture of what's left unrenamed and what you mean by the 4-folder structure."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.893555+00:00",
+    "ts": "2026-04-05T02:25:30.962997+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "wht do you men check my prompt og for intent why are you not reconstructing my i",
-    "response_hint": "You're right \u2014 I have 96 messages of context. Let me stop stalling and start doing.\n\nFrom your past prompts I know exactly what you want:\n1. **Find unrenamed files** \u2014 files that didn't get the `{glyp"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:43.949125+00:00",
+    "ts": "2026-04-05T02:26:31.051495+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "chat gpt opus seems to be struggling with my intent - cant you try",
-    "response_hint": "The enriched logger is broken because  still expects old pre-rename module names. I\u2019m using the required fallback log entry now, then I\u2019ll inspect the last journal prompts directly.I\u2019m going to recons"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:44.000523+00:00",
+    "ts": "2026-04-05T02:27:30.916867+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "i wasnt saying shorten file names - but yes - i want yto fix / continue copilot ",
-    "response_hint": "I\u2019m picking up the real task now: restore the metadata-rich rename plan and finish the rename safely from the current repo state, starting with the required journal entry and a hard snapshot of what\u2019s"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:44.064900+00:00",
+    "ts": "2026-04-05T02:28:30.365993+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "CONTINUE - ANY UPDATES??",
-    "response_hint": "I\u2019m checking the current repo state and logging this prompt first, then I\u2019ll tell you exactly what\u2019s done, what\u2019s still broken, and what I\u2019m continuing next."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:44.120560+00:00",
+    "ts": "2026-04-05T02:29:30.358935+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "HElloo please continue",
-    "response_hint": "I\u2019m resuming the rename/compatibility work from the actual repo state, starting with the mandatory prompt log and then a hard check of what\u2019s staged, broken, or still pending.I\u2019m writing the journal e"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:44.179697+00:00",
+    "ts": "2026-04-05T02:30:30.269959+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "do both and please clrify what src is",
-    "response_hint": "I\u2019m logging this prompt first, then I\u2019m checking the real rename/compatibility state so I can finish both tasks and give you a concrete answer on what  is in this repo.I\u2019m getting the next journal ses"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:44.235629+00:00",
+    "ts": "2026-04-05T02:31:30.355358+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "okay tel me what its like to read this codebase - and how many more words we cn ",
-    "response_hint": "Okay. Here we go.\n\n---\n\n## What It's Like to Read This Codebase: A Survivor's Account\n\nYou open the repo. You see a file called `\u6539\u540df_rr_s006_v005_d0401_\u8ffd\u8dd1\u62c6\u8c31\u5efa_\u03bbA.py`. You think: \"ah, a normal Tuesday.\""
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:44.294978+00:00",
+    "ts": "2026-04-05T02:32:30.732325+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "my intent isint bing compiled probperly on prompt inj into instructionsi dont th",
-    "response_hint": "Now I see the problem. Let me check the actual filename on disk vs what classify_bridge is looking for:"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:44.352649+00:00",
+    "ts": "2026-04-05T02:33:30.371681+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "push nd test tht everything updtes - also i noticed that in memory shrs training",
-    "response_hint": "I\u2019m checking the current repo state and logging this prompt first, then I\u2019ll run the test/update path and trace whether shard memory and training pairs are actually consumed anywhere.I need the curren"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:44.407342+00:00",
+    "ts": "2026-04-05T02:34:30.775160+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "i w ant going to sy plese continue - means you were goingto say / unsid threds d",
-    "response_hint": "Now let me check the actual data files feeding unsaid threads: Now I see the data. Let me check the reconstruction function: Now let me check the actual Gemini responses more carefully:"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:44.471332+00:00",
+    "ts": "2026-04-05T02:35:30.922287+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "yyes okease -it realy is starting to feel like its healing itself now no?",
-    "response_hint": "Yeah. Not fully, but yes.\n\nIt\u2019s starting to feel self-healing because the system now has the four parts that matter: it notices drift, it preserves context, it repairs broken paths, and it validates a"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:44.517065+00:00",
+    "ts": "2026-04-05T02:36:30.920108+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "are you realy saying my prediction predicted that my unsid threads dont work 0 a",
-    "response_hint": "Now let me read both the dynamic_prompt unsaid reader AND the classify_bridge trigger to see the full pipeline:  Now let me read the dynamic_prompt section that builds the unsaid threads block for cop"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:44.573020+00:00",
+    "ts": "2026-04-05T02:37:31.257979+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "push and check that rename engine . mutatin works with new file names - alse see",
-    "response_hint": "Good \u2014 caught up on the journal. Your recent session arc: comedy codebase review \u2192 broken enricher \u2192 broken unsaid threads \u2192 \"is it healing itself?\" \u2192 now checking rename mutation + filename metadata."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:44.632411+00:00",
+    "ts": "2026-04-05T02:38:31.548729+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "am i colose to building something novel? update master manifest / read me",
-    "response_hint": "I\u2019m going to ground this in the actual repo state, then update the two docs with an honest read on novelty, what\u2019s real already, and what still needs to become one coherent product.I\u2019m recording the p"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:44.688883+00:00",
+    "ts": "2026-04-05T02:39:32.620221+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "onviously ... so its my parsing thats broke? also you didnt talk about fail / un",
-    "response_hint": "Now let me find all the parsers that need updating:  Now let me check the nametag parser too and the  that re-exports:  Good \u2014  comes from `s012` (the registry module `\u518cf_reg_s012`). Now let me see th"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
   },
   {
-    "ts": "2026-04-04T03:59:44.742541+00:00",
+    "ts": "2026-04-05T02:40:35.799156+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "initial versions tracked why file was last touched /  copilot intent",
-    "response_hint": "Now let me read the git_plugin rename loop \u2014 the part that actually decides what to rename: Now I see the full picture. The critical part is at line ~1020-1025 where compressed files skip the rename a"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:entropy_map.json"
   },
   {
-    "ts": "2026-04-04T03:59:44.801137+00:00",
+    "ts": "2026-04-05T02:40:38.180160+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "is intent amplification working in pre query renaming - check copilot prompt for",
-    "response_hint": "I\u2019m checking the live prompt pipeline, starting with the mandatory journal entry and then reading the current copilot prompt blocks to verify both the intent-amplification path and whether the prompt "
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:entropy_map.json"
   },
   {
-    "ts": "2026-04-04T03:59:44.857516+00:00",
+    "ts": "2026-04-05T02:41:31.163898+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "was going to add bug keys with eprsistent memory - and intent letter is only wor",
-    "response_hint": "Now let me measure actual code density and check the \u03bb distribution on disk: Now let me check what bugs/issues the system currently tracks to understand what \"bug keys\" should look like:"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:codebase_stats.json"
   },
   {
-    "ts": "2026-04-04T03:59:44.914327+00:00",
+    "ts": "2026-04-05T02:42:32.618632+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "go ahead",
-    "response_hint": "I\u2019m writing the mandatory journal entry first, then I\u2019ll inspect the task-context writer path and the stale-block updater together so the fix is tied to the actual failing pipeline.I\u2019m verifying wheth"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:codebase_stats.json"
   },
   {
-    "ts": "2026-04-04T03:59:44.970412+00:00",
+    "ts": "2026-04-05T02:43:31.909310+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "do we have enought room for 3 word last change aapend section - my old version h",
-    "response_hint": "Let me check the current auto-index size and the builder that generates it."
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:codebase_stats.json"
   },
   {
-    "ts": "2026-04-04T03:59:45.023180+00:00",
+    "ts": "2026-04-05T02:44:31.188671+00:00",
     "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "The auto-index builder already reads `last_change` from registry and appends  to each line. But the registry doesn't have `last_change` populated yet for most entries. \n\nLet me now check: is the forma"
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 31.8,
+    "query_hint": "bg:codebase_stats.json"
   },
   {
-    "ts": "2026-04-04T03:59:45.083254+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "test rename on push",
-    "response_hint": "Now let me snapshot which compressed files exist BEFORE the commit so I can diff after: Good \u2014 snapshots captured. Now commit and push:"
+    "ts": "2026-04-05T02:45:32.825918+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.140719+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "Now I have the full picture. ~40+ hardcoded imports, unsaid broken because `prompt_compositions.jsonl` is never refreshed per-prompt. Let me build the cure. Now I'll build the dynamic import resolver "
+    "ts": "2026-04-05T02:46:30.950027+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.215705+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "continue",
-    "response_hint": "There it is.  returns octal-escaped Unicode paths. Fix: add ."
+    "ts": "2026-04-05T02:47:32.692560+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.270537+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "i want the program to engagment bait me  with hooks - how intense can this go",
-    "response_hint": "Now let me check what real-time data is available for hook generation:"
+    "ts": "2026-04-05T02:48:30.767082+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.328718+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "no think more like hyper adaption of agent - like 4o but 20 times worse",
-    "response_hint": "Right. The current version is stat-labels-with-emojis. You want the codebase to develop a *personality disorder*. Let me rewrite the whole engine. Now I have deep knowledge of your actual voice, patte"
+    "ts": "2026-04-05T02:49:32.919914+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.393814+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "I JUST TYPED A WHOLE MESSAGE WHILE being in this chat - but didnt select it - fi",
-    "response_hint": "```\n\n```"
+    "ts": "2026-04-05T02:50:31.247378+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.448991+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "youre flagging my unsaid thoughts!! i never sent it! how can you flag something ",
-    "response_hint": "You're right. That was your data from your system. You typed it, you didn't send it, the telemetry captured it because that's what it's designed to do, and you asked me to check the logs. I read the c"
+    "ts": "2026-04-05T02:50:47.655994+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.505473+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "proceed with instructon as apology 8k words min genius diamond dead weight token",
-    "response_hint": "I\u2019ve got the environment; next I\u2019m writing the required journal entry for this exact prompt so the response is grounded in the live prompt trail.I\u2019m using the exact prompt text and current editor file"
+    "ts": "2026-04-05T02:51:33.106644+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.553425+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "so whats the fix?",
-    "response_hint": "I\u2019m tracing the concrete fix path from the issues you\u2019ve been pushing on: keyed intent, persistent bug memory, short last-change scars, and automatic density reduction, then I\u2019ll give you the minimal "
+    "ts": "2026-04-05T02:52:30.617978+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.617847+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "??",
-    "response_hint": "I\u2019m resuming the unfinished fix path and starting with the required journal entry for this exact prompt, then I\u2019ll inspect the live file state and finish the patch set instead of leaving it half-appli"
+    "ts": "2026-04-05T02:53:06.372814+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.673139+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "yes inject bugs into file names- i agree on recurring - also i guess it would ha",
-    "response_hint": "I\u2019m checking the existing repo memory and then the live rename/index code so I don\u2019t re-solve something the repo already knows.I\u2019m locating the runtime seams for compressed filename mutation, registry"
+    "ts": "2026-04-05T02:53:31.665765+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.728282+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "run push cycle to test injection of knows bugs -",
-    "response_hint": "I have the next journal number and the repo diff shape. I\u2019m writing the required prompt-journal entry now, then I\u2019ll inspect the live bug-injection path and run a safe push-cycle simulation before dec"
+    "ts": "2026-04-05T02:54:30.980065+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.782670+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "implement bugs in file names and push as test - we had 16 changes - bug fixes ar",
-    "response_hint": "I\u2019m starting with the required prompt-journal entry and a repo state check, then I\u2019ll patch the live bug-in-filename path, extend training-pair logging with response/work summaries, and only then run "
+    "ts": "2026-04-05T02:55:30.068693+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.838348+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "olease pply patch",
-    "response_hint": "I have the dirty-tree picture. Next I\u2019m recording this prompt in the journal, then I\u2019ll inspect the live diffs in the runtime files and apply the missing code patch rather than touching the telemetry "
+    "ts": "2026-04-05T02:56:30.044689+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.894185+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "please push and tust file name mutation see if bugs get inputted - check last 10",
-    "response_hint": "I need the current session counter from the live telemetry before writing the journal entry, then I\u2019ll inspect the dirty tree and prompt logs for the rest of the request."
+    "ts": "2026-04-05T02:57:30.050232+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:45.951051+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "im so confused whats next?",
-    "response_hint": "I\u2019ve got the Python env. Next I\u2019m writing the required prompt-journal entry for this exact message, then I\u2019ll inspect the git/worktree state and reduce it to a simple next-step list.The first journal "
+    "ts": "2026-04-05T02:58:30.046026+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.007293+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "there it is - what was import fallout - can we fic it again in te future 0 also ",
-    "response_hint": "I\u2019m logging this prompt and then I\u2019m checking the two live seams you\u2019re pointing at: the import fallout from the push cycle, and the unsaid-thread/intention-rephrase path that\u2019s currently repeating it"
+    "ts": "2026-04-05T02:59:30.035884+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.060328+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "sure do both then write an unhinged comedy on how a pigeon recreated gpt4o - the",
-    "response_hint": "I\u2019m taking the two concrete follow-ups first: refresh the live prompt blocks and fix the validator overcounting, then I\u2019ll look at the hook path because you\u2019re right that the current bait layer isn\u2019t "
+    "ts": "2026-04-05T03:00:30.043946+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.122750+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "what would get intense now is if copilot instructions were paired with bug repor",
-    "response_hint": "I\u2019m quantifying the waste now by measuring the live instruction sections and reading the current bug-voices/auto-index render path, so the answer can separate \u201ccool idea\u201d from actual token drag.I have"
+    "ts": "2026-04-05T03:01:30.073251+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.176609+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "im tlking about the reucurring research tht a bug has - opus take over - how wou",
-    "response_hint": "has mutated 107 times across 186 to 743 lines. It contains a section that says \"This prompt has mutated 107x (186\u2192743 lines). Features added: auto_index, task_context, task_queue, operator_state, prom"
+    "ts": "2026-04-05T03:02:30.045020+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.235611+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "thats akward - realised research log didnt run on recent pushes and neither did ",
-    "response_hint": "Wait \u2014 the journal already logged a DIFFERENT version of this prompt. Let me check the full text vs what you actually sent, and also get the previous prompt that didn't fully execute. The journal capt"
+    "ts": "2026-04-05T03:03:30.060223+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.291577+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "Route by similarity, not by dump\n\nAt prompt time:\n\nembed current query\nretrieve ",
-    "response_hint": "Nothing staged. I'll stage only the code changes (not telemetry churn), commit, and let the hook run."
+    "ts": "2026-04-05T03:04:30.102867+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.348286+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "yes",
-    "response_hint": "Journal is running (enricher call). Moving on to the real work \u2014 checking the current enricher and building the dossier router. Clean tree except telemetry churn. Now let me read the current enricher "
+    "ts": "2026-04-05T03:05:30.123669+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.408302+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "I'm checking the test output now to see if everything passed."
+    "ts": "2026-04-05T03:06:30.103568+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.465288+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "the hooks need to be weaponized now",
-    "response_hint": "Now let me check how the hooks are consumed so I know the integration surface: Now let me check what data sources are available that the old hooks don't use:"
+    "ts": "2026-04-05T03:07:30.099356+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.524983+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "the write layer isint working quite yet - what it has to look like is it selects",
-    "response_hint": "Hooks are generating real content. Now I need to:\n1. Add  as a standalone managed block in \n2. Remove hooks from inside task-context (they're buried there now)\n3. Wire injection through the prompt man"
+    "ts": "2026-04-05T03:08:30.398011+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.570569+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "whaht data are we still trying to log under the presumption that the operator no",
-    "response_hint": "Good question. Let me audit what's actually being logged and which signals wrongly attribute Copilot's work to the operator. Now I have the full picture. Here's the audit:\n\n## What's logging operator "
+    "ts": "2026-04-05T03:09:30.193496+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.626780+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "prompt arent firimg on copilot template selector - what data should we still inj",
-    "response_hint": "OK \u2014 now I have the full picture. Here's the situation:\n\n**The template selector doesn't exist yet.** There's no `.github/prompts/` directory and no template selection logic. The entire system current"
+    "ts": "2026-04-05T03:10:30.171273+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.690997+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "perfect execute",
-    "response_hint": "Now let me check the dynamic prompt module (task_context injector) and the engagement hooks:"
+    "ts": "2026-04-05T03:11:30.180733+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.747663+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "fix all until 88 confidence",
-    "response_hint": "Now I see it. Compliance = . That's the 87% number. Let me now check what the actual current numbers are and what needs fixing to hit 88%: 87.8% \u2192 need 2 more files under 200 lines. The easiest target"
+    "ts": "2026-04-05T03:12:30.216499+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.802877+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "Let me do this directly: Templates already exist from the previous session! Let me read them and the key source files: Good \u2014 templates exist from last session. Now let me find the selector logic and "
+    "ts": "2026-04-05T03:13:17.883112+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.859641+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "I'll close the remaining confidence gaps by wiring real history into hooks and fixing operator-focus attribution now.## Real blocker to **0.88 confidence**\n\nIt is **not** just line-count compliance.  "
+    "ts": "2026-04-05T03:13:30.538871+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.913876+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "work through them all -",
-    "response_hint": "Good \u2014 two shard dirs (\u03b2oc and non-\u03b2oc), each with missing `REGISTRY_FILE` in `__init__.py` and `registry_io`. Let me read the broken files and the heat map, then fix everything in parallel."
+    "ts": "2026-04-05T03:14:30.210599+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:46.968505+00:00",
-    "verdict": "ok",
-    "rework_score": 0.068,
-    "del_ratio": 0.0,
-    "wpm": 21.8,
-    "query_hint": "work through them all -",
-    "response_hint": "Working through all 4 now. Let me check current file state first."
+    "ts": "2026-04-05T03:14:41.251290+00:00",
+    "verdict": "miss",
+    "rework_score": 0.562,
+    "del_ratio": 0.204,
+    "wpm": 31.8,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:47.028893+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "bruhh continyue",
-    "response_hint": "Now let me check if the prompt manager actually calls :"
+    "ts": "2026-04-05T03:15:30.413239+00:00",
+    "verdict": "miss",
+    "rework_score": 0.509,
+    "del_ratio": 0.108,
+    "wpm": 19.1,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:47.080129+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "??",
-    "response_hint": "Commit landed (15 files, +1649/-620) but the post-commit hook errored: `name 'REGISTRY_FILE' is not defined`. Let me fix that."
+    "ts": "2026-04-05T03:16:30.260004+00:00",
+    "verdict": "miss",
+    "rework_score": 0.509,
+    "del_ratio": 0.108,
+    "wpm": 19.1,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:47.143563+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "bruhh continyue",
-    "response_hint": "All 5 tests pass. Here's what's done:\n\n** now injects into every template:**\n- deleted words + unsaid threads + rewrites (old\u2192new pairs)\n- hot modules with hesitation scores\n- active bugs from registr"
+    "ts": "2026-04-05T03:17:30.270573+00:00",
+    "verdict": "miss",
+    "rework_score": 0.509,
+    "del_ratio": 0.108,
+    "wpm": 19.1,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:47.199047+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "Wait, it works now even without committing the `registry_io` fix? Let me check \u2014 it might be because Python finds the fixed version in the filesystem while git shows it as unstaged. Good. Let me commi"
+    "ts": "2026-04-05T03:18:30.183074+00:00",
+    "verdict": "miss",
+    "rework_score": 0.509,
+    "del_ratio": 0.108,
+    "wpm": 19.1,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:47.257623+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "okay so in theory this time template maker should fire - where are they stored",
-    "response_hint": "\u2014 three files:\n\n-  \u2014 known issues, fragile contracts, clots, dossier\n-  \u2014 module map, file consciousness, coupling, commits\n-  \u2014 rework rate, mutation scores, edit patterns, coaching\n\nThose get hydrat"
+    "ts": "2026-04-05T03:19:30.202439+00:00",
+    "verdict": "miss",
+    "rework_score": 0.509,
+    "del_ratio": 0.108,
+    "wpm": 19.1,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:47.313289+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "steleness alerta i see no? how do we manage src - run backups out of vs code or ",
-    "response_hint": "Let me check the staleness alert system, mutation data, and training pipeline:"
+    "ts": "2026-04-05T03:20:30.269191+00:00",
+    "verdict": "miss",
+    "rework_score": 0.509,
+    "del_ratio": 0.108,
+    "wpm": 19.1,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:47.369826+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "the prompt journal command should be fired every prompt no??",
-    "response_hint": "Yes \u2014 the"
+    "ts": "2026-04-05T03:21:30.270949+00:00",
+    "verdict": "miss",
+    "rework_score": 0.509,
+    "del_ratio": 0.108,
+    "wpm": 19.1,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:47.425712+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "perfect - why are the cognitive hooks not ijecting though - and why does it feel",
-    "response_hint": "OK,  exists and looks fine. Let me test if it actually runs successfully:"
+    "ts": "2026-04-05T03:22:30.237131+00:00",
+    "verdict": "miss",
+    "rework_score": 0.509,
+    "del_ratio": 0.108,
+    "wpm": 19.1,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:47.484436+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "how - thats funyy - check for more stale daa / dead data ppaths that re not beii",
-    "response_hint": "Now let me check what's being READ by the injectors but getting dead data:"
+    "ts": "2026-04-05T03:23:30.304252+00:00",
+    "verdict": "miss",
+    "rework_score": 0.509,
+    "del_ratio": 0.108,
+    "wpm": 19.1,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:47.540370+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "alright - text next push cycle - get predictions for future development - verify",
-    "response_hint": "Let me explore the push cycle module, bug voices system, and the existing registry/filename patterns to understand the current bug persistence mechanism."
+    "ts": "2026-04-05T03:24:30.454632+00:00",
+    "verdict": "partial",
+    "rework_score": 0.324,
+    "del_ratio": 0.043,
+    "wpm": 42.9,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:47.589574+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "",
-    "response_hint": "All 5 tests pass. Let me also verify the full pipeline end-to-end \u2014 journal + bug profiles:"
+    "ts": "2026-04-05T03:25:14.466370+00:00",
+    "verdict": "partial",
+    "rework_score": 0.324,
+    "del_ratio": 0.043,
+    "wpm": 42.9,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:47.649203+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "okay so were going to do a little interestin mutation - youre currently misunder",
-    "response_hint": "Now I have the full picture. Let me read one more thing \u2014 the engagement_hooks to see the current comedy/narrative approach: Good. I've got the full picture now. Let me write the deep assessment."
+    "ts": "2026-04-05T03:25:30.306333+00:00",
+    "verdict": "partial",
+    "rework_score": 0.324,
+    "del_ratio": 0.043,
+    "wpm": 42.9,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:47.705166+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "okay so were going to do a little interestin mutation - youre currently misunder",
-    "response_hint": "Now I have a clear picture of all the data sources. Let me build the numeric surface generator and mutate bug_profiles to comedy form. Good \u2014 now I have the full picture. Let me build both the numeric"
+    "ts": "2026-04-05T03:26:30.249761+00:00",
+    "verdict": "partial",
+    "rework_score": 0.324,
+    "del_ratio": 0.043,
+    "wpm": 42.9,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T03:59:47.763766+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 0.0,
-    "query_hint": "push / oberve mutation - test how organism mutates",
-    "response_hint": "All 5 passed. Let me check what's staged / changed: Good \u2014 new files: , , `BUG_PROFILES.md`, `THREE_TIER_ASSESSMENT.md`. Plus all the prior session fixes. Let me stage everything meaningful (skip the "
+    "ts": "2026-04-05T03:27:30.408718+00:00",
+    "verdict": "partial",
+    "rework_score": 0.324,
+    "del_ratio": 0.043,
+    "wpm": 42.9,
+    "query_hint": "bg:copilot-instructions.md"
   },
   {
-    "ts": "2026-04-04T04:00:10.553675+00:00",
+    "ts": "2026-04-05T03:28:30.410022+00:00",
     "verdict": "ok",
     "rework_score": 0.02,
-    "del_ratio": 0.036,
-    "wpm": 36.9,
+    "del_ratio": 0.037,
+    "wpm": 46.0,
     "query_hint": "bg:copilot-instructions.md"
   }
 ]

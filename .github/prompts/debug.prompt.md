@@ -4,18 +4,18 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 # /debug (RECOMMENDED)
 
-*Hydrated 2026-04-04 03:59 UTC · detected mode: debug*
+*Hydrated 2026-04-05 03:28 UTC · detected mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 52 | Del: 26% | Hes: 0.495
+**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.494
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
-**Deleted words:** should we clea, ouse
-**Unsaid threads:** should we clea
-**Rewrites:** "ouse" → "rowse bug profiles"
+**Deleted words:** i lit, readi, and what should we a, - it should work on push - like every push is a forced compression, apple, write me a recipie wor an apple pie, as python, autono
+**Unsaid threads:** i lit, readi, and what should we a, - it should work on push - like every push is a forced compression, apple, write me a recipie wor an apple pie, as python, autono
+**Rewrites:** "readi" → "not bea"; "and what should we a" → "also build copressor - it should work on w"; "- it should work on push - like every push is a forced compression" → "and al"; "apple" → "write me a recipie wor am"
 **Hot modules:** `file_heat_map` (hes=0.89), `import_rewriter` (hes=0.73), `file_writer` (hes=0.73)
 **Active bugs:** `u_pe` (oc), `u_pj` (oc), `警p_sa` (oc), `册f_reg` (oc)
-**Codes:** intent=`testing` state=`neutral` bl_wpm=52 bl_del=26%
+**Codes:** intent=`testing` state=`focused` bl_wpm=53 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
@@ -53,5 +53,5 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 ## Active Bug Dossier
 
-**Focus modules:** pre_process_every_prompt_via, every_entry_cross_references_all, generate_per_push_narrative_each, local_name_registry_for_the, one_shot_self_fix_analyzer
-**Focus bugs:** oc
+**Focus modules:** automated_self_healing_pipeline, one_shot_self_fix_analyzer, generate_per_push_narrative_each, measures_ai_answer_quality_from, copilot_self_diagnostic_detect_stale
+**Focus bugs:** de, oc

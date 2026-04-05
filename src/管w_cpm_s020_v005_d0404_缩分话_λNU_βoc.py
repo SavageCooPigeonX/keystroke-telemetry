@@ -8,9 +8,9 @@
 # SESSIONS: 3
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-04-02T19:57:36.8206812Z
+# EDIT_TS:   2026-04-04T05:41:35.2468996Z
 # EDIT_HASH: auto
-# EDIT_WHY:  inject bug voices layer
+# EDIT_WHY:  inject entropy map + red layer
 # EDIT_STATE: harvested
 # ── /pulse ──
 
@@ -33,6 +33,8 @@ BLOCK_MARKERS = {
     'task_queue': ('<!-- pigeon:task-queue -->', '<!-- /pigeon:task-queue -->'),
     'operator_state': ('<!-- pigeon:operator-state -->', '<!-- /pigeon:operator-state -->'),
     'prompt_telemetry': (PROMPT_BLOCK_START, PROMPT_BLOCK_END),
+    'entropy_map': ('<!-- pigeon:entropy-map -->', '<!-- /pigeon:entropy-map -->'),
+    'entropy_red_layer': ('<!-- pigeon:entropy-red-layer -->', '<!-- /pigeon:entropy-red-layer -->'),
     'auto_index': ('<!-- pigeon:auto-index -->', '<!-- /pigeon:auto-index -->'),
     'bug_voices': ('<!-- pigeon:bug-voices -->', '<!-- /pigeon:bug-voices -->'),
 }
@@ -302,6 +304,16 @@ def _bug_voice_score(entry: dict) -> int:
 
 
 def _build_bug_voices_block(root: Path, registry: dict | None) -> str:
+    # try narrative block from accuracy tracker first
+    try:
+        from src.self_fix_tracker import build_narrative_block
+        narrative = build_narrative_block(root)
+        if narrative:
+            return narrative
+    except Exception:
+        pass
+
+    # fallback: registry-based block
     if registry is None:
         registry = _load_json(root / 'pigeon_registry.json')
     items = [
@@ -681,6 +693,39 @@ def inject_operator_state(root: Path) -> bool:
     return True
 
 
+def inject_entropy_layers(root: Path) -> bool:
+    cp_path = root / COPILOT_PATH
+    if not cp_path.exists():
+        return False
+
+    try:
+        from src.entropy_shedding import build_entropy_block, build_red_layer_block
+    except Exception:
+        return False
+
+    text = cp_path.read_text(encoding='utf-8')
+    new_text = text
+    new_text = _upsert_block(
+        new_text,
+        '<!-- pigeon:entropy-map -->',
+        '<!-- /pigeon:entropy-map -->',
+        build_entropy_block(root),
+        anchor='<!-- pigeon:bug-voices -->',
+    )
+    new_text = _upsert_block(
+        new_text,
+        '<!-- pigeon:entropy-red-layer -->',
+        '<!-- /pigeon:entropy-red-layer -->',
+        build_red_layer_block(root),
+        anchor='<!-- pigeon:bug-voices -->',
+    )
+
+    if new_text != text:
+        cp_path.write_text(new_text, encoding='utf-8')
+        return True
+    return False
+
+
 def audit_copilot_prompt(root: Path) -> dict:
     cp_path = root / COPILOT_PATH
     snapshot = _load_json(root / SNAPSHOT_PATH) or {}
@@ -788,6 +833,7 @@ def refresh_managed_prompt(
         'inject_task_queue',
     )
     operator_state_refreshed = inject_operator_state(root)
+    entropy_refreshed = inject_entropy_layers(root)
     injected = inject_prompt_telemetry(root, snapshot=snapshot)
 
     # Engagement hooks — own managed block, inspectable by operator
@@ -848,6 +894,7 @@ def refresh_managed_prompt(
         'task_context_refreshed': task_context_refreshed,
         'task_queue_refreshed': task_queue_refreshed,
         'operator_state_refreshed': operator_state_refreshed,
+        'entropy_refreshed': entropy_refreshed,
         'prompt_telemetry_injected': injected,
         'mutation_result': mutation_result,
         'voice_refreshed': voice_refreshed,

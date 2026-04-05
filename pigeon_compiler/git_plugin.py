@@ -1416,6 +1416,57 @@ def run():
     except Exception as e:
         print(f'  ⚠️  Manifest rebuild: {e}')
 
+    # Self-fix accuracy — score recurring threads across reports
+    try:
+        sft_mod = _load_glob_module(root, 'src', 'self_fix_tracker*')
+        if sft_mod and hasattr(sft_mod, 'compute_accuracy'):
+            acc = sft_mod.compute_accuracy(root)
+            if 'error' not in acc:
+                print(f"  📊 self-fix accuracy: {acc['total_threads']} threads, "
+                      f"fix rate {round(acc['avg_fix_rate'] * 100, 1)}% "
+                      f"({acc['status_breakdown'].get('resolved', 0)} resolved, "
+                      f"{acc['status_breakdown'].get('eternal', 0)} eternal)")
+    except Exception as e:
+        print(f'  ⚠️  self-fix accuracy: {e}')
+
+    # Context compression — strip comments/docstrings/annotations for LLM context
+    try:
+        cc_mod = _load_glob_module(root, 'src', 'context_compressor*')
+        if cc_mod and hasattr(cc_mod, 'compress_changed'):
+            cc_result = cc_mod.compress_changed(root, changed_files=changed)
+            if cc_result['files'] > 0:
+                print(f"  🗜️  compression: {cc_result['orig_tokens']}→{cc_result['compressed_tokens']} tokens "
+                      f"({cc_result['ratio']}x, {cc_result['files']} files, {cc_result['elapsed_ms']}ms)")
+    except Exception as e:
+        print(f'  ⚠️  context compression: {e}')
+
+    # Intent compression — 5-layer deep compression analysis
+    try:
+        ic_mod = _load_glob_module(root, 'src', 'intent_compressor*')
+        if ic_mod and hasattr(ic_mod, 'compress_all'):
+            ic_result = ic_mod.compress_all(root)
+            cl = ic_result.get('compression_layers', {})
+            ist = ic_result.get('intent_stats', {})
+            l3 = cl.get('layer3_skeleton', {})
+            print(f"  🧠 intent compression: {ic_result.get('total_original_tokens', 0)}→"
+                  f"{l3.get('tokens', 0)} tok skeleton "
+                  f"({l3.get('ratio', 0)}x, {ist.get('intent_amplification', 0)}x intent amp)")
+    except Exception as e:
+        print(f'  ⚠️  intent compression: {e}')
+
+    # Codebase transmutation — numerical mirror + narrative mirror + global stats
+    try:
+        ct_mod = _load_glob_module(root, 'src', 'codebase_transmuter*')
+        if ct_mod and hasattr(ct_mod, 'transmute_all'):
+            tr = ct_mod.transmute_all(root)
+            s = tr.get('stats', {})
+            n = tr.get('numerical', {})
+            print(f"  🔢 transmute: {s.get('files', 0)} files, {s.get('tokens', 0)} tok, "
+                  f"noise {s.get('noise_pct', 0)}%, "
+                  f"numerical {n.get('ratio', 0)}x ({n.get('unique_symbols', 0)} symbols)")
+    except Exception as e:
+        print(f'  ⚠️  codebase transmutation: {e}')
+
     # Compute total token footprint for this commit
     total_tokens = sum(
         e.get('tokens', 0) for _, _, e, _, _ in renames

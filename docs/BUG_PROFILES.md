@@ -1,6 +1,6 @@
 # Bug Profiles — The Rogues Gallery
 
-*Auto-generated 2026-04-04 03:59 UTC · 15 modules carrying bugs · 2 species identified*
+*Auto-generated 2026-04-05 03:28 UTC · 15 modules carrying bugs · 2 species identified*
 
 > Every bug here is alive. They have names, habits, and a body count.
 > This page tells you who they are, what they're doing to your codebase, and what to do about it.

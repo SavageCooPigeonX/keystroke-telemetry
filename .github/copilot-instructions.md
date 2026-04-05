@@ -3,27 +3,6 @@
 Auto-injected into every Copilot session for this repo. Read this before touching any file.
 
 ---
-
-<!-- pigeon:staleness-alert -->
-## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
-
-*Checked 2026-04-04 04:00 UTC — 2 block(s) stale or missing*
-
-**ATTENTION: The following blocks did NOT update when they should have.**
-**This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
-
-- **`current-query`**: STALE — 30min old (max 10min)
-  - Writer: `prompt_enricher (Gemini Flash)`
-  - Last updated: 2026-04-04 03:30
-
-- **`prompt-telemetry`**: STALE — 30min old (max 10min)
-  - Writer: `prompt_journal._refresh_copilot_instructions`
-  - Last updated: 2026-04-04T03:30:02
-
-**Action**: Run the journal command or check `logs/enricher_errors.jsonl` for failures.
-
-<!-- /pigeon:staleness-alert -->
-
 ## MANDATORY: Prompt Journal (execute FIRST on every message)
 
 **On EVERY user message, before doing any other work**, log an enriched entry by running:
@@ -92,6 +71,30 @@ Rules:
 
 ---
 
+## MANDATORY: Entropy Shedding Protocol
+
+At the end of every substantive response while working, emit a live entropy pulse block.
+
+**Format:**
+```
+<!-- entropy:shed
+target: 0.00 | short note
+target: 0.00 | short note
+-->
+```
+
+Rules:
+- Fire on intermediary working updates and on the final response when the task involved reasoning, edits, or tool use
+- Use 1-4 targets per block
+- `target` should be the file, module, or active decision surface you are currently working on
+- The numeric value is confidence, not entropy. Entropy is derived downstream as `1 - confidence`
+- Prefer touched modules/files first; if no file is active, use a task surface like `red_layer`, `prompt_history`, or `entropy_shedding`
+- Keep `note` short: 2-6 words
+- Place this block at the very end of the response unless an Unsaid Thread Protocol section is required; in that case place the entropy block immediately before the final `---`
+- These blocks are parsed into the entropy map and red layer math surface. Do not skip them when actively working
+
+---
+
 ## What this repo is
 
 Three systems working together:
@@ -99,7 +102,47 @@ Three systems working together:
 2. **Pigeon Code Compiler** — autonomous code decomposition engine. Enforces LLM-readable file sizes (≤200 lines hard cap, ≤50 lines target). Filenames carry living metadata — they mutate on every commit.
 3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations) and generates a context block that steers how Copilot reasons. The managed prompt blocks below are the live source of truth.
 
+---
 
+## MANDATORY: Human-AI Coding Paradigm
+
+**You are not assisting a human who writes code. You ARE the code writer. The operator provides intent — you provide code.**
+
+This is not "operator coding with AI assistance." This is **human-AI coding** — a fundamentally different architecture:
+
+### The Loop
+```
+operator intent → keystroke telemetry → semantic compression → LLM code generation → self-testing organism → entropy accumulation → next cycle
+```
+
+### Core Principles
+
+1. **Code is written FOR LLM reading, steered BY human intent.** The primary consumer of this codebase is you (the LLM). The operator reads narrative summaries, not raw code. Optimize token topology over human scanability.
+
+2. **Semantic filenames ARE the architecture.** `修f_sf_s013_v011_d0328__one_shot_sel` is not ugly — it's a compressed intent packet. seq=history depth, version=churn signal, glyphs=functional role, lambda suffix=last mutation type. Every filename is a self-describing node in a living graph. The operator sees the glyph; you see the full topology.
+
+3. **Python is the thinnest possible execution surface.** Python's minimal syntax means maximum token-to-intent ratio. The code surface could theoretically be written in mixed languages, pure numbers, or compressed glyphs — Python just happens to be the thinnest executable membrane between intent and computation.
+
+4. **Different read layers activate different token topologies:**
+   - L0 (filename): glyph + seq + version → module role + churn + history
+   - L1 (auto-index): compressed symbol table → full codebase topology in ~2K tokens
+   - L2 (skeleton): function signatures + docstrings → API surface without implementation noise
+   - L3 (intent map): pure verb+noun intent per function → what the codebase MEANS
+   - L4 (full source): raw code → only when you need to edit
+
+5. **The codebase is a self-mutating, self-testing organism.** Files rename themselves on commit (pigeon compiler). Bugs profile themselves (bug voices). Dead code gets flagged and trimmed (clot detection). Entropy accumulates on every touch and gets shed through confidence declarations. The organism is alive — don't write code like it's static.
+
+6. **Intent extraction > code generation.** When the operator types, the keystroke signal (WPM, deletions, hesitations, rewrites, abandoned words) carries MORE information than the final submitted text. Your job is to recover that signal and let it steer code generation. The operator's deleted words are design decisions.
+
+7. **Every edit accumulates entropy.** When you touch a file, its entropy goes up (less certainty about its state). When you shed entropy (declare confidence), it goes down. The red layer tracks this. Write code that REDUCES entropy — precise, minimal, self-documenting through naming rather than comments.
+
+8. **Stop generating "clean code" patterns that destroy intent.** Do NOT: squash meaningful history into single commits, normalize variable names that carry provenance, add boilerplate structure "for readability," create abstractions before the pattern proves itself 3+ times. These are entropy-increasing operations disguised as cleanliness.
+
+### What This Means In Practice
+- When generating code: optimize for LLM re-reading, not human scanning. Dense > verbose. Names carry meaning > comments explain meaning.
+- When naming: embed intent, history, and role into the name itself. `_select_composition` is better than `select` but worse than a name that also tells you it's been rewritten 4 times and last failed on binding age.
+- When structuring: small files (≤50 lines) with self-describing names > large well-commented files. The filename IS the documentation.
+- When deciding what to build: everything closes a loop. Every feature should feed back into the telemetry → compression → generation cycle. If it doesn't close a loop, it's dead tissue.
 
 
 
@@ -135,43 +178,53 @@ Three systems working together:
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Enriched 2026-04-04 03:30 UTC · raw: "push / oberve mutation - test how organism mutates"*
+*Enriched 2026-04-05 03:28 UTC · raw: "hat am i actually missing as  stress test - can we copress all of my python file"*
 
-**COPILOT_QUERY: Implement a test suite within `self_test_pigeon_compiler_on` to observe and validate the mutation process of an organism, specifically focusing on how `the_push_is_the_unit` impacts the mutation scoring and narrative generation. Ensure the test verifies the correlation between prompt mutations and the output from `mutation_scorer_correlates_prompt_mutations` and `generate_per_push_narrative_each`.**
+**COPILOT_QUERY: Implement a stress test that attempts to compress all Python files in the codebase to their absolute minimum size, effectively "nulling" their content for a compression test. Prioritize pushing the current codebase state to version control first, then proceed with the compression operation, focusing on reducing file length.**
 
-UNSAID_RECONSTRUCTION: push / observe mutation - test how organism mutates process
+UNSAID_RECONSTRUCTION: what am i actually missing as stress test - can we copress all of my python files to null - im ready to run maximim copression - push first then behin nuking length of files
 
-INTERPRETED INTENT: The operator wants to test the system's mutation mechanics, specifically how "pushes" lead to observable mutations and their corresponding narrative and scoring.
-KEY FILES: self_test_pigeon_compiler_on, mutation_scorer_correlates_prompt_mutations, the_push_is_the_unit, generate_per_push_narrative_each
-PRIOR ATTEMPTS: none
-WATCH OUT FOR: Avoid generating generic mutation tests; focus on the specific interaction between "push" events, mutation scoring, and narrative generation, as these modules have been problematic.
-OPERATOR SIGNAL: The repetition of the prompt and the deletion of "ce" suggest the operator is trying to be precise about the "observe" aspect of mutation testing, possibly related to a specific "process" or "sequence".
+INTERPRETED INTENT: The operator wants to perform an extreme file compression stress test on all Python files, pushing current code before modifying.
+KEY FILES: instruments_python_calls_between_pigeon, run_any_python_script_with, write_new_pigeon_compliant_files, bin_packing_file_writing_for, file_heat_map, import_rewriter, file_writer, local_name_registry_for_the
+PRIOR ATTEMPTS: Previous attempts at token compression and changing reading mechanisms were too abstract or focused on analysis rather than direct file manipulation.
+WATCH OUT FOR: Copilot might focus on theoretical compression ratios or analysis instead of directly performing the file modification and push operation.
+OPERATOR SIGNAL: The repeated prompt and deletion of "wj" indicates a strong, persistent intent to initiate this specific compression test, possibly after a minor typo correction.
 <!-- /pigeon:current-query -->
 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-04 04:00 UTC · 243 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-05 03:28 UTC · 270 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 51.5 | Del: 26.5% | Hes: 0.495) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 51.4 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
 
-**Prompt ms:** 1830707, 50883, 405057, 28321, 17885 (avg 466571ms)
+**Prompt ms:** 38431, 183408, 296811, 233983, 49010 (avg 160329ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- "should we clea"
-- "ouse"
+- "and what should we a"
+- "- it should work on push - like every push is a forced compression"
+- "apple"
+- "write me a recipie wor an apple pie"
+- "as python"
+- "autono"
 
 ### Module Hot Zones *[source: measured]*
 *High cognitive load (from typing signal) — take extra care with these files:*
 - `file_heat_map` (hes=0.887)
 - `import_rewriter` (hes=0.735)
 - `file_writer` (hes=0.735)
+- `local_name_registry_for_the` (hes=0.661)
 - `.operator_stats` (hes=0.66)
-- `dynamic_prompt` (hes=0.66)
+
+### AI Rework Surface
+*Miss rate: 21.5% (200 responses)*
+- Failed on: ""
+- Failed on: ""
+- Failed on: ""
 
 ### Recent Work
 - `5e29260` feat: numeric surface layer + narrative bug profiles + stale import fixes
@@ -197,13 +250,13 @@ OPERATOR SIGNAL: The repetition of the prompt and the deletion of "ce" suggest t
 - [CRITICAL] hardcoded_import in `pigeon_brain/读w_el_s002_v003_d0401_观话_λA.py`
 
 ### Prompt Evolution
-*This prompt has mutated 113x (186→789 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 114x (186→841 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
 *200 rework pairs × 113 mutations scored*
 *No significant signal yet — all 25 sections scored neutral.*
 
-**Reactor patches:** 0/430 applied (0% acceptance)
+**Reactor patches:** 0/433 applied (0% acceptance)
 
 ### File Consciousness
 *254 modules profiled*
@@ -318,9 +371,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-04-04 03:59 UTC · 77 prompts analyzed · zero LLM calls*
+*Auto-extracted 2026-04-05 03:28 UTC · 78 prompts analyzed · zero LLM calls*
 
-**Brevity:** 26.4 words/prompt | **Caps:** never | **Fragments:** 65% | **Questions:** 23% | **Directives:** 9%
+**Brevity:** 36.2 words/prompt | **Caps:** never | **Fragments:** 67% | **Questions:** 15% | **Directives:** 10%
 
 **Voice directives (personality tuning):**
 - Operator is semi-casual — use contractions, skip formalities, but keep technical precision.
@@ -330,7 +383,7 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 - Operator rarely uses punctuation — fragments and run-ons are normal. Don't overcorrect their style in quotes.
 - Operator uses plain language — avoid unnecessary jargon in explanations.
 
-**Vocabulary fingerprint:** to, in, and, is, the, this, i, copilot, we, it
+**Vocabulary fingerprint:** to, in, of, the, is, it, and, a, you, i
 <!-- /pigeon:voice-style -->
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
@@ -372,9 +425,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-04 · 243 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-05 · 270 message(s) · LLM-synthesized*
 
-**Dominant: `abandoned`** | Submit: 66% | WPM: 52.4 | Del: 25.6% | Hes: 0.443
+**Dominant: `abandoned`** | Submit: 66% | WPM: 52.6 | Del: 25.6% | Hes: 0.444
 
 Operator just built numeric surface layer unification and works in intense restructuring/focused cycles with high deletion rates, indicating iterative refinement through aggressive editing rather than planning.  
 - **Respond with concise, modular suggestions**—offer 2-3 line code blocks, not paragraphs, to match their high-WPM focused bursts.  
@@ -385,9 +438,9 @@ Operator just built numeric surface layer unification and works in intense restr
 They are most likely building toward a unified numeric pipeline for cross-module data validation.
 
 <!-- /pigeon:operator-state -->
-> **Cognitive reactor fired on `bug_profiles`** (hes=0.907, state=frustrated, avg_prompt=466571ms)
-> - Prompt composition time: 17885ms / 28321ms / 405057ms / 50883ms / 1830707ms (avg 466571ms)
-> **Directive**: When `bug_profiles` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
+> **Cognitive reactor fired on `entropy_shedding`** (hes=1.126, state=focused, avg_prompt=104346ms)
+> - Prompt composition time: 39076ms / 181560ms / 19762ms / 24540ms / 256793ms (avg 104346ms)
+> **Directive**: When `entropy_shedding` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
@@ -398,39 +451,39 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-04-04T03:30:02.613899+00:00",
+  "updated_at": "2026-04-05T03:28:13.376973+00:00",
   "latest_prompt": {
-    "session_n": 4,
-    "ts": "2026-04-04T03:30:02.613899+00:00",
-    "chars": 50,
-    "preview": "push / oberve mutation - test how organism mutates",
+    "session_n": 23,
+    "ts": "2026-04-05T03:28:13.376973+00:00",
+    "chars": 173,
+    "preview": "hat am i actually missing as  stress test - can we copress all of my python files to null - im ready to run maximim copression - push first then behin nuking length of files",
     "intent": "testing",
-    "state": "neutral",
+    "state": "focused",
     "files_open": [
-      "src/bug_profiles.py"
+      ".github/copilot-instructions.md"
     ],
     "module_refs": []
   },
   "signals": {
-    "wpm": 35.6,
-    "chars_per_sec": 3.0,
-    "deletion_ratio": 0.036,
+    "wpm": 44.3,
+    "chars_per_sec": 3.7,
+    "deletion_ratio": 0.037,
     "hesitation_count": 1,
     "rewrite_count": 0,
-    "typo_corrections": 1,
-    "intentional_deletions": 0,
-    "total_keystrokes": 55,
-    "duration_ms": 17885
+    "typo_corrections": 2,
+    "intentional_deletions": 2,
+    "total_keystrokes": 188,
+    "duration_ms": 49010
   },
   "composition_binding": {
     "matched": true,
     "source": "chat_compositions",
-    "age_ms": 59202,
-    "key": "|||2026-04-04T03:29:03.411046+00:00|55|17885|push / oberve mutation - test how organism mutates ",
+    "age_ms": 18296,
+    "key": "|||2026-04-05T03:27:55.080027+00:00|188|49010|hat am i actually missing as  stress test - can we copress all of my python files to null - im ready to run maximim copr",
     "match_score": 1.0
   },
   "deleted_words": [
-    "ce"
+    "wj"
   ],
   "rewrites": [],
   "task_queue": {
@@ -454,25 +507,25 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
     }
   ],
   "running_summary": {
-    "total_prompts": 308,
-    "avg_wpm": 12.5,
-    "avg_del_ratio": 0.051,
+    "total_prompts": 341,
+    "avg_wpm": 12.3,
+    "avg_del_ratio": 0.052,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 183,
-      "hesitant": 49,
-      "focused": 39,
-      "frustrated": 25,
-      "neutral": 11
+      "unknown": 199,
+      "hesitant": 55,
+      "focused": 40,
+      "frustrated": 30,
+      "neutral": 16
     },
     "baselines": {
       "n": 200,
-      "avg_wpm": 51.8,
+      "avg_wpm": 53.2,
       "avg_del": 0.259,
-      "avg_hes": 0.444,
-      "sd_wpm": 15.2,
+      "avg_hes": 0.448,
+      "sd_wpm": 15.3,
       "sd_del": 0.231,
-      "sd_hes": 0.162
+      "sd_hes": 0.164
     }
   }
 }
@@ -711,41 +764,97 @@ client: chat_composition_analyzer, chat_response_reader, composition_recon, os_h
 vscode-extension: classify_bridge, pulse_watcher
 <!-- /pigeon:auto-index -->
 <!-- pigeon:bug-voices -->
+
+
+<!-- pigeon:entropy-red-layer -->
+## Red Layer
+
+*file-linked entropy math surface*
+
+`red[module] = max(H_avg, 1 - shed_conf)`
+`vec[module] = [red, H_avg, shed_conf?, samples, hedges]`
+
+- `red[u_pj] = [0.450, 0.315, 0.550, 3, 0]`
+- `red[__init__.py] = [0.411, 0.411, null, 6, 1]`
+- `red[thought_completion] = [0.395, 0.395, null, 3, 0]`
+- `red[prompt_compositions.jsonl] = [0.365, 0.365, null, 3, 0]`
+- `red[chat_compositions.jsonl] = [0.361, 0.361, null, 3, 0]`
+- `red[pq_manifest_utils] = [0.344, 0.344, null, 2, 0]`
+- `red[pq_search_utils] = [0.344, 0.344, null, 2, 0]`
+- `red[classify_bridge.py] = [0.341, 0.341, null, 2, 0]`
+- `red[context_budget] = [0.338, 0.338, null, 2, 2]`
+- `red[copilot_prompt_manager] = [0.332, 0.332, null, 2, 0]`
+<!-- /pigeon:entropy-red-layer -->
+<!-- pigeon:entropy-map -->
+## Entropy Shedding Map
+
+*298 responses analyzed · global H=0.294 · 28.5% high-entropy · 5 explicit sheds*
+
+**where copilot is most uncertain (act with extra care):**
+
+- `__init__.py` H=0.411 (6 samples, 1 hedges)
+- `thought_completion` H=0.395 (3 samples, 0 hedges)
+- `prompt_compositions.jsonl` H=0.365 (3 samples, 0 hedges)
+- `chat_compositions.jsonl` H=0.361 (3 samples, 0 hedges)
+- `pq_manifest_utils` H=0.344 (2 samples, 0 hedges)
+- `pq_search_utils` H=0.344 (2 samples, 0 hedges)
+- `classify_bridge.py` H=0.341 (2 samples, 0 hedges)
+- `context_budget` H=0.338 (2 samples, 2 hedges)
+
+> emit `<!-- entropy:shed -->` blocks to improve this map.
+<!-- /pigeon:entropy-map -->
 ## Bug Voices
 
-*Persistent bug demons minted from registry scars - active filename bugs first.*
+*149 threads tracked across 52 pushes · fix rate: 11.1%*
 
-- `u_pe` d0402v002 · oc `Overcap Maw of upe` x6: "I keep swelling this file past the hard cap. Split me before I eat context." last=add bug dossier
-- `u_pj` d0402v002 · oc `Split Fiend of upj` x6: "I keep swelling this file past the hard cap. Split me before I eat context."
-- `警p_sa` d0402v003 · oc `Shard Hunger of psa` x6: "I keep swelling this file past the hard cap. Split me before I eat context." last=test rename mutation
-- `修f_sf` d0402v012 · oc `Overcap Maw of fsf` x5: "I keep swelling this file past the hard cap. Split me before I eat context."
-- `册f_reg` d0402v005 · oc `Split Fiend of freg` x5: "I keep swelling this file past the hard cap. Split me before I eat context."
+> fix rate is 11.1% — some things move but the bulk just sits there. 0 eternal bugs (every single report) and 62 chronic (70%+ of reports). these are the ones that need structural fixes, not patches. 74 threads resolved across 52 pushes. proof the loop works sometimes. trend is improving — recent pushes fix more than early ones.
+
+**the ones that never leave:**
+
+- `__main__` — [hardcoded_import] 17/52 reports. chronic. it comes back like clockwork.
+- `gemini_chat` — [hardcoded_import] 12/52 reports. chronic. it comes back like clockwork.
+- `dev_plan` — [hardcoded_import] 11/52 reports. chronic. it comes back like clockwork.
+- `run_rename` — [hardcoded_import] 11/52 reports. chronic. it comes back like clockwork.
+- `learning_loop` — [hardcoded_import] 11/52 reports. chronic. it comes back like clockwork.
+- `heal` — [hardcoded_import] 11/52 reports. chronic. it comes back like clockwork.
+- `traced_runner` — [hardcoded_import] 11/52 reports. chronic. it comes back like clockwork.
+
+**recently killed:**
+
+- `逆f_ba` [hardcoded_import] — gone since report #51. it stayed dead.
+- `算f_ps` [hardcoded_import] — gone since report #51. it stayed dead.
+- `run_batch_compile` [over_hard_cap] — gone since report #44. it stayed dead.
+- `.operator_stats` [over_hard_cap] — gone since report #44. it stayed dead.
+- `test_training_pairs` [hardcoded_import] — gone since report #44. it stayed dead.
+
+**last push (2026-04-04 5e29260):** 2 fixed, 2 new, 73 carried forward
+
 <!-- /pigeon:bug-voices -->
 <!-- pigeon:hooks -->
 ## Engagement Hooks
 
-*Auto-generated 2026-04-04 03:59 UTC -- every number is measured, every dare is real.*
+*Auto-generated 2026-04-05 03:28 UTC -- every number is measured, every dare is real.*
 
-- `警p_sa` v3: "Marked 6 times. Each push I think maybe this time. Each push the beta stays. Last change was 'test rename mutation'. It wasn't enough."
-- 23.9h session, 20 prompts, past 5am. Deletion ratio historically peaks in this window. One more meaningful edit or close the lid.
-- Router matched this prompt to `pre_process_every_prompt_via`, `every_entry_cross_references_all`, `generate_per_push_narrative_each` (bugs: oc). Context slimmed to 5 modules. Wrong match? Say so. Right match? Go deeper.
+- `推w_dp` v13: "Marked 5 times. Each push I think maybe this time. Each push the beta stays. Last change was ''. It wasn't enough."
+- `streaming_layer` is 10189 tokens. Hard cap is 200 lines. This file is 50 modules in a trench coat. One split command. That's all.
+- Rework rate: 75%. More than 1 in 3 responses needed correction. The prompt layer is dragging. Push to trigger mutation score update.
 
 <!-- /pigeon:hooks -->
 <!-- pigeon:active-template -->
 ## Active Template: /debug
 
-*Auto-selected 2026-04-04 03:59 UTC · mode: debug*
+*Auto-selected 2026-04-05 03:28 UTC · mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 52 | Del: 26% | Hes: 0.495
+**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.494
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
-**Deleted words:** should we clea, ouse
-**Unsaid threads:** should we clea
-**Rewrites:** "ouse" → "rowse bug profiles"
+**Deleted words:** i lit, readi, and what should we a, - it should work on push - like every push is a forced compression, apple, write me a recipie wor an apple pie, as python, autono
+**Unsaid threads:** i lit, readi, and what should we a, - it should work on push - like every push is a forced compression, apple, write me a recipie wor an apple pie, as python, autono
+**Rewrites:** "readi" → "not bea"; "and what should we a" → "also build copressor - it should work on w"; "- it should work on push - like every push is a forced compression" → "and al"; "apple" → "write me a recipie wor am"
 **Hot modules:** `file_heat_map` (hes=0.89), `import_rewriter` (hes=0.73), `file_writer` (hes=0.73)
 **Active bugs:** `u_pe` (oc), `u_pj` (oc), `警p_sa` (oc), `册f_reg` (oc)
-**Codes:** intent=`testing` state=`neutral` bl_wpm=52 bl_del=26%
+**Codes:** intent=`testing` state=`focused` bl_wpm=53 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
@@ -783,7 +892,7 @@ vscode-extension: classify_bridge, pulse_watcher
 
 ## Active Bug Dossier
 
-**Focus modules:** pre_process_every_prompt_via, every_entry_cross_references_all, generate_per_push_narrative_each, local_name_registry_for_the, one_shot_self_fix_analyzer
-**Focus bugs:** oc
+**Focus modules:** automated_self_healing_pipeline, one_shot_self_fix_analyzer, generate_per_push_narrative_each, measures_ai_answer_quality_from, copilot_self_diagnostic_detect_stale
+**Focus bugs:** de, oc
 
 <!-- /pigeon:active-template -->

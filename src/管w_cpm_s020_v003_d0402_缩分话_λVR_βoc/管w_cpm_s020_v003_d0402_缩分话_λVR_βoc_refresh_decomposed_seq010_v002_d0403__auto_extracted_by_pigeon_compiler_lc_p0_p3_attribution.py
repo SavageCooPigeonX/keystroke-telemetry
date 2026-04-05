@@ -38,6 +38,50 @@ def refresh_managed_prompt(
     operator_state_refreshed = inject_operator_state(root)
     injected = inject_prompt_telemetry(root, snapshot=snapshot)
 
+    # Entropy shedding map + red layer — copilot self-reported uncertainty
+    entropy_refreshed = False
+    try:
+        from src.entropy_shedding import build_entropy_block, build_red_layer_block
+
+        cp_path = root / '.github' / 'copilot-instructions.md'
+        if cp_path.exists():
+            text = cp_path.read_text(encoding='utf-8')
+            new_text = text
+
+            def _upsert_block(current_text: str, block: str, start_tag: str, end_tag: str) -> str:
+                if not block:
+                    return current_text
+                if start_tag in current_text:
+                    import re as _re
+                    pattern = _re.compile(
+                        _re.escape(start_tag) + r'.*?' + _re.escape(end_tag),
+                        _re.DOTALL,
+                    )
+                    return pattern.sub(block, current_text)
+                anchor = '<!-- pigeon:bug-voices -->'
+                if anchor in current_text:
+                    return current_text.replace(anchor, block + '\n' + anchor)
+                return current_text + '\n' + block + '\n'
+
+            new_text = _upsert_block(
+                new_text,
+                build_entropy_block(root),
+                '<!-- pigeon:entropy-map -->',
+                '<!-- /pigeon:entropy-map -->',
+            )
+            new_text = _upsert_block(
+                new_text,
+                build_red_layer_block(root),
+                '<!-- pigeon:entropy-red-layer -->',
+                '<!-- /pigeon:entropy-red-layer -->',
+            )
+
+            if new_text != text:
+                cp_path.write_text(new_text, encoding='utf-8')
+                entropy_refreshed = True
+    except Exception:
+        pass
+
     mutation_result = None
     if track_mutations:
         try:
@@ -71,6 +115,7 @@ def refresh_managed_prompt(
         'task_context_refreshed': task_context_refreshed,
         'task_queue_refreshed': task_queue_refreshed,
         'operator_state_refreshed': operator_state_refreshed,
+        'entropy_refreshed': entropy_refreshed,
         'prompt_telemetry_injected': injected,
         'mutation_result': mutation_result,
         'templates': templates_result,
