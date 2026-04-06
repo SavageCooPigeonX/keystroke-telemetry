@@ -1,4 +1,3 @@
-# @pigeon: seq=013 | role=traced_runner | depends=[trace_hook,live_server] | exports=[run_traced] | tokens=~350
 """Run any Python script with the pigeon trace hook active.
 
 Events are pushed to the live WebSocket server for real-time visualization.
@@ -9,13 +8,6 @@ Usage:
     py -m pigeon_brain.traced_runner stress_test.py
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 013 | VER: v002 | 102 lines | ~872 tokens
-# DESC:   run_any_python_script_with
-# INTENT: pigeon_brain_system
-# LAST:   2026-03-23 @ 465cbfa
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 
 import importlib.util
 import json

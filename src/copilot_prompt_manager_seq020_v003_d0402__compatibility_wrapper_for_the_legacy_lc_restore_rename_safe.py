@@ -1,18 +1,5 @@
 """Compatibility wrapper for the legacy copilot prompt manager import path."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 020 | VER: v003 | 37 lines | ~324 tokens
-# DESC:   compatibility_wrapper_for_the_legacy
-# INTENT: restore_rename_safe
-# LAST:   2026-04-02 @ f8ea95a
-# SESSIONS: 3
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-02T02:53:01.1309614Z
-# EDIT_HASH: auto
-# EDIT_WHY:  legacy import alias
-# EDIT_STATE: harvested
-# ── /pulse ──
 from __future__ import annotations
 
 import importlib.util

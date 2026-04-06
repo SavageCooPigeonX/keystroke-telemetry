@@ -1,12 +1,5 @@
 """streaming_layer_orchestrator_seq016_v001.py — Pigeon-extracted by compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 016 | VER: v003 | 140 lines | ~1,408 tokens
-# DESC:   pigeon_extracted_by_compiler
-# INTENT: dynamic_import_resolvers
-# LAST:   2026-03-28 @ b1971c0
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from dataclasses import dataclass, field, asdict
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from typing import Optional, Callable

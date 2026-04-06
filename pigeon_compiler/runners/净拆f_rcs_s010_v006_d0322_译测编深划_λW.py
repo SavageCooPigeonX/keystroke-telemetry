@@ -6,13 +6,6 @@ Usage:
     python codebase_auditor/run_clean_split_seq010_v001.py --all
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v006 | 267 lines | ~2,509 tokens
-# DESC:   full_clean_pipeline_deepseek_plan
-# INTENT: windows_max_path
-# LAST:   2026-03-22 @ 556f5b2
-# SESSIONS: 2
-# ──────────────────────────────────────────────
 import json, sys, argparse, shutil, traceback, importlib.util, glob as _glob
 from pathlib import Path
 

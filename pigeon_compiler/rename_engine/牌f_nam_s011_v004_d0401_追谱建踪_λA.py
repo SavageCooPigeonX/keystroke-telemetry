@@ -21,13 +21,6 @@ Rules:
 - Import rewriter handles cascading renames automatically
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 011 | VER: v004 | 496 lines | ~4,052 tokens
-# DESC:   encode_file_description_intent_into
-# INTENT: add_chinese_glyph
-# LAST:   2026-04-01 @ aa32a3f
-# SESSIONS: 2
-# ──────────────────────────────────────────────
 import ast
 import re
 from pathlib import Path

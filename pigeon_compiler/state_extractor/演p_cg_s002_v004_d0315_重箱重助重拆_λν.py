@@ -5,13 +5,6 @@ This is the key input for cluster grouping — functions that call each
 other should stay together after extraction.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v004 | 104 lines | ~847 tokens
-# DESC:   build_intra_file_call_graph
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 

@@ -4,13 +4,6 @@ Produces: list of functions, classes, top-level constants, with line ranges.
 No AI calls. No imports beyond stdlib.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v004 | 90 lines | ~734 tokens
-# DESC:   parse_python_file_into_function
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 

@@ -6,19 +6,6 @@ Merges with operator coaching as a per-push project management layer.
 Adapts intent quickly based on recent prompts. Zero LLM calls.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 034 | VER: v002 | 564 lines | ~5,306 tokens
-# DESC:   runs_ahead_of_operator_hallucinating
-# INTENT: compress_auto_index
-# LAST:   2026-04-01 @ 9cdc756
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-01T22:00:00Z
-# EDIT_HASH: auto
-# EDIT_WHY:  initial build intent simulator
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 from __future__ import annotations
 

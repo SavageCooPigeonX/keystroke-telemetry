@@ -1,12 +1,5 @@
 """resplit_helpers_seq011_v001.py — Shared helpers for re-splitter modules."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 011 | VER: v004 | 60 lines | ~501 tokens
-# DESC:   shared_helpers_for_re_splitter
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 

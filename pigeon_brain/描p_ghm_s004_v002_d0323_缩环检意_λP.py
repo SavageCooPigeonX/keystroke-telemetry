@@ -1,4 +1,3 @@
-# @pigeon: seq=004 | role=graph_heat_map | depends=[models,graph_extractor] | exports=[update_graph_heat,load_graph_heat] | tokens=~500
 """Graph heat map — failure accumulator per node. Port of file_heat_map.
 
 Cross-references electron deaths with graph nodes to build a failure
@@ -6,13 +5,6 @@ debt map: which nodes consistently kill electrons, cause loops, or
 produce timeouts. Isomorphic to file_heat_map but for agent execution.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 004 | VER: v002 | 100 lines | ~874 tokens
-# DESC:   failure_accumulator_per_node_port
-# INTENT: pigeon_brain_system
-# LAST:   2026-03-23 @ 465cbfa
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 
 import json
 from collections import defaultdict

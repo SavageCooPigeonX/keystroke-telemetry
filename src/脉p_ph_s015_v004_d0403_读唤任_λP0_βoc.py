@@ -30,12 +30,6 @@ Paired record schema (edit_pairs.jsonl):
       "session_n":   <prompt journal session_n>
     }
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-21T04:52:00.0000000Z
-# EDIT_HASH: auto
-# EDIT_WHY:  preserve harvested pulse metadata
-# EDIT_STATE: harvested
-# ── /pulse ──
 import hashlib
 import json
 import re

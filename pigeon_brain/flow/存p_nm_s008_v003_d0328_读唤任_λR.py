@@ -2,11 +2,6 @@
 # │  node_memory — per-node learning accumulation  │
 # │  pigeon_brain/flow                             │
 # └──────────────────────────────────────────────┘
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-25T00:00:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  initial implementation
-# ── /pulse ──
 """
 The experience vault. Stores raw learning entries per node and maintains
 compressed behavioral policies.
@@ -19,13 +14,6 @@ Exponential decay: rolling_score = historical * 0.9 + new_signal * 0.1
 Policy is rebuilt after each backward pass from the raw entries.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 008 | VER: v003 | 234 lines | ~2,084 tokens
-# DESC:   the_experience_vault_stores_raw
-# INTENT: dynamic_import_resolvers
-# LAST:   2026-03-28 @ b1971c0
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from __future__ import annotations
 
 import json

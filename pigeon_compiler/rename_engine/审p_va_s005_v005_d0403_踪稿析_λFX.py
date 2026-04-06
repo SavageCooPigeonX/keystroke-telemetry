@@ -4,13 +4,6 @@ Scans every .py file, parses import statements,
 checks that every internal import resolves to an existing file.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v005 | 128 lines | ~1,017 tokens
-# DESC:   post_rename_import_validation
-# INTENT: bug_dossier_injection
-# LAST:   2026-04-03 @ 2556283
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import ast
 import re
 from pathlib import Path

@@ -7,19 +7,6 @@ tasks, module heat, session running stats, and intent classification.
 Designed for live analysis: grep any field, plot any metric, no aggregation needed.
 Zero LLM calls — pure signal cross-referencing.
 """
-# ── pigeon ────────────────────────────────────
-# SEQ: 019 | VER: v003 | 807 lines | ~7,903 tokens
-# DESC:   every_entry_cross_references_all
-# INTENT: numeric_surface_layer
-# LAST:   2026-04-04 @ 5e29260
-# SESSIONS: 2
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-02T17:18:00Z
-# EDIT_HASH: auto
-# EDIT_WHY:  fix enricher module path
-# EDIT_STATE: harvested
-# ── /pulse ──
 from __future__ import annotations
 import json
 import re

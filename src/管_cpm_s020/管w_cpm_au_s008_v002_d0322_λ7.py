@@ -1,12 +1,5 @@
 """copilot_prompt_manager_seq020_audit_decomposed_seq008_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 008 | VER: v002 | 68 lines | ~729 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: stage_78_hook
-# LAST:   2026-03-22 @ 276af14
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from datetime import datetime, timezone
 from pathlib import Path
 import json

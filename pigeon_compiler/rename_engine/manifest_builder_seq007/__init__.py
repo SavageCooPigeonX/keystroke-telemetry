@@ -1,5 +1,4 @@
-"""manifest_builder_seq007/ — Pigeon-compliant module."""
-from .manifest_builder_seq007_build_all_manifests_seq031_v001 import build_all_manifests
-from .manifest_builder_seq007_build_manifest_decomposed_seq030_v001 import build_manifest
-from .manifest_builder_seq007_constants_seq001_v001 import BACKSPACE_BURST_MIN, LOG_DIRS, MAX_COMPLIANT, PAUSE_THRESHOLD_MS, SKIP_DIRS, SKIP_FILES, TRAIL_LIMIT, _LEGEND, _MARKER_RE
-from .manifest_builder_seq007_sync_master_decomposed_seq029_v001 import sync_master_structure
+"""manifest_builder_seq007/ -- auto-fixed pigeon package."""
+from .谱建f_mb_bam_s031_v001 import build_all_manifests
+from .谱建f_mb_bm_s030_v001 import build_manifest
+from .谱建f_mb_sm_s029_v001 import sync_master_structure

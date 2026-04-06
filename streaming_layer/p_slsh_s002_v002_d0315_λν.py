@@ -1,12 +1,5 @@
 """streaming_layer_simulation_helpers_seq002_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v002 | 28 lines | ~204 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import time
 
 def _sim_type(server, text, buf="", wpm=80):

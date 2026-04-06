@@ -2,24 +2,12 @@
 # │  backward — gradient distribution through the  │
 # │  code graph. pigeon_brain/flow                 │
 # └──────────────────────────────────────────────┘
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-27T04:30:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  wire DeepSeek as backprop engine
-# ── /pulse ──
 """Backward pass: walks electron path in REVERSE, computes credit/node,
 writes to node_memory. DeepSeek generates rich contribution analysis.
 Loss = rework*0.4 + del*0.3 + frustration*0.2 + ignored*0.1.
 Credit = overlap*0.35 + position*0.25 + relevance*0.25 + downstream*0.15.
 Cost: ~$0.003 per backward pass (1 DeepSeek call for analysis)."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 007 | VER: v005 | 271 lines | ~2,479 tokens
-# DESC:   backward_pass_walks_electron_path
-# INTENT: numeric_surface_layer
-# LAST:   2026-04-04 @ 5e29260
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 # ── pigeon: SEQ 007 | v001 | backprop_impl | 2026-03-25 ──
 from __future__ import annotations
 

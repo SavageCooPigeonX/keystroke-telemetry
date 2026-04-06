@@ -10,19 +10,6 @@ and recency into a single confidence state per module:
 Also computes a Copilot meta-state line for prompt injection.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 033 | VER: v001 | ~150 lines | ~1,200 tokens
-# DESC:   per_module_copilot_confidence_scorer
-# INTENT: confidence_scoring
-# LAST:   2026-04-01
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-01T22:00:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  initial confidence scorer
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 from __future__ import annotations
 import json

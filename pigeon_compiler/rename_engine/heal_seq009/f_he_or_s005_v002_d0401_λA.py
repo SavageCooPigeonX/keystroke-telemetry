@@ -1,12 +1,5 @@
 """heal_seq009_orchestrator_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v002 | 90 lines | ~725 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: add_chinese_glyph
-# LAST:   2026-04-01 @ aa32a3f
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from datetime import datetime, timezone
 from pathlib import Path
 from pigeon_compiler.rename_engine.正f_cmp_s008_v004_d0315_踪稿析_λν import (

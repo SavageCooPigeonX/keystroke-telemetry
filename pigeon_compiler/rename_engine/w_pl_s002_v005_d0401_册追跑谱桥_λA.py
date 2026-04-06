@@ -5,13 +5,6 @@ produces old_path → new_path map with module path translations.
 Includes description + intent slugs in filenames via nametag.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v005 | 158 lines | ~1,382 tokens
-# DESC:   generate_rename_plan_for_non
-# INTENT: add_chinese_glyph
-# LAST:   2026-04-01 @ aa32a3f
-# SESSIONS: 2
-# ──────────────────────────────────────────────
 import re
 from datetime import datetime, timezone
 from pathlib import Path

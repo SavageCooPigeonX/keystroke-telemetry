@@ -1,12 +1,5 @@
 """drift_seq003_compute_baseline_seq002_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v003 | 62 lines | ~557 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: stage_78_hook
-# LAST:   2026-03-22 @ 276af14
-# SESSIONS: 2
-# ──────────────────────────────────────────────
 from collections import Counter
 import time
 

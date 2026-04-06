@@ -1,12 +1,5 @@
 """self_fix_seq013_scan_duplicate_docstrings_seq003_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v002 | 35 lines | ~305 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: organism_health_system
-# LAST:   2026-03-29 @ 1f4291d
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from pathlib import Path
 import re
 

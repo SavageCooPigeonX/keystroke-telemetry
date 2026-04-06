@@ -1,5 +1,3 @@
-# @pigeon: seq=007 | role=streaming_layer | depends=[logger,models,context_budget,drift_watcher,resistance_bridge] | exports=[StreamingTelemetryServer,LiveDashboard,EventAggregator,SessionReplay,AlertEngine,MetricsCollector,StreamFormatter,ConnectionPool] | tokens=~12000 | coupling=0.9
-
 """streaming_layer_seq007_v001.py — MONOLITHIC live streaming interface for keystroke telemetry.
 
 This file is INTENTIONALLY oversized to test the Pigeon Code Compiler.
@@ -17,18 +15,6 @@ Features:
   - Stream formatting (JSON, CSV, compact)
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 007 | VER: v003 | 1155 lines | ~10,192 tokens
-# DESC:   monolithic_live_streaming_interface_for
-# INTENT: pulse_telemetry_prompt
-# LAST:   2026-03-17 @ 9e2a305
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 
 import json
 import time

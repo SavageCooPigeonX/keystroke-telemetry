@@ -1,4 +1,3 @@
-# @pigeon: seq=003 | role=core_logger | depends=[timestamp_utils,models] | exports=[TelemetryLogger] | tokens=~1800 | coupling=0.7
 """Core keystroke telemetry logger.
 
 Captures per-keystroke events within an app's text input for
@@ -7,18 +6,6 @@ Each event is emitted as a self-contained LLM-compatible JSON block
 (schema: keystroke_telemetry/v2).
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v005 | 178 lines | ~1,636 tokens
-# DESC:   core_keystroke_telemetry_logger
-# INTENT: wpm_outlier_filter
-# LAST:   2026-03-22 @ 4d007ac
-# SESSIONS: 2
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 
 import json
 import uuid

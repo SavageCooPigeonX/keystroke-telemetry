@@ -8,19 +8,6 @@ predicts better AI answers?
 Zero LLM calls. Pure signal correlation.
 Output:  logs/mutation_scores.json
 """
-# ── pigeon ────────────────────────────────────
-# SEQ: 021 | VER: v002 | 188 lines | ~1,611 tokens
-# DESC:   mutation_scorer_correlates_prompt_mutations
-# INTENT: implement_all_18
-# LAST:   2026-03-21 @ 068687f
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-20T00:00:00.000000+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  initial mutation scorer implementation
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 from __future__ import annotations
 import json

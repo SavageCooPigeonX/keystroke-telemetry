@@ -7,19 +7,6 @@ copilot-instructions.md so Copilot reads the enriched context on the next turn.
 
 Zero friction: called automatically from prompt_journal on every log_enriched_entry.
 """
-# ── pigeon ────────────────────────────────────
-# SEQ: 024 | VER: v004 | 530 lines | ~5,128 tokens
-# DESC:   pre_process_every_prompt_via
-# INTENT: p0_p3_attribution
-# LAST:   2026-04-03 @ d7cbc14
-# SESSIONS: 3
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-03T19:00:00Z
-# EDIT_HASH: auto
-# EDIT_WHY:  dossier scoring router
-# EDIT_STATE: harvested
-# ── /pulse ──
 from __future__ import annotations
 import json
 import re

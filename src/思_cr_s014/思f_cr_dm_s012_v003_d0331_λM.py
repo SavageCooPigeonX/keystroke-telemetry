@@ -5,19 +5,6 @@ Checks: AST validity, line count cap, no import breakage, no logic changes
 on high-coupling modules. Returns a verdict dict.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 012 | VER: v003 | 93 lines | ~832 tokens
-# DESC:   patch_safety_gating
-# INTENT: mutation_patch_pipeline
-# LAST:   2026-03-31 @ a9e145a
-# SESSIONS: 2
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-31T17:00:00.000000+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  implement decision maker from stub
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 from __future__ import annotations
 import ast

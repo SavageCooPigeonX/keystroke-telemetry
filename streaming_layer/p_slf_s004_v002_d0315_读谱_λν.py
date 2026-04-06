@@ -1,12 +1,5 @@
 """streaming_layer_formatter_seq004_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 004 | VER: v002 | 65 lines | ~546 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import json
 import os
 import time

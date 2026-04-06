@@ -6,13 +6,6 @@ to produce a full browsable markdown profile per bug demon.
 Called from prompt_enricher or manually:
     py -c "from src.bug_profiles import generate_profiles; generate_profiles(Path('.'))"
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-04T03:20:00Z
-# EDIT_HASH: auto
-# EDIT_WHY:  narrative comedy mutation
-# EDIT_AUTHOR: copilot
-# EDIT_STATE: harvested
-# ── /pulse ──
 from __future__ import annotations
 import json
 import re

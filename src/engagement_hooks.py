@@ -9,13 +9,6 @@ hook is designed to change what happens NEXT, not describe what happened.
 
 Zero LLM calls -- pure signal processing + behavioral targeting.
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# EDIT_AUTHOR: None
-# EDIT_STATE: idle
-# ── /pulse ──
 
 # -- pigeon ----------------------------------------
 # SEQ: 035 | VER: v003 | ~450 lines | ~4,800 tokens

@@ -11,19 +11,6 @@ Each git push = one learning cycle:
   8. Inject predictions into copilot-instructions
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 025 | VER: v002 | 436 lines | ~4,339 tokens
-# DESC:   the_push_is_the_unit
-# INTENT: selection_aware_os
-# LAST:   2026-03-29 @ fd2ab12
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-29T15:40:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  wire backward + predict into push cycle
-# EDIT_STATE: idle
-# ── /pulse ──
 from __future__ import annotations
 
 import json

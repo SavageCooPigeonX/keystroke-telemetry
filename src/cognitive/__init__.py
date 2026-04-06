@@ -1,21 +1,4 @@
-"""cognitive/ — Cognitive state detection and agent behavior adaptation.
-
-Maps keystroke telemetry signals into actionable intelligence:
-  - Classify operator cognitive state (7 states)
-  - Adapt agent behavior via prompt injection
-  - Detect unsaid thoughts from deleted content
-  - Track drift across sessions
-"""
-from src._resolve import src_import
-
-get_cognitive_modifier, VALID_STATES = src_import("cognitive.adapter_seq001", "get_cognitive_modifier", "VALID_STATES")
-extract_unsaid_thoughts = src_import("cognitive.unsaid_seq002", "extract_unsaid_thoughts")
-detect_session_drift, build_cognitive_context = src_import("cognitive.drift_seq003", "detect_session_drift", "build_cognitive_context")
-
-__all__ = [
-    "get_cognitive_modifier",
-    "VALID_STATES",
-    "extract_unsaid_thoughts",
-    "detect_session_drift",
-    "build_cognitive_context",
-]
+"""cognitive/ -- auto-fixed pigeon package."""
+from .偏p_dr_s003_v002_d0315_缩分话_λν import BaselineStore, compute_baseline, detect_session_drift, build_cognitive_context
+from .适p_ad_s001_v002_d0315_缩分话_λν import get_cognitive_modifier
+from .隐p_un_s002_v002_d0315_缩分话_λν import extract_unsaid_thoughts

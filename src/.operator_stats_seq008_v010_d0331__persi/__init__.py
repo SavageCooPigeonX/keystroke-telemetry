@@ -1,5 +1,1 @@
-""".operator_stats_seq008_v010_d0331__persi/ — Pigeon-compliant module."""
-from ..operator_stats_seq008_v010_d0331__persi_baselines_seq004_v001 import compute_baselines
-from ..operator_stats_seq008_v010_d0331__persi_classify_state_seq005_v001 import classify_state
-from ..operator_stats_seq008_v010_d0331__persi_constants_seq001_v001 import TIME_SLOTS, WPM_HUMAN_MAX
-from ..operator_stats_seq008_v010_d0331__persi_operator_stats_seq009_v001 import OperatorStats
+# dot-prefixed files not importable by Python

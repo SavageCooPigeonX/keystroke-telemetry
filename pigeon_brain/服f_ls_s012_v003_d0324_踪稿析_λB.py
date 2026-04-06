@@ -1,4 +1,3 @@
-# @pigeon: seq=012 | role=live_server | depends=[trace_hook,graph_extractor] | exports=[serve_live] | tokens=~700
 """WebSocket server for live execution tracing.
 
 Pushes trace events to connected browser clients in real-time.
@@ -9,13 +8,6 @@ Usage:
     py -m pigeon_brain live --port 8765
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 012 | VER: v003 | 258 lines | ~2,495 tokens
-# DESC:   websocket_server_for_live_execution
-# INTENT: 8888_word_backpropagation
-# LAST:   2026-03-24 @ af28c35
-# SESSIONS: 4
-# ──────────────────────────────────────────────
 
 import asyncio
 import json

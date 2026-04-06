@@ -11,19 +11,6 @@ specific files, this module autonomously:
 No human trigger. The 60-second background flush IS the input.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 014 | VER: v004 | 553 lines | ~5,144 tokens
-# DESC:   cognitive_reactor_autonomous_code_modification
-# INTENT: gemini_flash_enricher
-# LAST:   2026-03-30 @ 5018891
-# SESSIONS: 2
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-30T03:15:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  lower docstring patch threshold + track patches_applied
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 import json
 import os

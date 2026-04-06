@@ -4,13 +4,6 @@ Checks: line limits, missing functions, naming convention, completeness.
 Returns {valid: bool, errors: [], warnings: []}.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 006 | VER: v004 | 59 lines | ~579 tokens
-# DESC:   validate_cut_plan_before_execution
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from pathlib import Path
 from pigeon_compiler.pigeon_limits import PIGEON_MAX, PIGEON_RECOMMENDED
 

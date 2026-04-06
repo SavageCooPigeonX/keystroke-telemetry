@@ -1,7 +1,8 @@
-"""predictor_seq009/ — Pigeon-compliant module."""
-from .predictor_seq009_cache_utils_seq002_v001__预热 import load_predictions, save_predictions
-from .predictor_seq009_constants_seq001_v001__预热 import DEFAULT_PREDICTION_INTERVAL, MODULE_CLUSTER_THRESHOLD, PREDICTION_CACHE_FILE
-from .predictor_seq009_predictor_seq007_v002_d0330__预热_auto_extracted_by_pigeon_compiler_lc_rework_signal_0 import predict_next_needs
-from .predictor_seq009_seed_synthesizer_seq006_v001__预热 import synthesize_phantom_seed
-from .predictor_seq009_trend_extractor_seq004_v002_d0330__预热_auto_extracted_by_pigeon_compiler_lc_rework_signal_0 import extract_cognitive_trend
-from .predictor_seq009_trigger_seq005_v001__预热 import should_predict
+"""predictor_seq009/ -- auto-fixed pigeon package."""
+from .预p_pr_cu_s002_v001 import load_predictions, save_predictions
+from .预p_pr_pr_s007_v001 import predict_next_needs
+from .预p_pr_pr_s007_v002_d0330_λρ import predict_next_needs
+from .预p_pr_ss_s006_v001 import synthesize_phantom_seed
+from .预p_pr_te_s004_v001 import extract_cognitive_trend
+from .预p_pr_te_s004_v002_d0330_λρ import extract_cognitive_trend
+from .预p_pr_tr_s005_v001 import should_predict

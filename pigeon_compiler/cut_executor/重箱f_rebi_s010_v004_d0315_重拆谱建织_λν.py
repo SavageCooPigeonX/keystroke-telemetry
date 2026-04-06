@@ -4,13 +4,6 @@ First-fit-decreasing bin packing: largest functions placed first,
 each bin ≤ budget lines. Then writes the actual Python files.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v004 | 74 lines | ~704 tokens
-# DESC:   bin_packing_file_writing_for
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 from pigeon_compiler.cut_executor.重助p_rehe_s011_v004_d0315_重箱重拆切_λν import (

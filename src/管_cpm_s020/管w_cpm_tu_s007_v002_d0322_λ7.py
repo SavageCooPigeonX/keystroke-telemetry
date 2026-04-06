@@ -1,12 +1,5 @@
 """copilot_prompt_manager_seq020_telemetry_utils_seq007_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 007 | VER: v002 | 37 lines | ~329 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: stage_78_hook
-# LAST:   2026-03-22 @ 276af14
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from pathlib import Path
 import json
 import re

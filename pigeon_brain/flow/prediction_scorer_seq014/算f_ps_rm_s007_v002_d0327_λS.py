@@ -1,12 +1,5 @@
 """prediction_scorer_seq014_rework_matcher_seq007_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 007 | VER: v002 | 52 lines | ~460 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: pigeon_split_3
-# LAST:   2026-03-27 @ fd07906
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from datetime import datetime, timezone
 from typing import Any
 import re

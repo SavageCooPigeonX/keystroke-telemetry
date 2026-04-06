@@ -2,21 +2,9 @@
 # │  predictor — phantom electrons for speculative  │
 # │  execution. pigeon_brain/flow                   │
 # └──────────────────────────────────────────────┘
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-31T00:15:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  fix module fixation + confidence calibration
-# ── /pulse ──
 """Fires phantom electrons using cognitive profile (no real task). Triggers:
 state change, every N prompts, or module cluster (3+ refs). Cost: ~$0.03/phantom."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 009 | VER: v003 | 231 lines | ~2,174 tokens
-# DESC:   fires_phantom_electrons_using_cognitive
-# INTENT: gemini_flash_enricher
-# LAST:   2026-03-30 @ 5018891
-# SESSIONS: 4
-# ──────────────────────────────────────────────
 # ── pigeon: SEQ 009 | v001 | backprop_impl | 2026-03-25 ──
 from __future__ import annotations
 

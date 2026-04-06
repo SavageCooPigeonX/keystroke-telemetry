@@ -2,11 +2,6 @@
 # │  node_awakener — wakes a node, gates relevance │
 # │  pigeon_brain/flow                              │
 # └──────────────────────────────────────────────┘
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 """
 When a packet arrives at a node, the node WAKES UP.
 
@@ -20,19 +15,12 @@ Relevance is computed from:
   - direct dependency (if the node imports or is imported by a path member)
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v003 | 160 lines | ~1,252 tokens
-# DESC:   when_a_packet_arrives_at
-# INTENT: add_chinese_glyph
-# LAST:   2026-04-01 @ aa32a3f
-# SESSIONS: 2
-# ──────────────────────────────────────────────
 from __future__ import annotations
 
 import re
 from typing import Any
 
-from .context_packet_seq001_v002_d0324__包逆流_the_contextpacket_is_the_unit_lc_flow_engine_context import ContextPacket, NodeIntel
+from .包p_cpk_s001_v002_d0324_缩分话_λε import ContextPacket, NodeIntel
 
 RELEVANCE_THRESHOLD = 0.3
 HEAT_AUTO_RELEVANT = 0.5     # dual_score above this = always relevant

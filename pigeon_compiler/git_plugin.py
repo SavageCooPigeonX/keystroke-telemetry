@@ -769,7 +769,6 @@ def _generate_commit_coaching(
     return True
 
 
-
 def _load_coaching_prose(root: Path) -> str | None:
     """Load LLM-generated coaching prose from operator_coaching.md if present."""
     coaching_path = root / 'operator_coaching.md'

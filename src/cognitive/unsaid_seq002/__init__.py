@@ -1,2 +1,1 @@
-"""unsaid_seq002/ — Pigeon-compliant module."""
-from .unsaid_seq002_orchestrator_seq003_v003_d0322__隐编声忆_auto_extracted_by_pigeon_compiler_lc_stage_78_hook import extract_unsaid_thoughts
+from .隐p_un_or_s003_v003_d0322_λ7 import extract_unsaid_thoughts

@@ -4,18 +4,18 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 # /debug (RECOMMENDED)
 
-*Hydrated 2026-04-05 03:28 UTC · detected mode: debug*
+*Hydrated 2026-04-06 01:33 UTC · detected mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.494
+**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.495
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
-**Deleted words:** i lit, readi, and what should we a, - it should work on push - like every push is a forced compression, apple, write me a recipie wor an apple pie, as python, autono
-**Unsaid threads:** i lit, readi, and what should we a, - it should work on push - like every push is a forced compression, apple, write me a recipie wor an apple pie, as python, autono
-**Rewrites:** "readi" → "not bea"; "and what should we a" → "also build copressor - it should work on w"; "- it should work on push - like every push is a forced compression" → "and al"; "apple" → "write me a recipie wor am"
+**Deleted words:** readi, and what should we a, - it should work on push - like every push is a forced compression, apple, write me a recipie wor an apple pie, as python, autono, ;pat, - how much more soul
+**Unsaid threads:** readi, and what should we a, - it should work on push - like every push is a forced compression, apple, write me a recipie wor an apple pie, as python, autono, - how much more soul
+**Rewrites:** "apple" → "write me a recipie wor am"; "write me a recipie wor an apple pie" → "- checkif gemini reohraser triggers in cot - seq - version helpsllm in my oppini"; "math" → "think of that match this pattern of missrepresented thinking in code"; "as python" → "as words for pythong or something insane like that - pushi"
 **Hot modules:** `file_heat_map` (hes=0.89), `import_rewriter` (hes=0.73), `file_writer` (hes=0.73)
 **Active bugs:** `u_pe` (oc), `u_pj` (oc), `警p_sa` (oc), `册f_reg` (oc)
-**Codes:** intent=`testing` state=`focused` bl_wpm=53 bl_del=26%
+**Codes:** intent=`debugging` state=`neutral` bl_wpm=54 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
@@ -53,5 +53,5 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 ## Active Bug Dossier
 
-**Focus modules:** automated_self_healing_pipeline, one_shot_self_fix_analyzer, generate_per_push_narrative_each, measures_ai_answer_quality_from, copilot_self_diagnostic_detect_stale
+**Focus modules:** every_entry_cross_references_all, training_pair_generator_for_the, tracks_cognitive_load_per_module, copilot_self_diagnostic_detect_stale, local_name_registry_for_the
 **Focus bugs:** de, oc

@@ -14,13 +14,6 @@ Usage:
     python codebase_auditor/run_pigeon_loop_seq009_v001.py --all
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 009 | VER: v004 | 269 lines | ~2,858 tokens
-# DESC:   the_loop_refactor_until_pigeon
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import json, sys, argparse, traceback
 from pathlib import Path
 from datetime import datetime

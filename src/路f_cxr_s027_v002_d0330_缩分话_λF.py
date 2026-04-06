@@ -6,19 +6,6 @@ and formats them for injection into the enricher's DeepSeek context window.
 Zero LLM calls — pure keyword/trigram scoring with recency boost.
 Reads markdown shards from logs/shards/*.md.
 """
-# ── pigeon ────────────────────────────────────
-# SEQ: 027 | VER: v002 | 137 lines | ~1,216 tokens
-# DESC:   shard_relevance_scorer_context_injector
-# INTENT: gemini_flash_enricher
-# LAST:   2026-03-30 @ 5018891
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-30T07:00:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  update for markdown shards + contradiction awareness
-# EDIT_STATE: harvested
-# ── /pulse ──
 from __future__ import annotations
 import re
 from pathlib import Path

@@ -13,19 +13,6 @@ Shards are populated two ways:
 2. learn_from_rework() — called after every rework score, writes patterns
    back into the relevant shard so the system improves over time
 """
-# ── pigeon ────────────────────────────────────
-# SEQ: 026 | VER: v002 | 471 lines | ~4,413 tokens
-# DESC:   local_memory_shard_manager_markdown
-# INTENT: gemini_flash_enricher
-# LAST:   2026-03-30 @ 5018891
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-30T07:00:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  rewrite shards to markdown + contradiction detection
-# EDIT_STATE: harvested
-# ── /pulse ──
 from __future__ import annotations
 import json
 import re

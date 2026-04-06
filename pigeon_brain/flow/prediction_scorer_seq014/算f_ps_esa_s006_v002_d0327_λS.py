@@ -1,12 +1,5 @@
 """prediction_scorer_seq014_edit_session_analyzer_seq006_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 006 | VER: v002 | 21 lines | ~187 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: pigeon_split_3
-# LAST:   2026-03-27 @ fd07906
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from typing import Any
 import re
 

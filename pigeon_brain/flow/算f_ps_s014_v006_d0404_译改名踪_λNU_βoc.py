@@ -3,11 +3,6 @@
 # │  predictions against actual edit sessions +    │
 # │  rework signals. pigeon_brain/flow             │
 # └──────────────────────────────────────────────┘
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-30T06:00:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  add copilot_edits as primary source
-# ── /pulse ──
 """
 Prediction scorer v2 — edit-session based.
 
@@ -25,13 +20,6 @@ Confidence calibration: tracks predicted confidence vs actual F1 over time,
 penalizes overconfident wrong predictions harder.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 014 | VER: v006 | 648 lines | ~5,782 tokens
-# DESC:   edit_session_based
-# INTENT: numeric_surface_layer
-# LAST:   2026-04-04 @ 5e29260
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 # ── pigeon: SEQ 014 | v002 | edit_session_scoring | 2026-03-27 ──
 from __future__ import annotations
 
@@ -453,7 +441,7 @@ def score_predictions_post_edit(root: Path) -> dict[str, Any]:
 
     Should be called frequently (every prediction cycle in the learning loop).
     """
-    from .predictor_seq009_v003_d0327__预热_fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
+    from .预p_pr_s009_v004_d0330_踪稿析_λρ import (
         load_predictions, save_predictions,
     )
 
@@ -581,7 +569,7 @@ def score_predictions_post_commit(root: Path) -> dict[str, Any]:
     Supplements edit-session scoring with commit-level ground truth,
     merged with real-time copilot edit data.
     """
-    from .predictor_seq009_v003_d0327__预热_fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
+    from .预p_pr_s009_v004_d0330_踪稿析_λρ import (
         load_predictions,
     )
 

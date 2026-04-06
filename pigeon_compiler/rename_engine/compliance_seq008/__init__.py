@@ -1,6 +1,5 @@
-"""compliance_seq008/ — Pigeon-compliant module."""
-from .compliance_seq008_audit_decomposed_seq007_v004_d0322__正审图_auto_extracted_by_pigeon_compiler_lc_stage_78_hook import audit_compliance
-from .compliance_seq008_audit_wrapper_seq009_v004_d0322__正审图_auto_extracted_by_pigeon_compiler_lc_stage_78_hook import audit_compliance
-from .compliance_seq008_check_file_seq010_v004_d0322__正审图_auto_extracted_by_pigeon_compiler_lc_stage_78_hook import check_file
-from .compliance_seq008_constants_seq001_v001__正审图 import CRIT_LINES, MAX_LINES, SKIP_DIRS, WARN_LINES
-from .compliance_seq008_format_report_seq011_v004_d0322__正审图_auto_extracted_by_pigeon_compiler_lc_stage_78_hook import format_report
+"""compliance_seq008/ -- auto-fixed pigeon package."""
+from .正f_cmp_au_s007_v004_d0322_λ7 import audit_compliance
+from .正f_cmp_aw_s009_v004_d0322_λ7 import audit_compliance
+from .正f_cmp_cf_s010_v004_d0322_λ7 import check_file
+from .正f_cmp_fr_s011_v004_d0322_λ7 import format_report

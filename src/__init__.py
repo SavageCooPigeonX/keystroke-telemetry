@@ -1,28 +1,73 @@
-# @pigeon: role=package_root | exports=[TelemetryLogger,HesitationAnalyzer,DriftWatcher,cognitive]
-from src._resolve import src_import
-
-TelemetryLogger = src_import("logger_seq003", "TelemetryLogger")
-HesitationAnalyzer = src_import("resistance_bridge_seq006", "HesitationAnalyzer")
-DriftWatcher = src_import("drift_watcher_seq005", "DriftWatcher")
-score_context_budget = src_import("context_budget_seq004", "score_context_budget")
-
-# Cognitive layer — typing-pattern intelligence
-from src.cognitive import (
-    get_cognitive_modifier,
-    extract_unsaid_thoughts,
-    detect_session_drift,
-    build_cognitive_context,
-    VALID_STATES,
-)
-
-__all__ = [
-    "TelemetryLogger",
-    "HesitationAnalyzer",
-    "DriftWatcher",
-    "score_context_budget",
-    "get_cognitive_modifier",
-    "extract_unsaid_thoughts",
-    "detect_session_drift",
-    "build_cognitive_context",
-    "VALID_STATES",
-]
+"""src/ -- auto-fixed pigeon package."""
+from ._resolve import src_import
+from .bug_profiles import generate_profiles
+from .codebase_transmuter import numerify_file, build_numerical_mirror, build_narrative_mirror, compute_global_stats, transmute_all
+from .context_compressor import compress_file, compress_changed
+from .engagement_hooks import generate_hooks, build_hooks_block, inject_hooks
+from .entropy_shedding import parse_shed_blocks, parse_shed_block, accumulate_entropy, build_entropy_block, build_red_layer_block, format_shed_block
+from .intent_compressor import strip_metadata, strip_syntactic_noise, collapse_imports, skeleton, intent_map, CompressionResult, compress_file, compress_all
+from .numeric_surface import generate_surface
+from .prompt_enricher_seq024_v001 import enrich_prompt, inject_query_block
+from .prompt_journal_seq019_v001 import log_enriched_entry
+from .prompt_recon_seq016_v001 import reconstruct_latest, track_copilot_prompt_mutations
+from .prompt_signal_seq026_v001 import log_raw_signal, load_raw_signals, load_latest_raw
+from .self_fix_tracker import compute_accuracy, build_narrative_block
+from .template_selector import detect_mode, hydrate_templates, inject_active_template
+from .u_cs_s033_v001 import score_module_confidence, compute_copilot_meta_state, format_confidence_line
+from .u_pd_s024_v001 import list_sections, diff_block, main
+from .u_pe_s024_v004_d0403_λP0_βoc import enrich_prompt, inject_query_block
+from .u_pj_s019_v003_d0404_λNU_βoc import log_enriched_entry
+from .u_prc_s016_v001 import reconstruct_all, reconstruct_latest, build_mutation_audit, get_latest_composition, track_copilot_prompt_mutations
+from .u_psg_s026_v001 import log_raw_signal, load_raw_signals, load_latest_raw
+from .修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc import auto_compile_oversized, run_self_fix, write_self_fix_report, auto_apply_import_fixes
+from .典w_sd_s031_v002_d0401_缩分话_λG import generate_dictionary, generate_compact_injection, inject_dictionary_block, write_dictionary
+from .变p_ms_s021_v002_d0321_缩分话_λ18 import score_mutations
+from .叙p_pn_s012_v006_d0328_初写谱净拆_λR import generate_push_narrative
+from .叙p_pn_s012_v007_d0403_初写谱净拆_λP0 import generate_push_narrative
+from .叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc import generate_push_narrative
+from .合p_us_s026_v002_d0330_缩分话_λF import merge_signals, write_unified_log
+from .型p_mo_s002_v003_d0317_读唤任_λΠ import KeyEvent, MessageDraft
+from .境w_cb_s004_v008_d0321_初写谱净拆_λφ import default_budget_config, estimate_tokens, score_context_budget
+from .声w_vs_s028_v002_d0330_缩分话_λF import extract_voice_features, build_voice_profile, inject_voice_style
+from .对p_tp_s027_v003_d0402_缩分话_λVR_βoc import capture_training_pair, generate_cycle_summary
+from .层w_sl_s007_v003_d0317_读唤任_λΠ import StreamClient, AggregationBucket, Alert, StreamFormatter, ConnectionPool, EventAggregator, MetricsCollector, AlertEngine, SessionReplay, LiveDashboard, TelemetryHTTPHandler, StreamingTelemetryServer, run_demo
+from .录p_lo_s003_v005_d0322_译改名踪_λω import TelemetryLogger
+from .忆p_qm_s010_v004_d0321_踪稿析_λ18 import cluster_unsaid_threads, record_query, load_query_memory, load_query_memory
+from .思f_cr_s014_v003_d0321_译改名踪_λ18 import ingest_flush
+from .思f_cr_s014_v004_d0330_译改名踪_λF import ingest_flush
+from .思f_cr_s014_v005_d0331_译改名踪_λM import ingest_flush
+from .意w_is_s034_v002_d0401_缩分话_λC import simulate_intent
+from .探p_ur_s024_v002_d0329_读唤任_λS import reconstruct_if_needed
+from .探p_ur_s024_v003_d0331_读唤任_λI import reconstruct_if_needed
+from .控f_ost_s008_v007_d0322_初写谱净拆_λω import compute_baselines, classify_state, OperatorStats
+from .控w_ops_s008_v007_d0322_册追跑_λW import compute_baselines, classify_state, OperatorStats
+from .控w_ops_s008_v008_d0331_册追跑_λI import compute_baselines, classify_state, OperatorStats
+from .控w_ops_s008_v009_d0328_册追跑_λR import compute_baselines, classify_state, OperatorStats
+from .控w_ops_s008_v010_d0331_册追跑_λI import compute_baselines, classify_state, OperatorStats
+from .推w_dp_s017_v005_d0324_初写谱净拆_λB import build_task_context, inject_task_context
+from .推w_dp_s017_v005_d0324_初写谱净拆_λδ import build_task_context, inject_task_context
+from .推w_dp_s017_v008_d0329_初写谱净拆_λS import build_task_context, inject_task_context
+from .推w_dp_s017_v009_d0331_初写谱净拆_λI import build_task_context, inject_task_context
+from .推w_dp_s017_v013_d0403_初写谱净拆_λP0_βoc import build_task_context, inject_task_context
+from .桥p_rb_s006_v003_d0317_读唤任_λΠ import HesitationAnalyzer
+from .测p_rwd_s009_v006_d0403_译改名踪_λP0_βde import score_rework, score_rework_from_composition, record_rework, load_rework_stats
+from .漂p_dw_s005_v004_d0321_踪稿析_λ18 import DriftWatcher
+from .热p_fhm_s011_v005_d0403_踪稿析_λP0_βde import update_heat_map, load_heat_map, load_registry_churn
+from .片w_sm_s026_v002_d0330_缩分话_λF import read_shard, read_shard_entries, write_shard, append_to_shard, get_shard_summary, detect_contradiction, get_unresolved_contradictions, resolve_contradiction, seed_shards, learn_from_rework, list_shards
+from .环w_pc_s025_v002_d0329_读唤任_λS import run_push_cycle
+from .环w_pc_s025_v003_d0330_读唤任_λπ import run_push_cycle
+from .研w_rl_s029_v002_d0330_译改名踪_λL import synthesize_research
+from .研w_rl_s029_v003_d0331_译改名踪_λA import synthesize_research
+from .研w_rl_s029_v005_d0401_译改名踪_λG import synthesize_research
+from .管w_cpm_s020_v005_d0404_缩分话_λNU_βoc import inject_prompt_telemetry, inject_auto_index, inject_bug_voices, inject_operator_state, inject_entropy_layers, audit_copilot_prompt, refresh_managed_prompt
+from .编w_gc_s032_v002_d0401_读唤任_λG import GlyphCompiler, compile_to_glyph, compile_and_write
+from .编w_gc_s032_v003_d0401_读唤任_λG import NameCollector, NameTransformer, build_import_graph, GlyphCompilerV2, compile_codebase
+from .脉p_ph_s015_v004_d0403_读唤任_λP0_βoc import make_pulse_block, content_hash, read_pulse, clear_pulse, stamp_pulse, inject_pulse, pair_pulse_to_prompt, harvest_all_pulses, inject_all_pulses
+from .补p_rwb_s022_v002_d0321_缩分话_λ18 import backfill
+from .觉w_fc_s019_v002_d0321_缩分话_λ18 import build_file_consciousness, build_dating_profiles, slumber_party_audit, save_profiles, load_profiles, consciousness_report
+from .警p_sa_s030_v003_d0402_缩分话_λV import check_staleness, inject_staleness_alert
+from .警p_sa_s030_v005_d0404_缩分话_λNU import check_staleness, inject_staleness_alert
+from .训w_trwr_s028_v002_d0330_缩分话_λF import write_training_pair, backfill_rework
+from .路f_cxr_s027_v002_d0330_缩分话_λF import score_shard, route_context, format_shard_context
+from .递p_sh_s023_v002_d0321_缩分话_λ18 import generate
+from .队p_tq_s018_v002_d0317_缩分话_λQ import add_task, mark_done, mark_in_progress, build_task_queue_block, inject_task_queue

@@ -11,19 +11,6 @@ Strategy:
   - Cross-file context chains in dictionary
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 032 | VER: v003 | 532 lines | ~4,585 tokens
-# DESC:   glyph_compiler_v2_ast_based
-# INTENT: glyph_compiler_symbol
-# LAST:   2026-04-01 @ 51c097d
-# SESSIONS: 2
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-01T05:15:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  full AST transform rebuild
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 from __future__ import annotations
 import ast

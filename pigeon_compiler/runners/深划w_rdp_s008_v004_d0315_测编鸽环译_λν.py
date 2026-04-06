@@ -5,13 +5,6 @@ sends each to DeepSeek via weakness_planner,
 saves the raw JSON responses + writes the audit document.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 008 | VER: v004 | 69 lines | ~587 tokens
-# DESC:   phase_2_send_ether_maps
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import json, sys, os, traceback
 from pathlib import Path
 

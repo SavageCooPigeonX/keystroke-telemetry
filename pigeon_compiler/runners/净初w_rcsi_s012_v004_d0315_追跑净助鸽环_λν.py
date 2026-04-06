@@ -6,13 +6,6 @@ Generates __init__.py with re-exports and MANIFEST.md with:
 - Version stamp + cost tracking
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 012 | VER: v004 | 199 lines | ~1,663 tokens
-# DESC:   init_manifest_writers_for_clean
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import ast, re
 from pathlib import Path
 from datetime import datetime

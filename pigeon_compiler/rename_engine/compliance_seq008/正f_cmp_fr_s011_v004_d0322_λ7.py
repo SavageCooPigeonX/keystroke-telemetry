@@ -1,12 +1,5 @@
 """compliance_seq008_format_report_seq011_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 011 | VER: v004 | 31 lines | ~320 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: stage_78_hook
-# LAST:   2026-03-22 @ 276af14
-# SESSIONS: 3
-# ──────────────────────────────────────────────
 import re
 from .compliance_seq008_constants_seq001_v001__正审图 import MAX_LINES
 

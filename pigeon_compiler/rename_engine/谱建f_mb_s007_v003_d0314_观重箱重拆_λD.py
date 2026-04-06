@@ -12,12 +12,6 @@ heal_seq009 which reads git diffs and appends context on every push.
 Existing notes are PRESERVED across rebuilds (merge, don't overwrite).
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 007 | VER: v003 | 325 lines | ~2,866 tokens
-# DESC:   generate_living_manifest_md_per
-# INTENT: desc_upgrade
-# LAST:   2026-03-15 @ 855fd50
-# ──────────────────────────────────────────────
 import ast
 import json
 import re

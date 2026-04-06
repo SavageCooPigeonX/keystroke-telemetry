@@ -1,12 +1,5 @@
 """query_memory_seq010_record_query_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v002 | 46 lines | ~452 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: organism_health_system
-# LAST:   2026-03-29 @ 1f4291d
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from datetime import datetime, timezone
 from pathlib import Path
 import json

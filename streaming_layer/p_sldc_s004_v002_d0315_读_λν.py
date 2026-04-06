@@ -1,12 +1,5 @@
 """streaming_layer_dataclasses_seq004_v001.py — Pigeon-extracted by compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 004 | VER: v002 | 84 lines | ~717 tokens
-# DESC:   pigeon_extracted_by_compiler
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from dataclasses import dataclass, field, asdict
 
 @dataclass

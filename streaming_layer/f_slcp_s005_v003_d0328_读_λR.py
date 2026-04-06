@@ -1,12 +1,5 @@
 """streaming_layer_connection_pool_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v003 | 114 lines | ~969 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: dynamic_import_resolvers
-# LAST:   2026-03-28 @ b1971c0
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from src._resolve import src_import
 from streaming_layer._resolve import sl_import
 

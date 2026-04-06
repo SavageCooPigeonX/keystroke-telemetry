@@ -17,13 +17,6 @@ Filenames stay _seqNNN_vNNN.py (stable for imports).
 The MANIFEST description column IS the living filename extension.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 009 | VER: v005 | 263 lines | ~2,049 tokens
-# DESC:   self_healing_orchestrator
-# INTENT: add_chinese_glyph
-# LAST:   2026-04-01 @ aa32a3f
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import json
 import subprocess
 import re

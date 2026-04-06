@@ -1,12 +1,5 @@
 """管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_refresh_decomposed_seq010_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v002 | 70 lines | ~701 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: p0_p3_attribution
-# LAST:   2026-04-03 @ d7cbc14
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from pathlib import Path
 import re
 

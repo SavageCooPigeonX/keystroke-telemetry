@@ -5,13 +5,6 @@ Handles two operations:
 2. Append a versioned changelog entry for the compilation
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 013 | VER: v004 | 110 lines | ~1,016 tokens
-# DESC:   update_master_manifest_md_after
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import re
 from pathlib import Path
 from datetime import datetime

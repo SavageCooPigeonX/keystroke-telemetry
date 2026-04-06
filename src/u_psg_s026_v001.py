@@ -9,18 +9,6 @@ as measured reality — it will never contain hallucination or opinion.
 
 The enriched prompt_journal.jsonl READS from this and ADDS interpretation.
 """
-# ── pigeon ────────────────────────────────────
-# SEQ: 026 | VER: v001 | ~120 lines | ~900 tokens
-# DESC:   raw_prompt_signal_measured_truth
-# INTENT: signal_narrative_split
-# LAST:   2026-03-27
-# SESSIONS: 0
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 from __future__ import annotations
 
 import json

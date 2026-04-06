@@ -1,12 +1,5 @@
 """drift_seq003_build_cognitive_context_seq004_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 004 | VER: v003 | 76 lines | ~828 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: stage_78_hook
-# LAST:   2026-03-22 @ 276af14
-# SESSIONS: 2
-# ──────────────────────────────────────────────
 
 def build_cognitive_context(session_summaries: list, operator_id: str,
                             current_state: str = 'neutral') -> dict:

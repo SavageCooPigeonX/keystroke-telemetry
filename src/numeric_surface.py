@@ -7,13 +7,6 @@ LLMs read this FIRST. No text. Just addresses, edges, scores, clusters.
 
     py -c "from src.numeric_surface import generate_surface; generate_surface(Path('.'))"
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-04T03:10:00Z
-# EDIT_HASH: auto
-# EDIT_WHY:  initial numeric surface generator
-# EDIT_AUTHOR: copilot
-# EDIT_STATE: harvested
-# ── /pulse ──
 from __future__ import annotations
 import json
 from pathlib import Path

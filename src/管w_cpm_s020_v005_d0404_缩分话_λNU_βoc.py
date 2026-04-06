@@ -1,18 +1,5 @@
 """Copilot prompt manager — audits and manages all injected prompt blocks."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 020 | VER: v005 | 864 lines | ~8,012 tokens
-# DESC:   audits_and_manages_all_injected
-# INTENT: numeric_surface_layer
-# LAST:   2026-04-04 @ 5e29260
-# SESSIONS: 3
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-04T05:41:35.2468996Z
-# EDIT_HASH: auto
-# EDIT_WHY:  inject entropy map + red layer
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 from __future__ import annotations
 

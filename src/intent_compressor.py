@@ -15,11 +15,6 @@ each layer is independently measurable. the compressor reports:
 
 designed to run on every push via post-commit hook.
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 
 import ast
 import json

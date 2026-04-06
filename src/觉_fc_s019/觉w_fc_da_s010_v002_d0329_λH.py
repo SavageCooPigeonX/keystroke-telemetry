@@ -1,12 +1,5 @@
 """file_consciousness_seq019_dating_decomposed_seq010_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v002 | 87 lines | ~807 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: organism_health_system
-# LAST:   2026-03-29 @ 1f4291d
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from pathlib import Path
 import json
 import re

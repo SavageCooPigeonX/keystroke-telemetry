@@ -4,13 +4,6 @@ Returns a structured map of every .py file with its module path,
 line count, and whether it already follows Pigeon Code naming.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v004 | 108 lines | ~972 tokens
-# DESC:   walk_the_project_tree_and
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import re
 from pathlib import Path
 

@@ -3,11 +3,6 @@
 # │  tasks from accumulated packet intelligence    │
 # │  pigeon_brain/flow                             │
 # └──────────────────────────────────────────────┘
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 """
 The river delta. Where all flowing intelligence collects and deposits.
 
@@ -21,16 +16,9 @@ Two output modes:
   - write_multi()   → Merged output from multiple perspectives
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v003 | 175 lines | ~1,558 tokens
-# DESC:   the_river_delta_where_all
-# INTENT: add_chinese_glyph
-# LAST:   2026-04-01 @ aa32a3f
-# SESSIONS: 2
-# ──────────────────────────────────────────────
 from __future__ import annotations
 
-from .context_packet_seq001_v002_d0324__包逆流_the_contextpacket_is_the_unit_lc_flow_engine_context import ContextPacket
+from .包p_cpk_s001_v002_d0324_缩分话_λε import ContextPacket
 
 
 def write_task(packet: ContextPacket) -> str:

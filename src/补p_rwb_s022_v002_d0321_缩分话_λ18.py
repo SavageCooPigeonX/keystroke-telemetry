@@ -7,18 +7,6 @@ and appends any new entries to rework_log.json.
 
 Deduplicates by response ts + query_hint — safe to run repeatedly.
 """
-# ── pigeon ────────────────────────────────────
-# SEQ: 022 | VER: v002 | 151 lines | ~1,198 tokens
-# DESC:   reconstructs_historical_rework_scores_from
-# INTENT: implement_all_18
-# LAST:   2026-03-21 @ 068687f
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 from __future__ import annotations
 import glob as _glob
 import importlib.util

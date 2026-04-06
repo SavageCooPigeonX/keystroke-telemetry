@@ -11,19 +11,6 @@ At the end of every copilot prompt→response cycle, captures the muxed state:
 Writes to logs/shards/training_pairs.md as human-readable markdown.
 The anchor: pair programming. Copilot is the pair. This is the shared notebook.
 """
-# ── pigeon ────────────────────────────────────
-# SEQ: 028 | VER: v002 | 251 lines | ~2,113 tokens
-# DESC:   end_of_prompt_training_pair
-# INTENT: gemini_flash_enricher
-# LAST:   2026-03-30 @ 5018891
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-30T06:35:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  add per-shard training categorization
-# EDIT_STATE: harvested
-# ── /pulse ──
 from __future__ import annotations
 import json
 import re

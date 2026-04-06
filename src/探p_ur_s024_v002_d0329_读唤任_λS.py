@@ -1,17 +1,5 @@
 """Unsaid intent reconstruction via Gemini — fires on high-deletion prompts."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 024 | VER: v002 | 131 lines | ~1,112 tokens
-# DESC:   fires_on_high_deletion_prompts
-# INTENT: selection_aware_os
-# LAST:   2026-03-29 @ fd2ab12
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 import json
 import urllib.request
 import urllib.error

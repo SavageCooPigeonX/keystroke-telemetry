@@ -1,12 +1,5 @@
 """streaming_layer_metrics_seq007_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 007 | VER: v003 | 93 lines | ~824 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: dynamic_import_resolvers
-# LAST:   2026-03-28 @ b1971c0
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from collections import deque
 import math
 import statistics

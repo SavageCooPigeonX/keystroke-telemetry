@@ -1,12 +1,5 @@
 """streaming_layer_constants_seq001_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v002 | 52 lines | ~261 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import json
 
 DEFAULT_PORT = 8787

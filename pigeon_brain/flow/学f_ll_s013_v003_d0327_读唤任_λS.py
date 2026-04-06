@@ -2,11 +2,6 @@
 # │  learning_loop — perpetual forward → backward  │
 # │  training loop. Never stops. pigeon_brain/flow │
 # └──────────────────────────────────────────────┘
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-27T08:45:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  wire prediction scoring into cycle
-# ── /pulse ──
 """
 The perpetual learning loop.
 
@@ -28,13 +23,6 @@ Run:
 Cost: ~$0.003 per forward+backward cycle (DeepSeek-chat).
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 013 | VER: v003 | 315 lines | ~2,874 tokens
-# DESC:   the_perpetual_learning_loop
-# INTENT: pigeon_split_3
-# LAST:   2026-03-27 @ fd07906
-# SESSIONS: 2
-# ──────────────────────────────────────────────
 # ── pigeon: SEQ 013 | v001 | deepseek_backprop | 2026-03-27 ──
 from __future__ import annotations
 
@@ -108,13 +96,13 @@ def run_single_cycle(
 
     Returns cycle result dict.
     """
-    from .flow_engine_seq003_v002_d0324__流双逆_the_flow_engine_is_the_lc_flow_engine_context import (
+    from .流f_fe_s003_v002_d0324_缩分话_λε import (
         run_flow, run_multi, load_graph_data,
     )
-    from .task_writer_seq005_v003_d0401__the_river_delta_where_all_lc_add_chinese_glyph import (
+    from .任w_tawr_s005_v003_d0401_唤脉运分_λA import (
         write_task,
     )
-    from .backward_seq007_v004_d0328__逆_backward_pass_walks_electron_path_lc_dynamic_import_resolvers import (
+    from .逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc import (
         backward_pass, log_forward_pass,
     )
 
@@ -195,15 +183,15 @@ def run_single_cycle(
 
 def run_prediction_cycle(root: Path, state: dict[str, Any]) -> int:
     """Fire phantom electrons from cognitive profile."""
-    from .predictor_seq009_v003_d0327__预热_fires_phantom_electrons_using_cognitive_lc_pigeon_split_3 import (
+    from .预p_pr_s009_v004_d0330_踪稿析_λρ import (
         predict_next_needs,
     )
-    from .flow_engine_seq003_v002_d0324__流双逆_the_flow_engine_is_the_lc_flow_engine_context import (
+    from .流f_fe_s003_v002_d0324_缩分话_λε import (
         run_flow,
     )
     # Score any existing predictions against edit sessions (primary)
     try:
-        from .prediction_scorer_seq014_v005_d0330__算思录研_edit_session_based_lc_gemini_flash_enricher import (
+        from .算f_ps_s014_v006_d0404_译改名踪_λNU_βoc import (
             score_predictions_post_edit,
         )
         score_result = score_predictions_post_edit(root)

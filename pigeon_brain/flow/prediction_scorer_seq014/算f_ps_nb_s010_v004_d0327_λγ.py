@@ -1,12 +1,5 @@
 """prediction_scorer_seq014_node_backfill_seq010_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v004 | 53 lines | ~499 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: fix_bare_globals
-# LAST:   2026-03-27 @ e894b6a
-# SESSIONS: 3
-# ──────────────────────────────────────────────
 from pathlib import Path
 from typing import Any
 import hashlib

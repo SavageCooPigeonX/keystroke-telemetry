@@ -5,19 +5,6 @@ Writes changes to disk only after passing decision_maker safety gate.
 Logs every application to logs/patch_applications.jsonl.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 011 | VER: v003 | 128 lines | ~1,075 tokens
-# DESC:   apply_code_patches_to_source
-# INTENT: mutation_patch_pipeline
-# LAST:   2026-03-31 @ a9e145a
-# SESSIONS: 2
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-31T17:00:00.000000+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  implement patch writer from stub
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 from __future__ import annotations
 import json

@@ -1,17 +1,4 @@
 """Copilot self-diagnostic: detect stale managed blocks in copilot-instructions.md."""
-# ── pigeon ────────────────────────────────────
-# SEQ: 030 | VER: v005 | 199 lines | ~1,673 tokens
-# DESC:   copilot_self_diagnostic_detect_stale
-# INTENT: numeric_surface_layer
-# LAST:   2026-04-04 @ 5e29260
-# SESSIONS: 4
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-02T16:00:00Z
-# EDIT_HASH: auto
-# EDIT_WHY:  test rename mutation
-# EDIT_STATE: harvested
-# ── /pulse ──
 from __future__ import annotations
 import re
 from pathlib import Path

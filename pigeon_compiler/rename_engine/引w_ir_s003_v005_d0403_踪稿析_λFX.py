@@ -5,13 +5,6 @@ scans every .py file and rewrites import statements atomically.
 Handles: from X import Y, import X, from X.sub import Y.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v005 | 199 lines | ~1,888 tokens
-# DESC:   rewrite_all_imports_across_the
-# INTENT: bug_dossier_injection
-# LAST:   2026-04-03 @ 2556283
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import re
 from pathlib import Path
 
@@ -59,6 +52,7 @@ def rewrite_all_imports(root: Path, import_map: dict,
     """
     root = Path(root)
     changes = []
+    failures = []
     # Build stem map for broader matching
     stem_map = _build_stem_map(import_map)
 
@@ -67,6 +61,7 @@ def rewrite_all_imports(root: Path, import_map: dict,
             continue
         text = _safe_read(py)
         if not text:
+            failures.append({'file': str(py), 'reason': 'read_failed'})
             continue
         # Quick check: does this file reference any old module?
         if not _has_any_reference(text, import_map, stem_map):
@@ -78,7 +73,15 @@ def rewrite_all_imports(root: Path, import_map: dict,
                 c['file'] = rel
             changes.extend(file_changes)
             if not dry_run:
-                py.write_text(new_text, encoding='utf-8')
+                try:
+                    py.write_text(new_text, encoding='utf-8')
+                except Exception as e:
+                    failures.append({'file': rel, 'reason': f'write_failed: {e}'})
+    if failures:
+        import json
+        fail_log = root / 'logs' / 'import_rewriter_failures.json'
+        fail_log.parent.mkdir(parents=True, exist_ok=True)
+        fail_log.write_text(json.dumps(failures, indent=2), encoding='utf-8')
     return changes
 
 

@@ -1,10 +1,4 @@
 """Compatibility wrapper for the legacy prompt_signal import path."""
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-02T03:57:02.9061246Z
-# EDIT_HASH: auto
-# EDIT_WHY:  repair legacy wrapper
-# EDIT_STATE: harvested
-# ── /pulse ──
 from __future__ import annotations
 
 import importlib.util

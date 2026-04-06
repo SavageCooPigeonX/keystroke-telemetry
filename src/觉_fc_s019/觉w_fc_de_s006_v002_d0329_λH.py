@@ -1,12 +1,5 @@
 """file_consciousness_seq019_dependencies_seq006_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 006 | VER: v002 | 46 lines | ~503 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: organism_health_system
-# LAST:   2026-03-29 @ 1f4291d
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from pathlib import Path
 import ast
 import json

@@ -1,12 +1,5 @@
 """self_fix_seq013_scan_over_hard_cap_decomposed_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v002 | 55 lines | ~515 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: organism_health_system
-# LAST:   2026-03-29 @ 1f4291d
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from pathlib import Path
 import re
 

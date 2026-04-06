@@ -1,4 +1,3 @@
-# @pigeon: seq=005 | role=loop_detector | depends=[models] | exports=[detect_loops,load_loop_stats] | tokens=~400
 """Loop detector — recurring path detection. Port of query_memory.
 
 Tracks execution paths that recur: the same sequence of file transitions
@@ -6,13 +5,6 @@ happening repeatedly = the agent is stuck. Like query_memory fingerprints
 recurring questions, this fingerprints recurring execution paths.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v002 | 112 lines | ~910 tokens
-# DESC:   recurring_path_detection_port_of
-# INTENT: pigeon_brain_system
-# LAST:   2026-03-23 @ 465cbfa
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 
 import json
 import re

@@ -1,12 +1,5 @@
 """learning_loop_seq013_prediction_cycle_seq003_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v004 | 40 lines | ~431 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: dynamic_import_resolvers
-# LAST:   2026-03-28 @ b1971c0
-# SESSIONS: 5
-# ──────────────────────────────────────────────
 from pathlib import Path
 from typing import Any
 import logging

@@ -3,13 +3,6 @@
 Reads the new files, counts lines, lists exports, writes manifest.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v004 | 69 lines | ~448 tokens
-# DESC:   generate_manifest_md_for_a
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from pathlib import Path
 from datetime import datetime
 

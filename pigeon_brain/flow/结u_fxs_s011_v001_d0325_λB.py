@@ -2,11 +2,6 @@
 # │  fix_summary — structured diff analysis        │
 # │  pigeon_brain/flow                             │
 # └──────────────────────────────────────────────┘
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-25T00:00:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  initial implementation
-# ── /pulse ──
 """
 The ground truth extractor. Converts raw git diffs into structured
 fix summaries that the backward pass can compare against node predictions.
@@ -19,13 +14,6 @@ function signature changes → rename_function, new guard clauses →
 add_guard, etc.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 011 | VER: v001 | ~150 lines | ~1,100 tokens
-# DESC:   structured_diff_analysis
-# INTENT: backprop_impl
-# LAST:   2026-03-25
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from __future__ import annotations
 
 import json

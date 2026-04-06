@@ -1,4 +1,3 @@
-# @pigeon: seq=002 | role=execution_logger | depends=[models] | exports=[ExecutionLogger] | tokens=~600
 """Execution telemetry logger — isomorphic to TelemetryLogger for agent flows.
 
 Captures per-transition events as files call other files. Each event is
@@ -6,13 +5,6 @@ a self-contained JSON block (schema: execution_telemetry/v1). Tracks
 electrons (intent units) through their lifecycle.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v003 | 165 lines | ~1,626 tokens
-# DESC:   isomorphic_to_telemetrylogger_for_agent
-# INTENT: add_chinese_glyph
-# LAST:   2026-04-01 @ aa32a3f
-# SESSIONS: 2
-# ──────────────────────────────────────────────
 
 import json
 import uuid
@@ -20,7 +12,7 @@ import time
 from pathlib import Path
 from dataclasses import asdict
 
-from .models_seq001_v002_d0323__型层包_isomorphic_to_keystroke_models_lc_pigeon_brain_system import (
+from .型p_mo_s001_v002_d0323_读唤任_λP import (
     SCHEMA_VERSION, ExecutionEvent, Electron,
     ElectronStatus, EventType, DeathCause,
 )

@@ -1,12 +1,5 @@
 """query_memory_seq010_load_memory_decomposed_seq006_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 006 | VER: v002 | 43 lines | ~374 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: organism_health_system
-# LAST:   2026-03-29 @ 1f4291d
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from collections import Counter
 from pathlib import Path
 import json

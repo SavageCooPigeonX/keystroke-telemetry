@@ -1,12 +1,5 @@
 """self_fix_seq013_auto_compile_oversized_decomposed_seq009_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 009 | VER: v003 | 96 lines | ~857 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: verify_filename_mutation
-# LAST:   2026-04-02 @ 4eb4c79
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from pathlib import Path
 import re
 

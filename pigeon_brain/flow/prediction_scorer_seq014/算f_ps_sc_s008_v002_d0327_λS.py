@@ -1,12 +1,5 @@
 """prediction_scorer_seq014_scoring_core_seq008_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 008 | VER: v002 | 69 lines | ~713 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: pigeon_split_3
-# LAST:   2026-03-27 @ fd07906
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from datetime import datetime, timezone
 from typing import Any
 import re

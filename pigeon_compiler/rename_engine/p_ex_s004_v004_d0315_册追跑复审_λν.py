@@ -4,13 +4,6 @@ Renames files on disk, updates __init__.py re-exports,
 and maintains a rollback log for atomic recovery.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 004 | VER: v004 | 89 lines | ~712 tokens
-# DESC:   execute_file_renames_with_rollback
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import json
 import shutil
 from pathlib import Path

@@ -1,12 +1,5 @@
 """push_cycle_seq025_signal_extractors_seq003_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v002 | 60 lines | ~614 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: organism_health_system
-# LAST:   2026-03-29 @ 1f4291d
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from pathlib import Path
 
 def _extract_operator_signal(entries: list[dict]) -> dict:

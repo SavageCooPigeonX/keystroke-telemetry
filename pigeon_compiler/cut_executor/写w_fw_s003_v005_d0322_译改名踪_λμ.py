@@ -4,13 +4,6 @@ Creates each file with: docstring, imports, extracted code.
 Resolves which imports each file actually needs.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v005 | 85 lines | ~783 tokens
-# DESC:   write_new_pigeon_compliant_files
-# INTENT: multi_line_import
-# LAST:   2026-03-22 @ 4e3a7c4
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 from pigeon_compiler.pigeon_limits import PIGEON_MAX, PIGEON_RECOMMENDED

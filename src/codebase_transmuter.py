@@ -8,13 +8,6 @@ layer 3: build/narrative/  — unhinged comedy prose with persistent personaliti
           each file is a character. bugs are demons. metrics are moods.
 also:     logs/codebase_stats.json — global metrics dashboard.
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-04T07:30:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  entropy shedding into file personalities + copilot touch tracking
-# EDIT_AUTHOR: copilot
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 import ast
 import json

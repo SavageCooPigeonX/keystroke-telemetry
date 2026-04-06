@@ -1,13 +1,5 @@
-# @pigeon: seq=001 | role=models | depends=[] | exports=[ExecutionEvent,Electron] | tokens=~350
 """Dataclasses for execution telemetry — isomorphic to keystroke models."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v002 | 64 lines | ~424 tokens
-# DESC:   isomorphic_to_keystroke_models
-# INTENT: pigeon_brain_system
-# LAST:   2026-03-23 @ 465cbfa
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 
 from dataclasses import dataclass, field
 from enum import Enum

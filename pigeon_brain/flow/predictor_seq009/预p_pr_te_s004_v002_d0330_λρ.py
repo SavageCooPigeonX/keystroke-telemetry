@@ -1,12 +1,5 @@
 """predictor_seq009_trend_extractor_seq004_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 004 | VER: v002 | 81 lines | ~865 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: rework_signal_0
-# LAST:   2026-03-30 @ 2c247ba
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from collections import Counter
 from pathlib import Path
 from typing import Any

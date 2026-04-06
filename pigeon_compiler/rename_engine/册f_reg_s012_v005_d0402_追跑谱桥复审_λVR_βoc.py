@@ -26,13 +26,6 @@ intent = what was LAST DONE (mutates every push)
 _lc_  = separator between desc and intent
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 012 | VER: v005 | 366 lines | ~3,160 tokens
-# DESC:   local_name_registry_for_the
-# INTENT: verify_filename_mutation
-# LAST:   2026-04-02 @ 4eb4c79
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import json
 import re
 from datetime import datetime, timezone

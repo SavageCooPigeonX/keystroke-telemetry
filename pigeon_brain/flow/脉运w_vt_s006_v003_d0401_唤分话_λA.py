@@ -2,11 +2,6 @@
 # │  vein_transport — edge traversal with effects  │
 # │  pigeon_brain/flow                             │
 # └──────────────────────────────────────────────┘
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 """
 As a packet flows along an edge (vein), the edge modifies the signal.
 
@@ -17,18 +12,11 @@ Dead veins (clot connections) add warnings and increase heat.
 The vein is not passive plumbing. It's a transformation channel.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 006 | VER: v003 | 128 lines | ~965 tokens
-# DESC:   as_a_packet_flows_along
-# INTENT: add_chinese_glyph
-# LAST:   2026-04-01 @ aa32a3f
-# SESSIONS: 2
-# ──────────────────────────────────────────────
 from __future__ import annotations
 
 from typing import Any
 
-from .context_packet_seq001_v002_d0324__包逆流_the_contextpacket_is_the_unit_lc_flow_engine_context import ContextPacket
+from .包p_cpk_s001_v002_d0324_缩分话_λε import ContextPacket
 
 DEAD_VEIN_HEAT = 0.15
 WEAK_THRESHOLD = 0.3

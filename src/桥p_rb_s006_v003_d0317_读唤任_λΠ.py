@@ -1,4 +1,3 @@
-# @pigeon: seq=006 | role=resistance_bridge | depends=[models,logger] | exports=[HesitationAnalyzer] | tokens=~500
 """Bridge between keystroke telemetry and pigeon compiler resistance scoring.
 
 Reads telemetry summaries and computes per-file hesitation signals that
@@ -6,18 +5,6 @@ feed back into the Ether Map's resistance score. Files that cause the most
 human hesitation (pauses, rewrites, deletions) are split candidates.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 006 | VER: v003 | 124 lines | ~1,222 tokens
-# DESC:   bridge_between_keystroke_telemetry_and
-# INTENT: pulse_telemetry_prompt
-# LAST:   2026-03-17 @ 9e2a305
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 
 import json
 from pathlib import Path

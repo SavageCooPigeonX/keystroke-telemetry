@@ -10,13 +10,6 @@ Usage:
     python -m pigeon_compiler.runners.run_batch_compile_seq015_v001 --include-compiler
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 015 | VER: v002 | 232 lines | ~1,999 tokens
-# DESC:   compile_entire_codebase_to_pigeon
-# INTENT: dynamic_import_resolvers
-# LAST:   2026-03-28 @ b1971c0
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import sys, argparse, traceback, re
 from pathlib import Path
 

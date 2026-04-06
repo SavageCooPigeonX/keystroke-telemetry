@@ -1,4 +1,3 @@
-# @pigeon: seq=011 | role=trace_hook | depends=[models,graph_extractor] | exports=[start_trace,stop_trace] | tokens=~600
 """Live execution trace hook — instruments Python calls between pigeon modules.
 
 Uses sys.settrace to capture real inter-module call/return events and writes
@@ -12,13 +11,6 @@ Usage:
     stop_trace()
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 011 | VER: v002 | 137 lines | ~976 tokens
-# DESC:   instruments_python_calls_between_pigeon
-# INTENT: pigeon_brain_system
-# LAST:   2026-03-23 @ 465cbfa
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 
 import json
 import os

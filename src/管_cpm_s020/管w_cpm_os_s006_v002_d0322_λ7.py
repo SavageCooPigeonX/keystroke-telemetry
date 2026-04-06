@@ -1,12 +1,5 @@
 """copilot_prompt_manager_seq020_operator_state_decomposed_seq006_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 006 | VER: v002 | 62 lines | ~632 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: stage_78_hook
-# LAST:   2026-03-22 @ 276af14
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from datetime import datetime, timezone
 from pathlib import Path
 import re

@@ -1,9 +1,8 @@
-"""registry_seq012/ — Pigeon-compliant module."""
-from .registry_seq012_build_registry_seq007_v001 import build_registry_from_scan
+"""registry_seq012/ -- auto-fixed pigeon package."""
 from .registry_seq012_bump_all_versions_seq005b_v001 import bump_all_versions
 from .registry_seq012_bump_version_seq005a_v001 import bump_version
-from .registry_seq012_constants_seq001_v001 import LC_SEP, PIGEON_STEM_RE, REGISTRY_FILE
-from .registry_seq012_diff_seq006_v002_d0401__auto_extracted_by_pigeon_compiler_lc_add_chinese_glyph import diff_registry_vs_disk
-from .registry_seq012_parser_seq003_v001 import build_pigeon_filename, parse_pigeon_stem
-from .registry_seq012_path_utils_seq002_v001 import load_registry, registry_path, save_registry
-from .registry_seq012_version_bump_seq005_v001 import bump_all_versions, bump_version
+from .册f_reg_br_s007_v001 import build_registry_from_scan
+from .册f_reg_di_s006_v002_d0401_λA import diff_registry_vs_disk
+from .册f_reg_pa_s003_v001 import parse_pigeon_stem, build_pigeon_filename
+from .册f_reg_pu_s002_v001 import registry_path, load_registry, save_registry
+from .册f_reg_vb_s005_v001 import bump_version, bump_all_versions

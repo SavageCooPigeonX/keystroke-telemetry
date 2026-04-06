@@ -1,18 +1,5 @@
 """One-shot self-fix analyzer: cross-file problem detection + targeted resolution."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 013 | VER: v012 | 632 lines | ~5,829 tokens
-# DESC:   one_shot_self_fix_analyzer
-# INTENT: verify_filename_mutation
-# LAST:   2026-04-02 @ 4eb4c79
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-02T19:30:01.8857153Z
-# EDIT_HASH: auto
-# EDIT_WHY:  raise auto compile throughput
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 import ast
 import json

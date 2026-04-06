@@ -1,4 +1,3 @@
-# @pigeon: seq=005 | role=drift_watcher | depends=[context_budget] | exports=[DriftWatcher] | tokens=~600
 """Drift detection for live LLM coding loops.
 
 Monitors a directory of pigeon-compliant files. When a file crosses
@@ -6,18 +5,6 @@ its context budget (after an agent edit), emits a drift signal that
 an LLM agent can act on or ignore.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v004 | 126 lines | ~1,117 tokens
-# DESC:   drift_detection_for_live_llm
-# INTENT: implement_all_18
-# LAST:   2026-03-21 @ 068687f
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 
 import glob as _glob
 import importlib.util

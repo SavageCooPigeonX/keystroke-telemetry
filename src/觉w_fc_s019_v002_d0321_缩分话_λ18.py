@@ -5,18 +5,6 @@ static analysis. No LLM calls. Cross-file compatibility scored via data flow,
 co-change patterns, and shared state coupling.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 019 | VER: v002 | 473 lines | ~4,343 tokens
-# DESC:   ast_derived_function_consciousness_dating
-# INTENT: implement_all_18
-# LAST:   2026-03-21 @ 068687f
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 import ast
 import json
 import re

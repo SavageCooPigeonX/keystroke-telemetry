@@ -1,12 +1,5 @@
 """learning_loop_seq013_state_utils_seq001_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v002 | 36 lines | ~284 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: pigeon_split_3
-# LAST:   2026-03-27 @ fd07906
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any

@@ -1,4 +1,3 @@
-# @pigeon: seq=008 | role=operator_stats | depends=[models,logger] | exports=[OperatorStats] | tokens=~600
 """Self-growing operator stats — persistent markdown memory file.
 
 Classifies each finalized message with a cognitive state label,
@@ -9,19 +8,6 @@ Designed for LLM consumption: an agent reading the .md file gets
 a compact operator profile that sharpens with every message.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 008 | VER: v007 | 534 lines | ~4,954 tokens
-# DESC:   persistent_markdown_memory_file
-# INTENT: wpm_outlier_filter
-# LAST:   2026-03-22 @ 4d007ac
-# SESSIONS: 2
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-29T06:00:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  fix degenerate classifier: SD floors + pause thresholds
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 import json
 import time as _time

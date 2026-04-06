@@ -11,13 +11,6 @@ Standalone version — uses in-memory baseline storage.
 For production with persistence, swap _store with your database adapter.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v002 | 234 lines | ~2,262 tokens
-# DESC:   tracks_operator_typing_patterns_across
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import time
 import logging
 from collections import Counter

@@ -1,18 +1,5 @@
-# @pigeon: seq=002 | role=datamodels | depends=[timestamp_utils] | exports=[KeyEvent,MessageDraft] | tokens=~400
 """Dataclasses for keystroke events and message draft tracking."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v003 | 44 lines | ~379 tokens
-# DESC:   dataclasses_for_keystroke_events_and
-# INTENT: pulse_telemetry_prompt
-# LAST:   2026-03-17 @ 9e2a305
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 
 from dataclasses import dataclass, field
 

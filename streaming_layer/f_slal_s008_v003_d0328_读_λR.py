@@ -1,12 +1,5 @@
 """streaming_layer_alerts_seq008_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 008 | VER: v003 | 139 lines | ~1,371 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: dynamic_import_resolvers
-# LAST:   2026-03-28 @ b1971c0
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from collections import deque
 from dataclasses import dataclass, field, asdict
 from typing import Optional, Callable

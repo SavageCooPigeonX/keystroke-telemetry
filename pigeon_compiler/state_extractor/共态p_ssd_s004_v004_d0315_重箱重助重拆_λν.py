@@ -4,13 +4,6 @@ Finds: module-level variables, mutable assignments, global constants,
 and which functions READ those names. Shared state = resistance to splitting.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 004 | VER: v004 | 66 lines | ~618 tokens
-# DESC:   detect_module_level_shared_state
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 

@@ -1,4 +1,3 @@
-# @pigeon: seq=007 | role=observer_synthesis | depends=[graph_heat_map,loop_detector,failure_detector,graph_extractor] | exports=[synthesize_observation,build_observer_prompt] | tokens=~550
 """Observer synthesis — coaching from execution patterns. Port of classify_bridge.
 
 Aggregates graph heat, loop detection, and death stats into a structured
@@ -6,22 +5,15 @@ observation that either feeds a DeepSeek prompt or writes agent_coaching.md.
 Isomorphic to operator coaching synthesis but for agent execution substrate.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 007 | VER: v003 | 150 lines | ~1,489 tokens
-# DESC:   coaching_from_execution_patterns_port
-# INTENT: add_chinese_glyph
-# LAST:   2026-04-01 @ aa32a3f
-# SESSIONS: 2
-# ──────────────────────────────────────────────
 
 import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system import load_graph_heat
-from .loop_detector_seq005_v002_d0323__recurring_path_detection_port_of_lc_pigeon_brain_system import load_loop_stats
-from .failure_detector_seq006_v002_d0323__electron_death_classification_port_of_lc_pigeon_brain_system import load_death_stats
-from .graph_extractor_seq003_v003_d0324__图_extract_the_cognition_graph_from_lc_gemini_chat_dead import load_graph, graph_stats
+from .描p_ghm_s004_v002_d0323_缩环检意_λP import load_graph_heat
+from .环检p_ld_s005_v002_d0323_缩描意_λP import load_loop_stats
+from .缩p_fdt_s006_v002_d0323_描环检意_λP import load_death_stats
+from .图p_ge_s003_v003_d0324_读唤任_λχ import load_graph, graph_stats
 
 COACHING_PATH = "agent_coaching.md"
 

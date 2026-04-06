@@ -5,13 +5,6 @@ splits it by AST into multiple files, each ≤PIGEON_MAX.
 No AI needed — pure math.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 009 | VER: v004 | 89 lines | ~845 tokens
-# DESC:   deterministic_ast_bin_packing_re
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 from pigeon_compiler.cut_executor.重助p_rehe_s011_v004_d0315_重箱重拆切_λν import (

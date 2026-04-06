@@ -1,8 +1,7 @@
-"""nametag_seq011/ — Pigeon-compliant module."""
-from .nametag_seq011_build_seq005_v001 import build_nametag
-from .nametag_seq011_constants_seq001_v001 import DESC_SEPARATOR, LC_SEP, MAX_DESC_WORDS, MAX_INTENT_WORDS, MAX_SLUG_CHARS, NAMETAG_PATTERN
-from .nametag_seq011_detect_seq007_v001 import detect_drift
-from .nametag_seq011_extract_seq004_v001 import extract_desc_slug
-from .nametag_seq011_parse_seq006_v001 import parse_nametag
-from .nametag_seq011_scan_seq008_v002_d0401__auto_extracted_by_pigeon_compiler_lc_add_chinese_glyph import scan_drift
-from .nametag_seq011_slugify_seq003_v001 import slugify
+"""nametag_seq011/ -- auto-fixed pigeon package."""
+from .牌f_nam_bu_s005_v001 import build_nametag
+from .牌f_nam_de_s007_v001 import detect_drift
+from .牌f_nam_ex_s004_v001 import extract_desc_slug
+from .牌f_nam_pa_s006_v001 import parse_nametag
+from .牌f_nam_sc_s008_v002_d0401_λA import scan_drift
+from .牌f_nam_sl_s003_v001 import slugify

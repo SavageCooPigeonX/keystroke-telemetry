@@ -1,4 +1,3 @@
-# @pigeon: seq=008 | role=dual_substrate | depends=[observer_synthesis,graph_extractor] | exports=[build_dual_view,render_dual_json] | tokens=~400
 """Dual-substrate observation — merges human and agent telemetry on one graph.
 
 The unique feature: same graph shows where BOTH the human and the agent fail.
@@ -6,20 +5,13 @@ Nodes that cause high human hesitation AND high electron deaths are the most
 dangerous neurons in the brain. This module produces the unified view.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 008 | VER: v002 | 152 lines | ~1,346 tokens
-# DESC:   merges_human_and_agent_telemetry
-# INTENT: pigeon_brain_system
-# LAST:   2026-03-23 @ 465cbfa
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 
 import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .graph_extractor_seq003_v003_d0324__图_extract_the_cognition_graph_from_lc_gemini_chat_dead import load_graph
-from .graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system import HEAT_STORE
+from .图p_ge_s003_v003_d0324_读唤任_λχ import load_graph
+from .描p_ghm_s004_v002_d0323_缩环检意_λP import HEAT_STORE
 
 
 def build_dual_view(root: Path) -> dict:

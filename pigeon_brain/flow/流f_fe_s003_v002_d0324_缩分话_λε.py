@@ -2,11 +2,6 @@
 # │  flow_engine — routes packets through the graph │
 # │  pigeon_brain/flow                              │
 # └───────────────────────────────────────────────┘
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 """
 The flow engine is the runtime.
 
@@ -24,23 +19,16 @@ For multi-perspective reasoning, run_multi() launches packets
 through all 3 modes and returns all results.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v002 | 172 lines | ~1,372 tokens
-# DESC:   the_flow_engine_is_the
-# INTENT: flow_engine_context
-# LAST:   2026-03-24 @ c0caa0a
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from __future__ import annotations
 
 import json
 from pathlib import Path
 from typing import Any
 
-from .context_packet_seq001_v002_d0324__包逆流_the_contextpacket_is_the_unit_lc_flow_engine_context import ContextPacket, create_packet
-from .node_awakener_seq002_v003_d0401__when_a_packet_arrives_at_lc_add_chinese_glyph import awaken
-from .path_selector_seq004_v002_d0324__path_selection_is_the_real_lc_flow_engine_context import find_origin, select_next
-from .vein_transport_seq006_v003_d0401__as_a_packet_flows_along_lc_add_chinese_glyph import transport
+from .包p_cpk_s001_v002_d0324_缩分话_λε import ContextPacket, create_packet
+from .唤w_noaw_s002_v003_d0401_脉运分话_λA import awaken
+from .择p_pase_s004_v002_d0324_分话唤_λε import find_origin, select_next
+from .脉运w_vt_s006_v003_d0401_唤分话_λA import transport
 
 
 def load_graph_data(root: Path) -> dict[str, Any]:

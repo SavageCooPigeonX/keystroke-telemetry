@@ -5,13 +5,6 @@ to extract methods as standalone module-level functions and keep the class thin.
 Returns modified source where the class delegates to extracted functions.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 013 | VER: v002 | 177 lines | ~1,957 tokens
-# DESC:   decompose_oversized_classes_via_deepseek
-# INTENT: stage_78_hook
-# LAST:   2026-03-22 @ 276af14
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 

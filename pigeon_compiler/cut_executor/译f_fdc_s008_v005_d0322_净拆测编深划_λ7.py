@@ -4,13 +4,6 @@ For functions >50 lines, sends a CODING prompt to DeepSeek asking it to
 rewrite the function as sub-functions + wrapper. Returns modified source.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 008 | VER: v005 | 67 lines | ~642 tokens
-# DESC:   decompose_oversized_functions_via_deepseek
-# INTENT: stage_78_hook
-# LAST:   2026-03-22 @ 276af14
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import json, sys
 from pathlib import Path
 

@@ -1,18 +1,5 @@
 """Autonomous research synthesizer — the system studying the system studying us."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 029 | VER: v002 | 265 lines | ~2,804 tokens
-# DESC:   the_system_studying_the_system
-# INTENT: research_lab_autonomous
-# LAST:   2026-03-30 @ 8888287
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-31T15:00:00Z
-# EDIT_HASH: auto
-# EDIT_WHY:  replace hardcoded stats with computed
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 import json
 from datetime import datetime, timezone

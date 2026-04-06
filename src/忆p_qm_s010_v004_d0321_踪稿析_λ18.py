@@ -9,19 +9,6 @@ Two signals:
 Both feed into the coaching prompt via load_query_memory().
 Zero LLM calls.
 """
-# ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v004 | 252 lines | ~2,308 tokens
-# DESC:   recurring_query_detector_unsaid_thought
-# INTENT: implement_all_18
-# LAST:   2026-03-21 @ 068687f
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-21T00:00:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  add trigram unsaid thread clustering
-# EDIT_STATE: harvested
-# ── /pulse ──
 from __future__ import annotations
 import json
 import re

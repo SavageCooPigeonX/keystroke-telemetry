@@ -1,17 +1,9 @@
-# @pigeon: seq=003 | role=graph_extractor | depends=[models] | exports=[build_graph,load_graph] | tokens=~500
 """Extract the cognition graph from existing pigeon infrastructure.
 
 Nodes = pigeon code files. Edges = import/call relationships.
 Reads pigeon_registry.json + AST import analysis. Outputs adjacency list.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v003 | 198 lines | ~1,744 tokens
-# DESC:   extract_the_cognition_graph_from
-# INTENT: 8888_word_backpropagation
-# LAST:   2026-03-24 @ af28c35
-# SESSIONS: 3
-# ──────────────────────────────────────────────
 
 import ast
 import json

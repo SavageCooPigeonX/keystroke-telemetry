@@ -1,12 +1,5 @@
 """unsaid_seq002_diff_seq002_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v003 | 27 lines | ~245 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: stage_78_hook
-# LAST:   2026-03-22 @ 276af14
-# SESSIONS: 2
-# ──────────────────────────────────────────────
 import re
 
 def _diff_deleted(before: str, after: str) -> str:

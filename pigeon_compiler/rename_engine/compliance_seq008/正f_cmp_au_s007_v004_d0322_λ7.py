@@ -1,12 +1,5 @@
 """compliance_seq008_audit_decomposed_seq007_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 007 | VER: v004 | 76 lines | ~634 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: stage_78_hook
-# LAST:   2026-03-22 @ 276af14
-# SESSIONS: 3
-# ──────────────────────────────────────────────
 from pathlib import Path
 import re
 from .compliance_seq008_constants_seq001_v001__正审图 import MAX_LINES, WARN_LINES, SKIP_DIRS

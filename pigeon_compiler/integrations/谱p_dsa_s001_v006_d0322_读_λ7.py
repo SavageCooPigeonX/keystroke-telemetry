@@ -8,13 +8,6 @@ DeepSeek Pricing (per 1M tokens):
   deepseek-reasoner: $0.55 input / $2.19 output
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v006 | 135 lines | ~1,180 tokens
-# DESC:   deepseek_api_client
-# INTENT: stage_78_hook
-# LAST:   2026-03-22 @ 276af14
-# SESSIONS: 2
-# ──────────────────────────────────────────────
 import os
 import time
 import logging

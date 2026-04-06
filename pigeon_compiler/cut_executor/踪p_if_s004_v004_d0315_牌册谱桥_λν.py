@@ -3,13 +3,6 @@
 Scans all .py files and replaces old import paths with new module paths.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 004 | VER: v004 | 60 lines | ~505 tokens
-# DESC:   update_imports_across_the_project
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import re
 from pathlib import Path
 

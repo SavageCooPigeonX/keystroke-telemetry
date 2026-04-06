@@ -4,13 +4,6 @@ Orchestrates seq001-seq005 into a single dependency graph document.
 This is the primary entry point for Layer 1.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 006 | VER: v004 | 65 lines | ~707 tokens
-# DESC:   assemble_full_ether_map_json
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import json
 from pathlib import Path
 from pigeon_compiler.state_extractor.查p_ap_s001_v004_d0315_重箱重助重拆_λν import parse_file

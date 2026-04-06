@@ -1,12 +1,5 @@
 """streaming_layer_dashboard_seq010_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v003 | 81 lines | ~858 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: dynamic_import_resolvers
-# LAST:   2026-03-28 @ b1971c0
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 from __future__ import annotations
 
 class LiveDashboard:

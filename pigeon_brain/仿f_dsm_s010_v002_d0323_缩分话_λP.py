@@ -1,4 +1,3 @@
-# @pigeon: seq=010 | role=demo_simulation | depends=[execution_logger,graph_extractor,failure_detector,loop_detector,graph_heat_map] | exports=[run_simulation] | tokens=~550
 """Demo simulation — generates execution telemetry from the real graph.
 
 Takes the pigeon_registry graph and simulates electrons flowing through it,
@@ -6,23 +5,16 @@ with realistic failure patterns: stale imports, timeouts, loops.
 Produces real telemetry files that the UI can render.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v002 | 126 lines | ~1,358 tokens
-# DESC:   generates_execution_telemetry_from_the
-# INTENT: pigeon_brain_system
-# LAST:   2026-03-23 @ 465cbfa
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 
 import random
 import time
 from pathlib import Path
 
-from .execution_logger_seq002_v003_d0401__isomorphic_to_telemetrylogger_for_agent_lc_add_chinese_glyph import ExecutionLogger
-from .graph_extractor_seq003_v003_d0324__图_extract_the_cognition_graph_from_lc_gemini_chat_dead import build_graph
-from .graph_heat_map_seq004_v002_d0323__failure_accumulator_per_node_port_lc_pigeon_brain_system import update_graph_heat
-from .loop_detector_seq005_v002_d0323__recurring_path_detection_port_of_lc_pigeon_brain_system import record_path
-from .failure_detector_seq006_v002_d0323__electron_death_classification_port_of_lc_pigeon_brain_system import classify_death, record_death
+from .读w_el_s002_v003_d0401_观话_λA import ExecutionLogger
+from .图p_ge_s003_v003_d0324_读唤任_λχ import build_graph
+from .描p_ghm_s004_v002_d0323_缩环检意_λP import update_graph_heat
+from .环检p_ld_s005_v002_d0323_缩描意_λP import record_path
+from .缩p_fdt_s006_v002_d0323_描环检意_λP import classify_death, record_death
 
 
 # Nodes that are realistically "dangerous" in pigeon codebases

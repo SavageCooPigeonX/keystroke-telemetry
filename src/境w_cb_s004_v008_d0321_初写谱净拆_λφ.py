@@ -1,4 +1,3 @@
-# @pigeon: seq=004 | role=context_budget | depends=[models] | exports=[score_context_budget,default_budget_config,estimate_tokens] | tokens=~500
 """Context budget scorer for LLM-aware file sizing.
 
 Instead of a flat line-count cap, scores files by how many tokens an LLM
@@ -6,19 +5,6 @@ needs to understand them (source tokens + dependency context tokens).
 Pigeon compiler integration: feed this score into resistance analysis.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 004 | VER: v008 | 95 lines | ~715 tokens
-# DESC:   context_budget_scorer_for_llm
-# INTENT: fire_full_post
-# LAST:   2026-03-21 @ c4789d2
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-21T17:00:00Z
-# EDIT_HASH: auto
-# EDIT_WHY:  test full hook with deepseek api
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 import math
 

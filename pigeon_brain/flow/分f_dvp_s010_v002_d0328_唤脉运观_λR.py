@@ -2,11 +2,6 @@
 # │  dev_plan — self-development plan generator    │
 # │  pigeon_brain/flow                             │
 # └──────────────────────────────────────────────┘
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-25T00:00:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  initial implementation
-# ── /pulse ──
 """
 The roadmap writer. Synthesizes the graph's accumulated learning into
 a predicted development plan.
@@ -19,13 +14,6 @@ the structural voids are.
 Regenerated after each backward pass.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 010 | VER: v002 | 174 lines | ~1,532 tokens
-# DESC:   the_roadmap_writer_synthesizes_the
-# INTENT: dynamic_import_resolvers
-# LAST:   2026-03-28 @ b1971c0
-# SESSIONS: 4
-# ──────────────────────────────────────────────
 from __future__ import annotations
 
 from datetime import datetime, timezone

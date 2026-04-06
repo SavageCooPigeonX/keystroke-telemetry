@@ -2,11 +2,6 @@
 # │  node_conversation — talk to graph nodes       │
 # │  pigeon_brain/flow                             │
 # └──────────────────────────────────────────────┘
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-25T00:00:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  initial implementation
-# ── /pulse ──
 """
 The interpretability interface. Lets the operator have a conversation
 with any graph node by constructing a first-person roleplay prompt
@@ -20,13 +15,6 @@ Currently uses print-based output (no LLM call) until DeepSeek/Gemini
 integration is wired in. The prompt is fully constructed and ready.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 012 | VER: v004 | 162 lines | ~1,428 tokens
-# DESC:   the_interpretability_interface_lets_the
-# INTENT: dynamic_import_resolvers
-# LAST:   2026-03-28 @ b1971c0
-# SESSIONS: 4
-# ──────────────────────────────────────────────
 from __future__ import annotations
 
 import json

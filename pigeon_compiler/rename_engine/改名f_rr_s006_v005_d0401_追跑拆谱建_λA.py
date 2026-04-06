@@ -4,13 +4,6 @@ Orchestrates: scan → plan → preview → rewrite imports → execute → vali
 Supports --dry-run, --folders, --rollback flags.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 006 | VER: v005 | 143 lines | ~1,387 tokens
-# DESC:   full_rename_pipeline_runner
-# INTENT: add_chinese_glyph
-# LAST:   2026-04-01 @ aa32a3f
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import argparse
 import json
 import sys

@@ -6,13 +6,6 @@
   > 0.7 → flag for human review
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 005 | VER: v004 | 97 lines | ~1,039 tokens
-# DESC:   classify_why_a_file_resists
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import ast
 from pathlib import Path
 

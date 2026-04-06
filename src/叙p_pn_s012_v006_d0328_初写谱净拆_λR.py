@@ -1,17 +1,5 @@
 """Generate per-push narrative: each changed file speaks as its own agent."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 012 | VER: v006 | 200 lines | ~2,089 tokens
-# DESC:   generate_per_push_narrative_each
-# INTENT: dynamic_import_resolvers
-# LAST:   2026-03-28 @ b1971c0
-# SESSIONS: 2
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 
 import json
 import os

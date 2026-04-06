@@ -8,13 +8,6 @@ finds natural break points (class boundaries, function clusters,
 section comments) and recommends exact split targets.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 008 | VER: v004 | 215 lines | ~1,673 tokens
-# DESC:   line_count_enforcer_split_recommender
-# INTENT: verify_pigeon_plugin
-# LAST:   2026-03-15 @ caac48c
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 import ast
 import re
 from pathlib import Path

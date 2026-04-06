@@ -1,17 +1,5 @@
 """Task queue — Copilot-driven task tracking linked to MANIFEST.md entries."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 018 | VER: v002 | 179 lines | ~1,608 tokens
-# DESC:   copilot_driven_task_tracking_linked
-# INTENT: task_queue_system
-# LAST:   2026-03-17 @ 21ddf89
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 import json, re
 from pathlib import Path
 from datetime import datetime, timezone

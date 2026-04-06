@@ -13,16 +13,6 @@ Examples:
 
 Output: colored unified diff to stdout (ANSI escape codes, stripped on non-TTY).
 """
-# ── pigeon ────────────────────────────────────
-# SEQ: 024 | VER: v001 | ~110 lines
-# DESC:   prompt_version_diff_cli
-# INTENT: developer_tool
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 from __future__ import annotations
 import difflib
 import json

@@ -7,18 +7,6 @@ struggles before they even ask.
 
 Reads pigeon_registry.json + rework_log.json. Zero LLM calls.
 """
-# ── pigeon ────────────────────────────────────
-# SEQ: 011 | VER: v005 | 185 lines | ~1,745 tokens
-# DESC:   tracks_cognitive_load_per_module
-# INTENT: p0_p3_attribution
-# LAST:   2026-04-03 @ d7cbc14
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 from __future__ import annotations
 import json
 from collections import defaultdict

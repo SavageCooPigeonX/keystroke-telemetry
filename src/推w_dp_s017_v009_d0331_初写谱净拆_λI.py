@@ -1,18 +1,5 @@
 """Dynamic task-aware prompt injection — steers Copilot CoT from live signals."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 017 | VER: v009 | 423 lines | ~4,655 tokens
-# DESC:   steers_copilot_cot_from_live
-# INTENT: intent_deletion_pipeline
-# LAST:   2026-03-31 @ 7e0ecab
-# SESSIONS: 7
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-22T20:28:42.5025062Z
-# EDIT_HASH: auto
-# EDIT_WHY:  dedupe task context blocks
-# EDIT_STATE: harvested
-# ── /pulse ──
 import json, re, subprocess
 from pathlib import Path
 from datetime import datetime, timezone

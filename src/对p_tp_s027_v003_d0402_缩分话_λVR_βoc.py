@@ -5,12 +5,6 @@
 # │  Fires per-edit and per-push-cycle.                       │
 # └────────────────────────────────────────────────────────────┘
 
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-02T23:06:35.2273093Z
-# EDIT_HASH: auto
-# EDIT_WHY:  log response aligned notes
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 """
 Training pair generator for the intent alignment loop.
@@ -24,13 +18,6 @@ Per-cycle: generate_cycle_summary(root, cycle_dict) → reads all pairs since la
 The delta between user_intent and copilot_intent IS the gradient.
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 027 | VER: v003 | 411 lines | ~3,834 tokens
-# DESC:   training_pair_generator_for_the
-# INTENT: verify_filename_mutation
-# LAST:   2026-04-02 @ 4eb4c79
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 
 from __future__ import annotations
 import json

@@ -1,12 +1,5 @@
 """compliance_seq008_recommend_wrapper_seq006_v001.py — Auto-extracted by Pigeon Compiler."""
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 006 | VER: v004 | 69 lines | ~602 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: stage_78_hook
-# LAST:   2026-03-22 @ 276af14
-# SESSIONS: 3
-# ──────────────────────────────────────────────
 import ast
 import re
 from .compliance_seq008_helpers_seq002_v004_d0322__正审图_auto_extracted_by_pigeon_compiler_lc_stage_78_hook import _snake

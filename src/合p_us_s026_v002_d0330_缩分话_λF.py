@@ -4,12 +4,6 @@
 # │  The single source of truth for "what          │
 # │  actually happened" in this codebase.          │
 # └──────────────────────────────────────────────┘
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-30T07:00:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  initial unified signal merger
-# EDIT_STATE: harvested
-# ── /pulse ──
 """
 Unified Signal Merger — joins all telemetry into canonical edit events.
 
@@ -28,13 +22,6 @@ Output: logs/unified_edits.jsonl — one event per file mutation with:
   - HOW WELL (rework verdict, latency)
 """
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 026 | VER: v002 | 233 lines | ~2,074 tokens
-# DESC:   joins_all_telemetry_into_canonical
-# INTENT: gemini_flash_enricher
-# LAST:   2026-03-30 @ 5018891
-# SESSIONS: 1
-# ──────────────────────────────────────────────
 
 from __future__ import annotations
 

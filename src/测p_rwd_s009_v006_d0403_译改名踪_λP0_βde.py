@@ -7,19 +7,6 @@ the coaching prompt so the AI learns its own failure patterns.
 
 Zero LLM calls. Pure signal math.
 """
-# ── pigeon ────────────────────────────────────
-# SEQ: 009 | VER: v006 | 185 lines | ~1,785 tokens
-# DESC:   measures_ai_answer_quality_from
-# INTENT: p0_p3_attribution
-# LAST:   2026-04-03 @ d7cbc14
-# SESSIONS: 1
-# ──────────────────────────────────────────────
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-03-29T06:00:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  add composition-based scoring, fix dead formula
-# EDIT_STATE: harvested
-# ── /pulse ──
 from __future__ import annotations
 import json
 from datetime import datetime, timezone
