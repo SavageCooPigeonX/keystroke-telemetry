@@ -320,6 +320,24 @@ def run_push_cycle(root: Path, commit_hash: str, intent: str,
     # 10. Inject predictions + coaching into copilot-instructions.md
     _inject_predictions_into_prompt(root, predictions, coaching)
 
+    # 11. Capture codebase health snapshot + compute drift
+    try:
+        from src.push_snapshot import capture_snapshot, compute_drift, inject_drift_block
+        snapshot = capture_snapshot(root, commit_hash, intent, changed_files)
+        drift_result = compute_drift(root, snapshot)
+        inject_drift_block(root, snapshot, drift_result)
+        cycle['snapshot_health'] = snapshot.get('modules', {}).get('compliance_pct', 0)
+        cycle['drift_direction'] = drift_result.get('drift', {}).get('health_direction', 'unknown')
+    except Exception as e:
+        cycle['snapshot_error'] = str(e)[:200]
+
+    # 12. Inject narrative glove (organism consciousness)
+    try:
+        from src.narrative_glove import inject_narrative
+        inject_narrative(root)
+    except Exception:
+        pass
+
     return cycle
 
 

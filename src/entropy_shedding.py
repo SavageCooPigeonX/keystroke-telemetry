@@ -143,6 +143,23 @@ def _extract_modules(text):
     return modules
 
 
+def _normalize_target(name: str) -> str:
+    """Normalize shed block target names to match module extraction.
+    
+    Strips .py suffix, path prefixes, and whitespace so that shed targets
+    like 'escalation_engine.py' or 'src/foo.py' merge with behavioral
+    entries for 'escalation_engine' or 'foo'.
+    """
+    name = name.strip()
+    # strip path prefix
+    if '/' in name:
+        name = name.rsplit('/', 1)[-1]
+    # strip .py suffix
+    if name.endswith('.py'):
+        name = name[:-3]
+    return name
+
+
 # ─── ACCUMULATOR ───────────────────────────────────────────────────
 
 def accumulate_entropy(root):
@@ -196,7 +213,7 @@ def accumulate_entropy(root):
         if shed_markers:
             shed_count += 1
             for marker in shed_markers:
-                target = marker['target']
+                target = _normalize_target(marker['target'])
                 per_module[target]['shed_reports'].append({
                     'ts': ts,
                     'confidence': marker['confidence'],
@@ -206,9 +223,11 @@ def accumulate_entropy(root):
     # compute averages and rank
     module_scores = []
     for mod, data in per_module.items():
-        if data['samples'] < 2:
+        has_sheds = len(data['shed_reports']) > 0
+        # include if ≥2 behavioral samples OR has explicit shed data
+        if data['samples'] < 2 and not has_sheds:
             continue
-        avg_H = data['total_H'] / data['samples']
+        avg_H = data['total_H'] / max(data['samples'], 1)
         # entropy from shed blocks (explicit self-reports)
         shed_scores = [s['confidence'] for s in data['shed_reports']]
         avg_shed = sum(shed_scores) / len(shed_scores) if shed_scores else None

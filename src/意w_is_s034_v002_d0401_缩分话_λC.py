@@ -538,6 +538,22 @@ def simulate_intent(root: Path, inject: bool = True) -> Path:
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(report_text + '\n', encoding='utf-8')
 
+    # save raw projection as JSON for downstream consumers (operator_probes)
+    proj_out = root / 'logs' / 'intent_projection.json'
+    proj_out.parent.mkdir(parents=True, exist_ok=True)
+    proj_out.write_text(json.dumps({
+        'ts': datetime.now(timezone.utc).isoformat(),
+        'velocity': velocity,
+        'trajectory': trajectory,
+        'projection': projection,
+        'coaching': coaching,
+        'patterns': {
+            'module_focus': patterns.get('module_focus', {}),
+            'deleted_themes': patterns.get('deleted_themes', []),
+            'intent_distribution': patterns.get('intent_distribution', {}),
+        },
+    }, indent=2, ensure_ascii=False), encoding='utf-8')
+
     # inject compact version into copilot-instructions
     if inject:
         _inject_simulation(root, coaching, projection)

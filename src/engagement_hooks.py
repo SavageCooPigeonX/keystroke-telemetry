@@ -16,9 +16,9 @@ Zero LLM calls -- pure signal processing + behavioral targeting.
 # INTENT: engagement_bait_system
 # --------------------------------------------------
 # -- telemetry:pulse --
-# EDIT_TS:   2026-04-03T20:15:00Z
+# EDIT_TS:   2026-04-07T02:15:00Z
 # EDIT_HASH: auto
-# EDIT_WHY:  weaponize hook engine
+# EDIT_WHY:  increase max hooks to 5
 # -- /pulse --
 
 import json
@@ -676,7 +676,7 @@ def generate_hooks(root, history=None, max_hooks=3,
 # ──────────────────────────────────────────────────────
 
 def build_hooks_block(root, history=None):
-    hooks = generate_hooks(root, history=history, max_hooks=3)
+    hooks = generate_hooks(root, history=history, max_hooks=5)
     if not hooks:
         return ""
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")

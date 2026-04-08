@@ -365,7 +365,8 @@
       "bug_keys": [],
       "bug_counts": {},
       "bug_entities": {},
-      "last_bug_mark": ""
+      "last_bug_mark": "",
+      "dossier_score": -0.95
     },
     {
       "path": "pigeon_brain/flow/backward_seq007_v004_d0328__backward_pass_walks_electron_path_lc_dynamic_import_resolvers.py",
@@ -406,7 +407,8 @@
       "bug_keys": [],
       "bug_counts": {},
       "bug_entities": {},
-      "last_bug_mark": ""
+      "last_bug_mark": "",
+      "dossier_score": -0.95
     },
     {
       "path": "pigeon_brain/flow/context_packet_seq001_v002_d0324__the_contextpacket_is_the_unit_lc_flow_engine_context.py",
@@ -1627,7 +1629,8 @@
       "bug_keys": [],
       "bug_counts": {},
       "bug_entities": {},
-      "last_bug_mark": ""
+      "last_bug_mark": "",
+      "dossier_score": -0.84
     },
     {
       "path": "pigeon_brain/flow/predictor_seq009/predictor_seq009_confidence_seq003_v002_d0330__auto_extracted_by_pigeon_compiler_lc_rework_signal_0.py",
@@ -1877,7 +1880,8 @@
           "tokens": 5782,
           "action": "registered"
         }
-      ]
+      ],
+      "dossier_score": -0.84
     },
     {
       "path": "pigeon_brain/flow/\u9006f_ba_s007_v005_d0404_\u8e2a\u7a3f\u6790_\u03bbNU_\u03b2oc.py",
@@ -1908,7 +1912,8 @@
           "tokens": 2479,
           "action": "registered"
         }
-      ]
+      ],
+      "dossier_score": -0.95
     },
     {
       "path": "pigeon_brain/graph_extractor_seq003_v003_d0324__extract_the_cognition_graph_from_lc_8888_word_backpropagation.py",
@@ -3434,7 +3439,7 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": "",
-      "dossier_score": 0.8
+      "dossier_score": -1.0
     },
     {
       "path": "pigeon_compiler/rename_engine/run_heal_seq010_v004_d0315__automated_self_healing_pipeline_lc_verify_pigeon_plugin.py",
@@ -3467,7 +3472,7 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": "",
-      "dossier_score": -0.1
+      "dossier_score": -0.54
     },
     {
       "path": "pigeon_compiler/rename_engine/run_rename_seq006_v005_d0401__full_rename_pipeline_runner_lc_add_chinese_glyph.py",
@@ -3603,7 +3608,7 @@
           "action": "registered"
         }
       ],
-      "dossier_score": 0.8
+      "dossier_score": -1.0
     },
     {
       "path": "pigeon_compiler/rename_engine/\u518cf_reg_s012_v005_d0402_\u8ffd\u8dd1\u8c31\u6865\u590d\u5ba1_\u03bbVR_\u03b2oc/\u518cf_reg_s012_v005_d0402_\u8ffd\u8dd1\u8c31\u6865\u590d\u5ba1_\u03bbVR_\u03b2oc_registry_io_seq004_v002_d0403__auto_extracted_by_pigeon_compiler_lc_add_registry_file.py",
@@ -3710,7 +3715,7 @@
           "action": "registered"
         }
       ],
-      "dossier_score": -0.1
+      "dossier_score": -0.54
     },
     {
       "path": "pigeon_compiler/runners/compiler_output/press_release_gen/press_release_gen_constants_seq001_v001_seq001_v002_d0315__pigeon_extracted_by_compiler_lc_verify_pigeon_plugin.py",
@@ -5626,7 +5631,8 @@
       "bug_keys": [],
       "bug_counts": {},
       "bug_entities": {},
-      "last_bug_mark": ""
+      "last_bug_mark": "",
+      "dossier_score": -0.72
     },
     {
       "path": "src/copilot_prompt_manager_seq020_v003_d0402__compatibility_wrapper_for_the_legacy_lc_restore_rename_safe.py",
@@ -5727,7 +5733,7 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": "",
-      "dossier_score": 0.1
+      "dossier_score": -1.0
     },
     {
       "path": "src/dynamic_prompt_seq017_v005_d0324__steers_copilot_cot_from_live_lc_per_prompt_deleted.py",
@@ -5778,7 +5784,7 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": "",
-      "dossier_score": 0.1
+      "dossier_score": -1.0
     },
     {
       "path": "src/dynamic_prompt_seq017_v010_d0331__steers_copilot_cot_from_live_lc_mutation_patch_pipeline.py",
@@ -5829,7 +5835,7 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": "",
-      "dossier_score": 0.1
+      "dossier_score": -1.0
     },
     {
       "path": "src/file_consciousness_seq019/file_consciousness_seq019_audit_seq004_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -6197,7 +6203,7 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": "",
-      "dossier_score": 0.8
+      "dossier_score": -1.0
     },
     {
       "path": "src/glyph_compiler_seq032_v002_d0401__glyph_compiler_python_maximum_symbolic_lc_glyph_compiler_symbol.py",
@@ -6504,7 +6510,8 @@
       "bug_keys": [],
       "bug_counts": {},
       "bug_entities": {},
-      "last_bug_mark": ""
+      "last_bug_mark": "",
+      "dossier_score": -1.0
     },
     {
       "path": "src/push_cycle_seq025/push_cycle_seq025_coaching_seq005_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -6806,7 +6813,7 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": "",
-      "dossier_score": -0.85
+      "dossier_score": -1.0
     },
     {
       "path": "src/push_narrative_seq012_v007_d0330__generate_per_push_narrative_each_lc_readme_update_7.py",
@@ -6841,7 +6848,7 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": "",
-      "dossier_score": -0.85
+      "dossier_score": -1.0
     },
     {
       "path": "src/query_memory_seq010/query_memory_seq010_clustering_seq004_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -7199,7 +7206,7 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": "",
-      "dossier_score": -0.5
+      "dossier_score": -0.95
     },
     {
       "path": "src/self_fix_seq013/self_fix_seq013_auto_apply_import_fixes_decomposed_seq011_v002_d0329__auto_extracted_by_pigeon_compiler_lc_organism_health_system.py",
@@ -7572,7 +7579,7 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": "",
-      "dossier_score": -0.85
+      "dossier_score": -1.0
     },
     {
       "path": "src/session_handoff_seq023_v002_d0321__session_handoff_summary_generator_lc_implement_all_18.py",
@@ -7649,7 +7656,7 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": "",
-      "dossier_score": 0.8
+      "dossier_score": -1.0
     },
     {
       "path": "src/streaming_layer_seq007_v003_d0317__monolithic_live_streaming_interface_for_lc_pulse_telemetry_prompt.py",
@@ -7817,7 +7824,7 @@
       "bug_counts": {},
       "bug_entities": {},
       "last_bug_mark": "",
-      "dossier_score": 0.8
+      "dossier_score": -1.0
     },
     {
       "path": "src/training_writer_seq028_v002_d0330__end_of_prompt_training_pair_lc_gemini_flash_enricher.py",
@@ -7891,7 +7898,7 @@
         "oc": "Overcap Maw of upe"
       },
       "last_change": "add bug dossier",
-      "dossier_score": 0.1
+      "dossier_score": -1.0
     },
     {
       "path": "src/u_pj_s019_v003_d0404_\u03bbNU_\u03b2oc.py",
@@ -7931,7 +7938,7 @@
       "bug_entities": {
         "oc": "Split Fiend of upj"
       },
-      "dossier_score": 0.8
+      "dossier_score": -1.0
     },
     {
       "path": "src/unified_signal_seq026_v002_d0330__joins_all_telemetry_into_canonical_lc_gemini_flash_enricher.py",
@@ -8072,7 +8079,7 @@
           "action": "registered"
         }
       ],
-      "dossier_score": -0.85
+      "dossier_score": -1.0
     },
     {
       "path": "src/\u53d9p_pn_s012_v007_d0403_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbP0.py",
@@ -8098,7 +8105,7 @@
           "action": "registered"
         }
       ],
-      "dossier_score": -0.85
+      "dossier_score": -1.0
     },
     {
       "path": "src/\u53d9p_pn_s012_v008_d0403_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbP0_\u03b2oc.py",
@@ -8130,7 +8137,7 @@
           "action": "registered"
         }
       ],
-      "dossier_score": -0.85
+      "dossier_score": -1.0
     },
     {
       "path": "src/\u5bf9p_tp_s027_v003_d0402_\u7f29\u5206\u8bdd_\u03bbVR_\u03b2oc.py",
@@ -8162,7 +8169,7 @@
           "action": "registered"
         }
       ],
-      "dossier_score": 0.8
+      "dossier_score": -1.0
     },
     {
       "path": "src/\u63a8w_dp_s017_v013_d0403_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbP0_\u03b2oc.py",
@@ -8210,7 +8217,7 @@
           "tokens": 5987
         }
       ],
-      "dossier_score": 0.1
+      "dossier_score": -1.0
     },
     {
       "path": "src/\u6d4bp_rwd_s009_v006_d0403_\u8bd1\u6539\u540d\u8e2a_\u03bbP0_\u03b2de.py",
@@ -8242,7 +8249,7 @@
           "action": "registered"
         }
       ],
-      "dossier_score": -0.5
+      "dossier_score": -0.95
     },
     {
       "path": "src/\u70edp_fhm_s011_v005_d0403_\u8e2a\u7a3f\u6790_\u03bbP0_\u03b2de.py",
@@ -8274,7 +8281,7 @@
           "action": "registered"
         }
       ],
-      "dossier_score": 0.8
+      "dossier_score": -1.0
     },
     {
       "path": "src/\u7ba1w_cpm_s020_v003_d0402_\u7f29\u5206\u8bdd_\u03bbVR_\u03b2oc/\u7ba1w_cpm_s020_v003_d0402_\u7f29\u5206\u8bdd_\u03bbVR_\u03b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attribution.py",
@@ -8346,7 +8353,8 @@
           "action": "mutated",
           "tokens": 8012
         }
-      ]
+      ],
+      "dossier_score": -0.72
     },
     {
       "path": "src/\u8109p_ph_s015_v004_d0403_\u8bfb\u5524\u4efb_\u03bbP0_\u03b2oc.py",
@@ -8377,7 +8385,8 @@
           "tokens": 2385,
           "action": "registered"
         }
-      ]
+      ],
+      "dossier_score": -1.0
     },
     {
       "path": "src/\u8b66p_sa_s030_v003_d0402_\u7f29\u5206\u8bdd_\u03bbV.py",
@@ -8410,7 +8419,7 @@
       "bug_entities": {
         "oc": "Shard Hunger of psa"
       },
-      "dossier_score": 0.8
+      "dossier_score": -1.0
     },
     {
       "path": "src/\u8b66p_sa_s030_v005_d0404_\u7f29\u5206\u8bdd_\u03bbNU.py",
@@ -8457,7 +8466,7 @@
         }
       ],
       "last_change": "test rename mutation",
-      "dossier_score": 0.8
+      "dossier_score": -1.0
     },
     {
       "path": "streaming_layer/streaming_layer_aggregator_seq006_v003_d0328__auto_extracted_by_pigeon_compiler_lc_dynamic_import_resolvers.py",

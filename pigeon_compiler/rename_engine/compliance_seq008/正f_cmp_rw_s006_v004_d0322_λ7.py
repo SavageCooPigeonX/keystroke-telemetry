@@ -2,7 +2,7 @@
 
 import ast
 import re
-from .compliance_seq008_helpers_seq002_v004_d0322__正审图_auto_extracted_by_pigeon_compiler_lc_stage_78_hook import _snake
+from .正f_cmp_he_s002_v004_d0322_λ7 import _snake
 
 def _recommend_splits(text: str, total_lines: int) -> list[dict]:
     """Find natural split points in a file.

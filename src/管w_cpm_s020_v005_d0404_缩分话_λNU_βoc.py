@@ -839,6 +839,31 @@ def refresh_managed_prompt(
     except Exception:
         pass
 
+    # Narrative glove — organism consciousness synthesis
+    narrative_refreshed = False
+    try:
+        from src.narrative_glove import inject_narrative
+        narrative_refreshed = inject_narrative(root)
+    except Exception:
+        pass
+
+    # Persona intents — extract from file chat memories into prompt
+    persona_intents_refreshed = False
+    try:
+        from src.persona_intent_synthesizer import inject_into_copilot_instructions, write_intent_snapshot
+        write_intent_snapshot(root)
+        persona_intents_refreshed = inject_into_copilot_instructions(root)
+    except Exception:
+        pass
+
+    # Operator probes — synthesize questions copilot should ask
+    probes_refreshed = False
+    try:
+        from src.operator_probes import inject_probes
+        probes_refreshed = inject_probes(root)
+    except Exception:
+        pass
+
     # Voice style — refresh operator voice directives
     voice_refreshed = _run_refresher(
         root,
@@ -885,6 +910,8 @@ def refresh_managed_prompt(
         'prompt_telemetry_injected': injected,
         'mutation_result': mutation_result,
         'voice_refreshed': voice_refreshed,
+        'persona_intents_refreshed': persona_intents_refreshed,
+        'probes_refreshed': probes_refreshed,
         'templates': templates_result,
         'audit': audit,
     }

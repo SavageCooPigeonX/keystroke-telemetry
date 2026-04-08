@@ -7,12 +7,13 @@ def _scan_hardcoded_pigeon_imports(root: Path, registry_paths: set[str] | None =
     """Find imports that use full pigeon filenames instead of glob patterns.
 
     Excludes __init__.py (auto-rewritten by pigeon rename engine),
-    pigeon_compiler/ internals (managed by the compiler itself),
     test helper files, and files tracked in the pigeon registry
     (whose imports are auto-rewritten on commit).
     """
     problems = []
     pat = re.compile(r'(from|import)\s+([\w.]+_seq\d+_v\d+_d\d+__[\w]+)')
+    # Also catch relative imports with old long names (no _d but has __)
+    pat_rel = re.compile(r'from \.\w+_seq\d+_v\d+(?:_d\d+)?__\w+ import')
     managed = registry_paths or set()
     for py in root.rglob('*.py'):
         if '.git' in py.parts or '__pycache__' in py.parts:
@@ -21,9 +22,10 @@ def _scan_hardcoded_pigeon_imports(root: Path, registry_paths: set[str] | None =
         # Skip auto-managed files
         if py.name == '__init__.py':
             continue
-        if rel.startswith('pigeon_compiler/'):
-            continue
         if py.name.startswith('_test_'):
+            continue
+        # Skip build artifacts
+        if rel.startswith('build/'):
             continue
         # Files tracked by pigeon have their imports auto-rewritten
         if rel in managed:

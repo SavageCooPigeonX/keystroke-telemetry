@@ -1466,6 +1466,19 @@ def run():
     except Exception as e:
         print(f'  ⚠️  codebase transmutation: {e}')
 
+    # Record codebase vitals snapshot
+    try:
+        vitals_mod = _load_glob_module(root, 'src', 'codebase_vitals*')
+        if vitals_mod and hasattr(vitals_mod, 'record_vitals'):
+            vitals_mod.record_vitals(root, h, msg.splitlines()[0][:80])
+            print('  📊 vitals snapshot recorded')
+        renderer_mod = _load_glob_module(root, 'src', 'vitals_renderer*')
+        if renderer_mod and hasattr(renderer_mod, 'render_dashboard'):
+            renderer_mod.render_dashboard(root)
+            print('  📊 vitals dashboard rebuilt')
+    except Exception as e:
+        print(f'  ⚠️  vitals: {e}')
+
     # Compute total token footprint for this commit
     total_tokens = sum(
         e.get('tokens', 0) for _, _, e, _, _ in renames
@@ -1487,6 +1500,30 @@ def run():
             extra = rewrite_all_imports(root, import_map)
             if extra:
                 print(f'  🔧 Second pass fixed {len(extra)} import(s)')
+
+    # ── Autonomous Escalation Engine ──
+    # The modules have earned the right to fix themselves.
+    # 6-level ladder: REPORT → ASK → INSIST → WARN → ACT → VERIFY
+    try:
+        esc_mod = _load_glob_module(root, 'src', 'escalation_engine*')
+        if esc_mod and hasattr(esc_mod, 'check_and_escalate'):
+            esc_result = esc_mod.check_and_escalate(root)
+            esc_actions = esc_result.get('actions', [])
+            esc_warnings = esc_result.get('warnings', [])
+            if esc_actions:
+                for a in esc_actions:
+                    emoji = '✅' if a['result'] == 'success' else '🔙' if a['result'] == 'rolled_back' else '⚠️'
+                    print(f"  {emoji} 自 {a['module']}: {a.get('description', a['action'])}")
+                    if a.get('message'):
+                        print(f"       \"{a['message']}\"")
+            if esc_warnings:
+                print(f"  🪜 escalation warnings issued for: {', '.join(esc_warnings)}")
+            tracked = esc_result.get('total_modules_tracked', 0)
+            total_fixes = esc_result.get('total_autonomous_fixes', 0)
+            if tracked:
+                print(f"  📊 escalation: {tracked} tracked, {total_fixes} autonomous fixes total")
+    except Exception as e:
+        print(f'  ⚠️  autonomous escalation: {e}')
 
     # Auto-commit
     _git('add', '-A')

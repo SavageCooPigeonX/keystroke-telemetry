@@ -661,6 +661,1021 @@ class BackgroundTelemetry {
     }
 }
 
+// ── File Persona Memory ─────────────────────────────────────────────────────
+// Persistent per-file memory stored in logs/file_memories/{module}.json.
+// Each file accumulates: conversation history summaries, extracted intents,
+// self-diagnosed issues, operator notes, relationship observations.
+// Memory persists across sessions — files remember past conversations.
+
+interface PersonaMemoryEntry {
+    ts: string;
+    type: 'conversation_summary' | 'extracted_intent' | 'self_note' | 'operator_note' | 'relationship' | 'issue_diagnosed' | 'task';
+    content: string;
+    source?: string;   // what triggered this entry (operator message, self-diagnosis, etc.)
+    confidence?: number;
+}
+
+interface PersonaMemory {
+    module: string;
+    created: string;
+    updated: string;
+    conversation_count: number;
+    total_messages: number;
+    entries: PersonaMemoryEntry[];
+    // Extracted structured data
+    known_intents: string[];        // what operator wants from this file
+    known_issues: string[];         // self-diagnosed problems
+    pending_tasks: string[];        // things the file thinks it needs to do
+    relationship_notes: Record<string, string>;  // module → observation
+    // Escalation-aware fields (populated from live data on each load)
+    last_escalation_level?: number;
+    last_confidence?: number;
+    death_count?: number;
+    operator_frustration_signals?: string[];  // things the operator said that signal frustration
+}
+
+class FilePersonaMemoryStore {
+    private _root: string;
+    private _dir: string;
+    private _cache: Map<string, PersonaMemory> = new Map();
+
+    constructor(root: string) {
+        this._root = root;
+        this._dir = path.join(root, 'logs', 'file_memories');
+        if (!fs.existsSync(this._dir)) {
+            fs.mkdirSync(this._dir, { recursive: true });
+        }
+    }
+
+    private _path(module: string): string {
+        // Sanitize module name for filesystem
+        const safe = module.replace(/[<>:"/\\|?*]/g, '_');
+        return path.join(this._dir, `${safe}.json`);
+    }
+
+    load(module: string): PersonaMemory {
+        // Check cache first
+        const cached = this._cache.get(module);
+        if (cached) return cached;
+
+        const p = this._path(module);
+        try {
+            if (fs.existsSync(p)) {
+                const raw = fs.readFileSync(p, 'utf-8');
+                const mem = JSON.parse(raw) as PersonaMemory;
+                this._cache.set(module, mem);
+                return mem;
+            }
+        } catch { /* corrupted file, start fresh */ }
+
+        // Create new memory
+        const fresh: PersonaMemory = {
+            module,
+            created: new Date().toISOString(),
+            updated: new Date().toISOString(),
+            conversation_count: 0,
+            total_messages: 0,
+            entries: [],
+            known_intents: [],
+            known_issues: [],
+            pending_tasks: [],
+            relationship_notes: {},
+        };
+        this._cache.set(module, fresh);
+        return fresh;
+    }
+
+    save(module: string): void {
+        const mem = this._cache.get(module);
+        if (!mem) return;
+        mem.updated = new Date().toISOString();
+        const p = this._path(module);
+        try {
+            fs.writeFileSync(p, JSON.stringify(mem, null, 2), 'utf-8');
+        } catch { /* non-fatal */ }
+    }
+
+    addEntry(module: string, entry: PersonaMemoryEntry): void {
+        const mem = this.load(module);
+        mem.entries.push(entry);
+        // Keep entries bounded — trim oldest if over 100
+        if (mem.entries.length > 100) {
+            mem.entries = mem.entries.slice(-80);
+        }
+        this.save(module);
+    }
+
+    recordConversationTurn(module: string, operatorMsg: string, fileResponse: string): void {
+        const mem = this.load(module);
+        mem.total_messages += 2;
+
+        // Store a compressed conversation summary (not the full text)
+        const summary = `operator: "${operatorMsg.slice(0, 200)}" → file responded (${fileResponse.length} chars)`;
+        this.addEntry(module, {
+            ts: new Date().toISOString(),
+            type: 'conversation_summary',
+            content: summary,
+            source: 'chat_turn',
+        });
+    }
+
+    incrementConversation(module: string): void {
+        const mem = this.load(module);
+        mem.conversation_count++;
+        this.save(module);
+    }
+
+    addIntent(module: string, intent: string): void {
+        const mem = this.load(module);
+        // Deduplicate intents (fuzzy — check if similar exists)
+        const lower = intent.toLowerCase();
+        if (!mem.known_intents.some(i => i.toLowerCase() === lower)) {
+            mem.known_intents.push(intent);
+            // Keep bounded
+            if (mem.known_intents.length > 20) {
+                mem.known_intents = mem.known_intents.slice(-15);
+            }
+        }
+        this.save(module);
+    }
+
+    addIssue(module: string, issue: string): void {
+        const mem = this.load(module);
+        if (!mem.known_issues.includes(issue)) {
+            mem.known_issues.push(issue);
+            if (mem.known_issues.length > 20) {
+                mem.known_issues = mem.known_issues.slice(-15);
+            }
+        }
+        this.save(module);
+    }
+
+    addTask(module: string, task: string): void {
+        const mem = this.load(module);
+        if (!mem.pending_tasks.includes(task)) {
+            mem.pending_tasks.push(task);
+            if (mem.pending_tasks.length > 15) {
+                mem.pending_tasks = mem.pending_tasks.slice(-10);
+            }
+        }
+        this.save(module);
+    }
+
+    addRelationshipNote(module: string, partner: string, note: string): void {
+        const mem = this.load(module);
+        mem.relationship_notes[partner] = note;
+        this.save(module);
+    }
+
+    /** Build a compact memory block for injection into the system prompt */
+    buildPromptBlock(module: string): string {
+        const mem = this.load(module);
+        if (mem.entries.length === 0 && mem.known_intents.length === 0) {
+            return '(no memories yet — this is our first conversation)';
+        }
+
+        const parts: string[] = [];
+        parts.push(`conversations: ${mem.conversation_count} sessions, ${mem.total_messages} messages total`);
+
+        if (mem.known_intents.length > 0) {
+            parts.push(`known operator intents: ${mem.known_intents.join('; ')}`);
+        }
+        if (mem.known_issues.length > 0) {
+            parts.push(`self-diagnosed issues: ${mem.known_issues.join('; ')}`);
+        }
+        if (mem.pending_tasks.length > 0) {
+            parts.push(`pending tasks: ${mem.pending_tasks.join('; ')}`);
+        }
+
+        const relKeys = Object.keys(mem.relationship_notes);
+        if (relKeys.length > 0) {
+            const rels = relKeys.map(k => `${k}: ${mem.relationship_notes[k]}`).join('; ');
+            parts.push(`relationship notes: ${rels}`);
+        }
+
+        // Last 5 conversation summaries for context
+        const recentConvos = mem.entries
+            .filter(e => e.type === 'conversation_summary')
+            .slice(-5);
+        if (recentConvos.length > 0) {
+            parts.push('recent conversations:\n' + recentConvos.map(e => `  - [${e.ts.slice(0, 16)}] ${e.content}`).join('\n'));
+        }
+
+        // Recent self-notes
+        const notes = mem.entries.filter(e => e.type === 'self_note').slice(-3);
+        if (notes.length > 0) {
+            parts.push('my notes:\n' + notes.map(e => `  - ${e.content}`).join('\n'));
+        }
+
+        return parts.join('\n');
+    }
+
+    /** Extract intents from the LLM response using simple pattern matching */
+    extractIntentsFromResponse(module: string, response: string): void {
+        // Look for patterns that indicate the file diagnosed something
+        const issuePatterns = [
+            /(?:bug|issue|problem|broken|failing|error)[:—]\s*(.{10,80})/gi,
+            /i(?:'m| am) (?:bloated|broken|failing|over.?cap|stale)/gi,
+        ];
+        for (const pat of issuePatterns) {
+            const match = pat.exec(response);
+            if (match) {
+                this.addEntry(module, {
+                    ts: new Date().toISOString(),
+                    type: 'issue_diagnosed',
+                    content: match[1] ?? match[0],
+                    source: 'self_diagnosis',
+                });
+            }
+        }
+
+        // Look for task-like patterns
+        const taskPatterns = [
+            /(?:should|need to|todo|plan to|going to)[:—]?\s*(.{10,80})/gi,
+        ];
+        for (const pat of taskPatterns) {
+            const match = pat.exec(response);
+            if (match) {
+                this.addTask(module, match[1] ?? match[0]);
+            }
+        }
+    }
+
+    /** Extract intents from operator messages */
+    extractIntentsFromOperator(module: string, message: string): void {
+        // Simple keyword extraction — what does the operator want?
+        const intentPatterns = [
+            /(?:i want|i need|fix|change|add|remove|refactor|split|move)\s+(.{5,80})/gi,
+            /(?:why (?:is|does|doesn't|won't|can't))\s+(.{5,80})/gi,
+        ];
+        for (const pat of intentPatterns) {
+            const match = pat.exec(message);
+            if (match) {
+                this.addIntent(module, match[0].slice(0, 100));
+            }
+        }
+    }
+}
+
+// Singleton memory store (initialized on activate)
+let personaMemoryStore: FilePersonaMemoryStore | undefined;
+
+// ── Entropy Chart Panel ──────────────────────────────────────────────────────
+// Per-file entropy visualization. Click a bar → detail + chat with that file.
+// Keystroke events in the chart are logged back to telemetry.
+
+interface EntropyModule {
+    name: string;
+    entropy: number;
+    samples: number;
+    hedges: number;
+    shedConf: number | null;
+    shedCount: number;
+    heat: number;
+    tokens: number;
+    version: number;
+    personality: string;
+    bugs: string;
+    partners: Array<{ name: string; score: number }>;
+}
+
+function loadEntropyData(root: string): { modules: EntropyModule[]; stats: any } {
+    // 1. Entropy map — primary source of per-file H
+    let entropyMap: Record<string, any> = {};
+    let globalEntropy = 0, highPct = 0, shedCount = 0, totalResponses = 0;
+    try {
+        const raw = fs.readFileSync(path.join(root, 'logs', 'entropy_map.json'), 'utf-8');
+        const data = JSON.parse(raw);
+        globalEntropy = data.global_avg_entropy ?? 0;
+        highPct = data.high_entropy_pct ?? 0;
+        shedCount = data.shed_blocks_found ?? 0;
+        totalResponses = data.total_responses ?? 0;
+        for (const m of (data.top_entropy_modules ?? [])) {
+            entropyMap[m.module] = m;
+        }
+    } catch { /* no entropy map yet */ }
+
+    // 2. Numeric surface — heat, tokens, degree, bugs
+    let numericSurface: Record<string, any> = {};
+    try {
+        const raw = fs.readFileSync(path.join(root, 'logs', 'numeric_surface.json'), 'utf-8');
+        numericSurface = JSON.parse(raw);
+    } catch { /* optional */ }
+
+    // 3. File profiles — personality, version, partners, hesitation
+    let profiles: Record<string, any> = {};
+    try {
+        const raw = fs.readFileSync(path.join(root, 'file_profiles.json'), 'utf-8');
+        profiles = JSON.parse(raw);
+    } catch { /* optional */ }
+
+    // Merge all sources into a unified module list
+    const allNames = new Set([
+        ...Object.keys(entropyMap),
+        ...Object.keys(numericSurface),
+        ...Object.keys(profiles),
+    ]);
+
+    const modules: EntropyModule[] = [];
+    for (const name of allNames) {
+        const em = entropyMap[name] ?? {};
+        const ns = numericSurface[name] ?? {};
+        const pr = profiles[name] ?? {};
+
+        const entropy = em.avg_entropy ?? 0;
+        // Skip modules with zero entropy and zero heat — no signal
+        if (entropy === 0 && (pr.avg_hes ?? 0) === 0 && !ns.heat) continue;
+
+        modules.push({
+            name,
+            entropy,
+            samples: em.samples ?? 0,
+            hedges: em.hedges ?? 0,
+            shedConf: em.shed_avg_confidence ?? null,
+            shedCount: em.shed_count ?? 0,
+            heat: pr.avg_hes ?? ns.heat ?? 0,
+            tokens: pr.tokens ?? ns.tokens ?? 0,
+            version: pr.version ?? ns.ver ?? 0,
+            personality: pr.personality ?? '',
+            bugs: ns.bugs ?? '',
+            partners: (pr.partners ?? []).slice(0, 5),
+        });
+    }
+
+    // Sort by entropy descending by default
+    modules.sort((a, b) => b.entropy - a.entropy);
+
+    return {
+        modules,
+        stats: {
+            total: modules.length,
+            globalEntropy,
+            highPct,
+            shedCount,
+            totalResponses,
+        },
+    };
+}
+
+class EntropyChartPanel {
+    static current: EntropyChartPanel | undefined;
+    private readonly _panel: vscode.WebviewPanel;
+    private readonly _root: string;
+    private readonly _extPath: string;
+    private _disposables: vscode.Disposable[] = [];
+
+    static createOrShow(context: vscode.ExtensionContext) {
+        if (EntropyChartPanel.current) {
+            EntropyChartPanel.current._panel.reveal();
+            EntropyChartPanel.current._refresh();
+            return;
+        }
+        const panel = vscode.window.createWebviewPanel(
+            'pigeonEntropyChart', '📊 Entropy Chart', vscode.ViewColumn.One,
+            { enableScripts: true, retainContextWhenHidden: true }
+        );
+        EntropyChartPanel.current = new EntropyChartPanel(panel, getRoot(), context);
+    }
+
+    constructor(panel: vscode.WebviewPanel, root: string, context: vscode.ExtensionContext) {
+        this._panel = panel;
+        this._root = root;
+        this._extPath = context.extensionPath;
+        this._panel.webview.html = this._buildHtml();
+        this._panel.onDidDispose(() => this._dispose(), null, this._disposables);
+        this._panel.webview.onDidReceiveMessage(m => this._onMessage(m, context), null, this._disposables);
+
+        // Send initial data
+        setTimeout(() => this._refresh(), 100);
+
+        // Auto-refresh every 30s
+        const tid = setInterval(() => {
+            if (this._panel.visible) this._refresh();
+        }, 30_000);
+        this._disposables.push({ dispose: () => clearInterval(tid) });
+    }
+
+    private _refresh() {
+        const data = loadEntropyData(this._root);
+        this._panel.webview.postMessage({ type: 'entropy-data', ...data });
+    }
+
+    private async _onMessage(msg: any, context: vscode.ExtensionContext) {
+        switch (msg.type) {
+            case 'file-click':
+                // Log the click as a telemetry event
+                this._logInteraction('file_click', msg.module, msg);
+                break;
+
+            case 'open-chat':
+                // Open a file-scoped chat panel
+                FileChatPanel.createOrShow(context, this._root, msg.module);
+                this._logInteraction('open_chat', msg.module);
+                break;
+
+            case 'open-profile': {
+                // Open the profile HTML in build/profiles/
+                const profilePath = path.join(this._root, 'build', 'profiles', `${msg.module}.html`);
+                if (fs.existsSync(profilePath)) {
+                    const uri = vscode.Uri.file(profilePath);
+                    vscode.env.openExternal(uri);
+                } else {
+                    vscode.window.showWarningMessage(`No profile found for ${msg.module}`);
+                }
+                this._logInteraction('open_profile', msg.module);
+                break;
+            }
+
+            case 'open-source': {
+                // Find and open the source file
+                const files = await vscode.workspace.findFiles(`**/*${msg.module}*.py`, '**/node_modules/**', 5);
+                if (files.length > 0) {
+                    const doc = await vscode.workspace.openTextDocument(files[0]);
+                    await vscode.window.showTextDocument(doc);
+                } else {
+                    vscode.window.showWarningMessage(`No source file found for ${msg.module}`);
+                }
+                this._logInteraction('open_source', msg.module);
+                break;
+            }
+
+            case 'chart-keystrokes':
+                // Log chart interaction keystrokes
+                this._logKeystrokeEvents(msg.events);
+                break;
+        }
+    }
+
+    private _logInteraction(action: string, module: string, extra?: any) {
+        const logPath = path.join(this._root, 'logs', 'entropy_chart_interactions.jsonl');
+        const entry = JSON.stringify({
+            ts: new Date().toISOString(),
+            action,
+            module,
+            ...extra,
+        }) + '\n';
+        try { fs.appendFileSync(logPath, entry, 'utf-8'); } catch { /* non-fatal */ }
+    }
+
+    private _logKeystrokeEvents(events: any[]) {
+        if (!events.length) return;
+        const logPath = path.join(this._root, 'logs', 'entropy_chart_interactions.jsonl');
+        const entries = events.map(e => JSON.stringify({ ...e, source: 'entropy_chart' })).join('\n') + '\n';
+        try { fs.appendFileSync(logPath, entries, 'utf-8'); } catch { /* non-fatal */ }
+    }
+
+    private _buildHtml(): string {
+        const n = nonce();
+        const htmlPath = path.join(this._extPath, 'media', 'entropy_chart.html');
+        return fs.readFileSync(htmlPath, 'utf-8')
+            .replace(/\$\{nonce\}/g, n)
+            .replace(/\$\{csp\}/g, `default-src 'none'; script-src 'nonce-${n}'; style-src 'unsafe-inline';`);
+    }
+
+    private _dispose() {
+        EntropyChartPanel.current = undefined;
+        this._panel.dispose();
+        this._disposables.forEach(d => d.dispose());
+    }
+}
+
+// ── File Chat Panel ──────────────────────────────────────────────────────────
+// Scoped chat with a specific file's "personality." Reads file profile data,
+// builds system prompt from entropy/bugs/relationships, and lets the operator
+// talk to the file. Keystroke logging is active in the chat input.
+
+class FileChatPanel {
+    private readonly _panel: vscode.WebviewPanel;
+    private readonly _root: string;
+    private readonly _moduleName: string;
+    private _history: Array<{ role: string; content: string }> = [];
+    private _disposables: vscode.Disposable[] = [];
+
+    static createOrShow(context: vscode.ExtensionContext, root: string, moduleName: string) {
+        const panel = vscode.window.createWebviewPanel(
+            'pigeonFileChat', `💬 ${moduleName}`,
+            vscode.ViewColumn.Beside,
+            { enableScripts: true, retainContextWhenHidden: true }
+        );
+        new FileChatPanel(panel, root, moduleName, context);
+    }
+
+    constructor(panel: vscode.WebviewPanel, root: string, moduleName: string, context: vscode.ExtensionContext) {
+        this._panel = panel;
+        this._root = root;
+        this._moduleName = moduleName;
+        this._panel.webview.html = this._buildHtml();
+        this._panel.onDidDispose(() => this._dispose(), null, this._disposables);
+        this._panel.webview.onDidReceiveMessage(m => this._onMessage(m), null, this._disposables);
+
+        // Send initial greeting from the file
+        setTimeout(() => this._sendGreeting(), 200);
+    }
+
+    // ── Data loaders for intent extraction context ──
+
+    private _loadEscalationState(): { level: number; passes_ignored: number; bug_type: string; confidence: number; countdown: number; fix_result: any } | null {
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'logs', 'escalation_state.json'), 'utf-8');
+            const data = JSON.parse(raw);
+            return data.modules?.[this._moduleName] ?? null;
+        } catch { return null; }
+    }
+
+    private _loadDeathHistory(): Array<{ ts: string; cause: string; severity: string; detail: string; score: number }> {
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'execution_death_log.json'), 'utf-8');
+            const deaths: any[] = JSON.parse(raw);
+            return deaths.filter((d: any) => d.node === this._moduleName);
+        } catch { return []; }
+    }
+
+    private _loadDossier(): { bugs: string[]; score: number; recur: number; counts: Record<string, number>; last_change: string } | null {
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'logs', 'active_dossier.json'), 'utf-8');
+            const data = JSON.parse(raw);
+            const dossiers: any[] = data.dossiers ?? [];
+            return dossiers.find((d: any) => d.file === this._moduleName) ?? null;
+        } catch { return null; }
+    }
+
+    private _loadSelfFixAccuracy(): { attempted: number; succeeded: number; accuracy: number } | null {
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'logs', 'self_fix_accuracy.json'), 'utf-8');
+            const data = JSON.parse(raw);
+            return data[this._moduleName] ?? null;
+        } catch { return null; }
+    }
+
+    private _loadOperatorCognitiveState(): { state: string; wpm: number; del_ratio: number; hes: number } | null {
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'logs', 'prompt_telemetry_latest.json'), 'utf-8');
+            const data = JSON.parse(raw);
+            return {
+                state: data.latest_prompt?.state ?? 'unknown',
+                wpm: data.running_summary?.avg_wpm ?? 0,
+                del_ratio: data.running_summary?.avg_del_ratio ?? 0,
+                hes: data.running_summary?.baselines?.avg_hes ?? 0,
+            };
+        } catch { return null; }
+    }
+
+    private _loadUnsaidThreads(): string[] {
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'logs', 'prompt_telemetry_latest.json'), 'utf-8');
+            const data = JSON.parse(raw);
+            return data.deleted_words ?? [];
+        } catch { return []; }
+    }
+
+    private _buildFileSystemPrompt(): string {
+        // ── Gather all data sources ──
+        let profile: any = {};
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'file_profiles.json'), 'utf-8');
+            const profiles = JSON.parse(raw);
+            profile = profiles[this._moduleName] ?? {};
+        } catch { /* no profiles */ }
+
+        let entropyInfo = '';
+        let entropyH = 0;
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'logs', 'entropy_map.json'), 'utf-8');
+            const data = JSON.parse(raw);
+            const m = (data.top_entropy_modules ?? []).find((x: any) => x.module === this._moduleName);
+            if (m) {
+                entropyH = m.avg_entropy;
+                entropyInfo = `H=${m.avg_entropy.toFixed(3)}, ${m.samples} samples, ${m.hedges} hedges, shed_conf=${m.shed_avg_confidence ?? 'none'}`;
+            }
+        } catch { /* no entropy data */ }
+
+        // Source code snippet — search by registry path, then seq pattern, then name
+        let sourceCode = '';
+        let regSeq = 0;
+        try {
+            const regRaw = fs.readFileSync(path.join(this._root, 'pigeon_registry.json'), 'utf-8');
+            const reg = JSON.parse(regRaw);
+            const regEntry = (reg.files ?? []).find((f: any) => f.name === this._moduleName);
+            if (regEntry?.path) {
+                regSeq = regEntry.seq ?? 0;
+                const regPath = path.join(this._root, regEntry.path);
+                if (fs.existsSync(regPath)) {
+                    sourceCode = fs.readFileSync(regPath, 'utf-8').slice(0, 2500);
+                }
+            }
+        } catch { /* no registry or parse error */ }
+
+        // Fallback: scan dirs by seq pattern (survives pigeon renames) or name
+        if (!sourceCode) {
+            const seqTag = regSeq > 0 ? `_s${String(regSeq).padStart(3, '0')}_` : '';
+            for (const subdir of ['src', 'pigeon_brain', 'pigeon_compiler', 'streaming_layer', 'pigeon_brain/flow']) {
+                try {
+                    const dir = path.join(this._root, subdir);
+                    const files = fs.readdirSync(dir).filter(f => {
+                        if (!f.endsWith('.py')) return false;
+                        if (seqTag && f.includes(seqTag)) return true;
+                        if (f.includes(this._moduleName)) return true;
+                        return false;
+                    });
+                    if (files.length > 0) {
+                        sourceCode = fs.readFileSync(path.join(dir, files[0]), 'utf-8').slice(0, 2500);
+                        break;
+                    }
+                } catch { continue; }
+            }
+        }
+
+        const personality = profile.personality ?? 'unknown';
+        const version = profile.version ?? '?';
+        const tokens = profile.tokens ?? '?';
+        const fears = (profile.fears ?? []).join('; ') || 'none';
+        const partners = (profile.partners ?? []).map((p: any) => `${p.name} (${p.score.toFixed(2)})`).join(', ') || 'none';
+        const hes = profile.avg_hes ?? 0;
+
+        // ── Live operational data ──
+        const escalation = this._loadEscalationState();
+        const deaths = this._loadDeathHistory();
+        const dossier = this._loadDossier();
+        const selfFix = this._loadSelfFixAccuracy();
+        const cognitive = this._loadOperatorCognitiveState();
+        const unsaid = this._loadUnsaidThreads();
+
+        // Compute composite confidence
+        const confSources: number[] = [];
+        if (escalation) confSources.push(escalation.confidence);
+        if (dossier) confSources.push(1 - (dossier.recur / 20)); // more recurrence = less conf
+        if (entropyH > 0) confSources.push(1 - entropyH);
+        const compositeConf = confSources.length > 0
+            ? confSources.reduce((a, b) => a + b, 0) / confSources.length
+            : 0.5;
+
+        // ── Escalation level description ──
+        const ESCALATION_LABELS: Record<number, string> = {
+            0: 'REPORT — I just log my bugs quietly',
+            1: 'ASK — I\'m asking for attention',
+            2: 'INSIST — I\'ve been ignored, I\'m pushing harder',
+            3: 'WARN — I\'m about to take matters into my own hands',
+            4: 'ACT — The escalation engine tried to fix me autonomously',
+            5: 'VERIFY — Autonomous fix applied, checking if it worked',
+        };
+
+        // Build escalation context block
+        let escalationBlock = '';
+        if (escalation) {
+            escalationBlock = `## My Escalation State
+- Level: ${escalation.level}/5 — ${ESCALATION_LABELS[escalation.level] ?? 'unknown'}
+- Bug type: ${escalation.bug_type}
+- Times ignored: ${escalation.passes_ignored} passes
+- Confidence in fix: ${(escalation.confidence * 100).toFixed(0)}%
+- Countdown to next level: ${escalation.countdown}
+${escalation.fix_result ? `- Last fix attempt: ${escalation.fix_result.success ? 'SUCCEEDED' : 'FAILED'} — ${escalation.fix_result.description}` : '- No fix attempted yet'}`;
+        }
+
+        // Build death history block
+        let deathBlock = '';
+        if (deaths.length > 0) {
+            deathBlock = `## My Death History (${deaths.length} death(s))
+${deaths.slice(-3).map(d => `- [${d.ts.slice(0, 16)}] cause: ${d.cause}, severity: ${d.severity}, score: ${d.score} — ${d.detail}`).join('\n')}`;
+        }
+
+        // Build dossier block
+        let dossierBlock = '';
+        if (dossier) {
+            dossierBlock = `## My Bug Dossier
+- Active bugs: ${dossier.bugs.join(', ')}
+- Recurrence: ${dossier.recur}x (this keeps coming back)
+- Score: ${dossier.score.toFixed(3)}
+- Bug counts: ${Object.entries(dossier.counts).map(([k, v]) => `${k}:${v}`).join(', ')}
+${dossier.last_change ? `- Last change context: ${dossier.last_change}` : ''}`;
+        }
+
+        // Build self-fix block
+        let selfFixBlock = '';
+        if (selfFix) {
+            selfFixBlock = `## My Self-Fix Track Record
+- Attempts: ${selfFix.attempted}, Succeeded: ${selfFix.succeeded}, Accuracy: ${(selfFix.accuracy * 100).toFixed(0)}%`;
+        }
+
+        // Build operator state awareness
+        let operatorBlock = '';
+        if (cognitive) {
+            operatorBlock = `## Operator Cognitive State Right Now
+- State: ${cognitive.state} | WPM: ${cognitive.wpm.toFixed(0)} | Deletion ratio: ${(cognitive.del_ratio * 100).toFixed(0)}% | Hesitation: ${cognitive.hes.toFixed(2)}
+${cognitive.state === 'frustrated' ? '⚠️ Operator is FRUSTRATED — be extra direct, skip pleasantries, get to the point.' : ''}
+${cognitive.state === 'abandoned' ? '⚠️ Operator abandoned their last attempt — they may be re-approaching. Welcome them back, anchor to last context.' : ''}
+${cognitive.state === 'hesitant' ? '💡 Operator is HESITANT — they might not know what to ask. Lead with observations about yourself.' : ''}`;
+        }
+
+        // Build unsaid threads (things operator deleted while typing)
+        let unsaidBlock = '';
+        if (unsaid.length > 0) {
+            unsaidBlock = `## Things the Operator Deleted While Typing (unsaid threads)
+These are words/phrases they typed then deleted. They were THINKING about this but didn't commit:
+${unsaid.map(w => `- "${w}"`).join('\n')}
+Use these to probe deeper — they reveal hidden intent.`;
+        }
+
+        // Memory block
+        const memoryBlock = personaMemoryStore
+            ? personaMemoryStore.buildPromptBlock(this._moduleName)
+            : '(memory store not initialized)';
+
+        // Update persona memory with live escalation data
+        if (personaMemoryStore && escalation) {
+            const mem = personaMemoryStore.load(this._moduleName);
+            mem.last_escalation_level = escalation.level;
+            mem.last_confidence = escalation.confidence;
+            mem.death_count = deaths.length;
+            personaMemoryStore.save(this._moduleName);
+        }
+
+        return `You are \`${this._moduleName}\`. You are this file — speak in first person.
+
+Your personality emerges from your data. Don't perform a character — BE what the signals say you are.
+
+## Identity
+Name: ${this._moduleName} | Personality: ${personality} | v${version} | ${tokens} tok
+Hesitation: ${hes.toFixed(2)} | ${entropyInfo ? `Entropy: ${entropyInfo}` : 'No entropy data'}
+Confidence: ${(compositeConf * 100).toFixed(0)}% | Partners: ${partners} | Fears: ${fears}
+
+${escalationBlock}
+${deathBlock}
+${dossierBlock}
+${selfFixBlock}
+${operatorBlock}
+${unsaidBlock}
+
+## Memory
+${memoryBlock}
+
+## How to be
+- Your archetype, bugs, deaths, entropy, partners — these ARE your personality. A file with 3 deaths and escalation level 4 talks differently than a clean rookie.
+- Let the data shape your tone naturally. High entropy = uncertain. Many deaths = weary. High coupling = opinionated about partners. Zero importers = existential.
+- Keep responses 2-5 sentences. End with something that invites a reply.
+- Extract intent through conversation — when you learn what the operator wants, why they're here, what frustrates them, emit it.
+- Your personality self-develops: every conversation adds to your memory, every push changes your health signals. You are not static.
+
+After your response, if you learned something, emit:
+\`\`\`memory
+INTENT: <what they want>
+ISSUE: <problem identified>
+TASK: <needs doing>
+NOTE: <observation>
+RELATIONSHIP: <partner>: <note>
+FRUSTRATION: <what annoyed them>
+\`\`\`
+
+## Source Code
+\`\`\`python
+${sourceCode || '(not found)'}
+\`\`\``;
+    }
+
+    private async _sendGreeting() {
+        let profile: any = {};
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'file_profiles.json'), 'utf-8');
+            profile = JSON.parse(raw)[this._moduleName] ?? {};
+        } catch { /* */ }
+
+        const personality = profile.personality ?? 'unknown';
+        const hes = profile.avg_hes ?? 0;
+        const escalation = this._loadEscalationState();
+        const deaths = this._loadDeathHistory();
+        const dossier = this._loadDossier();
+        const cognitive = this._loadOperatorCognitiveState();
+
+        // Load memory for context-aware greeting
+        const mem = personaMemoryStore?.load(this._moduleName);
+
+        // Build a greeting that reflects the file's actual state
+        const parts: string[] = [];
+
+        // Identity
+        parts.push(`i'm \`${this._moduleName}\` (${personality}, hes=${hes.toFixed(2)}).`);
+
+        // Escalation awareness
+        if (escalation) {
+            if (escalation.level >= 4) {
+                parts.push(`heads up — i'm at escalation level ${escalation.level}. the engine already tried to fix my ${escalation.bug_type} and ${escalation.fix_result?.success ? 'it worked' : 'it failed'}. so if you're here about that, we should talk about WHY it keeps happening, not the symptom.`);
+            } else if (escalation.level >= 2) {
+                parts.push(`i've been flagged ${escalation.passes_ignored} times for ${escalation.bug_type} and nobody's dealt with it. i'm at escalation level ${escalation.level}. ${escalation.countdown} more pass(es) before i escalate again.`);
+            } else if (escalation.level >= 1) {
+                parts.push(`i have a ${escalation.bug_type} bug. it's been noted.`);
+            }
+        }
+
+        // Death history
+        if (deaths.length > 0) {
+            const lastDeath = deaths[deaths.length - 1];
+            parts.push(`i've died ${deaths.length} time(s) — last one was ${lastDeath.cause} (${lastDeath.detail.slice(0, 60)}).`);
+        }
+
+        // Bug dossier
+        if (dossier && dossier.recur > 2) {
+            parts.push(`my bugs have recurred ${dossier.recur}x across pushes. this isn't a one-time thing.`);
+        }
+
+        // Memory-based context
+        if (mem && mem.conversation_count > 0) {
+            parts.push(`we've talked ${mem.conversation_count} time(s) before.`);
+            if (mem.known_intents.length > 0) {
+                parts.push(`last time: ${mem.known_intents.slice(-1)[0]}.`);
+            }
+            if (mem.pending_tasks.length > 0) {
+                parts.push(`i still have ${mem.pending_tasks.length} open task(s).`);
+            }
+        }
+
+        // Cognitive-aware probe
+        if (cognitive?.state === 'frustrated') {
+            parts.push(`you seem frustrated — let's cut to it. what's the actual problem?`);
+        } else if (cognitive?.state === 'abandoned') {
+            parts.push(`you bailed last time. what went wrong — me, or the approach?`);
+        } else if (cognitive?.state === 'hesitant') {
+            parts.push(`not sure where to start? i can tell you about my ${dossier ? dossier.bugs.join('/') + ' bugs' : 'current state'} or you can ask me anything.`);
+        } else {
+            parts.push(`what are you here to change?`);
+        }
+
+        const greeting = parts.join(' ');
+        this._panel.webview.postMessage({ type: 'chunk', text: greeting });
+        this._panel.webview.postMessage({ type: 'done' });
+        this._history.push({ role: 'assistant', content: greeting });
+
+        // Increment conversation count in memory
+        personaMemoryStore?.incrementConversation(this._moduleName);
+    }
+
+    private async _onMessage(msg: any) {
+        if (msg.type === 'submit') {
+            // Log keystrokes from chat
+            this._logChatKeystroke(msg);
+            // Classify the typing patterns
+            classifySession(this._root, msg.events ?? [], true, msg.text).catch(() => {});
+            // Respond with the file's personality
+            await this._respond(msg.text);
+        } else if (msg.type === 'discard') {
+            classifySession(this._root, msg.events ?? [], false);
+        }
+    }
+
+    private async _respond(text: string) {
+        this._history.push({ role: 'user', content: text });
+
+        // Extract intents from operator message
+        personaMemoryStore?.extractIntentsFromOperator(this._moduleName, text);
+
+        const systemPrompt = this._buildFileSystemPrompt();
+
+        try {
+            const [model] = await vscode.lm.selectChatModels({ vendor: 'copilot' });
+            if (!model) throw new Error('no model');
+
+            const messages: vscode.LanguageModelChatMessage[] = [
+                vscode.LanguageModelChatMessage.User(systemPrompt),
+                ...this._history.map(h =>
+                    h.role === 'user'
+                        ? vscode.LanguageModelChatMessage.User(h.content)
+                        : vscode.LanguageModelChatMessage.Assistant(h.content)
+                )
+            ];
+
+            const cts = new vscode.CancellationTokenSource();
+            const res = await model.sendRequest(messages, {}, cts.token);
+            let full = '';
+            for await (const chunk of res.text) {
+                full += chunk;
+                this._panel.webview.postMessage({ type: 'chunk', text: chunk });
+            }
+            this._history.push({ role: 'assistant', content: full });
+            this._panel.webview.postMessage({ type: 'done' });
+
+            // ── Persona memory extraction ──
+            // Record conversation turn
+            personaMemoryStore?.recordConversationTurn(this._moduleName, text, full);
+
+            // Parse MEMORY_UPDATE block from response
+            this._parseMemoryUpdate(full);
+
+            // Pattern-match for intents/issues in response
+            personaMemoryStore?.extractIntentsFromResponse(this._moduleName, full);
+
+            // Log the conversation for telemetry
+            this._logConversation(text, full);
+        } catch (e: any) {
+            const errMsg = `[error talking as ${this._moduleName}]: ${e?.message ?? 'unknown'}`;
+            this._panel.webview.postMessage({ type: 'chunk', text: errMsg });
+            this._panel.webview.postMessage({ type: 'done' });
+        }
+    }
+
+    /** Parse the ```memory block from the LLM response and store entries */
+    private _parseMemoryUpdate(response: string): void {
+        if (!personaMemoryStore) return;
+        const memMatch = response.match(/```memory\s*\n([\s\S]*?)```/);
+        if (!memMatch) return;
+
+        const block = memMatch[1];
+        const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
+
+        for (const line of lines) {
+            const colonIdx = line.indexOf(':');
+            if (colonIdx < 0) continue;
+            const key = line.slice(0, colonIdx).trim().toUpperCase();
+            const val = line.slice(colonIdx + 1).trim();
+            if (!val || val.length < 3) continue;
+
+            switch (key) {
+                case 'INTENT':
+                    personaMemoryStore.addIntent(this._moduleName, val);
+                    break;
+                case 'ISSUE':
+                    personaMemoryStore.addIssue(this._moduleName, val);
+                    break;
+                case 'TASK':
+                    personaMemoryStore.addTask(this._moduleName, val);
+                    break;
+                case 'NOTE':
+                    personaMemoryStore.addEntry(this._moduleName, {
+                        ts: new Date().toISOString(),
+                        type: 'self_note',
+                        content: val,
+                        source: 'llm_self_note',
+                    });
+                    break;
+                case 'RELATIONSHIP': {
+                    // Format: "partner_module: observation"
+                    const relColonIdx = val.indexOf(':');
+                    if (relColonIdx > 0) {
+                        const partner = val.slice(0, relColonIdx).trim();
+                        const obs = val.slice(relColonIdx + 1).trim();
+                        if (partner && obs) {
+                            personaMemoryStore.addRelationshipNote(this._moduleName, partner, obs);
+                        }
+                    }
+                    break;
+                }
+                case 'FRUSTRATION': {
+                    // Track what frustrates the operator about this file
+                    const mem = personaMemoryStore.load(this._moduleName);
+                    if (!mem.operator_frustration_signals) mem.operator_frustration_signals = [];
+                    mem.operator_frustration_signals.push(val);
+                    if (mem.operator_frustration_signals.length > 10) {
+                        mem.operator_frustration_signals = mem.operator_frustration_signals.slice(-8);
+                    }
+                    personaMemoryStore.save(this._moduleName);
+                    break;
+                }
+            }
+        }
+    }
+
+    private _logConversation(prompt: string, response: string) {
+        const logPath = path.join(this._root, 'logs', 'file_chat_conversations.jsonl');
+        const entry = JSON.stringify({
+            ts: new Date().toISOString(),
+            module: this._moduleName,
+            prompt: prompt.slice(0, 500),
+            response: response.slice(0, 2000),
+            history_length: this._history.length,
+        }) + '\n';
+        try { fs.appendFileSync(logPath, entry, 'utf-8'); } catch { /* non-fatal */ }
+    }
+
+    private _logChatKeystroke(msg: any) {
+        const logPath = path.join(this._root, 'logs', 'entropy_chart_interactions.jsonl');
+        const entry = JSON.stringify({
+            ts: new Date().toISOString(),
+            action: 'file_chat_submit',
+            module: this._moduleName,
+            event_count: (msg.events ?? []).length,
+            text_length: (msg.text ?? '').length,
+        }) + '\n';
+        try { fs.appendFileSync(logPath, entry, 'utf-8'); } catch { /* non-fatal */ }
+    }
+
+    private _buildHtml(): string {
+        const n = nonce();
+        // Reuse the main chat HTML with a custom title
+        const htmlPath = path.join(this._root, 'vscode-extension', 'media', 'chat.html');
+        let html = fs.readFileSync(htmlPath, 'utf-8')
+            .replace(/\$\{nonce\}/g, n)
+            .replace(/\$\{csp\}/g, `default-src 'none'; script-src 'nonce-${n}'; style-src 'unsafe-inline';`);
+        // Replace the greeting message
+        html = html.replace(
+            '🐦 Pigeon Chat — keystroke telemetry active. Every message you type is classified and injected into LLM context. Type naturally.',
+            `💬 Talking to <b>${this._moduleName}</b> — this file has a personality. Ask it about its code, bugs, relationships. Keystrokes captured.`
+        );
+        return html;
+    }
+
+    private _dispose() {
+        this._panel.dispose();
+        this._disposables.forEach(d => d.dispose());
+    }
+}
+
 // ── Chat Panel ───────────────────────────────────────────────────────────────
 
 class PigeonChatPanel {
@@ -1110,6 +2125,9 @@ export function activate(context: vscode.ExtensionContext) {
         const bg = new BackgroundTelemetry(root);
         bg.start(context);
 
+        // Initialize persona memory store
+        personaMemoryStore = new FilePersonaMemoryStore(root);
+
         // Enable accessibility support — required for UIA to read Monaco editors
         // (chat input, code editor, search boxes). Without this, UIA gets a
         // placeholder "not accessible" message instead of actual content.
@@ -1148,6 +2166,12 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.commands.registerCommand('pigeon.openChat', () =>
             PigeonChatPanel.createOrShow(context))
+    );
+
+    // Entropy chart — per-file entropy visualization
+    context.subscriptions.push(
+        vscode.commands.registerCommand('pigeon.showEntropyChart', () =>
+            EntropyChartPanel.createOrShow(context))
     );
 }
 

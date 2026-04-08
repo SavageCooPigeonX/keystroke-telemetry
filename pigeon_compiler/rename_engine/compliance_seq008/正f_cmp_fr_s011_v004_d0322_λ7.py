@@ -1,7 +1,7 @@
 """compliance_seq008_format_report_seq011_v001.py — Auto-extracted by Pigeon Compiler."""
 
 import re
-from .compliance_seq008_constants_seq001_v001__正审图 import MAX_LINES
+from .正f_cmp_co_s001_v001 import MAX_LINES
 
 def format_report(audit: dict) -> str:
     """Format audit results as readable text."""

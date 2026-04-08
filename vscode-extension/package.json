@@ -7,7 +7,7 @@
   "repository": "https://github.com/SavageCooPigeonX/keystroke-telemetry",
   "engines": { "vscode": "^1.90.0" },
   "categories": ["AI", "Other"],
-  "activationEvents": ["onStartupFinished", "onCommand:pigeon.openChat", "onCommand:pigeon.showOperatorState"],
+  "activationEvents": ["onStartupFinished", "onCommand:pigeon.openChat", "onCommand:pigeon.showOperatorState", "onCommand:pigeon.showEntropyChart"],
   "main": "./out/extension",
   "contributes": {
     "chatParticipants": [
@@ -27,6 +27,10 @@
       {
         "command": "pigeon.showOperatorState",
         "title": "Pigeon: Show Live Operator State"
+      },
+      {
+        "command": "pigeon.showEntropyChart",
+        "title": "Pigeon: Show Per-File Entropy Chart"
       }
     ],
     "keybindings": [

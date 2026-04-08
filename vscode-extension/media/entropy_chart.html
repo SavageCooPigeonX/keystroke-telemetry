@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="${csp}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entropy Chart</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--vscode-font-family, -apple-system, 'Segoe UI', sans-serif);
+    font-size: var(--vscode-font-size, 13px);
+    background: var(--vscode-editor-background, #1e1e1e);
+    color: var(--vscode-editor-foreground, #ccc);
+    padding: 16px; overflow-y: auto;
+  }
+  h1 { font-size: 18px; margin-bottom: 4px; }
+  .subtitle { color: var(--vscode-descriptionForeground, #888); font-size: 11px; margin-bottom: 16px; }
+
+  /* Global stats bar */
+  .stats-bar {
+    display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap;
+  }
+  .stat {
+    background: var(--vscode-editorWidget-background, #252526);
+    border: 1px solid var(--vscode-editorWidget-border, #454545);
+    border-radius: 6px; padding: 10px 14px; min-width: 120px;
+  }
+  .stat .label { font-size: 10px; text-transform: uppercase; color: var(--vscode-descriptionForeground); letter-spacing: 0.5px; }
+  .stat .val { font-size: 22px; font-weight: 600; margin: 2px 0; }
+
+  /* Filter bar */
+  .filter-bar {
+    display: flex; gap: 8px; margin-bottom: 14px; align-items: center; flex-wrap: wrap;
+  }
+  .filter-bar input {
+    background: var(--vscode-input-background); color: var(--vscode-input-foreground);
+    border: 1px solid var(--vscode-input-border, #555); border-radius: 4px;
+    padding: 4px 8px; font-size: 12px; width: 200px;
+  }
+  .filter-bar select {
+    background: var(--vscode-dropdown-background); color: var(--vscode-dropdown-foreground);
+    border: 1px solid var(--vscode-dropdown-border, #555); border-radius: 4px;
+    padding: 4px 8px; font-size: 12px;
+  }
+  .filter-bar .count { color: var(--vscode-descriptionForeground); font-size: 11px; margin-left: auto; }
+
+  /* Chart container */
+  .chart { display: flex; flex-direction: column; gap: 2px; }
+  .bar-row {
+    display: flex; align-items: center; gap: 8px; padding: 3px 6px;
+    border-radius: 4px; cursor: pointer; transition: background 0.15s;
+  }
+  .bar-row:hover { background: var(--vscode-list-hoverBackground, #2a2d2e); }
+  .bar-row.selected { background: var(--vscode-list-activeSelectionBackground, #094771); }
+
+  .bar-name {
+    width: 180px; min-width: 180px; font-size: 11px; overflow: hidden;
+    text-overflow: ellipsis; white-space: nowrap;
+    font-family: 'Cascadia Code', 'Fira Code', monospace;
+  }
+  .bar-container { flex: 1; height: 18px; background: var(--vscode-editorWidget-background, #252526); border-radius: 3px; position: relative; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; transition: width 0.3s ease; position: relative; }
+  .bar-fill .bar-label {
+    position: absolute; right: 4px; top: 1px; font-size: 10px; color: #fff;
+    text-shadow: 0 0 3px rgba(0,0,0,0.8); white-space: nowrap;
+  }
+  .bar-meta { font-size: 10px; color: var(--vscode-descriptionForeground); width: 90px; min-width: 90px; text-align: right; }
+  .bar-badges { display: flex; gap: 3px; width: 80px; min-width: 80px; }
+  .badge {
+    font-size: 9px; padding: 1px 5px; border-radius: 8px;
+    border: 1px solid var(--vscode-editorWidget-border, #454545);
+  }
+  .badge.bug { color: #f85149; border-color: #f85149; }
+  .badge.hot { color: #d29922; border-color: #d29922; }
+  .badge.shed { color: #3fb950; border-color: #3fb950; }
+
+  /* Detail panel (shows when a file is clicked) */
+  .detail-panel {
+    display: none; margin-top: 16px; padding: 14px;
+    background: var(--vscode-editorWidget-background);
+    border: 1px solid var(--vscode-editorWidget-border);
+    border-radius: 8px;
+  }
+  .detail-panel.visible { display: block; }
+  .detail-panel h3 { font-size: 14px; margin-bottom: 8px; }
+  .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+  .detail-item { font-size: 11px; }
+  .detail-item .dlabel { color: var(--vscode-descriptionForeground); font-size: 10px; text-transform: uppercase; }
+  .detail-actions { display: flex; gap: 8px; margin-top: 10px; }
+  .detail-actions button {
+    background: var(--vscode-button-background); color: var(--vscode-button-foreground);
+    border: none; border-radius: 4px; padding: 5px 12px; cursor: pointer; font-size: 12px;
+  }
+  .detail-actions button:hover { background: var(--vscode-button-hoverBackground); }
+  .detail-actions button.secondary {
+    background: var(--vscode-button-secondaryBackground, #3a3d41);
+    color: var(--vscode-button-secondaryForeground, #ccc);
+  }
+
+  /* Color scale */
+  .color-low { color: #3fb950; }
+  .color-mid { color: #d29922; }
+  .color-high { color: #f85149; }
+</style>
+</head>
+<body>
+
+<h1>Per-File Entropy Map</h1>
+<div class="subtitle" id="subtitle">loading...</div>
+
+<div class="stats-bar" id="stats-bar"></div>
+
+<div class="filter-bar">
+  <input type="text" id="search" placeholder="filter modules..." />
+  <select id="sort">
+    <option value="entropy-desc">highest entropy</option>
+    <option value="entropy-asc">lowest entropy</option>
+    <option value="heat-desc">highest heat</option>
+    <option value="samples-desc">most samples</option>
+    <option value="name-asc">name A-Z</option>
+  </select>
+  <select id="filter-type">
+    <option value="all">all modules</option>
+    <option value="high">high entropy only</option>
+    <option value="shed">with sheds</option>
+    <option value="bugs">with bugs</option>
+  </select>
+  <span class="count" id="count"></span>
+</div>
+
+<div class="chart" id="chart"></div>
+
+<div class="detail-panel" id="detail">
+  <h3 id="detail-name"></h3>
+  <div class="detail-grid" id="detail-grid"></div>
+  <div class="detail-actions">
+    <button id="btn-chat" title="Open chat with this file's personality">Talk to this file</button>
+    <button id="btn-profile" class="secondary" title="Open full profile page">Open profile</button>
+    <button id="btn-open" class="secondary" title="Open source file in editor">Open source</button>
+  </div>
+</div>
+
+<script nonce="${nonce}">
+const vscode = acquireVsCodeApi();
+
+let allModules = [];
+let selectedModule = null;
+
+// ── Receive data from extension ──
+window.addEventListener('message', e => {
+  const msg = e.data;
+  if (msg.type === 'entropy-data') {
+    allModules = msg.modules;
+    renderStats(msg.stats);
+    document.getElementById('subtitle').textContent =
+      msg.stats.total + ' modules · global H=' + msg.stats.globalEntropy.toFixed(4) +
+      ' · ' + msg.stats.highPct.toFixed(1) + '% high entropy · ' +
+      msg.stats.shedCount + ' sheds';
+    render();
+  }
+});
+
+function render() {
+  const search = document.getElementById('search').value.toLowerCase();
+  const sort = document.getElementById('sort').value;
+  const filter = document.getElementById('filter-type').value;
+
+  let filtered = allModules.filter(m => {
+    if (search && !m.name.toLowerCase().includes(search)) return false;
+    if (filter === 'high' && m.entropy < 0.3) return false;
+    if (filter === 'shed' && !m.shedCount) return false;
+    if (filter === 'bugs' && !m.bugs) return false;
+    return true;
+  });
+
+  filtered.sort((a, b) => {
+    switch (sort) {
+      case 'entropy-desc': return b.entropy - a.entropy;
+      case 'entropy-asc': return a.entropy - b.entropy;
+      case 'heat-desc': return (b.heat || 0) - (a.heat || 0);
+      case 'samples-desc': return b.samples - a.samples;
+      case 'name-asc': return a.name.localeCompare(b.name);
+      default: return 0;
+    }
+  });
+
+  document.getElementById('count').textContent = filtered.length + ' / ' + allModules.length;
+
+  const chart = document.getElementById('chart');
+  chart.innerHTML = '';
+
+  const maxE = Math.max(...filtered.map(m => m.entropy), 0.5);
+
+  for (const m of filtered) {
+    const row = document.createElement('div');
+    row.className = 'bar-row' + (selectedModule === m.name ? ' selected' : '');
+    row.onclick = () => selectModule(m);
+
+    // Log click as telemetry event
+    row.addEventListener('click', () => {
+      vscode.postMessage({ type: 'file-click', module: m.name, entropy: m.entropy });
+    });
+
+    const pct = Math.max((m.entropy / maxE) * 100, 2);
+    const color = m.entropy > 0.35 ? '#f85149' : m.entropy > 0.25 ? '#d29922' : '#3fb950';
+    const colorClass = m.entropy > 0.35 ? 'color-high' : m.entropy > 0.25 ? 'color-mid' : 'color-low';
+
+    let badges = '';
+    if (m.bugs) badges += '<span class="badge bug">' + m.bugs + '</span>';
+    if (m.heat > 0.5) badges += '<span class="badge hot">hes=' + m.heat.toFixed(2) + '</span>';
+    if (m.shedCount) badges += '<span class="badge shed">' + m.shedCount + ' shed</span>';
+
+    row.innerHTML =
+      '<div class="bar-name" title="' + m.name + '">' + m.name + '</div>' +
+      '<div class="bar-container"><div class="bar-fill" style="width:' + pct + '%;background:' + color + '">' +
+      '<span class="bar-label">' + m.entropy.toFixed(3) + '</span></div></div>' +
+      '<div class="bar-meta"><span class="' + colorClass + '">H=' + m.entropy.toFixed(3) + '</span> · ' + m.samples + 's</div>' +
+      '<div class="bar-badges">' + badges + '</div>';
+
+    chart.appendChild(row);
+  }
+}
+
+function renderStats(stats) {
+  const bar = document.getElementById('stats-bar');
+  const c = (val, th1, th2) => val > th2 ? 'color-high' : val > th1 ? 'color-mid' : 'color-low';
+  bar.innerHTML =
+    '<div class="stat"><div class="label">Global Entropy</div><div class="val ' + c(stats.globalEntropy, 0.25, 0.35) + '">H=' + stats.globalEntropy.toFixed(3) + '</div></div>' +
+    '<div class="stat"><div class="label">High Entropy</div><div class="val ' + c(stats.highPct, 20, 35) + '">' + stats.highPct.toFixed(1) + '%</div></div>' +
+    '<div class="stat"><div class="label">Sheds</div><div class="val color-low">' + stats.shedCount + '</div></div>' +
+    '<div class="stat"><div class="label">Modules</div><div class="val">' + stats.total + '</div></div>';
+}
+
+function selectModule(m) {
+  selectedModule = m.name;
+  const detail = document.getElementById('detail');
+  detail.classList.add('visible');
+  document.getElementById('detail-name').textContent = m.name + (m.personality ? ' — ' + m.personality : '');
+
+  const grid = document.getElementById('detail-grid');
+  grid.innerHTML =
+    item('Entropy', 'H=' + m.entropy.toFixed(4)) +
+    item('Samples', m.samples) +
+    item('Hedges', m.hedges || 0) +
+    item('Shed Confidence', m.shedConf != null ? m.shedConf.toFixed(3) : 'none') +
+    item('Hesitation', m.heat ? m.heat.toFixed(3) : 'n/a') +
+    item('Tokens', m.tokens || '?') +
+    item('Version', m.version || '?') +
+    item('Personality', m.personality || 'unknown') +
+    item('Bugs', m.bugs || 'none') +
+    item('Partners', (m.partners || []).slice(0, 3).map(p => p.name || p).join(', ') || 'none');
+
+  // Re-render chart to update selection highlight
+  render();
+}
+
+function item(label, val) {
+  return '<div class="detail-item"><div class="dlabel">' + label + '</div><div>' + val + '</div></div>';
+}
+
+// ── Actions ──
+document.getElementById('btn-chat').addEventListener('click', () => {
+  if (selectedModule) vscode.postMessage({ type: 'open-chat', module: selectedModule });
+});
+document.getElementById('btn-profile').addEventListener('click', () => {
+  if (selectedModule) vscode.postMessage({ type: 'open-profile', module: selectedModule });
+});
+document.getElementById('btn-open').addEventListener('click', () => {
+  if (selectedModule) vscode.postMessage({ type: 'open-source', module: selectedModule });
+});
+
+// ── Filters ──
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('sort').addEventListener('change', render);
+document.getElementById('filter-type').addEventListener('change', render);
+
+// ── Keystroke capture for the chart panel itself ──
+let chartEvents = [];
+document.addEventListener('keydown', e => {
+  chartEvents.push({ type: 'keydown', key: e.key, ts: Date.now() });
+});
+document.getElementById('search').addEventListener('input', e => {
+  chartEvents.push({ type: 'search', value: e.target.value, ts: Date.now() });
+});
+// Flush keystroke events periodically
+setInterval(() => {
+  if (chartEvents.length > 0) {
+    vscode.postMessage({ type: 'chart-keystrokes', events: chartEvents });
+    chartEvents = [];
+  }
+}, 10000);
+</script>
+
+</body>
+</html>
