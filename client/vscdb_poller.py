@@ -116,6 +116,37 @@ def hash_val(val: str | None) -> str:
     return hashlib.md5(val.encode('utf-8', errors='replace')).hexdigest()
 
 
+def _compute_draft_diff(prev: str, new: str) -> dict:
+    """Compute character-level diff metrics between draft states."""
+    prev_len = len(prev)
+    new_len = len(new)
+    # Find common prefix
+    common_prefix = 0
+    for i in range(min(prev_len, new_len)):
+        if prev[i] == new[i]:
+            common_prefix += 1
+        else:
+            break
+    # Find common suffix (after prefix)
+    common_suffix = 0
+    for i in range(1, min(prev_len - common_prefix, new_len - common_prefix) + 1):
+        if prev[-i] == new[-i]:
+            common_suffix += 1
+        else:
+            break
+    chars_deleted = prev_len - common_prefix - common_suffix
+    chars_added = new_len - common_prefix - common_suffix
+    deleted_text = prev[common_prefix:prev_len - common_suffix] if chars_deleted > 0 else ''
+    return {
+        'chars_added': chars_added,
+        'chars_deleted': chars_deleted,
+        'deleted_text': deleted_text[:200],
+        'new_len': new_len,
+        'prev_len': prev_len,
+        'edit_pos': common_prefix,
+    }
+
+
 def main():
     if len(sys.argv) < 2:
         print(json.dumps({'error': 'usage: py vscdb_poller.py <project_root>'}))
@@ -159,6 +190,35 @@ def main():
         if d:
             prev_draft_text = d['input_text']
 
+    # ── Draft session accumulator ──────────────────────────────────────────
+    # Tracks cumulative metrics for the current draft composition session.
+    # Resets on submit or abandonment (draft→empty).
+    draft_session = {
+        'first_change_ts': None,     # when operator started typing this draft
+        'last_change_ts': None,      # most recent edit
+        'total_chars_added': 0,      # cumulative insertions
+        'total_chars_deleted': 0,    # cumulative deletions
+        'draft_changes': 0,          # number of poll cycles with changes
+        'hesitation_count': 0,       # gaps > 2s between draft changes
+        'peak_len': 0,               # max draft length seen
+        'deleted_words': [],         # words extracted from deleted text
+    }
+    HESITATION_MS = 2000  # gap > 2s between changes = hesitation
+
+    def _reset_session():
+        draft_session['first_change_ts'] = None
+        draft_session['last_change_ts'] = None
+        draft_session['total_chars_added'] = 0
+        draft_session['total_chars_deleted'] = 0
+        draft_session['draft_changes'] = 0
+        draft_session['hesitation_count'] = 0
+        draft_session['peak_len'] = 0
+        draft_session['deleted_words'] = []
+
+    def _extract_deleted_words(text: str) -> list[str]:
+        """Extract words from deleted text fragment."""
+        return [w for w in text.split() if len(w) >= 3]
+
     slow_counter = 0
     while True:
         time.sleep(POLL_INTERVAL_S)
@@ -178,18 +238,37 @@ def main():
             if h != prev_hashes.get(key, ''):
                 prev_hashes[key] = h
                 ts = datetime.now(timezone.utc).isoformat()
+                now_ms = int(time.time() * 1000)
 
                 if key == 'memento/interactive-session' and val:
                     prompts = extract_prompts(val)
                     new_count = len(prompts)
                     if new_count > prev_prompt_count:
-                        # New prompts submitted
                         for p in prompts[prev_prompt_count:]:
+                            # Compute composition time
+                            comp_time_ms = None
+                            if draft_session['first_change_ts']:
+                                comp_time_ms = now_ms - int(
+                                    datetime.fromisoformat(
+                                        draft_session['first_change_ts']
+                                    ).timestamp() * 1000)
                             entry = {
                                 'ts': ts,
                                 'event': 'prompt_submitted',
                                 'source': 'vscdb',
                                 **p,
+                                # Session-level composition metrics
+                                'composition_time_ms': comp_time_ms,
+                                'total_chars_added': draft_session['total_chars_added'],
+                                'total_chars_deleted': draft_session['total_chars_deleted'],
+                                'draft_changes': draft_session['draft_changes'],
+                                'hesitation_count': draft_session['hesitation_count'],
+                                'peak_draft_len': draft_session['peak_len'],
+                                'deletion_ratio': round(
+                                    draft_session['total_chars_deleted'] /
+                                    max(draft_session['total_chars_added'] +
+                                        draft_session['total_chars_deleted'], 1), 3),
+                                'deleted_words': draft_session['deleted_words'][-20:],
                             }
                             line = json.dumps(entry, ensure_ascii=False) + '\n'
                             try:
@@ -198,18 +277,62 @@ def main():
                             except OSError:
                                 pass
                         prev_prompt_count = new_count
+                        _reset_session()
 
                 elif key == 'memento/interactive-session-view-copilot' and val:
                     draft = extract_draft(val)
                     if draft and draft['input_text'] != prev_draft_text:
+                        diff = _compute_draft_diff(prev_draft_text, draft['input_text'])
+
+                        # Detect hesitation (gap > 2s since last change)
+                        is_hesitation = False
+                        if draft_session['last_change_ts']:
+                            last_ms = int(
+                                datetime.fromisoformat(
+                                    draft_session['last_change_ts']
+                                ).timestamp() * 1000)
+                            if now_ms - last_ms > HESITATION_MS:
+                                is_hesitation = True
+                                draft_session['hesitation_count'] += 1
+
+                        # Detect abandonment (had text, now empty, no submit)
+                        is_abandon = (
+                            len(prev_draft_text) > 5 and
+                            len(draft['input_text']) == 0 and
+                            draft_session['draft_changes'] > 0
+                        )
+
+                        # Update session accumulator
+                        if not draft_session['first_change_ts']:
+                            draft_session['first_change_ts'] = ts
+                        draft_session['last_change_ts'] = ts
+                        draft_session['total_chars_added'] += diff['chars_added']
+                        draft_session['total_chars_deleted'] += diff['chars_deleted']
+                        draft_session['draft_changes'] += 1
+                        draft_session['peak_len'] = max(
+                            draft_session['peak_len'], diff['new_len'])
+                        if diff['deleted_text']:
+                            draft_session['deleted_words'].extend(
+                                _extract_deleted_words(diff['deleted_text']))
+
                         entry = {
                             'ts': ts,
-                            'event': 'draft_changed',
+                            'event': 'draft_abandoned' if is_abandon else 'draft_changed',
                             'source': 'vscdb',
                             'new_text': draft['input_text'],
                             'prev_text': prev_draft_text,
                             'model': draft['model'],
                             'mode': draft['mode'],
+                            # Per-change diff metrics
+                            'chars_added': diff['chars_added'],
+                            'chars_deleted': diff['chars_deleted'],
+                            'deleted_text': diff['deleted_text'],
+                            'edit_pos': diff['edit_pos'],
+                            'is_hesitation': is_hesitation,
+                            # Running session totals
+                            'session_chars_added': draft_session['total_chars_added'],
+                            'session_chars_deleted': draft_session['total_chars_deleted'],
+                            'session_changes': draft_session['draft_changes'],
                         }
                         line = json.dumps(entry, ensure_ascii=False) + '\n'
                         try:
@@ -217,6 +340,10 @@ def main():
                                 f.write(line)
                         except OSError:
                             pass
+
+                        if is_abandon:
+                            _reset_session()
+
                         prev_draft_text = draft['input_text']
 
                 elif key == 'chat.ChatSessionStore.index' and val:

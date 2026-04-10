@@ -7,16 +7,16 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-08 03:01 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-10 05:25 UTC — 2 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 1389min old (max 10min)
+- **`current-query`**: STALE — 4413min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-07 03:53
 
-- **`prompt-telemetry`**: STALE — 1389min old (max 10min)
+- **`prompt-telemetry`**: STALE — 4413min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-07T03:52:52
 
@@ -90,6 +90,32 @@ When the **Unsaid Threads** section (in `<!-- pigeon:current-query -->
 > the organism is sick — health 11/100. only 11% compliant, 268 bugs across 254 modules. 63 chronic bugs refuse to die — fix rate is 11%. 8 module(s) took autonomous action — the organism is deciding for itself. entropy at 0.29 — the codebase knows what it is, mostly. cognitive heat on: `file_heat_map`, `import_rewriter`, `file_writer`. recent escalation: task_writer(failure), task_writer(autonomous_fix), run_heal(failure).
 
 <!-- /pigeon:narrative-glove -->
+
+<!-- pigeon:organism-health -->
+## Organism Health
+
+*Auto-injected 2026-04-09 20:03 UTC · 2511 files · 2303/2511 compliant (92%)*
+
+**Stale pipelines:**
+- **context_veins**: 7d ago 🔴
+- **execution_deaths**: 13d ago 🔴
+- **push_cycle_state**: 5d ago 🔴
+
+**Over-cap critical (50):** `git_plugin.py` (1547), `层w_sl_s007_v003_d0317_读唤任_λΠ.py` (1142), `谱建f_mb_s007_v003_d0314_观重箱重拆_λD.py` (1017), `autonomous_dev_stress_test.py` (999), `管w_cpm_s020_v005_d0404_缩分话_λNU_βoc.py` (925), `git_plugin.py` (919), `profile_renderer.py` (893), `classify_bridge.py` (877)
+
+**Clots:** `aim_utils` (orphan_no_importers, unused_exports:1), `press_release_gen_constants_seq001_v001` (orphan_no_importers, unused_exports:1), `adapter` (orphan_no_importers, unused_exports:1), `query_memory` (dead_imports:2, oversize:252)
+
+**Circulation:** 133/137 alive · 4 clots · vein health 0.53
+
+**Recent deaths:** `?` (timeout), `?` (timeout), `?` (stale_import), `?` (stale_import)
+
+**AI rework:** 134/200 responses needed rework (67%)
+
+**Push cycles:** 17 · sync score: 0.7 · reactor fires: 524
+
+> **Organism directive:** Multiple systems degraded. Prioritize fixing clots and over-cap files before new features.
+<!-- /pigeon:organism-health -->
+
 <!-- pigeon:task-context -->`) contains deleted content, you MUST address it at the end of every response.
 
 **Format:**
@@ -204,31 +230,6 @@ operator intent → keystroke telemetry → semantic compression → LLM code ge
 - **🔧 SELF-FIXED** — `run_heal` (hardcoded_import): rewrote 0 hardcoded import(s). Rollback available.
 - **🔧 SELF-FIXED** — `task_writer` (hardcoded_import): rewrote 0 hardcoded import(s). Rollback available.
 <!-- /pigeon:escalation-warnings -->
-<!-- pigeon:organism-health -->
-## Organism Health
-
-*Auto-injected 2026-03-29 23:17 UTC · 448 files · 389/448 compliant (87%)*
-
-**Stale pipelines:**
-- **context_veins**: 5d ago 🔴
-- **execution_deaths**: 2d ago 🔴
-- **push_cycle_state**: 1d ago 🔴
-
-**Over-cap critical (16):** `streaming_layer_seq007_v003_d0317__monol` (1156), `git_plugin.py` (1155), `manifest_builder_seq007_v003_d0314__gene` (1023), `autonomous_dev_stress_test.py` (999), `prompt_journal_seq019_v001.py` (756), `_build_organism_health.py` (703), `os_hook.py` (655), `self_fix_seq013_v011_d0328__one_shot_sel` (632)
-
-**Clots:** `aim_utils` (orphan_no_importers, unused_exports:1), `press_release_gen_constants_seq001_v001` (orphan_no_importers, unused_exports:1), `adapter` (orphan_no_importers, unused_exports:1), `query_memory` (dead_imports:2, oversize:252)
-
-**Circulation:** 133/137 alive · 4 clots · vein health 0.53
-
-**Recent deaths:** `?` (timeout), `?` (timeout), `?` (stale_import), `?` (stale_import)
-
-**AI rework:** 77/200 responses needed rework (38%)
-
-**Push cycles:** 2 · sync score: 0.6 · reactor fires: 148
-
-> **Organism directive:** Multiple systems degraded. Prioritize fixing clots and over-cap files before new features.
-<!-- /pigeon:organism-health -->
-
 <!-- pigeon:narrative-glove -->
 ## Organism Consciousness
 
@@ -254,43 +255,35 @@ OPERATOR SIGNAL: The trajectory reveals a persistent frustration with the AI's i
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-08 03:01 UTC · 369 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-10 05:31 UTC · 432 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 50.0 | Del: 26.5% | Hes: 0.487) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 50.6 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
 
-**Prompt ms:** 127620, 51782, 269961, 126254, 122539 (avg 139631ms)
+**Prompt ms:** 54557, 20889, 163789, 8352, 839293 (avg 217376ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- "so now you complete my thoughts and"
-- "what should i exprct friom using tis system >>> shit data - did you mean for trump audit to be made this sway"
-- "- do not under"
-- "sin my ai fingerprint is shit becuase o"
-- "hello testing countedjandjn="
-- "jndjnfjanfjsndjnfsnfjnjfnsnfsininfsi"
+- **Reconstructed intent:** This appears to be a typo correction only, as the deleted characters were
+  - *(deleted: ffee | ratio: 1%)*
+- **Reconstructed intent:** Copilot needs to be paired with the context select agent to function correctly.
+  - *(deleted: opilot needs to be pai | ratio: 9%)*
 
-### Module Hot Zones *[source: measured]*
-*High cognitive load (from typing signal) — take extra care with these files:*
-- `file_heat_map` (hes=0.887)
-- `import_rewriter` (hes=0.735)
-- `file_writer` (hes=0.735)
-- `.operator_stats` (hes=0.66)
-- `dynamic_prompt` (hes=0.66)
+- "lready have this ;ea"
 
 ### AI Rework Surface
-*Miss rate: 2.0% (200 responses)*
+*Miss rate: 13.5% (200 responses)*
 - Failed on: ""
 - Failed on: ""
 - Failed on: ""
 
 ### Recent Work
+- `af0652b` feat: operator probes + prediction-driven probes + persona memory + entropy chart + file chat + thinned personality prompts + source code lookup fix
 - `843fa29` fix: rebuild 36 broken __init__.py + fix 37 hardcoded pigeon_brain imports + add import_rewriter error logging
 - `3e125f5` feat: entropy shedding + intent compressor + human-AI coding paradigm in system prompt + context compressor + codebase transmuter + self-fix tracker
 - `5e29260` feat: numeric surface layer + narrative bug profiles + stale import fixes
-- `08b2b56` fix: add REGISTRY_FILE import to registry_io shard
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -303,11 +296,11 @@ OPERATOR SIGNAL: The trajectory reveals a persistent frustration with the AI's i
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
-- [CRITICAL] hardcoded_import in `pigeon_brain/令f_cl_s009_v002_d0323_缩分话_λP.py`
-- [CRITICAL] hardcoded_import in `pigeon_brain/仿f_dsm_s010_v002_d0323_缩分话_λP.py`
-- [CRITICAL] hardcoded_import in `pigeon_brain/双f_dsb_s008_v002_d0323_缩分话_λP.py`
-- [CRITICAL] hardcoded_import in `pigeon_brain/观f_os_s007_v003_d0401_读谱建册_λA.py`
-- [CRITICAL] hardcoded_import in `pigeon_brain/读w_el_s002_v003_d0401_观话_λA.py`
+- [HIGH] over_hard_cap in `pigeon_brain/ai_cognitive_log.py`
+- [HIGH] over_hard_cap in `pigeon_brain/context_veins.py`
+- [HIGH] over_hard_cap in `pigeon_brain/gemini_chat.py`
+- [HIGH] over_hard_cap in `pigeon_brain/node_tester.py`
+- [HIGH] over_hard_cap in `pigeon_brain/服f_ls_s012_v003_d0324_踪稿析_λB.py`
 
 ### Prompt Evolution
 *This prompt has mutated 114x (186→841 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
@@ -316,7 +309,7 @@ OPERATOR SIGNAL: The trajectory reveals a persistent frustration with the AI's i
 *200 rework pairs × 113 mutations scored*
 *No significant signal yet — all 25 sections scored neutral.*
 
-**Reactor patches:** 0/518 applied (0% acceptance)
+**Reactor patches:** 0/524 applied (0% acceptance)
 
 ### File Consciousness
 *254 modules profiled*
@@ -503,9 +496,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-08 · 369 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-10 · 432 message(s) · LLM-synthesized*
 
-**Dominant: `abandoned`** | Submit: 66% | WPM: 52.7 | Del: 25.6% | Hes: 0.444
+**Dominant: `abandoned`** | Submit: 66% | WPM: 52.8 | Del: 25.6% | Hes: 0.444
 
 Operator just built numeric surface layer unification and works in intense restructuring/focused cycles with high deletion rates, indicating iterative refinement through aggressive editing rather than planning.  
 - **Respond with concise, modular suggestions**—offer 2-3 line code blocks, not paragraphs, to match their high-WPM focused bursts.  
@@ -516,8 +509,10 @@ Operator just built numeric surface layer unification and works in intense restr
 They are most likely building toward a unified numeric pipeline for cross-module data validation.
 
 <!-- /pigeon:operator-state -->
-> **Cognitive reactor fired on `profile_chat_server`** (hes=0.779, state=hesitant, avg_prompt=131221ms)
-> - Prompt composition time: 51782ms / 127620ms / 82498ms / 339044ms / 55159ms (avg 131221ms)
+> **Cognitive reactor fired on `profile_chat_server`** (hes=0.73, state=hesitant, avg_prompt=501234ms)
+> - Rework miss rate: 4% (7/200)
+> - Worst queries: ; ; 
+> - Prompt composition time: 26296ms / 606311ms / 49840ms / 289966ms / 1533757ms (avg 501234ms)
 > **Directive**: When `profile_chat_server` appears in context, provide complete code blocks (not snippets), proactively explain cross-module dependencies, and address the unsaid topics above without being asked.
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry

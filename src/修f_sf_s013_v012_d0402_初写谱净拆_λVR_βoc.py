@@ -21,9 +21,14 @@ def _scan_hardcoded_pigeon_imports(root: Path, registry_paths: set[str] | None =
     """
     problems = []
     pat = re.compile(r'(from|import)\s+([\w.]+_seq\d+_v\d+_d\d+__[\w]+)')
+    _SKIP_PARTS = frozenset({
+        '.git', '__pycache__', '.venv', 'node_modules', 'build',
+        'demo_logs', 'test_logs', 'stress_logs', 'logs',
+        'compiler_output', 'rollback_logs',
+    })
     managed = registry_paths or set()
     for py in root.rglob('*.py'):
-        if '.git' in py.parts or '__pycache__' in py.parts:
+        if _SKIP_PARTS & set(py.parts):
             continue
         rel = str(py.relative_to(root)).replace('\\', '/')
         # Skip auto-managed files
@@ -58,8 +63,11 @@ def _scan_dead_exports(root: Path, registry: dict) -> list[dict]:
     # Build a set of all 'from X import Y' targets across the repo
     import_targets = set()
     call_targets = set()
+    _SKIP = frozenset({'.git', '__pycache__', '.venv', 'node_modules', 'build',
+                        'demo_logs', 'test_logs', 'stress_logs', 'logs',
+                        'compiler_output', 'rollback_logs'})
     for py in root.rglob('*.py'):
-        if '.git' in py.parts or '__pycache__' in py.parts:
+        if _SKIP & set(py.parts):
             continue
         try:
             text = py.read_text(encoding='utf-8')
@@ -527,7 +535,9 @@ def auto_apply_import_fixes(root: Path, dry_run: bool = False) -> list[dict]:
 
     for py in sorted(root.rglob('*.py')):
         rel_parts = py.relative_to(root).parts
-        if any(p in {'.venv', '__pycache__', '.git', 'node_modules'} for p in rel_parts):
+        if any(p in {'.venv', '__pycache__', '.git', 'node_modules', 'build',
+                       'demo_logs', 'test_logs', 'stress_logs', 'logs',
+                       'compiler_output', 'rollback_logs'} for p in rel_parts):
             continue
         # Skip the resolver itself
         if py.name == '_resolve.py':

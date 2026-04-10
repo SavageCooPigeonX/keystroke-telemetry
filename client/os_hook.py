@@ -41,7 +41,7 @@ except ImportError:
 
 # ── Configuration ────────────────────────────────────────────────────────────
 
-FLUSH_INTERVAL_S = 5       # Write to disk every 5 seconds
+FLUSH_INTERVAL_S = 0.3     # Write to disk every 300ms (thought_completer needs low-latency)
 IDLE_TIMEOUT_S = 300       # 5 min idle → pause recording
 BUFFER_MAX_LEN = 500       # Max composition buffer size
 VSCODE_WINDOW_MATCH = 'Visual Studio Code'
@@ -184,6 +184,64 @@ class ContextTracker:
             self.context = 'chat'
         elif self.context == 'chat':
             self.context = 'editor'
+
+
+# ── VSCDB draft watcher (bridges vscdb_poller → ContextTracker) ──────────────
+
+class VscdbDraftWatcher:
+    """Tails vscdb_drafts.jsonl and updates ContextTracker.context in real time.
+
+    Runs in a daemon thread. Polls the file every 300ms for new lines.
+    When a draft_changed event has non-empty new_text → context='chat'.
+    When draft_abandoned or prompt_submitted → context='editor'.
+    """
+
+    def __init__(self, root: Path, ctx: ContextTracker):
+        self._path = root / 'logs' / 'vscdb_drafts.jsonl'
+        self._ctx = ctx
+        self._offset = 0
+        self._thread: threading.Thread | None = None
+
+    def start(self):
+        # Seek to end of file — only watch NEW events
+        if self._path.exists():
+            self._offset = self._path.stat().st_size
+        self._thread = threading.Thread(target=self._poll_loop, daemon=True)
+        self._thread.start()
+
+    def _poll_loop(self):
+        while True:
+            try:
+                self._check()
+            except Exception:
+                pass
+            time.sleep(0.3)
+
+    def _check(self):
+        if not self._path.exists():
+            return
+        size = self._path.stat().st_size
+        if size <= self._offset:
+            if size < self._offset:
+                self._offset = 0  # file was truncated/rotated
+            return
+        with open(self._path, 'r', encoding='utf-8', errors='ignore') as f:
+            f.seek(self._offset)
+            new_data = f.read()
+            self._offset = f.tell()
+        for line in new_data.strip().split('\n'):
+            if not line.strip():
+                continue
+            try:
+                evt = json.loads(line)
+            except (json.JSONDecodeError, ValueError):
+                continue
+            event_type = evt.get('event', '')
+            if event_type == 'draft_changed':
+                has_text = bool(evt.get('new_text', '').strip())
+                self._ctx.set_context_from_vscdb(has_text)
+            elif event_type in ('draft_abandoned', 'prompt_submitted'):
+                self._ctx.set_context_from_vscdb(False)
 
 
 # ── Keystroke recorder ───────────────────────────────────────────────────────
@@ -606,6 +664,10 @@ def main():
 
     mouse_tracker = MouseSelectionTracker()
     recorder = KeystrokeRecorder(root, mouse_tracker)
+
+    # Start vscdb draft watcher — bridges vscdb_poller → ContextTracker
+    draft_watcher = VscdbDraftWatcher(root, recorder._ctx)
+    draft_watcher.start()
 
     # Start pynput listeners (keyboard + mouse)
     kb_listener = keyboard.Listener(

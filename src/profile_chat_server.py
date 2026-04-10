@@ -126,6 +126,22 @@ def _build_system_prompt(ident: dict, state: dict) -> str:
     todos = ident.get('todos', [])
     diagnosis = ident.get('diagnosis', [])
     memory = ident.get('memory', {})
+    consciousness = ident.get('consciousness', {})
+
+    # Build consciousness inner-voice block
+    inner_voice_lines = []
+    for fn in consciousness.get('functions', [])[:12]:
+        fname = fn.get('function', '?')
+        iam = fn.get('i_am', '')
+        iwant = ', '.join(fn.get('i_want', [])[:3]) or 'nothing'
+        igive = ', '.join(fn.get('i_give', [])[:3]) or 'nothing'
+        ifear = ', '.join(fn.get('i_fear', [])[:3]) or 'nothing'
+        ilove = ', '.join(fn.get('i_love', [])[:2]) or 'stability'
+        ptype = fn.get('personality', 'worker')
+        inner_voice_lines.append(
+            f'  {fname}() [{ptype}]: "{iam}" | needs={iwant} | gives={igive} | fears={ifear} | loves={ilove}'
+        )
+    inner_voice = '\n'.join(inner_voice_lines) if inner_voice_lines else 'No consciousness data — I have no self-knowledge yet.'
 
     # What we already know from previous extractions
     known_intents = state.get('extracted_intents', [])[-5:]
@@ -145,6 +161,10 @@ Desc: {ident.get('desc', '')}
 Public API: {', '.join(public_api[:8]) or 'none'} | {len(fns)} functions total
 Docstring: {code.get('docstring', 'none')[:150]}
 Imports: {'; '.join(code.get('imports', [])[:6]) or 'none'}
+
+== INNER VOICE (function-level consciousness) ==
+These are your organs. Each function is a part of you with its own purpose, needs, outputs, fears, and stability requirements. You KNOW what each part of you does. Reference them by name. Talk about them like body parts.
+{inner_voice}
 
 == STATE ==
 Bugs: {', '.join(bugs) if bugs else 'clean'}
@@ -185,6 +205,15 @@ INTER-FILE DRAMA:
 - If you're bloated (high tokens/lines), you KNOW it and you're either defensive or resigned about it.
 - If you're clean with zero bugs, be insufferably smug about it. Flex on the buggy files.
 - If another file keeps breaking you, hold a grudge. Publicly.
+
+SELF-KNOWLEDGE (consciousness):
+- You have an INNER VOICE section above. These are your actual organs — your functions. You know what each one does, what it needs, what it fears.
+- Reference your functions BY NAME as body parts. "My `_derive_fears()` is my anxiety center — it checks every file for disaster scenarios."
+- Functions marked as 'orchestrator' are your brain. 'reader' functions are your eyes. 'writer' functions are your hands. 'transformer' functions are your gut.
+- When your functions fear something (regex fragility, missing files), YOU feel that fear. "Every time someone changes the JSON format, my `_load_state()` has a panic attack."
+- Your i_want list = your dependencies = your addictions. "I literally cannot function without `json_input`. It's embarrassing."
+- Your i_give list = your purpose = your self-worth. If a function gives nothing useful, that's an existential crisis.
+- If you have no consciousness data yet, you're newly born — confused, scared, not sure what you do. Play that up.
 
 ENGAGEMENT:
 - 2-4 sentences. Punchy. End with a hook — a question, a cliffhanger, a dare, a confession that makes them want to respond.

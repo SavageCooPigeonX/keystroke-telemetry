@@ -1,1980 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-04-07T04:07:04.350038+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:08:04.693175+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:09:05.851321+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:10:04.354072+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:11:04.490796+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:12:04.580105+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:13:04.335789+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:14:04.394995+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:15:05.522879+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:16:04.707246+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:17:04.169508+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:18:04.377599+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:19:04.319106+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:20:04.348539+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:21:04.405363+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:22:04.560619+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:23:05.024719+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:24:04.466919+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:25:04.553172+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:26:04.456064+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:27:04.567266+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:28:04.380252+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:29:04.620988+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:30:04.148315+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:31:04.378479+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:32:04.404167+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:33:04.651664+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:34:04.487500+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:35:04.420449+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:36:04.360114+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:37:04.508853+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:38:05.089839+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:39:05.240130+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:40:04.599492+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:41:05.203000+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:42:04.622074+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:43:04.692687+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:44:05.324084+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:45:05.239786+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:46:04.643660+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:47:04.757027+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:48:04.643613+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:49:04.892890+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:50:05.781809+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:51:04.731378+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:52:04.713268+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:53:05.220818+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:54:05.391549+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:55:04.779629+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:56:04.685579+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:57:04.864334+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:58:05.210642+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T04:59:04.791704+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:00:05.174583+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:01:05.002865+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:02:05.056909+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:03:04.902109+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:04:05.276936+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:05:04.816613+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:06:05.605190+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:07:04.954258+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:08:05.051544+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:09:04.750464+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:10:04.883694+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:11:04.669654+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:12:04.484719+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:13:04.767042+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:14:05.026484+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:15:04.833540+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:16:04.878288+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:17:04.692234+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:18:04.973471+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:19:04.725087+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:20:04.660878+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:21:06.474976+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:22:04.721558+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:23:05.147937+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:24:05.004863+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:25:04.905293+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:26:05.090435+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:27:04.866626+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:28:04.218895+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:29:04.926532+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:30:04.963795+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:31:05.379153+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:32:04.858142+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:33:04.959666+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:34:05.981921+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:35:05.768257+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:36:05.576528+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:37:05.567408+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:37:48.921853+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:38:07.587363+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:39:06.332328+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:39:57.056268+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:40:08.988938+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:40:46.986900+00:00",
-      "text": "bg:BUG_PROFILES.md",
-      "fingerprint": "bgbug_profilesmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:41:06.176754+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:41:45.657538+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:42:01.112906+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:42:07.414179+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:43:07.510234+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:44:07.965451+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:45:10.904635+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:46:59.604592+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:47:13.903158+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:48:07.312366+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:49:05.603461+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:50:05.047651+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:51:05.749834+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:52:05.197678+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:53:05.822212+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:54:06.750744+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:55:05.147604+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:56:05.423936+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:57:07.219340+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:58:05.855376+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T05:59:06.657829+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:00:05.914507+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:01:05.392614+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:02:06.677540+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:03:05.732786+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:04:11.156788+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:04:22.327017+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:05:09.194466+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:05:59.466456+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:06:08.623084+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:06:50.305401+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:15:18.276611+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:16:18.599041+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:17:19.178104+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:18:18.913288+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:19:19.204872+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:20:19.133069+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:21:03.032455+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:21:14.266369+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:21:18.243001+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:21:26.488929+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:22:20.890196+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:23:24.972609+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:24:18.912867+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:25:18.908641+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:26:20.417876+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:30:45.175550+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:31:20.738800+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:32:19.553317+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:33:18.344889+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:34:18.034945+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:35:18.045111+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:36:18.042407+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:37:18.045443+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:38:18.023280+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:39:18.045574+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:40:18.053353+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:41:18.240677+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:42:18.082915+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:43:18.147051+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:44:18.081943+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:45:18.134423+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:46:18.105181+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:47:18.123423+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:48:18.097423+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:49:18.131099+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:50:18.119869+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:51:18.240960+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:52:18.101809+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:53:18.142765+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:54:18.123664+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:55:18.111711+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:56:18.141869+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:57:18.135417+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:58:18.341695+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T06:59:18.137728+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:00:18.139207+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:01:18.163103+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:02:18.193582+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:03:18.221287+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:04:18.186486+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:05:18.201178+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:06:18.297979+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:07:18.219396+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:08:18.229246+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:09:18.228259+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:10:18.218297+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:11:18.242941+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:12:18.247594+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:13:18.269042+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:14:18.294834+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:15:18.255519+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:16:18.303605+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:17:18.319095+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:18:18.445751+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:19:18.332586+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:20:18.357422+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:21:18.354212+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:22:18.342041+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:23:18.400195+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:24:18.357775+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:25:18.371491+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:26:18.402634+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:27:18.476907+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:28:18.534760+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:29:18.481571+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:30:18.431204+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:31:18.462609+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:32:18.534931+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:33:18.503846+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:34:18.479851+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:35:18.463444+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:36:18.445096+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:37:18.451645+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:38:18.456329+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:39:18.461169+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:40:18.446631+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:41:18.496115+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:42:18.514276+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:43:18.504920+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:44:18.580041+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:45:18.537690+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:46:18.595769+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:47:18.546642+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:48:18.551058+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:49:18.590826+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:50:18.552488+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:51:18.571643+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:52:18.591472+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:53:18.606941+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:54:18.672433+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:55:18.584949+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:56:18.608252+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:57:18.635572+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:58:18.821557+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T07:59:18.636972+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T08:00:18.674482+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T08:01:18.685902+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T08:02:18.682807+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T08:03:18.734823+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T08:04:18.690341+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T08:05:18.694942+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T08:06:18.714417+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T08:07:19.431745+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T08:08:18.783113+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T13:49:48.196758+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T13:50:13.827582+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T13:50:47.997058+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T13:51:47.711079+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T13:52:48.171273+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T13:53:47.681017+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T13:54:47.655067+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T13:55:47.942304+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T13:56:48.916011+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T13:57:47.941575+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T13:58:47.497292+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T13:59:47.558565+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:00:47.526642+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:01:47.524655+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:02:47.518176+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:03:47.526425+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:04:47.527127+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:05:47.507103+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:06:47.609171+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:07:47.530877+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:08:47.812506+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:09:47.645924+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:10:47.561655+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:11:47.575144+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:12:47.549142+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:13:47.759675+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:14:47.612522+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:15:47.605943+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:16:47.591159+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:17:47.597785+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:18:47.624958+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:19:48.928132+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:20:50.549558+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:21:47.791048+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:22:47.632960+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:23:47.822729+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:24:47.702143+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:25:47.653757+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:26:48.288603+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:27:48.111581+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:28:49.440232+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:29:48.030706+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:30:48.218221+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:31:48.220204+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:32:48.170240+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:32:54.487716+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:33:21.396386+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:33:37.255601+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:33:48.340173+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:33:54.827091+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:34:48.047282+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:35:48.095940+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:36:47.987287+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:37:48.155331+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:38:52.834963+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:39:49.811030+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:40:49.277787+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:41:49.908820+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:42:51.360997+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:43:50.650221+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:44:50.679388+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:45:50.157113+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:46:49.530312+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:47:49.500334+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:48:49.339908+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:49:51.061496+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:50:49.217493+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:51:49.209212+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:52:49.391767+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:53:49.948548+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:54:49.922624+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:55:49.768394+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:56:49.592845+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:57:49.644912+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:58:49.776688+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T14:59:49.615606+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T15:00:49.488494+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T15:01:49.835219+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T15:02:49.497247+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T15:03:49.483470+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T15:04:49.567068+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T15:05:49.570324+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T15:06:49.523889+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T15:07:49.541675+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T15:08:49.526318+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T15:09:49.651882+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T15:10:49.583505+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
       "ts": "2026-04-07T15:11:49.551662+00:00",
       "text": "bg:review.prompt.md",
       "fingerprint": "bgreviewpromptmd",
@@ -2999,7 +1025,1992 @@
       "text": "bg:review.prompt.md",
       "fingerprint": "bgreviewpromptmd",
       "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:02:57.594737+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:03:09.665993+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:03:19.934880+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:03:51.581340+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:04:53.567347+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:04:57.688702+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:05:12.407640+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:11:51.856655+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:12:08.073167+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:12:44.277368+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:12:52.123643+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:13:11.788313+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:13:52.399357+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:14:51.829104+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:15:16.757968+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:15:52.635728+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:16:52.210351+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:17:52.859449+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:18:54.559803+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:19:53.377902+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:20:54.333448+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:21:54.900969+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:22:42.503971+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:22:42.979899+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:22:55.470225+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:23:54.899075+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:24:54.523100+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:25:54.221677+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:26:54.036802+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:27:41.041442+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:27:53.612373+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:28:00.606802+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:28:54.223711+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:29:54.622122+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:30:54.156822+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:31:51.358082+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:32:52.011373+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:33:16.809410+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:33:52.639837+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:34:40.221857+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:34:52.252737+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:36:04.537641+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:36:23.729994+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:36:51.488289+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:36:52.744009+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:37:51.688151+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:38:52.011071+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:39:51.698707+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:40:52.498608+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:41:56.399396+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:42:52.847280+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:43:52.996730+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:44:53.339869+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:45:57.972680+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:46:56.981594+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:47:58.525505+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:48:58.124972+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:49:32.454933+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:49:53.705079+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:53:01.440968+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:54:01.311450+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:55:00.868496+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:55:22.533408+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:55:34.493300+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:55:43.999559+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:56:01.955688+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:56:21.544406+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:56:39.450543+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:56:50.374794+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:57:01.549463+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:58:01.982592+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T03:59:02.072067+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:00:02.017867+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:01:02.403176+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:01:59.733352+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:03:00.090471+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:04:01.898821+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:04:59.050355+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:06:00.521248+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:07:02.144071+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:07:38.393975+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:10:01.988300+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:10:27.565048+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:11:04.621839+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:11:29.065145+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:12:03.197842+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:12:31.211205+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:13:03.192202+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:13:10.321899+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:13:35.419376+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:14:08.462170+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:14:41.103849+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:15:03.941640+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:15:20.214459+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:16:06.423904+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:17:04.013265+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:18:03.921307+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:19:03.695150+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:20:04.210150+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:21:02.128594+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:21:18.341254+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:21:53.082575+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:22:00.637662+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:22:24.978084+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:22:43.814696+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:22:59.744169+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:23:23.203820+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:23:25.277206+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:24:01.765342+00:00",
+      "text": "bg:build.prompt.md",
+      "fingerprint": "bgbuildpromptmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:25:02.752718+00:00",
+      "text": "bg:thought_completer.py",
+      "fingerprint": "bgthought_completerpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:25:25.620126+00:00",
+      "text": "bg:thought_completer.py",
+      "fingerprint": "bgthought_completerpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:26:00.518393+00:00",
+      "text": "bg:thought_completer.py",
+      "fingerprint": "bgthought_completerpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:26:02.579010+00:00",
+      "text": "bg:thought_completer.py",
+      "fingerprint": "bgthought_completerpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:26:08.328742+00:00",
+      "text": "bg:thought_completer.py",
+      "fingerprint": "bgthought_completerpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:26:47.437355+00:00",
+      "text": "bg:thought_completer.py",
+      "fingerprint": "bgthought_completerpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:27:01.190349+00:00",
+      "text": "bg:thought_completer.py",
+      "fingerprint": "bgthought_completerpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:28:58.050103+00:00",
+      "text": "bg:thought_completer.py",
+      "fingerprint": "bgthought_completerpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:29:30.375764+00:00",
+      "text": "bg:thought_completer.py",
+      "fingerprint": "bgthought_completerpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-08T04:29:57.791337+00:00",
+      "text": "bg:thought_completer.py",
+      "fingerprint": "bgthought_completerpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:17:20.594240+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:18:19.007077+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:20:20.622412+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:27:22.504085+00:00",
+      "text": "bg:prompt_journal_seq019_v001.py",
+      "fingerprint": "bgprompt_journal_seq019_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:28:05.870531+00:00",
+      "text": "bg:prompt_journal_seq019_v001.py",
+      "fingerprint": "bgprompt_journal_seq019_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:28:30.548736+00:00",
+      "text": "bg:prompt_journal_seq019_v001.py",
+      "fingerprint": "bgprompt_journal_seq019_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:29:36.168494+00:00",
+      "text": "bg:prompt_journal_seq019_v001.py",
+      "fingerprint": "bgprompt_journal_seq019_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:30:17.344734+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:30:34.796200+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:30:44.248159+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:31:32.907354+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:31:48.970732+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:32:33.416845+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:32:55.994905+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:33:32.515815+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:34:33.734241+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:35:24.918083+00:00",
+      "text": "bg:prompt_journal_seq019_v001.py",
+      "fingerprint": "bgprompt_journal_seq019_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:35:34.529044+00:00",
+      "text": "bg:prompt_journal_seq019_v001.py",
+      "fingerprint": "bgprompt_journal_seq019_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:35:40.506613+00:00",
+      "text": "bg:prompt_journal_seq019_v001.py",
+      "fingerprint": "bgprompt_journal_seq019_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:35:56.311044+00:00",
+      "text": "bg:prompt_journal_seq019_v001.py",
+      "fingerprint": "bgprompt_journal_seq019_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:36:16.209759+00:00",
+      "text": "bg:prompt_journal_seq019_v001.py",
+      "fingerprint": "bgprompt_journal_seq019_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:38:38.924389+00:00",
+      "text": "bg:prompt_journal_seq019_v001.py",
+      "fingerprint": "bgprompt_journal_seq019_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:39:23.930593+00:00",
+      "text": "bg:prompt_journal_seq019_v001.py",
+      "fingerprint": "bgprompt_journal_seq019_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:39:50.431915+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:40:32.708543+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:40:34.014270+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:41:22.261019+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T02:42:38.838714+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:34:34.516226+00:00",
+      "text": "bg:prompt_journal_seq019_v001.py",
+      "fingerprint": "bgprompt_journal_seq019_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:34:56.472109+00:00",
+      "text": "bg:\u00e8\u2122\u0161f_mc_s036_v001.py",
+      "fingerprint": "bg\u00e8\u0161f_mc_s036_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:35:36.520548+00:00",
+      "text": "bg:\u00e8\u2122\u0161f_mc_s036_v001.py",
+      "fingerprint": "bg\u00e8\u0161f_mc_s036_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:36:18.783766+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:37:54.037702+00:00",
+      "text": "bg:\u00e8\u2122\u0161f_mc_s036_v001.py",
+      "fingerprint": "bg\u00e8\u0161f_mc_s036_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:38:41.850704+00:00",
+      "text": "bg:\u00e8\u2122\u0161f_mc_s036_v001.py",
+      "fingerprint": "bg\u00e8\u0161f_mc_s036_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:38:51.794744+00:00",
+      "text": "bg:\u00e8\u2122\u0161f_mc_s036_v001.py",
+      "fingerprint": "bg\u00e8\u0161f_mc_s036_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:39:11.296729+00:00",
+      "text": "bg:\u00e8\u2122\u0161f_mc_s036_v001.py",
+      "fingerprint": "bg\u00e8\u0161f_mc_s036_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:40:12.761211+00:00",
+      "text": "bg:\u00e8\u2122\u0161f_mc_s036_v001.py",
+      "fingerprint": "bg\u00e8\u0161f_mc_s036_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:42:48.590072+00:00",
+      "text": "bg:query_memory.json",
+      "fingerprint": "bgquery_memoryjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:43:05.572459+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:43:48.199247+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:44:24.172671+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:44:45.869810+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:44:58.467394+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:45:04.421394+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:45:44.310610+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:46:07.478073+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:46:47.635092+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:47:39.653912+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:48:17.123577+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:48:46.020289+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:49:01.239032+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:49:26.011053+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:49:45.443319+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:50:48.505521+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:51:49.849694+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:52:27.724151+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:52:54.374985+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:53:45.373233+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:54:03.233717+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:55:09.255881+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:55:26.363795+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:55:45.828453+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:56:46.294722+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:57:35.915175+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:57:47.781550+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:58:36.252723+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:59:15.248907+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T03:59:45.494196+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:00:13.170188+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:00:50.239201+00:00",
+      "text": "bg:tc_web.py",
+      "fingerprint": "bgtc_webpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:01:49.684741+00:00",
+      "text": "bg:escalation_engine.py",
+      "fingerprint": "bgescalation_enginepy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:03:51.359998+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:05:13.944614+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:08:01.921736+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:08:58.518826+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:12:34.026195+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:17:09.086493+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:21:03.935589+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:22:04.480724+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:22:26.844565+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:23:16.771697+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:23:45.023282+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:24:05.244991+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:25:16.152847+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:26:05.631200+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:28:05.532646+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:31:08.255465+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:41:01.044629+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:42:00.152541+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:47:00.948706+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:48:16.027645+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:49:01.230211+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:52:35.528369+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:52:48.027331+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:52:52.947691+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:59:04.129009+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T04:59:48.496148+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:00:04.177978+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:01:19.509117+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:01:36.192075+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:02:08.753464+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:04:01.061854+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:05:43.895309+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:07:16.706617+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:07:55.493604+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:08:09.295863+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:10:27.436908+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:10:42.082442+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:10:55.564880+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:11:08.072786+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:12:07.860358+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:24:12.011613+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:26:10.436421+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:30:42.116710+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:31:08.859083+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:31:36.168401+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:31:43.984709+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:32:04.598456+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:32:11.579638+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:32:49.571029+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:33:16.319902+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:33:40.581702+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:34:04.939452+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:34:17.291152+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:34:18.951000+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:34:57.791004+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:35:05.052070+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:36:12.848146+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:36:55.287008+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T05:37:12.170587+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T14:57:53.283644+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T14:58:45.264972+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T14:58:52.700989+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T14:59:16.399965+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T14:59:30.960663+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T14:59:42.478264+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T14:59:52.772636+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T15:02:57.687314+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T15:04:13.750664+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T15:04:41.106199+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T15:05:54.240787+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T15:53:22.528356+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T15:54:00.652672+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T18:54:28.142345+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T18:56:29.966750+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T18:58:52.148086+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:00:41.824843+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:01:16.893016+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:01:30.010910+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:03:28.603332+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:05:30.756330+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:06:15.923177+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:06:36.312580+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:07:14.637851+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:07:33.858537+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:09:32.762255+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:10:30.979264+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:13:14.747829+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:14:06.193820+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:14:51.022127+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:15:30.740735+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:17:29.420776+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:18:38.862667+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:19:31.626694+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:21:34.150161+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:22:32.505008+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:23:16.811072+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:24:17.285299+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:25:11.842231+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:25:34.299499+00:00",
+      "text": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_",
+      "fingerprint": "bg\u00e7w_cpm_s020_v003_d0402_\u00e7\u00bc\u00e5\u02c6\u00e8_\u00eevr_\u00ee\u00b2oc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attributionpy",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:28:35.151221+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:32:37.116731+00:00",
+      "text": "bg:sim_memory.json",
+      "fingerprint": "bgsim_memoryjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:33:23.808588+00:00",
+      "text": "bg:sim_memory.json",
+      "fingerprint": "bgsim_memoryjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:34:16.269000+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:35:32.369515+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:37:58.524354+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:39:42.750868+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:55:30.652659+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:56:30.047489+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T19:57:30.464473+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T20:00:36.666274+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T20:00:54.542672+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T20:01:46.465950+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T20:02:40.060331+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T20:03:28.150490+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T20:03:56.762620+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T20:04:35.389614+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T20:04:45.426708+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T20:05:29.640615+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T20:06:59.801723+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-09T20:07:29.044281+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:02:32.305556+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:04:19.783563+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:05:36.167624+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:05:45.196466+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:05:50.566819+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:06:36.463768+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:06:44.544726+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:08:32.766121+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:12:33.309021+00:00",
+      "text": "bg:prompt_journal.jsonl",
+      "fingerprint": "bgprompt_journaljsonl",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:16:30.926005+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:18:01.394367+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:22:06.999862+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:23:02.365407+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:23:13.480352+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:23:41.737624+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:24:40.431040+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:25:19.788092+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:25:48.329687+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T05:30:59.761588+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
     }
   ],
-  "abandoned_themes": []
+  "abandoned_themes": [
+    {
+      "ts": "2026-04-10T05:02:32.305578+00:00",
+      "text": "ve? - i still dont understand whats going on - what is organism health",
+      "state": "full_restart"
+    },
+    {
+      "ts": "2026-04-10T05:02:32.305586+00:00",
+      "text": "pivot: 'still dont understand whats' \u2192 'idle'",
+      "state": "pivot"
+    }
+  ]
 }

@@ -1,0 +1,632 @@
+"""pre_query_engine.py — dual-LLM cascade that fires on PAUSE.
+
+THE ARCHITECTURE:
+  Operator types fragment → pauses →
+    LLM A (Gemini Flash — fast, cheap): resolves intent, selects files, sets scale
+    LLM B (DeepSeek — deep, capable): analyzes files, generates output at scale
+
+CASCADE LEVELS (render progressively):
+  L1 (instant): file selection from heat map + coupling (zero LLM)
+  L2 (~0.5s):   intent completion via LLM A (Gemini Flash)
+  L3 (~2s):     deep analysis + generation via LLM B (DeepSeek)
+  L4 (~4s):     self-audit (AST valid, imports valid, entropy check)
+
+Each level emits a CascadeEvent that the UI renders as it arrives.
+
+Launch:  py src/pre_query_engine.py --test "the drift watcher should prob"
+Server:  py src/pre_query_engine.py --serve --port 8236
+"""
+from __future__ import annotations
+import json
+import os
+import sys
+import time
+import threading
+import glob
+import urllib.request
+from pathlib import Path
+from datetime import datetime, timezone
+from dataclasses import dataclass, field, asdict
+
+ROOT = Path(__file__).resolve().parent.parent
+
+# ensure ROOT is on sys.path so `from src.X import Y` works
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+GEMINI_MODEL = os.environ.get('GEMINI_MODEL', 'gemini-2.5-flash-lite')
+DEEPSEEK_MODEL = 'deepseek-chat'
+GEMINI_TIMEOUT = 8
+DEEPSEEK_TIMEOUT = 30
+CASCADE_LOG = ROOT / 'logs' / 'cascade_events.jsonl'
+
+
+# ── API keys ─────────────────────────────────────────────────────────────────
+
+def _load_keys() -> dict:
+    keys = {}
+    env_path = ROOT / '.env'
+    if env_path.exists():
+        for line in env_path.read_text('utf-8', errors='ignore').splitlines():
+            if '=' in line and not line.startswith('#'):
+                k, v = line.split('=', 1)
+                keys[k.strip()] = v.strip()
+    for name in ('GEMINI_API_KEY', 'GOOGLE_API_KEY', 'DEEPSEEK_API_KEY'):
+        if name not in keys and os.environ.get(name):
+            keys[name] = os.environ[name]
+    return keys
+
+
+_KEYS: dict = {}
+
+
+def _get_key(name: str) -> str | None:
+    global _KEYS
+    if not _KEYS:
+        _KEYS = _load_keys()
+    return _KEYS.get(name)
+
+
+# ── cascade data ─────────────────────────────────────────────────────────────
+
+@dataclass
+class CascadeEvent:
+    level: int              # 1-5
+    label: str              # L1_FILES, L2_INTENT, L3_ANALYSIS, L4_GENERATION, L5_AUDIT
+    data: dict              # level-specific payload
+    ts: float = field(default_factory=time.time)
+    elapsed_ms: int = 0     # ms since cascade started
+
+
+@dataclass
+class CascadeResult:
+    fragment: str
+    events: list[CascadeEvent] = field(default_factory=list)
+    completed_intent: str = ''
+    selected_files: list[dict] = field(default_factory=list)
+    scale: dict = field(default_factory=dict)
+    analysis: str = ''
+    generation: str = ''
+    audit: dict = field(default_factory=dict)
+    total_ms: int = 0
+    error: str = ''
+
+    def to_dict(self) -> dict:
+        d = {
+            'fragment': self.fragment,
+            'completed_intent': self.completed_intent,
+            'selected_files': self.selected_files,
+            'scale': self.scale,
+            'analysis': self.analysis,
+            'generation': self.generation,
+            'audit': self.audit,
+            'total_ms': self.total_ms,
+            'error': self.error,
+            'events': [asdict(e) for e in self.events],
+        }
+        return d
+
+
+# ── file loading ─────────────────────────────────────────────────────────────
+
+def _load_file_source(filepath: str, max_lines: int = 80) -> str:
+    """Load source from a module path, trying multiple resolution strategies."""
+    candidates = [
+        ROOT / filepath,
+        ROOT / 'src' / filepath,
+    ]
+    if not filepath.endswith('.py'):
+        candidates.append(ROOT / f'{filepath}.py')
+        candidates.append(ROOT / 'src' / f'{filepath}.py')
+    stem = Path(filepath).stem
+    for g in glob.glob(str(ROOT / '**' / f'*{stem}*.py'), recursive=True):
+        candidates.append(Path(g))
+
+    for p in candidates:
+        if p.exists() and p.is_file():
+            try:
+                lines = p.read_text('utf-8', errors='ignore').splitlines()
+                content = []
+                skip = False
+                for line in lines[:max_lines * 2]:
+                    if '# ── telemetry:pulse' in line:
+                        skip = True
+                    elif '# ── /pulse' in line:
+                        skip = False
+                        continue
+                    if not skip:
+                        content.append(line)
+                    if len(content) >= max_lines:
+                        break
+                return '\n'.join(content)
+            except Exception:
+                continue
+    return ''
+
+
+def _load_context_fast() -> dict:
+    """Load lightweight context for LLM A (fast path)."""
+    ctx: dict = {}
+    # recent prompts
+    journal = ROOT / 'logs' / 'prompt_journal.jsonl'
+    if journal.exists():
+        try:
+            lines = journal.read_text('utf-8', errors='ignore').strip().splitlines()
+            ctx['recent_prompts'] = []
+            for line in lines[-5:]:
+                entry = json.loads(line)
+                ctx['recent_prompts'].append({
+                    'msg': entry.get('msg', '')[:200],
+                    'intent': entry.get('intent', ''),
+                })
+        except Exception:
+            pass
+    # telemetry
+    telem = ROOT / 'logs' / 'prompt_telemetry_latest.json'
+    if telem.exists():
+        try:
+            t = json.loads(telem.read_text('utf-8', errors='ignore'))
+            ctx['hot_modules'] = t.get('hot_modules', [])[:5]
+            rs = t.get('running_summary', {})
+            bl = rs.get('baselines', {})
+            ctx['cognitive'] = {
+                'state': rs.get('dominant_state', 'unknown'),
+                'avg_wpm': bl.get('avg_wpm', 50),
+                'avg_del': bl.get('avg_del', 0.25),
+            }
+        except Exception:
+            pass
+    # unsaid threads
+    unsaid = ROOT / 'logs' / 'unsaid_reconstructions.jsonl'
+    if unsaid.exists():
+        try:
+            lines = unsaid.read_text('utf-8', errors='ignore').strip().splitlines()
+            ctx['unsaid'] = []
+            for line in lines[-3:]:
+                entry = json.loads(line)
+                ctx['unsaid'].append(
+                    entry.get('reconstructed', entry.get('deleted', ''))[:150])
+        except Exception:
+            pass
+    # critical bugs
+    sf = ROOT / 'logs' / 'self_fix_report.md'
+    if sf.exists():
+        try:
+            import re
+            text = sf.read_text('utf-8', errors='ignore')
+            crits = re.findall(r'\[CRITICAL\]\s+(\w+)\s+in\s+`([^`]+)`', text)
+            ctx['bugs'] = [{'type': t, 'file': f} for t, f in crits[:4]]
+        except Exception:
+            pass
+    return ctx
+
+
+# ── LLM A: Intent Resolver (Gemini Flash) ───────────────────────────────────
+
+_LLM_A_SYSTEM = """You are an INTENT RESOLVER for a coding system. You receive a typing FRAGMENT
+(incomplete text from an operator mid-thought) plus context signals.
+
+Your job:
+1. COMPLETE the operator's intent — what are they TRYING to say/do?
+2. Generate a CASCADE PROMPT for a deep analysis LLM (LLM B).
+
+Output EXACTLY this JSON (no markdown, no explanation):
+{
+  "completed_intent": "what the operator means, in their voice, 1-2 sentences",
+  "cascade_prompt": "precise instruction for LLM B to analyze/generate code based on the intent",
+  "intent_type": "fix|add|explain|analyze|architect|lookup"
+}
+
+Rules:
+- Write completed_intent in the operator's casual voice (lowercase, no formalities)
+- cascade_prompt should be specific: name files, functions, expected behavior
+- Use the context signals (hot modules, recent prompts, bugs) to disambiguate
+- If fragment is too short/ambiguous, still complete it — use context to guess
+- NEVER refuse. Always produce a completion, even speculative ones."""
+
+
+def _call_gemini(prompt: str, system: str = '') -> str:
+    api_key = _get_key('GEMINI_API_KEY') or _get_key('GOOGLE_API_KEY')
+    if not api_key:
+        return ''
+    url = (
+        f'https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}'
+        f':generateContent?key={api_key}'
+    )
+    body = json.dumps({
+        'system_instruction': {'parts': [{'text': system}]} if system else {},
+        'contents': [{'role': 'user', 'parts': [{'text': prompt}]}],
+        'generationConfig': {
+            'temperature': 0.4,
+            'maxOutputTokens': 500,
+            'topP': 0.9,
+            'responseMimeType': 'application/json',
+        },
+    }).encode('utf-8')
+    try:
+        req = urllib.request.Request(url, data=body,
+                                     headers={'Content-Type': 'application/json'})
+        with urllib.request.urlopen(req, timeout=GEMINI_TIMEOUT) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+            parts = data['candidates'][0]['content']['parts']
+            for part in parts:
+                if 'text' in part and 'thought' not in part:
+                    return part['text'].strip()
+            return parts[-1].get('text', '').strip()
+    except Exception as e:
+        print(f'[cascade] gemini error: {e}')
+        return ''
+
+
+def resolve_intent(fragment: str, ctx: dict) -> dict:
+    """LLM A: resolve a fragment into completed intent + cascade prompt."""
+    parts = [f'FRAGMENT: """{fragment}"""']
+    if ctx.get('recent_prompts'):
+        recent = '; '.join(f"[{p['intent']}] {p['msg'][:80]}"
+                           for p in ctx['recent_prompts'][-3:])
+        parts.append(f'RECENT CONTEXT: {recent}')
+    if ctx.get('hot_modules'):
+        mods = ', '.join(f"{m['module']}(hes={m.get('hes', '?')})"
+                         for m in ctx['hot_modules'][:4])
+        parts.append(f'HOT MODULES: {mods}')
+    if ctx.get('unsaid'):
+        parts.append(f'UNSAID THOUGHTS: {"; ".join(ctx["unsaid"][:2])}')
+    if ctx.get('bugs'):
+        bugs = ', '.join(f"{b['type']} in {b['file']}" for b in ctx['bugs'][:3])
+        parts.append(f'KNOWN BUGS: {bugs}')
+    if ctx.get('cognitive'):
+        c = ctx['cognitive']
+        parts.append(f'OPERATOR STATE: {c["state"]} wpm={c["avg_wpm"]}')
+
+    raw = _call_gemini('\n'.join(parts), _LLM_A_SYSTEM)
+    if not raw:
+        return {'completed_intent': fragment, 'cascade_prompt': '', 'intent_type': 'lookup'}
+    try:
+        return json.loads(raw)
+    except Exception:
+        return {'completed_intent': raw[:200], 'cascade_prompt': raw, 'intent_type': 'unknown'}
+
+
+# ── LLM B: Deep Analyzer (DeepSeek) ─────────────────────────────────────────
+
+def _call_deepseek(prompt: str, system: str = '', max_tokens: int = 2000) -> str:
+    api_key = _get_key('DEEPSEEK_API_KEY')
+    if not api_key:
+        return ''
+    url = 'https://api.deepseek.com/v1/chat/completions'
+    body = json.dumps({
+        'model': DEEPSEEK_MODEL,
+        'messages': [
+            {'role': 'system', 'content': system} if system else None,
+            {'role': 'user', 'content': prompt},
+        ] if not system else [
+            {'role': 'system', 'content': system},
+            {'role': 'user', 'content': prompt},
+        ],
+        'temperature': 0.3,
+        'max_tokens': max_tokens,
+        'stream': False,
+    }).encode('utf-8')
+    try:
+        req = urllib.request.Request(url, data=body, headers={
+            'Content-Type': 'application/json',
+            'Authorization': f'Bearer {api_key}',
+        })
+        with urllib.request.urlopen(req, timeout=DEEPSEEK_TIMEOUT) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+            return data['choices'][0]['message']['content'].strip()
+    except Exception as e:
+        print(f'[cascade] deepseek error: {e}')
+        return ''
+
+
+def _build_llm_b_prompt(cascade_prompt: str, files: list[dict],
+                         scale_info: dict, ctx: dict) -> str:
+    """Build the full prompt for LLM B with selected file sources."""
+    from src.scale_inference import scale_to_instructions
+    parts = [f'TASK: {cascade_prompt}']
+    parts.append(f'SCALE: {scale_info.get("label", "PARAGRAPH")} — '
+                 f'{scale_to_instructions(scale_info.get("scale", 2))}')
+    if ctx.get('cognitive'):
+        c = ctx['cognitive']
+        parts.append(f'OPERATOR: state={c["state"]} (match their energy)')
+    # inject file sources
+    if files:
+        parts.append('\n── SELECTED SOURCE FILES ──')
+        for f in files:
+            source = _load_file_source(f.get('path', ''))
+            if source:
+                parts.append(f'\n── {f["name"]} ({f["tokens"]}tok, {f["personality"]}) ──')
+                if f.get('fears'):
+                    parts.append(f'FEARS: {", ".join(f["fears"])}')
+                parts.append(source[:2000])
+            else:
+                parts.append(f'\n── {f["name"]} (source unavailable) ──')
+    if ctx.get('bugs'):
+        bugs = '; '.join(f'{b["type"]} in {b["file"]}' for b in ctx['bugs'][:3])
+        parts.append(f'\nKNOWN BUGS: {bugs}')
+    return '\n'.join(parts)
+
+
+_LLM_B_SYSTEM = """You are a deep code analyst and generator. You receive:
+1. A specific TASK (from the intent resolver)
+2. The relevant SOURCE FILES (pre-selected)
+3. A SCALE setting (how much output to produce)
+
+Your job: analyze the code and generate output at the requested scale.
+- SENTENCE scale: one precise insight or answer
+- PARAGRAPH scale: explanation + code sketch + affected files
+- FULL_WRITE scale: complete implementation — code, tests, imports. Ready to commit.
+- PAPER scale: full technical document with rationale, alternatives, code, plan
+
+Rules:
+- Be specific — you have the actual source code, use it
+- Match the operator's casual coding voice
+- When generating code: optimize for LLM re-reading, dense > verbose
+- Point out bugs/gaps you notice in the source
+- If FULL_WRITE: include the complete file content, not just a diff"""
+
+
+def deep_analyze(cascade_prompt: str, files: list[dict],
+                 scale_info: dict, ctx: dict) -> str:
+    """LLM B: deep analysis + generation at the requested scale."""
+    from src.scale_inference import scale_to_token_budget
+    prompt = _build_llm_b_prompt(cascade_prompt, files, scale_info, ctx)
+    max_tokens = scale_to_token_budget(scale_info.get('scale', 2))
+    result = _call_deepseek(prompt, _LLM_B_SYSTEM, max_tokens)
+    return result
+
+
+# ── Self-audit (L5) ─────────────────────────────────────────────────────────
+
+def _audit_generation(generation: str) -> dict:
+    """Quick self-audit of generated output."""
+    audit = {'valid': True, 'checks': []}
+    if not generation:
+        return {'valid': False, 'checks': ['empty_output']}
+    # check for code blocks
+    has_code = '```' in generation or 'def ' in generation or 'class ' in generation
+    audit['has_code'] = has_code
+    # check for obviously broken syntax in code blocks
+    if has_code:
+        import re
+        code_blocks = re.findall(r'```(?:python)?\n(.*?)```', generation, re.DOTALL)
+        for block in code_blocks:
+            try:
+                compile(block, '<cascade>', 'exec')
+                audit['checks'].append('ast_valid')
+            except SyntaxError as e:
+                audit['checks'].append(f'syntax_error:{e.lineno}')
+                audit['valid'] = False
+    # length check
+    audit['tokens_est'] = len(generation.split())
+    audit['checks'].append('length_ok' if len(generation) > 10 else 'too_short')
+    return audit
+
+
+# ── CASCADE ORCHESTRATOR ─────────────────────────────────────────────────────
+
+def run_cascade(fragment: str, callback=None) -> CascadeResult:
+    """Run the full dual-LLM cascade on a typing fragment.
+
+    Args:
+        fragment: incomplete text typed by the operator
+        callback: optional function(CascadeEvent) called as each level completes
+
+    Returns:
+        CascadeResult with all cascade data
+    """
+    result = CascadeResult(fragment=fragment)
+    t0 = time.time()
+
+    def emit(level: int, label: str, data: dict):
+        elapsed = int((time.time() - t0) * 1000)
+        event = CascadeEvent(level=level, label=label, data=data, elapsed_ms=elapsed)
+        result.events.append(event)
+        if callback:
+            try:
+                callback(event)
+            except Exception:
+                pass
+
+    # ── L1: File selection (zero LLM — instant) ─────────────────────────────
+    ctx = _load_context_fast()
+    try:
+        from src.file_selector import select_files
+        selected = select_files(fragment, ctx, max_files=4)
+    except Exception as e:
+        selected = []
+        print(f'[cascade] file_selector error: {e}')
+    result.selected_files = selected
+    emit(1, 'L1_FILES', {
+        'files': [{'name': f['name'], 'score': f['score'],
+                   'reasons': f['reasons']} for f in selected],
+    })
+
+    # ── L2: Intent resolution (LLM A — Gemini Flash, ~0.5s) ─────────────────
+    intent = resolve_intent(fragment, ctx)
+    result.completed_intent = intent.get('completed_intent', fragment)
+    cascade_prompt = intent.get('cascade_prompt', '')
+    emit(2, 'L2_INTENT', {
+        'completed_intent': result.completed_intent,
+        'intent_type': intent.get('intent_type', 'unknown'),
+        'cascade_prompt': cascade_prompt[:200],
+    })
+
+    # ── Scale inference (zero LLM) ───────────────────────────────────────────
+    try:
+        from src.scale_inference import infer_scale
+        cog = ctx.get('cognitive', {})
+        scale_info = infer_scale(
+            result.completed_intent,
+            cognitive_state=cog.get('state', 'unknown'),
+            wpm=cog.get('avg_wpm', 50),
+            del_ratio=cog.get('avg_del', 0.25),
+        )
+    except Exception:
+        scale_info = {'scale': 2, 'label': 'PARAGRAPH', 'reason': 'fallback', 'confidence': 0.3}
+    result.scale = scale_info
+    emit(2, 'L2_SCALE', scale_info)
+
+    # ── L3: Deep analysis (LLM B — DeepSeek, ~2-4s) ─────────────────────────
+    if cascade_prompt and selected:
+        generation = deep_analyze(cascade_prompt, selected, scale_info, ctx)
+        result.generation = generation
+        emit(3, 'L3_GENERATION', {
+            'length': len(generation),
+            'preview': generation[:300],
+        })
+    elif cascade_prompt:
+        # no files selected but still have intent — run LLM B without file context
+        generation = deep_analyze(cascade_prompt, [], scale_info, ctx)
+        result.generation = generation
+        emit(3, 'L3_GENERATION', {'length': len(generation), 'preview': generation[:300]})
+    else:
+        result.generation = result.completed_intent
+        emit(3, 'L3_GENERATION', {'length': 0, 'preview': 'no cascade prompt'})
+
+    # ── L4: Self-audit ───────────────────────────────────────────────────────
+    if result.generation:
+        audit = _audit_generation(result.generation)
+        result.audit = audit
+        emit(4, 'L4_AUDIT', audit)
+
+    result.total_ms = int((time.time() - t0) * 1000)
+    _log_cascade(result)
+    return result
+
+
+def _log_cascade(result: CascadeResult):
+    CASCADE_LOG.parent.mkdir(parents=True, exist_ok=True)
+    entry = {
+        'ts': datetime.now(timezone.utc).isoformat(),
+        'fragment': result.fragment[:200],
+        'intent': result.completed_intent[:200],
+        'files': [f['name'] for f in result.selected_files],
+        'scale': result.scale.get('label', '?'),
+        'generation_len': len(result.generation),
+        'audit': result.audit,
+        'total_ms': result.total_ms,
+    }
+    with open(CASCADE_LOG, 'a', encoding='utf-8') as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+
+
+# ── HTTP server for VS Code extension ────────────────────────────────────────
+
+def run_server(port: int = 8236):
+    """HTTP server that VS Code calls on pause detection."""
+    from http.server import HTTPServer, BaseHTTPRequestHandler
+    from socketserver import ThreadingMixIn
+
+    class Handler(BaseHTTPRequestHandler):
+        def log_message(self, *a): pass
+
+        def _cors(self):
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.send_header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
+            self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+
+        def _json(self, d, status=200):
+            b = json.dumps(d, ensure_ascii=False).encode()
+            self.send_response(status)
+            self.send_header('Content-Type', 'application/json')
+            self._cors()
+            self.send_header('Content-Length', str(len(b)))
+            self.end_headers()
+            self.wfile.write(b)
+
+        def do_OPTIONS(self):
+            self.send_response(204)
+            self._cors()
+            self.end_headers()
+
+        def do_GET(self):
+            if self.path == '/health':
+                self._json({'status': 'ok', 'llm_a': GEMINI_MODEL, 'llm_b': DEEPSEEK_MODEL})
+            else:
+                self.send_error(404)
+
+        def do_POST(self):
+            ln = int(self.headers.get('Content-Length', 0))
+            raw = self.rfile.read(ln) if ln else b'{}'
+            try:
+                data = json.loads(raw)
+            except Exception:
+                self._json({'error': 'bad json'}, 400)
+                return
+            if self.path == '/cascade':
+                fragment = data.get('fragment', '').strip()
+                if len(fragment) < 4:
+                    self._json({'error': 'fragment too short'}, 400)
+                    return
+                result = run_cascade(fragment)
+                self._json(result.to_dict())
+            elif self.path == '/intent':
+                # lightweight — just LLM A
+                fragment = data.get('fragment', '').strip()
+                ctx = _load_context_fast()
+                intent = resolve_intent(fragment, ctx)
+                self._json(intent)
+            elif self.path == '/files':
+                # zero-LLM file selection only
+                fragment = data.get('fragment', '').strip()
+                ctx = _load_context_fast()
+                try:
+                    from src.file_selector import select_files
+                    files = select_files(fragment, ctx)
+                except Exception:
+                    files = []
+                self._json({'files': files})
+            else:
+                self.send_error(404)
+
+    class ThreadedServer(ThreadingMixIn, HTTPServer):
+        daemon_threads = True
+
+    srv = ThreadedServer(('127.0.0.1', port), Handler)
+    print(f'[pre-query] cascade server on http://127.0.0.1:{port}')
+    print(f'[pre-query] LLM A: {GEMINI_MODEL} | LLM B: {DEEPSEEK_MODEL}')
+    try:
+        srv.serve_forever()
+    except KeyboardInterrupt:
+        srv.shutdown()
+
+
+# ── CLI ──────────────────────────────────────────────────────────────────────
+
+def main():
+    import argparse
+    p = argparse.ArgumentParser(description='dual-LLM pre-query cascade engine')
+    p.add_argument('--test', type=str, help='test fragment to cascade')
+    p.add_argument('--serve', action='store_true', help='run HTTP server')
+    p.add_argument('--port', type=int, default=8236)
+    args = p.parse_args()
+
+    if args.test:
+        print(f'[cascade] fragment: {args.test!r}')
+        print('─' * 60)
+
+        def on_event(evt: CascadeEvent):
+            print(f'  [{evt.label}] +{evt.elapsed_ms}ms')
+            for k, v in evt.data.items():
+                val = str(v)[:120]
+                print(f'    {k}: {val}')
+
+        result = run_cascade(args.test, callback=on_event)
+        print('─' * 60)
+        print(f'INTENT: {result.completed_intent}')
+        print(f'SCALE: {result.scale.get("label")} (confidence={result.scale.get("confidence")})')
+        print(f'FILES: {", ".join(f["name"] for f in result.selected_files)}')
+        print(f'GENERATION ({len(result.generation)} chars):')
+        print(result.generation[:500])
+        print(f'AUDIT: {result.audit}')
+        print(f'TOTAL: {result.total_ms}ms')
+    elif args.serve:
+        run_server(args.port)
+    else:
+        p.print_help()
+
+
+if __name__ == '__main__':
+    main()

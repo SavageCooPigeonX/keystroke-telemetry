@@ -722,6 +722,23 @@ def build_identities(root: Path) -> list[dict]:
         seq = entry.get('seq', 0)
         code_skeleton = _extract_code_skeleton(root, path, name, seq)
 
+        # Function-level consciousness (i_am, i_want, i_give, i_fear, i_love)
+        consciousness = {}
+        fpath = root / path if path else None
+        if fpath and not fpath.exists():
+            parent = fpath.parent
+            seq_tag = f'_s{seq:03d}_' if seq else ''
+            for f in (parent.iterdir() if parent.is_dir() else []):
+                if f.suffix == '.py' and ((seq_tag and seq_tag in f.stem) or (name and name in f.stem)):
+                    fpath = f
+                    break
+        if fpath and fpath.exists():
+            try:
+                from src.觉w_fc_s019_v002_d0321_缩分话_λ18 import build_file_consciousness
+                consciousness = build_file_consciousness(fpath)
+            except Exception:
+                pass
+
         # Memory (load BEFORE probes so probes can learn from history)
         memory = _load_memory(root, name)
 
@@ -790,6 +807,7 @@ def build_identities(root: Path) -> list[dict]:
             'memory': memory,
             'dual_score': graph.get('dual_score', 0),
             'degree': graph.get('degree', 0),
+            'consciousness': consciousness,
         })
 
     identities.sort(key=lambda x: (

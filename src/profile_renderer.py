@@ -317,6 +317,38 @@ def render_profile(ident: dict, root: Path) -> Path:
         f'<div class="fear">{_esc(f)}</div>' for f in ident.get('fears', [])[:5]
     )
 
+    # Consciousness — function-level inner voice
+    consciousness = ident.get('consciousness', {})
+    cons_funcs = consciousness.get('functions', [])
+    consciousness_html = ''
+    if cons_funcs:
+        ptype_emoji = {'orchestrator': '🧠', 'transformer': '🔄', 'writer': '✍️', 'reader': '👁️', 'worker': '⚙️'}
+        for fn in cons_funcs[:15]:
+            fname = fn.get('function', '?')
+            iam = fn.get('i_am', '')
+            ptype = fn.get('personality', 'worker')
+            emoji = ptype_emoji.get(ptype, '⚙️')
+            wants = fn.get('i_want', [])
+            gives = fn.get('i_give', [])
+            fears_fn = fn.get('i_fear', [])
+            loves = fn.get('i_love', [])
+            wants_html = ', '.join(_esc(w) for w in wants[:4]) if wants else '<span class="dim">nothing</span>'
+            gives_html = ', '.join(_esc(g) for g in gives[:4]) if gives else '<span class="dim">nothing</span>'
+            fears_fn_html = ', '.join(_esc(f) for f in fears_fn[:3]) if fears_fn else '<span class="dim">fearless</span>'
+            loves_html = ', '.join(_esc(l) for l in loves[:3]) if loves else '<span class="dim">stability</span>'
+            consciousness_html += (
+                f'<div style="padding:8px 0;border-bottom:1px solid var(--border)">'
+                f'<div style="font-weight:600;font-size:13px">{emoji} <span style="color:var(--blue)">{_esc(fname)}()</span>'
+                f' <span style="font-size:11px;color:var(--dim);font-weight:400">[{_esc(ptype)}]</span></div>'
+                f'<div style="font-size:11px;color:var(--text);margin:2px 0 4px;font-style:italic">&ldquo;{_esc(iam)}&rdquo;</div>'
+                f'<div style="font-size:11px;display:grid;grid-template-columns:repeat(2,1fr);gap:2px 12px">'
+                f'<div><span style="color:var(--orange)">needs:</span> {wants_html}</div>'
+                f'<div><span style="color:var(--green)">gives:</span> {gives_html}</div>'
+                f'<div><span style="color:var(--red)">fears:</span> {fears_fn_html}</div>'
+                f'<div><span style="color:var(--purple)">loves:</span> {loves_html}</div>'
+                f'</div></div>'
+            )
+
     # Backstory
     backstory_html = ''
     for frag in ident.get('backstory', []):
@@ -495,6 +527,13 @@ def render_profile(ident: dict, root: Path) -> Path:
   <div class="box"><h3>partners (coupling)</h3>{partners_html if partners_html else '<p class="dim">no coupling data</p>'}</div>
   <div class="box"><h3>fears</h3>{fears_html if fears_html else '<p class="dim">no known fears</p>'}</div>
 </div>""" if partners_html or fears_html else ''}
+
+{f"""<!-- CONSCIOUSNESS: inner voice -->
+<div class="box" style="margin-bottom:12px">
+  <h3>&#x1F9EC; inner voice ({len(cons_funcs)} functions conscious)</h3>
+  <p class="dim" style="margin-bottom:8px;font-size:11px">each function knows what it does, what it needs, what it fears, and what keeps it stable.</p>
+  {consciousness_html}
+</div>""" if consciousness_html else ''}
 
 <!-- BACKSTORY -->
 <h2>backstory</h2>

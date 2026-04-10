@@ -20,6 +20,7 @@ import * as vscode from 'vscode';
 import * as path from 'path';
 import * as fs from 'fs';
 import { spawn } from 'child_process';
+import { CascadeInlineProvider } from './cascadeProvider';
 import * as crypto from 'crypto';
 
 function nonce() { return crypto.randomBytes(16).toString('hex'); }
@@ -1914,6 +1915,10 @@ print('handoff:', p)
     osHookProc.on('exit', (code) => {
         console.log(`[pigeon] OS hook exited (code=${code})`);
         osHookProc = undefined;
+        // Auto-restart after 5s unless intentionally stopped
+        if (code !== null && code !== 0) {
+            setTimeout(() => { if (!osHookProc) startOsHook(root); }, 5000);
+        }
     });
 }
 
@@ -2063,6 +2068,9 @@ function startVscdbPoller(root: string) {
     vscdbPollerProc.on('exit', (code) => {
         console.log(`[pigeon] vscdb poller exited (code=${code})`);
         vscdbPollerProc = undefined;
+        if (code !== null && code !== 0) {
+            setTimeout(() => { if (!vscdbPollerProc) startVscdbPoller(root); }, 5000);
+        }
     });
 }
 
@@ -2105,6 +2113,9 @@ function startUIAReader(root: string) {
     uiaReaderProc.on('exit', (code) => {
         console.log(`[pigeon] UIA reader exited (code=${code})`);
         uiaReaderProc = undefined;
+        if (code !== null && code !== 0) {
+            setTimeout(() => { if (!uiaReaderProc) startUIAReader(root); }, 5000);
+        }
     });
 }
 
@@ -2153,6 +2164,9 @@ export function activate(context: vscode.ExtensionContext) {
 
         // Live operator state status bar (refreshes every 15s)
         new OperatorStateStatusBar(root, context);
+
+        // Cascade pre-query engine — dual-LLM ghost text on pause
+        new CascadeInlineProvider(root, context);
     }
 
     // Operator state panel command

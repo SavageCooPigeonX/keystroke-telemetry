@@ -1,127 +1,117 @@
-"""Per-file hesitation map — tracks cognitive load per module over time.
+"""Per-file heat map — tracks Copilot edit frequency + entropy per module.
 
-Cross-references operator typing patterns with recently-committed pigeon files
-to build a complexity debt map: which modules consistently spike hesitation,
-deletion rate, or produce rework. This tells the AI exactly where the operator
-struggles before they even ask.
+Mines edit_pairs.jsonl for which files Copilot actually touches, weighted by
+recency. Cross-references entropy_map.json for uncertainty scores. The combined
+signal tells the thought completer which files are actually hot — not which
+files the operator hesitates on.
 
-Reads pigeon_registry.json + rework_log.json. Zero LLM calls.
+Reads edit_pairs.jsonl + entropy_map.json. Zero LLM calls.
 """
 from __future__ import annotations
 import json
-from collections import defaultdict
+import math
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 
 HEAT_STORE      = 'file_heat_map.json'
-RECENT_MSGS     = 3    # messages after a commit = "working on that file"
-HIGH_HES_THRESH = 0.45
-HIGH_VER_THRESH = 5    # ≥5 versions = recurring pain point
+DECAY_HALF_LIFE = 86400 * 3  # 3 days — touches decay to half relevance
+HIGH_VER_THRESH = 5
 
 
-def update_heat_map(root: Path, state: str, hesitation: float,
-                    rework_verdict: str, wpm: float,
-                    module_refs: list[str] | None = None,
-                    open_files: list[str] | None = None) -> None:
-    """Associate current message metrics with modules the operator is engaging with.
-    
-    Uses module_refs (from prompt text) and open_files (editor tabs) instead of
-    recently-versioned registry files, so heat accurately reflects operator focus."""
+def update_heat_map(root: Path, **_kw) -> None:
+    """Rebuild heat map from Copilot edit history + entropy scores.
+
+    Reads edit_pairs.jsonl for touch counts with time-decay,
+    reads entropy_map.json for per-module uncertainty.
+    Combined: heat = decayed_touches * (1 + entropy).
+    """
+    touches = _count_copilot_touches(root)
+    entropy = _load_entropy_scores(root)
+
+    heat = {}
+    for mod, touch_score in touches.items():
+        ent = entropy.get(mod, 0.0)
+        heat[mod] = {
+            'touch_score': round(touch_score, 3),
+            'entropy': round(ent, 3),
+            'heat': round(touch_score * (1 + ent), 3),
+        }
+
+    # Add high-entropy modules even if Copilot hasn't touched them recently
+    for mod, ent in entropy.items():
+        if mod not in heat and ent > 0.3:
+            heat[mod] = {
+                'touch_score': 0.0,
+                'entropy': round(ent, 3),
+                'heat': round(0.1 * ent, 3),  # small base for untouched
+            }
+
     heat_path = root / HEAT_STORE
-    try:
-        heat = json.loads(heat_path.read_text('utf-8')) if heat_path.exists() else {}
-    except Exception:
-        heat = {}
-
-    # Derive target modules from operator signals, not registry recency
-    target_modules = _get_operator_focus_modules(root, module_refs, open_files)
-
-    for module_name in target_modules:
-        entry = heat.setdefault(module_name, {
-            'samples': [], 'avg_hes': 0.0, 'avg_wpm': 0.0,
-            'miss_count': 0, 'total': 0,
-        })
-        entry['samples'].append({
-            'ts':       datetime.now(timezone.utc).isoformat(),
-            'hes':      hesitation,
-            'wpm':      wpm,
-            'state':    state,
-            'rework':   rework_verdict,
-        })
-        # Keep last 20 samples per file
-        entry['samples'] = entry['samples'][-20:]
-        samples = entry['samples']
-        entry['avg_hes']    = round(sum(s['hes'] for s in samples) / len(samples), 3)
-        entry['avg_wpm']    = round(sum(s['wpm'] for s in samples) / len(samples), 1)
-        entry['miss_count'] = sum(1 for s in samples if s['rework'] == 'miss')
-        entry['total']      = len(samples)
-
     heat_path.write_text(json.dumps(heat, indent=2), encoding='utf-8')
 
 
-def _get_operator_focus_modules(root: Path,
-                                module_refs: list[str] | None = None,
-                                open_files: list[str] | None = None,
-                                top_n: int = 5) -> list[str]:
-    """Derive modules from operator signals: prompt refs + open files + dossier."""
-    targets = set()
+def _count_copilot_touches(root: Path) -> dict[str, float]:
+    """Count Copilot file touches from edit_pairs.jsonl with time decay."""
+    ep = root / 'logs' / 'edit_pairs.jsonl'
+    if not ep.exists():
+        return {}
 
-    # 1. Module names explicitly mentioned in the prompt
-    for ref in (module_refs or []):
-        targets.add(ref)
+    now = datetime.now(timezone.utc)
+    scores: dict[str, float] = {}
 
-    # 2. Open editor files → extract module name from filename
-    for fp in (open_files or []):
-        stem = Path(fp).stem
-        # Strip seq/ver suffixes to get base name
-        import re as _re
-        base = _re.split(r'_s(?:eq)?\d{3}', stem)[0]
-        if base:
-            targets.add(base)
-
-    # 3. Active bug dossier focus modules
-    dossier = root / 'logs' / 'active_dossier.json'
-    if dossier.exists():
-        try:
-            d = json.loads(dossier.read_text('utf-8'))
-            for mod in d.get('focus_modules', []):
-                targets.add(mod)
-        except Exception:
-            pass
-
-    # 4. Fallback to registry recency if no operator signal
-    if not targets:
-        reg_path = root / 'pigeon_registry.json'
-        if reg_path.exists():
+    try:
+        for line in ep.read_text('utf-8', errors='ignore').splitlines():
+            line = line.strip()
+            if not line:
+                continue
             try:
-                reg = json.loads(reg_path.read_text('utf-8'))
-                return _get_recent_files(reg, top_n)
+                entry = json.loads(line)
             except Exception:
-                pass
-        return []
+                continue
+            raw_file = entry.get('file', '')
+            if not raw_file:
+                continue
+            stem = Path(raw_file).stem
+            mod = re.split(r'_s(?:eq)?\d{3}', stem)[0]
+            if not mod:
+                continue
 
-    return list(targets)[:top_n]
+            # Time decay
+            ts = entry.get('edit_ts', '')
+            try:
+                edit_time = datetime.fromisoformat(ts)
+                age_s = (now - edit_time).total_seconds()
+            except Exception:
+                age_s = DECAY_HALF_LIFE * 2  # old if unparseable
+
+            weight = math.exp(-0.693 * age_s / DECAY_HALF_LIFE)
+            scores[mod] = scores.get(mod, 0.0) + weight
+    except Exception:
+        pass
+
+    return scores
 
 
-def _get_recent_files(registry: dict, top_n: int = 3) -> list[str]:
-    """Return module names of the most recently versioned files.
-
-    pigeon_registry.json has structure: {"files": [...entries...]}
-    but callers may also pass the already-unpacked {path: entry} dict
-    from load_registry(). Handle both formats.
-    """
-    # Raw JSON format: {"generated": ..., "total": ..., "files": [...]}
-    if 'files' in registry and isinstance(registry['files'], list):
-        entries = registry['files']
-    else:
-        # Already unpacked {path: entry_dict} from load_registry()
-        entries = [v for v in registry.values() if isinstance(v, dict)]
-    entries = sorted(entries, key=lambda e: (e.get('ver', 1), e.get('date', '')), reverse=True)
-    return [e['name'] for e in entries[:top_n] if e.get('name')]
+def _load_entropy_scores(root: Path) -> dict[str, float]:
+    """Load per-module entropy from entropy_map.json."""
+    ep = root / 'logs' / 'entropy_map.json'
+    if not ep.exists():
+        return {}
+    try:
+        data = json.loads(ep.read_text('utf-8', errors='ignore'))
+        result = {}
+        for m in data.get('top_entropy_modules', []):
+            mod = m.get('module', '')
+            if mod:
+                result[mod] = m.get('avg_entropy', 0.0)
+        return result
+    except Exception:
+        return {}
 
 
 def load_heat_map(root: Path) -> dict:
-    """Load file heat map → summary for coaching prompt."""
+    """Load file heat map → sorted list for coaching prompt."""
     heat_path = root / HEAT_STORE
     if not heat_path.exists():
         return {}
@@ -130,27 +120,16 @@ def load_heat_map(root: Path) -> dict:
     except Exception:
         return {}
 
-    # High-hesitation files (cognitive complexity debt)
-    complex_files = [
-        {'module': name, 'avg_hes': d['avg_hes'], 'avg_wpm': d['avg_wpm'],
-         'miss_count': d['miss_count'], 'samples': d['total']}
+    hot_files = [
+        {'module': name, 'heat': d['heat'],
+         'touches': d['touch_score'], 'entropy': d['entropy']}
         for name, d in heat.items()
-        if d['avg_hes'] >= HIGH_HES_THRESH and d['total'] >= 2
     ]
-    complex_files.sort(key=lambda x: x['avg_hes'], reverse=True)
-
-    # High miss-rate files
-    miss_files = [
-        {'module': name, 'miss_rate': round(d['miss_count'] / max(d['total'], 1), 2)}
-        for name, d in heat.items()
-        if d['total'] >= 2 and d['miss_count'] / max(d['total'], 1) >= 0.4
-    ]
-    miss_files.sort(key=lambda x: x['miss_rate'], reverse=True)
+    hot_files.sort(key=lambda x: x['heat'], reverse=True)
 
     return {
-        'modules_tracked':  len(heat),
-        'complex_files':    complex_files[:5],   # top 5 by hesitation
-        'high_miss_files':  miss_files[:3],       # top 3 AI-failure zones
+        'modules_tracked': len(heat),
+        'hot_files': hot_files[:8],
     }
 
 
@@ -163,10 +142,13 @@ def load_registry_churn(root: Path) -> list[dict]:
         reg = json.loads(reg_path.read_text('utf-8'))
     except Exception:
         return []
+    files = reg.get('files', [])
+    if not isinstance(files, list):
+        files = [v for v in reg.values() if isinstance(v, dict)]
     entries = [
-        {'module': e['name'], 'ver': e.get('ver', 1),
+        {'module': e.get('name', ''), 'ver': e.get('ver', 1),
          'desc': e.get('desc', ''), 'tokens': e.get('tokens', 0)}
-        for e in reg.values()
+        for e in files
         if e.get('ver', 1) >= HIGH_VER_THRESH
     ]
     entries.sort(key=lambda x: x['ver'], reverse=True)

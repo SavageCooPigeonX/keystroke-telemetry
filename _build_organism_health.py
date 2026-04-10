@@ -13,6 +13,11 @@ from collections import Counter
 ROOT = Path(__file__).resolve().parent
 
 
+def _sanitize(text: str) -> str:
+    """Remove surrogate characters that break utf-8 encoding."""
+    return text.encode('utf-8', errors='replace').decode('utf-8')
+
+
 # ── helpers ──────────────────────────────────────────────────────────────────
 
 def _load_json(path):
@@ -685,14 +690,14 @@ def inject_organism_health(root):
     else:
         text = text.rstrip() + '\n\n' + block + '\n'
 
-    cp.write_text(text, encoding='utf-8')
+    cp.write_text(_sanitize(text), encoding='utf-8')
     return True
 
 
 if __name__ == "__main__":
     doc = build_health(ROOT)
     out = ROOT / "MANIFEST.md"
-    out.write_text(doc, encoding="utf-8")
+    out.write_text(_sanitize(doc), encoding="utf-8")
     print(f"[organism] Wrote {len(doc):,} chars to {out}")
 
     # Inject condensed block into Copilot prompt

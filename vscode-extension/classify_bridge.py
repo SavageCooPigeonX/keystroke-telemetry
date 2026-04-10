@@ -667,12 +667,11 @@ def main():
     except Exception:
         pass
 
-    # â”€â”€ File heat map update â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    # ── File heat map update ──────────────────────────────────────────────
     try:
         heat_mod = _load_pigeon_module(root, 'src/热p_fhm_s011*.py')
         if heat_mod:
-            heat_mod.update_heat_map(root, state, metrics['hesitation_score'],
-                                     rework_verdict, wpm)
+            heat_mod.update_heat_map(root)
     except Exception:
         pass
 

@@ -315,38 +315,43 @@ def _running_stats(root: Path) -> dict:
         for e in entries
         if isinstance(e.get('signals'), dict) and 'deletion_ratio' in e['signals']
     ]
-    states = [e.get('cognitive_state', 'unknown') for e in entries]
-    from collections import Counter
-    state_dist = dict(Counter(states).most_common(5))
-
-    # Load self-calibration baselines from operator_stats
+    # Load real state distribution + baselines from operator_profile.md
+    # (prompt_journal entries never receive classify results, so their
+    #  cognitive_state is always '?' / 'unknown' — useless for stats)
+    state_dist = {}
+    dominant_state = 'unknown'
     baselines = {}
     try:
-        import glob, importlib.util
+        import importlib.util
         matches = sorted(root.glob('src/控w_ops_s008*.py'))
         if matches:
             spec = importlib.util.spec_from_file_location('_os', matches[-1])
-            if spec is None or spec.loader is None:
-                return {
-                    'total_prompts': n,
-                    'avg_wpm':       round(sum(wpms) / len(wpms), 1) if wpms else None,
-                    'avg_del_ratio': round(sum(dels) / len(dels), 3) if dels else None,
-                    'state_distribution': state_dist,
-                    'baselines': None,
-                }
-            mod = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(mod)
-            op_path = root / 'operator_profile.md'
-            if op_path.exists():
-                stats = mod.OperatorStats(str(op_path))
-                baselines = mod.compute_baselines(stats._history)
+            if spec and spec.loader:
+                mod = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(mod)
+                op_path = root / 'operator_profile.md'
+                if op_path.exists():
+                    stats = mod.OperatorStats(str(op_path))
+                    baselines = mod.compute_baselines(stats._history)
+                    from collections import Counter
+                    real_states = [r['state'] for r in stats._history if 'state' in r]
+                    state_dist = dict(Counter(real_states).most_common(5))
+                    if state_dist:
+                        dominant_state = max(state_dist, key=state_dist.get)
     except Exception:
         pass
+
+    # Fallback: if operator_profile gave nothing, count from journal entries
+    if not state_dist:
+        from collections import Counter
+        states = [e.get('cognitive_state', 'unknown') for e in entries]
+        state_dist = dict(Counter(states).most_common(5))
 
     return {
         'total_prompts': n,
         'avg_wpm':       round(sum(wpms) / len(wpms), 1) if wpms else None,
         'avg_del_ratio': round(sum(dels) / len(dels), 3) if dels else None,
+        'dominant_state': dominant_state,
         'state_distribution': state_dist,
         'baselines': baselines if baselines else None,
     }

@@ -31,6 +31,18 @@
       {
         "command": "pigeon.showEntropyChart",
         "title": "Pigeon: Show Per-File Entropy Chart"
+      },
+      {
+        "command": "pigeon.cascadeScaleUp",
+        "title": "Pigeon: Cascade Scale Up"
+      },
+      {
+        "command": "pigeon.cascadeScaleDown",
+        "title": "Pigeon: Cascade Scale Down"
+      },
+      {
+        "command": "pigeon.cascadeScaleAuto",
+        "title": "Pigeon: Cascade Scale Auto"
       }
     ],
     "keybindings": [
@@ -38,6 +50,21 @@
         "command": "pigeon.openChat",
         "key": "ctrl+shift+p",
         "when": "false"
+      },
+      {
+        "command": "pigeon.cascadeScaleUp",
+        "key": "ctrl+up",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "pigeon.cascadeScaleDown",
+        "key": "ctrl+down",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "pigeon.cascadeScaleAuto",
+        "key": "ctrl+shift+0",
+        "when": "editorTextFocus"
       }
     ]
   },
