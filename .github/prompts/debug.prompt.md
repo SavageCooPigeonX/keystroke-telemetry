@@ -4,25 +4,20 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 # /debug (RECOMMENDED)
 
-*Hydrated 2026-04-07 03:52 UTC · detected mode: debug*
+*Hydrated 2026-04-10 16:20 UTC · detected mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 48 | Del: 26% | Hes: 0.485
+**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.494
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
-**Deleted words:** this deos this, v>>>>, hat information shou, eile debugging itself - and also, the per, o operator over tme, injectio, - writes in prompt bex per python file (up to
-**Unsaid threads:** this deos this, v>>>>, hat information shou, eile debugging itself - and also, the per, o operator over tme, injectio, - writes in prompt bex per python file (up to
-**Rewrites:** "v>>>>" → ">>> no data in profile - also when i touch it i want it to auto wake up and talk"; "hat information shou" → "hat exact information do profiles need to collect when talked w="; "eile debugging itself - and also" → "ile building its own intelligence over time on backwar"; "the per" → "the files have personalities - we can run future simulations on bugs - ideally a"
+**Deleted words:** should bug, > eg, - then, self, problems, leaks _, los san
+**Unsaid threads:** should bug, - then, problems, leaks _, los san
+**Rewrites:** "should bug" → "i w"; "ld f" → "lt by bug demon - it writes own own status - and bug report manifest chains acro"; "> eg" → "lmk what is tha"; "- then" → "in its own system / self imprr"
 **Hot modules:** `file_heat_map` (hes=0.89), `import_rewriter` (hes=0.73), `file_writer` (hes=0.73)
-**Active bugs:** `u_pe` (oc), `u_pj` (oc), `警p_sa` (oc), `册f_reg` (oc)
 **Codes:** intent=`exploring` state=`unknown` bl_wpm=54 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
-
-## Known Issues (from self-fix scanner)
-
-- [CRITICAL] hardcoded_import in `pigeon_brain/令f_cl_s009_v002_d0323_缩分话_λP.py`
 
 ## Fragile Contracts
 
@@ -42,16 +37,16 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 ## Overcap Files (split candidates)
 
-- `streaming_layer` (10189 tok)
-- `管w_cpm` (8012 tok)
-- `u_pj` (7903 tok)
-- `推w_dp` (5987 tok)
-- `self_fix` (5846 tok)
-- `修f_sf` (5829 tok)
-- `prediction_scorer` (5797 tok)
-- `算f_ps` (5782 tok)
+- `git_plugin` (6050 tok)
+- `module_identity` (3770 tok)
+- `谱建f_mb_s007_v003_d0314_观重箱重拆_λD` (3640 tok)
+- `profile_renderer` (3337 tok)
+- `tc_sim` (3230 tok)
+- `classify_bridge` (3143 tok)
+- `管w_cpm_s020_v005_d0404_缩分话_λNU_βoc` (3118 tok)
+- `层w_sl_s007_v003_d0317_读唤任_λΠ` (3109 tok)
 
 ## Active Bug Dossier
 
-**Focus modules:** pre_process_every_prompt_via, every_entry_cross_references_all, tracks_cognitive_load_per_module, automated_self_healing_pipeline, audits_and_manages_all_injected
-**Focus bugs:** de, oc
+**Focus modules:** pre_process_every_prompt_via, every_entry_cross_references_all, automated_self_healing_pipeline, audits_and_manages_all_injected
+**Focus bugs:** oc

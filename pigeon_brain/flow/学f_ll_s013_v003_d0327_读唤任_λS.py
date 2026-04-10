@@ -255,49 +255,55 @@ def run_loop(root: Path, once: bool = False, use_deepseek: bool = True) -> None:
           f"{state['total_forward']} forward, {state['total_backward']} backward")
 
     while True:
-        entries = _load_journal_entries(root, after_line=state["last_processed_line"])
+        try:
+            entries = _load_journal_entries(root, after_line=state["last_processed_line"])
 
-        if not entries:
+            if not entries:
+                if once:
+                    print("[learning_loop] No new entries. Done.")
+                    return
+                time.sleep(POLL_INTERVAL)
+                continue
+
+            # Process up to MAX_ENTRIES_PER_WAKE
+            batch = entries[:MAX_ENTRIES_PER_WAKE]
+            for entry in batch:
+                result = run_single_cycle(root, entry, state, use_deepseek=use_deepseek)
+                state["last_processed_line"] = entry["_line_num"] + 1
+                state["last_processed_ts"] = entry.get("ts")
+                state["total_cycles"] += 1
+                cycle_since_predict += 1
+                _save_state(root, state)
+
+                if result.get("skipped"):
+                    print(f"  [skip] {result.get('reason', '?')}")
+                else:
+                    eid = result.get("electron_id", "?")[:8]
+                    nodes = result.get("nodes_trained", 0)
+                    loss = result.get("loss_from_backward")
+                    loss_str = f"{loss:.3f}" if loss is not None else "n/a"
+                    print(f"  [cycle {state['total_cycles']}] "
+                          f"eid={eid} path={len(result.get('path', []))} "
+                          f"nodes_trained={nodes} loss={loss_str}")
+
+            # Prediction cycle
+            if cycle_since_predict >= PREDICT_EVERY:
+                try:
+                    n = run_prediction_cycle(root, state)
+                    if n:
+                        print(f"  [predict] fired {n} phantom electrons")
+                    cycle_since_predict = 0
+                    _save_state(root, state)
+                except Exception as e:
+                    logger.warning(f"[loop] Prediction failed: {e}")
+
             if once:
-                print("[learning_loop] No new entries. Done.")
+                print(f"[learning_loop] Processed {len(batch)} entries. Done.")
                 return
+
+        except Exception as e:
+            logger.warning(f"[loop] Cycle failed (will retry): {e}")
             time.sleep(POLL_INTERVAL)
             continue
-
-        # Process up to MAX_ENTRIES_PER_WAKE
-        batch = entries[:MAX_ENTRIES_PER_WAKE]
-        for entry in batch:
-            result = run_single_cycle(root, entry, state, use_deepseek=use_deepseek)
-            state["last_processed_line"] = entry["_line_num"] + 1
-            state["last_processed_ts"] = entry.get("ts")
-            state["total_cycles"] += 1
-            cycle_since_predict += 1
-            _save_state(root, state)
-
-            if result.get("skipped"):
-                print(f"  [skip] {result.get('reason', '?')}")
-            else:
-                eid = result.get("electron_id", "?")[:8]
-                nodes = result.get("nodes_trained", 0)
-                loss = result.get("loss_from_backward")
-                loss_str = f"{loss:.3f}" if loss is not None else "n/a"
-                print(f"  [cycle {state['total_cycles']}] "
-                      f"eid={eid} path={len(result.get('path', []))} "
-                      f"nodes_trained={nodes} loss={loss_str}")
-
-        # Prediction cycle
-        if cycle_since_predict >= PREDICT_EVERY:
-            try:
-                n = run_prediction_cycle(root, state)
-                if n:
-                    print(f"  [predict] fired {n} phantom electrons")
-                cycle_since_predict = 0
-                _save_state(root, state)
-            except Exception as e:
-                logger.warning(f"[loop] Prediction failed: {e}")
-
-        if once:
-            print(f"[learning_loop] Processed {len(batch)} entries. Done.")
-            return
 
         time.sleep(POLL_INTERVAL)

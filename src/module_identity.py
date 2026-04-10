@@ -671,8 +671,13 @@ def _diagnose_patterns(name: str, entry: dict, lk: dict, memory: dict) -> list[s
     return diags
 
 
-def build_identities(root: Path) -> list[dict]:
-    """Build full sentient identity profiles for all registered modules."""
+def build_identities(root: Path, include_consciousness: bool = False) -> list[dict]:
+    """Build full sentient identity profiles for all registered modules.
+    
+    Args:
+        include_consciousness: If True, run AST-based consciousness extraction
+            per module (~0.2s each). Set False for fast startup (chat server).
+    """
     root = Path(root)
     sources = _load_all_sources(root)
     lk = _build_lookups(sources)
@@ -724,20 +729,21 @@ def build_identities(root: Path) -> list[dict]:
 
         # Function-level consciousness (i_am, i_want, i_give, i_fear, i_love)
         consciousness = {}
-        fpath = root / path if path else None
-        if fpath and not fpath.exists():
-            parent = fpath.parent
-            seq_tag = f'_s{seq:03d}_' if seq else ''
-            for f in (parent.iterdir() if parent.is_dir() else []):
-                if f.suffix == '.py' and ((seq_tag and seq_tag in f.stem) or (name and name in f.stem)):
-                    fpath = f
-                    break
-        if fpath and fpath.exists():
-            try:
-                from src.觉w_fc_s019_v002_d0321_缩分话_λ18 import build_file_consciousness
-                consciousness = build_file_consciousness(fpath)
-            except Exception:
-                pass
+        if include_consciousness:
+            fpath = root / path if path else None
+            if fpath and not fpath.exists():
+                parent = fpath.parent
+                seq_tag = f'_s{seq:03d}_' if seq else ''
+                for f in (parent.iterdir() if parent.is_dir() else []):
+                    if f.suffix == '.py' and ((seq_tag and seq_tag in f.stem) or (name and name in f.stem)):
+                        fpath = f
+                        break
+            if fpath and fpath.exists():
+                try:
+                    from src.觉w_fc_s019_v002_d0321_缩分话_λ18 import build_file_consciousness
+                    consciousness = build_file_consciousness(fpath)
+                except Exception:
+                    pass
 
         # Memory (load BEFORE probes so probes can learn from history)
         memory = _load_memory(root, name)

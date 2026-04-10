@@ -376,6 +376,83 @@ def format_shed_block(markers):
     return SHED_TEMPLATE.format(markers='\n'.join(lines)).strip()
 
 
+# ─── ENTROPY-DRIVEN DEVELOPMENT ───────────────────────────────────
+# weaponized entropy: steer development toward highest uncertainty
+
+def get_high_entropy_targets(root, threshold=0.30, limit=10):
+    """Return modules with entropy above threshold, sorted by red score.
+
+    Used by self-fix, learning loop, and prompt injection to prioritize
+    which files deserve the most scrutiny and development attention.
+    """
+    root = Path(root)
+    map_path = root / 'logs' / 'entropy_map.json'
+    if not map_path.exists():
+        return []
+    try:
+        data = json.loads(map_path.read_text('utf-8'))
+    except Exception:
+        return []
+    red_layer = data.get('red_layer', [])
+    targets = []
+    for entry in red_layer:
+        red = float(entry.get('red', 0.0))
+        if red >= threshold:
+            targets.append({
+                'module': entry['module'],
+                'red': red,
+                'avg_entropy': float(entry.get('avg_entropy', 0.0)),
+                'shed_avg_confidence': entry.get('shed_avg_confidence'),
+                'samples': int(entry.get('samples', 0)),
+                'confidence_goal': round(max(0.85, 1.0 - red + 0.15), 2),
+            })
+    targets.sort(key=lambda x: -x['red'])
+    return targets[:limit]
+
+
+def build_entropy_directive(root):
+    """Build actionable entropy directive for prompt injection.
+
+    Instead of passive 'here are entropy scores', this tells Copilot:
+    - WHICH files need uncertainty reduced
+    - WHAT the confidence goal is for each file
+    - HOW to shed entropy (specific actions)
+    """
+    targets = get_high_entropy_targets(root)
+    if not targets:
+        return ''
+    root = Path(root)
+    data_path = root / 'logs' / 'entropy_map.json'
+    try:
+        data = json.loads(data_path.read_text('utf-8'))
+    except Exception:
+        data = {}
+    total = data.get('total_responses', 0)
+    global_h = data.get('global_avg_entropy', 0.0)
+    sheds = data.get('shed_blocks_found', 0)
+
+    lines = [
+        '## Entropy Development Priorities',
+        '',
+        f'*{total} responses · global H={global_h:.3f} · {sheds} sheds*',
+        '',
+        '**These modules have the highest uncertainty. When touching them:**',
+        '- Read the full source BEFORE editing (don\'t guess)',
+        '- Shed entropy with a confidence score AFTER every edit',
+        '- If confidence < goal, explain what remains uncertain',
+        '',
+    ]
+    for t in targets:
+        mod = t['module']
+        red = t['red']
+        goal = t['confidence_goal']
+        shed = t.get('shed_avg_confidence')
+        current = f', last shed={shed}' if shed is not None else ''
+        lines.append(f'- `{mod}` red={red:.3f} → **goal: conf≥{goal}**{current}')
+    lines.append('')
+    return '\n'.join(lines)
+
+
 if __name__ == '__main__':
     r = accumulate_entropy(Path('.'))
     print(f'responses: {r["total_responses"]}')

@@ -686,7 +686,7 @@ def inject_entropy_layers(root: Path) -> bool:
         return False
 
     try:
-        from src.entropy_shedding import build_entropy_block, build_red_layer_block
+        from src.entropy_shedding import build_entropy_block, build_red_layer_block, build_entropy_directive
     except Exception:
         return False
 
@@ -706,6 +706,16 @@ def inject_entropy_layers(root: Path) -> bool:
         build_red_layer_block(root),
         anchor='<!-- pigeon:bug-voices -->',
     )
+    # Inject actionable entropy priorities (weaponized entropy)
+    directive = build_entropy_directive(root)
+    if directive:
+        new_text = _upsert_block(
+            new_text,
+            '<!-- pigeon:entropy-directive -->',
+            '<!-- /pigeon:entropy-directive -->',
+            '<!-- pigeon:entropy-directive -->\n' + directive + '\n<!-- /pigeon:entropy-directive -->',
+            anchor='<!-- pigeon:entropy-map -->',
+        )
 
     if new_text != text:
         cp_path.write_text(new_text, encoding='utf-8')

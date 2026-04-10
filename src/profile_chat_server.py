@@ -32,12 +32,13 @@ from datetime import datetime, timezone
 ROOT = Path(__file__).resolve().parent.parent
 PORT = 8234
 GEMINI_MODEL = 'gemini-2.5-flash'
-GEMINI_TIMEOUT = 15
+GEMINI_TIMEOUT = 30
 
 # ── data loading ──
 
 _identity_cache: dict = {}
 _cache_ts: float = 0
+_graph_name_map: dict = {}  # graph_cache node name → identity name
 
 
 STATE_DIR = ROOT / 'logs' / 'module_state'
@@ -60,18 +61,51 @@ def _load_identities() -> dict:
     global _identity_cache, _cache_ts
     import time
     now = time.time()
-    if _identity_cache and (now - _cache_ts) < 60:
+    if _identity_cache and (now - _cache_ts) < 3600:
         return _identity_cache
 
     try:
         sys.path.insert(0, str(ROOT))
         from src.module_identity import build_identities
-        ids = build_identities(ROOT)
+        ids = build_identities(ROOT, include_consciousness=False)
         _identity_cache = {i['name']: i for i in ids}
         _cache_ts = now
+        _build_graph_name_map()
     except Exception as e:
         print(f'[probe] identity load failed: {e}')
     return _identity_cache
+
+
+def _build_graph_name_map():
+    """Build mapping from graph_cache node names to identity names via (dir, seq)."""
+    import re
+    global _graph_name_map
+    _graph_name_map = {}
+    gc_path = ROOT / 'pigeon_brain' / 'graph_cache.json'
+    if not gc_path.exists():
+        return
+    try:
+        gc = json.loads(gc_path.read_text('utf-8', errors='ignore'))
+    except Exception:
+        return
+    # Build identity lookup: (dir, seq) → identity name
+    id_by_dir_seq = {}
+    for name, ident in _identity_cache.items():
+        p = ident.get('path', '')
+        stem = Path(p).stem
+        m = re.search(r'[_]s(?:eq)?(\d{3})', stem)
+        if m:
+            key = (str(Path(p).parent), m.group(1))
+            id_by_dir_seq[key] = name
+    # Map each graph node → identity
+    for node_name, node_data in gc.get('nodes', {}).items():
+        np = node_data.get('path', '')
+        stem = Path(np).stem
+        m = re.search(r'[_]s(?:eq)?(\d{3})', stem)
+        if m:
+            key = (str(Path(np).parent), m.group(1))
+            if key in id_by_dir_seq:
+                _graph_name_map[node_name] = id_by_dir_seq[key]
 
 
 def _load_state(module: str) -> dict:
@@ -127,6 +161,16 @@ def _build_system_prompt(ident: dict, state: dict) -> str:
     diagnosis = ident.get('diagnosis', [])
     memory = ident.get('memory', {})
     consciousness = ident.get('consciousness', {})
+
+    # Load consciousness on-demand if not already present (avoids 630x AST parse at startup)
+    if not consciousness:
+        try:
+            mod_path = ROOT / ident.get('path', '')
+            if mod_path.exists():
+                from src.觉w_fc_s019_v002_d0321_缩分话_λ18 import build_file_consciousness
+                consciousness = build_file_consciousness(mod_path)
+        except Exception:
+            pass
 
     # Build consciousness inner-voice block
     inner_voice_lines = []
@@ -484,6 +528,19 @@ class ChatHandler(BaseHTTPRequestHandler):
 
         identities = _load_identities()
         ident = identities.get(module)
+        # Resolve graph_cache node names → identity names via (dir, seq) mapping
+        if not ident and module in _graph_name_map:
+            resolved = _graph_name_map[module]
+            ident = identities.get(resolved)
+            if ident:
+                module = resolved
+        # Fallback: substring match
+        if not ident:
+            for full_name, identity in identities.items():
+                if module in full_name:
+                    ident = identity
+                    module = full_name
+                    break
         if not ident:
             self._json_response({'response': f"[module '{module}' not found in identities]"})
             return

@@ -238,29 +238,31 @@ def _fire_reactor(
     code_patch_result = None
     if patch and target_file:
         try:
-            apply_patch = src_import("cognitive_reactor_seq014.cognitive_reactor_seq014_patch_writer_seq011", "apply_patch")
-            should_apply_patch = src_import("cognitive_reactor_seq014.cognitive_reactor_seq014_decision_maker_seq012", "should_apply_patch")
-            code_patch_result = apply_patch(
-                root, target_file['path'], patch, module_key,
-                decision_fn=should_apply_patch,
-            )
-        except Exception:
-            # Decomposed imports may fail if filenames mutated — try glob fallback
+            import importlib.util, glob
+            # Find patch_writer and decision_maker via glob (pigeon renames dirs)
+            pw_files = sorted(glob.glob(str(root / 'src/*_cr_s014/*pw*.py')))
+            dm_files = sorted(glob.glob(str(root / 'src/*_cr_s014/*dm*.py')))
+            if pw_files and dm_files:
+                pw_spec = importlib.util.spec_from_file_location('pw', pw_files[-1])
+                pw_mod = importlib.util.module_from_spec(pw_spec)
+                pw_spec.loader.exec_module(pw_mod)
+                dm_spec = importlib.util.spec_from_file_location('dm', dm_files[-1])
+                dm_mod = importlib.util.module_from_spec(dm_spec)
+                dm_spec.loader.exec_module(dm_mod)
+                code_patch_result = pw_mod.apply_patch(
+                    root, target_file['path'], patch, module_key,
+                    decision_fn=dm_mod.should_apply_patch,
+                )
+        except Exception as e:
+            # Log the failure so it's not silent
             try:
-                import importlib.util, glob
-                pw_files = sorted(glob.glob(str(root / 'src/cognitive_reactor_seq014/*patch_writer*.py')))
-                dm_files = sorted(glob.glob(str(root / 'src/cognitive_reactor_seq014/*decision_maker*.py')))
-                if pw_files and dm_files:
-                    pw_spec = importlib.util.spec_from_file_location('pw', pw_files[-1])
-                    pw_mod = importlib.util.module_from_spec(pw_spec)
-                    pw_spec.loader.exec_module(pw_mod)
-                    dm_spec = importlib.util.spec_from_file_location('dm', dm_files[-1])
-                    dm_mod = importlib.util.module_from_spec(dm_spec)
-                    dm_spec.loader.exec_module(dm_mod)
-                    code_patch_result = pw_mod.apply_patch(
-                        root, target_file['path'], patch, module_key,
-                        decision_fn=dm_mod.should_apply_patch,
-                    )
+                _log = root / 'logs' / 'reactor_patch_errors.jsonl'
+                _log.parent.mkdir(parents=True, exist_ok=True)
+                import datetime as _dt
+                _log.open('a', encoding='utf-8').write(json.dumps({
+                    'ts': _dt.datetime.now(_dt.timezone.utc).isoformat(),
+                    'module': module_key, 'error': str(e),
+                }) + '\n')
             except Exception:
                 pass
 

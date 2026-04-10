@@ -49,6 +49,13 @@ SESSION AWARENESS:
 - If they're debugging imports in chat, and now type "maybe we should" → predict something related to imports.
 - The session state (intent, cognitive state) tells you their headspace. Match it.
 
+COMPOSITION SIGNAL:
+- The COMPOSITION block shows words they DELETED from recent prompts and text they REWROTE.
+- Deleted words = suppressed intent. They thought it, typed it, then removed it. It's still on their mind.
+- Rewrites = direction changes. "refac→fix the import" means they chose tactical over strategic.
+- Use deleted words to predict what they'll circle BACK to. If they deleted "refactor" earlier, and now type "actually maybe we should" → predict the refactoring thought resurfacing.
+- NEVER mention the deletion itself. Complete AS IF the thought naturally emerged.
+
 CODEBASE STATE:
 - ORGANISM tells you the codebase health. If it's "sick" — predictions about fixing/healing are relevant.
 - COPILOT FOCUS tells you what the AI assistant is working on. Your predictions should be ADJACENT to this.
@@ -312,6 +319,25 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
             si = ctx.get('session_info', {})
             header = f'SESSION (msg#{si.get("session_n", "?")} intent={si.get("intent", "?")} cog={si.get("cognitive_state", "?")})'
             parts.append(f'{header}:\n' + '\n'.join(f'  {l}' for l in sess_lines[-3:]))
+        # Composition signal — deleted words and rewrites reveal suppressed intent
+        all_deleted = []
+        all_rewrites = []
+        for m in sess:
+            all_deleted.extend(m.get('deleted_words', []))
+            all_rewrites.extend(m.get('rewrites', []))
+        if all_deleted or all_rewrites:
+            comp_parts = []
+            if all_deleted:
+                comp_parts.append(f'deleted: {", ".join(str(d) for d in all_deleted[-8:])}')
+            if all_rewrites:
+                rw_strs = []
+                for r in all_rewrites[-4:]:
+                    if isinstance(r, dict):
+                        rw_strs.append(f'{r.get("from","?")}→{r.get("to","?")}')
+                    else:
+                        rw_strs.append(str(r)[:60])
+                comp_parts.append(f'rewrites: {"; ".join(rw_strs)}')
+            parts.append(f'COMPOSITION (what they typed then deleted — suppressed intent): {" | ".join(comp_parts)}')
     if ctx.get('unsaid_threads'):
         parts.append(f'UNSAID: {"; ".join(ctx["unsaid_threads"][-2:])}')
     # Recent prompts — only last 2 to avoid topic saturation

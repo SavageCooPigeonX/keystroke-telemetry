@@ -115,7 +115,46 @@ def check_staleness(root: Path) -> list[dict]:
                 'last_ts': m.group(1),
             })
 
+    # Check learning loop health
+    stale.extend(_check_learning_loop(root, now))
+
     return stale
+
+
+def _check_learning_loop(root: Path, now: datetime) -> list[dict]:
+    """Check if the learning loop has fallen behind the journal."""
+    import json
+    state_path = root / 'pigeon_brain' / 'learning_loop_state.json'
+    journal_path = root / 'logs' / 'prompt_journal.jsonl'
+    if not state_path.exists() or not journal_path.exists():
+        return []
+    try:
+        state = json.loads(state_path.read_text('utf-8'))
+        journal_lines = sum(1 for _ in journal_path.open('r', encoding='utf-8'))
+        processed = state.get('last_processed_line', 0)
+        unprocessed = max(0, journal_lines - processed)
+        last_ts_raw = state.get('last_processed_ts') or state.get('updated_at')
+        if last_ts_raw:
+            last_ts = datetime.fromisoformat(last_ts_raw)
+            age = now - last_ts
+            age_hours = age.total_seconds() / 3600
+        else:
+            age_hours = None
+        # Alert if >20 entries behind or >24h stale
+        if unprocessed > 20 or (age_hours and age_hours > 24):
+            reason = f'BEHIND — {unprocessed} unprocessed entries'
+            if age_hours:
+                reason += f', last ran {age_hours:.0f}h ago'
+            return [{
+                'block': 'learning-loop',
+                'reason': reason,
+                'writer': 'git_plugin → catch_up (post-commit)',
+                'age_min': round(age_hours * 60, 1) if age_hours else None,
+                'last_ts': last_ts_raw,
+            }]
+    except Exception:
+        pass
+    return []
 
 def inject_staleness_alert(root: Path) -> bool:
     """Check blocks and inject/remove alert. Returns True if alert was injected."""

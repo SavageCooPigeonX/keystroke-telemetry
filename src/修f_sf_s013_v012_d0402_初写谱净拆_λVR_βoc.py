@@ -407,6 +407,21 @@ def run_self_fix(
     # 6. Over-hard-cap files (need auto-compile)
     all_problems.extend(_scan_over_hard_cap(root, reg_list))
 
+    # 7. High-entropy modules (copilot is uncertain — flag for extra care)
+    try:
+        from src.entropy_shedding import get_high_entropy_targets
+        for t in get_high_entropy_targets(root, threshold=0.35, limit=5):
+            all_problems.append({
+                'type': 'high_entropy',
+                'severity': 'medium',
+                'file': t['module'],
+                'message': (f"Copilot uncertainty red={t['red']:.3f} "
+                            f"(goal: conf≥{t['confidence_goal']}). "
+                            f"Read source before editing. Shed entropy after."),
+            })
+    except Exception:
+        pass
+
     # Sort by severity
     sev_order = {'critical': 0, 'high': 1, 'medium': 2, 'low': 3, 'info': 4}
     all_problems.sort(key=lambda p: sev_order.get(p.get('severity', 'info'), 5))

@@ -916,7 +916,7 @@ def render_all_profiles(root: Path) -> int:
     except ImportError:
         from module_identity import build_identities
 
-    identities = build_identities(root)
+    identities = build_identities(root, include_consciousness=True)
     count = 0
     for ident in identities:
         render_profile(ident, root)

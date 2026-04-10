@@ -1,8 +1,8 @@
 {
   "rework_detector": {
-    "touch_score": 0.313,
+    "touch_score": 0.306,
     "entropy": 0.0,
-    "heat": 0.313
+    "heat": 0.306
   },
   "file_consciousness": {
     "touch_score": 0.25,
@@ -10,34 +10,34 @@
     "heat": 0.25
   },
   "dynamic_prompt": {
-    "touch_score": 0.514,
+    "touch_score": 0.513,
     "entropy": 0.0,
-    "heat": 0.514
+    "heat": 0.513
   },
   "operator_stats": {
-    "touch_score": 0.578,
+    "touch_score": 0.569,
     "entropy": 0.0,
-    "heat": 0.578
+    "heat": 0.569
   },
   "prompt_journal": {
-    "touch_score": 3.919,
+    "touch_score": 3.9,
     "entropy": 0.0,
-    "heat": 3.919
+    "heat": 3.9
   },
   "prompt_recon": {
-    "touch_score": 0.654,
+    "touch_score": 0.636,
     "entropy": 0.0,
-    "heat": 0.654
+    "heat": 0.636
   },
   "copilot_prompt_manager": {
-    "touch_score": 1.577,
+    "touch_score": 1.539,
     "entropy": 0.332,
-    "heat": 2.1
+    "heat": 2.051
   },
   "pulse_harvest": {
-    "touch_score": 0.26,
+    "touch_score": 0.259,
     "entropy": 0.0,
-    "heat": 0.26
+    "heat": 0.259
   },
   "mutation_scorer": {
     "touch_score": 0.007,
@@ -45,179 +45,179 @@
     "heat": 0.007
   },
   "query_memory": {
-    "touch_score": 0.009,
+    "touch_score": 0.008,
     "entropy": 0.0,
-    "heat": 0.009
+    "heat": 0.008
   },
   "self_fix": {
-    "touch_score": 0.069,
+    "touch_score": 0.061,
     "entropy": 0.0,
-    "heat": 0.069
+    "heat": 0.061
   },
   "timestamp_utils": {
-    "touch_score": 0.022,
+    "touch_score": 0.019,
     "entropy": 0.0,
-    "heat": 0.022
+    "heat": 0.019
   },
   "context_budget": {
-    "touch_score": 0.022,
+    "touch_score": 0.019,
     "entropy": 0.338,
-    "heat": 0.029
+    "heat": 0.026
   },
   "prompt_enricher": {
-    "touch_score": 0.123,
+    "touch_score": 0.109,
     "entropy": 0.0,
-    "heat": 0.123
+    "heat": 0.109
   },
   "cognitive_reactor": {
-    "touch_score": 0.282,
+    "touch_score": 0.249,
     "entropy": 0.0,
-    "heat": 0.282
+    "heat": 0.249
   },
   "unified_signal": {
-    "touch_score": 0.08,
+    "touch_score": 0.071,
     "entropy": 0.0,
-    "heat": 0.08
+    "heat": 0.071
   },
   "training_pairs": {
-    "touch_score": 0.075,
+    "touch_score": 0.067,
     "entropy": 0.0,
-    "heat": 0.075
+    "heat": 0.067
   },
   "voice_style": {
-    "touch_score": 0.076,
+    "touch_score": 0.067,
     "entropy": 0.0,
-    "heat": 0.076
+    "heat": 0.067
   },
   "shard_manager": {
-    "touch_score": 0.159,
+    "touch_score": 0.141,
     "entropy": 0.0,
-    "heat": 0.159
+    "heat": 0.141
   },
   "context_router": {
-    "touch_score": 0.159,
+    "touch_score": 0.141,
     "entropy": 0.0,
-    "heat": 0.159
+    "heat": 0.141
   },
   "training_writer": {
-    "touch_score": 0.08,
+    "touch_score": 0.071,
     "entropy": 0.0,
-    "heat": 0.08
+    "heat": 0.071
   },
   "research_lab": {
-    "touch_score": 0.458,
+    "touch_score": 0.406,
     "entropy": 0.0,
-    "heat": 0.458
+    "heat": 0.406
   },
   "symbol_dictionary": {
-    "touch_score": 0.434,
-    "entropy": 0.0,
-    "heat": 0.434
-  },
-  "glyph_compiler": {
-    "touch_score": 0.373,
-    "entropy": 0.0,
-    "heat": 0.373
-  },
-  "confidence_scorer": {
-    "touch_score": 0.147,
-    "entropy": 0.0,
-    "heat": 0.147
-  },
-  "intent_simulator": {
-    "touch_score": 0.147,
-    "entropy": 0.0,
-    "heat": 0.147
-  },
-  "unsaid_recon": {
-    "touch_score": 0.187,
-    "entropy": 0.0,
-    "heat": 0.187
-  },
-  "prompt_signal": {
-    "touch_score": 0.154,
-    "entropy": 0.0,
-    "heat": 0.154
-  },
-  "\u63a2p_ur": {
-    "touch_score": 0.158,
-    "entropy": 0.0,
-    "heat": 0.158
-  },
-  "\u8b66p_sa": {
-    "touch_score": 0.333,
-    "entropy": 0.0,
-    "heat": 0.333
-  },
-  "engagement_hooks": {
-    "touch_score": 0.358,
-    "entropy": 0.0,
-    "heat": 0.358
-  },
-  "u_pe": {
-    "touch_score": 0.192,
-    "entropy": 0.327,
-    "heat": 0.255
-  },
-  "bug_profiles": {
-    "touch_score": 0.487,
-    "entropy": 0.0,
-    "heat": 0.487
-  },
-  "numeric_surface": {
-    "touch_score": 0.244,
-    "entropy": 0.0,
-    "heat": 0.244
-  },
-  "codebase_transmuter": {
-    "touch_score": 0.506,
-    "entropy": 0.0,
-    "heat": 0.506
-  },
-  "entropy_shedding": {
-    "touch_score": 0.25,
-    "entropy": 0.0,
-    "heat": 0.25
-  },
-  "codebase_vitals": {
     "touch_score": 0.385,
     "entropy": 0.0,
     "heat": 0.385
   },
-  "vitals_renderer": {
-    "touch_score": 0.77,
+  "glyph_compiler": {
+    "touch_score": 0.33,
     "entropy": 0.0,
-    "heat": 0.77
+    "heat": 0.33
+  },
+  "confidence_scorer": {
+    "touch_score": 0.13,
+    "entropy": 0.0,
+    "heat": 0.13
+  },
+  "intent_simulator": {
+    "touch_score": 0.13,
+    "entropy": 0.0,
+    "heat": 0.13
+  },
+  "unsaid_recon": {
+    "touch_score": 0.165,
+    "entropy": 0.0,
+    "heat": 0.165
+  },
+  "prompt_signal": {
+    "touch_score": 0.136,
+    "entropy": 0.0,
+    "heat": 0.136
+  },
+  "\u63a2p_ur": {
+    "touch_score": 0.14,
+    "entropy": 0.0,
+    "heat": 0.14
+  },
+  "\u8b66p_sa": {
+    "touch_score": 0.295,
+    "entropy": 0.0,
+    "heat": 0.295
+  },
+  "engagement_hooks": {
+    "touch_score": 0.317,
+    "entropy": 0.0,
+    "heat": 0.317
+  },
+  "u_pe": {
+    "touch_score": 0.17,
+    "entropy": 0.0,
+    "heat": 0.17
+  },
+  "bug_profiles": {
+    "touch_score": 0.432,
+    "entropy": 0.0,
+    "heat": 0.432
+  },
+  "numeric_surface": {
+    "touch_score": 0.217,
+    "entropy": 0.0,
+    "heat": 0.217
+  },
+  "codebase_transmuter": {
+    "touch_score": 0.448,
+    "entropy": 0.0,
+    "heat": 0.448
+  },
+  "entropy_shedding": {
+    "touch_score": 0.222,
+    "entropy": 0.0,
+    "heat": 0.222
+  },
+  "codebase_vitals": {
+    "touch_score": 0.341,
+    "entropy": 0.0,
+    "heat": 0.341
+  },
+  "vitals_renderer": {
+    "touch_score": 0.682,
+    "entropy": 0.0,
+    "heat": 0.682
   },
   "module_identity": {
-    "touch_score": 0.772,
+    "touch_score": 0.684,
     "entropy": 0.0,
-    "heat": 0.772
+    "heat": 0.684
   },
   "profile_renderer": {
-    "touch_score": 0.387,
+    "touch_score": 0.343,
     "entropy": 0.0,
-    "heat": 0.387
+    "heat": 0.343
   },
   "escalation_engine": {
-    "touch_score": 0.436,
-    "entropy": 0.364,
-    "heat": 0.594
+    "touch_score": 0.386,
+    "entropy": 0.353,
+    "heat": 0.522
   },
   "narrative_glove": {
-    "touch_score": 0.439,
+    "touch_score": 0.389,
     "entropy": 0.0,
-    "heat": 0.439
+    "heat": 0.389
   },
   "operator_probes": {
-    "touch_score": 1.017,
+    "touch_score": 0.901,
     "entropy": 0.0,
-    "heat": 1.017
+    "heat": 0.901
   },
   "\u865af_mc": {
-    "touch_score": 1.519,
+    "touch_score": 1.346,
     "entropy": 0.0,
-    "heat": 1.519
+    "heat": 1.346
   },
   "__init__.py": {
     "touch_score": 0.0,
@@ -226,8 +226,8 @@
   },
   "thought_completion": {
     "touch_score": 0.0,
-    "entropy": 0.395,
-    "heat": 0.04
+    "entropy": 0.377,
+    "heat": 0.038
   },
   "prompt_compositions.jsonl": {
     "touch_score": 0.0,
@@ -236,8 +236,23 @@
   },
   "chat_compositions.jsonl": {
     "touch_score": 0.0,
-    "entropy": 0.361,
+    "entropy": 0.359,
     "heat": 0.036
+  },
+  "SavageCooPigeonX": {
+    "touch_score": 0.0,
+    "entropy": 0.355,
+    "heat": 0.036
+  },
+  "thought_completer": {
+    "touch_score": 0.0,
+    "entropy": 0.355,
+    "heat": 0.035
+  },
+  "vscdb_poller": {
+    "touch_score": 0.0,
+    "entropy": 0.355,
+    "heat": 0.035
   },
   "refresh_managed_prompt": {
     "touch_score": 0.0,
@@ -254,49 +269,39 @@
     "entropy": 0.344,
     "heat": 0.034
   },
+  "uia_reader.py": {
+    "touch_score": 0.0,
+    "entropy": 0.342,
+    "heat": 0.034
+  },
+  "os_hook.py": {
+    "touch_score": 0.0,
+    "entropy": 0.342,
+    "heat": 0.034
+  },
   "classify_bridge.py": {
     "touch_score": 0.0,
     "entropy": 0.341,
     "heat": 0.034
   },
-  "core_formatters": {
+  "chat": {
     "touch_score": 0.0,
-    "entropy": 0.332,
-    "heat": 0.033
+    "entropy": 0.338,
+    "heat": 0.034
+  },
+  "classify_bridge": {
+    "touch_score": 0.0,
+    "entropy": 0.337,
+    "heat": 0.034
   },
   "nl_parsers": {
     "touch_score": 0.0,
     "entropy": 0.332,
     "heat": 0.033
   },
-  "dev_plan": {
+  "core_formatters": {
     "touch_score": 0.0,
-    "entropy": 0.328,
+    "entropy": 0.332,
     "heat": 0.033
-  },
-  "live_server": {
-    "touch_score": 0.0,
-    "entropy": 0.328,
-    "heat": 0.033
-  },
-  "from": {
-    "touch_score": 0.0,
-    "entropy": 0.324,
-    "heat": 0.032
-  },
-  "node_modules": {
-    "touch_score": 0.0,
-    "entropy": 0.324,
-    "heat": 0.032
-  },
-  "run_clean_split": {
-    "touch_score": 0.0,
-    "entropy": 0.323,
-    "heat": 0.032
-  },
-  "aim_utils": {
-    "touch_score": 0.0,
-    "entropy": 0.322,
-    "heat": 0.032
   }
 }

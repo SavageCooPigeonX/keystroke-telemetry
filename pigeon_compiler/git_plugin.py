@@ -1525,6 +1525,20 @@ def run():
     except Exception as e:
         print(f'  ⚠️  autonomous escalation: {e}')
 
+    # ── Learning Loop Catch-Up ──
+    # Process new journal entries on every push. The loop was never
+    # wired as a daemon — this is the only place it runs.
+    try:
+        ll_mod = _load_glob_module(root, 'pigeon_brain/flow', '学f_ll_s013*')
+        if ll_mod and hasattr(ll_mod, 'catch_up'):
+            ll_result = ll_mod.catch_up(root, use_deepseek=False)
+            processed = ll_result.get('entries_processed', 0)
+            trained = ll_result.get('total_nodes_trained', 0)
+            if processed:
+                print(f'  🧠 learning loop: {processed} entries, {trained} nodes trained')
+    except Exception as e:
+        print(f'  ⚠️  learning loop catch-up: {e}')
+
     # Auto-commit
     _git('add', '-A')
     if _git('status', '--porcelain').strip():

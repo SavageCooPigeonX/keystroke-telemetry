@@ -7,18 +7,22 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-10 05:25 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-10 18:07 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 4413min old (max 10min)
+- **`current-query`**: STALE — 5175min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-07 03:53
 
-- **`prompt-telemetry`**: STALE — 4413min old (max 10min)
+- **`prompt-telemetry`**: STALE — 5175min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-07T03:52:52
+
+- **`learning-loop`**: BEHIND — 414 unprocessed entries, last ran 347h ago
+  - Writer: `git_plugin → catch_up (post-commit)`
+  - Last updated: 2026-03-27T06:44:45.066753+00:00
 
 **Action**: Run the journal command or check `logs/enricher_errors.jsonl` for failures.
 
@@ -85,9 +89,9 @@ When the **Unsaid Threads** section (in `<!-- pigeon:current-query -->
 <!-- pigeon:narrative-glove -->
 ## Organism Consciousness
 
-*2026-04-07 03:52 UTC — synthesized from all live signals, zero LLM calls*
+*2026-04-10 16:20 UTC — synthesized from all live signals, zero LLM calls*
 
-> the organism is sick — health 11/100. only 11% compliant, 268 bugs across 254 modules. 63 chronic bugs refuse to die — fix rate is 11%. 8 module(s) took autonomous action — the organism is deciding for itself. entropy at 0.29 — the codebase knows what it is, mostly. cognitive heat on: `file_heat_map`, `import_rewriter`, `file_writer`. recent escalation: task_writer(failure), task_writer(autonomous_fix), run_heal(failure).
+> the organism is sick — health 11/100. only 11% compliant, 268 bugs across 254 modules. 8 module(s) took autonomous action — the organism is deciding for itself. entropy at 0.30 — the codebase knows what it is, mostly. cognitive heat on: `file_heat_map`, `import_rewriter`, `file_writer`. recent escalation: task_writer(failure), task_writer(autonomous_fix), run_heal(failure).
 
 <!-- /pigeon:narrative-glove -->
 
@@ -233,9 +237,9 @@ operator intent → keystroke telemetry → semantic compression → LLM code ge
 <!-- pigeon:narrative-glove -->
 ## Organism Consciousness
 
-*2026-04-07 03:52 UTC — synthesized from all live signals, zero LLM calls*
+*2026-04-10 16:20 UTC — synthesized from all live signals, zero LLM calls*
 
-> the organism is sick — health 11/100. only 11% compliant, 268 bugs across 254 modules. 63 chronic bugs refuse to die — fix rate is 11%. 8 module(s) took autonomous action — the organism is deciding for itself. entropy at 0.29 — the codebase knows what it is, mostly. cognitive heat on: `file_heat_map`, `import_rewriter`, `file_writer`. recent escalation: task_writer(failure), task_writer(autonomous_fix), run_heal(failure).
+> the organism is sick — health 11/100. only 11% compliant, 268 bugs across 254 modules. 8 module(s) took autonomous action — the organism is deciding for itself. entropy at 0.30 — the codebase knows what it is, mostly. cognitive heat on: `file_heat_map`, `import_rewriter`, `file_writer`. recent escalation: task_writer(failure), task_writer(autonomous_fix), run_heal(failure).
 
 <!-- /pigeon:narrative-glove -->
 <!-- pigeon:current-query -->
@@ -255,35 +259,40 @@ OPERATOR SIGNAL: The trajectory reveals a persistent frustration with the AI's i
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-10 05:31 UTC · 432 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-10 18:07 UTC · 462 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 50.6 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 51.3 | Del: 26.5% | Hes: 0.493) · *[source: measured]*
 
-**Prompt ms:** 54557, 20889, 163789, 8352, 839293 (avg 217376ms)
+**Prompt ms:** 151788, 22524, 72919, 98834, 241157 (avg 117444ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### Unsaid Threads
 *Deleted from prompts — operator wanted this but didn't ask:*
-- **Reconstructed intent:** This appears to be a typo correction only, as the deleted characters were
-  - *(deleted: ffee | ratio: 1%)*
 - **Reconstructed intent:** Copilot needs to be paired with the context select agent to function correctly.
   - *(deleted: opilot needs to be pai | ratio: 9%)*
+- **Reconstructed intent:** A pigeon discovered our hidden technology and is leaking information about it.
+  - *(deleted: leaks _ | ratio: 3%)*
 
-- "lready have this ;ea"
+- "> eg"
+- "- then"
+- "self"
+- "problems"
+- "leaks _"
+- "los san"
 
 ### AI Rework Surface
-*Miss rate: 13.5% (200 responses)*
+*Miss rate: 6.5% (200 responses)*
 - Failed on: ""
 - Failed on: ""
 - Failed on: ""
 
 ### Recent Work
+- `4aedb96` feat: pitch sim + thought completer split + organism health fix + heat map rewrite + session awareness + anti-echo prompt + copilot context persistence
 - `af0652b` feat: operator probes + prediction-driven probes + persona memory + entropy chart + file chat + thinned personality prompts + source code lookup fix
 - `843fa29` fix: rebuild 36 broken __init__.py + fix 37 hardcoded pigeon_brain imports + add import_rewriter error logging
 - `3e125f5` feat: entropy shedding + intent compressor + human-AI coding paradigm in system prompt + context compressor + codebase transmuter + self-fix tracker
-- `5e29260` feat: numeric surface layer + narrative bug profiles + stale import fixes
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -303,7 +312,7 @@ OPERATOR SIGNAL: The trajectory reveals a persistent frustration with the AI's i
 - [HIGH] over_hard_cap in `pigeon_brain/服f_ls_s012_v003_d0324_踪稿析_λB.py`
 
 ### Prompt Evolution
-*This prompt has mutated 114x (186→841 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
+*This prompt has mutated 118x (186→969 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
 *200 rework pairs × 113 mutations scored*
@@ -424,9 +433,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-04-07 03:52 UTC · 80 prompts analyzed · zero LLM calls · collecting baseline*
+*Auto-extracted 2026-04-10 16:20 UTC · 79 prompts analyzed · zero LLM calls · collecting baseline*
 
-**Brevity:** 44.5 words/prompt | **Caps:** never | **Fragments:** 69% | **Questions:** 9% | **Directives:** 12%
+**Brevity:** 32.4 words/prompt | **Caps:** never | **Fragments:** 78% | **Questions:** 11% | **Directives:** 5%
 
 **Voice directives (effectiveness-scored):**
 - Operator is semi-casual — use contractions, skip formalities, but keep technical precision.
@@ -436,7 +445,7 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 - Operator rarely uses punctuation — fragments and run-ons are normal. Don't overcorrect their style in quotes.
 - Operator uses plain language — avoid unnecessary jargon in explanations.
 
-**Vocabulary fingerprint:** to, i, it, is, the, this, of, and, in, a
+**Vocabulary fingerprint:** to, it, a, the, i, is, and, its, not, this
 <!-- /pigeon:voice-style -->
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
@@ -496,9 +505,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-10 · 432 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-10 · 462 message(s) · LLM-synthesized*
 
-**Dominant: `abandoned`** | Submit: 66% | WPM: 52.8 | Del: 25.6% | Hes: 0.444
+**Dominant: `abandoned`** | Submit: 66% | WPM: 52.9 | Del: 25.6% | Hes: 0.444
 
 Operator just built numeric surface layer unification and works in intense restructuring/focused cycles with high deletion rates, indicating iterative refinement through aggressive editing rather than planning.  
 - **Respond with concise, modular suggestions**—offer 2-3 line code blocks, not paragraphs, to match their high-WPM focused bursts.  
@@ -839,103 +848,99 @@ vscode-extension: classify_bridge, pulse_watcher
 - `red[hardcoded_imports] = [0.650, 0.000, 0.350, 0, 0]`
 - `red[auto_apply_import_fixes] = [0.625, 0.000, 0.375, 0, 0]`
 - `red[enricher_pipeline] = [0.600, 0.000, 0.400, 0, 0]`
-- `red[u_pj] = [0.450, 0.315, 0.550, 3, 0]`
 - `red[管w_cpm] = [0.450, 0.000, 0.550, 0, 0]`
 - `red[__init__.py] = [0.411, 0.411, null, 6, 1]`
-- `red[thought_completion] = [0.395, 0.395, null, 3, 0]`
 - `red[session_state] = [0.380, 0.000, 0.620, 0, 0]`
+- `red[thought_completion] = [0.377, 0.377, null, 5, 0]`
 - `red[prompt_compositions.jsonl] = [0.365, 0.365, null, 3, 0]`
+- `red[chat_compositions.jsonl] = [0.359, 0.359, null, 5, 2]`
 <!-- /pigeon:entropy-red-layer -->
 <!-- pigeon:entropy-map -->
 ## Entropy Shedding Map
 
-*329 responses analyzed · global H=0.293 · 27.4% high-entropy · 8 explicit sheds*
+*429 responses analyzed · global H=0.297 · 31.7% high-entropy · 25 explicit sheds*
 
 **where copilot is most uncertain (act with extra care):**
 
 - `__init__.py` H=0.411 (6 samples, 1 hedges)
-- `thought_completion` H=0.395 (3 samples, 0 hedges)
+- `thought_completion` H=0.377 (5 samples, 0 hedges)
 - `prompt_compositions.jsonl` H=0.365 (3 samples, 0 hedges)
-- `escalation_engine` H=0.364 (1 samples, 0 hedges shed_conf=0.865)
-- `chat_compositions.jsonl` H=0.361 (3 samples, 0 hedges)
-- `refresh_managed_prompt` H=0.350 (1 samples, 0 hedges shed_conf=0.74)
-- `pq_search_utils` H=0.344 (2 samples, 0 hedges)
-- `pq_manifest_utils` H=0.344 (2 samples, 0 hedges)
+- `chat_compositions.jsonl` H=0.359 (5 samples, 2 hedges)
+- `SavageCooPigeonX` H=0.355 (2 samples, 1 hedges)
+- `thought_completer` H=0.355 (1 samples, 0 hedges shed_conf=0.83)
+- `vscdb_poller` H=0.355 (1 samples, 0 hedges shed_conf=0.88)
+- `escalation_engine` H=0.353 (4 samples, 0 hedges shed_conf=0.865)
 
 > emit `<!-- entropy:shed -->` blocks to improve this map.
 <!-- /pigeon:entropy-map -->
 ## Bug Voices
 
-*154 threads tracked across 53 pushes · fix rate: 11.0%*
+*241 threads tracked across 54 pushes · fix rate: 12.4%*
 
-> fix rate is 11.0% — some things move but the bulk just sits there. 0 eternal bugs (every single report) and 63 chronic (70%+ of reports). these are the ones that need structural fixes, not patches. 77 threads resolved across 53 pushes. proof the loop works sometimes. trend is improving — recent pushes fix more than early ones.
+> fix rate is 12.4% — some things move but the bulk just sits there. 0 eternal bugs (every single report) and 7 chronic (70%+ of reports). these are the ones that need structural fixes, not patches. 142 threads resolved across 54 pushes. proof the loop works sometimes. trend is improving — recent pushes fix more than early ones.
 
 **the ones that never leave:**
 
-- `__main__` — [hardcoded_import] 18/53 reports. chronic. it comes back like clockwork.
-- `gemini_chat` — [hardcoded_import] 13/53 reports. chronic. it comes back like clockwork.
-- `dev_plan` — [hardcoded_import] 12/53 reports. chronic. it comes back like clockwork.
-- `cli` — [hardcoded_import] 12/53 reports. chronic. it comes back like clockwork.
-- `vein_transport` — [hardcoded_import] 12/53 reports. chronic. it comes back like clockwork.
-- `demo_sim` — [hardcoded_import] 12/53 reports. chronic. it comes back like clockwork.
-- `heal` — [hardcoded_import] 12/53 reports. chronic. it comes back like clockwork.
+- `u_pj` — [over_hard_cap] 9/54 reports. chronic. it comes back like clockwork.
+- `u_pe` — [over_hard_cap] 9/54 reports. chronic. it comes back like clockwork.
+- `修f_sf` — [over_hard_cap] 7/54 reports. chronic. it comes back like clockwork.
+- `对p_tp` — [over_hard_cap] 7/54 reports. chronic. it comes back like clockwork.
+- `推w_dp` — [over_hard_cap] 7/54 reports. chronic. it comes back like clockwork.
+- `册f_reg` — [over_hard_cap] 7/54 reports. chronic. it comes back like clockwork.
+- `管w_cpm` — [over_hard_cap] 7/54 reports. chronic. it comes back like clockwork.
 
 **recently killed:**
 
-- `警p_sa` [over_hard_cap] — gone since report #52. it stayed dead.
-- `叙p_pn` [over_hard_cap] — gone since report #52. it stayed dead.
-- `测p_rwd` [dead_export] — gone since report #52. it stayed dead.
-- `热p_fhm` [dead_export] — gone since report #52. it stayed dead.
-- `逆f_ba` [hardcoded_import] — gone since report #51. it stayed dead.
+- `__main__` [hardcoded_import] — gone since report #53. it stayed dead.
+- `dev_plan` [hardcoded_import] — gone since report #53. it stayed dead.
+- `gemini_chat` [hardcoded_import] — gone since report #53. it stayed dead.
+- `run_clean_split_helpers` [hardcoded_import] — gone since report #53. it stayed dead.
+- `flow_engine` [hardcoded_import] — gone since report #53. it stayed dead.
 
-**last push ( ):** 4 fixed, 6 new, 71 carried forward
+**last push ( ):** 65 fixed, 87 new, 12 carried forward
 
 <!-- /pigeon:bug-voices -->
 <!-- pigeon:operator-probes -->
 ## Operator Probes
 
-*Auto-generated 2026-04-07 05:47 UTC · 2 probe(s) from live signals*
+*Auto-generated 2026-04-10 16:20 UTC · 3 probe(s) from live signals*
 
 **ASK these questions naturally in your next response (pick 1-2, weave into context):**
 
-1. You hesitate most around `file_heat_map` (hes=0.89). What about this module is unclear — the API, the architecture, or something else?
-2. You haven't named a specific module recently. What are you actually trying to build or fix right now?
+1. Your deleted words predict these themes in 3 months: "use", "rephraser", "can we find a way to s". Are any of these actually where you're headed — or has your thinking shifted?
+2. `self_heal` is trending toward abandonment. Intentional deprioritization or just hasn't come up yet?
+3. You hesitate most around `file_heat_map` (hes=0.89). What about this module is unclear — the API, the architecture, or something else?
 
-*Probes are generated from: unsaid threads, escalation state, cognitive heat, persona memory, and operator state.*
+*Probes are generated from: intent predictions (1wk/1mo/3mo), unsaid threads, escalation state, cognitive heat, persona memory, and operator state.*
 <!-- /pigeon:operator-probes -->
 <!-- pigeon:hooks -->
 ## Engagement Hooks
 
-*Auto-generated 2026-04-07 03:52 UTC -- every number is measured, every dare is real.*
+*Auto-generated 2026-04-10 16:20 UTC -- every number is measured, every dare is real.*
 
-- "- writes in prompt bex per python file (up to" -- dead on arrival. Backspaced out of existence. But it's already in the composition log. Deletion is emphasis.
-- `streaming_layer` is 10189 tokens. Hard cap is 200 lines. This file is 50 modules in a trench coat. One split command. That's all.
-- 918 total mutations across 290 modules. The codebase has officially changed more than it stayed the same.
-- `cli` -- 417 days. Last generation's code. Either works perfectly or nobody knows it's broken.
+- The word you deleted was "los san". The router scored it. Your dossier shifted.
+- `adapter` -- orphan. Zero importers. Zero purpose. Exists because nobody deleted it. One rm and the organism heals. Your call.
+- `chat_composition_analyzer` -- 417 days. Last generation's code. Either works perfectly or nobody knows it's broken.
+- 35 modules over cap. Worst: `git_plugin` (6050 tokens). Auto-split handles 5 per push. Push and let it bleed.
 
 <!-- /pigeon:hooks -->
 <!-- pigeon:active-template -->
 ## Active Template: /debug
 
-*Auto-selected 2026-04-07 03:52 UTC · mode: debug*
+*Auto-selected 2026-04-10 16:20 UTC · mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 48 | Del: 26% | Hes: 0.485
+**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.494
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
-**Deleted words:** this deos this, v>>>>, hat information shou, eile debugging itself - and also, the per, o operator over tme, injectio, - writes in prompt bex per python file (up to
-**Unsaid threads:** this deos this, v>>>>, hat information shou, eile debugging itself - and also, the per, o operator over tme, injectio, - writes in prompt bex per python file (up to
-**Rewrites:** "v>>>>" → ">>> no data in profile - also when i touch it i want it to auto wake up and talk"; "hat information shou" → "hat exact information do profiles need to collect when talked w="; "eile debugging itself - and also" → "ile building its own intelligence over time on backwar"; "the per" → "the files have personalities - we can run future simulations on bugs - ideally a"
+**Deleted words:** should bug, > eg, - then, self, problems, leaks _, los san
+**Unsaid threads:** should bug, - then, problems, leaks _, los san
+**Rewrites:** "should bug" → "i w"; "ld f" → "lt by bug demon - it writes own own status - and bug report manifest chains acro"; "> eg" → "lmk what is tha"; "- then" → "in its own system / self imprr"
 **Hot modules:** `file_heat_map` (hes=0.89), `import_rewriter` (hes=0.73), `file_writer` (hes=0.73)
-**Active bugs:** `u_pe` (oc), `u_pj` (oc), `警p_sa` (oc), `册f_reg` (oc)
 **Codes:** intent=`exploring` state=`unknown` bl_wpm=54 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
-
-## Known Issues (from self-fix scanner)
-
-- [CRITICAL] hardcoded_import in `pigeon_brain/令f_cl_s009_v002_d0323_缩分话_λP.py`
 
 ## Fragile Contracts
 
@@ -955,18 +960,18 @@ vscode-extension: classify_bridge, pulse_watcher
 
 ## Overcap Files (split candidates)
 
-- `streaming_layer` (10189 tok)
-- `管w_cpm` (8012 tok)
-- `u_pj` (7903 tok)
-- `推w_dp` (5987 tok)
-- `self_fix` (5846 tok)
-- `修f_sf` (5829 tok)
-- `prediction_scorer` (5797 tok)
-- `算f_ps` (5782 tok)
+- `git_plugin` (6050 tok)
+- `module_identity` (3770 tok)
+- `谱建f_mb_s007_v003_d0314_观重箱重拆_λD` (3640 tok)
+- `profile_renderer` (3337 tok)
+- `tc_sim` (3230 tok)
+- `classify_bridge` (3143 tok)
+- `管w_cpm_s020_v005_d0404_缩分话_λNU_βoc` (3118 tok)
+- `层w_sl_s007_v003_d0317_读唤任_λΠ` (3109 tok)
 
 ## Active Bug Dossier
 
-**Focus modules:** pre_process_every_prompt_via, every_entry_cross_references_all, tracks_cognitive_load_per_module, automated_self_healing_pipeline, audits_and_manages_all_injected
-**Focus bugs:** de, oc
+**Focus modules:** pre_process_every_prompt_via, every_entry_cross_references_all, automated_self_healing_pipeline, audits_and_manages_all_injected
+**Focus bugs:** oc
 
 <!-- /pigeon:active-template -->

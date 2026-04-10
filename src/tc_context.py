@@ -149,10 +149,14 @@ def load_context(repo_root: Path | None = None) -> dict:
                 text_snip = entry.get('final_text', '')[:80]
                 cs = entry.get('chat_state', {})
                 state = cs.get('state', 'unknown') if isinstance(cs, dict) else 'unknown'
+                deleted = entry.get('deleted_words', [])
+                rewrites = entry.get('rewrite_chains', [])
                 ctx['session_messages'].append({
                     'text': text_snip,
                     'state': state,
                     'del_ratio': entry.get('deletion_ratio', 0),
+                    'deleted_words': deleted[-6:] if deleted else [],
+                    'rewrites': [r[:80] if isinstance(r, str) else r for r in (rewrites[-3:] if rewrites else [])],
                 })
         except Exception:
             pass
