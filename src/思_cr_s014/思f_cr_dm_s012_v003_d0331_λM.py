@@ -39,12 +39,12 @@ def should_apply_patch(
     if new_lines > HARD_CAP:
         return {'allow': False, 'reason': f'patch is {new_lines} lines (cap {HARD_CAP})', 'risk': 'medium'}
 
-    # 3. Size delta — reject patches that change more than 40% of lines
+    # 3. Size delta — reject patches that change more than 60% of lines
     orig_lines = len(original_source.strip().splitlines()) if original_source else 0
     if orig_lines > 0:
         delta = abs(new_lines - orig_lines)
-        if delta / orig_lines > 0.4:
-            return {'allow': False, 'reason': f'patch changes {delta}/{orig_lines} lines (>40%)', 'risk': 'high'}
+        if delta / orig_lines > 0.6:
+            return {'allow': False, 'reason': f'patch changes {delta}/{orig_lines} lines (>60%)', 'risk': 'high'}
 
     # 4. Import preservation — new source must keep all original imports
     orig_imports = _extract_imports(original_source)

@@ -2126,6 +2126,555 @@ function stopUIAReader() {
     }
 }
 
+// ── Manifest Work Loop ───────────────────────────────────────────────────────
+// Watches organism health files. When state changes, builds prioritized tasks
+// from escalation/dossier/entropy signals, calls LM API with manifest as prompt,
+// writes fixes, runs tests, auto-commits. The manifest IS the prompt.
+//
+// Escalation-driven: tasks trigger at confidence thresholds, not on every change.
+// Reasoning evolution: every cycle logs the LM's reasoning chain so you can
+// watch profiles think through their own code live.
+
+interface WorkTask {
+    module: string;
+    bugType: string;
+    confidence: number;
+    escalationLevel: number;
+    priority: number;  // lower = more urgent
+    context: string;   // compact description for the LM
+    sourceFile?: string;
+}
+
+class ManifestWorkLoop {
+    private _root: string;
+    private _watcher: fs.FSWatcher | undefined;
+    private _debounceTimer: ReturnType<typeof setTimeout> | undefined;
+    private _running = false;
+    private _statusItem: vscode.StatusBarItem;
+    private _cycleCount = 0;
+    private _lastManifestHash = '';
+    private _outputChannel: vscode.OutputChannel;
+    private _reasoningPanel: vscode.WebviewPanel | undefined;
+
+    // Confidence threshold: only act when we're confident enough
+    private static readonly MIN_CONFIDENCE = 0.6;
+    // Max tasks per cycle to avoid runaway
+    private static readonly MAX_TASKS_PER_CYCLE = 3;
+    // Cooldown between cycles (ms)
+    private static readonly CYCLE_COOLDOWN_MS = 30_000;
+
+    constructor(root: string, context: vscode.ExtensionContext) {
+        this._root = root;
+        this._outputChannel = vscode.window.createOutputChannel('Pigeon Work Loop');
+        context.subscriptions.push(this._outputChannel);
+
+        this._statusItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 100);
+        this._statusItem.command = 'pigeon.showWorkLoopReasoning';
+        this._statusItem.text = '$(gear~spin) Work Loop: idle';
+        this._statusItem.tooltip = 'Pigeon: manifest-driven autonomous work loop. Click to see reasoning.';
+        this._statusItem.show();
+        context.subscriptions.push(this._statusItem);
+
+        // Watch organism health signals
+        this._startWatching(context);
+
+        // Command to show reasoning panel
+        context.subscriptions.push(
+            vscode.commands.registerCommand('pigeon.showWorkLoopReasoning', () =>
+                this._showReasoningPanel(context))
+        );
+    }
+
+    private _startWatching(context: vscode.ExtensionContext) {
+        const watchPaths = [
+            path.join(this._root, 'logs', 'escalation_state.json'),
+            path.join(this._root, 'logs', 'active_dossier.json'),
+            path.join(this._root, 'logs', 'entropy_map.json'),
+            path.join(this._root, 'logs', 'self_fix_accuracy.json'),
+        ];
+
+        for (const watchPath of watchPaths) {
+            if (!fs.existsSync(watchPath)) continue;
+            try {
+                const w = fs.watch(watchPath, () => this._onSignalChange());
+                context.subscriptions.push({ dispose: () => w.close() });
+            } catch { /* non-fatal */ }
+        }
+
+        // Also watch MASTER_MANIFEST.md
+        const manifestPath = path.join(this._root, 'MASTER_MANIFEST.md');
+        if (fs.existsSync(manifestPath)) {
+            try {
+                const w = fs.watch(manifestPath, () => this._onSignalChange());
+                context.subscriptions.push({ dispose: () => w.close() });
+            } catch { /* non-fatal */ }
+        }
+
+        this._log('Work loop watching: escalation, dossier, entropy, manifest');
+    }
+
+    private _onSignalChange() {
+        // Debounce: wait for signals to settle
+        if (this._debounceTimer) clearTimeout(this._debounceTimer);
+        this._debounceTimer = setTimeout(() => this._evaluateAndAct(), 5_000);
+    }
+
+    private async _evaluateAndAct() {
+        if (this._running) return;
+
+        // Build task list from all signals
+        const tasks = this._buildTaskList();
+        if (tasks.length === 0) {
+            this._statusItem.text = '$(check) Work Loop: no tasks';
+            return;
+        }
+
+        // Check if anything actually changed
+        const hash = JSON.stringify(tasks.map(t => `${t.module}:${t.bugType}:${t.confidence}`));
+        if (hash === this._lastManifestHash) return;
+        this._lastManifestHash = hash;
+
+        // Filter to actionable tasks (above confidence threshold)
+        const actionable = tasks.filter(t => t.confidence >= ManifestWorkLoop.MIN_CONFIDENCE);
+        if (actionable.length === 0) {
+            this._statusItem.text = `$(eye) Work Loop: ${tasks.length} tasks, none above confidence`;
+            this._log(`${tasks.length} tasks found but none above ${ManifestWorkLoop.MIN_CONFIDENCE} confidence`);
+            return;
+        }
+
+        const batch = actionable.slice(0, ManifestWorkLoop.MAX_TASKS_PER_CYCLE);
+        this._statusItem.text = `$(sync~spin) Work Loop: ${batch.length} task(s)...`;
+        this._log(`=== Cycle ${++this._cycleCount} === ${batch.length} task(s) to process`);
+
+        for (const task of batch) {
+            await this._processTask(task);
+        }
+
+        this._statusItem.text = `$(check) Work Loop: cycle ${this._cycleCount} done`;
+    }
+
+    private _buildTaskList(): WorkTask[] {
+        const tasks: WorkTask[] = [];
+
+        // 1. Escalation state — modules that have been ignored and are pushing back
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'logs', 'escalation_state.json'), 'utf-8');
+            const data = JSON.parse(raw);
+            for (const [mod, state] of Object.entries(data.modules ?? {}) as [string, any][]) {
+                if (state.level >= 2) {  // only act on modules that have escalated
+                    tasks.push({
+                        module: mod,
+                        bugType: state.bug_type,
+                        confidence: state.confidence,
+                        escalationLevel: state.level,
+                        priority: 10 - state.level,  // higher escalation = higher priority
+                        context: `escalation L${state.level}, ${state.bug_type}, ignored ${state.passes_ignored}x, conf=${state.confidence.toFixed(2)}`,
+                        sourceFile: this._findSourceFile(mod),
+                    });
+                }
+            }
+        } catch { /* no escalation state */ }
+
+        // 2. Active dossier — recurring bugs across pushes
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'logs', 'active_dossier.json'), 'utf-8');
+            const data = JSON.parse(raw);
+            for (const d of (data.dossiers ?? [])) {
+                if (d.recur >= 3 && !tasks.some(t => t.module === d.file)) {
+                    const conf = Math.min(0.9, 0.5 + (d.recur * 0.05));
+                    tasks.push({
+                        module: d.file,
+                        bugType: d.bugs.join('+'),
+                        confidence: conf,
+                        escalationLevel: 1,
+                        priority: 8 - Math.min(d.recur, 5),
+                        context: `recurring bug: ${d.bugs.join('+')} (${d.recur}x), score=${d.score}`,
+                        sourceFile: this._findSourceFile(d.file),
+                    });
+                }
+            }
+        } catch { /* no dossier */ }
+
+        // 3. High-entropy modules — copilot is most uncertain here
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'logs', 'entropy_map.json'), 'utf-8');
+            const data = JSON.parse(raw);
+            for (const m of (data.top_entropy_modules ?? [])) {
+                if (m.avg_entropy >= 0.35 && !tasks.some(t => t.module === m.module)) {
+                    tasks.push({
+                        module: m.module,
+                        bugType: 'high_entropy',
+                        confidence: 1 - m.avg_entropy,
+                        escalationLevel: 0,
+                        priority: 7,
+                        context: `H=${m.avg_entropy.toFixed(3)}, ${m.samples} samples, ${m.hedges} hedges — reduce uncertainty`,
+                        sourceFile: this._findSourceFile(m.module),
+                    });
+                }
+            }
+        } catch { /* no entropy data */ }
+
+        // Sort by priority (lower = more urgent)
+        tasks.sort((a, b) => a.priority - b.priority);
+
+        return tasks;
+    }
+
+    private _findSourceFile(moduleName: string): string | undefined {
+        // Search pigeon_registry first
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'pigeon_registry.json'), 'utf-8');
+            const reg = JSON.parse(raw);
+            const entry = (reg.files ?? []).find((f: any) => f.name === moduleName);
+            if (entry?.path) {
+                const fullPath = path.join(this._root, entry.path);
+                if (fs.existsSync(fullPath)) return fullPath;
+            }
+        } catch { /* */ }
+
+        // Fallback: glob search
+        for (const subdir of ['src', 'pigeon_brain', 'pigeon_brain/flow', 'pigeon_compiler', 'streaming_layer']) {
+            try {
+                const dir = path.join(this._root, subdir);
+                if (!fs.existsSync(dir)) continue;
+                const files = fs.readdirSync(dir).filter(f =>
+                    f.endsWith('.py') && f.includes(moduleName));
+                if (files.length > 0) return path.join(dir, files[0]);
+            } catch { continue; }
+        }
+        return undefined;
+    }
+
+    private async _processTask(task: WorkTask) {
+        this._log(`--- Task: ${task.module} (${task.bugType}, L${task.escalationLevel}, conf=${task.confidence.toFixed(2)}) ---`);
+        this._statusItem.text = `$(sync~spin) ${task.module}: ${task.bugType}`;
+
+        // Read source code if available
+        let sourceCode = '';
+        if (task.sourceFile && fs.existsSync(task.sourceFile)) {
+            try {
+                sourceCode = fs.readFileSync(task.sourceFile, 'utf-8');
+            } catch { /* */ }
+        }
+
+        // Build the prompt FROM the manifest data
+        const prompt = this._buildTaskPrompt(task, sourceCode);
+
+        // Call LM API
+        try {
+            const [model] = await vscode.lm.selectChatModels({ vendor: 'copilot' });
+            if (!model) {
+                this._log(`  No LM model available — skipping`);
+                return;
+            }
+
+            const messages = [
+                vscode.LanguageModelChatMessage.User(prompt),
+            ];
+
+            const cts = new vscode.CancellationTokenSource();
+            const startMs = Date.now();
+            const res = await model.sendRequest(messages, {}, cts.token);
+
+            let reasoning = '';
+            for await (const chunk of res.text) {
+                reasoning += chunk;
+            }
+            const elapsedMs = Date.now() - startMs;
+
+            this._log(`  LM responded in ${elapsedMs}ms (${reasoning.length} chars)`);
+
+            // Log reasoning evolution
+            this._logReasoning(task, reasoning, elapsedMs);
+
+            // Parse and apply if the response contains a code block
+            const applied = this._parseAndApply(task, reasoning);
+            if (applied) {
+                this._log(`  Applied fix to ${task.sourceFile}`);
+                this._statusItem.text = `$(check) ${task.module}: fixed`;
+
+                // Run tests
+                const testResult = await this._runTests();
+                if (testResult.passed) {
+                    this._log(`  Tests passed — ready for commit`);
+                    // Notify but don't auto-commit (needs operator approval)
+                    vscode.window.showInformationMessage(
+                        `Work Loop fixed ${task.module} (${task.bugType}). Tests pass.`,
+                        'View Reasoning', 'Commit'
+                    ).then(choice => {
+                        if (choice === 'View Reasoning') {
+                            this._outputChannel.show();
+                        } else if (choice === 'Commit') {
+                            this._autoCommit(task);
+                        }
+                    });
+                } else {
+                    this._log(`  Tests FAILED — reverting`);
+                    // Revert the change
+                    if (task.sourceFile && sourceCode) {
+                        fs.writeFileSync(task.sourceFile, sourceCode, 'utf-8');
+                    }
+                    this._statusItem.text = `$(error) ${task.module}: test failed, reverted`;
+                }
+            } else {
+                this._log(`  No actionable code block in response — reasoning logged`);
+            }
+        } catch (e: any) {
+            this._log(`  LM error: ${e?.message ?? 'unknown'}`);
+        }
+    }
+
+    private _buildTaskPrompt(task: WorkTask, sourceCode: string): string {
+        // Load all relevant context — the manifest IS the prompt
+        let operatorState = '';
+        try { operatorState = readOperatorState(this._root); } catch { /* */ }
+
+        let entropyInfo = '';
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'logs', 'entropy_map.json'), 'utf-8');
+            const data = JSON.parse(raw);
+            const m = (data.top_entropy_modules ?? []).find((x: any) => x.module === task.module);
+            if (m) entropyInfo = `H=${m.avg_entropy.toFixed(3)}, samples=${m.samples}, hedges=${m.hedges}`;
+        } catch { /* */ }
+
+        // Load file persona memory for reasoning continuity
+        let memoryBlock = '';
+        if (personaMemoryStore) {
+            memoryBlock = personaMemoryStore.buildPromptBlock(task.module);
+        }
+
+        return `You are an autonomous code repair agent working on module \`${task.module}\`.
+
+## Task
+Bug type: ${task.bugType}
+Escalation level: ${task.escalationLevel}/5
+Confidence: ${task.confidence.toFixed(2)}
+Context: ${task.context}
+${entropyInfo ? `Entropy: ${entropyInfo}` : ''}
+
+## Constraints
+- Make MINIMAL changes. Fix the specific bug, nothing else.
+- Keep the file under 200 lines (pigeon compliance).
+- Do NOT add comments explaining what you did.
+- Do NOT refactor unrelated code.
+- Preserve all existing imports and exports.
+
+## Module Memory
+${memoryBlock || '(no prior conversations)'}
+
+## Your Reasoning Process
+Think through this step by step:
+1. What is the actual bug?
+2. What is the root cause?
+3. What is the minimal fix?
+4. What could go wrong with this fix?
+5. How confident are you (0-1)?
+
+## Source Code
+\`\`\`python
+${sourceCode || '(source file not found — provide general guidance)'}
+\`\`\`
+
+## Output Format
+First, write your reasoning chain (this gets logged for the operator to watch).
+Then, if you have a fix, output EXACTLY:
+\`\`\`fix
+<the complete fixed file content>
+\`\`\`
+
+Or if you can't fix it, output:
+\`\`\`diagnosis
+<what needs to happen, who should fix it, and why>
+\`\`\``;
+    }
+
+    private _parseAndApply(task: WorkTask, response: string): boolean {
+        // Look for ```fix block
+        const fixMatch = response.match(/```fix\s*\n([\s\S]*?)```/);
+        if (!fixMatch || !task.sourceFile) return false;
+
+        const fixedCode = fixMatch[1];
+        // Sanity checks
+        if (fixedCode.length < 10) return false;
+        if (fixedCode.length > 20_000) return false;  // reject absurdly large outputs
+
+        try {
+            fs.writeFileSync(task.sourceFile, fixedCode, 'utf-8');
+            return true;
+        } catch { return false; }
+    }
+
+    private _runTests(): Promise<{ passed: boolean; output: string }> {
+        return new Promise(resolve => {
+            const proc = spawn('py', ['test_all.py'], {
+                cwd: this._root,
+                env: { ...process.env, PYTHONIOENCODING: 'utf-8' },
+            });
+            let out = '';
+            proc.stdout.on('data', (d: Buffer) => out += d.toString());
+            proc.stderr.on('data', (d: Buffer) => out += d.toString());
+            proc.on('close', code => {
+                resolve({ passed: code === 0, output: out });
+            });
+            proc.on('error', () => resolve({ passed: false, output: 'spawn error' }));
+            // Timeout after 60s
+            setTimeout(() => { proc.kill(); resolve({ passed: false, output: 'timeout' }); }, 60_000);
+        });
+    }
+
+    private _autoCommit(task: WorkTask) {
+        const msg = `fix(work-loop): ${task.module} — ${task.bugType} (L${task.escalationLevel}, conf=${task.confidence.toFixed(2)})
+
+Autonomous fix by manifest work loop cycle ${this._cycleCount}.
+Reasoning logged to logs/work_loop_reasoning.jsonl`;
+
+        spawn('git', ['add', '-A'], { cwd: this._root })
+            .on('close', () => {
+                spawn('git', ['commit', '-m', msg], { cwd: this._root })
+                    .on('close', code => {
+                        if (code === 0) {
+                            this._log(`  Committed: ${msg.split('\n')[0]}`);
+                            vscode.window.showInformationMessage(`Work Loop committed fix for ${task.module}`);
+                        }
+                    });
+            });
+    }
+
+    private _logReasoning(task: WorkTask, reasoning: string, elapsedMs: number) {
+        const logPath = path.join(this._root, 'logs', 'work_loop_reasoning.jsonl');
+        const entry = JSON.stringify({
+            ts: new Date().toISOString(),
+            cycle: this._cycleCount,
+            module: task.module,
+            bug_type: task.bugType,
+            escalation_level: task.escalationLevel,
+            confidence: task.confidence,
+            reasoning: reasoning.slice(0, 5000),
+            elapsed_ms: elapsedMs,
+            had_fix: /```fix/.test(reasoning),
+            had_diagnosis: /```diagnosis/.test(reasoning),
+        }) + '\n';
+        try { fs.appendFileSync(logPath, entry, 'utf-8'); } catch { /* non-fatal */ }
+
+        // Also update the output channel for live viewing
+        this._outputChannel.appendLine(`\n=== ${task.module} (${task.bugType}) @ ${new Date().toISOString()} ===`);
+        this._outputChannel.appendLine(reasoning.slice(0, 3000));
+    }
+
+    private _showReasoningPanel(context: vscode.ExtensionContext) {
+        // Show reasoning evolution — load all reasoning entries and display
+        if (this._reasoningPanel) {
+            this._reasoningPanel.reveal();
+            this._refreshReasoningPanel();
+            return;
+        }
+
+        this._reasoningPanel = vscode.window.createWebviewPanel(
+            'pigeonWorkLoopReasoning', '🧠 Work Loop Reasoning',
+            vscode.ViewColumn.Beside,
+            { enableScripts: true, retainContextWhenHidden: false }
+        );
+
+        this._reasoningPanel.onDidDispose(() => {
+            this._reasoningPanel = undefined;
+        });
+
+        this._reasoningPanel.webview.onDidReceiveMessage(msg => {
+            if (msg.type === 'refresh') this._refreshReasoningPanel();
+            if (msg.type === 'trigger-cycle') this._evaluateAndAct();
+        });
+
+        this._refreshReasoningPanel();
+    }
+
+    private _refreshReasoningPanel() {
+        if (!this._reasoningPanel) return;
+
+        // Load reasoning log
+        let entries: any[] = [];
+        try {
+            const logPath = path.join(this._root, 'logs', 'work_loop_reasoning.jsonl');
+            if (fs.existsSync(logPath)) {
+                const raw = fs.readFileSync(logPath, 'utf-8');
+                entries = raw.split('\n').filter(l => l.trim()).map(l => {
+                    try { return JSON.parse(l); } catch { return null; }
+                }).filter(Boolean);
+            }
+        } catch { /* */ }
+
+        // Load current task list
+        const tasks = this._buildTaskList();
+
+        const n = nonce();
+        const tasksHtml = tasks.map(t => `
+            <div class="task ${t.confidence >= ManifestWorkLoop.MIN_CONFIDENCE ? 'actionable' : 'waiting'}">
+                <span class="module">${t.module}</span>
+                <span class="bug">${t.bugType}</span>
+                <span class="level">L${t.escalationLevel}</span>
+                <span class="conf">${(t.confidence * 100).toFixed(0)}%</span>
+                <span class="ctx">${t.context}</span>
+            </div>
+        `).join('\n');
+
+        const reasoningHtml = entries.slice(-20).reverse().map(e => `
+            <div class="reasoning-entry">
+                <div class="reasoning-header">
+                    <span class="module">${e.module}</span>
+                    <span class="bug">${e.bug_type}</span>
+                    <span class="time">${e.ts?.slice(0, 19) ?? '?'}</span>
+                    <span class="elapsed">${e.elapsed_ms}ms</span>
+                    ${e.had_fix ? '<span class="badge fix">FIX</span>' : ''}
+                    ${e.had_diagnosis ? '<span class="badge diag">DIAG</span>' : ''}
+                </div>
+                <pre class="reasoning-text">${(e.reasoning ?? '').replace(/</g, '&lt;').slice(0, 2000)}</pre>
+            </div>
+        `).join('\n');
+
+        this._reasoningPanel.webview.html = `<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'nonce-${n}';">
+<style>
+body { font-family: var(--vscode-font-family); color: var(--vscode-foreground);
+       background: var(--vscode-editor-background); padding: 16px; }
+h2 { border-bottom: 1px solid var(--vscode-panel-border); padding-bottom: 4px; }
+.task { display: flex; gap: 8px; padding: 4px 8px; margin: 2px 0;
+        background: var(--vscode-editor-inactiveSelectionBackground); border-radius: 3px; font-size: 0.85em; }
+.task.actionable { border-left: 3px solid var(--vscode-charts-green); }
+.task.waiting { border-left: 3px solid var(--vscode-charts-yellow); opacity: 0.7; }
+.module { font-weight: bold; min-width: 120px; }
+.bug { color: var(--vscode-errorForeground); min-width: 100px; }
+.level { min-width: 30px; }
+.conf { min-width: 40px; }
+.ctx { opacity: 0.8; }
+.reasoning-entry { margin: 12px 0; border: 1px solid var(--vscode-panel-border); border-radius: 4px; }
+.reasoning-header { display: flex; gap: 8px; padding: 6px 10px;
+                     background: var(--vscode-editor-inactiveSelectionBackground); font-size: 0.85em; }
+.reasoning-text { padding: 10px; margin: 0; white-space: pre-wrap; font-size: 0.8em;
+                  max-height: 300px; overflow-y: auto; }
+.badge { padding: 1px 6px; border-radius: 3px; font-size: 0.75em; font-weight: bold; }
+.badge.fix { background: var(--vscode-charts-green); color: #000; }
+.badge.diag { background: var(--vscode-charts-yellow); color: #000; }
+.elapsed { opacity: 0.6; }
+.btn { padding: 6px 14px; cursor: pointer; margin: 4px; }
+</style></head><body>
+<h2>Current Task Queue (${tasks.length})</h2>
+<div>${tasksHtml || '<i>No tasks — organism is healthy or signals not loaded.</i>'}</div>
+<div style="margin-top: 12px;">
+  <button class="btn" onclick="vscode.postMessage({type:'trigger-cycle'})">⚡ Trigger Cycle Now</button>
+  <button class="btn" onclick="vscode.postMessage({type:'refresh'})">↺ Refresh</button>
+</div>
+<h2>Reasoning Evolution (${entries.length} entries)</h2>
+<div>${reasoningHtml || '<i>No reasoning logged yet. Work loop will fire when organism signals change.</i>'}</div>
+<script nonce="${n}">const vscode = acquireVsCodeApi();</script>
+</body></html>`;
+    }
+
+    private _log(msg: string) {
+        const ts = new Date().toISOString().slice(11, 19);
+        this._outputChannel.appendLine(`[${ts}] ${msg}`);
+    }
+}
+
 // ── Activation ───────────────────────────────────────────────────────────────
 
 export function activate(context: vscode.ExtensionContext) {
@@ -2167,6 +2716,9 @@ export function activate(context: vscode.ExtensionContext) {
 
         // Cascade pre-query engine — dual-LLM ghost text on pause
         new CascadeInlineProvider(root, context);
+
+        // Manifest work loop — autonomous coding from organism signals
+        new ManifestWorkLoop(root, context);
     }
 
     // Operator state panel command

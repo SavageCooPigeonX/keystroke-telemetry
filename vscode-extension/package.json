@@ -43,6 +43,10 @@
       {
         "command": "pigeon.cascadeScaleAuto",
         "title": "Pigeon: Cascade Scale Auto"
+      },
+      {
+        "command": "pigeon.showWorkLoopReasoning",
+        "title": "Pigeon: Show Work Loop Reasoning"
       }
     ],
     "keybindings": [

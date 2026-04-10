@@ -249,11 +249,15 @@ def accumulate_entropy(root):
     avg_global = sum(global_entropy) / max(len(global_entropy), 1)
     high_entropy_pct = sum(1 for h in global_entropy if h > 0.3) / max(len(global_entropy), 1)
 
+    # rework penalties — misses inflate entropy for involved modules
+    rework_penalties = _read_rework_penalties(root)
+
     red_layer = []
     for entry in module_scores:
         shed_conf = entry.get('shed_avg_confidence')
         explicit_uncertainty = (1.0 - float(shed_conf)) if shed_conf is not None else float(entry['avg_entropy'])
-        red = round(max(float(entry['avg_entropy']), explicit_uncertainty), 4)
+        rework_penalty = rework_penalties.get(entry['module'], 0.0)
+        red = round(max(float(entry['avg_entropy']), explicit_uncertainty) + rework_penalty, 4)
         red_layer.append({
             'module': entry['module'],
             'red': red,
@@ -262,6 +266,7 @@ def accumulate_entropy(root):
             'samples': entry['samples'],
             'hedges': entry['hedges'],
             'shed_count': entry['shed_count'],
+            'rework_penalty': round(rework_penalty, 3) if rework_penalty > 0 else None,
         })
     red_layer.sort(key=lambda item: (-float(item['red']), -int(item['hedges']), str(item['module'])))
 
@@ -374,6 +379,37 @@ def format_shed_block(markers):
         note_s = f' | {note}' if note else ''
         lines.append(f'{target}: {confidence:.2f}{note_s}')
     return SHED_TEMPLATE.format(markers='\n'.join(lines)).strip()
+
+
+# ─── REWORK → ENTROPY BRIDGE ──────────────────────────────────────
+# when AI responses get reworked, the modules involved become less certain
+
+def _read_rework_penalties(root: Path) -> dict[str, float]:
+    """Read rework_log.json → per-module entropy penalties.
+
+    Each 'miss' verdict adds +0.05 entropy to referenced modules.
+    Each 'partial' adds +0.02. Capped at +0.20 per module.
+    """
+    rework_path = root / 'rework_log.json'
+    if not rework_path.exists():
+        return {}
+    try:
+        events = json.loads(rework_path.read_text('utf-8'))
+    except Exception:
+        return {}
+    penalties: dict[str, float] = {}
+    deltas = {'miss': 0.05, 'partial': 0.02}
+    for ev in events:
+        verdict = ev.get('verdict', 'ok')
+        delta = deltas.get(verdict, 0)
+        if delta == 0:
+            continue
+        # extract modules from query + response hints
+        text = f"{ev.get('query_hint', '')} {ev.get('response_hint', '')}"
+        modules = _extract_modules(text)
+        for mod in modules:
+            penalties[mod] = min(0.20, penalties.get(mod, 0) + delta)
+    return penalties
 
 
 # ─── ENTROPY-DRIVEN DEVELOPMENT ───────────────────────────────────

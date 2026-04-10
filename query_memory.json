@@ -1,60 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-04-07T17:04:49.520608+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:05:49.580962+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:06:49.516797+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:07:49.435281+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:08:49.789449+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:09:49.472662+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:10:49.530741+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:11:49.541780+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:12:49.489619+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
       "ts": "2026-04-07T17:13:49.595577+00:00",
       "text": "bg:review.prompt.md",
       "fingerprint": "bgreviewpromptmd",
@@ -2998,6 +2944,60 @@
       "ts": "2026-04-10T18:07:45.451802+00:00",
       "text": "bg:copilot-instructions.md",
       "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:09:45.433049+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:15:32.782405+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:15:44.677352+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:19:26.224878+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:19:39.110910+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:19:57.112612+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:20:09.986700+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:20:45.779832+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:24:04.289729+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
       "submitted": true
     }
   ],

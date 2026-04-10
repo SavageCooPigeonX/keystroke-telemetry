@@ -232,7 +232,7 @@ def _fire_reactor(
     # (reactor already gates on FRUSTRATION_STREAK + HESITATION_THRESHOLD + cooldown)
     staged = None
     if target_file:
-        staged = _apply_docstring_patch(root, target_file, module_key, avg_hes, dominant_state)
+        staged = _apply_docstring_patch(root, target_file, module_key, avg_hes, dominant_state, streak['count'])
 
     # Auto-apply code patch from DeepSeek if available and safe
     code_patch_result = None
@@ -270,6 +270,13 @@ def _fire_reactor(
     _inject_cognitive_hint(root, module_key, avg_hes, dominant_state, patch, therapy)
 
     patches_applied = (1 if staged else 0) + (1 if code_patch_result and code_patch_result.get('applied') else 0)
+
+    # ── Audit trail — log every fire outcome so 0-patch is diagnosable ──
+    _log_reactor_audit(root, module_key, avg_hes, dominant_state,
+                       patch_generated=patch is not None,
+                       docstring_patched=staged is not None,
+                       code_patch_result=code_patch_result,
+                       patches_applied=patches_applied)
 
     return {
         'fired': True,
@@ -381,7 +388,7 @@ def _gather_therapy_data(root: Path, module_key: str) -> dict:
 
 
 def _apply_docstring_patch(
-    root: Path, target_file: dict, module_key: str, avg_hes: float, dominant_state: str
+    root: Path, target_file: dict, module_key: str, avg_hes: float, dominant_state: str, streak_count: int = 3
 ) -> str | None:
     """Safely apply a docstring enhancement to a hot-zone file.
 
@@ -437,6 +444,36 @@ def _apply_docstring_patch(
         return str(fp.relative_to(root))
 
     return None
+
+
+def _log_reactor_audit(
+    root: Path, module_key: str, avg_hes: float, dominant_state: str,
+    patch_generated: bool, docstring_patched: bool,
+    code_patch_result: dict | None, patches_applied: int,
+) -> None:
+    """Log every reactor fire outcome — makes 0-patch diagnosable."""
+    log_path = root / 'logs' / 'reactor_audit.jsonl'
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    blockers = []
+    if not patch_generated:
+        api_key = os.environ.get('DEEPSEEK_API_KEY', '')
+        blockers.append('no_api_key' if not api_key else 'deepseek_failed')
+    if not docstring_patched:
+        blockers.append('docstring_patch_failed')
+    if code_patch_result and not code_patch_result.get('applied'):
+        blockers.append(f"rejected:{code_patch_result.get('reason', 'unknown')}")
+    entry = json.dumps({
+        'ts': datetime.now(timezone.utc).isoformat(),
+        'module': module_key, 'avg_hes': avg_hes, 'state': dominant_state,
+        'patch_generated': patch_generated, 'docstring_patched': docstring_patched,
+        'code_applied': bool(code_patch_result and code_patch_result.get('applied')),
+        'patches_applied': patches_applied, 'blockers': blockers,
+    })
+    try:
+        with open(log_path, 'a', encoding='utf-8') as f:
+            f.write(entry + '\n')
+    except Exception:
+        pass
 
 
 def _generate_patch(

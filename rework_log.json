@@ -1,77 +1,5 @@
 [
   {
-    "ts": "2026-04-09T05:34:13.148788+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.057,
-    "wpm": 52.2,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
-    "ts": "2026-04-09T05:34:16.946318+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.057,
-    "wpm": 52.2,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
-    "ts": "2026-04-09T05:34:54.618731+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.057,
-    "wpm": 52.2,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
-    "ts": "2026-04-09T05:35:01.395955+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.057,
-    "wpm": 52.2,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
-    "ts": "2026-04-09T05:36:09.469662+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.057,
-    "wpm": 52.2,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
-    "ts": "2026-04-09T05:36:51.446341+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.057,
-    "wpm": 52.2,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
-    "ts": "2026-04-09T05:37:09.094786+00:00",
-    "verdict": "ok",
-    "rework_score": 0.181,
-    "del_ratio": 0.057,
-    "wpm": 52.2,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
-    "ts": "2026-04-09T14:57:53.273606+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 22.8,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-09T14:58:45.253935+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 22.8,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
     "ts": "2026-04-09T14:58:52.691776+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
@@ -1598,5 +1526,77 @@
     "del_ratio": 0.015,
     "wpm": 6.8,
     "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-10T18:09:45.424958+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-10T18:15:32.771546+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-10T18:15:44.669197+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-10T18:19:26.217056+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-10T18:19:39.101279+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-10T18:19:57.102923+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-10T18:20:09.934495+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-10T18:20:45.770023+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-10T18:24:04.278743+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:idle"
   }
 ]

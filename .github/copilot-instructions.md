@@ -7,20 +7,20 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-10 18:07 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-10 18:24 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 5175min old (max 10min)
+- **`current-query`**: STALE — 5191min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-07 03:53
 
-- **`prompt-telemetry`**: STALE — 5175min old (max 10min)
+- **`prompt-telemetry`**: STALE — 5191min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-07T03:52:52
 
-- **`learning-loop`**: BEHIND — 414 unprocessed entries, last ran 347h ago
+- **`learning-loop`**: BEHIND — 414 unprocessed entries, last ran 348h ago
   - Writer: `git_plugin → catch_up (post-commit)`
   - Last updated: 2026-03-27T06:44:45.066753+00:00
 
@@ -259,10 +259,10 @@ OPERATOR SIGNAL: The trajectory reveals a persistent frustration with the AI's i
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-10 18:07 UTC · 462 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-10 18:24 UTC · 468 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 51.3 | Del: 26.5% | Hes: 0.493) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 50.6 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
 
 **Prompt ms:** 151788, 22524, 72919, 98834, 241157 (avg 117444ms)
 
@@ -289,10 +289,10 @@ OPERATOR SIGNAL: The trajectory reveals a persistent frustration with the AI's i
 - Failed on: ""
 
 ### Recent Work
+- `d8dd8a7` feat: wire learning loop to post-commit + weaponize entropy + loop death alerts + organism chat server + module identity
 - `4aedb96` feat: pitch sim + thought completer split + organism health fix + heat map rewrite + session awareness + anti-echo prompt + copilot context persistence
 - `af0652b` feat: operator probes + prediction-driven probes + persona memory + entropy chart + file chat + thinned personality prompts + source code lookup fix
 - `843fa29` fix: rebuild 36 broken __init__.py + fix 37 hardcoded pigeon_brain imports + add import_rewriter error logging
-- `3e125f5` feat: entropy shedding + intent compressor + human-AI coding paradigm in system prompt + context compressor + codebase transmuter + self-fix tracker
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -505,7 +505,7 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-10 · 462 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-10 · 468 message(s) · LLM-synthesized*
 
 **Dominant: `abandoned`** | Submit: 66% | WPM: 52.9 | Del: 25.6% | Hes: 0.444
 
