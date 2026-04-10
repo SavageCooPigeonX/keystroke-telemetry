@@ -22,6 +22,7 @@ CYCLE_STATE_PATH = "logs/push_cycle_state.json"
 CYCLE_LOG_PATH = "logs/push_cycles.jsonl"
 JOURNAL_PATH = "logs/prompt_journal.jsonl"
 PREDICTION_LOG_PATH = "logs/push_predictions.jsonl"
+COPILOT_BRAIN_PATH = "logs/copilot_brain_map.json"
 
 
 def _load_pigeon_module(root: Path, folder: str, pattern: str):
@@ -143,11 +144,11 @@ def _extract_operator_signal(entries: list[dict]) -> dict:
         "avg_deletion": round(avg(dels), 3),
         "total_hesitations": sum(hess),
         "intent_distribution": intents,
-        "dominant_intent": max(intents, key=intents.get) if intents else "unknown",
+        "dominant_intent": max(intents, key=lambda key: intents.get(key, 0)) if intents else "unknown",
         "module_refs": sorted(module_refs),
         "deleted_words": deleted_words[-20:],
         "cognitive_states": states,
-        "dominant_state": max(states, key=states.get) if states else "unknown",
+        "dominant_state": max(states, key=lambda key: states.get(key, 0)) if states else "unknown",
     }
 
 
@@ -167,6 +168,78 @@ def _extract_copilot_signal(changed_files: list[str]) -> dict:
         "modules_touched": sorted(modules_touched),
         "non_py_files": [f for f in changed_files if not f.endswith(".py")],
     }
+
+
+def _refresh_copilot_brain_signal(root: Path) -> None:
+    """Refresh heat + Copilot brain map before a push cycle snapshot."""
+    try:
+        heat_mod = _load_pigeon_module(root, 'src', '热p_fhm_s011*')
+        if heat_mod and hasattr(heat_mod, 'update_heat_map'):
+            heat_mod.update_heat_map(root)
+    except Exception:
+        pass
+
+
+def _load_copilot_brain_signal(root: Path) -> dict:
+    """Load the latest Copilot-edit brain map if available."""
+    path = root / COPILOT_BRAIN_PATH
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text('utf-8'))
+    except Exception:
+        return {}
+
+
+def _enrich_copilot_signal_with_brain(copilot: dict, brain: dict) -> dict:
+    """Attach Copilot-edit-only entropy hotspots to the cycle signal."""
+    if not brain:
+        copilot['brain_source'] = 'missing'
+        copilot['brain_modules_tracked'] = 0
+        copilot['brain_hotspots'] = []
+        copilot['brain_regions'] = []
+        copilot['touched_module_entropy'] = []
+        return copilot
+
+    modules = brain.get('modules', {})
+    touched = []
+    for mod in copilot.get('modules_touched', []):
+        data = modules.get(mod)
+        if not data:
+            continue
+        touched.append({
+            'module': mod,
+            'region': data.get('region', 'cortex'),
+            'edit_entropy': data.get('edit_entropy', 0.0),
+            'brain_heat': data.get('brain_heat', 0.0),
+            'event_count': data.get('event_count', 0),
+            'dominant_state': data.get('dominant_state', 'unknown'),
+        })
+    touched.sort(key=lambda item: (-item['brain_heat'], -item['edit_entropy'], item['module']))
+
+    copilot['brain_source'] = brain.get('source', 'unknown')
+    copilot['brain_modules_tracked'] = brain.get('modules_tracked', 0)
+    copilot['brain_global_entropy'] = brain.get('global_avg_edit_entropy', 0.0)
+    copilot['brain_hotspots'] = [
+        {
+            'module': item.get('module', ''),
+            'region': item.get('region', 'cortex'),
+            'edit_entropy': item.get('edit_entropy', 0.0),
+            'brain_heat': item.get('brain_heat', 0.0),
+        }
+        for item in brain.get('top_modules', [])[:5]
+    ]
+    copilot['brain_regions'] = [
+        {
+            'region': item.get('region', 'cortex'),
+            'avg_entropy': item.get('avg_entropy', 0.0),
+            'brain_heat': item.get('brain_heat', 0.0),
+            'module_count': item.get('module_count', 0),
+        }
+        for item in brain.get('regions', [])[:3]
+    ]
+    copilot['touched_module_entropy'] = touched[:8]
+    return copilot
 
 
 def _compute_sync(operator: dict, copilot: dict) -> dict:
@@ -229,6 +302,7 @@ def _generate_dual_coaching(operator: dict, copilot: dict, sync: dict) -> dict:
     """Generate coaching for BOTH the operator and the coding agent."""
     operator_tips = []
     agent_tips = []
+    touched_entropy = copilot.get("touched_module_entropy", [])
 
     # Operator coaching based on their signal
     if operator.get("avg_deletion", 0) > 0.4:
@@ -241,6 +315,12 @@ def _generate_dual_coaching(operator: dict, copilot: dict, sync: dict) -> dict:
         operator_tips.append("Frustration detected across multiple prompts — try breaking the task into smaller pushable units.")
     if not operator.get("module_refs"):
         operator_tips.append("No module references detected in prompts — naming specific modules helps copilot target the right files.")
+    if copilot.get("brain_regions"):
+        hottest_region = copilot["brain_regions"][0]
+        if hottest_region.get("avg_entropy", 0) > 0.25:
+            operator_tips.append(
+                f"Copilot edit pressure is concentrated in {hottest_region['region']} — narrower prompts may reduce retouch churn in that region."
+            )
 
     # Agent coaching based on copilot signal
     if sync.get("copilot_only"):
@@ -251,6 +331,12 @@ def _generate_dual_coaching(operator: dict, copilot: dict, sync: dict) -> dict:
         agent_tips.append("Low sync score — operator intent and code output diverged. Ask clarifying questions earlier.")
     if copilot.get("py_files_changed", 0) > 15:
         agent_tips.append("Large blast radius — prefer focused changes. Wide scatter makes it hard for operator to verify.")
+    if touched_entropy:
+        hottest_touch = touched_entropy[0]
+        if hottest_touch.get("edit_entropy", 0) > 0.3:
+            agent_tips.append(
+                f"Recent edits to {hottest_touch['module']} show high Copilot retouch entropy — prefer a fuller fix over another partial pass."
+            )
 
     return {
         "operator_coaching": operator_tips or ["Good sync — keep current communication pattern."],
@@ -262,6 +348,8 @@ def run_push_cycle(root: Path, commit_hash: str, intent: str,
                    changed_files: list[str]) -> dict[str, Any]:
     """Run one push-based learning cycle. Called by git_plugin post-commit."""
     state = _load_state(root)
+    _refresh_copilot_brain_signal(root)
+    brain = _load_copilot_brain_signal(root)
 
     # 1. Collect operator signal (all prompts since last push)
     entries = _load_journal_since(root, state["last_journal_line"])
@@ -269,6 +357,7 @@ def run_push_cycle(root: Path, commit_hash: str, intent: str,
 
     # 2. Collect copilot signal (what code changed)
     copilot = _extract_copilot_signal(changed_files)
+    copilot = _enrich_copilot_signal_with_brain(copilot, brain)
 
     # 3. Compute sync
     sync = _compute_sync(operator, copilot)

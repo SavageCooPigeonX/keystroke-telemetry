@@ -1,307 +1,429 @@
 {
-  "rework_detector": {
-    "touch_score": 0.305,
-    "entropy": 0.0,
-    "heat": 0.305
-  },
-  "file_consciousness": {
-    "touch_score": 0.25,
-    "entropy": 0.0,
-    "heat": 0.25
-  },
-  "dynamic_prompt": {
-    "touch_score": 0.513,
-    "entropy": 0.0,
-    "heat": 0.513
-  },
-  "operator_stats": {
-    "touch_score": 0.568,
-    "entropy": 0.0,
-    "heat": 0.568
-  },
-  "prompt_journal": {
-    "touch_score": 3.899,
-    "entropy": 0.0,
-    "heat": 3.899
-  },
-  "prompt_recon": {
-    "touch_score": 0.635,
-    "entropy": 0.0,
-    "heat": 0.635
-  },
-  "copilot_prompt_manager": {
-    "touch_score": 1.538,
-    "entropy": 0.332,
-    "heat": 2.049
-  },
-  "pulse_harvest": {
-    "touch_score": 0.259,
-    "entropy": 0.0,
-    "heat": 0.259
-  },
-  "mutation_scorer": {
-    "touch_score": 0.007,
-    "entropy": 0.0,
-    "heat": 0.007
-  },
-  "query_memory": {
-    "touch_score": 0.008,
-    "entropy": 0.0,
-    "heat": 0.008
-  },
-  "self_fix": {
-    "touch_score": 0.061,
-    "entropy": 0.0,
-    "heat": 0.061
-  },
-  "timestamp_utils": {
-    "touch_score": 0.019,
-    "entropy": 0.0,
-    "heat": 0.019
-  },
-  "context_budget": {
-    "touch_score": 0.019,
-    "entropy": 0.338,
-    "heat": 0.026
-  },
-  "prompt_enricher": {
-    "touch_score": 0.108,
-    "entropy": 0.0,
-    "heat": 0.108
-  },
-  "cognitive_reactor": {
-    "touch_score": 0.248,
-    "entropy": 0.0,
-    "heat": 0.248
-  },
-  "unified_signal": {
-    "touch_score": 0.07,
-    "entropy": 0.0,
-    "heat": 0.07
-  },
-  "training_pairs": {
-    "touch_score": 0.066,
-    "entropy": 0.0,
-    "heat": 0.066
-  },
-  "voice_style": {
-    "touch_score": 0.067,
-    "entropy": 0.0,
-    "heat": 0.067
-  },
-  "shard_manager": {
-    "touch_score": 0.14,
-    "entropy": 0.0,
-    "heat": 0.14
-  },
-  "context_router": {
-    "touch_score": 0.14,
-    "entropy": 0.0,
-    "heat": 0.14
-  },
-  "training_writer": {
-    "touch_score": 0.071,
-    "entropy": 0.0,
-    "heat": 0.071
-  },
-  "research_lab": {
-    "touch_score": 0.404,
-    "entropy": 0.0,
-    "heat": 0.404
-  },
-  "symbol_dictionary": {
-    "touch_score": 0.383,
-    "entropy": 0.0,
-    "heat": 0.383
-  },
-  "glyph_compiler": {
-    "touch_score": 0.329,
-    "entropy": 0.0,
-    "heat": 0.329
-  },
-  "confidence_scorer": {
-    "touch_score": 0.129,
-    "entropy": 0.0,
-    "heat": 0.129
-  },
-  "intent_simulator": {
-    "touch_score": 0.129,
-    "entropy": 0.0,
-    "heat": 0.129
-  },
-  "unsaid_recon": {
-    "touch_score": 0.165,
-    "entropy": 0.0,
-    "heat": 0.165
-  },
-  "prompt_signal": {
-    "touch_score": 0.135,
-    "entropy": 0.0,
-    "heat": 0.135
-  },
-  "\u63a2p_ur": {
-    "touch_score": 0.139,
-    "entropy": 0.0,
-    "heat": 0.139
-  },
-  "\u8b66p_sa": {
-    "touch_score": 0.293,
-    "entropy": 0.0,
-    "heat": 0.293
-  },
-  "engagement_hooks": {
-    "touch_score": 0.315,
-    "entropy": 0.0,
-    "heat": 0.315
-  },
-  "u_pe": {
-    "touch_score": 0.169,
-    "entropy": 0.0,
-    "heat": 0.169
-  },
-  "bug_profiles": {
-    "touch_score": 0.429,
-    "entropy": 0.0,
-    "heat": 0.429
-  },
-  "numeric_surface": {
-    "touch_score": 0.215,
-    "entropy": 0.0,
-    "heat": 0.215
-  },
-  "codebase_transmuter": {
-    "touch_score": 0.446,
-    "entropy": 0.0,
-    "heat": 0.446
-  },
-  "entropy_shedding": {
-    "touch_score": 0.221,
-    "entropy": 0.0,
-    "heat": 0.221
-  },
-  "codebase_vitals": {
-    "touch_score": 0.339,
-    "entropy": 0.0,
-    "heat": 0.339
-  },
-  "vitals_renderer": {
-    "touch_score": 0.678,
-    "entropy": 0.0,
-    "heat": 0.678
-  },
-  "module_identity": {
-    "touch_score": 0.681,
-    "entropy": 0.0,
-    "heat": 0.681
-  },
-  "profile_renderer": {
-    "touch_score": 0.341,
-    "entropy": 0.0,
-    "heat": 0.341
-  },
-  "escalation_engine": {
-    "touch_score": 0.384,
-    "entropy": 0.353,
-    "heat": 0.519
-  },
-  "narrative_glove": {
-    "touch_score": 0.387,
-    "entropy": 0.0,
-    "heat": 0.387
-  },
-  "operator_probes": {
-    "touch_score": 0.896,
-    "entropy": 0.0,
-    "heat": 0.896
-  },
-  "\u865af_mc": {
-    "touch_score": 1.339,
-    "entropy": 0.0,
-    "heat": 1.339
-  },
-  "__init__.py": {
-    "touch_score": 0.0,
-    "entropy": 0.411,
-    "heat": 0.041
-  },
-  "thought_completion": {
-    "touch_score": 0.0,
-    "entropy": 0.377,
-    "heat": 0.038
-  },
-  "prompt_compositions.jsonl": {
-    "touch_score": 0.0,
-    "entropy": 0.365,
-    "heat": 0.036
-  },
-  "chat_compositions.jsonl": {
-    "touch_score": 0.0,
-    "entropy": 0.359,
-    "heat": 0.036
-  },
-  "SavageCooPigeonX": {
-    "touch_score": 0.0,
-    "entropy": 0.355,
-    "heat": 0.036
-  },
-  "thought_completer": {
-    "touch_score": 0.0,
-    "entropy": 0.355,
-    "heat": 0.035
-  },
-  "vscdb_poller": {
-    "touch_score": 0.0,
-    "entropy": 0.355,
-    "heat": 0.035
-  },
-  "refresh_managed_prompt": {
-    "touch_score": 0.0,
-    "entropy": 0.35,
-    "heat": 0.035
-  },
-  "pq_search_utils": {
-    "touch_score": 0.0,
-    "entropy": 0.344,
-    "heat": 0.034
-  },
-  "pq_manifest_utils": {
-    "touch_score": 0.0,
-    "entropy": 0.344,
-    "heat": 0.034
-  },
-  "uia_reader.py": {
-    "touch_score": 0.0,
-    "entropy": 0.342,
-    "heat": 0.034
-  },
   "os_hook.py": {
     "touch_score": 0.0,
     "entropy": 0.342,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
     "heat": 0.034
   },
-  "classify_bridge.py": {
-    "touch_score": 0.0,
-    "entropy": 0.341,
-    "heat": 0.034
+  "unsaid_recon": {
+    "touch_score": 0.163,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.256
   },
-  "chat": {
-    "touch_score": 0.0,
-    "entropy": 0.338,
-    "heat": 0.034
+  "\u8b66p_sa": {
+    "touch_score": 0.291,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.456
   },
   "classify_bridge": {
     "touch_score": 0.0,
     "entropy": 0.337,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
+    "heat": 0.034
+  },
+  "self_fix": {
+    "touch_score": 0.06,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.616,
+    "brain_region": "cortex",
+    "heat": 0.097
+  },
+  "copilot_prompt_manager": {
+    "touch_score": 0.328,
+    "entropy": 0.332,
+    "copilot_edit_entropy": 0.673,
+    "brain_region": "cortex",
+    "heat": 0.657
+  },
+  "voice_style": {
+    "touch_score": 0.066,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.104
+  },
+  "narrative_glove": {
+    "touch_score": 0.384,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.166,
+    "brain_region": "cortex",
+    "heat": 0.447
+  },
+  "operator_probes": {
+    "touch_score": 0.889,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 1.392
+  },
+  "thought_completion": {
+    "touch_score": 0.0,
+    "entropy": 0.377,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
+    "heat": 0.038
+  },
+  "vitals_renderer": {
+    "touch_score": 0.673,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.816,
+    "brain_region": "cortex",
+    "heat": 1.222
+  },
+  "research_lab": {
+    "touch_score": 0.401,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.627
+  },
+  "context_budget": {
+    "touch_score": 0.019,
+    "entropy": 0.338,
+    "copilot_edit_entropy": 0.741,
+    "brain_region": "cortex",
+    "heat": 0.04
+  },
+  "prompt_enricher": {
+    "touch_score": 0.107,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.649,
+    "brain_region": "cortex",
+    "heat": 0.177
+  },
+  "pq_manifest_utils": {
+    "touch_score": 0.0,
+    "entropy": 0.344,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
+    "heat": 0.034
+  },
+  "glyph_compiler": {
+    "touch_score": 0.326,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.691,
+    "brain_region": "cortex",
+    "heat": 0.551
+  },
+  "prompt_recon": {
+    "touch_score": 0.151,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.691,
+    "brain_region": "cortex",
+    "heat": 0.255
+  },
+  "training_pairs": {
+    "touch_score": 0.066,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.103
+  },
+  "entropy_shedding": {
+    "touch_score": 0.219,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.316,
+    "brain_region": "cortex",
+    "heat": 0.288
+  },
+  "profile_renderer": {
+    "touch_score": 0.339,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.53
+  },
+  "operator_stats": {
+    "touch_score": 0.084,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.649,
+    "brain_region": "cortex",
+    "heat": 0.139
+  },
+  "symbol_dictionary": {
+    "touch_score": 0.38,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.594
+  },
+  "uia_reader.py": {
+    "touch_score": 0.0,
+    "entropy": 0.342,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
+    "heat": 0.034
+  },
+  "unified_signal": {
+    "touch_score": 0.07,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.109
+  },
+  "u_pe": {
+    "touch_score": 0.168,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.263
+  },
+  "pq_search_utils": {
+    "touch_score": 0.0,
+    "entropy": 0.344,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
+    "heat": 0.034
+  },
+  "intent_simulator": {
+    "touch_score": 0.128,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.201
+  },
+  "codebase_transmuter": {
+    "touch_score": 0.442,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.693
+  },
+  "numeric_surface": {
+    "touch_score": 0.214,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.335
+  },
+  "prompt_signal": {
+    "touch_score": 0.134,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.21
+  },
+  "file_consciousness": {
+    "touch_score": 0.006,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.166,
+    "brain_region": "cortex",
+    "heat": 0.006
+  },
+  "escalation_engine": {
+    "touch_score": 0.381,
+    "entropy": 0.353,
+    "copilot_edit_entropy": 0.363,
+    "brain_region": "cortex",
+    "heat": 0.653
+  },
+  "shard_manager": {
+    "touch_score": 0.139,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.218
+  },
+  "bug_profiles": {
+    "touch_score": 0.426,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.667
+  },
+  "prompt_journal": {
+    "touch_score": 0.271,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.692,
+    "brain_region": "cortex",
+    "heat": 0.459
+  },
+  "query_memory": {
+    "touch_score": 0.008,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.166,
+    "brain_region": "cortex",
+    "heat": 0.01
+  },
+  "classify_bridge.py": {
+    "touch_score": 0.0,
+    "entropy": 0.341,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
     "heat": 0.034
   },
   "nl_parsers": {
     "touch_score": 0.0,
     "entropy": 0.332,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
     "heat": 0.033
   },
-  "core_formatters": {
+  "vscdb_poller": {
     "touch_score": 0.0,
-    "entropy": 0.332,
+    "entropy": 0.355,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
+    "heat": 0.035
+  },
+  "dynamic_prompt": {
+    "touch_score": 0.026,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.413,
+    "brain_region": "cortex",
+    "heat": 0.037
+  },
+  "\u865af_mc": {
+    "touch_score": 1.328,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 2.08
+  },
+  "timestamp_utils": {
+    "touch_score": 0.019,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.741,
+    "brain_region": "cortex",
     "heat": 0.033
+  },
+  "\u63a2p_ur": {
+    "touch_score": 0.138,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.216
+  },
+  "codebase_vitals": {
+    "touch_score": 0.336,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.526
+  },
+  "rework_detector": {
+    "touch_score": 0.06,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.094
+  },
+  "context_router": {
+    "touch_score": 0.139,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.218
+  },
+  "cognitive_reactor": {
+    "touch_score": 0.246,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.691,
+    "brain_region": "motor",
+    "heat": 0.416
+  },
+  "thought_completer": {
+    "touch_score": 0.0,
+    "entropy": 0.355,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
+    "heat": 0.035
+  },
+  "chat_compositions.jsonl": {
+    "touch_score": 0.0,
+    "entropy": 0.359,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
+    "heat": 0.036
+  },
+  "confidence_scorer": {
+    "touch_score": 0.128,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.201
+  },
+  "training_writer": {
+    "touch_score": 0.07,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.11
+  },
+  "module_identity": {
+    "touch_score": 0.675,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 1.057
+  },
+  "cascadeProvider": {
+    "touch_score": 0.0,
+    "entropy": 0.339,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
+    "heat": 0.034
+  },
+  "chat": {
+    "touch_score": 0.0,
+    "entropy": 0.338,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
+    "heat": 0.034
+  },
+  "prompt_compositions.jsonl": {
+    "touch_score": 0.0,
+    "entropy": 0.365,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
+    "heat": 0.036
+  },
+  "__init__.py": {
+    "touch_score": 0.0,
+    "entropy": 0.411,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
+    "heat": 0.041
+  },
+  "pulse_harvest": {
+    "touch_score": 0.017,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.588,
+    "brain_region": "cortex",
+    "heat": 0.027
+  },
+  "mutation_scorer": {
+    "touch_score": 0.006,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.166,
+    "brain_region": "cortex",
+    "heat": 0.008
+  },
+  "SavageCooPigeonX": {
+    "touch_score": 0.0,
+    "entropy": 0.355,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
+    "heat": 0.036
+  },
+  "engagement_hooks": {
+    "touch_score": 0.313,
+    "entropy": 0.0,
+    "copilot_edit_entropy": 0.566,
+    "brain_region": "cortex",
+    "heat": 0.49
+  },
+  "refresh_managed_prompt": {
+    "touch_score": 0.0,
+    "entropy": 0.367,
+    "copilot_edit_entropy": 0.0,
+    "brain_region": "cortex",
+    "heat": 0.037
   }
 }

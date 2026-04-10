@@ -4,17 +4,16 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 # /debug (RECOMMENDED)
 
-*Hydrated 2026-04-10 16:20 UTC · detected mode: debug*
+*Hydrated 2026-04-10 19:30 UTC · detected mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.494
+**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.489
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
 **Deleted words:** should bug, > eg, - then, self, problems, leaks _, los san
 **Unsaid threads:** should bug, - then, problems, leaks _, los san
 **Rewrites:** "should bug" → "i w"; "ld f" → "lt by bug demon - it writes own own status - and bug report manifest chains acro"; "> eg" → "lmk what is tha"; "- then" → "in its own system / self imprr"
-**Hot modules:** `file_heat_map` (hes=0.89), `import_rewriter` (hes=0.73), `file_writer` (hes=0.73)
-**Codes:** intent=`exploring` state=`unknown` bl_wpm=54 bl_del=26%
+**Codes:** intent=`unknown` state=`neutral` bl_wpm=54 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
@@ -45,8 +44,3 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 - `classify_bridge` (3143 tok)
 - `管w_cpm_s020_v005_d0404_缩分话_λNU_βoc` (3118 tok)
 - `层w_sl_s007_v003_d0317_读唤任_λΠ` (3109 tok)
-
-## Active Bug Dossier
-
-**Focus modules:** pre_process_every_prompt_via, every_entry_cross_references_all, automated_self_healing_pipeline, audits_and_manages_all_injected
-**Focus bugs:** oc
