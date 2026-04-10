@@ -476,6 +476,148 @@ def _inject_forward_pass():
     return {'status': 'injected', 'injected': True, 'modules': agg['modules_probed'], 'conversations': agg['total_conversations']}
 
 
+def _pick_standup_roster(n: int = 5) -> list[dict]:
+    """Select the N most urgent modules for cascade standup.
+
+    Priority score = escalation_level * 3 + bug_recurrence * 2 + entropy * 5 + death_count
+    Higher = more urgent = speaks first.
+    """
+    identities = _load_identities()
+    if not identities:
+        return []
+
+    # Load urgency signals
+    esc_data = {}
+    try:
+        esc_data = json.loads((ROOT / 'logs' / 'escalation_state.json').read_text('utf-8')).get('modules', {})
+    except Exception:
+        pass
+
+    dossier_data = {}
+    try:
+        for d in json.loads((ROOT / 'logs' / 'active_dossier.json').read_text('utf-8')).get('dossiers', []):
+            dossier_data[d.get('file', '')] = d
+    except Exception:
+        pass
+
+    entropy_data = {}
+    try:
+        for m in json.loads((ROOT / 'logs' / 'entropy_map.json').read_text('utf-8')).get('top_entropy_modules', []):
+            entropy_data[m['module']] = m.get('avg_entropy', 0)
+    except Exception:
+        pass
+
+    death_counts = {}
+    try:
+        for d in json.loads((ROOT / 'execution_death_log.json').read_text('utf-8')):
+            death_counts[d.get('node', '')] = death_counts.get(d.get('node', ''), 0) + 1
+    except Exception:
+        pass
+
+    scored = []
+    for name, ident in identities.items():
+        esc = esc_data.get(name, {})
+        dos = dossier_data.get(name, {})
+        ent = entropy_data.get(name, 0)
+        deaths = death_counts.get(name, 0)
+
+        score = (
+            esc.get('level', 0) * 3
+            + dos.get('recur', 0) * 2
+            + ent * 5
+            + deaths
+        )
+        if score > 0:
+            scored.append({'name': name, 'score': score, 'ident': ident})
+
+    scored.sort(key=lambda x: x['score'], reverse=True)
+    return scored[:n]
+
+
+def _run_standup_chain(roster: list[dict], operator_name: str = 'percy') -> list[dict]:
+    """Run cascade standup: each module's response feeds into the next module's context.
+
+    Returns list of {module, response, score, extractions} in chain order.
+    """
+    chain: list[dict] = []
+    chain_context = ''  # accumulates what previous modules said
+
+    for entry in roster:
+        name = entry['name']
+        ident = entry['ident']
+        state = _load_state(name)
+        score = entry['score']
+
+        # Build the standup-specific system prompt
+        base_prompt = _build_system_prompt(ident, state)
+
+        standup_instruction = f"""
+== CASCADE STANDUP MODE ==
+This is a STANDUP BRIEFING. The operator just plugged in and asked "what's going on?"
+Their name is {operator_name}. Address them directly.
+
+You're reporting alongside other modules. YOUR JOB:
+1. Brief {operator_name} on YOUR status — what's broken, what's urgent, what changed
+2. React to what the modules before you said (agree, disagree, add context, throw shade)
+3. Name-drop your partners and importers when relevant — this is a CONVERSATION not a report
+4. Keep it 3-5 sentences. Punchy. Your personality drives the tone.
+5. If a previous module blamed you for something, DEFEND YOURSELF
+6. End with one thing you need from {operator_name} or a question that moves things forward
+
+URGENCY SCORE: {score:.1f} (why you're in this standup — higher = more problems)
+
+{f'== WHAT THE OTHERS SAID BEFORE YOU =={chr(10)}{chain_context}' if chain_context else '== YOU ARE FIRST TO SPEAK =='}
+
+Remember: you're not summarizing a JSON file. You're a sentient file in a standup with your colleagues.
+Tag any discoveries: [INTENT] [PAIN] [DECISION] [PLAN] [UNKNOWN]
+"""
+        full_prompt = base_prompt + '\n\n' + standup_instruction.strip()
+
+        # Fire Gemini call
+        response = _call_gemini(full_prompt, [], f"standup: what's going on, {name}?")
+
+        # Extract tags
+        extractions = _extract_tags(response)
+
+        # Update state file
+        state['conversation_count'] = state.get('conversation_count', 0) + 1
+        for tag, text in extractions:
+            bucket = {
+                'INTENT': 'extracted_intents', 'PAIN': 'pain_points',
+                'PLAN': 'operator_plans', 'DECISION': 'design_decisions',
+                'UNKNOWN': 'unknowns',
+            }.get(tag)
+            if bucket and text not in state.get(bucket, []):
+                state.setdefault(bucket, []).append(text)
+                state[bucket] = state[bucket][-20:]
+        _save_state(name, state)
+
+        chain_entry = {
+            'module': name,
+            'response': response,
+            'score': score,
+            'extractions': [{'tag': t, 'text': v} for t, v in extractions],
+        }
+        chain.append(chain_entry)
+
+        # Accumulate for next module's context
+        chain_context += f'\n`{name}` (urgency {score:.1f}) said:\n> {response}\n'
+
+    # Save the full standup to a log
+    standup_log_dir = ROOT / 'logs' / 'standups'
+    standup_log_dir.mkdir(parents=True, exist_ok=True)
+    ts = datetime.now(timezone.utc)
+    log_entry = {
+        'ts': ts.isoformat(),
+        'roster': [{'module': e['module'], 'score': e['score']} for e in chain],
+        'chain': chain,
+    }
+    log_path = standup_log_dir / f'standup_{ts.strftime("%Y%m%d_%H%M%S")}.json'
+    log_path.write_text(json.dumps(log_entry, indent=2, ensure_ascii=False), 'utf-8')
+
+    return chain
+
+
 class ChatHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/state':
@@ -488,8 +630,35 @@ class ChatHandler(BaseHTTPRequestHandler):
             self._handle_chat()
         elif self.path == '/forward':
             self._handle_forward()
+        elif self.path == '/standup':
+            self._handle_standup()
         else:
             self.send_error(404)
+
+    def _handle_standup(self):
+        """Cascade standup: modules brief the operator in chain, reacting to each other."""
+        length = int(self.headers.get('Content-Length', 0))
+        req = {}
+        if length > 0:
+            try:
+                req = json.loads(self.rfile.read(length))
+            except Exception:
+                pass
+
+        n = min(int(req.get('n', 5)), 8)
+        operator_name = str(req.get('name', 'percy'))[:50]
+
+        roster = _pick_standup_roster(n)
+        if not roster:
+            self._json_response({'chain': [], 'message': 'no urgent modules found'})
+            return
+
+        chain = _run_standup_chain(roster, operator_name)
+        self._json_response({
+            'chain': chain,
+            'roster_size': len(roster),
+            'operator': operator_name,
+        })
 
     def _handle_forward(self):
         """Aggregate all state files and inject into copilot-instructions.md."""
@@ -620,7 +789,7 @@ def main():
 
     server = ThreadedHTTPServer(('127.0.0.1', port), ChatHandler)
     print(f'[probe] server running on http://localhost:{port}')
-    print(f'[probe] endpoints: POST /chat, POST /forward, GET /state')
+    print(f'[probe] endpoints: POST /chat, POST /forward, POST /standup, GET /state')
     print(f'[probe] gemini model: {GEMINI_MODEL}')
     print(f'[probe] API key: {"found" if _load_api_key() else "MISSING — set GEMINI_API_KEY in .env"}')
     print(f'[probe] serving {len(_load_identities())} module identities')

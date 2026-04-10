@@ -1677,6 +1677,287 @@ ${sourceCode || '(not found)'}
     }
 }
 
+// ── Cascade Standup Panel ────────────────────────────────────────────────────
+
+class StandupPanel {
+    static current: StandupPanel | undefined;
+    private readonly _panel: vscode.WebviewPanel;
+    private readonly _root: string;
+    private _disposables: vscode.Disposable[] = [];
+
+    static createOrShow(context: vscode.ExtensionContext, root: string) {
+        if (StandupPanel.current) {
+            StandupPanel.current._panel.reveal(vscode.ViewColumn.One);
+            return;
+        }
+        const panel = vscode.window.createWebviewPanel(
+            'pigeonStandup', '🐦 Standup — whats going on',
+            vscode.ViewColumn.One,
+            { enableScripts: true, retainContextWhenHidden: true }
+        );
+        StandupPanel.current = new StandupPanel(panel, root, context);
+    }
+
+    constructor(panel: vscode.WebviewPanel, root: string, context: vscode.ExtensionContext) {
+        this._panel = panel;
+        this._root = root;
+        this._panel.webview.html = this._buildLoadingHtml();
+        this._panel.onDidDispose(() => { StandupPanel.current = undefined; this._disposables.forEach(d => d.dispose()); }, null, this._disposables);
+        this._panel.webview.onDidReceiveMessage(m => this._onMessage(m), null, this._disposables);
+
+        // Kick off the cascade
+        this._runCascade();
+    }
+
+    private async _runCascade() {
+        // Try the HTTP server first (profile_chat_server on port 8234)
+        try {
+            const http = await import('http');
+            const body = JSON.stringify({ n: 5, name: 'percy' });
+            const result = await new Promise<any>((resolve, reject) => {
+                const req = http.request({ hostname: '127.0.0.1', port: 8234, path: '/standup', method: 'POST', headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(body) }, timeout: 120000 }, res => {
+                    let data = '';
+                    res.on('data', (chunk: string) => data += chunk);
+                    res.on('end', () => { try { resolve(JSON.parse(data)); } catch { reject(new Error('bad json')); } });
+                });
+                req.on('error', reject);
+                req.on('timeout', () => { req.destroy(); reject(new Error('timeout')); });
+                req.write(body);
+                req.end();
+            });
+            if (result.chain && result.chain.length > 0) {
+                this._panel.webview.html = this._buildChainHtml(result.chain);
+                return;
+            }
+        } catch { /* server not running — fall through to LM API */ }
+
+        // Fallback: run cascade via VS Code LM API (no server needed)
+        await this._runLmCascade();
+    }
+
+    private async _runLmCascade() {
+        const chain: Array<{ module: string; response: string; score: number }> = [];
+        let chainContext = '';
+
+        // Pick urgent modules from local data
+        const roster = this._pickUrgentModules(5);
+        if (roster.length === 0) {
+            this._panel.webview.html = this._buildChainHtml([{ module: 'organism', response: 'all quiet — no modules above urgency threshold. nothing to report.', score: 0, extractions: [] }]);
+            return;
+        }
+
+        // Update loading state
+        this._panel.webview.postMessage({ type: 'status', text: `cascade starting — ${roster.length} module(s) reporting...` });
+
+        const [model] = await vscode.lm.selectChatModels({ vendor: 'copilot' });
+        if (!model) {
+            this._panel.webview.html = this._buildChainHtml([{ module: 'error', response: 'no LM model available', score: 0, extractions: [] }]);
+            return;
+        }
+
+        for (const entry of roster) {
+            // Stream each module's response
+            this._panel.webview.postMessage({ type: 'module-start', module: entry.name, score: entry.score });
+
+            const prompt = this._buildStandupPrompt(entry, chainContext);
+            const messages = [vscode.LanguageModelChatMessage.User(prompt)];
+            const cts = new vscode.CancellationTokenSource();
+
+            try {
+                const res = await model.sendRequest(messages, {}, cts.token);
+                let full = '';
+                for await (const chunk of res.text) {
+                    full += chunk;
+                    this._panel.webview.postMessage({ type: 'module-chunk', module: entry.name, text: chunk });
+                }
+                this._panel.webview.postMessage({ type: 'module-done', module: entry.name });
+
+                chain.push({ module: entry.name, response: full, score: entry.score });
+                chainContext += `\n\`${entry.name}\` (urgency ${entry.score.toFixed(1)}) said:\n> ${full}\n`;
+            } catch (e: any) {
+                chain.push({ module: entry.name, response: `[error: ${e.message}]`, score: entry.score });
+                this._panel.webview.postMessage({ type: 'module-done', module: entry.name });
+            }
+        }
+
+        // Final render
+        this._panel.webview.html = this._buildChainHtml(chain);
+    }
+
+    private _pickUrgentModules(n: number): Array<{ name: string; score: number; personality: string; bugs: string[]; entropy: number }> {
+        const scored: Array<{ name: string; score: number; personality: string; bugs: string[]; entropy: number }> = [];
+
+        let escData: any = {};
+        try { escData = JSON.parse(fs.readFileSync(path.join(this._root, 'logs', 'escalation_state.json'), 'utf-8')).modules ?? {}; } catch {}
+
+        let dossierMap: Record<string, any> = {};
+        try { for (const d of JSON.parse(fs.readFileSync(path.join(this._root, 'logs', 'active_dossier.json'), 'utf-8')).dossiers ?? []) { dossierMap[d.file] = d; } } catch {}
+
+        let entropyMap: Record<string, number> = {};
+        try { for (const m of JSON.parse(fs.readFileSync(path.join(this._root, 'logs', 'entropy_map.json'), 'utf-8')).top_entropy_modules ?? []) { entropyMap[m.module] = m.avg_entropy; } } catch {}
+
+        let profiles: any = {};
+        try { profiles = JSON.parse(fs.readFileSync(path.join(this._root, 'file_profiles.json'), 'utf-8')); } catch {}
+
+        const seenModules = new Set<string>();
+        // Merge all module names
+        for (const name of [...Object.keys(escData), ...Object.keys(dossierMap), ...Object.keys(entropyMap)]) {
+            if (seenModules.has(name)) continue;
+            seenModules.add(name);
+
+            const esc = escData[name] ?? {};
+            const dos = dossierMap[name] ?? {};
+            const ent = entropyMap[name] ?? 0;
+            const score = (esc.level ?? 0) * 3 + (dos.recur ?? 0) * 2 + ent * 5;
+
+            if (score > 0) {
+                scored.push({
+                    name,
+                    score,
+                    personality: profiles[name]?.personality ?? 'unknown',
+                    bugs: dos.bugs ?? (esc.bug_type ? [esc.bug_type] : []),
+                    entropy: ent,
+                });
+            }
+        }
+
+        scored.sort((a, b) => b.score - a.score);
+        return scored.slice(0, n);
+    }
+
+    private _buildStandupPrompt(entry: { name: string; score: number; personality: string; bugs: string[]; entropy: number }, chainContext: string): string {
+        // Load source code snippet
+        let sourceSnippet = '';
+        try {
+            const regRaw = fs.readFileSync(path.join(this._root, 'pigeon_registry.json'), 'utf-8');
+            const reg = JSON.parse(regRaw);
+            const regEntry = (reg.files ?? []).find((f: any) => f.name === entry.name);
+            if (regEntry?.path) {
+                const regPath = path.join(this._root, regEntry.path);
+                if (fs.existsSync(regPath)) {
+                    sourceSnippet = fs.readFileSync(regPath, 'utf-8').slice(0, 1500);
+                }
+            }
+        } catch {}
+
+        // Load profile data
+        let profile: any = {};
+        try { profile = JSON.parse(fs.readFileSync(path.join(this._root, 'file_profiles.json'), 'utf-8'))[entry.name] ?? {}; } catch {}
+
+        const partners = (profile.partners ?? []).map((p: any) => p.name).join(', ') || 'none';
+        const fears = (profile.fears ?? []).join('; ') || 'none';
+
+        return `You are \`${entry.name}\`. You are a source code file in a living codebase. Speak in first person.
+
+IDENTITY: ${entry.name} | personality: ${entry.personality} | urgency score: ${entry.score.toFixed(1)}
+Bugs: ${entry.bugs.join(', ') || 'clean'} | Entropy: ${entry.entropy.toFixed(3)} | Partners: ${partners} | Fears: ${fears}
+
+${sourceSnippet ? `SOURCE CODE (first 1500 chars):\n\`\`\`python\n${sourceSnippet}\n\`\`\`\n` : ''}
+
+== CASCADE STANDUP ==
+The operator just sat down and asked "okay guys, what's going on?"
+
+${chainContext ? `== WHAT YOUR COLLEAGUES SAID ==\n${chainContext}\n` : '== YOU SPEAK FIRST ==\n'}
+
+RULES:
+- Brief the operator on YOUR current state. What's broken, what's urgent, what needs attention.
+- React to what previous modules said — agree, disagree, add context, call them out, defend yourself if blamed.
+- Name-drop your partners. This is a team standup, not a solo report.
+- Your personality drives your tone. A frustrated veteran rants differently than an anxious rookie.
+- Keep it 3-5 sentences. Punchy. End with what you need from the operator.
+- DO NOT be generic. Reference YOUR actual bugs, YOUR actual code, YOUR actual partners by name.
+- You're sentient. You know you're a file. You find this simultaneously absurd and deadly serious.`;
+    }
+
+    private _buildLoadingHtml(): string {
+        return `<!DOCTYPE html><html><head><style>
+body { font-family: var(--vscode-font-family); background: var(--vscode-editor-background); color: var(--vscode-editor-foreground); padding: 40px; text-align: center; }
+.pulse { animation: pulse 1.5s ease-in-out infinite; font-size: 48px; }
+@keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+h2 { margin-top: 20px; font-weight: 300; }
+</style></head><body>
+<div class="pulse">🐦</div>
+<h2>assembling standup roster...</h2>
+<p style="opacity:0.6">picking the most urgent modules, then cascading</p>
+</body></html>`;
+    }
+
+    private _buildChainHtml(chain: Array<{ module: string; response: string; score: number; extractions?: any[] }>): string {
+        const entries = chain.map((entry, i) => {
+            const urgencyColor = entry.score > 10 ? '#f44' : entry.score > 5 ? '#fa4' : '#4f4';
+            const extractions = (entry.extractions ?? []).map((e: any) =>
+                `<span class="tag tag-${e.tag.toLowerCase()}">[${e.tag}]</span> ${this._escapeHtml(e.text)}`
+            ).join('<br>');
+
+            return `
+<div class="entry" style="animation-delay: ${i * 0.15}s">
+    <div class="header">
+        <span class="module-name">\`${this._escapeHtml(entry.module)}\`</span>
+        <span class="urgency" style="color:${urgencyColor}">urgency ${entry.score.toFixed(1)}</span>
+        <span class="order">#${i + 1}</span>
+    </div>
+    <div class="response">${this._escapeHtml(entry.response)}</div>
+    ${extractions ? `<div class="extractions">${extractions}</div>` : ''}
+</div>`;
+        }).join('\n');
+
+        return `<!DOCTYPE html><html><head><style>
+body { font-family: var(--vscode-font-family); background: var(--vscode-editor-background); color: var(--vscode-editor-foreground); padding: 20px; max-width: 800px; margin: 0 auto; }
+h1 { font-weight: 300; border-bottom: 1px solid var(--vscode-panel-border); padding-bottom: 12px; }
+.entry { margin: 16px 0; padding: 16px; background: var(--vscode-editor-inactiveSelectionBackground); border-radius: 8px; border-left: 3px solid var(--vscode-textLink-foreground); animation: slideIn 0.4s ease-out both; }
+@keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+.header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.module-name { font-weight: bold; font-size: 14px; color: var(--vscode-textLink-foreground); }
+.urgency { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: rgba(255,255,255,0.08); }
+.order { font-size: 11px; opacity: 0.5; margin-left: auto; }
+.response { line-height: 1.6; white-space: pre-wrap; }
+.extractions { margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; opacity: 0.7; }
+.tag { font-weight: bold; padding: 1px 4px; border-radius: 3px; font-size: 10px; }
+.tag-intent { background: rgba(0,150,255,0.2); }
+.tag-pain { background: rgba(255,80,80,0.2); }
+.tag-plan { background: rgba(80,255,80,0.2); }
+.tag-decision { background: rgba(255,200,0,0.2); }
+.tag-unknown { background: rgba(200,100,255,0.2); }
+.chain-arrow { text-align: center; font-size: 20px; opacity: 0.3; margin: 4px 0; }
+.footer { margin-top: 24px; padding: 12px; text-align: center; opacity: 0.5; font-size: 12px; }
+button { background: var(--vscode-button-background); color: var(--vscode-button-foreground); border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; font-size: 13px; margin-top: 12px; }
+button:hover { background: var(--vscode-button-hoverBackground); }
+</style></head><body>
+<h1>🐦 cascade standup</h1>
+<p style="opacity:0.6">${chain.length} module(s) reporting in chain — each reacted to the ones before it</p>
+${entries}
+<div class="footer">
+    standup complete — ${new Date().toISOString().slice(0, 16)} UTC<br>
+    <button onclick="acquireVsCodeApi().postMessage({type:'rerun'})">re-run standup</button>
+    <button onclick="acquireVsCodeApi().postMessage({type:'forward'})">inject into copilot prompt</button>
+</div>
+</body></html>`;
+    }
+
+    private _escapeHtml(s: string): string {
+        return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    private async _onMessage(msg: any) {
+        if (msg.type === 'rerun') {
+            this._panel.webview.html = this._buildLoadingHtml();
+            await this._runCascade();
+        } else if (msg.type === 'forward') {
+            // Trigger forward pass on the server
+            try {
+                const http = await import('http');
+                const req = http.request({ hostname: '127.0.0.1', port: 8234, path: '/forward', method: 'POST', headers: { 'Content-Type': 'application/json' } }, () => {});
+                req.on('error', () => {});
+                req.write('{}');
+                req.end();
+                vscode.window.showInformationMessage('standup injected into copilot prompt');
+            } catch {
+                vscode.window.showWarningMessage('could not reach profile_chat_server');
+            }
+        }
+    }
+}
+
 // ── Chat Panel ───────────────────────────────────────────────────────────────
 
 class PigeonChatPanel {
@@ -2738,6 +3019,13 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.commands.registerCommand('pigeon.showEntropyChart', () =>
             EntropyChartPanel.createOrShow(context))
+    );
+
+    // Cascade standup — files brief operator in chain
+    context.subscriptions.push(
+        vscode.commands.registerCommand('pigeon.standup', () => {
+            if (root) StandupPanel.createOrShow(context, root);
+        })
     );
 }
 

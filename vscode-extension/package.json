@@ -47,6 +47,10 @@
       {
         "command": "pigeon.showWorkLoopReasoning",
         "title": "Pigeon: Show Work Loop Reasoning"
+      },
+      {
+        "command": "pigeon.standup",
+        "title": "Pigeon: Cascade Standup — What's Going On"
       }
     ],
     "keybindings": [

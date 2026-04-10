@@ -1,85 +1,5 @@
 [
   {
-    "ts": "2026-04-09T14:58:52.691776+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 22.8,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
-    "ts": "2026-04-09T14:59:16.388745+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 22.8,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
-    "ts": "2026-04-09T14:59:30.953665+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 22.8,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
-    "ts": "2026-04-09T14:59:42.467445+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 22.8,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
-    "ts": "2026-04-09T14:59:52.760052+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 22.8,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
-    "ts": "2026-04-09T15:02:57.626219+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 6.6,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
-    "ts": "2026-04-09T15:04:13.742748+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 6.6,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-09T15:04:41.098389+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 6.6,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-09T15:05:54.234841+00:00",
-    "verdict": "miss",
-    "rework_score": 0.231,
-    "del_ratio": 0.42,
-    "wpm": 15.8,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-09T15:53:22.497496+00:00",
-    "verdict": "miss",
-    "rework_score": 0.231,
-    "del_ratio": 0.42,
-    "wpm": 15.8,
-    "query_hint": "bg:\u00e7\u00ae\u00a1w_cpm_s020_v003_d0402_\u00e7\u00bc\u00a9\u00e5\u02c6\u2020\u00e8\u00af\udc9d_\u00ce\u00bbVR_\u00ce\u00b2oc_refresh_decomposed_seq010_v002_d"
-  },
-  {
     "ts": "2026-04-09T15:54:00.644366+00:00",
     "verdict": "miss",
     "rework_score": 0.231,
@@ -1598,5 +1518,85 @@
     "del_ratio": 0.015,
     "wpm": 6.8,
     "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-10T18:25:47.328653+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-10T18:34:33.744603+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-10T18:34:46.290136+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-10T18:34:55.309746+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-10T18:36:50.126769+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-10T18:38:03.155729+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:rework_log.json"
+  },
+  {
+    "ts": "2026-04-10T18:38:49.712490+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:rework_log.json"
+  },
+  {
+    "ts": "2026-04-10T18:39:05.236977+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:rework_log.json"
+  },
+  {
+    "ts": "2026-04-10T18:39:15.100137+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:rework_log.json"
+  },
+  {
+    "ts": "2026-04-10T18:39:47.598521+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.015,
+    "wpm": 6.8,
+    "query_hint": "bg:rework_log.json"
   }
 ]

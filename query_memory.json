@@ -1,66 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-04-07T17:13:49.595577+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:14:50.304520+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:15:49.730045+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:16:49.727772+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:17:49.993389+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:18:50.863374+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:19:52.212489+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:20:51.177248+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:21:54.238085+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-07T17:24:49.858604+00:00",
-      "text": "bg:review.prompt.md",
-      "fingerprint": "bgreviewpromptmd",
-      "submitted": true
-    },
-    {
       "ts": "2026-04-07T17:25:49.802300+00:00",
       "text": "bg:review.prompt.md",
       "fingerprint": "bgreviewpromptmd",
@@ -2998,6 +2938,66 @@
       "ts": "2026-04-10T18:24:04.289729+00:00",
       "text": "bg:idle",
       "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:25:47.335441+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:34:33.762238+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:34:46.310775+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:34:55.572288+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:36:50.153162+00:00",
+      "text": "bg:copilot-instructions.md",
+      "fingerprint": "bgcopilotinstructionsmd",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:38:03.196300+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:38:49.729037+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:39:05.431978+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:39:15.137711+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-10T18:39:47.855444+00:00",
+      "text": "bg:rework_log.json",
+      "fingerprint": "bgrework_logjson",
       "submitted": true
     }
   ],

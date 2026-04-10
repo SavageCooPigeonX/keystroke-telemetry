@@ -7,16 +7,16 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-10 18:24 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-10 18:39 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 5191min old (max 10min)
+- **`current-query`**: STALE — 5207min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-07 03:53
 
-- **`prompt-telemetry`**: STALE — 5191min old (max 10min)
+- **`prompt-telemetry`**: STALE — 5207min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-07T03:52:52
 
@@ -259,7 +259,7 @@ OPERATOR SIGNAL: The trajectory reveals a persistent frustration with the AI's i
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-10 18:24 UTC · 468 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-10 18:39 UTC · 468 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 50.6 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
@@ -283,16 +283,16 @@ OPERATOR SIGNAL: The trajectory reveals a persistent frustration with the AI's i
 - "los san"
 
 ### AI Rework Surface
-*Miss rate: 6.5% (200 responses)*
+*Miss rate: 5.5% (200 responses)*
 - Failed on: ""
 - Failed on: ""
 - Failed on: ""
 
 ### Recent Work
+- `f2d3ca7` feat: manifest work loop â€” autonomous coding from organism signals
 - `d8dd8a7` feat: wire learning loop to post-commit + weaponize entropy + loop death alerts + organism chat server + module identity
 - `4aedb96` feat: pitch sim + thought completer split + organism health fix + heat map rewrite + session awareness + anti-echo prompt + copilot context persistence
 - `af0652b` feat: operator probes + prediction-driven probes + persona memory + entropy chart + file chat + thinned personality prompts + source code lookup fix
-- `843fa29` fix: rebuild 36 broken __init__.py + fix 37 hardcoded pigeon_brain imports + add import_rewriter error logging
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
