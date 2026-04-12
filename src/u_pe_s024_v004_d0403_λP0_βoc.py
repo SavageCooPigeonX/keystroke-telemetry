@@ -27,6 +27,21 @@ MAX_REWORK_ENTRIES  = 5
 MAX_AI_RESPONSES    = 4
 MAX_JOURNAL_ENTRIES = 4
 MAX_DELETED_WORDS   = 8
+TASK_COMPLETE_HOOK_MARKERS = (
+    'you were about to complete but a hook blocked you with the following message',
+    'you have not yet marked the task as complete using the task_complete tool',
+)
+
+
+def _is_meta_hook_message(msg: str) -> bool:
+    low = msg.lower()
+    return all(marker in low for marker in TASK_COMPLETE_HOOK_MARKERS)
+
+
+def _is_operator_entry(entry: dict) -> bool:
+    if entry.get('prompt_kind') == 'meta_hook':
+        return False
+    return not _is_meta_hook_message(str(entry.get('msg', '')))
 
 
 # ── data loaders ──────────────────────────────
@@ -206,7 +221,10 @@ def _recent_ai_attempts(root: Path, query: str) -> list[dict]:
 
 def _deleted_words_from_journal(root: Path, n: int = 3) -> list[str]:
     """Pull deleted words from the last N journal entries."""
-    entries = _jsonl(root / 'logs' / 'prompt_journal.jsonl', n=n)
+    entries = [
+        entry for entry in _jsonl(root / 'logs' / 'prompt_journal.jsonl')
+        if _is_operator_entry(entry)
+    ][-n:]
     words = []
     for e in entries:
         for w in (e.get('deleted_words') or []):
@@ -231,7 +249,10 @@ def _cognitive_state(root: Path) -> dict:
 
 def _recent_journal_context(root: Path, n: int = 6) -> list[dict]:
     """Pull last N journal entries as prompt trajectory — what operator was building toward."""
-    entries = _jsonl(root / 'logs' / 'prompt_journal.jsonl', n=n)
+    entries = [
+        entry for entry in _jsonl(root / 'logs' / 'prompt_journal.jsonl')
+        if _is_operator_entry(entry)
+    ][-n:]
     out = []
     for e in entries:
         deleted = [
@@ -264,6 +285,7 @@ def _build_deepseek_prompt(raw_query: str, context: dict) -> str:
     journal = context.get('journal_trajectory', [])
     shard_context = context.get('shard_context', '')
     bug_dossier = context.get('bug_dossier', '')
+    code_ctx_str = context.get('code_context', '')
 
     hot_str = '\n'.join(
         f"  • {h['file']} (hes={h['hes']}, touched {h['touches']}x)" for h in hot
@@ -319,6 +341,7 @@ PAST COPILOT ATTEMPTS:
 
 {bug_dossier}
 {shard_context}
+{code_ctx_str}
 OUTPUT FORMAT — produce exactly this structure, no markdown fences, no extra text:
 COPILOT_QUERY: <The full rephrased query Copilot should execute. Be specific: name exact files, exact functions, exact variables. Use developer English. Make it unambiguous. 2-4 sentences max.>
 INTERPRETED INTENT: <1 sentence — what operator actually wants beneath the raw words>
@@ -346,6 +369,23 @@ def enrich_prompt(root: Path, raw_query: str,
     except Exception:
         pass
 
+    # Context-select agent: load actual code snippets so Gemini can reference real code
+    code_ctx = ''
+    try:
+        from src.file_selector import select_files as _sel_files
+        _sel_ctx = {'hot_modules': [{'module': h['file']} for h in _hot_files(root)]}
+        _selected = _sel_files(raw_query, _sel_ctx, max_files=3)
+        _snippets = []
+        for sf in _selected:
+            _fp = root / sf['path']
+            if _fp.is_file():
+                _lines = _fp.read_text('utf-8', errors='ignore').splitlines()[:20]
+                _snippets.append(f'── {sf["name"]} (score={sf["score"]:.1f}) ──\n' + '\n'.join(_lines))
+        if _snippets:
+            code_ctx = 'CONTEXT-SELECT CODE SNIPPETS:\n' + '\n\n'.join(_snippets)
+    except Exception:
+        pass
+
     context = {
         'hot_files':          _hot_files(root),
         'rework_history':     _rework_for_query(root, raw_query),
@@ -355,6 +395,7 @@ def enrich_prompt(root: Path, raw_query: str,
         'registry_hits':      _registry_touches(root, raw_query),
         'journal_trajectory': _recent_journal_context(root),
         'shard_context':      shard_text,
+        'code_context':       code_ctx,
         'bug_dossier':        _active_bug_dossier(root, raw_query, open_files),
     }
 
@@ -454,6 +495,9 @@ def inject_query_block(root: Path, raw_query: str,
                        open_files: list | None = None) -> bool:
     """Enrich the prompt and write the <!-- pigeon:current-query --> block."""
     root = Path(root)
+    raw_query = raw_query.strip()
+    if not raw_query or _is_meta_hook_message(raw_query):
+        return False
     cp = root / COPILOT_PATH
     if not cp.exists():
         return False

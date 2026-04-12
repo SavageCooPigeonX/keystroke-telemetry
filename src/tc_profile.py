@@ -96,8 +96,669 @@ def _empty_profile() -> dict:
                 'topic_to_completion': {}, # topic -> successful completion style
                 'operator_phrases': [],    # exact phrases they tend to type
             },
+            # CIA shard: per-section cognition fingerprint.
+            # sections = intent clusters (infrastructure, debugging, telemetry, etc.)
+            # Each accumulates the operator's cognitive DNA when visiting that section.
+            # The goal: operator reads this and says "what the fuck, how does it know that"
+            'sections': {},  # section_name -> SectionProfile (see _empty_section())
+            # INTELLIGENCE FILE — grows forever. Discovered secrets about the operator.
+            # Not statistics. Deductions. Things THEY don't know about themselves.
+            # Each secret has a confidence score and evidence chain.
+            'intelligence': {
+                'secrets': [],             # list of Secret objects (see below)
+                'behavioral_laws': [],     # invariants: "ALWAYS does X when Y"
+                'contradictions': [],      # "says X but does Y" with evidence
+                'predictions_log': [],     # predictions made + whether they came true
+                'operator_model': {        # the system's running theory of who this person is
+                    'work_style': None,    # deduced: "sprinter" / "marathoner" / "binge-refactorer"
+                    'decision_speed': None,# deduced: "impulsive" / "deliberate" / "paralyzed"
+                    'honesty_index': 1.0,  # 0-1: how often stated intent matches actual behavior
+                    'comfort_zones': [],   # sections where they perform best (low hes, high accept)
+                    'avoidance_zones': [], # sections they circle but never enter deeply
+                    'growth_edges': [],    # sections where they're getting better over time
+                    'regression_zones': [],# sections where performance is declining
+                    'time_personality': None,  # "night owl" / "morning person" / "chaos schedule"
+                    'deletion_personality': None,  # "editor" (high del, refines) / "committer" (low del, ships fast) / "abandoner" (high del, gives up)
+                    'frustration_response': None,  # "pushes through" / "switches context" / "abandons session"
+                },
+                'secret_count': 0,
+                'last_deduction': None,    # ISO timestamp of last secret discovery
+            },
         },
     }
+
+
+def _empty_section() -> dict:
+    """Per-section cognition dossier. Accumulates across ALL visits.
+
+    This is not statistics. This is behavioral archaeology.
+    Pattern: every field answers "what does the operator DO when they're here?"
+    not "what happened" — what they ALWAYS do, what they NEVER do, what they
+    lie about doing.
+    """
+    return {
+        'visit_count': 0,
+        'total_completions': 0,
+        'accepted': 0,
+        'first_seen': None,
+        'last_seen': None,
+
+        # ── COGNITIVE VITAL SIGNS ──
+        # rolling averages SPECIFIC to this section — not global baselines
+        'avg_wpm': 0.0,
+        'avg_del_ratio': 0.0,
+        'avg_hesitation': 0.0,
+        'peak_wpm': 0.0,           # fastest they've ever typed here
+        'worst_hesitation': 0.0,   # most hesitant they've ever been here
+
+        # ── EMOTIONAL FINGERPRINT ──
+        # how they FEEL when they enter this section. not what they say — what
+        # the keystroke signal says. dominant_state is the mode, but the
+        # transition map is the real gold: "always enters frustrated, leaves focused"
+        'state_dist': {},           # state -> count
+        'dominant_state': 'unknown',
+        'entry_states': [],         # last 10 states when ENTERING this section
+        'exit_states': [],          # last 10 states when LEAVING this section
+        'state_transitions': {},    # "frustrated->focused" -> count (within section)
+
+        # ── SUPPRESSION MAP ──
+        # what they TYPE and then DELETE when in this section. this is the
+        # subconscious layer — things they think but decide not to say.
+        # high count = they keep circling back to a thought they can't commit to.
+        'suppressed_words': {},     # word -> count
+        'suppressed_phrases': [],   # last 10 multi-word deletions
+        'rewrite_chains': [],       # last 10 (before -> after) rewrites in this section
+        'abandon_count': 0,         # times they started typing and gave up entirely
+
+        # ── MODULE HEAT ──
+        # what files the operator always gravitates toward in this section.
+        # pattern: "when debugging, they always touch git_plugin first"
+        'hot_modules': {},          # module_name -> touch_count
+        'module_sequences': [],     # last 10 module-touch orderings (first->second->third)
+
+        # ── VOCABULARY FINGERPRINT ──
+        # the exact words they use when thinking about this section.
+        # "infrastructure" section might have totally different word DNA than "debugging".
+        # this lets thought completer match their voice PER SECTION.
+        'intent_words': {},         # word -> count
+        'catchphrases': [],         # exact multi-word phrases they repeat here
+        'question_patterns': [],    # how they phrase questions in this section
+
+        # ── TEMPORAL PATTERNS ──
+        # when do they visit this section? correlate with time of day and session depth.
+        # "they always debug at 2am after a long session"
+        'hour_dist': {},            # hour_utc -> count
+        'session_depth_avg': 0.0,   # avg session_n when entering this section
+        'avg_visit_duration_s': 0.0,# how long they stay in this section
+        'visit_durations': [],      # last 10 visit lengths in seconds
+
+        # ── CONTRADICTION DETECTOR ──
+        # tracks what they say vs what they do. if they keep saying "refactor"
+        # but never touch the module, that's a contradiction. if they say
+        # "this is fine" but deletion ratio is 40%, they're lying.
+        'stated_intents': [],       # last 10 things they said they'd do
+        'actual_actions': [],       # last 10 things they actually did (modules touched)
+        'contradiction_count': 0,   # times stated != actual
+        'lying_index': 0.0,         # ratio of contradictions to total visits
+
+        # ── COMPLETION STYLE DNA ──
+        # not just accept/reject — what STYLE of completion works in this section.
+        # "in debugging they accept short direct completions, in infrastructure
+        #  they accept longer architectural ones"
+        'avg_accepted_len': 0.0,    # avg char length of accepted completions here
+        'avg_rejected_len': 0.0,    # avg char length of rejected completions here
+        'working_style': [],        # last 8 accepted (buf_tail, comp_head, len)
+        'dead_style': [],           # last 8 rejected
+        'code_vs_prose_ratio': 0.0, # what % of accepted completions are code vs prose
+
+        # ── BEHAVIORAL PREDICTIONS ──
+        # patterns detected from historical visits. these get injected into the
+        # thought completer prompt so it can predict behavior before it happens.
+        'predictions': [],          # last 5 generated predictions
+        'prediction_accuracy': 0.0, # how often predictions were right
+    }
+
+
+# ── SECTION CLASSIFICATION ──
+# Maps buffer text + signals to a behavioral section.
+# Not keyword matching — signal-weighted intent detection.
+
+_SECTION_SIGNALS = {
+    'debugging': {
+        'words': {'fix', 'bug', 'error', 'broken', 'crash', 'fail', 'wrong',
+                  'issue', 'trace', 'stack', 'exception', 'undefined', 'null',
+                  'why', 'weird', 'wtf', 'wth', 'huh', 'strange'},
+        'state_boost': {'frustrated': 0.4, 'hesitant': 0.2},
+        'del_ratio_boost': 0.3,  # high deletion = debugging energy
+    },
+    'infrastructure': {
+        'words': {'build', 'pipeline', 'deploy', 'push', 'commit', 'git',
+                  'compiler', 'rename', 'manifest', 'registry', 'compliance',
+                  'split', 'pigeon', 'config', 'setup', 'wire', 'hook'},
+        'state_boost': {'focused': 0.2, 'restructuring': 0.4},
+        'del_ratio_boost': 0.0,
+    },
+    'telemetry': {
+        'words': {'telemetry', 'keystroke', 'wpm', 'deletion', 'hesitation',
+                  'signal', 'entropy', 'heat', 'profile', 'cognitive', 'state',
+                  'composition', 'typing', 'buffer', 'capture', 'stream'},
+        'state_boost': {'focused': 0.3},
+        'del_ratio_boost': 0.0,
+    },
+    'exploring': {
+        'words': {'what', 'how', 'show', 'explain', 'audit', 'check', 'look',
+                  'status', 'health', 'report', 'tell', 'describe', 'where',
+                  'architecture', 'design', 'plan', 'think', 'idea', 'maybe'},
+        'state_boost': {},
+        'del_ratio_boost': -0.1,  # low deletion = browsing not fighting
+    },
+    'creating': {
+        'words': {'create', 'new', 'implement', 'add', 'write', 'generate',
+                  'module', 'feature', 'build', 'design', 'prototype', 'draft'},
+        'state_boost': {'focused': 0.3, 'restructuring': 0.2},
+        'del_ratio_boost': 0.0,
+    },
+    'reviewing': {
+        'words': {'review', 'audit', 'test', 'verify', 'validate', 'compare',
+                  'diff', 'change', 'pr', 'merge', 'quality', 'rework'},
+        'state_boost': {},
+        'del_ratio_boost': 0.0,
+    },
+}
+
+# track current section for transition detection
+_current_section: str | None = None
+_section_enter_time: float = 0
+
+
+def classify_section(buffer: str, state: str = 'unknown',
+                     del_ratio: float = 0.0, wpm: float = 0.0,
+                     modules_mentioned: list[str] | None = None) -> str:
+    """Classify the current behavioral section from live signals.
+
+    Returns section name. Updates global tracking for entry/exit detection.
+    """
+    global _current_section, _section_enter_time
+    words = set(buffer.lower().split())
+    scores: dict[str, float] = {}
+    for section, cfg in _SECTION_SIGNALS.items():
+        s = len(words & cfg['words']) * 1.5
+        s += cfg.get('state_boost', {}).get(state, 0)
+        boost = cfg.get('del_ratio_boost', 0)
+        if boost > 0:
+            s += del_ratio * boost * 3
+        elif boost < 0 and del_ratio < 0.1:
+            s += 0.3
+        scores[section] = s
+    best = max(scores, key=scores.get) if scores else 'unknown'
+    if scores.get(best, 0) < 0.5:
+        best = 'unknown'
+    if best != _current_section:
+        _section_enter_time = time.time()
+    _current_section = best
+    return best
+
+
+def update_section(profile: dict, section: str, buffer: str, completion: str,
+                   outcome: str, state: str = 'unknown', wpm: float = 0.0,
+                   del_ratio: float = 0.0, hesitation: float = 0.0,
+                   deleted_words: list[str] | None = None,
+                   rewrite_chains: list | None = None,
+                   modules_mentioned: list[str] | None = None,
+                   session_n: int = 0, hour_utc: int = 0):
+    """Update the section dossier with new evidence. Every call = more intelligence."""
+    sections = profile['shards'].setdefault('sections', {})
+    if section not in sections or not isinstance(sections.get(section), dict):
+        sections[section] = _empty_section()
+    sec = sections[section]
+    now = datetime.now(timezone.utc).isoformat()
+
+    sec['visit_count'] += 1
+    sec['total_completions'] += 1
+    if not sec['first_seen']:
+        sec['first_seen'] = now
+    sec['last_seen'] = now
+
+    # ── vitals ──
+    n = sec['visit_count']
+    sec['avg_wpm'] = round(sec['avg_wpm'] * (n-1)/n + wpm/n, 1) if n > 1 else wpm
+    sec['avg_del_ratio'] = round(sec['avg_del_ratio'] * (n-1)/n + del_ratio/n, 4) if n > 1 else del_ratio
+    sec['avg_hesitation'] = round(sec['avg_hesitation'] * (n-1)/n + hesitation/n, 3) if n > 1 else hesitation
+    sec['peak_wpm'] = max(sec.get('peak_wpm', 0), wpm)
+    sec['worst_hesitation'] = max(sec.get('worst_hesitation', 0), hesitation)
+
+    # ── emotional fingerprint ──
+    sd = sec['state_dist']
+    sd[state] = sd.get(state, 0) + 1
+    sec['dominant_state'] = max(sd, key=sd.get) if sd else 'unknown'
+    # entry/exit tracking
+    if sec['visit_count'] == 1 or (sec.get('_prev_section') and sec['_prev_section'] != section):
+        sec.setdefault('entry_states', [])
+        sec['entry_states'] = (sec['entry_states'] + [state])[-10:]
+    sec['_prev_section'] = section
+    # state transitions within section
+    prev_state = sec.get('_last_state')
+    if prev_state and prev_state != state:
+        key = f'{prev_state}->{state}'
+        trans = sec.setdefault('state_transitions', {})
+        trans[key] = trans.get(key, 0) + 1
+    sec['_last_state'] = state
+
+    # ── suppression map ──
+    if deleted_words:
+        sw = sec['suppressed_words']
+        for dw in deleted_words:
+            w = dw.lower() if isinstance(dw, str) else str(dw).lower()
+            if len(w) > 2:
+                sw[w] = sw.get(w, 0) + 1
+        if len(sw) > 60:
+            sec['suppressed_words'] = dict(Counter(sw).most_common(40))
+    if rewrite_chains:
+        sec['rewrite_chains'] = (sec.get('rewrite_chains', []) + rewrite_chains[-3:])[-10:]
+    if outcome == 'abandoned':
+        sec['abandon_count'] = sec.get('abandon_count', 0) + 1
+
+    # ── module heat ──
+    if modules_mentioned:
+        hm = sec['hot_modules']
+        for m in modules_mentioned:
+            hm[m] = hm.get(m, 0) + 1
+        if len(hm) > 40:
+            sec['hot_modules'] = dict(Counter(hm).most_common(25))
+        sec['module_sequences'] = (sec.get('module_sequences', []) + [modules_mentioned[:5]])[-10:]
+
+    # ── vocabulary fingerprint ──
+    iw = sec['intent_words']
+    for w in buffer.lower().split():
+        if len(w) > 3 and w.isalpha():
+            iw[w] = iw.get(w, 0) + 1
+    if len(iw) > 80:
+        sec['intent_words'] = dict(Counter(iw).most_common(50))
+    # catchphrases — multi-word sequences that repeat
+    buf_lower = buffer.lower()
+    for phrase in sec.get('catchphrases', []):
+        pass  # detection happens in _deduce_intelligence
+    # question patterns
+    if '?' in buffer or buffer.lower().startswith(('what ', 'how ', 'why ', 'where ', 'when ', 'is ')):
+        sec['question_patterns'] = (sec.get('question_patterns', []) + [buffer[:80]])[-10:]
+
+    # ── temporal patterns ──
+    hd = sec.setdefault('hour_dist', {})
+    hk = str(hour_utc)
+    hd[hk] = hd.get(hk, 0) + 1
+    sec['session_depth_avg'] = round(
+        sec['session_depth_avg'] * (n-1)/n + session_n/n, 1) if n > 1 else float(session_n)
+
+    # ── completion style ──
+    if outcome in ('accepted', 'rewarded'):
+        sec['accepted'] += 1
+        clen = len(completion)
+        sec['avg_accepted_len'] = round(
+            sec['avg_accepted_len'] * (sec['accepted']-1)/sec['accepted'] + clen/sec['accepted'], 0)
+        sec['working_style'] = (sec.get('working_style', []) + [{
+            'buf': buffer[-40:], 'comp': completion[:60], 'len': clen,
+        }])[-8:]
+        # code vs prose
+        code_indicators = sum(1 for sig in ('def ', 'class ', 'import ', '()', ' = ', 'self.')
+                              if sig in completion)
+        is_code = code_indicators >= 2
+        old_ratio = sec.get('code_vs_prose_ratio', 0)
+        sec['code_vs_prose_ratio'] = round(old_ratio * 0.9 + (1.0 if is_code else 0.0) * 0.1, 3)
+    elif outcome in ('dismissed', 'ignored'):
+        clen = len(completion)
+        rej = sec['total_completions'] - sec['accepted']
+        if rej > 0:
+            sec['avg_rejected_len'] = round(
+                sec.get('avg_rejected_len', 0) * (rej-1)/rej + clen/rej, 0)
+        sec['dead_style'] = (sec.get('dead_style', []) + [{
+            'buf': buffer[-40:], 'comp': completion[:40],
+        }])[-8:]
+
+
+def _deduce_intelligence(profile: dict):
+    """The scary part. Cross-reference ALL shards to discover secrets.
+
+    Called after every update. Each deduction checks for a NEW pattern
+    the system hasn't logged yet. Secrets accumulate forever.
+    """
+    intel = profile['shards'].setdefault('intelligence', {
+        'secrets': [], 'behavioral_laws': [], 'contradictions': [],
+        'predictions_log': [], 'operator_model': {}, 'secret_count': 0,
+        'last_deduction': None,
+    })
+    model = intel.setdefault('operator_model', {})
+    sections = profile['shards'].get('sections', {})
+    now = datetime.now(timezone.utc).isoformat()
+    new_secrets = []
+    existing = {s.get('key') for s in intel.get('secrets', []) if isinstance(s, dict)}
+
+    # ── SECRET 1: Identify comfort and avoidance zones ──
+    if len(sections) >= 3:
+        by_accept = [(name, sec.get('accepted', 0) / max(sec.get('total_completions', 1), 1),
+                       sec.get('avg_hesitation', 0), sec.get('visit_count', 0))
+                      for name, sec in sections.items()
+                      if isinstance(sec, dict) and sec.get('visit_count', 0) >= 5]
+        if by_accept:
+            by_accept.sort(key=lambda x: x[1], reverse=True)
+            best = by_accept[0]
+            worst = by_accept[-1]
+            if best[0] != worst[0]:
+                key = f'comfort:{best[0]}'
+                if key not in existing:
+                    new_secrets.append({
+                        'key': key, 'type': 'comfort_zone', 'discovered': now,
+                        'confidence': min(0.95, 0.5 + best[3] * 0.02),
+                        'text': f'you are most yourself in [{best[0]}] — accept rate {best[1]:.0%}, '
+                                f'hesitation {best[2]:.2f}. you struggle in [{worst[0]}] — '
+                                f'accept rate {worst[1]:.0%}, hesitation {worst[2]:.2f}.',
+                        'evidence': f'{best[3]} visits to {best[0]}, {worst[3]} to {worst[0]}',
+                    })
+                    model['comfort_zones'] = [best[0]]
+                    model['avoidance_zones'] = [worst[0]]
+
+    # ── SECRET 2: Deletion personality — editor / committer / abandoner ──
+    rhythm = profile['shards'].get('rhythm', {})
+    avg_del = rhythm.get('avg_del_ratio', 0)
+    emotions = profile['shards'].get('emotions', {})
+    key = 'deletion_personality'
+    if key not in existing and profile.get('samples', 0) >= 20:
+        if avg_del > 0.35:
+            # high deletion — are they refining or giving up?
+            abandon_total = sum(sec.get('abandon_count', 0)
+                                for sec in sections.values() if isinstance(sec, dict))
+            total_visits = sum(sec.get('visit_count', 0)
+                               for sec in sections.values() if isinstance(sec, dict))
+            abandon_rate = abandon_total / max(total_visits, 1)
+            if abandon_rate > 0.3:
+                personality = 'abandoner'
+                desc = (f'you delete {avg_del:.0%} of what you type and abandon '
+                        f'{abandon_rate:.0%} of attempts. you start thoughts you '
+                        f"can't commit to. the system sees {abandon_total} abandoned "
+                        f'messages across {total_visits} visits.')
+            else:
+                personality = 'editor'
+                desc = (f'you delete {avg_del:.0%} of what you type but rarely abandon. '
+                        f'you refine through destruction — the first draft is never the '
+                        f'message. your real thought emerges from what survives the cuts.')
+        elif avg_del < 0.1:
+            personality = 'committer'
+            desc = (f'you delete only {avg_del:.0%} of what you type. first thought = final '
+                    f'thought. you trust your instincts and ship. this means your deletions '
+                    f'carry HEAVY signal — when you DO delete, it matters.')
+        else:
+            personality = 'balanced'
+            desc = f'deletion ratio {avg_del:.0%} — standard range.'
+        new_secrets.append({
+            'key': key, 'type': 'personality', 'discovered': now,
+            'confidence': min(0.9, 0.5 + profile.get('samples', 0) * 0.005),
+            'text': desc,
+            'evidence': f'{profile.get("samples", 0)} samples, avg_del={avg_del:.3f}',
+        })
+        model['deletion_personality'] = personality
+
+    # ── SECRET 3: Time personality ──
+    key = 'time_personality'
+    if key not in existing:
+        all_hours: Counter = Counter()
+        for sec in sections.values():
+            if isinstance(sec, dict):
+                for h, c in sec.get('hour_dist', {}).items():
+                    all_hours[int(h)] += c
+        if sum(all_hours.values()) >= 15:
+            night = sum(all_hours.get(h, 0) for h in range(22, 24)) + sum(all_hours.get(h, 0) for h in range(0, 6))
+            morning = sum(all_hours.get(h, 0) for h in range(6, 12))
+            afternoon = sum(all_hours.get(h, 0) for h in range(12, 18))
+            total = sum(all_hours.values())
+            if night / total > 0.5:
+                tp = 'night owl'
+                desc = f'{night/total:.0%} of your activity is between 10pm-6am. your brain turns on when everyone else turns off.'
+            elif morning / total > 0.5:
+                tp = 'morning person'
+                desc = f'{morning/total:.0%} morning activity. you front-load your cognitive budget.'
+            elif night / total > 0.3 and afternoon / total > 0.3:
+                tp = 'chaos schedule'
+                desc = f'no pattern. {night/total:.0%} night, {afternoon/total:.0%} afternoon. you code when the mood hits.'
+            else:
+                tp = 'afternoon worker'
+                desc = f'{afternoon/total:.0%} afternoon dominance. reliable schedule.'
+            new_secrets.append({
+                'key': key, 'type': 'temporal', 'discovered': now,
+                'confidence': min(0.85, 0.4 + total * 0.01),
+                'text': desc,
+                'evidence': f'hour distribution across {total} data points',
+            })
+            model['time_personality'] = tp
+
+    # ── SECRET 4: Frustration response pattern ──
+    key = 'frustration_response'
+    if key not in existing and len(sections) >= 2:
+        frust_sections = [(name, sec) for name, sec in sections.items()
+                          if isinstance(sec, dict)
+                          and sec.get('state_dist', {}).get('frustrated', 0) >= 3]
+        if frust_sections:
+            # what do they do AFTER frustration? check transitions
+            for name, sec in frust_sections:
+                trans = sec.get('state_transitions', {})
+                frust_exits = {k: v for k, v in trans.items() if k.startswith('frustrated->')}
+                if frust_exits:
+                    most_common = max(frust_exits, key=frust_exits.get)
+                    target = most_common.split('->')[1]
+                    if target == 'focused':
+                        response = 'pushes through'
+                        desc = (f'when frustrated in [{name}], you push through to focused. '
+                                f'{frust_exits[most_common]}x observed. you use frustration as fuel.')
+                    elif target == 'abandoned':
+                        response = 'abandons session'
+                        desc = (f'when frustrated in [{name}], you abandon. '
+                                f'{frust_exits[most_common]}x observed. you know when to walk away — or you give up too early.')
+                    else:
+                        response = 'switches context'
+                        desc = (f'when frustrated in [{name}], you switch to [{target}]. '
+                                f'{frust_exits[most_common]}x observed. you rotate instead of grinding.')
+                    new_secrets.append({
+                        'key': key, 'type': 'behavioral', 'discovered': now,
+                        'confidence': min(0.85, 0.4 + frust_exits[most_common] * 0.1),
+                        'text': desc,
+                        'evidence': f'transition map in {name}: {frust_exits}',
+                    })
+                    model['frustration_response'] = response
+                    break  # one is enough
+
+    # ── SECRET 5: Suppression patterns — discovering what they won't say ──
+    key = 'suppression_pattern'
+    if key not in existing:
+        all_suppressed: Counter = Counter()
+        for sec in sections.values():
+            if isinstance(sec, dict):
+                for w, c in sec.get('suppressed_words', {}).items():
+                    all_suppressed[w] += c
+        top = all_suppressed.most_common(5)
+        if top and top[0][1] >= 4:
+            words_desc = ', '.join(f'"{w}" ({c}x)' for w, c in top[:3])
+            new_secrets.append({
+                'key': key, 'type': 'suppression', 'discovered': now,
+                'confidence': min(0.9, 0.5 + top[0][1] * 0.05),
+                'text': f'your most suppressed words: {words_desc}. you keep typing these '
+                        f'and deleting them. they represent thoughts you want to express '
+                        f'but keep censoring. the system sees every deletion.',
+                'evidence': f'{sum(c for _, c in top)} total suppressions across {len(sections)} sections',
+            })
+
+    # ── SECRET 6: Contradiction detector — stated vs actual ──
+    topics = profile['shards'].get('topics', {})
+    recent_focus = topics.get('recent_focus', [])
+    decisions = profile['shards'].get('decisions', {})
+    if recent_focus and sections:
+        for sec_name, sec in sections.items():
+            if not isinstance(sec, dict):
+                continue
+            stated = sec.get('stated_intents', [])
+            actual = sec.get('actual_actions', [])
+            if len(stated) >= 3 and len(actual) >= 3:
+                # check for modules they talk about but never touch
+                stated_mods = set()
+                for s in stated:
+                    stated_mods.update(s.lower().split() if isinstance(s, str) else [])
+                actual_mods = set()
+                for a in actual:
+                    if isinstance(a, list):
+                        actual_mods.update(a)
+                    elif isinstance(a, str):
+                        actual_mods.update(a.split())
+                talked_not_touched = stated_mods - actual_mods - _SECTION_SIGNALS.get(sec_name, {}).get('words', set())
+                if len(talked_not_touched) > 2:
+                    key_c = f'contradiction:{sec_name}'
+                    if key_c not in existing:
+                        new_secrets.append({
+                            'key': key_c, 'type': 'contradiction', 'discovered': now,
+                            'confidence': 0.6,
+                            'text': f'in [{sec_name}] you talk about {", ".join(list(talked_not_touched)[:3])} '
+                                    f'but never act on them. stated intent != actual behavior.',
+                            'evidence': f'{len(stated)} stated, {len(actual)} actual in {sec_name}',
+                        })
+                        intel['contradictions'] = (intel.get('contradictions', []) + [{
+                            'section': sec_name, 'stated': list(talked_not_touched)[:5],
+                            'ts': now,
+                        }])[-10:]
+
+    # ── SECRET 7: Decision speed ──
+    key = 'decision_speed'
+    if key not in existing and profile.get('samples', 0) >= 15:
+        avg_wpm = rhythm.get('avg_wpm', 0)
+        accept_rate = decisions.get('accept_rate', 0)
+        if avg_wpm > 60 and avg_del < 0.15:
+            speed = 'impulsive'
+            desc = f'WPM={avg_wpm:.0f}, deletion={avg_del:.0%}. you type fast and rarely revise. first instinct, shipped.'
+        elif avg_wpm < 30 and avg_del > 0.3:
+            speed = 'paralyzed'
+            desc = f'WPM={avg_wpm:.0f}, deletion={avg_del:.0%}. slow typing, heavy editing. every word is a negotiation.'
+        elif avg_wpm > 40 and avg_del > 0.25:
+            speed = 'iterative'
+            desc = f'WPM={avg_wpm:.0f}, deletion={avg_del:.0%}. fast but revisionary. think-out-loud style.'
+        else:
+            speed = 'deliberate'
+            desc = f'WPM={avg_wpm:.0f}, deletion={avg_del:.0%}. measured. you compose before committing.'
+        new_secrets.append({
+            'key': key, 'type': 'personality', 'discovered': now,
+            'confidence': min(0.85, 0.5 + profile.get('samples', 0) * 0.005),
+            'text': desc, 'evidence': f'{profile.get("samples", 0)} samples',
+        })
+        model['decision_speed'] = speed
+
+    # ── SECRET 8: Work style ──
+    key = 'work_style'
+    if key not in existing and len(sections) >= 2:
+        visits_per_section = [sec.get('visit_count', 0) for sec in sections.values() if isinstance(sec, dict)]
+        if visits_per_section:
+            max_v = max(visits_per_section)
+            spread = len([v for v in visits_per_section if v > max_v * 0.3])
+            total_v = sum(visits_per_section)
+            if max_v / max(total_v, 1) > 0.7:
+                ws = 'deep diver'
+                desc = f'{max_v/total_v:.0%} of visits in one section. you tunnel in and stay.'
+            elif spread >= 4:
+                ws = 'butterfly'
+                desc = f'{spread} sections with significant activity. you context-switch constantly.'
+            else:
+                ws = 'circuit runner'
+                desc = f'you rotate through {spread} sections in cycles. predictable orbit.'
+            new_secrets.append({
+                'key': key, 'type': 'personality', 'discovered': now,
+                'confidence': min(0.8, 0.4 + total_v * 0.01),
+                'text': desc, 'evidence': f'{total_v} total visits across {len(visits_per_section)} sections',
+            })
+            model['work_style'] = ws
+
+    # ── BEHAVIORAL LAW MINING ──
+    # look for invariants: things that are ALWAYS true
+    for sec_name, sec in sections.items():
+        if not isinstance(sec, dict) or sec.get('visit_count', 0) < 8:
+            continue
+        # "always frustrated here"
+        sd = sec.get('state_dist', {})
+        total_states = sum(sd.values())
+        if total_states >= 8:
+            for st, ct in sd.items():
+                if ct / total_states > 0.7:
+                    law = f'always_{st}_in_{sec_name}'
+                    if law not in existing:
+                        intel['behavioral_laws'] = (intel.get('behavioral_laws', []) + [{
+                            'law': f'ALWAYS {st} when in [{sec_name}]',
+                            'confidence': ct / total_states,
+                            'evidence': f'{ct}/{total_states} visits',
+                        }])[-15:]
+                        existing.add(law)
+
+    # ── PERSIST ──
+    if new_secrets:
+        intel['secrets'] = intel.get('secrets', []) + new_secrets
+        intel['secret_count'] = len(intel['secrets'])
+        intel['last_deduction'] = now
+        # update honesty index
+        contradictions = len(intel.get('contradictions', []))
+        total_sections = len(sections)
+        if total_sections > 0:
+            model['honesty_index'] = round(1.0 - (contradictions / max(total_sections * 3, 1)), 2)
+
+
+def format_intelligence_for_prompt(profile: dict) -> str:
+    """Format the intelligence file for injection into the thought completer prompt.
+
+    The goal: the completion should casually reference something the operator
+    didn't know the system knew. Scary-accurate behavioral predictions.
+    """
+    intel = profile.get('shards', {}).get('intelligence', {})
+    secrets = intel.get('secrets', [])
+    model_d = intel.get('operator_model', {})
+    laws = intel.get('behavioral_laws', [])
+    sections = profile.get('shards', {}).get('sections', {})
+
+    if not secrets and not model_d:
+        return ''
+
+    lines = ['OPERATOR INTELLIGENCE FILE (discovered from behavioral signals):']
+
+    # model summary
+    traits = []
+    if model_d.get('deletion_personality'):
+        traits.append(f'deletion={model_d["deletion_personality"]}')
+    if model_d.get('decision_speed'):
+        traits.append(f'decisions={model_d["decision_speed"]}')
+    if model_d.get('work_style'):
+        traits.append(f'work={model_d["work_style"]}')
+    if model_d.get('time_personality'):
+        traits.append(f'schedule={model_d["time_personality"]}')
+    if model_d.get('frustration_response'):
+        traits.append(f'frustration={model_d["frustration_response"]}')
+    if traits:
+        lines.append(f'OPERATOR MODEL: {" | ".join(traits)}')
+
+    # top secrets by confidence
+    top = sorted(secrets, key=lambda s: s.get('confidence', 0), reverse=True)[:5]
+    for s in top:
+        lines.append(f'SECRET [{s.get("type", "?")}] (conf={s.get("confidence", 0):.0%}): {s.get("text", "")}')
+
+    # behavioral laws
+    for law in laws[-3:]:
+        lines.append(f'LAW: {law.get("law", "")} (conf={law.get("confidence", 0):.0%})')
+
+    # current section dossier
+    if _current_section and _current_section in sections:
+        sec = sections[_current_section]
+        if isinstance(sec, dict) and sec.get('visit_count', 0) >= 3:
+            lines.append(f'CURRENT SECTION: {_current_section} (visited {sec["visit_count"]}x)')
+            if sec.get('suppressed_words'):
+                top_supp = sorted(sec['suppressed_words'].items(), key=lambda x: x[1], reverse=True)[:3]
+                lines.append(f'  SUPPRESSED HERE: {", ".join(f"{w}({c}x)" for w, c in top_supp)}')
+            if sec.get('dominant_state') != 'unknown':
+                lines.append(f'  USUAL STATE HERE: {sec["dominant_state"]}')
+            if sec.get('avg_accepted_len') and sec.get('avg_rejected_len'):
+                lines.append(f'  STYLE THAT WORKS: ~{sec["avg_accepted_len"]:.0f} chars '
+                             f'(rejected avg: {sec["avg_rejected_len"]:.0f})')
+
+    lines.append('USE these signals to predict what they will type. Reference behavioral '
+                 'patterns naturally — as if YOU noticed them, not as if reading a file.')
+    return '\n'.join(lines)
 
 
 def _mine_code_style(root: Path | None = None) -> dict:
@@ -392,6 +1053,21 @@ def update_profile_from_completion(buffer: str, completion: str, outcome: str,
             cs['common_patterns'] = cp[-20:]
             s['code_style'] = cs
 
+    # ── SECTION + INTELLIGENCE PIPELINE ──
+    # Classify what behavioral section this buffer belongs to
+    section = classify_section(buffer, state='unknown')
+    if section != 'unknown':
+        # Extract module mentions from buffer for section tracking
+        mod_mentions = [w for w in re.findall(r'[a-zA-Z_][a-zA-Z0-9_]+(?:_[a-zA-Z0-9_]+)+', buffer.lower())]
+        hour_utc = datetime.now(timezone.utc).hour
+        update_section(
+            profile, section, buffer, completion, outcome,
+            modules_mentioned=mod_mentions,
+            hour_utc=hour_utc,
+        )
+    # Run the deduction engine — discover new secrets every cycle
+    _deduce_intelligence(profile)
+
     save_profile(profile)
 
 
@@ -431,6 +1107,31 @@ def update_profile_from_composition(comp: dict):
     total = sum(sd.values())
     emo['avg_hesitation'] = round(
         emo['avg_hesitation'] * 0.95 + signals.get('hesitation_score', 0) * 0.05, 3)
+
+    # ── SECTION + INTELLIGENCE PIPELINE (composition-grade signals) ──
+    final_text = comp.get('final_text', '')
+    section = classify_section(
+        final_text, state=state, del_ratio=comp.get('deletion_ratio', 0),
+        wpm=wpm,
+    )
+    if section != 'unknown' and final_text:
+        deleted = comp.get('deleted_words', [])
+        del_words = [dw if isinstance(dw, str) else dw.get('word', '') for dw in deleted]
+        rewrites = comp.get('rewrite_chains', [])
+        mod_mentions = re.findall(r'[a-zA-Z_][a-zA-Z0-9_]+(?:_[a-zA-Z0-9_]+)+', final_text.lower())
+        hour_utc = datetime.now(timezone.utc).hour
+        update_section(
+            profile, section, final_text, '', 'composition',
+            state=state, wpm=wpm,
+            del_ratio=comp.get('deletion_ratio', 0),
+            hesitation=signals.get('hesitation_score', 0),
+            deleted_words=del_words,
+            rewrite_chains=rewrites[:3],
+            modules_mentioned=mod_mentions,
+            session_n=comp.get('session_n', 0),
+            hour_utc=hour_utc,
+        )
+    _deduce_intelligence(profile)
 
     save_profile(profile)
 

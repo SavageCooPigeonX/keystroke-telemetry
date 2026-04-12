@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-04 03:59 UTC · 309 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-11 15:29 UTC · 497 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -22,33 +22,34 @@
 
 ## Live Operator State
 
-*309 prompts profiled · source: measured*
+*497 prompts profiled · source: measured*
 
-**Dominant: `abandoned` | Submit: 66% | Del: 6.0%**
+**Dominant: `abandoned` | Submit: 66% | Del: 6.2%**
 - operator entering flow state — productive building, less backtracking
 
 ## Pair Performance
 
-*200 responses scored · 0 background excluded*
+*200 responses scored · 200 background excluded*
 
-**Accuracy: 100% OK | 0% miss** *[source: measured]*
-- trend: **stable** (100% → 100%)
+**Accuracy: 96% OK | 4% miss** *[source: measured]*
+- trend: **degrading** (early 100% → recent 92%)
+- quality slipping — check if prompt mutations are helping or hurting
 
-**Prompt→edit latency:** 391.4s median (52 pairs)
+**Prompt→edit latency:** 717.2s median (64 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*113 mutations scored*
+*122 mutations scored*
 - no significant signal yet — all sections scored neutral
 
-**Reactor:** 430 fires, 0 accepted (0%)
+**Reactor:** 524 fires, 0 accepted (0%)
 > **Directive:** Reactor patches near-zero acceptance — tune confidence threshold or disable
 
 ## Codebase Health
 
-*52 self-fix reports · 2026-03-16 → 2026-04-04*
+*55 self-fix reports · 2026-03-16 → 2026-04-10*
 
-**Problem trend: growing** (early avg 24 → recent avg 440) *[source: measured]*
-- problems growing ~416/push — expect more over_hard_cap and dead_exports without intervention
+**Problem trend: growing** (early avg 24 → recent avg 325) *[source: measured]*
+- problems growing ~301/push — expect more over_hard_cap and dead_exports without intervention
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives — treat as hypothesis:*
@@ -69,26 +70,26 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "0 pus"
-- "and"
-- "cles re"
-- "s - whats th"
-- "we have t"
-- "doe"
-- "-actua"
-- "word"
-- "wouldn"
-- "rephraser"
+- "(ey"
+- "ld f"
+- "leaks _"
+- "lready have this ;e"
+- "e e"
+- "ads/ use this to write  emaili litte"
+- "opilot"
+- "ggoooo"
+- "es i"
+- "7)$"
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** WEAK (placeholder data) — 200 entries, 2 unique scores in last 20
-- **Training pairs:** 64 captured
+- **Rework signal:** GOOD — 200 entries, 3 unique scores in last 20, 200 bg noise
+- **Training pairs:** 125 captured
 - **Prediction accuracy:** F1=0.010, calibration=0.305 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
-- **Memory shards:** 10 active (zero LLM calls)
+- **Memory shards:** 11 active (zero LLM calls)
 
 ### Hypotheses Under Test
 *These predictions become pass/fail on next push:*

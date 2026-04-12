@@ -4,11 +4,12 @@ copilot emits entropy markers at end of each response.
 this module parses them from ai_responses, accumulates per-module
 entropy over time, and builds heat maps for prompt injection.
 
-entropy sources (all self-reported, zero API calls):
+entropy sources (zero API calls):
   - confidence scores per decision point (0.0-1.0)
   - uncertainty flags on specific modules/functions
   - hedge markers (alternatives considered, caveats stated)
   - rework predictions (will this need fixing?)
+  - edit_pairs.jsonl latency/state data (real prompt→file touch ground truth)
 
 the accumulated map = the shedding layer.
 copilot sheds uncertainty data like skin. it builds up.
@@ -130,34 +131,100 @@ def _response_entropy_signals(response_text):
 MODULE_RE = re.compile(r'`([a-zA-Z_]\w*(?:\.[a-zA-Z_]\w*)?)`')
 FILE_RE = re.compile(r'(?:src|pigeon_compiler|pigeon_brain)/[\w./]+\.py')
 
+EDIT_STATE_ENTROPY = {
+    'focused': 0.05,
+    'neutral': 0.08,
+    'restructuring': 0.18,
+    'abandoned': 0.24,
+    'hesitant': 0.28,
+    'frustrated': 0.32,
+    'confused': 0.30,
+    'unknown': 0.12,
+}
+
+
+def _module_key(raw_name: str) -> str:
+    """Canonicalize a file-ish name into a stable module key."""
+    name = _normalize_target(raw_name)
+    if name.endswith(('.json', '.jsonl', '.md', '.txt')):
+        return name
+    stem = Path(name).stem
+    mod = re.split(r'_s(?:eq)?\d{3}', stem)[0]
+    return mod or stem
+
 
 def _extract_modules(text):
     modules = set()
     for m in MODULE_RE.finditer(text):
-        name = m.group(1)
+        name = _normalize_target(m.group(1))
         if len(name) > 3 and not name.startswith(('True', 'False', 'None')):
             modules.add(name)
     for m in FILE_RE.finditer(text):
-        stem = Path(m.group()).stem
-        modules.add(stem)
+        modules.add(_module_key(m.group()))
     return modules
 
 
 def _normalize_target(name: str) -> str:
     """Normalize shed block target names to match module extraction.
-    
-    Strips .py suffix, path prefixes, and whitespace so that shed targets
-    like 'escalation_engine.py' or 'src/foo.py' merge with behavioral
-    entries for 'escalation_engine' or 'foo'.
+
+    Strips .py suffix, path prefixes, backslashes, and whitespace so that shed
+    targets like 'escalation_engine.py' or 'src/foo.py' merge with behavioral
+    and edit-pair entries for 'escalation_engine' or 'foo'.
     """
-    name = name.strip()
-    # strip path prefix
+    name = name.strip().replace('\\', '/')
     if '/' in name:
         name = name.rsplit('/', 1)[-1]
-    # strip .py suffix
     if name.endswith('.py'):
         name = name[:-3]
     return name
+
+
+def _load_edit_entropy(root: Path) -> dict[str, dict[str, float]]:
+    """Turn edit_pairs.jsonl into per-module entropy signals.
+
+    This is the missing ground-truth bridge: real prompt→file touches with
+    latency and operator state become uncertainty measurements even when the
+    module is never named in an AI response.
+    """
+    ep = root / 'logs' / 'edit_pairs.jsonl'
+    if not ep.exists():
+        return {}
+
+    per_module: dict[str, dict[str, float]] = defaultdict(lambda: {
+        'total_H': 0.0,
+        'samples': 0.0,
+        'latency_total': 0.0,
+    })
+
+    for line in ep.read_text('utf-8', errors='ignore').splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            entry = json.loads(line)
+        except Exception:
+            continue
+
+        raw_file = entry.get('file', '')
+        if not raw_file:
+            continue
+
+        mod = _module_key(raw_file)
+        latency_ms = max(0, int(entry.get('latency_ms', 0) or 0))
+        state = str(entry.get('state') or 'unknown').strip().lower()
+        edit_why = str(entry.get('edit_why') or '').strip().lower()
+
+        latency_score = min(latency_ms / 300000.0, 1.0)  # 5 min = max uncertainty
+        state_score = EDIT_STATE_ENTROPY.get(state, EDIT_STATE_ENTROPY['unknown'])
+        reason_score = 0.10 if edit_why and edit_why not in {'auto', 'none'} else 0.0
+        event_H = min(1.0, latency_score * 0.55 + state_score * 0.35 + reason_score)
+
+        pm = per_module[mod]
+        pm['total_H'] += event_H
+        pm['samples'] += 1
+        pm['latency_total'] += latency_ms
+
+    return per_module
 
 
 # ─── ACCUMULATOR ───────────────────────────────────────────────────
@@ -174,11 +241,13 @@ def accumulate_entropy(root):
 
     per_module = defaultdict(lambda: {
         'total_H': 0.0, 'samples': 0,
+        'edit_total_H': 0.0, 'edit_samples': 0, 'latency_total': 0.0,
         'hedge_total': 0, 'alt_total': 0, 'caveat_total': 0,
         'shed_reports': [],
     })
     global_entropy = []
     shed_count = 0
+    edit_entropy = _load_edit_entropy(root)
 
     for line in lines:
         try:
@@ -220,14 +289,24 @@ def accumulate_entropy(root):
                     'note': marker['note'],
                 })
 
+    # Merge in edit-pair-derived entropy so touched files show up even if never named.
+    for mod, ed in edit_entropy.items():
+        pm = per_module[mod]
+        pm['edit_total_H'] += ed['total_H']
+        pm['edit_samples'] += int(ed['samples'])
+        pm['latency_total'] += ed['latency_total']
+
     # compute averages and rank
     module_scores = []
     for mod, data in per_module.items():
         has_sheds = len(data['shed_reports']) > 0
-        # include if ≥2 behavioral samples OR has explicit shed data
-        if data['samples'] < 2 and not has_sheds:
+        total_samples = int(data['samples']) + int(data['edit_samples'])
+        # include if ≥2 combined samples OR has explicit shed data
+        if total_samples < 2 and not has_sheds:
             continue
-        avg_H = data['total_H'] / max(data['samples'], 1)
+        avg_H = (data['total_H'] + data['edit_total_H']) / max(total_samples, 1)
+        avg_edit_H = data['edit_total_H'] / max(int(data['edit_samples']), 1) if data['edit_samples'] else None
+        avg_latency = data['latency_total'] / max(int(data['edit_samples']), 1) if data['edit_samples'] else None
         # entropy from shed blocks (explicit self-reports)
         shed_scores = [s['confidence'] for s in data['shed_reports']]
         avg_shed = sum(shed_scores) / len(shed_scores) if shed_scores else None
@@ -235,7 +314,11 @@ def accumulate_entropy(root):
         module_scores.append({
             'module': mod,
             'avg_entropy': round(avg_H, 4),
-            'samples': data['samples'],
+            'samples': total_samples,
+            'behavioral_samples': int(data['samples']),
+            'edit_samples': int(data['edit_samples']),
+            'avg_edit_entropy': round(avg_edit_H, 4) if avg_edit_H is not None else None,
+            'avg_latency_ms': round(avg_latency, 1) if avg_latency is not None else None,
             'hedges': data['hedge_total'],
             'alternatives': data['alt_total'],
             'caveats': data['caveat_total'],
@@ -274,6 +357,8 @@ def accumulate_entropy(root):
         'generated': datetime.now(timezone.utc).isoformat(),
         'total_responses': len(lines),
         'shed_blocks_found': shed_count,
+        'tracked_modules': len(module_scores),
+        'edit_pair_modules': sum(1 for m in module_scores if m.get('edit_samples', 0) > 0),
         'global_avg_entropy': round(avg_global, 4),
         'high_entropy_pct': round(high_entropy_pct * 100, 1),
         'top_entropy_modules': module_scores[:20],

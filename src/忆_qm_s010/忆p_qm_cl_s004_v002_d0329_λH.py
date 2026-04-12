@@ -1,5 +1,7 @@
 """query_memory_seq010_clustering_seq004_v001.py — Auto-extracted by Pigeon Compiler."""
 
+from .忆p_qm_tu_s003_v002_d0329_λH import _trigram_similarity
+
 import re
 
 def cluster_unsaid_threads(texts: list[str], threshold: float = 0.25) -> list[dict]:

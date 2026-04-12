@@ -11,13 +11,6 @@ forward model, making every conversation a calibration event.
 These get injected into copilot-instructions.md so the LLM asks the operator
 instead of waiting to be asked.
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-07T08:30:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  wire prediction-driven probes
-# EDIT_AUTHOR: copilot
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 import json
 import re

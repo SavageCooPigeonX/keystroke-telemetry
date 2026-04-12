@@ -7,16 +7,11 @@ Two layers:
 Reads: logs/codebase_vitals.jsonl, pigeon_registry.json, file_heat_map.json,
        logs/entropy_map.json. Outputs: build/vitals_dashboard.html.
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-06T03:10:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  add chinese names profile links todos
-# EDIT_AUTHOR: copilot
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 import json
-from datetime import datetime
+import re
+from datetime import datetime, timezone
+from html import escape
 from pathlib import Path
 
 VITALS_LOG = 'logs/codebase_vitals.jsonl'
@@ -91,6 +86,183 @@ def _pct_color(pct: float) -> str:
     if pct >= 70:
         return '#d29922'
     return '#f85149'
+
+
+def _parse_ts(raw: str | None) -> datetime | None:
+    if not raw:
+        return None
+    txt = raw.strip().replace(' UTC', '').replace(' ', 'T')
+    if re.match(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$', txt):
+        txt += ':00'
+    if txt.endswith('Z'):
+        txt = txt[:-1] + '+00:00'
+    elif '+' not in txt[10:] and '-' not in txt[10:]:
+        txt += '+00:00'
+    try:
+        return datetime.fromisoformat(txt).astimezone(timezone.utc)
+    except Exception:
+        return None
+
+
+def _fmt_age(age_min: float | None) -> str:
+    if age_min is None:
+        return '—'
+    if age_min < 1:
+        return '<1m'
+    if age_min < 60:
+        return f'{age_min:.0f}m'
+    hours = age_min / 60
+    if hours < 48:
+        return f'{hours:.1f}h' if hours < 10 else f'{hours:.0f}h'
+    days = hours / 24
+    return f'{days:.1f}d'
+
+
+def _freshness_status(age_min: float | None, max_age_min: float | None) -> str:
+    if age_min is None:
+        return 'warning'
+    if max_age_min is None:
+        return 'fresh'
+    if age_min > max_age_min:
+        return 'stale'
+    if age_min > max_age_min * 0.6:
+        return 'warning'
+    return 'fresh'
+
+
+def _status_pill(status: str) -> str:
+    cls = {
+        'fresh': 'status-fresh',
+        'warning': 'status-warning',
+        'stale': 'status-stale',
+        'missing': 'status-missing',
+    }.get(status, 'status-warning')
+    return f'<span class="status-pill {cls}">{escape(status)}</span>'
+
+
+def _build_freshness_section(root: Path) -> str:
+    now = datetime.now(timezone.utc)
+    counts = {'fresh': 0, 'warning': 0, 'stale': 0, 'missing': 0}
+    rows: list[str] = []
+
+    def add_row(name: str, rel_path: str, max_age_min: float | None, note: str,
+                *, ts: datetime | None = None, exists: bool | None = None, status: str | None = None):
+        full = root / rel_path if rel_path else None
+        path_exists = full.exists() if full is not None else bool(exists)
+        if exists is not None:
+            path_exists = exists
+        age_min = None if ts is None else max(0.0, (now - ts).total_seconds() / 60)
+        if status is None:
+            if not path_exists:
+                status = 'missing'
+            else:
+                status = _freshness_status(age_min, max_age_min)
+        counts[status] = counts.get(status, 0) + 1
+        href = f'../{rel_path}' if rel_path and path_exists else ''
+        open_link = f'<a class="endpoint-link" href="{href}">open</a>' if href else '<span class="dim">—</span>'
+        limit = _fmt_age(max_age_min) if max_age_min is not None else '—'
+        rows.append(
+            f'<tr>'
+            f'<td>{escape(name)}</td>'
+            f'<td class="mono">{escape(rel_path or "virtual")}</td>'
+            f'<td>{_status_pill(status)}</td>'
+            f'<td class="num">{_fmt_age(age_min)}</td>'
+            f'<td class="num">{limit}</td>'
+            f'<td>{escape(note)}</td>'
+            f'<td>{open_link}</td>'
+            f'</tr>'
+        )
+
+    monitored = [
+        ('Prompt Journal', 'logs/prompt_journal.jsonl', 30, 'operator prompt capture'),
+        ('Prompt Telemetry', 'logs/prompt_telemetry_latest.json', 10, 'latest prompt/session telemetry'),
+        ('Chat Compositions', 'logs/chat_compositions.jsonl', 30, 'draft keystroke composition stream'),
+        ('Edit Pairs', 'logs/edit_pairs.jsonl', 180, 'prompt ↔ file edit links'),
+        ('AI Responses', 'logs/ai_responses.jsonl', 60, 'model output log'),
+        ('Entropy Map', 'logs/entropy_map.json', 60, 'uncertainty surface'),
+        ('File Heat Map', 'file_heat_map.json', 60, 'touch / attention surface'),
+        ('Rework Log', 'rework_log.json', 60, 'response quality signal'),
+        ('Escalation State', 'logs/escalation_state.json', 60, 'autonomous escalation signal'),
+        ('Active Dossier', 'logs/active_dossier.json', 60, 'bug dossier surface'),
+        ('Latest Standup', 'logs/standups/latest_standup.json', 24 * 60, 'module standup chain'),
+        ('Latest Manifest Audit', 'logs/manifest_audits/latest_manifest.json', 24 * 60, 'forward/backward audit manifest'),
+    ]
+    for name, rel_path, max_age_min, note in monitored:
+        full = root / rel_path
+        ts = datetime.fromtimestamp(full.stat().st_mtime, tz=timezone.utc) if full.exists() else None
+        add_row(name, rel_path, max_age_min, note, ts=ts)
+
+    cp = root / '.github' / 'copilot-instructions.md'
+    if cp.exists():
+        text = cp.read_text('utf-8', errors='replace')
+        block_specs = [
+            ('Current Query Block', 'current-query', 10, r'Enriched (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) UTC', 'prompt enricher'),
+            ('Prompt Telemetry Block', 'prompt-telemetry', 10, r'"updated_at":\s*"([^"]+)"', 'prompt journal refresh'),
+            ('Task Context Block', 'task-context', 120, r'Auto-injected (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) UTC', 'dynamic prompt injection'),
+        ]
+        for name, block_key, max_age_min, pattern, note in block_specs:
+            block_match = re.search(
+                rf'<!-- pigeon:{re.escape(block_key)} -->([\s\S]*?)<!-- /pigeon:{re.escape(block_key)} -->',
+                text,
+            )
+            if not block_match:
+                add_row(name, '.github/copilot-instructions.md', max_age_min, f'{note} — missing block', exists=False, status='missing')
+                continue
+            ts_match = re.search(pattern, block_match.group(1))
+            ts = _parse_ts(ts_match.group(1) if ts_match else None)
+            add_row(name, '.github/copilot-instructions.md', max_age_min, note, ts=ts, exists=True, status='warning' if ts is None else None)
+
+    state_path = root / 'pigeon_brain' / 'learning_loop_state.json'
+    journal_path = root / 'logs' / 'prompt_journal.jsonl'
+    if state_path.exists() and journal_path.exists():
+        try:
+            state = json.loads(state_path.read_text('utf-8'))
+            journal_lines = sum(1 for line in journal_path.read_text('utf-8').splitlines() if line.strip())
+            processed = int(state.get('last_processed_line', 0))
+            queued = max(0, journal_lines - processed)
+            ts = _parse_ts(state.get('last_processed_ts') or state.get('updated_at'))
+            age_min = None if ts is None else max(0.0, (now - ts).total_seconds() / 60)
+            if queued > 20 or (age_min is not None and age_min > 24 * 60):
+                status = 'stale'
+            elif queued > 5 or (age_min is not None and age_min > 6 * 60):
+                status = 'warning'
+            else:
+                status = 'fresh'
+            add_row('Learning Loop', 'pigeon_brain/learning_loop_state.json', 24 * 60, f'{queued} queued journal entries', ts=ts, exists=True, status=status)
+        except Exception:
+            add_row('Learning Loop', 'pigeon_brain/learning_loop_state.json', 24 * 60, 'could not parse learning loop state', exists=True, status='warning')
+
+    try:
+        registry = json.loads((root / 'pigeon_registry.json').read_text('utf-8'))
+        heat = json.loads((root / 'file_heat_map.json').read_text('utf-8'))
+        entropy = json.loads((root / 'logs' / 'entropy_map.json').read_text('utf-8'))
+        coverage_set = set(heat.keys()) | {str(m.get('module')) for m in entropy.get('top_entropy_modules', [])}
+        total = len(registry.get('files', []))
+        coverage_pct = (len(coverage_set) / total * 100) if total else 0.0
+        status = 'stale' if coverage_pct < 10 else 'warning' if coverage_pct < 25 else 'fresh'
+        add_row('Signal Coverage', 'pigeon_registry.json', None, f'{len(coverage_set)}/{total} files with live signal coverage ({coverage_pct:.1f}%)', exists=True, status=status)
+    except Exception:
+        add_row('Signal Coverage', 'pigeon_registry.json', None, 'could not compute registry coverage', exists=True, status='warning')
+
+    summary_cards = f'''
+<div class="grid">
+  <div class="card"><div class="label">Fresh Endpoints</div><div class="val green">{counts['fresh']}</div><div class="sub">updating within expected windows</div></div>
+  <div class="card"><div class="label">Warnings</div><div class="val" style="color:#d29922">{counts['warning']}</div><div class="sub">aging or partially unreadable</div></div>
+  <div class="card"><div class="label">Stale / Missing</div><div class="val red">{counts['stale'] + counts['missing']}</div><div class="sub">needs writer refresh or repair</div></div>
+  <div class="card"><div class="label">Tracked Endpoints</div><div class="val blue">{sum(counts.values())}</div><div class="sub">all critical data feeds into the brain</div></div>
+</div>'''
+
+    return f'''
+<h2>Freshness Surface &amp; Data Endpoints</h2>
+<p class="dim" style="margin-bottom:12px">All critical write targets feeding the codebase brain — now visible directly in the vitals page.</p>
+{summary_cards}
+<div class="box" style="margin-bottom:12px">
+  <h3>Data Endpoints</h3>
+  <table>
+    <thead><tr><th>Surface</th><th>Path</th><th>Status</th><th class="num">Age</th><th class="num">Budget</th><th>Notes</th><th>Open</th></tr></thead>
+    <tbody>{''.join(rows)}</tbody>
+  </table>
+</div>'''
 
 
 def _build_narrative_section(root: Path) -> str:
@@ -213,7 +385,8 @@ def render_dashboard(root: Path, output: str | None = None) -> Path:
     spk_overcap = _sparkline_svg(over_cap_ts, color='#f85149')
     spk_imports = _sparkline_svg(import_ts, color='#58a6ff')
 
-    # Narrative layer
+    # Freshness + narrative layers
+    freshness_html = _build_freshness_section(root)
     narrative_html = _build_narrative_section(root)
 
     html = f'''<!DOCTYPE html>
@@ -275,6 +448,12 @@ td{{padding:4px 6px;border-bottom:1px solid var(--border)}}
 .tag.bug{{color:var(--red)}}
 .id-desc{{color:var(--dim);font-size:11px;padding-left:28px;margin-top:4px}}
 .identity-grid{{display:grid;grid-template-columns:1fr 1fr;gap:8px}}
+.status-pill{{display:inline-block;padding:2px 8px;border-radius:999px;font-size:10px;text-transform:uppercase;border:1px solid var(--border)}}
+.status-fresh{{color:var(--green)}}
+.status-warning{{color:var(--orange)}}
+.status-stale,.status-missing{{color:var(--red)}}
+.endpoint-link{{color:var(--blue);text-decoration:none}}
+.endpoint-link:hover{{text-decoration:underline}}
 
 @media(max-width:800px){{.row2,.identity-grid{{grid-template-columns:1fr}}}}
 </style>
@@ -326,6 +505,8 @@ td{{padding:4px 6px;border-bottom:1px solid var(--border)}}
     <div class="spark">{spk_files}</div>
   </div>
 </div>
+
+{freshness_html}
 
 <div class="row2">
   <div class="box">

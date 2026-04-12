@@ -12,13 +12,6 @@ Glyph: 虚 (xū) = void / emptiness — the gap is always the product.
 """
 from __future__ import annotations
 
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-09T03:50:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  split into 3 pigeon-compliant files
-# EDIT_AUTHOR: copilot
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 import json
 import sys

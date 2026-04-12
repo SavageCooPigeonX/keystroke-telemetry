@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from .tc_constants import ROOT, GEMINI_MODEL, GEMINI_TIMEOUT, LOG_PATH, THOUGHT_BUFFER_PATH
 from .tc_context import load_context
 from .tc_context_agent import select_context_files, build_code_context
-from .tc_profile import load_profile, format_profile_for_prompt, update_profile_from_completion
+from .tc_profile import load_profile, format_profile_for_prompt, update_profile_from_completion, format_intelligence_for_prompt
 
 
 def _load_api_key() -> str | None:
@@ -338,8 +338,14 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
                         rw_strs.append(str(r)[:60])
                 comp_parts.append(f'rewrites: {"; ".join(rw_strs)}')
             parts.append(f'COMPOSITION (what they typed then deleted — suppressed intent): {" | ".join(comp_parts)}')
+    if ctx.get('shard_context'):
+        parts.append(f'MEMORY SHARDS (learned patterns):\n{ctx["shard_context"][:500]}')
     if ctx.get('unsaid_threads'):
         parts.append(f'UNSAID: {"; ".join(ctx["unsaid_threads"][-2:])}')
+    # Interrogation answers — operator's stated decisions about modules
+    if ctx.get('interrogation_answers'):
+        ia_lines = [f'{a["module"]}: {a["answer"][:80]}' for a in ctx['interrogation_answers'][-5:]]
+        parts.append(f'OPERATOR DECISIONS (from interrogation room):\n' + '\n'.join(f'  {l}' for l in ia_lines))
     # Recent prompts — only last 2 to avoid topic saturation
     if ctx.get('recent_prompts'):
         recent = ctx['recent_prompts'][-2:]
@@ -361,6 +367,10 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
     profile_block = format_profile_for_prompt()
     if profile_block:
         parts.append(profile_block)
+    # intelligence file — discovered secrets, behavioral laws, section dossier
+    intel_block = format_intelligence_for_prompt(load_profile())
+    if intel_block:
+        parts.append(intel_block)
     if code_ctx:
         parts.append(code_ctx)
     if is_code:
@@ -376,6 +386,16 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
     if not api_key:
         return '', []
     ctx = load_context()
+    # Route memory shards by buffer intent (pure scoring, zero LLM)
+    try:
+        from ._resolve import src_import
+        _rc, _fsc = src_import("context_router_seq027", "route_context", "format_shard_context")
+        _shards = _rc(ROOT, buffer, top_n=3)
+        _shard_text = _fsc(_shards)
+        if _shard_text:
+            ctx['shard_context'] = _shard_text
+    except Exception:
+        pass
     # Record session intent for trajectory building
     if thought_buffer:
         thought_buffer.record_session_intent(ctx)

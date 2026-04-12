@@ -5,6 +5,9 @@ from pathlib import Path
 import json
 import re
 
+from .忆p_qm_co_s001_v002_d0329_λH import QUERY_STORE, MAX_ENTRIES
+from .忆p_qm_fi_s002_v002_d0329_λH import _fingerprint
+
 def record_query(root: Path, query_text: str, submitted: bool,
                  unsaid: dict | None = None) -> None:
     """Persist a query + optional unsaid analysis to query_memory.json."""

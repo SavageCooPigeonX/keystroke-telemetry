@@ -7,7 +7,7 @@
   "repository": "https://github.com/SavageCooPigeonX/keystroke-telemetry",
   "engines": { "vscode": "^1.90.0" },
   "categories": ["AI", "Other"],
-  "activationEvents": ["onStartupFinished", "onCommand:pigeon.openChat", "onCommand:pigeon.showOperatorState", "onCommand:pigeon.showEntropyChart"],
+  "activationEvents": ["onStartupFinished", "onCommand:pigeon.openChat", "onCommand:pigeon.showOperatorState", "onCommand:pigeon.showEntropyChart", "onCommand:pigeon.showFreshnessSurface"],
   "main": "./out/extension",
   "contributes": {
     "chatParticipants": [
@@ -33,6 +33,10 @@
         "title": "Pigeon: Show Per-File Entropy Chart"
       },
       {
+        "command": "pigeon.showFreshnessSurface",
+        "title": "Pigeon: Show Freshness Surface"
+      },
+      {
         "command": "pigeon.cascadeScaleUp",
         "title": "Pigeon: Cascade Scale Up"
       },
@@ -53,6 +57,16 @@
         "title": "Pigeon: Cascade Standup — What's Going On"
       }
     ],
+    "configuration": {
+      "title": "Pigeon Chat",
+      "properties": {
+        "pigeon.openFreshnessSurfaceOnStartup": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically open the Pigeon freshness surface when the extension activates."
+        }
+      }
+    },
     "keybindings": [
       {
         "command": "pigeon.openChat",

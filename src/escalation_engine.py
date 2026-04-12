@@ -14,13 +14,6 @@ Levels:
 
 Trigger: called from git_plugin post-commit, BEFORE auto-commit.
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-06T15:10:00Z
-# EDIT_HASH: auto
-# EDIT_WHY:  initial escalation engine build
-# EDIT_AUTHOR: copilot
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 from __future__ import annotations
 import json, shutil, subprocess, importlib.util
@@ -561,6 +554,28 @@ def check_and_escalate(root: Path, registry: dict = None, changed_py: list = Non
     actions = []
     warnings_issued = []
 
+    # ── zombie clearing: re-verify modules whose bugs may have been fixed ──
+    cleared = []
+    for mod_name in list(state['modules'].keys()):
+        mod_st = state['modules'][mod_name]
+        bt = mod_st.get('bug_type', '')
+        # only re-verify modules at high escalation with failed fixes
+        if mod_st.get('level', 0) >= 4 and mod_st.get('fix_result'):
+            fr = mod_st['fix_result']
+            if not fr.get('success'):
+                # check if the bug still exists in current persistence/dossier
+                still_buggy = (mod_name in persistence or mod_name in dossier)
+                if not still_buggy:
+                    cleared.append(mod_name)
+                    _append_log(root, {
+                        'event': 'zombie_cleared', 'module': mod_name,
+                        'bug_type': bt, 'old_level': mod_st['level'],
+                        'reason': 'bug no longer appears in any scan',
+                    })
+                    del state['modules'][mod_name]
+    if cleared:
+        _save_state(root, state)
+
     # build the set of modules with known persistent bugs
     all_modules = set()
     for mod in persistence:
@@ -871,6 +886,23 @@ if __name__ == '__main__':
             for g in gates:
                 print(f"    {g}")
             print()
+    elif '--clear-zombies' in sys.argv:
+        state = _load_state(root)
+        persistence = _load_bug_persistence(root)
+        dossier = _load_dossier(root)
+        cleared = []
+        for mod_name in list(state.get('modules', {}).keys()):
+            still_buggy = (mod_name in persistence or mod_name in dossier)
+            if not still_buggy:
+                cleared.append(mod_name)
+                del state['modules'][mod_name]
+        if cleared:
+            _save_state(root, state)
+            print(f'cleared {len(cleared)} zombie(s):')
+            for c in cleared:
+                print(f'  - {c}')
+        else:
+            print('no zombies found — all escalated modules have active bugs')
     else:
         result = check_and_escalate(root)
         print(json.dumps(result, indent=2, ensure_ascii=False))

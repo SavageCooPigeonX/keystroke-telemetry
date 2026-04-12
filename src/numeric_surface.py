@@ -20,6 +20,68 @@ def _load_json(path: Path) -> dict | list:
     return {}
 
 
+def _rebuild_graph_cache(root: Path) -> dict:
+    """Rebuild graph_cache.json from the latest graph extractor when stale."""
+    import importlib.util
+
+    brain_dir = root / "pigeon_brain"
+    cache_path = brain_dir / "graph_cache.json"
+    candidates = sorted(
+        brain_dir.glob("图p_ge_s*_v*.py"),
+        key=lambda p: p.stat().st_mtime,
+        reverse=True,
+    )
+    for candidate in candidates:
+        try:
+            spec = importlib.util.spec_from_file_location("_graph_extractor", candidate)
+            if not spec or not spec.loader:
+                continue
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            build_graph = getattr(mod, "build_graph", None)
+            if not callable(build_graph):
+                continue
+            graph = build_graph(root)
+            if isinstance(graph, dict) and isinstance(graph.get("nodes"), dict):
+                cache_path.parent.mkdir(parents=True, exist_ok=True)
+                cache_path.write_text(json.dumps(graph, indent=2, ensure_ascii=False), encoding="utf-8")
+                return graph
+        except Exception:
+            continue
+    return {}
+
+
+def _load_or_rebuild_graph(root: Path, registry: dict | list) -> dict:
+    """Load graph_cache.json, but self-heal when coverage is obviously stale."""
+    cache_path = root / "pigeon_brain" / "graph_cache.json"
+    graph = _load_json(cache_path)
+    if not isinstance(graph, dict):
+        graph = {}
+    nodes = graph.get("nodes", {}) if isinstance(graph.get("nodes"), dict) else {}
+
+    reg_files = registry.get("files", []) if isinstance(registry, dict) else registry
+    reg_names = {
+        f.get("name", "")
+        for f in (reg_files if isinstance(reg_files, list) else [])
+        if f.get("name")
+    }
+    missing = reg_names - set(nodes)
+
+    cache_stale = not cache_path.exists()
+    if not cache_stale and (root / "pigeon_registry.json").exists():
+        try:
+            cache_stale = cache_path.stat().st_mtime < (root / "pigeon_registry.json").stat().st_mtime
+        except OSError:
+            cache_stale = False
+
+    coverage_bad = bool(reg_names) and len(missing) > max(10, int(len(reg_names) * 0.05))
+    if not cache_stale and not coverage_bad:
+        return graph
+
+    rebuilt = _rebuild_graph_cache(root)
+    return rebuilt or graph
+
+
 def _build_dual_lookup(root: Path) -> dict[str, dict]:
     """Load dual_view.json and return name→node dict."""
     dv = root / "pigeon_brain" / "dual_view.json"
@@ -80,9 +142,9 @@ def _compressed_traversal(surface: dict, top_n: int = 12) -> list[str]:
 
 def generate_surface(root: Path) -> Path:
     """Build numeric_surface.json — pure numeric topology of the codebase."""
-    graph = _load_json(root / "pigeon_brain" / "graph_cache.json")
-    heat_map = _load_json(root / "file_heat_map.json")
     registry = _load_json(root / "pigeon_registry.json")
+    graph = _load_or_rebuild_graph(root, registry)
+    heat_map = _load_json(root / "file_heat_map.json")
     dual = _build_dual_lookup(root)
 
     graph_nodes = graph.get("nodes", {}) if isinstance(graph, dict) else {}

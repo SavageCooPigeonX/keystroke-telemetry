@@ -15,9 +15,11 @@ Usage:
     py src/profile_chat_server.py [--port 8234]
 
 Endpoints:
-    POST /chat     — conversation with a module (LLM-backed)
-    POST /forward  — aggregate all state files → inject into copilot prompt
-    GET  /state    — dump all module state files
+    POST /chat      — conversation with a module (LLM-backed)
+    POST /forward   — aggregate all state files → inject into copilot prompt
+    POST /standup   — cascade standup across urgent modules
+    POST /audit     — chained manifest audit doc from major modules
+    GET  /state     — dump all module state files
 """
 from __future__ import annotations
 import json
@@ -42,6 +44,7 @@ _graph_name_map: dict = {}  # graph_cache node name → identity name
 
 
 STATE_DIR = ROOT / 'logs' / 'module_state'
+AUDIT_DIR = ROOT / 'logs' / 'manifest_audits'
 FORWARD_PASS_PATH = ROOT / '.github' / 'copilot-instructions.md'
 FORWARD_BLOCK_START = '<!-- pigeon:operator-intent -->'
 FORWARD_BLOCK_END = '<!-- /pigeon:operator-intent -->'
@@ -618,6 +621,273 @@ Tag any discoveries: [INTENT] [PAIN] [DECISION] [PLAN] [UNKNOWN]
     return chain
 
 
+def _edge_names(items, limit: int = 4) -> list[str]:
+    names = []
+    for item in items[:limit]:
+        if isinstance(item, dict):
+            raw = item.get('name') or item.get('module') or item.get('target') or item.get('path') or ''
+        else:
+            raw = str(item)
+        if not raw:
+            continue
+        raw = raw.replace('\\', '/')
+        raw = Path(raw).stem if '/' in raw or raw.endswith('.py') else raw
+        if raw not in names:
+            names.append(raw)
+    return names
+
+
+def _pick_major_modules(n: int = 6) -> list[dict]:
+    """Pick central/high-drama modules for a manifest audit.
+
+    Unlike standup (urgency-first), this favors architectural importance:
+    coupling, import centrality, bugs, entropy, and file size.
+    """
+    identities = _load_identities()
+    if not identities:
+        return []
+
+    scored = []
+    for name, ident in identities.items():
+        partners = ident.get('partners', []) or []
+        edges_in = ident.get('edges_in', []) or []
+        edges_out = ident.get('edges_out', []) or []
+        bugs = ident.get('bugs', []) or []
+        deaths = ident.get('deaths', []) or []
+        entropy = float(ident.get('entropy', 0.0) or ident.get('entropy_data', {}).get('avg_entropy', 0.0) or 0.0)
+        tokens = float(ident.get('tokens', 0) or 0)
+        version = float(ident.get('ver', 0) or 0)
+
+        score = (
+            len(edges_in) * 2.0
+            + len(edges_out) * 1.3
+            + len(partners) * 1.4
+            + len(bugs) * 1.5
+            + len(deaths) * 1.2
+            + entropy * 5.0
+            + min(tokens / 1000.0, 2.5)
+            + min(version * 0.15, 1.5)
+        )
+        if score > 2.0:
+            scored.append({'name': name, 'score': round(score, 3), 'ident': ident})
+
+    scored.sort(key=lambda x: x['score'], reverse=True)
+    return scored[:n]
+
+
+def _extract_manifest_block(text: str) -> dict | None:
+    import re
+    m = re.search(r'```manifest\s*(\{.*?\})\s*```', text, re.DOTALL)
+    if not m:
+        return None
+    try:
+        data = json.loads(m.group(1))
+    except Exception:
+        return None
+    return data if isinstance(data, dict) else None
+
+
+def _build_manifest_fallback(name: str, ident: dict, score: float, response: str) -> dict:
+    desc = ident.get('desc', '').strip() or 'module role unclear — needs audit'
+    risks = list(dict.fromkeys((ident.get('bugs', []) or []) + (ident.get('fears', []) or [])))[:4]
+    return {
+        'module': name,
+        'purpose': desc[:180],
+        'depends_on': _edge_names(ident.get('edges_out', []) or []),
+        'feeds_into': _edge_names(ident.get('edges_in', []) or []),
+        'risks': risks or ['no explicit risks logged'],
+        'operator_ask': 'stabilize contracts and reduce recurring uncertainty',
+        'audit_priority': 'high' if score > 10 else 'medium' if score > 5 else 'low',
+        'voice': response[:220].strip(),
+    }
+
+
+def _build_backward_audit(forward_nodes: list[dict]) -> list[dict]:
+    """Deterministic backward pass over the manifest graph.
+
+    Forward pass lets modules write their own manifest entries.
+    Backward pass walks the chain in reverse and traces who depends on whom.
+    """
+    reverse = []
+    for node in reversed(forward_nodes):
+        manifest = node.get('manifest', {})
+        mod = node['module']
+        depends = [d for d in manifest.get('depends_on', []) if d]
+        feeds = [f for f in manifest.get('feeds_into', []) if f]
+
+        downstream_consumers = [
+            other['module'] for other in forward_nodes
+            if other['module'] != mod and mod in (other.get('manifest', {}).get('depends_on', []) or [])
+        ]
+        upstream_suppliers = [
+            other['module'] for other in forward_nodes
+            if other['module'] != mod and mod in (other.get('manifest', {}).get('feeds_into', []) or [])
+        ]
+
+        note_bits = []
+        if depends:
+            note_bits.append(f"depends on {', '.join(depends[:3])}")
+        if feeds:
+            note_bits.append(f"feeds into {', '.join(feeds[:3])}")
+        if downstream_consumers:
+            note_bits.append(f"blocks {', '.join(downstream_consumers[:3])} if it drifts")
+        risks = manifest.get('risks', []) or []
+        if risks:
+            note_bits.append(f"top risk: {risks[0]}")
+
+        reverse.append({
+            'module': mod,
+            'upstream': upstream_suppliers[:5],
+            'downstream': downstream_consumers[:5],
+            'note': '; '.join(note_bits) or 'isolated node — weakly connected but still part of organism state',
+        })
+    return reverse
+
+
+def _build_audit_doc(forward_nodes: list[dict], backward_nodes: list[dict], operator_name: str) -> str:
+    ts = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+    lines = [
+        '# Chained Organism Audit Manifest',
+        '',
+        f'*generated {ts} · operator={operator_name} · forward+backward chain*',
+        '',
+        '## Summary Table',
+        '',
+        '| Module | Priority | Purpose | Depends On | Feeds Into | Risks |',
+        '|---|---|---|---|---|---|',
+    ]
+
+    for node in forward_nodes:
+        mf = node.get('manifest', {})
+        lines.append(
+            f"| `{node['module']}` | {mf.get('audit_priority', 'unknown')} | "
+            f"{str(mf.get('purpose', 'n/a')).replace('|', '/')} | "
+            f"{', '.join(mf.get('depends_on', [])[:3]) or '—'} | "
+            f"{', '.join(mf.get('feeds_into', [])[:3]) or '—'} | "
+            f"{', '.join(mf.get('risks', [])[:2]) or '—'} |"
+        )
+
+    lines.extend(['', '## Forward Chain — module self-reports', ''])
+    for idx, node in enumerate(forward_nodes, 1):
+        mf = node.get('manifest', {})
+        lines.extend([
+            f"### {idx}. `{node['module']}`",
+            f"- **Purpose:** {mf.get('purpose', 'n/a')}",
+            f"- **Depends on:** {', '.join(mf.get('depends_on', [])[:5]) or 'none logged'}",
+            f"- **Feeds into:** {', '.join(mf.get('feeds_into', [])[:5]) or 'none logged'}",
+            f"- **Risks:** {', '.join(mf.get('risks', [])[:5]) or 'none logged'}",
+            f"- **Ask from {operator_name}:** {mf.get('operator_ask', 'n/a')}",
+            '',
+            '> ' + node.get('response', '').replace('\n', '\n> '),
+            ''
+        ])
+
+    lines.extend(['## Backward Pass — dependency trace', ''])
+    for item in backward_nodes:
+        lines.extend([
+            f"### `{item['module']}` reverse trace",
+            f"- **Upstream:** {', '.join(item.get('upstream', [])[:5]) or 'none'}",
+            f"- **Downstream:** {', '.join(item.get('downstream', [])[:5]) or 'none'}",
+            f"- **Audit note:** {item.get('note', 'n/a')}",
+            ''
+        ])
+
+    lines.extend(['## Operator actions worth taking next', ''])
+    seen = set()
+    for node in forward_nodes:
+        ask = str(node.get('manifest', {}).get('operator_ask', '')).strip()
+        if ask and ask not in seen:
+            seen.add(ask)
+            lines.append(f'- {ask}')
+    if len(seen) == 0:
+        lines.append('- no explicit asks surfaced; inspect highest-priority modules first')
+
+    return '\n'.join(lines).strip() + '\n'
+
+
+def _run_manifest_audit(roster: list[dict], operator_name: str = 'percy') -> dict:
+    """Let major modules write a chained manifest, then backtrace it into an audit doc."""
+    forward_nodes: list[dict] = []
+    chain_context = ''
+
+    for entry in roster:
+        name = entry['name']
+        ident = entry['ident']
+        score = entry['score']
+        state = _load_state(name)
+        base_prompt = _build_system_prompt(ident, state)
+
+        audit_instruction = f"""
+== CHAINED MANIFEST AUDIT MODE ==
+The operator ({operator_name}) wants a real audit doc written by the major modules themselves.
+You are contributing ONE manifest node in a forward chain.
+
+Write:
+1. 2-4 sentences in first person about your status and architectural role.
+2. Then emit a strict JSON block in a fenced code block labelled `manifest`.
+
+JSON schema:
+```manifest
+{{
+  "module": "{name}",
+  "purpose": "one sentence",
+  "depends_on": ["upstream_module"],
+  "feeds_into": ["downstream_module"],
+  "risks": ["key risk"],
+  "operator_ask": "one concrete ask for {operator_name}",
+  "audit_priority": "low|medium|high"
+}}
+```
+
+{f'Previous manifest nodes:\n{chain_context}' if chain_context else 'You are writing the first manifest node in the forward chain.'}
+Keep it specific to your code, bugs, imports, and partners.
+"""
+
+        response = _call_gemini(base_prompt + '\n\n' + audit_instruction.strip(), [], f'audit manifest: write your node, {name}')
+        manifest = _extract_manifest_block(response) or _build_manifest_fallback(name, ident, score, response)
+        manifest['module'] = name
+        forward_nodes.append({
+            'module': name,
+            'score': score,
+            'response': response,
+            'manifest': manifest,
+        })
+
+        chain_context += (
+            f"- {name}: purpose={manifest.get('purpose', 'n/a')}; "
+            f"depends_on={', '.join(manifest.get('depends_on', [])[:3]) or 'none'}; "
+            f"feeds_into={', '.join(manifest.get('feeds_into', [])[:3]) or 'none'}; "
+            f"risks={', '.join(manifest.get('risks', [])[:2]) or 'none'}\n"
+        )
+
+    backward_nodes = _build_backward_audit(forward_nodes)
+    doc = _build_audit_doc(forward_nodes, backward_nodes, operator_name)
+
+    AUDIT_DIR.mkdir(parents=True, exist_ok=True)
+    ts = datetime.now(timezone.utc)
+    md_path = AUDIT_DIR / f'audit_{ts.strftime("%Y%m%d_%H%M%S")}.md'
+    json_path = AUDIT_DIR / f'audit_{ts.strftime("%Y%m%d_%H%M%S")}.json'
+    latest_md = AUDIT_DIR / 'latest_audit.md'
+    latest_json = AUDIT_DIR / 'latest_manifest.json'
+
+    payload = {
+        'ts': ts.isoformat(),
+        'operator': operator_name,
+        'roster': [{'module': e['name'], 'score': e['score']} for e in roster],
+        'forward': forward_nodes,
+        'backward': backward_nodes,
+        'doc_path': str(md_path),
+        'manifest_path': str(json_path),
+    }
+
+    md_path.write_text(doc, 'utf-8')
+    json_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), 'utf-8')
+    latest_md.write_text(doc, 'utf-8')
+    latest_json.write_text(json.dumps(payload, indent=2, ensure_ascii=False), 'utf-8')
+
+    return payload
+
+
 class ChatHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/state':
@@ -632,6 +902,8 @@ class ChatHandler(BaseHTTPRequestHandler):
             self._handle_forward()
         elif self.path == '/standup':
             self._handle_standup()
+        elif self.path == '/audit':
+            self._handle_audit()
         else:
             self.send_error(404)
 
@@ -659,6 +931,26 @@ class ChatHandler(BaseHTTPRequestHandler):
             'roster_size': len(roster),
             'operator': operator_name,
         })
+
+    def _handle_audit(self):
+        """Generate a chained manifest audit doc from major modules."""
+        length = int(self.headers.get('Content-Length', 0))
+        req = {}
+        if length > 0:
+            try:
+                req = json.loads(self.rfile.read(length))
+            except Exception:
+                pass
+
+        n = min(int(req.get('n', 6)), 8)
+        operator_name = str(req.get('name', 'percy'))[:50]
+        roster = _pick_major_modules(n)
+        if not roster:
+            self._json_response({'status': 'no major modules found', 'forward': [], 'backward': []})
+            return
+
+        result = _run_manifest_audit(roster, operator_name)
+        self._json_response(result)
 
     def _handle_forward(self):
         """Aggregate all state files and inject into copilot-instructions.md."""
@@ -789,7 +1081,7 @@ def main():
 
     server = ThreadedHTTPServer(('127.0.0.1', port), ChatHandler)
     print(f'[probe] server running on http://localhost:{port}')
-    print(f'[probe] endpoints: POST /chat, POST /forward, POST /standup, GET /state')
+    print(f'[probe] endpoints: POST /chat, POST /forward, POST /standup, POST /audit, GET /state')
     print(f'[probe] gemini model: {GEMINI_MODEL}')
     print(f'[probe] API key: {"found" if _load_api_key() else "MISSING — set GEMINI_API_KEY in .env"}')
     print(f'[probe] serving {len(_load_identities())} module identities')

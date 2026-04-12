@@ -104,9 +104,13 @@ def main():
     
     print()
     still_over = [(new, path) for delta, orig, new, path in biggest_wins if new > 200]
-    still_over += [(orig, str(f)) for f in files 
-                   if (orig := len(f.read_text('utf-8').splitlines())) > 200 
-                   and str(f) not in [p for _, p in biggest_wins]]
+    changed_paths = {path for _, _, _, path in biggest_wins}
+    still_over += [
+        (orig, str(f))
+        for f in files
+        if (orig := len(f.read_text('utf-8').splitlines())) > 200
+        and str(f) not in changed_paths
+    ]
     
     if not DRY_RUN:
         print(f"  [{files_changed} files compressed on disk]")

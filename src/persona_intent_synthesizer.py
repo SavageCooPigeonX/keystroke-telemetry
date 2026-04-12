@@ -6,11 +6,6 @@ and produces a compact block for injection into copilot-instructions.md.
 Called by: dynamic_prompt pipeline, post-chat hooks
 Outputs: logs/persona_intents_latest.json + copilot-injectable block
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# ── /pulse ──
 
 from pathlib import Path
 import json

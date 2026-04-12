@@ -1385,6 +1385,37 @@ def run():
     except Exception as e:
         print(f'  ⚠️  pulse harvest: {e}')
 
+    # ── Interlink check: run self-tests on touched modules ──
+    try:
+        interlink_mod = _load_glob_module(root, 'src', 'interlinker*')
+        if interlink_mod and changed_py:
+            interlinked = 0
+            for cp in changed_py[:10]:  # cap at 10 files
+                fp = root / cp
+                if fp.exists() and fp.suffix == '.py':
+                    try:
+                        result = interlink_mod.interlink_module(fp, root)
+                        if result.get('state') == 'interlinked':
+                            interlinked += 1
+                    except Exception:
+                        pass
+            if interlinked:
+                print(f'  🔗 interlink → {interlinked} module(s) interlinked')
+    except Exception as e:
+        print(f'  ⚠️  interlink check: {e}')
+
+    # ── Organism test upgrade: LLM rewrites baseline tests autonomously ──
+    try:
+        upgrade_mod = _load_glob_module(root, 'src', 'interlinker_upgrade*')
+        if upgrade_mod and changed_py:
+            changed_fps = [root / cp for cp in changed_py if (root / cp).exists()]
+            results = upgrade_mod.run_upgrade_cycle(root, changed_fps)
+            upgraded = sum(1 for r in results if r.get('upgraded'))
+            if upgraded:
+                print(f'  🧬 organism → {upgraded} test(s) upgraded')
+    except Exception as e:
+        print(f'  ⚠️  organism upgrade: {e}')
+
     # ── Push narrative + coaching + operator state ──
     all_changed_code = changed_py + [f for f in changed
                                       if f.endswith(('.py', '.ts', '.js'))

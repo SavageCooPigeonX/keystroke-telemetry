@@ -10,6 +10,7 @@ Zero LLM calls — pure signal cross-referencing.
 from __future__ import annotations
 import json
 import re
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -29,6 +30,10 @@ MIN_TEXT_MATCH_SCORE = 0.4   # lowered: partial prompt text often matches loosel
 
 PROMPT_BLOCK_START = '<!-- pigeon:prompt-telemetry -->'
 PROMPT_BLOCK_END = '<!-- /pigeon:prompt-telemetry -->'
+TASK_COMPLETE_HOOK_MARKERS = (
+    'you were about to complete but a hook blocked you with the following message',
+    'you have not yet marked the task as complete using the task_complete tool',
+)
 
 # Intent keywords → category
 INTENT_MAP = {
@@ -56,6 +61,17 @@ def _classify_intent(msg: str) -> str:
     return 'unknown'
 
 
+def _is_meta_hook_message(msg: str) -> bool:
+    low = msg.lower()
+    return all(marker in low for marker in TASK_COMPLETE_HOOK_MARKERS)
+
+
+def _is_operator_entry(entry: dict) -> bool:
+    if entry.get('prompt_kind') == 'meta_hook':
+        return False
+    return not _is_meta_hook_message(str(entry.get('msg', '')))
+
+
 def _extract_module_refs(msg: str) -> list[str]:
     """Pull module names mentioned in the prompt text."""
     # Match pigeon module patterns and common module references
@@ -81,6 +97,20 @@ def _read_jsonl(path: Path) -> list[dict]:
         return entries
     except Exception:
         return []
+
+
+def _should_skip_duplicate_meta_prompt(root: Path, msg: str, meta_prompt_kind: str | None) -> bool:
+    if not meta_prompt_kind:
+        return False
+    entries = _read_jsonl(root / JOURNAL_PATH)
+    if not entries:
+        return False
+    last = entries[-1]
+    if last.get('msg') != msg:
+        return False
+    if last.get('meta_prompt_kind') == meta_prompt_kind:
+        return True
+    return _is_meta_hook_message(str(last.get('msg', '')))
 
 
 def _parse_timestamp_ms(value) -> int | None:
@@ -303,6 +333,7 @@ def _running_stats(root: Path) -> dict:
         entries = [json.loads(l) for l in open(p, encoding='utf-8') if l.strip()]
     except Exception:
         return {}
+    entries = [entry for entry in entries if _is_operator_entry(entry)]
     if not entries:
         return {}
     n = len(entries)
@@ -387,6 +418,7 @@ def _predict_next_issues(root: Path, current_intent: str, current_refs: list[str
     3. Modules with high heat + recent mention = likely next struggle
     """
     entries = _read_jsonl(root / JOURNAL_PATH)
+    entries = [entry for entry in entries if _is_operator_entry(entry)]
     if len(entries) < 10:
         return []
 
@@ -620,6 +652,7 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
     3. Enriched entry is tagged with provenance markers
     """
     now = datetime.now(timezone.utc)
+    meta_prompt_kind = 'task_complete_hook' if _is_meta_hook_message(msg) else None
     _force_fresh_composition(root)
     _refresh_prompt_compositions(root)
     comp_match = _select_composition(root, now, msg, session_n=session_n)
@@ -687,9 +720,10 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
         'msg':              msg,
         'msg_len':          len(msg),
         'files_open':       files_open,
+        'prompt_kind':      'meta_hook' if meta_prompt_kind else 'operator',
         # ── classification (DERIVED — not in raw signal) ──
-        'intent':           _classify_intent(msg),
-        'module_refs':      _extract_module_refs(msg),
+        'intent':           'meta' if meta_prompt_kind else _classify_intent(msg),
+        'module_refs':      [] if meta_prompt_kind else _extract_module_refs(msg),
         'cognitive_state':  cog_state,
         # ── typing signals (MEASURED — also in raw signal) ──
         'signals':          signals,
@@ -710,12 +744,20 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
                          'task_queue', 'hot_modules', 'prompt_mutations', 'running'],
         },
     }
+    if meta_prompt_kind:
+        entry['meta_prompt_kind'] = meta_prompt_kind
+
+    if _should_skip_duplicate_meta_prompt(root, msg, meta_prompt_kind):
+        return entry
 
     # Append
     journal_path = root / JOURNAL_PATH
     journal_path.parent.mkdir(parents=True, exist_ok=True)
     with open(journal_path, 'a', encoding='utf-8') as f:
         f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+
+    if meta_prompt_kind:
+        return entry
 
     entry['_root'] = root  # transient — used by _build_snapshot for coaching bullets
     snapshot = _build_snapshot(entry)
@@ -747,10 +789,18 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
                 f'deleted_words=json.loads(sys.argv[3]), '
                 f'cognitive_state=json.loads(sys.argv[4]))'
             )
-            _sp.Popen(
-                ['py', '-c', _script, str(root), msg, _del_json, _cog_json],
-                stdout=_sp.DEVNULL, stderr=_sp.DEVNULL,
+            _proc = _sp.run(
+                [sys.executable, '-c', _script, str(root), msg, _del_json, _cog_json],
+                capture_output=True,
+                text=True,
+                timeout=20,
+                check=False,
             )
+            if _proc.returncode != 0:
+                _err = (_proc.stderr or _proc.stdout or '').strip()
+                if not _err:
+                    _err = f'enricher exited with code {_proc.returncode}'
+                raise RuntimeError(_trim_text(_err, 400))
     except Exception as _enrich_err:
         # Log enricher failures so they're not invisible
         try:

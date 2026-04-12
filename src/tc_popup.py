@@ -166,6 +166,13 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
             self.root.bind('<Control-z>', self._accept)
             self.root.bind('<Control-Z>', self._accept)
             self.root.bind('<Control-q>', lambda e: self._quit())
+            # Global hotkeys — fire even when popup is not focused
+            try:
+                import keyboard as _kb
+                _kb.add_hotkey('ctrl+z', lambda: self.root.after(0, self._accept), suppress=False)
+                _kb.add_hotkey('ctrl+shift+x', lambda: self.root.after(0, self._dismiss), suppress=False)
+            except Exception as _e:
+                print(f'[completer] global hotkeys unavailable: {_e}')
 
         def _drag_start(self, event):
             self.drag_x = event.x

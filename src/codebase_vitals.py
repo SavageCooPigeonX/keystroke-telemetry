@@ -4,13 +4,6 @@ On each push: snapshot compliance, entropy, bugs, import health, module count.
 Append to logs/codebase_vitals.jsonl for time-series trending.
 Read by vitals_renderer.py to generate the brain stats dashboard.
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-06T02:15:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  new vitals accumulator
-# EDIT_AUTHOR: copilot
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 import ast
 import json

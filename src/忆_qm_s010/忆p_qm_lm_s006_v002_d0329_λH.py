@@ -5,6 +5,8 @@ from pathlib import Path
 import json
 import re
 
+from .忆p_qm_co_s001_v002_d0329_λH import QUERY_STORE, RECUR_THRESH
+
 def load_query_memory(root: Path) -> dict:
     """Load and aggregate query memory → summary for coaching prompt."""
     store_path = root / QUERY_STORE

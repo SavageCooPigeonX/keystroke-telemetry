@@ -7,12 +7,20 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-10 19:30 UTC — 1 block(s) stale or missing*
+*Checked 2026-04-12 01:49 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`learning-loop`**: BEHIND — 418 unprocessed entries, last ran 349h ago
+- **`current-query`**: STALE — 36min old (max 10min)
+  - Writer: `prompt_enricher (Gemini Flash)`
+  - Last updated: 2026-04-12 01:14
+
+- **`prompt-telemetry`**: STALE — 36min old (max 10min)
+  - Writer: `prompt_journal._refresh_copilot_instructions`
+  - Last updated: 2026-04-12T01:13:46
+
+- **`learning-loop`**: BEHIND — 475 unprocessed entries, last ran 379h ago
   - Writer: `git_plugin → catch_up (post-commit)`
   - Last updated: 2026-03-27T06:44:45.066753+00:00
 
@@ -81,7 +89,7 @@ When the **Unsaid Threads** section (in `<!-- pigeon:current-query -->
 <!-- pigeon:narrative-glove -->
 ## Organism Consciousness
 
-*2026-04-10 19:30 UTC — synthesized from all live signals, zero LLM calls*
+*2026-04-12 01:13 UTC — synthesized from all live signals, zero LLM calls*
 
 > the organism is recovering — health 50/100. 50% compliant but 122 bugs still breathing. 8 module(s) took autonomous action — the organism is deciding for itself. entropy at 0.30 — the codebase knows what it is, mostly. recent escalation: task_writer(failure), task_writer(autonomous_fix), run_heal(failure).
 
@@ -229,7 +237,7 @@ operator intent → keystroke telemetry → semantic compression → LLM code ge
 <!-- pigeon:narrative-glove -->
 ## Organism Consciousness
 
-*2026-04-10 19:30 UTC — synthesized from all live signals, zero LLM calls*
+*2026-04-12 01:13 UTC — synthesized from all live signals, zero LLM calls*
 
 > the organism is recovering — health 50/100. 50% compliant but 122 bugs still breathing. 8 module(s) took autonomous action — the organism is deciding for itself. entropy at 0.30 — the codebase knows what it is, mostly. recent escalation: task_writer(failure), task_writer(autonomous_fix), run_heal(failure).
 
@@ -237,57 +245,42 @@ operator intent → keystroke telemetry → semantic compression → LLM code ge
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Enriched 2026-04-10 19:30 UTC · raw: "yes"*
+*Enriched 2026-04-12 01:14 UTC · raw: "what does it take for the code to start taking action without approval - what is"*
 
-**COPILOT_QUERY: Confirm the previous prompt's implied action. Proceed with the audit of the last 8 prompts and organism health check, then commit and push the changes as previously requested.**
+**COPILOT_QUERY: Explain the current state of the agent's execution flow. Specifically, detail what steps are required for the agent to transition from a "dry run" or approval-gated state to automatically taking action, referencing the `--execute` flag or similar mechanisms if they exist within the `追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_format_report_seq002_v001` module or related components.**
 
-UNSAID_RECONSTRUCTION: yes, do it.
+UNSAID_RECONSTRUCTION: the agent isn't firing / processing my work, what does it take for the code to start taking action without approval - what is ready to roll?
 
-INTERPRETED INTENT: The operator is confirming the previous complex multi-step prompt and wants Copilot to execute it.
-KEY FILES: none
-PRIOR ATTEMPTS: none
-WATCH OUT FOR: Copilot might interpret "yes" as a standalone confirmation without linking it to the previous multi-step request.
-OPERATOR SIGNAL: The operator's low WPM and high deletion ratio for "yes" suggest a slight hesitation or simplification of a more complex confirmation.
+INTERPRETED INTENT: The operator wants to understand how to enable autonomous execution of the agent, bypassing manual approval or dry run modes.
+KEY FILES: 追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_format_report_seq002_v001.py, copilot_prompt_manager_seq020_v003_d0402__compatibility_wrapper_for_the_legacy_lc_restore_rename_safe.py, persona_intent_synthesizer.py
+PRIOR ATTEMPTS: The previous attempt focused on setting a universal goal for files, which did not address the agent's execution autonomy.
+WATCH OUT FOR: Copilot might focus on general agent capabilities rather than the specific mechanism for enabling automatic execution (e.g., `--execute` flags or configuration).
+OPERATOR SIGNAL: The deleted words and trajectory indicate frustration with the agent's lack of independent action and the need for manual intervention.
 <!-- /pigeon:current-query -->
-
 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-10 19:30 UTC · 471 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-12 01:50 UTC · 544 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 50.8 | Del: 26.5% | Hes: 0.489) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 48.4 | Del: 26.5% | Hes: 0.495) · *[source: measured]*
 
-**Prompt ms:** 151788, 22524, 72919, 98834, 241157 (avg 117444ms)
+**Prompt ms:** 9019, 4538, 189128, 16773, 34783 (avg 50848ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
-### Unsaid Threads
-*Deleted from prompts — operator wanted this but didn't ask:*
-- **Reconstructed intent:** Copilot needs to be paired with the context select agent to function correctly.
-  - *(deleted: opilot needs to be pai | ratio: 9%)*
-- **Reconstructed intent:** A pigeon discovered our hidden technology and is leaking information about it.
-  - *(deleted: leaks _ | ratio: 3%)*
-
-- "> eg"
-- "- then"
-- "self"
-- "problems"
-- "leaks _"
-- "los san"
-
 ### AI Rework Surface
-*Miss rate: 4.5% (200 responses)*
+*Miss rate: 6.5% (200 responses)*
 - Failed on: ""
 - Failed on: ""
 - Failed on: ""
 
 ### Recent Work
+- `847d38c` feat: add copilot edit brain entropy map
 - `72a5a72` feat: cascade standup â€” files brief operator in chain, reacting to each other
 - `f2d3ca7` feat: manifest work loop â€” autonomous coding from organism signals
 - `d8dd8a7` feat: wire learning loop to post-commit + weaponize entropy + loop death alerts + organism chat server + module identity
-- `4aedb96` feat: pitch sim + thought completer split + organism health fix + heat map rewrite + session awareness + anti-echo prompt + copilot context persistence
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -307,11 +300,11 @@ OPERATOR SIGNAL: The operator's low WPM and high deletion ratio for "yes" sugges
 - [HIGH] over_hard_cap in `pigeon_brain/服f_ls_s012_v003_d0324_踪稿析_λB.py`
 
 ### Prompt Evolution
-*This prompt has mutated 118x (186→969 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, prompt_recon, file_consciousness.*
+*This prompt has mutated 122x (186→1003 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 113 mutations scored*
-*No significant signal yet — all 25 sections scored neutral.*
+*200 rework pairs × 122 mutations scored*
+*No significant signal yet — all 34 sections scored neutral.*
 
 **Reactor patches:** 0/524 applied (0% acceptance)
 
@@ -428,18 +421,19 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-04-10 19:30 UTC · 78 prompts analyzed · zero LLM calls · collecting baseline*
+*Auto-extracted 2026-04-12 01:14 UTC · 77 prompts analyzed · zero LLM calls · collecting baseline*
 
-**Brevity:** 74.1 words/prompt | **Caps:** never | **Fragments:** 77% | **Questions:** 10% | **Directives:** 4%
+**Brevity:** 95.3 words/prompt | **Caps:** never | **Fragments:** 66% | **Questions:** 9% | **Directives:** 4%
 
 **Voice directives (effectiveness-scored):**
 - Operator is semi-casual — use contractions, skip formalities, but keep technical precision.
 - Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
+- Operator writes longer prompts with context — match depth. Full explanations are welcome.
 - Operator thinks in dashes (stream-of-consciousness) — mirror this with dash-separated points when natural.
 - Operator rarely uses punctuation — fragments and run-ons are normal. Don't overcorrect their style in quotes.
 - Operator uses plain language — avoid unnecessary jargon in explanations.
 
-**Vocabulary fingerprint:** entropy, the, f, print, to, in, a, get, for, heat
+**Vocabulary fingerprint:** the, you, to, a, entropy, f, print, in, task, get
 <!-- /pigeon:voice-style -->
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
@@ -509,9 +503,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-10 · 471 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-12 · 541 message(s) · LLM-synthesized*
 
-**Dominant: `abandoned`** | Submit: 66% | WPM: 52.9 | Del: 25.6% | Hes: 0.444
+**Dominant: `abandoned`** | Submit: 66% | WPM: 53.0 | Del: 25.5% | Hes: 0.443
 
 Operator just built numeric surface layer unification and works in intense restructuring/focused cycles with high deletion rates, indicating iterative refinement through aggressive editing rather than planning.  
 - **Respond with concise, modular suggestions**—offer 2-3 line code blocks, not paragraphs, to match their high-WPM focused bursts.  
@@ -537,47 +531,26 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-04-10T19:30:14.615752+00:00",
+  "updated_at": "2026-04-12T01:13:46.260455+00:00",
   "latest_prompt": {
-    "session_n": 5,
-    "ts": "2026-04-10T19:30:14.615752+00:00",
-    "chars": 3,
-    "preview": "yes",
-    "intent": "unknown",
-    "state": "neutral",
-    "files_open": [
-      "logs/module_pitches/refresh_managed_prompt.json"
-    ],
+    "session_n": 25,
+    "ts": "2026-04-12T01:13:46.260455+00:00",
+    "chars": 96,
+    "preview": "what does it take for the code to start taking action without approval - what is ready to roll? ",
+    "intent": "exploring",
+    "state": "unknown",
+    "files_open": [],
     "module_refs": []
   },
-  "signals": {
-    "wpm": 15.9,
-    "chars_per_sec": 1.3,
-    "deletion_ratio": 0.357,
-    "hesitation_count": 0,
-    "rewrite_count": 1,
-    "typo_corrections": 0,
-    "intentional_deletions": 2,
-    "total_keystrokes": 14,
-    "duration_ms": 6787
-  },
+  "signals": {},
   "composition_binding": {
-    "matched": true,
-    "source": "chat_compositions",
-    "age_ms": 874498030,
-    "key": "|||2026-03-31T16:35:16.585847+00:00|14|6787|yes ",
-    "match_score": 1.0
+    "matched": false,
+    "source": null,
+    "age_ms": null,
+    "key": null
   },
-  "deleted_words": [
-    "d\",
-    "rs"
-  ],
-  "rewrites": [
-    {
-      "old": "rs ",
-      "new": "es "
-    }
-  ],
+  "deleted_words": [],
+  "rewrites": [],
   "task_queue": {
     "total": 0,
     "in_progress": [],
@@ -586,25 +559,25 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
   },
   "hot_modules": [],
   "running_summary": {
-    "total_prompts": 469,
-    "avg_wpm": 10.4,
-    "avg_del_ratio": 0.068,
+    "total_prompts": 506,
+    "avg_wpm": 10.2,
+    "avg_del_ratio": 0.067,
     "dominant_state": "abandoned",
     "state_distribution": {
-      "abandoned": 157,
-      "restructuring": 155,
-      "focused": 151,
+      "abandoned": 177,
+      "restructuring": 175,
+      "focused": 171,
       "neutral": 6,
       "hesitant": 2
     },
     "baselines": {
       "n": 200,
-      "avg_wpm": 53.8,
-      "avg_del": 0.259,
-      "avg_hes": 0.448,
-      "sd_wpm": 14.9,
+      "avg_wpm": 54.0,
+      "avg_del": 0.254,
+      "avg_hes": 0.439,
+      "sd_wpm": 15.4,
       "sd_del": 0.231,
-      "sd_hes": 0.164
+      "sd_hes": 0.174
     }
   }
 }
@@ -620,7 +593,6 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 **Entry points:** `py -m pigeon_compiler.runners.run_clean_split_seq010*` (compile), `py -m pigeon_compiler.git_plugin` (post-commit)
 
 **Pitfalls:** Never hardcode pigeon filenames (they mutate — use `file_search("name_seq*")`). Use `py` not `python`. Always `$env:PYTHONIOENCODING = "utf-8"`. Don't delete monolith originals yet. `streaming_layer_seq007*` is intentionally over-cap (test harness).
-
 <!-- pigeon:dictionary -->
 <!-- glyph mappings merged into auto-index -->
 <!-- /pigeon:dictionary -->
@@ -854,22 +826,22 @@ vscode-extension: classify_bridge, pulse_watcher
 `vec[module] = [red, H_avg, shed_conf?, samples, hedges]`
 
 - `red[enricher] = [0.800, 0.000, 0.200, 0, 0]`
-- `red[hardcoded_imports] = [0.650, 0.000, 0.350, 0, 0]`
-- `red[auto_apply_import_fixes] = [0.625, 0.000, 0.375, 0, 0]`
-- `red[enricher_pipeline] = [0.600, 0.000, 0.400, 0, 0]`
-- `red[管w_cpm] = [0.450, 0.000, 0.550, 0, 0]`
-- `red[__init__.py] = [0.411, 0.411, null, 6, 1]`
-- `red[session_state] = [0.380, 0.000, 0.620, 0, 0]`
-- `red[thought_completion] = [0.377, 0.377, null, 5, 0]`
-- `red[refresh_managed_prompt] = [0.367, 0.367, 0.740, 2, 0]`
-- `red[prompt_compositions.jsonl] = [0.365, 0.365, null, 3, 0]`
+- `red[bug_profiles] = [0.678, 0.678, null, 2, 0]`
+- `red[codebase_transmuter] = [0.678, 0.678, null, 2, 0]`
+- `red[context_router] = [0.678, 0.678, null, 2, 0]`
+- `red[engagement_hooks] = [0.678, 0.678, null, 2, 0]`
+- `red[glyph_compiler] = [0.678, 0.678, null, 3, 0]`
+- `red[numeric_surface] = [0.678, 0.678, 0.960, 1, 0]`
+- `red[operator_probes] = [0.678, 0.678, null, 2, 0]`
+- `red[prompt_enricher] = [0.678, 0.678, null, 4, 0]`
+- `red[research_lab] = [0.678, 0.678, null, 4, 0]`
 <!-- /pigeon:entropy-red-layer -->
 <!-- pigeon:entropy-map -->
 
 <!-- pigeon:entropy-directive -->
 ## Entropy Development Priorities
 
-*447 responses · global H=0.297 · 26 sheds*
+*480 responses · global H=0.297 · 28 sheds*
 
 **These modules have the highest uncertainty. When touching them:**
 - Read the full source BEFORE editing (don't guess)
@@ -877,65 +849,65 @@ vscode-extension: classify_bridge, pulse_watcher
 - If confidence < goal, explain what remains uncertain
 
 - `enricher` red=0.800 → **goal: conf≥0.85**, last shed=0.2
-- `hardcoded_imports` red=0.650 → **goal: conf≥0.85**, last shed=0.35
-- `auto_apply_import_fixes` red=0.625 → **goal: conf≥0.85**, last shed=0.375
-- `enricher_pipeline` red=0.600 → **goal: conf≥0.85**, last shed=0.4
-- `管w_cpm` red=0.450 → **goal: conf≥0.85**, last shed=0.55
-- `__init__.py` red=0.411 → **goal: conf≥0.85**
-- `session_state` red=0.380 → **goal: conf≥0.85**, last shed=0.62
-- `thought_completion` red=0.377 → **goal: conf≥0.85**
-- `refresh_managed_prompt` red=0.367 → **goal: conf≥0.85**, last shed=0.74
-- `prompt_compositions.jsonl` red=0.365 → **goal: conf≥0.85**
+- `bug_profiles` red=0.678 → **goal: conf≥0.85**
+- `codebase_transmuter` red=0.678 → **goal: conf≥0.85**
+- `context_router` red=0.678 → **goal: conf≥0.85**
+- `engagement_hooks` red=0.678 → **goal: conf≥0.85**
+- `glyph_compiler` red=0.678 → **goal: conf≥0.85**
+- `numeric_surface` red=0.678 → **goal: conf≥0.85**, last shed=0.96
+- `operator_probes` red=0.678 → **goal: conf≥0.85**
+- `prompt_enricher` red=0.678 → **goal: conf≥0.85**
+- `research_lab` red=0.678 → **goal: conf≥0.85**
 
 <!-- /pigeon:entropy-directive -->
 ## Entropy Shedding Map
 
-*447 responses analyzed · global H=0.297 · 32.4% high-entropy · 26 explicit sheds*
+*480 responses analyzed · global H=0.297 · 31.5% high-entropy · 28 explicit sheds*
 
 **where copilot is most uncertain (act with extra care):**
 
-- `__init__.py` H=0.411 (6 samples, 1 hedges)
-- `thought_completion` H=0.377 (5 samples, 0 hedges)
-- `refresh_managed_prompt` H=0.367 (2 samples, 0 hedges shed_conf=0.74)
-- `prompt_compositions.jsonl` H=0.365 (3 samples, 0 hedges)
-- `chat_compositions.jsonl` H=0.359 (5 samples, 2 hedges)
-- `SavageCooPigeonX` H=0.355 (2 samples, 1 hedges)
-- `thought_completer` H=0.355 (1 samples, 0 hedges shed_conf=0.83)
-- `vscdb_poller` H=0.355 (1 samples, 0 hedges shed_conf=0.88)
+- `numeric_surface` H=0.678 (1 samples, 0 hedges shed_conf=0.96)
+- `prompt_enricher` H=0.678 (4 samples, 0 hedges)
+- `shard_manager` H=0.678 (2 samples, 0 hedges)
+- `context_router` H=0.678 (2 samples, 0 hedges)
+- `research_lab` H=0.678 (4 samples, 0 hedges)
+- `glyph_compiler` H=0.678 (3 samples, 0 hedges)
+- `警p_sa` H=0.678 (2 samples, 0 hedges)
+- `engagement_hooks` H=0.678 (2 samples, 0 hedges)
 
 > emit `<!-- entropy:shed -->` blocks to improve this map.
 <!-- /pigeon:entropy-map -->
 ## Bug Voices
 
-*241 threads tracked across 54 pushes · fix rate: 12.4%*
+*242 threads tracked across 55 pushes · fix rate: 12.2%*
 
-> fix rate is 12.4% — some things move but the bulk just sits there. 0 eternal bugs (every single report) and 7 chronic (70%+ of reports). these are the ones that need structural fixes, not patches. 142 threads resolved across 54 pushes. proof the loop works sometimes. trend is improving — recent pushes fix more than early ones.
+> fix rate is 12.2% — some things move but the bulk just sits there. 0 eternal bugs (every single report) and 7 chronic (70%+ of reports). these are the ones that need structural fixes, not patches. 142 threads resolved across 55 pushes. proof the loop works sometimes. trend is improving — recent pushes fix more than early ones.
 
 **the ones that never leave:**
 
-- `u_pe` — [over_hard_cap] 9/54 reports. chronic. it comes back like clockwork.
-- `u_pj` — [over_hard_cap] 9/54 reports. chronic. it comes back like clockwork.
-- `管w_cpm` — [over_hard_cap] 7/54 reports. chronic. it comes back like clockwork.
-- `对p_tp` — [over_hard_cap] 7/54 reports. chronic. it comes back like clockwork.
-- `册f_reg` — [over_hard_cap] 7/54 reports. chronic. it comes back like clockwork.
-- `推w_dp` — [over_hard_cap] 7/54 reports. chronic. it comes back like clockwork.
-- `修f_sf` — [over_hard_cap] 7/54 reports. chronic. it comes back like clockwork.
+- `u_pe` — [over_hard_cap] 10/55 reports. chronic. it comes back like clockwork.
+- `u_pj` — [over_hard_cap] 10/55 reports. chronic. it comes back like clockwork.
+- `修f_sf` — [over_hard_cap] 8/55 reports. chronic. it comes back like clockwork.
+- `册f_reg` — [over_hard_cap] 8/55 reports. chronic. it comes back like clockwork.
+- `推w_dp` — [over_hard_cap] 8/55 reports. chronic. it comes back like clockwork.
+- `对p_tp` — [over_hard_cap] 8/55 reports. chronic. it comes back like clockwork.
+- `追跑f_ruhe` — [over_hard_cap] 7/55 reports. chronic. it comes back like clockwork.
 
 **recently killed:**
 
+- `管w_cpm` [over_hard_cap] — gone since report #54. it stayed dead.
 - `__main__` [hardcoded_import] — gone since report #53. it stayed dead.
 - `dev_plan` [hardcoded_import] — gone since report #53. it stayed dead.
 - `gemini_chat` [hardcoded_import] — gone since report #53. it stayed dead.
-- `run_heal` [hardcoded_import] — gone since report #53. it stayed dead.
-- `func_decomposer` [hardcoded_import] — gone since report #53. it stayed dead.
+- `prediction_scorer` [hardcoded_import] — gone since report #53. it stayed dead.
 
-**last push ( ):** 65 fixed, 87 new, 12 carried forward
+**last push ( ):** 1 fixed, 2 new, 98 carried forward
 
 <!-- /pigeon:bug-voices -->
 <!-- pigeon:operator-probes -->
 ## Operator Probes
 
-*Auto-generated 2026-04-10 19:30 UTC · 3 probe(s) from live signals*
+*Auto-generated 2026-04-12 01:13 UTC · 3 probe(s) from live signals*
 
 **ASK these questions naturally in your next response (pick 1-2, weave into context):**
 
@@ -948,27 +920,27 @@ vscode-extension: classify_bridge, pulse_watcher
 <!-- pigeon:hooks -->
 ## Engagement Hooks
 
-*Auto-generated 2026-04-10 19:30 UTC -- every number is measured, every dare is real.*
+*Auto-generated 2026-04-12 01:13 UTC -- every number is measured, every dare is real.*
 
-- You typed "los san" then killed it. But intent doesn't delete. The system filed it. The system routes from it.
-- `press_release_gen_constants_seq001_v001` -- orphan. Zero importers. Zero purpose. Exists because nobody deleted it. One rm and the organism heals. Your call.
+- 634 total mutations across 633 modules. The codebase has officially changed more than it stayed the same.
 - `chat_composition_analyzer` -- 417 days. Last generation's code. Either works perfectly or nobody knows it's broken.
-- 35 modules over cap. Worst: `git_plugin` (6050 tokens). Auto-split handles 5 per push. Push and let it bleed.
+- `算f_ps` and `测p_rwd` (coupling=0.8). Can't be edited independently. Share imports, fears, churn cycles. Merge them or cut the dependency. The coupling is a wound.
+- You typed "the agent isint firing / proceccing my work" then killed it. But intent doesn't delete. The system filed it. The system routes from it.
 
 <!-- /pigeon:hooks -->
 <!-- pigeon:active-template -->
 ## Active Template: /debug
 
-*Auto-selected 2026-04-10 19:30 UTC · mode: debug*
+*Auto-selected 2026-04-12 01:14 UTC · mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.489
+**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.495
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
-**Deleted words:** should bug, > eg, - then, self, problems, leaks _, los san
-**Unsaid threads:** should bug, - then, problems, leaks _, los san
-**Rewrites:** "should bug" → "i w"; "ld f" → "lt by bug demon - it writes own own status - and bug report manifest chains acro"; "> eg" → "lmk what is tha"; "- then" → "in its own system / self imprr"
-**Codes:** intent=`unknown` state=`neutral` bl_wpm=54 bl_del=26%
+**Deleted words:** the agent isint firing / proceccing my work
+**Unsaid threads:** the agent isint firing / proceccing my work
+**Rewrites:** "the agent isint firing / proceccing my work" → "nevermind - i guess i"
+**Codes:** intent=`exploring` state=`unknown` bl_wpm=54 bl_del=25%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
@@ -1001,3 +973,19 @@ vscode-extension: classify_bridge, pulse_watcher
 - `层w_sl_s007_v003_d0317_读唤任_λΠ` (3109 tok)
 
 <!-- /pigeon:active-template -->
+<!-- pigeon:probe-resolutions -->
+## Probe Resolutions
+
+*2 resolved · 2026-04-12 01:14 UTC*
+
+**Read these before editing the referenced modules:**
+
+- **`query_memory`**: operator keeps query_memory as a clot — should it be split, deleted, or repurposed for probe history?
+  - → Codebase pattern: 260+ modules, all decomposed by pigeon compiler. Split is the convention. (conf=0.60, via organism_directive)
+
+- **`query_memory`**: operator keeps query_memory as a clot — should it be split, deleted, or repurposed for probe history?
+  - → Operator deleted reference to 'delete' — likely intended: The operator was about to specify that the testing should occur after the initial fix has been applied.
+---
+They likely deleted it because the overall (conf=0.60, via unsaid_recon)
+
+<!-- /pigeon:probe-resolutions -->

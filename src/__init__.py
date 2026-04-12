@@ -32,7 +32,7 @@ from .声w_vs_s028_v002_d0330_缩分话_λF import extract_voice_features, build
 from .对p_tp_s027_v003_d0402_缩分话_λVR_βoc import capture_training_pair, generate_cycle_summary
 from .层w_sl_s007_v003_d0317_读唤任_λΠ import StreamClient, AggregationBucket, Alert, StreamFormatter, ConnectionPool, EventAggregator, MetricsCollector, AlertEngine, SessionReplay, LiveDashboard, TelemetryHTTPHandler, StreamingTelemetryServer, run_demo
 from .录p_lo_s003_v005_d0322_译改名踪_λω import TelemetryLogger
-from .忆p_qm_s010_v004_d0321_踪稿析_λ18 import cluster_unsaid_threads, record_query, load_query_memory, load_query_memory
+from .忆p_qm_s010_v004_d0321_踪稿析_λ18 import cluster_unsaid_threads, record_query, load_query_memory
 from .思f_cr_s014_v003_d0321_译改名踪_λ18 import ingest_flush
 from .思f_cr_s014_v004_d0330_译改名踪_λF import ingest_flush
 from .思f_cr_s014_v005_d0331_译改名踪_λM import ingest_flush
@@ -71,3 +71,5 @@ from .训w_trwr_s028_v002_d0330_缩分话_λF import write_training_pair, backfi
 from .路f_cxr_s027_v002_d0330_缩分话_λF import score_shard, route_context, format_shard_context
 from .递p_sh_s023_v002_d0321_缩分话_λ18 import generate
 from .队p_tq_s018_v002_d0317_缩分话_λQ import add_task, mark_done, mark_in_progress, build_task_queue_block, inject_task_queue
+from .interlinker import assess_module, interlink_module, interlink_scan, generate_self_test, write_self_test, run_self_test, accumulate_shard, build_interlink_report, load_interlink_db
+from .interlinker_upgrade import upgrade_test, run_upgrade_cycle, pick_upgrade_candidates

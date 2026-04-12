@@ -1,4 +1,4 @@
-﻿"""thought_completer.py — passive always-on-top code analysis overlay.
+"""thought_completer.py — passive always-on-top code analysis overlay.
 
 Watches your VS Code typing (via os_hook's keystroke log), shows real-time
 code analysis in a corner popup when you pause. Catches bugs, suggests

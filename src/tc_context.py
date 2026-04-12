@@ -199,6 +199,21 @@ def load_context(repo_root: Path | None = None) -> dict:
         except Exception:
             pass
 
+    # Interrogation answers — operator decisions from interrogation room
+    ia = r / 'logs' / 'interrogation_answers.jsonl'
+    if ia.exists():
+        try:
+            lines = ia.read_text('utf-8', errors='ignore').strip().splitlines()
+            ctx['interrogation_answers'] = []
+            for line in lines[-10:]:
+                entry = json.loads(line)
+                ctx['interrogation_answers'].append({
+                    'module': entry.get('module', ''),
+                    'answer': entry.get('answer', '')[:200],
+                })
+        except Exception:
+            pass
+
     # Organism narrative — copilot's own consciousness statement
     ci_path = r / '.github' / 'copilot-instructions.md'
     if ci_path.exists():

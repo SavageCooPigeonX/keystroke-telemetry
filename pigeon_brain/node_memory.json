@@ -8996,6 +8996,263 @@
         "deletion_ratio_after": 0.0,
         "contribution_summary": "pred_false_pos cal_err=0.15",
         "ts": "2026-04-01T23:09:56.296695+00:00"
+      },
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v005_d0404_缩分话_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v005_d0404_缩分话_λNU_βoc",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "3118 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753547+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_audit_decomposed_seq009_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_audit_decomposed_seq009_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "236 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754277+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_auto_index_decomposed_seq005_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_auto_index_decomposed_seq005_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "399 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754300+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_block_utils_seq002_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_block_utils_seq002_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "133 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754312+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_bug_voices_seq006_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_bug_voices_seq006_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "178 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754330+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_constants_seq001_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_constants_seq001_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "217 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754344+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_file_utils_seq003_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_file_utils_seq003_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "122 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754433+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_seq011_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_seq011_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "228 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754461+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_telemetry_seq012_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_telemetry_seq012_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "128 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754479+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_voices_state_seq013_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_voices_state_seq013_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "112 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754495+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_main_seq015_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_main_seq015_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "6 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754510+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_decomposed_seq007_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_decomposed_seq007_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "388 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754531+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_helpers_seq008_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_helpers_seq008_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "6 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754546+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attribution",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attribution",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "323 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754593+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_registry_utils_seq004_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_registry_utils_seq004_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "454 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754621+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_render_seq014_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_render_seq014_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "128 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754631+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:43.034764+00:00"
       }
     ],
     "policy": {
@@ -9015,7 +9272,8 @@
       ],
       "behavioral_directive": "cognitive_reactor: struggling; focus on: pred_hit combined=0.62; avoid: pred_false_pos cal_err=0.56",
       "scoring_source": "observation_only",
-      "last_updated": "2026-04-01T23:09:56.297283+00:00"
+      "last_updated": "2026-04-01T23:09:56.297283+00:00",
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
     }
   },
   "copilot_prompt_manager": {
@@ -10823,6 +11081,237 @@
         "deletion_ratio_after": 0.0,
         "contribution_summary": "pred_false_pos cal_err=0.52",
         "ts": "2026-04-01T23:09:49.437117+00:00"
+      },
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v005_d0404_缩分话_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v005_d0404_缩分话_λNU_βoc",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "3118 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753547+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_audit_decomposed_seq009_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_audit_decomposed_seq009_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "236 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754277+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_auto_index_decomposed_seq005_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_auto_index_decomposed_seq005_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "399 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754300+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_block_utils_seq002_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_block_utils_seq002_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "133 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754312+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_bug_voices_seq006_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_bug_voices_seq006_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "178 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754330+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_constants_seq001_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_constants_seq001_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "217 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754344+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_file_utils_seq003_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_file_utils_seq003_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "122 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754433+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_seq011_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_seq011_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "228 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754461+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_telemetry_seq012_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_telemetry_seq012_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "128 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754479+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_voices_state_seq013_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_voices_state_seq013_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "112 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754495+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_main_seq015_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_main_seq015_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "6 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754510+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_decomposed_seq007_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_decomposed_seq007_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "388 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754531+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_helpers_seq008_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_helpers_seq008_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "6 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754546+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attribution",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attribution",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "323 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754593+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_registry_utils_seq004_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_registry_utils_seq004_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "454 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754621+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_render_seq014_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_render_seq014_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "128 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754631+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:47.717394+00:00"
       }
     ],
     "policy": {
@@ -10842,7 +11331,8 @@
       ],
       "behavioral_directive": "copilot_prompt_manager: struggling; focus on: pred_hit combined=0.53; avoid: pred_false_pos cal_err=0.56",
       "scoring_source": "observation_only",
-      "last_updated": "2026-04-01T23:09:49.437373+00:00"
+      "last_updated": "2026-04-01T23:09:49.437373+00:00",
+      "active_bug_warning": "oc:管w_cpm_s020_v005_d0404_缩分话_λNU_βoc sev=0.80"
     }
   },
   "file_consciousness": {
@@ -17387,6 +17877,237 @@
         "deletion_ratio_after": 0.0,
         "contribution_summary": "pred_false_pos cal_err=0.52",
         "ts": "2026-04-01T23:09:49.387001+00:00"
+      },
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v005_d0404_缩分话_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v005_d0404_缩分话_λNU_βoc",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "3118 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753547+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_audit_decomposed_seq009_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_audit_decomposed_seq009_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "236 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754277+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_auto_index_decomposed_seq005_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_auto_index_decomposed_seq005_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "399 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754300+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_block_utils_seq002_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_block_utils_seq002_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "133 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754312+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_bug_voices_seq006_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_bug_voices_seq006_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "178 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754330+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_constants_seq001_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_constants_seq001_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "217 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754344+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_file_utils_seq003_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_file_utils_seq003_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "122 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754433+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_seq011_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_seq011_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "228 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754461+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_telemetry_seq012_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_telemetry_seq012_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "128 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754479+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_voices_state_seq013_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_voices_state_seq013_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "112 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754495+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_main_seq015_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_main_seq015_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "6 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754510+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_decomposed_seq007_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_decomposed_seq007_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "388 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754531+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_helpers_seq008_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_helpers_seq008_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "6 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754546+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attribution",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attribution",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "323 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754593+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_registry_utils_seq004_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_registry_utils_seq004_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "454 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754621+00:00"
+          },
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_render_seq014_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_render_seq014_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "128 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754631+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:47.808066+00:00"
       }
     ],
     "policy": {
@@ -17406,7 +18127,8 @@
       ],
       "behavioral_directive": "context_budget: struggling; focus on: pred_hit combined=0.53; avoid: pred_false_pos cal_err=0.56",
       "scoring_source": "observation_only",
-      "last_updated": "2026-04-01T23:09:49.387231+00:00"
+      "last_updated": "2026-04-01T23:09:49.387231+00:00",
+      "active_bug_warning": "oc:管w_cpm_s020_v005_d0404_缩分话_λNU_βoc sev=0.80"
     }
   },
   "run_compiler_test": {
@@ -40309,6 +41031,4024 @@
       "behavioral_directive": "symbol_dictionary: moderate",
       "scoring_source": "observation_only",
       "last_updated": "2026-04-01T23:09:56.531387+00:00"
+    }
+  },
+  "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc": {
+    "entries": [
+      {
+        "electron_id": "demo_79dd54",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:50:40.464621+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:50:40.609912+00:00"
+      },
+      {
+        "electron_id": "demo_b02fb4",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.905851+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:16.972345+00:00"
+      },
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:42.785756+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    },
+    "file_understanding": {
+      "intent": "Evaluates AI-generated file predictions against real-world edit events and rework signals to calibrate model confidence.",
+      "critical_path": true,
+      "what_to_fix": [
+        "Complete the truncated _load_unified_edits function to ensure all telemetry signals are ingested",
+        "Implement the scoring logic to penalize over-confidence as per the docstring"
+      ],
+      "break_risk": "Incorrect scoring logic will lead to miscalibration of the model's predictive reliability, causing it to prioritize low-value suggestions.",
+      "autonomous_directive": "Complete _load_unified_edits to parse the full JSONL stream and implement a new function score_prediction(pred_mods, actual_mods, confidence) that calculates F1-score and applies a penalty: score = f1 - (max(0, confidence - f1) ** 2).",
+      "reasoning": "This addresses the 'oc' (over-confidence) bug by ensuring that predictions with high confidence but low actual overlap are penalized non-linearly, forcing the model toward better calibration.",
+      "source_hash": "f16a6aa2d082",
+      "interrogated_at": "2026-04-10T21:30:15.626594+00:00",
+      "model": "gemini-2.5-flash"
+    }
+  },
+  "learning_loop": {
+    "entries": [
+      {
+        "electron_id": "demo_b02fb4",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.905851+00:00"
+          },
+          {
+            "bug_id": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "backward",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "dev_plan"
+            ],
+            "notes": "951 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.905998+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "2111 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.907104+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_apply_import_fixes_seq011_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_apply_import_fixes_seq011_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "379 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.907525+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_compile_oversized_seq009_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_compile_oversized_seq009_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "330 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.907540+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_constants_seq001_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_constants_seq001_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "22 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.907554+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_run_self_fix_seq012_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_run_self_fix_seq012_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "209 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.907572+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_cross_file_coupling_seq007_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_cross_file_coupling_seq007_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "213 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.907585+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_dead_exports_seq005_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_dead_exports_seq005_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "231 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.907611+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_duplicate_docstrings_seq006_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_duplicate_docstrings_seq006_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "113 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.907626+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_hardcoded_seq003_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_hardcoded_seq003_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "176 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.907639+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_over_hard_cap_seq008_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_over_hard_cap_seq008_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "194 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.907652+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_query_noise_seq004_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_query_noise_seq004_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "88 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.907665+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_seq_base_seq002_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_seq_base_seq002_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "80 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.907679+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_write_self_fix_report_seq010_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_write_self_fix_report_seq010_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "194 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.907696+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:17.077622+00:00"
+      },
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          },
+          {
+            "bug_id": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "backward",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "dev_plan"
+            ],
+            "notes": "951 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753061+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "2111 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753475+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_apply_import_fixes_seq011_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_apply_import_fixes_seq011_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "379 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753731+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_compile_oversized_seq009_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_compile_oversized_seq009_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "330 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753742+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_constants_seq001_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_constants_seq001_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "22 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753751+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_run_self_fix_seq012_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_run_self_fix_seq012_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "209 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753762+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_cross_file_coupling_seq007_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_cross_file_coupling_seq007_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "213 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753775+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_dead_exports_seq005_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_dead_exports_seq005_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "231 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753787+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_duplicate_docstrings_seq006_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_duplicate_docstrings_seq006_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "113 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753799+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_hardcoded_seq003_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_hardcoded_seq003_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "176 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753812+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_over_hard_cap_seq008_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_over_hard_cap_seq008_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "194 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753825+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_query_noise_seq004_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_query_noise_seq004_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "88 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753837+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_seq_base_seq002_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_seq_base_seq002_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "80 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753849+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_write_self_fix_report_seq010_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_write_self_fix_report_seq010_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "194 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753862+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:42.867246+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    }
+  },
+  "prediction_scorer": {
+    "entries": [
+      {
+        "electron_id": "demo_b02fb4",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:16.905851+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:17.192021+00:00"
+      },
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:42.952090+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    }
+  },
+  "flow_engine": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          },
+          {
+            "bug_id": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "backward",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "dev_plan"
+            ],
+            "notes": "951 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753061+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "2111 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753475+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_apply_import_fixes_seq011_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_apply_import_fixes_seq011_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "379 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753731+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_compile_oversized_seq009_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_compile_oversized_seq009_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "330 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753742+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_constants_seq001_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_constants_seq001_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "22 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753751+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_run_self_fix_seq012_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_run_self_fix_seq012_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "209 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753762+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_cross_file_coupling_seq007_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_cross_file_coupling_seq007_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "213 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753775+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_dead_exports_seq005_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_dead_exports_seq005_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "231 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753787+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_duplicate_docstrings_seq006_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_duplicate_docstrings_seq006_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "113 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753799+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_hardcoded_seq003_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_hardcoded_seq003_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "176 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753812+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_over_hard_cap_seq008_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_over_hard_cap_seq008_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "194 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753825+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_query_noise_seq004_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_query_noise_seq004_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "88 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753837+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_seq_base_seq002_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_seq_base_seq002_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "80 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753849+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_write_self_fix_report_seq010_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_write_self_fix_report_seq010_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "194 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753862+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:43.109307+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    }
+  },
+  "learning_loop_seq013_catch_up": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          },
+          {
+            "bug_id": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "backward",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "dev_plan"
+            ],
+            "notes": "951 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753061+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:43.180676+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    }
+  },
+  "learning_loop_seq013_journal_loader": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          },
+          {
+            "bug_id": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "backward",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "dev_plan"
+            ],
+            "notes": "951 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753061+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:43.268223+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    }
+  },
+  "learning_loop_seq013_loop_helpers": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          },
+          {
+            "bug_id": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "backward",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "dev_plan"
+            ],
+            "notes": "951 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753061+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:43.346044+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    }
+  },
+  "learning_loop_seq013_main_loop": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          },
+          {
+            "bug_id": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "backward",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "dev_plan"
+            ],
+            "notes": "951 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753061+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:43.425970+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    }
+  },
+  "learning_loop_seq013_prediction_cycle": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          },
+          {
+            "bug_id": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "backward",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "dev_plan"
+            ],
+            "notes": "951 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753061+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:43.500099+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    }
+  },
+  "learning_loop_seq013_single_cycle_helpers": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          },
+          {
+            "bug_id": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "backward",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "dev_plan"
+            ],
+            "notes": "951 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753061+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:43.577262+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    }
+  },
+  "learning_loop_seq013_single_cycle": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          },
+          {
+            "bug_id": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "backward",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "dev_plan"
+            ],
+            "notes": "951 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753061+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:43.644511+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    }
+  },
+  "learning_loop_seq013_state_utils": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          },
+          {
+            "bug_id": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "backward",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "dev_plan"
+            ],
+            "notes": "951 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753061+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:43.707843+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    }
+  },
+  "path_selector": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:43.767878+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    }
+  },
+  "dev_plan": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          },
+          {
+            "bug_id": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "backward",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "dev_plan"
+            ],
+            "notes": "951 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753061+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "2111 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753475+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_apply_import_fixes_seq011_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_apply_import_fixes_seq011_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "379 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753731+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_compile_oversized_seq009_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_compile_oversized_seq009_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "330 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753742+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_constants_seq001_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_constants_seq001_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "22 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753751+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_run_self_fix_seq012_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_run_self_fix_seq012_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "209 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753762+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_cross_file_coupling_seq007_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_cross_file_coupling_seq007_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "213 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753775+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_dead_exports_seq005_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_dead_exports_seq005_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "231 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753787+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_duplicate_docstrings_seq006_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_duplicate_docstrings_seq006_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "113 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753799+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_hardcoded_seq003_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_hardcoded_seq003_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "176 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753812+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_over_hard_cap_seq008_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_over_hard_cap_seq008_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "194 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753825+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_query_noise_seq004_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_query_noise_seq004_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "88 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753837+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_seq_base_seq002_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_seq_base_seq002_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "80 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753849+00:00"
+          },
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_write_self_fix_report_seq010_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_write_self_fix_report_seq010_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "194 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753862+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:43.836762+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    }
+  },
+  "node_conversation": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "算f_ps_s014_v006_d0404_译改名踪_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "prediction_scorer",
+              "cognitive_reactor",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "path_selector",
+              "dev_plan",
+              "node_conversation"
+            ],
+            "notes": "2206 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753021+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:43.899143+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:算f_ps_s014_v006_d0404_译改名踪_λNU_βoc sev=0.80"
+    }
+  },
+  "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "backward",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "dev_plan"
+            ],
+            "notes": "951 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753061+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:43.974163+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc sev=0.80"
+    },
+    "file_understanding": {
+      "intent": "Calculates and distributes learning credits to code-graph nodes by analyzing execution paths and calculating loss via DeepSeek-powered contribution analysis.",
+      "critical_path": true,
+      "what_to_fix": [
+        "Complete the truncated _tokenize function to return the set of extracted tokens",
+        "Implement the primary execution function (e.g., run_backward) to orchestrate path loading, loss calculation, and credit distribution",
+        "Integrate the imported append_learning function to actually persist the DeepSeek-generated node analyses"
+      ],
+      "break_risk": "Incorrect credit distribution or loss calculation will cause the autonomous agent to reinforce destructive code patterns or fail to optimize its own architecture.",
+      "autonomous_directive": "Complete the _tokenize function by adding 'return set(raw)' and implement a 'process_backward_pass' function that calls _deepseek_analyze_backward and iterates through the results to call append_learning for each node.",
+      "reasoning": "The module is currently non-functional due to code truncation and the absence of an entry point to apply the analysis, which is directly responsible for the zero learning credit trend.",
+      "source_hash": "8decee8b66d6",
+      "interrogated_at": "2026-04-10T21:30:43.509357+00:00",
+      "model": "gemini-2.5-flash"
+    }
+  },
+  "backward": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "backward",
+              "flow_engine",
+              "learning_loop_seq013_catch_up",
+              "learning_loop_seq013_journal_loader",
+              "learning_loop_seq013_loop_helpers",
+              "learning_loop_seq013_main_loop",
+              "learning_loop_seq013_prediction_cycle",
+              "learning_loop_seq013_single_cycle_helpers",
+              "learning_loop_seq013_single_cycle",
+              "learning_loop_seq013_state_utils",
+              "dev_plan"
+            ],
+            "notes": "951 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753061+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:44.101570+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc sev=0.80"
+    }
+  },
+  "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc",
+            "affected_chain": [],
+            "notes": "1171 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753129+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:44.866998+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc sev=0.80"
+    },
+    "file_understanding": {
+      "intent": "parse_failed",
+      "autonomous_directive": "```json\n{\n  \"intent\": \"This module provides a local name registry for the Pigeon Compiler, parsing file names to extract metadata and managing a JSON registry of file identities and change histories.\",\n  \"critical_path\": true,\n  \"what_to_fix\": [\n    \"The `COMPRESSED_STEM_RE` regex is incomplete and ",
+      "what_to_fix": [],
+      "break_risk": [],
+      "source_hash": "4a5a68f0f973",
+      "interrogated_at": "2026-04-10T21:30:54.621905+00:00",
+      "model": "gemini-2.5-flash"
+    }
+  },
+  "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc",
+            "affected_chain": [],
+            "notes": "1401 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753145+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:44.951254+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc sev=0.80"
+    },
+    "file_understanding": {
+      "intent": "Orchestrate the end-to-end self-healing cycle including file renaming, import refactoring, and registry synchronization to maintain codebase integrity.",
+      "critical_path": true,
+      "what_to_fix": [
+        "Replace hardcoded imports in _load_glyph_context with registry-based lookups to prevent bootstrap failures during renames",
+        "Integrate bump_all_versions(registry) into the pipeline to ensure version progression and credit accumulation"
+      ],
+      "break_risk": [
+        "Incorrect import rewriting can cause global module resolution failures, rendering the entire codebase unimportable."
+      ],
+      "autonomous_directive": "In run_heal_pipeline, ensure 'registry = bump_all_versions(registry)' is called immediately before 'save_registry(root, registry)' to advance module versions and resolve the stagnant learning credit trend.",
+      "reasoning": "The 0.0 learning credit trend and high-severity 'oc' bug indicate that while the pipeline executes, it fails to persist version increments, causing the system to appear stagnant and lose track of its evolutionary state.",
+      "source_hash": "8930cf3873d7",
+      "interrogated_at": "2026-04-10T21:31:08.379669+00:00",
+      "model": "gemini-2.5-flash"
+    }
+  },
+  "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_bug_utils_seq002_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_bug_utils_seq002_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_bug_utils_seq002_v001",
+            "affected_chain": [],
+            "notes": "110 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753210+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:45.025295+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_bug_utils_seq002_v001 sev=0.80"
+    },
+    "file_understanding": {
+      "intent": "Provides utility functions to encode and decode two-letter bug identifiers into compact, ordered strings for use in filenames and metadata.",
+      "critical_path": true,
+      "what_to_fix": [
+        "Define the missing BUG_KEY_ORDER constant at the module level",
+        "Add input validation to ensure keys are exactly two characters long in bug_marker_from_keys"
+      ],
+      "break_risk": "Downstream filename generation and bug tracking logic will fail due to a NameError when calling bug_marker_from_keys.",
+      "autonomous_directive": "Insert 'BUG_KEY_ORDER = [\"oc\", \"hi\", \"vr\"]' at the top of the module to resolve the NameError in bug_marker_from_keys.",
+      "reasoning": "The function bug_marker_from_keys references BUG_KEY_ORDER which is currently undefined, causing immediate execution failure when encoding bug markers. Defining this constant is necessary for the module to function.",
+      "source_hash": "8871c3bb7e76",
+      "interrogated_at": "2026-04-10T21:31:27.784667+00:00",
+      "model": "gemini-2.5-flash"
+    }
+  },
+  "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_bump_all_versions_seq011_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_bump_all_versions_seq011_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_bump_all_versions_seq011_v001",
+            "affected_chain": [],
+            "notes": "121 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753220+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:45.106274+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_bump_all_versions_seq011_v001 sev=0.80"
+    }
+  },
+  "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_bump_version_seq010_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_bump_version_seq010_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_bump_version_seq010_v001",
+            "affected_chain": [],
+            "notes": "123 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753229+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:45.179658+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_bump_version_seq010_v001 sev=0.80"
+    }
+  },
+  "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_constants_seq001_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_constants_seq001_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_constants_seq001_v001",
+            "affected_chain": [],
+            "notes": "49 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753238+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:45.255767+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_constants_seq001_v001 sev=0.80"
+    }
+  },
+  "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_date_utils_seq003_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_date_utils_seq003_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_date_utils_seq003_v001",
+            "affected_chain": [],
+            "notes": "25 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753247+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:45.323887+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_date_utils_seq003_v001 sev=0.80"
+    }
+  },
+  "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_diff_utils_seq012_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_diff_utils_seq012_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_diff_utils_seq012_v001",
+            "affected_chain": [],
+            "notes": "69 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753256+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:45.396242+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_diff_utils_seq012_v001 sev=0.80"
+    }
+  },
+  "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_filename_builders_seq005_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_filename_builders_seq005_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_filename_builders_seq005_v001",
+            "affected_chain": [],
+            "notes": "136 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753265+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:45.474199+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_filename_builders_seq005_v001 sev=0.80"
+    }
+  },
+  "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_mutate_compressed_seq007_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_mutate_compressed_seq007_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_mutate_compressed_seq007_v001",
+            "affected_chain": [],
+            "notes": "119 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753274+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:45.546688+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_mutate_compressed_seq007_v001 sev=0.80"
+    }
+  },
+  "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_parse_decomposed_seq006_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_parse_decomposed_seq006_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_parse_decomposed_seq006_v001",
+            "affected_chain": [],
+            "notes": "176 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753282+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:45.625743+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_parse_decomposed_seq006_v001 sev=0.80"
+    }
+  },
+  "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_registry_builders_seq008_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_registry_builders_seq008_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_registry_builders_seq008_v001",
+            "affected_chain": [],
+            "notes": "128 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753291+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:45.698171+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_registry_builders_seq008_v001 sev=0.80"
+    }
+  },
+  "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_registry_io_seq004_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_registry_io_seq004_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_registry_io_seq004_v001",
+            "affected_chain": [],
+            "notes": "94 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753303+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:45.775019+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_registry_io_seq004_v001 sev=0.80"
+    }
+  },
+  "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_version_bump_seq009_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_version_bump_seq009_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_version_bump_seq009_v001",
+            "affected_chain": [],
+            "notes": "232 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753312+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:45.840381+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_version_bump_seq009_v001 sev=0.80"
+    }
+  },
+  "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_compliance_stage_seq006_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_compliance_stage_seq006_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_compliance_stage_seq006_v001",
+            "affected_chain": [],
+            "notes": "59 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753320+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:45.911352+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_compliance_stage_seq006_v001 sev=0.80"
+    }
+  },
+  "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_format_report_seq002_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_format_report_seq002_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_format_report_seq002_v001",
+            "affected_chain": [],
+            "notes": "166 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753333+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:46.009421+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_format_report_seq002_v001 sev=0.80"
+    }
+  },
+  "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_git_commit_seq001_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_git_commit_seq001_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_git_commit_seq001_v001",
+            "affected_chain": [],
+            "notes": "97 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753342+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:46.079873+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_git_commit_seq001_v001 sev=0.80"
+    }
+  },
+  "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_glyph_drift_decomposed_seq009_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_glyph_drift_decomposed_seq009_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_glyph_drift_decomposed_seq009_v001",
+            "affected_chain": [],
+            "notes": "301 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753351+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:46.157825+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_glyph_drift_decomposed_seq009_v001 sev=0.80"
+    }
+  },
+  "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_load_glyph_seq003_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_load_glyph_seq003_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_load_glyph_seq003_v001",
+            "affected_chain": [],
+            "notes": "106 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753359+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:46.237180+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_load_glyph_seq003_v001 sev=0.80"
+    }
+  },
+  "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_main_orchestrator_seq010_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_main_orchestrator_seq010_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_main_orchestrator_seq010_v001",
+            "affected_chain": [],
+            "notes": "109 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753368+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:46.311248+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_main_orchestrator_seq010_v001 sev=0.80"
+    }
+  },
+  "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_manifest_stage_seq005_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_manifest_stage_seq005_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_manifest_stage_seq005_v001",
+            "affected_chain": [],
+            "notes": "71 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753377+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:46.380073+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_manifest_stage_seq005_v001 sev=0.80"
+    }
+  },
+  "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_nametag_drift_seq007_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_nametag_drift_seq007_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_nametag_drift_seq007_v001",
+            "affected_chain": [],
+            "notes": "184 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753386+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:46.444510+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_nametag_drift_seq007_v001 sev=0.80"
+    }
+  },
+  "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_registry_stage_seq004_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_registry_stage_seq004_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_registry_stage_seq004_v001",
+            "affected_chain": [],
+            "notes": "126 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753394+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:46.515855+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_registry_stage_seq004_v001 sev=0.80"
+    }
+  },
+  "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_rename_decomposed_seq008_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_rename_decomposed_seq008_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_rename_decomposed_seq008_v001",
+            "affected_chain": [],
+            "notes": "204 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753403+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:46.583880+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_rename_decomposed_seq008_v001 sev=0.80"
+    }
+  },
+  "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_run_heal_decomposed_seq011_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_run_heal_decomposed_seq011_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_run_heal_decomposed_seq011_v001",
+            "affected_chain": [],
+            "notes": "236 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753415+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:46.663923+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc_run_heal_decomposed_seq011_v001 sev=0.80"
+    }
+  },
+  "u_pe_s024_v004_d0403_λP0_βoc": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:u_pe_s024_v004_d0403_λP0_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "u_pe_s024_v004_d0403_λP0_βoc",
+            "affected_chain": [],
+            "notes": "2151 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753456+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:46.741200+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:u_pe_s024_v004_d0403_λP0_βoc sev=0.80"
+    }
+  },
+  "u_pj_s019_v003_d0404_λNU_βoc": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:u_pj_s019_v003_d0404_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "u_pj_s019_v003_d0404_λNU_βoc",
+            "affected_chain": [],
+            "notes": "2874 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753464+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:46.818046+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:u_pj_s019_v003_d0404_λNU_βoc sev=0.80"
+    }
+  },
+  "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "2111 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753475+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:46.885670+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc sev=0.80"
+    }
+  },
+  "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc",
+            "affected_chain": [],
+            "notes": "869 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753485+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:47.184971+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc sev=0.80"
+    }
+  },
+  "对p_tp_s027_v003_d0402_缩分话_λVR_βoc": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:对p_tp_s027_v003_d0402_缩分话_λVR_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "对p_tp_s027_v003_d0402_缩分话_λVR_βoc",
+            "affected_chain": [],
+            "notes": "1332 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753496+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:47.280254+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:对p_tp_s027_v003_d0402_缩分话_λVR_βoc sev=0.80"
+    }
+  },
+  "推w_dp_s017_v013_d0403_初写谱净拆_λP0_βoc": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:推w_dp_s017_v013_d0403_初写谱净拆_λP0_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "推w_dp_s017_v013_d0403_初写谱净拆_λP0_βoc",
+            "affected_chain": [],
+            "notes": "2587 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753515+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:47.363374+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:推w_dp_s017_v013_d0403_初写谱净拆_λP0_βoc sev=0.80"
+    }
+  },
+  "测p_rwd_s009_v006_d0403_译改名踪_λP0_βde": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "de:测p_rwd_s009_v006_d0403_译改名踪_λP0_βde",
+            "bug_type": "de",
+            "severity": 0.4,
+            "origin_module": "测p_rwd_s009_v006_d0403_译改名踪_λP0_βde",
+            "affected_chain": [],
+            "notes": "detected in 测p_rwd_s009_v006_d0403_译改名踪_λP0_βde",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753525+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:47.447831+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "de:测p_rwd_s009_v006_d0403_译改名踪_λP0_βde sev=0.40"
+    }
+  },
+  "热p_fhm_s011_v005_d0403_踪稿析_λP0_βde": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "de:热p_fhm_s011_v005_d0403_踪稿析_λP0_βde",
+            "bug_type": "de",
+            "severity": 0.4,
+            "origin_module": "热p_fhm_s011_v005_d0403_踪稿析_λP0_βde",
+            "affected_chain": [],
+            "notes": "detected in 热p_fhm_s011_v005_d0403_踪稿析_λP0_βde",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753535+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:47.531690+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "de:热p_fhm_s011_v005_d0403_踪稿析_λP0_βde sev=0.40"
+    }
+  },
+  "管w_cpm_s020_v005_d0404_缩分话_λNU_βoc": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v005_d0404_缩分话_λNU_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v005_d0404_缩分话_λNU_βoc",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "3118 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753547+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:47.610099+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v005_d0404_缩分话_λNU_βoc sev=0.80"
+    }
+  },
+  "脉p_ph_s015_v004_d0403_读唤任_λP0_βoc": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:脉p_ph_s015_v004_d0403_读唤任_λP0_βoc",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "脉p_ph_s015_v004_d0403_读唤任_λP0_βoc",
+            "affected_chain": [],
+            "notes": "1007 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753556+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:48.010019+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:脉p_ph_s015_v004_d0403_读唤任_λP0_βoc sev=0.80"
+    }
+  },
+  "u_pe_s024_v004_d0403_λP0_βoc_block_utils_seq008_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:u_pe_s024_v004_d0403_λP0_βoc_block_utils_seq008_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "u_pe_s024_v004_d0403_λP0_βoc_block_utils_seq008_v001",
+            "affected_chain": [],
+            "notes": "157 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753604+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:48.133604+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:u_pe_s024_v004_d0403_λP0_βoc_block_utils_seq008_v001 sev=0.80"
+    }
+  },
+  "u_pe_s024_v004_d0403_λP0_βoc_bug_routing_seq005_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:u_pe_s024_v004_d0403_λP0_βoc_bug_routing_seq005_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "u_pe_s024_v004_d0403_λP0_βoc_bug_routing_seq005_v001",
+            "affected_chain": [],
+            "notes": "167 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753612+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:48.962949+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:u_pe_s024_v004_d0403_λP0_βoc_bug_routing_seq005_v001 sev=0.80"
+    }
+  },
+  "u_pe_s024_v004_d0403_λP0_βoc_bug_scoring_seq004_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:u_pe_s024_v004_d0403_λP0_βoc_bug_scoring_seq004_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "u_pe_s024_v004_d0403_λP0_βoc_bug_scoring_seq004_v001",
+            "affected_chain": [],
+            "notes": "306 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753621+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:49.817007+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:u_pe_s024_v004_d0403_λP0_βoc_bug_scoring_seq004_v001 sev=0.80"
+    }
+  },
+  "u_pe_s024_v004_d0403_λP0_βoc_constants_seq001_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:u_pe_s024_v004_d0403_λP0_βoc_constants_seq001_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "u_pe_s024_v004_d0403_λP0_βoc_constants_seq001_v001",
+            "affected_chain": [],
+            "notes": "49 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753632+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:50.097633+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:u_pe_s024_v004_d0403_λP0_βoc_constants_seq001_v001 sev=0.80"
+    }
+  },
+  "u_pe_s024_v004_d0403_λP0_βoc_data_loaders_seq003_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:u_pe_s024_v004_d0403_λP0_βoc_data_loaders_seq003_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "u_pe_s024_v004_d0403_λP0_βoc_data_loaders_seq003_v001",
+            "affected_chain": [],
+            "notes": "498 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753641+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:50.233999+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:u_pe_s024_v004_d0403_λP0_βoc_data_loaders_seq003_v001 sev=0.80"
+    }
+  },
+  "u_pe_s024_v004_d0403_λP0_βoc_enricher_seq007_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:u_pe_s024_v004_d0403_λP0_βoc_enricher_seq007_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "u_pe_s024_v004_d0403_λP0_βoc_enricher_seq007_v001",
+            "affected_chain": [],
+            "notes": "228 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753650+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:50.462875+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:u_pe_s024_v004_d0403_λP0_βoc_enricher_seq007_v001 sev=0.80"
+    }
+  },
+  "u_pe_s024_v004_d0403_λP0_βoc_injector_seq009_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:u_pe_s024_v004_d0403_λP0_βoc_injector_seq009_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "u_pe_s024_v004_d0403_λP0_βoc_injector_seq009_v001",
+            "affected_chain": [],
+            "notes": "225 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753658+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:50.580140+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:u_pe_s024_v004_d0403_λP0_βoc_injector_seq009_v001 sev=0.80"
+    }
+  },
+  "u_pe_s024_v004_d0403_λP0_βoc_main_seq010_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:u_pe_s024_v004_d0403_λP0_βoc_main_seq010_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "u_pe_s024_v004_d0403_λP0_βoc_main_seq010_v001",
+            "affected_chain": [],
+            "notes": "6 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753666+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:50.694261+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:u_pe_s024_v004_d0403_λP0_βoc_main_seq010_v001 sev=0.80"
+    }
+  },
+  "u_pe_s024_v004_d0403_λP0_βoc_prompt_builder_seq006_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:u_pe_s024_v004_d0403_λP0_βoc_prompt_builder_seq006_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "u_pe_s024_v004_d0403_λP0_βoc_prompt_builder_seq006_v001",
+            "affected_chain": [],
+            "notes": "448 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753675+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:50.796567+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:u_pe_s024_v004_d0403_λP0_βoc_prompt_builder_seq006_v001 sev=0.80"
+    }
+  },
+  "u_pe_s024_v004_d0403_λP0_βoc_utils_seq002_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:u_pe_s024_v004_d0403_λP0_βoc_utils_seq002_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "u_pe_s024_v004_d0403_λP0_βoc_utils_seq002_v001",
+            "affected_chain": [],
+            "notes": "67 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753686+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:50.903491+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:u_pe_s024_v004_d0403_λP0_βoc_utils_seq002_v001 sev=0.80"
+    }
+  },
+  "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_apply_import_fixes_seq011_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_apply_import_fixes_seq011_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_apply_import_fixes_seq011_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "379 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753731+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:50.990523+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_apply_import_fixes_seq011_v001 sev=0.80"
+    }
+  },
+  "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_compile_oversized_seq009_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_compile_oversized_seq009_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_compile_oversized_seq009_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "330 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753742+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:51.338348+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_auto_compile_oversized_seq009_v001 sev=0.80"
+    }
+  },
+  "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_constants_seq001_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_constants_seq001_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_constants_seq001_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "22 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753751+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:51.692212+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_constants_seq001_v001 sev=0.80"
+    }
+  },
+  "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_run_self_fix_seq012_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_run_self_fix_seq012_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_run_self_fix_seq012_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "209 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753762+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:52.215130+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_run_self_fix_seq012_v001 sev=0.80"
+    }
+  },
+  "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_cross_file_coupling_seq007_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_cross_file_coupling_seq007_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_cross_file_coupling_seq007_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "213 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753775+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:54.248383+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_cross_file_coupling_seq007_v001 sev=0.80"
+    }
+  },
+  "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_dead_exports_seq005_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_dead_exports_seq005_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_dead_exports_seq005_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "231 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753787+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:54.956047+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_dead_exports_seq005_v001 sev=0.80"
+    }
+  },
+  "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_duplicate_docstrings_seq006_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_duplicate_docstrings_seq006_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_duplicate_docstrings_seq006_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "113 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753799+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:55.414595+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_duplicate_docstrings_seq006_v001 sev=0.80"
+    }
+  },
+  "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_hardcoded_seq003_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_hardcoded_seq003_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_hardcoded_seq003_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "176 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753812+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:55.946741+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_hardcoded_seq003_v001 sev=0.80"
+    }
+  },
+  "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_over_hard_cap_seq008_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_over_hard_cap_seq008_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_over_hard_cap_seq008_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "194 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753825+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:56.297201+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_over_hard_cap_seq008_v001 sev=0.80"
+    }
+  },
+  "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_query_noise_seq004_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_query_noise_seq004_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_query_noise_seq004_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "88 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753837+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:56.684754+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_query_noise_seq004_v001 sev=0.80"
+    }
+  },
+  "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_seq_base_seq002_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_seq_base_seq002_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_seq_base_seq002_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "80 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753849+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:57.021059+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_seq_base_seq002_v001 sev=0.80"
+    }
+  },
+  "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_write_self_fix_report_seq010_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_write_self_fix_report_seq010_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_write_self_fix_report_seq010_v001",
+            "affected_chain": [
+              "learning_loop",
+              "flow_engine",
+              "dev_plan"
+            ],
+            "notes": "194 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753862+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:57.838481+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_write_self_fix_report_seq010_v001 sev=0.80"
+    }
+  },
+  "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_build_file_briefs_seq003_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_build_file_briefs_seq003_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_build_file_briefs_seq003_v001",
+            "affected_chain": [],
+            "notes": "99 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753873+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:58.386784+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_build_file_briefs_seq003_v001 sev=0.80"
+    }
+  },
+  "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_build_narrative_subhelpers_seq005_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_build_narrative_subhelpers_seq005_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_build_narrative_subhelpers_seq005_v001",
+            "affected_chain": [],
+            "notes": "6 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753892+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:58.486931+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_build_narrative_subhelpers_seq005_v001 sev=0.80"
+    }
+  },
+  "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_build_narrative_wrapper_seq006_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_build_narrative_wrapper_seq006_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_build_narrative_wrapper_seq006_v001",
+            "affected_chain": [],
+            "notes": "489 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753910+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:58.582458+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_build_narrative_wrapper_seq006_v001 sev=0.80"
+    }
+  },
+  "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_call_deepseek_seq004_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_call_deepseek_seq004_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_call_deepseek_seq004_v001",
+            "affected_chain": [],
+            "notes": "72 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753922+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:58.682477+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_call_deepseek_seq004_v001 sev=0.80"
+    }
+  },
+  "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_generate_narrative_seq007_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_generate_narrative_seq007_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_generate_narrative_seq007_v001",
+            "affected_chain": [],
+            "notes": "199 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753934+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:58.783254+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_generate_narrative_seq007_v001 sev=0.80"
+    }
+  },
+  "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_load_composition_seq002_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_load_composition_seq002_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_load_composition_seq002_v001",
+            "affected_chain": [],
+            "notes": "47 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753947+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:58.881838+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_load_composition_seq002_v001 sev=0.80"
+    }
+  },
+  "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_prompt_templates_seq001_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_prompt_templates_seq001_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_prompt_templates_seq001_v001",
+            "affected_chain": [],
+            "notes": "6 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753978+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:58.975525+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc_prompt_templates_seq001_v001 sev=0.80"
+    }
+  },
+  "对p_tp_s027_v003_d0402_缩分话_λVR_βoc_capture_decomposed_seq005_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:对p_tp_s027_v003_d0402_缩分话_λVR_βoc_capture_decomposed_seq005_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "对p_tp_s027_v003_d0402_缩分话_λVR_βoc_capture_decomposed_seq005_v001",
+            "affected_chain": [],
+            "notes": "312 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.753997+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:59.082279+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:对p_tp_s027_v003_d0402_缩分话_λVR_βoc_capture_decomposed_seq005_v001 sev=0.80"
+    }
+  },
+  "对p_tp_s027_v003_d0402_缩分话_λVR_βoc_intent_classifiers_seq002_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:对p_tp_s027_v003_d0402_缩分话_λVR_βoc_intent_classifiers_seq002_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "对p_tp_s027_v003_d0402_缩分话_λVR_βoc_intent_classifiers_seq002_v001",
+            "affected_chain": [],
+            "notes": "168 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754008+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:59.188466+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:对p_tp_s027_v003_d0402_缩分话_λVR_βoc_intent_classifiers_seq002_v001 sev=0.80"
+    }
+  },
+  "对p_tp_s027_v003_d0402_缩分话_λVR_βoc_matching_seq003_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:对p_tp_s027_v003_d0402_缩分话_λVR_βoc_matching_seq003_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "对p_tp_s027_v003_d0402_缩分话_λVR_βoc_matching_seq003_v001",
+            "affected_chain": [],
+            "notes": "116 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754019+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:59.297888+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:对p_tp_s027_v003_d0402_缩分话_λVR_βoc_matching_seq003_v001 sev=0.80"
+    }
+  },
+  "对p_tp_s027_v003_d0402_缩分话_λVR_βoc_note_builders_seq004_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:对p_tp_s027_v003_d0402_缩分话_λVR_βoc_note_builders_seq004_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "对p_tp_s027_v003_d0402_缩分话_λVR_βoc_note_builders_seq004_v001",
+            "affected_chain": [],
+            "notes": "86 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754040+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:59.399864+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:对p_tp_s027_v003_d0402_缩分话_λVR_βoc_note_builders_seq004_v001 sev=0.80"
+    }
+  },
+  "对p_tp_s027_v003_d0402_缩分话_λVR_βoc_summary_decomposed_seq006_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:对p_tp_s027_v003_d0402_缩分话_λVR_βoc_summary_decomposed_seq006_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "对p_tp_s027_v003_d0402_缩分话_λVR_βoc_summary_decomposed_seq006_v001",
+            "affected_chain": [],
+            "notes": "445 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754059+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:59.498553+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:对p_tp_s027_v003_d0402_缩分话_λVR_βoc_summary_decomposed_seq006_v001 sev=0.80"
+    }
+  },
+  "对p_tp_s027_v003_d0402_缩分话_λVR_βoc_utils_seq001_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:对p_tp_s027_v003_d0402_缩分话_λVR_βoc_utils_seq001_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "对p_tp_s027_v003_d0402_缩分话_λVR_βoc_utils_seq001_v001",
+            "affected_chain": [],
+            "notes": "185 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754071+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:59.592376+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:对p_tp_s027_v003_d0402_缩分话_λVR_βoc_utils_seq001_v001 sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_audit_decomposed_seq009_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_audit_decomposed_seq009_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_audit_decomposed_seq009_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "236 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754277+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:53:59.691835+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_audit_decomposed_seq009_v001 sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_auto_index_decomposed_seq005_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_auto_index_decomposed_seq005_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_auto_index_decomposed_seq005_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "399 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754300+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:54:00.084742+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_auto_index_decomposed_seq005_v001 sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_block_utils_seq002_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_block_utils_seq002_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_block_utils_seq002_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "133 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754312+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:54:00.455776+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_block_utils_seq002_v001 sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_bug_voices_seq006_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_bug_voices_seq006_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_bug_voices_seq006_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "178 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754330+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:54:01.281464+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_bug_voices_seq006_v001 sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_constants_seq001_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_constants_seq001_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_constants_seq001_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "217 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754344+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:54:01.693009+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_constants_seq001_v001 sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_file_utils_seq003_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_file_utils_seq003_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_file_utils_seq003_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "122 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754433+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:54:02.063904+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_file_utils_seq003_v001 sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_seq011_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_seq011_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_seq011_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "228 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754461+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:54:02.468714+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_seq011_v001 sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_telemetry_seq012_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_telemetry_seq012_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_telemetry_seq012_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "128 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754479+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:54:02.933985+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_telemetry_seq012_v001 sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_voices_state_seq013_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_voices_state_seq013_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_voices_state_seq013_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "112 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754495+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:54:03.409743+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_voices_state_seq013_v001 sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_main_seq015_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_main_seq015_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_main_seq015_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "6 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754510+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:54:03.837210+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_main_seq015_v001 sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_decomposed_seq007_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_decomposed_seq007_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_decomposed_seq007_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "388 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754531+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:54:04.488603+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_decomposed_seq007_v001 sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_helpers_seq008_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_helpers_seq008_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_helpers_seq008_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "6 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754546+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:54:05.089273+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_operator_state_helpers_seq008_v001 sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attribution": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attribution",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attribution",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "323 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754593+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:54:05.360463+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_refresh_decomposed_seq010_v002_d0403__auto_extracted_by_pigeon_compiler_lc_p0_p3_attribution sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_registry_utils_seq004_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_registry_utils_seq004_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_registry_utils_seq004_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "454 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754621+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:54:05.711332+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_registry_utils_seq004_v001 sev=0.80"
+    }
+  },
+  "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_render_seq014_v001": {
+    "entries": [
+      {
+        "electron_id": "bdm_18697a37",
+        "task_seed": "[bug_manifest_chain injection]",
+        "active_bugs": [
+          {
+            "bug_id": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_render_seq014_v001",
+            "bug_type": "oc",
+            "severity": 0.8,
+            "origin_module": "管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_render_seq014_v001",
+            "affected_chain": [
+              "copilot_prompt_manager",
+              "context_budget",
+              "cognitive_reactor"
+            ],
+            "notes": "128 tokens",
+            "resolved": false,
+            "detected_at": "2026-04-10T19:53:42.754631+00:00"
+          }
+        ],
+        "ts": "2026-04-10T19:54:06.057551+00:00"
+      }
+    ],
+    "policy": {
+      "active_bug_warning": "oc:管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_render_seq014_v001 sev=0.80"
     }
   }
 }

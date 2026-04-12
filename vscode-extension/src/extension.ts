@@ -145,7 +145,498 @@ function showOperatorStatePanel(root: string, context: vscode.ExtensionContext) 
     panel.onDidDispose(() => clearInterval(tid));
 }
 
+type FreshnessState = 'fresh' | 'warning' | 'stale' | 'missing';
 
+interface FreshnessEntry {
+    name: string;
+    file: string;
+    status: FreshnessState;
+    ageMin: number | null;
+    maxAgeMin: number | null;
+    updatedAt: string | null;
+    detail: string;
+    writer?: string;
+}
+
+function _freshnessRank(status: FreshnessState): number {
+    return ({ fresh: 0, warning: 1, stale: 2, missing: 3 } as Record<FreshnessState, number>)[status] ?? 0;
+}
+
+function _mergeFreshnessStatus(current: FreshnessState, next: FreshnessState): FreshnessState {
+    return _freshnessRank(next) > _freshnessRank(current) ? next : current;
+}
+
+function _formatFreshnessAge(ageMin: number | null): string {
+    if (ageMin == null || !Number.isFinite(ageMin)) return '—';
+    if (ageMin < 1) return '<1m';
+    if (ageMin < 60) return `${ageMin.toFixed(ageMin < 10 ? 1 : 0)}m`;
+    const hours = ageMin / 60;
+    if (hours < 48) return `${hours.toFixed(hours < 10 ? 1 : 0)}h`;
+    return `${(hours / 24).toFixed(1)}d`;
+}
+
+function _parseFreshnessTimestamp(raw: string | undefined): number | null {
+    if (!raw) return null;
+    const trimmed = raw.trim();
+    const normalized = trimmed
+        .replace(' UTC', '')
+        .replace(' ', 'T');
+    const needsSeconds = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(normalized);
+    const iso = /[zZ]|[+-]\d{2}:\d{2}$/.test(normalized)
+        ? normalized
+        : `${normalized}${needsSeconds ? ':00' : ''}Z`;
+    const ms = Date.parse(iso);
+    return Number.isFinite(ms) ? ms : null;
+}
+
+function _freshnessStatus(ageMin: number | null, maxAgeMin: number | null): FreshnessState {
+    if (ageMin == null) return 'warning';
+    if (maxAgeMin == null) return 'fresh';
+    if (ageMin > maxAgeMin) return 'stale';
+    if (ageMin > maxAgeMin * 0.6) return 'warning';
+    return 'fresh';
+}
+
+function loadFreshnessSurface(root: string): { summary: any; entries: FreshnessEntry[] } {
+    const nowMs = Date.now();
+    const entries: FreshnessEntry[] = [];
+
+    const addEntry = (entry: FreshnessEntry) => {
+        entries.push(entry);
+        return entry;
+    };
+
+    const addFileEntry = (name: string, file: string, maxAgeMin: number, detail: string, writer?: string) => {
+        const full = path.join(root, file);
+        if (!fs.existsSync(full)) {
+            return addEntry({ name, file, status: 'missing', ageMin: null, maxAgeMin, updatedAt: null, detail: 'missing — expected writer output not found', writer });
+        }
+        const stat = fs.statSync(full);
+        const ageMin = Math.max(0, (nowMs - stat.mtimeMs) / 60000);
+        return addEntry({
+            name,
+            file,
+            status: _freshnessStatus(ageMin, maxAgeMin),
+            ageMin,
+            maxAgeMin,
+            updatedAt: new Date(stat.mtimeMs).toISOString(),
+            detail,
+            writer,
+        });
+    };
+
+    const copilotPath = path.join(root, '.github', 'copilot-instructions.md');
+    if (fs.existsSync(copilotPath)) {
+        const text = fs.readFileSync(copilotPath, 'utf-8');
+        const blocks = [
+            {
+                name: 'current-query block',
+                key: 'current-query',
+                maxAgeMin: 10,
+                writer: 'prompt_enricher',
+                blockMatch: text.match(/<!-- pigeon:current-query -->([\s\S]*?)<!-- \/pigeon:current-query -->/),
+                tsMatch: (body: string) => body.match(/Enriched (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) UTC/),
+            },
+            {
+                name: 'prompt telemetry block',
+                key: 'prompt-telemetry',
+                maxAgeMin: 10,
+                writer: 'prompt_journal',
+                blockMatch: text.match(/<!-- pigeon:prompt-telemetry -->([\s\S]*?)<!-- \/pigeon:prompt-telemetry -->/),
+                tsMatch: (body: string) => body.match(/"updated_at":\s*"([^"]+)"/),
+            },
+            {
+                name: 'task context block',
+                key: 'task-context',
+                maxAgeMin: 120,
+                writer: 'dynamic_prompt.inject_task_context',
+                blockMatch: text.match(/<!-- pigeon:task-context -->([\s\S]*?)<!-- \/pigeon:task-context -->/),
+                tsMatch: (body: string) => body.match(/Auto-injected (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) UTC/),
+            },
+        ];
+
+        for (const block of blocks) {
+            if (!block.blockMatch) {
+                addEntry({
+                    name: block.name,
+                    file: '.github/copilot-instructions.md',
+                    status: 'missing',
+                    ageMin: null,
+                    maxAgeMin: block.maxAgeMin,
+                    updatedAt: null,
+                    detail: `${block.key} missing from managed prompt`,
+                    writer: block.writer,
+                });
+                continue;
+            }
+            const tsRaw = block.tsMatch(block.blockMatch[1])?.[1];
+            const tsMs = _parseFreshnessTimestamp(tsRaw);
+            const ageMin = tsMs == null ? null : Math.max(0, (nowMs - tsMs) / 60000);
+            addEntry({
+                name: block.name,
+                file: '.github/copilot-instructions.md',
+                status: tsMs == null ? 'warning' : _freshnessStatus(ageMin, block.maxAgeMin),
+                ageMin,
+                maxAgeMin: block.maxAgeMin,
+                updatedAt: tsMs == null ? null : new Date(tsMs).toISOString(),
+                detail: tsMs == null ? `${block.key} timestamp missing or unreadable` : `${block.key} managed prompt block`,
+                writer: block.writer,
+            });
+        }
+    } else {
+        addEntry({
+            name: 'copilot instructions',
+            file: '.github/copilot-instructions.md',
+            status: 'missing',
+            ageMin: null,
+            maxAgeMin: 10,
+            updatedAt: null,
+            detail: 'missing — managed prompt cannot be audited',
+            writer: 'prompt pipeline',
+        });
+    }
+
+    try {
+        const statePath = path.join(root, 'pigeon_brain', 'learning_loop_state.json');
+        const journalPath = path.join(root, 'logs', 'prompt_journal.jsonl');
+        if (fs.existsSync(statePath) && fs.existsSync(journalPath)) {
+            const state = JSON.parse(fs.readFileSync(statePath, 'utf-8'));
+            const journalLines = fs.readFileSync(journalPath, 'utf-8').split(/\r?\n/).filter(Boolean).length;
+            const processed = Number(state.last_processed_line ?? 0);
+            const unprocessed = Math.max(0, journalLines - processed);
+            const tsMs = _parseFreshnessTimestamp(state.last_processed_ts ?? state.updated_at);
+            const ageMin = tsMs == null ? null : Math.max(0, (nowMs - tsMs) / 60000);
+            let status: FreshnessState = 'fresh';
+            if (unprocessed > 20 || (ageMin != null && ageMin > 24 * 60)) status = 'stale';
+            else if (unprocessed > 5 || (ageMin != null && ageMin > 6 * 60)) status = 'warning';
+            addEntry({
+                name: 'learning loop',
+                file: 'pigeon_brain/learning_loop_state.json',
+                status,
+                ageMin,
+                maxAgeMin: 24 * 60,
+                updatedAt: tsMs == null ? null : new Date(tsMs).toISOString(),
+                detail: `${unprocessed} prompt journal entries waiting to be learned`,
+                writer: 'git_plugin → catch_up',
+            });
+        }
+    } catch {
+        addEntry({
+            name: 'learning loop',
+            file: 'pigeon_brain/learning_loop_state.json',
+            status: 'warning',
+            ageMin: null,
+            maxAgeMin: 24 * 60,
+            updatedAt: null,
+            detail: 'could not read learning loop state',
+            writer: 'git_plugin → catch_up',
+        });
+    }
+
+    const promptJournal = addFileEntry('prompt journal', 'logs/prompt_journal.jsonl', 30, 'operator prompt journal', 'prompt_journal');
+    const chatCompositions = addFileEntry('chat compositions', 'logs/chat_compositions.jsonl', 30, 'draft keystroke capture', 'composition_recon');
+    const editPairs = addFileEntry('edit pairs', 'logs/edit_pairs.jsonl', 180, 'prompt ↔ file edit links', 'pulse_harvest');
+    const entropyMap = addFileEntry('entropy map', 'logs/entropy_map.json', 60, 'uncertainty surface', 'entropy_shedding');
+    const heatMap = addFileEntry('file heat map', 'file_heat_map.json', 60, 'touch/attention surface', 'file_heat_map');
+    const reworkLog = addFileEntry('rework log', 'rework_log.json', 60, 'response quality scoring', 'rework_detector');
+    addFileEntry('escalation state', 'logs/escalation_state.json', 60, 'autonomous bug escalation', 'escalation_engine');
+    addFileEntry('active dossier', 'logs/active_dossier.json', 60, 'bug dossier output', 'bug_dossier');
+    addFileEntry('self-fix accuracy', 'logs/self_fix_accuracy.json', 180, 'autonomous repair scorecard', 'self_fix');
+    addFileEntry('latest standup', 'logs/standups/latest_standup.json', 24 * 60, 'latest module standup chain', 'profile_chat_server');
+    addFileEntry('latest manifest audit', 'logs/manifest_audits/latest_manifest.json', 24 * 60, 'latest forward/backward audit manifest', 'profile_chat_server');
+
+    try {
+        const raw = fs.readFileSync(path.join(root, 'logs', 'entropy_map.json'), 'utf-8');
+        const data = JSON.parse(raw);
+        const tracked = Number(data.tracked_modules ?? data.top_entropy_modules?.length ?? 0);
+        entropyMap.detail = `tracked=${tracked} · global H=${Number(data.global_avg_entropy ?? 0).toFixed(3)} · sheds=${data.shed_blocks_found ?? 0}`;
+        if (tracked < 20) entropyMap.status = _mergeFreshnessStatus(entropyMap.status, 'warning');
+    } catch {}
+
+    try {
+        const raw = fs.readFileSync(path.join(root, 'file_heat_map.json'), 'utf-8');
+        const data = JSON.parse(raw);
+        heatMap.detail = `${Object.keys(data).length} modules with heat scores`;
+    } catch {}
+
+    try {
+        const raw = fs.readFileSync(path.join(root, 'rework_log.json'), 'utf-8');
+        const data = JSON.parse(raw);
+        const lastScores = (Array.isArray(data) ? data.slice(-6) : []).map((r: any) => Number(r.rework_score ?? -1).toFixed(3));
+        reworkLog.detail = `${Array.isArray(data) ? data.length : 0} entries`;
+        if (lastScores.length >= 5 && new Set(lastScores).size === 1) {
+            reworkLog.status = _mergeFreshnessStatus(reworkLog.status, 'warning');
+            reworkLog.detail += ` · last ${lastScores.length} scores identical`;
+        }
+    } catch {}
+
+    try {
+        const reg = JSON.parse(fs.readFileSync(path.join(root, 'pigeon_registry.json'), 'utf-8'));
+        const heat = JSON.parse(fs.readFileSync(path.join(root, 'file_heat_map.json'), 'utf-8'));
+        const entropy = JSON.parse(fs.readFileSync(path.join(root, 'logs', 'entropy_map.json'), 'utf-8'));
+        const signalNames = new Set<string>([
+            ...Object.keys(heat ?? {}),
+            ...((entropy.top_entropy_modules ?? []).map((m: any) => String(m.module))),
+        ]);
+        const registryCount = Array.isArray(reg.files) ? reg.files.length : 0;
+        const coverage = registryCount > 0 ? signalNames.size / registryCount : 0;
+        addEntry({
+            name: 'signal coverage',
+            file: 'pigeon_registry.json',
+            status: coverage < 0.1 ? 'stale' : coverage < 0.25 ? 'warning' : 'fresh',
+            ageMin: null,
+            maxAgeMin: null,
+            updatedAt: null,
+            detail: `${signalNames.size}/${registryCount} registry files have live signal coverage (${(coverage * 100).toFixed(1)}%)`,
+            writer: 'heat + entropy union',
+        });
+    } catch {
+        addEntry({
+            name: 'signal coverage',
+            file: 'pigeon_registry.json',
+            status: 'warning',
+            ageMin: null,
+            maxAgeMin: null,
+            updatedAt: null,
+            detail: 'could not compute registry coverage',
+            writer: 'heat + entropy union',
+        });
+    }
+
+    try {
+        const lineCount = fs.readFileSync(path.join(root, 'logs', 'prompt_journal.jsonl'), 'utf-8').split(/\r?\n/).filter(Boolean).length;
+        promptJournal.detail = `${lineCount} prompt journal entries captured`;
+    } catch {}
+    try {
+        const lineCount = fs.readFileSync(path.join(root, 'logs', 'chat_compositions.jsonl'), 'utf-8').split(/\r?\n/).filter(Boolean).length;
+        chatCompositions.detail = `${lineCount} composition events captured`;
+    } catch {}
+    try {
+        const lineCount = fs.readFileSync(path.join(root, 'logs', 'edit_pairs.jsonl'), 'utf-8').split(/\r?\n/).filter(Boolean).length;
+        editPairs.detail = `${lineCount} prompt→edit pairs linked`;
+    } catch {}
+
+    entries.sort((a, b) => {
+        const rank = _freshnessRank(b.status) - _freshnessRank(a.status);
+        if (rank !== 0) return rank;
+        return (b.ageMin ?? -1) - (a.ageMin ?? -1);
+    });
+
+    const staleCount = entries.filter(e => e.status === 'stale' || e.status === 'missing').length;
+    const warningCount = entries.filter(e => e.status === 'warning').length;
+    const freshCount = entries.filter(e => e.status === 'fresh').length;
+
+    return {
+        summary: {
+            total: entries.length,
+            staleCount,
+            warningCount,
+            freshCount,
+            checkedAt: new Date(nowMs).toISOString(),
+        },
+        entries,
+    };
+}
+
+class FreshnessStatusBar {
+    private _item: vscode.StatusBarItem;
+    private _timer: ReturnType<typeof setInterval> | undefined;
+    private _root: string;
+
+    constructor(root: string, context: vscode.ExtensionContext) {
+        this._root = root;
+        this._item = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 999);
+        this._item.command = 'pigeon.showFreshnessSurface';
+        this._item.tooltip = 'Pigeon: open the unified freshness / stale-data surface';
+        this._item.show();
+        context.subscriptions.push(this._item);
+        this._refresh();
+        this._timer = setInterval(() => this._refresh(), 20_000);
+        context.subscriptions.push({ dispose: () => clearInterval(this._timer) });
+    }
+
+    private _refresh() {
+        const data = loadFreshnessSurface(this._root);
+        if (data.summary.staleCount > 0) {
+            this._item.text = `$(warning) stale ${data.summary.staleCount}`;
+            this._item.backgroundColor = new vscode.ThemeColor('statusBarItem.warningBackground');
+            return;
+        }
+        this._item.backgroundColor = undefined;
+        if (data.summary.warningCount > 0) {
+            this._item.text = `$(clock) watch ${data.summary.warningCount}`;
+            return;
+        }
+        this._item.text = `$(pass-filled) fresh ${data.summary.freshCount}`;
+    }
+}
+
+class FreshnessSurfacePanel {
+    static current: FreshnessSurfacePanel | undefined;
+    private readonly _panel: vscode.WebviewPanel;
+    private readonly _root: string;
+    private _disposables: vscode.Disposable[] = [];
+
+    static createOrShow(context: vscode.ExtensionContext, root: string) {
+        if (FreshnessSurfacePanel.current) {
+            FreshnessSurfacePanel.current._panel.reveal();
+            FreshnessSurfacePanel.current._refresh();
+            return;
+        }
+        const panel = vscode.window.createWebviewPanel(
+            'pigeonFreshnessSurface', '🛰️ Freshness Surface', vscode.ViewColumn.One,
+            { enableScripts: true, retainContextWhenHidden: true }
+        );
+        FreshnessSurfacePanel.current = new FreshnessSurfacePanel(panel, root);
+    }
+
+    constructor(panel: vscode.WebviewPanel, root: string) {
+        this._panel = panel;
+        this._root = root;
+        this._panel.webview.html = this._buildHtml();
+        this._panel.onDidDispose(() => this._dispose(), null, this._disposables);
+        this._panel.webview.onDidReceiveMessage(m => this._onMessage(m), null, this._disposables);
+        setTimeout(() => this._refresh(), 100);
+        const tid = setInterval(() => {
+            if (this._panel.visible) this._refresh();
+        }, 20_000);
+        this._disposables.push({ dispose: () => clearInterval(tid) });
+    }
+
+    private _refresh() {
+        const data = loadFreshnessSurface(this._root);
+        const entries = data.entries.map(entry => ({
+            ...entry,
+            ageLabel: _formatFreshnessAge(entry.ageMin),
+            limitLabel: _formatFreshnessAge(entry.maxAgeMin),
+        }));
+        this._panel.webview.postMessage({ type: 'freshness-data', summary: data.summary, entries });
+    }
+
+    private async _onMessage(msg: any) {
+        if (msg.type === 'refresh') {
+            this._refresh();
+            return;
+        }
+        if (msg.type === 'open-file') {
+            const rel = String(msg.file ?? '');
+            if (!rel || rel.startsWith('virtual:')) return;
+            const full = path.isAbsolute(rel) ? rel : path.join(this._root, rel);
+            if (!fs.existsSync(full)) {
+                vscode.window.showWarningMessage(`Could not open ${rel}`);
+                return;
+            }
+            const doc = await vscode.workspace.openTextDocument(full);
+            await vscode.window.showTextDocument(doc, { preview: false });
+        }
+    }
+
+    private _buildHtml(): string {
+        const n = nonce();
+        return `<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'nonce-${n}';">
+<style>
+body { font-family: var(--vscode-font-family); color: var(--vscode-foreground); background: var(--vscode-editor-background); padding: 16px; }
+h1 { font-weight: 300; margin-bottom: 8px; }
+.sub { opacity: 0.75; margin-bottom: 14px; }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(120px, 1fr)); gap: 10px; margin: 16px 0; }
+.card { border-radius: 8px; padding: 12px; background: var(--vscode-editor-inactiveSelectionBackground); }
+.card .label { opacity: 0.75; font-size: 12px; }
+.card .value { font-size: 26px; font-weight: 700; margin-top: 4px; }
+.card.stale { border-left: 4px solid var(--vscode-errorForeground); }
+.card.warn { border-left: 4px solid var(--vscode-charts-yellow); }
+.card.fresh { border-left: 4px solid var(--vscode-charts-green); }
+.card.total { border-left: 4px solid var(--vscode-textLink-foreground); }
+.toolbar { display: flex; align-items: center; gap: 12px; margin: 10px 0 14px; }
+button { background: var(--vscode-button-background); color: var(--vscode-button-foreground); border: none; padding: 7px 12px; border-radius: 4px; cursor: pointer; }
+button:hover { background: var(--vscode-button-hoverBackground); }
+label { font-size: 12px; opacity: 0.85; }
+.table { display: grid; gap: 8px; }
+.row { display: grid; grid-template-columns: 170px 90px 70px 80px 1fr; gap: 10px; align-items: start; padding: 10px 12px; border-radius: 8px; background: var(--vscode-editor-inactiveSelectionBackground); cursor: pointer; }
+.row:hover { outline: 1px solid var(--vscode-focusBorder); }
+.row.stale, .row.missing { border-left: 4px solid var(--vscode-errorForeground); }
+.row.warning { border-left: 4px solid var(--vscode-charts-yellow); }
+.row.fresh { border-left: 4px solid var(--vscode-charts-green); }
+.head { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.65; margin-bottom: 4px; }
+.code { font-family: var(--vscode-editor-font-family); }
+.status-badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+.status-badge.fresh { background: rgba(80,200,120,0.18); color: var(--vscode-charts-green); }
+.status-badge.warning { background: rgba(255,210,80,0.18); color: #d1a500; }
+.status-badge.stale, .status-badge.missing { background: rgba(255,90,90,0.18); color: var(--vscode-errorForeground); }
+.small { font-size: 12px; opacity: 0.75; margin-top: 2px; }
+.footer { margin-top: 14px; opacity: 0.65; font-size: 12px; }
+.empty { opacity: 0.65; padding: 14px 0; }
+</style>
+</head><body>
+<h1>🛰️ Freshness Surface</h1>
+<div class="sub">one frontend surface for the codebase’s critical write targets — stale, missing, and drifting data gets flagged here.</div>
+<div class="cards">
+  <div class="card stale"><div class="label">stale / missing</div><div class="value" id="staleCount">0</div></div>
+  <div class="card warn"><div class="label">warnings</div><div class="value" id="warningCount">0</div></div>
+  <div class="card fresh"><div class="label">fresh</div><div class="value" id="freshCount">0</div></div>
+  <div class="card total"><div class="label">sources watched</div><div class="value" id="totalCount">0</div></div>
+</div>
+<div class="toolbar">
+  <button onclick="vscode.postMessage({ type: 'refresh' })">↺ Refresh</button>
+  <label><input type="checkbox" id="showOnlyProblems"> show only stale / warnings</label>
+  <span class="small" id="checkedAt"></span>
+</div>
+<div class="table" id="rows"></div>
+<div class="footer">click any row to open the backing file when it exists.</div>
+<script nonce="${n}">
+const vscode = acquireVsCodeApi();
+let lastData = null;
+const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (ch) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[ch]));
+function render(data) {
+  lastData = data;
+  document.getElementById('staleCount').textContent = String(data.summary.staleCount ?? 0);
+  document.getElementById('warningCount').textContent = String(data.summary.warningCount ?? 0);
+  document.getElementById('freshCount').textContent = String(data.summary.freshCount ?? 0);
+  document.getElementById('totalCount').textContent = String(data.summary.total ?? 0);
+  document.getElementById('checkedAt').textContent = 'checked ' + new Date(data.summary.checkedAt).toLocaleString();
+  const onlyProblems = document.getElementById('showOnlyProblems').checked;
+  const rows = onlyProblems ? data.entries.filter((entry) => entry.status !== 'fresh') : data.entries;
+  const rowsEl = document.getElementById('rows');
+  if (!rows.length) {
+    rowsEl.innerHTML = '<div class="empty">everything currently looks fresh.</div>';
+    return;
+  }
+  rowsEl.innerHTML = rows.map((entry) => {
+    const writerHtml = entry.writer ? '<div class="small">writer: ' + esc(entry.writer) + '</div>' : '';
+    return [
+      '<div class="row ' + esc(entry.status) + '" data-file="' + encodeURIComponent(entry.file) + '">',
+      '  <div><div class="head">source</div><div class="code">' + esc(entry.name) + '</div><div class="small">' + esc(entry.file) + '</div></div>',
+      '  <div><div class="head">status</div><span class="status-badge ' + esc(entry.status) + '">' + esc(entry.status) + '</span></div>',
+      '  <div><div class="head">age</div><div>' + esc(entry.ageLabel ?? '—') + '</div></div>',
+      '  <div><div class="head">limit</div><div>' + esc(entry.limitLabel ?? '—') + '</div></div>',
+      '  <div><div class="head">detail</div><div>' + esc(entry.detail) + '</div>' + writerHtml + '</div>',
+      '</div>'
+    ].join('');
+  }).join('');
+  rowsEl.querySelectorAll('.row').forEach((row) => {
+    row.addEventListener('click', () => {
+      const encoded = row.getAttribute('data-file');
+      if (!encoded) return;
+      vscode.postMessage({ type: 'open-file', file: decodeURIComponent(encoded) });
+    });
+  });
+}
+window.addEventListener('message', (event) => {
+  const data = event.data;
+  if (data.type === 'freshness-data') render(data);
+});
+document.getElementById('showOnlyProblems').addEventListener('change', () => { if (lastData) render(lastData); });
+</script>
+</body></html>`;
+    }
+
+    private _dispose() {
+        FreshnessSurfacePanel.current = undefined;
+        this._panel.dispose();
+        this._disposables.forEach(d => d.dispose());
+    }
+}
 
 interface ClassifyResult { state: string; hesitation: number; wpm: number; rework_verdict?: string; }
 
@@ -1684,6 +2175,7 @@ class StandupPanel {
     private readonly _panel: vscode.WebviewPanel;
     private readonly _root: string;
     private _disposables: vscode.Disposable[] = [];
+    private _latestChain: Array<{ module: string; response: string; score: number; extractions?: any[] }> = [];
 
     static createOrShow(context: vscode.ExtensionContext, root: string) {
         if (StandupPanel.current) {
@@ -1726,7 +2218,10 @@ class StandupPanel {
                 req.end();
             });
             if (result.chain && result.chain.length > 0) {
+                this._latestChain = result.chain;
+                this._saveStandupLog(result.chain, 'server');
                 this._panel.webview.html = this._buildChainHtml(result.chain);
+                void this._writeAuditDoc(result.chain, false);
                 return;
             }
         } catch { /* server not running — fall through to LM API */ }
@@ -1781,7 +2276,99 @@ class StandupPanel {
         }
 
         // Final render
+        this._latestChain = chain;
+        this._saveStandupLog(chain, 'lm_fallback');
         this._panel.webview.html = this._buildChainHtml(chain);
+        void this._writeAuditDoc(chain, false);
+    }
+
+    private async _writeAuditDoc(chain?: Array<{ module: string; response: string; score: number; extractions?: any[] }>, reveal: boolean = true): Promise<string | undefined> {
+        const activeChain = chain ?? this._latestChain;
+        if (!activeChain || activeChain.length === 0) {
+            if (reveal) vscode.window.showWarningMessage('no standup chain yet — run standup first');
+            return undefined;
+        }
+
+        const auditDir = path.join(this._root, 'logs', 'manifest_audits');
+        fs.mkdirSync(auditDir, { recursive: true });
+        const latestMd = path.join(auditDir, 'latest_audit.md');
+        const latestJson = path.join(auditDir, 'latest_manifest.json');
+
+        // Prefer the richer server-side forward/backward audit if available.
+        try {
+            const http = await import('http');
+            const body = JSON.stringify({ n: Math.min(Math.max(activeChain.length, 4), 8), name: 'percy' });
+            const result = await new Promise<any>((resolve, reject) => {
+                const req = http.request({ hostname: '127.0.0.1', port: 8234, path: '/audit', method: 'POST', headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(body) }, timeout: 120000 }, res => {
+                    let data = '';
+                    res.on('data', (chunk: string) => data += chunk);
+                    res.on('end', () => { try { resolve(JSON.parse(data)); } catch { reject(new Error('bad json')); } });
+                });
+                req.on('error', reject);
+                req.on('timeout', () => { req.destroy(); reject(new Error('timeout')); });
+                req.write(body);
+                req.end();
+            });
+            if (result.doc_path) {
+                if (reveal) {
+                    const doc = await vscode.workspace.openTextDocument(latestMd);
+                    await vscode.window.showTextDocument(doc, { preview: false });
+                }
+                return latestMd;
+            }
+        } catch {
+            // fall through to local LM summary
+        }
+
+        // Fallback: synthesize an audit doc locally from the chain.
+        const [model] = await vscode.lm.selectChatModels({ vendor: 'copilot' });
+        if (!model) {
+            if (reveal) vscode.window.showWarningMessage('no LM model available for audit doc');
+            return undefined;
+        }
+
+        const prompt = `Turn this standup chain into a clean Markdown audit manifest.
+
+Requirements:
+- title: Chained Organism Audit Manifest
+- sections: Summary Table, Forward Chain, Backward Dependency Audit, Recommended Next Actions
+- for each module include: purpose, current risks, depends_on, feeds_into, concrete operator ask
+- use the standup text as evidence
+- keep it specific and technical, but readable
+
+Standup chain JSON:
+${JSON.stringify(activeChain, null, 2)}`;
+
+        const res = await model.sendRequest([vscode.LanguageModelChatMessage.User(prompt)], {}, new vscode.CancellationTokenSource().token);
+        let md = '';
+        for await (const chunk of res.text) md += chunk;
+
+        fs.writeFileSync(latestMd, md, 'utf-8');
+        fs.writeFileSync(latestJson, JSON.stringify({ ts: new Date().toISOString(), source: 'lm_fallback', chain: activeChain }, null, 2), 'utf-8');
+
+        if (reveal) {
+            const doc = await vscode.workspace.openTextDocument(latestMd);
+            await vscode.window.showTextDocument(doc, { preview: false });
+        }
+        return latestMd;
+    }
+
+    private _saveStandupLog(chain: Array<{ module: string; response: string; score: number; extractions?: any[] }>, source: 'server' | 'lm_fallback') {
+        try {
+            const dir = path.join(this._root, 'logs', 'standups');
+            fs.mkdirSync(dir, { recursive: true });
+            const now = new Date();
+            const stamp = now.toISOString().replace(/[-:]/g, '').replace('T', '_').slice(0, 15);
+            const payload = {
+                ts: now.toISOString(),
+                source,
+                chain,
+            };
+            fs.writeFileSync(path.join(dir, `standup_${stamp}.json`), JSON.stringify(payload, null, 2), 'utf-8');
+            fs.writeFileSync(path.join(dir, 'latest_standup.json'), JSON.stringify(payload, null, 2), 'utf-8');
+        } catch {
+            // non-fatal: standup can still render even if persistence fails
+        }
     }
 
     private _pickUrgentModules(n: number): Array<{ name: string; score: number; personality: string; bugs: string[]; entropy: number }> {
@@ -1928,8 +2515,12 @@ button:hover { background: var(--vscode-button-hoverBackground); }
 ${entries}
 <div class="footer">
     standup complete — ${new Date().toISOString().slice(0, 16)} UTC<br>
+    saved to <code>logs/standups/latest_standup.json</code><br>
+    audit doc saved to <code>logs/manifest_audits/latest_audit.md</code><br>
     <button onclick="acquireVsCodeApi().postMessage({type:'rerun'})">re-run standup</button>
     <button onclick="acquireVsCodeApi().postMessage({type:'forward'})">inject into copilot prompt</button>
+    <button onclick="acquireVsCodeApi().postMessage({type:'audit'})">write/open audit doc</button>
+    <button onclick="acquireVsCodeApi().postMessage({type:'open-log'})">open latest log</button>
 </div>
 </body></html>`;
     }
@@ -1953,6 +2544,16 @@ ${entries}
                 vscode.window.showInformationMessage('standup injected into copilot prompt');
             } catch {
                 vscode.window.showWarningMessage('could not reach profile_chat_server');
+            }
+        } else if (msg.type === 'audit') {
+            await this._writeAuditDoc(undefined, true);
+        } else if (msg.type === 'open-log') {
+            try {
+                const logPath = path.join(this._root, 'logs', 'standups', 'latest_standup.json');
+                const doc = await vscode.workspace.openTextDocument(logPath);
+                await vscode.window.showTextDocument(doc, { preview: false });
+            } catch {
+                vscode.window.showWarningMessage('no saved standup log yet');
             }
         }
     }
@@ -2995,6 +3596,19 @@ export function activate(context: vscode.ExtensionContext) {
         // Live operator state status bar (refreshes every 15s)
         new OperatorStateStatusBar(root, context);
 
+        // Unified stale-data / freshness surface in the frontend
+        new FreshnessStatusBar(root, context);
+        const autoOpenFreshness = vscode.workspace
+            .getConfiguration('pigeon')
+            .get<boolean>('openFreshnessSurfaceOnStartup', true);
+        if (autoOpenFreshness) {
+            setTimeout(() => {
+                if (!FreshnessSurfacePanel.current) {
+                    FreshnessSurfacePanel.createOrShow(context, root);
+                }
+            }, 1200);
+        }
+
         // Cascade pre-query engine — dual-LLM ghost text on pause
         new CascadeInlineProvider(root, context);
 
@@ -3019,6 +3633,13 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.commands.registerCommand('pigeon.showEntropyChart', () =>
             EntropyChartPanel.createOrShow(context))
+    );
+
+    // Freshness surface — one frontend view for stale / missing write targets
+    context.subscriptions.push(
+        vscode.commands.registerCommand('pigeon.showFreshnessSurface', () => {
+            if (root) FreshnessSurfacePanel.createOrShow(context, root);
+        })
     );
 
     // Cascade standup — files brief operator in chain

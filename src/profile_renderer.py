@@ -10,13 +10,6 @@ Each module gets its own page at build/profiles/{name}.html containing:
   - Relationship graph (edges_in/out, partners, coupling)
   - Backstory, entropy, heat, self-diagnosis, TODO, memory
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-06T04:30:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  interactive profiles with probes coaching
-# EDIT_AUTHOR: copilot
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 import json
 from pathlib import Path

@@ -14,13 +14,6 @@ Reads: pigeon_registry, numeric_surface, file_heat_map, entropy_map,
        bug_profiles, push_narratives, execution_death_log, file_profiles,
        active_dossier, loop_detector. Zero LLM calls.
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   2026-04-06T04:30:00+00:00
-# EDIT_HASH: auto
-# EDIT_WHY:  add code access probes coaching
-# EDIT_AUTHOR: copilot
-# EDIT_STATE: harvested
-# ── /pulse ──
 
 import ast
 import json
@@ -63,6 +56,12 @@ def _load_json(path: Path) -> dict | list:
 
 def _load_all_sources(root: Path) -> dict:
     """Load every data source once, return as lookup dict."""
+    try:
+        from src.numeric_surface import generate_surface
+        generate_surface(root)
+    except Exception:
+        pass
+
     return {
         'registry': _load_json(root / 'pigeon_registry.json'),
         'heat_map': _load_json(root / 'file_heat_map.json'),

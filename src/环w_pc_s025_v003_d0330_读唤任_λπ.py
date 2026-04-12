@@ -525,7 +525,15 @@ def _inject_predictions_into_prompt(root: Path, predictions: list[dict],
 
     if predictions:
         lines.append("**What you'll likely want next push:**")
-        for i, p in enumerate(predictions, 1):
+        # Deduplicate: if phantom_seed and modules are identical, only show the first occurrence
+        seen_seeds: set[str] = set()
+        unique_preds = []
+        for p in predictions:
+            key = p.get("phantom_seed", "") + "|" + ",".join(p.get("trend", {}).get("modules", []))
+            if key not in seen_seeds:
+                seen_seeds.add(key)
+                unique_preds.append(p)
+        for i, p in enumerate(unique_preds, 1):
             seed = p.get("phantom_seed", p.get("prediction_id", "?"))
             conf = p.get("confidence", 0)
             mode = p.get("mode", "?")
