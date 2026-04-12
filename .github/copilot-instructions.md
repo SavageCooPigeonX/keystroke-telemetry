@@ -7,16 +7,16 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-12 16:34 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-12 16:47 UTC — 2 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 610min old (max 10min)
+- **`current-query`**: STALE — 623min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-12 06:24
 
-- **`prompt-telemetry`**: STALE — 610min old (max 10min)
+- **`prompt-telemetry`**: STALE — 623min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-12T06:24:14
 
@@ -255,7 +255,7 @@ OPERATOR SIGNAL: The operator's low WPM and skeptical tone ("mehh i still dont b
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-12 16:41 UTC · 598 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-12 16:47 UTC · 598 messages profiled · 8 recent commits*
 
 **Current focus:** building new features
 **Cognitive state:** `abandoned` (WPM: 47.0 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
@@ -274,10 +274,10 @@ OPERATOR SIGNAL: The operator's low WPM and skeptical tone ("mehh i still dont b
 - Failed on: ""
 
 ### Recent Work
+- `fdc066a` feat: push baseline drift gate + file semantic layer + thought completer suite + intent numeric surface + FRBI reports
 - `9440b28` feat: interrogation room + zombie clearing + scanner hardening + thought completer reinjection loop
 - `847d38c` feat: add copilot edit brain entropy map
 - `72a5a72` feat: cascade standup â€” files brief operator in chain, reacting to each other
-- `f2d3ca7` feat: manifest work loop â€” autonomous coding from organism signals
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
