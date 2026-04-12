@@ -1,6 +1,9 @@
 """册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_mutate_compressed_seq007_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
 
+from .册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_parse_decomposed_seq006_v001 import parse_pigeon_stem
+from .册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_filename_builders_seq005_v001 import build_compressed_filename
+
 def mutate_compressed_stem(stem: str, new_ver: int | None = None,
                            new_date: str | None = None,
                            new_state: str | None = None,

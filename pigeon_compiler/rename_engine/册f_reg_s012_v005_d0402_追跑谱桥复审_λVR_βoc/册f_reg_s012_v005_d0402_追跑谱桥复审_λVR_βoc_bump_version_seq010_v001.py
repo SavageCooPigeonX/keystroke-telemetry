@@ -2,6 +2,9 @@
 from pathlib import Path
 import re
 
+from .册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_date_utils_seq003_v001 import _today
+from .册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_filename_builders_seq005_v001 import build_pigeon_filename
+
 def bump_version(entry: dict, new_desc: str = '',
                  new_intent: str = '', action: str = 'mutated') -> dict:
     """Bump an entry's version, update date + desc + intent, append history.

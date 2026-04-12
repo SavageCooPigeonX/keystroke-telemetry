@@ -1,53 +1,5 @@
 [
   {
-    "ts": "2026-04-12T01:34:19.742587+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 42.3,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T01:34:43.937619+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 42.3,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T01:35:44.169936+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 42.3,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T01:36:16.777869+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 42.3,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T01:36:23.339921+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 42.3,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T01:36:42.964345+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 42.3,
-    "query_hint": "bg:idle"
-  },
-  {
     "ts": "2026-04-12T01:37:00.401324+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
@@ -1598,5 +1550,53 @@
     "del_ratio": 0.013,
     "wpm": 2.8,
     "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-12T16:58:09.556626+00:00",
+    "verdict": "ok",
+    "rework_score": 0.157,
+    "del_ratio": 0.013,
+    "wpm": 2.8,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-12T16:59:17.668763+00:00",
+    "verdict": "ok",
+    "rework_score": 0.009,
+    "del_ratio": 0.017,
+    "wpm": 25.3,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-12T17:00:07.951260+00:00",
+    "verdict": "ok",
+    "rework_score": 0.009,
+    "del_ratio": 0.017,
+    "wpm": 25.3,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T17:05:33.372890+00:00",
+    "verdict": "ok",
+    "rework_score": 0.009,
+    "del_ratio": 0.017,
+    "wpm": 25.3,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-12T17:07:44.204152+00:00",
+    "verdict": "ok",
+    "rework_score": 0.009,
+    "del_ratio": 0.017,
+    "wpm": 25.3,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T17:08:25.132207+00:00",
+    "verdict": "ok",
+    "rework_score": 0.009,
+    "del_ratio": 0.017,
+    "wpm": 25.3,
+    "query_hint": "bg:copilot-instructions.md"
   }
 ]

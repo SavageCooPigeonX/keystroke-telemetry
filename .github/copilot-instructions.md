@@ -7,16 +7,16 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-12 16:57 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-12 17:08 UTC — 2 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 633min old (max 10min)
+- **`current-query`**: STALE — 645min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-12 06:24
 
-- **`prompt-telemetry`**: STALE — 633min old (max 10min)
+- **`prompt-telemetry`**: STALE — 644min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-12T06:24:14
 
@@ -255,12 +255,12 @@ OPERATOR SIGNAL: The operator's low WPM and skeptical tone ("mehh i still dont b
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-12 16:57 UTC · 598 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-12 17:08 UTC · 598 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 47.0 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
 
-**Prompt ms:** 71504, 19894, 136786, 327819, 969160 (avg 305033ms)
+**Prompt ms:** 19894, 136786, 327819, 969160, 27522 (avg 296236ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
@@ -274,10 +274,10 @@ OPERATOR SIGNAL: The operator's low WPM and skeptical tone ("mehh i still dont b
 - Failed on: ""
 
 ### Recent Work
+- `81177cc` fix: add missing intra-package imports in registry_io decomposed modules
 - `9431f3a` fix: add missing REGISTRY_FILE import in registry_io decomposed module
 - `fdc066a` feat: push baseline drift gate + file semantic layer + thought completer suite + intent numeric surface + FRBI reports
 - `9440b28` feat: interrogation room + zombie clearing + scanner hardening + thought completer reinjection loop
-- `847d38c` feat: add copilot edit brain entropy map
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
