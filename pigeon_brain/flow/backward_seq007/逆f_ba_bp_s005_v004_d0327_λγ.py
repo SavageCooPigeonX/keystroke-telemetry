@@ -5,6 +5,15 @@ append_learning = _fi("node_memory_seq008", "append_learning")
 from pathlib import Path
 from typing import Any
 import re
+import logging
+
+# Import helpers from sibling modules
+from .逆f_ba_fl_s001_v002_d0327_λS import _load_forward_path, _append_insight
+from .逆f_ba_lc_s002_v002_d0327_λS import compute_loss
+from .逆f_ba_to_s003_v002_d0327_λS import _tokenize
+from .逆f_ba_da_s004_v004_d0327_λγ import _deepseek_analyze_backward
+
+logger = logging.getLogger(__name__)
 
 def backward_pass(
     root: Path, electron_id: str,

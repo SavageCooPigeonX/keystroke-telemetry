@@ -10,7 +10,8 @@ from .tc_vscode import _detect_repo_from_title
 from .tc_context import invalidate_context_cache
 from .tc_gemini import ThoughtBuffer, call_gemini, log_completion
 from .tc_buffer_watcher import BufferWatcher
-from .tc_profile import update_profile_from_completion
+from .tc_profile import update_profile_from_completion, update_profile_from_composition
+from .tc_grader import grade_completion, log_grade, update_grade_summary
 
 
 def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
@@ -30,6 +31,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
         def __init__(self):
             self.root = tk.Tk()
             self.root.title('thought completer')
+            self.root.overrideredirect(True)
             self.root.configure(bg=BG)
             self.root.attributes('-topmost', True)
             self.root.attributes('-alpha', opacity)
@@ -54,6 +56,8 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
             self.completion_buffer = ''
             self.n_accepted = 0
             self.n_rejected = 0
+            self._grade_counter = 0
+            self._comp_line_count = 0  # tracks last-seen composition line
             self.pause_after_id = None
             self.completing = False
             self.current_repo = _detect_repo_from_title() or ROOT.name
@@ -186,6 +190,9 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
         def _start_polling(self):
             self._poll_tick()
             self._repo_tick()
+            self._composition_tick()
+            # rebuild grade summary at startup so self-learning prompt has fresh data
+            threading.Thread(target=update_grade_summary, daemon=True).start()
 
         def _poll_tick(self):
             changed = self.watcher.poll()
@@ -210,6 +217,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
                 if not buf and self.completion:
                     self.thought_buffer.record(self.completion_buffer, self.completion, 'ignored')
                     update_profile_from_completion(self.completion_buffer, self.completion, 'ignored')
+                    self._grade_and_log(self.completion_buffer, self.completion, 'ignored')
                     self._log(False, buf)
                     self.completion = ''
                     self.completion_buffer = ''
@@ -275,6 +283,29 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
                 self.repo_lbl.config(text=repo)
                 invalidate_context_cache()
             self.root.after(3000, self._repo_tick)
+
+        def _composition_tick(self):
+            """Poll chat_compositions.jsonl for new entries → feed to profile."""
+            try:
+                comp_path = ROOT / 'logs' / 'chat_compositions.jsonl'
+                if comp_path.exists():
+                    lines = comp_path.read_text('utf-8', errors='ignore').strip().splitlines()
+                    total = len(lines)
+                    if self._comp_line_count == 0:
+                        # first run — start from current position, don't backfill
+                        self._comp_line_count = total
+                    elif total > self._comp_line_count:
+                        new_lines = lines[self._comp_line_count:]
+                        self._comp_line_count = total
+                        for line in new_lines[-5:]:  # max 5 at a time
+                            try:
+                                entry = json.loads(line)
+                                update_profile_from_composition(entry)
+                            except Exception:
+                                continue
+            except Exception as ex:
+                print(f'[comp-watch] error: {ex}')
+            self.root.after(5000, self._composition_tick)
 
         def _refresh_display(self, buf):
             self.text_box.config(state='normal')
@@ -404,6 +435,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
             if self.completion and self.completion_buffer:
                 self.thought_buffer.record(self.completion_buffer, self.completion, 'superseded')
                 update_profile_from_completion(self.completion_buffer, self.completion, 'superseded')
+                self._grade_and_log(self.completion_buffer, self.completion, 'superseded')
             self.completion = completion
             self.completion_buffer = buf
             self._refresh_display(buf)
@@ -420,6 +452,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
             self._log(True, self.watcher.buffer)
             self.thought_buffer.record(self.completion_buffer, full_text, 'accepted')
             update_profile_from_completion(self.completion_buffer, full_text, 'accepted')
+            self._grade_and_log(self.completion_buffer, full_text, 'accepted')
             self.n_accepted += 1
             self._update_stats()
             self._toast('copied!', GREEN)
@@ -449,6 +482,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
             })
             self.thought_buffer.record(self.completion_buffer, full_text, 'rewarded')
             update_profile_from_completion(self.completion_buffer, full_text, 'rewarded')
+            self._grade_and_log(self.completion_buffer, full_text, 'rewarded')
             self.n_accepted += 1
             self._update_stats()
             self._toast('\u2705 rewarded!', GREEN)
@@ -464,6 +498,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
                 return
             self.thought_buffer.record(self.completion_buffer, self.completion, 'dismissed')
             update_profile_from_completion(self.completion_buffer, self.completion, 'dismissed')
+            self._grade_and_log(self.completion_buffer, self.completion, 'dismissed')
             self._log(False, self.watcher.buffer)
             self.n_rejected += 1
             self._update_stats()
@@ -486,6 +521,21 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
                 'context_files': getattr(self, '_last_context_files', []),
                 'latency_ms': getattr(self, '_last_latency_ms', 0),
             })
+
+        def _grade_and_log(self, buf, completion, outcome):
+            """Grade completion and log to grades file. Runs summary every 10."""
+            try:
+                ctx_files = getattr(self, '_last_context_files', [])
+                latency = getattr(self, '_last_latency_ms', 0)
+                g = grade_completion(buf, completion, outcome,
+                                     context_files=ctx_files,
+                                     latency_ms=latency)
+                log_grade(g)
+                self._grade_counter += 1
+                if self._grade_counter % 10 == 0:
+                    threading.Thread(target=update_grade_summary, daemon=True).start()
+            except Exception as ex:
+                print(f'[grader] error: {ex}')
 
         def _update_stats(self):
             self.stats_lbl.config(text=f'\u2713 {self.n_accepted}  \u2717 {self.n_rejected}')

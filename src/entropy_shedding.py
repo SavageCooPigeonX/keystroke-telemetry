@@ -216,8 +216,9 @@ def _load_edit_entropy(root: Path) -> dict[str, dict[str, float]]:
 
         latency_score = min(latency_ms / 300000.0, 1.0)  # 5 min = max uncertainty
         state_score = EDIT_STATE_ENTROPY.get(state, EDIT_STATE_ENTROPY['unknown'])
-        reason_score = 0.10 if edit_why and edit_why not in {'auto', 'none'} else 0.0
-        event_H = min(1.0, latency_score * 0.55 + state_score * 0.35 + reason_score)
+        # clear edit reason = LESS uncertain (reduces entropy)
+        reason_bonus = -0.15 if edit_why and edit_why not in {'auto', 'none'} else 0.0
+        event_H = max(0.0, min(1.0, latency_score * 0.55 + state_score * 0.35 + reason_bonus))
 
         pm = per_module[mod]
         pm['total_H'] += event_H
@@ -338,9 +339,14 @@ def accumulate_entropy(root):
     red_layer = []
     for entry in module_scores:
         shed_conf = entry.get('shed_avg_confidence')
-        explicit_uncertainty = (1.0 - float(shed_conf)) if shed_conf is not None else float(entry['avg_entropy'])
         rework_penalty = rework_penalties.get(entry['module'], 0.0)
-        red = round(max(float(entry['avg_entropy']), explicit_uncertainty) + rework_penalty, 4)
+        if shed_conf is not None:
+            # shed confidence OVERRIDES edit-pair entropy — that's the whole point
+            # blend: 70% shed signal, 30% measured entropy (shed is intentional)
+            explicit_uncertainty = 1.0 - float(shed_conf)
+            red = round(0.7 * explicit_uncertainty + 0.3 * float(entry['avg_entropy']) + rework_penalty, 4)
+        else:
+            red = round(float(entry['avg_entropy']) + rework_penalty, 4)
         red_layer.append({
             'module': entry['module'],
             'red': red,

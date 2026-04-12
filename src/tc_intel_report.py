@@ -447,12 +447,99 @@ def render_intelligence(p: dict) -> str:
     return '\n'.join(lines)
 
 
+# ── COMPLETION GRADES ──
+
+def render_grades(p: dict) -> str:
+    """Render completion grading data."""
+    summary_path = ROOT / 'logs' / 'completion_grade_summary.json'
+    grades_path = ROOT / 'logs' / 'completion_grades.jsonl'
+
+    lines = ['## Completion Grades', '']
+
+    if not grades_path.exists():
+        lines.append('*No grades recorded yet. Restart thought completer to activate grading.*')
+        lines.append('')
+        return '\n'.join(lines)
+
+    # Load summary
+    summary = None
+    if summary_path.exists():
+        try:
+            summary = json.loads(summary_path.read_text('utf-8', errors='ignore'))
+        except Exception:
+            pass
+
+    # Load recent grades
+    recent = []
+    for line in grades_path.read_text('utf-8', errors='ignore').strip().splitlines()[-20:]:
+        try:
+            recent.append(json.loads(line))
+        except Exception:
+            continue
+
+    if summary:
+        a = summary.get('all_time', {})
+        r50 = summary.get('recent_50', {})
+        trend = summary.get('trend', {})
+        lines.append(f'**Total graded:** {summary.get("total_graded", 0)}')
+        lines.append('')
+        lines.append('| Metric | All-Time | Recent 50 |')
+        lines.append('|--------|----------|-----------|')
+        lines.append(f'| Composite | {a.get("avg_composite", 0):.3f} | {r50.get("avg_composite", 0):.3f} |')
+        lines.append(f'| Relevance | {a.get("avg_relevance", 0):.3f} | {r50.get("avg_relevance", 0):.3f} |')
+        lines.append(f'| Novelty | {a.get("avg_novelty", 0):.3f} | {r50.get("avg_novelty", 0):.3f} |')
+        lines.append(f'| Echo | {a.get("avg_echo", 0):.3f} | {r50.get("avg_echo", 0):.3f} |')
+        lines.append(f'| Accept rate | {a.get("accept_rate", 0):.1%} | {r50.get("accept_rate", 0):.1%} |')
+        lines.append('')
+        lines.append(f'**Trend:** {trend.get("direction", "?")} (delta={trend.get("delta", 0):+.3f})')
+        lines.append('')
+
+        # Length profile
+        lp = summary.get('length_profile', {})
+        if lp.get('accepted_avg'):
+            lines.append(f'**Accepted length:** avg={lp["accepted_avg"]:.0f} chars '
+                          f'(rejected avg={lp.get("rejected_avg", 0):.0f})')
+            ar = lp.get('accepted_range', [0, 0])
+            lines.append(f'**Accepted range:** {ar[0]}-{ar[1]} chars')
+            lines.append('')
+
+        # Context effectiveness
+        ce = summary.get('context_effectiveness', {})
+        if ce:
+            lines.append('**Context file effectiveness:**')
+            lines.append('| File | Accept Rate | Samples |')
+            lines.append('|------|-------------|---------|')
+            for f, d in sorted(ce.items(), key=lambda x: x[1]['accept_rate'], reverse=True):
+                lines.append(f'| `{f}` | {d["accept_rate"]:.0%} | {d["total"]} |')
+            lines.append('')
+
+    # Recent grades
+    if recent:
+        lines.append('### Recent Completions')
+        lines.append('')
+        lines.append('| Outcome | Composite | Rel | Novel | Echo | Len | Context |')
+        lines.append('|---------|-----------|-----|-------|------|-----|---------|')
+        for g in recent[-10:]:
+            icon = {'rewarded': '\u2b50', 'accepted': '\u2713', 'dismissed': '\u2717',
+                    'ignored': '\u00b7', 'superseded': '\u21bb'}.get(g['outcome'], '?')
+            ctx = ','.join(g.get('context_files', [])[:2]) or '-'
+            lines.append(
+                f'| {icon} {g["outcome"]} | {g["composite"]:.2f} | '
+                f'{g["relevance"]:.2f} | {g["novelty"]:.2f} | '
+                f'{g["echo"]:.2f} | {g["comp_len"]} | {ctx} |'
+            )
+        lines.append('')
+
+    return '\n'.join(lines)
+
+
 # ── FULL REPORT ──
 
 def render_full_report(p: dict) -> str:
     parts = [
         render_header(p),
         render_intelligence(p),
+        render_grades(p),
         render_sections(p),
         render_voice(p),
         render_rhythm(p),
@@ -477,6 +564,7 @@ SHARD_MAP = {
     'predictions': render_predictions,
     'sections': render_sections,
     'intelligence': render_intelligence,
+    'grades': render_grades,
 }
 
 

@@ -13,7 +13,8 @@ Shards:
   6. code_style  — naming conventions, indentation, import patterns, language quirks
   7. emotions    — cognitive state transitions, frustration triggers, flow triggers
   8. predictions — learned completion patterns that worked, operator-specific templates
-"""
+
+COGNITIVE NOTE (auto-added by reactor): This module triggered 3+ high-load flushes (avg_hes=0.899, state=hesitant). Consider simplifying its public interface or adding examples."""
 from __future__ import annotations
 import ast
 import json
@@ -241,7 +242,8 @@ _SECTION_SIGNALS = {
     'telemetry': {
         'words': {'telemetry', 'keystroke', 'wpm', 'deletion', 'hesitation',
                   'signal', 'entropy', 'heat', 'profile', 'cognitive', 'state',
-                  'composition', 'typing', 'buffer', 'capture', 'stream'},
+                  'composition', 'typing', 'buffer', 'capture', 'stream',
+                  'rework', 'drift', 'pulse', 'organism', 'health'},
         'state_boost': {'focused': 0.3},
         'del_ratio_boost': 0.0,
     },
@@ -1072,13 +1074,26 @@ def update_profile_from_completion(buffer: str, completion: str, outcome: str,
 
 
 def update_profile_from_composition(comp: dict):
-    """Update profile from a raw composition event (from prompt_compositions.jsonl)."""
+    """Update profile from a raw composition event (from chat_compositions.jsonl).
+
+    Normalizes the actual JSONL format (chat_state.signals.wpm, etc.) before
+    feeding into the profile shards. Handles both old and new data shapes.
+    """
     profile = load_profile()
     s = profile['shards']
 
+    # ── NORMALIZE: chat_compositions.jsonl uses chat_state.signals.wpm,
+    # not top-level signals.wpm. Handle both shapes. ──
+    chat_state = comp.get('chat_state', {})
+    if isinstance(chat_state, dict):
+        signals = chat_state.get('signals', comp.get('signals', {}))
+        state = chat_state.get('state', comp.get('cognitive_state', 'unknown'))
+    else:
+        signals = comp.get('signals', {})
+        state = comp.get('cognitive_state', 'unknown')
+
     # --- rhythm shard ---
     rhythm = s['rhythm']
-    signals = comp.get('signals', {})
     wpm = signals.get('wpm', 0)
     if wpm > 0:
         n = max(profile['samples'], 1)
@@ -1117,14 +1132,14 @@ def update_profile_from_composition(comp: dict):
     if section != 'unknown' and final_text:
         deleted = comp.get('deleted_words', [])
         del_words = [dw if isinstance(dw, str) else dw.get('word', '') for dw in deleted]
-        rewrites = comp.get('rewrite_chains', [])
+        rewrites = comp.get('rewrite_chains', comp.get('rewrites', []))
         mod_mentions = re.findall(r'[a-zA-Z_][a-zA-Z0-9_]+(?:_[a-zA-Z0-9_]+)+', final_text.lower())
         hour_utc = datetime.now(timezone.utc).hour
         update_section(
             profile, section, final_text, '', 'composition',
             state=state, wpm=wpm,
             del_ratio=comp.get('deletion_ratio', 0),
-            hesitation=signals.get('hesitation_score', 0),
+            hesitation=signals.get('hesitation_score', signals.get('hesitation_count', 0)),
             deleted_words=del_words,
             rewrite_chains=rewrites[:3],
             modules_mentioned=mod_mentions,
@@ -1411,3 +1426,160 @@ def format_profile_for_prompt(profile: dict | None = None) -> str:
     lines.append('  USE this profile to write AS THEM. Match their vocabulary, rhythm, obsessions.')
     lines.append('  For CODE mode: match their quote style, naming, import patterns, error handling.')
     return '\n'.join(lines)
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# INTENT PROFILE GENERATOR — learns new profiles from prompt clusters
+# ══════════════════════════════════════════════════════════════════════════════
+
+_INTENT_STOPWORDS = frozenset(
+    'the and for with this that from have what when where then than they their '
+    'will would could should about been into some also just like more need want '
+    'make does dont here were each which still really pretty super actually '
+    'kinda right think look looking know going gonna doing done getting much '
+    'very even only most many such well back over being said says yeah okay sure '
+    'thing things way ways yeah okay want need see try trying you your i me '
+    'can cant cannot could should would may might must shall will well '
+    'it its a an is are was be to of in on at by up out if or so not no yes '
+    'file files module modules code check checking how now got get'.split()
+)
+
+
+def extract_session_triggers(prompts: list[dict], min_count: int = 2) -> list[str]:
+    """Extract recurring intent words from a session's prompts.
+    
+    Returns words that appear in 2+ prompts (configurable), sorted by frequency.
+    These become trigger words for the new intent profile.
+    """
+    word_count: dict[str, int] = {}
+    for p in prompts:
+        msg = p.get('msg', '').lower()
+        # Extract meaningful words
+        words = set(re.findall(r'[a-zA-Z_][a-zA-Z0-9_]+', msg))
+        for w in words:
+            if len(w) > 3 and w not in _INTENT_STOPWORDS:
+                word_count[w] = word_count.get(w, 0) + 1
+    
+    # Filter to words appearing in min_count+ prompts
+    triggers = [(w, c) for w, c in word_count.items() if c >= min_count]
+    triggers.sort(key=lambda x: -x[1])
+    return [w for w, c in triggers[:15]]  # top 15
+
+
+def extract_session_files(prompts: list[dict]) -> list[str]:
+    """Extract files mentioned/touched in a session.
+    
+    Sources: files_open field, module_refs field, and text mentions.
+    """
+    files = set()
+    for p in prompts:
+        for f in p.get('files_open', []):
+            if f:
+                files.add(Path(f).stem if '/' in f or '\\' in f else f)
+        for ref in p.get('module_refs', []):
+            if ref:
+                files.add(ref.split('_seq')[0] if '_seq' in ref else ref)
+        # Also extract tc_* and *_manifest mentions from text
+        msg = p.get('msg', '')
+        tc_mentions = re.findall(r'tc_\w+', msg.lower())
+        files.update(tc_mentions)
+        manifest_mentions = re.findall(r'\w*manifest\w*', msg.lower())
+        files.update(m for m in manifest_mentions if len(m) > 5)
+    return list(files)[:10]
+
+
+def detect_session_template(prompts: list[dict]) -> str:
+    """Detect which template mode fits this session best.
+    
+    Returns: '/debug', '/build', or '/review'
+    """
+    intents = [p.get('intent', 'unknown') for p in prompts]
+    states = [p.get('cognitive_state', 'unknown') for p in prompts]
+    
+    debug_signals = sum(1 for i in intents if i in ('debugging', 'fixing'))
+    debug_signals += sum(1 for s in states if s in ('frustrated', 'hesitant'))
+    
+    build_signals = sum(1 for i in intents if i in ('building', 'creating', 'restructuring'))
+    build_signals += sum(1 for s in states if s in ('focused', 'restructuring'))
+    
+    review_signals = sum(1 for i in intents if i in ('testing', 'reviewing', 'exploring'))
+    
+    scores = {'debug': debug_signals, 'build': build_signals, 'review': review_signals}
+    return '/' + max(scores, key=scores.get)
+
+
+def generate_profile_from_session(prompts: list[dict], 
+                                  profile_name: str | None = None) -> dict:
+    """Generate an intent profile from a session's prompts.
+    
+    Call this at end of a session to learn a new profile.
+    Returns the generated profile dict AND writes it to TC_MANIFEST.
+    """
+    if not prompts or len(prompts) < 3:
+        return {}
+    
+    triggers = extract_session_triggers(prompts)
+    files = extract_session_files(prompts)
+    template = detect_session_template(prompts)
+    
+    if not triggers:
+        return {}
+    
+    # Auto-generate name from top triggers if not provided
+    if not profile_name:
+        profile_name = '_'.join(triggers[:3])
+    
+    # Calculate confidence from session coherence
+    # (more prompts with same intent = higher confidence)
+    intents = [p.get('intent', 'unknown') for p in prompts]
+    from collections import Counter
+    intent_dist = Counter(intents)
+    dominant_intent = intent_dist.most_common(1)[0] if intent_dist else ('unknown', 0)
+    coherence = dominant_intent[1] / len(prompts) if prompts else 0
+    confidence = min(0.95, 0.5 + coherence * 0.4)
+    
+    profile = {
+        'trigger': triggers,
+        'files': files,
+        'template': template,
+        'confidence': round(confidence, 2),
+        'source_prompts': len(prompts),
+    }
+    
+    # Write to TC_MANIFEST
+    try:
+        from .tc_manifest import update_intent_profile
+        update_intent_profile(
+            name=profile_name,
+            trigger=triggers,
+            files=files,
+            template=template,
+            confidence=confidence,
+            hit=True
+        )
+    except Exception:
+        pass  # manifest might not exist yet
+    
+    return profile
+
+
+def generate_profile_from_journal(n_prompts: int = 20) -> dict | None:
+    """Generate a profile from the last N prompts in the journal.
+    
+    Convenience function for end-of-session profile generation.
+    """
+    journal = ROOT / 'logs' / 'prompt_journal.jsonl'
+    if not journal.exists():
+        return None
+    
+    prompts = []
+    for line in journal.read_text('utf-8', errors='ignore').strip().splitlines()[-n_prompts:]:
+        try:
+            prompts.append(json.loads(line))
+        except Exception:
+            continue
+    
+    if not prompts:
+        return None
+    
+    return generate_profile_from_session(prompts)

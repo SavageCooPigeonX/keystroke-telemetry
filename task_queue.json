@@ -1,3 +1,17 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "id": "tq-001",
+      "title": "STRESS TEST: Learning loop verification",
+      "status": "pending",
+      "intent": "testing",
+      "stage": "pending",
+      "focus_files": [],
+      "manifest_ref": "",
+      "created_ts": "2026-04-12T06:28:12.684414+00:00",
+      "completed_ts": null,
+      "commit": null
+    }
+  ],
+  "next_id": 2
 }

@@ -2,30 +2,26 @@
 description: "Debug-focused context: known issues, fragile contracts, clots, dossier"
 ---
 
-# /debug (RECOMMENDED)
+# /debug
 
-*Hydrated 2026-04-12 01:14 UTC · detected mode: debug*
+*Hydrated 2026-04-12 06:24 UTC · detected mode: build*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.495
+**Cognitive:** `abandoned` | WPM: 50 | Del: 26% | Hes: 0.487
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
-**Deleted words:** the agent isint firing / proceccing my work
-**Unsaid threads:** the agent isint firing / proceccing my work
-**Rewrites:** "the agent isint firing / proceccing my work" → "nevermind - i guess i"
-**Codes:** intent=`exploring` state=`unknown` bl_wpm=54 bl_del=25%
+**Codes:** intent=`testing` state=`neutral` bl_wpm=53 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
 
 ## Fragile Contracts
 
-- breaking the entire injection chain. I provide validated rename maps to 追跑f_ruhe; if my output contract changes from a flat dict to a list, its healin
-- breaking the prompt pipeline.
-- breaking audit trails. Watch for prompts that lose their actor tags in downstream logs.
-- contract changes and tags are not passed, the audit will flag valid prompts as invalid, causing narrative generation to halt. Watch for false‑positive
-- breaking downstream attribution.
 - break mid-cycle. I receive all cross-referenced data from u_pj and manage the injection lifecycle. If the surface object size balloons, my memory trac
+- contract change, (2) node_memory key `'numeric_surface'` missing or None, (3) surface object
+- break it immediately. **_tmp_probe_loop** orchestrates diagnostic probes, expecting probe modules to return a specific dict schema; a schema violation
+- risks API leakage. **codebase_vitals** now feeds metrics into the scanner hardening, providing complexity scores and assuming file paths are absolute;
+- BREAKING: Self-Healing Codebase Clears 15 Zombie Modules in Single Push**
 
 ## Codebase Clots (dead/bloated)
 

@@ -1363,6 +1363,26 @@ def run():
         changed_py = [bug_path_map.get(path, path) for path in changed_py]
         save_registry(root, registry)
 
+    # ── TC Trajectory Update: track λ mutations in TC_MANIFEST ──
+    # Every rename with a new λ suffix updates the file's trajectory
+    try:
+        tc_manifest_mod = _load_glob_module(root, 'src', 'tc_manifest*')
+        if tc_manifest_mod and hasattr(tc_manifest_mod, 'update_file_trajectory'):
+            trajectory_count = 0
+            # Process all renames from this commit
+            for old_rel, new_rel, entry in (renames + bug_renames):
+                parsed = parse_pigeon_stem(Path(new_rel).stem)
+                if parsed and parsed.get('intent'):
+                    lambda_suffix = 'λ' + parsed['intent']
+                    stem = parsed.get('abbrev', '') or parsed.get('name', '')[:10]
+                    deduction = entry.get('intent', 'mutation')[:40]
+                    tc_manifest_mod.update_file_trajectory(stem, lambda_suffix, deduction)
+                    trajectory_count += 1
+            if trajectory_count:
+                print(f'  📜 TC trajectory → {trajectory_count} file(s) tracked')
+    except Exception as e:
+        print(f'  ⚠️  TC trajectory: {e}')
+
     for entry in registry.values():
         entry['intent_code'] = _intent_code(entry.get('intent', ''))
         entry.setdefault('bug_keys', [])

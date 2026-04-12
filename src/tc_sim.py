@@ -38,7 +38,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from src.tc_constants import KEYSTROKE_LOG, DEFAULT_PAUSE_MS
+from src.tc_constants import KEYSTROKE_LOG, DEFAULT_PAUSE_MS, ROOT
 
 
 @dataclass
@@ -266,11 +266,178 @@ def score_prediction(pause: PausePoint, prediction: str) -> SimResult:
 
 # ── Live replay ─────────────────────────────────────────────────────────────
 
-def replay_pause_live(pause: PausePoint) -> SimResult:
-    """Actually call Gemini for one pause point and score the result."""
-    from src.tc_gemini import call_gemini
+def _build_historical_context(pause: PausePoint) -> tuple[dict, dict]:
+    """Reconstruct context AND trajectory from the pause point's time period.
+    
+    The current bug: replay uses LIVE context (today's conversation) when
+    simulating a pause from days ago. This makes predictions meaningless.
+    
+    Fix: search chat_compositions for entries around this pause's timestamp.
+    
+    Returns: (context_dict, trajectory_dict)
+    """
+    from datetime import datetime, timezone
+    import json
+    
+    compositions_path = ROOT / 'logs' / 'chat_compositions.jsonl'
+    if not compositions_path.exists():
+        return {}, {}
+    
+    # Convert pause timestamp (unix ms) to datetime
+    pause_dt = datetime.fromtimestamp(pause.ts / 1000, tz=timezone.utc)
+    
+    # Load compositions from the same session (within 2 hours before pause)
+    comps_before = []
+    try:
+        for line in compositions_path.read_text(encoding='utf-8').splitlines():
+            if not line.strip():
+                continue
+            raw = json.loads(line)
+            ts_str = raw.get('ts', '')
+            if not ts_str:
+                continue
+            try:
+                entry_dt = datetime.fromisoformat(ts_str.replace('Z', '+00:00'))
+            except Exception:
+                continue
+            # Keep entries within 2 hours BEFORE the pause
+            delta = (pause_dt - entry_dt).total_seconds()
+            if 0 < delta < 7200:  # 0-2 hours before
+                cs = raw.get('chat_state', {})
+                signals = cs.get('signals', {}) if isinstance(cs, dict) else {}
+                comps_before.append({
+                    'ts': ts_str,
+                    'text': raw.get('final_text', '')[:500],
+                    'state': cs.get('state', 'unknown') if isinstance(cs, dict) else 'unknown',
+                    'wpm': signals.get('wpm', 0),
+                    'del_ratio': raw.get('deletion_ratio', 0),
+                    'deleted_words': [
+                        d.get('word', '') if isinstance(d, dict) else str(d)
+                        for d in raw.get('deleted_words', [])[-6:]
+                    ],
+                    'rewrites': [
+                        f"{r.get('old', '')}→{r.get('new', '')}"[:80]
+                        if isinstance(r, dict) else str(r)[:80]
+                        for r in raw.get('rewrites', [])[-4:]
+                    ],
+                    'hesitations': len(raw.get('hesitation_windows', [])),
+                    'duration_ms': raw.get('duration_ms', 0),
+                })
+    except Exception:
+        return {}, {}
+    
+    # Take last 5 compositions before the pause
+    comps_before = sorted(comps_before, key=lambda x: x['ts'])[-5:]
+    
+    if not comps_before:
+        return {}, {}
+    
+    # Build context
+    ctx = {
+        'session_messages': [
+            {'text': c['text'], 'intent': 'unknown'}
+            for c in comps_before
+        ],
+        'session_info': {
+            'intent': 'unknown',
+            'cognitive_state': comps_before[-1].get('state', 'unknown'),
+            'session_n': len(comps_before),
+        },
+    }
+    
+    # Build trajectory in the format expected by format_trajectory_for_prompt
+    trajectory = {
+        'turns': [
+            {
+                'prompt': c['text'],
+                'state': c['state'],
+                'wpm': c['wpm'],
+                'del_ratio': c['del_ratio'],
+                'deleted_words': c['deleted_words'],
+                'rewrites': c['rewrites'],
+                'hesitations': c['hesitations'],
+                'duration_ms': c['duration_ms'],
+                'response': '',  # no response capture for historical
+            }
+            for c in comps_before
+        ],
+        'phase': 'iterating',  # default
+        'suppressed': [],
+        'recent_states': [c['state'] for c in comps_before[-3:]],
+    }
+    
+    # Collect all deleted words for suppressed intent
+    all_deleted = []
+    for c in comps_before:
+        all_deleted.extend(c.get('deleted_words', []))
+    trajectory['suppressed_intent'] = list(set(all_deleted))[-10:]
+    
+    return ctx, trajectory
+
+
+def replay_pause_live(pause: PausePoint, use_historical_ctx: bool = False) -> SimResult:
+    """Actually call Gemini for one pause point and score the result.
+    
+    Args:
+        use_historical_ctx: If True, reconstruct context from the pause's time
+                           instead of using live context. This fixes the major
+                           bug where sim uses today's conversation to predict
+                           a pause from last week.
+    """
+    from src.tc_gemini import call_gemini, _build_user_prompt, SYSTEM_PROMPT
+    from src.tc_trajectory import format_trajectory_for_prompt
+    import json, urllib.request
+    from src.tc_constants import GEMINI_MODEL, GEMINI_TIMEOUT
+    from src.tc_gemini import _load_api_key, _strip_signal_echo
+    
     t0 = time.time()
-    prediction, ctx_files = call_gemini(pause.buffer)
+    
+    if use_historical_ctx:
+        # Build context AND trajectory from the pause's time period, not live
+        ctx, trajectory = _build_historical_context(pause)
+        turns_n = len(trajectory.get('turns', []))
+        print(f'[historical] {turns_n} turns in trajectory')
+        if turns_n > 0:
+            for i, t in enumerate(trajectory['turns'][:3]):
+                print(f'  turn {i+1}: {t["prompt"][:50]}...')
+        if not trajectory.get('turns'):
+            # Fall back to live if no historical data
+            prediction, ctx_files = call_gemini(pause.buffer)
+        else:
+            # Call Gemini with historical context + trajectory
+            api_key = _load_api_key()
+            if not api_key:
+                return SimResult(pause=pause)
+            
+            # Build prompt with historical trajectory (the key fix!)
+            user_prompt = _build_user_prompt(pause.buffer, ctx, None, trajectory=trajectory)
+            url = (
+                f'https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}'
+                f':generateContent?key={api_key}'
+            )
+            body = json.dumps({
+                'system_instruction': {'parts': [{'text': SYSTEM_PROMPT}]},
+                'contents': [{'role': 'user', 'parts': [{'text': user_prompt}]}],
+                'generationConfig': {'temperature': 0.7, 'maxOutputTokens': 150, 'topP': 0.9},
+            }).encode('utf-8')
+            try:
+                req = urllib.request.Request(url, data=body, headers={'Content-Type': 'application/json'})
+                with urllib.request.urlopen(req, timeout=GEMINI_TIMEOUT) as resp:
+                    data = json.loads(resp.read().decode('utf-8'))
+                    parts_resp = data['candidates'][0]['content']['parts']
+                    prediction = ''
+                    for part in parts_resp:
+                        if 'text' in part:
+                            prediction = part['text'].strip()
+                            break
+                    prediction = _strip_signal_echo(prediction, pause.buffer)
+            except Exception as e:
+                print(f'[sim] gemini error: {e}')
+                prediction = ''
+            ctx_files = []
+    else:
+        prediction, ctx_files = call_gemini(pause.buffer)
+    
     latency = int((time.time() - t0) * 1000)
     result = score_prediction(pause, prediction)
     result.latency_ms = latency
@@ -1050,6 +1217,7 @@ def main():
     p.add_argument('--fix', action='store_true', help='diagnose + apply fixes from sim data')
     p.add_argument('--fix-dry', action='store_true', help='diagnose only, show what would fix')
     p.add_argument('--narrate', action='store_true', help='plain english explanation of everything')
+    p.add_argument('--historical', action='store_true', help='use historical context for each pause (fixes context mismatch bug)')
     args = p.parse_args()
 
     print(f'[sim] extracting sessions from {KEYSTROKE_LOG.name}...')
@@ -1078,7 +1246,7 @@ def main():
         if args.live and pauses:
             for i, pause in enumerate(pauses):
                 try:
-                    result = replay_pause_live(pause)
+                    result = replay_pause_live(pause, use_historical_ctx=args.historical)
                     if not args.transcript:
                         _print_result(result, i + 1)
                     all_results.append(result)

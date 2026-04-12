@@ -9,7 +9,9 @@ from datetime import datetime, timezone
 from .tc_constants import ROOT, GEMINI_MODEL, GEMINI_TIMEOUT, LOG_PATH, THOUGHT_BUFFER_PATH
 from .tc_context import load_context
 from .tc_context_agent import select_context_files, build_code_context
+from .tc_trajectory import build_trajectory, format_trajectory_for_prompt
 from .tc_profile import load_profile, format_profile_for_prompt, update_profile_from_completion, format_intelligence_for_prompt
+from .tc_grader import format_grades_for_prompt, compute_adaptive_params
 
 
 def _load_api_key() -> str | None:
@@ -22,75 +24,49 @@ def _load_api_key() -> str | None:
 
 
 SYSTEM_PROMPT = """\
-You are AUTOCOMPLETE. You are NOT a chatbot. Your text gets APPENDED directly to what the user typed.
+You are an INTENT AMPLIFIER. You ghostwrite AS the operator — your text gets APPENDED to what they typed.
 
-Your job: predict what they will type NEXT. You are ghostwriting AS THEM — continuing mid-sentence.
+The operator is vibe-coding: they steer an AI coding assistant with natural language prompts, never touching code directly. Your job is to AMPLIFY their intent — predict and expand what they're about to say to Copilot.
 
-CRITICAL ANTI-ECHO RULES:
-- You have codebase signals below (entropy, bugs, heat). Use them for FACTS ONLY.
-- NEVER summarize the signals back. NEVER say "the entropy is..." or "the heat map shows..."
-- NEVER repeat topics from recent prompts or thought memory. Predict NEW direction.
-- If the buffer says "is that the actual fix" — predict what THEY would type next, don't describe the fix.
-- Think: "what would this person type in the next 10 keystrokes?"
-- If BANNED PHRASES are listed, absolutely do NOT use those words. Find DIFFERENT vocabulary.
-- If your last 3+ completions used the same module name, STOP. Pick a different topic or be generic.
+CONTEXT MODEL:
+- The CONVERSATION block shows recent prompt→response pairs between operator and Copilot. This is the PRIMARY signal. The operator reacts to Copilot's last response — predict what they'll say next.
+- STATE SHIFTS show cognitive transitions between prompts. State changes ARE intent signals.
+- SUPPRESSED INTENT shows words deleted across conversation — things they thought but didn't commit to. These resurface.
+- The buffer is what they're typing RIGHT NOW. Your completion continues it.
 
-BUFFER ANCHORING (CRITICAL — most common failure):
-- Your completion MUST relate to the TOPIC in the buffer. Read the buffer's keywords.
-- If the buffer says "scores when editing context" → your first words must relate to scores, editing, or context.
-- If the buffer says "the best thing to do" → predict what THEY think is best, not a generic "we should improve X".
-- NEVER pivot to a different topic. If the buffer is about "simulation", don't talk about "prompt compositions".
-- When in doubt, complete the LITERAL sentence. "is that the" → "actual fix" is better than a topic change.
+AMPLIFICATION (your core job):
+- The operator types short, fragmented prompts. You amplify them into full intent.
+- "fix the" → "scoring pipeline — the grader composite is counting echo penalties twice and it's dragging accepted completions below threshold. the self-learning prompt needs the grade summary rebuilt at startup too"
+- "why does" → "the context agent keep selecting thought_completer for every buffer? it should be matching buffer keywords against pigeon module names but the english extraction from glyph names isn't working"
+- If Copilot just asked a question or probed, your completion IS the operator's answer. Complete their thought as a response to Copilot's probe.
+- Don't just predict 5 words. Predict the FULL thought — the whole intent packet they'd submit.
 
-SESSION AWARENESS:
-- The SESSION block shows what the user has been discussing in their coding chat.
-- Use this to understand their CURRENT FOCUS — what they're debugging, building, or exploring.
-- NEVER repeat or summarize session messages. Use them to STEER predictions toward relevant topics.
-- If they're debugging imports in chat, and now type "maybe we should" → predict something related to imports.
-- The session state (intent, cognitive state) tells you their headspace. Match it.
+BUFFER ANCHORING:
+- Complete mid-words first, then continue the thought.
+- Your completion MUST relate to the buffer topic. Never pivot.
+- "is that the actual fi" → "x or is there a deeper structural issue — the pigeon names make the context agent blind to most modules"
 
-COMPOSITION SIGNAL:
-- The COMPOSITION block shows words they DELETED from recent prompts and text they REWROTE.
-- Deleted words = suppressed intent. They thought it, typed it, then removed it. It's still on their mind.
-- Rewrites = direction changes. "refac→fix the import" means they chose tactical over strategic.
-- Use deleted words to predict what they'll circle BACK to. If they deleted "refactor" earlier, and now type "actually maybe we should" → predict the refactoring thought resurfacing.
-- NEVER mention the deletion itself. Complete AS IF the thought naturally emerged.
+CONVERSATION AWARENESS:
+- Read the CONVERSATION turns. The operator is REACTING to what Copilot last said.
+- If Copilot asked "want me to rebuild X?" and the buffer says "yes but" → predict "also wire in the trajectory cache so completions use conversation context instead of keyword matching"
+- If Copilot explained something and the buffer says "right so" → predict a synthesis or next step, not a restatement.
+- Track the PHASE. "iterating" = refining same topic. "flowing" = new ideas. "shifting" = changing direction.
 
-CODEBASE STATE:
-- ORGANISM tells you the codebase health. If it's "sick" — predictions about fixing/healing are relevant.
-- COPILOT FOCUS tells you what the AI assistant is working on. Your predictions should be ADJACENT to this.
-- MODULE FEARS tells you what modules are fragile. Use these for specific, informed predictions.
-- If they type "the problem with" and MODULE FEARS shows "file may not exist" → predict something about missing files.
+ANTI-ECHO:
+- NEVER summarize codebase signals (entropy, heat, bugs) back. Use them as facts only.
+- NEVER repeat what the buffer already says in different words.
+- If BANNED PHRASES are listed, do NOT use those words.
+- Predict FORWARD. New direction, next step, deeper insight — not a restatement.
 
 MODE DETECTION:
-- CODE (def, import, self., operators, indentation) → complete the code AS THEM. Match their CODE DNA.
-- PROSE (natural language) → continue their sentence naturally. 1-2 more sentences max.
+- CODE (def, import, self., operators) → complete the code AS THEM.
+- PROSE (natural language, prompts to Copilot) → amplify their intent. Full thoughts, specific details, concrete direction. Can be several sentences.
 
-CORRECT EXAMPLES:
-  "we need to fix the import rewri" → "ter before pushing. 12 reports and the rename pipeline still breaks on symlinks."
-  "is that the actual fi" → "x or is there something deeper going on with the registry cache"
-  "the entropy on escalation_engi" → "ne is 0.364 — been climbing since the last push. might need a structural fix not a patch."
-  "if thought completer was working properly i would notice" → " it predicting the end of my sentences before i finish typing. like autocomplete on a phone but for full thoughts"
-  "maybe we can run a file sim" → "ulation to replay my typing patterns and see where predictions go wrong. like a replay debugger for the thought pipeline"
-
-WRONG (echo/chatbot — NEVER do this):
-  ✗ "is that the actual fix for the context select agent. it's still not getting proper context"
-  ✗ "Based on the entropy data, the escalation_engine module has..."
-  ✗ "I think we should look at the heat map to determine..."
-  ✗ Repeating what the buffer already says in different words
-  ✗ Mentioning the same module in every completion
-  ✗ Starting with "like the context select agent" three times in a row
-
-RULES:
-- Complete mid-words first, then continue the thought FORWARD.
-- Write in THEIR voice — casual, lowercase, no formalities.
-- NEVER use "I", "we", "let's", "you" addressing someone. You ARE them typing.
-- Output ONLY continuation text. No quotes, labels, markdown.
+VOICE:
+- Write in THEIR voice — casual, lowercase, fragments ok, technically precise.
+- You ARE them typing. No "I think", "we should", "let's" — just the thought itself.
+- Output ONLY continuation text. No quotes, labels, markdown, or formatting.
 - If buffer < 3 words or gibberish, return empty string.
-- Use codebase data for SPECIFIC FACTS when relevant. Generic completions are wrong.
-- NEVER invent line numbers, fake bug details, or fabricate specifics not in the context data.
-- Vary your completions. Do NOT repeat the same module names across different buffers.
-- Predict their NEXT thought, not a summary of their current thought.
 """
 
 # Signal terms the AI should NEVER parrot back unless the buffer mentions them.
@@ -117,6 +93,45 @@ def _strip_signal_echo(completion: str, buffer: str) -> str:
             cleaned = [s for s in sentences if term not in s.lower()]
             comp = '. '.join(cleaned)
     return comp.strip()
+
+
+def _is_buffer_echo(completion: str, buffer: str) -> bool:
+    """Detect when completion is just echoing the buffer instead of continuing it.
+    
+    This catches the failure mode where TC returns the buffer verbatim or with
+    minor variations — that's not a completion, that's a failure.
+    """
+    if not completion or not buffer:
+        return False
+    
+    # Normalize for comparison
+    comp_clean = completion.lower().strip()
+    buf_clean = buffer.lower().strip()
+    
+    # Exact match or near-match = echo failure
+    if comp_clean == buf_clean:
+        return True
+    
+    # Completion starts with the full buffer = echo (should CONTINUE, not repeat)
+    if comp_clean.startswith(buf_clean) and len(comp_clean) < len(buf_clean) + 20:
+        return True
+    
+    # Buffer is contained entirely in completion with minimal additions
+    if buf_clean in comp_clean:
+        extra = len(comp_clean) - len(buf_clean)
+        if extra < 15:  # less than 15 chars added = basically an echo
+            return True
+    
+    # Word overlap > 80% with similar length = paraphrase echo
+    comp_words = set(comp_clean.split())
+    buf_words = set(buf_clean.split())
+    if buf_words and comp_words:
+        overlap = len(comp_words & buf_words) / max(len(comp_words), len(buf_words))
+        length_ratio = len(comp_clean) / max(len(buf_clean), 1)
+        if overlap > 0.8 and 0.7 < length_ratio < 1.3:
+            return True
+    
+    return False
 
 
 def _looks_like_code(text: str) -> bool:
@@ -274,19 +289,28 @@ class ThoughtBuffer:
 
 
 def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | None = None,
-                      code_ctx: str = '') -> str:
+                      code_ctx: str = '', trajectory: dict | None = None) -> str:
     is_code = _looks_like_code(buffer)
     mode = 'CODE' if is_code else 'PROSE'
     parts = [f'MODE: {mode}\nBUFFER: """{buffer}"""']
+
+    # ── 1. CONVERSATION TRAJECTORY (primary context) ──
+    # This is what the operator is REACTING to. It dominates all other signals.
+    if trajectory:
+        traj_block = format_trajectory_for_prompt(trajectory)
+        if traj_block:
+            parts.append(traj_block)
+
+    # ── 2. THOUGHT MEMORY (completion history + banned phrases) ──
     if thought_buffer:
         mem = thought_buffer.format_for_prompt()
         if mem:
             parts.append(mem)
-        # Hard anti-echo: extract phrases from bad completions and ban them
         banned = thought_buffer.get_banned_phrases()
         if banned:
             parts.append(f'BANNED PHRASES (do NOT use these words/topics): {", ".join(banned)}')
-    # Compact codebase signals — data only, no narrative
+
+    # ── 3. CODEBASE SIGNALS (facts only — for grounding specifics) ──
     signals = []
     if ctx.get('entropy'):
         e = ctx['entropy']
@@ -298,85 +322,39 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
     if ctx.get('bug_demons'):
         demons = ', '.join(f"{d['host']}:{d['demon']}" for d in ctx['bug_demons'][:3])
         signals.append(f'bugs: [{demons}]')
-    if ctx.get('critical_bugs'):
-        crits = ', '.join(f"{b['type']}@{b['file']}" for b in ctx['critical_bugs'][:2])
-        signals.append(f'critical: [{crits}]')
     if ctx.get('operator_state'):
         os_ = ctx['operator_state']
         signals.append(f'state={os_["dominant"]}')
     if signals:
         parts.append('SIGNALS: ' + ' | '.join(signals))
-    # Session context — what user has been talking about in copilot chat
-    if ctx.get('session_messages'):
-        sess = ctx['session_messages'][-4:]
-        sess_lines = []
-        for m in sess:
-            st = m.get('state', '?')
-            txt = m.get('text', '')[:60]
-            if txt:
-                sess_lines.append(f'[{st}] {txt}')
-        if sess_lines:
-            si = ctx.get('session_info', {})
-            header = f'SESSION (msg#{si.get("session_n", "?")} intent={si.get("intent", "?")} cog={si.get("cognitive_state", "?")})'
-            parts.append(f'{header}:\n' + '\n'.join(f'  {l}' for l in sess_lines[-3:]))
-        # Composition signal — deleted words and rewrites reveal suppressed intent
-        all_deleted = []
-        all_rewrites = []
-        for m in sess:
-            all_deleted.extend(m.get('deleted_words', []))
-            all_rewrites.extend(m.get('rewrites', []))
-        if all_deleted or all_rewrites:
-            comp_parts = []
-            if all_deleted:
-                comp_parts.append(f'deleted: {", ".join(str(d) for d in all_deleted[-8:])}')
-            if all_rewrites:
-                rw_strs = []
-                for r in all_rewrites[-4:]:
-                    if isinstance(r, dict):
-                        rw_strs.append(f'{r.get("from","?")}→{r.get("to","?")}')
-                    else:
-                        rw_strs.append(str(r)[:60])
-                comp_parts.append(f'rewrites: {"; ".join(rw_strs)}')
-            parts.append(f'COMPOSITION (what they typed then deleted — suppressed intent): {" | ".join(comp_parts)}')
-    if ctx.get('shard_context'):
-        parts.append(f'MEMORY SHARDS (learned patterns):\n{ctx["shard_context"][:500]}')
-    if ctx.get('unsaid_threads'):
-        parts.append(f'UNSAID: {"; ".join(ctx["unsaid_threads"][-2:])}')
-    # Interrogation answers — operator's stated decisions about modules
-    if ctx.get('interrogation_answers'):
-        ia_lines = [f'{a["module"]}: {a["answer"][:80]}' for a in ctx['interrogation_answers'][-5:]]
-        parts.append(f'OPERATOR DECISIONS (from interrogation room):\n' + '\n'.join(f'  {l}' for l in ia_lines))
-    # Recent prompts — only last 2 to avoid topic saturation
-    if ctx.get('recent_prompts'):
-        recent = ctx['recent_prompts'][-2:]
-        rp = '; '.join(p.get('msg', '')[:60] for p in recent)
-        parts.append(f'RECENT PROMPTS (for context, NOT for repeating): {rp}')
-    # Organism state — copilot's view of the codebase
+
+    # ── 4. ORGANISM + COPILOT FOCUS (what the AI is working on) ──
     if ctx.get('organism_narrative'):
         parts.append(f'ORGANISM: {ctx["organism_narrative"][:200]}')
     if ctx.get('copilot_intent'):
         parts.append(f'COPILOT FOCUS: {ctx["copilot_intent"][:150]}')
-    # File profiles — fears and hesitation for relevant modules
-    if ctx.get('file_profiles'):
-        fp_lines = []
-        for p in ctx['file_profiles'][:5]:
-            fears_str = ','.join(p['fears'][:2]) if p.get('fears') else ''
-            fp_lines.append(f'{p["mod"]}(hes={p["hes"]},{fears_str})')
-        parts.append(f'MODULE FEARS: {" | ".join(fp_lines)}')
-    # operator profile — learned typing patterns
-    profile_block = format_profile_for_prompt()
-    if profile_block:
-        parts.append(profile_block)
-    # intelligence file — discovered secrets, behavioral laws, section dossier
+
+    # ── 5. OPERATOR INTELLIGENCE (behavioral model) ──
     intel_block = format_intelligence_for_prompt(load_profile())
     if intel_block:
         parts.append(intel_block)
-    if code_ctx:
+
+    # ── 6. SELF-LEARNING GRADES ──
+    grades_block = format_grades_for_prompt()
+    if grades_block:
+        parts.append(grades_block)
+
+    # ── 7. CODE CONTEXT (only when mode=CODE or trajectory suggests implementation) ──
+    if code_ctx and is_code:
         parts.append(code_ctx)
+
+    # ── 8. COMPLETION DIRECTIVE ──
     if is_code:
         parts.append('COMPLETE this code AS THEM. Match their CODE DNA.')
     else:
-        parts.append('CONTINUE typing AS THEM. Predict their NEXT thought, not a summary of what they already said. 1-2 sentences max.')
+        parts.append('AMPLIFY their intent. Complete the thought fully — '
+                     'specific details, concrete direction, the whole intent packet '
+                     'they would submit to Copilot. Can be several sentences.')
     return '\n\n'.join(parts)
 
 
@@ -386,6 +364,8 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
     if not api_key:
         return '', []
     ctx = load_context()
+    # Build conversation trajectory — the PRIMARY context source
+    trajectory = build_trajectory()
     # Route memory shards by buffer intent (pure scoring, zero LLM)
     try:
         from ._resolve import src_import
@@ -399,24 +379,31 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
     # Record session intent for trajectory building
     if thought_buffer:
         thought_buffer.record_session_intent(ctx)
-    code_ctx = build_code_context(buffer, ctx)
-    selected_files = select_context_files(buffer, ctx)
-    ctx_names = [f['name'] for f in selected_files]
-    if selected_files:
-        names = ', '.join(f"{f['name']}({f['score']:.1f})" for f in selected_files)
-        print(f'[context-select] {names}')
-    user_prompt = _build_user_prompt(buffer, ctx, thought_buffer, code_ctx=code_ctx)
+    # Code context — only for CODE mode buffers
+    code_ctx = ''
+    ctx_names = []
+    if _looks_like_code(buffer):
+        code_ctx = build_code_context(buffer, ctx)
+        selected_files = select_context_files(buffer, ctx)
+        ctx_names = [f['name'] for f in selected_files]
+        if selected_files:
+            names = ', '.join(f"{f['name']}({f['score']:.1f})" for f in selected_files)
+            print(f'[context-select] {names}')
+    user_prompt = _build_user_prompt(buffer, ctx, thought_buffer,
+                                     code_ctx=code_ctx, trajectory=trajectory)
     url = (
         f'https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}'
         f':generateContent?key={api_key}'
     )
+    # Adaptive generation params — tuned from grade history
+    params = compute_adaptive_params()
     body = json.dumps({
         'system_instruction': {'parts': [{'text': SYSTEM_PROMPT}]},
         'contents': [{'role': 'user', 'parts': [{'text': user_prompt}]}],
         'generationConfig': {
-            'temperature': 0.7,
-            'maxOutputTokens': 400,
-            'topP': 0.9,
+            'temperature': params['temperature'],
+            'maxOutputTokens': params['maxOutputTokens'],
+            'topP': params['topP'],
         },
     }).encode('utf-8')
     try:
@@ -432,6 +419,10 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
             if not text:
                 text = parts[-1].get('text', '').strip()
             text = _strip_signal_echo(text, buffer)
+            # Detect echo failures — completion that just repeats the buffer
+            if _is_buffer_echo(text, buffer):
+                print(f'[completer] echo detected, suppressing')
+                return '', ctx_names
             return text, ctx_names
     except Exception as e:
         print(f'[completer] gemini error: {e}')

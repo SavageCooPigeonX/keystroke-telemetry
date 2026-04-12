@@ -170,6 +170,32 @@ def _extract_copilot_signal(changed_files: list[str]) -> dict:
     }
 
 
+def _train_intent_numeric(entries: list[dict], changed_files: list[str]) -> None:
+    """Train intent_numeric surface: journal prompts → files touched."""
+    try:
+        from src.intent_numeric import record_touch
+    except ImportError:
+        return
+    
+    # Combine all prompts in this cycle into one training signal
+    combined_prompt = ' '.join(e.get('msg', '') for e in entries if e.get('msg'))
+    if not combined_prompt or len(combined_prompt) < 10:
+        return
+    
+    # Get Python file stems (module names)
+    modules = []
+    for f in changed_files:
+        if f.endswith('.py'):
+            stem = Path(f).stem
+            # Strip pigeon suffix
+            parts = stem.split('_seq')
+            if parts:
+                modules.append(parts[0])
+    
+    if modules:
+        record_touch(combined_prompt, modules, learning_rate=0.1)
+
+
 def _refresh_copilot_brain_signal(root: Path) -> None:
     """Refresh heat + Copilot brain map before a push cycle snapshot."""
     try:
@@ -371,6 +397,9 @@ def run_push_cycle(root: Path, commit_hash: str, intent: str,
     # 6. Backward pass on key journal entries (gradient distribution)
     backward_results = _run_backward_on_entries(root, entries)
 
+    # 6.5. Train intent_numeric surface: journal prompts → files touched
+    _train_intent_numeric(entries, changed_files)
+
     # 7. Fire new predictions (what will operator want next push?)
     predictions = _fire_predictions(root)
 
@@ -426,6 +455,33 @@ def run_push_cycle(root: Path, commit_hash: str, intent: str,
         inject_narrative(root)
     except Exception:
         pass
+
+    # 13. Baseline drift assessment — truth gate + semantic void detection
+    try:
+        from src.push_baseline import assess_on_push, build_drift_report
+        baseline = assess_on_push(root, changed_files)
+        cycle['baseline_drift'] = baseline.get('total_drift', 0)
+        cycle['baseline_voids'] = baseline.get('total_voids', 0)
+        cycle['modules_assessed'] = baseline.get('modules_assessed', 0)
+        # inject drift report into copilot-instructions
+        drift_block = build_drift_report(root)
+        if drift_block:
+            _inject_pigeon_block(root, 'baseline-drift', drift_block)
+    except Exception as e:
+        cycle['baseline_error'] = str(e)[:200]
+
+    # 14. File semantic layer — grow per-file context + intent drift detection
+    try:
+        from src.file_semantic_layer import grow_on_push, build_semantic_report
+        sem = grow_on_push(root, changed_files)
+        cycle['semantic_modules'] = sem.get('modules_processed', 0)
+        cycle['semantic_escalated'] = sem.get('escalated', 0)
+        cycle['semantic_growing'] = sem.get('growing', 0)
+        sem_block = build_semantic_report(root)
+        if sem_block:
+            _inject_pigeon_block(root, 'semantic-layer', sem_block)
+    except Exception as e:
+        cycle['semantic_error'] = str(e)[:200]
 
     return cycle
 
@@ -505,6 +561,28 @@ def _fire_predictions(root: Path) -> list[dict]:
         return predictions
     except Exception:
         return []
+
+
+def _inject_pigeon_block(root: Path, tag: str, block: str) -> None:
+    """Replace a <!-- pigeon:TAG --> block in copilot-instructions.md."""
+    ci_path = root / ".github" / "copilot-instructions.md"
+    if not ci_path.exists():
+        return
+    content = ci_path.read_text("utf-8")
+    start_tag = f"<!-- pigeon:{tag} -->"
+    end_tag = f"<!-- /pigeon:{tag} -->"
+    si = content.find(start_tag)
+    ei = content.find(end_tag)
+    if si >= 0 and ei >= 0:
+        content = content[:si] + block + content[ei + len(end_tag):]
+    else:
+        op_marker = "<!-- pigeon:operator-state -->"
+        oi = content.find(op_marker)
+        if oi >= 0:
+            content = content[:oi] + block + "\n\n" + content[oi:]
+        else:
+            content += "\n\n" + block
+    ci_path.write_text(content, "utf-8")
 
 
 def _inject_predictions_into_prompt(root: Path, predictions: list[dict],
