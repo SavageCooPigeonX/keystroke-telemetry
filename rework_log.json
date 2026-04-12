@@ -1,37 +1,5 @@
 [
   {
-    "ts": "2026-04-12T01:31:27.906542+00:00",
-    "verdict": "ok",
-    "rework_score": 0.17,
-    "del_ratio": 0.036,
-    "wpm": 49.7,
-    "query_hint": "bg:tc_context_agent.py"
-  },
-  {
-    "ts": "2026-04-12T01:31:39.256888+00:00",
-    "verdict": "ok",
-    "rework_score": 0.17,
-    "del_ratio": 0.036,
-    "wpm": 49.7,
-    "query_hint": "bg:tc_context_agent.py"
-  },
-  {
-    "ts": "2026-04-12T01:31:50.491057+00:00",
-    "verdict": "ok",
-    "rework_score": 0.17,
-    "del_ratio": 0.036,
-    "wpm": 49.7,
-    "query_hint": "bg:tc_context_agent.py"
-  },
-  {
-    "ts": "2026-04-12T01:33:50.082779+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 16.2,
-    "query_hint": "bg:idle"
-  },
-  {
     "ts": "2026-04-12T01:34:19.742587+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
@@ -1598,5 +1566,37 @@
     "del_ratio": 0.013,
     "wpm": 2.8,
     "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
+  },
+  {
+    "ts": "2026-04-12T16:53:01.698123+00:00",
+    "verdict": "ok",
+    "rework_score": 0.157,
+    "del_ratio": 0.013,
+    "wpm": 2.8,
+    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
+  },
+  {
+    "ts": "2026-04-12T16:54:40.380695+00:00",
+    "verdict": "ok",
+    "rework_score": 0.157,
+    "del_ratio": 0.013,
+    "wpm": 2.8,
+    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
+  },
+  {
+    "ts": "2026-04-12T16:55:01.191796+00:00",
+    "verdict": "ok",
+    "rework_score": 0.157,
+    "del_ratio": 0.013,
+    "wpm": 2.8,
+    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
+  },
+  {
+    "ts": "2026-04-12T16:57:13.488896+00:00",
+    "verdict": "ok",
+    "rework_score": 0.157,
+    "del_ratio": 0.013,
+    "wpm": 2.8,
+    "query_hint": "bg:idle"
   }
 ]
