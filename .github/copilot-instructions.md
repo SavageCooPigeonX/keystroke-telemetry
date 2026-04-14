@@ -3,6 +3,27 @@
 Auto-injected into every Copilot session for this repo. Read this before touching any file.
 
 ---
+
+<!-- pigeon:staleness-alert -->
+## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
+
+*Checked 2026-04-14 19:55 UTC — 2 block(s) stale or missing*
+
+**ATTENTION: The following blocks did NOT update when they should have.**
+**This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
+
+- **`current-query`**: STALE — 579min old (max 10min)
+  - Writer: `prompt_enricher (Gemini Flash)`
+  - Last updated: 2026-04-14 10:17
+
+- **`prompt-telemetry`**: STALE — 579min old (max 10min)
+  - Writer: `prompt_journal._refresh_copilot_instructions`
+  - Last updated: 2026-04-14T10:16:58
+
+**Action**: Run the journal command or check `logs/enricher_errors.jsonl` for failures.
+
+<!-- /pigeon:staleness-alert -->
+
 <!-- pigeon:operator-intent -->
 ## Operator Intent (Extracted by Cognitive Probes)
 
@@ -64,7 +85,7 @@ When the **Unsaid Threads** section (in `<!-- pigeon:current-query -->
 <!-- pigeon:narrative-glove -->
 ## Organism Consciousness
 
-*2026-04-14 10:17 UTC — synthesized from all live signals, zero LLM calls*
+*2026-04-14 10:21 UTC — synthesized from all live signals, zero LLM calls*
 
 > the organism is recovering — health 50/100. 50% compliant but 113 bugs still breathing. entropy at 0.30 — the codebase knows what it is, mostly. recent escalation: task_writer(failure), task_writer(autonomous_fix), run_heal(failure). operator is focused — match the energy.
 
@@ -208,7 +229,7 @@ operator intent → keystroke telemetry → semantic compression → LLM code ge
 <!-- pigeon:narrative-glove -->
 ## Organism Consciousness
 
-*2026-04-14 10:17 UTC — synthesized from all live signals, zero LLM calls*
+*2026-04-14 10:21 UTC — synthesized from all live signals, zero LLM calls*
 
 > the organism is recovering — health 50/100. 50% compliant but 113 bugs still breathing. entropy at 0.30 — the codebase knows what it is, mostly. recent escalation: task_writer(failure), task_writer(autonomous_fix), run_heal(failure). operator is focused — match the energy.
 
@@ -220,7 +241,7 @@ operator intent → keystroke telemetry → semantic compression → LLM code ge
 
 **Status:** BLOCKED — 10 unresolved intent(s) remain.
 **Directive:** Keep working. Do not treat the task as complete while this backlog is non-zero.
-**Verification:** scanned=100 | created=1 | reopened=0 | verified=2 | resolved=10
+**Verification:** scanned=100 | created=0 | reopened=0 | verified=0 | resolved=10
 **Rule:** An intent counts as done only when recent file activity clears it or the synced backlog task is verified done.
 
 **Resolution Artifact:** `intent_backlog_resolutions.json`
@@ -255,7 +276,7 @@ operator intent → keystroke telemetry → semantic compression → LLM code ge
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-14 10:17 UTC · 634 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-14 19:55 UTC · 634 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 49.4 | Del: 26.5% | Hes: 0.483) · *[source: measured]*
@@ -275,10 +296,10 @@ operator intent → keystroke telemetry → semantic compression → LLM code ge
 - Failed on: ""
 
 ### Recent Work
+- `3a4af52` feat: refresh organism health metrics, tc_profile fixes
 - `f72e2fb` fix: add missing find_oversized_classes import, compile more files
 - `106fe0b` feat: batch compile 40+ oversized files, health 59->77
 - `85bae1c` feat: refresh organism health and file wake flows
-- `beda89c` fix: add missing intra-package imports in registry_io decomposed modules
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -353,17 +374,17 @@ operator intent → keystroke telemetry → semantic compression → LLM code ge
 
 ### Pending
 - [ ] `tq-001` **STRESS TEST: Learning loop verification** | stage: pending
-- [ ] `tq-022` **probably do a push cycle - check if self fix / push narrativ...** | stage: verify
-- [ ] `tq-023` **okay so based off the intel report i think the thought compl...** | stage: verify
 - [ ] `tq-024` **else is left untill the insane self healing works** | stage: verify
 - [ ] `tq-025` **ththought completer has two headers where you can close it -...** | stage: verify
 - [ ] `tq-026` **take all 4 steps - fix thought completer being shit - it nee...** | stage: verify
-*…and 6 more in `task_queue.json`*
+- [ ] `tq-027` **check entropy map accumulation / self execution - i just add...** | stage: verify
+- [ ] `tq-028` **quick question for you - why do llm matchers go by words not...** | stage: verify
+*…and 5 more in `task_queue.json`*
 
 ### Completed (last 3)
-- [x] `tq-019` **perfect  - i think im ready to focus on what i call an IRT -...** | commit: `verified:intent-resolution`
-- [x] `tq-020` **aybe not quite yet - hmmm -  how do we have intent reinjecti...** | commit: `verified:intent-resolution`
 - [x] `tq-021` **can you make sure that website obervatory is launched with v...** | commit: `verified:intent-resolution`
+- [x] `tq-022` **probably do a push cycle - check if self fix / push narrativ...** | commit: `verified:intent-backlog`
+- [x] `tq-023` **okay so based off the intel report i think the thought compl...** | commit: `verified:intent-backlog`
 
 <!-- /pigeon:task-queue -->
 <!-- pigeon:shard-memory -->
@@ -430,7 +451,7 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-04-14 10:17 UTC · 74 prompts analyzed · zero LLM calls · scoring active*
+*Auto-extracted 2026-04-14 10:20 UTC · 74 prompts analyzed · zero LLM calls · scoring active*
 
 **Brevity:** 52.5 words/prompt | **Caps:** never | **Fragments:** 65% | **Questions:** 23% | **Directives:** 5%
 
@@ -944,11 +965,11 @@ vscode-extension: classify_bridge, pulse_watcher
 
 **recently killed:**
 
-- `file_selector` [dead_export] — gone since report #55. it stayed dead.
-- `忆p_qm` [over_hard_cap] — gone since report #55. it stayed dead.
-- `codebase_vitals` [dead_export] — gone since report #55. it stayed dead.
-- `codebase_detector` [dead_export] — gone since report #55. it stayed dead.
 - `tc_profile` [dead_export] — gone since report #55. it stayed dead.
+- `codebase_detector` [dead_export] — gone since report #55. it stayed dead.
+- `tc_web` [dead_export] — gone since report #55. it stayed dead.
+- `tc_popup` [dead_export] — gone since report #55. it stayed dead.
+- `file_selector` [dead_export] — gone since report #55. it stayed dead.
 
 **last push ( ):** 0 fixed, 38 new, 92 carried forward
 
@@ -956,7 +977,7 @@ vscode-extension: classify_bridge, pulse_watcher
 <!-- pigeon:operator-probes -->
 ## Operator Probes
 
-*Auto-generated 2026-04-14 10:17 UTC · 3 probe(s) from live signals*
+*Auto-generated 2026-04-14 10:20 UTC · 3 probe(s) from live signals*
 
 **ASK these questions naturally in your next response (pick 1-2, weave into context):**
 
@@ -1022,7 +1043,7 @@ vscode-extension: classify_bridge, pulse_watcher
 <!-- pigeon:probe-resolutions -->
 ## Probe Resolutions
 
-*2 resolved · 2026-04-14 10:17 UTC*
+*2 resolved · 2026-04-14 10:20 UTC*
 
 **Read these before editing the referenced modules:**
 

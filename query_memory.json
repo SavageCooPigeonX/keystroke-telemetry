@@ -1,60 +1,6 @@
 {
   "queries": [
     {
-      "ts": "2026-04-10T21:26:33.417550+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-10T21:27:33.375977+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-10T21:28:33.390817+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-10T21:29:33.634537+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-10T21:30:36.346570+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-10T21:31:35.793868+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-10T21:34:41.656211+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-10T21:35:37.612651+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
-      "ts": "2026-04-10T21:37:37.995166+00:00",
-      "text": "bg:idle",
-      "fingerprint": "bgidle",
-      "submitted": true
-    },
-    {
       "ts": "2026-04-10T21:38:35.818491+00:00",
       "text": "bg:idle",
       "fingerprint": "bgidle",
@@ -2998,6 +2944,60 @@
       "ts": "2026-04-14T10:17:53.457634+00:00",
       "text": "bg:tc_profile_intelligence_orchestrator_seq024_v001.py",
       "fingerprint": "bgtc_profile_intelligence_orchestrator_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-14T10:18:52.567074+00:00",
+      "text": "bg:tc_profile_intelligence_orchestrator_seq024_v001.py",
+      "fingerprint": "bgtc_profile_intelligence_orchestrator_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-14T10:23:54.718809+00:00",
+      "text": "bg:tc_profile_intelligence_orchestrator_seq024_v001.py",
+      "fingerprint": "bgtc_profile_intelligence_orchestrator_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-14T10:24:38.820163+00:00",
+      "text": "bg:tc_profile_intelligence_orchestrator_seq024_v001.py",
+      "fingerprint": "bgtc_profile_intelligence_orchestrator_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-14T10:25:33.784084+00:00",
+      "text": "bg:tc_profile_intelligence_orchestrator_seq024_v001.py",
+      "fingerprint": "bgtc_profile_intelligence_orchestrator_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-14T10:25:52.473764+00:00",
+      "text": "bg:tc_profile_intelligence_orchestrator_seq024_v001.py",
+      "fingerprint": "bgtc_profile_intelligence_orchestrator_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-14T10:26:33.830479+00:00",
+      "text": "bg:tc_profile_intelligence_orchestrator_seq024_v001.py",
+      "fingerprint": "bgtc_profile_intelligence_orchestrator_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-14T10:26:52.829474+00:00",
+      "text": "bg:tc_profile_intelligence_orchestrator_seq024_v001.py",
+      "fingerprint": "bgtc_profile_intelligence_orchestrator_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-14T19:14:01.095759+00:00",
+      "text": "bg:tc_profile_intelligence_orchestrator_seq024_v001.py",
+      "fingerprint": "bgtc_profile_intelligence_orchestrator_seq024_v001py",
+      "submitted": true
+    },
+    {
+      "ts": "2026-04-14T19:55:45.392591+00:00",
+      "text": "bg:idle",
+      "fingerprint": "bgidle",
       "submitted": true
     }
   ],

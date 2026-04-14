@@ -10,6 +10,18 @@
 from datetime import datetime, timezone
 from pathlib import Path
 
+# Import helper functions from sibling modules
+from .push_snapshot_registry_seq002_v001 import _load_registry
+from .push_snapshot_self_fix_seq003_v001 import _load_self_fix_counts
+from .push_snapshot_heat_map_seq004_v001 import _load_heat_map
+from .push_snapshot_deaths_seq005_v001 import _load_deaths
+from .push_snapshot_operator_seq006_v001 import _load_operator_signal
+from .push_snapshot_cycle_state_seq007_v001 import _load_cycle_state
+from .push_snapshot_probe_state_seq008_v001 import _load_probe_state
+from .push_snapshot_file_stats_seq009_v001 import _compute_file_stats
+from .push_snapshot_coupling_seq010_v001 import _compute_coupling
+from .push_snapshot_persistence_seq011_v001 import _save_snapshot
+
 def capture_snapshot(root: Path, commit_hash: str, intent: str,
                      changed_files: list[str]) -> dict:
     """Capture a full codebase health snapshot at this push.
