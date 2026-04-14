@@ -1,1229 +1,5 @@
 [
   {
-    "ts": "2026-04-12T01:37:00.401324+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 42.3,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T01:37:22.226301+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 42.3,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T01:37:42.988749+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 42.3,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T01:37:56.939479+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 42.3,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T01:38:43.685550+00:00",
-    "verdict": "ok",
-    "rework_score": 0.016,
-    "del_ratio": 0.029,
-    "wpm": 8.9,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T01:41:47.001345+00:00",
-    "verdict": "ok",
-    "rework_score": 0.014,
-    "del_ratio": 0.025,
-    "wpm": 57.2,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T01:43:53.661485+00:00",
-    "verdict": "ok",
-    "rework_score": 0.014,
-    "del_ratio": 0.025,
-    "wpm": 57.2,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T01:45:17.648304+00:00",
-    "verdict": "ok",
-    "rework_score": 0.014,
-    "del_ratio": 0.025,
-    "wpm": 57.2,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T01:46:13.865084+00:00",
-    "verdict": "ok",
-    "rework_score": 0.014,
-    "del_ratio": 0.025,
-    "wpm": 57.2,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T01:47:30.053697+00:00",
-    "verdict": "ok",
-    "rework_score": 0.014,
-    "del_ratio": 0.025,
-    "wpm": 57.2,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T01:48:31.288084+00:00",
-    "verdict": "ok",
-    "rework_score": 0.014,
-    "del_ratio": 0.025,
-    "wpm": 57.2,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T01:49:04.906054+00:00",
-    "verdict": "ok",
-    "rework_score": 0.014,
-    "del_ratio": 0.025,
-    "wpm": 57.2,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T01:49:37.333659+00:00",
-    "verdict": "ok",
-    "rework_score": 0.014,
-    "del_ratio": 0.025,
-    "wpm": 57.2,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T01:49:42.295930+00:00",
-    "verdict": "ok",
-    "rework_score": 0.014,
-    "del_ratio": 0.025,
-    "wpm": 57.2,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T01:51:42.193813+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 57.6,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T01:56:44.562940+00:00",
-    "verdict": "ok",
-    "rework_score": 0.008,
-    "del_ratio": 0.014,
-    "wpm": 41.0,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:03:59.327001+00:00",
-    "verdict": "ok",
-    "rework_score": 0.008,
-    "del_ratio": 0.014,
-    "wpm": 41.0,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:06:22.546969+00:00",
-    "verdict": "ok",
-    "rework_score": 0.008,
-    "del_ratio": 0.014,
-    "wpm": 41.0,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:07:12.119441+00:00",
-    "verdict": "ok",
-    "rework_score": 0.008,
-    "del_ratio": 0.014,
-    "wpm": 41.0,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:07:57.935231+00:00",
-    "verdict": "ok",
-    "rework_score": 0.008,
-    "del_ratio": 0.014,
-    "wpm": 41.0,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:08:17.089969+00:00",
-    "verdict": "ok",
-    "rework_score": 0.008,
-    "del_ratio": 0.014,
-    "wpm": 41.0,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:09:00.212936+00:00",
-    "verdict": "ok",
-    "rework_score": 0.008,
-    "del_ratio": 0.014,
-    "wpm": 41.0,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:09:14.689570+00:00",
-    "verdict": "ok",
-    "rework_score": 0.008,
-    "del_ratio": 0.014,
-    "wpm": 41.0,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:10:05.622068+00:00",
-    "verdict": "ok",
-    "rework_score": 0.008,
-    "del_ratio": 0.014,
-    "wpm": 41.0,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:11:48.783417+00:00",
-    "verdict": "ok",
-    "rework_score": 0.008,
-    "del_ratio": 0.014,
-    "wpm": 41.0,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:12:06.758072+00:00",
-    "verdict": "ok",
-    "rework_score": 0.008,
-    "del_ratio": 0.014,
-    "wpm": 41.0,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:14:05.363018+00:00",
-    "verdict": "ok",
-    "rework_score": 0.008,
-    "del_ratio": 0.014,
-    "wpm": 41.0,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:15:01.261295+00:00",
-    "verdict": "ok",
-    "rework_score": 0.008,
-    "del_ratio": 0.014,
-    "wpm": 41.0,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:30:04.590323+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.5,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:31:04.373216+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 38.5,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:42:08.693901+00:00",
-    "verdict": "miss",
-    "rework_score": 0.233,
-    "del_ratio": 0.424,
-    "wpm": 2.2,
-    "query_hint": "bg:intel_report.md"
-  },
-  {
-    "ts": "2026-04-12T02:43:04.675759+00:00",
-    "verdict": "ok",
-    "rework_score": 0.01,
-    "del_ratio": 0.019,
-    "wpm": 36.2,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T02:45:24.461376+00:00",
-    "verdict": "ok",
-    "rework_score": 0.01,
-    "del_ratio": 0.019,
-    "wpm": 36.2,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T02:53:14.490461+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 27.1,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T02:58:13.756059+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T02:59:14.033868+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T03:01:00.790682+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:01:38.187789+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:01:52.828027+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:02:02.460119+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:02:09.177283+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:02:13.362944+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:02:33.981804+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:02:53.880982+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:03:06.287846+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:03:13.851052+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:03:58.901245+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:04:07.060071+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:04:13.754762+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:04:22.591177+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:04:47.283445+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:05:16.394063+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T03:11:41.734926+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 52.6,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T04:15:04.412474+00:00",
-    "verdict": "ok",
-    "rework_score": 0.01,
-    "del_ratio": 0.019,
-    "wpm": 0.8,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T04:19:04.187513+00:00",
-    "verdict": "partial",
-    "rework_score": 0.254,
-    "del_ratio": 0.189,
-    "wpm": 41.1,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T04:21:09.062060+00:00",
-    "verdict": "partial",
-    "rework_score": 0.254,
-    "del_ratio": 0.189,
-    "wpm": 41.1,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T04:22:10.473739+00:00",
-    "verdict": "partial",
-    "rework_score": 0.254,
-    "del_ratio": 0.189,
-    "wpm": 41.1,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T04:23:07.209653+00:00",
-    "verdict": "partial",
-    "rework_score": 0.254,
-    "del_ratio": 0.189,
-    "wpm": 41.1,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T04:25:02.190123+00:00",
-    "verdict": "partial",
-    "rework_score": 0.254,
-    "del_ratio": 0.189,
-    "wpm": 41.1,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T04:26:30.735163+00:00",
-    "verdict": "partial",
-    "rework_score": 0.254,
-    "del_ratio": 0.189,
-    "wpm": 41.1,
-    "query_hint": "bg:chat_compositions.jsonl"
-  },
-  {
-    "ts": "2026-04-12T04:29:28.607853+00:00",
-    "verdict": "partial",
-    "rework_score": 0.254,
-    "del_ratio": 0.189,
-    "wpm": 41.1,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:30:21.549359+00:00",
-    "verdict": "partial",
-    "rework_score": 0.254,
-    "del_ratio": 0.189,
-    "wpm": 41.1,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:31:34.722406+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 31.8,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:32:13.477407+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 31.8,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:34:29.087841+00:00",
-    "verdict": "ok",
-    "rework_score": 0.009,
-    "del_ratio": 0.016,
-    "wpm": 16.8,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:35:29.096938+00:00",
-    "verdict": "ok",
-    "rework_score": 0.009,
-    "del_ratio": 0.016,
-    "wpm": 16.8,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:37:27.762745+00:00",
-    "verdict": "partial",
-    "rework_score": 0.346,
-    "del_ratio": 0.084,
-    "wpm": 27.9,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:38:29.166116+00:00",
-    "verdict": "partial",
-    "rework_score": 0.346,
-    "del_ratio": 0.084,
-    "wpm": 27.9,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:39:28.279682+00:00",
-    "verdict": "ok",
-    "rework_score": 0.01,
-    "del_ratio": 0.018,
-    "wpm": 52.1,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:40:28.142524+00:00",
-    "verdict": "ok",
-    "rework_score": 0.01,
-    "del_ratio": 0.018,
-    "wpm": 52.1,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:42:29.514513+00:00",
-    "verdict": "ok",
-    "rework_score": 0.159,
-    "del_ratio": 0.016,
-    "wpm": 48.7,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:44:28.902961+00:00",
-    "verdict": "ok",
-    "rework_score": 0.159,
-    "del_ratio": 0.016,
-    "wpm": 48.7,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:46:08.424950+00:00",
-    "verdict": "ok",
-    "rework_score": 0.159,
-    "del_ratio": 0.016,
-    "wpm": 48.7,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:47:28.217621+00:00",
-    "verdict": "ok",
-    "rework_score": 0.159,
-    "del_ratio": 0.016,
-    "wpm": 48.7,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T04:47:32.690731+00:00",
-    "verdict": "ok",
-    "rework_score": 0.159,
-    "del_ratio": 0.016,
-    "wpm": 48.7,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T04:48:32.361371+00:00",
-    "verdict": "ok",
-    "rework_score": 0.159,
-    "del_ratio": 0.016,
-    "wpm": 48.7,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T04:49:48.256527+00:00",
-    "verdict": "ok",
-    "rework_score": 0.159,
-    "del_ratio": 0.016,
-    "wpm": 48.7,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:50:22.835157+00:00",
-    "verdict": "ok",
-    "rework_score": 0.159,
-    "del_ratio": 0.016,
-    "wpm": 48.7,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T04:51:26.997843+00:00",
-    "verdict": "ok",
-    "rework_score": 0.007,
-    "del_ratio": 0.013,
-    "wpm": 10.3,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T04:52:50.486876+00:00",
-    "verdict": "ok",
-    "rework_score": 0.007,
-    "del_ratio": 0.013,
-    "wpm": 10.3,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:52:54.565775+00:00",
-    "verdict": "ok",
-    "rework_score": 0.007,
-    "del_ratio": 0.013,
-    "wpm": 10.3,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:53:03.940345+00:00",
-    "verdict": "ok",
-    "rework_score": 0.007,
-    "del_ratio": 0.013,
-    "wpm": 10.3,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:53:55.654602+00:00",
-    "verdict": "ok",
-    "rework_score": 0.007,
-    "del_ratio": 0.013,
-    "wpm": 10.3,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:56:07.740855+00:00",
-    "verdict": "ok",
-    "rework_score": 0.007,
-    "del_ratio": 0.013,
-    "wpm": 10.3,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:57:08.192492+00:00",
-    "verdict": "ok",
-    "rework_score": 0.007,
-    "del_ratio": 0.013,
-    "wpm": 10.3,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T04:58:06.288548+00:00",
-    "verdict": "ok",
-    "rework_score": 0.007,
-    "del_ratio": 0.013,
-    "wpm": 10.3,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T05:09:01.895014+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 23.3,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:10:30.445306+00:00",
-    "verdict": "ok",
-    "rework_score": 0.004,
-    "del_ratio": 0.007,
-    "wpm": 35.0,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:11:04.413382+00:00",
-    "verdict": "ok",
-    "rework_score": 0.052,
-    "del_ratio": 0.094,
-    "wpm": 33.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:11:10.100175+00:00",
-    "verdict": "ok",
-    "rework_score": 0.052,
-    "del_ratio": 0.094,
-    "wpm": 33.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:12:03.379442+00:00",
-    "verdict": "ok",
-    "rework_score": 0.052,
-    "del_ratio": 0.094,
-    "wpm": 33.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:12:07.810572+00:00",
-    "verdict": "ok",
-    "rework_score": 0.052,
-    "del_ratio": 0.094,
-    "wpm": 33.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:12:58.197460+00:00",
-    "verdict": "ok",
-    "rework_score": 0.052,
-    "del_ratio": 0.094,
-    "wpm": 33.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:13:04.275708+00:00",
-    "verdict": "ok",
-    "rework_score": 0.052,
-    "del_ratio": 0.094,
-    "wpm": 33.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:13:10.271301+00:00",
-    "verdict": "ok",
-    "rework_score": 0.052,
-    "del_ratio": 0.094,
-    "wpm": 33.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:13:42.881268+00:00",
-    "verdict": "ok",
-    "rework_score": 0.052,
-    "del_ratio": 0.094,
-    "wpm": 33.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:13:53.284628+00:00",
-    "verdict": "ok",
-    "rework_score": 0.052,
-    "del_ratio": 0.094,
-    "wpm": 33.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:14:03.716344+00:00",
-    "verdict": "ok",
-    "rework_score": 0.052,
-    "del_ratio": 0.094,
-    "wpm": 33.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:14:13.314703+00:00",
-    "verdict": "ok",
-    "rework_score": 0.052,
-    "del_ratio": 0.094,
-    "wpm": 33.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:15:03.403451+00:00",
-    "verdict": "ok",
-    "rework_score": 0.052,
-    "del_ratio": 0.094,
-    "wpm": 33.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:18:06.722001+00:00",
-    "verdict": "ok",
-    "rework_score": 0.052,
-    "del_ratio": 0.094,
-    "wpm": 33.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:22:05.306706+00:00",
-    "verdict": "miss",
-    "rework_score": 0.465,
-    "del_ratio": 0.027,
-    "wpm": 28.2,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:25:07.448258+00:00",
-    "verdict": "partial",
-    "rework_score": 0.34,
-    "del_ratio": 0.072,
-    "wpm": 46.2,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:26:07.320565+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 49.7,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T05:27:09.854812+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 49.7,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:32:05.299839+00:00",
-    "verdict": "ok",
-    "rework_score": 0.167,
-    "del_ratio": 0.031,
-    "wpm": 42.7,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:35:05.154501+00:00",
-    "verdict": "ok",
-    "rework_score": 0.167,
-    "del_ratio": 0.031,
-    "wpm": 42.7,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:38:06.393528+00:00",
-    "verdict": "ok",
-    "rework_score": 0.167,
-    "del_ratio": 0.031,
-    "wpm": 43.4,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:43:45.910831+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 63.2,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T05:44:46.774894+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 63.2,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T05:47:46.174017+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 63.2,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T05:48:46.212994+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 26.1,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T05:49:11.562652+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 26.1,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T05:50:36.287214+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 26.1,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T05:53:27.175542+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 26.1,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T05:53:31.222652+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 26.1,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T05:54:07.537527+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 26.1,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T05:54:37.458424+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 26.1,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T05:54:48.558466+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 26.1,
-    "query_hint": "bg:tc_profile.py"
-  },
-  {
-    "ts": "2026-04-12T05:55:48.127760+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 26.1,
-    "query_hint": "bg:FRBI_REPORT_PERCY_P_PIGEON.md"
-  },
-  {
-    "ts": "2026-04-12T05:55:49.477138+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 26.1,
-    "query_hint": "bg:FRBI_REPORT_PERCY_P_PIGEON.md"
-  },
-  {
-    "ts": "2026-04-12T05:57:34.161030+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 26.1,
-    "query_hint": "bg:FRBI_REPORT_PERCY_P_PIGEON.md"
-  },
-  {
-    "ts": "2026-04-12T05:57:49.201721+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 26.1,
-    "query_hint": "bg:FRBI_REPORT_PERCY_P_PIGEON.md"
-  },
-  {
-    "ts": "2026-04-12T06:18:48.858352+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 33.1,
-    "query_hint": "bg:FRBI_REPORT_PERCY_P_PIGEON.md"
-  },
-  {
-    "ts": "2026-04-12T06:19:50.267898+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 33.1,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T06:22:50.792468+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T06:24:47.576388+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_REPORT_PERCY_P_PIGEON.md"
-  },
-  {
-    "ts": "2026-04-12T06:27:43.809385+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_REPORT_PERCY_P_PIGEON.md"
-  },
-  {
-    "ts": "2026-04-12T06:29:01.400663+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_REPORT_PERCY_P_PIGEON.md"
-  },
-  {
-    "ts": "2026-04-12T15:09:51.251077+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:idle"
-  },
-  {
-    "ts": "2026-04-12T15:12:38.516210+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_REPORT_PERCY_P_PIGEON.md"
-  },
-  {
-    "ts": "2026-04-12T15:13:29.844109+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_REPORT_PERCY_P_PIGEON.md"
-  },
-  {
-    "ts": "2026-04-12T15:15:35.178103+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:file_heat_map.json"
-  },
-  {
-    "ts": "2026-04-12T15:16:19.411842+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:BUG_PROFILES.md"
-  },
-  {
-    "ts": "2026-04-12T15:16:25.619535+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:16:33.705795+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:17:20.521624+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:17:26.105123+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:18:18.449171+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:18:22.346070+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:19:01.987772+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:19:19.643018+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:20:02.761358+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:20:18.678611+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 36.9,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:21:18.087453+00:00",
-    "verdict": "ok",
-    "rework_score": 0.007,
-    "del_ratio": 0.013,
-    "wpm": 29.7,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:22:19.598072+00:00",
-    "verdict": "ok",
-    "rework_score": 0.007,
-    "del_ratio": 0.013,
-    "wpm": 29.7,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:27:43.591218+00:00",
-    "verdict": "ok",
-    "rework_score": 0.007,
-    "del_ratio": 0.013,
-    "wpm": 29.7,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:28:20.488312+00:00",
-    "verdict": "ok",
-    "rework_score": 0.007,
-    "del_ratio": 0.013,
-    "wpm": 29.7,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:30:26.945511+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 42.0,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:39:18.074568+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 46.4,
-    "query_hint": "bg:0"
-  },
-  {
-    "ts": "2026-04-12T15:40:18.911435+00:00",
-    "verdict": "ok",
-    "rework_score": 0.015,
-    "del_ratio": 0.028,
-    "wpm": 46.4,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:41:17.817756+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 63.2,
-    "query_hint": "bg:FRBI_SUPPLEMENTARY_18_FUTURES.md"
-  },
-  {
-    "ts": "2026-04-12T15:53:22.603905+00:00",
-    "verdict": "ok",
-    "rework_score": 0.0,
-    "del_ratio": 0.0,
-    "wpm": 48.3,
-    "query_hint": "bg:idle"
-  },
-  {
     "ts": "2026-04-12T15:54:24.431127+00:00",
     "verdict": "ok",
     "rework_score": 0.0,
@@ -1598,5 +374,1229 @@
     "del_ratio": 0.017,
     "wpm": 25.3,
     "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T17:09:26.991897+00:00",
+    "verdict": "ok",
+    "rework_score": 0.009,
+    "del_ratio": 0.017,
+    "wpm": 25.3,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T17:12:02.508048+00:00",
+    "verdict": "ok",
+    "rework_score": 0.009,
+    "del_ratio": 0.017,
+    "wpm": 25.3,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-12T17:13:11.561798+00:00",
+    "verdict": "ok",
+    "rework_score": 0.005,
+    "del_ratio": 0.009,
+    "wpm": 7.3,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T17:13:58.845140+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.022,
+    "wpm": 20.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T17:17:16.141819+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.022,
+    "wpm": 20.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T17:21:38.985390+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.022,
+    "wpm": 20.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T17:23:56.449660+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.022,
+    "wpm": 20.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T20:19:03.376141+00:00",
+    "verdict": "ok",
+    "rework_score": 0.029,
+    "del_ratio": 0.053,
+    "wpm": 30.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T20:21:57.978842+00:00",
+    "verdict": "ok",
+    "rework_score": 0.029,
+    "del_ratio": 0.053,
+    "wpm": 30.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T20:23:01.298701+00:00",
+    "verdict": "ok",
+    "rework_score": 0.029,
+    "del_ratio": 0.053,
+    "wpm": 30.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T20:43:08.021792+00:00",
+    "verdict": "ok",
+    "rework_score": 0.029,
+    "del_ratio": 0.053,
+    "wpm": 30.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T20:44:49.039064+00:00",
+    "verdict": "ok",
+    "rework_score": 0.029,
+    "del_ratio": 0.053,
+    "wpm": 30.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T20:55:34.206482+00:00",
+    "verdict": "ok",
+    "rework_score": 0.029,
+    "del_ratio": 0.053,
+    "wpm": 30.6,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-12T20:55:55.269221+00:00",
+    "verdict": "ok",
+    "rework_score": 0.029,
+    "del_ratio": 0.053,
+    "wpm": 30.6,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-12T20:57:06.630309+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-12T20:57:43.929745+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-12T20:59:42.429337+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T21:00:42.568758+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T21:01:42.826609+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T21:14:40.768998+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T21:15:39.306764+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T21:21:41.536235+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T21:25:44.968042+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T21:26:36.967258+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T21:27:39.574005+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T21:28:40.019155+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T21:29:39.034661+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T21:30:36.450274+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-12T21:31:38.311584+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T15:16:32.814116+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T15:17:30.782450+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T15:18:30.249706+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T15:24:29.310473+00:00",
+    "verdict": "ok",
+    "rework_score": 0.05,
+    "del_ratio": 0.091,
+    "wpm": 25.4,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T15:32:32.710861+00:00",
+    "verdict": "miss",
+    "rework_score": 0.467,
+    "del_ratio": 0.031,
+    "wpm": 33.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T15:59:15.497889+00:00",
+    "verdict": "ok",
+    "rework_score": 0.163,
+    "del_ratio": 0.023,
+    "wpm": 45.1,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T16:04:37.892477+00:00",
+    "verdict": "ok",
+    "rework_score": 0.163,
+    "del_ratio": 0.023,
+    "wpm": 45.1,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T17:56:34.603122+00:00",
+    "verdict": "miss",
+    "rework_score": 0.462,
+    "del_ratio": 0.022,
+    "wpm": 40.2,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:02:32.007669+00:00",
+    "verdict": "ok",
+    "rework_score": 0.171,
+    "del_ratio": 0.039,
+    "wpm": 21.2,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:04:37.022123+00:00",
+    "verdict": "ok",
+    "rework_score": 0.004,
+    "del_ratio": 0.008,
+    "wpm": 60.6,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T18:08:08.941682+00:00",
+    "verdict": "ok",
+    "rework_score": 0.004,
+    "del_ratio": 0.008,
+    "wpm": 60.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:09:59.483104+00:00",
+    "verdict": "ok",
+    "rework_score": 0.005,
+    "del_ratio": 0.009,
+    "wpm": 49.0,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:11:04.014532+00:00",
+    "verdict": "ok",
+    "rework_score": 0.005,
+    "del_ratio": 0.009,
+    "wpm": 49.0,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:11:05.406709+00:00",
+    "verdict": "ok",
+    "rework_score": 0.005,
+    "del_ratio": 0.009,
+    "wpm": 49.0,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:11:26.098170+00:00",
+    "verdict": "ok",
+    "rework_score": 0.005,
+    "del_ratio": 0.009,
+    "wpm": 49.0,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:12:02.467925+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.014,
+    "wpm": 30.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:12:30.741870+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.014,
+    "wpm": 30.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:12:45.637486+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.014,
+    "wpm": 30.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:12:55.799455+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.014,
+    "wpm": 30.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:12:59.503207+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.014,
+    "wpm": 30.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:14:06.769825+00:00",
+    "verdict": "ok",
+    "rework_score": 0.008,
+    "del_ratio": 0.014,
+    "wpm": 30.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:19:21.348739+00:00",
+    "verdict": "ok",
+    "rework_score": 0.014,
+    "del_ratio": 0.025,
+    "wpm": 49.5,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T18:20:20.656712+00:00",
+    "verdict": "ok",
+    "rework_score": 0.014,
+    "del_ratio": 0.025,
+    "wpm": 49.5,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T18:21:31.871434+00:00",
+    "verdict": "ok",
+    "rework_score": 0.014,
+    "del_ratio": 0.025,
+    "wpm": 49.5,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T18:25:18.198109+00:00",
+    "verdict": "ok",
+    "rework_score": 0.014,
+    "del_ratio": 0.025,
+    "wpm": 49.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:26:34.059818+00:00",
+    "verdict": "ok",
+    "rework_score": 0.014,
+    "del_ratio": 0.025,
+    "wpm": 49.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:27:36.965939+00:00",
+    "verdict": "ok",
+    "rework_score": 0.014,
+    "del_ratio": 0.025,
+    "wpm": 49.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:28:32.892801+00:00",
+    "verdict": "ok",
+    "rework_score": 0.014,
+    "del_ratio": 0.025,
+    "wpm": 49.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:29:30.542562+00:00",
+    "verdict": "ok",
+    "rework_score": 0.014,
+    "del_ratio": 0.025,
+    "wpm": 49.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:30:12.185708+00:00",
+    "verdict": "ok",
+    "rework_score": 0.014,
+    "del_ratio": 0.025,
+    "wpm": 49.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:37:28.531095+00:00",
+    "verdict": "ok",
+    "rework_score": 0.014,
+    "del_ratio": 0.025,
+    "wpm": 49.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:38:29.184631+00:00",
+    "verdict": "ok",
+    "rework_score": 0.014,
+    "del_ratio": 0.025,
+    "wpm": 49.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T18:39:24.409553+00:00",
+    "verdict": "ok",
+    "rework_score": 0.014,
+    "del_ratio": 0.025,
+    "wpm": 49.5,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T19:00:34.974108+00:00",
+    "verdict": "ok",
+    "rework_score": 0.01,
+    "del_ratio": 0.019,
+    "wpm": 37.4,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T19:06:27.024519+00:00",
+    "verdict": "ok",
+    "rework_score": 0.01,
+    "del_ratio": 0.019,
+    "wpm": 37.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T19:07:15.050673+00:00",
+    "verdict": "ok",
+    "rework_score": 0.01,
+    "del_ratio": 0.019,
+    "wpm": 37.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T19:07:23.409359+00:00",
+    "verdict": "ok",
+    "rework_score": 0.01,
+    "del_ratio": 0.019,
+    "wpm": 37.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T19:07:52.064810+00:00",
+    "verdict": "ok",
+    "rework_score": 0.01,
+    "del_ratio": 0.019,
+    "wpm": 37.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T19:08:14.985189+00:00",
+    "verdict": "ok",
+    "rework_score": 0.01,
+    "del_ratio": 0.019,
+    "wpm": 37.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T19:09:47.487945+00:00",
+    "verdict": "ok",
+    "rework_score": 0.01,
+    "del_ratio": 0.019,
+    "wpm": 37.4,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T19:11:38.595669+00:00",
+    "verdict": "ok",
+    "rework_score": 0.007,
+    "del_ratio": 0.012,
+    "wpm": 48.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T19:12:36.220679+00:00",
+    "verdict": "ok",
+    "rework_score": 0.007,
+    "del_ratio": 0.012,
+    "wpm": 48.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T19:17:35.924208+00:00",
+    "verdict": "ok",
+    "rework_score": 0.007,
+    "del_ratio": 0.012,
+    "wpm": 48.7,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T20:15:36.515981+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 12.8,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T20:16:37.592559+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 12.8,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:27:38.301808+00:00",
+    "verdict": "ok",
+    "rework_score": 0.173,
+    "del_ratio": 0.042,
+    "wpm": 53.7,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:32:18.833646+00:00",
+    "verdict": "ok",
+    "rework_score": 0.173,
+    "del_ratio": 0.042,
+    "wpm": 53.7,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:32:35.845380+00:00",
+    "verdict": "ok",
+    "rework_score": 0.173,
+    "del_ratio": 0.042,
+    "wpm": 53.7,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:33:37.567936+00:00",
+    "verdict": "ok",
+    "rework_score": 0.173,
+    "del_ratio": 0.042,
+    "wpm": 53.7,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:41:20.970466+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.021,
+    "wpm": 28.9,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:42:23.285522+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.021,
+    "wpm": 28.9,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:51:30.984181+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.021,
+    "wpm": 28.9,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:52:10.239888+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.021,
+    "wpm": 28.9,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:52:42.034845+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.021,
+    "wpm": 28.9,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:52:55.112201+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.021,
+    "wpm": 28.9,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:53:21.525389+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.021,
+    "wpm": 28.9,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:54:20.665059+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.021,
+    "wpm": 28.9,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:55:21.917668+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.021,
+    "wpm": 28.9,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:56:19.804791+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.021,
+    "wpm": 28.9,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:56:19.879975+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.021,
+    "wpm": 28.9,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T20:59:18.632951+00:00",
+    "verdict": "ok",
+    "rework_score": 0.012,
+    "del_ratio": 0.021,
+    "wpm": 28.9,
+    "query_hint": "bg:idle"
+  },
+  {
+    "ts": "2026-04-13T21:08:22.073447+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:debug.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T21:09:22.068193+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:10:01.344359+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:10:24.093647+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:10:48.896981+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:11:24.955062+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:12:18.455862+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:12:29.301369+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:12:49.430347+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:13:01.349474+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:13:14.007542+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:13:47.832383+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:14:06.719617+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:14:16.574617+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:14:19.996938+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:14:41.655123+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:15:00.911729+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:15:28.263763+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:16:30.517981+00:00",
+    "verdict": "ok",
+    "rework_score": 0.0,
+    "del_ratio": 0.0,
+    "wpm": 25.9,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:18:26.768456+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:19:30.935865+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:20:32.348390+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:21:08.424774+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:21:24.804637+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:22:13.058816+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:22:26.779783+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:23:15.167225+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:23:38.833653+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:23:54.692074+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:24:36.936107+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:24:53.133373+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:25:07.809194+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:35:33.220877+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:copilot-instructions.md"
+  },
+  {
+    "ts": "2026-04-13T21:37:32.791164+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:visualization-intent-reconstruction.md"
+  },
+  {
+    "ts": "2026-04-13T21:41:45.585349+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:visualization-intent-reconstruction.md"
+  },
+  {
+    "ts": "2026-04-13T21:43:30.293689+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:visualization-intent-reconstruction.md"
+  },
+  {
+    "ts": "2026-04-13T21:46:30.908390+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:visualization-intent-reconstruction.md"
+  },
+  {
+    "ts": "2026-04-13T21:47:33.986286+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:visualization-intent-reconstruction.md"
+  },
+  {
+    "ts": "2026-04-13T22:15:31.289437+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:visualization-intent-reconstruction.md"
+  },
+  {
+    "ts": "2026-04-13T22:19:33.594519+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:visualization-intent-reconstruction.md"
+  },
+  {
+    "ts": "2026-04-13T22:21:32.216932+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T22:23:32.433478+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T22:24:31.733207+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T22:28:43.562865+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T22:29:31.818270+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T22:51:40.195601+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T22:51:40.473034+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T22:54:50.619743+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T22:55:36.282223+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T22:56:36.845100+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T22:57:14.246516+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T22:58:33.651026+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T23:16:32.383753+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T23:24:32.690562+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T23:30:59.398556+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T23:34:08.600929+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T23:34:38.887267+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T23:35:03.425337+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-13T23:35:51.627693+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-14T02:51:32.072824+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-14T02:55:42.190018+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-14T02:56:27.705108+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
+  },
+  {
+    "ts": "2026-04-14T03:17:36.964219+00:00",
+    "verdict": "ok",
+    "rework_score": 0.013,
+    "del_ratio": 0.023,
+    "wpm": 38.6,
+    "query_hint": "bg:review.prompt.md"
   }
 ]

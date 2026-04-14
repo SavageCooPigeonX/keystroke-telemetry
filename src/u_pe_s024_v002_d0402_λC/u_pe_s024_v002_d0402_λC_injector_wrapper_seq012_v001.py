@@ -4,11 +4,24 @@ from pathlib import Path
 import json
 import re
 
+TASK_COMPLETE_HOOK_MARKERS = (
+    'you were about to complete but a hook blocked you with the following message',
+    'you have not yet marked the task as complete using the task_complete tool',
+)
+
+
+def _is_meta_hook_message(msg: str) -> bool:
+    low = msg.lower()
+    return all(marker in low for marker in TASK_COMPLETE_HOOK_MARKERS)
+
 def inject_query_block(root: Path, raw_query: str,
                        deleted_words: list | None = None,
                        cognitive_state: dict | None = None) -> bool:
     """Enrich the prompt and write the <!-- pigeon:current-query --> block."""
     root = Path(root)
+    raw_query = raw_query.strip()
+    if not raw_query or _is_meta_hook_message(raw_query):
+        return False
     cp = root / COPILOT_PATH
     if not cp.exists():
         return False

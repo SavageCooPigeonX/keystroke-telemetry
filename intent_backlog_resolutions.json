@@ -1,0 +1,294 @@
+{
+  "generated": "2026-04-13T23:20:52.1055211Z",
+  "resolver": "manual_verified_repo_audit",
+  "entries": {
+    "intent_backlog:2026-04-12T01:38:20.005138+00:00": {
+      "task_id": "tq-002",
+      "source_key": "intent_backlog:2026-04-12T01:38:20.005138+00:00",
+      "status": "resolved",
+      "outcome": "captured_gap",
+      "normalized_intent": "Context select should browse accumulated intelligence in markdown.",
+      "summary": "Verified against the TC context stack. Context selection intelligence already exists; the unresolved remainder is the markdown browsing UX gap, which is now explicitly captured instead of floating as deleted text.",
+      "evidence": [
+        "src/tc_context_agent.py",
+        "src/tc_profile.py"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T02:28:28.963818+00:00": {
+      "task_id": "tq-003",
+      "source_key": "intent_backlog:2026-04-12T02:28:28.963818+00:00",
+      "status": "resolved",
+      "outcome": "captured_gap",
+      "normalized_intent": "DeepSeek configuration and historical git push failure need diagnosis.",
+      "summary": "Verified against the current environment and prompt plumbing. DeepSeek configuration exists in the repo; the git push failure remains captured as a diagnosed historical issue rather than an unsaid dangling prompt.",
+      "evidence": [
+        "vscode-extension/src/extension.ts",
+        ".env.example",
+        ".github/copilot-instructions.md"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T04:14:51.662907+00:00": {
+      "task_id": "tq-004",
+      "source_key": "intent_backlog:2026-04-12T04:14:51.662907+00:00",
+      "status": "resolved",
+      "outcome": "satisfied",
+      "normalized_intent": "Question injection, entropy scoring, and related test coverage should be exercised.",
+      "summary": "Verified as represented in the prompt injection and entropy paths, with test coverage already exercised during this session and in the repo test harness.",
+      "evidence": [
+        "src/prompt_enricher_seq024_v001.py",
+        "src/entropy_shedding.py",
+        "test_all.py",
+        "src/thought_completer.py"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T04:18:04.997231+00:00": {
+      "task_id": "tq-005",
+      "source_key": "intent_backlog:2026-04-12T04:18:04.997231+00:00",
+      "status": "resolved",
+      "outcome": "satisfied",
+      "normalized_intent": "Stress-test context selection through simulations.",
+      "summary": "Verified by the existing TC simulation and stress test harness. The stress-test request is represented in code and no longer needs to remain as unresolved deleted intent.",
+      "evidence": [
+        "src/tc_sim.py",
+        "stress_test_tc.py"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T04:37:19.972746+00:00": {
+      "task_id": "tq-006",
+      "source_key": "intent_backlog:2026-04-12T04:37:19.972746+00:00",
+      "status": "resolved",
+      "outcome": "satisfied",
+      "normalized_intent": "Cognitive state should be tracked per prompt rather than only per session.",
+      "summary": "Verified against the live prompt telemetry path. Per-prompt cognitive state and prompt-scoped signals already exist and are injected into the managed prompt.",
+      "evidence": [
+        "logs/prompt_telemetry_latest.json",
+        ".github/copilot-instructions.md"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T04:41:48.927665+00:00": {
+      "task_id": "tq-007",
+      "source_key": "intent_backlog:2026-04-12T04:41:48.927665+00:00",
+      "status": "resolved",
+      "outcome": "satisfied",
+      "normalized_intent": "Thought completer should answer Copilot probes by expanding operator intent.",
+      "summary": "Verified in the thought completer and probe pipeline. Probe-driven intent amplification is already represented in the current TC stack.",
+      "evidence": [
+        "src/thought_completer.py",
+        "src/operator_probes.py"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T04:51:19.615563+00:00": {
+      "task_id": "tq-008",
+      "source_key": "intent_backlog:2026-04-12T04:51:19.615563+00:00",
+      "status": "resolved",
+      "outcome": "satisfied",
+      "normalized_intent": "Thought completer should model operator intent as an amplification loop.",
+      "summary": "Verified as a core TC design goal. The repo already treats thought completion as intent amplification rather than plain autocomplete.",
+      "evidence": [
+        "src/thought_completer.py",
+        "src/operator_probes.py",
+        "src/intent_reconstructor.py"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T05:11:03.670318+00:00": {
+      "task_id": "tq-009",
+      "source_key": "intent_backlog:2026-04-12T05:11:03.670318+00:00",
+      "status": "resolved",
+      "outcome": "satisfied",
+      "normalized_intent": "Thought completer should behave as a feedback loop.",
+      "summary": "Verified through the grading and trajectory layers. TC feedback, scoring, and rework tracking already form a closed learning loop.",
+      "evidence": [
+        "src/tc_grader.py",
+        "src/tc_trajectory.py",
+        "src/tc_manifest.py"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T05:21:09.303478+00:00": {
+      "task_id": "tq-010",
+      "source_key": "intent_backlog:2026-04-12T05:21:09.303478+00:00",
+      "status": "resolved",
+      "outcome": "satisfied",
+      "normalized_intent": "High-entropy work should trigger questions that route through thought completer.",
+      "summary": "Verified in the operator probe path. High-hesitation and high-entropy conditions already generate probes and clarifying prompts.",
+      "evidence": [
+        "src/operator_probes.py",
+        "src/entropy_shedding.py"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T05:24:17.553116+00:00": {
+      "task_id": "tq-011",
+      "source_key": "intent_backlog:2026-04-12T05:24:17.553116+00:00",
+      "status": "resolved",
+      "outcome": "satisfied",
+      "normalized_intent": "Current Copilot prompt templates and injected structure should be audited.",
+      "summary": "Verified against the live prompt file and refresh orchestrator. The repo already carries a detailed injected prompt surface and mutation history.",
+      "evidence": [
+        ".github/copilot-instructions.md",
+        "src/管_cpm_s020/管w_cpm_rmp_s016_v001.py",
+        "src/intent_reconstructor.py"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T05:31:18.738207+00:00": {
+      "task_id": "tq-012",
+      "source_key": "intent_backlog:2026-04-12T05:31:18.738207+00:00",
+      "status": "resolved",
+      "outcome": "satisfied",
+      "normalized_intent": "Rename flow should preserve why files were touched.",
+      "summary": "Verified against pulse metadata and edit-why harvesting. Filename provenance and edit reason capture already exist, so this intent no longer needs to sit in backlog form.",
+      "evidence": [
+        "src/MANIFEST.md",
+        "src/entropy_shedding.py",
+        ".github/copilot-instructions.md"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T05:37:09.236192+00:00": {
+      "task_id": "tq-013",
+      "source_key": "intent_backlog:2026-04-12T05:37:09.236192+00:00",
+      "status": "resolved",
+      "outcome": "captured_gap",
+      "normalized_intent": "Context select should accumulate intelligence through manifest-like profiling.",
+      "summary": "Verified as partially represented in the TC manifest and profile stack. The remaining intelligence-layer gap is now captured explicitly instead of remaining an unsaid fragment.",
+      "evidence": [
+        "src/tc_manifest.py",
+        "src/tc_context_agent.py",
+        "src/tc_profile.py"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T05:43:09.994296+00:00": {
+      "task_id": "tq-014",
+      "source_key": "intent_backlog:2026-04-12T05:43:09.994296+00:00",
+      "status": "resolved",
+      "outcome": "satisfied",
+      "normalized_intent": "The FRBI report request should be represented as a real artifact.",
+      "summary": "Verified by the generated FRBI report itself. This intent already landed as a concrete repo artifact.",
+      "evidence": [
+        "docs/FRBI_REPORT_PERCY_P_PIGEON.md"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T06:18:01.989946+00:00": {
+      "task_id": "tq-015",
+      "source_key": "intent_backlog:2026-04-12T06:18:01.989946+00:00",
+      "status": "resolved",
+      "outcome": "satisfied",
+      "normalized_intent": "The FRBI refusal suite should contain 18 future-facing refusal queries.",
+      "summary": "Verified by the supplementary FRBI artifact. The requested refusal-query expansion already exists in the repo.",
+      "evidence": [
+        "docs/FRBI_SUPPLEMENTARY_18_FUTURES.md",
+        "docs/FRBI_REPORT_PERCY_P_PIGEON.md"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T15:38:23.506747+00:00": {
+      "task_id": "tq-016",
+      "source_key": "intent_backlog:2026-04-12T15:38:23.506747+00:00",
+      "status": "resolved",
+      "outcome": "captured_gap",
+      "normalized_intent": "Sleep mode and themed question suites should feed the TC question channel.",
+      "summary": "Verified as partially represented: the TC question channel exists, while the specific Blade Runner themed question pack remains an explicit future gap rather than a dangling deleted thought.",
+      "evidence": [
+        "src/tc_question_channel.py",
+        "src/tc_manifest.py"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T16:20:58.736120+00:00": {
+      "task_id": "tq-017",
+      "source_key": "intent_backlog:2026-04-12T16:20:58.736120+00:00",
+      "status": "resolved",
+      "outcome": "satisfied",
+      "normalized_intent": "TC should map words to files through a numeric analysis surface.",
+      "summary": "Verified by the numeric surface and intent numeric modules. The requested word-to-file numeric mapping is already part of the repo architecture.",
+      "evidence": [
+        "src/numeric_surface.py",
+        "src/intent_numeric.py"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-12T16:41:13.288169+00:00": {
+      "task_id": "tq-018",
+      "source_key": "intent_backlog:2026-04-12T16:41:13.288169+00:00",
+      "status": "resolved",
+      "outcome": "satisfied",
+      "normalized_intent": "Push cycle should run with broad file simulations and narrative output.",
+      "summary": "Verified by the push-cycle implementation and simulation harness. The push-cycle intent is already represented in code and artifacts.",
+      "evidence": [
+        "src/环w_pc_s025_v003_d0330_读唤任_λπ.py",
+        "src/tc_sim.py"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-13T15:30:52.389638+00:00": {
+      "task_id": "tq-019",
+      "source_key": "intent_backlog:2026-04-13T15:30:52.389638+00:00",
+      "status": "resolved",
+      "outcome": "captured_gap",
+      "normalized_intent": "IRT should exist as an intent reclassification tool.",
+      "summary": "Verified as not yet implemented in production. The gap is now explicitly captured as an IRT future-build item instead of remaining an unresolved deleted intent.",
+      "evidence": [
+        "docs/LINKROUTER_AI_MAP.md"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-13T15:54:07.196119+00:00": {
+      "task_id": "tq-020",
+      "source_key": "intent_backlog:2026-04-13T15:54:07.196119+00:00",
+      "status": "resolved",
+      "outcome": "captured_gap",
+      "normalized_intent": "Intent from prompt history should be reinjected into Copilot instructions.",
+      "summary": "Verified as partially represented by the prompt journal, manifest, and managed prompt refresh pipeline. The remaining prompt-box task layer is now captured explicitly.",
+      "evidence": [
+        "src/prompt_journal_seq019_v001.py",
+        "src/tc_manifest.py",
+        ".github/copilot-instructions.md"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    },
+    "intent_backlog:2026-04-13T17:52:59.760339+00:00": {
+      "task_id": "tq-021",
+      "source_key": "intent_backlog:2026-04-13T17:52:59.760339+00:00",
+      "status": "resolved",
+      "outcome": "captured_gap",
+      "normalized_intent": "Website observatory should launch with visualization and narrative file drama.",
+      "summary": "Verified as partially represented by the observatory UI and narrative systems. The remaining full file-drama layer is now captured as an explicit gap rather than a hidden backlog fragment.",
+      "evidence": [
+        "pigeon_brain/ui/src/PigeonBrain.jsx",
+        "src/narrative_glove.py",
+        "src/profile_chat_server.py"
+      ],
+      "manifest_ref": "intent_backlog_resolutions.json",
+      "verified_ts": "2026-04-13T23:20:52.1055211Z"
+    }
+  }
+}

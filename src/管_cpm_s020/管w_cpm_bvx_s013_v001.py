@@ -3,6 +3,14 @@
 Builds the <!-- pigeon:bug-voices --> block from registry bug data.
 Self-contained: duplicates small utilities to avoid circular imports.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 013 | VER: v001 | 127 lines | ~1,246 tokens
+# DESC:   bug_voices_block_builder
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from __future__ import annotations
 
 import json

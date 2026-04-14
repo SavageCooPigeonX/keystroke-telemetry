@@ -2,15 +2,15 @@
 description: "Debug-focused context: known issues, fragile contracts, clots, dossier"
 ---
 
-# /debug
+# /debug (RECOMMENDED)
 
-*Hydrated 2026-04-12 06:24 UTC · detected mode: build*
+*Hydrated 2026-04-13 19:12 UTC · detected mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 50 | Del: 26% | Hes: 0.487
+**Cognitive:** `abandoned` | WPM: 43 | Del: 26% | Hes: 0.487
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
-**Codes:** intent=`testing` state=`neutral` bl_wpm=53 bl_del=26%
+**Codes:** intent=`unknown` state=`focused` bl_wpm=51 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---

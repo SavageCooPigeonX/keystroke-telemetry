@@ -100,7 +100,7 @@ def _load_journal_since(root: Path, after_line: int) -> list[dict]:
     if not p.exists():
         return []
     entries = []
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, "r", encoding="utf-8", errors="replace") as f:
         for i, line in enumerate(f, 1):
             if i <= after_line or not line.strip():
                 continue

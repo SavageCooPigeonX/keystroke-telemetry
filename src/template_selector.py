@@ -20,6 +20,36 @@ PROMPTS_DIR = '.github/prompts'
 
 # ── data loaders ──────────────────────────────
 
+def _parse_ts(value):
+    try:
+        return datetime.fromisoformat(str(value).replace('Z', '+00:00'))
+    except Exception:
+        return None
+
+
+def _normalize_signal_phrase(value):
+    text = re.sub(r'\s+', ' ', str(value)).strip().strip('"\'.,;:!?-')
+    if len(text) < 4:
+        return None
+    alnum = sum(ch.isalnum() for ch in text)
+    if alnum < 3 or alnum / max(len(text), 1) < 0.6:
+        return None
+    if not any(ch.isalpha() for ch in text):
+        return None
+    return text
+
+
+def _signal_words(values):
+    words = []
+    seen = set()
+    for value in values:
+        word = value.get('word', value) if isinstance(value, dict) else value
+        clean = _normalize_signal_phrase(word)
+        if clean and clean not in seen:
+            words.append(clean)
+            seen.add(clean)
+    return words
+
 def _json(p):
     if not p.exists():
         return None
@@ -55,40 +85,47 @@ def _commits(root, n=5):
 
 # ── signal extraction ─────────────────────────
 
-def _deleted_words(comps):
-    words, seen = [], set()
-    for c in comps[-8:]:
-        for w in c.get('intent_deleted_words', c.get('deleted_words', [])):
-            word = w.get('word', w) if isinstance(w, dict) else str(w)
-            if word and len(word) > 3 and word not in seen:
-                words.append(word)
-                seen.add(word)
-    return words
+def _latest_composition(root):
+    comps = _jsonl_tail(root / 'logs' / 'chat_compositions.jsonl', 4)
+    if not comps:
+        return None
+    snapshot = _json(root / 'logs' / 'prompt_telemetry_latest.json') or {}
+    latest_prompt = (snapshot.get('latest_prompt') or {}).get('ts')
+    latest_prompt_ts = _parse_ts(latest_prompt)
+    for comp in reversed(comps):
+        comp_ts = _parse_ts(comp.get('ts'))
+        if latest_prompt_ts is None or comp_ts is None:
+            return comp
+        if abs((latest_prompt_ts - comp_ts).total_seconds()) <= 300:
+            return comp
+    return None
 
 
-def _rewrites_block(comps):
-    """Extract rewrites from compositions — shows what operator typed then changed."""
+def _deleted_words(comp):
+    if not comp:
+        return []
+    primary = comp.get('intent_deleted_words') or comp.get('deleted_words', [])
+    return _signal_words(primary)
+
+
+def _rewrites_block(comp):
+    """Extract rewrites from the latest composition only."""
+    if not comp:
+        return []
     rewrites = []
-    for c in comps[-6:]:
-        for rw in c.get('rewrites', []):
-            old = rw.get('old', '').strip()
-            new = rw.get('new', '').strip()[:80]
-            if old and new and len(old) > 3:
-                rewrites.append(f'"{old}" → "{new}"')
+    for rw in comp.get('rewrites', []):
+        old = _normalize_signal_phrase(rw.get('old', '').strip())
+        new = rw.get('new', '').strip()[:80]
+        if old and new:
+            rewrites.append(f'"{old}" → "{new}"')
     return rewrites
 
 
-def _unsaid_threads(comps):
-    """Extract intent-deleted words — thoughts operator started but killed."""
-    threads = []
-    seen = set()
-    for c in comps[-8:]:
-        for w in c.get('intent_deleted_words', []):
-            word = w.get('word', '') if isinstance(w, dict) else str(w)
-            if word and len(word) > 4 and word not in seen:
-                threads.append(word)
-                seen.add(word)
-    return threads
+def _unsaid_threads(comp):
+    """Extract current-prompt intent deletions only."""
+    if not comp:
+        return []
+    return _signal_words(comp.get('intent_deleted_words', []))
 
 
 def _voice_directives(root):
@@ -209,10 +246,10 @@ def _cot_directive(root):
 
 def _shared_signals(root):
     snapshot = _json(root / 'logs' / 'prompt_telemetry_latest.json')
-    comps = _jsonl_tail(root / 'logs' / 'chat_compositions.jsonl', 8)
-    deleted = _deleted_words(comps)
-    rewrites = _rewrites_block(comps)
-    unsaid = _unsaid_threads(comps)
+    comp = _latest_composition(root)
+    deleted = _deleted_words(comp)
+    rewrites = _rewrites_block(comp)
+    unsaid = _unsaid_threads(comp)
     voice = _voice_directives(root)
     hot = (snapshot or {}).get('hot_modules', [])[:5]
     cog = _cognitive_line(snapshot, root=root)

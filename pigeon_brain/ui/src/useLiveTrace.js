@@ -1,7 +1,7 @@
 /* useLiveTrace — WebSocket hook for real-time execution events */
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-const DEFAULT_WS = 'ws://127.0.0.1:8785';
+const DEFAULT_WS = 'ws://127.0.0.1:8765';
 const RECONNECT_MS = 3000;
 const EVENT_WINDOW = 200; // max events to keep in memory
 

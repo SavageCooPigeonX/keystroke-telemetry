@@ -4,6 +4,14 @@ Orchestrates all managed block refreshes in one call.
 Imports inject functions directly from sub-files to avoid circular imports.
 Self-contained: duplicates _run_refresher and path constants.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 016 | VER: v001 | 230 lines | ~2,189 tokens
+# DESC:   refresh_orchestrator_for_copilot_prompt
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from __future__ import annotations
 
 import importlib.util
@@ -157,6 +165,12 @@ def refresh_managed_prompt(
         inject_into_copilot_instructions(root)
     except Exception:
         pass
+    intent_backlog_refreshed = False
+    try:
+        from src.intent_reconstructor import refresh_intent_backlog
+        intent_backlog_refreshed = bool(refresh_intent_backlog(root).get('injected'))
+    except Exception:
+        pass
     try:
         from src.operator_probes import inject_probes
         inject_probes(root)
@@ -215,6 +229,7 @@ def refresh_managed_prompt(
         'bug_voices': bug_voices_refreshed,
         'task_context': task_context_refreshed,
         'task_queue': task_queue_refreshed,
+        'intent_backlog': intent_backlog_refreshed,
         'operator_state': operator_state_refreshed,
         'entropy': entropy_refreshed,
         'prompt_telemetry': injected,

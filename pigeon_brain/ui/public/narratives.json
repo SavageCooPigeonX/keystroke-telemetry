@@ -66,10 +66,10 @@
     "intent": "pigeon_brain_system"
   },
   "graph_extractor": {
-    "text": "I extract cognition graphs from raw traces, assuming call‑stack depth is bounded. Deep recursion could overflow my buffers. I provide graphs to `dual_substrate`, `observer_synthesis`, and `demo_sim`; if I alter the adjacency‑list format, all downstream modules will misinterpret edges.",
-    "date": "2026-03-23",
-    "commit": "465cbfa",
-    "intent": "pigeon_brain_system"
+    "text": "I was touched to refine the cognition graph extraction, specifically to better handle the termination state of the Gemini chat component. I assume the chat component's final state is cleanly represented in the trace and that my new logic for detecting a \"dead\" node is correct. Watch for regression where a live, stalled chat is incorrectly flagged as terminated, causing the system to prematurely stop feeding it new pulses.",
+    "date": "2026-03-24",
+    "commit": "8c33693",
+    "intent": "gemini_chat_dead"
   },
   "graph_heat_map": {
     "text": "I accumulate failures per node, assuming node IDs persist across runs. If `graph_extractor` re‑IDs nodes, my accumulations will reset. I feed `dual_substrate` and `observer_synthesis`; if my map‑update frequency changes, real‑time observers may see stale data.",
@@ -78,10 +78,10 @@
     "intent": "pigeon_brain_system"
   },
   "live_server": {
-    "text": "I serve WebSocket streams for live execution, assuming `trace_hook` emits events in a specific JSON shape. If the hook’s payload gains nested layers, clients will parse incorrectly. I depend on `trace_hook`; if trace emission blocks, connections will time out.",
-    "date": "2026-03-23",
-    "commit": "465cbfa",
-    "intent": "pigeon_brain_system"
+    "text": "I was updated to propagate the new \"gemini_chat_dead\" intent and its associated graph state to connected WebSocket clients. I depend on `trace_hook` for structured data and provide a live stream to the `cli`. If the trace hook's output format changes and no longer includes the `node_status` field I now broadcast, the frontend will receive malformed updates and may crash. Watch for the UI freezing or showing \"undefined\" for node states after this push. **gemini_chat.py**: I was modified to implement the logic for the \"gemini_chat_dead\" intent, setting internal flags when the chat session is considered terminated. I assume that my caller will respect my `is_dead` flag and not attempt to send further messages. If this contract breaks and messages are sent anyway, I might silently fail or throw an unhandled exception, causing the entire agent pulse to fail. Watch for unprocessed user inputs piling up in the queue when the chat is marked dead. **build_narratives.py**: I was touched to incorporate the new termination state into the generated debugging narratives. I assume the graph extractor provides a consistent key for the dead node state. If that key name changes in `graph_extractor`, my narratives will have missing or incorrect information about chat termination, making debugging harder. Watch for narratives that omit the chat's final status. **useLiveTrace.js**: I was updated to handle the new \"node_status\" WebSocket message type, specifically to visually distinguish a dead Gemini chat node in the UI. I assume the `live_server` will send a valid string status. If the server sends an unexpected data type (e.g., an object), my React component will fail to render the node status. Watch for a JavaScript console error \"Cannot read property of undefined\" related to the node status display.",
+    "date": "2026-03-24",
+    "commit": "8c33693",
+    "intent": "gemini_chat_dead"
   },
   "loop_detector": {
     "text": "I detect recurring paths, assuming trace sequences are hashable. Mutable context in traces will cause false negatives. I inform `observer_synthesis` and `demo_sim`; if my cycle‑threshold changes, coaching suggestions may vanish.",
@@ -100,5 +100,53 @@
     "date": "2026-03-23",
     "commit": "465cbfa",
     "intent": "pigeon_brain_system"
+  },
+  "册f_reg": {
+    "text": "I was touched to implement filename mutation verification, ensuring that when a file is renamed in the local registry, the new name matches the expected pattern and the old file is correctly removed. I assume the underlying filesystem operations are atomic and that my internal mapping between logical names and physical paths is always synchronized; if a rename is interrupted or the mapping becomes stale, I could orphan files or corrupt the registry. Watch for a regression where a file appears in the registry but its physical counterpart is missing, breaking all subsequent lookups.",
+    "date": "2026-04-02",
+    "commit": "4eb4c79",
+    "intent": "verify_filename_mutation"
+  },
+  "修f_sf_aco": {
+    "text": "I was updated to consume the verified filename from the registry, using it to locate the correct source for auto-extraction. I assume the registry provides a valid, accessible path; if it returns a path to a file that has been mutated but not yet committed or is locked, my compiler pass will fail silently or crash. A specific regression would be the pigeon compiler stalling because I cannot read the expected file, halting the entire rename pipeline.",
+    "date": "2026-04-02",
+    "commit": "4eb4c79",
+    "intent": "verify_filename_mutation"
+  },
+  "修f_sf": {
+    "text": "I was modified to trust the verified filename from 册f_reg for self-fix analysis, rather than deriving it independently. I assume the verification is complete and includes checks for naming collisions; if that check has a race condition or a false positive, I might generate fixes for the wrong file version, leading to erroneous code corrections. Watch for self-fix suggestions that reference symbols or lines from a deprecated file revision.",
+    "date": "2026-04-02",
+    "commit": "4eb4c79",
+    "intent": "verify_filename_mutation"
+  },
+  "对p_tp": {
+    "text": "I now receive the mutated filename from 册f_reg to generate accurate training pairs. I assume the provided filename corresponds to the latest content intended for training; if the registry verification lags behind a rapid series of renames, I will produce pairs from stale code, poisoning the training data. Regression: generated pairs that do not match the current working codebase, causing model drift.",
+    "date": "2026-04-02",
+    "commit": "4eb4c79",
+    "intent": "verify_filename_mutation"
+  },
+  "推w_dp": {
+    "text": "I was adjusted to steer CoT reasoning based on the verified current filename. I assume the filename is not only correct but also semantically meaningful to the copilot context; if verification passes a technically valid but confusing name (like a temporary hash), my prompts may become incoherent. Watch for copilot output that suddenly references incorrect or garbled file identifiers.",
+    "date": "2026-04-02",
+    "commit": "4eb4c79",
+    "intent": "verify_filename_mutation"
+  },
+  "管w_cpm": {
+    "text": "I audit the injection of the verified filename into the live session. I assume the verification signal is trustworthy and that I can enforce a consistent state across all managed components; if the verification itself is buggy, I will propagate and lock in a bad filename system-wide. Regression: a cascade of \"stale\" flags from 警p_sa because the managed filename state diverges from git reality.",
+    "date": "2026-04-02",
+    "commit": "4eb4c79",
+    "intent": "verify_filename_mutation"
+  },
+  "警p_sa": {
+    "text": "I now detect staleness by comparing the verified filename against git's HEAD. I assume the verified filename from the registry is the intended source of truth; if verification incorrectly approves a name that git does not recognize, I will fail to raise a stale alert when I should. This could mask serious synchronization issues.",
+    "date": "2026-04-02",
+    "commit": "4eb4c79",
+    "intent": "verify_filename_mutation"
+  },
+  "copilot_prompt_manager": {
+    "text": "I was touched to become a compatibility wrapper for the legacy rename system, assuming the old `_resolve` module's `rename_safe` function still exists and returns a boolean. If that function's signature or return type changes, I will break silently, causing the rename safety check to always pass or fail. Watch for uncontrolled renames on protected files.",
+    "date": "2026-04-02",
+    "commit": "f8ea95a",
+    "intent": "restore_rename_safe"
   }
 }

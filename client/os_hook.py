@@ -587,9 +587,27 @@ class KeystrokeRecorder:
             elif isinstance(dw, str):
                 deleted_words.append(dw)
 
-        # Module references from text
+        # Module references from text - enhanced matching
         import re
-        module_refs = re.findall(r'\b(\w+_seq\d+)\b', final_text)
+        module_refs = []
+        # 1. Pigeon-renamed modules (xxx_seq001)
+        module_refs.extend(re.findall(r'\b(\w+_seq\d+)\b', final_text.lower()))
+        # 2. Common module stems (loaded from registry once)
+        try:
+            reg_path = root / 'pigeon_registry.json'
+            if reg_path.exists():
+                reg = json.loads(reg_path.read_text('utf-8'))
+                known_names = {f.get('name', '').lower() for f in reg.get('files', [])}
+                text_lower = final_text.lower()
+                for name in known_names:
+                    if name and len(name) > 4 and name in text_lower:
+                        module_refs.append(name)
+        except Exception:
+            pass
+        # 3. Glyph-prefixed modules (管w_cpm, 推w_dp, etc)
+        module_refs.extend(re.findall(r'\b([^\x00-\x7F]\w+_\w+)\b', final_text))
+        # Deduplicate
+        module_refs = list(dict.fromkeys(module_refs))[:15]
 
         # Session tracking
         journal_path = root / 'logs' / 'prompt_journal.jsonl'

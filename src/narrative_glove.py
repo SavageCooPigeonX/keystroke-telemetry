@@ -36,6 +36,17 @@ def _jsonl_tail(fp, n=10):
         return []
 
 
+def _health_score(snapshot: dict) -> float:
+    if not snapshot:
+        return 0.0
+    try:
+        from src.push_snapshot import _compute_health_score
+        return float(_compute_health_score(snapshot))
+    except Exception:
+        modules_snap = snapshot.get('modules', {})
+        return float(modules_snap.get('compliance_pct', 0))
+
+
 def synthesize(root: Path) -> str:
     """Read the room. Return a narrative paragraph — the organism's consciousness."""
     root = Path(root)
@@ -69,7 +80,7 @@ def synthesize(root: Path) -> str:
     # health — nested inside snapshot
     modules_snap = snapshot.get('modules', {})
     bugs_snap = snapshot.get('bugs', {})
-    health = modules_snap.get('compliance_pct', 0)  # use compliance as health proxy
+    health = _health_score(snapshot)
     compliance = modules_snap.get('compliance_pct', 0)
     total_bugs = bugs_snap.get('total', 0)
     total_modules = modules_snap.get('total', 0)

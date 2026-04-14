@@ -1,0 +1,23 @@
+<!-- pigeon:organism-health -->
+## Organism Health
+
+*Auto-injected 2026-04-14 02:50 UTC · 2760 files · 2508/2760 compliant (91%)*
+
+**Stale pipelines:**
+- **edit_pairs**: 1d ago 🔴
+- **execution_deaths**: 17d ago 🔴
+
+**Over-cap critical (64):** `git_plugin.py` (1612), `tc_profile.py` (1585), `tc_sim.py` (1339), `profile_chat_server.py` (1280), `层w_sl_s007_v003_d0317_读唤任_λΠ.py` (1142), `谱建f_mb_s007_v003_d0314_观重箱重拆_λD.py` (1017), `autonomous_dev_stress_test.py` (999), `git_plugin.py` (987)
+
+**Clots:** `f_he_s009_v005_d0401_改名册追跑_λA` (orphan_no_importers, dead_imports:2), `bug_profiles` (orphan_no_importers, dead_imports:1), `批编f_rbc_ma_s001_v001` (orphan_no_importers, dead_imports:3), `偏p_dr_s003_v002_d0315_缩分话_λν` (orphan_no_importers, unused_exports:1), `classify_bridge` (orphan_no_importers, unused_exports:1), `f_he_gf_s002_v001` (orphan_no_importers, dead_imports:2), `谱建f_mb_bam_s031_v001` (orphan_no_importers, dead_imports:2), `逆f_ba_bp_s005_v003_d0328_λR` (orphan_no_importers, dead_imports:1), `存p_nm_co_s001_v001` (orphan_no_importers, dead_imports:1), `算f_ps_ca_s009_v002_d0327_λS` (orphan_no_importers, dead_imports:1), `预p_pr_co_s001_v001` (orphan_no_importers, dead_imports:1), `牌f_nam_bu_s005_v001` (orphan_no_importers, dead_imports:1), `.operator_stats_seq008_v010_d0331__persi_artifact_detection_seq003_v001` (orphan_no_importers, dead_imports:1), `隐p_un_di_s002_v003_d0322_λ7` (orphan_no_importers, dead_imports:1), `u_oscl_s003_v001` (orphan_no_importers, dead_imports:1), `u_pj_s019_v002_d0402_λC_build_snapshot_decomposed_seq012_v001` (orphan_no_importers, dead_imports:1), `修f_sf_aaif_s011_v002_d0329_λH` (orphan_no_importers, dead_imports:1), `修f_sf_s013_v012_d0402_初写谱净拆_λVR_auto_apply_import_fixes_seq012_v001` (orphan_no_importers, dead_imports:1), `忆p_qm_cl_s004_v002_d0329_λH` (orphan_no_importers, dead_imports:1), `控f_ost_ad_s003_v001` (orphan_no_importers, dead_imports:1)
+
+**Circulation:** 598/630 alive · 32 clots · vein health 0.51
+
+**Recent deaths:** `?` (timeout), `?` (timeout), `?` (stale_import), `?` (stale_import)
+
+**AI rework:** 165/200 responses needed rework (82%)
+
+**Push cycles:** 19 · sync score: 0.058 · reactor fires: 528
+
+> **Organism directive:** Multiple systems degraded. Prioritize fixing clots and over-cap files before new features.
+<!-- /pigeon:organism-health -->

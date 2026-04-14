@@ -31,6 +31,14 @@ Architecture note:
 Cost: zero LLM calls. Pure registry + graph traversal + JSON I/O.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 015 | VER: v001 | 461 lines | ~4,245 tokens
+# DESC:   prototype_bounded_slice
+# INTENT: FT
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 
 from __future__ import annotations
 

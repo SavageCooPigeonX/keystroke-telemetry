@@ -4,6 +4,14 @@ Auto-generated. This test keeps prompt_journal_seq019_v001 interlinked.
 When this passes + pigeon cap + entropy shed → module sleeps.
 Module keeps learning via intent shards while sleeping.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 019 | VER: v001 | 41 lines | ~397 tokens
+# DESC:   interlink_self_test_for_prompt
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))

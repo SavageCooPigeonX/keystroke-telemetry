@@ -1,4 +1,12 @@
 """Operator state block builder + inject_operator_state + inject_entropy_layers."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 014 | VER: v001 | 199 lines | ~1,831 tokens
+# DESC:   operator_state_block_builder_inject
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from __future__ import annotations
 import json
 import re

@@ -29,6 +29,69 @@ function getRoot(): string {
     return vscode.workspace.workspaceFolders?.[0]?.uri.fsPath ?? '';
 }
 
+function normalizeFsPath(fsPath: string): string {
+    return path.normalize(fsPath).toLowerCase();
+}
+
+function isSameWorkspaceFile(uri: vscode.Uri, targetFsPath: string): boolean {
+    return uri.scheme === 'file' && normalizeFsPath(uri.fsPath) === normalizeFsPath(targetFsPath);
+}
+
+function installManagedPromptBufferSync(root: string, context: vscode.ExtensionContext) {
+    const copilotPath = path.join(root, '.github', 'copilot-instructions.md');
+    const watcher = vscode.workspace.createFileSystemWatcher(
+        new vscode.RelativePattern(root, '.github/copilot-instructions.md')
+    );
+    let reloadTimer: ReturnType<typeof setTimeout> | undefined;
+    let reloadInFlight = false;
+
+    const scheduleReload = () => {
+        const active = vscode.window.activeTextEditor;
+        if (!active || !isSameWorkspaceFile(active.document.uri, copilotPath)) return;
+        if (active.document.isDirty || reloadInFlight) return;
+        if (reloadTimer) clearTimeout(reloadTimer);
+        reloadTimer = setTimeout(async () => {
+            const editor = vscode.window.activeTextEditor;
+            if (!editor || !isSameWorkspaceFile(editor.document.uri, copilotPath)) return;
+            if (editor.document.isDirty || reloadInFlight) return;
+            reloadInFlight = true;
+            try {
+                await vscode.window.showTextDocument(editor.document, {
+                    viewColumn: editor.viewColumn,
+                    preview: false,
+                    preserveFocus: true,
+                });
+                await vscode.commands.executeCommand('workbench.action.files.revert');
+            } catch {
+                // Best-effort only. If revert is unavailable, keep the user's buffer untouched.
+            } finally {
+                reloadInFlight = false;
+            }
+        }, 150);
+    };
+
+    const reloadIfFocused = (editor?: vscode.TextEditor) => {
+        if (!editor) return;
+        if (!isSameWorkspaceFile(editor.document.uri, copilotPath)) return;
+        if (editor.document.isDirty) return;
+        scheduleReload();
+    };
+
+    context.subscriptions.push(
+        watcher,
+        watcher.onDidChange(scheduleReload),
+        watcher.onDidCreate(scheduleReload),
+        vscode.window.onDidChangeActiveTextEditor(reloadIfFocused),
+        {
+            dispose: () => {
+                if (reloadTimer) clearTimeout(reloadTimer);
+            },
+        },
+    );
+
+    reloadIfFocused(vscode.window.activeTextEditor);
+}
+
 function readOperatorState(root: string): string {
     try {
         const text = fs.readFileSync(
@@ -1557,6 +1620,9 @@ class EntropyChartPanel {
             case 'file-click':
                 // Log the click as a telemetry event
                 this._logInteraction('file_click', msg.module, msg);
+                if (msg.module) {
+                    FileChatPanel.createOrShow(context, this._root, msg.module);
+                }
                 break;
 
             case 'open-chat':
@@ -1661,7 +1727,71 @@ class FileChatPanel {
         this._panel.webview.onDidReceiveMessage(m => this._onMessage(m), null, this._disposables);
 
         // Send initial greeting from the file
-        setTimeout(() => this._sendGreeting(), 200);
+        setTimeout(() => { void this._sendGreeting(); }, 200);
+    }
+
+    private async _requestProfileServer(method: 'GET' | 'POST', requestPath: string, payload?: unknown): Promise<any> {
+        const http = await import('http');
+        const body = payload == null ? '' : JSON.stringify(payload);
+
+        return new Promise((resolve, reject) => {
+            const req = http.request({
+                hostname: '127.0.0.1',
+                port: 8234,
+                path: requestPath,
+                method,
+                headers: body
+                    ? {
+                        'Content-Type': 'application/json',
+                        'Content-Length': Buffer.byteLength(body),
+                    }
+                    : undefined,
+                timeout: 120000,
+            }, (res) => {
+                let data = '';
+                res.on('data', (chunk: string) => { data += chunk; });
+                res.on('end', () => {
+                    if ((res.statusCode ?? 500) >= 400) {
+                        reject(new Error(`profile_chat_server ${res.statusCode ?? 500}`));
+                        return;
+                    }
+                    try {
+                        resolve(data ? JSON.parse(data) : {});
+                    } catch {
+                        reject(new Error('profile_chat_server returned invalid JSON'));
+                    }
+                });
+            });
+            req.on('error', reject);
+            req.on('timeout', () => {
+                req.destroy();
+                reject(new Error('profile_chat_server timed out'));
+            });
+            if (body) {
+                req.write(body);
+            }
+            req.end();
+        });
+    }
+
+    private async _hydrateHistoryFromServer(): Promise<void> {
+        try {
+            const history = await this._requestProfileServer('GET', `/history/${encodeURIComponent(this._moduleName)}`);
+            const entries = Array.isArray(history?.entries) ? history.entries : [];
+            this._history = [];
+            for (const entry of entries.slice(-8)) {
+                const prompt = typeof entry?.msg === 'string' ? entry.msg.trim() : '';
+                const response = typeof entry?.response === 'string' ? entry.response.trim() : '';
+                if (prompt) {
+                    this._history.push({ role: 'user', content: prompt });
+                }
+                if (response) {
+                    this._history.push({ role: 'assistant', content: response });
+                }
+            }
+        } catch {
+            // best-effort hydration only
+        }
     }
 
     // ── Data loaders for intent extraction context ──
@@ -1924,6 +2054,20 @@ ${sourceCode || '(not found)'}
     }
 
     private async _sendGreeting() {
+        try {
+            await this._hydrateHistoryFromServer();
+            const wake = await this._requestProfileServer('POST', '/wake', { module: this._moduleName });
+            const greeting = typeof wake?.response === 'string' ? wake.response.trim() : '';
+            if (greeting) {
+                this._panel.webview.postMessage({ type: 'chunk', text: greeting });
+                this._panel.webview.postMessage({ type: 'done' });
+                this._history.push({ role: 'assistant', content: greeting });
+                return;
+            }
+        } catch {
+            // fall back to the local in-extension path below
+        }
+
         let profile: any = {};
         try {
             const raw = fs.readFileSync(path.join(this._root, 'file_profiles.json'), 'utf-8');
@@ -2014,6 +2158,27 @@ ${sourceCode || '(not found)'}
 
     private async _respond(text: string) {
         this._history.push({ role: 'user', content: text });
+
+        try {
+            const result = await this._requestProfileServer('POST', '/chat', {
+                module: this._moduleName,
+                message: text,
+                history: this._history.slice(0, -1).map((entry) => ({
+                    who: entry.role === 'assistant' ? 'file' : 'user',
+                    text: entry.content,
+                })),
+            });
+            const response = typeof result?.response === 'string' ? result.response.trim() : '';
+            if (!response) {
+                throw new Error('empty response from profile_chat_server');
+            }
+            this._panel.webview.postMessage({ type: 'chunk', text: response });
+            this._panel.webview.postMessage({ type: 'done' });
+            this._history.push({ role: 'assistant', content: response });
+            return;
+        } catch {
+            // fall back to the local in-extension path below
+        }
 
         // Extract intents from operator message
         personaMemoryStore?.extractIntentsFromOperator(this._moduleName, text);
@@ -3564,6 +3729,8 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Background telemetry — starts immediately, no panel needed
     if (root) {
+        installManagedPromptBufferSync(root, context);
+
         const bg = new BackgroundTelemetry(root);
         bg.start(context);
 

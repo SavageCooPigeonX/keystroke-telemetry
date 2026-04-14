@@ -5,6 +5,37 @@ from pathlib import Path
 from datetime import datetime, timezone
 from collections import Counter
 
+
+def _parse_ts(value):
+    try:
+        return datetime.fromisoformat(str(value).replace('Z', '+00:00'))
+    except Exception:
+        return None
+
+
+def _normalize_signal_phrase(value):
+    text = re.sub(r'\s+', ' ', str(value)).strip().strip('"\'.,;:!?-')
+    if len(text) < 4:
+        return None
+    alnum = sum(ch.isalnum() for ch in text)
+    if alnum < 3 or alnum / max(len(text), 1) < 0.6:
+        return None
+    if not any(ch.isalpha() for ch in text):
+        return None
+    return text
+
+
+def _signal_words(values):
+    words = []
+    seen = set()
+    for value in values:
+        word = value.get('word', value) if isinstance(value, dict) else value
+        clean = _normalize_signal_phrase(word)
+        if clean and clean not in seen:
+            words.append(clean)
+            seen.add(clean)
+    return words
+
 def _jsonl(path, n=0):
     if not path.exists(): return []
     ll = path.read_text(encoding='utf-8', errors='ignore').strip().splitlines()
@@ -51,27 +82,33 @@ def _task_focus(commits):
         if any(k in w for k in kw): return label
     return msgs[0][:50]
 
-def _unsaid(comps):
-    threads = []
-    seen = set()
-    for c in comps[-8:]:
-        # Prefer intent_deleted_words (5+ backspace runs) over raw deleted_words
-        # Short backspace runs (1-4) are typo/habit noise, not real unsaid thoughts
-        intent_words = c.get('intent_deleted_words') or []
-        if intent_words:
-            for w in intent_words:
-                word = w.get('word', w) if isinstance(w, dict) else str(w)
-                if word and len(word) > 3 and word not in seen:
-                    threads.append(word)
-                    seen.add(word)
-        else:
-            # Fallback for old compositions without intent tracking
-            for w in (c.get('deleted_words') or []):
-                word = w.get('word', w) if isinstance(w, dict) else str(w)
-                if word and len(word) > 3 and word not in seen:
-                    threads.append(word)
-                    seen.add(word)
-    return threads[-6:]
+def _latest_prompt(root):
+    snap = _json(root / 'logs' / 'prompt_telemetry_latest.json') or {}
+    latest_prompt = snap.get('latest_prompt') or {}
+    return latest_prompt, snap
+
+
+def _latest_composition(root, comps):
+    latest_prompt, _ = _latest_prompt(root)
+    latest_prompt_ts = _parse_ts(latest_prompt.get('ts'))
+    if latest_prompt_ts is None:
+        return comps[-1] if comps else None
+    for comp in reversed(comps):
+        comp_ts = _parse_ts(comp.get('ts'))
+        if comp_ts and abs((latest_prompt_ts - comp_ts).total_seconds()) <= 300:
+            return comp
+    return None
+
+
+def _unsaid(root, comps):
+    _, snap = _latest_prompt(root)
+    if 'deleted_words' in snap:
+        return _signal_words(snap.get('deleted_words') or [])[:6]
+    comp = _latest_composition(root, comps)
+    if not comp:
+        return []
+    primary = comp.get('intent_deleted_words') or comp.get('deleted_words') or []
+    return _signal_words(primary)[:6]
 
 
 _GENERIC_UNSAID_PREFIXES = (
@@ -94,27 +131,37 @@ def _is_novel_unsaid_reconstruction(text: str) -> bool:
         return False
     return not any(norm.startswith(prefix) for prefix in _GENERIC_UNSAID_PREFIXES)
 
-def _unsaid_reconstructions(root):
+def _unsaid_reconstructions(root, current_unsaid):
     """Load LLM-reconstructed intents from high-deletion prompts."""
+    if not current_unsaid:
+        return []
+    latest_prompt, _ = _latest_prompt(root)
+    latest_prompt_ts = _parse_ts(latest_prompt.get('ts'))
+    target_words = {word.lower() for word in current_unsaid}
     recs = _jsonl(root / 'logs' / 'unsaid_reconstructions.jsonl', n=40)
     good = []
     seen = set()
     for r in reversed(recs):
         if r.get('trigger') == 'enricher':
             continue
+        rec_ts = _parse_ts(r.get('ts'))
+        if latest_prompt_ts and rec_ts and abs((latest_prompt_ts - rec_ts).total_seconds()) > 300:
+            continue
+        deleted_words = _signal_words(r.get('deleted_words', []))
+        if not deleted_words:
+            continue
+        rec_words = {word.lower() for word in deleted_words}
+        if rec_words.isdisjoint(target_words):
+            continue
         tc = r.get('thought_completion', r.get('reconstructed_intent', ''))
         if not _is_novel_unsaid_reconstruction(tc):
             continue
-        deleted = tuple(sorted(
-            str(word).strip().lower()
-            for word in r.get('deleted_words', [])
-            if str(word).strip()
-        ))
+        deleted = tuple(sorted(rec_words))
         key = (_normalize_unsaid_text(tc), deleted)
         if key in seen:
             continue
         seen.add(key)
-        good.append(r)
+        good.append({**r, 'deleted_words': deleted_words})
         if len(good) >= 3:
             break
     return list(reversed(good))
@@ -411,8 +458,8 @@ def build_task_context(root):
     comps = _jsonl(root / 'logs' / 'chat_compositions.jsonl', n=12)
     coms = _commits(root, n=8)
     focus = _task_focus(coms)
-    unsaid = _unsaid(comps)
-    unsaid_recons = _unsaid_reconstructions(root)
+    unsaid = _unsaid(root, comps)
+    unsaid_recons = _unsaid_reconstructions(root, unsaid)
     hot = _hot_modules(root)
     rw = _rework(root)
     traj = _trajectory(root) if not slim_mode else None

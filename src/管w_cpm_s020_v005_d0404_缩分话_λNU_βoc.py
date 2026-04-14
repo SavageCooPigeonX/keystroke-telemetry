@@ -19,6 +19,7 @@ PROMPT_BLOCK_END = '<!-- /pigeon:prompt-telemetry -->'
 
 BLOCK_MARKERS = {
     'task_context': ('<!-- pigeon:task-context -->', '<!-- /pigeon:task-context -->'),
+    'intent_backlog': ('<!-- pigeon:intent-backlog -->', '<!-- /pigeon:intent-backlog -->'),
     'task_queue': ('<!-- pigeon:task-queue -->', '<!-- /pigeon:task-queue -->'),
     'operator_state': ('<!-- pigeon:operator-state -->', '<!-- /pigeon:operator-state -->'),
     'prompt_telemetry': (PROMPT_BLOCK_START, PROMPT_BLOCK_END),

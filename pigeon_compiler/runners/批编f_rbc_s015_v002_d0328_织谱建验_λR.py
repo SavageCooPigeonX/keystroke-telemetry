@@ -94,7 +94,7 @@ def batch_compile(root: Path, dry_run: bool = False,
     """Compile all oversized files in the project."""
     import importlib as _il
     _runner_dir = Path(__file__).parent
-    _hits = list(_runner_dir.glob("run_clean_split_seq010_v*.py"))
+    _hits = list(_runner_dir.glob("*f_rcs_s010*.py"))
     if not _hits:
         raise ImportError("净拆f_rcs_s010* not found in runners/")
     _rcs = _il.import_module("pigeon_compiler.runners." + _hits[0].stem)

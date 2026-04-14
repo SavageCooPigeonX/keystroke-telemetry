@@ -228,6 +228,29 @@ def _load_edit_entropy(root: Path) -> dict[str, dict[str, float]]:
     return per_module
 
 
+def _load_direct_sheds(root: Path) -> list[dict]:
+    """Load direct shed records from entropy_sheds.jsonl.
+    
+    This is the real-time feed: sheds recorded directly during session
+    without waiting for ai_responses harvest.
+    """
+    sheds_path = root / 'logs' / 'entropy_sheds.jsonl'
+    if not sheds_path.exists():
+        return []
+    
+    sheds = []
+    for line in sheds_path.read_text('utf-8', errors='ignore').splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            entry = json.loads(line)
+            sheds.append(entry)
+        except Exception:
+            continue
+    return sheds
+
+
 # ─── ACCUMULATOR ───────────────────────────────────────────────────
 
 def accumulate_entropy(root):
@@ -297,6 +320,18 @@ def accumulate_entropy(root):
         pm['edit_samples'] += int(ed['samples'])
         pm['latency_total'] += ed['latency_total']
 
+    # Merge in direct sheds (real-time feed from session)
+    direct_sheds = _load_direct_sheds(root)
+    for shed in direct_sheds:
+        target = _normalize_target(shed.get('module', ''))
+        if target:
+            per_module[target]['shed_reports'].append({
+                'ts': shed.get('ts', ''),
+                'confidence': shed.get('confidence', 0.5),
+                'note': shed.get('note', ''),
+            })
+            shed_count += 1
+
     # compute averages and rank
     module_scores = []
     for mod, data in per_module.items():
@@ -359,16 +394,22 @@ def accumulate_entropy(root):
         })
     red_layer.sort(key=lambda item: (-float(item['red']), -int(item['hedges']), str(item['module'])))
 
+    # recently shed modules (from direct sheds) — always include regardless of red score
+    recently_shed_modules = set(s.get('module', '') for s in direct_sheds)
+    recently_shed = [r for r in red_layer if r['module'] in recently_shed_modules]
+
     result = {
         'generated': datetime.now(timezone.utc).isoformat(),
         'total_responses': len(lines),
         'shed_blocks_found': shed_count,
+        'direct_sheds_merged': len(direct_sheds),
         'tracked_modules': len(module_scores),
         'edit_pair_modules': sum(1 for m in module_scores if m.get('edit_samples', 0) > 0),
         'global_avg_entropy': round(avg_global, 4),
         'high_entropy_pct': round(high_entropy_pct * 100, 1),
         'top_entropy_modules': module_scores[:20],
         'red_layer': red_layer[:20],
+        'recently_shed': recently_shed,
         'low_entropy_modules': [m for m in module_scores if m['avg_entropy'] < 0.1][-10:],
     }
 
@@ -411,6 +452,18 @@ def build_entropy_block(root):
         shed = float(shed_raw) if shed_raw is not None else None
         shed_s = f' shed_conf={shed}' if shed is not None else ''
         lines.append(f'- `{mod}` H={H:.3f} ({n} samples, {hedges} hedges{shed_s})')
+
+    # show recently shed modules (from direct feed this session)
+    recently_shed = cast(list[dict[str, Any]], data.get('recently_shed', []))
+    if recently_shed:
+        lines.append('')
+        lines.append('**recently shed (this session):**')
+        for r in recently_shed[:5]:
+            mod = str(r.get('module', '?'))
+            red = float(r.get('red', 0.0))
+            conf = r.get('shed_avg_confidence')
+            conf_s = f'{conf:.2f}' if conf is not None else '?'
+            lines.append(f'- `{mod}` red={red:.3f} conf={conf_s}')
 
     lines.append('')
     lines.append('> emit `<!-- entropy:shed -->` blocks to improve this map.')

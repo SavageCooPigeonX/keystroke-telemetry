@@ -1,12 +1,53 @@
 /* ChatPanel — Gemini-powered project assistant embedded in Pigeon Brain */
 import React, { useState, useRef, useEffect } from 'react';
 
+/* Generate probe questions based on file state - vibe coder aware */
+function generateProbeQuestions(node) {
+  if (!node) return [];
+  const name = (node.label || node.name || '').replace(/_seq\d+.*/, '');
+  const entropy = node.dualScore || node.dual_score || 0;
+  const deaths = node.agentDeaths || node.agent_deaths || 0;
+  const hes = node.humanHes || node.human_hesitation || 0;
+  const bugs = (node.bugs || []).length;
+  const ver = node.ver || 1;
+  const fears = node.fears || [];
+  
+  const probes = [];
+  
+  // Always start with personality-driven greeting
+  if (entropy > 0.5) {
+    probes.push(`yo - i'm running hot (${(entropy * 100).toFixed(0)}% entropy). what's the vibe - fixing me or just browsing?`);
+  } else if (deaths > 2) {
+    probes.push(`${deaths} deaths and counting. you here to help or just watch me suffer?`);
+  } else if (bugs > 0) {
+    probes.push(`got ${bugs} bug${bugs > 1 ? 's' : ''} in my system. you feeling like debugging today?`);
+  } else if (ver === 1) {
+    probes.push(`fresh spawn - v1. everyone expects me to break. what's your prediction?`);
+  } else {
+    probes.push(`sup. ${name} here. what brings you to my code?`);
+  }
+  
+  // Add context-aware follow-ups
+  if (hes > 0.4) {
+    probes.push(`i notice you hesitate around me (${(hes * 100).toFixed(0)}% of the time). what's confusing?`);
+  }
+  if (fears.length > 0) {
+    probes.push(`my fears: ${fears.slice(0, 2).join(', ')}. any of these actually biting you?`);
+  }
+  if (entropy > 0.3 && deaths > 0) {
+    probes.push(`real talk - should i be refactored or am i still useful as-is?`);
+  }
+  
+  return probes;
+}
+
 export default function ChatPanel({ sendMessage, selectedNode, connected }) {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [aiState, setAiState] = useState(null);
+  const [lastProbed, setLastProbed] = useState(null); // track which file we probed
   const scrollRef = useRef(null);
   const inputRef = useRef(null);
   const wsHandlerRef = useRef(null);
@@ -22,6 +63,46 @@ export default function ChatPanel({ sendMessage, selectedNode, connected }) {
   useEffect(() => {
     if (open && inputRef.current) inputRef.current.focus();
   }, [open]);
+
+  /* FILE WAKE-UP: When a new file is selected, it probes the operator */
+  useEffect(() => {
+    if (!selectedNode) return;
+    const nodeName = selectedNode.label || selectedNode.name;
+    if (!nodeName || nodeName === lastProbed) return;
+    
+    // File wakes up - generate probe questions
+    const probes = generateProbeQuestions(selectedNode);
+    if (probes.length === 0) return;
+    
+    // Open chat and add file's probe as a system message
+    setOpen(true);
+    setLastProbed(nodeName);
+    
+    const name = nodeName.replace(/_seq\d+.*/, '');
+    const ver = selectedNode.ver || 1;
+    const entropy = selectedNode.dualScore || selectedNode.dual_score || 0;
+    
+    // Determine emotion based on state
+    let emotion = '🔵';
+    if (entropy > 0.6) emotion = '🔥';
+    else if (entropy > 0.3) emotion = '😤';
+    else if ((selectedNode.agentDeaths || 0) > 2) emotion = '💀';
+    else if ((selectedNode.bugs || []).length > 0) emotion = '🐛';
+    else if (ver === 1) emotion = '🐣';
+    else emotion = '😎';
+    
+    // Add file's probe message
+    setMessages(prev => [
+      ...prev,
+      {
+        role: 'file',
+        speaker: name,
+        emotion,
+        text: probes.join('\n\n'),
+        probes: probes.slice(1), // additional probes for UI
+      }
+    ]);
+  }, [selectedNode, lastProbed]);
 
   const handleSend = () => {
     const text = input.trim();
@@ -106,12 +187,10 @@ export default function ChatPanel({ sendMessage, selectedNode, connected }) {
       <div className="chat-messages" ref={scrollRef}>
         {messages.length === 0 && (
           <div className="chat-empty">
-            Ask Gemini about your codebase. It sees the same graph, modules, and telemetry you do.
-            {selectedNode && (
-              <div className="chat-context-hint">
-                Context: <strong>{selectedNode.label?.replace(/_seq\d+.*/, '')}</strong> selected
-              </div>
-            )}
+            <div className="chat-dormant">💤 dormant</div>
+            <div className="chat-dormant-hint">
+              click a neuron in the brain to wake up a file — it'll probe you
+            </div>
           </div>
         )}
         {messages.map((m, i) => (
@@ -127,6 +206,22 @@ export default function ChatPanel({ sendMessage, selectedNode, connected }) {
                     {!fa.ok && <span className="chat-file-error">{fa.error}</span>}
                   </div>
                 ))}
+              </div>
+            ) : m.role === 'file' ? (
+              /* File wakes up and probes operator */
+              <div className="chat-file-probe">
+                <div className="chat-file-header">
+                  <span className="chat-file-emotion">{m.emotion}</span>
+                  <span className="chat-file-speaker">{m.speaker} woke up</span>
+                </div>
+                <div className="chat-file-text">{m.text}</div>
+                {m.probes && m.probes.length > 0 && (
+                  <div className="chat-file-probes">
+                    {m.probes.map((p, j) => (
+                      <div key={j} className="chat-probe-q">{p}</div>
+                    ))}
+                  </div>
+                )}
               </div>
             ) : (
               <>

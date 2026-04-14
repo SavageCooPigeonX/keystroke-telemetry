@@ -11,6 +11,14 @@ Cache key = source hash — only re-interrogates if file changes.
 Sweep priority: bug severity > heat > size.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 016 | VER: v001 | 240 lines | ~2,507 tokens
+# DESC:   llm_reads_each_file_once
+# INTENT: FT
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+
 import json, os, re, hashlib, urllib.request, urllib.error
 from pathlib import Path
 from datetime import datetime, timezone

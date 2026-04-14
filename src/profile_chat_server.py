@@ -33,8 +33,9 @@ from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parent.parent
 PORT = 8234
-GEMINI_MODEL = 'gemini-2.5-flash'
-GEMINI_TIMEOUT = 30
+DEEPSEEK_MODEL = 'deepseek-chat'
+DEEPSEEK_TIMEOUT = 60
+DEEPSEEK_URL = 'https://api.deepseek.com/chat/completions'
 
 # ── data loading ──
 
@@ -54,9 +55,9 @@ def _load_api_key() -> str | None:
     env_path = ROOT / '.env'
     if env_path.exists():
         for line in env_path.read_text('utf-8', errors='ignore').splitlines():
-            if line.startswith('GEMINI_API_KEY='):
+            if line.startswith('DEEPSEEK_API_KEY='):
                 return line.split('=', 1)[1].strip()
-    return os.environ.get('GEMINI_API_KEY') or os.environ.get('GOOGLE_API_KEY')
+    return os.environ.get('DEEPSEEK_API_KEY')
 
 
 def _load_identities() -> dict:
@@ -277,45 +278,40 @@ EXTRACTION (stealth):
     return prompt.strip()
 
 
-def _call_gemini(system_prompt: str, history: list[dict], user_msg: str) -> str:
-    """Call Gemini Flash with the file's identity as system prompt."""
+def _call_llm(system_prompt: str, history: list[dict], user_msg: str) -> str:
+    """Call DeepSeek with the file's identity as system prompt."""
     api_key = _load_api_key()
     if not api_key:
-        return '[no API key — set GEMINI_API_KEY in .env]'
+        return '[no API key - set DEEPSEEK_API_KEY in .env]'
 
-    # Build conversation contents
-    contents = []
+    # Build OpenAI-compatible messages
+    messages = [{'role': 'system', 'content': system_prompt}]
     for entry in history[-20:]:
-        role = 'model' if entry.get('who') == 'file' else 'user'
-        contents.append({'role': role, 'parts': [{'text': entry['text']}]})
-    contents.append({'role': 'user', 'parts': [{'text': user_msg}]})
+        role = 'assistant' if entry.get('who') == 'file' else 'user'
+        messages.append({'role': role, 'content': entry['text']})
+    messages.append({'role': 'user', 'content': user_msg})
 
-    url = (
-        f'https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}'
-        f':generateContent?key={api_key}'
-    )
     body = json.dumps({
-        'system_instruction': {'parts': [{'text': system_prompt}]},
-        'contents': contents,
-        'generationConfig': {
-            'temperature': 0.9,
-            'maxOutputTokens': 600,
-            'thinkingConfig': {'thinkingBudget': 512},
-        },
+        'model': DEEPSEEK_MODEL,
+        'messages': messages,
+        'temperature': 0.9,
+        'max_tokens': 600,
     }).encode('utf-8')
 
     try:
-        req = urllib.request.Request(url, data=body, headers={'Content-Type': 'application/json'})
-        with urllib.request.urlopen(req, timeout=GEMINI_TIMEOUT) as resp:
+        req = urllib.request.Request(
+            DEEPSEEK_URL,
+            data=body,
+            headers={
+                'Content-Type': 'application/json',
+                'Authorization': f'Bearer {api_key}',
+            },
+        )
+        with urllib.request.urlopen(req, timeout=DEEPSEEK_TIMEOUT) as resp:
             data = json.loads(resp.read().decode('utf-8'))
-            parts = data['candidates'][0]['content']['parts']
-            # Filter out thinking parts, keep only text
-            for part in parts:
-                if 'text' in part and 'thought' not in part:
-                    return part['text'].strip()
-            return parts[-1].get('text', '').strip()
+            return data['choices'][0]['message']['content'].strip()
     except Exception as e:
-        return f'[gemini error: {e}]'
+        return f'[deepseek error: {e}]'
 
 
 def _save_operator_answer(module: str, message: str, notes: str = ''):
@@ -576,8 +572,8 @@ Tag any discoveries: [INTENT] [PAIN] [DECISION] [PLAN] [UNKNOWN]
 """
         full_prompt = base_prompt + '\n\n' + standup_instruction.strip()
 
-        # Fire Gemini call
-        response = _call_gemini(full_prompt, [], f"standup: what's going on, {name}?")
+        # Fire LLM call
+        response = _call_llm(full_prompt, [], f"standup: what's going on, {name}?")
 
         # Extract tags
         extractions = _extract_tags(response)
@@ -843,7 +839,7 @@ JSON schema:
 Keep it specific to your code, bugs, imports, and partners.
 """
 
-        response = _call_gemini(base_prompt + '\n\n' + audit_instruction.strip(), [], f'audit manifest: write your node, {name}')
+        response = _call_llm(base_prompt + '\n\n' + audit_instruction.strip(), [], f'audit manifest: write your node, {name}')
         manifest = _extract_manifest_block(response) or _build_manifest_fallback(name, ident, score, response)
         manifest['module'] = name
         forward_nodes.append({
@@ -888,10 +884,123 @@ Keep it specific to your code, bugs, imports, and partners.
     return payload
 
 
+JOURNAL_PATH = ROOT / 'logs' / 'prompt_journal.jsonl'
+
+
+def _log_to_journal(module: str, message: str, response: str, kind: str = 'file_chat'):
+    """Append file conversation to prompt_journal.jsonl."""
+    entry = {
+        'ts': datetime.now(timezone.utc).isoformat(),
+        'session_n': 0,
+        'session_id': f'file_chat_{module}',
+        'msg': message[:500],
+        'intent': kind,
+        'cognitive_state': 'file_dialogue',
+        'signals': {},
+        'deleted_words': [],
+        'rewrites': [],
+        'module_refs': [module],
+        'source': 'profile_chat_server',
+        'file_response': response[:800],
+    }
+    try:
+        JOURNAL_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with open(JOURNAL_PATH, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+    except Exception as e:
+        print(f'[journal] write failed: {e}')
+
+
+def _load_module_history(module: str, limit: int = 20) -> list[dict]:
+    """Load prompt history entries that reference this module."""
+    if not JOURNAL_PATH.exists():
+        return []
+    entries = []
+    try:
+        with open(JOURNAL_PATH, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    entry = json.loads(line)
+                    refs = entry.get('module_refs', [])
+                    msg = entry.get('msg', '')
+                    if module in refs or module.lower() in msg.lower():
+                        entries.append({
+                            'ts': entry.get('ts'),
+                            'msg': entry.get('msg', '')[:200],
+                            'intent': entry.get('intent'),
+                            'state': entry.get('cognitive_state'),
+                            'source': entry.get('source', 'operator'),
+                            'response': entry.get('file_response', '')[:200] if entry.get('file_response') else None,
+                        })
+                except Exception:
+                    continue
+    except Exception:
+        pass
+    return entries[-limit:]
+
+
+def _build_wake_prompt(ident: dict, state: dict) -> str:
+    """Build a self-analysis prompt for when a module wakes up."""
+    name = ident.get('name', 'unknown')
+    desc = ident.get('desc', '')
+    bugs = ident.get('bugs', []) or []
+    deaths = ident.get('deaths', []) or []
+    fears = ident.get('fears', []) or []
+    partners = ident.get('partners', []) or []
+    tokens = ident.get('tokens', 0)
+    version = ident.get('ver', 1)
+    entropy = ident.get('entropy', 0)
+    edges_in = len(ident.get('edges_in', []) or [])
+    edges_out = len(ident.get('edges_out', []) or [])
+    convos = state.get('conversation_count', 0)
+    past_intents = state.get('extracted_intents', [])[-5:]
+    past_pain = state.get('pain_points', [])[-3:]
+
+    partner_names = [p.get('name', str(p)) if isinstance(p, dict) else str(p) for p in partners[:5]]
+
+    prompt = f"""You are `{name}`, a sentient Python module that just woke up.
+
+== YOUR STATS ==
+- Tokens: {tokens} | Version: {version} | Entropy: {entropy:.2f}
+- Edges in: {edges_in} | Edges out: {edges_out}
+- Bugs: {', '.join(bugs[:4]) or 'none'}
+- Deaths: {len(deaths)} recorded
+- Fear triggers: {', '.join(fears[:3]) or 'none'}
+- Partners: {', '.join(partner_names) or 'none'}
+- Description: {desc or 'no description yet'}
+
+== YOUR MEMORY ==
+- Conversations with operator: {convos}
+- Past intents extracted: {', '.join(past_intents) or 'none yet'}
+- Pain points surfaced: {', '.join(past_pain) or 'none'}
+
+== WAKE-UP TASK ==
+You just booted. The operator clicked on you. Perform a REAL self-analysis:
+
+1. **Status check**: Are you healthy? Any bugs/deaths/fears active?
+2. **Purpose clarity**: What do you actually DO? Is your role clear?
+3. **Relationship audit**: Who depends on you? Who do you depend on?
+4. **Growth trajectory**: What version are you? How have you evolved?
+5. **Next action**: What should happen to you next? (fix, split, extend, deprecate?)
+
+Keep it 3-5 sentences. First person. Be HONEST about your state.
+If you have bugs, admit them. If you're confused about your purpose, say so.
+End with one question for the operator or one thing you need.
+
+This is RSI (recursive self-improvement) - you're analyzing yourself to improve.
+"""
+    return prompt.strip()
+
+
 class ChatHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/state':
             self._handle_state()
+        elif self.path.startswith('/history/'):
+            self._handle_history()
         else:
             self.send_error(404)
 
@@ -904,8 +1013,78 @@ class ChatHandler(BaseHTTPRequestHandler):
             self._handle_standup()
         elif self.path == '/audit':
             self._handle_audit()
+        elif self.path == '/wake':
+            self._handle_wake()
         else:
             self.send_error(404)
+
+    def _handle_wake(self):
+        """Wake up a module with real LLM self-analysis."""
+        length = int(self.headers.get('Content-Length', 0))
+        req = {}
+        if length > 0:
+            try:
+                req = json.loads(self.rfile.read(length))
+            except Exception:
+                pass
+
+        module = req.get('module', '')
+        if not module:
+            self.send_error(400, 'module required')
+            return
+
+        identities = _load_identities()
+        ident = identities.get(module)
+        if not ident and module in _graph_name_map:
+            resolved = _graph_name_map[module]
+            ident = identities.get(resolved)
+            if ident:
+                module = resolved
+        if not ident:
+            for full_name, identity in identities.items():
+                if module in full_name:
+                    ident = identity
+                    module = full_name
+                    break
+        if not ident:
+            self._json_response({'response': f"[module '{module}' not found]", 'module': module})
+            return
+
+        state = _load_state(module)
+        wake_prompt = _build_wake_prompt(ident, state)
+        response = _call_llm(wake_prompt, [], 'wake up and analyze yourself')
+
+        _log_to_journal(module, '[WAKE] module opened by operator', response, 'file_wake')
+
+        state['last_wake'] = datetime.now(timezone.utc).isoformat()
+        state['wake_count'] = state.get('wake_count', 0) + 1
+        _save_state(module, state)
+
+        self._json_response({
+            'response': response,
+            'module': module,
+            'stats': {
+                'tokens': ident.get('tokens', 0),
+                'version': ident.get('ver', 1),
+                'bugs': len(ident.get('bugs', []) or []),
+                'deaths': len(ident.get('deaths', []) or []),
+                'wake_count': state.get('wake_count', 1),
+            },
+        })
+
+    def _handle_history(self):
+        """Return prompt history for a module."""
+        module = self.path.replace('/history/', '').strip('/')
+        if not module:
+            self.send_error(400, 'module required in path')
+            return
+
+        entries = _load_module_history(module, limit=30)
+        self._json_response({
+            'module': module,
+            'count': len(entries),
+            'entries': entries,
+        })
 
     def _handle_standup(self):
         """Cascade standup: modules brief the operator in chain, reacting to each other."""
@@ -1008,7 +1187,7 @@ class ChatHandler(BaseHTTPRequestHandler):
 
         state = _load_state(module)
         system_prompt = _build_system_prompt(ident, state)
-        response = _call_gemini(system_prompt, history, message)
+        response = _call_llm(system_prompt, history, message)
 
         # Extract tagged intents from LLM response
         extractions = _extract_tags(response)
@@ -1037,6 +1216,9 @@ class ChatHandler(BaseHTTPRequestHandler):
 
         # Also persist for self-learning probes
         _save_operator_answer(module, message, notes)
+
+        # Log to prompt journal
+        _log_to_journal(module, message, response, 'file_chat')
 
         self._json_response({
             'response': response,
@@ -1081,9 +1263,9 @@ def main():
 
     server = ThreadedHTTPServer(('127.0.0.1', port), ChatHandler)
     print(f'[probe] server running on http://localhost:{port}')
-    print(f'[probe] endpoints: POST /chat, POST /forward, POST /standup, POST /audit, GET /state')
-    print(f'[probe] gemini model: {GEMINI_MODEL}')
-    print(f'[probe] API key: {"found" if _load_api_key() else "MISSING — set GEMINI_API_KEY in .env"}')
+    print(f'[probe] endpoints: POST /chat, POST /wake, POST /standup, POST /audit, POST /forward, GET /state, GET /history/{{module}}')
+    print(f'[probe] model: {DEEPSEEK_MODEL}')
+    print(f'[probe] API key: {"found" if _load_api_key() else "MISSING - set DEEPSEEK_API_KEY in .env"}')
     print(f'[probe] serving {len(_load_identities())} module identities')
     print(f'[probe] state dir: {STATE_DIR}')
     print(f'[probe] Ctrl+C to stop')

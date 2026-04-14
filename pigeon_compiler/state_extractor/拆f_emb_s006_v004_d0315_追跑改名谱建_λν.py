@@ -16,12 +16,12 @@ from pigeon_compiler.state_extractor.共态p_ssd_s004_v004_d0315_重箱重助重
 from pigeon_compiler.state_extractor.阻w_ra_s005_v004_d0315_重箱重助重拆_λν import (
     analyze_resistance)
 
-PROJECT_ROOT = Path(__file__).parent.parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 
 
 def build_ether_map(file_path: str | Path) -> dict:
     """Build the complete Ether Map for a single Python file."""
-    fp = Path(file_path)
+    fp = Path(file_path).resolve()
 
     parsed = parse_file(fp)
     call_graph = build_call_graph(fp)

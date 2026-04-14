@@ -9,6 +9,10 @@ import NodeNeuron from './NodeNeuron';
 import RegionLabel from './RegionLabel';
 import ObserverPanel from './ObserverPanel';
 import ChatPanel from './ChatPanel';
+import EntropyChart from './EntropyChart';
+import SemanticMemory from './SemanticMemory';
+import KeystrokeTelemetry from './KeystrokeTelemetry';
+import ProfilePage from './ProfilePage';
 import useLiveTrace from './useLiveTrace';
 import './styles.css';
 
@@ -208,6 +212,8 @@ export default function PigeonBrain() {
   const [narratives, setNarratives] = useState({});
   const [veinPulses, setVeinPulses] = useState({});  // edgeId -> { intensity, color, ts }
   const [cascadeStats, setCascadeStats] = useState({ errors: 0, debt: 0, tested: 0, cascades: 0 });
+  const [viewMode, setViewMode] = useState('graph'); // 'graph' | 'profile'
+  const [profileNode, setProfileNode] = useState(null); // full node data for profile view
   const graphRef = useRef({ adjList: {}, edgeIndex: {}, nodeNames: [] });
   const cascadeRef = useRef([]);  // active cascade chains
   const { connected, events, activeEdges, activeNodes, nodeHeat, testStatus, deadPaths, sendMessage, onRawMessageRef } = useLiveTrace();
@@ -463,12 +469,50 @@ export default function PigeonBrain() {
   }, [sendMessage]);
 
   const onNodeClick = useCallback((_, node) => {
+    // Find full node data from graphData
+    const fullNode = graphData?.nodes?.find(n => n.name === node.id);
+    if (fullNode) {
+      setProfileNode(fullNode);
+      setViewMode('profile');
+    }
     setSelectedNode(node.data);
     spawnCascade(node.id);  // touch → cascade + real test
-  }, [spawnCascade]);
+  }, [graphData, spawnCascade]);
+
+  /* Navigate to another profile (cross-linking) */
+  const handleProfileNavigate = useCallback((targetNode) => {
+    setProfileNode(targetNode);
+    setSelectedNode(nodes.find(n => n.id === targetNode.name)?.data || null);
+  }, [nodes]);
+
+  /* Close profile and return to graph */
+  const handleProfileClose = useCallback(() => {
+    setViewMode('graph');
+    setProfileNode(null);
+  }, []);
 
   /* Event log for observer panel */
   const recentEvents = useMemo(() => events.slice(-30), [events]);
+
+  /* Unified panel view state */
+  const [activePanel, setActivePanel] = useState('observer'); // observer | entropy | memory
+
+  /* Handle file click from entropy chart */
+  const handleEntropyFileClick = useCallback((node) => {
+    // Find the matching full node data and open profile
+    const fullNode = graphData?.nodes?.find(n => 
+      n.name === node.name || n.name?.includes(node.displayName)
+    );
+    if (fullNode) {
+      setProfileNode(fullNode);
+      setViewMode('profile');
+    }
+    const graphNode = nodes.find(n => n.id === node.name || n.data?.label?.includes(node.displayName));
+    if (graphNode) {
+      setSelectedNode(graphNode.data);
+      spawnCascade(graphNode.id);
+    }
+  }, [graphData, nodes, spawnCascade]);
 
   if (!graphData) {
     return (
@@ -479,42 +523,122 @@ export default function PigeonBrain() {
     );
   }
 
+  /* Profile View — Wikipedia-style page */
+  if (viewMode === 'profile' && profileNode) {
+    return (
+      <div className="pigeon-brain unified">
+        <div className="unified-topbar">
+          <div className="topbar-title">
+            <span className="topbar-icon">🐦🧠</span>
+            <span className="topbar-text">Pigeon Brain Observatory</span>
+          </div>
+          <KeystrokeTelemetry />
+          <div className={`live-indicator-inline ${connected ? 'live-on' : 'live-off'}`}>
+            <span className="live-dot" />
+            {connected ? 'LIVE' : 'OFFLINE'}
+          </div>
+        </div>
+        <ProfilePage
+          node={profileNode}
+          graphData={graphData}
+          narratives={narratives}
+          onNavigate={handleProfileNavigate}
+          onClose={handleProfileClose}
+        />
+      </div>
+    );
+  }
+
   return (
-    <div className="pigeon-brain">
-      <div className="graph-container">
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          onNodeClick={onNodeClick}
-          nodeTypes={nodeTypes}
-          fitView
-          minZoom={0.1}
-          maxZoom={3}
-        >
-          <Background color="#1a1a2e" gap={20} />
-          <Controls />
-          <MiniMap
-            nodeColor={n => n.data?.regionColor || n.data?.color || '#4488ff'}
-            maskColor="rgba(0,0,0,0.8)"
-          />
-        </ReactFlow>
-        {/* Connection status indicator */}
-        <div className={`live-indicator ${connected ? 'live-on' : 'live-off'}`}>
+    <div className="pigeon-brain unified">
+      {/* Top Bar — Keystroke Telemetry + Live Status */}
+      <div className="unified-topbar">
+        <div className="topbar-title">
+          <span className="topbar-icon">🐦🧠</span>
+          <span className="topbar-text">Pigeon Brain Observatory</span>
+        </div>
+        <KeystrokeTelemetry />
+        <div className={`live-indicator-inline ${connected ? 'live-on' : 'live-off'}`}>
           <span className="live-dot" />
           {connected ? 'LIVE' : 'OFFLINE'}
         </div>
       </div>
-      <ObserverPanel
-        graphData={graphData}
-        selectedNode={selectedNode}
-        liveEvents={recentEvents}
-        connected={connected}
-        narratives={narratives}
-        cascadeStats={cascadeStats}
-        nodeHeat={nodeHeat}
-      />
+
+      {/* Main Layout — Graph + Panels */}
+      <div className="unified-main">
+        <div className="graph-container">
+          <ReactFlow
+            nodes={nodes}
+            edges={edges}
+            onNodesChange={onNodesChange}
+            onEdgesChange={onEdgesChange}
+            onNodeClick={onNodeClick}
+            nodeTypes={nodeTypes}
+            fitView
+            minZoom={0.1}
+            maxZoom={3}
+          >
+            <Background color="#1a1a2e" gap={20} />
+            <Controls />
+            <MiniMap
+              nodeColor={n => n.data?.regionColor || n.data?.color || '#4488ff'}
+              maskColor="rgba(0,0,0,0.8)"
+            />
+          </ReactFlow>
+        </div>
+
+        {/* Right Side — Tabbed Panel */}
+        <div className="unified-sidebar">
+          <div className="sidebar-tabs">
+            <button 
+              className={`sidebar-tab ${activePanel === 'observer' ? 'active' : ''}`}
+              onClick={() => setActivePanel('observer')}
+            >
+              👁️ Observer
+            </button>
+            <button 
+              className={`sidebar-tab ${activePanel === 'entropy' ? 'active' : ''}`}
+              onClick={() => setActivePanel('entropy')}
+            >
+              🌡️ Entropy
+            </button>
+            <button 
+              className={`sidebar-tab ${activePanel === 'memory' ? 'active' : ''}`}
+              onClick={() => setActivePanel('memory')}
+            >
+              📚 Memory
+            </button>
+          </div>
+
+          <div className="sidebar-content">
+            {activePanel === 'observer' && (
+              <ObserverPanel
+                graphData={graphData}
+                selectedNode={selectedNode}
+                liveEvents={recentEvents}
+                connected={connected}
+                narratives={narratives}
+                cascadeStats={cascadeStats}
+                nodeHeat={nodeHeat}
+              />
+            )}
+            {activePanel === 'entropy' && (
+              <EntropyChart 
+                graphData={graphData}
+                onFileClick={handleEntropyFileClick}
+              />
+            )}
+            {activePanel === 'memory' && (
+              <SemanticMemory 
+                selectedNode={selectedNode}
+                graphData={graphData}
+              />
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Chat Panel — Dormant until file clicked */}
       <ChatPanel
         sendMessage={sendMessage}
         selectedNode={selectedNode}

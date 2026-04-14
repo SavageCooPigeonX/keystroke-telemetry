@@ -4,6 +4,14 @@ Auto-generated. This test keeps copilot_prompt_manager_seq020_v003_d0402__compat
 When this passes + pigeon cap + entropy shed → module sleeps.
 Module keeps learning via intent shards while sleeping.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 020 | VER: v003 | 34 lines | ~403 tokens
+# DESC:   interlink_self_test_for_copilot
+# INTENT: restore_rename_safe
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))

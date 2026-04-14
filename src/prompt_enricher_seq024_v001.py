@@ -27,6 +27,33 @@ MAX_REWORK_ENTRIES  = 5
 MAX_AI_RESPONSES    = 4
 MAX_JOURNAL_ENTRIES = 4
 MAX_DELETED_WORDS   = 8
+TASK_COMPLETE_HOOK_MARKERS = (
+    'you were about to complete but a hook blocked you with the following message',
+    'you have not yet marked the task as complete using the task_complete tool',
+)
+
+
+def _is_meta_hook_message(msg: str) -> bool:
+    low = msg.lower()
+    return all(marker in low for marker in TASK_COMPLETE_HOOK_MARKERS)
+
+
+def _is_operator_entry(entry: dict) -> bool:
+    if entry.get('prompt_kind') == 'meta_hook':
+        return False
+    return not _is_meta_hook_message(str(entry.get('msg', '')))
+
+
+def _normalize_deleted_word(value: str) -> str | None:
+    text = re.sub(r'\s+', ' ', str(value)).strip().strip('"\'.,;:!?-')
+    if len(text) < 4:
+        return None
+    alnum = sum(ch.isalnum() for ch in text)
+    if alnum < 3 or alnum / max(len(text), 1) < 0.6:
+        return None
+    if not any(ch.isalpha() for ch in text):
+        return None
+    return text
 
 
 # ── data loaders ──────────────────────────────
@@ -116,15 +143,22 @@ def _recent_ai_attempts(root: Path, query: str) -> list[dict]:
     return hits
 
 
-def _deleted_words_from_journal(root: Path, n: int = 3) -> list[str]:
-    """Pull deleted words from the last N journal entries."""
-    entries = _jsonl(root / 'logs' / 'prompt_journal.jsonl', n=n)
+def _deleted_words_from_journal(root: Path, n: int = 1) -> list[str]:
+    """Pull deleted words from the latest operator prompt only."""
+    entries = _jsonl(root / 'logs' / 'prompt_journal.jsonl', n=max(n, 1))
+    latest = None
+    for entry in reversed(entries):
+        if entry.get('prompt_kind') != 'meta_hook':
+            latest = entry
+            break
+    if not latest:
+        return []
     words = []
-    for e in entries:
-        for w in (e.get('deleted_words') or []):
-            word = w.get('word', w) if isinstance(w, dict) else str(w)
-            if word and len(word) > 2:
-                words.append(word)
+    for w in (latest.get('deleted_words') or []):
+        word = w.get('word', w) if isinstance(w, dict) else str(w)
+        clean = _normalize_deleted_word(word)
+        if clean:
+            words.append(clean)
     return words[-MAX_DELETED_WORDS:]
 
 
@@ -143,7 +177,10 @@ def _cognitive_state(root: Path) -> dict:
 
 def _recent_journal_context(root: Path, n: int = 6) -> list[dict]:
     """Pull last N journal entries as prompt trajectory — what operator was building toward."""
-    entries = _jsonl(root / 'logs' / 'prompt_journal.jsonl', n=n)
+    entries = [
+        entry for entry in _jsonl(root / 'logs' / 'prompt_journal.jsonl')
+        if _is_operator_entry(entry)
+    ][-n:]
     out = []
     for e in entries:
         deleted = [
@@ -361,6 +398,9 @@ def inject_query_block(root: Path, raw_query: str,
                        cognitive_state: dict | None = None) -> bool:
     """Enrich the prompt and write the <!-- pigeon:current-query --> block."""
     root = Path(root)
+    raw_query = raw_query.strip()
+    if not raw_query or _is_meta_hook_message(raw_query):
+        return False
     cp = root / COPILOT_PATH
     if not cp.exists():
         return False

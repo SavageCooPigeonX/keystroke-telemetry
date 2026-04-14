@@ -72,6 +72,47 @@ def _is_operator_entry(entry: dict) -> bool:
     return not _is_meta_hook_message(str(entry.get('msg', '')))
 
 
+def _build_meta_hook_entry(
+    root: Path,
+    now: datetime,
+    msg: str,
+    files_open: list[str],
+    session_n: int,
+    meta_prompt_kind: str,
+) -> dict:
+    return {
+        'ts':               now.isoformat(),
+        'session_n':        session_n,
+        'msg':              msg,
+        'msg_len':          len(msg),
+        'files_open':       files_open,
+        'prompt_kind':      'meta_hook',
+        'intent':           'meta',
+        'module_refs':      [],
+        'cognitive_state':  'unknown',
+        'signals':          {},
+        'composition_binding': {
+            'matched': False,
+            'source': None,
+            'age_ms': None,
+            'key': None,
+        },
+        'deleted_words':    [],
+        'rewrites':         [],
+        'task_queue':       _active_tasks(root),
+        'hot_modules':      _hot_modules(root),
+        'prompt_mutations': _mutation_count(root),
+        'running':          _running_stats(root),
+        'provenance': {
+            'measured': ['ts', 'session_n', 'msg', 'msg_len', 'files_open',
+                         'signals', 'deleted_words', 'rewrites', 'composition_binding'],
+            'derived':  ['intent', 'module_refs', 'cognitive_state',
+                         'task_queue', 'hot_modules', 'prompt_mutations', 'running'],
+        },
+        'meta_prompt_kind': meta_prompt_kind,
+    }
+
+
 def _extract_module_refs(msg: str) -> list[str]:
     """Pull module names mentioned in the prompt text."""
     # Match pigeon module patterns and common module references
@@ -653,6 +694,16 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
     """
     now = datetime.now(timezone.utc)
     meta_prompt_kind = 'task_complete_hook' if _is_meta_hook_message(msg) else None
+    if meta_prompt_kind:
+        entry = _build_meta_hook_entry(root, now, msg, files_open, session_n, meta_prompt_kind)
+        if _should_skip_duplicate_meta_prompt(root, msg, meta_prompt_kind):
+            return entry
+        journal_path = root / JOURNAL_PATH
+        journal_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(journal_path, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+        return entry
+
     _force_fresh_composition(root)
     _refresh_prompt_compositions(root)
     comp_match = _select_composition(root, now, msg, session_n=session_n)
@@ -691,8 +742,14 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
             'duration_ms':        comp.get('duration_ms', 0),
         }
         cog_state = cs.get('state', 'unknown') if isinstance(cs, dict) else 'unknown'
-        deleted_words = [w.get('word', w) if isinstance(w, dict) else w
-                         for w in comp.get('deleted_words', [])]
+        intent_deleted_words = [
+            w.get('word', w) if isinstance(w, dict) else w
+            for w in comp.get('intent_deleted_words', [])
+        ]
+        deleted_words = intent_deleted_words or [
+            w.get('word', w) if isinstance(w, dict) else w
+            for w in comp.get('deleted_words', [])
+        ]
         rewrites = comp.get('rewrites', [])
 
     # ── STEP 1: Write raw signal (measured truth only) ──

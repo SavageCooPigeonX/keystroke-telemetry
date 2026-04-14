@@ -3,6 +3,14 @@
 Builds the <!-- pigeon:auto-index --> block from pigeon_registry.json.
 Self-contained: all required helpers duplicated here to avoid circular imports.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 012 | VER: v001 | 252 lines | ~2,662 tokens
+# DESC:   auto_index_builder_for_copilot
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from __future__ import annotations
 
 import json
