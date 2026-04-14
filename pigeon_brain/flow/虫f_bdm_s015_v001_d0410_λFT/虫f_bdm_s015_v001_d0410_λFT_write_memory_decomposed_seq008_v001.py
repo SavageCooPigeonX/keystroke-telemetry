@@ -1,4 +1,12 @@
 """虫f_bdm_s015_v001_d0410_λFT_write_memory_decomposed_seq008_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 008 | VER: v001 | 60 lines | ~520 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timezone
 from pathlib import Path

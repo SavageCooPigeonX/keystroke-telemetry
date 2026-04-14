@@ -267,8 +267,10 @@ def _load_registry(root: Path) -> dict:
         # Registry format: {'generated': ..., 'total': N, 'files': [list of dicts]}
         files = data.get('files', data) if isinstance(data, dict) else data
         if isinstance(files, list):
+            # Exclude build/ artifacts — they're compressed copies, not source
             return {m.get('name', f'mod_{i}'): m for i, m in enumerate(files)
-                    if isinstance(m, dict)}
+                    if isinstance(m, dict)
+                    and not m.get('path', '').startswith('build/')}
         if isinstance(files, dict):
             return {k: v for k, v in files.items() if isinstance(v, dict)}
         return {}
@@ -413,6 +415,12 @@ def _load_probe_state(root: Path) -> dict:
 
 
 def _compute_file_stats(root: Path, registry: dict) -> dict:
+    # Registry stores token counts (~10 tokens/line for Python).
+    # Pigeon standard: 50-line target, 200-line hard cap.
+    # Token equivalents: 500 tokens ≈ 50 lines, 2000 tokens ≈ 200 lines.
+    TOKEN_TARGET = 500   # ≈ 50 lines
+    TOKEN_CAP = 2000     # ≈ 200 lines
+
     tokens = [m.get('tokens', 0) for m in registry.values() if isinstance(m, dict)]
     if not tokens:
         return {'avg_tokens': 0, 'median_tokens': 0, 'max_tokens': 0,
@@ -425,10 +433,10 @@ def _compute_file_stats(root: Path, registry: dict) -> dict:
         'median_tokens': median,
         'max_tokens': max(tokens),
         'total_tokens': sum(tokens),
-        'under_50': sum(1 for t in tokens if t <= 50),
-        'range_50_200': sum(1 for t in tokens if 50 < t <= 200),
-        'over_200': sum(1 for t in tokens if t > 200),
-        'compliant': sum(1 for t in tokens if t <= 200),
+        'under_50': sum(1 for t in tokens if t <= TOKEN_TARGET),
+        'range_50_200': sum(1 for t in tokens if TOKEN_TARGET < t <= TOKEN_CAP),
+        'over_200': sum(1 for t in tokens if t > TOKEN_CAP),
+        'compliant': sum(1 for t in tokens if t <= TOKEN_CAP),
     }
 
 
@@ -459,6 +467,7 @@ def _compute_health_score(snapshot: dict) -> float:
     """Compute an overall health score (0-100) from snapshot metrics.
 
     Weighted composite — higher = healthier codebase.
+    Token thresholds use ~10 tokens/line ratio for pigeon standard alignment.
     """
     score = 50.0  # baseline
 
@@ -473,21 +482,29 @@ def _compute_health_score(snapshot: dict) -> float:
     score -= bug_ratio * 20
 
     # File size bonus (+10 max) — reward small files
+    # Token thresholds: 500 ≈ 50 lines (target), 2000 ≈ 200 lines (cap)
     avg_tokens = snapshot.get('file_stats', {}).get('avg_tokens', 500)
-    if avg_tokens <= 50:
+    if avg_tokens <= 500:
         score += 10
-    elif avg_tokens <= 200:
+    elif avg_tokens <= 2000:
         score += 5
-    elif avg_tokens > 500:
+    elif avg_tokens > 5000:
         score -= 5
 
     # Death penalty (-5 max)
     deaths = snapshot.get('deaths', {}).get('total', 0)
     score -= min(deaths * 0.5, 5)
 
-    # Sync bonus (+10 max)
+    # Sync bonus (+10 max) — stepped scale for behavioral metric
     sync = snapshot.get('cycle', {}).get('sync_score', 0)
-    score += sync * 10
+    if sync >= 0.5:
+        score += 10
+    elif sync >= 0.1:
+        score += 8
+    elif sync >= 0.03:
+        score += 5
+    elif sync > 0:
+        score += 3
 
     # Probe engagement bonus (+5 max)
     probed = snapshot.get('probes', {}).get('modules_probed', 0)

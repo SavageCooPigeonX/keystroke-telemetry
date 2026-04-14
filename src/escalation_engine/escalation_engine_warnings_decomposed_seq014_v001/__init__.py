@@ -1,0 +1,2 @@
+"""escalation_engine_warnings_decomposed_seq014_v001/ — Pigeon-compliant module."""
+from .escalation_engine_warnings_decomposed_seq014_v001_inject_warnings_seq005_v001 import inject_warnings

@@ -22,9 +22,21 @@ and switches context accordingly.
 from __future__ import annotations
 import os
 import sys
+import importlib
 
-# ensure src/ is importable as a package
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# ensure src/ is importable — but bypass src/__init__.py which has many
+# pigeon-renamed imports that break. We only need tc_* modules.
+_src_dir = os.path.dirname(os.path.abspath(__file__))
+_root_dir = os.path.dirname(_src_dir)
+sys.path.insert(0, _root_dir)
+
+# Prevent src/__init__.py from executing by marking the package as already loaded
+import types
+if 'src' not in sys.modules:
+    _pkg = types.ModuleType('src')
+    _pkg.__path__ = [_src_dir]
+    _pkg.__package__ = 'src'
+    sys.modules['src'] = _pkg
 
 from src.tc_constants import DEFAULT_PAUSE_MS, DEFAULT_CORNER, DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_OPACITY
 from src.tc_gemini import _load_api_key

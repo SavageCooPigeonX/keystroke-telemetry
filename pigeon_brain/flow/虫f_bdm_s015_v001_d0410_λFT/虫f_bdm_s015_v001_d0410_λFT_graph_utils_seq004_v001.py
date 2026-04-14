@@ -1,4 +1,12 @@
 """虫f_bdm_s015_v001_d0410_λFT_graph_utils_seq004_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 004 | VER: v001 | 34 lines | ~336 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from pathlib import Path
 import json
 

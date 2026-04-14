@@ -7,9 +7,9 @@
 # LAST:   2026-04-14 @ heal
 # SESSIONS: 0
 # ──────────────────────────────────────────────
-from .tc_constants import GEMINI_MODEL
-from .tc_context import load_context
-from .tc_gemini import call_gemini, log_completion
+from ..tc_constants import GEMINI_MODEL
+from ..tc_context import load_context
+from ..tc_gemini import call_gemini, log_completion
 import json
 
 def run_web(port=8235):

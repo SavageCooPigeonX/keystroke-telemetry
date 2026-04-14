@@ -1,0 +1,7 @@
+"""escalation_engine/ — Pigeon-compliant module."""
+from .escalation_engine_confidence_decomposed_seq007_v001 import compute_module_confidence
+from .escalation_engine_constants_seq001_v001 import HIGH_CONFIDENCE, KNOWN_FIXABLE, LEVEL_NAMES, LOG_FILE, STATE_FILE, THRESHOLD_PASSES, WARN_BLOCK_END, WARN_BLOCK_START, WARN_COUNTDOWN
+from .escalation_engine_fix_executors_seq009_v001 import FIX_DISPATCH
+from .escalation_engine_orchestrator_seq020_v001 import check_and_escalate
+from .escalation_engine_status_seq021_v001 import get_status
+from .escalation_engine_warnings_decomposed_seq014_v001 import inject_warnings

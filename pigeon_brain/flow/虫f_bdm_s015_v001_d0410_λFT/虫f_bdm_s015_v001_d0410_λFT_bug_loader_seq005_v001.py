@@ -1,4 +1,12 @@
 """虫f_bdm_s015_v001_d0410_λFT_bug_loader_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 005 | VER: v001 | 49 lines | ~476 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from dataclasses import dataclass, field, asdict
 from pathlib import Path
 

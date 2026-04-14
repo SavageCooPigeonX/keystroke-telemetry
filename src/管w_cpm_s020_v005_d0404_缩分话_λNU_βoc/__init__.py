@@ -1,0 +1,5 @@
+"""管w_cpm_s020_v005_d0404_缩分话_λNU_βoc/ — Pigeon-compliant module."""
+from .管w_cpm_s020_v005_d0404_缩分话_λNU_βoc_audit_main_seq007_v001 import audit_copilot_prompt
+from .管w_cpm_s020_v005_d0404_缩分话_λNU_βoc_constants_seq001_v001 import AUDIT_PATH, BLOCK_MARKERS, COPILOT_PATH, PROMPT_BLOCK_END, PROMPT_BLOCK_START, SNAPSHOT_PATH
+from .管w_cpm_s020_v005_d0404_缩分话_λNU_βoc_inject_index_seq009_v001 import inject_auto_index
+from .管w_cpm_s020_v005_d0404_缩分话_λNU_βoc_inject_telemetry_seq008_v001 import inject_prompt_telemetry

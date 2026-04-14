@@ -1,4 +1,12 @@
 """虫f_bdm_s015_v001_d0410_λFT_demo_decomposed_seq011_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 011 | VER: v001 | 83 lines | ~889 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from __future__ import annotations
 from pathlib import Path
 import json

@@ -1,4 +1,12 @@
 """module_identity_orchestrator_seq014_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 014 | VER: v001 | 155 lines | ~1,549 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 from datetime import datetime, timezone
 from pathlib import Path
 import ast

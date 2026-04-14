@@ -1,0 +1,5 @@
+"""批编f_rbc_s015_v002_d0328_织谱建验_λR/ — Pigeon-compliant module."""
+from .批编f_rbc_s015_v002_d0328_织谱建验_λR_constants_seq001_v001 import COMPILER_DIRS, PROJECT_ROOT, SKIP_DIRS, SKIP_NAMES
+from .批编f_rbc_s015_v002_d0328_织谱建验_λR_main_seq006_v001 import main
+from .批编f_rbc_s015_v002_d0328_织谱建验_λR_orchestrator_seq005_v001 import batch_compile
+from .批编f_rbc_s015_v002_d0328_织谱建验_λR_scanner_seq002_v001 import scan_oversized

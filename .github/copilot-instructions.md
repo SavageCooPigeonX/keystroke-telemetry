@@ -7,16 +7,16 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-14 03:17 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-14 04:38 UTC — 2 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 243min old (max 10min)
+- **`current-query`**: STALE — 324min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-13 23:15
 
-- **`prompt-telemetry`**: STALE — 242min old (max 10min)
+- **`prompt-telemetry`**: STALE — 323min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-13T23:15:36
 
@@ -85,30 +85,27 @@ When the **Unsaid Threads** section (in `<!-- pigeon:current-query -->
 <!-- pigeon:narrative-glove -->
 ## Organism Consciousness
 
-*2026-04-14 02:51 UTC — synthesized from all live signals, zero LLM calls*
+*2026-04-14 04:40 UTC — synthesized from all live signals, zero LLM calls*
 
-> the organism is recovering — health 59/100. 50% compliant but 113 bugs still breathing. entropy at 0.30 — the codebase knows what it is, mostly. recent escalation: task_writer(failure), task_writer(autonomous_fix), run_heal(failure).
+> the organism is stable — health 74/100. 50% compliant but 113 bugs still breathing. entropy at 0.30 — the codebase knows what it is, mostly. recent escalation: task_writer(failure), task_writer(autonomous_fix), run_heal(failure).
 
 <!-- /pigeon:narrative-glove -->
 
 <!-- pigeon:organism-health -->
 ## Organism Health
 
-*Auto-injected 2026-04-14 03:34 UTC · 2962 files · 2709/2962 compliant (91%)*
+*Auto-injected 2026-04-14 04:41 UTC · 3419 files · 3163/3419 compliant (93%)*
 
 **Stale pipelines:**
 - **edit_pairs**: 1d ago 🔴
-- **execution_deaths**: 17d ago 🔴
 
-**Over-cap critical (65):** `git_plugin.py` (1612), `tc_profile.py` (1585), `tc_sim.py` (1339), `profile_chat_server.py` (1280), `层w_sl_s007_v003_d0317_读唤任_λΠ.py` (1142), `谱建f_mb_s007_v003_d0314_观重箱重拆_λD.py` (1017), `autonomous_dev_stress_test.py` (999), `git_plugin.py` (987)
+**Over-cap critical (66):** `git_plugin.py` (1612), `.git_plugin_decomposed.py` (1600), `tc_profile.py` (1585), `tc_sim.py` (1339), `profile_chat_server.py` (1280), `层w_sl_s007_v003_d0317_读唤任_λΠ.py` (1142), `谱建f_mb_s007_v003_d0314_观重箱重拆_λD.py` (1017), `autonomous_dev_stress_test.py` (999)
 
 **Clots:** `f_he_s009_v005_d0401_改名册追跑_λA` (orphan_no_importers, dead_imports:2), `bug_profiles` (orphan_no_importers, dead_imports:1), `批编f_rbc_ma_s001_v001` (orphan_no_importers, dead_imports:3), `偏p_dr_s003_v002_d0315_缩分话_λν` (orphan_no_importers, unused_exports:1), `classify_bridge` (orphan_no_importers, unused_exports:1), `f_he_gf_s002_v001` (orphan_no_importers, dead_imports:2), `谱建f_mb_bam_s031_v001` (orphan_no_importers, dead_imports:2), `逆f_ba_bp_s005_v003_d0328_λR` (orphan_no_importers, dead_imports:1), `存p_nm_co_s001_v001` (orphan_no_importers, dead_imports:1), `算f_ps_ca_s009_v002_d0327_λS` (orphan_no_importers, dead_imports:1), `预p_pr_co_s001_v001` (orphan_no_importers, dead_imports:1), `牌f_nam_bu_s005_v001` (orphan_no_importers, dead_imports:1), `.operator_stats_seq008_v010_d0331__persi_artifact_detection_seq003_v001` (orphan_no_importers, dead_imports:1), `隐p_un_di_s002_v003_d0322_λ7` (orphan_no_importers, dead_imports:1), `u_oscl_s003_v001` (orphan_no_importers, dead_imports:1), `u_pj_s019_v002_d0402_λC_build_snapshot_decomposed_seq012_v001` (orphan_no_importers, dead_imports:1), `修f_sf_aaif_s011_v002_d0329_λH` (orphan_no_importers, dead_imports:1), `修f_sf_s013_v012_d0402_初写谱净拆_λVR_auto_apply_import_fixes_seq012_v001` (orphan_no_importers, dead_imports:1), `忆p_qm_cl_s004_v002_d0329_λH` (orphan_no_importers, dead_imports:1), `控f_ost_ad_s003_v001` (orphan_no_importers, dead_imports:1)
 
 **Circulation:** 598/630 alive · 32 clots · vein health 0.51
 
-**Recent deaths:** `?` (timeout), `?` (timeout), `?` (stale_import), `?` (stale_import)
-
-**AI rework:** 167/200 responses needed rework (84%)
+**AI rework:** 164/200 responses needed rework (82%)
 
 **Push cycles:** 19 · sync score: 0.058 · reactor fires: 528
 
@@ -232,9 +229,9 @@ operator intent → keystroke telemetry → semantic compression → LLM code ge
 <!-- pigeon:narrative-glove -->
 ## Organism Consciousness
 
-*2026-04-14 02:51 UTC — synthesized from all live signals, zero LLM calls*
+*2026-04-14 04:40 UTC — synthesized from all live signals, zero LLM calls*
 
-> the organism is recovering — health 59/100. 50% compliant but 113 bugs still breathing. entropy at 0.30 — the codebase knows what it is, mostly. recent escalation: task_writer(failure), task_writer(autonomous_fix), run_heal(failure).
+> the organism is stable — health 74/100. 50% compliant but 113 bugs still breathing. entropy at 0.30 — the codebase knows what it is, mostly. recent escalation: task_writer(failure), task_writer(autonomous_fix), run_heal(failure).
 
 <!-- /pigeon:narrative-glove -->
 <!-- pigeon:intent-backlog -->
@@ -270,25 +267,26 @@ OPERATOR SIGNAL: The trajectory reveals deep frustration with Copilot repeatedly
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-14 03:17 UTC · 631 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-14 04:38 UTC · 634 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 50.6 | Del: 26.5% | Hes: 0.49) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 49.4 | Del: 26.5% | Hes: 0.483) · *[source: measured]*
 
-**Prompt ms:** 74236, 39927, 70989, 35154, 13373 (avg 46736ms)
+**Prompt ms:** 70989, 35154, 13373, 44920, 50403 (avg 42968ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### AI Rework Surface
-*Miss rate: 1.0% (200 responses)*
+*Miss rate: 2.0% (200 responses)*
+- Failed on: ""
 - Failed on: ""
 - Failed on: ""
 
 ### Recent Work
+- `85bae1c` feat: refresh organism health and file wake flows
 - `beda89c` fix: add missing intra-package imports in registry_io decomposed modules
 - `81177cc` fix: add missing intra-package imports in registry_io decomposed modules
 - `9431f3a` fix: add missing REGISTRY_FILE import in registry_io decomposed module
-- `fdc066a` feat: push baseline drift gate + file semantic layer + thought completer suite + intent numeric surface + FRBI reports
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -300,9 +298,9 @@ OPERATOR SIGNAL: The trajectory reveals deep frustration with Copilot repeatedly
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
 - [HIGH] over_hard_cap in `pigeon_brain/ai_cognitive_log.py`
 - [HIGH] over_hard_cap in `pigeon_brain/context_veins.py`
-- [HIGH] over_hard_cap in `pigeon_brain/gemini_chat.py`
-- [HIGH] over_hard_cap in `pigeon_brain/node_tester.py`
-- [HIGH] over_hard_cap in `pigeon_brain/服f_ls_s012_v003_d0324_踪稿析_λB.py`
+- [HIGH] over_hard_cap in `pigeon_brain/flow/__main__.py`
+- [HIGH] over_hard_cap in `pigeon_brain/flow/存p_nm_s008_v001_d0325_读唤任_λB.py`
+- [HIGH] over_hard_cap in `pigeon_brain/flow/存p_nm_s008_v003_d0328_读唤任_λR.py`
 
 ### Prompt Evolution
 *This prompt has mutated 122x (186→1003 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
@@ -544,7 +542,7 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-14 · 631 message(s) · LLM-synthesized*
+*Auto-updated 2026-04-14 · 634 message(s) · LLM-synthesized*
 
 **Dominant: `abandoned`** | Submit: 66% | WPM: 52.8 | Del: 25.5% | Hes: 0.443
 

@@ -1,4 +1,12 @@
 """module_identity_todo_seq012_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 012 | VER: v001 | 41 lines | ~459 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import re
 
 def _generate_todo(name: str, entry: dict, lk: dict) -> list[str]:

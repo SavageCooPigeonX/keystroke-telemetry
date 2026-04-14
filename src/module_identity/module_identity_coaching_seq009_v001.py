@@ -1,4 +1,12 @@
 """module_identity_coaching_seq009_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 009 | VER: v001 | 47 lines | ~550 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import re
 
 def _generate_self_coaching(name: str, entry: dict, lk: dict, code: dict) -> list[str]:

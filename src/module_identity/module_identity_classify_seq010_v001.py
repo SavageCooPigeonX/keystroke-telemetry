@@ -1,4 +1,12 @@
 """module_identity_classify_seq010_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 010 | VER: v001 | 50 lines | ~403 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import re
 
 def _classify_archetype(entry: dict, lk: dict, name: str) -> str:

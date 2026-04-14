@@ -1,6 +1,6 @@
 # ORGANISM HEALTH — keystroke-telemetry
 
-*Auto-generated 2026-04-14 03:34 UTC · 2962 Python files tracked · 0 prompts analyzed*
+*Auto-generated 2026-04-14 04:41 UTC · 3419 Python files tracked · 0 prompts analyzed*
 
 **This document is the organism. Every data pipeline that flows through this codebase is measured here. If it's not flowing, it's dying.**
 
@@ -22,35 +22,35 @@
 
 | Pipeline | Entries | Size | Freshness | Role |
 |---|---:|---:|---|---|
-| prompt_journal | ? | 812,726 | 🟢 1m ago | Enriched prompts |
-| chat_compositions | 4306 | 6.3M | 🟡 6h ago | Keystroke compositions |
+| prompt_journal | ? | 815,786 | 🟢 40m ago | Enriched prompts |
+| chat_compositions | 4308 | 6.3M | 🟢 40m ago | Keystroke compositions |
 | edit_pairs | 112 | 48,993 | 🔴 1d ago | Prompt → file pairings |
-| push_cycles | 19 | 71,646 | 🟡 6h ago | Push cycle reports |
-| os_keystrokes | 175896 | 41.1M | 🟡 6h ago | OS-level keystrokes |
-| keystroke_live | 15465 | 4.5M | 🟢 24s ago | Live keystroke stream |
-| rework_log | 200 | 38,972 | 🟢 16m ago | AI answer quality |
-| file_heat_map | 55 | 8,993 | 🟢 16m ago | Cognitive load per module |
-| file_profiles | 254 | 223,585 | 🔴 9d ago | Module consciousness |
-| pigeon_registry | 2068 | 843,302 | 🟢 16m ago | Module registry |
-| execution_deaths | 10 | 2,735 | 🔴 17d ago | Electron failures |
-| context_veins | 7 | 424,073 | 🟢 45m ago | Vein/clot health |
+| push_cycles | 19 | 71,646 | 🟡 7h ago | Push cycle reports |
+| os_keystrokes | 176091 | 41.2M | 🟢 40m ago | OS-level keystrokes |
+| keystroke_live | 15496 | 4.5M | 🟢 2m ago | Live keystroke stream |
+| rework_log | 200 | 38,634 | 🟢 2m ago | AI answer quality |
+| file_heat_map | 55 | 8,990 | 🟢 2m ago | Cognitive load per module |
+| file_profiles | 254 | 223,585 | 🔴 10d ago | Module consciousness |
+| pigeon_registry | 2492 | 1.1M | 🟢 3m ago | Module registry |
+| execution_deaths | ? | 2,630 | 🟢 20m ago | Electron failures |
+| context_veins | 7 | 424,073 | 🟡 1h ago | Vein/clot health |
 | mutation_scores | 6 | 7,780 | 🔴 2d ago | Prompt mutation correlation |
-| task_queue | 21 | 23,380 | 🟡 4h ago | Copilot task queue |
-| push_cycle_state | 6 | 232 | 🟡 6h ago | Push cycle state |
-| reactor_state | 4 | 19,205 | 🟢 37m ago | Reactor state |
+| task_queue | 21 | 23,380 | 🟡 5h ago | Copilot task queue |
+| push_cycle_state | 6 | 232 | 🟡 7h ago | Push cycle state |
+| reactor_state | 4 | 19,205 | 🟢 2m ago | Reactor state |
 
 ---
 
 ## Structure (Module Compliance)
 
-**2962 Python files** across 9 packages · **2709/2962 compliant** (91%) · **253 over cap**
+**3419 Python files** across 9 packages · **3163/3419 compliant** (93%) · **256 over cap**
 
 | Package | Files |
 |---|---:|
 | `build` | 1848 |
-| `src` | 511 |
-| `pigeon_brain` | 205 |
-| `pigeon_compiler` | 166 |
+| `src` | 825 |
+| `pigeon_compiler` | 283 |
+| `pigeon_brain` | 231 |
 | `tests` | 118 |
 | `(root)` | 84 |
 | `streaming_layer` | 21 |
@@ -62,6 +62,7 @@
 | File | Lines | Severity |
 |---|---:|---|
 | `pigeon_compiler/git_plugin.py` | 1612 | 🔴 CRIT |
+| `pigeon_compiler/.git_plugin_decomposed.py` | 1600 | 🔴 CRIT |
 | `src/tc_profile.py` | 1585 | 🔴 CRIT |
 | `src/tc_sim.py` | 1339 | 🔴 CRIT |
 | `src/profile_chat_server.py` | 1280 | 🔴 CRIT |
@@ -80,8 +81,7 @@
 | `build/numerical/pigeon_compiler/rename_engine/谱建f_mb_s007_v003_d0314_观重箱重拆_λD.py` | 789 | 🔴 CRIT |
 | `build/compressed/pigeon_compiler/rename_engine/manifest_builder_seq007_v003_d0314__generate_living_manifest_md_per_lc_desc_upgrade.py` | 759 | 🔴 CRIT |
 | `client/os_hook.py` | 736 | 🔴 CRIT |
-| `_run_smart_rename.py` | 730 | 🔴 CRIT |
-| ... | +233 more | |
+| ... | +236 more | |
 
 ---
 
@@ -137,21 +137,21 @@
 
 | Module | Avg Hesitation | Avg WPM | Samples | Dominant State |
 |---|---:|---:|---:|---|
-| `u_pe` | 0.000 | 0 | 0 | ? |
-| `rework_detector` | 0.000 | 0 | 0 | ? |
-| `query_memory` | 0.000 | 0 | 0 | ? |
-| `interlinker_upgrade` | 0.000 | 0 | 0 | ? |
-| `prompt_recon` | 0.000 | 0 | 0 | ? |
-| `profile_renderer` | 0.000 | 0 | 0 | ? |
-| `bug_profiles` | 0.000 | 0 | 0 | ? |
-| `push_baseline` | 0.000 | 0 | 0 | ? |
-| `timestamp_utils` | 0.000 | 0 | 0 | ? |
 | `intent_simulator` | 0.000 | 0 | 0 | ? |
-| `dynamic_prompt` | 0.000 | 0 | 0 | ? |
-| `interrogation_room` | 0.000 | 0 | 0 | ? |
+| `codebase_transmuter` | 0.000 | 0 | 0 | ? |
+| `file_consciousness` | 0.000 | 0 | 0 | ? |
+| `file_semantic_layer` | 0.000 | 0 | 0 | ? |
+| `__init__` | 0.000 | 0 | 0 | ? |
+| `thought_completion` | 0.000 | 0 | 0 | ? |
 | `codebase_vitals` | 0.000 | 0 | 0 | ? |
-| `git_plugin` | 0.000 | 0 | 0 | ? |
 | `context_router` | 0.000 | 0 | 0 | ? |
+| `警p_sa` | 0.000 | 0 | 0 | ? |
+| `dynamic_prompt` | 0.000 | 0 | 0 | ? |
+| `entropy_shedding` | 0.000 | 0 | 0 | ? |
+| `mutation_scorer` | 0.000 | 0 | 0 | ? |
+| `vitals_renderer` | 0.000 | 0 | 0 | ? |
+| `prompt_enricher` | 0.000 | 0 | 0 | ? |
+| `operator_probes` | 0.000 | 0 | 0 | ? |
 
 ---
 
@@ -161,23 +161,23 @@
 
 | Verdict | Count | % |
 |---|---:|---:|
-| ok | 198 | 99% |
-| miss | 2 | 1% |
+| ok | 196 | 98% |
+| miss | 4 | 2% |
 
-### Reworked Responses (167)
+### Reworked Responses (164)
 
 | Time | Score | Del% | Query Hint |
 |---|---:|---:|---|
-| 4h ago | 0.01 | 2% | bg:review.prompt.md |
-| 4h ago | 0.01 | 2% | bg:review.prompt.md |
-| 4h ago | 0.01 | 2% | bg:review.prompt.md |
-| 3h ago | 0.01 | 2% | bg:review.prompt.md |
-| 3h ago | 0.01 | 2% | bg:review.prompt.md |
-| 3h ago | 0.01 | 2% | bg:review.prompt.md |
-| 43m ago | 0.01 | 2% | bg:review.prompt.md |
-| 38m ago | 0.01 | 2% | bg:review.prompt.md |
-| 38m ago | 0.01 | 2% | bg:review.prompt.md |
-| 16m ago | 0.01 | 2% | bg:review.prompt.md |
+| 5h ago | 0.01 | 2% | bg:review.prompt.md |
+| 1h ago | 0.01 | 2% | bg:review.prompt.md |
+| 1h ago | 0.01 | 2% | bg:review.prompt.md |
+| 1h ago | 0.01 | 2% | bg:review.prompt.md |
+| 1h ago | 0.01 | 2% | bg:review.prompt.md |
+| 1h ago | 0.01 | 2% | bg:review.prompt.md |
+| 56m ago | 0.01 | 2% | bg:review.prompt.md |
+| 47m ago | 0.01 | 2% | bg:MANIFEST.md |
+| 41m ago | 0.36 | 39% | bg:copilot-instructions.md |
+| 41m ago | 0.36 | 39% | bg:copilot-instructions.md |
 
 ---
 
@@ -195,7 +195,7 @@
 | Last Commit | `beda89cc9fb13dfd4f32cf84bb2b966225efe853` |
 | Last Sync Score | 0.058 |
 | Journal Line | 614 |
-| Updated | 6h ago |
+| Updated | 7h ago |
 
 ---
 
@@ -229,20 +229,7 @@
 
 ## Death Log (Execution Failures)
 
-**10 deaths logged**
-
-| Module | Cause | Severity | Time |
-|---|---|---:|---|
-| `plan_parser` | exception | high | 22d ago |
-| `dynamic_prompt` | exception | high | 22d ago |
-| `copilot_prompt_manager_seq020_block_utils` | loop | low | 22d ago |
-| `import_tracer` | exception | high | 22d ago |
-| `unsaid` | loop | high | 17d ago |
-| `failure_detector` | timeout | high | 17d ago |
-| `graph_heat_map` | timeout | high | 17d ago |
-| `backward` | stale_import | critical | 17d ago |
-| `graph_heat_map` | loop | low | 17d ago |
-| `file_consciousness` | stale_import | critical | 17d ago |
+*No execution deaths recorded.*
 
 ---
 

@@ -1,4 +1,12 @@
 """module_identity_alias_seq003_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 003 | VER: v001 | 33 lines | ~384 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
 import re
 
 def _build_alias_map(sources: dict) -> dict:

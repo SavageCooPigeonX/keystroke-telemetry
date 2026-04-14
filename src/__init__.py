@@ -1,75 +1,88 @@
 """src/ -- auto-fixed pigeon package."""
+import importlib as _il, sys as _sys, warnings as _w
+
+def _safe(stmt):
+    """Import line that won't crash the whole package if one module is broken."""
+    try:
+        exec(stmt, globals())
+    except (ImportError, NameError, AttributeError, ModuleNotFoundError):
+        pass
+
 from ._resolve import src_import
-from .bug_profiles import generate_profiles
-from .codebase_transmuter import numerify_file, build_numerical_mirror, build_narrative_mirror, compute_global_stats, transmute_all
-from .context_compressor import compress_file, compress_changed
-from .engagement_hooks import generate_hooks, build_hooks_block, inject_hooks
-from .entropy_shedding import parse_shed_blocks, parse_shed_block, accumulate_entropy, build_entropy_block, build_red_layer_block, format_shed_block
-from .intent_compressor import strip_metadata, strip_syntactic_noise, collapse_imports, skeleton, intent_map, CompressionResult, compress_file, compress_all
-from .numeric_surface import generate_surface
-from .prompt_enricher_seq024_v001 import enrich_prompt, inject_query_block
-from .prompt_journal_seq019_v001 import log_enriched_entry
-from .prompt_recon_seq016_v001 import reconstruct_latest, track_copilot_prompt_mutations
-from .prompt_signal_seq026_v001 import log_raw_signal, load_raw_signals, load_latest_raw
-from .self_fix_tracker import compute_accuracy, build_narrative_block
-from .template_selector import detect_mode, hydrate_templates, inject_active_template
-from .u_cs_s033_v001 import score_module_confidence, compute_copilot_meta_state, format_confidence_line
-from .u_pd_s024_v001 import list_sections, diff_block, main
-from .u_pe_s024_v004_d0403_λP0_βoc import enrich_prompt, inject_query_block
-from .u_pj_s019_v003_d0404_λNU_βoc import log_enriched_entry
-from .u_prc_s016_v001 import reconstruct_all, reconstruct_latest, build_mutation_audit, get_latest_composition, track_copilot_prompt_mutations
-from .u_psg_s026_v001 import log_raw_signal, load_raw_signals, load_latest_raw
-from .修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc import auto_compile_oversized, run_self_fix, write_self_fix_report, auto_apply_import_fixes
-from .典w_sd_s031_v002_d0401_缩分话_λG import generate_dictionary, generate_compact_injection, inject_dictionary_block, write_dictionary
-from .变p_ms_s021_v002_d0321_缩分话_λ18 import score_mutations
-from .叙p_pn_s012_v006_d0328_初写谱净拆_λR import generate_push_narrative
-from .叙p_pn_s012_v007_d0403_初写谱净拆_λP0 import generate_push_narrative
-from .叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc import generate_push_narrative
-from .合p_us_s026_v002_d0330_缩分话_λF import merge_signals, write_unified_log
-from .型p_mo_s002_v003_d0317_读唤任_λΠ import KeyEvent, MessageDraft
-from .境w_cb_s004_v008_d0321_初写谱净拆_λφ import default_budget_config, estimate_tokens, score_context_budget
-from .声w_vs_s028_v002_d0330_缩分话_λF import extract_voice_features, build_voice_profile, inject_voice_style
-from .对p_tp_s027_v003_d0402_缩分话_λVR_βoc import capture_training_pair, generate_cycle_summary
-from .层w_sl_s007_v003_d0317_读唤任_λΠ import StreamClient, AggregationBucket, Alert, StreamFormatter, ConnectionPool, EventAggregator, MetricsCollector, AlertEngine, SessionReplay, LiveDashboard, TelemetryHTTPHandler, StreamingTelemetryServer, run_demo
-from .录p_lo_s003_v005_d0322_译改名踪_λω import TelemetryLogger
-from .忆p_qm_s010_v004_d0321_踪稿析_λ18 import cluster_unsaid_threads, record_query, load_query_memory
-from .思f_cr_s014_v003_d0321_译改名踪_λ18 import ingest_flush
-from .思f_cr_s014_v004_d0330_译改名踪_λF import ingest_flush
-from .思f_cr_s014_v005_d0331_译改名踪_λM import ingest_flush
-from .意w_is_s034_v002_d0401_缩分话_λC import simulate_intent
-from .探p_ur_s024_v002_d0329_读唤任_λS import reconstruct_if_needed
-from .探p_ur_s024_v003_d0331_读唤任_λI import reconstruct_if_needed
-from .控f_ost_s008_v007_d0322_初写谱净拆_λω import compute_baselines, classify_state, OperatorStats
-from .控w_ops_s008_v007_d0322_册追跑_λW import compute_baselines, classify_state, OperatorStats
-from .控w_ops_s008_v008_d0331_册追跑_λI import compute_baselines, classify_state, OperatorStats
-from .控w_ops_s008_v009_d0328_册追跑_λR import compute_baselines, classify_state, OperatorStats
-from .控w_ops_s008_v010_d0331_册追跑_λI import compute_baselines, classify_state, OperatorStats
-from .推w_dp_s017_v005_d0324_初写谱净拆_λB import build_task_context, inject_task_context
-from .推w_dp_s017_v005_d0324_初写谱净拆_λδ import build_task_context, inject_task_context
-from .推w_dp_s017_v008_d0329_初写谱净拆_λS import build_task_context, inject_task_context
-from .推w_dp_s017_v009_d0331_初写谱净拆_λI import build_task_context, inject_task_context
-from .推w_dp_s017_v013_d0403_初写谱净拆_λP0_βoc import build_task_context, inject_task_context
-from .桥p_rb_s006_v003_d0317_读唤任_λΠ import HesitationAnalyzer
-from .测p_rwd_s009_v006_d0403_译改名踪_λP0_βde import score_rework, score_rework_from_composition, record_rework, load_rework_stats
-from .漂p_dw_s005_v004_d0321_踪稿析_λ18 import DriftWatcher
-from .热p_fhm_s011_v005_d0403_踪稿析_λP0_βde import update_heat_map, load_heat_map, load_registry_churn
-from .片w_sm_s026_v002_d0330_缩分话_λF import read_shard, read_shard_entries, write_shard, append_to_shard, get_shard_summary, detect_contradiction, get_unresolved_contradictions, resolve_contradiction, seed_shards, learn_from_rework, list_shards
-from .环w_pc_s025_v002_d0329_读唤任_λS import run_push_cycle
-from .环w_pc_s025_v003_d0330_读唤任_λπ import run_push_cycle
-from .研w_rl_s029_v002_d0330_译改名踪_λL import synthesize_research
-from .研w_rl_s029_v003_d0331_译改名踪_λA import synthesize_research
-from .研w_rl_s029_v005_d0401_译改名踪_λG import synthesize_research
-from .管w_cpm_s020_v005_d0404_缩分话_λNU_βoc import inject_prompt_telemetry, inject_auto_index, inject_bug_voices, inject_operator_state, inject_entropy_layers, audit_copilot_prompt, refresh_managed_prompt
-from .编w_gc_s032_v002_d0401_读唤任_λG import GlyphCompiler, compile_to_glyph, compile_and_write
-from .编w_gc_s032_v003_d0401_读唤任_λG import NameCollector, NameTransformer, build_import_graph, GlyphCompilerV2, compile_codebase
-from .脉p_ph_s015_v004_d0403_读唤任_λP0_βoc import make_pulse_block, content_hash, read_pulse, clear_pulse, stamp_pulse, inject_pulse, pair_pulse_to_prompt, harvest_all_pulses, inject_all_pulses
-from .补p_rwb_s022_v002_d0321_缩分话_λ18 import backfill
-from .觉w_fc_s019_v002_d0321_缩分话_λ18 import build_file_consciousness, build_dating_profiles, slumber_party_audit, save_profiles, load_profiles, consciousness_report
-from .警p_sa_s030_v003_d0402_缩分话_λV import check_staleness, inject_staleness_alert
-from .警p_sa_s030_v005_d0404_缩分话_λNU import check_staleness, inject_staleness_alert
-from .训w_trwr_s028_v002_d0330_缩分话_λF import write_training_pair, backfill_rework
-from .路f_cxr_s027_v002_d0330_缩分话_λF import score_shard, route_context, format_shard_context
-from .递p_sh_s023_v002_d0321_缩分话_λ18 import generate
-from .队p_tq_s018_v002_d0317_缩分话_λQ import add_task, mark_done, mark_in_progress, build_task_queue_block, inject_task_queue
-from .interlinker import assess_module, interlink_module, interlink_scan, generate_self_test, write_self_test, run_self_test, accumulate_shard, build_interlink_report, load_interlink_db
-from .interlinker_upgrade import upgrade_test, run_upgrade_cycle, pick_upgrade_candidates
+
+# --- stable core ---
+_safe("from .bug_profiles import generate_profiles")
+_safe("from .codebase_transmuter import numerify_file, build_numerical_mirror, build_narrative_mirror, compute_global_stats, transmute_all")
+_safe("from .context_compressor import compress_file, compress_changed")
+_safe("from .engagement_hooks import generate_hooks, build_hooks_block, inject_hooks")
+_safe("from .entropy_shedding import parse_shed_blocks, parse_shed_block, accumulate_entropy, build_entropy_block, build_red_layer_block, format_shed_block")
+_safe("from .intent_compressor import strip_metadata, strip_syntactic_noise, collapse_imports, skeleton, intent_map, CompressionResult, compress_file, compress_all")
+_safe("from .numeric_surface import generate_surface")
+_safe("from .prompt_enricher_seq024_v001 import enrich_prompt, inject_query_block")
+_safe("from .prompt_journal_seq019_v001 import log_enriched_entry")
+_safe("from .prompt_recon_seq016_v001 import reconstruct_latest, track_copilot_prompt_mutations")
+_safe("from .prompt_signal_seq026_v001 import log_raw_signal, load_raw_signals, load_latest_raw")
+_safe("from .self_fix_tracker import compute_accuracy, build_narrative_block")
+_safe("from .template_selector import detect_mode, hydrate_templates, inject_active_template")
+_safe("from .u_cs_s033_v001 import score_module_confidence, compute_copilot_meta_state, format_confidence_line")
+_safe("from .u_pd_s024_v001 import list_sections, diff_block, main")
+_safe("from .u_pe_s024_v004_d0403_\u03bbP0_\u03b2oc import enrich_prompt, inject_query_block")
+_safe("from .u_pj_s019_v003_d0404_\u03bbNU_\u03b2oc import log_enriched_entry")
+_safe("from .u_prc_s016_v001 import reconstruct_all, reconstruct_latest, build_mutation_audit, get_latest_composition, track_copilot_prompt_mutations")
+_safe("from .u_psg_s026_v001 import log_raw_signal, load_raw_signals, load_latest_raw")
+
+# --- pigeon-renamed modules (may break on renames) ---
+_safe("from .\u4feef_sf_s013_v012_d0402_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbVR_\u03b2oc import auto_compile_oversized, run_self_fix, write_self_fix_report, auto_apply_import_fixes")
+_safe("from .\u5178w_sd_s031_v002_d0401_\u7f29\u5206\u8bdd_\u03bbG import generate_dictionary, generate_compact_injection, inject_dictionary_block, write_dictionary")
+_safe("from .\u53d8p_ms_s021_v002_d0321_\u7f29\u5206\u8bdd_\u03bb18 import score_mutations")
+_safe("from .\u53d9p_pn_s012_v006_d0328_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbR import generate_push_narrative")
+_safe("from .\u53d9p_pn_s012_v007_d0403_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbP0 import generate_push_narrative")
+_safe("from .\u53d9p_pn_s012_v008_d0403_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbP0_\u03b2oc import generate_push_narrative")
+_safe("from .\u5408p_us_s026_v002_d0330_\u7f29\u5206\u8bdd_\u03bbF import merge_signals, write_unified_log")
+_safe("from .\u578bp_mo_s002_v003_d0317_\u8bfb\u5524\u4efb_\u03bb\u03a0 import KeyEvent, MessageDraft")
+_safe("from .\u5883w_cb_s004_v008_d0321_\u521d\u5199\u8c31\u51c0\u62c6_\u03bb\u03c6 import default_budget_config, estimate_tokens, score_context_budget")
+_safe("from .\u58f0w_vs_s028_v002_d0330_\u7f29\u5206\u8bdd_\u03bbF import extract_voice_features, build_voice_profile, inject_voice_style")
+_safe("from .\u5bf9p_tp_s027_v003_d0402_\u7f29\u5206\u8bdd_\u03bbVR_\u03b2oc import capture_training_pair, generate_cycle_summary")
+_safe("from .\u5c42w_sl_s007_v003_d0317_\u8bfb\u5524\u4efb_\u03bb\u03a0 import StreamClient, AggregationBucket, Alert, StreamFormatter, ConnectionPool, EventAggregator, MetricsCollector, AlertEngine, SessionReplay, LiveDashboard, TelemetryHTTPHandler, StreamingTelemetryServer, run_demo")
+_safe("from .\u5f55p_lo_s003_v005_d0322_\u8bd1\u6539\u540d\u8e2a_\u03bb\u03c9 import TelemetryLogger")
+_safe("from .\u5fc6p_qm_s010_v004_d0321_\u8e2a\u7a3f\u6790_\u03bb18 import cluster_unsaid_threads, record_query, load_query_memory")
+_safe("from .\u601df_cr_s014_v003_d0321_\u8bd1\u6539\u540d\u8e2a_\u03bb18 import ingest_flush")
+_safe("from .\u601df_cr_s014_v004_d0330_\u8bd1\u6539\u540d\u8e2a_\u03bbF import ingest_flush")
+_safe("from .\u601df_cr_s014_v005_d0331_\u8bd1\u6539\u540d\u8e2a_\u03bbM import ingest_flush")
+_safe("from .\u610fw_is_s034_v002_d0401_\u7f29\u5206\u8bdd_\u03bbC import simulate_intent")
+_safe("from .\u63a2p_ur_s024_v002_d0329_\u8bfb\u5524\u4efb_\u03bbS import reconstruct_if_needed")
+_safe("from .\u63a2p_ur_s024_v003_d0331_\u8bfb\u5524\u4efb_\u03bbI import reconstruct_if_needed")
+_safe("from .\u63a7f_ost_s008_v007_d0322_\u521d\u5199\u8c31\u51c0\u62c6_\u03bb\u03c9 import compute_baselines, classify_state, OperatorStats")
+_safe("from .\u63a7w_ops_s008_v007_d0322_\u518c\u8ffd\u8dd1_\u03bbW import compute_baselines, classify_state, OperatorStats")
+_safe("from .\u63a7w_ops_s008_v008_d0331_\u518c\u8ffd\u8dd1_\u03bbI import compute_baselines, classify_state, OperatorStats")
+_safe("from .\u63a7w_ops_s008_v009_d0328_\u518c\u8ffd\u8dd1_\u03bbR import compute_baselines, classify_state, OperatorStats")
+_safe("from .\u63a7w_ops_s008_v010_d0331_\u518c\u8ffd\u8dd1_\u03bbI import compute_baselines, classify_state, OperatorStats")
+_safe("from .\u63a8w_dp_s017_v005_d0324_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbB import build_task_context, inject_task_context")
+_safe("from .\u63a8w_dp_s017_v005_d0324_\u521d\u5199\u8c31\u51c0\u62c6_\u03bb\u03b4 import build_task_context, inject_task_context")
+_safe("from .\u63a8w_dp_s017_v008_d0329_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbS import build_task_context, inject_task_context")
+_safe("from .\u63a8w_dp_s017_v009_d0331_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbI import build_task_context, inject_task_context")
+_safe("from .\u63a8w_dp_s017_v013_d0403_\u521d\u5199\u8c31\u51c0\u62c6_\u03bbP0_\u03b2oc import build_task_context, inject_task_context")
+_safe("from .\u6865p_rb_s006_v003_d0317_\u8bfb\u5524\u4efb_\u03bb\u03a0 import HesitationAnalyzer")
+_safe("from .\u6d4bp_rwd_s009_v006_d0403_\u8bd1\u6539\u540d\u8e2a_\u03bbP0_\u03b2de import score_rework, score_rework_from_composition, record_rework, load_rework_stats")
+_safe("from .\u6f02p_dw_s005_v004_d0321_\u8e2a\u7a3f\u6790_\u03bb18 import DriftWatcher")
+_safe("from .\u70edp_fhm_s011_v005_d0403_\u8e2a\u7a3f\u6790_\u03bbP0_\u03b2de import update_heat_map, load_heat_map, load_registry_churn")
+_safe("from .\u7247w_sm_s026_v002_d0330_\u7f29\u5206\u8bdd_\u03bbF import read_shard, read_shard_entries, write_shard, append_to_shard, get_shard_summary, detect_contradiction, get_unresolved_contradictions, resolve_contradiction, seed_shards, learn_from_rework, list_shards")
+_safe("from .\u73afw_pc_s025_v002_d0329_\u8bfb\u5524\u4efb_\u03bbS import run_push_cycle")
+_safe("from .\u73afw_pc_s025_v003_d0330_\u8bfb\u5524\u4efb_\u03bb\u03c0 import run_push_cycle")
+_safe("from .\u7814w_rl_s029_v002_d0330_\u8bd1\u6539\u540d\u8e2a_\u03bbL import synthesize_research")
+_safe("from .\u7814w_rl_s029_v003_d0331_\u8bd1\u6539\u540d\u8e2a_\u03bbA import synthesize_research")
+_safe("from .\u7814w_rl_s029_v005_d0401_\u8bd1\u6539\u540d\u8e2a_\u03bbG import synthesize_research")
+_safe("from .\u7ba1w_cpm_s020_v005_d0404_\u7f29\u5206\u8bdd_\u03bbNU_\u03b2oc import inject_prompt_telemetry, inject_auto_index, inject_bug_voices, inject_operator_state, inject_entropy_layers, audit_copilot_prompt, refresh_managed_prompt")
+_safe("from .\u7f16w_gc_s032_v002_d0401_\u8bfb\u5524\u4efb_\u03bbG import GlyphCompiler, compile_to_glyph, compile_and_write")
+_safe("from .\u7f16w_gc_s032_v003_d0401_\u8bfb\u5524\u4efb_\u03bbG import NameCollector, NameTransformer, build_import_graph, GlyphCompilerV2, compile_codebase")
+_safe("from .\u8109p_ph_s015_v004_d0403_\u8bfb\u5524\u4efb_\u03bbP0_\u03b2oc import make_pulse_block, content_hash, read_pulse, clear_pulse, stamp_pulse, inject_pulse, pair_pulse_to_prompt, harvest_all_pulses, inject_all_pulses")
+_safe("from .\u8865p_rwb_s022_v002_d0321_\u7f29\u5206\u8bdd_\u03bb18 import backfill")
+_safe("from .\u89c9w_fc_s019_v002_d0321_\u7f29\u5206\u8bdd_\u03bb18 import build_file_consciousness, build_dating_profiles, slumber_party_audit, save_profiles, load_profiles, consciousness_report")
+_safe("from .\u8b66p_sa_s030_v003_d0402_\u7f29\u5206\u8bdd_\u03bbV import check_staleness, inject_staleness_alert")
+_safe("from .\u8b66p_sa_s030_v005_d0404_\u7f29\u5206\u8bdd_\u03bbNU import check_staleness, inject_staleness_alert")
+_safe("from .\u8badw_trwr_s028_v002_d0330_\u7f29\u5206\u8bdd_\u03bbF import write_training_pair, backfill_rework")
+_safe("from .\u8deff_cxr_s027_v002_d0330_\u7f29\u5206\u8bdd_\u03bbF import score_shard, route_context, format_shard_context")
+_safe("from .\u9012p_sh_s023_v002_d0321_\u7f29\u5206\u8bdd_\u03bb18 import generate")
+_safe("from .\u961fp_tq_s018_v002_d0317_\u7f29\u5206\u8bdd_\u03bbQ import add_task, mark_done, mark_in_progress, build_task_queue_block, inject_task_queue")
+_safe("from .interlinker import assess_module, interlink_module, interlink_scan, generate_self_test, write_self_test, run_self_test, accumulate_shard, build_interlink_report, load_interlink_db")
+_safe("from .interlinker_upgrade import upgrade_test, run_upgrade_cycle, pick_upgrade_candidates")
