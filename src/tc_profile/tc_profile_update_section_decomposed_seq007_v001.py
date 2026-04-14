@@ -13,6 +13,8 @@ import ast
 import re
 import time
 
+from .tc_profile_empty_section_decomposed_seq005_v001 import _empty_section
+
 def update_section(profile: dict, section: str, buffer: str, completion: str,
                    outcome: str, state: str = 'unknown', wpm: float = 0.0,
                    del_ratio: float = 0.0, hesitation: float = 0.0,

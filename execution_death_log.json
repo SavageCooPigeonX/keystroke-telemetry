@@ -1,8 +1,5 @@
 [
-  {
-    "ts": "2026-03-22T22:17:24.983775+00:00",
-    "job_id": "bd093cc6f0",
-    "cause": "exception",
+]
     "severity": "high",
     "node": "plan_parser",
     "score": 0.75,

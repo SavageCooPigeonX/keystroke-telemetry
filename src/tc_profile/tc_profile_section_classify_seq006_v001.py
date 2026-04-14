@@ -10,6 +10,11 @@
 import re
 import time
 
+from .tc_profile_constants_seq001_v001 import _SECTION_SIGNALS
+
+_current_section = 'unknown'
+_section_enter_time = 0.0
+
 def classify_section(buffer: str, state: str = 'unknown',
                      del_ratio: float = 0.0, wpm: float = 0.0,
                      modules_mentioned: list[str] | None = None) -> str:

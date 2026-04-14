@@ -10,6 +10,8 @@
 import re
 import time
 
+_current_section = 'unknown'
+
 def format_intelligence_for_prompt(profile: dict) -> str:
     """Format the intelligence file for injection into the thought completer prompt.
 

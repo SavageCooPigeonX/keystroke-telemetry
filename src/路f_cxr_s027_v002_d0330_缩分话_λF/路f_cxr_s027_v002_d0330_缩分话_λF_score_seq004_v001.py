@@ -12,6 +12,7 @@ from src.片w_sm_s026_v002_d0330_缩分话_λF import (
     SHARD_SCHEMA, read_shard_entries, get_shard_summary, list_shards,
     get_unresolved_contradictions,
 )
+from .路f_cxr_s027_v002_d0330_缩分话_λF_tokenize_seq002_v001 import _tokenize
 import re
 
 def score_shard(query: str, shard_name: str, root: Path) -> float:

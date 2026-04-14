@@ -7,6 +7,18 @@ and that section/grading/tuning respond correctly.
 import sys, json, time
 sys.path.insert(0, '.')
 from pathlib import Path
+import importlib.util
+import types
+
+# Pre-register src as a package to avoid triggering src/__init__.py
+_src_dir = str(Path('src').resolve())
+if 'src' not in sys.modules:
+    _pkg = types.ModuleType('src')
+    _pkg.__path__ = [_src_dir]
+    _pkg.__package__ = 'src'
+    sys.modules['src'] = _pkg
+
+# Now import tc_ modules — they use relative imports within src
 from src.tc_context_agent import select_context_files, build_code_context, _extract_mentions
 from src.tc_profile import (classify_section, update_section, update_profile_from_completion,
                             load_profile, save_profile, _deduce_intelligence,

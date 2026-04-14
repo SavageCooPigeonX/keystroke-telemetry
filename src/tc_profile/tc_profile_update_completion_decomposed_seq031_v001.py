@@ -12,6 +12,11 @@ from datetime import datetime, timezone
 import re
 import time
 
+from .tc_profile_load_save_seq030_v001 import load_profile, save_profile
+from .tc_profile_section_classify_seq006_v001 import classify_section
+from .tc_profile_update_section_decomposed_seq007_v001 import update_section
+from .tc_profile_intelligence_orchestrator_seq024_v001 import _deduce_intelligence
+
 def update_profile_from_completion(buffer: str, completion: str, outcome: str,
                                    context: str = '', repo: str = ''):
     """Incrementally update profile after each completion event."""

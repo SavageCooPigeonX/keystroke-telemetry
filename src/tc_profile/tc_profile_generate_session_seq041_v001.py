@@ -50,7 +50,7 @@ def generate_profile_from_session(prompts: list[dict],
     
     # Write to TC_MANIFEST
     try:
-        from .tc_manifest import update_intent_profile
+        from ..tc_manifest import update_intent_profile
         update_intent_profile(
             name=profile_name,
             trigger=triggers,

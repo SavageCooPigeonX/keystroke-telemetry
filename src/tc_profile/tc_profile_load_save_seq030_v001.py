@@ -12,6 +12,21 @@ import json
 import re
 import time
 
+from .tc_profile_constants_seq001_v001 import PROFILE_PATH
+
+_profile_cache = None
+_profile_ts = 0
+
+def _empty_profile():
+    return {
+        'updated': None,
+        'shards': {
+            'sections': {},
+            'intelligence': {'secrets': [], 'model': {}},
+            'code_style': {},
+        },
+    }
+
 def load_profile() -> dict:
     global _profile_cache, _profile_ts
     now = time.time()

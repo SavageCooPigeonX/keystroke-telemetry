@@ -8,9 +8,9 @@ from datetime import datetime, timezone
 
 from .tc_constants import ROOT, GEMINI_MODEL, GEMINI_TIMEOUT, LOG_PATH, THOUGHT_BUFFER_PATH
 from .tc_context import load_context
-from .tc_context_agent import select_context_files, build_code_context
+from .tc_context_agent import select_context_files, select_context_ensemble, build_code_context
 from .tc_trajectory import build_trajectory, format_trajectory_for_prompt
-from .tc_profile import load_profile, format_profile_for_prompt, update_profile_from_completion, format_intelligence_for_prompt
+from .tc_profile import load_profile, format_profile_for_prompt, update_profile_from_completion, format_intelligence_for_prompt, classify_section
 from .tc_grader import format_grades_for_prompt, compute_adaptive_params
 
 
@@ -301,6 +301,29 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
         if traj_block:
             parts.append(traj_block)
 
+    # ── 1b. COMPOSITION STATE (how they typed, not just what) ──
+    session_msgs = ctx.get('session_messages', [])
+    if session_msgs:
+        comp_parts = []
+        recent = session_msgs[-3:]
+        avg_del = sum(m.get('del_ratio', 0) for m in recent) / max(len(recent), 1)
+        all_deleted = []
+        all_rewrites = []
+        for m in recent:
+            all_deleted.extend(m.get('deleted_words', []))
+            all_rewrites.extend(m.get('rewrites', []))
+        comp_parts.append(f'del_ratio={avg_del:.0%}')
+        if all_deleted:
+            words = [w['word'] if isinstance(w, dict) else str(w) for w in all_deleted[-6:]]
+            comp_parts.append(f'unsaid=[{", ".join(words)}]')
+        if all_rewrites:
+            rw = [str(r)[:40] for r in all_rewrites[-3:]]
+            comp_parts.append(f'rewrites=[{"; ".join(rw)}]')
+        state_seq = [m.get('state', '?') for m in recent]
+        if len(set(state_seq)) > 1:
+            comp_parts.append(f'state_drift=[{" → ".join(state_seq)}]')
+        parts.append('COMPOSITION: ' + ' | '.join(comp_parts))
+
     # ── 2. THOUGHT MEMORY (completion history + banned phrases) ──
     if thought_buffer:
         mem = thought_buffer.format_for_prompt()
@@ -328,6 +351,14 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
     if signals:
         parts.append('SIGNALS: ' + ' | '.join(signals))
 
+    # ── 3b. SECTION CLASSIFICATION (what mode the operator is in) ──
+    try:
+        section = classify_section(buffer)
+        if section and section != 'unknown':
+            parts.append(f'SECTION: {section}')
+    except Exception:
+        pass
+
     # ── 4. ORGANISM + COPILOT FOCUS (what the AI is working on) ──
     if ctx.get('organism_narrative'):
         parts.append(f'ORGANISM: {ctx["organism_narrative"][:200]}')
@@ -338,6 +369,30 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
     intel_block = format_intelligence_for_prompt(load_profile())
     if intel_block:
         parts.append(intel_block)
+
+    # ── 5b. FILE SEMANTIC LAYER (per-file profiles for buffer-relevant modules) ──
+    try:
+        fp_path = ROOT / 'file_profiles.json'
+        if fp_path.exists():
+            profiles = json.loads(fp_path.read_text('utf-8', errors='ignore'))
+            # find modules mentioned in buffer
+            buf_words = set(buffer.lower().split())
+            matched = []
+            for mod, prof in profiles.items():
+                if any(w in mod.lower() for w in buf_words if len(w) > 3):
+                    fears = prof.get('fears', [])
+                    partners = [p['name'] for p in prof.get('partners', [])[:3]]
+                    hes = prof.get('avg_hes', 0)
+                    entry = f'{mod}(hes={hes:.2f})'
+                    if fears:
+                        entry += f' fears=[{", ".join(str(f) for f in fears[:2])}]'
+                    if partners:
+                        entry += f' partners=[{", ".join(partners)}]'
+                    matched.append(entry)
+            if matched:
+                parts.append('FILE PROFILES: ' + ' | '.join(matched[:5]))
+    except Exception:
+        pass
 
     # ── 6. SELF-LEARNING GRADES ──
     grades_block = format_grades_for_prompt()
@@ -384,11 +439,13 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
     ctx_names = []
     if _looks_like_code(buffer):
         code_ctx = build_code_context(buffer, ctx)
-        selected_files = select_context_files(buffer, ctx)
+        selected_files = select_context_ensemble(buffer, ctx)
         ctx_names = [f['name'] for f in selected_files]
         if selected_files:
-            names = ', '.join(f"{f['name']}({f['score']:.1f})" for f in selected_files)
-            print(f'[context-select] {names}')
+            sources = ', '.join(
+                f"{f['name']}({f['score']:.1f}|{'+'  .join(f.get('sources', ['?']))})"
+                for f in selected_files)
+            print(f'[context-select] {sources}')
     user_prompt = _build_user_prompt(buffer, ctx, thought_buffer,
                                      code_ctx=code_ctx, trajectory=trajectory)
     url = (
@@ -435,3 +492,74 @@ def log_completion(entry: dict):
     entry.setdefault('model', GEMINI_MODEL)
     with open(LOG_PATH, 'a', encoding='utf-8') as f:
         f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+    # Write-back: leave notes for the semantic layer
+    _write_completion_notes(entry)
+
+
+def _write_completion_notes(entry: dict):
+    """Write-back from completion to semantic layer.
+
+    Leaves notes in logs/tc_notes.jsonl that downstream systems
+    (file profiles, semantic layer, context agent) can consume.
+    Notes capture: which modules the completion referenced, what intent
+    was amplified, and composition-derived signals.
+    """
+    try:
+        buffer = entry.get('buffer', '')
+        completion = entry.get('completion', '')
+        ctx_files = entry.get('context_files', [])
+        if not completion or not buffer:
+            return
+        note = {
+            'ts': entry.get('ts', datetime.now(timezone.utc).isoformat()),
+            'buffer_preview': buffer[:80],
+            'completion_preview': completion[:120],
+            'context_files': ctx_files,
+            'latency_ms': entry.get('latency_ms', 0),
+        }
+        # Extract module names mentioned in the completion but not in buffer
+        # These are modules the completer thinks are relevant — signal for profile learning
+        import re
+        comp_words = set(re.findall(r'[a-z][a-z0-9_]{4,}', completion.lower()))
+        buf_words = set(re.findall(r'[a-z][a-z0-9_]{4,}', buffer.lower()))
+        novel_refs = comp_words - buf_words
+        # Check against registry for actual module names
+        registry = _load_registry_names()
+        matched_mods = [w for w in novel_refs if w in registry]
+        if matched_mods:
+            note['novel_module_refs'] = matched_mods[:5]
+        notes_path = ROOT / 'logs' / 'tc_notes.jsonl'
+        notes_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(notes_path, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(note, ensure_ascii=False) + '\n')
+    except Exception:
+        pass
+
+
+_registry_names_cache: set[str] = set()
+_registry_names_ts: float = 0
+
+
+def _load_registry_names() -> set[str]:
+    """Cache registry module names for write-back matching."""
+    global _registry_names_cache, _registry_names_ts
+    import time
+    now = time.time()
+    if _registry_names_cache and (now - _registry_names_ts) < 600:
+        return _registry_names_cache
+    try:
+        reg = ROOT / 'pigeon_registry.json'
+        if reg.exists():
+            data = json.loads(reg.read_text('utf-8', errors='ignore'))
+            names = set()
+            for f in data.get('files', []):
+                if isinstance(f, dict):
+                    name = f.get('name', '')
+                    stem = name.split('_seq')[0] if '_seq' in name else name
+                    names.add(stem.lower())
+                    names.add(name.lower())
+            _registry_names_cache = names
+            _registry_names_ts = now
+    except Exception:
+        pass
+    return _registry_names_cache
