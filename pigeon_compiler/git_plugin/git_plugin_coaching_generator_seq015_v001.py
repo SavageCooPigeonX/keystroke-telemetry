@@ -1,0 +1,126 @@
+"""git_plugin_coaching_generator_seq015_v001.py — Auto-extracted by Pigeon Compiler."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 015 | VER: v001 | 118 lines | ~1,229 tokens
+# DESC:   auto_extracted_by_pigeon_compiler
+# INTENT: (none)
+# LAST:   2026-04-14 @ heal
+# SESSIONS: 0
+# ──────────────────────────────────────────────
+from datetime import datetime, timezone
+from pathlib import Path
+import json
+import os
+import re
+
+def _generate_commit_coaching(
+    root: Path,
+    intent: str,
+    renames: list,
+    box_only: list,
+    registry: dict,
+) -> bool:
+    """Synthesize behavioral coaching at commit time using full codebase + operator context.
+
+    Combines changed files, registry churn, operator typing biography, and deep
+    signal stores (rework rate, persistent gaps, file complexity debt) into a
+    single DeepSeek prompt. The resulting prose is written to operator_coaching.md
+    and injected into copilot-instructions.md by _refresh_operator_state().
+    """
+    api_key = os.environ.get('DEEPSEEK_API_KEY', '')
+    if not api_key:
+        return False
+    history = _load_operator_history(root)
+    if not history:
+        return False
+
+    # Load deep signal stores (optional — gracefully absent before first session)
+    rework_stats: dict | None = None
+    query_mem: dict | None = None
+    heat_map: dict | None = None
+    try:
+        rw_path = root / 'rework_log.json'
+        if rw_path.exists():
+            raw = json.loads(rw_path.read_text('utf-8'))
+            # rework_log.json is a plain JSON array
+            entries = raw if isinstance(raw, list) else raw.get('entries', [])
+            total = len(entries)
+            misses = [e for e in entries if e.get('verdict') == 'miss']
+            miss_rate = round(len(misses) / max(total, 1), 3)
+            worst = sorted(misses, key=lambda e: e.get('rework_score', 0), reverse=True)
+            rework_stats = {
+                'miss_rate': miss_rate,
+                'miss_count': len(misses),
+                'total_responses': total,
+                'worst_queries': [e.get('query_text', '')[:60] for e in worst[:3]],
+            }
+    except Exception:
+        pass
+    try:
+        qm_path = root / 'query_memory.json'
+        if qm_path.exists():
+            raw = json.loads(qm_path.read_text('utf-8'))
+            entries = raw.get('entries', []) if isinstance(raw, dict) else []
+            from collections import Counter
+            fp_counts = Counter(e.get('fingerprint', '') for e in entries if e.get('fingerprint'))
+            RECUR = 3
+            gaps = [
+                {'query': next(
+                    (e.get('query_text', '')[:80] for e in entries if e.get('fingerprint') == fp), fp
+                ), 'count': c}
+                for fp, c in fp_counts.most_common(5) if c >= RECUR
+            ]
+            abandons = [
+                e.get('query_text', '')[:80]
+                for e in reversed(entries) if not e.get('submitted', True)
+            ][:5]
+            query_mem = {'persistent_gaps': gaps, 'recent_abandons': abandons}
+    except Exception:
+        pass
+    try:
+        hm_path = root / 'file_heat_map.json'
+        if hm_path.exists():
+            raw = json.loads(hm_path.read_text('utf-8'))
+            # file_heat_map.json is a flat {module_name: {samples,avg_hes,...}} dict
+            modules = {k: v for k, v in raw.items() if isinstance(v, dict)} if isinstance(raw, dict) else {}
+            HIGH_HES = 0.45
+            complex_files = sorted(
+                [
+                    {
+                        'module': name,
+                        'avg_hes': round(v.get('total_hes', 0) / max(v.get('samples', 1), 1), 3),
+                        'avg_wpm': round(v.get('total_wpm', 0) / max(v.get('samples', 1), 1), 1),
+                        'miss_count': v.get('miss_count', 0),
+                        'samples': v.get('samples', 0),
+                    }
+                    for name, v in modules.items()
+                ],
+                key=lambda x: x['avg_hes'], reverse=True
+            )
+            high_hes = [c for c in complex_files if c['avg_hes'] >= HIGH_HES]
+            miss_files = [
+                {'module': c['module'],
+                 'miss_rate': round(c['miss_count'] / max(c['samples'], 1), 2)}
+                for c in complex_files if c['miss_count'] > 0
+            ]
+            heat_map = {'complex_files': high_hes[:6], 'high_miss_files': miss_files[:4]}
+    except Exception:
+        pass
+
+    prompt = _build_commit_coaching_prompt(
+        intent, renames, box_only, registry, history,
+        rework_stats, query_mem, heat_map,
+    )
+    prose = _call_deepseek_sync(prompt, api_key)
+    if not prose:
+        return False
+    today = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+    submitted_count = sum(1 for h in history if h.get('submitted', True))
+    content = (
+        f'<!-- coaching:count={submitted_count} -->\n'
+        f'<!-- Auto-generated by git_plugin at commit · {today} · intent: {intent} -->\n'
+        f'{prose}\n'
+        f'<!-- /coaching -->\n'
+    )
+    (root / 'operator_coaching.md').write_text(content, encoding='utf-8')
+    return True

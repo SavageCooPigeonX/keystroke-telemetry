@@ -41,6 +41,7 @@ EXCLUDE_NAMES = frozenset({
 # .github/  — CI workflow YAML references module paths by exact string
 # vscode-extension/ — entry points invoked directly by the VS Code extension
 # client/ — standalone scripts with __main__ blocks, not importable packages
+# build/ — generated/compressed artifacts, not part of the live codebase
 EXCLUDE_DIR_PATTERNS = frozenset({
     "_llm_tests_put_all_test_and_debug_scripts_here",
     "__pycache__",
@@ -56,6 +57,7 @@ EXCLUDE_DIR_PATTERNS = frozenset({
     "logs",
     "vscode-extension",
     "client",
+    "build",
 })
 
 # Any file whose stem STARTS WITH or CONTAINS these patterns is excluded.
