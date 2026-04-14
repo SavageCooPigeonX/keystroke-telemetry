@@ -1,6 +1,6 @@
 # ORGANISM HEALTH — keystroke-telemetry
 
-*Auto-generated 2026-04-14 10:07 UTC · 3433 Python files tracked · 0 prompts analyzed*
+*Auto-generated 2026-04-14 21:07 UTC · 1512 Python files tracked · 0 prompts analyzed*
 
 **This document is the organism. Every data pipeline that flows through this codebase is measured here. If it's not flowing, it's dying.**
 
@@ -22,37 +22,36 @@
 
 | Pipeline | Entries | Size | Freshness | Role |
 |---|---:|---:|---|---|
-| prompt_journal | ? | 817,794 | 🟢 5m ago | Enriched prompts |
-| chat_compositions | 4310 | 6.3M | 🟢 7m ago | Keystroke compositions |
-| edit_pairs | 112 | 48,993 | 🔴 1d ago | Prompt → file pairings |
-| push_cycles | 19 | 71,646 | 🟡 12h ago | Push cycle reports |
-| os_keystrokes | 177116 | 41.4M | 🟢 9s ago | OS-level keystrokes |
-| keystroke_live | 15524 | 4.5M | 🟢 4m ago | Live keystroke stream |
-| rework_log | 200 | 38,649 | 🟢 4m ago | AI answer quality |
-| file_heat_map | 55 | 8,987 | 🟢 4m ago | Cognitive load per module |
+| prompt_journal | ? | 822,698 | 🟡 1h ago | Enriched prompts |
+| chat_compositions | 4313 | 6.3M | 🟡 1h ago | Keystroke compositions |
+| edit_pairs | 112 | 48,993 | 🔴 2d ago | Prompt → file pairings |
+| push_cycles | 19 | 71,646 | 🟡 23h ago | Push cycle reports |
+| os_keystrokes | 177472 | 41.4M | 🟡 1h ago | OS-level keystrokes |
+| keystroke_live | 15563 | 4.6M | 🟢 46s ago | Live keystroke stream |
+| rework_log | 200 | 38,970 | 🟢 56m ago | AI answer quality |
+| file_heat_map | 55 | 8,990 | 🟢 56m ago | Cognitive load per module |
 | file_profiles | 254 | 223,585 | 🔴 10d ago | Module consciousness |
-| pigeon_registry | 2531 | 1.1M | 🟡 5h ago | Module registry |
-| execution_deaths | ? | 2,630 | 🟡 5h ago | Electron failures |
-| context_veins | 7 | 424,073 | 🟡 7h ago | Vein/clot health |
-| mutation_scores | 6 | 7,780 | 🔴 2d ago | Prompt mutation correlation |
-| task_queue | 32 | 32,819 | 🟢 5m ago | Copilot task queue |
-| push_cycle_state | 6 | 232 | 🟡 12h ago | Push cycle state |
-| reactor_state | 4 | 19,205 | 🟢 4m ago | Reactor state |
+| pigeon_registry | 2531 | 1.1M | 🟡 16h ago | Module registry |
+| execution_deaths | ? | 7 | 🟢 57m ago | Electron failures |
+| context_veins | 7 | 424,073 | 🟡 18h ago | Vein/clot health |
+| mutation_scores | 6 | 7,780 | 🔴 3d ago | Prompt mutation correlation |
+| task_queue | 33 | 33,745 | 🟡 1h ago | Copilot task queue |
+| push_cycle_state | 6 | 232 | 🟡 23h ago | Push cycle state |
+| reactor_state | 4 | 19,446 | 🟢 56m ago | Reactor state |
 
 ---
 
 ## Structure (Module Compliance)
 
-**3433 Python files** across 9 packages · **3175/3433 compliant** (92%) · **258 over cap**
+**1512 Python files** across 8 packages · **1394/1512 compliant** (92%) · **118 over cap**
 
 | Package | Files |
 |---|---:|
-| `build` | 1848 |
-| `src` | 857 |
-| `pigeon_compiler` | 264 |
-| `pigeon_brain` | 231 |
+| `src` | 806 |
+| `pigeon_compiler` | 256 |
+| `pigeon_brain` | 213 |
 | `tests` | 118 |
-| `(root)` | 84 |
+| `(root)` | 88 |
 | `streaming_layer` | 21 |
 | `client` | 8 |
 | `vscode-extension` | 2 |
@@ -63,25 +62,25 @@
 |---|---:|---|
 | `pigeon_compiler/git_plugin.py` | 1612 | 🔴 CRIT |
 | `pigeon_compiler/.git_plugin_decomposed.py` | 1600 | 🔴 CRIT |
-| `src/tc_profile.py` | 1585 | 🔴 CRIT |
-| `src/tc_sim.py` | 1339 | 🔴 CRIT |
 | `src/profile_chat_server.py` | 1280 | 🔴 CRIT |
-| `src/层w_sl_s007_v003_d0317_读唤任_λΠ.py` | 1142 | 🔴 CRIT |
-| `pigeon_compiler/rename_engine/谱建f_mb_s007_v003_d0314_观重箱重拆_λD.py` | 1017 | 🔴 CRIT |
 | `autonomous_dev_stress_test.py` | 999 | 🔴 CRIT |
-| `build/numerical/pigeon_compiler/git_plugin.py` | 987 | 🔴 CRIT |
 | `src/profile_renderer.py` | 925 | 🔴 CRIT |
-| `src/escalation_engine.py` | 908 | 🔴 CRIT |
-| `src/u_pj_s019_v003_d0404_λNU_βoc.py` | 906 | 🔴 CRIT |
 | `vscode-extension/classify_bridge.py` | 877 | 🔴 CRIT |
-| `src/module_identity.py` | 836 | 🔴 CRIT |
-| `build/numerical/src/tc_sim.py` | 817 | 🔴 CRIT |
-| `build/numerical/src/层w_sl_s007_v003_d0317_读唤任_λΠ.py` | 816 | 🔴 CRIT |
-| `build/compressed/src/streaming_layer_seq007_v003_d0317__monolithic_live_streaming_interface_for_lc_pulse_telemetry_prompt.py` | 798 | 🔴 CRIT |
-| `build/numerical/pigeon_compiler/rename_engine/谱建f_mb_s007_v003_d0314_观重箱重拆_λD.py` | 789 | 🔴 CRIT |
-| `build/compressed/pigeon_compiler/rename_engine/manifest_builder_seq007_v003_d0314__generate_living_manifest_md_per_lc_desc_upgrade.py` | 759 | 🔴 CRIT |
 | `client/os_hook.py` | 736 | 🔴 CRIT |
-| ... | +238 more | |
+| `_run_smart_rename.py` | 730 | 🔴 CRIT |
+| `_build_organism_health.py` | 717 | 🔴 CRIT |
+| `client/.chat_composition_analyzer_decomposed.py` | 681 | 🔴 CRIT |
+| `src/环w_pc_s025_v003_d0330_读唤任_λπ.py` | 663 | 🔴 CRIT |
+| `src/entropy_shedding.py` | 650 | 🔴 CRIT |
+| `src/push_baseline.py` | 641 | 🔴 CRIT |
+| `pigeon_brain/flow/算f_ps_s014_v006_d0404_译改名踪_λNU_βoc.py` | 636 | 🔴 CRIT |
+| `client/chat_composition_analyzer.py` | 628 | 🔴 CRIT |
+| `src/intent_reconstructor.py` | 628 | 🔴 CRIT |
+| `src/tc_context_agent.py` | 625 | 🔴 CRIT |
+| `src/file_semantic_layer.py` | 615 | 🔴 CRIT |
+| `src/template_selector.py` | 613 | 🔴 CRIT |
+| `src/思f_cr_s014_v005_d0331_译改名踪_λM.py` | 613 | 🔴 CRIT |
+| ... | +98 more | |
 
 ---
 
@@ -137,47 +136,48 @@
 
 | Module | Avg Hesitation | Avg WPM | Samples | Dominant State |
 |---|---:|---:|---:|---|
-| `query_memory` | 0.000 | 0 | 0 | ? |
-| `ir_loader` | 0.000 | 0 | 0 | ? |
-| `interrogation_room` | 0.000 | 0 | 0 | ? |
-| `intent_simulator` | 0.000 | 0 | 0 | ? |
+| `prompt_enricher` | 0.000 | 0 | 0 | ? |
+| `glyph_compiler` | 0.000 | 0 | 0 | ? |
+| `training_pairs` | 0.000 | 0 | 0 | ? |
+| `narrative_glove` | 0.000 | 0 | 0 | ? |
+| `rework_detector` | 0.000 | 0 | 0 | ? |
+| `虚f_mc` | 0.000 | 0 | 0 | ? |
+| `interlinker_upgrade` | 0.000 | 0 | 0 | ? |
+| `file_consciousness` | 0.000 | 0 | 0 | ? |
+| `prompt_recon` | 0.000 | 0 | 0 | ? |
 | `prompt_journal` | 0.000 | 0 | 0 | ? |
-| `context_router` | 0.000 | 0 | 0 | ? |
-| `探p_ur` | 0.000 | 0 | 0 | ? |
-| `dynamic_prompt` | 0.000 | 0 | 0 | ? |
+| `ir_loader` | 0.000 | 0 | 0 | ? |
+| `numeric_surface` | 0.000 | 0 | 0 | ? |
 | `self_fix` | 0.000 | 0 | 0 | ? |
-| `__init__` | 0.000 | 0 | 0 | ? |
-| `codebase_vitals` | 0.000 | 0 | 0 | ? |
-| `module_identity` | 0.000 | 0 | 0 | ? |
-| `context_budget` | 0.000 | 0 | 0 | ? |
-| `管w_cpm` | 0.000 | 0 | 0 | ? |
-| `unified_signal` | 0.000 | 0 | 0 | ? |
+| `vitals_renderer` | 0.000 | 0 | 0 | ? |
+| `operator_probes` | 0.000 | 0 | 0 | ? |
 
 ---
 
 ## Rework Surface (AI Response Quality)
 
-**200 responses scored** · avg rework score: 0.03
+**200 responses scored** · avg rework score: 0.07
 
 | Verdict | Count | % |
 |---|---:|---:|
-| ok | 196 | 98% |
-| miss | 4 | 2% |
+| ok | 185 | 92% |
+| miss | 13 | 6% |
+| partial | 2 | 1% |
 
 ### Reworked Responses (147)
 
 | Time | Score | Del% | Query Hint |
 |---|---:|---:|---|
-| 10h ago | 0.01 | 2% | bg:review.prompt.md |
-| 7h ago | 0.01 | 2% | bg:review.prompt.md |
-| 7h ago | 0.01 | 2% | bg:review.prompt.md |
-| 7h ago | 0.01 | 2% | bg:review.prompt.md |
-| 6h ago | 0.01 | 2% | bg:review.prompt.md |
-| 6h ago | 0.01 | 2% | bg:review.prompt.md |
-| 6h ago | 0.01 | 2% | bg:review.prompt.md |
-| 6h ago | 0.01 | 2% | bg:MANIFEST.md |
-| 6h ago | 0.36 | 39% | bg:copilot-instructions.md |
-| 6h ago | 0.36 | 39% | bg:copilot-instructions.md |
+| 10h ago | 0.18 | 6% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
+| 10h ago | 0.18 | 6% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
+| 10h ago | 0.18 | 6% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
+| 10h ago | 0.18 | 6% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
+| 1h ago | 0.18 | 6% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
+| 1h ago | 0.18 | 6% | bg:idle |
+| 1h ago | 0.18 | 6% | bg:idle |
+| 1h ago | 0.18 | 6% | bg:idle |
+| 1h ago | 0.35 | 9% | bg:idle |
+| 56m ago | 0.35 | 9% | bg:idle |
 
 ---
 
@@ -195,7 +195,7 @@
 | Last Commit | `beda89cc9fb13dfd4f32cf84bb2b966225efe853` |
 | Last Sync Score | 0.058 |
 | Journal Line | 614 |
-| Updated | 12h ago |
+| Updated | 23h ago |
 
 ---
 
@@ -224,8 +224,8 @@
 | tq-019 | perfect  - i think im ready to focus on what i call an IRT -... | done |
 | tq-020 | aybe not quite yet - hmmm -  how do we have intent reinjecti... | done |
 | tq-021 | can you make sure that website obervatory is launched with v... | done |
-| tq-022 | probably do a push cycle - check if self fix / push narrativ... | pending |
-| tq-023 | okay so based off the intel report i think the thought compl... | pending |
+| tq-022 | probably do a push cycle - check if self fix / push narrativ... | done |
+| tq-023 | okay so based off the intel report i think the thought compl... | done |
 | tq-024 | else is left untill the insane self healing works | pending |
 | tq-025 | ththought completer has two headers where you can close it -... | pending |
 | tq-026 | take all 4 steps - fix thought completer being shit - it nee... | pending |
@@ -235,6 +235,7 @@
 | tq-030 | whats the actual proper way to do this system - we leeep mis... | pending |
 | tq-031 | no no no not even that - i just want to make it so that whil... | pending |
 | tq-032 | resynth my last 28 prompts / check codebase status against m... | pending |
+| tq-033 | retrack my last 12 prompts to resynthesize intent / make imp... | pending |
 
 ---
 

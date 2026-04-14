@@ -78,13 +78,16 @@ def _freshness_icon(iso_ts, stale_hours=24):
 
 def _count_py_files(root):
     """Count .py files by top-level folder, excluding junk."""
-    skip = {"__pycache__", ".venv", "pigeon_code.egg-info", "node_modules", ".git"}
+    skip = {"__pycache__", ".venv", "pigeon_code.egg-info", "node_modules", ".git", "build"}
     counts = Counter()
     total = 0
     for f in root.rglob("*.py"):
         rel = f.relative_to(root)
         parts = rel.parts
         if any(s in parts for s in skip):
+            continue
+        pkg_dir = f.parent / f.stem
+        if pkg_dir.is_dir() and (pkg_dir / "__init__.py").exists():
             continue
         folder = parts[0] if len(parts) > 1 else "(root)"
         counts[folder] += 1
@@ -94,7 +97,7 @@ def _count_py_files(root):
 
 def _compliance_scan(root):
     """Return (compliant, over, details) for all .py files."""
-    skip = {"__pycache__", ".venv", "pigeon_code.egg-info", "node_modules", ".git"}
+    skip = {"__pycache__", ".venv", "pigeon_code.egg-info", "node_modules", ".git", "build"}
     compliant = 0
     over = []
     total = 0
@@ -102,6 +105,12 @@ def _compliance_scan(root):
         rel = f.relative_to(root)
         parts = rel.parts
         if any(s in parts for s in skip):
+            continue
+        # Skip monolith originals — a .py file whose stem matches a sibling
+        # package directory (with __init__.py). Python ignores the .py when
+        # both exist, so counting it is double-counting.
+        pkg_dir = f.parent / f.stem
+        if pkg_dir.is_dir() and (pkg_dir / "__init__.py").exists():
             continue
         total += 1
         try:

@@ -10,6 +10,7 @@
 from datetime import datetime, timezone
 from pathlib import Path
 import json
+from .push_snapshot_constants_seq001_v001 import SNAPSHOT_DIR
 
 def _save_snapshot(root: Path, commit_hash: str, snapshot: dict):
     snap_dir = root / SNAPSHOT_DIR
