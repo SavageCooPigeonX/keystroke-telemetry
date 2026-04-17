@@ -4,23 +4,27 @@ Simulates N edit cycles with synthetic journal entries, edit pairs,
 copilot edits, and rework logs — then verifies capture_training_pair
 and generate_cycle_summary under realistic and adversarial conditions.
 
-Usage:  py test_training_pairs.py
+Usage:  python3 test_training_pairs.py
 """
 import json
-import os
 import random
 import shutil
 import tempfile
 import time
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 # ── Bootstrap ──
 ROOT = Path(__file__).parent.resolve()
 import sys
 from src._resolve import src_import
+
 sys.path.insert(0, str(ROOT))
-capture_training_pair, generate_cycle_summary = src_import("training_pairs_seq027", "capture_training_pair", "generate_cycle_summary")
+capture_training_pair, generate_cycle_summary = src_import(
+    "training_pairs_seq027",
+    "capture_training_pair",
+    "generate_cycle_summary",
+)
 
 INTENTS = ['bugfix', 'refactor', 'exploring', 'feature', 'debug', 'cleanup']
 STATES = ['focused', 'hesitant', 'frustrated', 'flow', 'neutral', 'unknown']

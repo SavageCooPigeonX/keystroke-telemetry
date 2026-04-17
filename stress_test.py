@@ -4,7 +4,7 @@ Simulates multiple typing patterns (focused, hesitant, frustrated, discarded)
 and prints a live dashboard of cognitive metrics alongside the typing transcript.
 
 Usage:
-    py stress_test.py
+    python3 stress_test.py
 """
 
 import time

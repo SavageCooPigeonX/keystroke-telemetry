@@ -5,7 +5,7 @@ test_all.py covers 5 modules (8.2% coverage). This smoke-tests ALL src/ modules:
 2. Do its declared exports exist?
 3. Over-cap files flagged.
 
-Run: py deep_stress_test.py
+Run: python3 deep_stress_test.py
 """
 import ast
 import importlib
@@ -38,9 +38,9 @@ def get_exports(path):
         tree = ast.parse(path.read_text('utf-8'))
     except SyntaxError:
         return [], [], True
-    funcs = [n.name for n in ast.iter_child_nodes(tree) 
+    funcs = [n.name for n in ast.iter_child_nodes(tree)
              if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)) and not n.name.startswith('_')]
-    classes = [n.name for n in ast.iter_child_nodes(tree) 
+    classes = [n.name for n in ast.iter_child_nodes(tree)
                if isinstance(n, ast.ClassDef) and not n.name.startswith('_')]
     return funcs, classes, False
 
