@@ -4,7 +4,7 @@ Simulates N edit cycles with synthetic journal entries, edit pairs,
 copilot edits, and rework logs — then verifies capture_training_pair
 and generate_cycle_summary under realistic and adversarial conditions.
 
-Usage:  python3 test_training_pairs.py
+Usage:  py test_training_pairs.py
 """
 import json
 import random

@@ -5,7 +5,7 @@ test_all.py covers 5 modules (8.2% coverage). This smoke-tests ALL src/ modules:
 2. Do its declared exports exist?
 3. Over-cap files flagged.
 
-Run: python3 deep_stress_test.py
+Run: py deep_stress_test.py
 """
 import ast
 import importlib

@@ -38,7 +38,7 @@ def make_post_events(n_deletes=15, n_reinserts=5):
 
 def run_bridge(payload: dict) -> dict:
     result = subprocess.run(
-        [sys.executable, str(BRIDGE), str(ROOT)],
+        ["py", str(BRIDGE), str(ROOT)],
         input=json.dumps(payload),
         capture_output=True,
         text=True,
@@ -179,4 +179,3 @@ print(f"query_memory  → {qm_total} queries, {len(qm2.get('abandoned_themes',[]
 print(f"file_heat_map → {hm_total} modules tracked")
 print(f"persistent gaps detected: {len(summary.get('persistent_gaps',[]))}")
 print("\nALL DEEP SIGNAL TESTS PASSED ✓")
-

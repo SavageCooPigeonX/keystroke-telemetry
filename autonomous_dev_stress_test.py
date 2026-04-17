@@ -28,9 +28,9 @@ METRICS:
   - max_lines: largest file
 
 Usage:
-    python3 autonomous_dev_stress_test.py
-    python3 autonomous_dev_stress_test.py --rounds 20
-    python3 autonomous_dev_stress_test.py --rounds 10 --seed-size 5
+    py autonomous_dev_stress_test.py
+    py autonomous_dev_stress_test.py --rounds 20
+    py autonomous_dev_stress_test.py --rounds 10 --seed-size 5
 """
 
 import argparse
