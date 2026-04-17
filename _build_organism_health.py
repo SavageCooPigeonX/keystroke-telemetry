@@ -89,6 +89,11 @@ def _count_py_files(root):
         pkg_dir = f.parent / f.stem
         if pkg_dir.is_dir() and (pkg_dir / "__init__.py").exists():
             continue
+        fname = f.name
+        if fname.startswith("_tmp_") or fname.startswith("."):
+            continue
+        if f.parent == root and fname.startswith(("test_", "stress_test", "deep_test", "deep_stress")):
+            continue
         folder = parts[0] if len(parts) > 1 else "(root)"
         counts[folder] += 1
         total += 1
@@ -111,6 +116,12 @@ def _compliance_scan(root):
         # both exist, so counting it is double-counting.
         pkg_dir = f.parent / f.stem
         if pkg_dir.is_dir() and (pkg_dir / "__init__.py").exists():
+            continue
+        # Skip temporary scripts, test harnesses, and compiler artifacts
+        fname = f.name
+        if fname.startswith("_tmp_") or fname.startswith("."):
+            continue
+        if f.parent == root and fname.startswith(("test_", "stress_test", "deep_test", "deep_stress")):
             continue
         total += 1
         try:

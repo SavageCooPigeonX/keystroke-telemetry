@@ -10,6 +10,7 @@
 from pathlib import Path
 import json
 import re
+from .module_identity_constants_seq001_v001 import MEMORY_DIR
 
 def _load_json(path: Path) -> dict | list:
     if not path.exists():

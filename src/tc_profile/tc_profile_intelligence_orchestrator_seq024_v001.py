@@ -1,4 +1,6 @@
-"""tc_profile_intelligence_orchestrator_seq024_v001.py — Auto-extracted by Pigeon Compiler."""
+"""tc_profile_intelligence_orchestrator_seq024_v001.py — Auto-extracted by Pigeon Compiler.
+
+COGNITIVE NOTE (auto-added by reactor): This module triggered 3+ high-load flushes (avg_hes=1.039, state=focused). Consider simplifying its public interface or adding examples."""
 
 # ── pigeon ────────────────────────────────────
 # SEQ: 024 | VER: v001 | 37 lines | ~482 tokens

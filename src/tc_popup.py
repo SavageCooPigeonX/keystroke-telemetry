@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import time
 import threading
+from datetime import datetime, timezone
 
 from .tc_constants import (ROOT, KEYSTROKE_LOG, LOG_PATH, GEMINI_MODEL,
                            POLL_INTERVAL_MS)
@@ -67,6 +68,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
             self._fire_cooldown = 2.0
             self.drag_x = 0
             self.drag_y = 0
+            self.session_started_at = datetime.now(timezone.utc)
 
             self._build_ui()
             self._bind_keys()
@@ -124,16 +126,9 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
             thought_hdr.pack(fill='x')
             thought_hdr.pack_propagate(False)
 
-            self._panel_mode = 'history'
-            self.panel_title = tk.Label(thought_hdr, text='\U0001f4ad thought history',
+            self.panel_title = tk.Label(thought_hdr, text='\U0001f4ad recent completions',
                                         bg=SURFACE, fg=DIM, font=(FONT, 7, 'bold'))
             self.panel_title.pack(side='left', padx=6)
-            self.toggle_btn = tk.Label(thought_hdr, text='\U0001f50d inspector', bg=SURFACE,
-                                       fg=GHOST_C, font=(FONT, 7), cursor='hand2')
-            self.toggle_btn.pack(side='right', padx=6)
-            self.toggle_btn.bind('<Button-1>', lambda e: self._toggle_panel())
-            self.toggle_btn.bind('<Enter>', lambda e: self.toggle_btn.config(fg=ACCENT))
-            self.toggle_btn.bind('<Leave>', lambda e: self.toggle_btn.config(fg=GHOST_C))
 
             self.thought_box = tk.Text(r, bg='#0b0e14', fg=DIM, font=(FONT, 9),
                                        wrap='word', borderwidth=0, highlightthickness=0,
@@ -144,13 +139,6 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
                             ('dismissed', RED), ('ignored', '#484f58'),
                             ('superseded', '#8b949e'), ('outcome_icon', ACCENT)]:
                 self.thought_box.tag_configure(tag, foreground=fg)
-            self.thought_box.tag_configure('topic', foreground=ACCENT, font=(FONT, 8, 'italic'))
-            for tag, fg, extra in [('insp_ts', '#484f58', {}), ('insp_buf', TEXT_C, {}),
-                                   ('insp_comp', GREEN, {'font': (FONT, 8, 'italic')}),
-                                   ('insp_reward', '#f0c040', {'font': (FONT, 8, 'bold')}),
-                                   ('insp_ctx', '#8b949e', {'font': (FONT, 7)}),
-                                   ('insp_sep', '#30363d', {})]:
-                self.thought_box.tag_configure(tag, foreground=fg, **extra)
             self._refresh_thought_history()
 
             ftr = tk.Frame(r, bg=SURFACE, height=18)
@@ -317,15 +305,26 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
             self.text_box.config(state='disabled')
             self.text_box.see('end')
 
+        def _session_history_entries(self):
+            entries = []
+            for entry in self.thought_buffer.entries:
+                raw_ts = entry.get('ts', '')
+                try:
+                    entry_ts = datetime.fromisoformat(raw_ts.replace('Z', '+00:00'))
+                except Exception:
+                    continue
+                if entry_ts.tzinfo is None:
+                    entry_ts = entry_ts.replace(tzinfo=timezone.utc)
+                if entry_ts.astimezone(timezone.utc) >= self.session_started_at:
+                    entries.append(entry)
+            return entries[-8:]
+
         def _refresh_thought_history(self):
-            if self._panel_mode == 'inspector':
-                self._refresh_inspector()
-                return
             self.thought_box.config(state='normal')
             self.thought_box.delete('1.0', 'end')
-            entries = self.thought_buffer.entries[-8:]
+            entries = self._session_history_entries()
             if not entries:
-                self.thought_box.insert('end', '  no thoughts yet \u2014 completions will appear here\n', 'ignored')
+                self.thought_box.insert('end', '  no completions this session yet\n', 'ignored')
             else:
                 for e in entries:
                     outcome = e.get('outcome', '?')
@@ -337,72 +336,8 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
                     self.thought_box.insert('end', ' \u2192 ', 'outcome_icon')
                     self.thought_box.insert('end', e.get('comp', '')[:50], tag)
                     self.thought_box.insert('end', '\n')
-            if self.thought_buffer.topics:
-                self.thought_box.insert('end', '\u2022 ', 'outcome_icon')
-                self.thought_box.insert('end', ', '.join(self.thought_buffer.topics[-3:]), 'topic')
             self.thought_box.config(state='disabled')
             self.thought_box.see('end')
-
-        def _toggle_panel(self):
-            if self._panel_mode == 'history':
-                self._panel_mode = 'inspector'
-                self.panel_title.config(text='\U0001f50d completion inspector')
-                self.toggle_btn.config(text='\U0001f4ad history')
-                self._refresh_inspector()
-            else:
-                self._panel_mode = 'history'
-                self.panel_title.config(text='\U0001f4ad thought history')
-                self.toggle_btn.config(text='\U0001f50d inspector')
-                self._refresh_thought_history()
-
-        def _refresh_inspector(self):
-            self.thought_box.config(state='normal')
-            self.thought_box.delete('1.0', 'end')
-            if not LOG_PATH.exists():
-                self.thought_box.insert('end', '  no completions logged yet\n', 'ignored')
-                self.thought_box.config(state='disabled')
-                return
-            try:
-                lines = LOG_PATH.read_text('utf-8', errors='ignore').strip().splitlines()
-                entries = []
-                for line in lines[-15:]:
-                    try:
-                        entries.append(json.loads(line))
-                    except Exception:
-                        continue
-                if not entries:
-                    self.thought_box.insert('end', '  no completions logged yet\n', 'ignored')
-                    self.thought_box.config(state='disabled')
-                    return
-                for e in reversed(entries[-10:]):
-                    ts = e.get('ts', '?')
-                    if len(ts) > 19:
-                        ts = ts[11:19]
-                    accepted = e.get('accepted', False)
-                    reward = e.get('reward', False)
-                    buf = e.get('buffer', '')[-50:]
-                    comp = e.get('completion', '')[:80]
-                    ctx_name = e.get('context', '?')
-                    repo = e.get('repo', '?')
-                    if reward:
-                        icon, tag = '\u2b50', 'insp_reward'
-                    elif accepted:
-                        icon, tag = '\u2713', 'accepted'
-                    else:
-                        icon, tag = '\u2717', 'dismissed'
-                    self.thought_box.insert('end', f'{ts} ', 'insp_ts')
-                    self.thought_box.insert('end', f'{icon} ', tag)
-                    self.thought_box.insert('end', buf, 'insp_buf')
-                    self.thought_box.insert('end', '\n')
-                    self.thought_box.insert('end', f'  \u2192 {comp}', 'insp_comp')
-                    self.thought_box.insert('end', '\n')
-                    self.thought_box.insert('end', f'  [{ctx_name} \u00b7 {repo}]', 'insp_ctx')
-                    self.thought_box.insert('end', '\n')
-                    self.thought_box.insert('end', '\u2500' * 40 + '\n', 'insp_sep')
-            except Exception as ex:
-                self.thought_box.insert('end', f'  error reading log: {ex}\n', 'dismissed')
-            self.thought_box.config(state='disabled')
-            self.thought_box.see('1.0')
 
         def _request_completion(self, buf):
             self.pause_after_id = None

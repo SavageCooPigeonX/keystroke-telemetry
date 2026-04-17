@@ -33,6 +33,10 @@ def _scan_over_hard_cap(root: Path, registry: dict) -> list[dict]:
         # Skip anything that should never be auto-compiled
         if is_excluded(abs_p):
             continue
+        # Skip monolith originals — package directory with __init__.py exists
+        pkg_dir = abs_p.parent / abs_p.stem
+        if pkg_dir.is_dir() and (pkg_dir / '__init__.py').exists():
+            continue
         # Skip if a compiled subdir already exists (seq base dir with __init__.py)
         import re as _re
         _seq_m = _re.match(r'([\w]+_seq\d+)', abs_p.stem)

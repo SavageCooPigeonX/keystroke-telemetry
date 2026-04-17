@@ -1,4 +1,4 @@
-﻿"""pre_query_engine.py -- Gemini-only thought completion engine.
+"""pre_query_engine.py -- Gemini-only thought completion engine.
 
 Single LLM (Gemini Flash). Reads organism state from semantic filenames +
 structured metadata. Completes thoughts on PAUSE. Sub-2s target.

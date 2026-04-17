@@ -10,6 +10,7 @@
 from pathlib import Path
 import json
 import re
+from .module_identity_utils_seq002_v001 import _load_json
 
 def _load_all_sources(root: Path) -> dict:
     """Load every data source once, return as lookup dict."""

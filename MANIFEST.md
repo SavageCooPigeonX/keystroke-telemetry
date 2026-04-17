@@ -1,6 +1,6 @@
 # ORGANISM HEALTH — keystroke-telemetry
 
-*Auto-generated 2026-04-14 21:07 UTC · 1512 Python files tracked · 0 prompts analyzed*
+*Auto-generated 2026-04-15 01:04 UTC · 1423 Python files tracked · 0 prompts analyzed*
 
 **This document is the organism. Every data pipeline that flows through this codebase is measured here. If it's not flowing, it's dying.**
 
@@ -14,7 +14,7 @@
 | Prompts Analyzed | 0 | — |
 | Session Message | #? | — |
 | Last Active | never (⚫) | — |
-| Reactor Fires | 528 | — |
+| Reactor Fires | 529 | — |
 
 ---
 
@@ -22,54 +22,51 @@
 
 | Pipeline | Entries | Size | Freshness | Role |
 |---|---:|---:|---|---|
-| prompt_journal | ? | 822,698 | 🟡 1h ago | Enriched prompts |
-| chat_compositions | 4313 | 6.3M | 🟡 1h ago | Keystroke compositions |
+| prompt_journal | ? | 835,072 | 🟡 1h ago | Enriched prompts |
+| chat_compositions | 4319 | 6.3M | 🟡 1h ago | Keystroke compositions |
 | edit_pairs | 112 | 48,993 | 🔴 2d ago | Prompt → file pairings |
-| push_cycles | 19 | 71,646 | 🟡 23h ago | Push cycle reports |
-| os_keystrokes | 177472 | 41.4M | 🟡 1h ago | OS-level keystrokes |
-| keystroke_live | 15563 | 4.6M | 🟢 46s ago | Live keystroke stream |
-| rework_log | 200 | 38,970 | 🟢 56m ago | AI answer quality |
-| file_heat_map | 55 | 8,990 | 🟢 56m ago | Cognitive load per module |
+| push_cycles | 19 | 71,646 | 🔴 1d ago | Push cycle reports |
+| os_keystrokes | 177791 | 41.5M | 🟡 1h ago | OS-level keystrokes |
+| keystroke_live | 15594 | 4.6M | 🟢 1m ago | Live keystroke stream |
+| rework_log | 200 | 39,300 | 🟡 1h ago | AI answer quality |
+| file_heat_map | 55 | 8,991 | 🟡 1h ago | Cognitive load per module |
 | file_profiles | 254 | 223,585 | 🔴 10d ago | Module consciousness |
-| pigeon_registry | 2531 | 1.1M | 🟡 16h ago | Module registry |
-| execution_deaths | ? | 7 | 🟢 57m ago | Electron failures |
-| context_veins | 7 | 424,073 | 🟡 18h ago | Vein/clot health |
+| pigeon_registry | 2531 | 1.1M | 🟡 20h ago | Module registry |
+| execution_deaths | 0 | 2 | 🟡 1h ago | Electron failures |
+| context_veins | 7 | 424,073 | 🟡 22h ago | Vein/clot health |
 | mutation_scores | 6 | 7,780 | 🔴 3d ago | Prompt mutation correlation |
-| task_queue | 33 | 33,745 | 🟡 1h ago | Copilot task queue |
-| push_cycle_state | 6 | 232 | 🟡 23h ago | Push cycle state |
-| reactor_state | 4 | 19,446 | 🟢 56m ago | Reactor state |
+| task_queue | 42 | 41,675 | 🟡 1h ago | Copilot task queue |
+| push_cycle_state | 6 | 232 | 🔴 1d ago | Push cycle state |
+| reactor_state | 4 | 19,595 | 🟡 1h ago | Reactor state |
 
 ---
 
 ## Structure (Module Compliance)
 
-**1512 Python files** across 8 packages · **1394/1512 compliant** (92%) · **118 over cap**
+**1423 Python files** across 8 packages · **1314/1423 compliant** (92%) · **109 over cap**
 
 | Package | Files |
 |---|---:|
-| `src` | 806 |
-| `pigeon_compiler` | 256 |
+| `src` | 797 |
+| `pigeon_compiler` | 255 |
 | `pigeon_brain` | 213 |
-| `tests` | 118 |
-| `(root)` | 88 |
+| `tests` | 114 |
 | `streaming_layer` | 21 |
-| `client` | 8 |
+| `(root)` | 14 |
+| `client` | 7 |
 | `vscode-extension` | 2 |
 
 ### Over-Cap Files (>200 lines)
 
 | File | Lines | Severity |
 |---|---:|---|
-| `pigeon_compiler/git_plugin.py` | 1612 | 🔴 CRIT |
-| `pigeon_compiler/.git_plugin_decomposed.py` | 1600 | 🔴 CRIT |
 | `src/profile_chat_server.py` | 1280 | 🔴 CRIT |
 | `autonomous_dev_stress_test.py` | 999 | 🔴 CRIT |
 | `src/profile_renderer.py` | 925 | 🔴 CRIT |
 | `vscode-extension/classify_bridge.py` | 877 | 🔴 CRIT |
 | `client/os_hook.py` | 736 | 🔴 CRIT |
 | `_run_smart_rename.py` | 730 | 🔴 CRIT |
-| `_build_organism_health.py` | 717 | 🔴 CRIT |
-| `client/.chat_composition_analyzer_decomposed.py` | 681 | 🔴 CRIT |
+| `_build_organism_health.py` | 728 | 🔴 CRIT |
 | `src/环w_pc_s025_v003_d0330_读唤任_λπ.py` | 663 | 🔴 CRIT |
 | `src/entropy_shedding.py` | 650 | 🔴 CRIT |
 | `src/push_baseline.py` | 641 | 🔴 CRIT |
@@ -80,7 +77,10 @@
 | `src/file_semantic_layer.py` | 615 | 🔴 CRIT |
 | `src/template_selector.py` | 613 | 🔴 CRIT |
 | `src/思f_cr_s014_v005_d0331_译改名踪_λM.py` | 613 | 🔴 CRIT |
-| ... | +98 more | |
+| `src/研w_rl_s029_v005_d0401_译改名踪_λG.py` | 613 | 🔴 CRIT |
+| `src/bug_demon_hunt.py` | 608 | 🔴 CRIT |
+| `src/tc_intel_report.py` | 601 | 🔴 CRIT |
+| ... | +89 more | |
 
 ---
 
@@ -136,21 +136,21 @@
 
 | Module | Avg Hesitation | Avg WPM | Samples | Dominant State |
 |---|---:|---:|---:|---|
-| `prompt_enricher` | 0.000 | 0 | 0 | ? |
-| `glyph_compiler` | 0.000 | 0 | 0 | ? |
-| `training_pairs` | 0.000 | 0 | 0 | ? |
-| `narrative_glove` | 0.000 | 0 | 0 | ? |
-| `rework_detector` | 0.000 | 0 | 0 | ? |
 | `虚f_mc` | 0.000 | 0 | 0 | ? |
-| `interlinker_upgrade` | 0.000 | 0 | 0 | ? |
-| `file_consciousness` | 0.000 | 0 | 0 | ? |
-| `prompt_recon` | 0.000 | 0 | 0 | ? |
-| `prompt_journal` | 0.000 | 0 | 0 | ? |
-| `ir_loader` | 0.000 | 0 | 0 | ? |
+| `query_memory` | 0.000 | 0 | 0 | ? |
+| `confidence_scorer` | 0.000 | 0 | 0 | ? |
+| `thought_completion` | 0.000 | 0 | 0 | ? |
 | `numeric_surface` | 0.000 | 0 | 0 | ? |
+| `rework_detector` | 0.000 | 0 | 0 | ? |
+| `training_pairs` | 0.000 | 0 | 0 | ? |
+| `context_router` | 0.000 | 0 | 0 | ? |
+| `copilot_prompt_manager` | 0.000 | 0 | 0 | ? |
+| `training_writer` | 0.000 | 0 | 0 | ? |
 | `self_fix` | 0.000 | 0 | 0 | ? |
-| `vitals_renderer` | 0.000 | 0 | 0 | ? |
+| `symbol_dictionary` | 0.000 | 0 | 0 | ? |
 | `operator_probes` | 0.000 | 0 | 0 | ? |
+| `shard_manager` | 0.000 | 0 | 0 | ? |
+| `警p_sa` | 0.000 | 0 | 0 | ? |
 
 ---
 
@@ -160,24 +160,24 @@
 
 | Verdict | Count | % |
 |---|---:|---:|
-| ok | 185 | 92% |
-| miss | 13 | 6% |
-| partial | 2 | 1% |
+| ok | 179 | 90% |
+| miss | 12 | 6% |
+| partial | 9 | 4% |
 
-### Reworked Responses (147)
+### Reworked Responses (138)
 
 | Time | Score | Del% | Query Hint |
 |---|---:|---:|---|
-| 10h ago | 0.18 | 6% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
-| 10h ago | 0.18 | 6% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
-| 10h ago | 0.18 | 6% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
-| 10h ago | 0.18 | 6% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
-| 1h ago | 0.18 | 6% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
-| 1h ago | 0.18 | 6% | bg:idle |
-| 1h ago | 0.18 | 6% | bg:idle |
-| 1h ago | 0.18 | 6% | bg:idle |
-| 1h ago | 0.35 | 9% | bg:idle |
-| 56m ago | 0.35 | 9% | bg:idle |
+| 3h ago | 0.35 | 9% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
+| 3h ago | 0.35 | 9% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
+| 3h ago | 0.35 | 9% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
+| 3h ago | 0.04 | 8% | bg:idle |
+| 3h ago | 0.04 | 8% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
+| 3h ago | 0.04 | 8% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
+| 3h ago | 0.04 | 8% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
+| 3h ago | 0.04 | 8% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
+| 3h ago | 0.04 | 8% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
+| 1h ago | 0.20 | 10% | bg:idle |
 
 ---
 
@@ -195,7 +195,7 @@
 | Last Commit | `beda89cc9fb13dfd4f32cf84bb2b966225efe853` |
 | Last Sync Score | 0.058 |
 | Journal Line | 614 |
-| Updated | 23h ago |
+| Updated | 1d ago |
 
 ---
 
@@ -226,16 +226,25 @@
 | tq-021 | can you make sure that website obervatory is launched with v... | done |
 | tq-022 | probably do a push cycle - check if self fix / push narrativ... | done |
 | tq-023 | okay so based off the intel report i think the thought compl... | done |
-| tq-024 | else is left untill the insane self healing works | pending |
-| tq-025 | ththought completer has two headers where you can close it -... | pending |
-| tq-026 | take all 4 steps - fix thought completer being shit - it nee... | pending |
-| tq-027 | check entropy map accumulation / self execution - i just add... | pending |
-| tq-028 | quick question for you - why do llm matchers go by words not... | pending |
-| tq-029 | bur assuming future operators type less words / steer styste... | pending |
-| tq-030 | whats the actual proper way to do this system - we leeep mis... | pending |
-| tq-031 | no no no not even that - i just want to make it so that whil... | pending |
+| tq-024 | else is left untill the insane self healing works | done |
+| tq-025 | ththought completer has two headers where you can close it -... | done |
+| tq-026 | take all 4 steps - fix thought completer being shit - it nee... | done |
+| tq-027 | check entropy map accumulation / self execution - i just add... | done |
+| tq-028 | quick question for you - why do llm matchers go by words not... | done |
+| tq-029 | bur assuming future operators type less words / steer styste... | done |
+| tq-030 | whats the actual proper way to do this system - we leeep mis... | done |
+| tq-031 | no no no not even that - i just want to make it so that whil... | done |
 | tq-032 | resynth my last 28 prompts / check codebase status against m... | pending |
 | tq-033 | retrack my last 12 prompts to resynthesize intent / make imp... | pending |
+| tq-034 | also seach online. coo coo zap | pending |
+| tq-035 | write new report - novel info only | pending |
+| tq-036 | mehh i still dont blive it works - you models always say it ... | pending |
+| tq-037 | how can we use savagecoopigeonx research on christ is king /... | pending |
+| tq-038 | if you strip all roleplay is there any logic in embedding ch... | pending |
+| tq-039 | didnt we already build out questions?? | pending |
+| tq-040 | make assesment happen on push to measure drift - and include... | pending |
+| tq-041 | you were also gonna say isint working - its not simming my i... | pending |
+| tq-042 | i want to inspect he semantic layer of each file - like ever... | pending |
 
 ---
 

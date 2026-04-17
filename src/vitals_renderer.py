@@ -1,4 +1,4 @@
-﻿"""vitals_renderer.py — Dual-substrate codebase dashboard.
+"""vitals_renderer.py — Dual-substrate codebase dashboard.
 
 Two layers:
   1. Data layer — pure CSS bar charts + inline SVG sparklines (zero JS libs)
@@ -9,6 +9,7 @@ Reads: logs/codebase_vitals.jsonl, pigeon_registry.json, file_heat_map.json,
 """
 
 import json
+import ast
 import re
 from datetime import datetime, timezone
 from html import escape
@@ -17,6 +18,8 @@ from pathlib import Path
 VITALS_LOG = 'logs/codebase_vitals.jsonl'
 OUTPUT = 'build/vitals_dashboard.html'
 HARD_CAP = 200
+SNAPSHOT_PATH = 'logs/push_snapshots/_latest.json'
+_SKIP_DIRS = {'.venv', '__pycache__', '.git', 'node_modules', 'build', '.next'}
 
 
 def _load_vitals(root: Path) -> list[dict]:
@@ -31,6 +34,172 @@ def _load_vitals(root: Path) -> list[dict]:
             except json.JSONDecodeError:
                 pass
     return entries
+
+
+def _load_latest_snapshot(root: Path) -> dict:
+    snap = root / SNAPSHOT_PATH
+    if not snap.exists():
+        return {}
+    try:
+        return json.loads(snap.read_text('utf-8'))
+    except Exception:
+        return {}
+
+
+def _count_lines(path: Path) -> int:
+    try:
+        return len(path.read_text('utf-8', errors='ignore').splitlines())
+    except Exception:
+        return 0
+
+
+def _iter_workspace_py_files(root: Path):
+    for file_path in root.glob('*.py'):
+        yield file_path
+    for rel_dir in ('src', 'pigeon_compiler', 'pigeon_brain', 'streaming_layer', 'client', 'vscode-extension', 'tests'):
+        base = root / rel_dir
+        if not base.exists():
+            continue
+        for file_path in base.rglob('*.py'):
+            if any(part in _SKIP_DIRS for part in file_path.relative_to(root).parts):
+                continue
+            yield file_path
+
+
+def _live_over_cap_stats(root: Path) -> dict:
+    over_files = []
+    for file_path in _iter_workspace_py_files(root):
+        lines = _count_lines(file_path)
+        if lines > HARD_CAP:
+            over_files.append((str(file_path.relative_to(root)), lines))
+    return {
+        'over_cap': len(over_files),
+        'worst_offenders': sorted(over_files, key=lambda item: -item[1])[:10],
+    }
+
+
+def _live_import_health(root: Path) -> dict:
+    broken = 0
+    total = 0
+    for init in (root / 'src').rglob('__init__.py'):
+        if '__pycache__' in str(init):
+            continue
+        total += 1
+        try:
+            code = init.read_text('utf-8', errors='ignore')
+            if code.strip():
+                ast.parse(code)
+        except SyntaxError:
+            broken += 1
+    healthy = total - broken
+    pct = round(healthy / total * 100, 1) if total else 100.0
+    return {'healthy': healthy, 'broken': broken, 'total': total, 'health_pct': pct}
+
+
+def _live_entropy_stats(root: Path) -> dict:
+    entropy_path = root / 'logs' / 'entropy_map.json'
+    if not entropy_path.exists():
+        return {'global_avg': 0, 'high_pct': 0, 'shed_count': 0, 'responses': 0}
+    try:
+        data = json.loads(entropy_path.read_text('utf-8'))
+        return {
+            'global_avg': round(data.get('global_avg_entropy', 0), 4),
+            'high_pct': round(data.get('high_entropy_pct', 0), 1),
+            'shed_count': data.get('shed_blocks_found', 0),
+            'responses': data.get('total_responses', 0),
+        }
+    except Exception:
+        return {'global_avg': 0, 'high_pct': 0, 'shed_count': 0, 'responses': 0}
+
+
+def _live_heat_stats(root: Path) -> dict:
+    heat_path = root / 'file_heat_map.json'
+    if not heat_path.exists():
+        return {'modules_tracked': 0, 'avg_hes': 0, 'hot_count': 0}
+    try:
+        data = json.loads(heat_path.read_text('utf-8'))
+    except Exception:
+        return {'modules_tracked': 0, 'avg_hes': 0, 'hot_count': 0}
+    hes_vals = []
+    for info in data.values():
+        samples = info.get('samples', [])
+        if samples:
+            avg = sum(sample.get('hes', 0) for sample in samples) / len(samples)
+            hes_vals.append(avg)
+    avg_hes = round(sum(hes_vals) / len(hes_vals), 3) if hes_vals else 0
+    hot_count = sum(1 for hes in hes_vals if hes > 0.6)
+    return {'modules_tracked': len(data), 'avg_hes': avg_hes, 'hot_count': hot_count}
+
+
+def _compute_health_score(snapshot: dict) -> float:
+    try:
+        from src.push_snapshot.push_snapshot_health_score_decomposed_seq012_v001 import _compute_health_score as score_fn
+    except Exception:
+        try:
+            from push_snapshot.push_snapshot_health_score_decomposed_seq012_v001 import _compute_health_score as score_fn
+        except Exception:
+            compliance = snapshot.get('modules', {}).get('compliance_pct', 0)
+            total_bugs = snapshot.get('bugs', {}).get('total', 0)
+            total_modules = max(snapshot.get('modules', {}).get('total', 1), 1)
+            bug_ratio = min(total_bugs / total_modules, 1.0)
+            avg_tokens = snapshot.get('file_stats', {}).get('avg_tokens', 500)
+            deaths = snapshot.get('deaths', {}).get('total', 0)
+            sync = snapshot.get('cycle', {}).get('sync_score', 0)
+            probed = snapshot.get('probes', {}).get('modules_probed', 0)
+            avg_hes = snapshot.get('heat', {}).get('avg_hesitation', 0)
+            score = 50.0 + (compliance / 100) * 25 - bug_ratio * 20
+            if avg_tokens <= 500:
+                score += 10
+            elif avg_tokens <= 2000:
+                score += 5
+            elif avg_tokens > 5000:
+                score -= 5
+            score -= min(deaths * 0.5, 5)
+            if sync >= 0.5:
+                score += 10
+            elif sync >= 0.1:
+                score += 8
+            elif sync >= 0.03:
+                score += 5
+            elif sync > 0:
+                score += 3
+            if probed > 10:
+                score += 5
+            elif probed > 0:
+                score += 2
+            if avg_hes > 0.6:
+                score -= 5
+            elif avg_hes > 0.4:
+                score -= 2
+            return round(max(0, min(100, score)), 1)
+    return score_fn(snapshot)
+
+
+def _append_latest(values: list[float], current: float | int | None) -> list[float]:
+    series = list(values)
+    if current is None:
+        return series
+    if not series or series[-1] != current:
+        series.append(current)
+    return series
+
+
+def _bug_summary(by_type: dict) -> str:
+    label_map = {
+        'hardcoded_import': 'hardcoded',
+        'over_hard_cap': 'over-cap',
+        'high_coupling': 'coupling',
+        'dead_export': 'dead export',
+        'query_noise': 'query noise',
+        'other': 'other',
+    }
+    items = [(key, value) for key, value in by_type.items() if value]
+    if not items:
+        return 'no active bug buckets'
+    parts = []
+    for key, value in sorted(items, key=lambda item: -item[1])[:3]:
+        parts.append(f'{value} {label_map.get(key, key.replace("_", " "))}')
+    return ' · '.join(parts)
 
 
 def _fmt_ts(iso: str) -> str:
@@ -275,7 +444,10 @@ def _build_narrative_section(root: Path) -> str:
         except ImportError:
             return '<p class="dim">Module identity engine not available</p>'
 
-    identities = build_identities(root)
+    try:
+        identities = build_identities(root)
+    except Exception as exc:
+        return f'<p class="dim">Module identity engine unavailable: {escape(str(exc))}</p>'
     if not identities:
         return '<p class="dim">No module identities found</p>'
 
@@ -305,6 +477,18 @@ def _build_narrative_section(root: Path) -> str:
             profile_link = f'profiles/{m["name"]}.html'
             todo_count = len(m.get('todos', []))
             rel_count = len(m.get('edges_in', [])) + len(m.get('edges_out', []))
+            # Backstory excerpt — first fragment from push narratives
+            backstory_frags = m.get('backstory', [])
+            backstory_html = (
+                f'<div class="id-backstory">"{backstory_frags[0][:160]}"</div>'
+                if backstory_frags else ''
+            )
+            # Emotion history arc
+            emo_history = m.get('memory', {}).get('emotion_history', [])
+            emo_arc_html = ''
+            if len(emo_history) >= 2:
+                pills = ''.join(f'<span class="emo-pill">{e}</span>' for e in emo_history[-5:])
+                emo_arc_html = f'<div class="id-emo-arc">{pills}</div>'
             cards.append(f'''<div class="identity-card" style="border-left:3px solid {m['emo_color']}">
   <div class="id-header">
     <span class="id-emoji">{m['arch_emoji']}</span>
@@ -313,6 +497,8 @@ def _build_narrative_section(root: Path) -> str:
     <span class="id-emotion" title="{m['emotion']}">{m['emo_emoji']}</span>
   </div>
   <div class="id-voice">"{m['voice']}"</div>
+  {backstory_html}
+  {emo_arc_html}
   <div class="id-tags">
     <span class="tag arch">{m['archetype']}</span>
     <span class="tag emo">{m['emotion']}</span>
@@ -337,32 +523,66 @@ def render_dashboard(root: Path, output: str | None = None) -> Path:
     """Generate the dual-substrate vitals dashboard."""
     root = Path(root)
     vitals = _load_vitals(root)
+    snapshot = _load_latest_snapshot(root)
     out_path = root / (output or OUTPUT)
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
-    if not vitals:
+    if not vitals and not snapshot:
         out_path.write_text('<h1>No vitals data yet</h1>', 'utf-8')
         return out_path
 
-    latest = vitals[-1]
+    latest_vitals = vitals[-1] if vitals else {}
+    live_over_cap = _live_over_cap_stats(root)
+    live_imports = _live_import_health(root)
+    live_entropy = _live_entropy_stats(root)
+    live_heat = _live_heat_stats(root)
+
+    if snapshot:
+        latest_commit = snapshot.get('commit', '?')[:8]
+        latest_msg = snapshot.get('commit_msg') or snapshot.get('intent', '')
+        latest_ts = snapshot.get('ts', '')
+        lc = {
+            'compliant': snapshot.get('modules', {}).get('compliant', 0),
+            'over_cap': snapshot.get('modules', {}).get('over_cap', 0),
+            'total': snapshot.get('modules', {}).get('total', 0),
+            'compliance_pct': snapshot.get('modules', {}).get('compliance_pct', 0),
+        }
+        bug_types = {
+            key: value for key, value in snapshot.get('bugs', {}).items()
+            if key != 'total' and value
+        }
+        lb = {
+            'total': snapshot.get('bugs', {}).get('total', 0),
+            'by_type': bug_types,
+        }
+        tracked_modules = snapshot.get('modules', {}).get('total', 0)
+        avg_tokens = snapshot.get('file_stats', {}).get('avg_tokens', 0)
+        files_over_200 = snapshot.get('file_stats', {}).get('files_over_200', 0)
+        health_score = _compute_health_score(snapshot)
+    else:
+        latest_commit = latest_vitals.get('commit', '?')
+        latest_msg = latest_vitals.get('commit_msg', '')
+        latest_ts = latest_vitals.get('ts', '')
+        lc = latest_vitals.get('compliance', {})
+        lb = latest_vitals.get('bugs', {})
+        tracked_modules = latest_vitals.get('files', {}).get('total', 0)
+        avg_tokens = 0
+        files_over_200 = lc.get('over_cap', 0)
+        health_score = 0
+
+    li = live_imports if live_imports.get('total', 0) else latest_vitals.get('imports', {})
+    le = live_entropy if (live_entropy.get('responses', 0) or live_entropy.get('global_avg', 0)) else latest_vitals.get('entropy', {})
+    lh = live_heat if live_heat.get('modules_tracked', 0) else latest_vitals.get('heat', {})
 
     # Time series extraction
-    compliance_ts = [v.get('compliance', {}).get('compliance_pct', 0) for v in vitals]
-    import_ts = [v.get('imports', {}).get('health_pct', 0) for v in vitals]
-    entropy_ts = [v.get('entropy', {}).get('global_avg', 0) for v in vitals]
-    bug_ts = [v.get('bugs', {}).get('total', 0) for v in vitals]
-    file_ts = [v.get('files', {}).get('total', 0) for v in vitals]
-    over_cap_ts = [v.get('compliance', {}).get('over_cap', 0) for v in vitals]
+    compliance_ts = _append_latest([v.get('compliance', {}).get('compliance_pct', 0) for v in vitals], lc.get('compliance_pct', 0))
+    import_ts = _append_latest([v.get('imports', {}).get('health_pct', 0) for v in vitals], li.get('health_pct', 0))
+    entropy_ts = _append_latest([v.get('entropy', {}).get('global_avg', 0) for v in vitals], le.get('global_avg', 0))
+    bug_ts = _append_latest([v.get('bugs', {}).get('total', 0) for v in vitals], lb.get('total', 0))
+    file_ts = _append_latest([v.get('files', {}).get('total', 0) for v in vitals], tracked_modules)
+    over_cap_ts = _append_latest([v.get('compliance', {}).get('over_cap', 0) for v in vitals], lc.get('over_cap', 0))
 
-    # Latest values
-    lc = latest.get('compliance', {})
-    lb = latest.get('bugs', {})
-    le = latest.get('entropy', {})
-    li = latest.get('imports', {})
-    lh = latest.get('heat', {})
-    lf = latest.get('files', {})
-
-    worst = lc.get('worst_offenders', [])
+    worst = live_over_cap.get('worst_offenders', [])
     worst_rows = '\n'.join(
         f'<tr><td class="mono">{f}</td>'
         f'<td class="num">{n}</td>'
@@ -439,6 +659,9 @@ td{{padding:4px 6px;border-bottom:1px solid var(--border)}}
 .id-meta{{color:var(--dim);font-size:11px;margin-left:auto}}
 .id-emotion{{font-size:16px}}
 .id-voice{{font-style:italic;color:var(--text);font-size:12px;margin:6px 0 4px;padding-left:28px;opacity:0.85}}
+.id-backstory{{font-size:11px;color:var(--dim);padding-left:28px;margin:2px 0 4px;border-left:2px solid var(--border);margin-left:28px;padding-left:8px}}
+.id-emo-arc{{display:flex;gap:4px;align-items:center;padding-left:28px;margin-bottom:4px;flex-wrap:wrap}}
+.emo-pill{{font-size:9px;padding:1px 5px;border-radius:8px;border:1px solid var(--border);color:var(--dim)}}
 .id-tags{{display:flex;flex-wrap:wrap;gap:4px;padding-left:28px}}
 .tag{{font-size:10px;padding:1px 6px;border-radius:10px;border:1px solid var(--border)}}
 .tag.arch{{color:var(--blue)}}
@@ -461,14 +684,19 @@ td{{padding:4px 6px;border-bottom:1px solid var(--border)}}
 <body>
 <h1>Codebase Brain Stats</h1>
 <div class="subtitle">
-  {len(vitals)} snapshots &middot; latest: {latest.get('commit','?')}
-  {(' &mdash; ' + latest.get('commit_msg','')[:60]) if latest.get('commit_msg') else ''}
-  &middot; {_fmt_ts(latest.get('ts',''))}
+    {len(vitals)} snapshots &middot; latest: {latest_commit}
+    {(' &mdash; ' + str(latest_msg)[:60]) if latest_msg else ''}
+    &middot; {_fmt_ts(latest_ts)}
 </div>
 
 <!-- ═══ DATA LAYER ═══ -->
 <h2>Vital Signs</h2>
 <div class="grid">
+    <div class="card">
+        <div class="label">Health Score</div>
+        <div class="val" style="color:{_pct_color(health_score)}">{health_score}/100</div>
+        <div class="sub">latest push snapshot composite</div>
+    </div>
   <div class="card">
     <div class="label">Compliance</div>
     <div class="val" style="color:{_pct_color(lc.get('compliance_pct',0))}">{lc.get('compliance_pct',0)}%</div>
@@ -490,7 +718,7 @@ td{{padding:4px 6px;border-bottom:1px solid var(--border)}}
   <div class="card">
     <div class="label">Bugs</div>
     <div class="val" style="color:{_color_for(lb.get('total',0),(10,50))}">{lb.get('total',0)}</div>
-    <div class="sub">{lb.get('critical',0)} critical</div>
+        <div class="sub">{_bug_summary(bug_types)}</div>
     <div class="spark">{spk_bugs}</div>
   </div>
   <div class="card">
@@ -499,9 +727,9 @@ td{{padding:4px 6px;border-bottom:1px solid var(--border)}}
     <div class="sub">modules w/ hesitation &gt;0.6 &middot; avg={lh.get('avg_hes',0)}</div>
   </div>
   <div class="card">
-    <div class="label">Total Files</div>
-    <div class="val blue">{lf.get('total',0)}</div>
-    <div class="sub">src:{lf.get('src',0)} compiler:{lf.get('pigeon_compiler',0)} brain:{lf.get('pigeon_brain',0)}</div>
+        <div class="label">Tracked Modules</div>
+        <div class="val blue">{tracked_modules}</div>
+        <div class="sub">{lc.get('over_cap',0)} over-cap modules &middot; {files_over_200} files &gt;200 lines &middot; avg {avg_tokens:.0f} tok</div>
     <div class="spark">{spk_files}</div>
   </div>
 </div>
@@ -510,7 +738,7 @@ td{{padding:4px 6px;border-bottom:1px solid var(--border)}}
 
 <div class="row2">
   <div class="box">
-    <h3>Over-Cap Offenders ({lc.get('over_cap',0)} files)</h3>
+        <h3>Longest Live Python Files ({live_over_cap.get('over_cap',0)} files &gt; {HARD_CAP} lines)</h3>
     <table>
       <thead><tr><th>File</th><th class="num">Lines</th><th style="width:40%">Severity</th></tr></thead>
       <tbody>{worst_rows if worst_rows else '<tr><td colspan="3">All compliant</td></tr>'}</tbody>

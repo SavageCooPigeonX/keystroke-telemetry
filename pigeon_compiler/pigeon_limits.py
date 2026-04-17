@@ -78,6 +78,14 @@ EXCLUDE_STEM_PATTERNS = re.compile(
     r"|test_all"
     r"|deep_test"
     r"|test_public"
+    r"|autonomous_dev"
+    r"|_tmp_"
+    r"|_build_"
+    r"|_run_"
+    r"|_fix_"
+    r"|_seed_"
+    r"|_export_"
+    r"|_audit_"
     r")",
     re.IGNORECASE,
 )

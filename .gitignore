@@ -29,6 +29,9 @@ docs/cognitive_patches/
 ext_check.txt
 ext_files.txt
 
+# Master test HMAC key (private — never commit)
+.master_key
+
 # Sensitive docs (contain production project references)
 pigeon_compiler/docs/META_OPTIMIZATION_CHANGELOG.md
 pigeon_compiler/docs/EXTRACTOR_PLAN.md
@@ -55,3 +58,20 @@ pigeon_brain/ui/dist/
 # Egg / build metadata
 *.egg-info/
 dist/
+
+# Operator-personal data (raw prompts / queries / rework text) - kept local only
+task_queue.json
+intent_backlog_resolutions.json
+query_memory.json
+rework_log.json
+
+# Local scratchpad docs (not for public repo)
+CODEBASE_ROAST_UNHINGED.md
+INTENT_SIMULATION_ANALYSIS_3000W.md
+WORK_COMPLETED.md
+
+# One-shot probe/regen scripts (local only)
+_tmp_*.py
+final_verify.py
+regen_*.py
+verify_*.py

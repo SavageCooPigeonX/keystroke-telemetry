@@ -12,6 +12,20 @@ from pathlib import Path
 import ast
 import re
 
+from .module_identity_sources_seq004_v001 import _load_all_sources
+from .module_identity_alias_seq003_v001 import _build_alias_map
+from .module_identity_lookups_seq005_v001 import _build_lookups
+from .module_identity_classify_seq010_v001 import _classify_archetype, _classify_emotion
+from .module_identity_voice_seq011_v001 import _generate_voice
+from .module_identity_backstory_seq006_v001 import _extract_backstory
+from .module_identity_code_seq007_v001.module_identity_code_seq007_v001_wrapper_seq004_v001 import _extract_code_skeleton
+from .module_identity_utils_seq002_v001 import _load_memory, _save_memory
+from .module_identity_probes_seq008_v001 import _generate_probe_questions
+from .module_identity_coaching_seq009_v001 import _generate_self_coaching
+from .module_identity_todo_seq012_v001 import _generate_todo
+from .module_identity_diagnose_seq013_v001 import _diagnose_patterns
+from .module_identity_constants_seq001_v001 import ARCHETYPES, EMOTIONS
+
 def build_identities(root: Path, include_consciousness: bool = False) -> list[dict]:
     """Build full sentient identity profiles for all registered modules.
     
@@ -50,7 +64,20 @@ def build_identities(root: Path, include_consciousness: bool = False) -> list[di
         # Classify
         archetype = _classify_archetype(entry, lk, name)
         emotion = _classify_emotion(entropy_val, hes, len(bugs), ver, len(deaths))
-        voice = _generate_voice(name, archetype, emotion, entry, lk)
+
+        # Memory (load BEFORE voice so voice can reference history arc)
+        memory = _load_memory(root, name)
+
+        # Backstory from push narratives (also needed by voice)
+        backstory = _extract_backstory(root, name)
+
+        # Source code skeleton
+        seq = entry.get('seq', 0)
+        code_skeleton = _extract_code_skeleton(root, path, name, seq)
+
+        # Voice — passes memory + backstory for rich narrative arc
+        voice = _generate_voice(name, archetype, emotion, entry, lk,
+                                memory=memory, backstory=backstory)
 
         # Display label: use archetype label as readable name
         display_name = ARCHETYPES[archetype]['label']
@@ -60,13 +87,6 @@ def build_identities(root: Path, include_consciousness: bool = False) -> list[di
         edges_out = graph.get('edges_out', [])
         partners = profile.get('partners', [])
         fears = profile.get('fears', [])
-
-        # Backstory from push narratives
-        backstory = _extract_backstory(root, name)
-
-        # Source code skeleton
-        seq = entry.get('seq', 0)
-        code_skeleton = _extract_code_skeleton(root, path, name, seq)
 
         # Function-level consciousness (i_am, i_want, i_give, i_fear, i_love)
         consciousness = {}
@@ -85,9 +105,6 @@ def build_identities(root: Path, include_consciousness: bool = False) -> list[di
                     consciousness = build_file_consciousness(fpath)
                 except Exception:
                     pass
-
-        # Memory (load BEFORE probes so probes can learn from history)
-        memory = _load_memory(root, name)
 
         # Probe questions + self-coaching — probes read memory for self-learning
         probes = _generate_probe_questions(name, entry, lk, code_skeleton, memory)

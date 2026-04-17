@@ -1,68 +1,149 @@
-"""push_snapshot_health_score_decomposed_seq012_v001.py — Auto-extracted by Pigeon Compiler."""
+"""push_snapshot_health_score_decomposed_seq012_v001.py — Honest health score.
 
-# ── pigeon ────────────────────────────────────
-# SEQ: 012 | VER: v001 | 60 lines | ~489 tokens
-# DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: (none)
-# LAST:   2026-04-14 @ heal
-# SESSIONS: 0
-# ──────────────────────────────────────────────
+Rebuilt per FIX_PLAN.md §1. Two-phase model:
+  Phase 1: veto gates — any failure caps the score
+  Phase 2: graded components (outcome-based, not activity-based)
+
+Probe bonus deleted (probes are questions not answers).
+Sync-score-low is now a PENALTY not a bonus.
+Master test failure caps score at 50.
+"""
+
+import json
+from pathlib import Path
+
+# ── telemetry:pulse ──
+# EDIT_TS:   2026-04-16T00:00:00Z
+# EDIT_HASH: auto
+# EDIT_WHY:  veto-gated honest health score
+# ── /pulse ──
+
+_ROOT = Path(__file__).resolve().parents[2]
+
+
+def _read_json(path: Path) -> dict | None:
+    if not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def _veto_caps(snapshot: dict) -> list[tuple[str, int]]:
+    """Return list of (reason, cap) pairs. Lowest cap wins."""
+    caps: list[tuple[str, int]] = []
+
+    sync = snapshot.get("cycle", {}).get("sync_score", 0) or 0
+    if sync < 0.1:
+        caps.append(("sync_too_low", 60))
+
+    # Rework rate from canonical source
+    card = _read_json(_ROOT / "logs" / "rework_scorecard.json")
+    if card:
+        rate = float(card.get("rate", 0) or 0)
+        if rate > 0.20:
+            caps.append(("rework_too_high", 60))
+
+    # Chronic bugs
+    chronic = snapshot.get("bugs", {}).get("chronic_count", 0) or 0
+    if chronic >= 3:
+        caps.append(("chronic_bugs", 70))
+
+    # Overcap epidemic — computed live from snapshot or 0
+    overcap_hard = snapshot.get("modules", {}).get("overcap_hard_count", 0) or 0
+    if overcap_hard > 10:
+        caps.append(("overcap_epidemic", 65))
+
+    # Master test veto
+    run = _read_json(_ROOT / "logs" / "master_run.json")
+    if run is None:
+        caps.append(("master_test_missing", 50))
+    elif not run.get("passed", False):
+        caps.append(("master_test_failed", 50))
+    elif not run.get("integrity_ok", False):
+        caps.append(("master_test_integrity_fail", 50))
+
+    return caps
+
+
+def _compliance_component(snapshot: dict) -> float:
+    compliance = snapshot.get("modules", {}).get("compliance_pct", 0) or 0
+    return (compliance / 100) * 20  # max +20
+
+
+def _outcome_component(snapshot: dict) -> float:
+    """Actual fix rate from self_fix_verification.jsonl. Max +15."""
+    log = _ROOT / "logs" / "self_fix_verification.jsonl"
+    if not log.exists():
+        return 0.0
+    lines = [l for l in log.read_text(encoding="utf-8").splitlines() if l.strip()]
+    if not lines:
+        return 0.0
+    recent = lines[-10:]
+    closed_total = touched_total = 0
+    for ln in recent:
+        try:
+            r = json.loads(ln)
+            closed_total += r.get("closed_count", 0)
+            touched_total += r.get("touched_count", 0)
+        except Exception:
+            pass
+    if touched_total == 0:
+        return 0.0
+    return min(closed_total / touched_total, 1.0) * 15
+
+
+def _drift_component(snapshot: dict) -> float:
+    """Prompt↔code sync. Max +10 at sync>=0.5."""
+    sync = snapshot.get("cycle", {}).get("sync_score", 0) or 0
+    return min(sync * 20, 10)
+
+
+def _staleness_component(snapshot: dict) -> float:
+    """Penalty for stale pipelines. Max -10."""
+    hours = snapshot.get("staleness", {}).get("max_hours_since_update", 0) or 0
+    if hours > 48:
+        return 10
+    if hours > 24:
+        return 5
+    return 0
+
+
+def _recurrence_component(snapshot: dict) -> float:
+    """Penalty for chronic bugs surviving >=3 cycles. Max -10."""
+    chronic = snapshot.get("bugs", {}).get("chronic_count", 0) or 0
+    return min(chronic * 2, 10)
+
+
+def _contradiction_component(snapshot: dict) -> float:
+    """Penalty for numeric contradictions across blocks. Max -5."""
+    count = snapshot.get("contradictions", {}).get("count", 0) or 0
+    return min(count, 5)
+
 
 def _compute_health_score(snapshot: dict) -> float:
-    """Compute an overall health score (0-100) from snapshot metrics.
+    """Honest two-phase health score. Score cannot exceed lowest veto cap."""
+    caps = _veto_caps(snapshot)
 
-    Weighted composite — higher = healthier codebase.
-    Token thresholds use ~10 tokens/line ratio for pigeon standard alignment.
-    """
-    score = 50.0  # baseline
+    score = 50.0
+    score += _compliance_component(snapshot)
+    score += _outcome_component(snapshot)
+    score += _drift_component(snapshot)
+    score -= _staleness_component(snapshot)
+    score -= _recurrence_component(snapshot)
+    score -= _contradiction_component(snapshot)
 
-    # Compliance (+25 max)
-    compliance = snapshot.get('modules', {}).get('compliance_pct', 0)
-    score += (compliance / 100) * 25
+    score = max(0.0, min(100.0, score))
+    if caps:
+        cap_value = min(c for _, c in caps)
+        score = min(score, cap_value)
 
-    # Bug penalty (-20 max)
-    total_bugs = snapshot.get('bugs', {}).get('total', 0)
-    total_modules = max(snapshot.get('modules', {}).get('total', 1), 1)
-    bug_ratio = min(total_bugs / total_modules, 1.0)
-    score -= bug_ratio * 20
+    return round(score, 1)
 
-    # File size bonus (+10 max) — reward small files
-    # Token thresholds: 500 ≈ 50 lines (target), 2000 ≈ 200 lines (cap)
-    avg_tokens = snapshot.get('file_stats', {}).get('avg_tokens', 500)
-    if avg_tokens <= 500:
-        score += 10
-    elif avg_tokens <= 2000:
-        score += 5
-    elif avg_tokens > 5000:
-        score -= 5
 
-    # Death penalty (-5 max)
-    deaths = snapshot.get('deaths', {}).get('total', 0)
-    score -= min(deaths * 0.5, 5)
-
-    # Sync bonus (+10 max) — stepped scale for behavioral metric
-    sync = snapshot.get('cycle', {}).get('sync_score', 0)
-    if sync >= 0.5:
-        score += 10
-    elif sync >= 0.1:
-        score += 8
-    elif sync >= 0.03:
-        score += 5
-    elif sync > 0:
-        score += 3
-
-    # Probe engagement bonus (+5 max)
-    probed = snapshot.get('probes', {}).get('modules_probed', 0)
-    if probed > 10:
-        score += 5
-    elif probed > 0:
-        score += 2
-
-    # Heat penalty (-5 max) — high average hesitation = cognitive debt
-    avg_hes = snapshot.get('heat', {}).get('avg_hesitation', 0)
-    if avg_hes > 0.6:
-        score -= 5
-    elif avg_hes > 0.4:
-        score -= 2
-
-    return round(max(0, min(100, score)), 1)
+def compute_health_score_with_caps(snapshot: dict) -> tuple[float, list[tuple[str, int]]]:
+    """Verbose variant — returns (score, applied_caps) for diagnostics."""
+    caps = _veto_caps(snapshot)
+    score = _compute_health_score(snapshot)
+    return score, caps

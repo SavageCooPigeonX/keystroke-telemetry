@@ -9,6 +9,7 @@
 # ──────────────────────────────────────────────
 import ast
 import re
+from .module_identity_alias_seq003_v001 import _build_alias_map
 
 def _build_lookups(sources: dict) -> dict:
     """Pre-process sources into fast lookup dicts keyed by module name."""
