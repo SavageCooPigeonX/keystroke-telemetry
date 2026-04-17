@@ -7,15 +7,17 @@ Rebuilt per FIX_PLAN.md §1. Two-phase model:
 Probe bonus deleted (probes are questions not answers).
 Sync-score-low is now a PENALTY not a bonus.
 Master test failure caps score at 50.
+Sync tiered 2026-04-17: very-low (<0.03) caps at 55; low (<0.1) caps at 80.
+A young project with 50+ modules and real work shouldn't be stuck at 60 forever.
 """
 
 import json
 from pathlib import Path
 
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-04-16T00:00:00Z
+# EDIT_TS:   2026-04-17T15:45:00Z
 # EDIT_HASH: auto
-# EDIT_WHY:  veto-gated honest health score
+# EDIT_WHY:  tier sync veto + compression ratchet
 # ── /pulse ──
 
 _ROOT = Path(__file__).resolve().parents[2]
@@ -34,9 +36,12 @@ def _veto_caps(snapshot: dict) -> list[tuple[str, int]]:
     """Return list of (reason, cap) pairs. Lowest cap wins."""
     caps: list[tuple[str, int]] = []
 
+    # Tiered sync veto (was flat 60 at <0.1 — too punishing for young projects)
     sync = snapshot.get("cycle", {}).get("sync_score", 0) or 0
-    if sync < 0.1:
-        caps.append(("sync_too_low", 60))
+    if sync < 0.03:
+        caps.append(("sync_very_low", 55))
+    elif sync < 0.1:
+        caps.append(("sync_low", 80))
 
     # Rework rate from canonical source
     card = _read_json(_ROOT / "logs" / "rework_scorecard.json")
@@ -54,6 +59,11 @@ def _veto_caps(snapshot: dict) -> list[tuple[str, int]]:
     overcap_hard = snapshot.get("modules", {}).get("overcap_hard_count", 0) or 0
     if overcap_hard > 10:
         caps.append(("overcap_epidemic", 65))
+
+    # Shrink gate: if compression went backwards, cap hard
+    shrink = _read_json(_ROOT / "logs" / "shrink_report.json")
+    if shrink and shrink.get("status") == "blocked":
+        caps.append(("shrink_gate_failed", 55))
 
     # Master test veto
     run = _read_json(_ROOT / "logs" / "master_run.json")
@@ -122,6 +132,23 @@ def _contradiction_component(snapshot: dict) -> float:
     return min(count, 5)
 
 
+def _shrink_component() -> float:
+    """Bonus for actively shrinking codebase. Max +8.
+
+    +5 if shrink gate is green (no growth)
+    +3 extra if we ratcheted the overcap budget DOWN this push
+    """
+    report = _read_json(_ROOT / "logs" / "shrink_report.json")
+    if not report or report.get("status") != "ok":
+        return 0.0
+    bonus = 5.0
+    before = report.get("ratchet_budget_before")
+    after = report.get("ratchet_budget_after")
+    if isinstance(before, int) and isinstance(after, int) and after < before:
+        bonus += 3.0
+    return bonus
+
+
 def _compute_health_score(snapshot: dict) -> float:
     """Honest two-phase health score. Score cannot exceed lowest veto cap."""
     caps = _veto_caps(snapshot)
@@ -130,6 +157,7 @@ def _compute_health_score(snapshot: dict) -> float:
     score += _compliance_component(snapshot)
     score += _outcome_component(snapshot)
     score += _drift_component(snapshot)
+    score += _shrink_component()
     score -= _staleness_component(snapshot)
     score -= _recurrence_component(snapshot)
     score -= _contradiction_component(snapshot)

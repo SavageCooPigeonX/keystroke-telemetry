@@ -10,6 +10,18 @@ from datetime import datetime, timezone
 from pathlib import Path
 from pigeon_compiler.pigeon_limits import is_excluded
 from pigeon_compiler.rename_engine import (
+    load_registry,
+    save_registry,
+    build_pigeon_filename,
+    parse_pigeon_stem,
+    bump_version,
+    build_compressed_filename,
+    mutate_compressed_stem,
+    bug_marker_from_keys,
+    rewrite_all_imports,
+    extract_desc_slug,
+    build_all_manifests,
+)
 from pigeon_compiler.session_logger import log_session, count_sessions
 import ast
 import os

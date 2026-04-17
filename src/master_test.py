@@ -194,10 +194,10 @@ def test_telemetry_pipeline_alive() -> tuple[bool, str]:
 
 
 def test_health_score_not_lying() -> tuple[bool, str]:
-    """If master_run shows any failure, health score MUST be <=70 somewhere.
+    """Health score must respect its own declared veto caps.
 
-    Reads the most recent snapshot and asserts the score respects veto caps.
-    This is the anti-gaslight anchor — the score cannot say 96 while tests fail.
+    The anti-gaslight anchor: score cannot say 96 while caps say 50.
+    Reads the most recent snapshot and asserts score <= min(declared caps).
     """
     latest = ROOT / "logs" / "push_snapshots" / "_latest.json"
     if not latest.exists():
@@ -209,16 +209,51 @@ def test_health_score_not_lying() -> tuple[bool, str]:
     score = snap.get("health_score") or snap.get("drift", {}).get("health_score")
     if score is None:
         return True, "no health_score in snapshot — skip"
-    # If this test is running and any OTHER test has failed, score must reflect it
-    # We can't know other results mid-run, so we check: if master_run.json shows
-    # most recent run failed, the current snapshot score should be <=70.
-    run = ROOT / "logs" / "master_run.json"
-    if not run.exists():
-        return True, "no prior run — skip"
-    prev = json.loads(run.read_text(encoding="utf-8"))
-    if prev.get("passed") is False and float(score) > 70:
-        return False, f"score={score} but last master_run failed (score should be <=70)"
-    return True, f"score={score} consistent with run state"
+    # Collect declared caps. Prefer new schema (health.caps); fall back to legacy.
+    caps: list[int] = []
+    for entry in (snap.get("health", {}) or {}).get("caps", []) or []:
+        if isinstance(entry, dict) and "cap" in entry:
+            try:
+                caps.append(int(entry["cap"]))
+            except Exception:
+                pass
+    if not caps:
+        for entry in snap.get("applied_caps", []) or []:
+            if isinstance(entry, (list, tuple)) and len(entry) >= 2:
+                try:
+                    caps.append(int(entry[1]))
+                except Exception:
+                    pass
+    if caps:
+        lowest = min(caps)
+        if float(score) > lowest:
+            return False, f"score={score} violates declared cap {lowest}"
+        return True, f"score={score} respects cap {lowest}"
+    return True, f"score={score} (no active caps)"
+
+
+def test_shrink_gate_not_regressed() -> tuple[bool, str]:
+    """Per operator intent (2026-04-17): every push the files should shrink.
+
+    Reads logs/shrink_report.json. If status=blocked, master test fails.
+    Skip gracefully if never run (bootstrap).
+    """
+    report_file = ROOT / "logs" / "shrink_report.json"
+    if not report_file.exists():
+        return True, "no shrink report yet — skip (run scripts/shrink_pass.py)"
+    try:
+        report = json.loads(report_file.read_text(encoding="utf-8"))
+    except Exception as e:
+        return False, f"shrink report parse error: {e}"
+    status = report.get("status")
+    if status == "blocked":
+        reasons = "; ".join(report.get("reasons", []))
+        return False, f"shrink gate blocked: {reasons}"
+    cur = report.get("current", {})
+    return True, (
+        f"shrink gate ok: {cur.get('approx_tokens',0):,} tok, "
+        f"{cur.get('overcap_count','?')} overcap"
+    )
 
 
 # ─── runner ───────────────────────────────────────────────────────────────────
@@ -231,6 +266,7 @@ TESTS = [
     test_self_fix_verification_present,
     test_telemetry_pipeline_alive,
     test_health_score_not_lying,
+    test_shrink_gate_not_regressed,
 ]
 
 

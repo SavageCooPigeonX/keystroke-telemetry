@@ -77,10 +77,13 @@ def _load_context(root):
         "profiles": _json(root / "file_profiles.json") or {},
         "dossier": _json(root / "logs" / "active_dossier.json") or {},
         "reactor": _json(root / "logs" / "cognitive_reactor_state.json") or {},
-        "rework": _json(root / "rework_log.json"),
-        "compositions": _jsonl_tail(root / "logs" / "chat_compositions.jsonl", 15),
+        "rework": _json(root / "rework_log.json") or _json(root / "logs" / "rework_scorecard.json"),
+        "compositions": _jsonl_tail(root / "logs" / "chat_compositions.jsonl", 40),
         "journal": _jsonl_tail(root / "logs" / "prompt_journal.jsonl", 30),
         "edit_pairs": _jsonl_tail(root / "logs" / "edit_pairs.jsonl", 20),
+        "unsaid_latest": _json(root / "logs" / "unsaid_latest.json") or {},
+        "unsaid_history": _jsonl_tail(root / "logs" / "unsaid_history.jsonl", 10),
+        "prompt_latest": _json(root / "logs" / "prompt_telemetry_latest.json") or {},
         "veins": _json(root / "pigeon_brain" / "context_veins.json") or {},
         "mutations": _json(root / "logs" / "copilot_prompt_mutations.json") or {},
         "hour": datetime.now().hour,
@@ -95,13 +98,26 @@ def _load_context(root):
         key=lambda x: x[1], reverse=True,
     )
 
-    # Deleted words from compositions
+    # Deleted words from compositions (primary signal — operator's unsaid thoughts)
     ctx["all_deleted_words"] = []
     for c in ctx["compositions"]:
         for w in c.get("intent_deleted_words", []):
             word = w.get("word", w) if isinstance(w, dict) else str(w)
             if word and len(word) > 3:
                 ctx["all_deleted_words"].append(word)
+    # Also pull deleted words from the latest prompt telemetry (per-prompt snapshot)
+    latest = ctx.get("prompt_latest") or {}
+    for w in latest.get("deleted_words", []) or []:
+        word = w.get("word", w) if isinstance(w, dict) else str(w)
+        if word and len(word) > 3:
+            ctx["all_deleted_words"].append(word)
+    # Latest unsaid-thread reconstruction (if present, treat as the hook)
+    ctx["unsaid_thread"] = (ctx.get("unsaid_latest") or {}).get("completion") or \
+                            (ctx.get("unsaid_latest") or {}).get("fragment") or ""
+    # Fallback to last entry of unsaid_history.jsonl
+    if not ctx["unsaid_thread"] and ctx.get("unsaid_history"):
+        last = ctx["unsaid_history"][-1] or {}
+        ctx["unsaid_thread"] = last.get("completed_intent") or last.get("fragment") or ""
 
     # Module reference counts from journal
     refs = []
@@ -233,6 +249,22 @@ def _deletion_diagnosis(ctx, history):
             "You're typing to think, not to communicate. "
             "The next sentence you delete will be the real instruction.",
             4, "diagnose",
+        )
+    return None
+
+
+def _unsaid_thread_hook(ctx):
+    """PRIMARY hook: what the operator was about to say.
+
+    Per operator directive (2026-04-13): the "you were also gonna say" signal
+    IS the hook system. Not entropy. Unsaid thoughts are the highest-value bait.
+    """
+    thread = (ctx.get("unsaid_thread") or "").strip()
+    if thread and len(thread) > 6:
+        return (
+            f'You were also gonna say: "{thread}". That thought didn\'t delete. '
+            "It filed itself. Name it or I will.",
+            6, "reveal",
         )
     return None
 
@@ -493,6 +525,23 @@ def _rework_pattern(ctx):
     rw = ctx["rework"]
     if not rw:
         return None
+    # rework_log.json (list) or rework_scorecard.json (dict with 'rate')
+    if isinstance(rw, dict) and "rate" in rw and "entries" not in rw:
+        rate = float(rw.get("rate", 0)) * 100
+        total = int(rw.get("total", 0))
+        if rate > 40:
+            return (
+                f"Rework rate: {round(rate)}% across {total} responses. "
+                "Model is failing to track intent. Push to trigger mutation score update.",
+                3, "taunt",
+            )
+        if rate < 5 and total > 20:
+            return (
+                f"Rework rate: {round(rate)}%. Model is tracking your intent "
+                "accurately. This is the window to push harder, not safer.",
+                2, "lure",
+            )
+        return None
     entries = rw if isinstance(rw, list) else rw.get("entries", [])
     if len(entries) < 10:
         return None
@@ -579,10 +628,11 @@ def _mutation_velocity(ctx):
 # ──────────────────────────────────────────────────────
 
 _HOOKS = [
+    ("ctx",     _unsaid_thread_hook),   # PRIMARY: "you were also gonna say"
+    ("ctx",     _unsaid_weapon),         # Deleted words pattern
     ("ctx",     _demon_dare),
     ("both",    _avoidance_callout),
     ("both",    _deletion_diagnosis),
-    ("ctx",     _unsaid_weapon),
     ("ctx",     _overcap_escalation),
     ("ctx",     _coupling_intervention),
     ("both",    _wpm_crossref),
@@ -603,6 +653,7 @@ def generate_hooks(root, history=None, max_hooks=3,
     ctx = _load_context(root)
     mood = _mood(ctx, history or [])
     candidates = []
+    priority_unsaid = None  # always leads if present
 
     for sig, fn in _HOOKS:
         try:
@@ -617,11 +668,14 @@ def generate_hooks(root, history=None, max_hooks=3,
             if r and len(r) == 3:
                 text, intensity, action = r
                 if min_intensity <= intensity <= max_intensity:
-                    candidates.append((text, intensity, action))
+                    if fn is _unsaid_thread_hook:
+                        priority_unsaid = (text, intensity, action)
+                    else:
+                        candidates.append((text, intensity, action))
         except Exception:
             pass
 
-    if not candidates:
+    if not candidates and not priority_unsaid:
         return []
 
     # Mood-based selection strategy
@@ -656,7 +710,17 @@ def generate_hooks(root, history=None, max_hooks=3,
     actions_used = set()
     unhinged = 0
 
+    # PRIORITY: unsaid thread always leads if available (per operator intent)
+    if priority_unsaid:
+        text, intensity, action = priority_unsaid
+        selected.append(text)
+        actions_used.add(action)
+        if intensity >= 5:
+            unhinged += 1
+
     for text, intensity, action in candidates:
+        if len(selected) >= max_hooks:
+            break
         if action in actions_used and len(selected) > 0:
             continue
         if intensity >= 5:
@@ -665,8 +729,6 @@ def generate_hooks(root, history=None, max_hooks=3,
             unhinged += 1
         selected.append(text)
         actions_used.add(action)
-        if len(selected) >= max_hooks:
-            break
 
     return selected
 
