@@ -20,34 +20,31 @@ Zero external deps. Five tests cover the core pipeline: pulse telemetry, rework 
 
 ---
 
-## Status (2026-03-30)
+## Status
 
-The organism is online. 448 Python files across 8 packages — 87% pigeon-compliant (389/448). 16 data pipelines flowing. 6280+ messages profiled. Shard memory is live — 7 local markdown shards with contradiction detection, per-shard training pair categorization, and context routing. Prompt enricher switched from DeepSeek to **Gemini 2.5 Flash** (3s end-to-end, 256-token thinking budget). Prediction engine fires on every push — backward pass, phantom electrons, scoring, and auto-injection into the Copilot prompt. 35 push narratives archived in [`docs/DEV_STORY.md`](docs/DEV_STORY.md).
+The organism is online. Shard memory is live — local markdown shards with contradiction detection, per-shard training pair categorization, and context routing. Prompt enricher runs on **Gemini 2.5 Flash** (3s end-to-end, 256-token thinking budget). Prediction engine fires on every push — backward pass, phantom electrons, scoring, and auto-injection into the Copilot prompt. Push narratives archive into [`docs/DEV_STORY.md`](docs/DEV_STORY.md).
 
 | Phase | Status |
 |---|---|
 | Keystroke capture + cognitive state classification | ✅ Live |
 | **Deleted word capture (per-prompt)** | **✅ Live — bound to composition, injected into CoT** |
 | **Predictive debug from prompt history** | **✅ Live — pattern mining: frustration→module, build→debug cycles** |
-| **Organism health — live-injected into Copilot prompt** | **✅ Live — 16 pipelines, clot/stale/death diagnosis** |
+| **Organism health — live-injected into Copilot prompt** | **✅ Live — clot/stale/death diagnosis** |
 | **OS hook auto-journal** | **✅ Live — journal populates on every Enter keystroke** |
-| Post-commit telemetry pipeline (12 injected sections) | ✅ Live |
+| Post-commit telemetry pipeline | ✅ Live |
 | Pigeon Compiler — DeepSeek cut plan + AST bin-packing | ✅ Live |
 | Auto-compile on commit (self_fix triggers `run_clean_split`) | ✅ Live |
-| Codebase auto-refactoring loop (~$0.001 per file) | ✅ Running |
-| **Context veins — import graph health + self-trim** | **✅ Live (137 nodes, 4 clots, 21 arteries)** |
-| **Flow Engine — context-accumulating dataflow** | **✅ Live (6 modules, 3 routing modes, multi-perspective merge)** |
+| Codebase auto-refactoring loop | ✅ Running |
+| **Context veins — import graph health + self-trim** | **✅ Live** |
+| **Flow Engine — context-accumulating dataflow** | **✅ Live (3 routing modes, multi-perspective merge)** |
 | **Pigeon Brain — dual-substrate neural visualizer** | **✅ Live** |
 | **Live execution tracing via sys.settrace** | **✅ Live** |
 | **React graph UI with profiler cards** | **✅ Live** |
-| Compiled packages | `compliance` → 12f, `heal` → 6f, `manifest_builder` → 32f, `nametag` → 9f, **`push_cycle` → 9f**, **`self_fix` → 12f**, **`file_consciousness` → 13f**, **`query_memory` → 7f** |
-| Remaining over-cap targets | 16 files (mostly monoliths + orchestrators) |
 | **Pigeon Code Compilor — standalone open-source tool** | **✅ Released (`pip install pigeon-code-compilor`)** |
-| **Shard Memory — local markdown memory with contradiction detection** | **✅ Live (7 shards, per-shard training pairs, context routing)** |
-| **Gemini 2.5 Flash enricher** | **✅ Live (3s, 256-token thinking cap, replaced DeepSeek)** |
+| **Shard Memory — local markdown memory with contradiction detection** | **✅ Live** |
+| **Gemini 2.5 Flash enricher** | **✅ Live** |
 | **Per-shard training pair categorization** | **✅ Live — each shard self-learns from routed context** |
 | **Push-cycle prediction engine** | **✅ Live — backward pass + phantom electrons + scoring + injection** |
-| **DEV_STORY.md — combined push narratives** | **✅ 35 narratives, 113K chars** |
 | AI response capture | 🟨 Partial — chatSessions sync and custom-panel logging exist, but the quality join is still noisy |
 
 ---
@@ -64,7 +61,7 @@ Seven systems working in concert:
 
 3. **Dynamic Prompt Layer** — task-aware prompt injection into Copilot's chain-of-thought. Reads all live telemetry (operator state, unsaid threads, module heat map, rework surface, prompt mutations, codebase health veins/clots, predictive debug scores, **organism health diagnostics**) and generates context blocks that steer how Copilot reasons. Self-updates on every commit and every prompt.
 
-4. **Pigeon Brain** — dual-substrate execution observation layer. Maps every module in the codebase as a neuron in a graph (**137 nodes, 260 edges**). Tracks where humans hesitate AND where AI agents die. Overlays both heat maps on the same visualization. Real-time `sys.settrace` instrumentation lights up edges and cards as actual function calls flow through the system. **Context veins** score import graph health and flag dead/bloated modules for self-trimming.
+4. **Pigeon Brain** — dual-substrate execution observation layer. Maps every module in the codebase as a neuron in a graph. Tracks where humans hesitate AND where AI agents die. Overlays both heat maps on the same visualization. Real-time `sys.settrace` instrumentation lights up edges and cards as actual function calls flow through the system. **Context veins** score import graph health and flag dead/bloated modules for self-trimming.
 
 5. **Flow Engine** — context-accumulating dataflow through the code graph. A `ContextPacket` starts at any module and routes through dependencies. At each node, modules "wake up" if relevant and contribute intelligence (risks, warnings, fears). Edges amplify or decay signal based on vein health. Three routing modes — **targeted** (dependency chains), **heat** (dual-score hotspots), **failure** (death signals) — can run independently or merge via multi-perspective synthesis. Zero LLM calls — pure graph traversal + pattern matching.
 
@@ -81,21 +78,21 @@ Seven systems working in concert:
 Every data pipeline in this codebase — 16 of them — is monitored as blood flow. When a pipeline goes stale (>24h since last write), it turns red. When a module exceeds 200 lines, it's flagged as over-cap. When an import graph node has no importers and unused exports, it's diagnosed as a clot. When AI responses need heavy rework, the immune system reports it.
 
 The organism health is synthesized from:
-- `logs/prompt_journal.jsonl` — 57 enriched prompts
-- `logs/chat_compositions.jsonl` — 3,913 keystroke compositions
-- `logs/edit_pairs.jsonl` — 52 prompt→file pairings
-- `logs/os_keystrokes.jsonl` — 93K OS-level keystrokes
-- `rework_log.json` — 200 AI response quality scores
-- `file_heat_map.json` — 12 modules with cognitive load profiles
-- `pigeon_brain/context_veins.json` — 137 nodes scored as veins/clots
-- `execution_death_log.json` — 10 electron death events
-- And 8 more state files
+- `logs/prompt_journal.jsonl` — enriched prompts
+- `logs/chat_compositions.jsonl` — keystroke compositions
+- `logs/edit_pairs.jsonl` — prompt→file pairings
+- `logs/os_keystrokes.jsonl` — OS-level keystrokes
+- `rework_log.json` — AI response quality scores
+- `file_heat_map.json` — modules with cognitive load profiles
+- `pigeon_brain/context_veins.json` — nodes scored as veins/clots
+- `execution_death_log.json` — electron death events
+- And more state files
 
 ### Two outputs
 
 1. **`MANIFEST.md`** — full organism health dashboard with Blood Flow tables, Structure compliance, Circulation metrics, Hot Modules, Rework Surface, Prompt Consolidation, Push Cycle status, Death Log. The detailed view.
 
-2. **`<!-- pigeon:organism-health -->`** — compressed ~1.2K char block injected directly into `copilot-instructions.md`. Copilot reads this before every response. Contains only what matters: stale pipelines 🔴, over-cap critical files, clots, circulation score, recent deaths, AI rework rate, and an **organism directive** that steers behavior ("Multiple systems degraded. Prioritize fixing clots before new features.").
+2. **`<!-- pigeon:organism-health -->`** — compressed block injected directly into `copilot-instructions.md`. Copilot reads this before every response. Contains only what matters: stale pipelines 🔴, over-cap critical files, clots, circulation score, recent deaths, AI rework rate, and an **organism directive** that steers behavior ("Multiple systems degraded. Prioritize fixing clots before new features.").
 
 ### Regenerate
 
@@ -116,17 +113,17 @@ Pigeon Brain treats your codebase as a neural network. Every Python module is a 
 
 But here's the part that doesn't exist anywhere else: **it overlays human cognitive heat on the same graph**. The keystroke telemetry system has been profiling which modules make the operator hesitate, delete, abandon, and rework. Pigeon Brain takes that data and combines it with agent execution failures to identify **dual-substrate hotspots** — the modules that are killing both humans and machines simultaneously.
 
-**New (2026-03-24): Context Veins.** The import graph is now scored as a circulatory system. Healthy imports are veins (scored 0–1.0). Dead/bloated modules are clots. The system identifies 4 current clots and 21 critical arteries across 137 nodes. Self-trim recommendations surface automatically in Copilot's context window.
+**New: Context Veins.** The import graph is scored as a circulatory system. Healthy imports are veins (scored 0–1.0). Dead/bloated modules are clots. The system identifies clots and critical arteries across the graph. Self-trim recommendations surface automatically in Copilot's context window.
 
 These are the most important decomposition targets in your entire codebase. No static analyzer finds them. No linter flags them. Only the combination of human typing patterns and machine execution traces can surface them.
 
 ### Architecture
 
 ```
-pigeon_registry.json (211 modules)
+pigeon_registry.json
     │
     ▼
-graph_extractor ─→ graph_cache.json (137 nodes, 260 edges)
+graph_extractor ─→ graph_cache.json
     │
     ├─→ demo_sim (fake electrons)     ─┐
     ├─→ traced_runner (real electrons)  ├─→ execution_logger ─→ exec_events.jsonl
@@ -139,7 +136,7 @@ graph_extractor ─→ graph_cache.json (137 nodes, 260 edges)
             (human hesitation)                      (agent deaths)
                                         │
                                         ▼
-                                  dual_view.json (137 enriched nodes)
+                                  dual_view.json (enriched nodes)
                                         │
                           ┌─────────────┴─────────────────────┐
                           ▼                                   ▼
@@ -148,7 +145,7 @@ graph_extractor ─→ graph_cache.json (137 nodes, 260 edges)
                    edge animation,                    │
                    observer panel)                    ▼
                           ▲                     trace_hook events
-                          └──── live events ────┘ (20 pushes/sec)
+                          └──── live events ────┘
                                         │
                                         ▼
                               ┌── Flow Engine ──┐
@@ -161,13 +158,13 @@ graph_extractor ─→ graph_cache.json (137 nodes, 260 edges)
                               (targeted / heat / failure / multi-perspective)
 ```
 
-### 19 Python Modules (13 core + 6 flow engine)
+### Python Modules (core + flow engine)
 
 | Module | Lines | Role |
 |---|---:|---|
 | `models_seq001` | ~85 | `ExecutionEvent`, `Electron`, `DeathCause` — isomorphic to keystroke models |
 | `execution_logger_seq002` | ~150 | Core agent telemetry logger — stall detection, loop threshold, latency scoring |
-| `graph_extractor_seq003` | ~150 | AST + pigeon_registry → adjacency list with 137 nodes and 260 import edges |
+| `graph_extractor_seq003` | ~150 | AST + pigeon_registry → adjacency list with import edges |
 | `graph_heat_map_seq004` | ~120 | Failure accumulator per node — danger zones, death rates, cause breakdown |
 | `loop_detector_seq005` | ~120 | Recurring path fingerprinting — detects agents stuck in loops |
 | `failure_detector_seq006` | ~130 | Death classification — stale_import (0.9), timeout (0.7), loop (0.65), exception (0.75) |
@@ -185,22 +182,22 @@ graph_extractor ─→ graph_cache.json (137 nodes, 260 edges)
 | **flow/** `task_writer_seq005` | 167 | Terminal node — synthesizes accumulated NodeIntel → enriched Markdown. Multi-perspective merge |
 | **flow/** `vein_transport_seq006` | 120 | Edge effects — amplify strong veins (1.05×), decay weak (0.93×), dead-vein warnings (<0.15) |
 
-### React UI (7 components)
+### React UI
 
 | Component | Role |
 |---|---|
-| `PigeonBrain.jsx` | Main graph — ReactFlow with 137 profiler-card nodes, live edge animation, LIVE indicator |
+| `PigeonBrain.jsx` | Main graph — ReactFlow with profiler-card nodes, live edge animation, LIVE indicator |
 | `NodeNeuron.jsx` | Profiler card per module — name, version, stats grid, heat bars, personality, flash animation on call |
 | `useLiveTrace.js` | WebSocket hook — auto-reconnect, TTL-based node/edge activation (800ms/1.2s), 200-event buffer |
 | `ObserverPanel.jsx` | Right sidebar — stats, live event feed, dual-substrate hotspots, danger zones, full node profile on click |
 | `ElectronLayer.jsx` | Animated dots for flowing electrons |
 | `styles.css` | Dark theme — `#0a0a1a` base, neon green/red/blue accents, `cardFlash` + `feedSlide` + `livePulse` animations |
-| `vite.config.js` | Vite 5.3.5 + React plugin + dual_view.json middleware |
+| `vite.config.js` | Vite + React plugin + dual_view.json middleware |
 
 ### Commands
 
 ```bash
-# Build the cognition graph (137 nodes, 260 edges)
+# Build the cognition graph
 py -m pigeon_brain graph
 
 # Generate dual-substrate view (human heat + agent heat merged)
@@ -270,7 +267,7 @@ A `ContextPacket` starts at an origin module and flows through the graph:
 6. **Terminal synthesis** — `task_writer` produces enriched Markdown: origin context, routed path, accumulated intel, consensus fears
 7. **Multi-perspective** — `--multi` runs all 3 modes from the same origin and merges results, surfacing fears that appear across perspectives
 
-### 6 Modules (927 lines total, 100% pigeon-compliant)
+### Flow Engine Modules
 
 | Module | Lines | Key exports |
 |---|---:|---|
@@ -284,7 +281,7 @@ A `ContextPacket` starts at an origin module and flows through the graph:
 ### Data Sources
 
 The flow engine reads 3 JSON files (all auto-generated by other pigeon_brain modules):
-- `graph_cache.json` — topology (137 nodes, 260 edges)
+- `graph_cache.json` — topology
 - `dual_view.json` — per-node human + agent heat, fears, personality
 - `context_veins.json` — vein/clot health scores, arteries, self-trim targets
 
@@ -321,20 +318,20 @@ This repo is a bet on a different model: **the bottleneck isn't the AI's capabil
 | Capability | Status | Why it matters |
 |---|---|---|
 | **Unsaid thread capture** | ✅ Live | The deleted half of a prompt is now captured **per-prompt** and injected into CoT before Copilot starts. Only system that reads keystrokes before send. |
-| **Per-file cognitive load** | ✅ Live | After 100+ sessions, tells which modules the operator dreads. Technical debt proxy no static analyzer can produce. |
+| **Per-file cognitive load** | ✅ Live | Accumulates module-by-module which files the operator dreads. Technical debt proxy no static analyzer can produce. |
 | **CoT steering from live state** | ✅ Live | Copilot's reasoning changes based on flow/frustrated/hesitant — automatically, on every message. |
 | **Predictive debug** | ✅ Live | Prompt history mines frustration→module patterns and build→debug cycles to predict next struggles. |
 | **Rework → miss rate feedback** | ✅ Live | Heavy deletion after AI response = miss. The AI knows its own failure rate by module. |
 | **Self-narrating codebase** | ✅ Live | Each file generates a first-person account of why it was last changed and what could break it. |
 | **Self-compiling to pigeon spec** | ✅ Live | 200-line cap enforced autonomously. Every commit triggers DeepSeek decomposition. |
-| **Prompt evolution tracking** | ✅ Live | Diff history of how its own AI context prompt has mutated across 48+ commits. |
+| **Prompt evolution tracking** | ✅ Live | Diff history of how its own AI context prompt has mutated across every commit. |
 | **Task queue managed by AI** | ✅ Live | Copilot manages a task backlog seeded from the automated code scanner. |
-| **Context veins (codebase health)** | ✅ Live | Import graph scored as veins/clots. Dead modules flagged. Self-trim recommendations. 137 nodes scored. |
+| **Context veins (codebase health)** | ✅ Live | Import graph scored as veins/clots. Dead modules flagged. Self-trim recommendations. |
 | **Flow Engine (context-accumulating dataflow)** | ✅ Live | Intelligence packets route through the code graph. Nodes wake up, contribute risks. 3 modes + multi-perspective merge. Zero LLM calls. |
-| **Dual-substrate neural visualization** | ✅ Live | Human cognitive load AND AI execution failures on the same graph. 137 neurons profiled. |
-| **Real-time execution tracing** | ✅ Live | `sys.settrace` + WebSocket at 20Hz. Watch your call graph light up as code runs. |
+| **Dual-substrate neural visualization** | ✅ Live | Human cognitive load AND AI execution failures on the same graph. |
+| **Real-time execution tracing** | ✅ Live | `sys.settrace` + WebSocket. Watch your call graph light up as code runs. |
 | **Module profiler cards** | ✅ Live | cProfile-style cards: tokens, lines, calls, deaths, loops, hesitation bars, personality, fears. |
-| **Organism health (live diagnostics)** | ✅ Live | 16 data pipelines monitored for freshness, over-cap/clot detection, AI rework rate, organism directive injected into Copilot prompt. |
+| **Organism health (live diagnostics)** | ✅ Live | Data pipelines monitored for freshness, over-cap/clot detection, AI rework rate, organism directive injected into Copilot prompt. |
 | **OS hook auto-journal** | ✅ Live | Low-level keyboard/mouse/clipboard capture → prompt_journal population with selection context. |
 | **Moon cycle predictions** | ✅ Live | Backward pass + predict + score + inject pipeline. Edit-session-based prediction scoring. |
 
@@ -359,13 +356,13 @@ This repo is a bet on a different model: **the bottleneck isn't the AI's capabil
       │  WPM, deletion%, hesitation, pause patterns
       ▼
  OperatorStats → operator_profile.md
-      │  45+ history entries, state distribution, time-of-day patterns
+      │  state distribution, time-of-day patterns
       ▼
  ─────────────────── POST-COMMIT PIPELINE ──────────────────
  git commit
    1. rename files + bump versions       (pigeon naming convention)
    2. rewrite all imports                (auto-heals after renames)
-   3. rebuild MANIFEST.md files          (17 folders)
+   3. rebuild MANIFEST.md files
    4. prompt_recon_seq016                → prompt_compositions.jsonl
                                          → copilot_prompt_mutations.json
    5. self_fix_seq013                    → docs/self_fix/{hash}.md
@@ -402,7 +399,7 @@ This repo is a bet on a different model: **the bottleneck isn't the AI's capabil
  (human heat)    (agent heat)
       │
       ▼
- dual_view.json (137 neurons, dual_score per node)
+ dual_view.json (dual_score per node)
                                         │
                               ┌── Flow Engine ──┐
                               │ 3 routing modes  │ → enriched Markdown tasks
@@ -424,7 +421,7 @@ TypeScript extension that captures every keystroke in the Copilot chat input:
 - Message submit vs. abandon events
 - Active file context
 
-Flushes to `classify_bridge.py` at configurable intervals. Running live — 110+ session flushes logged.
+Flushes to `classify_bridge.py` at configurable intervals.
 
 ### Cognitive State Classification
 
@@ -557,15 +554,15 @@ These narratives accumulate in `docs/push_narratives/`. They surface **fragile c
 
 On every commit, `inject_task_context()` rewrites the `<!-- pigeon:task-context -->` block in `.github/copilot-instructions.md`. Copilot reads this file before processing every message.
 
-The block contains 11 live sections:
+The block contains live sections:
 
 ```markdown
 ## Live Task Context
 
-*Auto-injected 2026-03-17 05:43 UTC · 62 messages profiled · 8 recent commits*
+*Auto-injected with recent messages profiled + recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `frustrated` (WPM: 102.8 | Del: 28.7% | Hes: 0.659)
+**Cognitive state:** `frustrated`
 
 > **CoT directive:** Operator is frustrated. Think step-by-step but keep output
 > SHORT. Lead with the fix. Skip explanations unless asked.
@@ -575,16 +572,14 @@ The block contains 11 live sections:
 - "uld really be purged"
 
 ### Module Hot Zones
-- `context_budget` (hes=0.778)
-- `push_narrative` (hes=0.778)
+- `context_budget`
+- `push_narrative`
 
 ### AI Rework Surface
-*Miss rate: 100.0% (1 responses)*
-- Failed on: ""
+*Miss rate per module surfaces here*
 
 ### Recent Work
-- `f989307` feat: wire narratives + self-fix + coaching + gaps
-- `1f60b21` feat: dynamic task-context CoT injection
+- Recent commit subjects from `git log`
 
 ### Coaching Directives
 - **Anticipate Context Shifts**
@@ -600,22 +595,22 @@ The block contains 11 live sections:
 - [HIGH] query_noise
 
 ### Persistent Gaps
-- [3x] call deepseek scope verify
+- Items that recur across multiple self_fix reports
 
 ### Prompt Evolution
-*This prompt has mutated 24x (186→434 lines). Features added: auto_index,
+*This prompt mutates over time. Features added: auto_index,
 operator_state, prompt_journal, pulse_blocks, prompt_recon.*
 ```
 
 ### The Second Block: Operator State
 
-A parallel block `<!-- pigeon:operator-state -->` is regenerated by a separate DeepSeek call that synthesizes all 45+ history entries into behavioral instructions:
+A parallel block `<!-- pigeon:operator-state -->` is regenerated by a separate enricher call that synthesizes history entries into behavioral instructions:
 
 ```markdown
-**Dominant: `frustrated`** | Submit: 15% | WPM: 153.5 | Del: 33.3% | Hes: 0.783
+**Dominant: `frustrated`** | behavior notes synthesized from telemetry
 
-- **Pre-Empt Refactoring Pain:** Before suggesting edits to `push_narrative`,
-  `context_budget_scorer`, first summarize their apparent purpose.
+- **Pre-Empt Refactoring Pain:** Before suggesting edits to hot modules,
+  first summarize their apparent purpose.
 - **Counteract Abandonment:** Provide the *next minimal, verifiable step*,
   not the whole solution, to maintain momentum.
 ```
@@ -624,7 +619,7 @@ A parallel block `<!-- pigeon:operator-state -->` is regenerated by a separate D
 
 | Source | What it provides |
 |---|---|
-| `operator_profile.md` (DATA block) | Last 5 cognitive state readings |
+| `operator_profile.md` (DATA block) | Recent cognitive state readings |
 | `logs/prompt_journal.jsonl` | Enriched entry per prompt (cross-refs all below) |
 | `logs/prompt_compositions.jsonl` | Deleted words (unsaid threads) |
 | `file_heat_map.json` | Per-module hesitation + miss counts |
@@ -690,7 +685,7 @@ The self-upgrade loop is therefore partially closed today: inject → capture so
 
 The VS Code extension captures OS-level keystrokes (via UIA/OS hook) and the extension's own keystroke events. `prompt_recon_seq016` reconstructs full prompts from these two streams, including content that was typed and deleted before sending.
 
-Additionally, it tracks how `copilot-instructions.md` itself has evolved across every commit. Current state: **24 mutations, 186 → 434 lines**. Features added per mutation are tracked: `auto_index`, `operator_state`, `prompt_journal`, `pulse_blocks`, `prompt_recon`.
+Additionally, it tracks how `copilot-instructions.md` itself has evolved across every commit. Mutation counts and feature additions (e.g. `auto_index`, `operator_state`, `prompt_journal`, `pulse_blocks`, `prompt_recon`) are surfaced in the injected block.
 
 ---
 
@@ -700,9 +695,9 @@ Every `src/*.py` file contains a pulse block:
 
 ```python
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-03-17T05:40:00Z
+# EDIT_TS:   <ISO-8601 UTC>
 # EDIT_HASH: auto
-# EDIT_WHY:  wire narratives self-fix coaching gaps
+# EDIT_WHY:  short reason for the edit
 # ── /pulse ──
 ```
 
@@ -733,7 +728,7 @@ Output: `logs/prompt_journal.jsonl` — one JSON object per line, append-only.
 
 ```json
 {
-  "ts": "2026-03-18T02:15:00Z",
+  "ts": "<ISO-8601 UTC>",
   "session_n": 49,
   "msg": "continue",
   "intent": "continuing",
@@ -754,8 +749,8 @@ Output: `logs/prompt_journal.jsonl` — one JSON object per line, append-only.
 ```
 keystroke-telemetry/
 ├── .github/
-│   └── copilot-instructions.md           ← auto-updated on every commit (608 lines, 44 mutations)
-├── src/                                  ← core telemetry (34 modules)
+│   └── copilot-instructions.md           ← auto-updated on every commit
+├── src/                                  ← core telemetry
 │   ├── timestamp_utils_seq001*           ← epoch ms utility
 │   ├── models_seq002*                    ← KeyEvent, MessageDraft dataclasses
 │   ├── logger_seq003*                    ← core telemetry logger
@@ -792,7 +787,7 @@ keystroke-telemetry/
 │       ├── adapter_seq001*               ← state → behavior adapter
 │       ├── unsaid_seq002*                ← detects unsaid thoughts
 │       └── drift_seq003*                 ← typing pattern drift
-├── pigeon_brain/                         ← THE NEURAL VISUALIZER (19 modules + React UI)
+├── pigeon_brain/                         ← THE NEURAL VISUALIZER (Python modules + React UI)
 │   ├── models_seq001*                    ← ExecutionEvent, Electron, DeathCause
 │   ├── execution_logger_seq002*          ← agent telemetry logger — stalls, loops, latency
 │   ├── graph_extractor_seq003*           ← registry → 137-node adjacency graph
@@ -818,24 +813,24 @@ keystroke-telemetry/
 │   ├── graph_cache.json                  ← graph topology cache
 │   └── ui/                               ← React + @xyflow/react
 │       ├── src/
-│       │   ├── PigeonBrain.jsx           ← main graph — 125 profiler cards, live edges, LIVE indicator
+│       │   ├── PigeonBrain.jsx           ← main graph — profiler cards, live edges, LIVE indicator
 │       │   ├── NodeNeuron.jsx            ← profiler card — stats grid, heat bars, personality, flash
 │       │   ├── ObserverPanel.jsx         ← sidebar — live event feed, dual-substrate hotspots
 │       │   ├── ElectronLayer.jsx         ← animated electron dots
 │       │   ├── useLiveTrace.js           ← WebSocket hook — auto-reconnect, TTL activation
 │       │   ├── styles.css                ← dark theme, neon accents, cardFlash/feedSlide/livePulse
 │       │   └── main.jsx                  ← entry point
-│       ├── vite.config.js                ← Vite 5.3.5 + dual_view.json middleware
-│       └── package.json                  ← react 18.3.1, @xyflow/react 12.0.0
-├── streaming_layer/                      ← compiled package (19 files, 100% compliant)
-├── pigeon_compiler/                      ← the compiler (~62 modules)
-│   ├── git_plugin.py                     ← post-commit orchestrator (1038 lines)
+│       ├── vite.config.js                ← Vite + dual_view.json middleware
+│       └── package.json                  ← React + @xyflow/react
+├── streaming_layer/                      ← compiled package
+├── pigeon_compiler/                      ← the compiler
+│   ├── git_plugin.py                     ← post-commit orchestrator
 │   ├── pigeon_limits.py                  ← compliance thresholds + exclusion logic
 │   ├── rename_engine/                    ← file renames + import rewriting
-│   │   ├── compliance_seq008/            ← compiled package (7 files) ✅
-│   │   ├── heal_seq009/                  ← compiled package (6 files) ✅
-│   │   ├── manifest_builder_seq007/      ← compiled package (32 files) ✅
-│   │   ├── nametag_seq011/               ← compiled package (9 files) ✅
+│   │   ├── compliance_seq008/            ← compiled package ✅
+│   │   ├── heal_seq009/                  ← compiled package ✅
+│   │   ├── manifest_builder_seq007/      ← compiled package ✅
+│   │   ├── nametag_seq011/               ← compiled package ✅
 │   │   └── registry_seq012/              ← compiled package ✅
 │   ├── cut_executor/                     ← file slicing + bin-packing
 │   ├── state_extractor/                  ← AST + call graph analysis
@@ -850,8 +845,8 @@ keystroke-telemetry/
 │   ├── prompt_journal.jsonl              ← enriched journal (cross-refs all telemetry per prompt)
 │   ├── chat_compositions.jsonl           ← keystroke compositions + deleted words + cognitive state
 │   ├── copilot_prompt_mutations.json     ← prompt file evolution snapshots
-│   ├── ai_responses.jsonl                ← (planned) Copilot response text + rework triples
-│   └── shards/                           ← local markdown memory shards (7 + contradictions)
+│   ├── ai_responses.jsonl                ← (partial) Copilot response text + rework triples
+│   └── shards/                           ← local markdown memory shards + contradictions
 │       ├── architecture_decisions.md
 │       ├── module_pain_points.md
 │       ├── module_relationships.md
@@ -866,12 +861,12 @@ keystroke-telemetry/
 ├── rework_log.json                       ← AI response quality log
 ├── query_memory.json                     ← recurring query fingerprints
 ├── task_queue.json                       ← Copilot-managed task queue (auto-seeded from self-fix)
-├── pigeon_registry.json                  ← all module versions + token history (211 modules)
+├── pigeon_registry.json                  ← all module versions + token history
 ├── MANIFEST.md                           ← living organism health dashboard (auto-generated)
 ├── MASTER_MANIFEST.md                    ← full project reference
 ├── CHANGELOG.md                          ← patch notes
-├── tests/archive/                        ← 8 archived test scripts
-└── test_all.py                           ← 5 core tests (always run before commit)
+├── tests/archive/                        ← archived test scripts
+└── test_all.py                           ← core tests (always run before commit)
 ```
 
 ---
@@ -915,7 +910,7 @@ npm install
 
 # ── Pigeon Brain ──
 pip install websockets                    # for live trace server
-py -m pigeon_brain graph                  # build cognition graph (137 nodes, 260 edges)
+py -m pigeon_brain graph                  # build cognition graph
 py -m pigeon_brain dual                   # generate dual-substrate view
 cd pigeon_brain/ui && npm install         # install React UI deps
 npm run dev                               # → http://localhost:3333
@@ -960,56 +955,19 @@ mod = importlib.import_module(f.replace('/', '.').rstrip('.py'))
 
 ---
 
-## Audit Snapshot (2026-03-31)
+## Product Direction
 
-This is the honest repo state after the March 31 audit. The system is real and unusually deep, but it is not uniformly mature: the telemetry/data plane is strong, the adaptation loop is partial, and the autonomous code-modification story is still mostly instrumentation plus safety rails.
+This repo contains three product surfaces:
 
-### Verified Working
-
-| Area | Evidence |
-|---|---|
-| Core telemetry and logger | `test_all.py` passes 5/5, including pulse harvest and edit-pair tests. |
-| Prompt/context injection | `copilot-instructions.md` is being regenerated with operator state, task context, organism health, and mutation effectiveness. |
-| Composition analysis | Deleted words, rewrites, hesitation windows, and prompt journal entries are continuously landing in logs. |
-| Rework loop | `rework_log.json` has 200 scored responses and `classify_bridge.py` now feeds shard learning plus mutation scoring on real submits. |
-| Shard memory | 10 active shards, training pairs on disk, contradiction tracking, and routed context are live. |
-| Pigeon compiler + rename engine | Versioned renames, import rewriting, manifest rebuilds, and compile passes are still operating across the repo. |
-| Pigeon Brain / organism health | Graph extraction, veins/clots, observer reports, and injected health summaries are live. |
-| Research synthesis | [docs/RESEARCH_LOG.md](docs/RESEARCH_LOG.md) regenerates from live telemetry and now includes pair dynamics. |
-
-### Partial Or Weak
-
-| Area | Current reality | Why it matters |
-|---|---|---|
-| Cognitive reactor | Fires are logged and safety gating exists, but patch acceptance is still 0%. | The self-modifying loop is not yet proving value in production. |
-| Mutation scorer | Runs per-prompt, but all tracked sections are still scoring neutral. | Prompt evolution is being measured without a strong optimization signal yet. |
-| Rework scoring | Verdict distribution is useful, but raw rework scores still look placeholder-heavy. | Hard to optimize prompt mutations confidently. |
-| Edit-pair analytics | Pairings exist, but raw latencies contain negative and multi-day values. | Naive averages mislead; filtered medians are more trustworthy. |
-| Prompt freshness | Better than commit-only, but parts of the synthesis loop are still slow or stale. | The system remembers more than it can act on immediately. |
-
-### Needs Attention Now
-
-| Priority | Issue | Current evidence |
-|---|---|---|
-| P0 | AI response capture quality | Response capture exists, but the canonical join is still fragile and parts of the loop can silently drift after renames. |
-| P0 | Structural debt | Latest self-fix report shows 24 issues, including 14 over-hard-cap files. |
-| P1 | Documentation truthfulness | Generated and hand-written docs drift from the actual shipped/partial state unless re-audited. |
-| P1 | Diagnostics noise | Workspace diagnostics are noisy because optional Windows dependencies and adjacent package imports are mixed into the signal. |
-| P2 | Scanner freshness | Self-fix still reports some dead exports that are already wired or renamed in newer module versions. |
-
-### Product Direction
-
-This repo already contains three product surfaces, but only one should be the near-term wedge.
-
-1. Operator-aware coding runtime. This is the strongest product today: a Windows/VS Code layer that captures typing, deletions, hesitation, rework, and active-file context, then steers the assistant in real time.
-2. Pigeon compiler and rename engine. This is already separable and sellable as code-structure infrastructure.
-3. Codebase nervous system. Pigeon Brain, flow routing, organism health, and safe self-fix are the long-term moat, but they still need a tighter product story before they become the wedge.
+1. Operator-aware coding runtime. A Windows/VS Code layer that captures typing, deletions, hesitation, rework, and active-file context, then steers the assistant in real time.
+2. Pigeon compiler and rename engine. Separable code-structure infrastructure.
+3. Codebase nervous system. Pigeon Brain, flow routing, organism health, and safe self-fix.
 
 ### Are We Actually Close To Something Novel?
 
 Yes, but not because any single subsystem is unprecedented on its own.
 
-Telemetry is not novel by itself. Prompt injection is not novel by itself. Code splitting, rename engines, graph UIs, and self-fix scanners are not novel by themselves either. The novelty is the closed loop the repo is getting close to completing:
+Telemetry is not novel by itself. Prompt injection is not novel by itself. Code splitting, rename engines, graph UIs, and self-fix scanners are not novel by themselves either. The novelty is the closed loop:
 
 1. Read operator state from raw typing before the prompt is even submitted.
 2. Bind deleted intent, hesitation, and task context into the assistant's reasoning surface.
@@ -1017,17 +975,7 @@ Telemetry is not novel by itself. Prompt injection is not novel by itself. Code 
 4. Feed that back into prompt steering, coaching, file-state surfaces, and eventually the naming/debug layer.
 5. Keep the whole thing self-updating on every prompt and every push.
 
-If this stays one integrated reasoning surface, it is close to something genuinely novel: an operator-aware development runtime where the model adapts to the human, the codebase exposes its own state, and the repo learns from every edit loop. If it fragments into separate telemetry, compiler, brain, and narrative projects, it becomes impressive tooling rather than a new category.
-
 The strongest thesis right now is not "AI that writes code better." It is: **a development environment that models the operator, the assistant, and the codebase at the same time, then continuously adjusts all three.**
-
-### Next 90 Days
-
-| Horizon | Goal | Deliverables |
-|---|---|---|
-| 0-30 days | Stabilize the data plane | Ship response capture, clean edit-pair latency math, and kill stale/false-positive diagnostics. |
-| 30-60 days | Prove assistant lift | Show reduced rework, faster fix time, and higher answer acceptance from operator-aware prompt steering. |
-| 60-90 days | Productize the strongest wedge | Turn the operator-aware runtime into a clear installable product with opinionated dashboards, onboarding, and team-facing reporting. |
 
 For a deeper product and architecture read, see [docs/ARCHITECTURE_CONSENSUS_v3.md](docs/ARCHITECTURE_CONSENSUS_v3.md).
 
