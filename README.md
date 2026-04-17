@@ -6,6 +6,20 @@
 
 ---
 
+## Open Source
+
+MIT licensed — see [`LICENSE`](LICENSE). The codebase is released as-is, semantic markers and all. The pigeon-compiled filenames (glyphs, `seq###`, `v###`, `d####`, `λ` suffixes) are load-bearing — they encode module role, churn history, and last-mutation kind. **Do not rename them to "look cleaner"** — they *are* the architecture. See the [Pigeon Code Compiler](#system-2-pigeon-code-compiler-pigeon_compiler) section for the naming grammar.
+
+### Run the tests
+
+```bash
+python3 test_all.py
+```
+
+Zero external deps. Five tests cover the core pipeline: pulse telemetry, rework detection, operator stats, resistance signal, and prompt→file edit pairing. All five pass on a clean checkout.
+
+---
+
 ## Status (2026-03-30)
 
 The organism is online. 448 Python files across 8 packages — 87% pigeon-compliant (389/448). 16 data pipelines flowing. 6280+ messages profiled. Shard memory is live — 7 local markdown shards with contradiction detection, per-shard training pair categorization, and context routing. Prompt enricher switched from DeepSeek to **Gemini 2.5 Flash** (3s end-to-end, 256-token thinking budget). Prediction engine fires on every push — backward pass, phantom electrons, scoring, and auto-injection into the Copilot prompt. 35 push narratives archived in [`docs/DEV_STORY.md`](docs/DEV_STORY.md).
