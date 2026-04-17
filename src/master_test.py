@@ -256,6 +256,38 @@ def test_shrink_gate_not_regressed() -> tuple[bool, str]:
     )
 
 
+def test_feedback_loops_alive() -> tuple[bool, str]:
+    """Per operator intent (2026-04-17): bug-detect → fix → escalation →
+    operator-prompt loop must close. Staleness + self_fix + escalation all run.
+
+    Reads logs/loop_audit.json. If any check failed OR the report is stale
+    (>48h), this assertion fails.
+    """
+    report_file = ROOT / "logs" / "loop_audit.json"
+    if not report_file.exists():
+        return False, "loop_audit.json missing — run scripts/audit_loops.py"
+    try:
+        report = json.loads(report_file.read_text(encoding="utf-8"))
+    except Exception as e:
+        return False, f"loop_audit parse error: {e}"
+    # Freshness
+    try:
+        ts = datetime.fromisoformat(report.get("ts", ""))
+        age_h = (datetime.now(timezone.utc) - ts).total_seconds() / 3600
+    except Exception:
+        age_h = 999
+    if age_h > 48:
+        return False, f"loop_audit is {age_h:.1f}h old (run scripts/audit_loops.py)"
+    if report.get("status") != "ok":
+        failed = [
+            c.get("name", "?")
+            for c in report.get("checks", [])
+            if not c.get("ok")
+        ]
+        return False, f"loops broken: {', '.join(failed)}"
+    return True, f"all 3 loops alive ({age_h:.1f}h fresh)"
+
+
 # ─── runner ───────────────────────────────────────────────────────────────────
 
 TESTS = [
@@ -267,6 +299,7 @@ TESTS = [
     test_telemetry_pipeline_alive,
     test_health_score_not_lying,
     test_shrink_gate_not_regressed,
+    test_feedback_loops_alive,
 ]
 
 

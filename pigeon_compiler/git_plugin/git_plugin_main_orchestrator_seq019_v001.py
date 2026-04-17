@@ -27,6 +27,64 @@ import ast
 import os
 import re
 
+# ── Pigeon-decomposed sibling helpers (cross-linked namespace) ──
+# The sibling modules were auto-extracted by the pigeon compiler and they call
+# each other's `_underscore` helpers directly (e.g. git_ops uses `_git` from
+# helpers) without explicit imports. Python keeps each module's globals
+# separate so those calls raise NameError at runtime.
+# Fix: collect the union of all sibling symbols and write it back into every
+# sibling's __dict__, re-creating the shared namespace the decomposer assumed.
+def _pull_sibling_symbols() -> None:
+    import importlib
+    siblings = [
+        "git_plugin_helpers_seq002_v001",
+        "git_plugin_constants_seq001_v001",
+        "git_plugin_git_ops_seq003_v001",
+        "git_plugin_intent_parsing_seq004_v001",
+        "git_plugin_bug_metadata_seq005_v001",
+        "git_plugin_prompt_box_seq006_v001",
+        "git_plugin_copilot_index_seq007_v001",
+        "git_plugin_operator_profile_seq008_v001",
+        "git_plugin_operator_history_seq009_v001",
+        "git_plugin_registry_churn_seq010_v001",
+        "git_plugin_deep_signals_seq011_v001",
+        "git_plugin_deepseek_api_seq012_v001",
+        "git_plugin_edit_tracking_seq013_v001",
+        "git_plugin_coaching_prompt_seq014_v001",
+        "git_plugin_coaching_generator_seq015_v001",
+        "git_plugin_operator_state_seq016_v001",
+        "git_plugin_post_commit_seq017_v001",
+    ]
+    loaded = []
+    for mod_name in siblings:
+        try:
+            mod = importlib.import_module(f"pigeon_compiler.git_plugin.{mod_name}")
+            loaded.append(mod)
+        except Exception:
+            continue
+    # Build union dict of all symbols.
+    union: dict = {}
+    for mod in loaded:
+        for sym in dir(mod):
+            if sym.startswith("__"):
+                continue
+            if sym not in union:
+                union[sym] = getattr(mod, sym)
+    # Pull into orchestrator namespace.
+    ns = globals()
+    for sym, val in union.items():
+        if sym not in ns:
+            ns[sym] = val
+    # Cross-link: put the union back into every sibling so they can see each
+    # other's helpers when the orchestrator calls them.
+    for mod in loaded:
+        mod_ns = mod.__dict__
+        for sym, val in union.items():
+            if sym not in mod_ns:
+                mod_ns[sym] = val
+
+_pull_sibling_symbols()
+
 def run():
     root = _root()
     msg = _commit_msg()
@@ -396,6 +454,20 @@ def run():
         build_all_manifests(root)
     except Exception as e:
         print(f'  ⚠️  Manifest rebuild: {e}')
+
+    # ── Staleness audit ──
+    # Per operator intent (2026-04-17): close the loop between managed-block
+    # freshness and operator awareness. Staleness detector previously only
+    # ran on UI events in classify_bridge — now it runs on every commit so
+    # Copilot sees fresh stale-warnings even when the chat UI is closed.
+    try:
+        stale_mod = _load_glob_module(root, 'src', '警p_sa_s030*')
+        if stale_mod and hasattr(stale_mod, 'inject_staleness_alert'):
+            injected = stale_mod.inject_staleness_alert(root)
+            if injected:
+                print('  ⚠️  staleness alert injected — managed blocks rotted')
+    except Exception as e:
+        print(f'  ⚠️  staleness audit: {e}')
 
     # Self-fix accuracy — score recurring threads across reports
     try:
