@@ -4,11 +4,14 @@ Simulates buffers → context agent → section classifier → grader → adapti
 No Gemini calls. Tests that the right files get selected for specific intents
 and that section/grading/tuning respond correctly.
 """
-import sys, json, time
-sys.path.insert(0, '.')
-from pathlib import Path
+import json
 import importlib.util
+from pathlib import Path
+import sys
+import time
 import types
+
+sys.path.insert(0, '.')
 
 # Pre-register src as a package to avoid triggering src/__init__.py
 _src_dir = str(Path('src').resolve())

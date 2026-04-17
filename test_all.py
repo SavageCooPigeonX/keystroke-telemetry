@@ -3,14 +3,15 @@ Run from repo root: python test_all.py
 """
 
 import json
-import time
-import sys
 import os
+import sys
+import time
 
 # ensure src is importable
 sys.path.insert(0, os.path.dirname(__file__))
 
-import importlib.util, glob as _glob
+import glob as _glob
+import importlib.util
 
 
 def _load_src(pattern: str, *symbols):
@@ -327,4 +328,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

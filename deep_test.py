@@ -1,4 +1,7 @@
-﻿import sys, json, os, subprocess
+import json
+import os
+import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent.resolve()
@@ -37,8 +40,9 @@ def run_bridge(payload: dict) -> dict:
     result = subprocess.run(
         ["py", str(BRIDGE), str(ROOT)],
         input=json.dumps(payload),
-        capture_output=True, text=True,
-        env={**os.environ, "PYTHONIOENCODING": "utf-8"}
+        capture_output=True,
+        text=True,
+        env={**os.environ, "PYTHONIOENCODING": "utf-8"},
     )
     if result.returncode != 0 or not result.stdout.strip():
         print("  STDERR:", result.stderr[:500])
@@ -52,7 +56,8 @@ def run_bridge(payload: dict) -> dict:
 # Clean slate for this test
 for f in ["rework_log.json", "query_memory.json", "file_heat_map.json"]:
     p = ROOT / f
-    if p.exists(): p.unlink()
+    if p.exists():
+        p.unlink()
 
 print("=" * 60)
 print("DEEP SIGNAL TEST — end-to-end pipeline")
@@ -174,5 +179,3 @@ print(f"query_memory  → {qm_total} queries, {len(qm2.get('abandoned_themes',[]
 print(f"file_heat_map → {hm_total} modules tracked")
 print(f"persistent gaps detected: {len(summary.get('persistent_gaps',[]))}")
 print("\nALL DEEP SIGNAL TESTS PASSED ✓")
-
-

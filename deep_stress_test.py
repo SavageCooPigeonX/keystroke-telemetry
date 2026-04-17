@@ -38,9 +38,9 @@ def get_exports(path):
         tree = ast.parse(path.read_text('utf-8'))
     except SyntaxError:
         return [], [], True
-    funcs = [n.name for n in ast.iter_child_nodes(tree) 
+    funcs = [n.name for n in ast.iter_child_nodes(tree)
              if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)) and not n.name.startswith('_')]
-    classes = [n.name for n in ast.iter_child_nodes(tree) 
+    classes = [n.name for n in ast.iter_child_nodes(tree)
                if isinstance(n, ast.ClassDef) and not n.name.startswith('_')]
     return funcs, classes, False
 
