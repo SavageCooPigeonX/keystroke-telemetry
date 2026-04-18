@@ -44,6 +44,57 @@ def _load_file_profiles(root: Path) -> dict:
         return {}
 
 
+def _load_registry_entries(root: Path) -> list[dict]:
+    """Load pigeon_registry.json for intent chain extraction."""
+    reg = root / 'pigeon_registry.json'
+    if not reg.exists():
+        return []
+    try:
+        return json.loads(reg.read_text('utf-8', errors='ignore')).get('files', [])
+    except Exception:
+        return []
+
+
+def extract_intent_chain_for_node(name: str, registry_entries: list[dict]) -> dict:
+    """Extract churn_velocity + intent_volatility from registry history.
+
+    Returns {intent_chain, churn_velocity, intent_volatility}.
+    Matches by name prefix so 'self_fix' matches 'self_fix_seq013_v006...'.
+    """
+    import re
+    matches = [e for e in registry_entries
+               if e.get('name', '') == name or e.get('name', '').startswith(name + '_')]
+    if not matches:
+        return {'intent_chain': [], 'churn_velocity': 0.0, 'intent_volatility': 0}
+    entry = max(matches, key=lambda e: len(e.get('history', [])))
+    history = entry.get('history', [])
+    path = entry.get('path', '')
+    slugs: list[str] = []
+    dates: list[str] = []
+    for h in history:
+        slug = h.get('intent', '') or ''
+        if not slug:
+            m = re.search(r'_lc_([a-z0-9_]+)', h.get('path', ''), re.IGNORECASE)
+            if m:
+                slug = m.group(1)
+        if slug and (not slugs or slug != slugs[-1]):
+            slugs.append(slug)
+        if h.get('date'):
+            dates.append(str(h['date']))
+    m = re.search(r'_lc_([a-z0-9_]+)', path, re.IGNORECASE)
+    if m:
+        current = m.group(1)
+        if not slugs or current != slugs[-1]:
+            slugs.append(current)
+    ver = entry.get('ver', 1)
+    days_alive = max(len(set(dates)), 1)
+    return {
+        'intent_chain': slugs,
+        'churn_velocity': round(ver / days_alive, 3),
+        'intent_volatility': len(set(slugs)),
+    }
+
+
 def _count_lines(root: Path, rel_path: str) -> int:
     """Count lines in a source file."""
     if not rel_path:

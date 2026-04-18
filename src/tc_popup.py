@@ -15,7 +15,7 @@ from .tc_profile import update_profile_from_completion, update_profile_from_comp
 from .tc_grader import grade_completion, log_grade, update_grade_summary
 
 
-def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
+def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, surface_ready=None):
     import tkinter as tk
 
     BG = '#0d1117'
@@ -51,6 +51,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
             x, y = pos.get(corner, pos['br'])
             self.root.geometry(f'{width}x{height}+{x}+{y}')
 
+            self._surface_ready = surface_ready  # None = no gate
             self.watcher = BufferWatcher(KEYSTROKE_LOG)
             self.thought_buffer = ThoughtBuffer()
             self.completion = ''
@@ -244,13 +245,16 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92):
 
                 can_complete = (buf_ok and not_busy and last_key_ts > 0
                                 and not_pending and cooldown_ok and not_dup)
-                if can_complete and since_key_ms >= pause_ms:
+                surface_ok = (self._surface_ready is None or self._surface_ready.is_set())
+                if can_complete and since_key_ms >= pause_ms and surface_ok:
                     print(f'[poll] FIRE key_age={since_key_ms:.0f}ms buf={check_buf[-40:]!r}')
                     self._last_fire_time = now
                     self._completed_buffer = check_buf
                     self.status_lbl.config(text='thinking...', fg=ACCENT)
                     self.pause_after_id = self.root.after(
                         0, lambda b=check_buf: self._request_completion(b))
+                elif not surface_ok:
+                    self.status_lbl.config(text='loading surface...', fg=DIM)
                 elif last_key_ts > 0 and since_key_ms < pause_ms and since_key_ms > 0:
                     self.status_lbl.config(text='typing...', fg=DIM)
                 elif can_complete and since_key_ms > 500:

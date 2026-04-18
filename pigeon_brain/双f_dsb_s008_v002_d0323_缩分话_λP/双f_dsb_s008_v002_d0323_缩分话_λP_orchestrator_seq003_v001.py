@@ -8,6 +8,10 @@
 # SESSIONS: 0
 # ──────────────────────────────────────────────
 from .图p_ge_s003_v003_d0324_读唤任_λχ import load_graph
+from .双f_dsb_s008_v002_d0323_缩分话_λP_utils_seq001_v001 import (
+    _load_human_heat_raw, _load_agent_heat_raw, _load_file_profiles,
+    _load_registry_entries, extract_intent_chain_for_node, _count_lines,
+)
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -20,6 +24,7 @@ def build_dual_view(root: Path) -> dict:
     agent_heat = _load_agent_heat_raw(root)
     human_heat = _load_human_heat_raw(root)
     profiles = _load_file_profiles(root)
+    registry_entries = _load_registry_entries(root)
 
     nodes = []
     for name, node in graph.get("nodes", {}).items():
@@ -43,12 +48,21 @@ def build_dual_view(root: Path) -> dict:
             if samples:
                 last_called = samples[-1].get("ts", None)
 
-        # Dual score: combined human + agent danger
+        # Intent chain substrate — filename mutation history
+        ic = extract_intent_chain_for_node(name, registry_entries)
+        churn_vel = ic['churn_velocity']
+        intent_vol = ic['intent_volatility']
+        name_instability = round(
+            (min(churn_vel / 3.0, 1.0) + min(intent_vol / 6.0, 1.0)) / 2.0, 3
+        )
+
+        # Dual score: human + agent + intent-chain danger
         dual_score = round(
-            human_hes * 0.4 +
-            min(agent_deaths / max(agent_calls, 1), 1.0) * 0.4 +
-            (human_miss > 0) * 0.1 +
-            (agent_deaths > 0) * 0.1,
+            human_hes * 0.35 +
+            min(agent_deaths / max(agent_calls, 1), 1.0) * 0.35 +
+            name_instability * 0.2 +
+            (human_miss > 0) * 0.05 +
+            (agent_deaths > 0) * 0.05,
             3
         )
 
@@ -85,6 +99,10 @@ def build_dual_view(root: Path) -> dict:
             "partners": [p["name"] for p in prof.get("partners", [])[:3]],
             # Combined
             "dual_score": dual_score,
+            # Intent chain substrate
+            "churn_velocity": churn_vel,
+            "intent_volatility": intent_vol,
+            "intent_chain": ic['intent_chain'],
         })
 
     nodes.sort(key=lambda x: x["dual_score"], reverse=True)

@@ -197,6 +197,15 @@ def record_touch(prompt_text: str, files_touched: list[str], learning_rate: floa
         # Normalize file key (just the filename stem)
         file_key = Path(file_path).stem
         
+        # Skip meta-files that pollute the matrix with self-referential noise.
+        # test_*, _tmp_*, audit_*, _fix_* dominate predictions because they get
+        # touched every time we write infrastructure about infrastructure.
+        fk_lower = file_key.lower()
+        if (fk_lower.startswith(('test_', '_tmp_', '_fix_', 'audit_'))
+                or fk_lower.startswith(('stress_test', 'deep_test'))
+                or fk_lower in ('test_all', 'test_public_release')):
+            continue
+        
         # Strip pigeon prefixes for cleaner matching
         # e.g., "管w_cpm_s020_v003" → "copilot_prompt_manager" if possible
         # For now, keep the stem as-is

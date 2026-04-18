@@ -21,6 +21,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { spawn } from 'child_process';
 import { CascadeInlineProvider } from './cascadeProvider';
+import { MutationStreamChange, MutationStreamPanel, recordMutationStreamEvent } from './mutationStreamPanel';
 import * as crypto from 'crypto';
 
 function nonce() { return crypto.randomBytes(16).toString('hex'); }
@@ -768,7 +769,15 @@ class BackgroundTelemetry {
     // Threshold: a single contentChange inserting >= this many chars is "AI-scale"
     private static readonly AI_EDIT_CHAR_THRESHOLD = 8;
     // Debounce: aggregate rapid multi-change events within this window
-    private _pendingAiEdits: Map<string, { chars: number; replaced: number; lines: number; ts: number }> = new Map();
+    private _pendingAiEdits: Map<string, {
+        chars: number;
+        replaced: number;
+        lines: number;
+        ts: number;
+        changes: MutationStreamChange[];
+        excerpt: string;
+        docVersion: number;
+    }> = new Map();
     private _aiEditFlushTimer: NodeJS.Timeout | undefined;
 
     // ── Keystroke↔Edit cross-correlation ──
@@ -984,13 +993,28 @@ class BackgroundTelemetry {
             const isMultiline = change.text.includes('\n');
 
             if (inserted >= BackgroundTelemetry.AI_EDIT_CHAR_THRESHOLD || isMultiline) {
+                const changeRecord = this._captureMutationChange(e.document, change);
                 // Aggregate rapid edits to the same file (Copilot often applies
                 // multiple contentChanges in a single event batch)
-                const pending = this._pendingAiEdits.get(relFile) ?? { chars: 0, replaced: 0, lines: 0, ts: now };
+                const pending = this._pendingAiEdits.get(relFile) ?? {
+                    chars: 0,
+                    replaced: 0,
+                    lines: 0,
+                    ts: now,
+                    changes: [],
+                    excerpt: '',
+                    docVersion: e.document.version,
+                };
                 pending.chars += inserted;
                 pending.replaced += replaced;
                 pending.lines += (change.text.match(/\n/g) || []).length;
                 pending.ts = now;
+                pending.docVersion = e.document.version;
+                pending.excerpt = changeRecord.excerpt || pending.excerpt;
+                pending.changes.push(changeRecord);
+                if (pending.changes.length > 6) {
+                    pending.changes = pending.changes.slice(-6);
+                }
                 this._pendingAiEdits.set(relFile, pending);
 
                 // Debounce: flush pending AI edits after 200ms of quiet
@@ -1007,6 +1031,7 @@ class BackgroundTelemetry {
         // Read recent physical keystrokes from os_keystrokes.jsonl
         // to determine if the edit was human-initiated or AI-generated.
         const recentOsEvents = this._readRecentOsKeystrokes(10_000);
+        const fileProfiles = this._loadFileProfiles();
 
         // Read recent AI response timing for Copilot Apply detection
         let lastResponseTs = 0;
@@ -1072,6 +1097,35 @@ class BackgroundTelemetry {
                 editSource = 'human_edit';
             }
 
+            const profile = this._resolveProfileForFile(file, fileProfiles);
+            const personality = typeof profile?.personality === 'string'
+                ? profile.personality
+                : 'unprofiled';
+            const partnerHint = Array.isArray(profile?.partners) && profile.partners.length > 0
+                ? profile.partners[0]?.name
+                : undefined;
+            const { paceMs, telemetryState } = this._estimateMutationPace(data.chars);
+            const excerpt = data.excerpt || data.changes[data.changes.length - 1]?.excerpt || '';
+            const opinion = this._buildMutationOpinion(editSource, personality);
+
+            recordMutationStreamEvent(this._root, {
+                ts: data.ts,
+                file,
+                docVersion: data.docVersion,
+                editSource,
+                charsInserted: data.chars,
+                charsReplaced: data.replaced,
+                linesAdded: data.lines,
+                isMultiline: data.lines > 0,
+                paceMs,
+                telemetryState,
+                personality,
+                opinion,
+                partnerHint,
+                excerpt,
+                changes: data.changes.slice(-4),
+            });
+
             entries.push(JSON.stringify({
                 ts: data.ts,
                 file,
@@ -1084,6 +1138,12 @@ class BackgroundTelemetry {
                 ai_response_len: lastResponseLen || null,
                 nearby_os_events: nearbyEvents.length,
                 had_physical_keystroke: hasKeystroke,
+                mutation_pace_ms: paceMs,
+                telemetry_state: telemetryState,
+                personality,
+                opinion,
+                partner_hint: partnerHint,
+                excerpt,
                 source: 'vscode',
                 sid: this._sessionId,
             }));
@@ -1126,6 +1186,107 @@ class BackgroundTelemetry {
             }
             return events;
         } catch { return []; }
+    }
+
+    private _captureMutationChange(
+        document: vscode.TextDocument,
+        change: vscode.TextDocumentContentChangeEvent,
+    ): MutationStreamChange {
+        return {
+            insertedText: this._trimMutationText(change.text),
+            insertedLength: change.text.length,
+            replacedLength: change.rangeLength,
+            rangeStartLine: change.range.start.line,
+            rangeStartCharacter: change.range.start.character,
+            rangeEndLine: change.range.end.line,
+            rangeEndCharacter: change.range.end.character,
+            excerpt: this._excerptAroundChange(document, change),
+        };
+    }
+
+    private _trimMutationText(text: string): string {
+        const normalized = text.replace(/\r\n/g, '\n');
+        if (normalized.length <= 320) return normalized;
+        return `${normalized.slice(0, 320)}\n...`;
+    }
+
+    private _excerptAroundChange(
+        document: vscode.TextDocument,
+        change: vscode.TextDocumentContentChangeEvent,
+    ): string {
+        const startLine = Math.max(0, change.range.start.line - 2);
+        const endLine = Math.min(
+            document.lineCount - 1,
+            Math.max(change.range.end.line, change.range.start.line) + 2,
+        );
+        const start = new vscode.Position(startLine, 0);
+        const end = new vscode.Position(endLine, document.lineAt(endLine).text.length);
+        const excerpt = document.getText(new vscode.Range(start, end));
+        if (excerpt.length <= 720) return excerpt;
+        return `${excerpt.slice(0, 720)}\n...`;
+    }
+
+    private _loadFileProfiles(): Record<string, any> {
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'file_profiles.json'), 'utf-8');
+            return JSON.parse(raw);
+        } catch {
+            return {};
+        }
+    }
+
+    private _resolveProfileForFile(file: string, profiles: Record<string, any>): any {
+        const stem = path.basename(file, path.extname(file));
+        if (profiles[stem]) return profiles[stem];
+
+        const stemLower = stem.toLowerCase();
+        let bestMatch: any;
+        let bestScore = 0;
+        for (const [key, value] of Object.entries(profiles)) {
+            const keyLower = key.toLowerCase();
+            if (keyLower === stemLower) return value;
+            if (!stemLower.includes(keyLower) && !keyLower.includes(stemLower)) continue;
+            const score = Math.min(keyLower.length, stemLower.length);
+            if (score > bestScore) {
+                bestScore = score;
+                bestMatch = value;
+            }
+        }
+        return bestMatch;
+    }
+
+    private _buildMutationOpinion(editSource: string, personality: string): string {
+        if (editSource === 'undo') return 'rejecting the last graft';
+        if (editSource === 'paste') return 'absorbing outside tissue';
+        if (editSource === 'human_edit') return 'under manual pressure';
+        if (editSource === 'copilot_edit') {
+            return personality === 'stable' ? 'resisting a rewrite' : 'being rewritten in place';
+        }
+        if (editSource === 'copilot_apply' || editSource === 'copilot_tab_accept') {
+            return personality === 'fresh' ? 'absorbing a clean graft' : 'taking a guided graft';
+        }
+        if (editSource === 'copilot_inline') return 'assembling from inline intent';
+        return 'mutating under uncertain origin';
+    }
+
+    private _estimateMutationPace(charCount: number): { paceMs: number; telemetryState: string } {
+        const tel = readLatestTelemetry(this._root);
+        const telemetryState = tel?.state ?? 'unknown';
+        const charsPerSecond: Record<string, number> = {
+            flow: 38,
+            focused: 32,
+            hesitant: 18,
+            frustrated: 14,
+            restructuring: 20,
+            abandoned: 12,
+            neutral: 24,
+            unknown: 22,
+        };
+        const paceMs = Math.max(
+            700,
+            Math.min(8000, Math.round((Math.max(charCount, 24) / (charsPerSecond[telemetryState] ?? 22)) * 1000)),
+        );
+        return { paceMs, telemetryState };
     }
 
     private _flushIfReady() {
@@ -3800,6 +3961,12 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.commands.registerCommand('pigeon.showEntropyChart', () =>
             EntropyChartPanel.createOrShow(context))
+    );
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('pigeon.showMutationStream', () => {
+            if (root) MutationStreamPanel.createOrShow(context, root);
+        })
     );
 
     // Freshness surface — one frontend view for stale / missing write targets

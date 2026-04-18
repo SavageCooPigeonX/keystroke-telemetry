@@ -1,6 +1,6 @@
 # ORGANISM HEALTH — keystroke-telemetry
 
-*Auto-generated 2026-04-15 01:04 UTC · 1423 Python files tracked · 0 prompts analyzed*
+*Auto-generated 2026-04-18 05:11 UTC · 1472 Python files tracked · 0 prompts analyzed*
 
 **This document is the organism. Every data pipeline that flows through this codebase is measured here. If it's not flowing, it's dying.**
 
@@ -14,7 +14,7 @@
 | Prompts Analyzed | 0 | — |
 | Session Message | #? | — |
 | Last Active | never (⚫) | — |
-| Reactor Fires | 529 | — |
+| Reactor Fires | 531 | — |
 
 ---
 
@@ -22,37 +22,38 @@
 
 | Pipeline | Entries | Size | Freshness | Role |
 |---|---:|---:|---|---|
-| prompt_journal | ? | 835,072 | 🟡 1h ago | Enriched prompts |
-| chat_compositions | 4319 | 6.3M | 🟡 1h ago | Keystroke compositions |
-| edit_pairs | 112 | 48,993 | 🔴 2d ago | Prompt → file pairings |
-| push_cycles | 19 | 71,646 | 🔴 1d ago | Push cycle reports |
-| os_keystrokes | 177791 | 41.5M | 🟡 1h ago | OS-level keystrokes |
-| keystroke_live | 15594 | 4.6M | 🟢 1m ago | Live keystroke stream |
-| rework_log | 200 | 39,300 | 🟡 1h ago | AI answer quality |
-| file_heat_map | 55 | 8,991 | 🟡 1h ago | Cognitive load per module |
-| file_profiles | 254 | 223,585 | 🔴 10d ago | Module consciousness |
-| pigeon_registry | 2531 | 1.1M | 🟡 20h ago | Module registry |
-| execution_deaths | 0 | 2 | 🟡 1h ago | Electron failures |
-| context_veins | 7 | 424,073 | 🟡 22h ago | Vein/clot health |
-| mutation_scores | 6 | 7,780 | 🔴 3d ago | Prompt mutation correlation |
-| task_queue | 42 | 41,675 | 🟡 1h ago | Copilot task queue |
-| push_cycle_state | 6 | 232 | 🔴 1d ago | Push cycle state |
-| reactor_state | 4 | 19,595 | 🟡 1h ago | Reactor state |
+| prompt_journal | ? | 888,594 | 🟢 3m ago | Enriched prompts |
+| chat_compositions | 4376 | 6.4M | 🟢 3m ago | Keystroke compositions |
+| edit_pairs | 112 | 48,993 | 🟢 1m ago | Prompt → file pairings |
+| push_cycles | 20 | 74,880 | 🟡 8h ago | Push cycle reports |
+| os_keystrokes | 188666 | 44.2M | 🟢 3m ago | OS-level keystrokes |
+| keystroke_live | 15937 | 4.7M | 🟢 2m ago | Live keystroke stream |
+| rework_log | 197 | 40,168 | 🟢 2m ago | AI answer quality |
+| file_heat_map | 57 | 9,307 | 🟢 2m ago | Cognitive load per module |
+| file_profiles | 254 | 223,585 | 🔴 14d ago | Module consciousness |
+| pigeon_registry | 2531 | 1.4M | 🟢 35m ago | Module registry |
+| execution_deaths | 0 | 2 | 🟡 23h ago | Electron failures |
+| context_veins | 7 | 425,270 | 🟢 4m ago | Vein/clot health |
+| mutation_scores | 6 | 7,780 | 🔴 6d ago | Prompt mutation correlation |
+| task_queue | 28 | 25,457 | 🟡 4h ago | Copilot task queue |
+| push_cycle_state | 6 | 200 | 🟡 8h ago | Push cycle state |
+| reactor_state | 4 | 21,747 | 🟢 2m ago | Reactor state |
 
 ---
 
 ## Structure (Module Compliance)
 
-**1423 Python files** across 8 packages · **1314/1423 compliant** (92%) · **109 over cap**
+**1472 Python files** across 9 packages · **1359/1472 compliant** (92%) · **113 over cap**
 
 | Package | Files |
 |---|---:|
-| `src` | 797 |
-| `pigeon_compiler` | 255 |
+| `src` | 802 |
+| `pigeon_compiler` | 256 |
 | `pigeon_brain` | 213 |
-| `tests` | 114 |
+| `tests` | 136 |
 | `streaming_layer` | 21 |
-| `(root)` | 14 |
+| `scripts` | 18 |
+| `(root)` | 17 |
 | `client` | 7 |
 | `vscode-extension` | 2 |
 
@@ -64,29 +65,29 @@
 | `autonomous_dev_stress_test.py` | 999 | 🔴 CRIT |
 | `src/profile_renderer.py` | 925 | 🔴 CRIT |
 | `vscode-extension/classify_bridge.py` | 877 | 🔴 CRIT |
+| `src/vitals_renderer.py` | 783 | 🔴 CRIT |
 | `client/os_hook.py` | 736 | 🔴 CRIT |
+| `src/tc_gemini.py` | 731 | 🔴 CRIT |
 | `_run_smart_rename.py` | 730 | 🔴 CRIT |
 | `_build_organism_health.py` | 728 | 🔴 CRIT |
 | `src/环w_pc_s025_v003_d0330_读唤任_λπ.py` | 663 | 🔴 CRIT |
 | `src/entropy_shedding.py` | 650 | 🔴 CRIT |
 | `src/push_baseline.py` | 641 | 🔴 CRIT |
 | `pigeon_brain/flow/算f_ps_s014_v006_d0404_译改名踪_λNU_βoc.py` | 636 | 🔴 CRIT |
+| `src/tc_context_agent.py` | 630 | 🔴 CRIT |
 | `client/chat_composition_analyzer.py` | 628 | 🔴 CRIT |
 | `src/intent_reconstructor.py` | 628 | 🔴 CRIT |
-| `src/tc_context_agent.py` | 625 | 🔴 CRIT |
 | `src/file_semantic_layer.py` | 615 | 🔴 CRIT |
 | `src/template_selector.py` | 613 | 🔴 CRIT |
 | `src/思f_cr_s014_v005_d0331_译改名踪_λM.py` | 613 | 🔴 CRIT |
 | `src/研w_rl_s029_v005_d0401_译改名踪_λG.py` | 613 | 🔴 CRIT |
-| `src/bug_demon_hunt.py` | 608 | 🔴 CRIT |
-| `src/tc_intel_report.py` | 601 | 🔴 CRIT |
-| ... | +89 more | |
+| ... | +93 more | |
 
 ---
 
 ## Circulation (Dependency Health)
 
-**598/630 alive** · 32 clots · 50 arteries · avg vein health: 0.51 · 938 edges
+**596/630 alive** · 34 clots · 50 arteries · avg vein health: 0.51 · 938 edges
 
 ### Critical Arteries (do NOT break)
 
@@ -132,52 +133,52 @@
 
 ## Hot Modules (Cognitive Load)
 
-**55 modules tracked**
+**57 modules tracked**
 
 | Module | Avg Hesitation | Avg WPM | Samples | Dominant State |
 |---|---:|---:|---:|---|
-| `虚f_mc` | 0.000 | 0 | 0 | ? |
-| `query_memory` | 0.000 | 0 | 0 | ? |
-| `confidence_scorer` | 0.000 | 0 | 0 | ? |
-| `thought_completion` | 0.000 | 0 | 0 | ? |
-| `numeric_surface` | 0.000 | 0 | 0 | ? |
-| `rework_detector` | 0.000 | 0 | 0 | ? |
-| `training_pairs` | 0.000 | 0 | 0 | ? |
-| `context_router` | 0.000 | 0 | 0 | ? |
-| `copilot_prompt_manager` | 0.000 | 0 | 0 | ? |
-| `training_writer` | 0.000 | 0 | 0 | ? |
-| `self_fix` | 0.000 | 0 | 0 | ? |
+| `entropy_shedding` | 0.000 | 0 | 0 | ? |
+| `unsaid_recon` | 0.000 | 0 | 0 | ? |
+| `file_semantic_layer` | 0.000 | 0 | 0 | ? |
 | `symbol_dictionary` | 0.000 | 0 | 0 | ? |
-| `operator_probes` | 0.000 | 0 | 0 | ? |
-| `shard_manager` | 0.000 | 0 | 0 | ? |
-| `警p_sa` | 0.000 | 0 | 0 | ? |
+| `unified_signal` | 0.000 | 0 | 0 | ? |
+| `_build_prompt` | 0.000 | 0 | 0 | ? |
+| `dynamic_prompt` | 0.000 | 0 | 0 | ? |
+| `vitals_renderer` | 0.000 | 0 | 0 | ? |
+| `training_writer` | 0.000 | 0 | 0 | ? |
+| `confidence_scorer` | 0.000 | 0 | 0 | ? |
+| `escalation_engine` | 0.000 | 0 | 0 | ? |
+| `voice_style` | 0.000 | 0 | 0 | ? |
+| `query_memory` | 0.000 | 0 | 0 | ? |
+| `mutation_scorer` | 0.000 | 0 | 0 | ? |
+| `虚f_mc` | 0.000 | 0 | 0 | ? |
 
 ---
 
 ## Rework Surface (AI Response Quality)
 
-**200 responses scored** · avg rework score: 0.07
+**197 responses scored** · avg rework score: 0.10
 
 | Verdict | Count | % |
 |---|---:|---:|
-| ok | 179 | 90% |
-| miss | 12 | 6% |
-| partial | 9 | 4% |
+| ok | 173 | 88% |
+| partial | 20 | 10% |
+| miss | 4 | 2% |
 
-### Reworked Responses (138)
+### Reworked Responses (24)
 
 | Time | Score | Del% | Query Hint |
 |---|---:|---:|---|
-| 3h ago | 0.35 | 9% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
-| 3h ago | 0.35 | 9% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
-| 3h ago | 0.35 | 9% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
-| 3h ago | 0.04 | 8% | bg:idle |
-| 3h ago | 0.04 | 8% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
-| 3h ago | 0.04 | 8% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
-| 3h ago | 0.04 | 8% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
-| 3h ago | 0.04 | 8% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
-| 3h ago | 0.04 | 8% | bg:tc_profile_intelligence_orchestrator_seq024_v001.py |
-| 1h ago | 0.20 | 10% | bg:idle |
+| 3h ago | 0.33 | 5% | bg:__init__.py |
+| 3h ago | 0.33 | 5% | bg:__init__.py |
+| 3h ago | 0.62 | 31% | bg:__init__.py |
+| 1h ago | 0.29 | 25% | bg:tc_context.py |
+| 1h ago | 0.29 | 25% | bg:prediction_scores.json |
+| 1h ago | 0.29 | 25% | bg:prediction_scores.json |
+| 23m ago | 0.20 | 10% | bg:BUG_PROFILES.md |
+| 7m ago | 0.38 | 68% | bg:BUG_PROFILES.md |
+| 6m ago | 0.38 | 68% | bg:BUG_PROFILES.md |
+| 6m ago | 0.38 | 68% | bg:BUG_PROFILES.md |
 
 ---
 
@@ -191,11 +192,11 @@
 
 | Metric | Value |
 |---|---|
-| Total Cycles | 19 |
-| Last Commit | `beda89cc9fb13dfd4f32cf84bb2b966225efe853` |
-| Last Sync Score | 0.058 |
-| Journal Line | 614 |
-| Updated | 1d ago |
+| Total Cycles | 20 |
+| Last Commit | `46867e94` |
+| Last Sync Score | 0.016 |
+| Journal Line | 687 |
+| Updated | 8h ago |
 
 ---
 
@@ -203,48 +204,37 @@
 
 | ID | Task | Status |
 |---|---|---|
-| tq-001 | STRESS TEST: Learning loop verification | pending |
-| tq-002 | hey all asked me the same question ow should the context sel... | done |
-| tq-003 | why is deepseek not set and how did git push fail hellp... (... | done |
-| tq-004 | run tests - does question injection into copilotwork okay do... | done |
-| tq-005 | hmm - run stress tests - sim some completions to get context... | done |
-| tq-006 | exept in vibe coding the cognitive state usually changes per... | done |
-| tq-007 | also the thought completer should be completing thought for ... | done |
-| tq-008 | because the whole point of the thought completer is to step ... | done |
-| tq-009 | no no no the thought completer is the feedback loop... (also... | done |
-| tq-010 | youre not understanding - you have a way to ask questions - ... | done |
-| tq-011 | compare that to current copilot prompt templates - aseess wh... | done |
-| tq-012 | the rename engine should alread append why file names were t... | done |
-| tq-013 | yeah but youre not mapping how the context select / tc build... | done |
-| tq-014 | write a FRBI report (search online for federal reality burea... | done |
-| tq-015 | yes but the refusals must have 18 queries that cannot be hel... | done |
-| tq-016 | wait isint sleep mode / 10 questions from blade runner 2049 ... | done |
-| tq-017 | hm  whats the actual fix for tc to finish thinking my though... | done |
-| tq-018 | run push cycle - we should have 50? or so file simulations h... | done |
-| tq-019 | perfect  - i think im ready to focus on what i call an IRT -... | done |
-| tq-020 | aybe not quite yet - hmmm -  how do we have intent reinjecti... | done |
-| tq-021 | can you make sure that website obervatory is launched with v... | done |
-| tq-022 | probably do a push cycle - check if self fix / push narrativ... | done |
-| tq-023 | okay so based off the intel report i think the thought compl... | done |
-| tq-024 | else is left untill the insane self healing works | done |
-| tq-025 | ththought completer has two headers where you can close it -... | done |
-| tq-026 | take all 4 steps - fix thought completer being shit - it nee... | done |
-| tq-027 | check entropy map accumulation / self execution - i just add... | done |
-| tq-028 | quick question for you - why do llm matchers go by words not... | done |
-| tq-029 | bur assuming future operators type less words / steer styste... | done |
-| tq-030 | whats the actual proper way to do this system - we leeep mis... | done |
-| tq-031 | no no no not even that - i just want to make it so that whil... | done |
-| tq-032 | resynth my last 28 prompts / check codebase status against m... | pending |
-| tq-033 | retrack my last 12 prompts to resynthesize intent / make imp... | pending |
-| tq-034 | also seach online. coo coo zap | pending |
-| tq-035 | write new report - novel info only | pending |
-| tq-036 | mehh i still dont blive it works - you models always say it ... | pending |
-| tq-037 | how can we use savagecoopigeonx research on christ is king /... | pending |
-| tq-038 | if you strip all roleplay is there any logic in embedding ch... | pending |
-| tq-039 | didnt we already build out questions?? | pending |
-| tq-040 | make assesment happen on push to measure drift - and include... | pending |
-| tq-041 | you were also gonna say isint working - its not simming my i... | pending |
-| tq-042 | i want to inspect he semantic layer of each file - like ever... | pending |
+| tq-001 | hm  whats the actual fix for tc to finish thinking my though... | done |
+| tq-002 | run push cycle - we should have 50? or so file simulations h... | done |
+| tq-003 | why is entropy still staying in the 0.80s while you edit | done |
+| tq-004 | >>> diagnose and fix every datapoint that is being hallucnat... | done |
+| tq-005 | in copilot instruction. hallucination audit | done |
+| tq-006 | perfect  - i think im ready to focus on what i call an IRT -... | done |
+| tq-007 | aybe not quite yet - hmmm -  how do we have intent reinjecti... | done |
+| tq-008 | can you make sure that website obervatory is launched with v... | done |
+| tq-009 | the visualizartion needs to be reworked to be the most optim... | pending |
+| tq-010 | why is organism health still so low - audit copilot intructi... | pending |
+| tq-011 | not talk first - when i click on a file throught pgeon brain... | pending |
+| tq-012 | youre shedding the wrong blocks too - instead of entropy you... | pending |
+| tq-013 | no no our visualitions are spreadacrpss 3 uis - i need one w... | pending |
+| tq-014 | <conversation-summary>
+<analysis>
+[Chronological Review:
+- T... | pending |
+| tq-015 | >> i want  to click on profiles / have seperate page per pro... | pending |
+| tq-016 | we keep on having disk issues  due to lack of refresh - good... | pending |
+| tq-017 | You were about to complete but a hook blocked you with the f... | pending |
+| tq-018 | what would wakr my codebase up - what autonomous action has ... | pending |
+| tq-019 | diagnose why autonomous fixes are there - why i have a shit ... | pending |
+| tq-020 | shit content / chats dont work ui is currently useless needs... | pending |
+| tq-021 | you still dont have it quite right - when i click on a file ... | pending |
+| tq-022 | check prompt history / intent backlog - run push cycle and o... | pending |
+| tq-023 | when i click on a file - it need to wake up and do a self an... | pending |
+| tq-024 | gemini is dead apperantly - use deepseek | pending |
+| tq-025 | if you work just based off my recontructed event and got con... | pending |
+| tq-026 | nope i want you to go ahead and do the loop | pending |
+| tq-027 | why do you keep stopping work | pending |
+| tq-028 | can you fix whatever bug youre having thats stopping you fro... | pending |
 
 ---
 

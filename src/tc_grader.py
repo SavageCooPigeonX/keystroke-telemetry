@@ -377,14 +377,17 @@ def compute_adaptive_params() -> dict:
     # Intent amplification needs room — floor is higher for prose completions
     accepted_avg = lp.get('accepted_avg', 0)
     if accepted_avg > 0:
-        # tokens ≈ chars/4, give 3x headroom for full intent amplification
-        max_tokens = max(200, min(1200, int(accepted_avg / 4 * 3)))
+        # tokens ≈ chars/4, give 3x headroom for full intent amplification.
+        # Floor raised to 600 — Gemini 2.5 thinking mode can burn 150-300 tokens
+        # on silent reasoning even with thinkingBudget=0 (safety overhead),
+        # which was truncating completions mid-word when floor was 200.
+        max_tokens = max(600, min(1200, int(accepted_avg / 4 * 3)))
     else:
         max_tokens = 600  # default for amplification
     rejected_avg = lp.get('rejected_avg', 0)
     if rejected_avg > 0 and accepted_avg > 0:
         if rejected_avg > accepted_avg * 2:
-            max_tokens = max(200, min(max_tokens, int(accepted_avg / 4 * 2.5)))
+            max_tokens = max(600, min(max_tokens, int(accepted_avg / 4 * 2.5)))
 
     # ── TOP_P: narrow when unfocused ──
     if avg_rel < 0.1:

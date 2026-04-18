@@ -435,6 +435,7 @@ def enrich_prompt(root: Path, raw_query: str,
             data = json.loads(resp.read().decode('utf-8'))
             return data['candidates'][0]['content']['parts'][0]['text'].strip()
     except Exception as e:
+        _log_enricher_error(root, str(e), raw_query)
         return f'(enrichment unavailable: {e})'
 
 
@@ -488,6 +489,22 @@ def _find_insert_anchor(text: str) -> int:
 
 
 # ── block injection ───────────────────────────
+
+
+def _log_enricher_error(root: Path, error: str, msg: str) -> None:
+    """Log enricher failures so they surface via audit and staleness."""
+    try:
+        err_path = root / 'logs' / 'enricher_errors.jsonl'
+        err_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(err_path, 'a', encoding='utf-8') as f:
+            f.write(json.dumps({
+                'ts': datetime.now(timezone.utc).isoformat(),
+                'error': error,
+                'msg_preview': msg[:80],
+            }) + '\n')
+    except Exception:
+        pass
+
 
 def inject_query_block(root: Path, raw_query: str,
                        deleted_words: list | None = None,

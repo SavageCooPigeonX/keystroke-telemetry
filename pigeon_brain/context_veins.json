@@ -1,9 +1,9 @@
 {
-  "ts": "2026-04-14T02:48:33.624879+00:00",
+  "ts": "2026-04-18T05:07:47.848676+00:00",
   "stats": {
     "total_nodes": 630,
-    "alive": 598,
-    "clots": 32,
+    "alive": 596,
+    "clots": 34,
     "arteries": 50,
     "avg_vein_health": 0.513,
     "total_edges": 938
@@ -438,8 +438,10 @@
       "in_degree": 5,
       "out_degree": 4,
       "lines": 151,
-      "clot_score": 0.0,
-      "clot_signals": [],
+      "clot_score": 0.05,
+      "clot_signals": [
+        "self_fix:high_coupling:0"
+      ],
       "vein_score": 1.0,
       "vein_signals": [
         "critical_artery:in_degree=5",
@@ -454,9 +456,10 @@
       "in_degree": 16,
       "out_degree": 14,
       "lines": 359,
-      "clot_score": 0.15,
+      "clot_score": 0.2,
       "clot_signals": [
-        "oversize:359"
+        "oversize:359",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 1.0,
       "vein_signals": [
@@ -494,10 +497,11 @@
       "in_degree": 5,
       "out_degree": 14,
       "lines": 260,
-      "clot_score": 0.35,
+      "clot_score": 0.4,
       "clot_signals": [
         "dead_imports:5",
-        "oversize:260"
+        "oversize:260",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 1.0,
       "vein_signals": [
@@ -538,11 +542,11 @@
       "module": "u_pe_s024_v004_d0403_λP0_βoc",
       "in_degree": 11,
       "out_degree": 13,
-      "lines": 561,
+      "lines": 578,
       "clot_score": 0.2,
       "clot_signals": [
         "dead_imports:1",
-        "oversize:561"
+        "oversize:578"
       ],
       "vein_score": 1.0,
       "vein_signals": [
@@ -6505,10 +6509,11 @@
       "in_degree": 4,
       "out_degree": 1,
       "lines": 288,
-      "clot_score": 0.2,
+      "clot_score": 0.25,
       "clot_signals": [
         "dead_imports:1",
-        "oversize:288"
+        "oversize:288",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 0.63,
       "vein_signals": [
@@ -6572,10 +6577,11 @@
       "in_degree": 4,
       "out_degree": 1,
       "lines": 335,
-      "clot_score": 0.2,
+      "clot_score": 0.25,
       "clot_signals": [
         "dead_imports:1",
-        "oversize:335"
+        "oversize:335",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 0.63,
       "vein_signals": [
@@ -6636,9 +6642,11 @@
     "双f_dsb_s008_v002_d0323_缩分话_λP": {
       "in_degree": 2,
       "out_degree": 3,
-      "lines": 152,
-      "clot_score": 0.0,
-      "clot_signals": [],
+      "lines": 226,
+      "clot_score": 0.15,
+      "clot_signals": [
+        "oversize:226"
+      ],
       "vein_score": 0.79,
       "vein_signals": [
         "hub",
@@ -6664,8 +6672,10 @@
       "in_degree": 5,
       "out_degree": 1,
       "lines": 190,
-      "clot_score": 0.0,
-      "clot_signals": [],
+      "clot_score": 0.05,
+      "clot_signals": [
+        "self_fix:high_coupling:0"
+      ],
       "vein_score": 0.93,
       "vein_signals": [
         "critical_artery:in_degree=5",
@@ -6691,9 +6701,10 @@
       "in_degree": 5,
       "out_degree": 1,
       "lines": 100,
-      "clot_score": 0.05,
+      "clot_score": 0.1,
       "clot_signals": [
-        "dead_imports:1"
+        "dead_imports:1",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 0.93,
       "vein_signals": [
@@ -6771,8 +6782,10 @@
       "in_degree": 4,
       "out_degree": 1,
       "lines": 112,
-      "clot_score": 0.0,
-      "clot_signals": [],
+      "clot_score": 0.05,
+      "clot_signals": [
+        "self_fix:high_coupling:0"
+      ],
       "vein_score": 0.63,
       "vein_signals": [
         "low_friction"
@@ -6784,8 +6797,10 @@
       "in_degree": 4,
       "out_degree": 1,
       "lines": 124,
-      "clot_score": 0.0,
-      "clot_signals": [],
+      "clot_score": 0.05,
+      "clot_signals": [
+        "self_fix:high_coupling:0"
+      ],
       "vein_score": 0.63,
       "vein_signals": [
         "low_friction"
@@ -6846,8 +6861,10 @@
       "in_degree": 4,
       "out_degree": 0,
       "lines": 137,
-      "clot_score": 0.05,
-      "clot_signals": [],
+      "clot_score": 0.1,
+      "clot_signals": [
+        "self_fix:high_coupling:0"
+      ],
       "vein_score": 0.6,
       "vein_signals": [
         "low_friction"
@@ -6949,9 +6966,10 @@
       "in_degree": 5,
       "out_degree": 1,
       "lines": 115,
-      "clot_score": 0.05,
+      "clot_score": 0.1,
       "clot_signals": [
-        "dead_imports:1"
+        "dead_imports:1",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 0.93,
       "vein_signals": [
@@ -8135,7 +8153,7 @@
     "pigeon_limits": {
       "in_degree": 20,
       "out_degree": 1,
-      "lines": 97,
+      "lines": 107,
       "clot_score": 0.05,
       "clot_signals": [
         "self_fix:high_coupling:0"
@@ -8183,8 +8201,10 @@
       "in_degree": 2,
       "out_degree": 2,
       "lines": 78,
-      "clot_score": 0.0,
-      "clot_signals": [],
+      "clot_score": 0.05,
+      "clot_signals": [
+        "self_fix:high_coupling:0"
+      ],
       "vein_score": 0.56,
       "vein_signals": [
         "low_friction"
@@ -8196,8 +8216,10 @@
       "in_degree": 5,
       "out_degree": 1,
       "lines": 48,
-      "clot_score": 0.0,
-      "clot_signals": [],
+      "clot_score": 0.05,
+      "clot_signals": [
+        "self_fix:high_coupling:0"
+      ],
       "vein_score": 0.93,
       "vein_signals": [
         "critical_artery:in_degree=5",
@@ -8223,8 +8245,10 @@
       "in_degree": 3,
       "out_degree": 1,
       "lines": 37,
-      "clot_score": 0.0,
-      "clot_signals": [],
+      "clot_score": 0.05,
+      "clot_signals": [
+        "self_fix:high_coupling:0"
+      ],
       "vein_score": 0.58,
       "vein_signals": [
         "low_friction"
@@ -8299,8 +8323,10 @@
       "in_degree": 4,
       "out_degree": 1,
       "lines": 53,
-      "clot_score": 0.0,
-      "clot_signals": [],
+      "clot_score": 0.05,
+      "clot_signals": [
+        "self_fix:high_coupling:0"
+      ],
       "vein_score": 0.63,
       "vein_signals": [
         "low_friction"
@@ -8334,9 +8360,10 @@
       "in_degree": 2,
       "out_degree": 3,
       "lines": 67,
-      "clot_score": 0.05,
+      "clot_score": 0.1,
       "clot_signals": [
-        "dead_imports:1"
+        "dead_imports:1",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 0.79,
       "vein_signals": [
@@ -8422,8 +8449,10 @@
       "in_degree": 5,
       "out_degree": 4,
       "lines": 151,
-      "clot_score": 0.0,
-      "clot_signals": [],
+      "clot_score": 0.05,
+      "clot_signals": [
+        "self_fix:high_coupling:0"
+      ],
       "vein_score": 1.0,
       "vein_signals": [
         "critical_artery:in_degree=5",
@@ -8437,9 +8466,10 @@
       "in_degree": 16,
       "out_degree": 14,
       "lines": 359,
-      "clot_score": 0.15,
+      "clot_score": 0.2,
       "clot_signals": [
-        "oversize:359"
+        "oversize:359",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 1.0,
       "vein_signals": [
@@ -8667,9 +8697,10 @@
       "in_degree": 3,
       "out_degree": 1,
       "lines": 13,
-      "clot_score": 0.05,
+      "clot_score": 0.1,
       "clot_signals": [
-        "dead_imports:1"
+        "dead_imports:1",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 0.58,
       "vein_signals": [
@@ -8720,8 +8751,10 @@
       "in_degree": 4,
       "out_degree": 2,
       "lines": 19,
-      "clot_score": 0.0,
-      "clot_signals": [],
+      "clot_score": 0.05,
+      "clot_signals": [
+        "self_fix:high_coupling:0"
+      ],
       "vein_score": 0.66,
       "vein_signals": [
         "low_friction"
@@ -10271,10 +10304,11 @@
       "in_degree": 5,
       "out_degree": 14,
       "lines": 260,
-      "clot_score": 0.35,
+      "clot_score": 0.4,
       "clot_signals": [
         "dead_imports:5",
-        "oversize:260"
+        "oversize:260",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 1.0,
       "vein_signals": [
@@ -10647,10 +10681,10 @@
     "engagement_hooks": {
       "in_degree": 1,
       "out_degree": 1,
-      "lines": 723,
+      "lines": 823,
       "clot_score": 0.15,
       "clot_signals": [
-        "oversize:723"
+        "oversize:823"
       ],
       "vein_score": 0.48,
       "vein_signals": [
@@ -10663,9 +10697,10 @@
       "in_degree": 3,
       "out_degree": 1,
       "lines": 650,
-      "clot_score": 0.15,
+      "clot_score": 0.2,
       "clot_signals": [
-        "oversize:650"
+        "oversize:650",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 0.58,
       "vein_signals": [
@@ -10811,15 +10846,18 @@
       "in_degree": 1,
       "out_degree": 1,
       "lines": 401,
-      "clot_score": 0.15,
+      "clot_score": 0.2,
       "clot_signals": [
+        "dead_imports:1",
         "oversize:401"
       ],
       "vein_score": 0.48,
       "vein_signals": [
         "low_friction"
       ],
-      "dead_imports": [],
+      "dead_imports": [
+        "__future__.annotations"
+      ],
       "unused_exports": []
     },
     "profile_chat_server": {
@@ -10927,11 +10965,11 @@
     "push_snapshot": {
       "in_degree": 2,
       "out_degree": 1,
-      "lines": 650,
+      "lines": 667,
       "clot_score": 0.25,
       "clot_signals": [
         "dead_imports:2",
-        "oversize:650"
+        "oversize:667"
       ],
       "vein_score": 0.53,
       "vein_signals": [
@@ -11015,10 +11053,11 @@
       "in_degree": 5,
       "out_degree": 2,
       "lines": 242,
-      "clot_score": 0.2,
+      "clot_score": 0.25,
       "clot_signals": [
         "dead_imports:1",
-        "oversize:242"
+        "oversize:242",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 0.96,
       "vein_signals": [
@@ -11033,12 +11072,11 @@
     "tc_context_agent": {
       "in_degree": 2,
       "out_degree": 2,
-      "lines": 625,
-      "clot_score": 0.35,
+      "lines": 630,
+      "clot_score": 0.3,
       "clot_signals": [
         "dead_imports:1",
-        "oversize:625",
-        "self_fix:dead_export:select_context_ensemble",
+        "oversize:630",
         "self_fix:dead_export:grade_prediction",
         "self_fix:dead_export:grade_and_learn"
       ],
@@ -11054,11 +11092,12 @@
     "tc_gemini": {
       "in_degree": 4,
       "out_degree": 6,
-      "lines": 437,
-      "clot_score": 0.3,
+      "lines": 725,
+      "clot_score": 0.4,
       "clot_signals": [
-        "dead_imports:3",
-        "oversize:437"
+        "dead_imports:4",
+        "oversize:725",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 0.9,
       "vein_signals": [
@@ -11067,6 +11106,7 @@
       ],
       "dead_imports": [
         "__future__.annotations",
+        "tc_context_agent.select_context_files",
         "tc_profile.format_profile_for_prompt",
         "tc_profile.update_profile_from_completion"
       ],
@@ -11075,11 +11115,11 @@
     "tc_popup": {
       "in_degree": 1,
       "out_degree": 6,
-      "lines": 559,
+      "lines": 498,
       "clot_score": 0.2,
       "clot_signals": [
         "dead_imports:1",
-        "oversize:559"
+        "oversize:498"
       ],
       "vein_score": 0.55,
       "vein_signals": [
@@ -11180,17 +11220,18 @@
     "thought_completer": {
       "in_degree": 1,
       "out_degree": 1,
-      "lines": 57,
-      "clot_score": 0.05,
+      "lines": 91,
+      "clot_score": 0.1,
       "clot_signals": [
-        "dead_imports:1"
+        "dead_imports:2"
       ],
       "vein_score": 0.48,
       "vein_signals": [
         "low_friction"
       ],
       "dead_imports": [
-        "__future__.annotations"
+        "__future__.annotations",
+        "importlib"
       ],
       "unused_exports": []
     },
@@ -11198,10 +11239,11 @@
       "in_degree": 5,
       "out_degree": 1,
       "lines": 222,
-      "clot_score": 0.3,
+      "clot_score": 0.35,
       "clot_signals": [
         "dead_imports:3",
-        "oversize:222"
+        "oversize:222",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 0.93,
       "vein_signals": [
@@ -11235,11 +11277,11 @@
     "u_pe_s024_v004_d0403_λP0_βoc": {
       "in_degree": 11,
       "out_degree": 13,
-      "lines": 561,
+      "lines": 578,
       "clot_score": 0.2,
       "clot_signals": [
         "dead_imports:1",
-        "oversize:561"
+        "oversize:578"
       ],
       "vein_score": 1.0,
       "vein_signals": [
@@ -11322,10 +11364,10 @@
     "vitals_renderer": {
       "in_degree": 1,
       "out_degree": 1,
-      "lines": 555,
+      "lines": 783,
       "clot_score": 0.15,
       "clot_signals": [
-        "oversize:555"
+        "oversize:783"
       ],
       "vein_score": 0.48,
       "vein_signals": [
@@ -11359,10 +11401,11 @@
       "in_degree": 4,
       "out_degree": 2,
       "lines": 556,
-      "clot_score": 0.2,
+      "clot_score": 0.25,
       "clot_signals": [
         "dead_imports:1",
-        "oversize:556"
+        "oversize:556",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 0.66,
       "vein_signals": [
@@ -11924,10 +11967,11 @@
       "in_degree": 2,
       "out_degree": 1,
       "lines": 458,
-      "clot_score": 0.2,
+      "clot_score": 0.25,
       "clot_signals": [
         "dead_imports:1",
-        "oversize:458"
+        "oversize:458",
+        "self_fix:high_coupling:0"
       ],
       "vein_score": 0.53,
       "vein_signals": [
@@ -14228,7 +14272,7 @@
     "修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_scan_over_hard_cap_seq008_v001": {
       "in_degree": 2,
       "out_degree": 2,
-      "lines": 55,
+      "lines": 59,
       "clot_score": 0.05,
       "clot_signals": [
         "dead_imports:1"

@@ -194,7 +194,10 @@ def select_context_numeric(buffer: str, ctx: dict, max_files: int = 3) -> list[d
         registry = _load_registry()
         results = []
         for module_name, score in predictions:
-            if score < 0.01:
+            # Post-purge, clean learned scores top out ~0.04. Keep anything
+            # predict_files returned (it already applied its own > 0.001 cut
+            # and top_n ranking). Filtering again at 0.01 dropped everything.
+            if score < 0.001:
                 continue
             # Find matching registry entry
             for mod in registry:
@@ -204,7 +207,9 @@ def select_context_numeric(buffer: str, ctx: dict, max_files: int = 3) -> list[d
                         'path': mod.get('path', ''),
                         'name': mod.get('name', ''),
                         'tokens': mod.get('tokens', 0),
-                        'score': score * 10,  # Scale to match heuristic scores
+                        # Was score*10 → *50 → *225. Numeric max ~1.39 × 225 = 313
+                        # vs heuristic max ~6.0. Numeric can now win ensemble.
+                        'score': score * 225,
                         'source': 'numeric',
                     })
                     break

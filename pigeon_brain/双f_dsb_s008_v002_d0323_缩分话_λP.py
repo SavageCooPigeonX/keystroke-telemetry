@@ -23,6 +23,7 @@ def build_dual_view(root: Path) -> dict:
     agent_heat = _load_agent_heat_raw(root)
     human_heat = _load_human_heat_raw(root)
     profiles = _load_file_profiles(root)
+    registry_entries = _load_registry_entries(root)
 
     nodes = []
     for name, node in graph.get("nodes", {}).items():
@@ -46,12 +47,22 @@ def build_dual_view(root: Path) -> dict:
             if samples:
                 last_called = samples[-1].get("ts", None)
 
-        # Dual score: combined human + agent danger
+        # Intent chain substrate — churn velocity + volatility from filename history
+        intent_chain_data = _extract_intent_chain_for_node(name, registry_entries)
+        churn_vel = intent_chain_data['churn_velocity']
+        intent_vol = intent_chain_data['intent_volatility']
+        # Normalize: churn_vel typically 0-3, intent_vol typically 0-8
+        churn_signal = min(churn_vel / 3.0, 1.0)
+        volatility_signal = min(intent_vol / 6.0, 1.0)
+        name_instability = round((churn_signal + volatility_signal) / 2.0, 3)
+
+        # Dual score: combined human + agent + intent-chain danger
         dual_score = round(
-            human_hes * 0.4 +
-            min(agent_deaths / max(agent_calls, 1), 1.0) * 0.4 +
-            (human_miss > 0) * 0.1 +
-            (agent_deaths > 0) * 0.1,
+            human_hes * 0.35 +
+            min(agent_deaths / max(agent_calls, 1), 1.0) * 0.35 +
+            name_instability * 0.2 +
+            (human_miss > 0) * 0.05 +
+            (agent_deaths > 0) * 0.05,
             3
         )
 
@@ -88,6 +99,10 @@ def build_dual_view(root: Path) -> dict:
             "partners": [p["name"] for p in prof.get("partners", [])[:3]],
             # Combined
             "dual_score": dual_score,
+            # Intent chain substrate
+            "churn_velocity": churn_vel,
+            "intent_volatility": intent_vol,
+            "intent_chain": intent_chain_data['intent_chain'],
         })
 
     nodes.sort(key=lambda x: x["dual_score"], reverse=True)
@@ -138,6 +153,65 @@ def _load_file_profiles(root: Path) -> dict:
         return {}
     try:
         return json.loads(path.read_text("utf-8"))
+    except Exception:
+        return {}
+
+
+def _load_registry_entries(root: Path) -> list[dict]:
+    """Load pigeon_registry.json entries for intent chain extraction."""
+    reg = root / 'pigeon_registry.json'
+    if not reg.exists():
+        return []
+    try:
+        return json.loads(reg.read_text('utf-8', errors='ignore')).get('files', [])
+    except Exception:
+        return []
+
+
+def _extract_intent_chain_for_node(name: str, registry_entries: list[dict]) -> dict:
+    """Extract churn_velocity + intent_volatility from registry history for a node.
+
+    Matches by name prefix — pigeon names like 'self_fix' match 'self_fix_seq013_v006...'.
+    Returns {intent_chain, churn_velocity, intent_volatility}.
+    """
+    import re
+    # Find all registry entries whose name matches this node
+    matches = [e for e in registry_entries
+               if e.get('name', '') == name or e.get('name', '').startswith(name + '_')]
+    if not matches:
+        return {'intent_chain': [], 'churn_velocity': 0.0, 'intent_volatility': 0}
+
+    # Use the entry with the most history (most versions tracked)
+    entry = max(matches, key=lambda e: len(e.get('history', [])))
+    history = entry.get('history', [])
+    path = entry.get('path', '')
+
+    slugs: list[str] = []
+    dates: list[str] = []
+    for h in history:
+        slug = h.get('intent', '') or ''
+        if not slug:
+            m = re.search(r'_lc_([a-z0-9_]+)', h.get('path', ''), re.IGNORECASE)
+            if m:
+                slug = m.group(1)
+        if slug and (not slugs or slug != slugs[-1]):
+            slugs.append(slug)
+        if h.get('date'):
+            dates.append(str(h['date']))
+
+    m = re.search(r'_lc_([a-z0-9_]+)', path, re.IGNORECASE)
+    if m:
+        current = m.group(1)
+        if not slugs or current != slugs[-1]:
+            slugs.append(current)
+
+    ver = entry.get('ver', 1)
+    days_alive = max(len(set(dates)), 1)
+    return {
+        'intent_chain': slugs,
+        'churn_velocity': round(ver / days_alive, 3),
+        'intent_volatility': len(set(slugs)),
+    }
     except Exception:
         return {}
 

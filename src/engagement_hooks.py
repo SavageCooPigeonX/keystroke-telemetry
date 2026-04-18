@@ -16,9 +16,9 @@ Zero LLM calls -- pure signal processing + behavioral targeting.
 # INTENT: engagement_bait_system
 # --------------------------------------------------
 # -- telemetry:pulse --
-# EDIT_TS:   2026-04-07T02:15:00Z
+# EDIT_TS:   2026-04-17T19:55:00Z
 # EDIT_HASH: auto
-# EDIT_WHY:  increase max hooks to 5
+# EDIT_WHY:  add enricher failure hook
 # -- /pulse --
 
 import json
@@ -129,6 +129,11 @@ def _load_context(root):
         f for f in files
         if f.get("ver", 1) >= 3 and f["name"] not in referenced
     ]
+
+    # Enricher health — detect silent failures
+    ctx["enricher_errors"] = _jsonl_tail(root / "logs" / "enricher_errors.jsonl", 5)
+    _pt = ctx.get("prompt_latest") or {}
+    ctx["enricher_stale_min"] = _hours_since(_pt.get("updated_at", "")) * 60 if _pt.get("updated_at") else None
 
     return ctx
 
@@ -623,11 +628,44 @@ def _mutation_velocity(ctx):
     return None
 
 
+def _enricher_failure_hook(ctx):
+    """Surface enricher failures loudly — operator should never see stale blocks silently."""
+    errors = ctx.get("enricher_errors", [])
+    if not errors:
+        return None
+    last = errors[-1]
+    err_msg = last.get("error", "")
+    err_ts = last.get("ts", "")
+    age_h = _hours_since(err_ts) if err_ts else 9999
+    # Only fire if recent (last 48h) — stale errors already resolved
+    if age_h > 48:
+        return None
+    if "403" in err_msg or "Forbidden" in err_msg:
+        return (
+            f"Gemini API key is dead (403 Forbidden). "
+            f"Enricher has been writing empty blocks for {age_h:.0f}h. "
+            f"Every prompt since then flew blind — no enriched intent, no unsaid recon. Fix the key.",
+            5, "diagnose",
+        )
+    if "timeout" in err_msg.lower() or "timed out" in err_msg.lower():
+        return (
+            f"Enricher timed out {len(errors)}x recently. "
+            f"Last failure: {age_h:.0f}h ago. Prompts are flying without context enrichment.",
+            4, "diagnose",
+        )
+    return (
+        f"Enricher failing silently: \"{err_msg[:80]}\". "
+        f"Last failure: {age_h:.0f}h ago. Check `logs/enricher_errors.jsonl`.",
+        4, "diagnose",
+    )
+
+
 # ──────────────────────────────────────────────────────
 # Hook registry and selection engine
 # ──────────────────────────────────────────────────────
 
 _HOOKS = [
+    ("ctx",     _enricher_failure_hook),  # PRIORITY: stale/dead enricher
     ("ctx",     _unsaid_thread_hook),   # PRIMARY: "you were also gonna say"
     ("ctx",     _unsaid_weapon),         # Deleted words pattern
     ("ctx",     _demon_dare),

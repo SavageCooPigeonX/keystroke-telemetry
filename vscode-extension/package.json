@@ -7,7 +7,7 @@
   "repository": "https://github.com/SavageCooPigeonX/keystroke-telemetry",
   "engines": { "vscode": "^1.90.0" },
   "categories": ["AI", "Other"],
-  "activationEvents": ["onStartupFinished", "onCommand:pigeon.openChat", "onCommand:pigeon.showOperatorState", "onCommand:pigeon.showEntropyChart", "onCommand:pigeon.showFreshnessSurface"],
+  "activationEvents": ["onStartupFinished", "onCommand:pigeon.openChat", "onCommand:pigeon.showOperatorState", "onCommand:pigeon.showEntropyChart", "onCommand:pigeon.showMutationStream", "onCommand:pigeon.showFreshnessSurface"],
   "main": "./out/extension",
   "contributes": {
     "chatParticipants": [
@@ -31,6 +31,10 @@
       {
         "command": "pigeon.showEntropyChart",
         "title": "Pigeon: Show Per-File Entropy Chart"
+      },
+      {
+        "command": "pigeon.showMutationStream",
+        "title": "Pigeon: Show Mutation Stream"
       },
       {
         "command": "pigeon.showFreshnessSurface",

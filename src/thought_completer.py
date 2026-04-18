@@ -59,10 +59,32 @@ def main():
     if not _load_api_key():
         print('[completer] WARNING: no GEMINI_API_KEY in .env or environment')
 
+    # Refresh numeric surface on startup — gate first completion until done
+    import threading
+    _surface_ready = threading.Event()
+    def _refresh_surface():
+        try:
+            import subprocess as _sp
+            _sp.run(
+                [sys.executable, '-c',
+                 'import sys; sys.path.insert(0,".")\n'
+                 'from pathlib import Path\n'
+                 'from src.numeric_surface import generate_surface\n'
+                 'generate_surface(Path("."))'],
+                cwd=_root_dir, timeout=60, capture_output=True
+            )
+            print('[completer] numeric_surface refreshed')
+        except Exception as _e:
+            print(f'[completer] numeric_surface refresh failed: {_e}')
+        finally:
+            _surface_ready.set()
+    threading.Thread(target=_refresh_surface, daemon=True).start()
+
     if args.web or os.environ.get('PORT'):
         run_web(args.port)
     else:
-        run_popup(args.corner, args.pause, args.width, args.height, args.opacity)
+        run_popup(args.corner, args.pause, args.width, args.height, args.opacity,
+                  surface_ready=_surface_ready)
 
 
 if __name__ == '__main__':

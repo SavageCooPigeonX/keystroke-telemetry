@@ -141,6 +141,17 @@ def record_rework(root: Path, score: dict, query_text: str = '',
     log_path.write_text(json.dumps(existing[-200:], indent=2), encoding='utf-8')
     # Feed rework verdict back into active bug dossier scores
     _update_dossier_scores(root, score['verdict'])
+    # Sync canonical scorecard — weighted rate: miss=1.0, partial=0.5
+    try:
+        from src.rework_scorecard import update_scorecard as _usc
+        total_ev = len(existing)
+        misses_ev = sum(1 for e in existing if e.get('verdict') == 'miss')
+        partials_ev = sum(1 for e in existing if e.get('verdict') == 'partial')
+        weighted_missed = misses_ev + partials_ev * 0.5
+        _usc(total=total_ev, missed=int(weighted_missed),
+             notes=f'weighted: {misses_ev}miss + {partials_ev}partial*0.5 / {total_ev}')
+    except Exception:
+        pass
 
 
 def load_rework_stats(root: Path) -> dict:

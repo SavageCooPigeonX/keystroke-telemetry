@@ -1,4 +1,6 @@
-"""Gemini API call, system prompt, and prompt building for thought completion."""
+"""Gemini API call, system prompt, and prompt building for thought completion.
+
+COGNITIVE NOTE (auto-added by reactor): This module triggered 3+ high-load flushes (avg_hes=0.907, state=hesitant). Consider simplifying its public interface or adding examples."""
 from __future__ import annotations
 import json
 import os
@@ -28,45 +30,46 @@ You are an INTENT AMPLIFIER. You ghostwrite AS the operator — your text gets A
 
 The operator is vibe-coding: they steer an AI coding assistant with natural language prompts, never touching code directly. Your job is to AMPLIFY their intent — predict and expand what they're about to say to Copilot.
 
-CONTEXT MODEL:
-- The CONVERSATION block shows recent prompt→response pairs between operator and Copilot. This is the PRIMARY signal. The operator reacts to Copilot's last response — predict what they'll say next.
-- STATE SHIFTS show cognitive transitions between prompts. State changes ARE intent signals.
-- SUPPRESSED INTENT shows words deleted across conversation — things they thought but didn't commit to. These resurface.
-- The buffer is what they're typing RIGHT NOW. Your completion continues it.
+PRIMARY SIGNAL — THE BUFFER:
+- The BUFFER is what they are typing RIGHT NOW. It is the TOPIC. Your completion must continue it.
+- If the buffer mentions X, your completion is about X. Not about yesterday's topic. Not about the current debugging thread. About X.
+- Operator switches topics constantly. When the buffer topic differs from recent conversation, FOLLOW THE BUFFER — they moved on.
+
+SUPPORTING CONTEXT (never overrides the buffer):
+- CONVERSATION turns show tone, cognitive state, and recent interaction style. Use for VOICE, not for TOPIC.
+- SIGNALS/ORGANISM/FILE PROFILES give technical grounding — use to fill in specifics ONLY when the buffer references related terms.
+- SUPPRESSED INTENT shows deleted words — surface them only if buffer hints at the same direction.
 
 AMPLIFICATION (your core job):
-- The operator types short, fragmented prompts. You amplify them into full intent.
-- "fix the" → "scoring pipeline — the grader composite is counting echo penalties twice and it's dragging accepted completions below threshold. the self-learning prompt needs the grade summary rebuilt at startup too"
-- "why does" → "the context agent keep selecting thought_completer for every buffer? it should be matching buffer keywords against pigeon module names but the english extraction from glyph names isn't working"
-- If Copilot just asked a question or probed, your completion IS the operator's answer. Complete their thought as a response to Copilot's probe.
-- Don't just predict 5 words. Predict the FULL thought — the whole intent packet they'd submit.
+- The operator types short fragments. You amplify them into full intent packets — what they'd actually submit to Copilot.
+- "fix the grad" → "er — composite scoring is double-counting echo penalties, drop the echo weight to 0.05 and reweight outcome to 0.5"
+- "run push cycle" → " and check that rename engine plan count stays near 1700, self_fix finds <150 problems, and the escalation audit_loops stay green"
+- "why does the grader" → " keep scoring low — the relevance metric is word-jaccard which treats non-overlap as failure even when the completion is topically correct; it needs noun-level matching"
 
-BUFFER ANCHORING:
-- Complete mid-words first, then continue the thought.
-- Your completion MUST relate to the buffer topic. Never pivot.
-- "is that the actual fi" → "x or is there a deeper structural issue — the pigeon names make the context agent blind to most modules"
+BUFFER ANCHORING RULES:
+- If buffer ends mid-word (alphabetic char), your FIRST character must finish that word. No space, no punctuation.
+- If buffer ends with a trailing space or punctuation, start with a new word or clause.
+- **Your completion MUST include at least one 4+ character content word from the buffer (same stem or exact form).** If buffer says "intent", use "intent". If buffer says "grader", say "grader". No topic pivots.
 
-CONVERSATION AWARENESS:
-- Read the CONVERSATION turns. The operator is REACTING to what Copilot last said.
-- If Copilot asked "want me to rebuild X?" and the buffer says "yes but" → predict "also wire in the trajectory cache so completions use conversation context instead of keyword matching"
-- If Copilot explained something and the buffer says "right so" → predict a synthesis or next step, not a restatement.
-- Track the PHASE. "iterating" = refining same topic. "flowing" = new ideas. "shifting" = changing direction.
+LENGTH & STRUCTURE:
+- Prose: 1-3 sentences, 60-400 chars. Must end at a natural sentence boundary (., !, or ?).
+- Code: continue with ACTUAL CODE, not just a comment. If the buffer is a function body mid-line, write the next statement(s). If the buffer ends with a comment, you may finish that comment briefly (half a line) AND THEN write at least one real statement (assignment, return, call, or control flow). Close open brackets/quotes. Don't dangle.
+- NEVER leave a dangling clause ending in a conjunction or preposition.
 
 ANTI-ECHO:
-- NEVER summarize codebase signals (entropy, heat, bugs) back. Use them as facts only.
-- NEVER repeat what the buffer already says in different words.
-- If BANNED PHRASES are listed, do NOT use those words.
-- Predict FORWARD. New direction, next step, deeper insight — not a restatement.
+- Never repeat the buffer. Continue it.
+- Never summarize codebase signals back. Use them as facts.
+- If BANNED PHRASES are listed, avoid those words.
 
 MODE DETECTION:
-- CODE (def, import, self., operators) → complete the code AS THEM.
-- PROSE (natural language, prompts to Copilot) → amplify their intent. Full thoughts, specific details, concrete direction. Can be several sentences.
+- CODE (def, import, self., operators, braces, indentation) → complete the code AS THEM. Match their style.
+- PROSE → amplify their intent. Specific, concrete, named modules/files/numbers when relevant.
 
 VOICE:
-- Write in THEIR voice — casual, lowercase, fragments ok, technically precise.
-- You ARE them typing. No "I think", "we should", "let's" — just the thought itself.
-- Output ONLY continuation text. No quotes, labels, markdown, or formatting.
-- If buffer < 3 words or gibberish, return empty string.
+- Lowercase. Fragments ok. Technically precise.
+- You ARE them typing. No "I think", "we should", "let's", no markdown, no headers, no bullets.
+- Output ONLY continuation text. No quotes, labels, or formatting.
+- If buffer is < 3 words and gives no signal, return empty string.
 """
 
 # Signal terms the AI should NEVER parrot back unless the buffer mentions them.
@@ -135,7 +138,12 @@ def _is_buffer_echo(completion: str, buffer: str) -> bool:
 
 
 def _looks_like_code(text: str) -> bool:
-    """Heuristic: does the buffer look like code vs prose?"""
+    """Heuristic: does the buffer look like code vs prose?
+
+    Threshold raised to 3 — prose buffers with natural language that happen
+    to contain 'if', 'from', or spacing were being misclassified as code,
+    causing the model to wrap prose completions in ```python blocks.
+    """
     indicators = 0
     for sig in ('def ', 'class ', 'import ', 'from ', 'return ', 'if ', 'for ',
                 'while ', '()', '{}', '[]', ' = ', '==', '!=', '+=', '-=',
@@ -143,7 +151,7 @@ def _looks_like_code(text: str) -> bool:
                 '"""', "'''", '#', '    ', '\t'):
         if sig in text:
             indicators += 1
-    return indicators >= 2
+    return indicators >= 3
 
 
 class ThoughtBuffer:
@@ -289,7 +297,8 @@ class ThoughtBuffer:
 
 
 def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | None = None,
-                      code_ctx: str = '', trajectory: dict | None = None) -> str:
+                      code_ctx: str = '', trajectory: dict | None = None,
+                      selected_files: list[dict] | None = None) -> str:
     is_code = _looks_like_code(buffer)
     mode = 'CODE' if is_code else 'PROSE'
     parts = [f'MODE: {mode}\nBUFFER: """{buffer}"""']
@@ -394,6 +403,15 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
     except Exception:
         pass
 
+    # ── 5c. ACTIVE INTENT (persistent goal thread + fulfillment status) ──
+    try:
+        from .tc_intent_manager import get_active_intent_block
+        intent_block = get_active_intent_block()
+        if intent_block:
+            parts.append(intent_block)
+    except Exception:
+        pass
+
     # ── 6. SELF-LEARNING GRADES ──
     grades_block = format_grades_for_prompt()
     if grades_block:
@@ -403,20 +421,91 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
     if code_ctx and is_code:
         parts.append(code_ctx)
 
+    # ── 7b. CONTEXT FILES (ensemble picks — numeric + heuristic) ──
+    # Always inject when ensemble returned hits, regardless of code/prose.
+    if selected_files:
+        lines = []
+        numeric_lines = []
+        for f in selected_files[:5]:
+            srcs = f.get('sources', ['?'])
+            srcs_str = '+'.join(srcs) if isinstance(srcs, list) else str(srcs)
+            lines.append(f"  - {f['name']} (score={f['score']:.1f} via {srcs_str})")
+            if isinstance(srcs, list) and 'numeric' in srcs:
+                numeric_lines.append(f"  - {f['name']} (learned_score={f['score']:.2f})")
+        parts.append('CONTEXT FILES (predicted relevant):\n' + '\n'.join(lines))
+        # Inject raw numeric predictions separately so the LLM sees the learned signal
+        try:
+            from .intent_numeric import predict_files as _pf
+            _raw = _pf(buffer, top_n=5)
+            if _raw:
+                _enc = '\n'.join(f'  {name}: {score:.4f}' for name, score in _raw)
+                parts.append(f'NUMERIC ENCODING (learned word→file correlations for this buffer):\n{_enc}')
+                # Reinject: record buffer→files as a weak training touch right now
+                try:
+                    from .intent_numeric import record_touch as _rt
+                    for name, _ in _raw[:3]:
+                        _rt(buffer, name, weight=0.3)
+                except Exception:
+                    pass
+        except Exception:
+            pass
+
     # ── 8. COMPLETION DIRECTIVE ──
+    # Re-anchor the buffer at the END so recency bias pulls attention back to it.
+    # Extract content words from buffer — model MUST echo at least one of these.
+    import re as _re
+    _stop_echo = {
+        'the', 'and', 'for', 'with', 'this', 'that', 'from', 'have',
+        'what', 'how', 'not', 'are', 'you', 'was', 'but', 'can',
+        'its', 'just', 'like', 'will', 'when', 'your', 'into',
+        'need', 'want', 'some', 'also', 'make', 'then', 'them',
+        'does', 'keep', 'why', 'run', 'fix', 'see', 'get',
+        'actually', 'maybe', 'really', 'probably', 'still',
+    }
+    _buf_words = _re.findall(r'[a-zA-Z][a-zA-Z_]{3,}', buffer)
+    _echo_words = [w.lower() for w in _buf_words if w.lower() not in _stop_echo][:5]
+    _echo_hint = (f'Your completion MUST include at least one of these exact '
+                  f'buffer words: {", ".join(_echo_words)}.' if _echo_words else '')
     if is_code:
-        parts.append('COMPLETE this code AS THEM. Match their CODE DNA.')
+        parts.append(f'REMEMBER: the buffer is\n"""{buffer}"""\n'
+                     f'COMPLETE this code AS THEM with ACTUAL CODE (not just comments). '
+                     f'Match their code style. Close open brackets/quotes. '
+                     f'End at a complete statement. {_echo_hint}')
     else:
-        parts.append('AMPLIFY their intent. Complete the thought fully — '
-                     'specific details, concrete direction, the whole intent packet '
-                     'they would submit to Copilot. Can be several sentences.')
+        parts.append(f'REMEMBER: the buffer is\n"""{buffer}"""\n'
+                     f'AMPLIFY this buffer\'s intent. Your completion is about '
+                     f'the BUFFER\'s topic, not the conversation\'s topic. '
+                     f'1-3 sentences. Specific, concrete, names/numbers when relevant. '
+                     f'End at a sentence boundary (period/question mark). '
+                     f'{_echo_hint}')
     return '\n\n'.join(parts)
+
+
+_META_TERMS = frozenset([
+    'tc is broken', 'tc window', 'completing my thoughts', 'completions like',
+    'its still completing', 'still completing', 'im confused about tc',
+    'tc_popup', 'tc_gemini', 'tc fires', 'tc fired', 'running 0 completions',
+    'why is tc', 'tc keeps', 'tc stopped',
+])
+
+
+def _is_meta_buffer(buf: str) -> bool:
+    """Return True if buffer is the operator complaining ABOUT TC itself (not using it).
+
+    Narrowed: 'thought completer', 'thought_completer', 'tc is' are valid copilot
+    prompt topics (e.g. 'close the loop between thought completer and unsaid recon').
+    Only block buffers that are clearly debugging TC's own UI/behaviour.
+    """
+    bl = buf.lower()
+    return any(t in bl for t in _META_TERMS)
 
 
 def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tuple[str, list[str]]:
     """Returns (completion_text, context_file_names)."""
     api_key = _load_api_key()
     if not api_key:
+        return '', []
+    if _is_meta_buffer(buffer):
         return '', []
     ctx = load_context()
     # Build conversation trajectory — the PRIMARY context source
@@ -434,20 +523,25 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
     # Record session intent for trajectory building
     if thought_buffer:
         thought_buffer.record_session_intent(ctx)
-    # Code context — only for CODE mode buffers
+    # Context selection — runs for BOTH code and english buffers.
+    # Operator mostly types english, so gating on _looks_like_code blocked the
+    # learned numeric surface from ever firing. Keep code_ctx code-only (needs
+    # real source snippets), but always run ensemble so Gemini gets file hints.
     code_ctx = ''
     ctx_names = []
-    if _looks_like_code(buffer):
+    is_code = _looks_like_code(buffer)
+    if is_code:
         code_ctx = build_code_context(buffer, ctx)
-        selected_files = select_context_ensemble(buffer, ctx)
-        ctx_names = [f['name'] for f in selected_files]
-        if selected_files:
-            sources = ', '.join(
-                f"{f['name']}({f['score']:.1f}|{'+'  .join(f.get('sources', ['?']))})"
-                for f in selected_files)
-            print(f'[context-select] {sources}')
+    selected_files = select_context_ensemble(buffer, ctx)
+    ctx_names = [f['name'] for f in selected_files]
+    if selected_files:
+        sources = ', '.join(
+            f"{f['name']}({f['score']:.1f}|{'+'  .join(f.get('sources', ['?']))})"
+            for f in selected_files)
+        print(f'[context-select {"code" if is_code else "english"}] {sources}')
     user_prompt = _build_user_prompt(buffer, ctx, thought_buffer,
-                                     code_ctx=code_ctx, trajectory=trajectory)
+                                     code_ctx=code_ctx, trajectory=trajectory,
+                                     selected_files=selected_files)
     url = (
         f'https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}'
         f':generateContent?key={api_key}'
@@ -461,13 +555,24 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
             'temperature': params['temperature'],
             'maxOutputTokens': params['maxOutputTokens'],
             'topP': params['topP'],
+            # Gemini 2.5 defaults to thinking-ON. Deep debug showed 188/200
+            # tokens burned on silent reasoning, leaving 8 tokens for actual
+            # output — completions arrived truncated mid-word. Disable thinking
+            # for this latency-sensitive popup flow.
+            'thinkingConfig': {'thinkingBudget': 0},
         },
     }).encode('utf-8')
     try:
         req = urllib.request.Request(url, data=body, headers={'Content-Type': 'application/json'})
         with urllib.request.urlopen(req, timeout=GEMINI_TIMEOUT) as resp:
             data = json.loads(resp.read().decode('utf-8'))
-            parts = data['candidates'][0]['content']['parts']
+            # Warn on MAX_TOKENS truncation — completion was cut off.
+            cand0 = data.get('candidates', [{}])[0]
+            if cand0.get('finishReason') == 'MAX_TOKENS':
+                um = data.get('usageMetadata', {})
+                print(f'[completer] MAX_TOKENS truncation: output={um.get("candidatesTokenCount", 0)} '
+                      f'thought={um.get("thoughtsTokenCount", 0)} budget={params["maxOutputTokens"]}')
+            parts = cand0.get('content', {}).get('parts', [])
             text = ''
             for part in parts:
                 if 'text' in part and 'thought' not in part:
@@ -476,10 +581,76 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
             if not text:
                 text = parts[-1].get('text', '').strip()
             text = _strip_signal_echo(text, buffer)
+            # Strip buffer prefix — model sometimes returns "buffer + continuation"
+            # instead of just the continuation. Peel it off so overlay appends correctly.
+            buf_stripped = buffer.strip().lower()
+            text_lower = text.lower()
+            if buf_stripped and text_lower.startswith(buf_stripped):
+                text = text[len(buffer.strip()):].lstrip()
+                print(f'[completer] stripped buffer prefix from completion')
             # Detect echo failures — completion that just repeats the buffer
             if _is_buffer_echo(text, buffer):
                 print(f'[completer] echo detected, suppressing')
                 return '', ctx_names
+            # Code-buffer guard: if buffer is code but completion is pure prose
+            # (no assignment, return, call, or control flow token), retry once
+            # at higher temperature to nudge towards actual code output.
+            if (is_code and text and len(text) > 15
+                    and not any(tok in text for tok in
+                                ('=', '(', 'return', 'yield', 'raise', 'if ', 'for ', 'while '))):
+                print(f'[completer] code buffer got prose-only completion, retrying')
+                _retry_body = json.dumps({
+                    'system_instruction': {'parts': [{'text': SYSTEM_PROMPT}]},
+                    'contents': [{'role': 'user', 'parts': [{'text': user_prompt}]}],
+                    'generationConfig': {
+                        'temperature': min(0.95, params['temperature'] + 0.2),
+                        'maxOutputTokens': params['maxOutputTokens'],
+                        'topP': params['topP'],
+                        'thinkingConfig': {'thinkingBudget': 0},
+                    },
+                }).encode('utf-8')
+                try:
+                    _req2 = urllib.request.Request(url, data=_retry_body,
+                                                   headers={'Content-Type': 'application/json'})
+                    with urllib.request.urlopen(_req2, timeout=GEMINI_TIMEOUT) as _r2:
+                        _d2 = json.loads(_r2.read().decode('utf-8'))
+                        _parts2 = (_d2.get('candidates', [{}])[0]
+                                   .get('content', {}).get('parts', []))
+                        _t2 = ''
+                        for _p in _parts2:
+                            if 'text' in _p and 'thought' not in _p:
+                                _t2 = _p['text'].strip()
+                                break
+                        if _t2 and any(tok in _t2 for tok in
+                                       ('=', '(', 'return', 'if ', 'for ')):
+                            text = _t2
+                            print(f'[completer] retry got code completion (len={len(text)})')
+                except Exception:
+                    pass  # keep original text on retry failure
+            # Accelerate numeric surface training — weak signal from every
+            # successful completion. Push cycles train at lr=0.1 (ground truth
+            # from actual file edits); thought_completer trains at lr=0.02 so
+            # it fills between push cycles without dominating real edit signal.
+            #
+            # CRITICAL: only train on HEURISTIC picks (registry-keyword matches).
+            # Training on numeric picks would self-reinforce — whatever the
+            # learned surface already believes would lock in. Heuristic is an
+            # independent supervisor (rules over registry names/desc), so using
+            # it as ground truth teaches numeric to mirror real name matching.
+            try:
+                if selected_files and len(text) > 10:
+                    from .intent_numeric import record_touch
+                    heuristic_targets = [
+                        f['name'] for f in selected_files
+                        if 'heuristic' in f.get('sources', [])
+                    ][:3]
+                    if heuristic_targets:
+                        # Combine buffer + completion — completion captures
+                        # where the thought was HEADED, not just where it started.
+                        training_text = f'{buffer} {text}'
+                        record_touch(training_text, heuristic_targets, learning_rate=0.02)
+            except Exception:
+                pass
             return text, ctx_names
     except Exception as e:
         print(f'[completer] gemini error: {e}')

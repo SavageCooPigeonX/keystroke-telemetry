@@ -416,7 +416,7 @@ def _build_rework_surface(rework_log):
     lines.append("")
 
     # Recent rework
-    reworked = [r for r in rework_log if r.get("rework_score", 0) > 0]
+    reworked = [r for r in rework_log if r.get("verdict", "ok") != "ok"]
     if reworked:
         lines.append(f"### Reworked Responses ({len(reworked)})\n")
         lines.append("| Time | Score | Del% | Query Hint |")
@@ -645,11 +645,11 @@ def build_prompt_block(root):
 
     # AI rework rate
     if rework:
-        reworked = sum(1 for r in rework if r.get("rework_score", 0) > 0)
-        if reworked:
-            L.append(f'**AI rework:** {reworked}/{len(rework)} responses needed rework '
-                     f'({reworked/len(rework)*100:.0f}%)')
-            L.append('')
+        reworked = sum(1 for r in rework if r.get("verdict", "ok") != "ok")
+        miss_rate = reworked / len(rework) if rework else 0
+        L.append(f'**AI rework:** {reworked}/{len(rework)} responses needed rework '
+                 f'({miss_rate*100:.0f}%)')
+        L.append('')
 
     # Push cycle
     cycles = push_state.get("total_cycles", 0)
