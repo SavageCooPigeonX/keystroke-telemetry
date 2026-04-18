@@ -1053,6 +1053,21 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
     except Exception as e:
         print(f'  ⚠️  voice style: {e}')
 
+    # Intent→outcome binding — close the intent loop with real diff content
+    try:
+        import importlib.util as _ilu
+        _binder_path = root / 'src' / 'intent_outcome_binder.py'
+        if _binder_path.exists():
+            _spec = _ilu.spec_from_file_location('intent_outcome_binder', _binder_path)
+            _binder = _ilu.module_from_spec(_spec)
+            _spec.loader.exec_module(_binder)
+            _result = _binder.bind_commit(root, 'HEAD')
+            if not _result.get('skipped'):
+                print(f'  🔗 intent binding: {_result["bound"]}/{_result["files_changed"]} files matched '
+                      f'({_result["unmatched"]} unmatched) → edit_pairs.jsonl')
+    except Exception as e:
+        print(f'  ⚠️  intent binding: {e}')
+
 
 def _load_edit_whys(root: Path) -> dict[str, str]:
     """Load latest edit_why per file from edit_pairs.jsonl."""
@@ -1589,6 +1604,17 @@ def run():
                 print(f'  🧠 learning loop: {processed} entries, {trained} nodes trained')
     except Exception as e:
         print(f'  ⚠️  learning loop catch-up: {e}')
+
+    # Auto-refresh pipelines — context_veins + organism health
+    try:
+        import subprocess as _sp
+        _sp.run([sys.executable, str(root / 'pigeon_brain' / 'context_veins.py')],
+                capture_output=True, timeout=30)
+        _sp.run([sys.executable, str(root / '_build_organism_health.py')],
+                capture_output=True, timeout=60)
+        print('  🔄 Pipelines refreshed (context_veins + organism_health)\n')
+    except Exception as e:
+        print(f'  ⚠️  pipeline refresh: {e}')
 
     # Auto-commit
     _git('add', '-A')
