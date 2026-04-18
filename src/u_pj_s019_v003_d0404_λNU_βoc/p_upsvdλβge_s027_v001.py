@@ -12,6 +12,7 @@ from pathlib import Path
 import json
 import re
 import sys
+from .p_u_pj_s002_v001 import _trim_text
 
 def _log_enriched_entry_run_gemini_enricher(root: Path, msg: str, deleted_words: list, cog_state: str, signals: dict) -> None:
     try:

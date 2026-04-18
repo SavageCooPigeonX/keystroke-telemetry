@@ -11,6 +11,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 import json
 import re
+from .p_upsvdλβmh_s005_v001 import _is_meta_hook_message
+from .p_upsvdλβeb_s022_v001 import _log_enriched_entry_build_enriched_entry, _log_enriched_entry_build_meta_hook
+from .p_upsvdλβsd_s011_v001 import _should_skip_duplicate_meta_prompt
+from .p_upsvdλβaj_s025_v001 import _log_enriched_entry_append_to_journal
+from .p_upsvdλβru_s018_v001 import _refresh_prompt_compositions, _force_fresh_composition
+from .p_upsvdλβsc_s010_v001 import _select_composition
+from .p_upsvdλβec_s023_v001 import _log_enriched_entry_extract_from_composition
+from .p_upsvdλβwr_s024_v001 import _log_enriched_entry_write_raw_signal
+from .p_upsvdλβpa_s026_v001 import _log_enriched_entry_handle_post_append
 
 def log_enriched_entry(root: Path, msg: str, files_open: list[str], session_n: int) -> dict:
     """Build and append one fully-enriched journal entry. Returns the entry.

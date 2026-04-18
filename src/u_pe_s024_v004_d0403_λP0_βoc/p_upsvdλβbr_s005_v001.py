@@ -4,6 +4,7 @@ from pathlib import Path
 import json
 import os
 import re
+from .p_upsvdλβbs_s004_v001 import _score_bug_dossiers
 
 def _write_routing_signal(root: Path, dossiers: list[dict]):
     """Write active dossier selection so task-context + auto-index can slim."""

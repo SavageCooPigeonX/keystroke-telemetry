@@ -10,11 +10,12 @@
 from pathlib import Path
 import json
 import re
+from .p_u_pj_s001_v001 import COPILOT_PATH, PROMPT_BLOCK_END, PROMPT_BLOCK_START, SNAPSHOT_PATH
+from .p_upsvdλβtl_s012_v001 import _latest_runtime_module
 
 def _refresh_copilot_instructions(root: Path, snapshot: dict) -> None:
     try:
         import importlib.util
-
         manager_path = _latest_runtime_module(root, 'src/管w_cpm_s020*.py')
         if manager_path is not None:
             spec = importlib.util.spec_from_file_location('_copilot_prompt_manager_runtime', manager_path)

@@ -1,5 +1,6 @@
 """u_pe_s024_v004_d0403_λP0_βoc_block_utils_seq008_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
+from .p_upsvdλβc_s001_v001 import BLOCK_START, BLOCK_END
 
 def _strip_query_blocks(text: str) -> tuple[str, bool]:
     """Remove all managed current-query blocks, even if duplicates exist."""

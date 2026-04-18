@@ -10,6 +10,9 @@
 from pathlib import Path
 import json
 import re
+from .p_u_pj_s001_v001 import JOURNAL_PATH
+from .p_u_pj_s002_v001 import _read_jsonl
+from .p_upsvdλβmh_s005_v001 import _is_meta_hook_message
 
 def _should_skip_duplicate_meta_prompt(root: Path, msg: str, meta_prompt_kind: str | None) -> bool:
     if not meta_prompt_kind:

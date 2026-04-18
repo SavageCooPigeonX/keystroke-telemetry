@@ -1,5 +1,6 @@
 """nametag_seq011_slugify_seq003_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
+from .牌f_nam_co_s001_v001 import MAX_DESC_WORDS
 
 def slugify(text: str, max_words: int = MAX_DESC_WORDS) -> str:
     """Convert a sentence to a filename-safe slug.

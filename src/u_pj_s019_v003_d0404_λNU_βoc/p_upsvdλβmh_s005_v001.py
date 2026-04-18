@@ -8,6 +8,7 @@
 # SESSIONS: 0
 # ──────────────────────────────────────────────
 import re
+from .p_u_pj_s001_v001 import TASK_COMPLETE_HOOK_MARKERS
 
 def _is_meta_hook_message(msg: str) -> bool:
     low = msg.lower()

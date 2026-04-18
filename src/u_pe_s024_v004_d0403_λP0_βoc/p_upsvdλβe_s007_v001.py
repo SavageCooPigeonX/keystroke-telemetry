@@ -5,6 +5,14 @@ import json
 import os
 import re
 import urllib.request
+from .p_upsvdλβdl_s003_v001 import (
+    _hot_files, _rework_for_query, _recent_ai_attempts,
+    _deleted_words_from_journal, _cognitive_state,
+    _registry_touches, _recent_journal_context,
+)
+from .p_upsvdλβbr_s005_v001 import _active_bug_dossier
+from .p_upsvdλβpb_s006_v001 import _build_deepseek_prompt
+from .p_upsvdλβc_s001_v001 import GEMINI_MODEL, GEMINI_TIMEOUT
 
 def enrich_prompt(root: Path, raw_query: str,
                   deleted_words: list | None = None,

@@ -30,7 +30,7 @@ MUTATIONS_PATH = 'logs/copilot_prompt_mutations.json'
 
 COPILOT_PATH   = '.github/copilot-instructions.md'
 
-MAX_COMP_AGE_MS = 120_000    # 2min window — compositions may lag behind prompt submission
+MAX_COMP_AGE_MS = 900_000    # 15min window — copilot journal is often written minutes after prompt
 
 TIGHT_WINDOW_MS = 500        # ±500ms for high-confidence direct binding
 

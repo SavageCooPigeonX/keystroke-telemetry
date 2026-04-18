@@ -8,6 +8,10 @@
 # SESSIONS: 0
 # ──────────────────────────────────────────────
 import re
+from .p_u_pj_s002_v001 import _trim_text
+from .p_u_pj_s016_v001 import _load_fresh_coaching_bullets
+from .p_upsvdλβpid_s014_v001 import _predict_next_issues
+from .p_upsvdλβtl_s012_v001 import _dominant_state
 
 def _build_snapshot(entry: dict) -> dict:
     running = entry.get('running', {})

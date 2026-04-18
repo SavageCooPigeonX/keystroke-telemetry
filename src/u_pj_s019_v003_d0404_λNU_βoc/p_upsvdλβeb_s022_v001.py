@@ -10,6 +10,11 @@
 from datetime import datetime, timezone
 from pathlib import Path
 import re
+from .p_u_pj_s006_v001 import _classify_intent
+from .p_upsvdλβmhb_s017_v001 import _build_meta_hook_entry
+from .p_upsvdλβmr_s007_v001 import _extract_module_refs
+from .p_upsvdλβrsd_s013_v001 import _running_stats
+from .p_upsvdλβtl_s012_v001 import _active_tasks, _hot_modules, _mutation_count
 
 def _log_enriched_entry_build_enriched_entry(now: datetime, session_n: int, msg: str, files_open: list[str], meta_prompt_kind: str, cog_state: str, signals: dict, binding: dict, deleted_words: list, rewrites: list, root: Path) -> dict:
     entry = {

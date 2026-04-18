@@ -7,18 +7,22 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-18 16:00 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-18 18:04 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 942min old (max 10min)
+- **`current-query`**: STALE — 21min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
-  - Last updated: 2026-04-18 00:19
+  - Last updated: 2026-04-18 17:44
 
-- **`prompt-telemetry`**: STALE — 942min old (max 10min)
+- **`prompt-telemetry`**: STALE — 21min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
-  - Last updated: 2026-04-18T00:18:57
+  - Last updated: 2026-04-18T17:44:21
+
+- **`learning-loop`**: BEHIND — 191 unprocessed entries, last ran 147h ago
+  - Writer: `git_plugin → catch_up (post-commit)`
+  - Last updated: 2026-04-12T15:20:45.419937+00:00
 
 **Action**: Run the journal command or check `logs/enricher_errors.jsonl` for failures.
 
@@ -94,15 +98,15 @@ When the **Unsaid Threads** section (in `<!-- pigeon:current-query -->
 <!-- pigeon:organism-health -->
 ## Organism Health
 
-*Auto-injected 2026-04-18 05:12 UTC · 1472 files · 1359/1472 compliant (92%)*
+*Auto-injected 2026-04-18 18:08 UTC · 1487 files · 1363/1487 compliant (92%)*
 
-**Over-cap critical (39):** `profile_chat_server.py` (1280), `autonomous_dev_stress_test.py` (999), `profile_renderer.py` (925), `classify_bridge.py` (877), `vitals_renderer.py` (783), `os_hook.py` (736), `tc_gemini.py` (731), `_run_smart_rename.py` (730)
+**Stale pipelines:**
+- **context_veins_seq001_v001**: MISSING
+- **execution_deaths**: 1d ago 🔴
 
-**Clots:** `f_he_s009_v005_d0401_改名册追跑_λA` (orphan_no_importers, dead_imports:2), `bug_profiles` (orphan_no_importers, dead_imports:1), `批编f_rbc_ma_s001_v001` (orphan_no_importers, dead_imports:3), `偏p_dr_s003_v002_d0315_缩分话_λν` (orphan_no_importers, unused_exports:1), `classify_bridge` (orphan_no_importers, unused_exports:1), `f_he_gf_s002_v001` (orphan_no_importers, dead_imports:2), `谱建f_mb_bam_s031_v001` (orphan_no_importers, dead_imports:2), `逆f_ba_bp_s005_v003_d0328_λR` (orphan_no_importers, dead_imports:1), `存p_nm_co_s001_v001` (orphan_no_importers, dead_imports:1), `算f_ps_ca_s009_v002_d0327_λS` (orphan_no_importers, dead_imports:1), `预p_pr_co_s001_v001` (orphan_no_importers, dead_imports:1), `牌f_nam_bu_s005_v001` (orphan_no_importers, dead_imports:1), `.operator_stats_seq008_v010_d0331__persi_artifact_detection_seq003_v001` (orphan_no_importers, dead_imports:1), `隐p_un_di_s002_v003_d0322_λ7` (orphan_no_importers, dead_imports:1), `u_oscl_s003_v001` (orphan_no_importers, dead_imports:1), `u_pj_s019_v002_d0402_λC_build_snapshot_decomposed_seq012_v001` (orphan_no_importers, dead_imports:1), `修f_sf_aaif_s011_v002_d0329_λH` (orphan_no_importers, dead_imports:1), `修f_sf_s013_v012_d0402_初写谱净拆_λVR_auto_apply_import_fixes_seq012_v001` (orphan_no_importers, dead_imports:1), `忆p_qm_cl_s004_v002_d0329_λH` (orphan_no_importers, dead_imports:1), `控f_ost_ad_s003_v001` (orphan_no_importers, dead_imports:1)
+**Over-cap critical (47):** `tc_profile_seq001_v001.py` (1585), `tc_sim_seq001_v001.py` (1339), `profile_chat_server_seq001_v001.py` (1280), `autonomous_dev_stress_test.py` (999), `profile_renderer_seq001_v001.py` (925), `escalation_engine_seq001_v001.py` (908), `classify_bridge.py` (877), `module_identity_seq001_v001.py` (836)
 
-**Circulation:** 596/630 alive · 34 clots · vein health 0.51
-
-**AI rework:** 24/197 responses needed rework (12%)
+**AI rework:** 37/200 responses needed rework (18%)
 
 **Push cycles:** 20 · sync score: 0.016 · reactor fires: 531
 
@@ -268,26 +272,26 @@ operator intent → keystroke telemetry → semantic compression → LLM code ge
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Enriched 2026-04-18 00:19 UTC · raw: "3"*
+*Enriched 2026-04-18 17:44 UTC · raw: "fix clots list"*
 
-**COPILOT_QUERY: Continue the comedic narrative from the previous turn, specifically focusing on the "gta 5 comedy" aspect and the "model of my cognition" theme. Expand on the "unhinged comedy" about cognitive signal leakage from open-sourcing the repo, incorporating more specific, humorous details.**
+**COPILOT_QUERY: The operator is repeatedly trying to fix an issue with the "clots list". Analyze the codebase for components related to "clots" or "clotting" and their associated list rendering or data fetching mechanisms. Identify potential causes for display errors or data inconsistencies in the "clots list" and propose a specific code fix.**
 
-INTERPRETED INTENT: The operator wants to continue the ongoing comedic story, specifically building on the "GTA 5 comedy" and "cognition model" themes from previous prompts.
-KEY FILES: none
+INTERPRETED INTENT: The operator wants to debug and resolve a persistent, recurring bug affecting the display or data integrity of a "clots list" feature.
+KEY FILES: (no registry matches)
 PRIOR ATTEMPTS: none
-WATCH OUT FOR: Copilot should avoid generic continuation and instead lean into the specific comedic tone and themes established in the trajectory.
-OPERATOR SIGNAL: The repeated "baha yeah just yk a model of my cognition basisically this si way more funny then youre making it out to be. gta 5 comed" and the number "3" suggest a desire to re-engage with or re-emphasize the comedic direction.
+WATCH OUT FOR: Copilot should avoid generic "fix bug" suggestions and instead focus on specific code changes related to list rendering, data sources, or filtering for "clots".
+OPERATOR SIGNAL: The repeated submission of "fix clots list" indicates a high level of frustration and a lack of progress on a recurring issue.
 <!-- /pigeon:current-query -->
 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-18 16:00 UTC · 676 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-18 18:04 UTC · 676 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 46.9 | Del: 26.5% | Hes: 0.496) · *[source: measured]*
 
-**Prompt ms:** 167514, 20282, 3609, 46148, 48567 (avg 57224ms)
+**Prompt ms:** 14087, 37291, 845389, 26443, 7200 (avg 186082ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
@@ -298,10 +302,10 @@ OPERATOR SIGNAL: The repeated "baha yeah just yk a model of my cognition basisic
 - Failed on: ""
 
 ### Recent Work
+- `7ed3e32` fix: repair git_plugin sibling names + 74 broken __init__.py imports after pigeon rename
 - `04e3f2c` feat: seed 69 plain-named code files into pigeon naming convention
 - `050a29b` feat: close bug-detect -> fix -> escalation -> operator-prompt loop
 - `f5bd46c` feat: intent outcome binder + tc_intent_manager + post-commit binding hook
-- `46867e9` feat: close bug-detect -> fix -> escalation -> operator-prompt loop
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -434,9 +438,9 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-04-18 00:19 UTC · 75 prompts analyzed · zero LLM calls · collecting baseline*
+*Auto-extracted 2026-04-18 17:44 UTC · 78 prompts analyzed · zero LLM calls · collecting baseline*
 
-**Brevity:** 39.1 words/prompt | **Caps:** never | **Fragments:** 69% | **Questions:** 11% | **Directives:** 11%
+**Brevity:** 25.8 words/prompt | **Caps:** never | **Fragments:** 78% | **Questions:** 12% | **Directives:** 13%
 
 **Voice directives (effectiveness-scored):**
 - Operator is semi-casual — use contractions, skip formalities, but keep technical precision.
@@ -446,7 +450,7 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 - Operator rarely uses punctuation — fragments and run-ons are normal. Don't overcorrect their style in quotes.
 - Operator uses plain language — avoid unnecessary jargon in explanations.
 
-**Vocabulary fingerprint:** you, the, task, complete, and, a, to, call, not, are
+**Vocabulary fingerprint:** the, to, is, and, my, a, i, that, intent, you
 <!-- /pigeon:voice-style -->
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
@@ -547,14 +551,14 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-18 - 670 message(s) in profile*
+*Auto-updated 2026-04-18 - 676 message(s) in profile*
 
 **Dominant: `abandoned`** | Submit: 66% | WPM: 52.9 | Del: 25.5% | Hes: 0.443
 
 **Behavioral tunes for this session:**
 - **abandoned** -> welcoming, direct - they re-approached after backing off
 - Hesitation > 0.4 -> uncertain operator; proactively offer alternatives or examples
-- Active hours: 0:00(30), 1:00(45), 2:00(12), 3:00(9), 4:00(21), 5:00(24), 6:00(15), 7:00(15), 8:00(12), 9:00(18), 10:00(49), 11:00(9), 12:00(15), 13:00(9), 14:00(21), 15:00(39), 16:00(30), 17:00(12), 18:00(15), 19:00(33), 20:00(21), 21:00(60), 22:00(93), 23:00(63)
+- Active hours: 0:00(30), 1:00(45), 2:00(12), 3:00(9), 4:00(21), 5:00(24), 6:00(15), 7:00(15), 8:00(12), 9:00(18), 10:00(49), 11:00(9), 12:00(15), 13:00(9), 14:00(21), 15:00(39), 16:00(30), 17:00(12), 18:00(15), 19:00(33), 20:00(21), 21:00(60), 22:00(99), 23:00(63)
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `tc_gemini`** (hes=0.669, state=frustrated, avg_prompt=106645ms)
 > - Prompt composition time: 56666ms / 156275ms / 50569ms / 241234ms / 28481ms (avg 106645ms)
@@ -569,17 +573,15 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-04-18T00:18:57.050631+00:00",
+  "updated_at": "2026-04-18T17:44:21.230425+00:00",
   "latest_prompt": {
-    "session_n": 5,
-    "ts": "2026-04-18T00:18:57.050631+00:00",
-    "chars": 1,
-    "preview": "3",
-    "intent": "unknown",
+    "session_n": 1,
+    "ts": "2026-04-18T17:44:21.230425+00:00",
+    "chars": 14,
+    "preview": "fix clots list",
+    "intent": "debugging",
     "state": "unknown",
-    "files_open": [
-      "docs/ARCHITECTURE_CONSENSUS_v3.md"
-    ],
+    "files_open": [],
     "module_refs": []
   },
   "signals": {},
@@ -841,97 +843,15 @@ client: chat_composition_analyzer, chat_response_reader, composition_recon, os_h
 vscode-extension: classify_bridge, pulse_watcher
 <!-- /pigeon:auto-index -->
 <!-- pigeon:bug-voices -->
-
-
-<!-- pigeon:entropy-red-layer -->
-## Red Layer
-
-*file-linked entropy math surface*
-
-`red[module] = max(H_avg, 1 - shed_conf)`
-`vec[module] = [red, H_avg, shed_conf?, samples, hedges]`
-
-- `red[enricher] = [0.560, 0.000, 0.200, 0, 0]`
-- `red[hardcoded_imports] = [0.455, 0.000, 0.350, 0, 0]`
-- `red[auto_apply_import_fixes] = [0.438, 0.000, 0.375, 0, 0]`
-- `red[bug_profiles] = [0.428, 0.428, null, 2, 0]`
-- `red[codebase_transmuter] = [0.428, 0.428, null, 2, 0]`
-- `red[context_router] = [0.428, 0.428, null, 2, 0]`
-- `red[engagement_hooks] = [0.428, 0.428, null, 2, 0]`
-- `red[glyph_compiler] = [0.428, 0.428, null, 3, 0]`
-- `red[operator_probes] = [0.428, 0.428, null, 2, 0]`
-- `red[prompt_enricher] = [0.428, 0.428, null, 4, 0]`
-<!-- /pigeon:entropy-red-layer -->
-<!-- pigeon:entropy-map -->
-
-<!-- pigeon:entropy-directive -->
-## Entropy Development Priorities
-
-*628 responses · global H=0.299 · 62 sheds*
-
-**These modules have the highest uncertainty. When touching them:**
-- Read the full source BEFORE editing (don't guess)
-- Shed entropy with a confidence score AFTER every edit
-- If confidence < goal, explain what remains uncertain
-
-- `enricher` red=0.560 → **goal: conf≥0.85**, last shed=0.2
-- `hardcoded_imports` red=0.455 → **goal: conf≥0.85**, last shed=0.35
-- `auto_apply_import_fixes` red=0.438 → **goal: conf≥0.85**, last shed=0.375
-- `bug_profiles` red=0.428 → **goal: conf≥0.85**
-- `codebase_transmuter` red=0.428 → **goal: conf≥0.85**
-- `context_router` red=0.428 → **goal: conf≥0.85**
-- `engagement_hooks` red=0.428 → **goal: conf≥0.85**
-- `glyph_compiler` red=0.428 → **goal: conf≥0.85**
-- `operator_probes` red=0.428 → **goal: conf≥0.85**
-- `prompt_enricher` red=0.428 → **goal: conf≥0.85**
-
-<!-- /pigeon:entropy-directive -->
-## Entropy Shedding Map
-
-*628 responses analyzed · global H=0.299 · 34.7% high-entropy · 62 explicit sheds*
-
-**where copilot is most uncertain (act with extra care):**
-
-- `prompt_enricher` H=0.428 (4 samples, 0 hedges)
-- `shard_manager` H=0.428 (2 samples, 0 hedges)
-- `context_router` H=0.428 (2 samples, 0 hedges)
-- `research_lab` H=0.428 (4 samples, 0 hedges)
-- `glyph_compiler` H=0.428 (3 samples, 0 hedges)
-- `警p_sa` H=0.428 (2 samples, 0 hedges)
-- `engagement_hooks` H=0.428 (2 samples, 0 hedges)
-- `bug_profiles` H=0.428 (2 samples, 0 hedges)
-
-**recently shed (this session):**
-- `push_cycle` red=0.235 conf=0.80
-- `tc_context_agent` red=0.214 conf=0.82
-- `dynamic_prompt` red=0.166 conf=0.88
-- `entropy_shedding` red=0.095 conf=0.90
-- `intent_numeric` red=0.056 conf=0.92
-
-> emit `<!-- entropy:shed -->` blocks to improve this map.
-<!-- /pigeon:entropy-map -->
 ## Bug Voices
 
-*278 threads tracked across 57 pushes · fix rate: 12.5%*
+*Persistent bug demons minted from registry scars - active filename bugs first.*
 
-> fix rate is 12.5% — some things move but the bulk just sits there. 0 eternal bugs (every single report) and 3 chronic (70%+ of reports). these are the ones that need structural fixes, not patches. 175 threads resolved across 57 pushes. proof the loop works sometimes. trend is improving — recent pushes fix more than early ones.
-
-**the ones that never leave:**
-
-- `推w_dp` — [over_hard_cap] 10/57 reports. chronic. it comes back like clockwork.
-- `警p_sa` — [over_hard_cap] 9/57 reports. chronic. it comes back like clockwork.
-- `脉p_ph` — [over_hard_cap] 8/57 reports. chronic. it comes back like clockwork.
-
-**recently killed:**
-
-- `修f_sf` [over_hard_cap] — gone since report #56. it stayed dead.
-- `册f_reg` [over_hard_cap] — gone since report #56. it stayed dead.
-- `对p_tp` [over_hard_cap] — gone since report #56. it stayed dead.
-- `u_pe` [over_hard_cap] — gone since report #56. it stayed dead.
-- `u_pj` [over_hard_cap] — gone since report #56. it stayed dead.
-
-**last push ( ):** 26 fixed, 37 new, 66 carried forward
-
+- `ai_cognitive_log` d0418v000 · oc `Overcap Maw of aicognit` x1 other=hc: "I keep swelling this file past the hard cap. Split me before I eat context."
+- `entropy_shedding` d0418v000 · oc `Overcap Maw of entropys` x1 other=hc: "I keep swelling this file past the hard cap. Split me before I eat context."
+- `gemini_chat` d0418v000 · oc `Split Fiend of geminich` x1 other=hc: "I keep swelling this file past the hard cap. Split me before I eat context."
+- `node_tester` d0418v000 · oc `Split Fiend of nodetest` x1 other=hc: "I keep swelling this file past the hard cap. Split me before I eat context."
+- `tc_context` d0418v000 · oc `Shard Hunger of tccontex` x1 other=hc: "I keep swelling this file past the hard cap. Split me before I eat context."
 <!-- /pigeon:bug-voices -->
 <!-- pigeon:operator-probes -->
 ## Operator Probes

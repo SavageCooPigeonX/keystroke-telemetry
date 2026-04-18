@@ -10,6 +10,9 @@
 from datetime import datetime, timezone
 from pathlib import Path
 import re
+from .p_u_pj_s001_v001 import MAX_COMP_AGE_MS, MIN_TEXT_MATCH_SCORE, TIGHT_WINDOW_MS
+from .p_upsvdλβcc_s009_v001 import _candidate_compositions
+from .p_upsvdλβrb_s008_v001 import _recent_bound_composition_keys
 
 def _select_composition(root: Path, now: datetime, msg: str,
                         session_n: int | None = None) -> dict | None:

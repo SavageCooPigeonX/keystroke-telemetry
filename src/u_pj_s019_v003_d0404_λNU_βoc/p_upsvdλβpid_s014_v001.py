@@ -10,6 +10,10 @@
 from pathlib import Path
 import json
 import re
+from .p_u_pj_s001_v001 import JOURNAL_PATH
+from .p_u_pj_s002_v001 import _read_jsonl
+from .p_upsvdλβmh_s005_v001 import _is_operator_entry
+from .p_upsvdλβtl_s012_v001 import _hot_modules
 
 def _predict_next_issues(root: Path, current_intent: str, current_refs: list[str]) -> list[dict]:
     """Analyze prompt journal history to predict what the operator will debug next.

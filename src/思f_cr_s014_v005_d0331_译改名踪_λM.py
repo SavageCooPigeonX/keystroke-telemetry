@@ -193,7 +193,7 @@ def _fire_reactor(
 
     # Generate cognitive patch via DeepSeek
     patch = _generate_patch(
-        module_key, avg_hes, dominant_state, streak['count'],
+        root, module_key, avg_hes, dominant_state, streak['count'],
         problems, cross_context, source_snippet, target_file
     )
 
@@ -456,8 +456,8 @@ def _log_reactor_audit(
     log_path.parent.mkdir(parents=True, exist_ok=True)
     blockers = []
     if not patch_generated:
-        api_key = os.environ.get('DEEPSEEK_API_KEY', '')
-        blockers.append('no_api_key' if not api_key else 'deepseek_failed')
+        api_key = os.environ.get('GEMINI_API_KEY', '')
+        blockers.append('no_api_key' if not api_key else 'gemini_failed')
     if not docstring_patched:
         blockers.append('docstring_patch_failed')
     if code_patch_result and not code_patch_result.get('applied'):
@@ -477,6 +477,7 @@ def _log_reactor_audit(
 
 
 def _generate_patch(
+    root: Path,
     module_key: str,
     avg_hes: float,
     dominant_state: str,
@@ -486,8 +487,15 @@ def _generate_patch(
     source_snippet: str,
     registry_entry: dict | None,
 ) -> str | None:
-    """DeepSeek call: generate a targeted fix based on cognitive load data."""
-    api_key = os.environ.get('DEEPSEEK_API_KEY', '')
+    """Gemini Flash call: generate a targeted fix based on cognitive load data."""
+    api_key = os.environ.get('GEMINI_API_KEY', '') or os.environ.get('GOOGLE_API_KEY', '')
+    if not api_key:
+        env_path = root / '.env'
+        if env_path.exists():
+            for line in env_path.read_text('utf-8', errors='ignore').splitlines():
+                if line.startswith('GEMINI_API_KEY='):
+                    api_key = line.split('=', 1)[1].strip()
+                    break
     if not api_key:
         return None
 
@@ -543,24 +551,23 @@ Output format:
 Max 300 words. Be surgical."""
 
     body = json.dumps({
-        'model': 'deepseek-chat',
-        'messages': [{'role': 'user', 'content': prompt}],
-        'max_tokens': 500,
-        'temperature': 0.3,
+        'contents': [{'parts': [{'text': prompt}]}],
+        'generationConfig': {'maxOutputTokens': 500, 'temperature': 0.3},
     }).encode('utf-8')
 
+    url = (
+        f'https://generativelanguage.googleapis.com/v1beta/models/'
+        f'gemini-2.0-flash:generateContent?key={api_key}'
+    )
     req = urllib.request.Request(
-        'https://api.deepseek.com/chat/completions',
+        url,
         data=body,
-        headers={
-            'Content-Type': 'application/json',
-            'Authorization': f'Bearer {api_key}',
-        },
+        headers={'Content-Type': 'application/json'},
     )
     try:
         with urllib.request.urlopen(req, timeout=25) as resp:
             data = json.loads(resp.read().decode('utf-8'))
-            return data['choices'][0]['message']['content'].strip()
+            return data['candidates'][0]['content']['parts'][0]['text'].strip()
     except Exception:
         return None
 

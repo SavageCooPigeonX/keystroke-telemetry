@@ -3,6 +3,8 @@ from pathlib import Path
 import json
 import os
 import re
+from .p_upsvdλβu_s002_v001 import _jload, _jsonl
+from .p_upsvdλβc_s001_v001 import MAX_AI_RESPONSES, MAX_DELETED_WORDS, MAX_REWORK_ENTRIES
 
 def _hot_files(root: Path, top_n: int = 5) -> list[dict]:
     """Return top N files by hesitation score from file_heat_map."""

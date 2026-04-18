@@ -9,7 +9,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from client.chat_composition_analyzer_seq001_v001_seq001_v001 import (
+from client.chat_composition_analyzer_seq001_v001 import (
     reconstruct_composition, classify_chat_state, _read_messages,
 )
 

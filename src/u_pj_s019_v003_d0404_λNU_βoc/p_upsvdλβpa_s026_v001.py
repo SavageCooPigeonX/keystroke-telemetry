@@ -9,6 +9,12 @@
 # ──────────────────────────────────────────────
 from pathlib import Path
 import re
+from .p_upsvdλβbsd_s015_v001 import _build_snapshot
+from .p_upsvdλβge_s027_v001 import _log_enriched_entry_run_gemini_enricher
+from .p_upsvdλβrc_s021_v001 import _refresh_copilot_instructions
+from .p_upsvdλβsa_s029_v001 import _log_enriched_entry_run_staleness_alert
+from .p_upsvdλβtp_s028_v001 import _log_enriched_entry_write_training_pair
+from .p_upsvdλβws_s020_v001 import _write_latest_snapshot
 
 def _log_enriched_entry_handle_post_append(root: Path, entry: dict, cog_state: str, signals: dict, deleted_words: list, msg: str) -> None:
     entry['_root'] = root

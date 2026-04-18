@@ -8,6 +8,7 @@
 # SESSIONS: 0
 # ──────────────────────────────────────────────
 import re
+from .p_u_pj_s001_v001 import INTENT_MAP
 
 def _classify_intent(msg: str) -> str:
     """Classify prompt intent from first matching keyword."""

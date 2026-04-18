@@ -10,6 +10,8 @@
 from pathlib import Path
 import json
 import re
+from .p_u_pj_s001_v001 import JOURNAL_PATH
+from .p_upsvdλβmh_s005_v001 import _is_operator_entry
 
 def _running_stats(root: Path) -> dict:
     """Compute running session stats from existing journal entries + baselines."""

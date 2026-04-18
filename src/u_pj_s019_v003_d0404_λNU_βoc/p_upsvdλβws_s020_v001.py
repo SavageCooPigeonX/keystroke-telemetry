@@ -10,6 +10,7 @@
 from pathlib import Path
 import json
 import re
+from .p_u_pj_s001_v001 import SNAPSHOT_PATH
 
 def _write_latest_snapshot(root: Path, snapshot: dict) -> None:
     snapshot_path = root / SNAPSHOT_PATH

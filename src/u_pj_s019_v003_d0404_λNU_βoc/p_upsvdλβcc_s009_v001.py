@@ -10,6 +10,10 @@
 from pathlib import Path
 import json
 import re
+from .p_u_pj_s001_v001 import COMPS_PATH, PROMPT_COMPS_PATH
+from .p_u_pj_s002_v001 import _parse_timestamp_ms, _read_jsonl
+from .p_upsvdλβck_s004_v001 import _composition_key
+from .p_upsvdλβtm_s003_v001 import _text_match_score
 
 def _candidate_compositions(root: Path, now_ms: int, msg: str) -> list[dict]:
     candidates = []

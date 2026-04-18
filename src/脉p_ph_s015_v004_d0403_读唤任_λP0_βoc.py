@@ -222,14 +222,21 @@ def pair_pulse_to_prompt(root: Path, filepath: Path,
         'ts': now.isoformat(),
         'prompt_ts': prompt_ts,
         'prompt_msg': prompt_msg[:200],  # truncate for storage
+        'prompt_intent': journal.get('intent') if journal else None,
         'file': rel,
         'edit_ts': pulse['edit_ts'],
         'edit_why': pulse['edit_why'],
         'edit_hash': pulse['edit_hash'],
         'edit_author': pulse.get('edit_author', 'copilot'),
         'latency_ms': latency_ms,
-        'state': cognitive_state,
+        'state': cognitive_state or (journal.get('cognitive_state') if journal else 'neutral'),
         'session_n': session_n,
+        # ── Training signal enrichment from composition_binding ──
+        'deleted_words': (journal or {}).get('deleted_words') or [],
+        'rewrites': (journal or {}).get('rewrites') or [],
+        'wpm': ((journal or {}).get('signals') or {}).get('wpm'),
+        'deletion_ratio': ((journal or {}).get('signals') or {}).get('deletion_ratio'),
+        'hesitation_count': ((journal or {}).get('signals') or {}).get('hesitation_count'),
     }
 
     # Append to edit_pairs.jsonl

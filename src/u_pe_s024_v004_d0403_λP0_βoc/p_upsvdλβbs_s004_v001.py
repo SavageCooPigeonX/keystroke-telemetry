@@ -3,6 +3,8 @@ from pathlib import Path
 import json
 import os
 import re
+from .p_upsvdλβu_s002_v001 import _jload, _jsonl
+from .p_upsvdλβdl_s003_v001 import _hot_files
 
 def _score_bug_dossiers(root: Path, query: str, open_files: list | None = None) -> list[dict]:
     """Multi-signal scorer: query text + editor files + hot modules + rework overlap."""

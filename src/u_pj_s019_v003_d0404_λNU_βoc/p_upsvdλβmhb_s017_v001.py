@@ -10,6 +10,8 @@
 from datetime import datetime, timezone
 from pathlib import Path
 import re
+from .p_upsvdλβrsd_s013_v001 import _running_stats
+from .p_upsvdλβtl_s012_v001 import _active_tasks, _hot_modules, _mutation_count
 
 def _build_meta_hook_entry(
     root: Path,

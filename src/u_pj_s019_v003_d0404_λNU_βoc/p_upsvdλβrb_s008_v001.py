@@ -10,6 +10,8 @@
 from pathlib import Path
 import json
 import re
+from .p_u_pj_s001_v001 import JOURNAL_PATH
+from .p_u_pj_s002_v001 import _read_jsonl
 
 def _recent_bound_composition_keys(root: Path, limit: int = 8) -> set[str]:
     entries = _read_jsonl(root / JOURNAL_PATH)

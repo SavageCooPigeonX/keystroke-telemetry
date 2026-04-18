@@ -2,6 +2,8 @@
 from datetime import datetime, timezone
 from pathlib import Path
 import re
+from .p_upsvdλβc_s001_v001 import BLOCK_START, BLOCK_END, COPILOT_PATH
+from .p_upsvdλβbu_s008_v001 import _find_insert_anchor, _strip_query_blocks
 
 def inject_query_block(root: Path, raw_query: str,
                        deleted_words: list | None = None,
