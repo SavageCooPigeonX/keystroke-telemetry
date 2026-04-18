@@ -2,8 +2,8 @@
 from pathlib import Path
 import re
 
-from .册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_date_utils_seq003_v001 import _today
-from .册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_parse_decomposed_seq006_v001 import parse_pigeon_stem
+from .p_册frsvd追λβdu_s003_v001 import _today
+from .p_册rsvd追λβpd_s006_v001 import parse_pigeon_stem
 
 def build_registry_from_scan(root: Path, catalog: dict) -> dict:
     """Bootstrap a registry from a scanner catalog (first-time setup).

@@ -114,7 +114,59 @@ def main():
             if was_fixed:
                 fixed += 1
                 print(f'  FIXED {init}: {detail}')
-    
+
+    # Also fix broken relative imports in non-init files
+    print('\n--- fixing internal relative imports ---')
+    fixed_internal = 0
+    for d in DIRS:
+        base = ROOT / d
+        if not base.exists():
+            continue
+        for py in sorted(base.rglob('*.py')):
+            if py.name == '__init__.py':
+                continue
+            txt = py.read_text('utf-8', errors='replace')
+            hits = re.findall(r'from \.([\w_]+_seq\d+_v\d+) import (.+)', txt)
+            if not hits:
+                continue
+            existing = {f.stem for f in py.parent.glob('*.py')
+                        if f.name != '__init__.py' and not f.name.startswith('.')}
+            # build export map for siblings (include private names for internal wiring)
+            sibling_exports = {}
+            for stem in existing:
+                for name in get_public_exports(py.parent / f'{stem}.py'):
+                    sibling_exports.setdefault(name, stem)
+                # also scan for ALL defined names including private
+                try:
+                    src2 = (py.parent / f'{stem}.py').read_text('utf-8', errors='replace')
+                    for raw in re.findall(r'^(?:def|class) (\w+)|^(\w+)\s*=', src2, re.MULTILINE):
+                        n = raw[0] or raw[1]
+                        if n:
+                            sibling_exports.setdefault(n, stem)
+                except Exception:
+                    pass
+            new_txt = txt
+            for old_mod, imports_str in hits:
+                if (py.parent / f'{old_mod}.py').exists():
+                    continue  # not broken
+                names = [n.strip() for n in imports_str.split(',')]
+                # find best matching sibling
+                scores = {}
+                for name in names:
+                    if name in sibling_exports:
+                        scores[sibling_exports[name]] = scores.get(sibling_exports[name], 0) + 1
+                if scores:
+                    best = max(scores, key=scores.get)
+                    new_txt = new_txt.replace(
+                        f'from .{old_mod} import {imports_str}',
+                        f'from .{best} import {imports_str}'
+                    )
+            if new_txt != txt:
+                py.write_text(new_txt, 'utf-8')
+                fixed_internal += 1
+                print(f'  FIXED internal: {py}')
+
+    print(f'Fixed internal imports: {fixed_internal}')
     print(f'\nChecked: {checked} | Fixed: {fixed}')
 
 

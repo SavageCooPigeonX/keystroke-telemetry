@@ -1,6 +1,5 @@
-"""unsaid_accumulator_seq001_v001/ — Pigeon-compliant module."""
-from .unsaid_accumulator_seq001_v001_constants_seq001_v001 import ROOT, UNSAID_LOG
-from .unsaid_accumulator_seq001_v001_get_recent_seq004_v001 import get_recent
-from .unsaid_accumulator_seq001_v001_get_summary_seq005_v001 import get_summary
-from .unsaid_accumulator_seq001_v001_query_seq003_v001 import query
-from .unsaid_accumulator_seq001_v001_record_seq002_v001 import record
+"""unsaid_accumulator/ -- auto-fixed pigeon package."""
+from .p_uagr_s004_v001 import get_recent
+from .p_uags_s005_v001 import get_summary
+from .p_uaq_s003_v001 import query
+from .p_uar_s002_v001 import record

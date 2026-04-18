@@ -1,13 +1,12 @@
-"""虫f_bdm_s015_v001_d0410_λFT/ — Pigeon-compliant module."""
-from .虫f_bdm_s015_v001_d0410_λFT_bug_loader_decomposed_seq005_v001 import load_active_bugs
-from .虫f_bdm_s015_v001_d0410_λFT_bug_loader_seq005_v001 import load_active_bugs
-from .虫f_bdm_s015_v001_d0410_λFT_bugmanifest_seq002_v001 import BugManifest
-from .虫f_bdm_s015_v001_d0410_λFT_constants_seq001_v001 import BUG_MANIFEST_LOG, BUG_SEVERITY, NODE_MEMORY_PATH, REGISTRY_PATH, VEINS_PATH, _BETA_RE, _SEQ_RE
-from .虫f_bdm_s015_v001_d0410_λFT_demo_decomposed_seq011_v001 import demo_chain
-from .虫f_bdm_s015_v001_d0410_λFT_demo_seq011_v001 import demo_chain
-from .虫f_bdm_s015_v001_d0410_λFT_inject_seq007_v001 import inject_into_packet
-from .虫f_bdm_s015_v001_d0410_λFT_orchestrator_seq010_v001 import run_propagation
-from .虫f_bdm_s015_v001_d0410_λFT_propagate_decomposed_seq006_v001 import propagate_through_veins
-from .虫f_bdm_s015_v001_d0410_λFT_propagate_seq006_v001 import propagate_through_veins
-from .虫f_bdm_s015_v001_d0410_λFT_write_memory_decomposed_seq008_v001 import write_to_node_memory
-from .虫f_bdm_s015_v001_d0410_λFT_write_memory_seq008_v001 import write_to_node_memory
+"""虫f_bdm_s015_v001_d0410_λFT/ -- auto-fixed pigeon package."""
+from .p_虫bsvdλb_s002_v001 import BugManifest
+from .p_虫bsvdλbl_s005_v001 import load_active_bugs
+from .p_虫bsvdλbld_s005_v001 import load_active_bugs
+from .p_虫bsvdλd_s011_v001 import demo_chain
+from .p_虫bsvdλdd_s011_v001 import demo_chain
+from .p_虫bsvdλi_s007_v001 import inject_into_packet
+from .p_虫bsvdλo_s010_v001 import run_propagation
+from .p_虫bsvdλp_s006_v001 import propagate_through_veins
+from .p_虫bsvdλpd_s006_v001 import propagate_through_veins
+from .p_虫bsvdλwm_s008_v001 import write_to_node_memory
+from .p_虫bsvdλwmd_s008_v001 import write_to_node_memory

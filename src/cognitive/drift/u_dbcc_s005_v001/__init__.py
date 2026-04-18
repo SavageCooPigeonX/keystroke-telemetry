@@ -1,2 +1,2 @@
-"""u_dbcc_s005_v001/ — Pigeon-compliant module."""
-from .u_dbcc_s005_v001_build_context_seq001_v001 import build_cognitive_context
+"""u_dbcc_s005_v001/ -- auto-fixed pigeon package."""
+from .p_udsvbc_s001_v001 import build_cognitive_context

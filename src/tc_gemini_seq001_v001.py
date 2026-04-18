@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 
 from .tc_constants_seq001_v001 import ROOT, GEMINI_MODEL, GEMINI_TIMEOUT, LOG_PATH, THOUGHT_BUFFER_PATH
 from .tc_context_seq001_v001 import load_context
-from .tc_context_seq001_v001_agent_seq001_v001 import select_context_files, select_context_ensemble, build_code_context
+from .tc_context_agent_seq001_v001 import select_context_files, select_context_ensemble, build_code_context
 from .tc_trajectory_seq001_v001 import build_trajectory, format_trajectory_for_prompt
 from .tc_profile_seq001_v001 import load_profile, format_profile_for_prompt, update_profile_from_completion, format_intelligence_for_prompt, classify_section
 from .tc_grader_seq001_v001 import format_grades_for_prompt, compute_adaptive_params

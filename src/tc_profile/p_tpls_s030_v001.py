@@ -12,7 +12,7 @@ import json
 import re
 import time
 
-from .tc_profile_seq001_v001_constants_seq001_v001 import PROFILE_PATH
+from .p_tpc_s001_v001 import PROFILE_PATH
 
 _profile_cache = None
 _profile_ts = 0

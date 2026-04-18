@@ -3,10 +3,10 @@
 from pathlib import Path
 import re
 
-from .管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_telemetry_seq012_v001 import inject_auto_index, inject_prompt_telemetry
-from .管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_injectors_voices_state_seq013_v001 import inject_bug_voices, inject_operator_state
-from .管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_audit_decomposed_seq009_v001 import audit_copilot_prompt
-from .管w_cpm_s020_v003_d0402_缩分话_λVR_βoc_file_utils_seq003_v001 import _run_refresher
+from .p_管csvd缩λβi_s011_v001 import inject_auto_index, inject_prompt_telemetry
+from .p_管csvd缩λβi_s011_v001 import inject_bug_voices, inject_operator_state
+from .p_管csvd缩λβad_s009_v001 import audit_copilot_prompt
+from .p_管csvd缩λβfu_s003_v001 import _run_refresher
 
 def refresh_managed_prompt(
     root: Path,

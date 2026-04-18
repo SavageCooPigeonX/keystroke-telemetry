@@ -1,3 +1,3 @@
-"""tc_context_seq001_v001/ — Pigeon-compliant module."""
-from .tc_context_seq001_v001_cache_seq001_v001 import invalidate_context_cache
-from .tc_context_seq001_v001_orchestrator_seq015_v001 import load_context
+"""tc_context/ -- auto-fixed pigeon package."""
+from .p_tc_c_s015_v001 import load_context
+from .p_tcc_s001_v001 import invalidate_context_cache

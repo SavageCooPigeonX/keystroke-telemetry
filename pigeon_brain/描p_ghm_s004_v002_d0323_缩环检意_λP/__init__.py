@@ -1,4 +1,3 @@
-"""描p_ghm_s004_v002_d0323_缩环检意_λP/ — Pigeon-compliant module."""
-from .描p_ghm_s004_v002_d0323_缩环检意_λP_constants_seq000_v001 import HEAT_STORE, HIGH_DEATH_THRESH, HIGH_LATENCY_THRESH
-from .描p_ghm_s004_v002_d0323_缩环检意_λP_load_seq001_v001 import load_graph_heat
-from .描p_ghm_s004_v002_d0323_缩环检意_λP_update_seq002_v001 import update_graph_heat
+"""描p_ghm_s004_v002_d0323_缩环检意_λP/ -- auto-fixed pigeon package."""
+from .p_描gsvd缩λl_s001_v001 import load_graph_heat
+from .p_描gsvd缩λu_s002_v001 import update_graph_heat

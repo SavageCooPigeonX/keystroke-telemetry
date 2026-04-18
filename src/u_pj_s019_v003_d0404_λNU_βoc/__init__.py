@@ -1,3 +1,2 @@
-"""u_pj_s019_v003_d0404_λNU_βoc/ — Pigeon-compliant module."""
-from .u_pj_s019_v003_d0404_λNU_βoc_constants_seq001_v001 import COMPS_PATH, COPILOT_PATH, EDIT_PAIRS, HEAT_PATH, INTENT_MAP, JOURNAL_PATH, MAX_COMP_AGE_MS, MIN_TEXT_MATCH_SCORE, MUTATIONS_PATH, PROFILE_PATH, PROMPT_BLOCK_END, PROMPT_BLOCK_START, PROMPT_COMPS_PATH, SNAPSHOT_PATH, TASK_COMPLETE_HOOK_MARKERS, TASK_PATH, TIGHT_WINDOW_MS
-from .u_pj_s019_v003_d0404_λNU_βoc_orchestrator_seq030_v001 import log_enriched_entry
+"""u_pj_s019_v003_d0404_λNU_βoc/ -- auto-fixed pigeon package."""
+from .p_upsvdλβo_s030_v001 import log_enriched_entry

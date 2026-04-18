@@ -1,6 +1,5 @@
-"""读f_fi_s016_v001_d0410_λFT/ — Pigeon-compliant module."""
-from .读f_fi_s016_v001_d0410_λFT_briefing_seq009_v001 import print_agent_briefing
-from .读f_fi_s016_v001_d0410_λFT_constants_seq001_v001 import _API_URL, _BETA_RE, _BUG_SEV, _MAX_SRC, _MODEL, _MODEL_FALLBACK, _NM_FILE
-from .读f_fi_s016_v001_d0410_λFT_interrogation_core_seq007_v001 import interrogate_file
-from .读f_fi_s016_v001_d0410_λFT_node_memory_seq003_v001 import get_file_understanding
-from .读f_fi_s016_v001_d0410_λFT_sweep_seq008_v001 import run_interrogation_sweep
+"""读f_fi_s016_v001_d0410_λFT/ -- auto-fixed pigeon package."""
+from .p_读fsvdλb_s009_v001 import print_agent_briefing
+from .p_读fsvdλic_s007_v001 import interrogate_file
+from .p_读fsvdλnm_s003_v001 import get_file_understanding
+from .p_读fsvdλs_s008_v001 import run_interrogation_sweep

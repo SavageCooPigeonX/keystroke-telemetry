@@ -2,12 +2,12 @@
 from pathlib import Path
 import os
 import re
-from .修f_sf_s013_v012_d0402_初写谱净拆_λVR_scan_hardcoded_seq003_v001 import _scan_hardcoded_pigeon_imports
-from .修f_sf_s013_v012_d0402_初写谱净拆_λVR_scan_dead_exports_seq004_v001 import _scan_dead_exports
-from .修f_sf_s013_v012_d0402_初写谱净拆_λVR_scan_duplicate_docstrings_seq005_v001 import _scan_duplicate_docstrings
-from .修f_sf_s013_v012_d0402_初写谱净拆_λVR_scan_cross_file_coupling_seq006_v001 import _scan_cross_file_coupling
-from .修f_sf_s013_v012_d0402_初写谱净拆_λVR_scan_query_noise_seq008_v001 import _scan_query_noise
-from .修f_sf_s013_v012_d0402_初写谱净拆_λVR_scan_over_hard_cap_seq007_v001 import _scan_over_hard_cap
+from .p_修ssvd初λsh_s003_v001 import _scan_hardcoded_pigeon_imports
+from .p_修ssvd初λsde_s004_v001 import _scan_dead_exports
+from .p_修ssvd初λsdd_s005_v001 import _scan_duplicate_docstrings
+from .p_修ssvd初λscfc_s006_v001 import _scan_cross_file_coupling
+from .p_修ssvd初λsqn_s008_v001 import _scan_query_noise
+from .p_修ssvd初λsohc_s007_v001 import _scan_over_hard_cap
 
 def run_self_fix(
     root: Path,

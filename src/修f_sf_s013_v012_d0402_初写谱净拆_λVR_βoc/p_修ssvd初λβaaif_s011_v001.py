@@ -2,7 +2,7 @@
 from pathlib import Path
 import os
 import re
-from .修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc_constants_seq001_v001 import _HC_FROM_IMPORT, _HC_BARE_IMPORT
+from .p_修ssvd初λβc_s001_v001 import _HC_FROM_IMPORT, _HC_BARE_IMPORT
 
 def auto_apply_import_fixes(root: Path, dry_run: bool = False) -> list[dict]:
     """Scan hardcoded pigeon imports and rewrite to use _resolve.py pattern.

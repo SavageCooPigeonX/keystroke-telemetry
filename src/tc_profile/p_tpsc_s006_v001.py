@@ -10,7 +10,7 @@
 import re
 import time
 
-from .tc_profile_seq001_v001_constants_seq001_v001 import _SECTION_SIGNALS
+from .p_tpc_s001_v001 import _SECTION_SIGNALS
 
 _current_section = 'unknown'
 _section_enter_time = 0.0

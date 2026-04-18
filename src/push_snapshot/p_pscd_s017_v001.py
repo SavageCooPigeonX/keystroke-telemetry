@@ -11,16 +11,16 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 # Import helper functions from sibling modules
-from .push_snapshot_seq001_v001_registry_seq002_v001 import _load_registry
-from .push_snapshot_seq001_v001_self_fix_seq003_v001 import _load_self_fix_counts
-from .push_snapshot_seq001_v001_heat_map_seq004_v001 import _load_heat_map
-from .push_snapshot_seq001_v001_deaths_seq005_v001 import _load_deaths
-from .push_snapshot_seq001_v001_operator_seq006_v001 import _load_operator_signal
-from .push_snapshot_seq001_v001_cycle_state_seq007_v001 import _load_cycle_state
-from .push_snapshot_seq001_v001_probe_state_seq008_v001 import _load_probe_state
-from .push_snapshot_seq001_v001_file_stats_seq009_v001 import _compute_file_stats
-from .push_snapshot_seq001_v001_coupling_seq010_v001 import _compute_coupling
-from .push_snapshot_seq001_v001_persistence_seq011_v001 import _save_snapshot
+from .p_psr_s002_v001 import _load_registry
+from .p_pssf_s003_v001 import _load_self_fix_counts
+from .p_pshm_s004_v001 import _load_heat_map
+from .p_psd_s005_v001 import _load_deaths
+from .p_pso_s006_v001 import _load_operator_signal
+from .p_push_s007_v001 import _load_cycle_state
+from .p_psps_s008_v001 import _load_probe_state
+from .p_psfs_s009_v001 import _compute_file_stats
+from .p_push_s010_v001 import _compute_coupling
+from .p_psp_s011_v001 import _save_snapshot
 
 def capture_snapshot(root: Path, commit_hash: str, intent: str,
                      changed_files: list[str]) -> dict:

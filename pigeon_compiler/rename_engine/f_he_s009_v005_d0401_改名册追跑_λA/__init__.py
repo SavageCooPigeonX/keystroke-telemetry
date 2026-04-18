@@ -1,4 +1,3 @@
-"""f_he_s009_v005_d0401_改名册追跑_λA/ — Pigeon-compliant module."""
-from .f_he_s009_v005_d0401_改名册追跑_λA_heal_core_seq005_v001 import heal
-from .f_he_s009_v005_d0401_改名册追跑_λA_heal_report_seq001_v001 import heal_report_text
-from .f_he_s009_v005_d0401_改名册追跑_λA_logging_seq004_v001 import HEAL_LOG
+"""f_he_s009_v005_d0401_改名册追跑_λA/ -- auto-fixed pigeon package."""
+from .p_fhsvd改λhc_s005_v001 import heal
+from .p_fhsvd改λhr_s001_v001 import heal_report_text

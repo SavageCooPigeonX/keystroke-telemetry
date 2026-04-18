@@ -12,19 +12,19 @@ from pathlib import Path
 import ast
 import re
 
-from .module_identity_seq001_v001_sources_seq004_v001 import _load_all_sources
-from .module_identity_seq001_v001_alias_seq003_v001 import _build_alias_map
-from .module_identity_seq001_v001_lookups_seq005_v001 import _build_lookups
-from .module_identity_seq001_v001_classify_seq010_v001 import _classify_archetype, _classify_emotion
-from .module_identity_seq001_v001_voice_seq011_v001 import _generate_voice
-from .module_identity_seq001_v001_backstory_seq006_v001 import _extract_backstory, extract_intent_chain
+from .p_mis_s004_v001 import _load_all_sources
+from .p_mia_s003_v001 import _build_alias_map
+from .p_mil_s005_v001 import _build_lookups
+from .p_moic_s010_v001 import _classify_archetype, _classify_emotion
+from .p_miv_s011_v001 import _generate_voice
+from .p_mib_s006_v001 import _extract_backstory, extract_intent_chain
 from .module_identity_seq001_v001_code_seq007_v001.module_identity_seq001_v001_code_seq007_v001_wrapper_seq004_v001 import _extract_code_skeleton
-from .module_identity_seq001_v001_utils_seq002_v001 import _load_memory, _save_memory
-from .module_identity_seq001_v001_probes_seq008_v001 import _generate_probe_questions
-from .module_identity_seq001_v001_coaching_seq009_v001 import _generate_self_coaching
-from .module_identity_seq001_v001_todo_seq012_v001 import _generate_todo
-from .module_identity_seq001_v001_diagnose_seq013_v001 import _diagnose_patterns
-from .module_identity_seq001_v001_constants_seq001_v001 import ARCHETYPES, EMOTIONS
+from .p_miu_s002_v001 import _load_memory, _save_memory
+from .p_mip_s008_v001 import _generate_probe_questions
+from .p_modu_s009_v001 import _generate_self_coaching
+from .p_mit_s012_v001 import _generate_todo
+from .p_mid_s013_v001 import _diagnose_patterns
+from .p_modu_s001_v001 import ARCHETYPES, EMOTIONS
 
 def build_identities(root: Path, include_consciousness: bool = False) -> list[dict]:
     """Build full sentient identity profiles for all registered modules.

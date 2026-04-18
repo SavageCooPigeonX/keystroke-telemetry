@@ -1,7 +1,7 @@
 """册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_parse_decomposed_seq006_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
-from .册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_constants_seq001_v001 import COMPRESSED_STEM_RE, LC_SEP, PIGEON_STEM_RE
-from .册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_bug_utils_seq002_v001 import bug_keys_from_marker
+from .p_册rsvd追λc_s001_v001 import COMPRESSED_STEM_RE, LC_SEP, PIGEON_STEM_RE
+from .p_册rsvd追λbu_s002_v001 import bug_keys_from_marker
 
 def parse_pigeon_stem(stem: str) -> dict | None:
     """Parse a Pigeon filename stem into components.

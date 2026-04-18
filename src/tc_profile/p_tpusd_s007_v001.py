@@ -13,7 +13,7 @@ import ast
 import re
 import time
 
-from .tc_profile_seq001_v001_empty_section_decomposed_seq005_v001 import _empty_section
+from .p_tpes_s003_v001 import _empty_section
 
 def update_section(profile: dict, section: str, buffer: str, completion: str,
                    outcome: str, state: str = 'unknown', wpm: float = 0.0,

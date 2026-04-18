@@ -1,5 +1,4 @@
-"""观f_os_s007_v003_d0401_读谱建册_λA/ — Pigeon-compliant module."""
-from .观f_os_s007_v003_d0401_读谱建册_λA_build_prompt_wrapper_seq004_v001 import build_observer_prompt
-from .观f_os_s007_v003_d0401_读谱建册_λA_constants_seq001_v001 import COACHING_PATH
-from .观f_os_s007_v003_d0401_读谱建册_λA_synthesize_seq006_v001 import synthesize_observation
-from .观f_os_s007_v003_d0401_读谱建册_λA_write_coaching_seq005_v001 import write_agent_coaching
+"""观f_os_s007_v003_d0401_读谱建册_λA/ -- auto-fixed pigeon package."""
+from .p_观osvd读λbpw_s004_v001 import build_observer_prompt
+from .p_观osvd读λs_s006_v001 import synthesize_observation
+from .p_观osvd读λwc_s005_v001 import write_agent_coaching

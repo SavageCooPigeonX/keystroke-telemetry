@@ -7,16 +7,16 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-18 15:23 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-18 16:00 UTC — 2 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 904min old (max 10min)
+- **`current-query`**: STALE — 942min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-18 00:19
 
-- **`prompt-telemetry`**: STALE — 904min old (max 10min)
+- **`prompt-telemetry`**: STALE — 942min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-18T00:18:57
 
@@ -282,12 +282,12 @@ OPERATOR SIGNAL: The repeated "baha yeah just yk a model of my cognition basisic
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-18 15:23 UTC · 676 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-18 16:00 UTC · 676 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 46.9 | Del: 26.5% | Hes: 0.496) · *[source: measured]*
 
-**Prompt ms:** 18203, 167514, 20282, 3609, 46148 (avg 51151ms)
+**Prompt ms:** 167514, 20282, 3609, 46148, 48567 (avg 57224ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
@@ -298,10 +298,10 @@ OPERATOR SIGNAL: The repeated "baha yeah just yk a model of my cognition basisic
 - Failed on: ""
 
 ### Recent Work
+- `04e3f2c` feat: seed 69 plain-named code files into pigeon naming convention
 - `050a29b` feat: close bug-detect -> fix -> escalation -> operator-prompt loop
 - `f5bd46c` feat: intent outcome binder + tc_intent_manager + post-commit binding hook
 - `46867e9` feat: close bug-detect -> fix -> escalation -> operator-prompt loop
-- `a4c04a7` feat: unsaid-thread primary hook + compression-on-push gate + tiered sync veto
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -344,28 +344,6 @@ OPERATOR SIGNAL: The repeated "baha yeah just yk a model of my cognition basisic
 - `算f_ps` ↔ `测p_rwd` (score=0.80, 4 shared imports, both high-churn (v6+v6))
 - `逆f_ba` ↔ `册f_reg` (score=0.80, 3 shared imports, both high-churn (v5+v5))
 - `逆f_ba` ↔ `热p_fhm` (score=0.80, 3 shared imports, both high-churn (v5+v5))
-
-### Codebase Health (Veins / Clots)
-*596/630 alive, 34 clots, avg vein health 0.51*
-
-**Clots (dead/bloated — trim candidates):**
-- `f_he_s009_v005_d0401_改名册追跑_λA` (score=0.70): orphan_no_importers, dead_imports:2, unused_exports:1, oversize:256
-- `bug_profiles` (score=0.65): orphan_no_importers, dead_imports:1, unused_exports:1, oversize:309
-- `批编f_rbc_ma_s001_v001` (score=0.60): orphan_no_importers, dead_imports:3, unused_exports:1
-- `偏p_dr_s003_v002_d0315_缩分话_λν` (score=0.60): orphan_no_importers, unused_exports:1, oversize:227
-- `classify_bridge` (score=0.60): orphan_no_importers, unused_exports:1, oversize:877
-- `f_he_gf_s002_v001` (score=0.55): orphan_no_importers, dead_imports:2, unused_exports:1
-
-**Self-trim recommendations:**
-- [investigate] `f_he_s009_v005_d0401_改名册追跑_λA`: Nobody imports this module. Check if it's an entry point or dead.
-- [investigate] `bug_profiles`: Nobody imports this module. Check if it's an entry point or dead.
-- [investigate] `批编f_rbc_ma_s001_v001`: Nobody imports this module. Check if it's an entry point or dead.
-- [investigate] `偏p_dr_s003_v002_d0315_缩分话_λν`: Nobody imports this module. Check if it's an entry point or dead.
-
-**Critical arteries (do NOT break):**
-- `gemini_chat` (vein=1.00, in=6)
-- `w_pl_s002_v005_d0401_册追跑谱桥_λA` (vein=1.00, in=5)
-- `册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc` (vein=1.00, in=16)
 
 <!-- /pigeon:task-context -->
 

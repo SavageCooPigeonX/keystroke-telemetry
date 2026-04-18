@@ -1,4 +1,3 @@
-"""codebase_detector_seq001_v001/ — Pigeon-compliant module."""
-from .codebase_detector_seq001_v001_constants_seq001_v001 import _STRUCTURE_FILES
-from .codebase_detector_seq001_v001_orchestrator_seq008_v001 import detect_codebase
-from .codebase_detector_seq001_v001_profile_seq002_v001 import CodebaseProfile
+"""codebase_detector/ -- auto-fixed pigeon package."""
+from .p_cdo_s008_v001 import detect_codebase
+from .p_codp_s002_v001 import CodebaseProfile

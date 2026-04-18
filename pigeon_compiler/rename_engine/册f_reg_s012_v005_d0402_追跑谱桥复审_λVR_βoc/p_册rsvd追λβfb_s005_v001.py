@@ -1,7 +1,7 @@
 """册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_filename_builders_seq005_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
 
-from .册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc_constants_seq001_v001 import LC_SEP
+from .p_册rsvd追λβc_s001_v001 import LC_SEP
 
 def build_pigeon_filename(name: str, seq: int, ver: int,
                           date: str = '', desc: str = '',

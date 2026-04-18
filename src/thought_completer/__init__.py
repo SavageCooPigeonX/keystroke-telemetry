@@ -1,2 +1,2 @@
-"""thought_completer/ — Pigeon-compliant module."""
-from .thought_completer_main_seq001_v001 import main
+"""thought_completer/ -- auto-fixed pigeon package."""
+from .p_tcm_s001_v001 import main
