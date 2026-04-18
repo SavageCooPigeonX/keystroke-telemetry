@@ -173,7 +173,7 @@ def inject_entropy_layers(root: Path) -> bool:
     if not cp_path.exists():
         return False
     try:
-        from src.entropy_shedding import build_entropy_block, build_red_layer_block, build_entropy_directive
+        from src.entropy_shedding_seq001_v001_seq001_v001 import build_entropy_block, build_red_layer_block, build_entropy_directive
     except Exception:
         return False
 

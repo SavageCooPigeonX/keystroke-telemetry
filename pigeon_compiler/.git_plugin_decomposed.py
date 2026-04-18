@@ -1129,7 +1129,7 @@ def run():
     if bug_path_map:
         changed_py = [bug_path_map.get(path, path) for path in changed_py]
         save_registry(root, registry)
-    _run_tc_trajectory_update(root, renames, bug_renames)
+    _run_tc_trajectory_seq001_v001_update(root, renames, bug_renames)
     _run_pulse_harvest(root)
     _run_interlink_check(root, changed_py)
     _run_organism_upgrade(root, changed_py)
@@ -1432,12 +1432,12 @@ def _run_execute_bug_renames(root, bug_renames, registry):
         print(f'  👹 {Path(old_rel).name}')
         print(f'     → {Path(new_rel).name}')
 
-def _run_tc_trajectory_update(root, renames, bug_renames):
+def _run_tc_trajectory_seq001_v001_update(root, renames, bug_renames):
     from pigeon.parse import parse_pigeon_stem
     from pigeon.utils import _load_glob_module
     try:
-        tc_manifest_mod = _load_glob_module(root, 'src', 'tc_manifest*')
-        if tc_manifest_mod and hasattr(tc_manifest_mod, 'update_file_trajectory'):
+        tc_manifest_seq001_v001_mod = _load_glob_module(root, 'src', 'tc_manifest_seq001_v001*')
+        if tc_manifest_seq001_v001_mod and hasattr(tc_manifest_seq001_v001_mod, 'update_file_trajectory'):
             trajectory_count = 0
             for old_rel, new_rel, entry in (renames + bug_renames):
                 parsed = parse_pigeon_stem(Path(new_rel).stem)
@@ -1445,7 +1445,7 @@ def _run_tc_trajectory_update(root, renames, bug_renames):
                     lambda_suffix = 'λ' + parsed['intent']
                     stem = parsed.get('abbrev', '') or parsed.get('name', '')[:10]
                     deduction = entry.get('intent', 'mutation')[:40]
-                    tc_manifest_mod.update_file_trajectory(stem, lambda_suffix, deduction)
+                    tc_manifest_seq001_v001_mod.update_file_trajectory(stem, lambda_suffix, deduction)
                     trajectory_count += 1
             if trajectory_count:
                 print(f'  📜 TC trajectory → {trajectory_count} file(s) tracked')
@@ -1469,7 +1469,7 @@ def _run_pulse_harvest(root):
 def _run_interlink_check(root, changed_py):
     from pigeon.utils import _load_glob_module
     try:
-        interlink_mod = _load_glob_module(root, 'src', 'interlinker*')
+        interlink_mod = _load_glob_module(root, 'src', 'interlinker_seq001_v001*')
         if interlink_mod and changed_py:
             interlinked = 0
             for cp in changed_py[:10]:
@@ -1489,7 +1489,7 @@ def _run_interlink_check(root, changed_py):
 def _run_organism_upgrade(root, changed_py):
     from pigeon.utils import _load_glob_module
     try:
-        upgrade_mod = _load_glob_module(root, 'src', 'interlinker_upgrade*')
+        upgrade_mod = _load_glob_module(root, 'src', 'interlinker_seq001_v001_upgrade_seq001_v001*')
         if upgrade_mod and changed_py:
             changed_fps = [root / cp for cp in changed_py if (root / cp).exists()]
             results = upgrade_mod.run_upgrade_cycle(root, changed_fps)
@@ -1533,7 +1533,7 @@ def _run_rebuild_manifests(root):
 def _run_self_fix_accuracy(root):
     from pigeon.utils import _load_glob_module
     try:
-        sft_mod = _load_glob_module(root, 'src', 'self_fix_tracker*')
+        sft_mod = _load_glob_module(root, 'src', 'self_fix_tracker_seq001_v001*')
         if sft_mod and hasattr(sft_mod, 'compute_accuracy'):
             acc = sft_mod.compute_accuracy(root)
             if 'error' not in acc:
@@ -1544,7 +1544,7 @@ def _run_self_fix_accuracy(root):
 def _run_context_compression(root, changed):
     from pigeon.utils import _load_glob_module
     try:
-        cc_mod = _load_glob_module(root, 'src', 'context_compressor*')
+        cc_mod = _load_glob_module(root, 'src', 'context_compressor_seq001_v001*')
         if cc_mod and hasattr(cc_mod, 'compress_changed'):
             cc_result = cc_mod.compress_changed(root, changed_files=changed)
             if cc_result['files'] > 0:
@@ -1555,7 +1555,7 @@ def _run_context_compression(root, changed):
 def _run_intent_compression(root):
     from pigeon.utils import _load_glob_module
     try:
-        ic_mod = _load_glob_module(root, 'src', 'intent_compressor*')
+        ic_mod = _load_glob_module(root, 'src', 'intent_compressor_seq001_v001*')
         if ic_mod and hasattr(ic_mod, 'compress_all'):
             ic_result = ic_mod.compress_all(root)
             cl = ic_result.get('compression_layers', {})
@@ -1568,7 +1568,7 @@ def _run_intent_compression(root):
 def _run_codebase_transmutation(root):
     from pigeon.utils import _load_glob_module
     try:
-        ct_mod = _load_glob_module(root, 'src', 'codebase_transmuter*')
+        ct_mod = _load_glob_module(root, 'src', 'codebase_transmuter_seq001_v001*')
         if ct_mod and hasattr(ct_mod, 'transmute_all'):
             tr = ct_mod.transmute_all(root)
             s = tr.get('stats', {})
@@ -1580,11 +1580,11 @@ def _run_codebase_transmutation(root):
 def _run_vitals_snapshot(root, h, msg):
     from pigeon.utils import _load_glob_module
     try:
-        vitals_mod = _load_glob_module(root, 'src', 'codebase_vitals*')
+        vitals_mod = _load_glob_module(root, 'src', 'codebase_vitals_seq001_v001*')
         if vitals_mod and hasattr(vitals_mod, 'record_vitals'):
             vitals_mod.record_vitals(root, h, msg.splitlines()[0][:80])
             print('  📊 vitals snapshot recorded')
-        renderer_mod = _load_glob_module(root, 'src', 'vitals_renderer*')
+        renderer_mod = _load_glob_module(root, 'src', 'vitals_renderer_seq001_v001*')
         if renderer_mod and hasattr(renderer_mod, 'render_dashboard'):
             renderer_mod.render_dashboard(root)
             print('  📊 vitals dashboard rebuilt')

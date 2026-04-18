@@ -1,6 +1,6 @@
-"""Interlink self-test for tc_vscode.
+"""Interlink self-test for tc_vscode_seq001_v001.
 
-Auto-generated. This test keeps tc_vscode interlinked.
+Auto-generated. This test keeps tc_vscode_seq001_v001 interlinked.
 When this passes + pigeon cap + entropy shed → module sleeps.
 Module keeps learning via intent shards while sleeping.
 """
@@ -11,11 +11,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 def test_import():
     """Module imports without error."""
     import importlib
-    mod = importlib.import_module("src.tc_vscode")
-    print(f"  ✓ tc_vscode: module loads")
+    mod = importlib.import_module("src.tc_vscode_seq001_v001_seq001_v001")
+    print(f"  ✓ tc_vscode_seq001_v001: module loads")
 
 def run_interlink_test():
-    """Run all interlink checks for tc_vscode."""
+    """Run all interlink checks for tc_vscode_seq001_v001."""
     tests = [v for k, v in globals().items() if k.startswith("test_")]
     passed = 0
     for t in tests:
@@ -26,7 +26,7 @@ def run_interlink_test():
             print(f"  ✗ {t.__name__}: {e}")
     total = len(tests)
     status = "INTERLINKED" if passed == total else f"{passed}/{total}"
-    print(f"  tc_vscode: {status}")
+    print(f"  tc_vscode_seq001_v001: {status}")
     return passed == total
 
 if __name__ == "__main__":

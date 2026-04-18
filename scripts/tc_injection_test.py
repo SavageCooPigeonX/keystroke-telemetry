@@ -1,8 +1,8 @@
 """tc_injection_test.py — verify the numeric surface fires and injects relevant files.
 
 Tests:
-  1. numeric_surface.json exists and is fresh (updated today)
-  2. intent_numeric has enough training data (>=10 touches)
+  1. numeric_surface_seq001_v001.json exists and is fresh (updated today)
+  2. intent_numeric_seq001_v001 has enough training data (>=10 touches)
   3. select_context_numeric returns files for known prompts
   4. numeric source beats heuristic-only for repo-specific prompts
   5. end-to-end: select_context fires from a real buffer and returns injected paths
@@ -31,9 +31,9 @@ def check(name: str, ok: bool, detail: str = ''):
 
 print('\n=== TC INJECTION TEST ===\n')
 
-# ── Test 1: numeric_surface.json exists and is fresh ──────────────────────────
+# ── Test 1: numeric_surface_seq001_v001.json exists and is fresh ──────────────────────────
 print('1. Numeric surface freshness')
-surf_path = ROOT / 'logs' / 'numeric_surface.json'
+surf_path = ROOT / 'logs' / 'numeric_surface_seq001_v001.json'
 check('file exists', surf_path.exists(), str(surf_path))
 if surf_path.exists():
     mtime = datetime.fromtimestamp(surf_path.stat().st_mtime, tz=timezone.utc)
@@ -43,9 +43,9 @@ if surf_path.exists():
     node_count = len(surf.get('nodes', {}))
     check('has nodes', node_count > 50, f'{node_count} nodes')
 
-# ── Test 2: intent_numeric training data ──────────────────────────────────────
+# ── Test 2: intent_numeric_seq001_v001 training data ──────────────────────────────────────
 print('\n2. Intent numeric training data')
-from src.intent_numeric import get_stats, predict_files
+from src.intent_numeric_seq001_v001_seq001_v001 import get_stats, predict_files
 stats = get_stats()
 check('total_touches >= 10', stats['total_touches'] >= 10, str(stats['total_touches']))
 check('vocab_size >= 10', stats['vocab_size'] >= 10, str(stats['vocab_size']))
@@ -54,10 +54,10 @@ check('files_tracked >= 5', stats['files_tracked'] >= 5, str(stats['files_tracke
 # ── Test 3: predict_files returns results for repo-specific prompts ───────────
 print('\n3. predict_files fires for repo-specific prompts')
 cases = [
-    ('thought completer popup window overlay', 'tc_popup'),
+    ('thought completer popup window overlay', 'tc_popup_seq001_v001'),
     ('operator keystroke deletion ratio wpm state', 'operator_stats'),
     ('push cycle git commit narrative', 'push_narrative'),
-    ('numeric surface intent mapping prediction', 'numeric_surface'),
+    ('numeric surface intent mapping prediction', 'numeric_surface_seq001_v001'),
 ]
 for prompt, expected_substr in cases:
     preds = predict_files(prompt, top_n=5)
@@ -68,7 +68,7 @@ for prompt, expected_substr in cases:
 # ── Test 4: select_context_numeric injects files with numeric source ──────────
 print('\n4. select_context_numeric returns numeric-sourced files')
 
-# Patch src package so tc_context_agent can import
+# Patch src package so tc_context_seq001_v001_agent_seq001_v001 can import
 import types
 if 'src' not in sys.modules:
     pkg = types.ModuleType('src')
@@ -76,7 +76,7 @@ if 'src' not in sys.modules:
     pkg.__package__ = 'src'
     sys.modules['src'] = pkg
 
-from src.tc_context_agent import select_context_numeric, select_context_ensemble, select_context_files
+from src.tc_context_seq001_v001_seq001_v001_agent_seq001_v001_seq001_v001 import select_context_numeric, select_context_ensemble, select_context_files
 select_context = select_context_ensemble
 
 ctx = {'unsaid_threads': []}
@@ -116,7 +116,7 @@ num_max = max((r['score'] for r in num_results), default=0)
 print(f'\n  Score comparison: heuristic_max={heur_max:.1f} vs numeric_max={num_max:.2f}')
 if num_max < heur_max * 0.5:
     print(f'  NOTE: numeric score ({num_max:.2f}) < 50% of heuristic ({heur_max:.1f}) — '
-          f'increase multiplier in tc_context_agent.py score*50 to score*{int(heur_max/num_max*50)+10}')
+          f'increase multiplier in tc_context_seq001_v001_agent_seq001_v001.py score*50 to score*{int(heur_max/num_max*50)+10}')
 
 print(f'\n  Files selected: {[r.get("name","?") for r in ensemble]}')
 

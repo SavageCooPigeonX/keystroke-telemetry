@@ -7,16 +7,16 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-18 13:49 UTC — 2 block(s) stale or missing*
+*Checked 2026-04-18 15:23 UTC — 2 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 811min old (max 10min)
+- **`current-query`**: STALE — 904min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-18 00:19
 
-- **`prompt-telemetry`**: STALE — 811min old (max 10min)
+- **`prompt-telemetry`**: STALE — 904min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-18T00:18:57
 
@@ -282,12 +282,12 @@ OPERATOR SIGNAL: The repeated "baha yeah just yk a model of my cognition basisic
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-18 13:56 UTC · 676 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-18 15:23 UTC · 676 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 46.9 | Del: 26.5% | Hes: 0.496) · *[source: measured]*
 
-**Prompt ms:** 156079, 60459, 66930, 29029916, 18203 (avg 5866317ms)
+**Prompt ms:** 18203, 167514, 20282, 3609, 46148 (avg 51151ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
@@ -298,10 +298,10 @@ OPERATOR SIGNAL: The repeated "baha yeah just yk a model of my cognition basisic
 - Failed on: ""
 
 ### Recent Work
+- `050a29b` feat: close bug-detect -> fix -> escalation -> operator-prompt loop
 - `f5bd46c` feat: intent outcome binder + tc_intent_manager + post-commit binding hook
 - `46867e9` feat: close bug-detect -> fix -> escalation -> operator-prompt loop
 - `a4c04a7` feat: unsaid-thread primary hook + compression-on-push gate + tiered sync veto
-- `762e227` feat: unhackable master test, veto-gated health, weakness surfacer, scrub operator data
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*

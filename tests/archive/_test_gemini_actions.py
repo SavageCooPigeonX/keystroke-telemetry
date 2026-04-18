@@ -1,6 +1,6 @@
 """Quick test of gemini file action parsing + security."""
 from pathlib import Path
-from pigeon_brain.gemini_chat import parse_file_actions, execute_file_action, strip_action_blocks
+from pigeon_brain.gemini_chat_seq001_v001_seq001_v001 import parse_file_actions, execute_file_action, strip_action_blocks
 
 # Test 1: Parse action blocks
 response = """Here's the fix:
@@ -47,7 +47,7 @@ assert "Done!" in cleaned
 print("PASS: action blocks stripped from display text")
 
 # Test 7: Prompt history injection
-from pigeon_brain.gemini_chat import _build_system_context
+from pigeon_brain.gemini_chat_seq001_v001_seq001_v001 import _build_system_context
 ctx = _build_system_context(root)
 assert "Operator Prompt History" in ctx
 print("PASS: operator prompt history included in context")

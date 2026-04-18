@@ -32,9 +32,9 @@ from pigeon_brain.钩w_th_s011_v002_d0323_缩分话_λP import (
     start_trace,
     stop_trace,
 )
-from pigeon_brain.node_tester import test_node as _run_node_tests
-from pigeon_brain.gemini_chat import (
-    chat as _gemini_chat,
+from pigeon_brain.node_tester_seq001_v001_seq001_v001 import test_node as _run_node_tests
+from pigeon_brain.gemini_chat_seq001_v001_seq001_v001 import (
+    chat as _gemini_chat_seq001_v001,
     parse_file_actions,
     execute_file_action,
     strip_action_blocks,
@@ -81,7 +81,7 @@ async def _ws_handler(websocket):
                     selected = data.get("selectedNode")
                     loop = asyncio.get_event_loop()
                     reply = await loop.run_in_executor(
-                        None, _gemini_chat, _project_root,
+                        None, _gemini_chat_seq001_v001, _project_root,
                         list(_chat_histories[ws_id]), selected
                     )
                     # Parse and execute file-write actions from Gemini response

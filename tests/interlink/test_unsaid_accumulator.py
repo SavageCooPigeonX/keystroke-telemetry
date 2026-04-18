@@ -1,6 +1,6 @@
-"""Interlink self-test for unsaid_accumulator.
+"""Interlink self-test for unsaid_accumulator_seq001_v001.
 
-Auto-generated. This test keeps unsaid_accumulator interlinked.
+Auto-generated. This test keeps unsaid_accumulator_seq001_v001 interlinked.
 When this passes + pigeon cap + entropy shed → module sleeps.
 Module keeps learning via intent shards while sleeping.
 """
@@ -10,43 +10,43 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.unsaid_accumulator import record, get_recent, query, get_summary
+    from src.unsaid_accumulator_seq001_v001_seq001_v001 import record, get_recent, query, get_summary
     assert callable(record), "record must be callable"
     assert callable(get_recent), "get_recent must be callable"
     assert callable(query), "query must be callable"
     assert callable(get_summary), "get_summary must be callable"
-    print(f"  ✓ unsaid_accumulator: 4 exports verified")
+    print(f"  ✓ unsaid_accumulator_seq001_v001: 4 exports verified")
 
 def test_record_contract():
     """Data flow contract: record(fragment, completed_intent, deleted_words, unsaid_threads, context) → output."""
-    from src.unsaid_accumulator import record
+    from src.unsaid_accumulator_seq001_v001_seq001_v001 import record
     # smoke test: function exists and is callable
     assert record.__name__ == "record"
     print(f"  ✓ record: contract holds")
 
 def test_get_recent_contract():
     """Data flow contract: get_recent(n) → output."""
-    from src.unsaid_accumulator import get_recent
+    from src.unsaid_accumulator_seq001_v001_seq001_v001 import get_recent
     # smoke test: function exists and is callable
     assert get_recent.__name__ == "get_recent"
     print(f"  ✓ get_recent: contract holds")
 
 def test_query_contract():
     """Data flow contract: query(topic, limit) → output."""
-    from src.unsaid_accumulator import query
+    from src.unsaid_accumulator_seq001_v001_seq001_v001 import query
     # smoke test: function exists and is callable
     assert query.__name__ == "query"
     print(f"  ✓ query: contract holds")
 
 def test_get_summary_contract():
     """Data flow contract: get_summary(max_threads) → output."""
-    from src.unsaid_accumulator import get_summary
+    from src.unsaid_accumulator_seq001_v001_seq001_v001 import get_summary
     # smoke test: function exists and is callable
     assert get_summary.__name__ == "get_summary"
     print(f"  ✓ get_summary: contract holds")
 
 def run_interlink_test():
-    """Run all interlink checks for unsaid_accumulator."""
+    """Run all interlink checks for unsaid_accumulator_seq001_v001."""
     tests = [v for k, v in globals().items() if k.startswith("test_")]
     passed = 0
     for t in tests:
@@ -57,7 +57,7 @@ def run_interlink_test():
             print(f"  ✗ {t.__name__}: {e}")
     total = len(tests)
     status = "INTERLINKED" if passed == total else f"{passed}/{total}"
-    print(f"  unsaid_accumulator: {status}")
+    print(f"  unsaid_accumulator_seq001_v001: {status}")
     return passed == total
 
 if __name__ == "__main__":

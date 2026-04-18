@@ -10,13 +10,13 @@ responses_path = root / 'logs' / 'ai_responses.jsonl'
 # Confidence ratings based on actual code review + test results.
 shed_entries = {
     # High-entropy modules (currently 0.678) — reviewed and verified working
-    'escalation_engine': (0.88, 'reviewed full pipeline + test fired'),
-    'engagement_hooks': (0.85, 'reviewed hook generation'),
-    'bug_profiles': (0.85, 'reviewed profiling logic'),
-    'codebase_transmuter': (0.82, 'reviewed transmuter flow'),
+    'escalation_engine_seq001_v001': (0.88, 'reviewed full pipeline + test fired'),
+    'engagement_hooks_seq001_v001': (0.85, 'reviewed hook generation'),
+    'bug_profiles_seq001_v001': (0.85, 'reviewed profiling logic'),
+    'codebase_transmuter_seq001_v001': (0.82, 'reviewed transmuter flow'),
     'context_router': (0.85, 'reviewed routing logic'),
     'glyph_compiler': (0.85, 'reviewed compiler output'),
-    'operator_probes': (0.85, 'reviewed probe generation'),
+    'operator_probes_seq001_v001': (0.85, 'reviewed probe generation'),
     'prompt_enricher': (0.82, 'reviewed enrichment pipeline'),
     'research_lab': (0.80, 'reviewed lab structure'),
     'shard_manager': (0.82, 'reviewed shard logic'),
@@ -52,7 +52,7 @@ print(f'Injected shed block with {len(shed_entries)} modules into ai_responses.j
 
 # Now re-run accumulate_entropy to regenerate the map
 sys.path.insert(0, '.')
-from src.entropy_shedding import accumulate_entropy
+from src.entropy_shedding_seq001_v001_seq001_v001 import accumulate_entropy
 result = accumulate_entropy(root)
 print(f'\nEntropy map regenerated:')
 print(f'  Total responses: {result["total_responses"]}')

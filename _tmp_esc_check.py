@@ -6,7 +6,7 @@ from pathlib import Path
 root = Path('.')
 reg = json.loads((root / 'pigeon_registry.json').read_text('utf-8'))
 
-from src.escalation_engine import check_and_escalate
+from src.escalation_engine_seq001_v001_seq001_v001 import check_and_escalate
 result = check_and_escalate(root, registry=reg)
 
 st = json.loads((root / 'logs/escalation_state.json').read_text('utf-8'))

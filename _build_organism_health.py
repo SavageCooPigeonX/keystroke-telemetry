@@ -196,7 +196,7 @@ def _build_blood_flow(root):
         ("file_profiles", "file_profiles.json", "json_dict", "Module consciousness"),
         ("pigeon_registry", "pigeon_registry.json", "json_dict", "Module registry"),
         ("execution_deaths", "execution_death_log.json", "json_list", "Electron failures"),
-        ("context_veins", "pigeon_brain/context_veins.json", "json_dict", "Vein/clot health"),
+        ("context_veins_seq001_v001", "pigeon_brain/context_veins_seq001_v001.json", "json_dict", "Vein/clot health"),
         ("mutation_scores", "logs/mutation_scores.json", "json_dict", "Prompt mutation correlation"),
         ("task_queue", "task_queue.json", "json_dict", "Copilot task queue"),
         ("push_cycle_state", "logs/push_cycle_state.json", "json_dict", "Push cycle state"),
@@ -286,7 +286,7 @@ def _build_structure(root):
 def _build_circulation(veins_data):
     """Dependency health — arteries, clots, vein scores."""
     if not veins_data:
-        return "## Circulation\n\n*No context_veins.json found.*\n"
+        return "## Circulation\n\n*No context_veins_seq001_v001.json found.*\n"
 
     stats = veins_data.get("stats", {})
     arteries = veins_data.get("arteries", [])
@@ -516,7 +516,7 @@ def build_health(root):
     journal = _load_jsonl(root / "logs/prompt_journal.jsonl")
     heat_map = _load_json(root / "file_heat_map.json")
     reactor_state = _load_json(root / "logs/cognitive_reactor_state.json")
-    veins = _load_json(root / "pigeon_brain/context_veins.json")
+    veins = _load_json(root / "pigeon_brain/context_veins_seq001_v001.json")
     push_state = _load_json(root / "logs/push_cycle_state.json")
     push_cycles = _load_jsonl(root / "logs/push_cycles.jsonl")
     rework_log = _load_json(root / "rework_log.json")
@@ -581,7 +581,7 @@ def build_prompt_block(root):
 
     journal = _load_jsonl(root / "logs/prompt_journal.jsonl")
     heat_map = _load_json(root / "file_heat_map.json") or {}
-    veins = _load_json(root / "pigeon_brain/context_veins.json")
+    veins = _load_json(root / "pigeon_brain/context_veins_seq001_v001.json")
     deaths = _load_json(root / "execution_death_log.json") or []
     rework = _load_json(root / "rework_log.json") or []
     push_state = _load_json(root / "logs/push_cycle_state.json") or {}
@@ -600,7 +600,7 @@ def build_prompt_block(root):
         ("prompt_journal", "logs/prompt_journal.jsonl"),
         ("chat_compositions", "logs/chat_compositions.jsonl"),
         ("edit_pairs", "logs/edit_pairs.jsonl"),
-        ("context_veins", "pigeon_brain/context_veins.json"),
+        ("context_veins_seq001_v001", "pigeon_brain/context_veins_seq001_v001.json"),
         ("execution_deaths", "execution_death_log.json"),
         ("push_cycle_state", "logs/push_cycle_state.json"),
     ]

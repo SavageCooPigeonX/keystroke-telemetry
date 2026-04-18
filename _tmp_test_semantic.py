@@ -1,16 +1,16 @@
 """Test the file semantic layer."""
 from pathlib import Path
-from src.file_semantic_layer import inspect_module, grow_on_push, build_semantic_report
+from src.file_semantic_layer_seq001_v001_seq001_v001 import inspect_module, grow_on_push, build_semantic_report
 
 root = Path('.')
 
 # test inspection
-for stem in ['interlinker', 'push_baseline', 'escalation_engine']:
+for stem in ['interlinker_seq001_v001', 'push_baseline_seq001_v001', 'escalation_engine_seq001_v001']:
     print(inspect_module(root, stem))
     print()
 
 # test push growth
-result = grow_on_push(root, ['src/push_baseline.py', 'src/interlinker.py'])
+result = grow_on_push(root, ['src/push_baseline_seq001_v001.py', 'src/interlinker_seq001_v001.py'])
 print(f"\n=== GROWTH RESULT ===")
 print(f"processed: {result['modules_processed']}")
 print(f"escalated: {result['escalated']}")

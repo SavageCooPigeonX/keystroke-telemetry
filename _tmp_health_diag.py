@@ -23,7 +23,7 @@ for f, lc in over[:20]:
     print(f'  {lc:5d}  {f}')
 
 print()
-veins = _load_json(root / 'pigeon_brain/context_veins.json')
+veins = _load_json(root / 'pigeon_brain/context_veins_seq001_v001.json')
 if veins:
     clots = veins.get('clots', [])
     print(f'=== CLOTS: {len(clots)} ===')

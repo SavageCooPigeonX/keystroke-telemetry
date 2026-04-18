@@ -136,9 +136,9 @@ def talk_to_node(
 
     if use_gemini:
         try:
-            from pigeon_brain.gemini_chat import chat as gemini_chat
+            from pigeon_brain.gemini_chat_seq001_v001_seq001_v001 import chat as gemini_chat_seq001_v001
             messages = [{"role": "user", "text": prompt}]
-            response = gemini_chat(root, messages)
+            response = gemini_chat_seq001_v001(root, messages)
             if response and not response.startswith("Error:"):
                 header = f"─── {node_name} speaks ───\n"
                 return header + response

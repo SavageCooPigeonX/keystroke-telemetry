@@ -8,8 +8,8 @@ Launch:  py src/thought_completer.py
          py src/thought_completer.py --corner tr --pause 1500
          py src/thought_completer.py --web --port 8235  (Railway mode)
 
-Split into modules: tc_constants, tc_vscode, tc_context_agent, tc_context,
-tc_gemini, tc_buffer_watcher, tc_popup, tc_web. This file is the entrypoint.
+Split into modules: tc_constants_seq001_v001, tc_vscode_seq001_v001, tc_context_seq001_v001_agent_seq001_v001, tc_context_seq001_v001,
+tc_gemini_seq001_v001, tc_buffer_watcher_seq001_v001, tc_popup_seq001_v001, tc_web_seq001_v001. This file is the entrypoint.
 
 Hotkeys (global when popup is focused):
     Ctrl+Shift+C   — copy analysis to clipboard
@@ -38,10 +38,10 @@ if 'src' not in sys.modules:
     _pkg.__package__ = 'src'
     sys.modules['src'] = _pkg
 
-from src.tc_constants import DEFAULT_PAUSE_MS, DEFAULT_CORNER, DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_OPACITY
-from src.tc_gemini import _load_api_key
-from src.tc_popup import run_popup
-from src.tc_web import run_web
+from src.tc_constants_seq001_v001_seq001_v001 import DEFAULT_PAUSE_MS, DEFAULT_CORNER, DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_OPACITY
+from src.tc_gemini_seq001_v001_seq001_v001 import _load_api_key
+from src.tc_popup_seq001_v001_seq001_v001 import run_popup
+from src.tc_web_seq001_v001_seq001_v001 import run_web
 
 
 def main():
@@ -69,13 +69,13 @@ def main():
                 [sys.executable, '-c',
                  'import sys; sys.path.insert(0,".")\n'
                  'from pathlib import Path\n'
-                 'from src.numeric_surface import generate_surface\n'
+                 'from src.numeric_surface_seq001_v001_seq001_v001 import generate_surface\n'
                  'generate_surface(Path("."))'],
                 cwd=_root_dir, timeout=60, capture_output=True
             )
-            print('[completer] numeric_surface refreshed')
+            print('[completer] numeric_surface_seq001_v001 refreshed')
         except Exception as _e:
-            print(f'[completer] numeric_surface refresh failed: {_e}')
+            print(f'[completer] numeric_surface_seq001_v001 refresh failed: {_e}')
         finally:
             _surface_ready.set()
     threading.Thread(target=_refresh_surface, daemon=True).start()

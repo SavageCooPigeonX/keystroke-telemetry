@@ -1,6 +1,6 @@
 """Test: trajectory building + response pairing."""
 import sys, json; sys.path.insert(0, '.')
-from src.tc_trajectory import build_trajectory, format_trajectory_for_prompt
+from src.tc_trajectory_seq001_v001_seq001_v001 import build_trajectory, format_trajectory_for_prompt
 
 traj = build_trajectory()
 print(f"Turns: {len(traj['turns'])}")

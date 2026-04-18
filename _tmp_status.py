@@ -2,9 +2,9 @@
 from pathlib import Path
 
 # 1. probe system
-from src.probe_surface import parse_probe_blocks, harvest_pending_probes, build_resolution_block
-from src.probe_resolver import resolve_all_pending
-print('probe_surface + probe_resolver: OK')
+from src.probe_surface_seq001_v001_seq001_v001 import parse_probe_blocks, harvest_pending_probes, build_resolution_block
+from src.probe_resolver_seq001_v001_seq001_v001 import resolve_all_pending
+print('probe_surface_seq001_v001 + probe_resolver_seq001_v001: OK')
 
 # 2. query_memory
 from src import load_query_memory

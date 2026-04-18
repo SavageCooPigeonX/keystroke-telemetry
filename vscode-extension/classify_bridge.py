@@ -358,10 +358,10 @@ def _load_recent_responses(root: Path, limit: int = 10) -> list:
     """Load recent AI responses — auto-syncs from VS Code chat session first."""
     # Auto-sync: read responses directly from VS Code chatSessions storage
     try:
-        reader_path = root / 'client' / 'chat_response_reader.py'
+        reader_path = root / 'client' / 'chat_response_reader_seq001_v001.py'
         if reader_path.exists():
             import importlib.util
-            spec = importlib.util.spec_from_file_location('chat_response_reader', str(reader_path))
+            spec = importlib.util.spec_from_file_location('chat_response_reader_seq001_v001', str(reader_path))
             reader = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(reader)
             reader.sync_to_log(str(root), limit=limit)
@@ -413,13 +413,13 @@ def _load_recent_chat_keystrokes(root: Path, window_ms: int = 120_000) -> list:
 
 def _load_chat_composition(root: Path) -> dict | None:
     """Load latest chat composition analysis.
-    Uses chat_composition_analyzer to reconstruct deleted words, rewrites,
+    Uses chat_composition_analyzer_seq001_v001 to reconstruct deleted words, rewrites,
     hesitation from raw OS hook keystrokes — regardless of context tag.
     This is the real signal: the OS hook captures everything, the analyzer
     reconstructs the full composition including what was deleted.
     """
     try:
-        analyzer_path = root / 'client' / 'chat_composition_analyzer.py'
+        analyzer_path = root / 'client' / 'chat_composition_analyzer_seq001_v001.py'
         if analyzer_path.exists():
             spec = importlib.util.spec_from_file_location('_comp_analyzer', analyzer_path)
             mod = importlib.util.module_from_spec(spec)
@@ -470,10 +470,10 @@ def main():
 
     # ── Chat composition analysis (deleted words, rewrites, hesitation) ──
     chat_comp = _load_chat_composition(root)
-    # Fallback: if chat_comp failed, try composition_recon (fuses OS hook + vscdb + journal)
+    # Fallback: if chat_comp failed, try composition_recon_seq001_v001 (fuses OS hook + vscdb + journal)
     if not chat_comp:
         try:
-            recon_path = root / 'client' / 'composition_recon.py'
+            recon_path = root / 'client' / 'composition_recon_seq001_v001.py'
             if recon_path.exists():
                 spec = importlib.util.spec_from_file_location('_comp_recon', recon_path)
                 recon_mod = importlib.util.module_from_spec(spec)
@@ -489,7 +489,7 @@ def main():
                         'deleted_words': [],
                         'rewrites': [],
                         'peak_buffer': best.get('final_buffer', ''),
-                        'source': 'composition_recon',
+                        'source': 'composition_recon_seq001_v001',
                     }
                     # Merge abandoned drafts as pseudo-deleted-words
                     for r in recon_results:
@@ -731,10 +731,10 @@ def main():
 
     # -- Auto-sync Copilot responses from VS Code chat session ---------------
     try:
-        _reader_path = root / 'client' / 'chat_response_reader.py'
+        _reader_path = root / 'client' / 'chat_response_reader_seq001_v001.py'
         if _reader_path.exists():
             import importlib.util
-            _spec = importlib.util.spec_from_file_location('chat_response_reader', str(_reader_path))
+            _spec = importlib.util.spec_from_file_location('chat_response_reader_seq001_v001', str(_reader_path))
             _reader_mod = importlib.util.module_from_spec(_spec)
             _spec.loader.exec_module(_reader_mod)
             _reader_mod.sync_to_log(str(root), limit=5)

@@ -72,9 +72,9 @@ def _deepseek_call(key: str, system: str, user: str, max_tokens: int = 4096) -> 
 
 SYSTEM = """\
 You are analyzing prompt history from a keystroke-telemetry codebase.
-This is a real Python repo with specific modules: tc_popup, tc_gemini, tc_context_agent,
-intent_numeric, numeric_surface, push_cycle, self_fix, file_heat_map, os_hook,
-vscdb_poller, thought_completer, prompt_journal, tc_intent_manager, tc_trajectory,
+This is a real Python repo with specific modules: tc_popup_seq001_v001, tc_gemini_seq001_v001, tc_context_seq001_v001_agent_seq001_v001,
+intent_numeric_seq001_v001, numeric_surface_seq001_v001, push_cycle, self_fix, file_heat_map, os_hook,
+vscdb_poller, thought_completer, prompt_journal, tc_intent_manager_seq001_v001, tc_trajectory_seq001_v001,
 operator_stats, unsaid_recon, pigeon_compiler, etc.
 
 The operator is a vibe-coder — they never write code, they steer Copilot with prompts.

@@ -1,4 +1,4 @@
-"""context_compressor/ — Pigeon-compliant module."""
-from .context_compressor_changed_decomposed_seq006_v001 import compress_changed
-from .context_compressor_constants_seq001_v001 import APPROX_CHARS_PER_TOKEN, SKIP_DIRS
-from .context_compressor_file_processor_seq005_v001 import compress_file
+"""context_compressor_seq001_v001/ — Pigeon-compliant module."""
+from .context_compressor_seq001_v001_changed_decomposed_seq006_v001 import compress_changed
+from .context_compressor_seq001_v001_constants_seq001_v001 import APPROX_CHARS_PER_TOKEN, SKIP_DIRS
+from .context_compressor_seq001_v001_file_processor_seq005_v001 import compress_file

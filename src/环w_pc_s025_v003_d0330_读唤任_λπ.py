@@ -170,10 +170,10 @@ def _extract_copilot_signal(changed_files: list[str]) -> dict:
     }
 
 
-def _train_intent_numeric(entries: list[dict], changed_files: list[str]) -> None:
-    """Train intent_numeric surface: journal prompts → files touched."""
+def _train_intent_numeric_seq001_v001(entries: list[dict], changed_files: list[str]) -> None:
+    """Train intent_numeric_seq001_v001 surface: journal prompts → files touched."""
     try:
-        from src.intent_numeric import record_touch
+        from src.intent_numeric_seq001_v001_seq001_v001 import record_touch
     except ImportError:
         return
     
@@ -397,8 +397,8 @@ def run_push_cycle(root: Path, commit_hash: str, intent: str,
     # 6. Backward pass on key journal entries (gradient distribution)
     backward_results = _run_backward_on_entries(root, entries)
 
-    # 6.5. Train intent_numeric surface: journal prompts → files touched
-    _train_intent_numeric(entries, changed_files)
+    # 6.5. Train intent_numeric_seq001_v001 surface: journal prompts → files touched
+    _train_intent_numeric_seq001_v001(entries, changed_files)
 
     # 7. Fire new predictions (what will operator want next push?)
     predictions = _fire_predictions(root)
@@ -440,7 +440,7 @@ def run_push_cycle(root: Path, commit_hash: str, intent: str,
 
     # 11. Capture codebase health snapshot + compute drift
     try:
-        from src.push_snapshot import capture_snapshot, compute_drift, inject_drift_block
+        from src.push_snapshot_seq001_v001_seq001_v001 import capture_snapshot, compute_drift, inject_drift_block
         snapshot = capture_snapshot(root, commit_hash, intent, changed_files)
         drift_result = compute_drift(root, snapshot)
         inject_drift_block(root, snapshot, drift_result)
@@ -451,14 +451,14 @@ def run_push_cycle(root: Path, commit_hash: str, intent: str,
 
     # 12. Inject narrative glove (organism consciousness)
     try:
-        from src.narrative_glove import inject_narrative
+        from src.narrative_glove_seq001_v001_seq001_v001 import inject_narrative
         inject_narrative(root)
     except Exception:
         pass
 
     # 13. Baseline drift assessment — truth gate + semantic void detection
     try:
-        from src.push_baseline import assess_on_push, build_drift_report
+        from src.push_baseline_seq001_v001_seq001_v001 import assess_on_push, build_drift_report
         baseline = assess_on_push(root, changed_files)
         cycle['baseline_drift'] = baseline.get('total_drift', 0)
         cycle['baseline_voids'] = baseline.get('total_voids', 0)
@@ -472,7 +472,7 @@ def run_push_cycle(root: Path, commit_hash: str, intent: str,
 
     # 14. File semantic layer — grow per-file context + intent drift detection
     try:
-        from src.file_semantic_layer import grow_on_push, build_semantic_report
+        from src.file_semantic_layer_seq001_v001_seq001_v001 import grow_on_push, build_semantic_report
         sem = grow_on_push(root, changed_files)
         cycle['semantic_modules'] = sem.get('modules_processed', 0)
         cycle['semantic_escalated'] = sem.get('escalated', 0)

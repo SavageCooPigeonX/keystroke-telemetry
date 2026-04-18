@@ -7,7 +7,7 @@ Per operator intent (2026-04-17):
 
 Runs three checks and writes a single report:
   1. Staleness audit — `src/警p_sa_s030*` — are managed prompt blocks fresh?
-  2. Escalation re-check — `src/escalation_engine*` — is escalation state current?
+  2. Escalation re-check — `src/escalation_engine_seq001_v001*` — is escalation state current?
   3. Self-fix accuracy — `logs/self_fix_accuracy.json` — is the fix-accuracy
      data fresh (<24h)?
 
@@ -108,7 +108,7 @@ def audit_escalation(root: Path) -> dict:
     push: if a module changed status, escalation should pick it up and
     `_save_state` refreshes mtime.
     """
-    mod = _load_glob_module(root, "src", "escalation_engine*")
+    mod = _load_glob_module(root, "src", "escalation_engine_seq001_v001*")
     rerun_err = None
     rerun_result = None
     if mod and hasattr(mod, "check_and_escalate"):

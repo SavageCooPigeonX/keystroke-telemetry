@@ -18,14 +18,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.prompt_recon_seq016_v001 import reconstruct_latest, track_copilot_prompt_mutations
+    from src.p_prc_s016_v001 import reconstruct_latest, track_copilot_prompt_mutations
     assert callable(reconstruct_latest), "reconstruct_latest must be callable"
     assert callable(track_copilot_prompt_mutations), "track_copilot_prompt_mutations must be callable"
     print(f"  ✓ prompt_recon_seq016_v001: 2 exports verified")
 
 def test_reconstruct_latest_contract():
     """Data flow contract: reconstruct_latest(root) → output."""
-    from src.prompt_recon_seq016_v001 import reconstruct_latest
+    from src.p_prc_s016_v001 import reconstruct_latest
     # smoke test: function exists and is callable
     assert reconstruct_latest.__name__ == "reconstruct_latest"
     # safe to call with test root
@@ -36,7 +36,7 @@ def test_reconstruct_latest_contract():
 
 def test_track_copilot_prompt_mutations_contract():
     """Data flow contract: track_copilot_prompt_mutations(root) → output."""
-    from src.prompt_recon_seq016_v001 import track_copilot_prompt_mutations
+    from src.p_prc_s016_v001 import track_copilot_prompt_mutations
     # smoke test: function exists and is callable
     assert track_copilot_prompt_mutations.__name__ == "track_copilot_prompt_mutations"
     # safe to call with test root

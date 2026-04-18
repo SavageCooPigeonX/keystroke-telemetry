@@ -25,7 +25,7 @@ run_prediction_cycle = _r("pc", "run_prediction_cycle")
 run_single_cycle = _r("sc", "run_single_cycle")
 LOOP_STATE_FILE = _r("su", "LOOP_STATE_FILE")
 
-# Also re-export private helpers for gemini_chat + submodule lazy imports
+# Also re-export private helpers for gemini_chat_seq001_v001 + submodule lazy imports
 _load_state = _r("su", "_load_state")
 _save_state = _r("su", "_save_state")
 _load_journal_entries = _r("jl", "_load_journal_entries")

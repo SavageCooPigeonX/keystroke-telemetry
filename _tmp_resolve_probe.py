@@ -2,7 +2,7 @@
 import json, sys
 from pathlib import Path
 sys.path.insert(0, '.')
-from src.probe_resolver import resolve_probe
+from src.probe_resolver_seq001_v001_seq001_v001 import resolve_probe
 
 root = Path('.')
 probe = {
@@ -60,7 +60,7 @@ else:
 
 # Second probe — about the broader approach
 probe2 = {
-    'module': 'probe_resolver',
+    'module': 'probe_resolver_seq001_v001',
     'question': 'the resolver only resolved 1 of 7 probes - is the operator satisfied with keyword matching or wants semantic similarity',
     'candidates': 'keyword_matching_ok | need_semantic | need_more_signals',
     'confidence': '0.30',

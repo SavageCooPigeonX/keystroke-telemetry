@@ -53,7 +53,7 @@ def load_graph_data(root: Path) -> dict[str, Any]:
                 data["nodes"][name] = enriched
 
     # 3. Merge vein/clot data onto nodes
-    veins_path = root / "pigeon_brain" / "context_veins.json"
+    veins_path = root / "pigeon_brain" / "context_veins_seq001_v001.json"
     veins_data = None
     if veins_path.exists():
         veins_data = json.loads(veins_path.read_text(encoding="utf-8"))

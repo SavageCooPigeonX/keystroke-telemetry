@@ -152,7 +152,7 @@ _INTENT_PREFIXES = {
     'fix_bare_globals': 'λγ',
     'fix_push_cycle': 'λπ',
     'flow_engine_context': 'λε',
-    'gemini_chat_dead': 'λχ',
+    'gemini_chat_seq001_v001_dead': 'λχ',
     'implement_all_18': 'λ18',
     'multi_line_import': 'λμ',
     'per_prompt_deleted': 'λδ',

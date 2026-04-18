@@ -6,7 +6,7 @@ root = Path('.')
 reg = json.loads((root / 'pigeon_registry.json').read_text('utf-8'))
 files = reg.get('files', [])
 
-bug_profiles = {}
+bug_profiles_seq001_v001 = {}
 for entry in files:
     bug_keys = entry.get('bug_keys', [])
     if not bug_keys:
@@ -14,7 +14,7 @@ for entry in files:
     name = entry.get('name', '')
     abbrev = entry.get('abbrev', '')
     key = abbrev or name
-    bug_profiles[key] = {
+    bug_profiles_seq001_v001[key] = {
         'name': name,
         'abbrev': abbrev,
         'path': entry.get('path', ''),
@@ -31,12 +31,12 @@ for entry in files:
         'date': entry.get('date', ''),
     }
 
-print(f"Total modules with bugs: {len(bug_profiles)}")
+print(f"Total modules with bugs: {len(bug_profiles_seq001_v001)}")
 print()
 
 # Group by bug type
 by_bug: dict[str, list] = {}
-for key, prof in bug_profiles.items():
+for key, prof in bug_profiles_seq001_v001.items():
     for bk in prof['bug_keys']:
         by_bug.setdefault(bk, []).append(prof)
 
@@ -60,10 +60,10 @@ for bk, entries in sorted(by_bug.items()):
         print(f"  {ab:25s} v{e['ver']:02d} tok={e['tokens']:5d} recur={total_recur} ds={ds:.2f} mark={e['last_bug_mark']} [{lc}]")
 
 # Write full JSON dump for browsable profile
-(root / 'logs' / 'bug_profiles.json').write_text(
+(root / 'logs' / 'bug_profiles_seq001_v001.json').write_text(
     json.dumps({
         'generated': __import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat(),
-        'total_bugged': len(bug_profiles),
+        'total_bugged': len(bug_profiles_seq001_v001),
         'by_type': {
             bk: {
                 'label': BUG_LEGEND.get(bk, bk),
@@ -86,8 +86,8 @@ for bk, entries in sorted(by_bug.items()):
             }
             for bk, entries in sorted(by_bug.items())
         },
-        'all_profiles': bug_profiles,
+        'all_profiles': bug_profiles_seq001_v001,
     }, indent=2),
     encoding='utf-8',
 )
-print("\nWrote logs/bug_profiles.json")
+print("\nWrote logs/bug_profiles_seq001_v001.json")

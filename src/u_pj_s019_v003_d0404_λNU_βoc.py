@@ -668,7 +668,7 @@ def _force_fresh_composition(root: Path) -> None:
     """
     try:
         import importlib.util
-        analyzer_path = root / 'client' / 'chat_composition_analyzer.py'
+        analyzer_path = root / 'client' / 'chat_composition_analyzer_seq001_v001.py'
         if not analyzer_path.exists():
             return
         spec = importlib.util.spec_from_file_location('_comp_analyzer', analyzer_path)

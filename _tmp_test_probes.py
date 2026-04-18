@@ -1,7 +1,7 @@
-"""Test probe_surface + probe_resolver end-to-end."""
+"""Test probe_surface_seq001_v001 + probe_resolver_seq001_v001 end-to-end."""
 from pathlib import Path
-from src.probe_surface import parse_probe_blocks, harvest_pending_probes, build_resolution_block, write_resolution
-from src.probe_resolver import resolve_all_pending, resolve_probe
+from src.probe_surface_seq001_v001_seq001_v001 import parse_probe_blocks, harvest_pending_probes, build_resolution_block, write_resolution
+from src.probe_resolver_seq001_v001_seq001_v001 import resolve_all_pending, resolve_probe
 
 # 1. test parse
 sample = '''here is my response

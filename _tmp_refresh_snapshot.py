@@ -1,7 +1,7 @@
 """Refresh push snapshot and narrative glove."""
 from pathlib import Path
-from src.push_snapshot import capture_snapshot
-from src.narrative_glove import inject_narrative
+from src.push_snapshot_seq001_v001_seq001_v001 import capture_snapshot
+from src.narrative_glove_seq001_v001_seq001_v001 import inject_narrative
 
 root = Path('.')
 

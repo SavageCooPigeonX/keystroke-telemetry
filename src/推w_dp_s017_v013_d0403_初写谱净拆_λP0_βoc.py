@@ -306,8 +306,8 @@ def _file_consciousness(root):
         return ''
 
 def _codebase_health(root):
-    """Load context_veins.json and build a Codebase Health section for CoT injection."""
-    vp = root / 'pigeon_brain' / 'context_veins.json'
+    """Load context_veins_seq001_v001.json and build a Codebase Health section for CoT injection."""
+    vp = root / 'pigeon_brain' / 'context_veins_seq001_v001.json'
     if not vp.exists():
         return ''
     try:
@@ -546,7 +546,7 @@ def build_task_context(root):
         cons = _file_consciousness(root)
         if cons:
             L += [cons, '']
-    # Codebase health — veins/clots from context_veins.json (always show)
+    # Codebase health — veins/clots from context_veins_seq001_v001.json (always show)
     health = _codebase_health(root)
     if health:
         L += [health, '']

@@ -474,8 +474,8 @@ class KeystrokeRecorder:
         try:
             import importlib.util
             spec = importlib.util.spec_from_file_location(
-                'chat_composition_analyzer',
-                str(root / 'client' / 'chat_composition_analyzer.py'))
+                'chat_composition_analyzer_seq001_v001',
+                str(root / 'client' / 'chat_composition_analyzer_seq001_v001.py'))
             mod = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(mod)
             composition = mod.analyze_and_log(root)

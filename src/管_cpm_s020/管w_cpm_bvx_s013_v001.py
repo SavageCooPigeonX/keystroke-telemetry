@@ -71,7 +71,7 @@ def _bug_voice_score(entry: dict) -> int:
 
 def _build_bug_voices_block(root: Path, registry: dict | None) -> str:
     try:
-        from src.self_fix_tracker import build_narrative_block
+        from src.self_fix_tracker_seq001_v001_seq001_v001 import build_narrative_block
         narrative = build_narrative_block(root)
         if narrative:
             return narrative

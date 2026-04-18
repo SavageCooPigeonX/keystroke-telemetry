@@ -1,7 +1,7 @@
 import sys, re, json
 from pathlib import Path
 sys.path.insert(0, '.')
-from src.module_identity import build_identities
+from src.module_identity_seq001_v001_seq001_v001 import build_identities
 
 ids = build_identities(Path('.'))
 # Find seq011 in src/

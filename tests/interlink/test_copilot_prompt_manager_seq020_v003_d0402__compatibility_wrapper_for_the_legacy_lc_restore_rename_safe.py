@@ -19,7 +19,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 def test_import():
     """Module imports without error."""
     import importlib
-    mod = importlib.import_module("src.copilot_prompt_manager_seq020_v003_d0402__compatibility_wrapper_for_the_legacy_lc_restore_rename_safe")
+    mod = importlib.import_module("src.管w_cpm_s020_v003_d0402_λR")
     print(f"  ✓ copilot_prompt_manager_seq020_v003_d0402__compatibility_wrapper_for_the_legacy_lc_restore_rename_safe: module loads")
 
 def run_interlink_test():

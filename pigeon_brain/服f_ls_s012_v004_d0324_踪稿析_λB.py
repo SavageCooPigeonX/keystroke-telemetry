@@ -32,14 +32,14 @@ from pigeon_brain.钩w_th_s011_v002_d0323_缩分话_λP import (
     start_trace,
     stop_trace,
 )
-from pigeon_brain.node_tester import test_node as _run_node_tests
-from pigeon_brain.gemini_chat import (
-    chat as _gemini_chat,
+from pigeon_brain.node_tester_seq001_v001_seq001_v001 import test_node as _run_node_tests
+from pigeon_brain.gemini_chat_seq001_v001_seq001_v001 import (
+    chat as _gemini_chat_seq001_v001,
     parse_file_actions,
     execute_file_action,
     strip_action_blocks,
 )
-from pigeon_brain.ai_cognitive_log import log_ai_response, get_ai_state
+from pigeon_brain.ai_cognitive_log_seq001_v001_seq001_v001 import log_ai_response, get_ai_state
 
 _clients = set()
 _injected = []  # Events injected by external traced_runner processes
@@ -83,7 +83,7 @@ async def _ws_handler(websocket):
                     loop = asyncio.get_event_loop()
                     t0 = time.time()
                     reply = await loop.run_in_executor(
-                        None, _gemini_chat, _project_root,
+                        None, _gemini_chat_seq001_v001, _project_root,
                         list(_chat_histories[ws_id]), selected
                     )
                     duration_ms = int((time.time() - t0) * 1000)

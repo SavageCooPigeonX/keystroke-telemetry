@@ -95,7 +95,7 @@ def build_file_profile(root: Path, module_name: str, hes_score: float) -> dict:
         profile['fears'] = entry.get('fears', [])
         profile['personality'] = entry.get('personality', 'unknown')
 
-    bugs = _jload(root / 'logs' / 'bug_profiles.json') or {}
+    bugs = _jload(root / 'logs' / 'bug_profiles_seq001_v001.json') or {}
     all_mods = bugs.get('all_modules', {})
     if module_name in all_mods:
         b = all_mods[module_name]

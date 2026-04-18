@@ -1,7 +1,7 @@
 """Quick test: verify comedy system prompt generation."""
 import sys, json
 sys.path.insert(0, '.')
-from src.profile_chat_server import _build_system_prompt, _load_identities
+from src.profile_chat_server_seq001_v001_seq001_v001 import _build_system_prompt, _load_identities
 
 ids = _load_identities()
 for name, ident in ids.items():

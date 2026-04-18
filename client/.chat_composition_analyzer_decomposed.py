@@ -1,5 +1,5 @@
 """
-chat_composition_analyzer.py — Reconstructs full chat composition from OS hook.
+chat_composition_analyzer_seq001_v001.py — Reconstructs full chat composition from OS hook.
 
 Bridges raw os_keystrokes.jsonl → structured composition analysis.
 Runs after every chat submit, or on-demand from classify_bridge.py.
@@ -16,7 +16,7 @@ Writes to logs/chat_compositions.jsonl
 
 Can be called:
   1. As a module: analyze_latest_composition(root) → dict
-  2. From CLI: py client/chat_composition_analyzer.py <root>
+  2. From CLI: py client/chat_composition_analyzer_seq001_v001.py <root>
 """
 import json
 import os

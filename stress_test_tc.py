@@ -22,13 +22,13 @@ if 'src' not in sys.modules:
     sys.modules['src'] = _pkg
 
 # Now import tc_ modules — they use relative imports within src
-from src.tc_context_agent import select_context_files, build_code_context, _extract_mentions
-from src.tc_profile import (classify_section, update_section, update_profile_from_completion,
+from src.tc_context_seq001_v001_seq001_v001_agent_seq001_v001_seq001_v001 import select_context_files, build_code_context, _extract_mentions
+from src.tc_profile_seq001_v001_seq001_v001 import (classify_section, update_section, update_profile_from_completion,
                             load_profile, save_profile, _deduce_intelligence,
                             format_intelligence_for_prompt)
-from src.tc_grader import (grade_completion, log_grade, update_grade_summary,
+from src.tc_grader_seq001_v001_seq001_v001 import (grade_completion, log_grade, update_grade_summary,
                            format_grades_for_prompt, compute_adaptive_params)
-from src.tc_context import load_context
+from src.tc_context_seq001_v001_seq001_v001 import load_context
 
 ROOT = Path('.')
 PASS = 0
@@ -328,7 +328,7 @@ except Exception as e:
 # ═══════════════════════════════════════════════════════════
 header('TEST 8: Full prompt pipeline (no API call)')
 
-from src.tc_gemini import _build_user_prompt, ThoughtBuffer, _strip_signal_echo
+from src.tc_gemini_seq001_v001_seq001_v001 import _build_user_prompt, ThoughtBuffer, _strip_signal_echo
 
 tb = ThoughtBuffer()
 # Simulate a few thought buffer entries

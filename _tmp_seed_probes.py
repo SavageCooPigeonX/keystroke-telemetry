@@ -10,7 +10,7 @@ modules = [
     "dynamic_prompt", "self_fix", "push_cycle", "task_queue", "file_heat_map",
     "cognitive_reactor", "operator_stats", "rework_detector", "query_memory",
     "push_narrative", "context_budget", "unsaid_recon", "glyph_compiler",
-    "shard_manager", "training_pairs", "voice_style", "escalation_engine",
+    "shard_manager", "training_pairs", "voice_style", "escalation_engine_seq001_v001",
     "file_consciousness", "copilot_prompt_manager", "mutation_scorer",
     "session_handoff", "research_lab", "staleness_alert", "symbol_dictionary",
     "intent_simulator", "context_router", "streaming_layer", "execution_logger",

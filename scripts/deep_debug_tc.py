@@ -7,12 +7,12 @@ import sys, json, urllib.request
 from pathlib import Path
 sys.path.insert(0, '.')
 
-from src.tc_grader import compute_adaptive_params
-from src.tc_gemini import _load_api_key, SYSTEM_PROMPT, _build_user_prompt, _strip_signal_echo, _is_buffer_echo
-from src.tc_constants import GEMINI_MODEL, GEMINI_TIMEOUT
-from src.tc_context import load_context
-from src.tc_context_agent import select_context_ensemble
-from src.tc_trajectory import build_trajectory
+from src.tc_grader_seq001_v001_seq001_v001 import compute_adaptive_params
+from src.tc_gemini_seq001_v001_seq001_v001 import _load_api_key, SYSTEM_PROMPT, _build_user_prompt, _strip_signal_echo, _is_buffer_echo
+from src.tc_constants_seq001_v001_seq001_v001 import GEMINI_MODEL, GEMINI_TIMEOUT
+from src.tc_context_seq001_v001_seq001_v001 import load_context
+from src.tc_context_seq001_v001_seq001_v001_agent_seq001_v001_seq001_v001 import select_context_ensemble
+from src.tc_trajectory_seq001_v001_seq001_v001 import build_trajectory
 
 print('=' * 70)
 print('DEEP DEBUG PASS — thought_completer')
@@ -105,8 +105,8 @@ if candidates:
 um = data.get('usageMetadata', {})
 print(f'  usageMetadata: prompt={um.get("promptTokenCount")} output={um.get("candidatesTokenCount")} thought={um.get("thoughtsTokenCount")} total={um.get("totalTokenCount")}')
 
-# 7. Simulate the extraction logic from tc_gemini
-print(f'\n[7] EXTRACTION LOGIC (mirrors tc_gemini)')
+# 7. Simulate the extraction logic from tc_gemini_seq001_v001
+print(f'\n[7] EXTRACTION LOGIC (mirrors tc_gemini_seq001_v001)')
 text = ''
 if candidates:
     parts = candidates[0].get('content', {}).get('parts', [])

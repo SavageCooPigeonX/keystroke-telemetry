@@ -538,7 +538,7 @@ def simulate_intent(root: Path, inject: bool = True) -> Path:
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(report_text + '\n', encoding='utf-8')
 
-    # save raw projection as JSON for downstream consumers (operator_probes)
+    # save raw projection as JSON for downstream consumers (operator_probes_seq001_v001)
     proj_out = root / 'logs' / 'intent_projection.json'
     proj_out.parent.mkdir(parents=True, exist_ok=True)
     proj_out.write_text(json.dumps({

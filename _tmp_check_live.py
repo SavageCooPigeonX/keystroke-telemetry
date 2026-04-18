@@ -32,7 +32,7 @@ print(f"  composite={summ.get('avg_composite',0):.3f}  accept={summ.get('accept_
 
 # Check if update_profile_from_composition is called anywhere
 import ast
-popup = ast.parse((root / "src/tc_popup.py").read_text(encoding="utf-8"))
+popup = ast.parse((root / "src/tc_popup_seq001_v001.py").read_text(encoding="utf-8"))
 calls = [n.func.attr for n in ast.walk(popup) if isinstance(n, ast.Call) and hasattr(n.func, "attr")]
 comp_call = "update_profile_from_composition" in calls
 print(f"\n=== Dead Code Check ===")

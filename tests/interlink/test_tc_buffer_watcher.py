@@ -1,6 +1,6 @@
-"""Interlink self-test for tc_buffer_watcher.
+"""Interlink self-test for tc_buffer_watcher_seq001_v001.
 
-Auto-generated. This test keeps tc_buffer_watcher interlinked.
+Auto-generated. This test keeps tc_buffer_watcher_seq001_v001 interlinked.
 When this passes + pigeon cap + entropy shed → module sleeps.
 Module keeps learning via intent shards while sleeping.
 """
@@ -10,12 +10,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.tc_buffer_watcher import BufferWatcher
+    from src.tc_buffer_watcher_seq001_v001_seq001_v001 import BufferWatcher
     assert callable(BufferWatcher), "BufferWatcher must be callable"
-    print(f"  ✓ tc_buffer_watcher: 1 exports verified")
+    print(f"  ✓ tc_buffer_watcher_seq001_v001: 1 exports verified")
 
 def run_interlink_test():
-    """Run all interlink checks for tc_buffer_watcher."""
+    """Run all interlink checks for tc_buffer_watcher_seq001_v001."""
     tests = [v for k, v in globals().items() if k.startswith("test_")]
     passed = 0
     for t in tests:
@@ -26,7 +26,7 @@ def run_interlink_test():
             print(f"  ✗ {t.__name__}: {e}")
     total = len(tests)
     status = "INTERLINKED" if passed == total else f"{passed}/{total}"
-    print(f"  tc_buffer_watcher: {status}")
+    print(f"  tc_buffer_watcher_seq001_v001: {status}")
     return passed == total
 
 if __name__ == "__main__":

@@ -49,7 +49,7 @@ if acc_path.exists():
             print(f'  [{k}] -> {preview}')
 
 # 4. Bug profiles: who has bugs vs who claims they don't
-bp_path = root/'logs/bug_profiles.json'
+bp_path = root/'logs/bug_profiles_seq001_v001.json'
 if bp_path.exists():
     bp = json.loads(bp_path.read_text('utf-8'))
     print()
@@ -71,7 +71,7 @@ print('=== LIVE PREDICTION TEST ===')
 import sys
 sys.path.insert(0, str(root))
 try:
-    from src.intent_numeric import predict_files, get_stats
+    from src.intent_numeric_seq001_v001_seq001_v001 import predict_files, get_stats
     stats = get_stats()
     print(f'  stats: {stats}')
     test_prompts = [

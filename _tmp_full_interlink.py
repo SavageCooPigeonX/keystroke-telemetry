@@ -1,6 +1,6 @@
 """Full interlink pipeline test — interlink all ready modules."""
 from pathlib import Path
-from src.interlinker import (
+from src.interlinker_seq001_v001_seq001_v001 import (
     interlink_module, interlink_scan, build_interlink_report,
     accumulate_shard, load_interlink_db,
 )

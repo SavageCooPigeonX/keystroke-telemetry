@@ -30,7 +30,7 @@ TEST_CASES = [
      "verification", ["rename", "push", "cycle", "plan"]),
 
     ("where is thought completer building memory",
-     "memory", ["memory", "profile", "shard", "tc_profile"]),
+     "memory", ["memory", "profile", "shard", "tc_profile_seq001_v001"]),
 
     ("close the intent reconstruction from thought completer check if its",
      "gap closing", ["intent", "reconstruction", "unsaid", "tc"]),
@@ -74,7 +74,7 @@ def score_completion(buffer: str, completion: str, expected_keywords: list[str])
     caps_fail = completion[0].isupper() if completion else False
     voice_score = 1.0 - (0.4 if voice_fail else 0) - (0.2 if caps_fail else 0)
 
-    # 5. not echo — use same threshold as tc_gemini._is_buffer_echo
+    # 5. not echo — use same threshold as tc_gemini_seq001_v001._is_buffer_echo
     buf_clean = buffer.lower().strip()
     # Only flag as echo if completion is basically the buffer repeated, not if
     # it shares topic words (which is CORRECT behaviour for a continuation)
@@ -101,7 +101,7 @@ def run():
     print("=" * 65)
 
     try:
-        from src.tc_gemini import call_gemini, ThoughtBuffer
+        from src.tc_gemini_seq001_v001_seq001_v001 import call_gemini, ThoughtBuffer
         tb = ThoughtBuffer()
     except Exception as e:
         print(f"IMPORT FAILED: {e}")

@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path('.')
-VITALS_LOG = ROOT / 'logs' / 'codebase_vitals.jsonl'
+VITALS_LOG = ROOT / 'logs' / 'codebase_vitals_seq001_v001.jsonl'
 SELF_FIX_DIR = ROOT / 'docs' / 'self_fix'
 
 
@@ -137,7 +137,7 @@ def seed():
             f.write(json.dumps(e, ensure_ascii=False) + '\n')
 
     # Now append a fresh live snapshot at the end
-    from src.codebase_vitals import record_vitals
+    from src.codebase_vitals_seq001_v001_seq001_v001 import record_vitals
     import subprocess
     result = subprocess.run(
         ['git', 'log', '--format=%h|%s', '-1'],

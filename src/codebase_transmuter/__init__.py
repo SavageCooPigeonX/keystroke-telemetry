@@ -1,7 +1,7 @@
-"""codebase_transmuter/ — Pigeon-compliant module."""
-from .codebase_transmuter_constants_seq001_v001 import APPROX_CHARS_PER_TOKEN, DEMON_TEMPLATES, MOOD_INTROS, PY_DIRS, SKIP_DIRS
-from .codebase_transmuter_global_stats_seq010_v001 import compute_global_stats
-from .codebase_transmuter_narrative_mirror_seq009_v001 import build_narrative_mirror
-from .codebase_transmuter_numerical_mirror_seq006_v001 import build_numerical_mirror
-from .codebase_transmuter_numerify_seq005_v001 import numerify_file
-from .codebase_transmuter_orchestrator_seq011_v001 import transmute_all
+"""codebase_transmuter_seq001_v001/ — Pigeon-compliant module."""
+from .codebase_transmuter_seq001_v001_constants_seq001_v001 import APPROX_CHARS_PER_TOKEN, DEMON_TEMPLATES, MOOD_INTROS, PY_DIRS, SKIP_DIRS
+from .codebase_transmuter_seq001_v001_global_stats_seq010_v001 import compute_global_stats
+from .codebase_transmuter_seq001_v001_narrative_mirror_seq009_v001 import build_narrative_mirror
+from .codebase_transmuter_seq001_v001_numerical_mirror_seq006_v001 import build_numerical_mirror
+from .codebase_transmuter_seq001_v001_numerify_seq005_v001 import numerify_file
+from .codebase_transmuter_seq001_v001_orchestrator_seq011_v001 import transmute_all

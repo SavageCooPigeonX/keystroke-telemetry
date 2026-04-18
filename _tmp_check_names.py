@@ -1,6 +1,6 @@
 import sys; sys.path.insert(0, '.')
 from pathlib import Path
-from src.module_identity import build_identities
+from src.module_identity_seq001_v001_seq001_v001 import build_identities
 ids = build_identities(Path('.'), include_consciousness=False)
 # Find anything matching heat map, file_heat, etc.
 matches = [i['name'] for i in ids if 'heat' in i['name'].lower() or 'file_heat' in i['name'].lower()]

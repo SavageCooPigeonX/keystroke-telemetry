@@ -409,7 +409,7 @@ def run_self_fix(
 
     # 7. High-entropy modules (copilot is uncertain — flag for extra care)
     try:
-        from src.entropy_shedding import get_high_entropy_targets
+        from src.entropy_shedding_seq001_v001_seq001_v001 import get_high_entropy_targets
         for t in get_high_entropy_targets(root, threshold=0.35, limit=5):
             all_problems.append({
                 'type': 'high_entropy',

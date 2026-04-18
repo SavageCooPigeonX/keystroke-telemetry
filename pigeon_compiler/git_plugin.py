@@ -1056,9 +1056,9 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
     # Intent→outcome binding — close the intent loop with real diff content
     try:
         import importlib.util as _ilu
-        _binder_path = root / 'src' / 'intent_outcome_binder.py'
+        _binder_path = root / 'src' / 'intent_outcome_binder_seq001_v001.py'
         if _binder_path.exists():
-            _spec = _ilu.spec_from_file_location('intent_outcome_binder', _binder_path)
+            _spec = _ilu.spec_from_file_location('intent_outcome_binder_seq001_v001', _binder_path)
             _binder = _ilu.module_from_spec(_spec)
             _spec.loader.exec_module(_binder)
             _result = _binder.bind_commit(root, 'HEAD')
@@ -1381,8 +1381,8 @@ def run():
     # ── TC Trajectory Update: track λ mutations in TC_MANIFEST ──
     # Every rename with a new λ suffix updates the file's trajectory
     try:
-        tc_manifest_mod = _load_glob_module(root, 'src', 'tc_manifest*')
-        if tc_manifest_mod and hasattr(tc_manifest_mod, 'update_file_trajectory'):
+        tc_manifest_seq001_v001_mod = _load_glob_module(root, 'src', 'tc_manifest_seq001_v001*')
+        if tc_manifest_seq001_v001_mod and hasattr(tc_manifest_seq001_v001_mod, 'update_file_trajectory'):
             trajectory_count = 0
             # Process all renames from this commit
             for old_rel, new_rel, entry in (renames + bug_renames):
@@ -1391,7 +1391,7 @@ def run():
                     lambda_suffix = 'λ' + parsed['intent']
                     stem = parsed.get('abbrev', '') or parsed.get('name', '')[:10]
                     deduction = entry.get('intent', 'mutation')[:40]
-                    tc_manifest_mod.update_file_trajectory(stem, lambda_suffix, deduction)
+                    tc_manifest_seq001_v001_mod.update_file_trajectory(stem, lambda_suffix, deduction)
                     trajectory_count += 1
             if trajectory_count:
                 print(f'  📜 TC trajectory → {trajectory_count} file(s) tracked')
@@ -1422,7 +1422,7 @@ def run():
 
     # ── Interlink check: run self-tests on touched modules ──
     try:
-        interlink_mod = _load_glob_module(root, 'src', 'interlinker*')
+        interlink_mod = _load_glob_module(root, 'src', 'interlinker_seq001_v001*')
         if interlink_mod and changed_py:
             interlinked = 0
             for cp in changed_py[:10]:  # cap at 10 files
@@ -1441,7 +1441,7 @@ def run():
 
     # ── Organism test upgrade: LLM rewrites baseline tests autonomously ──
     try:
-        upgrade_mod = _load_glob_module(root, 'src', 'interlinker_upgrade*')
+        upgrade_mod = _load_glob_module(root, 'src', 'interlinker_seq001_v001_upgrade_seq001_v001*')
         if upgrade_mod and changed_py:
             changed_fps = [root / cp for cp in changed_py if (root / cp).exists()]
             results = upgrade_mod.run_upgrade_cycle(root, changed_fps)
@@ -1483,7 +1483,7 @@ def run():
 
     # Self-fix accuracy — score recurring threads across reports
     try:
-        sft_mod = _load_glob_module(root, 'src', 'self_fix_tracker*')
+        sft_mod = _load_glob_module(root, 'src', 'self_fix_tracker_seq001_v001*')
         if sft_mod and hasattr(sft_mod, 'compute_accuracy'):
             acc = sft_mod.compute_accuracy(root)
             if 'error' not in acc:
@@ -1496,7 +1496,7 @@ def run():
 
     # Context compression — strip comments/docstrings/annotations for LLM context
     try:
-        cc_mod = _load_glob_module(root, 'src', 'context_compressor*')
+        cc_mod = _load_glob_module(root, 'src', 'context_compressor_seq001_v001*')
         if cc_mod and hasattr(cc_mod, 'compress_changed'):
             cc_result = cc_mod.compress_changed(root, changed_files=changed)
             if cc_result['files'] > 0:
@@ -1507,7 +1507,7 @@ def run():
 
     # Intent compression — 5-layer deep compression analysis
     try:
-        ic_mod = _load_glob_module(root, 'src', 'intent_compressor*')
+        ic_mod = _load_glob_module(root, 'src', 'intent_compressor_seq001_v001*')
         if ic_mod and hasattr(ic_mod, 'compress_all'):
             ic_result = ic_mod.compress_all(root)
             cl = ic_result.get('compression_layers', {})
@@ -1521,7 +1521,7 @@ def run():
 
     # Codebase transmutation — numerical mirror + narrative mirror + global stats
     try:
-        ct_mod = _load_glob_module(root, 'src', 'codebase_transmuter*')
+        ct_mod = _load_glob_module(root, 'src', 'codebase_transmuter_seq001_v001*')
         if ct_mod and hasattr(ct_mod, 'transmute_all'):
             tr = ct_mod.transmute_all(root)
             s = tr.get('stats', {})
@@ -1534,11 +1534,11 @@ def run():
 
     # Record codebase vitals snapshot
     try:
-        vitals_mod = _load_glob_module(root, 'src', 'codebase_vitals*')
+        vitals_mod = _load_glob_module(root, 'src', 'codebase_vitals_seq001_v001*')
         if vitals_mod and hasattr(vitals_mod, 'record_vitals'):
             vitals_mod.record_vitals(root, h, msg.splitlines()[0][:80])
             print('  📊 vitals snapshot recorded')
-        renderer_mod = _load_glob_module(root, 'src', 'vitals_renderer*')
+        renderer_mod = _load_glob_module(root, 'src', 'vitals_renderer_seq001_v001*')
         if renderer_mod and hasattr(renderer_mod, 'render_dashboard'):
             renderer_mod.render_dashboard(root)
             print('  📊 vitals dashboard rebuilt')
@@ -1571,7 +1571,7 @@ def run():
     # The modules have earned the right to fix themselves.
     # 6-level ladder: REPORT → ASK → INSIST → WARN → ACT → VERIFY
     try:
-        esc_mod = _load_glob_module(root, 'src', 'escalation_engine*')
+        esc_mod = _load_glob_module(root, 'src', 'escalation_engine_seq001_v001*')
         if esc_mod and hasattr(esc_mod, 'check_and_escalate'):
             esc_result = esc_mod.check_and_escalate(root)
             esc_actions = esc_result.get('actions', [])
@@ -1605,14 +1605,14 @@ def run():
     except Exception as e:
         print(f'  ⚠️  learning loop catch-up: {e}')
 
-    # Auto-refresh pipelines — context_veins + organism health
+    # Auto-refresh pipelines — context_veins_seq001_v001 + organism health
     try:
         import subprocess as _sp
-        _sp.run([sys.executable, str(root / 'pigeon_brain' / 'context_veins.py')],
+        _sp.run([sys.executable, str(root / 'pigeon_brain' / 'context_veins_seq001_v001.py')],
                 capture_output=True, timeout=30)
         _sp.run([sys.executable, str(root / '_build_organism_health.py')],
                 capture_output=True, timeout=60)
-        print('  🔄 Pipelines refreshed (context_veins + organism_health)\n')
+        print('  🔄 Pipelines refreshed (context_veins_seq001_v001 + organism_health)\n')
     except Exception as e:
         print(f'  ⚠️  pipeline refresh: {e}')
 

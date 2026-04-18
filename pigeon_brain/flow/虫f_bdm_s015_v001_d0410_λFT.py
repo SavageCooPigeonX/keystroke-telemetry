@@ -50,7 +50,7 @@ from pathlib import Path
 from typing import Any
 
 REGISTRY_PATH = "pigeon_registry.json"
-VEINS_PATH = "pigeon_brain/context_veins.json"
+VEINS_PATH = "pigeon_brain/context_veins_seq001_v001.json"
 NODE_MEMORY_PATH = "pigeon_brain/node_memory.json"
 BUG_MANIFEST_LOG = "pigeon_brain/bug_manifest_chain.jsonl"
 
@@ -97,11 +97,11 @@ def _load_veins(root: Path) -> dict[str, Any]:
 def _build_import_graph(veins: dict) -> dict[str, list[str]]:
     """Build {module: [downstream_importers]} from vein data.
 
-    context_veins.json stores per-node vein scores. We infer import
+    context_veins_seq001_v001.json stores per-node vein scores. We infer import
     relationships from the graph_cache.json edges it was built from.
     Falls back to reading the graph cache directly.
     """
-    # context_veins.json doesn't store raw edges — use graph_cache
+    # context_veins_seq001_v001.json doesn't store raw edges — use graph_cache
     return {}
 
 

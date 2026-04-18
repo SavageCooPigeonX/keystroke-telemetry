@@ -6,8 +6,8 @@ well enough to autonomously steer copilot's next actions.
 """
 import json
 from pathlib import Path
-from src.probe_surface import parse_probe_blocks, write_resolution, build_resolution_block
-from src.probe_resolver import (
+from src.probe_surface_seq001_v001_seq001_v001 import parse_probe_blocks, write_resolution, build_resolution_block
+from src.probe_resolver_seq001_v001_seq001_v001 import (
     resolve_probe,
     _load_recent_prompts,
     _load_unsaid_threads,
@@ -54,7 +54,7 @@ print('=' * 60)
 # These are genuine questions about what to build next based on codebase signals
 probes = [
     {
-        'module': 'probe_resolver',
+        'module': 'probe_resolver_seq001_v001',
         'question': 'should probe resolution happen synchronously during refresh or async via streaming layer?',
         'candidates': ['sync_during_refresh', 'async_streaming', 'both_with_fallback'],
         'confidence': 0.40,
@@ -75,7 +75,7 @@ probes = [
         'context': 'operator described intent feedback loop between thought completer and copilot',
     },
     {
-        'module': 'entropy_shedding',
+        'module': 'entropy_shedding_seq001_v001',
         'question': 'what is the operator target entropy floor — should system optimize for 0.15 or lower?',
         'candidates': ['floor_0.15', 'floor_0.05', 'adaptive_per_module'],
         'confidence': 0.45,
@@ -96,7 +96,7 @@ probes = [
         'context': 'operator ran self-fix manually last session, wants autonomous loop',
     },
     {
-        'module': 'probe_surface',
+        'module': 'probe_surface_seq001_v001',
         'question': 'should probes accumulate as a managed block or replace each cycle?',
         'candidates': ['accumulate_with_ttl', 'replace_each_refresh', 'sliding_window_10'],
         'confidence': 0.55,

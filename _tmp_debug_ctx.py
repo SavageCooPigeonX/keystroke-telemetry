@@ -9,7 +9,7 @@ for d in dupes:
 # Also test _extract_mentions with a real buffer
 import sys, os
 sys.path.insert(0, '.')
-from src.tc_context_agent import _extract_mentions, _STOPWORDS
+from src.tc_context_seq001_v001_seq001_v001_agent_seq001_v001_seq001_v001 import _extract_mentions, _STOPWORDS
 test_buf = "would it make sense for the thought completer to have awarness"
 mentions = _extract_mentions(test_buf)
 print(f"\nbuffer: '{test_buf}'")

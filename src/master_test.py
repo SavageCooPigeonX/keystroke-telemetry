@@ -126,9 +126,9 @@ def test_src_files_compile() -> tuple[bool, str]:
 
 def test_rework_rate_single_source() -> tuple[bool, str]:
     """Rework rate must be reported from one canonical source, not 4 contradictory blocks."""
-    scorecard = ROOT / "logs" / "rework_scorecard.json"
+    scorecard = ROOT / "logs" / "rework_scorecard_seq001_v001.json"
     if not scorecard.exists():
-        return False, "logs/rework_scorecard.json missing (see FIX_PLAN.md §1)"
+        return False, "logs/rework_scorecard_seq001_v001.json missing (see FIX_PLAN.md §1)"
     try:
         data = json.loads(scorecard.read_text(encoding="utf-8"))
         required = {"total", "missed", "rate", "updated_ts"}
@@ -159,11 +159,11 @@ def test_intent_backlog_has_generated_tests() -> tuple[bool, str]:
     return True, f"all {len(pending)} pending intents have tests"
 
 
-def test_self_fix_verification_present() -> tuple[bool, str]:
+def test_self_fix_verification_seq001_v001_present() -> tuple[bool, str]:
     """self_fix must write a verification log — proves fixes actually closed bugs."""
-    verif = ROOT / "logs" / "self_fix_verification.jsonl"
+    verif = ROOT / "logs" / "self_fix_verification_seq001_v001.jsonl"
     if not verif.exists():
-        return False, "logs/self_fix_verification.jsonl missing (see FIX_PLAN.md §2)"
+        return False, "logs/self_fix_verification_seq001_v001.jsonl missing (see FIX_PLAN.md §2)"
     lines = [l for l in verif.read_text(encoding="utf-8").splitlines() if l.strip()]
     if not lines:
         return False, "verification log empty"
@@ -199,7 +199,7 @@ def test_health_score_not_lying() -> tuple[bool, str]:
     The anti-gaslight anchor: score cannot say 96 while caps say 50.
     Reads the most recent snapshot and asserts score <= min(declared caps).
     """
-    latest = ROOT / "logs" / "push_snapshots" / "_latest.json"
+    latest = ROOT / "logs" / "push_snapshot_seq001_v001s" / "_latest.json"
     if not latest.exists():
         return True, "no snapshot yet — skip"
     try:
@@ -295,7 +295,7 @@ TESTS = [
     test_src_files_compile,
     test_rework_rate_single_source,
     test_intent_backlog_has_generated_tests,
-    test_self_fix_verification_present,
+    test_self_fix_verification_seq001_v001_present,
     test_telemetry_pipeline_alive,
     test_health_score_not_lying,
     test_shrink_gate_not_regressed,

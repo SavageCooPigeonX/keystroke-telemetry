@@ -1,4 +1,4 @@
-"""Seed the intent_numeric surface from historical data.
+"""Seed the intent_numeric_seq001_v001 surface from historical data.
 
 Reads:
 - logs/prompt_journal.jsonl (what prompts were sent)
@@ -14,7 +14,7 @@ import subprocess
 from pathlib import Path
 from datetime import datetime, timezone
 
-from src.intent_numeric import record_touch, get_stats
+from src.intent_numeric_seq001_v001_seq001_v001 import record_touch, get_stats
 
 ROOT = Path('.')
 JOURNAL_PATH = ROOT / 'logs' / 'prompt_journal.jsonl'
@@ -134,7 +134,7 @@ def main():
     correlations = correlate_prompts_to_commits(journal, commits)
     print(f'  {len(correlations)} correlations found')
     
-    print('Training intent_numeric...')
+    print('Training intent_numeric_seq001_v001...')
     for prompt, files in correlations:
         record_touch(prompt, files, learning_rate=0.15)  # slightly higher LR for seeding
     

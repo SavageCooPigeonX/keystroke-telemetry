@@ -1,6 +1,6 @@
 """Test the interlink pipeline on real modules."""
 from pathlib import Path
-from src.interlinker import assess_module, interlink_module, interlink_scan
+from src.interlinker_seq001_v001_seq001_v001 import assess_module, interlink_module, interlink_scan
 import json
 
 root = Path('.')

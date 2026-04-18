@@ -1,6 +1,6 @@
 """Quick runner to test numeric surface generation."""
 from pathlib import Path
-from src.numeric_surface import generate_surface
+from src.numeric_surface_seq001_v001_seq001_v001 import generate_surface
 import json
 
 p = generate_surface(Path("."))

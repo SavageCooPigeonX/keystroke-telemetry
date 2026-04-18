@@ -2,8 +2,8 @@
 Updated to use weighted mentions (the fix)."""
 import json, sys
 sys.path.insert(0, '.')
-from src.tc_context_agent import _extract_mentions, _score_module, _name_segment_match, _load_registry
-from src.tc_context import load_context
+from src.tc_context_seq001_v001_seq001_v001_agent_seq001_v001_seq001_v001 import _extract_mentions, _score_module, _name_segment_match, _load_registry
+from src.tc_context_seq001_v001_seq001_v001 import load_context
 
 # Test buffers from the sim
 test_buffers = [

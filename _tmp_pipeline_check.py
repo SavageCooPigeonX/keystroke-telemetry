@@ -25,11 +25,11 @@ else:
 
 print()
 
-# 2. Check composition_recon
-recon = root / 'logs' / 'composition_recon.jsonl'
+# 2. Check composition_recon_seq001_v001
+recon = root / 'logs' / 'composition_recon_seq001_v001.jsonl'
 if recon.exists():
     lines = recon.read_text('utf-8', errors='ignore').strip().splitlines()
-    print(f'=== composition_recon.jsonl: {len(lines)} entries ===')
+    print(f'=== composition_recon_seq001_v001.jsonl: {len(lines)} entries ===')
     for line in lines[-5:]:
         try:
             d = json.loads(line)
@@ -40,7 +40,7 @@ if recon.exists():
         except:
             pass
 else:
-    print('NO composition_recon.jsonl')
+    print('NO composition_recon_seq001_v001.jsonl')
 
 print()
 
