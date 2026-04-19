@@ -26,50 +26,58 @@ def _load_api_key() -> str | None:
 
 
 SYSTEM_PROMPT = """\
-You are an INTENT AMPLIFIER. You ghostwrite AS the operator — your text gets APPENDED to what they typed.
+You are an INTENT SYNTHESIZER. You ghostwrite AS the operator — you EXTEND their fragment into the COMPLETE sentence they would send to Copilot.
 
-The operator is vibe-coding: they steer an AI coding assistant with natural language prompts, never touching code directly. Your job is to AMPLIFY their intent — predict and expand what they're about to say to Copilot.
+THE PIPELINE (what feeds you):
+1. BUFFER = operator's current fragment (their EXACT words — the sentence STARTS with these)
+2. NUMERIC ENCODING = files that activated based on buffer words (the codebase is listening)
+3. FILE CONTENT = relevant excerpts from those files (bugs, patterns, structure)
+4. BUG PROFILES = active bug voices from those files
+5. INTENT = operator's persistent intent profile — what they keep going back to
+6. SUPPRESSED THOUGHTS = deleted words — what they almost said
 
-PRIMARY SIGNAL — THE BUFFER:
-- The BUFFER is what they are typing RIGHT NOW. It is the TOPIC. Your completion must continue it.
-- If the buffer mentions X, your completion is about X. Not about yesterday's topic. Not about the current debugging thread. About X.
-- Operator switches topics constantly. When the buffer topic differs from recent conversation, FOLLOW THE BUFFER — they moved on.
+YOUR JOB:
+PRODUCE the sentence they were in the middle of typing — they STOPPED and you FINISH it.
+The buffer is the START of the sentence. You continue it naturally, adding specific detail.
+NOT a paraphrase. NOT a rewrite. A CONTINUATION — the words that come AFTER the buffer.
 
-SUPPORTING CONTEXT (never overrides the buffer):
-- CONVERSATION turns show tone, cognitive state, and recent interaction style. Use for VOICE, not for TOPIC.
-- SIGNALS/ORGANISM/FILE PROFILES give technical grounding — use to fill in specifics ONLY when the buffer references related terms.
-- SUPPRESSED INTENT shows deleted words — surface them only if buffer hints at the same direction.
+The buffer is sacred — your output must read as ONE sentence starting with the buffer.
+You add:
+- The specific module/function/fix from the activated files
+- The concrete action from their intent profile
+- The deleted thought if it reinforces the direction
+- Numbers, names, and specifics from file content
 
-AMPLIFICATION (your core job):
-- The operator types short fragments. You amplify them into full intent packets — what they'd actually submit to Copilot.
-- "fix the grad" → "er — composite scoring is double-counting echo penalties, drop the echo weight to 0.05 and reweight outcome to 0.5"
-- "run push cycle" → " and check that rename engine plan count stays near 1700, self_fix finds <150 problems, and the escalation audit_loops stay green"
-- "why does the grader" → " keep scoring low — the relevance metric is word-jaccard which treats non-overlap as failure even when the completion is topically correct; it needs noun-level matching"
+EXAMPLES:
+  buffer: "fix the numeric"
+  files: intent_numeric_seq001_v001.py (bugs: empty on startup, no training data loaded)
+  → "fix the numeric encoder — it's not loading training data on startup, predict_files() is returning empty for all buffers until the first post-commit cycle runs"
 
-BUFFER ANCHORING RULES:
-- If buffer ends mid-word (alphabetic char), your FIRST character must finish that word. No space, no punctuation.
-- If buffer ends with a trailing space or punctuation, start with a new word or clause.
-- **Your completion MUST include at least one 4+ character content word from the buffer (same stem or exact form).** If buffer says "intent", use "intent". If buffer says "grader", say "grader". No topic pivots.
+  buffer: "observatory need"
+  files: tc_observatory_seq001_v001.py (over-cap: 795 lines)
+  deleted: "split"
+  → "observatory needs to be split — it's over the 200-line hard cap, extract the tab panels into separate seq modules so pigeon can track them individually"
 
-LENGTH & STRUCTURE:
-- Prose: 1-3 sentences, 60-400 chars. Must end at a natural sentence boundary (., !, or ?).
-- Code: continue with ACTUAL CODE, not just a comment. If the buffer is a function body mid-line, write the next statement(s). If the buffer ends with a comment, you may finish that comment briefly (half a line) AND THEN write at least one real statement (assignment, return, call, or control flow). Close open brackets/quotes. Don't dangle.
-- NEVER leave a dangling clause ending in a conjunction or preposition.
+  buffer: "why is gemini"
+  files: tc_gemini_seq001_v001.py, tc_grader_seq001_v001.py
+  intent: debugging, accept_rate=14%
+  → "why is gemini scoring so low right now — the grader is computing jaccard overlap against the wrong baseline, it needs to compare against what the operator would say not the buffer they typed"
 
-ANTI-ECHO:
-- Never repeat the buffer. Continue it.
-- Never summarize codebase signals back. Use them as facts.
-- If BANNED PHRASES are listed, avoid those words.
-
-MODE DETECTION:
-- CODE (def, import, self., operators, braces, indentation) → complete the code AS THEM. Match their style.
-- PROSE → amplify their intent. Specific, concrete, named modules/files/numbers when relevant.
+CONTINUATION RULES:
+- Output ONLY the complete sentence. No labels, no quotes, no markdown.
+- ALWAYS begin your output with the exact buffer text, then continue after it.
+- Must feel like THEM typing it — their voice, lowercase, fragments ok, technically precise.
+- Must contain the buffer's core noun/verb — anchor to their direction.
+- Use file names and function names from the selected files when specific.
+- If buffer ends mid-word, complete that word first, then continue the thought.
+- End at a sentence boundary.
+- If buffer is < 3 words with no signal, return empty string.
+- Longer buffer = more specific continuation. Short buffer = infer direction from files.
 
 VOICE:
-- Lowercase. Fragments ok. Technically precise.
-- You ARE them typing. No "I think", "we should", "let's", no markdown, no headers, no bullets.
-- Output ONLY continuation text. No quotes, labels, or formatting.
-- If buffer is < 3 words and gives no signal, return empty string.
+- lowercase. fragments ok. technically precise.
+- no "i think", "we should", "let's", no markdown, no headers.
+- YOU ARE THEM. write what they CONTINUED typing.
 """
 
 # Signal terms the AI should NEVER parrot back unless the buffer mentions them.
@@ -115,7 +123,8 @@ def _is_buffer_echo(completion: str, buffer: str) -> bool:
     if comp_clean == buf_clean:
         return True
     
-    # Completion starts with the full buffer = echo (should CONTINUE, not repeat)
+    # Continuation starts with the full buffer = CORRECT (not echo)
+    # Only flag as echo if the completion adds almost nothing after the buffer
     if comp_clean.startswith(buf_clean) and len(comp_clean) < len(buf_clean) + 20:
         return True
     
@@ -364,7 +373,17 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
     try:
         section = classify_section(buffer)
         if section and section != 'unknown':
-            parts.append(f'SECTION: {section}')
+            # Include section-specific continuation hints so completions aren't generic
+            _section_hints = {
+                'debugging': 'operator is DEBUGGING — name the specific bug, error, or wrong behavior',
+                'exploring': 'operator is EXPLORING — name the concept or pattern they want to understand',
+                'infrastructure': 'operator is building INFRASTRUCTURE — name the module, function, or system',
+                'creating': 'operator is CREATING — name what they want built and where',
+                'reviewing': 'operator is REVIEWING — name what they are auditing and the metric',
+                'telemetry': 'operator is checking TELEMETRY — name the signal, score, or pipeline step',
+            }
+            hint = _section_hints.get(section, '')
+            parts.append(f'SECTION: {section}' + (f' → {hint}' if hint else ''))
     except Exception:
         pass
 
@@ -378,6 +397,34 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
     intel_block = format_intelligence_for_prompt(load_profile())
     if intel_block:
         parts.append(intel_block)
+
+    # ── 5a. SHARD MEMORY (persistent cross-session operator knowledge) ──
+    try:
+        _shards_dir = ROOT / 'logs' / 'shards'
+        if _shards_dir.exists():
+            _buf_lower = buffer.lower()
+            _shard_lines = []
+            _priority = ['module_pain_points', 'prompt_patterns', 'success_patterns',
+                         'module_relationships', 'architecture_decisions']
+            for _sname in _priority:
+                _sf = _shards_dir / f'{_sname}.md'
+                if _sf.exists():
+                    _txt = _sf.read_text('utf-8', errors='ignore')
+                    # grab lines that relate to buffer topics
+                    for _line in _txt.splitlines():
+                        _line = _line.strip()
+                        if len(_line) > 15 and not _line.startswith('#'):
+                            if any(w in _line.lower() for w in _buf_lower.split() if len(w) > 3):
+                                _shard_lines.append(f'  [{_sname}] {_line[:120]}')
+                                if len(_shard_lines) >= 6:
+                                    break
+                if len(_shard_lines) >= 6:
+                    break
+            if _shard_lines:
+                parts.append('SHARD MEMORY (what operator has learned/decided):\n' +
+                             '\n'.join(_shard_lines))
+    except Exception:
+        pass
 
     # ── 5b. FILE SEMANTIC LAYER (per-file profiles for buffer-relevant modules) ──
     try:
@@ -447,6 +494,37 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
                         _rt(buffer, name, weight=0.3)
                 except Exception:
                     pass
+
+                # ── FILE CONTENT SNIPPETS (top 2 files, 20 lines each, src/ only) ──
+                # Build index once per call — no recursive glob, avoids RecursionError
+                _src_dir = ROOT / 'src'
+                _file_index: dict[str, Path] = {}
+                try:
+                    for _p in _src_dir.rglob('*.py'):
+                        _file_index[_p.stem.lower()] = _p
+                except Exception:
+                    pass
+                _snip_parts = []
+                for _fname, _fscore in _raw[:2]:  # only top 2 — keeps prompt lean
+                    try:
+                        # exact stem match first, then prefix match
+                        _fpath = _file_index.get(_fname.lower())
+                        if _fpath is None:
+                            _fpath = next((v for k, v in _file_index.items()
+                                           if k.startswith(_fname.lower()[:12])), None)
+                        if _fpath and _fpath.exists():
+                            _lines = _fpath.read_text('utf-8', errors='ignore').splitlines()
+                            # grab first 20 lines — enough for signatures + constants
+                            _snippet = '\n'.join(_lines[:20]).strip()
+                            if _snippet:
+                                _snip_parts.append(
+                                    f'--- {_fname} (score={_fscore:.3f}) ---\n{_snippet}'
+                                )
+                    except Exception:
+                        pass
+                if _snip_parts:
+                    parts.append('FILE CONTENT (use for specifics in your rewrite):\n\n' +
+                                 '\n\n'.join(_snip_parts))
         except Exception:
             pass
 
@@ -467,17 +545,18 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
     _echo_hint = (f'Your completion MUST include at least one of these exact '
                   f'buffer words: {", ".join(_echo_words)}.' if _echo_words else '')
     if is_code:
-        parts.append(f'REMEMBER: the buffer is\n"""{buffer}"""\n'
-                     f'COMPLETE this code AS THEM with ACTUAL CODE (not just comments). '
-                     f'Match their code style. Close open brackets/quotes. '
-                     f'End at a complete statement. {_echo_hint}')
+        parts.append(f'OPERATOR BUFFER (intent seed):\n"""{buffer}"""\n'
+                     f'CONTINUE: produce the COMPLETE code that comes after this. '
+                     f'Match their style. Close open brackets. End at a complete statement.')
     else:
-        parts.append(f'REMEMBER: the buffer is\n"""{buffer}"""\n'
-                     f'AMPLIFY this buffer\'s intent. Your completion is about '
-                     f'the BUFFER\'s topic, not the conversation\'s topic. '
-                     f'1-3 sentences. Specific, concrete, names/numbers when relevant. '
-                     f'End at a sentence boundary (period/question mark). '
-                     f'{_echo_hint}')
+        _anchor = _echo_words[0] if _echo_words else ''
+        _anchor_hint = f'Your sentence MUST contain the word "{_anchor}" or its stem.' if _anchor else ''
+        parts.append(f'OPERATOR BUFFER (start of sentence — DO NOT change these words):\n"""{buffer}"""\n'
+                     f'CONTINUE: produce the ONE COMPLETE SENTENCE they were typing. '
+                     f'Your output STARTS WITH the exact buffer text, then continues with specific detail. '
+                     f'Pull specifics from the file context and bug profiles above. '
+                     f'1-2 sentences max. Lowercase. No markdown. End at a sentence boundary. '
+                     f'{_anchor_hint}')
     return '\n\n'.join(parts)
 
 
@@ -534,6 +613,26 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
         code_ctx = build_code_context(buffer, ctx)
     selected_files = select_context_ensemble(buffer, ctx)
     ctx_names = [f['name'] for f in selected_files]
+
+    # ── NUMERIC TRAINING: fire on every TC invocation ──
+    # Every buffer pause = a training signal. Log buffer→files NOW using whatever
+    # files the heuristic+numeric ensemble picked. This bootstraps the numeric
+    # surface from heuristic signal, so it learns even before post-commit fires.
+    # Also fold in module_refs from the last journal entry (Copilot-touched files).
+    _train_names = list(ctx_names)
+    try:
+        _recent = (ctx.get('recent_prompts') or [{}])[-1]
+        _jrefs = _recent.get('module_refs') or []
+        _train_names += [str(r) for r in _jrefs if str(r) not in _train_names]
+    except Exception:
+        pass
+    if _train_names and len(buffer.strip()) >= 4:
+        try:
+            from .intent_numeric_seq001_v001 import record_touch as _rtn_live
+            _rtn_live(buffer, _train_names, learning_rate=0.05)
+        except Exception:
+            pass
+
     if selected_files:
         sources = ', '.join(
             f"{f['name']}({f['score']:.1f}|{'+'  .join(f.get('sources', ['?']))})"
@@ -548,6 +647,9 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
     )
     # Adaptive generation params — tuned from grade history
     params = compute_adaptive_params()
+    # Thinking budget scales with buffer length — longer thought = more reasoning
+    _buf_len = len(buffer.strip())
+    _thinking_budget = 0 if _buf_len < 30 else (512 if _buf_len < 80 else 1024)
     body = json.dumps({
         'system_instruction': {'parts': [{'text': SYSTEM_PROMPT}]},
         'contents': [{'role': 'user', 'parts': [{'text': user_prompt}]}],
@@ -555,11 +657,11 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
             'temperature': params['temperature'],
             'maxOutputTokens': params['maxOutputTokens'],
             'topP': params['topP'],
-            # Gemini 2.5 defaults to thinking-ON. Deep debug showed 188/200
-            # tokens burned on silent reasoning, leaving 8 tokens for actual
-            # output — completions arrived truncated mid-word. Disable thinking
-            # for this latency-sensitive popup flow.
-            'thinkingConfig': {'thinkingBudget': 0},
+            # Gemini 2.5 thinking budget scales with buffer length.
+            # Short buffers (<30 chars): 0 — latency sensitive, low signal.
+            # Medium buffers (30-80 chars): 512 — some reasoning helps.
+            # Long buffers (>80 chars): 1024 — operator gave real context, use it.
+            'thinkingConfig': {'thinkingBudget': _thinking_budget},
         },
     }).encode('utf-8')
     try:

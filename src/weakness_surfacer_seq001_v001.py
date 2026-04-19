@@ -14,6 +14,8 @@ from pathlib import Path
 # EDIT_TS:   2026-04-16T00:00:00Z
 # EDIT_HASH: auto
 # EDIT_WHY:  trim under 200-line cap
+# EDIT_AUTHOR: copilot
+# EDIT_STATE: harvested
 # ── /pulse ──
 
 ROOT = Path(__file__).resolve().parent.parent

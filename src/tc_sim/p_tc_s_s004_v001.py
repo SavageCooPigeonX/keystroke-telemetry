@@ -8,7 +8,7 @@
 # SESSIONS: 0
 # ──────────────────────────────────────────────
 from pathlib import Path
-from src.tc_constants_seq001_v001_seq001_v001 import KEYSTROKE_LOG, DEFAULT_PAUSE_MS, ROOT
+from src.tc_constants_seq001_v001 import KEYSTROKE_LOG, DEFAULT_PAUSE_MS, ROOT
 import json
 import os
 import re

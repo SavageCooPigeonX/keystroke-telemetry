@@ -15,6 +15,7 @@ import * as vscode from 'vscode';
 import * as http from 'http';
 import * as path from 'path';
 import * as fs from 'fs';
+import { spawn } from 'child_process';
 
 const CASCADE_PORT = 8236;
 const CASCADE_BASE = `http://127.0.0.1:${CASCADE_PORT}`;
@@ -43,7 +44,9 @@ export class CascadeInlineProvider implements vscode.InlineCompletionItemProvide
     private _cooldownUntil = 0;
     private _statusItem: vscode.StatusBarItem;
     private _filesBadge: vscode.StatusBarItem;
+    private _simBadge: vscode.StatusBarItem;
     private _currentScale = 0; // 0 = auto, 1-4 = manual override
+    private _simMode = false;
     private _root: string;
     private _logPath: string;
     private _cascadeAvailable = false;
@@ -64,6 +67,15 @@ export class CascadeInlineProvider implements vscode.InlineCompletionItemProvide
             vscode.StatusBarAlignment.Right, 998);
         this._filesBadge.text = '';
         context.subscriptions.push(this._filesBadge);
+
+        // Sim mode toggle badge
+        this._simBadge = vscode.window.createStatusBarItem(
+            vscode.StatusBarAlignment.Right, 997);
+        this._simBadge.text = '$(beaker) SIM OFF';
+        this._simBadge.tooltip = 'Toggle sim mode — files self-score & debate intent on each thought completion';
+        this._simBadge.command = 'pigeon.toggleSimMode';
+        this._simBadge.show();
+        context.subscriptions.push(this._simBadge);
 
         // Register as inline completion provider
         context.subscriptions.push(
@@ -93,6 +105,17 @@ export class CascadeInlineProvider implements vscode.InlineCompletionItemProvide
             vscode.commands.registerCommand('pigeon.cascadeScaleAuto', () => {
                 this._currentScale = 0;
                 this._statusItem.text = '$(zap) Completer';
+            }),
+            vscode.commands.registerCommand('pigeon.toggleSimMode', () => {
+                this._simMode = !this._simMode;
+                if (this._simMode) {
+                    this._simBadge.text = '$(beaker) SIM ON';
+                    this._simBadge.backgroundColor = new vscode.ThemeColor('statusBarItem.warningBackground');
+                    vscode.window.showInformationMessage('Sim mode ON — files will self-score and debate each thought completion');
+                } else {
+                    this._simBadge.text = '$(beaker) SIM OFF';
+                    this._simBadge.backgroundColor = undefined;
+                }
             })
         );
 
@@ -202,6 +225,11 @@ export class CascadeInlineProvider implements vscode.InlineCompletionItemProvide
                 // Trigger inline completion refresh
                 vscode.commands.executeCommand('editor.action.inlineSuggest.trigger');
 
+                // Sim mode: fire file debate in background
+                if (this._simMode && result.completed_thought) {
+                    this._triggerSim(result.completed_thought, fragment);
+                }
+
                 // Log the cascade event
                 this._logGhost(fragment, result);
             } else {
@@ -281,6 +309,35 @@ export class CascadeInlineProvider implements vscode.InlineCompletionItemProvide
             req.write(body);
             req.end();
         });
+    }
+
+    private _triggerSim(intentText: string, promptText: string): void {
+        // Spawn python run_sim in background — non-blocking
+        // Results stream to logs/sim_results.jsonl (observable in sim_observatory.html)
+        const venv = path.join(this._root, '.venv', 'Scripts', 'python.exe');
+        const pyExe = fs.existsSync(venv) ? venv : 'py';
+        const escaped = intentText.replace(/'/g, "\\'").slice(0, 200);
+        const escapedPrompt = promptText.replace(/'/g, "\\'").slice(0, 200);
+        const child = spawn(pyExe, [
+            '-c',
+            `import sys; sys.path.insert(0,'${this._root.replace(/\\/g, '/')}'); ` +
+            `from src.file_sim_seq001_v001 import run_sim; ` +
+            `run_sim('${escaped}', prompt_text='${escapedPrompt}', top_n=5)`,
+        ], {
+            cwd: this._root,
+            detached: true,
+            stdio: 'ignore',
+            env: { ...process.env, PYTHONIOENCODING: 'utf-8' },
+        });
+        child.unref();
+        this._simBadge.text = '$(loading~spin) SIM…';
+        // Reset badge after 8 seconds
+        setTimeout(() => {
+            if (this._simMode) {
+                this._simBadge.text = '$(beaker) SIM ON';
+                this._simBadge.backgroundColor = new vscode.ThemeColor('statusBarItem.warningBackground');
+            }
+        }, 8000);
     }
 
     private _logGhost(fragment: string, result: CompletionResponse): void {

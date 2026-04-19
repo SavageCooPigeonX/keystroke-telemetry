@@ -22,6 +22,8 @@ from datetime import datetime, timezone
 POLL_INTERVAL_S = 0.2          # 200ms — high-fidelity draft capture
 SLOW_POLL_INTERVAL_S = 2.0    # 2s for heavy keys (session index, etc.)
 
+_pj_session_n = 1  # increments per submitted prompt
+
 # Fast-polled: draft composition (changes every keystroke)
 FAST_KEYS = [
     'memento/interactive-session-view-copilot',
@@ -278,6 +280,23 @@ def main():
                                 pass
                         prev_prompt_count = new_count
                         _reset_session()
+                        # Auto-log to prompt journal (no manual command needed)
+                        global _pj_session_n
+                        _last_p = prompts[-1]
+                        _msg = (_last_p.get('text') or _last_p.get('prompt') or '').strip()
+                        if _msg:
+                            try:
+                                from pathlib import Path as _Path
+                                import importlib.util as _ilu
+                                _pj_matches = list(_Path(project_root).glob('src/u_pj_s019*.py'))
+                                if _pj_matches:
+                                    _spec = _ilu.spec_from_file_location('u_pj', _pj_matches[0])
+                                    _pj = _ilu.module_from_spec(_spec)
+                                    _spec.loader.exec_module(_pj)
+                                    _pj.log_enriched_entry(_Path(project_root), _msg, [], _pj_session_n)
+                                    _pj_session_n += 1
+                            except Exception:
+                                pass
 
                 elif key == 'memento/interactive-session-view-copilot' and val:
                     draft = extract_draft(val)

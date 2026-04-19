@@ -17,6 +17,8 @@ from pathlib import Path
 # EDIT_TS:   2026-04-16T00:00:00Z
 # EDIT_HASH: auto
 # EDIT_WHY:  close self_fix verify loop
+# EDIT_AUTHOR: copilot
+# EDIT_STATE: harvested
 # ── /pulse ──
 
 VERIFICATION_LOG = Path("logs/self_fix_verification_seq001_v001.jsonl")

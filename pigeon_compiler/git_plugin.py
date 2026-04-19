@@ -1223,9 +1223,19 @@ def run():
                 box_only.append((abs_p, entry, rel, tokens_before, diff_stat))
             continue
 
+        # Prefer pulse EDIT_WHY as the last-change reason in filename over
+        # the generic commit intent slug — it's more specific.
+        last_change_slug = entry.get('last_change', '')
+        if last_change_slug:
+            # Normalize: max 3 words, underscored, strip specials
+            lc_words = re.sub(r'[^a-zA-Z0-9]', ' ', last_change_slug).split()[:3]
+            filename_intent = '_'.join(w.lower() for w in lc_words) if lc_words else intent
+        else:
+            filename_intent = intent
+
         new_name = build_pigeon_filename(
             parsed['name'], parsed['seq'], entry['ver'],
-            entry['date'], desc, intent,
+            entry['date'], desc, filename_intent,
         )
         folder = str(p.parent).replace('\\', '/')
         new_rel = f'{folder}/{new_name}' if folder != '.' else new_name

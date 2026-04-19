@@ -117,8 +117,9 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
                                     state='disabled', spacing1=2, spacing3=2)
             self.text_box.pack(fill='both', expand=True)
             self.text_box.tag_configure('buffer', foreground=TEXT_C)
+            self.text_box.tag_configure('ghost', foreground='#6e7681', font=(FONT, 9))
             self.text_box.tag_configure('completion', foreground=GREEN,
-                                        font=(FONT, 11, 'italic'))
+                                        font=(FONT, 11, 'bold'))
             self.text_box.tag_bind('completion', '<Button-1>', self._accept)
 
             thought_sep = tk.Frame(r, bg='#30363d', height=1)
@@ -141,6 +142,17 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
                             ('superseded', '#8b949e'), ('outcome_icon', ACCENT)]:
                 self.thought_box.tag_configure(tag, foreground=fg)
             self._refresh_thought_history()
+
+            prompt_sep = tk.Frame(r, bg='#21262d', height=1)
+            prompt_sep.pack(fill='x')
+            prompt_bar = tk.Frame(r, bg='#0d1117', height=20)
+            prompt_bar.pack(fill='x')
+            prompt_bar.pack_propagate(False)
+            tk.Label(prompt_bar, text='⚡', bg='#0d1117', fg='#f0c040', font=(FONT, 8)).pack(side='left', padx=(6, 2))
+            self.prompt_lbl = tk.Label(prompt_bar, text='prompt: —', bg='#0d1117', fg='#6e7681', font=(FONT, 7), anchor='w')
+            self.prompt_lbl.pack(side='left', fill='x', expand=True)
+            self.pair_lbl = tk.Label(prompt_bar, text='', bg='#0d1117', fg='#3fb950', font=(FONT, 7))
+            self.pair_lbl.pack(side='right', padx=6)
 
             ftr = tk.Frame(r, bg=SURFACE, height=18)
             ftr.pack(fill='x')
@@ -180,7 +192,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             self._poll_tick()
             self._repo_tick()
             self._composition_tick()
-            # rebuild grade summary at startup so self-learning prompt has fresh data
+            self._prompt_telemetry_tick()
             threading.Thread(target=update_grade_summary, daemon=True).start()
 
         def _poll_tick(self):
@@ -276,6 +288,28 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
                 invalidate_context_cache()
             self.root.after(3000, self._repo_tick)
 
+        def _prompt_telemetry_tick(self):
+            """Poll prompt_telemetry_latest.json — show live prompt + file pairing."""
+            try:
+                p = ROOT / 'logs' / 'prompt_telemetry_latest.json'
+                if p.exists():
+                    import json as _json
+                    d = _json.loads(p.read_text('utf-8', errors='ignore'))
+                    lp = d.get('latest_prompt', {})
+                    preview = lp.get('preview', '') or ''
+                    short = (preview[:58] + '…') if len(preview) > 58 else preview
+                    cb = d.get('composition_binding', {})
+                    matched = cb.get('matched', False)
+                    age_ms = cb.get('age_ms', 0)
+                    age_s = age_ms // 1000
+                    pair_text = f'✓ paired {age_s}s ago' if matched else '○ unbound'
+                    pair_color = '#3fb950' if matched else '#f85149'
+                    self.prompt_lbl.config(text=f'prompt: {short}' if short else 'prompt: —')
+                    self.pair_lbl.config(text=pair_text, fg=pair_color)
+            except Exception:
+                pass
+            self.root.after(2000, self._prompt_telemetry_tick)
+
         def _composition_tick(self):
             """Poll chat_compositions.jsonl for new entries → feed to profile."""
             try:
@@ -305,6 +339,8 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             display = buf[-300:] if buf else 'waiting for input in VS Code...'
             self.text_box.insert('end', display, 'buffer')
             if self.completion:
+                # REWRITE mode: show full synthesized sentence on its own line
+                self.text_box.insert('end', '\n→ ', 'ghost')
                 self.text_box.insert('end', self.completion, 'completion')
             self.text_box.config(state='disabled')
             self.text_box.see('end')

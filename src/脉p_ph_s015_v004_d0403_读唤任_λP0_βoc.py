@@ -245,6 +245,14 @@ def pair_pulse_to_prompt(root: Path, filepath: Path,
     with open(pairs_path, 'a', encoding='utf-8') as f:
         f.write(json.dumps(record) + '\n')
 
+    # ── Update intent_numeric matrix: this prompt → this file ──
+    if prompt_msg:
+        try:
+            from src.intent_numeric_seq001_v001 import record_touch
+            record_touch(prompt_msg, [filepath.stem], learning_rate=0.08)
+        except Exception:
+            pass
+
     # Clear the pulse
     clear_pulse(filepath)
     return record

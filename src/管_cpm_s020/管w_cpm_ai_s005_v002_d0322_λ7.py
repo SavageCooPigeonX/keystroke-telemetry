@@ -2,7 +2,6 @@
 
 from datetime import datetime, timezone
 from pathlib import Path
-import re
 
 def _append_infra_index(lines: list[str], root: Path) -> None:
     # Scan client/, vscode-extension/ AND root-level .py files not already tracked

@@ -38,10 +38,10 @@ if 'src' not in sys.modules:
     _pkg.__package__ = 'src'
     sys.modules['src'] = _pkg
 
-from src.tc_constants_seq001_v001_seq001_v001 import DEFAULT_PAUSE_MS, DEFAULT_CORNER, DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_OPACITY
-from src.tc_gemini_seq001_v001_seq001_v001 import _load_api_key
-from src.tc_popup_seq001_v001_seq001_v001 import run_popup
-from src.tc_web_seq001_v001_seq001_v001 import run_web
+from src.tc_constants_seq001_v001 import DEFAULT_PAUSE_MS, DEFAULT_CORNER, DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_OPACITY
+from src.tc_gemini_seq001_v001 import _load_api_key
+from src.tc_popup_seq001_v001 import run_popup
+from src.tc_web_seq001_v001 import run_web
 
 
 def main():
@@ -54,6 +54,7 @@ def main():
     p.add_argument('--width', type=int, default=DEFAULT_WIDTH)
     p.add_argument('--height', type=int, default=DEFAULT_HEIGHT)
     p.add_argument('--opacity', type=float, default=DEFAULT_OPACITY)
+    p.add_argument('--observatory', action='store_true', help='also launch pigeon observatory window')
     args = p.parse_args()
 
     if not _load_api_key():
@@ -83,6 +84,13 @@ def main():
     if args.web or os.environ.get('PORT'):
         run_web(args.port)
     else:
+        if getattr(args, 'observatory', False):
+            import subprocess as _sp
+            import sys as _sys
+            import os as _os
+            _cwd = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+            _sp.Popen([_sys.executable, '-m', 'src.tc_observatory_seq001_v001'],
+                      cwd=_cwd)
         run_popup(args.corner, args.pause, args.width, args.height, args.opacity,
                   surface_ready=_surface_ready)
 

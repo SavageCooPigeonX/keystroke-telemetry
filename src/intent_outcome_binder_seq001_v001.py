@@ -15,6 +15,8 @@ Zero LLM calls. Pure signal processing.
 # EDIT_TS:   2026-04-17T00:00:00+00:00
 # EDIT_HASH: auto
 # EDIT_WHY:  create intent outcome binder
+# EDIT_AUTHOR: copilot
+# EDIT_STATE: harvested
 # ── /pulse ──
 """
 from __future__ import annotations

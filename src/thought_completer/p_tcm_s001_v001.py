@@ -7,10 +7,10 @@
 # LAST:   2026-04-14 @ heal
 # SESSIONS: 0
 # ──────────────────────────────────────────────
-from src.tc_constants_seq001_v001_seq001_v001 import DEFAULT_PAUSE_MS, DEFAULT_CORNER, DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_OPACITY
-from src.tc_gemini_seq001_v001_seq001_v001 import _load_api_key
-from src.tc_popup_seq001_v001_seq001_v001 import run_popup
-from src.tc_web_seq001_v001_seq001_v001 import run_web
+from src.tc_constants_seq001_v001 import DEFAULT_PAUSE_MS, DEFAULT_CORNER, DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_OPACITY
+from src.tc_gemini_seq001_v001 import _load_api_key
+from src.tc_popup_seq001_v001 import run_popup
+from src.tc_web_seq001_v001 import run_web
 import os
 
 def main():

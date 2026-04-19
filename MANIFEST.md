@@ -1,6 +1,6 @@
 # ORGANISM HEALTH — keystroke-telemetry
 
-*Auto-generated 2026-04-18 18:07 UTC · 1487 Python files tracked · 752 prompts analyzed*
+*Auto-generated 2026-04-18 18:19 UTC · 1487 Python files tracked · 752 prompts analyzed*
 
 **This document is the organism. Every data pipeline that flows through this codebase is measured here. If it's not flowing, it's dying.**
 
@@ -15,7 +15,7 @@
 | Deletion Ratio | 0.0% | ? |
 | Prompts Analyzed | 752 | — |
 | Session Message | #3 | — |
-| Last Active | 4m ago (🟢) | — |
+| Last Active | 16m ago (🟢) | — |
 | Reactor Fires | 531 | — |
 
 ---
@@ -24,22 +24,22 @@
 
 | Pipeline | Entries | Size | Freshness | Role |
 |---|---:|---:|---|---|
-| prompt_journal | 752 | 967,892 | 🟢 4m ago | Enriched prompts |
-| chat_compositions | 4397 | 6.4M | 🟢 4m ago | Keystroke compositions |
-| edit_pairs | 121 | 72,674 | 🟢 7m ago | Prompt → file pairings |
+| prompt_journal | 752 | 967,892 | 🟢 16m ago | Enriched prompts |
+| chat_compositions | 4397 | 6.4M | 🟢 16m ago | Keystroke compositions |
+| edit_pairs | 121 | 72,674 | 🟢 19m ago | Prompt → file pairings |
 | push_cycles | 20 | 74,880 | 🟡 21h ago | Push cycle reports |
-| os_keystrokes | 191307 | 44.8M | 🟢 4m ago | OS-level keystrokes |
-| keystroke_live | 16058 | 4.7M | 🟢 51s ago | Live keystroke stream |
-| rework_log | 200 | 40,656 | 🟢 3m ago | AI answer quality |
-| file_heat_map | 66 | 10,779 | 🟢 3m ago | Cognitive load per module |
+| os_keystrokes | 191307 | 44.8M | 🟢 16m ago | OS-level keystrokes |
+| keystroke_live | 16067 | 4.7M | 🟢 48s ago | Live keystroke stream |
+| rework_log | 200 | 40,970 | 🟢 3m ago | AI answer quality |
+| file_heat_map | 66 | 10,790 | 🟢 3m ago | Cognitive load per module |
 | file_profiles | 254 | 223,585 | 🔴 14d ago | Module consciousness |
 | pigeon_registry | 2531 | 1.5M | 🟢 3m ago | Module registry |
 | execution_deaths | 0 | 2 | 🔴 1d ago | Electron failures |
-| context_veins_seq001_v001 | — | — | ⚫ MISSING | Vein/clot health |
+| context_veins_seq001_v001 | 7 | 411,904 | 🟢 41s ago | Vein/clot health |
 | mutation_scores | 6 | 7,780 | 🔴 7d ago | Prompt mutation correlation |
-| task_queue | 28 | 25,457 | 🟢 23m ago | Copilot task queue |
+| task_queue | 28 | 25,457 | 🟢 35m ago | Copilot task queue |
 | push_cycle_state | 6 | 200 | 🟡 21h ago | Push cycle state |
-| reactor_state | 4 | 22,005 | 🟢 3m ago | Reactor state |
+| reactor_state | 4 | 22,069 | 🟢 3m ago | Reactor state |
 
 ---
 
@@ -87,9 +87,49 @@
 
 ---
 
-## Circulation
+## Circulation (Dependency Health)
 
-*No context_veins_seq001_v001.json found.*
+**605/630 alive** · 25 clots · 50 arteries · avg vein health: 0.51 · 938 edges
+
+### Critical Arteries (do NOT break)
+
+| Module | In-Degree | Vein Score |
+|---|---:|---:|
+| `gemini_chat` | 6 | 1.0 |
+| `w_pl_s002_v005_d0401_册追跑谱桥_λA` | 5 | 1.0 |
+| `册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc` | 16 | 1.0 |
+| `追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc` | 12 | 1.0 |
+| `净拆f_rcs_s010_v006_d0322_译测编深划_λW` | 5 | 1.0 |
+| `copilot_prompt_manager_seq020_v003_d0402__compatibility_wrapper_for_the_legacy_lc_restore_rename_safe` | 6 | 1.0 |
+| `u_pe_s024_v004_d0403_λP0_βoc` | 11 | 1.0 |
+| `修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc` | 13 | 1.0 |
+| `叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc` | 8 | 1.0 |
+| `对p_tp_s027_v003_d0402_缩分话_λVR_βoc` | 7 | 1.0 |
+
+### Clots (dead/bloated)
+
+| Module | Score | Signals |
+|---|---:|---|
+| `classify_bridge` | 0.6 | orphan_no_importers, unused_exports:1, oversize:877 |
+| `逆f_ba_bp_s005_v003_d0328_λR` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `学f_ll_cu_s006_v003_d0327_λγ` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `算f_ps_ca_s009_v002_d0327_λS` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `预p_pr_co_s001_v001` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `f_he_s009_v005_d0401_改名册追跑_λA` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `正f_cmp_ah_s008_v001` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `f_he_gf_s002_v001` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `批编f_rbc_ma_s001_v001` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `bug_profiles` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `.operator_stats_seq008_v010_d0331__persi_artifact_detection_seq003_v001` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `u_uah_s007_v001` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `隐p_un_di_s002_v003_d0322_λ7` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `u_pe_s024_v002_d0402_λC_block_builder_seq013_v001` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `u_pj_s019_v002_d0402_λC_build_snapshot_decomposed_seq012_v001` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `修f_sf_aaif_s011_v002_d0329_λH` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `修f_sf_s013_v012_d0402_初写谱净拆_λVR_auto_apply_import_fixes_seq012_v001` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `思f_cr_ac_s007_v002_d0322_λ7` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `控f_ost_ad_s003_v001` | 0.45 | orphan_no_importers, unused_exports:1 |
+| `推w_dp_bch_s010_v001` | 0.45 | orphan_no_importers, unused_exports:1 |
 
 ---
 
@@ -99,21 +139,21 @@
 
 | Module | Avg Hesitation | Avg WPM | Samples | Dominant State |
 |---|---:|---:|---:|---|
-| `self_fix` | 0.000 | 0 | 0 | ? |
-| `intent_simulator` | 0.000 | 0 | 0 | ? |
-| `intent_outcome_binder` | 0.000 | 0 | 0 | ? |
-| `__init__` | 0.000 | 0 | 0 | ? |
-| `ir_loader` | 0.000 | 0 | 0 | ? |
-| `refresh_managed_prompt` | 0.000 | 0 | 0 | ? |
-| `copilot_prompt_manager` | 0.000 | 0 | 0 | ? |
-| `虚f_mc` | 0.000 | 0 | 0 | ? |
-| `file_semantic_layer` | 0.000 | 0 | 0 | ? |
-| `cognitive_reactor` | 0.000 | 0 | 0 | ? |
-| `thought_completion` | 0.000 | 0 | 0 | ? |
-| `prompt_enricher` | 0.000 | 0 | 0 | ? |
-| `context_router` | 0.000 | 0 | 0 | ? |
-| `keystroke_live.jsonl` | 0.000 | 0 | 0 | ? |
+| `query_memory` | 0.000 | 0 | 0 | ? |
+| `prompt_recon` | 0.000 | 0 | 0 | ? |
+| `training_writer` | 0.000 | 0 | 0 | ? |
 | `confidence_scorer` | 0.000 | 0 | 0 | ? |
+| `timestamp_utils` | 0.000 | 0 | 0 | ? |
+| `intent_simulator` | 0.000 | 0 | 0 | ? |
+| `bug_profiles` | 0.000 | 0 | 0 | ? |
+| `escalation_engine` | 0.000 | 0 | 0 | ? |
+| `unified_signal` | 0.000 | 0 | 0 | ? |
+| `git_plugin_main_orchestrator` | 0.000 | 0 | 0 | ? |
+| `虚f_mc` | 0.000 | 0 | 0 | ? |
+| `thought_completion` | 0.000 | 0 | 0 | ? |
+| `module_identity` | 0.000 | 0 | 0 | ? |
+| `audit_loops` | 0.000 | 0 | 0 | ? |
+| `keystroke_live.jsonl` | 0.000 | 0 | 0 | ? |
 
 ---
 
@@ -123,23 +163,23 @@
 
 | Verdict | Count | % |
 |---|---:|---:|
-| ok | 163 | 82% |
-| partial | 33 | 16% |
+| ok | 165 | 82% |
+| partial | 31 | 16% |
 | miss | 4 | 2% |
 
-### Reworked Responses (37)
+### Reworked Responses (35)
 
 | Time | Score | Del% | Query Hint |
 |---|---:|---:|---|
 | 2h ago | 0.30 | 27% | bg:BUG_PROFILES.md |
 | 2h ago | 0.30 | 27% | bg:BUG_PROFILES.md |
-| 1h ago | 0.30 | 27% | bg:copilot-instructions.md |
-| 1h ago | 0.30 | 27% | bg:copilot-instructions.md |
-| 1h ago | 0.30 | 27% | bg:copilot-instructions.md |
-| 1h ago | 0.30 | 27% | bg:copilot-instructions.md |
-| 1h ago | 0.30 | 27% | bg:copilot-instructions.md |
-| 1h ago | 0.30 | 27% | bg:copilot-instructions.md |
-| 1h ago | 0.30 | 27% | bg:copilot-instructions.md |
+| 2h ago | 0.30 | 27% | bg:copilot-instructions.md |
+| 2h ago | 0.30 | 27% | bg:copilot-instructions.md |
+| 2h ago | 0.30 | 27% | bg:copilot-instructions.md |
+| 2h ago | 0.30 | 27% | bg:copilot-instructions.md |
+| 2h ago | 0.30 | 27% | bg:copilot-instructions.md |
+| 2h ago | 0.30 | 27% | bg:copilot-instructions.md |
+| 2h ago | 0.30 | 27% | bg:copilot-instructions.md |
 | 1h ago | 0.30 | 27% | bg:copilot-instructions.md |
 
 ---

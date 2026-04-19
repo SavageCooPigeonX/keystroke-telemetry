@@ -1,7 +1,5 @@
 """push_cycle_seq025_constants_seq001_v001.py — Auto-extracted by Pigeon Compiler."""
 
-import json
-
 CYCLE_STATE_PATH = "logs/push_cycle_state.json"
 
 CYCLE_LOG_PATH = "logs/push_cycles.jsonl"

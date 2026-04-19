@@ -5,16 +5,16 @@ through Gemini at the exact pause points, and scores prediction accuracy
 against what was actually typed.
 
 Usage:
-    py -m src.tc_sim_seq001_v001_seq001_v001                    # replay last 5 sessions
-    py -m src.tc_sim_seq001_v001_seq001_v001 --n 20             # replay last 20 sessions
-    py -m src.tc_sim_seq001_v001_seq001_v001 --live             # replay + call Gemini (costs API)
-    py -m src.tc_sim_seq001_v001_seq001_v001 --session 42       # replay specific session index
-    py -m src.tc_sim_seq001_v001_seq001_v001 --min-len 20       # only sessions with 20+ char buffer
-    py -m src.tc_sim_seq001_v001_seq001_v001 --pause-ms 1200    # custom pause threshold
-    py -m src.tc_sim_seq001_v001_seq001_v001 --export sim.jsonl # export results
-    py -m src.tc_sim_seq001_v001_seq001_v001 --transcript       # comedy narrative transcript
-    py -m src.tc_sim_seq001_v001_seq001_v001 --fix              # identify + apply fixes from sim data
-    py -m src.tc_sim_seq001_v001_seq001_v001 --narrate          # plain english explanation of everything
+    py -m src.tc_sim_seq001_v001                    # replay last 5 sessions
+    py -m src.tc_sim_seq001_v001 --n 20             # replay last 20 sessions
+    py -m src.tc_sim_seq001_v001 --live             # replay + call Gemini (costs API)
+    py -m src.tc_sim_seq001_v001 --session 42       # replay specific session index
+    py -m src.tc_sim_seq001_v001 --min-len 20       # only sessions with 20+ char buffer
+    py -m src.tc_sim_seq001_v001 --pause-ms 1200    # custom pause threshold
+    py -m src.tc_sim_seq001_v001 --export sim.jsonl # export results
+    py -m src.tc_sim_seq001_v001 --transcript       # comedy narrative transcript
+    py -m src.tc_sim_seq001_v001 --fix              # identify + apply fixes from sim data
+    py -m src.tc_sim_seq001_v001 --narrate          # plain english explanation of everything
 
 Modes:
     dry (default): extracts sessions, finds pause points, shows what WOULD
@@ -38,7 +38,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from src.tc_constants_seq001_v001_seq001_v001 import KEYSTROKE_LOG, DEFAULT_PAUSE_MS, ROOT
+from src.tc_constants_seq001_v001 import KEYSTROKE_LOG, DEFAULT_PAUSE_MS, ROOT
 
 
 @dataclass
@@ -384,11 +384,11 @@ def replay_pause_live(pause: PausePoint, use_historical_ctx: bool = False) -> Si
                            bug where sim uses today's conversation to predict
                            a pause from last week.
     """
-    from src.tc_gemini_seq001_v001_seq001_v001 import call_gemini, _build_user_prompt, SYSTEM_PROMPT
-    from src.tc_trajectory_seq001_v001_seq001_v001 import format_trajectory_for_prompt
+    from src.tc_gemini_seq001_v001 import call_gemini, _build_user_prompt, SYSTEM_PROMPT
+    from src.tc_trajectory_seq001_v001 import format_trajectory_for_prompt
     import json, urllib.request
-    from src.tc_constants_seq001_v001_seq001_v001 import GEMINI_MODEL, GEMINI_TIMEOUT
-    from src.tc_gemini_seq001_v001_seq001_v001 import _load_api_key, _strip_signal_echo
+    from src.tc_constants_seq001_v001 import GEMINI_MODEL, GEMINI_TIMEOUT
+    from src.tc_gemini_seq001_v001 import _load_api_key, _strip_signal_echo
     
     t0 = time.time()
     
@@ -608,7 +608,7 @@ def record_bug_fixed(mem: dict, bug_id: str, fix_description: str):
 
 def _narrate_context_signals() -> dict:
     """Load context signals for the narrative."""
-    from src.tc_context_seq001_v001_seq001_v001 import load_context
+    from src.tc_context_seq001_v001 import load_context
     return load_context(ROOT)
 
 

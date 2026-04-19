@@ -807,6 +807,32 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
     if _should_skip_duplicate_meta_prompt(root, msg, meta_prompt_kind):
         return entry
 
+    # ── STEP 2b: numeric encoding — prompt_vec + intent_job ──
+    # Encodes prompt as sparse word-id vector for context-select agent.
+    # intent_job persists until cleared by copilot + tester + operator.
+    if not meta_prompt_kind:
+        try:
+            from src.intent_numeric_seq001_v001 import prompt_to_vector
+            pvec = prompt_to_vector(msg)
+            if pvec:
+                entry['prompt_vec'] = {str(k): round(v, 4) for k, v in pvec.items()}
+                # Emit intent job — lives until multi-actor clearance
+                _ij_path = root / 'logs' / 'intent_jobs.jsonl'
+                _ij_path.parent.mkdir(parents=True, exist_ok=True)
+                with open(_ij_path, 'a', encoding='utf-8') as _ijf:
+                    _ijf.write(json.dumps({
+                        'ts': now.isoformat(),
+                        'session_n': session_n,
+                        'intent_text': msg[:300],
+                        'intent_category': entry.get('intent', 'unknown'),
+                        'prompt_vec': entry['prompt_vec'],
+                        'status': 'pending',
+                        'actors_cleared': [],
+                        'module_refs': entry.get('module_refs', []),
+                    }, ensure_ascii=False) + '\n')
+        except Exception:
+            pass  # numeric encoding is best-effort
+
     # Append
     journal_path = root / JOURNAL_PATH
     journal_path.parent.mkdir(parents=True, exist_ok=True)

@@ -1,5 +1,4 @@
 """operator_stats_classify_seq003_v001.py — Auto-extracted by Pigeon Compiler."""
-import time as _time
 
 def classify_state(msg: dict) -> str:
     """Classify a finalized message dict into a cognitive state label."""

@@ -1,7 +1,5 @@
 """manifest_builder_seq007_build_all_manifests_seq031_v001.py — Auto-extracted by Pigeon Compiler."""
 from pathlib import Path
-import ast
-import re
 
 def build_all_manifests(root: Path, dry_run: bool = False) -> list[dict]:
     """Build MANIFEST.md for every folder that has .py files.

@@ -36,6 +36,8 @@ RUN_LOG = ROOT / "logs" / "master_run.json"
 # EDIT_TS:   2026-04-16T00:00:00Z
 # EDIT_HASH: auto
 # EDIT_WHY:  scaffold master unhackable test
+# EDIT_AUTHOR: copilot
+# EDIT_STATE: harvested
 # ── /pulse ──
 
 

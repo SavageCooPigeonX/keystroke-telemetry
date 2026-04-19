@@ -22,6 +22,8 @@ from pathlib import Path
 # EDIT_TS:   2026-04-16T00:00:00Z
 # EDIT_HASH: auto
 # EDIT_WHY:  unify rework rate source
+# EDIT_AUTHOR: copilot
+# EDIT_STATE: harvested
 # ── /pulse ──
 
 SCORECARD = Path("logs/rework_scorecard_seq001_v001.json")

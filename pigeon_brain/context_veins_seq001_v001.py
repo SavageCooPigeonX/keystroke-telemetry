@@ -41,6 +41,11 @@ def analyze_veins(root: Path) -> dict:
     registry = _load_registry(root)
     self_fix_problems = _load_latest_self_fix(root)
 
+    # Exclude build/ artifacts — they're compiled outputs, not source
+    _skip_prefixes = ("build/", "build\\")
+    nodes = {k: v for k, v in nodes.items()
+             if not any(v.get("path", "").startswith(p) for p in _skip_prefixes)}
+
     # Build per-node analysis
     node_scores = {}
     for name, node in nodes.items():
@@ -55,10 +60,16 @@ def analyze_veins(root: Path) -> dict:
         if in_degree == 0 and out_degree == 0:
             clot_signals.append("isolated")
 
-        # Orphan: nobody imports this module (skip entry points)
+        # Orphan: nobody imports this module (skip entry points and pigeon sub-modules)
         _entry_patterns = ("cli", "main", "test", "demo", "run_", "traced_runner", "stress")
+        fpath_for_orphan = root / node.get("path", "")
+        _init_imports_me = (
+            fpath_for_orphan.exists()
+            and (fpath_for_orphan.parent / "__init__.py").exists()
+            and name in (fpath_for_orphan.parent / "__init__.py").read_text("utf-8", errors="ignore")
+        )
         if in_degree == 0 and out_degree > 0:
-            if not any(kw in name for kw in _entry_patterns):
+            if not any(kw in name for kw in _entry_patterns) and not _init_imports_me:
                 clot_signals.append("orphan_no_importers")
 
         # Dead imports (file imports things it doesn't use)

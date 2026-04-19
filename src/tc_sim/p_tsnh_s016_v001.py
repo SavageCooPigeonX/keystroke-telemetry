@@ -7,13 +7,13 @@
 # LAST:   2026-04-14 @ heal
 # SESSIONS: 0
 # ──────────────────────────────────────────────
-from src.tc_constants_seq001_v001_seq001_v001 import KEYSTROKE_LOG, DEFAULT_PAUSE_MS, ROOT
+from src.tc_constants_seq001_v001 import KEYSTROKE_LOG, DEFAULT_PAUSE_MS, ROOT
 import json
 import re
 
 def _narrate_context_signals() -> dict:
     """Load context signals for the narrative."""
-    from src.tc_context_seq001_v001_seq001_v001 import load_context
+    from src.tc_context_seq001_v001 import load_context
     return load_context(ROOT)
 
 

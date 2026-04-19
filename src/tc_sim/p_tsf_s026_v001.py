@@ -7,7 +7,7 @@
 # LAST:   2026-04-14 @ heal
 # SESSIONS: 0
 # ──────────────────────────────────────────────
-from src.tc_constants_seq001_v001_seq001_v001 import KEYSTROKE_LOG, DEFAULT_PAUSE_MS, ROOT
+from src.tc_constants_seq001_v001 import KEYSTROKE_LOG, DEFAULT_PAUSE_MS, ROOT
 import os
 import re
 
