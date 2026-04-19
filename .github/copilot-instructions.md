@@ -7,16 +7,16 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-19 23:05 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-19 23:08 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 187min old (max 10min)
+- **`current-query`**: STALE — 190min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-19 19:59
 
-- **`prompt-telemetry`**: STALE — 187min old (max 10min)
+- **`prompt-telemetry`**: STALE — 190min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-19T19:59:02
 
@@ -291,7 +291,7 @@ OPERATOR SIGNAL: The repeated deletions and rephrasing around "how" and "audit" 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-19 23:05 UTC · 676 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-19 23:08 UTC · 676 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 46.9 | Del: 26.5% | Hes: 0.496) · *[source: measured]*
@@ -307,10 +307,10 @@ OPERATOR SIGNAL: The repeated deletions and rephrasing around "how" and "audit" 
 - Failed on: ""
 
 ### Recent Work
+- `6fa32d8` feat: sim mode toggle + self_score gate + observatory + last_change in rename
 - `d9b4ece` fix: reseal master_test sha after cleanup commit
 - `1554a42` cleanup: remove 73 _tmp_ root files, add chat_composition_analyzer + prompt_recon
 - `7ed3e32` fix: repair git_plugin sibling names + 74 broken __init__.py imports after pigeon rename
-- `04e3f2c` feat: seed 69 plain-named code files into pigeon naming convention
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*

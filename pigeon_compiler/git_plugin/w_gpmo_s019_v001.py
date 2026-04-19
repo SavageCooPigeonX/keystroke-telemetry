@@ -85,8 +85,25 @@ def _pull_sibling_symbols() -> None:
 
 _pull_sibling_symbols()
 
+def _load_dotenv(root: Path) -> None:
+    """Load .env into os.environ (no external deps)."""
+    env_path = root / '.env'
+    if not env_path.exists():
+        return
+    for line in env_path.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#') or '=' not in line:
+            continue
+        key, _, val = line.partition('=')
+        key = key.strip()
+        val = val.strip().strip('"').strip("'")
+        if key and key not in os.environ:
+            os.environ[key] = val
+
+
 def run():
     root = _root()
+    _load_dotenv(root)  # ensure API keys available for all submodules
     msg = _commit_msg()
 
     if '[pigeon-auto]' in msg:
@@ -197,9 +214,17 @@ def run():
                 box_only.append((abs_p, entry, rel, tokens_before, diff_stat))
             continue
 
+        # Prefer pulse EDIT_WHY as last-change reason in filename over generic commit intent
+        last_change_slug = entry.get('last_change', '')
+        if last_change_slug:
+            lc_words = re.sub(r'[^a-zA-Z0-9]', ' ', last_change_slug).split()[:3]
+            filename_intent = '_'.join(w.lower() for w in lc_words) if lc_words else intent
+        else:
+            filename_intent = intent
+
         new_name = build_pigeon_filename(
             parsed['name'], parsed['seq'], entry['ver'],
-            entry['date'], desc, intent,
+            entry['date'], desc, filename_intent,
         )
         folder = str(p.parent).replace('\\', '/')
         new_rel = f'{folder}/{new_name}' if folder != '.' else new_name
