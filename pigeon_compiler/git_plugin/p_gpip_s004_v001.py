@@ -9,6 +9,18 @@
 # ──────────────────────────────────────────────
 import re
 
+_INTENT_CODE_RULES: list[tuple[tuple[str, ...], str]] = [
+    (('fix', 'bug', 'repair', 'heal', 'restore', 'wrong', 'broken'), 'FX'),
+    (('rename', 'nametag'), 'RN'),
+    (('refactor', 'restructure'), 'RF'),
+    (('split', 'decompose', 'compile'), 'SP'),
+    (('telemetry', 'prompt', 'operator', 'journal', 'context', 'unsaid', 'voice', 'engagement'), 'TL'),
+    (('compress', 'glyph', 'dictionary', 'token'), 'CP'),
+    (('verify', 'test', 'audit', 'validate', 'check'), 'VR'),
+    (('feature', 'add', 'implement', 'build', 'create'), 'FT'),
+    (('cleanup', 'chore', 'docs', 'update'), 'CL'),
+]
+
 def _parse_intent(msg: str) -> str:
     """Commit message → 3-word intent slug.
 

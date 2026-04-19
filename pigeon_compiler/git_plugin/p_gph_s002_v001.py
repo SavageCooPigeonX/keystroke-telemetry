@@ -34,7 +34,7 @@ def _estimate_tokens(text: str) -> int:
 
 
 def _root() -> Path:
-    return Path(__file__).resolve().parent.parent
+    return Path(__file__).resolve().parent.parent.parent
 
 
 def _git(*args: str) -> str:

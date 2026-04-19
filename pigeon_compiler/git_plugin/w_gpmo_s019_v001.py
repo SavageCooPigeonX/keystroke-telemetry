@@ -148,12 +148,15 @@ def run():
         diff_stat = _file_diff_stat(rel)
 
         entry = registry.get(rel)
-        if entry:
+        if entry and entry.get('ver') is not None:
             entry = bump_version(entry, new_desc=desc, new_intent=intent)
             entry['tokens'] = tokens
             entry['intent_code'] = _intent_code(entry.get('intent', intent))
             entry['history'][-1]['tokens'] = tokens
-        else:
+        elif entry:
+            # Corrupt/incomplete registry entry — rebuild from parsed stem
+            entry = None
+        if not entry:
             entry = {
                 'path': rel, 'name': parsed['name'],
                 'seq': parsed['seq'], 'ver': parsed['ver'] + 1,
