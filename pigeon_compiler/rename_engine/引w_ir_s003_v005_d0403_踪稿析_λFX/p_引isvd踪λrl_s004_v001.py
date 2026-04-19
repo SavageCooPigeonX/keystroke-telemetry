@@ -8,6 +8,8 @@
 # SESSIONS: 0
 # ──────────────────────────────────────────────
 import re
+from .p_引isvd踪λetm_s002_v001 import _extract_top_module
+from .p_引isvd踪λc_s001_v001 import KNOWN_EXTERNAL
 
 def _rewrite_line(line: str, import_map: dict, stem_map: dict) -> str:
     stripped = line.lstrip()

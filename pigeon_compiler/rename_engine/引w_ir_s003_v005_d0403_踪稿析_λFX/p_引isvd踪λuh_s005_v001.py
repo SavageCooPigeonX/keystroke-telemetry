@@ -9,6 +9,7 @@
 # ──────────────────────────────────────────────
 from pathlib import Path
 import re
+from .p_引isvd踪λc_s001_v001 import KNOWN_EXTERNAL, SKIP_DIRS
 
 def _build_stem_map(import_map: dict) -> dict:
     """Map old stems to new modules for partial matches."""

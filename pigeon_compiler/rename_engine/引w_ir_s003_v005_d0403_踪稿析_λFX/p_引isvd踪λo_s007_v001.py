@@ -9,6 +9,8 @@
 # ──────────────────────────────────────────────
 from pathlib import Path
 import re
+from .p_引isvd踪λuh_s005_v001 import _build_stem_map, _has_any_reference, _safe_read, _should_skip
+from .p_引isvd踪λrf_s006_v001 import _rewrite_file
 
 def rewrite_all_imports(root: Path, import_map: dict,
                         dry_run: bool = False) -> list[dict]:

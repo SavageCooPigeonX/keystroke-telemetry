@@ -8,6 +8,7 @@
 # SESSIONS: 0
 # ──────────────────────────────────────────────
 import re
+from .p_引isvd踪λrl_s004_v001 import _rewrite_line
 
 def _rewrite_file(text: str, import_map: dict, stem_map: dict) -> tuple:
     changes = []
