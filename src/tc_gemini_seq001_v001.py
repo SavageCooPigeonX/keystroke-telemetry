@@ -1,6 +1,13 @@
 """Gemini API call, system prompt, and prompt building for thought completion.
 
 COGNITIVE NOTE (auto-added by reactor): This module triggered 3+ high-load flushes (avg_hes=0.907, state=hesitant). Consider simplifying its public interface or adding examples."""
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import os

@@ -10,6 +10,13 @@ resolution sources (in priority order):
 
 zero LLM calls in fast path. optional gemini synthesis for ambiguous probes.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 import json
 import re

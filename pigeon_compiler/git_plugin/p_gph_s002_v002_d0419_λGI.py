@@ -1,11 +1,11 @@
 """git_plugin_helpers_seq002_v001.py — Auto-extracted by Pigeon Compiler."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 002 | VER: v001 | 52 lines | ~415 tokens
+# SEQ: 002 | VER: v002 | 60 lines | ~479 tokens
 # DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: (none)
-# LAST:   2026-04-14 @ heal
-# SESSIONS: 0
+# INTENT: git_plugin_root
+# LAST:   2026-04-19 @ 5567e06
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 from pathlib import Path
 import os

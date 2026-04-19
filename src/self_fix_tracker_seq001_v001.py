@@ -5,6 +5,13 @@ tracks which bugs persist, which resolve, which are new.
 scores fix success rate per push cycle.
 outputs logs/self_fix_accuracy.json for copilot consumption.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 import json
 import re

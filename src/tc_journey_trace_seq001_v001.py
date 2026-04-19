@@ -7,6 +7,13 @@ Usage:
     py -m src.tc_journey_trace_seq001_v001          # terminal report
     py -m src.tc_journey_trace_seq001_v001 --watch  # live refresh every 5s
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import subprocess

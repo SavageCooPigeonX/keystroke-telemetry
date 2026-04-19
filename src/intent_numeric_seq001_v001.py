@@ -20,6 +20,13 @@ by edits to tc_gemini_seq001_v001.py and tc_sim_seq001_v001.py, we increase the 
 Over time, this builds a "numeric surface" where intent predicts files
 without any LLM inference — pure math.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import re

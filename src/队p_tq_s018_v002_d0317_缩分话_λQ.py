@@ -1,4 +1,11 @@
 """Task queue — Copilot-driven task tracking linked to MANIFEST.md entries."""
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 import json, re
 from pathlib import Path

@@ -1,3 +1,10 @@
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 # ┌────────────────────────────────────────────────────────────┐
 # │  training_pairs_seq027_v001                               │
 # │  Intent alignment training data — every edit is a label.  │

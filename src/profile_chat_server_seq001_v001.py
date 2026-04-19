@@ -21,6 +21,13 @@ Endpoints:
     POST /audit     — chained manifest audit doc from major modules
     GET  /state     — dump all module state files
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import os

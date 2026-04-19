@@ -4,6 +4,13 @@ Instead of a flat line-count cap, scores files by how many tokens an LLM
 needs to understand them (source tokens + dependency context tokens).
 Pigeon compiler integration: feed this score into resistance analysis.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 
 import math

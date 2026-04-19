@@ -13,6 +13,13 @@ Storage:
     logs/push_snapshot_seq001_v001s/_latest.json         — symlink to most recent
     logs/push_drift.jsonl                    — append-only drift log
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 from __future__ import annotations
 

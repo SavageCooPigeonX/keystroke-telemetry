@@ -9,6 +9,13 @@ the stoppage from their own perspective, using personality + consciousness.
 Usage:
     py src/loop_killswitch_sim_seq001_v001.py
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import sys

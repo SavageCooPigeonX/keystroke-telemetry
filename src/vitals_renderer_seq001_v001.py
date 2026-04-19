@@ -7,6 +7,13 @@ Two layers:
 Reads: logs/codebase_vitals_seq001_v001.jsonl, pigeon_registry.json, file_heat_map.json,
        logs/entropy_map.json. Outputs: build/vitals_dashboard.html.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 import json
 import ast

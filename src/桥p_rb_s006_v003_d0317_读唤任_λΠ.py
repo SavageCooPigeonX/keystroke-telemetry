@@ -4,6 +4,13 @@ Reads telemetry summaries and computes per-file hesitation signals that
 feed back into the Ether Map's resistance score. Files that cause the most
 human hesitation (pauses, rewrites, deletions) are split candidates.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 
 import json

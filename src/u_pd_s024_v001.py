@@ -13,6 +13,13 @@ Examples:
 
 Output: colored unified diff to stdout (ANSI escape codes, stripped on non-TTY).
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import difflib
 import json

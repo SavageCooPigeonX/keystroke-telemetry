@@ -7,6 +7,13 @@ Filenames stay long. The dictionary is an additional layer for LLM
 context compression: ~300-500 tokens to encode the entire codebase
 architecture vs thousands of tokens reading raw filenames.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 
 from __future__ import annotations

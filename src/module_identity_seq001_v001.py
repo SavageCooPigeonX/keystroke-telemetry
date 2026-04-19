@@ -14,6 +14,13 @@ Reads: pigeon_registry, numeric_surface_seq001_v001, file_heat_map, entropy_map,
        bug_profiles_seq001_v001, push_narratives, execution_death_log, file_profiles,
        active_dossier, loop_detector. Zero LLM calls.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 import ast
 import json

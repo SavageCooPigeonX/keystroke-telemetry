@@ -7,6 +7,13 @@ tasks, module heat, session running stats, and intent classification.
 Designed for live analysis: grep any field, plot any metric, no aggregation needed.
 Zero LLM calls — pure signal cross-referencing.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import re

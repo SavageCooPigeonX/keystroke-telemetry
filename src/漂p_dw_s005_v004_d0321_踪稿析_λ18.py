@@ -4,6 +4,13 @@ Monitors a directory of pigeon-compliant files. When a file crosses
 its context budget (after an agent edit), emits a drift signal that
 an LLM agent can act on or ignore.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 
 import glob as _glob

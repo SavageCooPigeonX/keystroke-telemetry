@@ -11,6 +11,13 @@ TC_MANIFEST.md is TC's own state file. Unlike copilot-instructions.md
 
 The key: TC WRITES to this file. It learns by overwriting its own state.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import re

@@ -16,6 +16,13 @@ Usage:
     py src/bug_demon_hunt_seq001_v001.py --proposals              # skip hunt, go to proposals
     py src/bug_demon_hunt_seq001_v001.py --stress-test            # hunt bugs in the hunt system itself
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import sys

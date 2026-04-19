@@ -10,6 +10,13 @@ specific files, this module autonomously:
 
 No human trigger. The 60-second background flush IS the input.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 
 import json

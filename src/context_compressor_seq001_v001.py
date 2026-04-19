@@ -4,6 +4,13 @@ strips comments, docstrings, type annotations, collapse blanks.
 leaves bare functional minimum — intent-readable code for human-AI sync.
 runs per-push on changed files only, merges into build/compressed/.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 import ast
 import json

@@ -4,6 +4,13 @@ Each function gets: i_am, i_want, i_give, i_fear, i_love — derived from pure
 static analysis. No LLM calls. Cross-file compatibility scored via data flow,
 co-change patterns, and shared state coupling.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 import ast
 import json

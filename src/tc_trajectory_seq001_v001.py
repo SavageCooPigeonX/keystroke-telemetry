@@ -8,6 +8,13 @@ The trajectory is the PRIMARY context for thought completion — not keywords,
 not file matching. The thought completer predicts what the operator will say
 next based on where the conversation IS, not what modules exist.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import time

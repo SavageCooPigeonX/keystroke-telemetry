@@ -13,6 +13,13 @@ Shards are populated two ways:
 2. learn_from_rework() — called after every rework score, writes patterns
    back into the relevant shard so the system improves over time
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import re

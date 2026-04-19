@@ -1,3 +1,10 @@
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 # ┌────────────────────────────────────────────────────────────┐
 # │  voice_style_seq028_v001                                  │
 # │  Extracts operator voice style from raw prompt text.      │

@@ -30,6 +30,13 @@ Paired record schema (edit_pairs.jsonl):
       "session_n":   <prompt journal session_n>
     }
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 import hashlib
 import json
 import re

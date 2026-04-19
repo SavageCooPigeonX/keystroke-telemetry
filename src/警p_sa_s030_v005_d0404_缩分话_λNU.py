@@ -1,4 +1,11 @@
 """Copilot self-diagnostic: detect stale managed blocks in copilot-instructions.md."""
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import re
 from pathlib import Path

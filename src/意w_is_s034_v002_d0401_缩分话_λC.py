@@ -5,6 +5,13 @@ and push velocity to simulate operator intent 1 week / 1 month / 3 months out.
 Merges with operator coaching as a per-push project management layer.
 Adapts intent quickly based on recent prompts. Zero LLM calls.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 
 from __future__ import annotations

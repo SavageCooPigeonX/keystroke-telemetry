@@ -10,6 +10,13 @@ Auto-generates wiring tasks from missing context blocks.
 
 Glyph: 虚 (xū) = void / emptiness — the gap is always the product.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 
 

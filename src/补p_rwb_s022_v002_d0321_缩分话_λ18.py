@@ -7,6 +7,13 @@ and appends any new entries to rework_log.json.
 
 Deduplicates by response ts + query_hint — safe to run repeatedly.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import glob as _glob
 import importlib.util

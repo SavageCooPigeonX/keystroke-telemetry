@@ -14,6 +14,13 @@ Usage:
     from src.file_selector_seq001_v001_seq001_v001 import select_files
     ranked = select_files("the drift watcher should prob", context)
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import re

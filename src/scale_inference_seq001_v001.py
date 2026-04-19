@@ -17,6 +17,13 @@ Usage:
     from src.scale_inference_seq001_v001_seq001_v001 import infer_scale, SCALES
     scale = infer_scale("fix the hardcoded import in", cognitive_state="focused", wpm=62)
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import re
 

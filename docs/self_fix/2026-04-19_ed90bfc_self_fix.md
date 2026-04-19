@@ -1,0 +1,477 @@
+# Self-Fix Report — 2026-04-19 ed90bfc
+
+Scanned 2531 modules, 1589 in import graph.
+
+## Problems Found: 109
+
+### 1. [HIGH] over_hard_cap
+- **File**: pigeon_brain/flow/__main__.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 2. [HIGH] over_hard_cap
+- **File**: pigeon_brain/flow/存p_nm_s008_v001_d0325_读唤任_λB.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 3. [HIGH] over_hard_cap
+- **File**: pigeon_brain/flow/存p_nm_s008_v003_d0328_读唤任_λR.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 4. [HIGH] over_hard_cap
+- **File**: pigeon_brain/flow/学f_ll_s013_v003_d0327_读唤任_λS.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 5. [HIGH] over_hard_cap
+- **File**: pigeon_brain/flow/算f_ps_s014_v006_d0404_译改名踪_λNU_βoc.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 6. [HIGH] over_hard_cap
+- **File**: pigeon_brain/flow/虫f_bdm_s015_v001_d0410_λFT.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 7. [HIGH] over_hard_cap
+- **File**: pigeon_brain/flow/读f_fi_s016_v001_d0410_λFT.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 8. [HIGH] over_hard_cap
+- **File**: pigeon_brain/flow/逆f_ba_s007_v002_d0328_踪稿析_λR.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 9. [HIGH] over_hard_cap
+- **File**: pigeon_brain/flow/逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 10. [HIGH] over_hard_cap
+- **File**: pigeon_brain/flow/预p_pr_s009_v002_d0328_踪稿析_λR.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 11. [HIGH] over_hard_cap
+- **File**: pigeon_brain/flow/预p_pr_s009_v003_d0330_踪稿析_λF.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 12. [HIGH] over_hard_cap
+- **File**: pigeon_brain/flow/预p_pr_s009_v004_d0330_踪稿析_λρ.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 13. [HIGH] over_hard_cap
+- **File**: pigeon_brain/双f_dsb_s008_v002_d0323_缩分话_λP.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 14. [HIGH] over_hard_cap
+- **File**: pigeon_brain/服f_ls_s012_v003_d0324_踪稿析_λB.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 15. [HIGH] over_hard_cap
+- **File**: pigeon_brain/服f_ls_s012_v004_d0324_踪稿析_λB.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 16. [HIGH] over_hard_cap
+- **File**: pigeon_brain/服f_ls_s012_v004_d0324_踪稿析_λδ.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 17. [HIGH] over_hard_cap
+- **File**: pigeon_compiler/cli.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 18. [HIGH] over_hard_cap
+- **File**: pigeon_compiler/git_plugin.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 19. [HIGH] over_hard_cap
+- **File**: pigeon_compiler/pre_commit_audit.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 20. [HIGH] over_hard_cap
+- **File**: pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 21. [HIGH] over_hard_cap
+- **File**: pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 22. [HIGH] over_hard_cap
+- **File**: pigeon_compiler/rename_engine/正f_cmp_s008_v004_d0315_踪稿析_λν.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 23. [HIGH] over_hard_cap
+- **File**: pigeon_compiler/rename_engine/牌f_nam_s011_v004_d0401_追谱建踪_λA.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 24. [HIGH] over_hard_cap
+- **File**: pigeon_compiler/rename_engine/谱建f_mb_s007_v003_d0314_观重箱重拆_λD.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 25. [HIGH] over_hard_cap
+- **File**: pigeon_compiler/rename_engine/追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 26. [HIGH] over_hard_cap
+- **File**: pigeon_compiler/runners/净拆f_rcs_s010_v006_d0322_译测编深划_λW.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 27. [HIGH] over_hard_cap
+- **File**: pigeon_compiler/runners/批编f_rbc_s015_v002_d0328_织谱建验_λR.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 28. [HIGH] over_hard_cap
+- **File**: pigeon_compiler/runners/鸽环f_rpl_s009_v004_d0315_追跑净助净初_λν.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 29. [HIGH] over_hard_cap
+- **File**: pigeon_compiler/weakness_planner/核w_dspp_s004_v003_d0314_测编深划鸽环_λD.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 30. [HIGH] over_hard_cap
+- **File**: src/_resolve.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 31. [HIGH] over_hard_cap
+- **File**: src/cognitive/偏p_dr_s003_v002_d0315_缩分话_λν.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 32. [HIGH] over_hard_cap
+- **File**: src/cognitive/隐p_un_s002_v002_d0315_缩分话_λν.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 33. [HIGH] over_hard_cap
+- **File**: src/u_cs_s033_v001.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 34. [HIGH] over_hard_cap
+- **File**: src/u_pe_s024_v004_d0403_λP0_βoc.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 35. [HIGH] over_hard_cap
+- **File**: src/u_pj_s019_v003_d0404_λNU_βoc.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 36. [HIGH] over_hard_cap
+- **File**: src/u_prc_s016_v001.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 37. [HIGH] over_hard_cap
+- **File**: src/修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 38. [HIGH] over_hard_cap
+- **File**: src/典w_sd_s031_v002_d0401_缩分话_λG.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 39. [HIGH] over_hard_cap
+- **File**: src/合p_us_s026_v002_d0330_缩分话_λF.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 40. [HIGH] over_hard_cap
+- **File**: src/声w_vs_s028_v002_d0330_缩分话_λF.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 41. [HIGH] over_hard_cap
+- **File**: src/对p_tp_s027_v003_d0402_缩分话_λVR_βoc.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 42. [HIGH] over_hard_cap
+- **File**: src/层w_sl_s007_v003_d0317_读唤任_λΠ.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 43. [HIGH] over_hard_cap
+- **File**: src/思f_cr_s014_v003_d0321_译改名踪_λ18.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 44. [HIGH] over_hard_cap
+- **File**: src/思f_cr_s014_v004_d0330_译改名踪_λF.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 45. [HIGH] over_hard_cap
+- **File**: src/思f_cr_s014_v005_d0331_译改名踪_λM.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 46. [HIGH] over_hard_cap
+- **File**: src/意w_is_s034_v002_d0401_缩分话_λC.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 47. [HIGH] over_hard_cap
+- **File**: src/控f_ost_s008_v007_d0322_初写谱净拆_λω.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 48. [HIGH] over_hard_cap
+- **File**: src/控w_ops_s008_v007_d0322_册追跑_λW.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 49. [HIGH] over_hard_cap
+- **File**: src/控w_ops_s008_v008_d0331_册追跑_λI.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 50. [HIGH] over_hard_cap
+- **File**: src/控w_ops_s008_v009_d0328_册追跑_λR.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 51. [HIGH] over_hard_cap
+- **File**: src/控w_ops_s008_v010_d0331_册追跑_λI.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 52. [HIGH] over_hard_cap
+- **File**: src/推w_dp_s017_v005_d0324_初写谱净拆_λB.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 53. [HIGH] over_hard_cap
+- **File**: src/推w_dp_s017_v005_d0324_初写谱净拆_λδ.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 54. [HIGH] over_hard_cap
+- **File**: src/推w_dp_s017_v008_d0329_初写谱净拆_λS.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 55. [HIGH] over_hard_cap
+- **File**: src/推w_dp_s017_v009_d0331_初写谱净拆_λI.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 56. [HIGH] over_hard_cap
+- **File**: src/推w_dp_s017_v013_d0403_初写谱净拆_λP0_βoc.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 57. [HIGH] over_hard_cap
+- **File**: src/热p_fhm_s011_v005_d0403_踪稿析_λP0_βde.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 58. [HIGH] over_hard_cap
+- **File**: src/片w_sm_s026_v002_d0330_缩分话_λF.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 59. [HIGH] over_hard_cap
+- **File**: src/环w_pc_s025_v002_d0329_读唤任_λS.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 60. [HIGH] over_hard_cap
+- **File**: src/环w_pc_s025_v003_d0330_读唤任_λπ.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 61. [HIGH] over_hard_cap
+- **File**: src/研w_rl_s029_v002_d0330_译改名踪_λL.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 62. [HIGH] over_hard_cap
+- **File**: src/研w_rl_s029_v003_d0331_译改名踪_λA.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 63. [HIGH] over_hard_cap
+- **File**: src/研w_rl_s029_v005_d0401_译改名踪_λG.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 64. [HIGH] over_hard_cap
+- **File**: src/管_cpm_s020/管w_cpm_idx_s012_v001.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 65. [HIGH] over_hard_cap
+- **File**: src/管_cpm_s020/管w_cpm_ops_s014_v001.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 66. [HIGH] over_hard_cap
+- **File**: src/管_cpm_s020/管w_cpm_rmp_s016_v001.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 67. [HIGH] over_hard_cap
+- **File**: src/编w_gc_s032_v002_d0401_读唤任_λG.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 68. [HIGH] over_hard_cap
+- **File**: src/编w_gc_s032_v003_d0401_读唤任_λG.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 69. [HIGH] over_hard_cap
+- **File**: src/脉p_ph_s015_v004_d0403_读唤任_λP0_βoc.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 70. [HIGH] over_hard_cap
+- **File**: src/虚f_mc_s036_v001.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 71. [HIGH] over_hard_cap
+- **File**: src/觉w_fc_s019_v002_d0321_缩分话_λ18.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 72. [HIGH] over_hard_cap
+- **File**: src/警p_sa_s030_v005_d0404_缩分话_λNU.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 73. [HIGH] over_hard_cap
+- **File**: src/训w_trwr_s028_v002_d0330_缩分话_λF.py
+- **Fix**: Auto-compile with pigeon compiler (run_clean_split)
+
+### 74. [INFO] high_coupling
+- **File**: streaming_layer/_resolve.py
+- **Fan-in**: 103 dependents
+- **Fix**: Module has 103 dependents — changes here break many files
+
+### 75. [INFO] high_coupling
+- **File**: pigeon_compiler/pigeon_limits.py
+- **Fan-in**: 53 dependents
+- **Fix**: Module has 53 dependents — changes here break many files
+
+### 76. [INFO] high_coupling
+- **File**: pigeon_compiler/rename_engine/扫p_sc_s001_v004_d0315_踪稿析_λν.py
+- **Fan-in**: 17 dependents
+- **Fix**: Module has 17 dependents — changes here break many files
+
+### 77. [INFO] high_coupling
+- **File**: pigeon_brain/gemini_chat.py
+- **Fan-in**: 16 dependents
+- **Fix**: Module has 16 dependents — changes here break many files
+
+### 78. [INFO] high_coupling
+- **File**: build/compressed/pigeon_brain/flow/learning_loop_seq013_v003_d0327__the_perpetual_learning_loop_lc_pigeon_split_3.py
+- **Fan-in**: 12 dependents
+- **Fix**: Module has 12 dependents — changes here break many files
+
+### 79. [INFO] high_coupling
+- **File**: pigeon_compiler/rename_engine/compliance_seq008/正f_cmp_co_s001_v001.py
+- **Fan-in**: 12 dependents
+- **Fix**: Module has 12 dependents — changes here break many files
+
+### 80. [INFO] high_coupling
+- **File**: build/compressed/pigeon_compiler/rename_engine/compliance_seq008_v004_d0315__line_count_enforcer_split_recommender_lc_verify_pigeon_plugin.py
+- **Fan-in**: 10 dependents
+- **Fix**: Module has 10 dependents — changes here break many files
+
+### 81. [INFO] high_coupling
+- **File**: pigeon_compiler/integrations/谱p_dsa_s001_v006_d0322_读_λ7.py
+- **Fan-in**: 10 dependents
+- **Fix**: Module has 10 dependents — changes here break many files
+
+### 82. [INFO] high_coupling
+- **File**: pigeon_brain/node_tester.py
+- **Fan-in**: 9 dependents
+- **Fix**: Module has 9 dependents — changes here break many files
+
+### 83. [INFO] high_coupling
+- **File**: pigeon_brain/flow/包p_cpk_s001_v002_d0324_缩分话_λε.py
+- **Fan-in**: 8 dependents
+- **Fix**: Module has 8 dependents — changes here break many files
+
+### 84. [INFO] high_coupling
+- **File**: pigeon_brain/钩w_th_s011_v002_d0323_缩分话_λP.py
+- **Fan-in**: 8 dependents
+- **Fix**: Module has 8 dependents — changes here break many files
+
+### 85. [INFO] high_coupling
+- **File**: pigeon_compiler/cut_executor/切p_ss_s002_v004_d0315_重箱重助重拆_λν.py
+- **Fan-in**: 8 dependents
+- **Fix**: Module has 8 dependents — changes here break many files
+
+### 86. [INFO] high_coupling
+- **File**: pigeon_compiler/rename_engine/p_ex_s004_v004_d0315_册追跑复审_λν.py
+- **Fan-in**: 8 dependents
+- **Fix**: Module has 8 dependents — changes here break many files
+
+### 87. [INFO] high_coupling
+- **File**: pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX.py
+- **Fan-in**: 8 dependents
+- **Fix**: Module has 8 dependents — changes here break many files
+
+### 88. [INFO] high_coupling
+- **File**: pigeon_brain/ai_cognitive_log.py
+- **Fan-in**: 7 dependents
+- **Fix**: Module has 7 dependents — changes here break many files
+
+### 89. [INFO] high_coupling
+- **File**: build/compressed/pigeon_compiler/rename_engine/scanner_seq001_v004_d0315__walk_the_project_tree_and_lc_verify_pigeon_plugin.py
+- **Fan-in**: 7 dependents
+- **Fix**: Module has 7 dependents — changes here break many files
+
+### 90. [INFO] high_coupling
+- **File**: pigeon_brain/描p_ghm_s004_v002_d0323_缩环检意_λP.py
+- **Fan-in**: 7 dependents
+- **Fix**: Module has 7 dependents — changes here break many files
+
+### 91. [INFO] high_coupling
+- **File**: pigeon_brain/图p_ge_s003_v003_d0324_读唤任_λχ.py
+- **Fan-in**: 7 dependents
+- **Fix**: Module has 7 dependents — changes here break many files
+
+### 92. [INFO] high_coupling
+- **File**: pigeon_compiler/rename_engine/谱建f_mb_s007_v003_d0314_观重箱重拆_λD.py
+- **Fan-in**: 7 dependents
+- **Fix**: Module has 7 dependents — changes here break many files
+
+### 93. [INFO] high_coupling
+- **File**: pigeon_compiler/rename_engine/正f_cmp_s008_v004_d0315_踪稿析_λν.py
+- **Fan-in**: 7 dependents
+- **Fix**: Module has 7 dependents — changes here break many files
+
+### 94. [INFO] high_coupling
+- **File**: src/u_cs_s033_v001.py
+- **Fan-in**: 7 dependents
+- **Fix**: Module has 7 dependents — changes here break many files
+
+### 95. [INFO] high_coupling
+- **File**: pigeon_compiler/rename_engine/牌f_nam_s011_v004_d0401_追谱建踪_λA.py
+- **Fan-in**: 7 dependents
+- **Fix**: Module has 7 dependents — changes here break many files
+
+### 96. [INFO] high_coupling
+- **File**: pigeon_compiler/rename_engine/审p_va_s005_v005_d0403_踪稿析_λFX.py
+- **Fan-in**: 7 dependents
+- **Fix**: Module has 7 dependents — changes here break many files
+
+### 97. [INFO] high_coupling
+- **File**: build/compressed/pigeon_brain/flow/node_memory_seq008_v003_d0328__the_experience_vault_stores_raw_lc_dynamic_import_resolvers.py
+- **Fan-in**: 6 dependents
+- **Fix**: Module has 6 dependents — changes here break many files
+
+### 98. [INFO] high_coupling
+- **File**: src/prompt_recon_seq016_v001.py
+- **Fan-in**: 6 dependents
+- **Fix**: Module has 6 dependents — changes here break many files
+
+### 99. [INFO] high_coupling
+- **File**: pigeon_brain/环检p_ld_s005_v002_d0323_缩描意_λP.py
+- **Fan-in**: 6 dependents
+- **Fix**: Module has 6 dependents — changes here break many files
+
+### 100. [INFO] high_coupling
+- **File**: pigeon_brain/缩p_fdt_s006_v002_d0323_描环检意_λP.py
+- **Fan-in**: 6 dependents
+- **Fix**: Module has 6 dependents — changes here break many files
+
+### 101. [INFO] high_coupling
+- **File**: pigeon_compiler/cut_executor/重助p_rehe_s011_v004_d0315_重箱重拆切_λν.py
+- **Fan-in**: 6 dependents
+- **Fix**: Module has 6 dependents — changes here break many files
+
+### 102. [INFO] high_coupling
+- **File**: pigeon_compiler/rename_engine/compliance_seq008/正f_cmp_cl_s003_v004_d0322_λ7.py
+- **Fan-in**: 6 dependents
+- **Fix**: Module has 6 dependents — changes here break many files
+
+### 103. [INFO] high_coupling
+- **File**: pigeon_compiler/rename_engine/compliance_seq008/正f_cmp_he_s002_v004_d0322_λ7.py
+- **Fan-in**: 6 dependents
+- **Fix**: Module has 6 dependents — changes here break many files
+
+### 104. [INFO] high_coupling
+- **File**: pigeon_compiler/rename_engine/w_pl_s002_v005_d0401_册追跑谱桥_λA.py
+- **Fan-in**: 6 dependents
+- **Fix**: Module has 6 dependents — changes here break many files
+
+### 105. [INFO] high_coupling
+- **File**: pigeon_compiler/runners/净拆f_rcs_s010_v006_d0322_译测编深划_λW.py
+- **Fan-in**: 6 dependents
+- **Fix**: Module has 6 dependents — changes here break many files
+
+### 106. [INFO] high_coupling
+- **File**: build/compressed/pigeon_compiler/integrations/deepseek_adapter_seq001_v006_d0322__deepseek_api_client_lc_stage_78_hook.py
+- **Fan-in**: 5 dependents
+- **Fix**: Module has 5 dependents — changes here break many files
+
+### 107. [INFO] high_coupling
+- **File**: pigeon_compiler/rename_engine/nametag_seq011/牌f_nam_co_s001_v001.py
+- **Fan-in**: 5 dependents
+- **Fix**: Module has 5 dependents — changes here break many files
+
+### 108. [INFO] high_coupling
+- **File**: src/典w_sd_s031_v002_d0401_缩分话_λG.py
+- **Fan-in**: 5 dependents
+- **Fix**: Module has 5 dependents — changes here break many files
+
+### 109. [INFO] high_coupling
+- **File**: src/entropy_shedding.py
+- **Fan-in**: 5 dependents
+- **Fix**: Module has 5 dependents — changes here break many files

@@ -8,6 +8,13 @@ reads like a briefing from the organism's prefrontal cortex.
 Injected into copilot-instructions.md as the organism's inner monologue.
 Zero LLM calls — pure signal weaving from measured data.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 import json
 from pathlib import Path

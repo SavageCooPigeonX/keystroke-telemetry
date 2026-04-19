@@ -14,6 +14,13 @@ The loop:
 This is the "intent amplification loop" — TC becomes smarter every time
 it can't answer, because the operator answer becomes a new profile.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import re

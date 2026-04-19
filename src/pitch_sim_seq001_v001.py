@@ -10,6 +10,13 @@ Usage:
     py -m src.pitch_sim_seq001_v001_seq001_v001 --module thought_completer
     py -m src.pitch_sim_seq001_v001_seq001_v001 --top 3            # pitch top 3 entropy modules
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import os

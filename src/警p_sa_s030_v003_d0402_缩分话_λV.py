@@ -6,6 +6,13 @@ for timestamp staleness. If any per-prompt block hasn't updated, injects a loud
 
 When everything is fresh, the alert block is removed (clean state).
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import re
 from pathlib import Path

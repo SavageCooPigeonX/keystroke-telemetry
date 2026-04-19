@@ -11,6 +11,13 @@ Writes docs/session_handoffs/YYYY-MM-DD_HHMM.md with:
 
 Zero LLM calls. Safe to run repeatedly — deduplicates by minute bucket.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import glob as _glob
 import json

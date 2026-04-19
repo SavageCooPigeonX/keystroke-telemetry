@@ -19,6 +19,13 @@ Hotkeys (global when popup is focused):
 The popup auto-detects which repo you're in from VS Code window titles
 and switches context accordingly.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import os
 import sys

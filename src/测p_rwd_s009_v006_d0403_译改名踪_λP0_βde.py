@@ -7,6 +7,13 @@ the coaching prompt so the AI learns its own failure patterns.
 
 Zero LLM calls. Pure signal math.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 from datetime import datetime, timezone

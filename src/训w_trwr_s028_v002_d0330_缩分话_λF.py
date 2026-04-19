@@ -11,6 +11,13 @@ At the end of every copilot prompt→response cycle, captures the muxed state:
 Writes to logs/shards/training_pairs.md as human-readable markdown.
 The anchor: pair programming. Copilot is the pair. This is the shared notebook.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import re

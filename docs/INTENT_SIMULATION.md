@@ -1,84 +1,85 @@
 # Intent Simulation Report
 
-*Auto-generated 2026-04-04 03:59 UTC · 169 commits analyzed · zero LLM calls*
+*Auto-generated 2026-04-19 23:59 UTC · 144 commits analyzed · zero LLM calls*
 
 > This is a forward projection of operator intent based on development timeline, prompt patterns,
 > deleted words, and cognitive load signals. Predictions become pass/fail on next push.
 
 ## Development Velocity
 
-**7.3 commits/day** · 18 active days · acceleration: -21% *[source: measured]*
-- early: 8.3/day → recent: 6.6/day (decelerating)
+**4.9 commits/day** · 25 active days · acceleration: -49% *[source: measured]*
+- early: 7.2/day → recent: 3.7/day (decelerating)
 
 ## Intent Trajectory
 
-**Dominant: `infrastructure`** *[source: measured]*
-- **emerging:** `telemetry`, `unclassified`
-- **declining:** `self_heal`, `compression`, `prediction`
+**Dominant: `self_heal`** *[source: measured]*
+- **emerging:** `prediction`, `infrastructure`, `flow_engine`
+- **declining:** `compression`, `unclassified`
 
 | Intent | Trend |
 |---|---|
-| `telemetry` | ↑ +0.176 |
-| `self_heal` | ↓ -0.160 |
-| `compression` | ↓ -0.119 |
-| `prediction` | ↓ -0.107 |
-| `unclassified` | ↑ +0.105 |
-| `flow_engine` | ↓ -0.096 |
-| `research` | ↓ -0.061 |
-| `product` | ↑ +0.046 |
-| `infrastructure` | ↓ -0.041 |
+| `compression` | ↓ -0.139 |
+| `prediction` | ↑ +0.083 |
+| `infrastructure` | ↑ +0.083 |
+| `flow_engine` | ↑ +0.069 |
+| `research` | ↑ +0.069 |
+| `unclassified` | ↓ -0.056 |
+| `product` | ↑ +0.042 |
+| `self_heal` | ↑ +0.014 |
+| `telemetry` | ↓ -0.014 |
 
 ## Forward Projection
 
 ### 1 Week *[confidence: high]*
-- ~46 commits expected
-- primary: `infrastructure`
-- secondary: `telemetry`
+- ~26 commits expected
+- primary: `self_heal`
+- secondary: `prediction`
 
 ### 1 Month *[confidence: medium]*
-- ~173 commits expected
-- primary: `infrastructure`
-- **risk of abandonment:** `self_heal`
+- ~75 commits expected
+- primary: `self_heal`
+- **risk of abandonment:** `compression`
 
 ### 3 Months *[confidence: speculative]*
-- primary: `infrastructure`
-- **from deleted words:** `use`, `rephraser`, `can we find a way to s`, `0 pus`, `wit`
-- predicted module focus: `file_heat_map`, `import_rewriter`, `file_writer`, `run_batch_compile_seq015`, `logger_seq003`
+- primary: `self_heal`
+- **from deleted words:** `nonot`, `oooususushh`, `e s`, `ttt`, `bbb`
+- predicted module focus: `unsaid`, `file_heat_map`, `thought_completer`
 
 ## Deleted Thought Archaeology
 
 *Words deleted from prompts before submit — the unsaid intent:*
 
-- "ton"
-- "can we find a way to s"
-- "rephraser"
-- "wit"
-- "word"
-- "e hidden"
-- "hts th"
-- "lly i know that part w"
-- "-actua"
-- "s - whats th"
-- "0 pus"
-- "route"
-- "should we cle"
-- "sow"
-- "use"
+- "e s"
+- "www"
+- "ooo"
+- "thatatss"
+- "nonot"
+- "ththe"
+- "acactututualal"
+- "fififixxx"
+- "bbb"
+- "ttt"
+- "wwwaaaiiittt"
+- "ssoo"
+- "yyoou"
+- "kkknnnoowoww"
+- "hhhoowoww"
 
 ## Project Management Directives
 
-*4 directives · auto-generated per push*
+*5 directives · auto-generated per push*
 
-- Intent bifurcation: `infrastructure` dominant but `telemetry` emerging — watch for context switches mid-session.
-- `self_heal` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
-- Unsaid themes detected: `use`, `rephraser`, `can we find a way to s` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
-- Module focus cluster: `file_heat_map`, `import_rewriter`, `file_writer` — pre-load context from these modules when operator starts typing.
+- Development decelerating (-49%) — operator may be blocked or shifting focus. Offer architecture-level suggestions, not just code.
+- Intent bifurcation: `self_heal` dominant but `prediction` emerging — watch for context switches mid-session.
+- `compression` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
+- Unsaid themes detected: `nonot`, `oooususushh`, `e s` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
+- Module focus cluster: `unsaid`, `file_heat_map`, `thought_completer` — pre-load context from these modules when operator starts typing.
 
 ## Testable Predictions
 
 *Pass/fail on next push:*
 
-1. Dominant intent remains `infrastructure` — or shifts to `telemetry`
-2. Velocity holds above 7 commits/day
-3. One of [`ton`, `can we find a way to s`, `rephraser`] appears in next prompt
-4. `file_heat_map` gets edited within 2 pushes
+1. Dominant intent remains `self_heal` — or shifts to `prediction`
+2. Velocity holds above 5 commits/day
+3. One of [`e s`, `www`, `ooo`] appears in next prompt
+4. `unsaid` gets edited within 2 pushes

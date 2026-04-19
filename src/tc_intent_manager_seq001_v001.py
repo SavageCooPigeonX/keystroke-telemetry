@@ -7,6 +7,13 @@ have been acted on. Copilot can only clear a job once work is confirmed done.
 TC injects these open jobs into Gemini so completions steer toward unfinished
 work rather than completing words in a vacuum.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import time

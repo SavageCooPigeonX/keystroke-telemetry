@@ -7,6 +7,13 @@ that the operator invokes via /debug, /build, or /review in chat.
 Every template gets the shared signal block (deleted words, cognitive state,
 hot modules, bug voices) plus its own domain-specific data.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 import json
 import re

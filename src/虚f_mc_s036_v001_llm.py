@@ -1,4 +1,11 @@
 """虚f_mc LLM layer — prompt building, Gemini calls, response parsing."""
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 
 import json

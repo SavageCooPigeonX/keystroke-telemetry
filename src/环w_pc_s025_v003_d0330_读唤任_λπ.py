@@ -10,6 +10,13 @@ Each git push = one learning cycle:
   7. Fire new predictions (what will operator want next push?)
   8. Inject predictions into copilot-instructions
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 from __future__ import annotations
 

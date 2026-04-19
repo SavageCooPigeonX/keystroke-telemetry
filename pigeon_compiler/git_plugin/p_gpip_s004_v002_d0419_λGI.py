@@ -1,11 +1,11 @@
 """git_plugin_intent_parsing_seq004_v001.py — Auto-extracted by Pigeon Compiler."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 004 | VER: v001 | 27 lines | ~224 tokens
+# SEQ: 004 | VER: v002 | 47 lines | ~436 tokens
 # DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: (none)
-# LAST:   2026-04-14 @ heal
-# SESSIONS: 0
+# INTENT: git_plugin_root
+# LAST:   2026-04-19 @ 5567e06
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 import re
 

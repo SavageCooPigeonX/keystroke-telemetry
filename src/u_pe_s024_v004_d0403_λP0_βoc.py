@@ -7,6 +7,13 @@ copilot-instructions.md so Copilot reads the enriched context on the next turn.
 
 Zero friction: called automatically from prompt_journal on every log_enriched_entry.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import re

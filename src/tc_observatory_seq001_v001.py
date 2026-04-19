@@ -6,6 +6,13 @@ Each tab is a resizable PanedWindow. Live keystroke buffer feeds NUMERIC.
 Launch:  py -m src.tc_observatory_seq001_v001
          or imported by thought_completer.py --observatory
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import re

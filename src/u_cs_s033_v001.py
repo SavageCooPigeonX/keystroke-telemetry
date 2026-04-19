@@ -9,6 +9,13 @@ and recency into a single confidence state per module:
 
 Also computes a Copilot meta-state line for prompt injection.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 
 from __future__ import annotations

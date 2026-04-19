@@ -9,6 +9,13 @@ unsaid_accumulator_seq001_v001.
 
 HTTP server on :8236 for VS Code extension. CLI for testing.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import os

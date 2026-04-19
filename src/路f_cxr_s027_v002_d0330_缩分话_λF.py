@@ -6,6 +6,13 @@ and formats them for injection into the enricher's DeepSeek context window.
 Zero LLM calls — pure keyword/trigram scoring with recency boost.
 Reads markdown shards from logs/shards/*.md.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import re
 from pathlib import Path

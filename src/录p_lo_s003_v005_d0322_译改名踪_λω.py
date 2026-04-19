@@ -5,6 +5,13 @@ cognitive-sync analytics: typos, deletions, rewrites, pauses.
 Each event is emitted as a self-contained LLM-compatible JSON block
 (schema: keystroke_telemetry/v2).
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 
 import json

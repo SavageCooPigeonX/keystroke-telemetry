@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-11 15:29 UTC · 497 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-19 23:59 UTC · 795 prompts · 3 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -10,58 +10,44 @@
 *200 scored predictions · zero LLM calls*
 
 
-> **Prediction bias:** chronically over-predicts `file_heat_map`, `file_writer`, `import_rewriter` — operator thinks about them more than they touch them
+> **Prediction bias:** chronically over-predicts `file_heat_map`, `import_rewriter`, `file_writer` — operator thinks about them more than they touch them
 
 ### Blind Spots *[source: measured]*
 *Edited without being predicted — the real surprises:*
-- `classify_bridge` — 100x unpredicted
-- `research_lab` — 97x unpredicted
-- `cognitive_reactor_seq014_patch_writer` — 50x unpredicted
-- `chat_response_reader` — 50x unpredicted
-- `copilot_prompt_manager_seq020_orchestrator` — 50x unpredicted
+- `__init__` — 50x unpredicted
+- `heal` — 50x unpredicted
+- `heal_seq009_orchestrator` — 50x unpredicted
+- `nametag` — 50x unpredicted
+- `nametag_seq011_scan` — 50x unpredicted
 
 ## Live Operator State
 
-*497 prompts profiled · source: measured*
+*795 prompts profiled · source: measured*
 
-**Dominant: `abandoned` | Submit: 66% | Del: 6.2%**
-- operator entering flow state — productive building, less backtracking
+**Dominant: `abandoned` | Submit: 66% | Del: 4.3%**
+- deletion ratio stable — no major mode shift detected
 
 ## Pair Performance
 
-*200 responses scored · 200 background excluded*
+*3 responses scored · 0 background excluded*
 
-**Accuracy: 96% OK | 4% miss** *[source: measured]*
-- trend: **degrading** (early 100% → recent 92%)
-- quality slipping — check if prompt mutations are helping or hurting
+**Accuracy: 100% OK | 0% miss** *[source: measured]*
 
-**Prompt→edit latency:** 717.2s median (64 pairs)
+**Prompt→edit latency:** 576.7s median (71 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*122 mutations scored*
+*139 mutations scored*
 - no significant signal yet — all sections scored neutral
 
-**Reactor:** 524 fires, 0 accepted (0%)
+**Reactor:** 531 fires, 2 accepted (0%)
 > **Directive:** Reactor patches near-zero acceptance — tune confidence threshold or disable
 
 ## Codebase Health
 
-*55 self-fix reports · 2026-03-16 → 2026-04-10*
+*60 self-fix reports · 2026-03-16 → 2026-04-19*
 
-**Problem trend: growing** (early avg 24 → recent avg 325) *[source: measured]*
-- problems growing ~301/push — expect more over_hard_cap and dead_exports without intervention
-
-### Fragile Contracts *[source: llm_derived]*
-*From push narratives — treat as hypothesis:*
-- REGRESSION WATCHLIST: Rename manifest validation silently passing corrupt maps; import rewrite missing symlinked files; prompt pre-processor mangling YAML instruction blocks.
-- REGRESSION WATCHLIST: (1) predictor.get_surface_tensor shape contract change, (2) node_memory key `'numeric_surface'` missing or None, (3) surface object
-
-### Recent Deaths *[source: measured]*
-- `exception`: 3
-- `loop`: 3
-- `timeout`: 2
-- `stale_import`: 2
-> **Prediction:** `exception` remains dominant failure mode until root cause is addressed
+**Problem trend: growing** (early avg 24 → recent avg 80) *[source: measured]*
+- problems growing ~55/push — expect more over_hard_cap and dead_exports without intervention
 
 ### Electron Killers *[source: measured]*
 - `graph_heat_map` — 2 deaths/4 calls (50%)
@@ -70,24 +56,24 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "(ey"
-- "ld f"
-- "leaks _"
-- "lready have this ;e"
-- "e e"
-- "ads/ use this to write  emaili litte"
-- "opilot"
-- "ggoooo"
-- "es i"
-- "7)$"
+- "fpraaa"
+- "sue"
+- "iss"
+- "le k"
+- "/ hhhooot st s"
+- "fro"
+- "sww"
+- "thub"
+- "ititit mmumuuststst   inininjjjeeeccct t"
+- "d d d"
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** GOOD — 200 entries, 3 unique scores in last 20, 200 bg noise
-- **Training pairs:** 125 captured
-- **Prediction accuracy:** F1=0.010, calibration=0.305 (200 scored)
+- **Rework signal:** WEAK (placeholder data) — 5 entries, 2 unique scores in last 20
+- **Training pairs:** 193 captured
+- **Prediction accuracy:** F1=0.000, calibration=0.228 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
 - **Memory shards:** 11 active (zero LLM calls)
 

@@ -18,6 +18,13 @@ eventually the map tells copilot exactly where it's been wrong before.
 the red layer = file-linked entropy math.
 every target gets a numeric surface that can be injected back into prompt context.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 import json
 import math

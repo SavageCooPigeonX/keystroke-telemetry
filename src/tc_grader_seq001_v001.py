@@ -6,6 +6,13 @@ Grades are written per-completion and aggregated for self-learning.
 Grading happens post-hoc: after outcome is known (accept/dismiss/ignore/etc.)
 we score the completion on multiple axes and persist the grade.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import re

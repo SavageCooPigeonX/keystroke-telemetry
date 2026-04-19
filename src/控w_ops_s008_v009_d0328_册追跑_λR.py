@@ -7,6 +7,13 @@ rewrites a markdown stats file every N finalized messages.
 Designed for LLM consumption: an agent reading the .md file gets
 a compact operator profile that sharpens with every message.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 
 import json

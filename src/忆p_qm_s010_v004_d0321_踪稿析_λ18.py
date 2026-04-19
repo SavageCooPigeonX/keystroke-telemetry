@@ -9,6 +9,13 @@ Two signals:
 Both feed into the coaching prompt via load_query_memory().
 Zero LLM calls.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import json
 import re

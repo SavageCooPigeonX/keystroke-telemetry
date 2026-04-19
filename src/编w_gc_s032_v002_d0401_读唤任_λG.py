@@ -14,6 +14,13 @@ a .psg (Pigeon Symbolic Glyph) file where:
 The output is UNREADABLE without the dictionary.
 That's the point.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 
 
 from __future__ import annotations
