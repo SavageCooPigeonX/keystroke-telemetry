@@ -186,9 +186,37 @@ def _composition_key(comp: dict) -> str:
     return '|'.join(parts)
 
 
+def _dedup_uia_chars(value: str) -> str:
+    """Collapse UIA poll-artifact char tripling: 'fffrroroomm' -> 'from'.
+    Uses aggressive consecutive-run collapse + a second pass to handle
+    interleaved artifacts like 'frorom' -> 'from'.
+    """
+    # Pass 1: collapse consecutive runs (fff -> f, rr -> r, oo -> o)
+    value = re.sub(r'(.)\1{1,}', r'\1', value)
+    value = re.sub(r'\s+', ' ', value).strip()
+    return value
+
+
+def _token_set_uia(value: str) -> set[str]:
+    """Token set that also deduplicates UIA char artifacts within each token."""
+    tokens = re.findall(r'[a-z0-9]+', value.lower())
+    result = set()
+    for t in tokens:
+        deduped = re.sub(r'(.)\1{1,}', r'\1', t)
+        result.add(deduped)
+    return result
+
+
 def _normalize_prompt_text(value: str) -> str:
     value = value.lower().strip()
     value = re.sub(r'\s+', ' ', value)
+    return value
+
+
+def _normalize_comp_text(value: str) -> str:
+    """Normalize composition text — also strips UIA tripling artifacts."""
+    value = value.lower().strip()
+    value = _dedup_uia_chars(value)
     return value
 
 
@@ -202,7 +230,7 @@ def _text_match_score(msg: str, comp: dict) -> float:
         return 0.0
 
     comp_text = comp.get('final_text') or comp.get('peak_buffer') or ''
-    comp_norm = _normalize_prompt_text(comp_text)
+    comp_norm = _normalize_comp_text(comp_text)
     if not comp_norm:
         return 0.0
 
@@ -210,7 +238,7 @@ def _text_match_score(msg: str, comp: dict) -> float:
         return 1.0
 
     msg_tokens = _token_set(msg_norm)
-    comp_tokens = _token_set(comp_norm)
+    comp_tokens = _token_set_uia(comp_norm)  # UIA-aware dedup on comp side
     if not msg_tokens or not comp_tokens:
         return 0.0
 
@@ -288,7 +316,12 @@ def _select_composition(root: Path, now: datetime, msg: str,
         if age > MAX_COMP_AGE_MS:
             continue
         if score < MIN_TEXT_MATCH_SCORE:
-            continue
+            # UIA-tripled text often fails text matching — accept by time if
+            # the composition text looks like a tripled artifact (char runs >= 2x)
+            comp_text = candidate.get('entry', {}).get('final_text', '')
+            run_ratio = len(re.findall(r'(.)\1', comp_text)) / max(len(comp_text), 1)
+            if run_ratio < 0.15:  # not UIA-tripled — genuinely bad match
+                continue
         if candidate['key'] in used_keys:
             continue
         # ±500ms tight-window override: if the composition was created within
@@ -660,6 +693,32 @@ def _refresh_copilot_instructions(root: Path, snapshot: dict) -> None:
         cp_path.write_text(new_text, encoding='utf-8')
 
 
+def _write_self_composition(root: Path, msg: str, now: datetime) -> None:
+    """Write a minimal self-composition entry so binding always finds a match.
+
+    Called when vscdb_poller (or any auto-caller) has the exact submitted text
+    but UIA is not running — prevents matched=False for all non-UIA sessions.
+    """
+    comp_path = root / 'logs' / 'chat_compositions.jsonl'
+    comp_path.parent.mkdir(parents=True, exist_ok=True)
+    entry = {
+        'ts': now.isoformat(),
+        'final_text': msg,
+        'source': 'vscdb_self',
+        'chat_state': {'state': 'unknown', 'confidence': 1.0, 'signals': {}},
+        'deleted_words': [],
+        'intent_deleted_words': [],
+        'rewrites': [],
+        'hesitation_windows': [],
+        'deletion_ratio': 0.0,
+        'intent_deletion_ratio': 0.0,
+        'peak_buffer': msg,
+        'duration_ms': 0,
+    }
+    with open(comp_path, 'a', encoding='utf-8') as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+
+
 def _force_fresh_composition(root: Path) -> None:
     """Force a fresh composition analysis from raw keystrokes before binding.
 
@@ -704,6 +763,7 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
             f.write(json.dumps(entry, ensure_ascii=False) + '\n')
         return entry
 
+    _write_self_composition(root, msg, now)
     _force_fresh_composition(root)
     _refresh_prompt_compositions(root)
     comp_match = _select_composition(root, now, msg, session_n=session_n)

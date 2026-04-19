@@ -167,7 +167,7 @@ def match_journal_to_files(
 
         if best_entry and best_score > 0.4:
             entry_ts = _parse_ts(best_entry.get('ts', ''))
-            latency_ms = int((commit_ts - entry_ts).total_seconds() * 1000) if entry_ts else None
+            latency_ms = max(0, int((commit_ts - entry_ts).total_seconds() * 1000)) if entry_ts else None
             signals = best_entry.get('signals', {})
             bindings.append({
                 'ts': _utcnow(),
