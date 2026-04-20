@@ -6,17 +6,18 @@ Module keeps learning via intent shards while sleeping.
 """
 import sys
 from pathlib import Path
+from src._resolve import src_import
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.tc_observatory_seq001_v002_d0420__primary_pigeon_observatory_window_lc_chore_pigeon_rename_cascade import run_observatory
+    run_observatory = src_import("tc_observatory_seq001", "run_observatory")
     assert callable(run_observatory), "run_observatory must be callable"
     print(f"  ✓ tc_observatory_seq001_v002_d0420__primary_pigeon_observatory_window_lc_chore_pigeon_rename_cascade: 1 exports verified")
 
 def test_run_observatory_contract():
     """Data flow contract: run_observatory() → output."""
-    from src.tc_observatory_seq001_v002_d0420__primary_pigeon_observatory_window_lc_chore_pigeon_rename_cascade import run_observatory
+    run_observatory = src_import("tc_observatory_seq001", "run_observatory")
     # smoke test: function exists and is callable
     assert run_observatory.__name__ == "run_observatory"
     result = run_observatory()

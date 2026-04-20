@@ -38728,19 +38728,129 @@
         "deletion_ratio_after": 0.0,
         "contribution_summary": "pred_false_pos cal_err=0.10",
         "ts": "2026-04-20T04:47:06.757528+00:00"
+      },
+      {
+        "electron_id": "6b2830fb4f9c",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3632,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.16",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3632,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.16",
+        "ts": "2026-04-20T12:55:41.513860+00:00"
+      },
+      {
+        "electron_id": "e9b85c9adda1",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3632,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.16",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3632,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.16",
+        "ts": "2026-04-20T12:55:43.407045+00:00"
+      },
+      {
+        "electron_id": "167c7121dba4",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3016,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.00",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3016,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.00",
+        "ts": "2026-04-20T12:55:46.197021+00:00"
+      },
+      {
+        "electron_id": "dd648a823ed5",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3016,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.00",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3016,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.00",
+        "ts": "2026-04-20T12:55:51.635705+00:00"
+      },
+      {
+        "electron_id": "8c36aed8a190",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3016,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.00",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3016,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.00",
+        "ts": "2026-04-20T12:55:54.510406+00:00"
       }
     ],
     "policy": {
       "node": "context_router",
-      "rolling_score": 0.0986,
+      "rolling_score": 0.0998,
       "confidence": 1.0,
       "utilization_rate": 0.15,
-      "sample_count": 114,
+      "sample_count": 119,
       "top_effective_patterns": [],
       "failure_patterns": [],
       "behavioral_directive": "context_router: struggling",
       "scoring_source": "observation_only",
-      "last_updated": "2026-04-20T04:47:06.758359+00:00"
+      "last_updated": "2026-04-20T12:55:54.511167+00:00"
     }
   },
   "shard_manager": {
@@ -41252,19 +41362,129 @@
         "deletion_ratio_after": 0.0,
         "contribution_summary": "pred_false_pos cal_err=0.10",
         "ts": "2026-04-20T04:47:07.736599+00:00"
+      },
+      {
+        "electron_id": "6b2830fb4f9c",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3632,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.16",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3632,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.16",
+        "ts": "2026-04-20T12:55:41.972879+00:00"
+      },
+      {
+        "electron_id": "e9b85c9adda1",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3632,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.16",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3632,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.16",
+        "ts": "2026-04-20T12:55:43.693535+00:00"
+      },
+      {
+        "electron_id": "167c7121dba4",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3016,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.00",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3016,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.00",
+        "ts": "2026-04-20T12:55:46.846020+00:00"
+      },
+      {
+        "electron_id": "dd648a823ed5",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3016,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.00",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3016,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.00",
+        "ts": "2026-04-20T12:55:52.741844+00:00"
+      },
+      {
+        "electron_id": "8c36aed8a190",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3016,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.00",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3016,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.00",
+        "ts": "2026-04-20T12:55:54.915244+00:00"
       }
     ],
     "policy": {
       "node": "shard_manager",
-      "rolling_score": 0.0986,
+      "rolling_score": 0.0998,
       "confidence": 1.0,
       "utilization_rate": 0.15,
-      "sample_count": 114,
+      "sample_count": 119,
       "top_effective_patterns": [],
       "failure_patterns": [],
       "behavioral_directive": "shard_manager: struggling",
       "scoring_source": "observation_only",
-      "last_updated": "2026-04-20T04:47:07.737501+00:00"
+      "last_updated": "2026-04-20T12:55:54.915952+00:00"
     }
   },
   "training_pairs": {
@@ -42654,19 +42874,107 @@
         "deletion_ratio_after": 0.0,
         "contribution_summary": "pred_false_pos cal_err=0.00",
         "ts": "2026-04-20T04:46:57.210791+00:00"
+      },
+      {
+        "electron_id": "6b2830fb4f9c",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3632,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.16",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3632,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.16",
+        "ts": "2026-04-20T12:55:42.363040+00:00"
+      },
+      {
+        "electron_id": "e9b85c9adda1",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3632,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.16",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3632,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.16",
+        "ts": "2026-04-20T12:55:44.007281+00:00"
+      },
+      {
+        "electron_id": "167c7121dba4",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3016,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.00",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3016,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.00",
+        "ts": "2026-04-20T12:55:47.838388+00:00"
+      },
+      {
+        "electron_id": "dd648a823ed5",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3016,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.00",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3016,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.00",
+        "ts": "2026-04-20T12:55:53.193555+00:00"
       }
     ],
     "policy": {
       "node": "training_pairs",
-      "rolling_score": 0.1014,
+      "rolling_score": 0.1011,
       "confidence": 1.0,
       "utilization_rate": 0.15,
-      "sample_count": 63,
+      "sample_count": 67,
       "top_effective_patterns": [],
       "failure_patterns": [],
       "behavioral_directive": "training_pairs: struggling",
       "scoring_source": "observation_only",
-      "last_updated": "2026-04-20T04:46:57.211384+00:00"
+      "last_updated": "2026-04-20T12:55:53.194421+00:00"
     }
   },
   "unified_signal": {
@@ -44056,19 +44364,107 @@
         "deletion_ratio_after": 0.0,
         "contribution_summary": "pred_false_pos cal_err=0.00",
         "ts": "2026-04-20T04:46:57.654600+00:00"
+      },
+      {
+        "electron_id": "6b2830fb4f9c",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3632,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.16",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3632,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.16",
+        "ts": "2026-04-20T12:55:42.829364+00:00"
+      },
+      {
+        "electron_id": "e9b85c9adda1",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3632,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.16",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3632,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.16",
+        "ts": "2026-04-20T12:55:44.329737+00:00"
+      },
+      {
+        "electron_id": "167c7121dba4",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3016,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.00",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3016,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.00",
+        "ts": "2026-04-20T12:55:49.152334+00:00"
+      },
+      {
+        "electron_id": "dd648a823ed5",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3016,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.00",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3016,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.00",
+        "ts": "2026-04-20T12:55:53.711110+00:00"
       }
     ],
     "policy": {
       "node": "unified_signal",
-      "rolling_score": 0.1014,
+      "rolling_score": 0.1011,
       "confidence": 1.0,
       "utilization_rate": 0.15,
-      "sample_count": 63,
+      "sample_count": 67,
       "top_effective_patterns": [],
       "failure_patterns": [],
       "behavioral_directive": "unified_signal: struggling",
       "scoring_source": "observation_only",
-      "last_updated": "2026-04-20T04:46:57.655170+00:00"
+      "last_updated": "2026-04-20T12:55:53.711412+00:00"
     }
   },
   "voice_style": {
@@ -45458,19 +45854,107 @@
         "deletion_ratio_after": 0.0,
         "contribution_summary": "pred_false_pos cal_err=0.00",
         "ts": "2026-04-20T04:46:57.944415+00:00"
+      },
+      {
+        "electron_id": "6b2830fb4f9c",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3632,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.16",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3632,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.16",
+        "ts": "2026-04-20T12:55:43.091877+00:00"
+      },
+      {
+        "electron_id": "e9b85c9adda1",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3632,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.16",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3632,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.16",
+        "ts": "2026-04-20T12:55:45.102625+00:00"
+      },
+      {
+        "electron_id": "167c7121dba4",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3016,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.00",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3016,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.00",
+        "ts": "2026-04-20T12:55:50.381329+00:00"
+      },
+      {
+        "electron_id": "dd648a823ed5",
+        "task_seed": "Predict operator's next need. Module focus: shard_manager, context_router, unifi",
+        "observation": {
+          "credit_score": 0.15,
+          "outcome_loss": 0.3016,
+          "rework_score": 0.0,
+          "deletion_ratio_after": 0.0,
+          "operator_state_after": "unknown"
+        },
+        "hypothesis": {
+          "contribution_summary": "pred_false_pos cal_err=0.00",
+          "source": "llm_inference"
+        },
+        "credit_score": 0.15,
+        "outcome_loss": 0.3016,
+        "operator_state_after": "unknown",
+        "rework_score": 0.0,
+        "deletion_ratio_after": 0.0,
+        "contribution_summary": "pred_false_pos cal_err=0.00",
+        "ts": "2026-04-20T12:55:54.105346+00:00"
       }
     ],
     "policy": {
       "node": "voice_style",
-      "rolling_score": 0.1014,
+      "rolling_score": 0.1011,
       "confidence": 1.0,
       "utilization_rate": 0.15,
-      "sample_count": 63,
+      "sample_count": 67,
       "top_effective_patterns": [],
       "failure_patterns": [],
       "behavioral_directive": "voice_style: struggling",
       "scoring_source": "observation_only",
-      "last_updated": "2026-04-20T04:46:57.944885+00:00"
+      "last_updated": "2026-04-20T12:55:54.106135+00:00"
     }
   },
   "drift": {

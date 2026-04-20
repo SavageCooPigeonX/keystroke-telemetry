@@ -2,10 +2,11 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from src._resolve import src_import
 
-import src.intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade as intent_numeric
-from src.file_sim_seq001_v004_d0420__micro_sim_engine_prompt_file_lc_chore_pigeon_rename_cascade import self_score
-from src.intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import canonicalize_file_key, normalize_prompt_text
+intent_numeric = src_import("intent_numeric_seq001")
+self_score = src_import("file_sim_seq001", "self_score")
+canonicalize_file_key, normalize_prompt_text = src_import("intent_numeric_seq001", "canonicalize_file_key", "normalize_prompt_text")
 
 
 class NumericSurfaceNormalizationTests(unittest.TestCase):

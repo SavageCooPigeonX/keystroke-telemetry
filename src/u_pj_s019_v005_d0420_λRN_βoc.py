@@ -28,6 +28,7 @@ import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from src._resolve import src_import
 
 JOURNAL_PATH   = 'logs/prompt_journal.jsonl'
 SNAPSHOT_PATH  = 'logs/prompt_telemetry_latest.json'
@@ -887,7 +888,7 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
     # intent_job persists until cleared by copilot + tester + operator.
     if not meta_prompt_kind:
         try:
-            from src.intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import prompt_to_vector
+            prompt_to_vector = src_import("intent_numeric_seq001", "prompt_to_vector")
             pvec = prompt_to_vector(msg)
             if pvec:
                 entry['prompt_vec'] = {str(k): round(v, 4) for k, v in pvec.items()}

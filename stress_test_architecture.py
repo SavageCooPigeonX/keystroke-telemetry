@@ -12,6 +12,7 @@ import time
 import threading
 from datetime import datetime, timezone
 from pathlib import Path
+from src._resolve import src_import
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
@@ -104,7 +105,7 @@ def _decode_triple_chars(text: str) -> str:
     if not text:
         return text
     try:
-        from src.intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import normalize_prompt_text
+        normalize_prompt_text = src_import("intent_numeric_seq001", "normalize_prompt_text")
         return normalize_prompt_text(text)
     except Exception:
         return text

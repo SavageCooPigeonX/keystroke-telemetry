@@ -8,13 +8,14 @@
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 from src.tc_constants_seq001_v001 import DEFAULT_PAUSE_MS, DEFAULT_CORNER, DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_OPACITY
-from src.tc_gemini_seq001_v003_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import _load_api_key
-from src.tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade import run_popup
-from src.tc_web_seq001_v002_d0420__web_server_mode_for_thought_lc_chore_pigeon_rename_cascade import run_web
+_load_api_key = src_import("tc_gemini_seq001", "_load_api_key")
+run_popup = src_import("tc_popup_seq001", "run_popup")
+run_web = src_import("tc_web_seq001", "run_web")
 import os
 
 def main():
     import argparse
+from src._resolve import src_import
     p = argparse.ArgumentParser(description='thought completer — passive overlay')
     p.add_argument('--web', action='store_true', help='web server mode (Railway)')
     p.add_argument('--port', type=int, default=int(os.environ.get('PORT', '8235')))

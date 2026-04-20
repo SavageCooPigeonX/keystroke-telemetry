@@ -14,11 +14,12 @@ Module keeps learning via intent shards while sleeping.
 # ──────────────────────────────────────────────
 import sys
 from pathlib import Path
+from src._resolve import src_import
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade import select_context_numeric, select_context_files, select_context_ensemble, build_code_context, get_intelligent_context, log_prediction, grade_prediction, select_template, grade_and_learn
+    select_context_numeric, select_context_files, select_context_ensemble, build_code_context, get_intelligent_context, log_prediction, grade_prediction, select_template, grade_and_learn = src_import("tc_context_agent_seq001", "select_context_numeric", "select_context_files", "select_context_ensemble", "build_code_context", "get_intelligent_context", "log_prediction", "grade_prediction", "select_template", "grade_and_learn")
     assert callable(select_context_numeric), "select_context_numeric must be callable"
     assert callable(select_context_files), "select_context_files must be callable"
     assert callable(select_context_ensemble), "select_context_ensemble must be callable"
@@ -32,63 +33,63 @@ def test_import():
 
 def test_select_context_numeric_contract():
     """Data flow contract: select_context_numeric(buffer, ctx, max_files) → output."""
-    from src.tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade import select_context_numeric
+    select_context_numeric = src_import("tc_context_agent_seq001", "select_context_numeric")
     # smoke test: function exists and is callable
     assert select_context_numeric.__name__ == "select_context_numeric"
     print(f"  ✓ select_context_numeric: contract holds")
 
 def test_select_context_files_contract():
     """Data flow contract: select_context_files(buffer, ctx, max_files) → output."""
-    from src.tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade import select_context_files
+    select_context_files = src_import("tc_context_agent_seq001", "select_context_files")
     # smoke test: function exists and is callable
     assert select_context_files.__name__ == "select_context_files"
     print(f"  ✓ select_context_files: contract holds")
 
 def test_select_context_ensemble_contract():
     """Data flow contract: select_context_ensemble(buffer, ctx, max_files) → output."""
-    from src.tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade import select_context_ensemble
+    select_context_ensemble = src_import("tc_context_agent_seq001", "select_context_ensemble")
     # smoke test: function exists and is callable
     assert select_context_ensemble.__name__ == "select_context_ensemble"
     print(f"  ✓ select_context_ensemble: contract holds")
 
 def test_build_code_context_contract():
     """Data flow contract: build_code_context(buffer, ctx) → output."""
-    from src.tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade import build_code_context
+    build_code_context = src_import("tc_context_agent_seq001", "build_code_context")
     # smoke test: function exists and is callable
     assert build_code_context.__name__ == "build_code_context"
     print(f"  ✓ build_code_context: contract holds")
 
 def test_get_intelligent_context_contract():
     """Data flow contract: get_intelligent_context(buffer, ctx) → output."""
-    from src.tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade import get_intelligent_context
+    get_intelligent_context = src_import("tc_context_agent_seq001", "get_intelligent_context")
     # smoke test: function exists and is callable
     assert get_intelligent_context.__name__ == "get_intelligent_context"
     print(f"  ✓ get_intelligent_context: contract holds")
 
 def test_log_prediction_contract():
     """Data flow contract: log_prediction(buffer, predicted_files, predicted_intent) → output."""
-    from src.tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade import log_prediction
+    log_prediction = src_import("tc_context_agent_seq001", "log_prediction")
     # smoke test: function exists and is callable
     assert log_prediction.__name__ == "log_prediction"
     print(f"  ✓ log_prediction: contract holds")
 
 def test_grade_prediction_contract():
     """Data flow contract: grade_prediction(prediction_ts, actual_intent, actual_files) → output."""
-    from src.tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade import grade_prediction
+    grade_prediction = src_import("tc_context_agent_seq001", "grade_prediction")
     # smoke test: function exists and is callable
     assert grade_prediction.__name__ == "grade_prediction"
     print(f"  ✓ grade_prediction: contract holds")
 
 def test_select_template_contract():
     """Data flow contract: select_template(buffer, ctx) → output."""
-    from src.tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade import select_template
+    select_template = src_import("tc_context_agent_seq001", "select_template")
     # smoke test: function exists and is callable
     assert select_template.__name__ == "select_template"
     print(f"  ✓ select_template: contract holds")
 
 def test_grade_and_learn_contract():
     """Data flow contract: grade_and_learn(buffer, completion, outcome, files_touched, actual_intent) → output."""
-    from src.tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade import grade_and_learn
+    grade_and_learn = src_import("tc_context_agent_seq001", "grade_and_learn")
     # smoke test: function exists and is callable
     assert grade_and_learn.__name__ == "grade_and_learn"
     print(f"  ✓ grade_and_learn: contract holds")

@@ -1,4 +1,5 @@
 """tc_sim_seq001_v001.py — replay typed sessions through the thought completer pipeline.
+from src._resolve import src_import
 
 Extracts complete typing sessions from os_keystrokes.jsonl, replays them
 through Gemini at the exact pause points, and scores prediction accuracy
@@ -399,11 +400,11 @@ def replay_pause_live(pause: PausePoint, use_historical_ctx: bool = False) -> Si
                            bug where sim uses today's conversation to predict
                            a pause from last week.
     """
-    from src.tc_gemini_seq001_v003_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import call_gemini, _build_user_prompt, SYSTEM_PROMPT
+    call_gemini, _build_user_prompt, SYSTEM_PROMPT = src_import("tc_gemini_seq001", "call_gemini", "_build_user_prompt", "SYSTEM_PROMPT")
     from src.tc_trajectory_seq001_v001 import format_trajectory_for_prompt
     import json, urllib.request
     from src.tc_constants_seq001_v001 import GEMINI_MODEL, GEMINI_TIMEOUT
-    from src.tc_gemini_seq001_v003_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import _load_api_key, _strip_signal_echo
+    _load_api_key, _strip_signal_echo = src_import("tc_gemini_seq001", "_load_api_key", "_strip_signal_echo")
     
     t0 = time.time()
     
