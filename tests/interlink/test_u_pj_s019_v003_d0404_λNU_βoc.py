@@ -10,13 +10,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.u_pj_s019_v003_d0404_λNU_βoc import log_enriched_entry
+    from src.u_pj_s019_v004_d0420_λRN_βoc import log_enriched_entry
     assert callable(log_enriched_entry), "log_enriched_entry must be callable"
     print(f"  ✓ u_pj_s019_v003_d0404_λNU_βoc: 1 exports verified")
 
 def test_log_enriched_entry_contract():
     """Data flow contract: log_enriched_entry(root, msg, files_open, session_n) → output."""
-    from src.u_pj_s019_v003_d0404_λNU_βoc import log_enriched_entry
+    from src.u_pj_s019_v004_d0420_λRN_βoc import log_enriched_entry
     # smoke test: function exists and is callable
     assert log_enriched_entry.__name__ == "log_enriched_entry"
     print(f"  ✓ log_enriched_entry: contract holds")

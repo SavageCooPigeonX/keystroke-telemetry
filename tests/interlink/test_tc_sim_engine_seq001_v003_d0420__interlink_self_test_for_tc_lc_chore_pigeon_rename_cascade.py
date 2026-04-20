@@ -10,14 +10,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.tc_sim_engine_seq001_v002_d0420__intent_simulation_on_typing_pause_lc_create_sim_engine import SimResult, run_sim
+    from src.tc_sim_engine_seq001_v003_d0420__intent_simulation_on_typing_pause_lc_create_sim_engine import SimResult, run_sim
     assert callable(SimResult), "SimResult must be callable"
     assert callable(run_sim), "run_sim must be callable"
     print(f"  ✓ tc_sim_engine_seq001_v002_d0420__intent_simulation_on_typing_pause_lc_create_sim_engine: 2 exports verified")
 
 def test_run_sim_contract():
     """Data flow contract: run_sim(buffer) → output."""
-    from src.tc_sim_engine_seq001_v002_d0420__intent_simulation_on_typing_pause_lc_create_sim_engine import run_sim
+    from src.tc_sim_engine_seq001_v003_d0420__intent_simulation_on_typing_pause_lc_create_sim_engine import run_sim
     # smoke test: function exists and is callable
     assert run_sim.__name__ == "run_sim"
     print(f"  ✓ run_sim: contract holds")

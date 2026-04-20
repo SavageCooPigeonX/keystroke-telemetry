@@ -1,11 +1,11 @@
 """Desktop popup — passive always-on-top tkinter overlay."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v002 | 560 lines | ~6,908 tokens
+# SEQ: 001 | VER: v003 | 568 lines | ~6,992 tokens
 # DESC:   passive_always_on_top_tkinter
-# INTENT: fix_close_outcome_sim
-# LAST:   2026-04-20 @ 6ae8700
-# SESSIONS: 1
+# INTENT: chore_pigeon_rename_cascade
+# LAST:   2026-04-20 @ a7aacce
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None
@@ -24,8 +24,8 @@ from .tc_constants_seq001_v001 import (ROOT, KEYSTROKE_LOG, LOG_PATH, GEMINI_MOD
                            POLL_INTERVAL_MS)
 from .tc_vscode_seq001_v001 import _detect_repo_from_title
 from .tc_context_seq001_v001 import invalidate_context_cache
-from .tc_gemini_seq001_v001 import ThoughtBuffer, call_gemini, log_completion
-from .tc_sim_engine_seq001_v002_d0420__intent_simulation_on_typing_pause_lc_create_sim_engine import run_sim
+from .tc_gemini_seq001_v002_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import ThoughtBuffer, call_gemini, log_completion
+from .tc_sim_engine_seq001_v003_d0420__intent_simulation_on_typing_pause_lc_create_sim_engine import run_sim
 from .tc_buffer_watcher_seq001_v001 import BufferWatcher
 from .tc_profile_seq001_v001 import update_profile_from_completion, update_profile_from_composition
 from .tc_grader_seq001_v001 import grade_completion, log_grade, update_grade_summary

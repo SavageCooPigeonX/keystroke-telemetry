@@ -28,7 +28,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from src.tc_constants_seq001_v001 import KEYSTROKE_LOG, ROOT, GEMINI_MODEL
-from src.tc_gemini_seq001_v001 import _load_api_key
+from src.tc_gemini_seq001_v002_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import _load_api_key
 
 # ── colours ──────────────────────────────────────────────────────────────────
 BG      = '#0d1117'

@@ -10,13 +10,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.tc_popup_seq001_v002_d0420__passive_always_on_top_tkinter_lc_fix_close_outcome_sim import run_popup
+    from src.tc_popup_seq001_v003_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade import run_popup
     assert callable(run_popup), "run_popup must be callable"
     print(f"  ✓ tc_popup_seq001_v002_d0420__passive_always_on_top_tkinter_lc_fix_close_outcome_sim: 1 exports verified")
 
 def test_run_popup_contract():
     """Data flow contract: run_popup(corner, pause_ms, width, height, opacity, surface_ready) → output."""
-    from src.tc_popup_seq001_v002_d0420__passive_always_on_top_tkinter_lc_fix_close_outcome_sim import run_popup
+    from src.tc_popup_seq001_v003_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade import run_popup
     # smoke test: function exists and is callable
     assert run_popup.__name__ == "run_popup"
     print(f"  ✓ run_popup: contract holds")

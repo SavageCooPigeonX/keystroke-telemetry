@@ -5,7 +5,7 @@
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-20 12:46 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-20 12:49 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
@@ -13,7 +13,7 @@
 - **`current-query`**: MISSING — block not found in file
   - Writer: `prompt_enricher (Gemini Flash)`
 
-- **`prompt-telemetry`**: STALE — 797min old (max 10min)
+- **`prompt-telemetry`**: STALE — 800min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-19T23:28:47
 
@@ -107,7 +107,7 @@
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-20 12:46 UTC · 676 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-20 12:49 UTC · 676 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 46.9 | Del: 26.5% | Hes: 0.496) · *[source: measured]*
@@ -123,10 +123,10 @@
 - Failed on: ""
 
 ### Recent Work
+- `a7aacce` chore: pigeon rename cascade (v002 bumps)
 - `6ae8700` fix: close outcome + sim reinjection feedback loops
 - `d296d1c` chore: gitignore sensitive operator data files
 - `afa395a` chore: run push cycle
-- `b9890c2` fix: update stale sibling ref p_gpip v002->v003 in w_gpmo
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -134,22 +134,18 @@
 - 1) Staleness false-negative due to encoding/timestamp mismatch
 - 2) Build failure from compiling empty pigeon-extracted stub
 - 3) Silent sibling data corruption if prompt numeric encoding changes.
-- p_gpip regex over‑match stripping commit subjects; w_gpmo message‑buffer corruption on already‑prefixed input; plugin entry‑point missing runtime dependencies. This push enforces conventional commit‑message prefixes across the automated commit pipeline.
-- **p_gpip (seq004 v003)** speaks: Copilot updated me per operator prompt “fix_prepend_conventional_commit” to ensure comm
-- **w_gpmo (seq019 v006)** speaks: Copilot revised me under the same intent to integrate the prepend logic into the wider 
-- **pigeon_compiler/git_plugin/__init__.py** speaks: Copilot created me as a new module init file to expose the plugin com
-- **pigeon_compiler/git_plugin/__main__.py** speaks: Copilot added me as an entry point for direct plugin invocation. I as
+- `intent_numeric` mapping immutability
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
 - [HIGH] over_hard_cap in `pigeon_compiler/git_plugin/w_gpmo_s019_v004_d0420_λRN_βoc.py`
 
 ### Prompt Evolution
-*This prompt has mutated 144x (186→154 lines). Features added: task_context, prompt_journal, file_consciousness.*
+*This prompt has mutated 146x (186→336 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 144 mutations scored*
-*No significant signal yet — all 2 sections scored neutral.*
+*200 rework pairs × 146 mutations scored*
+*No significant signal yet — all 9 sections scored neutral.*
 
 **Reactor patches:** 2/531 applied (0% acceptance)
 

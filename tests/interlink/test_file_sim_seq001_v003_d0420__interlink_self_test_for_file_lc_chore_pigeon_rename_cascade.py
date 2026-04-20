@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.file_sim_seq001_v002_d0420__micro_sim_engine_prompt_file_lc_add_self_score import self_score, grade_file_for_intent, run_sim, apply_undo_penalty, clear_intent_job
+    from src.file_sim_seq001_v003_d0420__micro_sim_engine_prompt_file_lc_add_self_score import self_score, grade_file_for_intent, run_sim, apply_undo_penalty, clear_intent_job
     assert callable(self_score), "self_score must be callable"
     assert callable(grade_file_for_intent), "grade_file_for_intent must be callable"
     assert callable(run_sim), "run_sim must be callable"
@@ -20,35 +20,35 @@ def test_import():
 
 def test_self_score_contract():
     """Data flow contract: self_score(file_stem, prompt_vec, root) → output."""
-    from src.file_sim_seq001_v002_d0420__micro_sim_engine_prompt_file_lc_add_self_score import self_score
+    from src.file_sim_seq001_v003_d0420__micro_sim_engine_prompt_file_lc_add_self_score import self_score
     # smoke test: function exists and is callable
     assert self_score.__name__ == "self_score"
     print(f"  ✓ self_score: contract holds")
 
 def test_grade_file_for_intent_contract():
     """Data flow contract: grade_file_for_intent(intent_text, file_stem, root, api_key) → output."""
-    from src.file_sim_seq001_v002_d0420__micro_sim_engine_prompt_file_lc_add_self_score import grade_file_for_intent
+    from src.file_sim_seq001_v003_d0420__micro_sim_engine_prompt_file_lc_add_self_score import grade_file_for_intent
     # smoke test: function exists and is callable
     assert grade_file_for_intent.__name__ == "grade_file_for_intent"
     print(f"  ✓ grade_file_for_intent: contract holds")
 
 def test_run_sim_contract():
     """Data flow contract: run_sim(intent_text, prompt_text, top_n, root) → output."""
-    from src.file_sim_seq001_v002_d0420__micro_sim_engine_prompt_file_lc_add_self_score import run_sim
+    from src.file_sim_seq001_v003_d0420__micro_sim_engine_prompt_file_lc_add_self_score import run_sim
     # smoke test: function exists and is callable
     assert run_sim.__name__ == "run_sim"
     print(f"  ✓ run_sim: contract holds")
 
 def test_apply_undo_penalty_contract():
     """Data flow contract: apply_undo_penalty(file_stem, prompt_text, root) → output."""
-    from src.file_sim_seq001_v002_d0420__micro_sim_engine_prompt_file_lc_add_self_score import apply_undo_penalty
+    from src.file_sim_seq001_v003_d0420__micro_sim_engine_prompt_file_lc_add_self_score import apply_undo_penalty
     # smoke test: function exists and is callable
     assert apply_undo_penalty.__name__ == "apply_undo_penalty"
     print(f"  ✓ apply_undo_penalty: contract holds")
 
 def test_clear_intent_job_contract():
     """Data flow contract: clear_intent_job(intent_text, actor, root) → output."""
-    from src.file_sim_seq001_v002_d0420__micro_sim_engine_prompt_file_lc_add_self_score import clear_intent_job
+    from src.file_sim_seq001_v003_d0420__micro_sim_engine_prompt_file_lc_add_self_score import clear_intent_job
     # smoke test: function exists and is callable
     assert clear_intent_job.__name__ == "clear_intent_job"
     print(f"  ✓ clear_intent_job: contract holds")

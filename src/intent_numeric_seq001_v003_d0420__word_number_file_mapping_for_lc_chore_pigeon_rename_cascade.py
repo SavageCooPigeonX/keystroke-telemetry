@@ -22,11 +22,11 @@ without any LLM inference — pure math.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v002 | 777 lines | ~6,751 tokens
+# SEQ: 001 | VER: v003 | 785 lines | ~6,817 tokens
 # DESC:   word_number_file_mapping_for
-# INTENT: fix_close_outcome_sim
-# LAST:   2026-04-20 @ 6ae8700
-# SESSIONS: 1
+# INTENT: chore_pigeon_rename_cascade
+# LAST:   2026-04-20 @ a7aacce
+# SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None

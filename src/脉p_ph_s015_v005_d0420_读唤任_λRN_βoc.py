@@ -255,7 +255,7 @@ def pair_pulse_to_prompt(root: Path, filepath: Path,
     # ── Update intent_numeric matrix: this prompt → this file ──
     if prompt_msg:
         try:
-            from src.intent_numeric_seq001_v002_d0420__word_number_file_mapping_for_lc_fix_close_outcome_sim import record_touch
+            from src.intent_numeric_seq001_v003_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import record_touch
             record_touch(prompt_msg, [filepath.stem], learning_rate=0.08)
         except Exception:
             pass
