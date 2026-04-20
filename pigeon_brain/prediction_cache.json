@@ -1,259 +1,6 @@
 {
   "predictions": [
     {
-      "prediction_id": "75e8085f618c",
-      "batch_id": "ca64988eb272",
-      "session_n_at": 19,
-      "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-      "mode": "heat",
-      "trend": {
-        "states": [
-          "unknown",
-          "unknown",
-          "neutral",
-          "hesitant",
-          "hesitant",
-          "unknown",
-          "frustrated",
-          "unknown",
-          "unknown",
-          "unknown"
-        ],
-        "modules": [
-          "file_heat_map",
-          "import_rewriter",
-          "file_writer"
-        ],
-        "avg_del": 0.0329,
-        "avg_wpm": 11.9,
-        "dominant_state": "unknown",
-        "n_entries": 10
-      },
-      "result": {
-        "origin": "file_heat_map",
-        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-        "mode": "heat",
-        "path": [
-          "file_heat_map",
-          "file_consciousness",
-          "dynamic_prompt",
-          "drift_watcher",
-          "copilot_prompt_manager",
-          "context_budget",
-          "cognitive_reactor",
-          "cognitive_reactor_seq014_patch_generator"
-        ],
-        "depth": 8,
-        "heat": 0.655,
-        "importance": 0.513,
-        "alive": true,
-        "nodes_touched": 5,
-        "fears_collected": 15,
-        "dead_veins": 0,
-        "narrative_fragments": 5
-      },
-      "confidence": 0.92,
-      "ts": "2026-03-29T23:36:41.736898+00:00",
-      "scored": false
-    },
-    {
-      "prediction_id": "a4ed8abcc47e",
-      "batch_id": "ca64988eb272",
-      "session_n_at": 19,
-      "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-      "mode": "failure",
-      "trend": {
-        "states": [
-          "unknown",
-          "unknown",
-          "neutral",
-          "hesitant",
-          "hesitant",
-          "unknown",
-          "frustrated",
-          "unknown",
-          "unknown",
-          "unknown"
-        ],
-        "modules": [
-          "file_heat_map",
-          "import_rewriter",
-          "file_writer"
-        ],
-        "avg_del": 0.0329,
-        "avg_wpm": 11.9,
-        "dominant_state": "unknown",
-        "n_entries": 10
-      },
-      "result": {
-        "origin": "file_heat_map",
-        "task_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-        "mode": "failure",
-        "path": [
-          "file_heat_map"
-        ],
-        "depth": 1,
-        "heat": 0.355,
-        "importance": 0.92,
-        "alive": true,
-        "nodes_touched": 1,
-        "fears_collected": 2,
-        "dead_veins": 0,
-        "narrative_fragments": 1
-      },
-      "confidence": 0.92,
-      "ts": "2026-03-29T23:36:41.736898+00:00",
-      "scored": false
-    },
-    {
-      "prediction_id": "957a12b3d8e2",
-      "batch_id": "c97c6459104f",
-      "session_n_at": 19,
-      "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-      "mode": "targeted",
-      "trend": {
-        "states": [
-          "frustrated",
-          "unknown",
-          "frustrated",
-          "unknown",
-          "hesitant",
-          "unknown",
-          "unknown",
-          "unknown",
-          "hesitant",
-          "unknown"
-        ],
-        "modules": [
-          "file_heat_map",
-          "import_rewriter",
-          "file_writer"
-        ],
-        "avg_del": 0.0472,
-        "avg_wpm": 0.0,
-        "dominant_state": "unknown",
-        "n_entries": 10
-      },
-      "result": {
-        "mode": "targeted",
-        "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer"
-      },
-      "confidence": 0.49,
-      "ts": "2026-03-30T06:40:19.135688+00:00",
-      "scored": false
-    },
-    {
-      "prediction_id": "99b5f2c26a19",
-      "batch_id": "c97c6459104f",
-      "session_n_at": 19,
-      "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-      "mode": "heat",
-      "trend": {
-        "states": [
-          "frustrated",
-          "unknown",
-          "frustrated",
-          "unknown",
-          "hesitant",
-          "unknown",
-          "unknown",
-          "unknown",
-          "hesitant",
-          "unknown"
-        ],
-        "modules": [
-          "file_heat_map",
-          "import_rewriter",
-          "file_writer"
-        ],
-        "avg_del": 0.0472,
-        "avg_wpm": 0.0,
-        "dominant_state": "unknown",
-        "n_entries": 10
-      },
-      "result": {
-        "mode": "heat",
-        "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer"
-      },
-      "confidence": 0.49,
-      "ts": "2026-03-30T06:40:19.135688+00:00",
-      "scored": false
-    },
-    {
-      "prediction_id": "2d1493450ee5",
-      "batch_id": "c97c6459104f",
-      "session_n_at": 19,
-      "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-      "mode": "failure",
-      "trend": {
-        "states": [
-          "frustrated",
-          "unknown",
-          "frustrated",
-          "unknown",
-          "hesitant",
-          "unknown",
-          "unknown",
-          "unknown",
-          "hesitant",
-          "unknown"
-        ],
-        "modules": [
-          "file_heat_map",
-          "import_rewriter",
-          "file_writer"
-        ],
-        "avg_del": 0.0472,
-        "avg_wpm": 0.0,
-        "dominant_state": "unknown",
-        "n_entries": 10
-      },
-      "result": {
-        "mode": "failure",
-        "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer"
-      },
-      "confidence": 0.49,
-      "ts": "2026-03-30T06:40:19.135688+00:00",
-      "scored": false
-    },
-    {
-      "prediction_id": "269036613452",
-      "batch_id": "720c88f31bbf",
-      "session_n_at": 19,
-      "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-      "mode": "targeted",
-      "trend": {
-        "states": [
-          "frustrated",
-          "unknown",
-          "frustrated",
-          "unknown",
-          "hesitant",
-          "unknown",
-          "unknown",
-          "unknown",
-          "hesitant",
-          "unknown"
-        ],
-        "modules": [
-          "file_heat_map",
-          "import_rewriter",
-          "file_writer"
-        ],
-        "avg_del": 0.0472,
-        "avg_wpm": 0.0,
-        "dominant_state": "unknown",
-        "n_entries": 10
-      },
-      "result": {
-        "mode": "targeted",
-        "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer"
-      },
-      "confidence": 0.49,
-      "ts": "2026-03-30T06:43:48.725434+00:00",
-      "scored": false
-    },
-    {
       "prediction_id": "7f5382bf146e",
       "batch_id": "720c88f31bbf",
       "session_n_at": 19,
@@ -1973,7 +1720,241 @@
       "confidence": 0.248,
       "ts": "2026-04-19T23:59:07.159525+00:00",
       "scored": false
+    },
+    {
+      "prediction_id": "d4784820e70b",
+      "batch_id": "0458ca49e2ac",
+      "session_n_at": 1001,
+      "phantom_seed": "Predict operator's next need. Module focus: intent_outcome_binder, file_sim, tc_intent_manager",
+      "mode": "targeted",
+      "trend": {
+        "states": [
+          "hesitant",
+          "unknown",
+          "hesitant",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown"
+        ],
+        "modules": [
+          "intent_outcome_binder",
+          "file_sim",
+          "tc_intent_manager",
+          "test_tc_intent",
+          "master_test"
+        ],
+        "avg_del": 0.0496,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "targeted",
+        "phantom_seed": "Predict operator's next need. Module focus: intent_outcome_binder, file_sim, tc_intent_manager"
+      },
+      "confidence": 0.248,
+      "ts": "2026-04-20T00:00:55.550413+00:00",
+      "scored": false
+    },
+    {
+      "prediction_id": "28ab724ed797",
+      "batch_id": "0458ca49e2ac",
+      "session_n_at": 1001,
+      "phantom_seed": "Predict operator's next need. Module focus: intent_outcome_binder, file_sim, tc_intent_manager",
+      "mode": "heat",
+      "trend": {
+        "states": [
+          "hesitant",
+          "unknown",
+          "hesitant",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown"
+        ],
+        "modules": [
+          "intent_outcome_binder",
+          "file_sim",
+          "tc_intent_manager",
+          "test_tc_intent",
+          "master_test"
+        ],
+        "avg_del": 0.0496,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "heat",
+        "phantom_seed": "Predict operator's next need. Module focus: intent_outcome_binder, file_sim, tc_intent_manager"
+      },
+      "confidence": 0.248,
+      "ts": "2026-04-20T00:00:55.550413+00:00",
+      "scored": false
+    },
+    {
+      "prediction_id": "ee89dadc8ff0",
+      "batch_id": "0458ca49e2ac",
+      "session_n_at": 1001,
+      "phantom_seed": "Predict operator's next need. Module focus: intent_outcome_binder, file_sim, tc_intent_manager",
+      "mode": "failure",
+      "trend": {
+        "states": [
+          "hesitant",
+          "unknown",
+          "hesitant",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown"
+        ],
+        "modules": [
+          "intent_outcome_binder",
+          "file_sim",
+          "tc_intent_manager",
+          "test_tc_intent",
+          "master_test"
+        ],
+        "avg_del": 0.0496,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "failure",
+        "phantom_seed": "Predict operator's next need. Module focus: intent_outcome_binder, file_sim, tc_intent_manager"
+      },
+      "confidence": 0.248,
+      "ts": "2026-04-20T00:00:55.550413+00:00",
+      "scored": false
+    },
+    {
+      "prediction_id": "dc7904933c4d",
+      "batch_id": "d7e222ac9b03",
+      "session_n_at": 1001,
+      "phantom_seed": "Predict operator's next need. Module focus: intent_outcome_binder, file_sim, tc_intent_manager",
+      "mode": "targeted",
+      "trend": {
+        "states": [
+          "hesitant",
+          "unknown",
+          "hesitant",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown"
+        ],
+        "modules": [
+          "intent_outcome_binder",
+          "file_sim",
+          "tc_intent_manager",
+          "test_tc_intent",
+          "master_test"
+        ],
+        "avg_del": 0.0496,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "targeted",
+        "phantom_seed": "Predict operator's next need. Module focus: intent_outcome_binder, file_sim, tc_intent_manager"
+      },
+      "confidence": 0.248,
+      "ts": "2026-04-20T00:04:05.080258+00:00",
+      "scored": false
+    },
+    {
+      "prediction_id": "c75087137273",
+      "batch_id": "d7e222ac9b03",
+      "session_n_at": 1001,
+      "phantom_seed": "Predict operator's next need. Module focus: intent_outcome_binder, file_sim, tc_intent_manager",
+      "mode": "heat",
+      "trend": {
+        "states": [
+          "hesitant",
+          "unknown",
+          "hesitant",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown"
+        ],
+        "modules": [
+          "intent_outcome_binder",
+          "file_sim",
+          "tc_intent_manager",
+          "test_tc_intent",
+          "master_test"
+        ],
+        "avg_del": 0.0496,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "heat",
+        "phantom_seed": "Predict operator's next need. Module focus: intent_outcome_binder, file_sim, tc_intent_manager"
+      },
+      "confidence": 0.248,
+      "ts": "2026-04-20T00:04:05.080258+00:00",
+      "scored": false
+    },
+    {
+      "prediction_id": "cbb8013704cf",
+      "batch_id": "d7e222ac9b03",
+      "session_n_at": 1001,
+      "phantom_seed": "Predict operator's next need. Module focus: intent_outcome_binder, file_sim, tc_intent_manager",
+      "mode": "failure",
+      "trend": {
+        "states": [
+          "hesitant",
+          "unknown",
+          "hesitant",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown",
+          "unknown"
+        ],
+        "modules": [
+          "intent_outcome_binder",
+          "file_sim",
+          "tc_intent_manager",
+          "test_tc_intent",
+          "master_test"
+        ],
+        "avg_del": 0.0496,
+        "avg_wpm": 0.0,
+        "dominant_state": "unknown",
+        "n_entries": 10
+      },
+      "result": {
+        "mode": "failure",
+        "phantom_seed": "Predict operator's next need. Module focus: intent_outcome_binder, file_sim, tc_intent_manager"
+      },
+      "confidence": 0.248,
+      "ts": "2026-04-20T00:04:05.080258+00:00",
+      "scored": false
     }
   ],
-  "updated": "2026-04-19T23:59:07.208444+00:00"
+  "updated": "2026-04-20T00:04:05.111135+00:00"
 }

@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-19 23:59 UTC · 795 prompts · 3 rework entries · zero LLM calls*
+*Auto-generated 2026-04-20 00:03 UTC · 795 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -29,14 +29,15 @@
 
 ## Pair Performance
 
-*3 responses scored · 0 background excluded*
+*200 responses scored · 0 background excluded*
 
 **Accuracy: 100% OK | 0% miss** *[source: measured]*
+- trend: **stable** (100% → 99%)
 
 **Prompt→edit latency:** 576.7s median (71 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*139 mutations scored*
+*141 mutations scored*
 - no significant signal yet — all sections scored neutral
 
 **Reactor:** 531 fires, 2 accepted (0%)
@@ -44,10 +45,14 @@
 
 ## Codebase Health
 
-*60 self-fix reports · 2026-03-16 → 2026-04-19*
+*61 self-fix reports · 2026-03-16 → 2026-04-20*
 
-**Problem trend: growing** (early avg 24 → recent avg 80) *[source: measured]*
-- problems growing ~55/push — expect more over_hard_cap and dead_exports without intervention
+**Problem trend: growing** (early avg 24 → recent avg 60) *[source: measured]*
+- problems growing ~36/push — expect more over_hard_cap and dead_exports without intervention
+
+### Fragile Contracts *[source: llm_derived]*
+*From push narratives — treat as hypothesis:*
+- REGRESSION WATCHLIST: Downstream dynamic imports broken by the rename; pigeon compiler misinterpreting rename as a file split; dangling compiler artifact causing build collisions.
 
 ### Electron Killers *[source: measured]*
 - `graph_heat_map` — 2 deaths/4 calls (50%)
@@ -56,22 +61,22 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "fpraaa"
-- "sue"
+- "eee"
+- "kkk"
+- "hhheeeaaa"
 - "iss"
-- "le k"
-- "/ hhhooot st s"
-- "fro"
-- "sww"
-- "thub"
-- "ititit mmumuuststst   inininjjjeeeccct t"
-- "d d d"
+- "test im"
+- "mmm"
+- "caa"
+- "fww"
+- "fpraaa"
+- "ssesee"
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** WEAK (placeholder data) — 5 entries, 2 unique scores in last 20
+- **Rework signal:** GOOD — 200 entries, 3 unique scores in last 20
 - **Training pairs:** 193 captured
 - **Prediction accuracy:** F1=0.000, calibration=0.228 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
