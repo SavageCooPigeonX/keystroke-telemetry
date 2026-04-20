@@ -40,7 +40,7 @@ def _pull_sibling_symbols() -> None:
         "p_git__s001_v001",
         "p_gph_s002_v002_d0419_λGI",
         "p_gpgo_s003_v001",
-        "p_gpip_s004_v002_d0419_λGI",
+        "p_gpip_s004_v003_d0420_λFX",
         "p_gpci_s007_v001",
         "p_gpoh_s009_v001",
         "p_gpop_s008_v001",
