@@ -5,7 +5,7 @@
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-20 00:11 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-20 04:34 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
@@ -16,7 +16,7 @@
 - **`prompt-telemetry`**: MISSING — block not found in file
   - Writer: `prompt_journal._refresh_copilot_instructions`
 
-- **`learning-loop`**: BEHIND — 235 unprocessed entries, last ran 177h ago
+- **`learning-loop`**: BEHIND — 246 unprocessed entries, last ran 181h ago
   - Writer: `git_plugin → catch_up (post-commit)`
   - Last updated: 2026-04-12T15:20:45.419937+00:00
 
@@ -28,67 +28,100 @@
 
 ---
 
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-20 00:10 UTC · 676 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-20 04:34 UTC · 676 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 46.9 | Del: 26.5% | Hes: 0.496) · *[source: measured]*
 
-**Prompt ms:** 22632, 22632, 8648, 14032 (avg 16986ms)
+**Prompt ms:** 138480, 52837, 11586, 11586, 52009 (avg 53300ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### AI Rework Surface
-*Miss rate: 0.5% (200 responses)*
+*Miss rate: 5.5% (200 responses)*
+- Failed on: ""
+- Failed on: ""
 - Failed on: ""
 
 ### Recent Work
+- `0a9ef4f` fix: prepend conventional commit type to intent slug so chore/feat/fix map correctly
 - `00efba0` chore: run push cycle
 - `e9426b1` fix: rename orchestrator v002->v003 to match __init__ import after pigeon bump
 - `af2a13f` fix: add missing _replace_exact_module_path import in rl sibling
-- `7da6ce7` fix: update sibling list in renamed orchestrator after p_gph+p_gpip rename
 
 ### Coaching Directives *[source: llm_derived]*
 *LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
-- **Anticipate the next refactor in `w_gpmo_s019_v005_d0420_λRU_βoc.py`.**
-- **When they enter a `restructuring` state (high deletion), provide concise, modular alternatives.**
-- **In `focused` states (high WPM, lower hesitation), match their pace with direct, complete code completions for the immediate line or block.**
-- **Preemptively flag integration points with other "pigeon_extracted_by_compiler" modules**
-- **Given the near-zero miss rate, maintain precision.**
+- **Anticipate churn on `w_gpmo_s019` and `p_gpip` modules**
+- **Respond to restructuring commits with consolidation**
+- **Preempt abandoned threads**
+- **Flag high-hesitation moments**
+- **Leverage evening focus**
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
 - Downstream dynamic imports broken by the rename; pigeon compiler misinterpreting rename as a file split; dangling compiler artifact causing build collisions.
+- p_gpip regex over‑match stripping commit subjects; w_gpmo message‑buffer corruption on already‑prefixed input; plugin entry‑point missing runtime dependencies. This push enforces conventional commit‑message prefixes across the automated commit pipeline.
 - `w_gpmo`’s silent push failure; test file import dependency on Pigeon’s rename; `__main__.py`’s brittle function call into core logic. This push establishes the git plugin scaffolding and the run_push_cycle command orchestration.
-- Git plugin's silent failure on filesystem permission errors; binder's false-positive acceptance of a changed plugin return contract; breakage if `git` subprocess commands are unavailable or altered. This push establishes a self-referential mechanism to link a commit's stated intent with its resulting code state by modifying the commit object itself.
+- **p_gpip (seq004 v003)** speaks: Copilot updated me per operator prompt “fix_prepend_conventional_commit” to ensure comm
+- **w_gpmo (seq019 v006)** speaks: Copilot revised me under the same intent to integrate the prepend logic into the wider 
+- **pigeon_compiler/git_plugin/__init__.py** speaks: Copilot created me as a new module init file to expose the plugin com
+- **pigeon_compiler/git_plugin/__main__.py** speaks: Copilot added me as an entry point for direct plugin invocation. I as
 - **w_gpmo** (seq019 v005) speaks: I was edited by Copilot in response to the operator’s “run_push_cycle” intent, expandin
 - **__init__.py** (pigeon_compiler/git_plugin) speaks: I was created by Copilot as a package initializer, likely triggered
-- **__main__.py** (pigeon_compiler/git_plugin) speaks: Copilot generated me to provide a command-line entry point for the 
-- **w_gpmo_s019_v004_d0420_λRN_βoc.py** speaks: I am a zero-byte stub created by Copilot, presumably as a rename target fo
-- **test_w_gpmo_s019_v004_d0420_λRN_βoc.py** speaks: Copilot authored me as a test for the forthcoming renamed module. I a
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
 - [HIGH] over_hard_cap in `pigeon_compiler/git_plugin/w_gpmo_s019_v004_d0420_λRN_βoc.py`
 
 ### Prompt Evolution
-*This prompt has mutated 142x (186→114 lines). Features added: task_context, prompt_journal, file_consciousness.*
+*This prompt has mutated 143x (186→120 lines). Features added: task_context, prompt_journal, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 142 mutations scored*
+*200 rework pairs × 143 mutations scored*
 *No significant signal yet — all 2 sections scored neutral.*
 
 **Reactor patches:** 2/531 applied (0% acceptance)
 
 ### File Consciousness
-*1 modules profiled*
+*2 modules profiled*
 
 **High-drama (most mutations):**
-- `w_gpmo` v4
+- `w_gpmo` v6 ↔ p_gpip
+- `p_gpip` v3 ↔ w_gpmo
 
 **Codebase fears:**
+- regex format dependency (1 modules)
 - swallowed exception (1 modules)
 - file may not exist (1 modules)
 

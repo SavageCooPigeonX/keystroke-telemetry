@@ -1,27 +1,52 @@
 {
-  "generated": "2026-04-20T00:09:00.355726+00:00",
-  "total": 1,
+  "generated": "2026-04-20T00:11:46.391883+00:00",
+  "total": 2,
   "files": [
     {
-      "path": "pigeon_compiler/git_plugin/w_gpmo_s019_v005_d0420_λRU_βoc.py",
+      "path": "pigeon_compiler/git_plugin/p_gpip_s004_v003_d0420_λFX.py",
+      "name": "p_gpip",
+      "seq": 4,
+      "ver": 3,
+      "date": "0420",
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "intent": "fix_prepend_conventional_commit",
+      "intent_code": "FX",
+      "bug_keys": [],
+      "bug_counts": {},
+      "bug_entities": {},
+      "last_bug_mark": "",
+      "tokens": 462,
+      "history": [
+        {
+          "ver": 3,
+          "date": "0420",
+          "desc": "auto_extracted_by_pigeon_compiler",
+          "intent": "fix_prepend_conventional_commit",
+          "tokens": 462,
+          "action": "registered"
+        }
+      ]
+    },
+    {
+      "path": "pigeon_compiler/git_plugin/w_gpmo_s019_v006_d0420_λFX_βoc.py",
       "name": "w_gpmo",
       "seq": 19,
-      "ver": 5,
+      "ver": 6,
       "date": "0420",
       "desc": "pigeon_extracted_by_compiler",
-      "intent": "run_push_cycle",
-      "intent_code": "RU",
+      "intent": "fix_prepend_conventional_commit",
+      "intent_code": "FX",
       "bug_keys": [
         "oc"
       ],
       "bug_counts": {
-        "oc": 2
+        "oc": 3
       },
       "bug_entities": {
         "oc": "Split Fiend of wgpmo"
       },
       "last_bug_mark": "d0420v004",
-      "tokens": 6981,
+      "tokens": 6979,
       "history": [
         {
           "ver": 4,
@@ -38,6 +63,14 @@
           "intent": "run_push_cycle",
           "action": "mutated",
           "tokens": 6981
+        },
+        {
+          "ver": 6,
+          "date": "0420",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "fix_prepend_conventional_commit",
+          "action": "mutated",
+          "tokens": 6979
         }
       ]
     }

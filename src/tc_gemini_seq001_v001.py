@@ -399,6 +399,12 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
         parts.append(f'ORGANISM: {ctx["organism_narrative"][:200]}')
     if ctx.get('copilot_intent'):
         parts.append(f'COPILOT FOCUS: {ctx["copilot_intent"][:150]}')
+    if ctx.get('sim_reinjection'):
+        sr = ctx['sim_reinjection']
+        parts.append(
+            f'SIM EXPANSION ({sr["sim_name"]}, score={sr["score"]}, age={sr["age_s"]}s): '
+            f'{sr["expanded_prompt"][:300]}'
+        )
 
     # ── 5. OPERATOR INTELLIGENCE (behavioral model) ──
     intel_block = format_intelligence_for_prompt(load_profile())

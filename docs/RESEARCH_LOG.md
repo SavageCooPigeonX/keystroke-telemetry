@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-20 00:03 UTC · 795 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-20 00:18 UTC · 796 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -14,18 +14,18 @@
 
 ### Blind Spots *[source: measured]*
 *Edited without being predicted — the real surprises:*
-- `__init__` — 50x unpredicted
-- `heal` — 50x unpredicted
-- `heal_seq009_orchestrator` — 50x unpredicted
-- `nametag` — 50x unpredicted
-- `nametag_seq011_scan` — 50x unpredicted
+- `__main__` — 100x unpredicted
+- `_tmp_regen_dict` — 50x unpredicted
+- `_tmp_token_audit` — 50x unpredicted
+- `_tmp_token_optimizer` — 50x unpredicted
+- `copilot_prompt_manager_seq020_auto_index_builder` — 50x unpredicted
 
 ## Live Operator State
 
-*795 prompts profiled · source: measured*
+*796 prompts profiled · source: measured*
 
-**Dominant: `abandoned` | Submit: 66% | Del: 4.3%**
-- deletion ratio stable — no major mode shift detected
+**Dominant: `abandoned` | Submit: 66% | Del: 4.1%**
+- operator entering restructuring mode — expect more deletions than new code
 
 ## Pair Performance
 
@@ -37,7 +37,7 @@
 **Prompt→edit latency:** 576.7s median (71 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*141 mutations scored*
+*143 mutations scored*
 - no significant signal yet — all sections scored neutral
 
 **Reactor:** 531 fires, 2 accepted (0%)
@@ -45,10 +45,10 @@
 
 ## Codebase Health
 
-*61 self-fix reports · 2026-03-16 → 2026-04-20*
+*63 self-fix reports · 2026-03-16 → 2026-04-20*
 
-**Problem trend: growing** (early avg 24 → recent avg 60) *[source: measured]*
-- problems growing ~36/push — expect more over_hard_cap and dead_exports without intervention
+**Problem trend: growing** (early avg 24 → recent avg 30) *[source: measured]*
+- problems growing ~6/push — expect more over_hard_cap and dead_exports without intervention
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives — treat as hypothesis:*
@@ -61,16 +61,16 @@
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- "eee"
-- "kkk"
-- "hhheeeaaa"
-- "iss"
-- "test im"
-- "mmm"
-- "caa"
+- ",,   BBB...   CCCOOOppp"
+- "yuu"
+- "uuu"
+- "d d d"
+- "bbby y y"
+- "iiit t t"
+- "sww"
 - "fww"
-- "fpraaa"
-- "ssesee"
+- "ppprrr"
+- "sue"
 
 ## Confidence
 
@@ -78,7 +78,7 @@
 
 - **Rework signal:** GOOD — 200 entries, 3 unique scores in last 20
 - **Training pairs:** 193 captured
-- **Prediction accuracy:** F1=0.000, calibration=0.228 (200 scored)
+- **Prediction accuracy:** F1=0.000, calibration=0.191 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
 - **Memory shards:** 11 active (zero LLM calls)
 

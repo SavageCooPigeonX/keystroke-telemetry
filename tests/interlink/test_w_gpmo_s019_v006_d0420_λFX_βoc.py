@@ -1,6 +1,6 @@
-"""Interlink self-test for w_gpmo_s019_v005_d0420_λRU_βoc.
+"""Interlink self-test for w_gpmo_s019_v006_d0420_λFX_βoc.
 
-Auto-generated. This test keeps w_gpmo_s019_v005_d0420_λRU_βoc interlinked.
+Auto-generated. This test keeps w_gpmo_s019_v006_d0420_λFX_βoc interlinked.
 When this passes + pigeon cap + entropy shed → module sleeps.
 Module keeps learning via intent shards while sleeping.
 """
@@ -12,7 +12,7 @@ def test_import():
     """Module imports without error."""
     from pigeon_compiler.git_plugin.w_gpmo_s019_v006_d0420_λFX_βoc import run
     assert callable(run), "run must be callable"
-    print(f"  ✓ w_gpmo_s019_v005_d0420_λRU_βoc: 1 exports verified")
+    print(f"  ✓ w_gpmo_s019_v006_d0420_λFX_βoc: 1 exports verified")
 
 def test_run_contract():
     """Data flow contract: run() → output."""
@@ -24,7 +24,7 @@ def test_run_contract():
     print(f"  ✓ run: contract holds")
 
 def run_interlink_test():
-    """Run all interlink checks for w_gpmo_s019_v005_d0420_λRU_βoc."""
+    """Run all interlink checks for w_gpmo_s019_v006_d0420_λFX_βoc."""
     tests = [v for k, v in globals().items() if k.startswith("test_")]
     passed = 0
     for t in tests:
@@ -35,7 +35,7 @@ def run_interlink_test():
             print(f"  ✗ {t.__name__}: {e}")
     total = len(tests)
     status = "INTERLINKED" if passed == total else f"{passed}/{total}"
-    print(f"  w_gpmo_s019_v005_d0420_λRU_βoc: {status}")
+    print(f"  w_gpmo_s019_v006_d0420_λFX_βoc: {status}")
     return passed == total
 
 if __name__ == "__main__":

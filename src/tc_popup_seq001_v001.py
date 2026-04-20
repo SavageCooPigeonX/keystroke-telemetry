@@ -17,6 +17,7 @@ from .tc_constants_seq001_v001 import (ROOT, KEYSTROKE_LOG, LOG_PATH, GEMINI_MOD
 from .tc_vscode_seq001_v001 import _detect_repo_from_title
 from .tc_context_seq001_v001 import invalidate_context_cache
 from .tc_gemini_seq001_v001 import ThoughtBuffer, call_gemini, log_completion
+from .tc_sim_engine_seq001_v001 import run_sim
 from .tc_buffer_watcher_seq001_v001 import BufferWatcher
 from .tc_profile_seq001_v001 import update_profile_from_completion, update_profile_from_composition
 from .tc_grader_seq001_v001 import grade_completion, log_grade, update_grade_summary
@@ -398,7 +399,23 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
 
             def _do():
                 t0 = time.time()
-                result, ctx_files = call_gemini(buf, self.thought_buffer)
+                # Run primary completion + sim in parallel
+                result_holder = [None, None]
+                def _primary():
+                    result_holder[0] = call_gemini(buf, self.thought_buffer)
+                def _sim():
+                    try:
+                        result_holder[1] = run_sim(buf)
+                    except Exception as _se:
+                        print(f'[sim] error: {_se}')
+                t_p = threading.Thread(target=_primary, daemon=True)
+                t_s = threading.Thread(target=_sim, daemon=True)
+                t_p.start(); t_s.start()
+                t_p.join(); t_s.join(timeout=35)
+                result, ctx_files = result_holder[0] or ('', [])
+                sim_winner = result_holder[1]
+                if sim_winner:
+                    print(f'[sim] winner={sim_winner.name} score={sim_winner.score:.2f}')
                 lat = int((time.time() - t0) * 1000)
                 print(f'[completer] latency={lat}ms len={len(result) if result else 0}')
                 self.root.after(0, lambda: self._show(buf, result, lat, ctx_files))

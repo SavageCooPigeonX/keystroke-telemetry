@@ -1,1 +1,0 @@
-{"schema": "execution_telemetry/v1", "seq": 1, "session_id": "40b549eca580", "timestamp_ms": 1774217820734, "event_type": "start", "from_file": "", "to_file": "", "job_id": "test_job", "status": "in_progress", "delta_ms": 0, "context": {}}

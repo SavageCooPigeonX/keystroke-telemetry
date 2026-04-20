@@ -237,6 +237,23 @@ def load_context(repo_root: Path | None = None) -> dict:
         except Exception:
             pass
 
+    # Sim reinjection — winning expansion from last pause sim
+    sri = r / 'logs' / 'tc_intent_reinjection.json'
+    if sri.exists():
+        try:
+            d = json.loads(sri.read_text('utf-8', errors='ignore'))
+            age_s = time.time() - datetime.fromisoformat(d['ts'].replace('Z', '+00:00')).timestamp()
+            if age_s < 300:  # only inject if <5 min stale
+                ctx['sim_reinjection'] = {
+                    'expanded_prompt': d.get('expanded_prompt', '')[:400],
+                    'sim_name': d.get('sim_name', ''),
+                    'files': d.get('files', [])[:4],
+                    'score': d.get('score', 0),
+                    'age_s': round(age_s),
+                }
+        except Exception:
+            pass
+
     _ctx_cache = ctx
     _ctx_ts = now
     return ctx

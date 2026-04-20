@@ -1,9 +1,9 @@
 # ── pigeon ────────────────────────────────────
-# SEQ: 019 | VER: v005 | 635 lines | ~6,981 tokens
+# SEQ: 019 | VER: v006 | 635 lines | ~6,979 tokens
 # DESC:   pigeon_extracted_by_compiler
-# INTENT: run_push_cycle
-# LAST:   2026-04-20 @ 00efba0
-# SESSIONS: 3
+# INTENT: fix_prepend_conventional_commit
+# LAST:   2026-04-20 @ 0a9ef4f
+# SESSIONS: 4
 # ──────────────────────────────────────────────
 """git_plugin_main_orchestrator_seq019_v001.py — Pigeon-extracted by compiler."""
 from datetime import datetime, timezone
