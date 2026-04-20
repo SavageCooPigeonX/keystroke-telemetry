@@ -1,27 +1,27 @@
 {
-  "generated": "2026-04-20T00:00:58.616421+00:00",
+  "generated": "2026-04-20T00:09:00.355726+00:00",
   "total": 1,
   "files": [
     {
-      "path": "pigeon_compiler/git_plugin/w_gpmo_s019_v004_d0420_λRN_βoc.py",
+      "path": "pigeon_compiler/git_plugin/w_gpmo_s019_v005_d0420_λRU_βoc.py",
       "name": "w_gpmo",
       "seq": 19,
-      "ver": 4,
+      "ver": 5,
       "date": "0420",
       "desc": "pigeon_extracted_by_compiler",
-      "intent": "rename_orchestrator_v002",
-      "intent_code": "RN",
+      "intent": "run_push_cycle",
+      "intent_code": "RU",
       "bug_keys": [
         "oc"
       ],
       "bug_counts": {
-        "oc": 1
+        "oc": 2
       },
       "bug_entities": {
         "oc": "Split Fiend of wgpmo"
       },
       "last_bug_mark": "d0420v004",
-      "tokens": 6979,
+      "tokens": 6981,
       "history": [
         {
           "ver": 4,
@@ -30,6 +30,14 @@
           "intent": "rename_orchestrator_v002",
           "tokens": 6979,
           "action": "registered"
+        },
+        {
+          "ver": 5,
+          "date": "0420",
+          "desc": "pigeon_extracted_by_compiler",
+          "intent": "run_push_cycle",
+          "action": "mutated",
+          "tokens": 6981
         }
       ]
     }

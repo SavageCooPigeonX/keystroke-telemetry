@@ -28,13 +28,16 @@ def _parse_intent(msg: str) -> str:
     'fix: apply directory hero image'  → 'fix_directory_hero'
     """
     line = msg.split('\n')[0].strip()
+    prefix = ''
     m = re.match(
-        r'^(?:feat|fix|chore|refactor|docs|test|ci)(?:\([^)]+\))?:\s*', line)
+        r'^(feat|fix|chore|refactor|docs|test|ci)(?:\([^)]+\))?:\s*', line)
     if m:
+        prefix = m.group(1)
         line = line[m.end():]
     slug = re.sub(r'[^a-z0-9]+', '_', line.lower()).strip('_')
     words = [w for w in slug.split('_') if w][:3]
-    return '_'.join(words) or 'manual_edit'
+    base = '_'.join(words) or 'manual_edit'
+    return f'{prefix}_{base}' if prefix else base
 
 
 def _intent_code(intent: str) -> str:

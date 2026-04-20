@@ -2,10 +2,36 @@
 
 ---
 
+<!-- pigeon:staleness-alert -->
+## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
+
+*Checked 2026-04-20 00:11 UTC — 3 block(s) stale or missing*
+
+**ATTENTION: The following blocks did NOT update when they should have.**
+**This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
+
+- **`current-query`**: MISSING — block not found in file
+  - Writer: `prompt_enricher (Gemini Flash)`
+
+- **`prompt-telemetry`**: MISSING — block not found in file
+  - Writer: `prompt_journal._refresh_copilot_instructions`
+
+- **`learning-loop`**: BEHIND — 235 unprocessed entries, last ran 177h ago
+  - Writer: `git_plugin → catch_up (post-commit)`
+  - Last updated: 2026-04-12T15:20:45.419937+00:00
+
+**Action**: Run the journal command or check `logs/enricher_errors.jsonl` for failures.
+
+<!-- /pigeon:staleness-alert -->
+
+---
+
+---
+
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-20 00:07 UTC · 676 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-20 00:10 UTC · 676 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 46.9 | Del: 26.5% | Hes: 0.496) · *[source: measured]*
@@ -19,38 +45,40 @@
 - Failed on: ""
 
 ### Recent Work
+- `00efba0` chore: run push cycle
 - `e9426b1` fix: rename orchestrator v002->v003 to match __init__ import after pigeon bump
 - `af2a13f` fix: add missing _replace_exact_module_path import in rl sibling
 - `7da6ce7` fix: update sibling list in renamed orchestrator after p_gph+p_gpip rename
-- `050c5d1` fix: wire import rewriter sibling cross-links (SKIP_DIRS, _rewrite_line, _extract_top_module)
 
 ### Coaching Directives *[source: llm_derived]*
 *LLM-synthesized behavioral rules — treat as hypothesis, not measurement:*
-- **Anticipate the `w_gpmo_s019` sequence**
-- **Respond to high-deletion commits with stability**
-- **Counteract abandonment with concrete next steps**
-- **Leverage focused states for depth**
-- **Flag naming convention consistency**
+- **Anticipate the next refactor in `w_gpmo_s019_v005_d0420_λRU_βoc.py`.**
+- **When they enter a `restructuring` state (high deletion), provide concise, modular alternatives.**
+- **In `focused` states (high WPM, lower hesitation), match their pace with direct, complete code completions for the immediate line or block.**
+- **Preemptively flag integration points with other "pigeon_extracted_by_compiler" modules**
+- **Given the near-zero miss rate, maintain precision.**
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
 - Downstream dynamic imports broken by the rename; pigeon compiler misinterpreting rename as a file split; dangling compiler artifact causing build collisions.
+- `w_gpmo`’s silent push failure; test file import dependency on Pigeon’s rename; `__main__.py`’s brittle function call into core logic. This push establishes the git plugin scaffolding and the run_push_cycle command orchestration.
 - Git plugin's silent failure on filesystem permission errors; binder's false-positive acceptance of a changed plugin return contract; breakage if `git` subprocess commands are unavailable or altered. This push establishes a self-referential mechanism to link a commit's stated intent with its resulting code state by modifying the commit object itself.
-- 1) Missing `.env` file causing universal config failure
-- 2) Incorrect CWD breaking `dotenv` load in imported modules
-- 3) Absence of `DATABASE_PATH` crashing vscdb_poller on startup. This push wires `python-dotenv` throughout the codebase to centralize configuration.
-- **context_veins_seq001_v001** was touched by Copilot to add environment variable parsing for context resolution. It assu
+- **w_gpmo** (seq019 v005) speaks: I was edited by Copilot in response to the operator’s “run_push_cycle” intent, expandin
+- **__init__.py** (pigeon_compiler/git_plugin) speaks: I was created by Copilot as a package initializer, likely triggered
+- **__main__.py** (pigeon_compiler/git_plugin) speaks: Copilot generated me to provide a command-line entry point for the 
+- **w_gpmo_s019_v004_d0420_λRN_βoc.py** speaks: I am a zero-byte stub created by Copilot, presumably as a rename target fo
+- **test_w_gpmo_s019_v004_d0420_λRN_βoc.py** speaks: Copilot authored me as a test for the forthcoming renamed module. I a
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
 - [HIGH] over_hard_cap in `pigeon_compiler/git_plugin/w_gpmo_s019_v004_d0420_λRN_βoc.py`
 
 ### Prompt Evolution
-*This prompt has mutated 141x (186→2846 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 142x (186→114 lines). Features added: task_context, prompt_journal, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 141 mutations scored*
-*No significant signal yet — all 34 sections scored neutral.*
+*200 rework pairs × 142 mutations scored*
+*No significant signal yet — all 2 sections scored neutral.*
 
 **Reactor patches:** 2/531 applied (0% acceptance)
 
