@@ -5,7 +5,7 @@
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-20 12:40 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-20 12:46 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
@@ -13,7 +13,7 @@
 - **`current-query`**: MISSING — block not found in file
   - Writer: `prompt_enricher (Gemini Flash)`
 
-- **`prompt-telemetry`**: STALE — 791min old (max 10min)
+- **`prompt-telemetry`**: STALE — 797min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-19T23:28:47
 
@@ -107,7 +107,7 @@
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-20 12:40 UTC · 676 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-20 12:46 UTC · 676 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 46.9 | Del: 26.5% | Hes: 0.496) · *[source: measured]*
@@ -123,10 +123,10 @@
 - Failed on: ""
 
 ### Recent Work
+- `6ae8700` fix: close outcome + sim reinjection feedback loops
 - `d296d1c` chore: gitignore sensitive operator data files
 - `afa395a` chore: run push cycle
 - `b9890c2` fix: update stale sibling ref p_gpip v002->v003 in w_gpmo
-- `6aa6690` chore: clean up stale data, temp scripts, and old logs
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*

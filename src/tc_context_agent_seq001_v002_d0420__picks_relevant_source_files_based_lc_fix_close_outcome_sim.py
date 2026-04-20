@@ -6,6 +6,14 @@ compressed snippets so Gemini can see actual code — not just metadata.
 Section-aware: uses the operator's behavioral section (from tc_profile_seq001_v001) to
 boost modules they historically touch when in the same cognitive mode.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v002 | 706 lines | ~6,731 tokens
+# DESC:   picks_relevant_source_files_based
+# INTENT: fix_close_outcome_sim
+# LAST:   2026-04-20 @ 6ae8700
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None
 # EDIT_HASH: None
@@ -46,7 +54,7 @@ def _load_registry() -> list[dict]:
 def _registry_canonical_keys(mod: dict) -> set[str]:
     """Canonical keys for matching numeric predictions back to registry entries."""
     try:
-        from .intent_numeric_seq001_v001 import canonicalize_file_key
+        from .intent_numeric_seq001_v002_d0420__word_number_file_mapping_for_lc_fix_close_outcome_sim import canonicalize_file_key
     except Exception:
         return set()
 
@@ -252,7 +260,7 @@ def select_context_numeric(buffer: str, ctx: dict, max_files: int = 3) -> list[d
     correlations between prompt words and file touches from push cycles.
     """
     try:
-        from .intent_numeric_seq001_v001 import predict_files, get_stats, canonicalize_file_key
+        from .intent_numeric_seq001_v002_d0420__word_number_file_mapping_for_lc_fix_close_outcome_sim import predict_files, get_stats, canonicalize_file_key
         stats = get_stats()
         if stats['total_touches'] < 10:
             return []  # Not enough data yet, fall back to heuristics

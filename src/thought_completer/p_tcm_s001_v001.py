@@ -9,7 +9,7 @@
 # ──────────────────────────────────────────────
 from src.tc_constants_seq001_v001 import DEFAULT_PAUSE_MS, DEFAULT_CORNER, DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_OPACITY
 from src.tc_gemini_seq001_v001 import _load_api_key
-from src.tc_popup_seq001_v001 import run_popup
+from src.tc_popup_seq001_v002_d0420__passive_always_on_top_tkinter_lc_fix_close_outcome_sim import run_popup
 from src.tc_web_seq001_v001 import run_web
 import os
 

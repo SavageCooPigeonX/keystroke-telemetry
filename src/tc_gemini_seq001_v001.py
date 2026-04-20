@@ -17,7 +17,7 @@ from datetime import datetime, timezone
 
 from .tc_constants_seq001_v001 import ROOT, GEMINI_MODEL, GEMINI_TIMEOUT, LOG_PATH, THOUGHT_BUFFER_PATH
 from .tc_context_seq001_v001 import load_context
-from .tc_context_agent_seq001_v001 import select_context_files, select_context_ensemble, build_code_context
+from .tc_context_agent_seq001_v002_d0420__picks_relevant_source_files_based_lc_fix_close_outcome_sim import select_context_files, select_context_ensemble, build_code_context
 from .tc_trajectory_seq001_v001 import build_trajectory, format_trajectory_for_prompt
 from .tc_profile_seq001_v001 import load_profile, format_profile_for_prompt, update_profile_from_completion, format_intelligence_for_prompt, classify_section
 from .tc_grader_seq001_v001 import format_grades_for_prompt, compute_adaptive_params
@@ -495,14 +495,14 @@ def _build_user_prompt(buffer: str, ctx: dict, thought_buffer: ThoughtBuffer | N
         parts.append('CONTEXT FILES (predicted relevant):\n' + '\n'.join(lines))
         # Inject raw numeric predictions separately so the LLM sees the learned signal
         try:
-            from .intent_numeric_seq001_v001 import predict_files as _pf
+            from .intent_numeric_seq001_v002_d0420__word_number_file_mapping_for_lc_fix_close_outcome_sim import predict_files as _pf
             _raw = _pf(buffer, top_n=5)
             if _raw:
                 _enc = '\n'.join(f'  {name}: {score:.4f}' for name, score in _raw)
                 parts.append(f'NUMERIC ENCODING (learned word→file correlations for this buffer):\n{_enc}')
                 # Reinject: record buffer→files as a weak training touch right now
                 try:
-                    from .intent_numeric_seq001_v001 import record_touch as _rt
+                    from .intent_numeric_seq001_v002_d0420__word_number_file_mapping_for_lc_fix_close_outcome_sim import record_touch as _rt
                     for name, _ in _raw[:3]:
                         _rt(buffer, name, weight=0.3)
                 except Exception:
@@ -641,7 +641,7 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
         pass
     if _train_names and len(buffer.strip()) >= 4:
         try:
-            from .intent_numeric_seq001_v001 import record_touch as _rtn_live
+            from .intent_numeric_seq001_v002_d0420__word_number_file_mapping_for_lc_fix_close_outcome_sim import record_touch as _rtn_live
             _rtn_live(buffer, _train_names, learning_rate=0.05)
         except Exception:
             pass
@@ -754,7 +754,7 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
             # it as ground truth teaches numeric to mirror real name matching.
             try:
                 if selected_files and len(text) > 10:
-                    from .intent_numeric_seq001_v001 import record_touch
+                    from .intent_numeric_seq001_v002_d0420__word_number_file_mapping_for_lc_fix_close_outcome_sim import record_touch
                     heuristic_targets = [
                         f['name'] for f in selected_files
                         if 'heuristic' in f.get('sources', [])

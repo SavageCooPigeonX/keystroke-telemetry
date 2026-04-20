@@ -15,6 +15,14 @@ Ctrl+Z from os_hook = negative reward (overrides sim grade).
 self_score() gate: local cosine(file_heat_vec, prompt_vec) × coupling_weight
 Files below SELF_SCORE_THRESHOLD self-exclude silently — never hits deepseek.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v002 | 418 lines | ~4,002 tokens
+# DESC:   micro_sim_engine_prompt_file
+# INTENT: fix_close_outcome_sim
+# LAST:   2026-04-20 @ 6ae8700
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 from __future__ import annotations
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-04-19T23:00:00+00:00
@@ -95,7 +103,7 @@ def _call_deepseek(prompt: str, api_key: str) -> str | None:
 def _read_source(root: Path, file_stem: str) -> str:
     """Find file by stem and return first 60 lines."""
     try:
-        from src.intent_numeric_seq001_v001 import canonicalize_file_key
+        from src.intent_numeric_seq001_v002_d0420__word_number_file_mapping_for_lc_fix_close_outcome_sim import canonicalize_file_key
         canonical = canonicalize_file_key(file_stem)
     except Exception:
         canonical = file_stem
@@ -146,7 +154,7 @@ def self_score(file_stem: str, prompt_vec: dict[str, float],
     """
     root = root or ROOT
     try:
-        from src.intent_numeric_seq001_v001 import canonicalize_file_key
+        from src.intent_numeric_seq001_v002_d0420__word_number_file_mapping_for_lc_fix_close_outcome_sim import canonicalize_file_key
         key_candidates = []
         for key in (file_stem, canonicalize_file_key(file_stem)):
             if key and key not in key_candidates:
@@ -285,12 +293,12 @@ def run_sim(intent_text: str, prompt_text: str | None = None,
     # Step 1: encode prompt → vec (reuse if provided)
     prompt_vec: dict[str, float] = {}
     try:
-        from src.intent_numeric_seq001_v001 import prompt_to_vector, predict_files, record_touch
+        from src.intent_numeric_seq001_v002_d0420__word_number_file_mapping_for_lc_fix_close_outcome_sim import prompt_to_vector, predict_files, record_touch
         prompt_vec = {str(k): float(v) for k, v in prompt_to_vector(intent_text).items()}
     except Exception as e:
         print(f'  [file_sim] prompt_to_vector failed: {e}')
         try:
-            from src.intent_numeric_seq001_v001 import predict_files, record_touch
+            from src.intent_numeric_seq001_v002_d0420__word_number_file_mapping_for_lc_fix_close_outcome_sim import predict_files, record_touch
         except Exception:
             pass
 
@@ -374,7 +382,7 @@ def apply_undo_penalty(file_stem: str, prompt_text: str, root: Path | None = Non
     """
     root = root or ROOT
     try:
-        from src.intent_numeric_seq001_v001 import record_touch
+        from src.intent_numeric_seq001_v002_d0420__word_number_file_mapping_for_lc_fix_close_outcome_sim import record_touch
         record_touch(prompt_text, [file_stem], learning_rate=-0.08)
         print(f'  [file_sim] undo penalty → {file_stem}')
     except Exception as e:

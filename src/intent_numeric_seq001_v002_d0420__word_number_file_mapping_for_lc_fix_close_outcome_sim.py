@@ -20,6 +20,14 @@ by edits to tc_gemini_seq001_v001.py and tc_sim_seq001_v001.py, we increase the 
 Over time, this builds a "numeric surface" where intent predicts files
 without any LLM inference — pure math.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v002 | 777 lines | ~6,751 tokens
+# DESC:   word_number_file_mapping_for
+# INTENT: fix_close_outcome_sim
+# LAST:   2026-04-20 @ 6ae8700
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None
 # EDIT_HASH: None

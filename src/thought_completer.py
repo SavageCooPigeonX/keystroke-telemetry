@@ -48,7 +48,7 @@ if 'src' not in sys.modules:
 
 from src.tc_constants_seq001_v001 import DEFAULT_PAUSE_MS, DEFAULT_CORNER, DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_OPACITY
 from src.tc_gemini_seq001_v001 import _load_api_key
-from src.tc_popup_seq001_v001 import run_popup
+from src.tc_popup_seq001_v002_d0420__passive_always_on_top_tkinter_lc_fix_close_outcome_sim import run_popup
 from src.tc_web_seq001_v001 import run_web
 
 
@@ -70,8 +70,8 @@ def main():
         print('[completer] WARNING: no GEMINI_API_KEY in .env or environment')
 
     if args.sim_buffer:
-        from src.intent_numeric_seq001_v001 import predict_files
-        from src.tc_sim_engine_seq001_v001 import run_sim as run_pause_sim
+        from src.intent_numeric_seq001_v002_d0420__word_number_file_mapping_for_lc_fix_close_outcome_sim import predict_files
+        from src.tc_sim_engine_seq001_v002_d0420__intent_simulation_on_typing_pause_lc_create_sim_engine import run_sim as run_pause_sim
 
         buffer = args.sim_buffer.strip()
         if not buffer:
