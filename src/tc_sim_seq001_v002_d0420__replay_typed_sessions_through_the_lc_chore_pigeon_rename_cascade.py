@@ -25,6 +25,14 @@ Modes:
     fix:           uses sim results to identify bugs and patches them.
     narrate:       the system explains itself to you in plain language.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v002 | 1346 lines | ~14,095 tokens
+# DESC:   replay_typed_sessions_through_the
+# INTENT: chore_pigeon_rename_cascade
+# LAST:   2026-04-20 @ c61fc91
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None
 # EDIT_HASH: None
@@ -391,11 +399,11 @@ def replay_pause_live(pause: PausePoint, use_historical_ctx: bool = False) -> Si
                            bug where sim uses today's conversation to predict
                            a pause from last week.
     """
-    from src.tc_gemini_seq001_v002_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import call_gemini, _build_user_prompt, SYSTEM_PROMPT
+    from src.tc_gemini_seq001_v003_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import call_gemini, _build_user_prompt, SYSTEM_PROMPT
     from src.tc_trajectory_seq001_v001 import format_trajectory_for_prompt
     import json, urllib.request
     from src.tc_constants_seq001_v001 import GEMINI_MODEL, GEMINI_TIMEOUT
-    from src.tc_gemini_seq001_v002_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import _load_api_key, _strip_signal_echo
+    from src.tc_gemini_seq001_v003_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import _load_api_key, _strip_signal_echo
     
     t0 = time.time()
     

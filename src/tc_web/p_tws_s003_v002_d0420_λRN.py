@@ -1,15 +1,15 @@
 """tc_web_seq001_v001_server_seq003_v001.py — Auto-extracted by Pigeon Compiler."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 003 | VER: v001 | 49 lines | ~614 tokens
+# SEQ: 003 | VER: v002 | 57 lines | ~707 tokens
 # DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: (none)
-# LAST:   2026-04-14 @ heal
-# SESSIONS: 0
+# INTENT: chore_pigeon_rename_cascade
+# LAST:   2026-04-20 @ c61fc91
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 from ..tc_constants_seq001_v001 import GEMINI_MODEL
 from ..tc_context_seq001_v001 import load_context
-from ..tc_gemini_seq001_v002_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import call_gemini, log_completion
+from ..tc_gemini_seq001_v003_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import call_gemini, log_completion
 import json
 
 def run_web(port=8235):

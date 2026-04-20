@@ -1,6 +1,6 @@
-"""Interlink self-test for u_pj_s019_v003_d0404_λNU_βoc.
+"""Interlink self-test for p_tcsr_s008_v002_d0420_λRN.
 
-Auto-generated. This test keeps u_pj_s019_v003_d0404_λNU_βoc interlinked.
+Auto-generated. This test keeps p_tcsr_s008_v002_d0420_λRN interlinked.
 When this passes + pigeon cap + entropy shed → module sleeps.
 Module keeps learning via intent shards while sleeping.
 """
@@ -10,19 +10,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.u_pj_s019_v005_d0420_λRN_βoc import log_enriched_entry
-    assert callable(log_enriched_entry), "log_enriched_entry must be callable"
-    print(f"  ✓ u_pj_s019_v003_d0404_λNU_βoc: 1 exports verified")
+    from src.tc_sim.p_tcsr_s008_v002_d0420_λRN import replay_pause_live
+    assert callable(replay_pause_live), "replay_pause_live must be callable"
+    print(f"  ✓ p_tcsr_s008_v002_d0420_λRN: 1 exports verified")
 
-def test_log_enriched_entry_contract():
-    """Data flow contract: log_enriched_entry(root, msg, files_open, session_n) → output."""
-    from src.u_pj_s019_v005_d0420_λRN_βoc import log_enriched_entry
+def test_replay_pause_live_contract():
+    """Data flow contract: replay_pause_live(pause, use_historical_ctx) → output."""
+    from src.tc_sim.p_tcsr_s008_v002_d0420_λRN import replay_pause_live
     # smoke test: function exists and is callable
-    assert log_enriched_entry.__name__ == "log_enriched_entry"
-    print(f"  ✓ log_enriched_entry: contract holds")
+    assert replay_pause_live.__name__ == "replay_pause_live"
+    print(f"  ✓ replay_pause_live: contract holds")
 
 def run_interlink_test():
-    """Run all interlink checks for u_pj_s019_v003_d0404_λNU_βoc."""
+    """Run all interlink checks for p_tcsr_s008_v002_d0420_λRN."""
     tests = [v for k, v in globals().items() if k.startswith("test_")]
     passed = 0
     for t in tests:
@@ -33,7 +33,7 @@ def run_interlink_test():
             print(f"  ✗ {t.__name__}: {e}")
     total = len(tests)
     status = "INTERLINKED" if passed == total else f"{passed}/{total}"
-    print(f"  u_pj_s019_v003_d0404_λNU_βoc: {status}")
+    print(f"  p_tcsr_s008_v002_d0420_λRN: {status}")
     return passed == total
 
 if __name__ == "__main__":

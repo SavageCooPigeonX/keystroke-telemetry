@@ -1,6 +1,6 @@
-"""Interlink self-test for u_pj_s019_v003_d0404_λNU_βoc.
+"""Interlink self-test for w_gpmo_s019_v011_d0420_λRN_βoc.
 
-Auto-generated. This test keeps u_pj_s019_v003_d0404_λNU_βoc interlinked.
+Auto-generated. This test keeps w_gpmo_s019_v011_d0420_λRN_βoc interlinked.
 When this passes + pigeon cap + entropy shed → module sleeps.
 Module keeps learning via intent shards while sleeping.
 """
@@ -10,19 +10,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.u_pj_s019_v005_d0420_λRN_βoc import log_enriched_entry
-    assert callable(log_enriched_entry), "log_enriched_entry must be callable"
-    print(f"  ✓ u_pj_s019_v003_d0404_λNU_βoc: 1 exports verified")
+    from pigeon_compiler.git_plugin.w_gpmo_s019_v011_d0420_λRN_βoc import run
+    assert callable(run), "run must be callable"
+    print(f"  ✓ w_gpmo_s019_v011_d0420_λRN_βoc: 1 exports verified")
 
-def test_log_enriched_entry_contract():
-    """Data flow contract: log_enriched_entry(root, msg, files_open, session_n) → output."""
-    from src.u_pj_s019_v005_d0420_λRN_βoc import log_enriched_entry
+def test_run_contract():
+    """Data flow contract: run() → output."""
+    from pigeon_compiler.git_plugin.w_gpmo_s019_v011_d0420_λRN_βoc import run
     # smoke test: function exists and is callable
-    assert log_enriched_entry.__name__ == "log_enriched_entry"
-    print(f"  ✓ log_enriched_entry: contract holds")
+    assert run.__name__ == "run"
+    result = run()
+    assert result is not None, "run returned None"
+    print(f"  ✓ run: contract holds")
 
 def run_interlink_test():
-    """Run all interlink checks for u_pj_s019_v003_d0404_λNU_βoc."""
+    """Run all interlink checks for w_gpmo_s019_v011_d0420_λRN_βoc."""
     tests = [v for k, v in globals().items() if k.startswith("test_")]
     passed = 0
     for t in tests:
@@ -33,7 +35,7 @@ def run_interlink_test():
             print(f"  ✗ {t.__name__}: {e}")
     total = len(tests)
     status = "INTERLINKED" if passed == total else f"{passed}/{total}"
-    print(f"  u_pj_s019_v003_d0404_λNU_βoc: {status}")
+    print(f"  w_gpmo_s019_v011_d0420_λRN_βoc: {status}")
     return passed == total
 
 if __name__ == "__main__":

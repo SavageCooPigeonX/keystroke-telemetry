@@ -7,6 +7,14 @@ tasks, module heat, session running stats, and intent classification.
 Designed for live analysis: grep any field, plot any metric, no aggregation needed.
 Zero LLM calls — pure signal cross-referencing.
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 019 | VER: v005 | 999 lines | ~9,863 tokens
+# DESC:   every_entry_cross_references_all
+# INTENT: chore_pigeon_rename_cascade
+# LAST:   2026-04-20 @ c61fc91
+# SESSIONS: 3
+# ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None
 # EDIT_HASH: None
@@ -879,7 +887,7 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
     # intent_job persists until cleared by copilot + tester + operator.
     if not meta_prompt_kind:
         try:
-            from src.intent_numeric_seq001_v003_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import prompt_to_vector
+            from src.intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import prompt_to_vector
             pvec = prompt_to_vector(msg)
             if pvec:
                 entry['prompt_vec'] = {str(k): round(v, 4) for k, v in pvec.items()}

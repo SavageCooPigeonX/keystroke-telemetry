@@ -1,16 +1,16 @@
 """thought_completer_main_seq001_v001.py — Auto-extracted by Pigeon Compiler."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v001 | 26 lines | ~309 tokens
+# SEQ: 001 | VER: v003 | 34 lines | ~434 tokens
 # DESC:   auto_extracted_by_pigeon_compiler
-# INTENT: (none)
-# LAST:   2026-04-14 @ heal
-# SESSIONS: 0
+# INTENT: chore_pigeon_rename_cascade
+# LAST:   2026-04-20 @ c61fc91
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 from src.tc_constants_seq001_v001 import DEFAULT_PAUSE_MS, DEFAULT_CORNER, DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_OPACITY
-from src.tc_gemini_seq001_v002_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import _load_api_key
-from src.tc_popup_seq001_v003_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade import run_popup
-from src.tc_web_seq001_v001 import run_web
+from src.tc_gemini_seq001_v003_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import _load_api_key
+from src.tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade import run_popup
+from src.tc_web_seq001_v002_d0420__web_server_mode_for_thought_lc_chore_pigeon_rename_cascade import run_web
 import os
 
 def main():

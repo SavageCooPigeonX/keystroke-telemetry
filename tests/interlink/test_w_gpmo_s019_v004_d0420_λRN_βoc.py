@@ -10,13 +10,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from pigeon_compiler.git_plugin.w_gpmo_s019_v010_d0420_λRN_βoc import run
+    from pigeon_compiler.git_plugin.w_gpmo_s019_v011_d0420_λRN_βoc import run
     assert callable(run), "run must be callable"
     print(f"  ✓ w_gpmo_s019_v004_d0420_λRN_βoc: 1 exports verified")
 
 def test_run_contract():
     """Data flow contract: run() → output."""
-    from pigeon_compiler.git_plugin.w_gpmo_s019_v010_d0420_λRN_βoc import run
+    from pigeon_compiler.git_plugin.w_gpmo_s019_v011_d0420_λRN_βoc import run
     # smoke test: function exists and is callable
     assert run.__name__ == "run"
     result = run()

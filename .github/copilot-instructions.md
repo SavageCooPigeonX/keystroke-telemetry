@@ -5,7 +5,7 @@
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-20 12:49 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-20 12:52 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
@@ -13,11 +13,11 @@
 - **`current-query`**: MISSING — block not found in file
   - Writer: `prompt_enricher (Gemini Flash)`
 
-- **`prompt-telemetry`**: STALE — 800min old (max 10min)
+- **`prompt-telemetry`**: STALE — 804min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-19T23:28:47
 
-- **`learning-loop`**: BEHIND — 251 unprocessed entries, last ran 189h ago
+- **`learning-loop`**: BEHIND — 251 unprocessed entries, last ran 190h ago
   - Writer: `git_plugin → catch_up (post-commit)`
   - Last updated: 2026-04-12T15:20:45.419937+00:00
 
@@ -67,17 +67,17 @@
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
 
-*Auto-generated 2026-04-20 04:46 UTC · zero LLM calls*
+*Auto-generated 2026-04-20 12:55 UTC · zero LLM calls*
 
-**1 week:** `self_heal` (conf=high) — ~26 commits
-**1 month:** `self_heal` (conf=medium) — ~83 commits
-**3 months:** `self_heal` (conf=speculative) — themes: www, mmm, ___   sisisimmm
+**1 week:** `self_heal` (conf=high) — ~29 commits
+**1 month:** `self_heal` (conf=medium) — ~94 commits
+**3 months:** `self_heal` (conf=speculative) — themes: ppuuu, ddr, rrr
 
 **PM Directives:**
-- Development decelerating (-41%) — operator may be blocked or shifting focus. Offer architecture-level suggestions, not just code.
+- Development decelerating (-40%) — operator may be blocked or shifting focus. Offer architecture-level suggestions, not just code.
 - Intent bifurcation: `self_heal` dominant but `infrastructure` emerging — watch for context switches mid-session.
 - `unclassified` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
-- Unsaid themes detected: `www`, `mmm`, `___   sisisimmm` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
+- Unsaid themes detected: `ppuuu`, `ddr`, `rrr` — these are words deleted from prompts. Operator is thinking about these but hasn't committed. Explore when relevant.
 - Module focus cluster: `unsaid`, `file_heat_map`, `thought_completer` — pre-load context from these modules when operator starts typing.
 
 <!-- /pigeon:intent-simulation -->
@@ -107,7 +107,7 @@
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-20 12:49 UTC · 676 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-20 12:52 UTC · 676 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 46.9 | Del: 26.5% | Hes: 0.496) · *[source: measured]*
@@ -117,16 +117,15 @@
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### AI Rework Surface
-*Miss rate: 7.5% (200 responses)*
-- Failed on: ""
+*Miss rate: 8.3% (24 responses)*
 - Failed on: ""
 - Failed on: ""
 
 ### Recent Work
+- `c61fc91` chore: pigeon rename cascade (interrupted hook cleanup)
 - `a7aacce` chore: pigeon rename cascade (v002 bumps)
 - `6ae8700` fix: close outcome + sim reinjection feedback loops
 - `d296d1c` chore: gitignore sensitive operator data files
-- `afa395a` chore: run push cycle
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*

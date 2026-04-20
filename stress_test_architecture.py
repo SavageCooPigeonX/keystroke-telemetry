@@ -104,7 +104,7 @@ def _decode_triple_chars(text: str) -> str:
     if not text:
         return text
     try:
-        from src.intent_numeric_seq001_v003_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import normalize_prompt_text
+        from src.intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import normalize_prompt_text
         return normalize_prompt_text(text)
     except Exception:
         return text

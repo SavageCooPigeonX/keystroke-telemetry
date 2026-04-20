@@ -13,11 +13,11 @@ Reinject output path: logs/tc_sim_results.jsonl  (intent compressor reads this)
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v002 | 265 lines | ~2,539 tokens
+# SEQ: 001 | VER: v004 | 273 lines | ~2,627 tokens
 # DESC:   intent_simulation_on_typing_pause
-# INTENT: fix_close_outcome_sim
-# LAST:   2026-04-20 @ 6ae8700
-# SESSIONS: 1
+# INTENT: chore_pigeon_rename_cascade
+# LAST:   2026-04-20 @ c61fc91
+# SESSIONS: 3
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-04-20T00:00:00Z
@@ -37,9 +37,9 @@ from pathlib import Path
 from typing import NamedTuple
 
 from .tc_constants_seq001_v001 import ROOT, GEMINI_MODEL, GEMINI_TIMEOUT
-from .tc_gemini_seq001_v002_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import _load_api_key, SYSTEM_PROMPT
+from .tc_gemini_seq001_v003_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import _load_api_key, SYSTEM_PROMPT
 from .tc_context_seq001_v001 import load_context, invalidate_context_cache
-from .tc_context_agent_seq001_v003_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade import select_context_ensemble
+from .tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade import select_context_ensemble
 from .tc_profile_seq001_v001 import load_profile
 
 SIM_LOG = ROOT / 'logs' / 'tc_sim_results.jsonl'
@@ -92,7 +92,7 @@ def _select_files_for_sim(buffer: str, ctx: dict, profile_weight: float) -> list
     files = list(base_files)
     if topic_tokens and profile_weight >= 0.6:
         try:
-            from .intent_numeric_seq001_v003_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import predict_files
+            from .intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import predict_files
             topic_query = ' '.join(topic_tokens[:3])
             extra = predict_files(topic_query, top_n=3)
             seen = {f['name'] for f in files}

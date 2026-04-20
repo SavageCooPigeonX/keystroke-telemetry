@@ -6,6 +6,14 @@ Each tab is a resizable PanedWindow. Live keystroke buffer feeds NUMERIC.
 Launch:  py -m src.tc_observatory_seq001_v001
          or imported by thought_completer.py --observatory
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v002 | 999 lines | ~11,262 tokens
+# DESC:   primary_pigeon_observatory_window
+# INTENT: chore_pigeon_rename_cascade
+# LAST:   2026-04-20 @ c61fc91
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None
 # EDIT_HASH: None
@@ -28,7 +36,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from src.tc_constants_seq001_v001 import KEYSTROKE_LOG, ROOT, GEMINI_MODEL
-from src.tc_gemini_seq001_v002_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import _load_api_key
+from src.tc_gemini_seq001_v003_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import _load_api_key
 
 # ── colours ──────────────────────────────────────────────────────────────────
 BG      = '#0d1117'

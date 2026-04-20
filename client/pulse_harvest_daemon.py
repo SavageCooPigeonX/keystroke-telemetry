@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent.resolve()
 sys.path.insert(0, str(ROOT))
 
-from src.脉p_ph_s015_v005_d0420_读唤任_λRN_βoc import harvest_all_pulses  # type: ignore[import]
+from src.脉p_ph_s015_v006_d0420_读唤任_λRN_βoc import harvest_all_pulses  # type: ignore[import]
 
 OUT = ROOT / 'logs' / 'pulse_harvest_latest.json'
 INTERVAL = 30

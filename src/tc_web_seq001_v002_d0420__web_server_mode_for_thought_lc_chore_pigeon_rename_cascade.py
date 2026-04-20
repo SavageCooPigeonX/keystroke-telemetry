@@ -1,4 +1,12 @@
 """Web server mode for thought completer (Railway deploy)."""
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v002 | 86 lines | ~1,402 tokens
+# DESC:   web_server_mode_for_thought
+# INTENT: chore_pigeon_rename_cascade
+# LAST:   2026-04-20 @ c61fc91
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   None
 # EDIT_HASH: None
@@ -11,7 +19,7 @@ import json
 
 from .tc_constants_seq001_v001 import GEMINI_MODEL
 from .tc_context_seq001_v001 import load_context
-from .tc_gemini_seq001_v002_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import call_gemini, log_completion
+from .tc_gemini_seq001_v003_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import call_gemini, log_completion
 
 WEB_HTML = r"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><title>thought completer</title>

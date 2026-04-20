@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.脉p_ph_s015_v005_d0420_读唤任_λRN_βoc import make_pulse_block, content_hash, read_pulse, clear_pulse, stamp_pulse, inject_pulse, pair_pulse_to_prompt, harvest_all_pulses, inject_all_pulses
+    from src.脉p_ph_s015_v006_d0420_读唤任_λRN_βoc import make_pulse_block, content_hash, read_pulse, clear_pulse, stamp_pulse, inject_pulse, pair_pulse_to_prompt, harvest_all_pulses, inject_all_pulses
     assert callable(make_pulse_block), "make_pulse_block must be callable"
     assert callable(content_hash), "content_hash must be callable"
     assert callable(read_pulse), "read_pulse must be callable"
@@ -24,63 +24,63 @@ def test_import():
 
 def test_make_pulse_block_contract():
     """Data flow contract: make_pulse_block(edit_ts, edit_hash, edit_why, edit_author, edit_state) → output."""
-    from src.脉p_ph_s015_v005_d0420_读唤任_λRN_βoc import make_pulse_block
+    from src.脉p_ph_s015_v006_d0420_读唤任_λRN_βoc import make_pulse_block
     # smoke test: function exists and is callable
     assert make_pulse_block.__name__ == "make_pulse_block"
     print(f"  ✓ make_pulse_block: contract holds")
 
 def test_content_hash_contract():
     """Data flow contract: content_hash(text) → output."""
-    from src.脉p_ph_s015_v005_d0420_读唤任_λRN_βoc import content_hash
+    from src.脉p_ph_s015_v006_d0420_读唤任_λRN_βoc import content_hash
     # smoke test: function exists and is callable
     assert content_hash.__name__ == "content_hash"
     print(f"  ✓ content_hash: contract holds")
 
 def test_read_pulse_contract():
     """Data flow contract: read_pulse(filepath) → output."""
-    from src.脉p_ph_s015_v005_d0420_读唤任_λRN_βoc import read_pulse
+    from src.脉p_ph_s015_v006_d0420_读唤任_λRN_βoc import read_pulse
     # smoke test: function exists and is callable
     assert read_pulse.__name__ == "read_pulse"
     print(f"  ✓ read_pulse: contract holds")
 
 def test_clear_pulse_contract():
     """Data flow contract: clear_pulse(filepath) → output."""
-    from src.脉p_ph_s015_v005_d0420_读唤任_λRN_βoc import clear_pulse
+    from src.脉p_ph_s015_v006_d0420_读唤任_λRN_βoc import clear_pulse
     # smoke test: function exists and is callable
     assert clear_pulse.__name__ == "clear_pulse"
     print(f"  ✓ clear_pulse: contract holds")
 
 def test_stamp_pulse_contract():
     """Data flow contract: stamp_pulse(filepath, edit_why, edit_author) → output."""
-    from src.脉p_ph_s015_v005_d0420_读唤任_λRN_βoc import stamp_pulse
+    from src.脉p_ph_s015_v006_d0420_读唤任_λRN_βoc import stamp_pulse
     # smoke test: function exists and is callable
     assert stamp_pulse.__name__ == "stamp_pulse"
     print(f"  ✓ stamp_pulse: contract holds")
 
 def test_inject_pulse_contract():
     """Data flow contract: inject_pulse(filepath) → output."""
-    from src.脉p_ph_s015_v005_d0420_读唤任_λRN_βoc import inject_pulse
+    from src.脉p_ph_s015_v006_d0420_读唤任_λRN_βoc import inject_pulse
     # smoke test: function exists and is callable
     assert inject_pulse.__name__ == "inject_pulse"
     print(f"  ✓ inject_pulse: contract holds")
 
 def test_pair_pulse_to_prompt_contract():
     """Data flow contract: pair_pulse_to_prompt(root, filepath, cognitive_state) → output."""
-    from src.脉p_ph_s015_v005_d0420_读唤任_λRN_βoc import pair_pulse_to_prompt
+    from src.脉p_ph_s015_v006_d0420_读唤任_λRN_βoc import pair_pulse_to_prompt
     # smoke test: function exists and is callable
     assert pair_pulse_to_prompt.__name__ == "pair_pulse_to_prompt"
     print(f"  ✓ pair_pulse_to_prompt: contract holds")
 
 def test_harvest_all_pulses_contract():
     """Data flow contract: harvest_all_pulses(root, state) → output."""
-    from src.脉p_ph_s015_v005_d0420_读唤任_λRN_βoc import harvest_all_pulses
+    from src.脉p_ph_s015_v006_d0420_读唤任_λRN_βoc import harvest_all_pulses
     # smoke test: function exists and is callable
     assert harvest_all_pulses.__name__ == "harvest_all_pulses"
     print(f"  ✓ harvest_all_pulses: contract holds")
 
 def test_inject_all_pulses_contract():
     """Data flow contract: inject_all_pulses(root) → output."""
-    from src.脉p_ph_s015_v005_d0420_读唤任_λRN_βoc import inject_all_pulses
+    from src.脉p_ph_s015_v006_d0420_读唤任_λRN_βoc import inject_all_pulses
     # smoke test: function exists and is callable
     assert inject_all_pulses.__name__ == "inject_all_pulses"
     # safe to call with test root
