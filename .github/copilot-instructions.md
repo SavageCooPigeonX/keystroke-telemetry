@@ -12,11 +12,11 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 30min old (max 10min)
+- **`current-query`**: STALE — 31min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-19 23:29
 
-- **`prompt-telemetry`**: STALE — 30min old (max 10min)
+- **`prompt-telemetry`**: STALE — 31min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-19T23:28:47
 
@@ -301,10 +301,10 @@ OPERATOR SIGNAL: The repeated, identical prompt, despite a previous Copilot resp
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### Recent Work
+- `af2a13f` fix: add missing _replace_exact_module_path import in rl sibling
 - `7da6ce7` fix: update sibling list in renamed orchestrator after p_gph+p_gpip rename
 - `050c5d1` fix: wire import rewriter sibling cross-links (SKIP_DIRS, _rewrite_line, _extract_top_module)
 - `5567e06` fix: git plugin _root() off by one parent + missing _INTENT_CODE_RULES + corrupt registry guard
-- `ed90bfc` fix: composition binding self-inject + UIA dedup + edit pair latency clamp
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
