@@ -56,6 +56,7 @@ def audit_stale_files() -> list[dict]:
             r['age_s'] = round(age_s)
             r['age_h'] = round(age_s / 3600, 1)
             r['size'] = size
+            text = ''
             # Encoding check
             try:
                 raw = p.read_bytes()
@@ -102,24 +103,11 @@ def _decode_triple_chars(text: str) -> str:
     """
     if not text:
         return text
-    # Detect triple-char pattern: every char appears 3x in a row
-    cleaned = []
-    i = 0
-    while i < len(text):
-        c = text[i]
-        # Count consecutive same chars
-        j = i + 1
-        while j < len(text) and text[j] == c:
-            j += 1
-        run_len = j - i
-        if run_len >= 3:
-            # Triple encoding — take 1 copy
-            cleaned.append(c)
-            i += 3  # skip the triple
-        else:
-            cleaned.append(c)
-            i += 1
-    return ''.join(cleaned)
+    try:
+        from src.intent_numeric_seq001_v001 import normalize_prompt_text
+        return normalize_prompt_text(text)
+    except Exception:
+        return text
 
 
 def resynthesize_intents() -> list[dict]:
@@ -171,7 +159,9 @@ def resynthesize_intents() -> list[dict]:
 # ═══════════════════════════════════════════════════════════════════════════════
 def audit_file_awareness() -> dict:
     """Check which files have pitches, profiles, and task awareness."""
-    result = {'pitches': [], 'profiles': [], 'missing_awareness': []}
+    pitches: list[dict] = []
+    profiles: list[dict] = []
+    missing_awareness: list[str] = []
 
     # Module pitches
     pitches_dir = ROOT / 'logs' / 'module_pitches'
@@ -181,7 +171,7 @@ def audit_file_awareness() -> dict:
                 d = json.loads(f.read_text('utf-8', errors='ignore'))
                 if isinstance(d, list):
                     d = d[0]
-                result['pitches'].append({
+                pitches.append({
                     'module': d.get('module', '?'),
                     'score': d.get('score', {}).get('overall', 0),
                     'code_path': d.get('code_path', '?'),
@@ -197,7 +187,7 @@ def audit_file_awareness() -> dict:
         try:
             fp = json.loads(fp_path.read_text('utf-8', errors='ignore'))
             for name, p in fp.items():
-                result['profiles'].append({
+                profiles.append({
                     'name': name,
                     'personality': p.get('personality', '?'),
                     'fears': p.get('fears', []),
@@ -216,13 +206,17 @@ def audit_file_awareness() -> dict:
         m = re.match(r'([a-z_]+)', f.stem)
         if m:
             src_modules.add(m.group(1))
-    pitched = {p['module'] for p in result['pitches']}
-    result['missing_awareness'] = sorted(src_modules - pitched)
-    result['awareness_coverage'] = (
+    pitched = {p['module'] for p in pitches}
+    missing_awareness = sorted(src_modules - pitched)
+    return {
+        'pitches': pitches,
+        'profiles': profiles,
+        'missing_awareness': missing_awareness,
+        'awareness_coverage': (
         f"{len(pitched)}/{len(src_modules)}"
         f" ({100 * len(pitched) / max(1, len(src_modules)):.0f}%)"
-    )
-    return result
+        ),
+    }
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

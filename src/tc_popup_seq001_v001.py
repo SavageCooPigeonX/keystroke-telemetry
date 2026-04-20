@@ -448,7 +448,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             self.root.clipboard_clear()
             self.root.clipboard_append(full_text)
             self.root.update()
-            self._log(True, self.watcher.buffer)
+            self._log(True, self.watcher.buffer, outcome='accepted')
             self.thought_buffer.record(self.completion_buffer, full_text, 'accepted')
             update_profile_from_completion(self.completion_buffer, full_text, 'accepted')
             self._grade_and_log(self.completion_buffer, full_text, 'accepted')
@@ -472,6 +472,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
                 'buffer': self.completion_buffer[:2000],
                 'completion': self.completion[:500],
                 'accepted': True,
+                'outcome': 'rewarded',
                 'reward': True,
                 'reward_source': 'ctrl_z',
                 'final_text': (self.watcher.buffer or '')[:2000],
@@ -498,7 +499,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             self.thought_buffer.record(self.completion_buffer, self.completion, 'dismissed')
             update_profile_from_completion(self.completion_buffer, self.completion, 'dismissed')
             self._grade_and_log(self.completion_buffer, self.completion, 'dismissed')
-            self._log(False, self.watcher.buffer)
+            self._log(False, self.watcher.buffer, outcome='dismissed')
             self.n_rejected += 1
             self._update_stats()
             self.completion = ''
@@ -507,13 +508,14 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             self._refresh_thought_history()
             self.status_lbl.config(text='dismissed', fg=RED)
 
-        def _log(self, accepted, final_text):
+        def _log(self, accepted, final_text, outcome='unknown'):
             if not self.completion:
                 return
             log_completion({
                 'buffer': self.completion_buffer[:2000],
                 'completion': self.completion[:500],
                 'accepted': accepted,
+                'outcome': outcome,
                 'final_text': (final_text or '')[:2000],
                 'repo': self.current_repo,
                 'context': self.watcher.context,

@@ -30,7 +30,7 @@ from typing import NamedTuple
 
 from .tc_constants_seq001_v001 import ROOT, GEMINI_MODEL, GEMINI_TIMEOUT
 from .tc_gemini_seq001_v001 import _load_api_key, SYSTEM_PROMPT
-from .tc_context_seq001_v001 import load_context
+from .tc_context_seq001_v001 import load_context, invalidate_context_cache
 from .tc_context_agent_seq001_v001 import select_context_ensemble
 from .tc_profile_seq001_v001 import load_profile
 
@@ -75,7 +75,7 @@ def _score_completion(completion: str, buffer: str, profile: dict) -> float:
 
 def _select_files_for_sim(buffer: str, ctx: dict, profile_weight: float) -> list[dict]:
     """Get file selection biased by profile_weight (0=task-only, 1=profile-driven)."""
-    base_files = select_context_ensemble(buffer, ctx)[:5]
+    base_files = select_context_ensemble(buffer, ctx, max_files=5)[:5]
     if profile_weight < 0.4:
         return base_files[:3]
     # Blend in profile topic files — look up files by topic keywords
@@ -258,6 +258,8 @@ def _reinject_to_intent_compiler(buffer: str, winner: SimResult, ts: str) -> Non
     }
     try:
         reinject_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding='utf-8')
+        # Invalidate context cache so next call_gemini() picks up the reinjection
+        invalidate_context_cache()
         print(f'[sim] reinjected winner ({winner.name}, score={winner.score:.2f}) → intent compiler')
     except Exception as e:
         print(f'[sim] reinject failed: {e}')

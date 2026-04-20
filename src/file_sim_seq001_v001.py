@@ -94,14 +94,36 @@ def _call_deepseek(prompt: str, api_key: str) -> str | None:
 
 def _read_source(root: Path, file_stem: str) -> str:
     """Find file by stem and return first 60 lines."""
+    try:
+        from src.intent_numeric_seq001_v001 import canonicalize_file_key
+        canonical = canonicalize_file_key(file_stem)
+    except Exception:
+        canonical = file_stem
+    candidates = []
+    for stem in (file_stem, canonical):
+        if stem and stem not in candidates:
+            candidates.append(stem)
     # Search common locations
-    for pattern in (f'src/{file_stem}.py', f'src/**/{file_stem}.py',
-                    f'pigeon_compiler/**/{file_stem}.py',
-                    f'pigeon_brain/**/{file_stem}.py'):
-        hits = list(root.glob(pattern))
-        if hits:
-            lines = hits[0].read_text('utf-8', errors='replace').splitlines()[:60]
-            return '\n'.join(lines)
+    for stem in candidates:
+        for pattern in (
+            f'{stem}.py',
+            f'{stem}_seq*.py',
+            f'client/{stem}.py',
+            f'client/**/{stem}.py',
+            f'client/**/{stem}_seq*.py',
+            f'src/{stem}.py',
+            f'src/{stem}_seq*.py',
+            f'src/**/{stem}.py',
+            f'src/**/{stem}_seq*.py',
+            f'pigeon_compiler/**/{stem}.py',
+            f'pigeon_compiler/**/{stem}_seq*.py',
+            f'pigeon_brain/**/{stem}.py',
+            f'pigeon_brain/**/{stem}_seq*.py',
+        ):
+            hits = list(root.glob(pattern))
+            if hits:
+                lines = hits[0].read_text('utf-8', errors='replace').splitlines()[:60]
+                return '\n'.join(lines)
     return '[not found]'
 
 
@@ -123,19 +145,30 @@ def self_score(file_stem: str, prompt_vec: dict[str, float],
     Returns score in [0.0, 1.0].  Below SELF_SCORE_THRESHOLD = self-exclude.
     """
     root = root or ROOT
+    try:
+        from src.intent_numeric_seq001_v001 import canonicalize_file_key
+        key_candidates = []
+        for key in (file_stem, canonicalize_file_key(file_stem)):
+            if key and key not in key_candidates:
+                key_candidates.append(key)
+    except Exception:
+        key_candidates = [file_stem]
 
     # Component 1: intent matrix weight (bag-of-words cosine proxy)
     matrix_score = 0.0
     try:
         matrix_path = root / 'logs' / 'intent_matrix.json'
         if matrix_path.exists():
-            matrix = json.loads(matrix_path.read_text('utf-8'))
-            # sum prompt_vec weights for words that have non-zero file relevance
-            # (simple proxy: if the word has any entry in matrix, it's relevant)
-            for word_id, w in prompt_vec.items():
-                row = matrix.get(word_id, {})
-                if file_stem in row:
-                    matrix_score += float(w) * float(row[file_stem])
+            data = json.loads(matrix_path.read_text('utf-8'))
+            matrix = data.get('matrix', {})
+            for file_key in key_candidates:
+                file_weights = matrix.get(file_key, {})
+                candidate_score = 0.0
+                for word_id, weight in prompt_vec.items():
+                    stored = file_weights.get(str(word_id))
+                    if stored is not None:
+                        candidate_score += float(weight) * float(stored)
+                matrix_score = max(matrix_score, candidate_score)
     except Exception:
         pass
     matrix_score = min(matrix_score, 1.0)
@@ -146,24 +179,31 @@ def self_score(file_stem: str, prompt_vec: dict[str, float],
         heat_path = root / 'file_heat_map.json'
         if heat_path.exists():
             heat_map = json.loads(heat_path.read_text('utf-8'))
-            # heat_map: {stem: {count, ...}} or {stem: float}
-            val = heat_map.get(file_stem, 0)
-            if isinstance(val, dict):
-                val = val.get('count', val.get('heat', 0))
-            # normalize: cap at 20 touches = 1.0
-            heat_score = min(float(val) / 20.0, 1.0) * 0.3
+            for file_key in key_candidates:
+                val = heat_map.get(file_key, 0)
+                if isinstance(val, dict):
+                    if 'count' in val:
+                        normalized = min(float(val['count']) / 20.0, 1.0)
+                    else:
+                        normalized = min(float(val.get('heat', val.get('touch_score', 0))), 1.0)
+                else:
+                    normalized = min(float(val), 1.0)
+                heat_score = max(heat_score, normalized * 0.3)
     except Exception:
         pass
 
     # Component 3: name token overlap
     import re as _re
-    stem_tokens = set(_re.split(r'[_\-\s]', file_stem.lower()))
+    stem_tokens = set()
+    for file_key in key_candidates:
+        stem_tokens |= {tok for tok in _re.split(r'[_\-\s]', file_key.lower()) if tok}
     prompt_words = set()
     try:
         vocab_path = root / 'logs' / 'intent_vocab.json'
         if vocab_path.exists():
             vocab = json.loads(vocab_path.read_text('utf-8'))
-            id_to_word = {str(v): k for k, v in vocab.items()}
+            word_to_id = vocab.get('word_to_id', {})
+            id_to_word = {str(v): k for k, v in word_to_id.items()}
             for word_id in prompt_vec:
                 w = id_to_word.get(word_id, '')
                 if w:
@@ -180,8 +220,11 @@ def self_score(file_stem: str, prompt_vec: dict[str, float],
 def _scan_all_stems(root: Path) -> list[str]:
     """Return all Python file stems under src/ and key subdirs."""
     stems = []
-    for p in root.glob('src/**/*.py'):
-        stems.append(p.stem)
+    for pattern in ('*.py', 'client/**/*.py', 'src/**/*.py', 'pigeon_compiler/**/*.py', 'pigeon_brain/**/*.py'):
+        for p in root.glob(pattern):
+            if p.name == '__init__.py' or 'tests' in p.parts or 'build' in p.parts:
+                continue
+            stems.append(p.stem)
     return list(set(stems))
 
 

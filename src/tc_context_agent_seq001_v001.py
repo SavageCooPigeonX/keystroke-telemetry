@@ -36,11 +36,80 @@ def _load_registry() -> list[dict]:
         return []
     try:
         data = json.loads(reg.read_text('utf-8', errors='ignore'))
-        _registry_cache = data.get('files', [])
+        _registry_cache = _augment_registry_with_fallback(data.get('files', []))
         _registry_ts = now
     except Exception:
         pass
     return _registry_cache
+
+
+def _registry_canonical_keys(mod: dict) -> set[str]:
+    """Canonical keys for matching numeric predictions back to registry entries."""
+    try:
+        from .intent_numeric_seq001_v001 import canonicalize_file_key
+    except Exception:
+        return set()
+
+    keys = set()
+    for raw in (mod.get('name', ''), mod.get('path', '')):
+        if raw:
+            canonical = canonicalize_file_key(raw)
+            if canonical:
+                keys.add(canonical)
+    return keys
+
+
+def _fallback_registry_entries() -> list[dict]:
+    """Scan the repo for Python files when pigeon_registry.json is sparse."""
+    entries = []
+    seen_paths = set()
+    patterns = (
+        '*.py',
+        'client/**/*.py',
+        'src/**/*.py',
+        'pigeon_compiler/**/*.py',
+        'pigeon_brain/**/*.py',
+    )
+    for pattern in patterns:
+        for path in ROOT.glob(pattern):
+            if not path.is_file() or path.name.startswith('.'):
+                continue
+            if path.name == '__init__.py':
+                continue
+            if 'tests' in path.parts or 'build' in path.parts:
+                continue
+            rel = path.relative_to(ROOT).as_posix()
+            if rel in seen_paths:
+                continue
+            seen_paths.add(rel)
+            try:
+                text = path.read_text('utf-8', errors='ignore')
+            except Exception:
+                text = ''
+            entries.append({
+                'path': rel,
+                'name': path.stem,
+                'tokens': len(text.split()),
+                'desc': rel.replace('/', ' '),
+            })
+    return entries
+
+
+def _augment_registry_with_fallback(registry: list[dict]) -> list[dict]:
+    """Merge filesystem-discovered Python files into a sparse pigeon registry."""
+    merged = list(registry)
+    seen_keys = set()
+    for mod in merged:
+        seen_keys |= _registry_canonical_keys(mod)
+
+    for mod in _fallback_registry_entries():
+        mod_keys = _registry_canonical_keys(mod)
+        if mod_keys & seen_keys:
+            continue
+        merged.append(mod)
+        seen_keys |= mod_keys
+
+    return merged
 
 
 _STOPWORDS = frozenset(
@@ -183,7 +252,7 @@ def select_context_numeric(buffer: str, ctx: dict, max_files: int = 3) -> list[d
     correlations between prompt words and file touches from push cycles.
     """
     try:
-        from .intent_numeric_seq001_v001 import predict_files, get_stats
+        from .intent_numeric_seq001_v001 import predict_files, get_stats, canonicalize_file_key
         stats = get_stats()
         if stats['total_touches'] < 10:
             return []  # Not enough data yet, fall back to heuristics
@@ -206,10 +275,10 @@ def select_context_numeric(buffer: str, ctx: dict, max_files: int = 3) -> list[d
             # and top_n ranking). Filtering again at 0.01 dropped everything.
             if score < 0.001:
                 continue
+            target_key = canonicalize_file_key(module_name)
             # Find matching registry entry
             for mod in registry:
-                name = mod.get('name', '').lower()
-                if module_name in name or name.startswith(module_name):
+                if target_key in _registry_canonical_keys(mod):
                     results.append({
                         'path': mod.get('path', ''),
                         'name': mod.get('name', ''),

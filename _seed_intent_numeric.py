@@ -14,7 +14,7 @@ import subprocess
 from pathlib import Path
 from datetime import datetime, timezone
 
-from src.intent_numeric_seq001_v001_seq001_v001 import record_touch, get_stats
+from src.intent_numeric_seq001_v001 import record_touch, get_stats
 
 ROOT = Path('.')
 JOURNAL_PATH = ROOT / 'logs' / 'prompt_journal.jsonl'

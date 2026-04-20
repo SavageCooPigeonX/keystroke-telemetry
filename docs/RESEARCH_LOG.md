@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-20 00:18 UTC · 796 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-04-20 04:46 UTC · 807 prompts · 200 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -14,17 +14,17 @@
 
 ### Blind Spots *[source: measured]*
 *Edited without being predicted — the real surprises:*
-- `__main__` — 100x unpredicted
-- `_tmp_regen_dict` — 50x unpredicted
-- `_tmp_token_audit` — 50x unpredicted
-- `_tmp_token_optimizer` — 50x unpredicted
-- `copilot_prompt_manager_seq020_auto_index_builder` — 50x unpredicted
+- `__main__` — 150x unpredicted
+- `__init__` — 100x unpredicted
+- `_tmp_test_bump` — 50x unpredicted
+- `audit_loops` — 50x unpredicted
+- `git_plugin_main_orchestrator` — 50x unpredicted
 
 ## Live Operator State
 
-*796 prompts profiled · source: measured*
+*807 prompts profiled · source: measured*
 
-**Dominant: `abandoned` | Submit: 66% | Del: 4.1%**
+**Dominant: `abandoned` | Submit: 66% | Del: 6.2%**
 - operator entering restructuring mode — expect more deletions than new code
 
 ## Pair Performance
@@ -37,7 +37,7 @@
 **Prompt→edit latency:** 576.7s median (71 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*143 mutations scored*
+*144 mutations scored*
 - no significant signal yet — all sections scored neutral
 
 **Reactor:** 531 fires, 2 accepted (0%)
@@ -45,40 +45,37 @@
 
 ## Codebase Health
 
-*63 self-fix reports · 2026-03-16 → 2026-04-20*
+*65 self-fix reports · 2026-03-16 → 2026-04-20*
 
-**Problem trend: growing** (early avg 24 → recent avg 30) *[source: measured]*
-- problems growing ~6/push — expect more over_hard_cap and dead_exports without intervention
+**Problem trend: improving** (early avg 24 → recent avg 1) *[source: measured]*
+- self-fix pipeline is containing technical debt
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives — treat as hypothesis:*
 - REGRESSION WATCHLIST: Downstream dynamic imports broken by the rename; pigeon compiler misinterpreting rename as a file split; dangling compiler artifact causing build collisions.
 
-### Electron Killers *[source: measured]*
-- `graph_heat_map` — 2 deaths/4 calls (50%)
-
 ## Unsaid Threads
 
 *Deleted from prompts — operator wanted this but did not ask:*
 
-- ",,   BBB...   CCCOOOppp"
-- "yuu"
-- "uuu"
-- "d d d"
 - "bbby y y"
+- "mocke"
 - "iiit t t"
-- "sww"
-- "fww"
-- "ppprrr"
-- "sue"
+- "yyy"
+- "-- -  aanannddd   fffiiilleleesss"
+- "www"
+- "___   sisisimmm"
+- "000"
+- "caa"
+- "d d d"
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** GOOD — 200 entries, 3 unique scores in last 20
+- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20
 - **Training pairs:** 193 captured
-- **Prediction accuracy:** F1=0.000, calibration=0.191 (200 scored)
+- **Prediction accuracy:** F1=0.000, calibration=0.161 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
 - **Memory shards:** 11 active (zero LLM calls)
 

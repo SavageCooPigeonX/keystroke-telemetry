@@ -6,6 +6,7 @@ next steps, spots missing pieces — not sentence completion.
 
 Launch:  py src/thought_completer.py
          py src/thought_completer.py --corner tr --pause 1500
+         py src/thought_completer.py --sim-buffer "audit stale data points"
          py src/thought_completer.py --web --port 8235  (Railway mode)
 
 Split into modules: tc_constants_seq001_v001, tc_vscode_seq001_v001, tc_context_seq001_v001_agent_seq001_v001, tc_context_seq001_v001,
@@ -56,6 +57,7 @@ def main():
     p = argparse.ArgumentParser(description='thought completer — passive overlay')
     p.add_argument('--web', action='store_true', help='web server mode (Railway)')
     p.add_argument('--port', type=int, default=int(os.environ.get('PORT', '8235')))
+    p.add_argument('--sim-buffer', help='run a single tc pause sim for this buffer and exit')
     p.add_argument('--corner', default=DEFAULT_CORNER, choices=['tl', 'tr', 'bl', 'br'])
     p.add_argument('--pause', type=int, default=DEFAULT_PAUSE_MS)
     p.add_argument('--width', type=int, default=DEFAULT_WIDTH)
@@ -66,6 +68,37 @@ def main():
 
     if not _load_api_key():
         print('[completer] WARNING: no GEMINI_API_KEY in .env or environment')
+
+    if args.sim_buffer:
+        from src.intent_numeric_seq001_v001 import predict_files
+        from src.tc_sim_engine_seq001_v001 import run_sim as run_pause_sim
+
+        buffer = args.sim_buffer.strip()
+        if not buffer:
+            print('[sim] empty buffer')
+            return 1
+
+        predictions = predict_files(buffer, top_n=5)
+        winner = run_pause_sim(buffer)
+
+        print(f'[sim] buffer: {buffer}')
+        if predictions:
+            print('[sim] numeric shortlist:')
+            for name, score in predictions:
+                print(f'  {score:.4f}  {name}')
+        else:
+            print('[sim] numeric shortlist: none')
+
+        if winner:
+            print(f'[sim] winner: {winner.name}  score={winner.score:.3f}')
+            print(f'[sim] files: {", ".join(winner.files) if winner.files else "(none)"}')
+            print(f'[sim] completion: {winner.completion or "(empty)"}')
+        else:
+            print('[sim] no winner')
+
+        print(f'[sim] log: {os.path.join(_root_dir, "logs", "tc_sim_results.jsonl")}')
+        print(f'[sim] reinjection: {os.path.join(_root_dir, "logs", "tc_intent_reinjection.json")}')
+        return 0
 
     # Refresh numeric surface on startup — gate first completion until done
     import threading
@@ -103,4 +136,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main() or 0)
