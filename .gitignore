@@ -64,6 +64,12 @@ task_queue.json
 intent_backlog_resolutions.json
 query_memory.json
 rework_log.json
+operator_coaching.md
+agent_coaching.md
+file_heat_map.json
+file_profiles.json
+.overcap_budget
+.master_test_sha
 
 # Local scratchpad docs (not for public repo)
 CODEBASE_ROAST_UNHINGED.md
