@@ -54,6 +54,11 @@ DAEMONS = [
         "cmd": [PY, str(ROOT / "client" / "prompt_telemetry_daemon.py")],
         "restart_delay": 5,
     },
+    {
+        "name": "operator_state",
+        "cmd": [PY, str(ROOT / "client" / "operator_state_daemon.py"), str(ROOT)],
+        "restart_delay": 5,
+    },
 ]
 
 

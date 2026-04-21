@@ -26,11 +26,11 @@ Files below SELF_SCORE_THRESHOLD self-exclude silently — never hits deepseek.
 from __future__ import annotations
 from src._resolve import src_import
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-04-19T23:00:00+00:00
+# EDIT_TS:   2026-04-20T22:00:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  add self_score gate + sim observatory feed
+# EDIT_WHY:  deleted_words augment intent in run_sim
 # EDIT_AUTHOR: copilot
-# EDIT_STATE: harvested
+# EDIT_STATE: active
 # ── /pulse ──
 
 import json
@@ -277,7 +277,8 @@ def grade_file_for_intent(intent_text: str, file_stem: str,
 
 
 def run_sim(intent_text: str, prompt_text: str | None = None,
-            top_n: int = 5, root: Path | None = None) -> list[dict]:
+            top_n: int = 5, root: Path | None = None,
+            deleted_words: list | None = None) -> list[dict]:
     """Run micro sim for an intent across top predicted files.
     
     1. Predict top_n files from intent_numeric
@@ -285,9 +286,14 @@ def run_sim(intent_text: str, prompt_text: str | None = None,
     3. Log results to sim_results.jsonl
     4. Update intent_numeric matrix with grades
     5. Return graded results sorted by grade desc
+
+    deleted_words: carried from prompt_journal, appended to intent_text before encoding.
     """
     root = root or ROOT
     api_key = _load_api_key()
+    # Augment intent with deleted signal — operator's unsaid words carry design intent
+    if deleted_words:
+        intent_text = intent_text + ' ' + ' '.join(str(w) for w in deleted_words[:15])
     prompt_text = prompt_text or intent_text
     ts = datetime.now(timezone.utc).isoformat()
 

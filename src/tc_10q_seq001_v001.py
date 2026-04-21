@@ -19,9 +19,9 @@ Pass all 10 → INTERLINKED. A module stays interlinked across renames
 because the test file uses glob-based imports (see interlinker.py).
 """
 # ── telemetry:pulse ──
-# EDIT_TS:   None
+# EDIT_TS:   2026-04-21T04:35:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  initial build - 10q framework
+# EDIT_WHY:  Q10 scenario-aware via edit intent
 # EDIT_AUTHOR: copilot
 # EDIT_STATE: harvested
 # ── /pulse ──
@@ -200,11 +200,11 @@ def run_10q(filepath: Path) -> dict:
     answers['Q9_entropy_shed'] = conf is not None and conf >= ENTROPY_THRESHOLD
     notes['Q9'] = f'confidence={conf}'
 
-    # Q10 — data contract (primary function returns non-None for root input)
+    # Q10 — data contract: primary function returns non-None + scenario note from last edit intent
     answers['Q10_data_contract'] = False
+    notes['Q10_scenario'] = ''
     if tree and api:
-        primary = api[0]  # first public function
-        # only smoke-test functions that take 'root' or no args
+        primary = api[0]
         fn_nodes = [n for n in ast.iter_child_nodes(tree)
                     if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))
                     and n.name == primary]
@@ -222,6 +222,14 @@ def run_10q(filepath: Path) -> dict:
                         if callable(fn):
                             result = fn(ROOT) if fn_args == ['root'] else fn()
                             answers['Q10_data_contract'] = result is not None
+                            # attach intent scenario from last edit pulse block
+                            src_text = matches[0].read_text('utf-8', errors='ignore')
+                            why_m = re.search(r'# EDIT_WHY:\s*(.+)', src_text)
+                            edit_why = why_m.group(1).strip() if why_m else ''
+                            if edit_why and edit_why not in ('None', ''):
+                                notes['Q10_scenario'] = f'last edit: {edit_why}'
+                            if not notes['Q10_scenario']:
+                                notes['Q10_scenario'] = f'{primary}() returned {type(result).__name__}'
                 except Exception as e:
                     notes['Q10'] = str(e)[:100]
 

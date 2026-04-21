@@ -3334,6 +3334,38 @@ function stopUIAReader() {
     }
 }
 
+// ── Operator State Daemon (independent capture aggregator + COoikit pairing) ──
+// Reads vscdb_drafts.jsonl + os_keystrokes.jsonl, detects composition events,
+// pairs to files via intent_numeric (pure math, no LLM).
+// Writes: logs/operator_state_realtime.jsonl + logs/operator_state_current.json
+// Fully decoupled — runs whether or not Copilot is active.
+
+let operatorStateDaemonProc: ChildProcess | undefined;
+
+function startOperatorStateDaemon(root: string) {
+    const daemon = path.join(root, 'client', 'operator_state_daemon.py');
+    if (!fs.existsSync(daemon)) return;
+
+    operatorStateDaemonProc = spawn('py', [daemon, root], {
+        cwd: root,
+        stdio: ['ignore', 'pipe', 'pipe'],
+    });
+
+    operatorStateDaemonProc.on('exit', (code) => {
+        console.log(`[pigeon] operator_state_daemon exited (code=${code})`);
+        operatorStateDaemonProc = undefined;
+        // always restart — this daemon must stay alive for independent capture
+        setTimeout(() => { if (!operatorStateDaemonProc) startOperatorStateDaemon(root); }, 5000);
+    });
+}
+
+function stopOperatorStateDaemon() {
+    if (operatorStateDaemonProc) {
+        operatorStateDaemonProc.kill();
+        operatorStateDaemonProc = undefined;
+    }
+}
+
 // ── Manifest Work Loop ───────────────────────────────────────────────────────
 // Watches organism health files. When state changes, builds prioritized tasks
 // from escalation/dossier/entropy signals, calls LM API with manifest as prompt,
@@ -3920,6 +3952,12 @@ export function activate(context: vscode.ExtensionContext) {
         // UIA reader — live text capture via Windows UI Automation
         startUIAReader(root);
         context.subscriptions.push({ dispose: () => stopUIAReader() });
+
+        // Operator state daemon — independent capture + COoikit file pairing
+        // Fully decoupled from LLM. Reads os_keystrokes + vscdb_drafts, pairs
+        // compositions to files via intent_numeric (no LLM involvement).
+        startOperatorStateDaemon(root);
+        context.subscriptions.push({ dispose: () => stopOperatorStateDaemon() });
 
         // Live operator state status bar (refreshes every 15s)
         new OperatorStateStatusBar(root, context);

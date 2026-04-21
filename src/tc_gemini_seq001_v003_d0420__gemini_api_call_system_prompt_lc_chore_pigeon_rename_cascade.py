@@ -10,15 +10,17 @@ COGNITIVE NOTE (auto-added by reactor): This module triggered 3+ high-load flush
 # SESSIONS: 2
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# EDIT_AUTHOR: None
-# EDIT_STATE: idle
+# EDIT_TS:   2026-04-21T04:55:00+00:00
+# EDIT_HASH: auto
+# EDIT_WHY:  live copilot layer flush on typing pause
+# EDIT_AUTHOR: copilot
+# EDIT_STATE: harvested
 # ── /pulse ──
 from __future__ import annotations
 import json
 import os
+import re
+import threading
 import urllib.request
 from pathlib import Path
 from datetime import datetime, timezone
@@ -635,6 +637,19 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
     selected_files = select_context_ensemble(buffer, ctx)
     ctx_names = [f['name'] for f in selected_files]
 
+    # ── LIVE COPILOT LAYER FLUSH ──
+    # Reassemble pigeon:current-query in copilot-instructions.md on every pause.
+    # Daemon thread — zero latency cost to TC popup.
+    try:
+        _sec = classify_section(buffer) or 'unknown'
+    except Exception:
+        _sec = 'unknown'
+    threading.Thread(
+        target=_flush_context_to_copilot,
+        args=(buffer, selected_files, _sec),
+        daemon=True,
+    ).start()
+
     # ── NUMERIC TRAINING: fire on every TC invocation ──
     # Every buffer pause = a training signal. Log buffer→files NOW using whatever
     # files the heuristic+numeric ensemble picked. This bootstraps the numeric
@@ -832,6 +847,88 @@ def _write_completion_notes(entry: dict):
 
 _registry_names_cache: set[str] = set()
 _registry_names_ts: float = 0
+
+
+# ── live copilot layer flush ─────────────────────────────────────────────────
+
+_CURRENT_QUERY_START = '<!-- pigeon:current-query -->'
+_CURRENT_QUERY_END = '<!-- /pigeon:current-query -->'
+_FLUSH_LOCK = threading.Lock()   # one write at a time
+_last_flush_buffer: str = ''
+
+
+def _flush_context_to_copilot(buffer: str, selected_files: list[dict], section: str) -> None:
+    """Write live context selection back to copilot-instructions.md.
+
+    Called in a daemon thread on every TC typing pause — reassembles the
+    pigeon:current-query block so Copilot always sees what the operator
+    is typing RIGHT NOW, not what prompt_enricher cached 10 min ago.
+    Also writes logs/context_selection.json as a side-effect artifact.
+    """
+    global _last_flush_buffer
+    if not buffer or len(buffer.strip()) < 4:
+        return
+    if buffer == _last_flush_buffer:
+        return  # buffer hasn't changed — skip
+    with _FLUSH_LOCK:
+        _last_flush_buffer = buffer
+        now = datetime.now(timezone.utc)
+        ts = now.strftime('%Y-%m-%dT%H:%M:%S UTC')
+
+        # ── 1. write context_selection.json artifact ──
+        try:
+            sel_path = ROOT / 'logs' / 'context_selection.json'
+            sel_path.parent.mkdir(parents=True, exist_ok=True)
+            sel_path.write_text(json.dumps({
+                'ts': now.isoformat(),
+                'buffer': buffer[:300],
+                'section': section,
+                'files': [
+                    {'name': f['name'], 'score': f.get('score', 0),
+                     'sources': f.get('sources', [])}
+                    for f in selected_files[:8]
+                ],
+                'confidence': selected_files[0]['score'] if selected_files else 0.0,
+            }, ensure_ascii=False, indent=2), encoding='utf-8')
+        except Exception:
+            pass
+
+        # ── 2. patch pigeon:current-query block in copilot-instructions.md ──
+        try:
+            instr_path = ROOT / '.github' / 'copilot-instructions.md'
+            if not instr_path.exists():
+                return
+            text = instr_path.read_text('utf-8', errors='ignore')
+            if _CURRENT_QUERY_START not in text:
+                return  # don't inject into files that don't have the block
+
+            file_list = ', '.join(f['name'] for f in selected_files[:6]) or 'none'
+            hint_map = {
+                'debugging': 'operator is debugging — look for the specific error or wrong behavior',
+                'exploring': 'operator is exploring — explain the concept or pattern',
+                'infrastructure': 'operator is building infrastructure — name the module/function',
+                'creating': 'operator is creating — build what they described',
+                'reviewing': 'operator is reviewing — name what to audit',
+                'telemetry': 'operator is checking telemetry — name the signal or pipeline step',
+            }
+            intent_hint = hint_map.get(section, 'match what operator is typing')
+            block = (
+                f'{_CURRENT_QUERY_START}\n'
+                f'## What You Actually Mean Right Now\n\n'
+                f'*Live · {ts} · source: thought_completer buffer*\n\n'
+                f'**BUFFER:** {buffer[:200]}\n\n'
+                f'**CONTEXT FILES:** {file_list}\n\n'
+                f'**INTENT:** {section} — {intent_hint}\n'
+                f'{_CURRENT_QUERY_END}'
+            )
+            pattern = re.compile(
+                rf'(?ms)^\s*{re.escape(_CURRENT_QUERY_START)}\s*$\n.*?^\s*{re.escape(_CURRENT_QUERY_END)}\s*$'
+            )
+            new_text = pattern.sub(block, text)
+            if new_text != text:
+                instr_path.write_text(new_text, encoding='utf-8')
+        except Exception:
+            pass
 
 
 def _load_registry_names() -> set[str]:

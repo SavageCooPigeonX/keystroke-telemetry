@@ -16,11 +16,11 @@ Zero LLM calls — pure signal cross-referencing.
 # SESSIONS: 3
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# EDIT_AUTHOR: None
-# EDIT_STATE: idle
+# EDIT_TS:   2026-04-21T05:45:00+00:00
+# EDIT_HASH: auto
+# EDIT_WHY:  decouple capture from LLM trigger
+# EDIT_AUTHOR: copilot
+# EDIT_STATE: active
 # ── /pulse ──
 from __future__ import annotations
 import json
@@ -302,18 +302,29 @@ def _candidate_compositions(root: Path, now_ms: int, msg: str) -> list[dict]:
                 or _parse_timestamp_ms(entry.get('first_key_ts'))
                 or _parse_timestamp_ms(entry.get('ts'))
             )
-            if comp_ts is None or comp_ts > now_ms:
+            # Allow compositions written up to 8s AFTER now (race: _force_fresh_composition
+            # runs after now_ms is captured, so its ts > now_ms).
+            if comp_ts is None or comp_ts > now_ms + 8000:
                 continue
+            age_ms = max(0, now_ms - comp_ts)  # clamp future comps to age=0
             candidates.append({
                 'source': source,
                 'entry': entry,
                 'ts_ms': comp_ts,
-                'age_ms': now_ms - comp_ts,
+                'age_ms': age_ms,
                 'key': _composition_key(entry),
                 'match_score': _text_match_score(msg, entry),
             })
     candidates.sort(
-        key=lambda item: (-item['match_score'], item['age_ms'], 0 if item['source'] == 'prompt_compositions' else 1)
+        key=lambda item: (
+            -item['match_score'],
+            # prefer real compositions over fallback (vscdb_self)
+            1 if item['entry'].get('source') == 'vscdb_self' else 0,
+            # prefer entries with actual wpm signal
+            0 if item['entry'].get('chat_state', {}).get('signals', {}).get('wpm') else 1,
+            item['age_ms'],
+            0 if item['source'] == 'prompt_compositions' else 1,
+        )
     )
     return candidates
 
@@ -735,11 +746,41 @@ def _write_self_composition(root: Path, msg: str, now: datetime) -> None:
         f.write(json.dumps(entry, ensure_ascii=False) + '\n')
 
 
+def _read_operator_state_composition(root: Path, now_ms: int) -> dict | None:
+    """Read the latest composition from operator_state_daemon output (independent capture).
+
+    This is the preferred read path — daemon writes independently of LLM.
+    Returns None if daemon output is stale (>120s) or unavailable.
+    """
+    path = root / 'logs' / 'operator_state_realtime.jsonl'
+    if not path.exists():
+        return None
+    try:
+        lines = path.read_text('utf-8', 'ignore').strip().splitlines()
+        for raw in reversed(lines[-20:]):
+            e = json.loads(raw)
+            if e.get('event') != 'composition':
+                continue
+            ts_str = e.get('ts') or e.get('captured_at', '')
+            try:
+                ts_ms = int(datetime.fromisoformat(
+                    ts_str.replace('Z', '+00:00')).timestamp() * 1000)
+            except Exception:
+                continue
+            age_ms = now_ms - ts_ms
+            if 0 <= age_ms <= 120_000:  # within 2 min
+                return e
+    except Exception:
+        pass
+    return None
+
+
 def _force_fresh_composition(root: Path) -> None:
     """Force a fresh composition analysis from raw keystrokes before binding.
 
     This ensures the CURRENT prompt's deleted words are available for binding,
     rather than waiting for the classify_bridge flush timer (~60s).
+    Skipped when operator_state_daemon is running (preferred independent path).
     """
     try:
         import importlib.util
@@ -780,7 +821,13 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
         return entry
 
     _write_self_composition(root, msg, now)
-    _force_fresh_composition(root)
+    now_ms = int(now.timestamp() * 1000)
+
+    # Try independent operator_state_daemon output first (preferred — no LLM trigger)
+    osd_comp = _read_operator_state_composition(root, now_ms)
+    if osd_comp is None:
+        # Daemon output stale/missing — fall back to LLM-triggered analysis
+        _force_fresh_composition(root)
     _refresh_prompt_compositions(root)
     comp_match = _select_composition(root, now, msg, session_n=session_n)
     comp = comp_match['entry'] if comp_match else None
@@ -796,6 +843,28 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
         'age_ms': None,
         'key': None,
     }
+
+    # Overlay signals from operator_state_daemon (independent capture) when available
+    if osd_comp:
+        signals = {
+            'wpm':             osd_comp.get('wpm', 0),
+            'deletion_ratio':  osd_comp.get('deletion_ratio', 0),
+            'total_keystrokes': osd_comp.get('total_inserts', 0) + osd_comp.get('total_deletes', 0),
+            'chars_per_sec': 0, 'hesitation_count': 0,
+            'rewrite_count': 0, 'typo_corrections': 0,
+            'intentional_deletions': 0, 'duration_ms': 0,
+        }
+        deleted_words = [t for t in osd_comp.get('deleted_texts', []) if t]
+        binding = {
+            'matched': True,
+            'source': 'operator_state_daemon',
+            'age_ms': max(0, now_ms - int(datetime.fromisoformat(
+                osd_comp.get('ts', now.isoformat()).replace('Z', '+00:00')
+            ).timestamp() * 1000)),
+            'key': None,
+            'match_score': 1.0,
+        }
+
     if comp_match and comp:
         binding = {
             'matched': True,
@@ -807,14 +876,14 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
         cs = comp.get('chat_state', comp.get('signals', {}))
         sigs = cs.get('signals', cs) if isinstance(cs, dict) else {}
         signals = {
-            'wpm':                sigs.get('wpm', 0),
+            'wpm':                sigs.get('wpm', 0) or signals.get('wpm', 0),
             'chars_per_sec':      sigs.get('chars_per_sec', 0),
-            'deletion_ratio':     sigs.get('deletion_ratio', comp.get('deletion_ratio', 0)),
+            'deletion_ratio':     sigs.get('deletion_ratio', comp.get('deletion_ratio', signals.get('deletion_ratio', 0))),
             'hesitation_count':   sigs.get('hesitation_count', 0),
             'rewrite_count':      sigs.get('rewrite_count', 0),
             'typo_corrections':   comp.get('typo_corrections', sigs.get('typo_corrections', 0)),
             'intentional_deletions': comp.get('intentional_deletions', sigs.get('intentional_deletions', 0)),
-            'total_keystrokes':   comp.get('total_keystrokes', 0),
+            'total_keystrokes':   comp.get('total_keystrokes', signals.get('total_keystrokes', 0)),
             'duration_ms':        comp.get('duration_ms', 0),
         }
         cog_state = cs.get('state', 'unknown') if isinstance(cs, dict) else 'unknown'
@@ -905,9 +974,32 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
                         'status': 'pending',
                         'actors_cleared': [],
                         'module_refs': entry.get('module_refs', []),
+                        'deleted_words': deleted_words[:12],  # carry deleted words into sim
+                        'rewrites': [str(r)[:80] for r in rewrites[:4]],
                     }, ensure_ascii=False) + '\n')
         except Exception:
             pass  # numeric encoding is best-effort
+
+    # ── STEP 2c: context_select_agent — assemble copilot layer on every prompt ──
+    # Fires as subprocess so it never stalls the journal. Updates:
+    #   logs/context_selection.json, logs/tc_steer.json,
+    #   .github/copilot-instructions.md pigeon:current-query block
+    if not meta_prompt_kind:
+        try:
+            import subprocess as _csa_sp
+            _csa_matches = sorted(root.glob('src/context_select_agent_seq001*.py'))
+            if _csa_matches:
+                _csa_path = str(_csa_matches[-1])
+                _csa_dw   = json.dumps(deleted_words[:12])
+                _csa_rw   = json.dumps([str(r)[:80] for r in rewrites[:4]])
+                _csa_sp.Popen(
+                    [sys.executable, _csa_path, str(root), msg[:300], _csa_dw, _csa_rw],
+                    close_fds=True,
+                    stdout=_csa_sp.DEVNULL,
+                    stderr=_csa_sp.DEVNULL,
+                )
+        except Exception:
+            pass  # assembly is best-effort — journal still works
 
     # Append
     journal_path = root / JOURNAL_PATH
