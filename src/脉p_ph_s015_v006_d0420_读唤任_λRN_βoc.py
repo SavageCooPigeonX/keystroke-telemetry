@@ -32,9 +32,9 @@ Paired record schema (edit_pairs.jsonl):
     }
 """
 # ── telemetry:pulse ──
-# EDIT_TS:   None
+# EDIT_TS:   2026-04-21T13:55:42.2717336Z
 # EDIT_HASH: None
-# EDIT_WHY:  None
+# EDIT_WHY:  add prompt density metric
 # EDIT_AUTHOR: None
 # EDIT_STATE: idle
 # ── /pulse ──
@@ -245,6 +245,7 @@ def pair_pulse_to_prompt(root: Path, filepath: Path,
         'wpm': ((journal or {}).get('signals') or {}).get('wpm'),
         'deletion_ratio': ((journal or {}).get('signals') or {}).get('deletion_ratio'),
         'hesitation_count': ((journal or {}).get('signals') or {}).get('hesitation_count'),
+        'prompt_density': (((journal or {}).get('running') or {}).get('prompt_density') or {}),
     }
 
     # Append to edit_pairs.jsonl

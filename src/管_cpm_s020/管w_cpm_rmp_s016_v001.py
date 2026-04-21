@@ -218,7 +218,7 @@ def refresh_managed_prompt(
                 if spec and spec.loader:
                     mod = importlib.util.module_from_spec(spec)
                     spec.loader.exec_module(mod)
-                    track_fn = getattr(mod, 'track_mutation', None)
+                    track_fn = getattr(mod, 'track_copilot_prompt_mutations', None) or getattr(mod, 'track_mutation', None)
                     if callable(track_fn):
                         mutation_result = track_fn(root)
         except Exception:

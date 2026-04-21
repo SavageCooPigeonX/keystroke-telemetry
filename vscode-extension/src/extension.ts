@@ -3123,10 +3123,8 @@ print('handoff:', p)
     osHookProc.on('exit', (code) => {
         console.log(`[pigeon] OS hook exited (code=${code})`);
         osHookProc = undefined;
-        // Auto-restart after 5s unless intentionally stopped
-        if (code !== null && code !== 0) {
-            setTimeout(() => { if (!osHookProc) startOsHook(root); }, 5000);
-        }
+        // Auto-restart always — clean exit (code=0) also needs restart (idle timeout, pynput init fail, etc.)
+        setTimeout(() => { if (!osHookProc) startOsHook(root); }, 5000);
     });
 }
 
@@ -3276,9 +3274,7 @@ function startVscdbPoller(root: string) {
     vscdbPollerProc.on('exit', (code) => {
         console.log(`[pigeon] vscdb poller exited (code=${code})`);
         vscdbPollerProc = undefined;
-        if (code !== null && code !== 0) {
-            setTimeout(() => { if (!vscdbPollerProc) startVscdbPoller(root); }, 5000);
-        }
+        setTimeout(() => { if (!vscdbPollerProc) startVscdbPoller(root); }, 5000);
     });
 }
 
@@ -3321,9 +3317,7 @@ function startUIAReader(root: string) {
     uiaReaderProc.on('exit', (code) => {
         console.log(`[pigeon] UIA reader exited (code=${code})`);
         uiaReaderProc = undefined;
-        if (code !== null && code !== 0) {
-            setTimeout(() => { if (!uiaReaderProc) startUIAReader(root); }, 5000);
-        }
+        setTimeout(() => { if (!uiaReaderProc) startUIAReader(root); }, 5000);
     });
 }
 
@@ -3345,6 +3339,7 @@ let operatorStateDaemonProc: ChildProcess | undefined;
 function startOperatorStateDaemon(root: string) {
     const daemon = path.join(root, 'client', 'operator_state_daemon.py');
     if (!fs.existsSync(daemon)) return;
+    if (operatorStateDaemonProc) return;  // already running — prevent duplicate spawns
 
     operatorStateDaemonProc = spawn('py', [daemon, root], {
         cwd: root,

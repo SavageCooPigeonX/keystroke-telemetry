@@ -15,11 +15,11 @@ Launch:  py -m src.tc_observatory_seq001_v001
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# EDIT_AUTHOR: None
-# EDIT_STATE: idle
+# EDIT_TS:   2026-04-22T00:00:00+00:00
+# EDIT_HASH: auto
+# EDIT_WHY:  add GRADES browser tab + overwriter button
+# EDIT_AUTHOR: copilot
+# EDIT_STATE: active
 # ── /pulse ──
 from __future__ import annotations
 import json
@@ -54,7 +54,7 @@ SMALL   = (FONT, 7)
 MED     = (FONT, 9)
 BIG     = (FONT, 11)
 
-TABS = ['FILES', 'NUMERIC', 'INTENT', 'PROFILE', 'PERCY', 'SIM', 'JOURNEY']
+TABS = ['FILES', 'NUMERIC', 'INTENT', 'PROFILE', 'PERCY', 'SIM', 'GRADES', 'JOURNEY']
 
 PERCY_SYSTEM = """You are Percy Pigeon — the living mascot of this codebase.
 You speak in short punchy sentences. You read file bug reports and operator prompts,
@@ -1017,6 +1017,354 @@ def run_observatory():
     # Seed history on startup
     root.after(800, _render_sim_history)
 
+    # ── Escalation state panel (bottom strip on SIM tab) ─────────────────────
+    esc_fr = tk.Frame(sim_frame, bg=SURFACE, height=90)
+    esc_fr.pack(fill='x', side='bottom')
+    esc_fr.pack_propagate(False)
+    esc_hdr = tk.Label(esc_fr,
+                       text='⚡ escalation state  (logs/escalation_state.json)',
+                       bg=SURFACE, fg=PURPLE, font=(FONT, 7, 'bold'))
+    esc_hdr.pack(side='top', anchor='w', padx=8, pady=(4, 0))
+    esc_body = tk.Label(esc_fr, text='…loading…', bg=SURFACE, fg=DIM,
+                        font=SMALL, justify='left', anchor='w', wraplength=900)
+    esc_body.pack(side='top', anchor='w', padx=8, pady=(2, 0))
+
+    esc_sweep_btn_var = tk.StringVar(value='▶ run sweep')
+
+    def _run_escalation_sweep():
+        esc_sweep_btn_var.set('running…')
+        esc_body.config(fg=YELLOW, text='sweeping…')
+        def _do():
+            try:
+                fsim = src_import('file_sim_seq001', 'escalation_sweep')
+                result = fsim(root=ROOT, dry_run=False)
+                def _paint(r=result):
+                    txt = (f"swept={r['swept']}  flagged={r['flagged']}  "
+                           f"fixed={r['fixed']}  promoted={r['promoted']}  "
+                           f"promoted_stems={r['promoted_stems'] or '(none)'}")
+                    esc_body.config(fg=GREEN, text=txt)
+                    esc_sweep_btn_var.set('▶ run sweep')
+                root.after(0, _paint)
+            except Exception as e:
+                root.after(0, lambda err=e: (
+                    esc_body.config(fg=RED, text=f'sweep error: {err}'),
+                    esc_sweep_btn_var.set('▶ run sweep')))
+        threading.Thread(target=_do, daemon=True).start()
+
+    tk.Button(esc_fr, textvariable=esc_sweep_btn_var,
+              bg='#1c2733', fg=ACCENT, font=SMALL, relief='flat',
+              command=_run_escalation_sweep).pack(side='right', padx=8, pady=4)
+
+    def _refresh_escalation_state():
+        """Poll logs/escalation_state.json every 4s and update the strip."""
+        esc_path = ROOT / 'logs' / 'escalation_state.json'
+        try:
+            if esc_path.exists():
+                state = json.loads(esc_path.read_text('utf-8', errors='ignore'))
+                ts = state.get('ts', '')[:19].replace('T', ' ')
+                swept  = state.get('swept', 0)
+                flagged = state.get('flagged', 0)
+                fixed   = state.get('fixed', 0)
+                promoted = state.get('promoted', 0)
+                promo_stems = state.get('promoted_stems', [])
+                flag_stems  = state.get('flagged_stems', [])
+                txt = (f"[{ts}]  swept={swept}  flagged={flagged}  "
+                       f"fixed={fixed}  promoted={promoted}\n"
+                       f"  flagged: {', '.join(flag_stems[:8]) or '(none)'}\n"
+                       f"  interlinked: {', '.join(promo_stems[:8]) or '(none)'}")
+                esc_body.config(fg=GREEN if promoted else (YELLOW if flagged else DIM),
+                                text=txt)
+            else:
+                esc_body.config(fg=DIM, text='no escalation run yet — press ▶ run sweep')
+        except Exception as e:
+            esc_body.config(fg=DIM, text=f'read error: {e}')
+        root.after(4000, _refresh_escalation_state)
+
+    root.after(1200, _refresh_escalation_state)
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # TAB GRADES — file_sim grade browser + overwriter
+    # ══════════════════════════════════════════════════════════════════════════
+    grades_frame = tk.Frame(content_host, bg=BG)
+    _tab_frames['GRADES'] = grades_frame
+
+    grades_hdr_fr = tk.Frame(grades_frame, bg=SURFACE, height=22)
+    grades_hdr_fr.pack(fill='x'); grades_hdr_fr.pack_propagate(False)
+    tk.Label(grades_hdr_fr, text='🔬 file sim grades  (logs/sim_results.jsonl)',
+             bg=SURFACE, fg=ACCENT, font=(FONT, 8, 'bold')).pack(side='left', padx=8)
+    grades_stats_lbl = tk.Label(grades_hdr_fr, text='—', bg=SURFACE, fg=DIM, font=SMALL)
+    grades_stats_lbl.pack(side='right', padx=8)
+
+    # Filter bar
+    gf_filter_fr = tk.Frame(grades_frame, bg=BG, height=26)
+    gf_filter_fr.pack(fill='x'); gf_filter_fr.pack_propagate(False)
+    tk.Label(gf_filter_fr, text='filter:', bg=BG, fg=DIM, font=SMALL).pack(side='left', padx=(8, 2))
+    grades_filter_var = tk.StringVar()
+    tk.Entry(gf_filter_fr, textvariable=grades_filter_var,
+             bg='#0b0e14', fg=TEXT_C, insertbackground=TEXT_C,
+             font=SMALL, relief='flat', width=30).pack(side='left', padx=4)
+    tk.Label(gf_filter_fr, text='(file stem or intent keyword)',
+             bg=BG, fg=DIM, font=SMALL).pack(side='left', padx=4)
+    tk.Label(gf_filter_fr, text='⚠ needs_change only:',
+             bg=BG, fg=YELLOW, font=SMALL).pack(side='left', padx=(16, 2))
+    grades_nc_only_var = tk.BooleanVar(value=False)
+    tk.Checkbutton(gf_filter_fr, variable=grades_nc_only_var,
+                   bg=BG, fg=TEXT_C, selectcolor='#1f6feb',
+                   activebackground=BG).pack(side='left')
+
+    grades_pane = tk.PanedWindow(grades_frame, orient='horizontal', bg=BG,
+                                 sashwidth=6, sashrelief='groove')
+    grades_pane.pack(fill='both', expand=True)
+
+    # Left: grade list (scrollable canvas)
+    grade_list_fr = tk.Frame(grades_pane, bg=BG)
+    grades_pane.add(grade_list_fr, width=640)
+    grade_canvas = tk.Canvas(grade_list_fr, bg=BG, highlightthickness=0)
+    grade_vscroll = tk.Scrollbar(grade_list_fr, orient='vertical', command=grade_canvas.yview)
+    grade_canvas.configure(yscrollcommand=grade_vscroll.set)
+    grade_vscroll.pack(side='right', fill='y')
+    grade_canvas.pack(fill='both', expand=True)
+    grade_inner = tk.Frame(grade_canvas, bg=BG)
+    grade_window = grade_canvas.create_window((0, 0), window=grade_inner, anchor='nw')
+    grade_canvas.bind('<Configure>',
+                      lambda e: grade_canvas.itemconfig(grade_window, width=e.width))
+    grade_inner.bind('<Configure>',
+                     lambda e: grade_canvas.configure(scrollregion=grade_canvas.bbox('all')))
+    grade_canvas.bind_all('<MouseWheel>',
+                          lambda e: grade_canvas.yview_scroll(int(-1*(e.delta/120)), 'units'))
+
+    # Right: cortex viewer for selected file
+    cortex_fr = tk.Frame(grades_pane, bg=BG)
+    grades_pane.add(cortex_fr, width=480)
+    tk.Label(cortex_fr, text='🧬 file cortex  (file_profiles.json)',
+             bg=BG, fg=YELLOW, font=(FONT, 8, 'bold')).pack(anchor='w', padx=6, pady=(4, 0))
+    cortex_box = _make_scrolled_text(cortex_fr)
+    cortex_box.pack(fill='both', expand=True)
+    cortex_box.tag_configure('hint',  foreground=GREEN,  font=(FONT, 8, 'italic'))
+    cortex_box.tag_configure('watch', foreground=YELLOW)
+    cortex_box.tag_configure('break_p', foreground=RED)
+    cortex_box.tag_configure('trend', foreground=ACCENT)
+
+    _grades_cache: list[dict] = []
+
+    def _show_cortex(stem: str):
+        fp = ROOT / 'file_profiles.json'
+        if not fp.exists():
+            _txt_set(cortex_box, [('warn', 'file_profiles.json not found')]); return
+        try:
+            profiles = json.loads(fp.read_text('utf-8', errors='ignore'))
+            p = profiles.get(stem, {})
+        except Exception as e:
+            _txt_set(cortex_box, [('err', f'read error: {e}')]); return
+
+        segs: list[tuple[str, str]] = [
+            ('bold_stage', f'── {stem} ──\n'),
+            ('dim', f'personality: '), ('val', f'{p.get("personality","?")}  '),
+            ('dim', 'v'), ('val', f'{p.get("version","?")}\n'),
+            ('dim', f'tokens: {p.get("tokens","?")}  '),
+            ('val', f'interlinked_at: {p.get("interlinked_at","—")}\n\n'),
+        ]
+        hint = p.get('self_repair_hint', '')
+        if hint:
+            segs += [('bold_stage', 'self_repair_hint:\n'), ('hint', f'  {hint}\n\n')]
+
+        sh = p.get('sim_history', [])
+        if sh:
+            segs.append(('bold_stage', f'sim_history ({len(sh)} entries):\n'))
+            for e in sh[-8:]:
+                nc_flag = '✓' if e.get('needs_change') else '·'
+                segs.append(('trend', f'  {nc_flag} grade={e.get("grade",0):.2f}  '))
+                segs.append(('dim',   f'{e.get("intent","")[:60]}\n'))
+            segs.append(('dim', '\n'))
+
+        bp = p.get('break_patterns', [])
+        if bp:
+            segs.append(('bold_stage', 'break_patterns:\n'))
+            for b in bp[:5]:
+                segs.append(('break_p', f'  {b["partner"]} ×{b.get("times",1)}  '))
+                segs.append(('dim',     f'{b.get("last_intent","")[:50]}\n'))
+            segs.append(('dim', '\n'))
+
+        watch = p.get('backwards_pass_watch', [])
+        if watch:
+            segs += [('bold_stage', 'watch_siblings:\n'),
+                     ('watch', '  ' + ', '.join(watch[:8]) + '\n\n')]
+
+        trend = p.get('10q_trend', [])
+        if trend:
+            segs.append(('bold_stage', '10q_trend:\n'))
+            for t in trend[-5:]:
+                segs.append(('dim', f'  {t.get("ts","")[:16]}  '))
+                segs.append(('trend', f'{t.get("score","?/10")}  '))
+                failed = t.get('failed', [])
+                if failed:
+                    segs.append(('err', f'failed: {", ".join(failed[:3])}\n'))
+                else:
+                    segs.append(('ok', 'all pass\n'))
+            segs.append(('dim', '\n'))
+
+        rl = p.get('repair_log', [])
+        if rl:
+            segs.append(('bold_stage', 'repair_log:\n'))
+            for r in rl[-5:]:
+                ok = '✓' if r.get('success') else '✗'
+                segs.append(('ok' if r.get('success') else 'err',
+                             f'  {ok} {r.get("fix","?")}  '))
+                segs.append(('dim', f'{r.get("trigger","")[:50]}\n'))
+            segs.append(('dim', '\n'))
+
+        partners = p.get('partners', [])
+        if partners:
+            segs.append(('bold_stage', 'partners:\n'))
+            for pt in partners[:6]:
+                bar = '█' * int(pt.get('score', 0) * 14)
+                segs += [('score', f'  {bar:<14} '), ('val', f'{pt["name"]}\n')]
+
+        _txt_set(cortex_box, segs)
+
+    def _trigger_overwrite(entry: dict, btn: tk.Label):
+        stem = entry.get('file_stem', '')
+        intent = entry.get('intent_preview', '')
+        btn.config(text='writing…', fg=YELLOW)
+
+        def _do():
+            try:
+                import importlib.util as _ilu
+                matches = sorted((ROOT / 'src').glob('file_overwriter*.py'),
+                                 key=lambda p: len(p.name))
+                if not matches:
+                    root.after(0, lambda: btn.config(text='no overwriter', fg=RED))
+                    return
+                spec = _ilu.spec_from_file_location('fo', matches[-1])
+                m = _ilu.module_from_spec(spec)
+                if spec and spec.loader:
+                    spec.loader.exec_module(m)
+                    r = m.overwrite_file(stem, intent, grade_result=entry,
+                                         root=ROOT, dry_run=False)
+                    if r['applied']:
+                        root.after(0, lambda: btn.config(
+                            text=f'✓ {r["diff"][:30]}', fg=GREEN))
+                        root.after(0, lambda: _show_cortex(stem))
+                    else:
+                        err = (r.get('error') or 'failed')[:40]
+                        root.after(0, lambda: btn.config(text=f'✗ {err}', fg=RED))
+            except Exception as e:
+                root.after(0, lambda err=e: btn.config(text=f'err: {str(err)[:30]}', fg=RED))
+        threading.Thread(target=_do, daemon=True).start()
+
+    def _build_grade_entries(entries: list[dict]):
+        for w in grade_inner.winfo_children():
+            w.destroy()
+        for e in entries[:80]:
+            _make_grade_row(grade_inner, e)
+        grade_inner.update_idletasks()
+
+    def _make_grade_row(parent: tk.Frame, e: dict):
+        nc = e.get('needs_change', False)
+        conf = float(e.get('confidence', 0))
+        grade = float(e.get('grade', 0))
+        stem = e.get('file_stem', '?')
+        reason = e.get('reason', '')[:80]
+        ts = e.get('ts', '')[:16].replace('T', ' ')
+        intent = e.get('intent_preview', '')[:60]
+        q_score = e.get('10q_score', '?')
+        il = e.get('interlinked', False)
+
+        row_bg = '#1a1a2e' if nc else '#111116'
+        row = tk.Frame(parent, bg=row_bg, relief='flat', bd=1)
+        row.pack(fill='x', padx=4, pady=1)
+
+        # Top: ts + stem + grade badge
+        top = tk.Frame(row, bg=row_bg)
+        top.pack(fill='x', padx=6, pady=(4, 0))
+        nc_color = GREEN if nc else DIM
+        nc_text = '✓ NEEDS CHANGE' if nc else '· stable'
+        tk.Label(top, text=nc_text, bg=row_bg, fg=nc_color,
+                 font=(FONT, 7, 'bold')).pack(side='left')
+        tk.Label(top, text=f'  {stem}', bg=row_bg, fg=ACCENT,
+                 font=(FONT, 8, 'bold')).pack(side='left', padx=4)
+        if il:
+            tk.Label(top, text='★ interlinked', bg=row_bg, fg=YELLOW,
+                     font=(FONT, 7)).pack(side='left', padx=2)
+        grade_bar = '█' * int(abs(grade) * 10)
+        grade_color = GREEN if grade > 0 else RED
+        tk.Label(top, text=f'{grade:+.2f} {grade_bar}', bg=row_bg, fg=grade_color,
+                 font=(FONT, 7)).pack(side='right', padx=4)
+
+        # Mid: reason + intent
+        tk.Label(row, text=f'  {reason}', bg=row_bg, fg=TEXT_C,
+                 font=(FONT, 8), anchor='w', justify='left').pack(fill='x', padx=6, pady=(2, 0))
+        tk.Label(row, text=f'  intent: {intent}  |  {ts}  |  10q={q_score}',
+                 bg=row_bg, fg=DIM, font=SMALL, anchor='w').pack(fill='x', padx=6)
+
+        # Buttons
+        btn_fr = tk.Frame(row, bg=row_bg)
+        btn_fr.pack(anchor='e', padx=6, pady=(2, 4))
+        view_btn = tk.Label(btn_fr, text='🧬 cortex', bg='#1c2733', fg=ACCENT,
+                            font=SMALL, cursor='hand2', padx=4, pady=2)
+        view_btn.pack(side='left', padx=2)
+        view_btn.bind('<Button-1>', lambda e2, s=stem: _show_cortex(s))
+        if nc:
+            ow_btn = tk.Label(btn_fr, text='▶ overwrite', bg='#1a2d1a', fg=GREEN,
+                              font=SMALL, cursor='hand2', padx=4, pady=2)
+            ow_btn.pack(side='left', padx=2)
+            ow_btn.bind('<Button-1>', lambda e2, entry=e, b=ow_btn: _trigger_overwrite(entry, b))
+
+    def _refresh_grades():
+        def _run():
+            nonlocal _grades_cache
+            sr = ROOT / 'logs' / 'sim_results.jsonl'
+            if not sr.exists():
+                return
+            lines = sr.read_text('utf-8', errors='ignore').strip().splitlines()
+            all_entries = []
+            for l in lines:
+                try:
+                    e = json.loads(l)
+                    if not e.get('self_excluded'):
+                        all_entries.append(e)
+                except Exception:
+                    pass
+            # newest first
+            all_entries.sort(key=lambda x: x.get('ts', ''), reverse=True)
+            _grades_cache = all_entries
+
+            total_graded = len(all_entries)
+            total_nc = sum(1 for e in all_entries if e.get('needs_change'))
+            total_lines = len(lines)
+            total_excluded = total_lines - total_graded
+
+            def _paint(entries=all_entries, tg=total_graded, tnc=total_nc, te=total_excluded):
+                grades_stats_lbl.config(
+                    text=f'{tg} graded · {tnc} needs_change · {te} self-excluded')
+                filt = grades_filter_var.get().lower()
+                nc_only = grades_nc_only_var.get()
+                visible = [
+                    e for e in entries
+                    if (not nc_only or e.get('needs_change'))
+                    and (not filt or filt in e.get('file_stem', '').lower()
+                         or filt in e.get('intent_preview', '').lower()
+                         or filt in e.get('reason', '').lower())
+                ]
+                _build_grade_entries(visible)
+            root.after(0, _paint)
+            root.after(5000, _refresh_grades)
+        threading.Thread(target=_run, daemon=True).start()
+
+    grades_filter_var.trace_add(
+        'write', lambda *_: root.after(0, lambda: _build_grade_entries(
+            [e for e in _grades_cache
+             if (not grades_nc_only_var.get() or e.get('needs_change'))
+             and (not grades_filter_var.get()
+                  or grades_filter_var.get().lower() in e.get('file_stem', '').lower()
+                  or grades_filter_var.get().lower() in e.get('intent_preview', '').lower())])))
+    grades_nc_only_var.trace_add(
+        'write', lambda *_: root.after(0, lambda: _build_grade_entries(
+            [e for e in _grades_cache
+             if (not grades_nc_only_var.get() or e.get('needs_change'))])))
+
+    root.after(1800, _refresh_grades)
+
     # ══════════════════════════════════════════════════════════════════════════
     # TAB JOURNEY
     # ══════════════════════════════════════════════════════════════════════════
@@ -1061,7 +1409,8 @@ def run_observatory():
     # Build tab buttons + action buttons
     # ══════════════════════════════════════════════════════════════════════════
     tab_icons = {'FILES': '📁', 'NUMERIC': '🔢', 'INTENT': '🧠',
-                 'PROFILE': '🕵', 'PERCY': '🐦', 'SIM': '🎬', 'JOURNEY': '🛤'}
+                 'PROFILE': '🕵', 'PERCY': '🐦', 'SIM': '🎬',
+                 'GRADES': '🔬', 'JOURNEY': '🛤'}
     for name in TABS:
         icon = tab_icons.get(name, '')
         b = tk.Label(tab_bar, text=f' {icon} {name} ', bg='#161b22', fg=DIM,
@@ -1077,7 +1426,8 @@ def run_observatory():
     action_defs = [
         ('🤔 ask percy', lambda: (_switch_tab('PERCY'), _ask_percy()), PURPLE),
         ('🎬 run sim',   lambda: (_switch_tab('SIM'), _launch_sim()), ACCENT),
-        ('🔄 refresh',  lambda: _dispatch_refresh(), GREEN),
+        ('� grades',    lambda: _switch_tab('GRADES'), YELLOW),
+        ('�🔄 refresh',  lambda: _dispatch_refresh(), GREEN),
     ]
     for label, cmd, fg in action_defs:
         b = tk.Label(ftr, text=label, bg=SURFACE, fg=fg,
@@ -1094,6 +1444,7 @@ def run_observatory():
         elif tab == 'INTENT': _refresh_intent()
         elif tab == 'PROFILE': _render_spy_log()
         elif tab == 'JOURNEY': _refresh_journey()
+        elif tab == 'GRADES':  _refresh_grades()
         elif tab == 'NUMERIC': pass  # auto every 500ms
 
     # ── global header poll ────────────────────────────────────────────────────

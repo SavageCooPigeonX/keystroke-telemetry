@@ -16,9 +16,9 @@ Zero LLM calls — pure signal cross-referencing.
 # SESSIONS: 4
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-04-21T05:45:00+00:00
+# EDIT_TS:   2026-04-21T13:55:42.2717336Z
 # EDIT_HASH: auto
-# EDIT_WHY:  decouple capture from LLM trigger
+# EDIT_WHY:  add prompt density metric
 # EDIT_AUTHOR: copilot
 # EDIT_STATE: active
 # ── /pulse ──
@@ -26,7 +26,7 @@ from __future__ import annotations
 import json
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from src._resolve import src_import
 
@@ -43,6 +43,7 @@ COPILOT_PATH   = '.github/copilot-instructions.md'
 MAX_COMP_AGE_MS = 120_000    # 2min window — compositions may lag behind prompt submission
 TIGHT_WINDOW_MS = 500        # ±500ms for high-confidence direct binding
 MIN_TEXT_MATCH_SCORE = 0.4   # lowered: partial prompt text often matches loosely
+PROMPT_DENSITY_WINDOWS_MIN = (5, 15, 60)
 
 PROMPT_BLOCK_START = '<!-- pigeon:prompt-telemetry -->'
 PROMPT_BLOCK_END = '<!-- /pigeon:prompt-telemetry -->'
@@ -187,6 +188,61 @@ def _parse_timestamp_ms(value) -> int | None:
         except ValueError:
             return None
     return None
+
+
+def _parse_iso_datetime(value) -> datetime | None:
+    if value is None:
+        return None
+    if isinstance(value, datetime):
+        dt = value
+    elif isinstance(value, str):
+        text = value.strip()
+        if not text:
+            return None
+        try:
+            dt = datetime.fromisoformat(text.replace('Z', '+00:00'))
+        except ValueError:
+            return None
+    else:
+        return None
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc)
+
+
+def _build_prompt_density(entries: list[dict], now: datetime | None = None) -> dict:
+    timestamps = []
+    for entry in entries:
+        ts = _parse_iso_datetime(entry.get('ts'))
+        if ts is not None:
+            timestamps.append(ts)
+    if not timestamps:
+        return {}
+
+    timestamps.sort()
+    ref = _parse_iso_datetime(now) if now is not None else timestamps[-1]
+    if ref is None:
+        ref = timestamps[-1]
+
+    density = {}
+    for minutes in PROMPT_DENSITY_WINDOWS_MIN:
+        cutoff = ref - timedelta(minutes=minutes)
+        count = sum(1 for ts in timestamps if cutoff <= ts <= ref)
+        density[f'last_{minutes}m'] = {
+            'count': count,
+            'per_hour': round(count * 60 / minutes, 2),
+        }
+
+    gaps = [
+        max((timestamps[idx] - timestamps[idx - 1]).total_seconds(), 0.0)
+        for idx in range(1, len(timestamps))
+    ]
+    if gaps:
+        recent_gaps = gaps[-5:]
+        density['latest_gap_s'] = round(gaps[-1], 1)
+        density['avg_gap_s'] = round(sum(recent_gaps) / len(recent_gaps), 1)
+
+    return density
 
 
 def _composition_key(comp: dict) -> str:
@@ -425,7 +481,7 @@ def _hot_modules(root: Path, top_n: int = 3) -> list[dict]:
     return [{'module': n, 'hes': round(h, 3)} for n, h in ranked[:top_n]]
 
 
-def _running_stats(root: Path) -> dict:
+def _running_stats(root: Path, extra_entry: dict | None = None) -> dict:
     """Compute running session stats from existing journal entries + baselines."""
     p = root / JOURNAL_PATH
     if not p.exists():
@@ -435,6 +491,8 @@ def _running_stats(root: Path) -> dict:
     except Exception:
         return {}
     entries = [entry for entry in entries if _is_operator_entry(entry)]
+    if extra_entry and _is_operator_entry(extra_entry):
+        entries.append(extra_entry)
     if not entries:
         return {}
     n = len(entries)
@@ -479,6 +537,8 @@ def _running_stats(root: Path) -> dict:
         states = [e.get('cognitive_state', 'unknown') for e in entries]
         state_dist = dict(Counter(states).most_common(5))
 
+    prompt_density = _build_prompt_density(entries)
+
     return {
         'total_prompts': n,
         'avg_wpm':       round(sum(wpms) / len(wpms), 1) if wpms else None,
@@ -486,6 +546,7 @@ def _running_stats(root: Path) -> dict:
         'dominant_state': dominant_state,
         'state_distribution': state_dist,
         'baselines': baselines if baselines else None,
+        'prompt_density': prompt_density or None,
     }
 
 
@@ -643,6 +704,7 @@ def _build_snapshot(entry: dict) -> dict:
             'dominant_state': _dominant_state(state_dist),
             'state_distribution': state_dist,
             'baselines': running.get('baselines'),
+            'prompt_density': running.get('prompt_density'),
         },
     }
     if coaching_bullets:
@@ -936,8 +998,6 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
         'task_queue':       _active_tasks(root),
         'hot_modules':      _hot_modules(root),
         'prompt_mutations': _mutation_count(root),
-        # ── running stats (DERIVED — aggregated from history) ──
-        'running':          _running_stats(root),
         # ── provenance tag ──
         'provenance': {
             'measured': ['ts', 'session_n', 'msg', 'msg_len', 'files_open',
@@ -946,6 +1006,7 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
                          'task_queue', 'hot_modules', 'prompt_mutations', 'running'],
         },
     }
+    entry['running'] = _running_stats(root, extra_entry=entry)
     if meta_prompt_kind:
         entry['meta_prompt_kind'] = meta_prompt_kind
 
@@ -979,6 +1040,33 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
                     }, ensure_ascii=False) + '\n')
         except Exception:
             pass  # numeric encoding is best-effort
+
+    # ── STEP 2b-ii: file_sim.run_sim — warm intent matrix on every prompt ──
+    # Fires as a subprocess (no stall). Grades top files, calls record_touch,
+    # warms the self_score matrix passively without needing a git commit.
+    if not meta_prompt_kind:
+        try:
+            import subprocess as _fsim_sp
+            _fsim_matches = sorted(root.glob('src/file_sim*.py'))
+            if _fsim_matches:
+                _fsim_path = str(_fsim_matches[-1])
+                _fsim_dw = json.dumps(deleted_words[:12])
+                _fsim_script = (
+                    f'import importlib.util, json, sys; '
+                    f'from pathlib import Path; '
+                    f'spec = importlib.util.spec_from_file_location("_fs", r"{_fsim_path}"); '
+                    f'mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod); '
+                    f'mod.run_sim(sys.argv[1], top_n=6, root=Path(sys.argv[2]), '
+                    f'deleted_words=json.loads(sys.argv[3]))'
+                )
+                _fsim_sp.Popen(
+                    [sys.executable, '-c', _fsim_script, msg[:300], str(root), _fsim_dw],
+                    close_fds=True,
+                    stdout=_fsim_sp.DEVNULL,
+                    stderr=_fsim_sp.DEVNULL,
+                )
+        except Exception:
+            pass  # sim is best-effort
 
     # ── STEP 2c: context_select_agent — assemble copilot layer on every prompt ──
     # Fires as subprocess so it never stalls the journal. Updates:

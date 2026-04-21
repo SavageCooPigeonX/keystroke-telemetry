@@ -38,6 +38,7 @@ DAEMONS = [
         "name": "os_hook",
         "cmd": [PY, str(ROOT / "client" / "os_hook.py"), str(ROOT)],
         "restart_delay": 5,
+        "managed_by_extension": True,  # extension owns this — watchdog skips if pidfile exists
     },
     {
         "name": "uia_reader",
@@ -130,6 +131,18 @@ def main():
 
     def start(daemon: dict):
         name = daemon["name"]
+        # Skip if extension owns this daemon and its pidfile shows it's alive
+        if daemon.get("managed_by_extension"):
+            pid_file = ROOT / "logs" / f"{name}.pid"
+            if pid_file.exists():
+                try:
+                    existing_pid = int(pid_file.read_text().strip())
+                    import psutil as _psutil
+                    if _psutil.pid_exists(existing_pid):
+                        _log(f"skipping {name} — extension already owns pid={existing_pid}")
+                        return
+                except Exception:
+                    pass
         _log(f"starting {name}")
         try:
             p = subprocess.Popen(

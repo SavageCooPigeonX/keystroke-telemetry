@@ -4,21 +4,21 @@ description: "Review-focused context: rework rate, mutation scores, edit pattern
 
 # /review
 
-*Hydrated 2026-04-21 06:02 UTC · detected mode: debug*
+*Hydrated 2026-04-21 23:15 UTC · detected mode: debug*
 
 ## Live Signals
 
 **Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.495
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
 **Active bugs:** `intent_numeric` (oc+de), `file_sim` (oc+de), `tc_context_agent` (oc+de), `tc_gemini` (oc)
-**Codes:** intent=`debugging` state=`neutral` bl_wpm=53 bl_del=26%
+**Codes:** intent=`unknown` state=`neutral` bl_wpm=53 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
 
 ## Rework Surface
 
-**Rate:** 0% (1/200 needed rework)
+**Rate:** 4% (8/200 needed rework)
 
 ## Mutation Effectiveness
 
@@ -33,6 +33,7 @@ description: "Review-focused context: rework rate, mutation scores, edit pattern
 
 ## Recent Work
 
+- 045f718 fix: self-heal broken imports - scanner + auto_fix_broken_imports + 88 healed
 - 84b73b5 fix: copilot prompt assembly - doubled _seq001_v001 module imports
 - f9a3310 feat: operator_state_daemon + decouple capture from LLM trigger
 - 61d32a8 feat: interlink self-debug loop + 10Q test framework + rename-resistant test gen
@@ -42,4 +43,3 @@ description: "Review-focused context: rework rate, mutation scores, edit pattern
 - a7aacce chore: pigeon rename cascade (v002 bumps)
 - 6ae8700 fix: close outcome + sim reinjection feedback loops
 - d296d1c chore: gitignore sensitive operator data files
-- afa395a chore: run push cycle

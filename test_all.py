@@ -248,7 +248,16 @@ def test_edit_pairs_pipeline():
         journal_path.write_text(
             _json.dumps({'ts': datetime.now(timezone.utc).isoformat(),
                          'msg': 'test pressure run',
-                         'session_n': 5}) + '\n',
+                         'session_n': 5,
+                         'running': {
+                             'prompt_density': {
+                                 'last_5m': {'count': 3, 'per_hour': 36.0},
+                                 'last_15m': {'count': 5, 'per_hour': 20.0},
+                                 'last_60m': {'count': 9, 'per_hour': 9.0},
+                                 'latest_gap_s': 45.0,
+                                 'avg_gap_s': 90.0,
+                             },
+                         }}) + '\n',
             encoding='utf-8',
         )
 
@@ -286,6 +295,7 @@ def test_edit_pairs_pipeline():
             assert record['edit_why'] != 'None', f'edit_why not populated: {record}'
             assert record['file'].endswith('.py')
             assert record['session_n'] == 5
+            assert record['prompt_density']['last_5m']['count'] == 3
             harvested.append(record)
             print(f'  ✓ harvested {fp.name}: latency_ms={record["latency_ms"]}')
 
@@ -312,6 +322,147 @@ def test_edit_pairs_pipeline():
     print("✓ TEST 5 PASSED\n")
 
 
+# ═══════════════ TEST 6: Prompt Density Summary ═══════════════
+def test_prompt_density_summary():
+    """Running prompt telemetry should expose windowed prompt density."""
+    print("=" * 60)
+    print("TEST 6: Prompt Density Summary")
+    print("=" * 60)
+
+    import tempfile, shutil
+    from datetime import datetime, timedelta, timezone
+    from pathlib import Path
+
+    running_stats = _load_src('*u_pj_s019*.py', '_running_stats')
+
+    tmpdir = Path(tempfile.mkdtemp())
+    try:
+        (tmpdir / 'logs').mkdir()
+        base = datetime.now(timezone.utc)
+        entries = [
+            {
+                'ts': (base - timedelta(minutes=50)).isoformat(),
+                'prompt_kind': 'operator',
+                'signals': {'wpm': 30, 'deletion_ratio': 0.1},
+                'cognitive_state': 'focused',
+            },
+            {
+                'ts': (base - timedelta(minutes=12)).isoformat(),
+                'prompt_kind': 'operator',
+                'signals': {'wpm': 35, 'deletion_ratio': 0.2},
+                'cognitive_state': 'focused',
+            },
+            {
+                'ts': (base - timedelta(minutes=4)).isoformat(),
+                'prompt_kind': 'operator',
+                'signals': {'wpm': 40, 'deletion_ratio': 0.15},
+                'cognitive_state': 'focused',
+            },
+            {
+                'ts': (base - timedelta(seconds=30)).isoformat(),
+                'prompt_kind': 'operator',
+                'signals': {'wpm': 45, 'deletion_ratio': 0.05},
+                'cognitive_state': 'focused',
+            },
+        ]
+
+        journal = tmpdir / 'logs' / 'prompt_journal.jsonl'
+        with journal.open('w', encoding='utf-8') as f:
+            for entry in entries:
+                f.write(json.dumps(entry) + '\n')
+
+        stats = running_stats(tmpdir)
+        density = stats.get('prompt_density') or {}
+
+        assert stats['total_prompts'] == 4
+        assert density['last_5m']['count'] == 2
+        assert density['last_15m']['count'] == 3
+        assert density['last_60m']['count'] == 4
+        assert density['latest_gap_s'] > 0
+        print(
+            '  ✓ prompt density windows:',
+            density['last_5m']['count'],
+            density['last_15m']['count'],
+            density['last_60m']['count'],
+        )
+    finally:
+        shutil.rmtree(tmpdir, ignore_errors=True)
+
+    print("✓ TEST 6 PASSED\n")
+
+
+# ═══════════════ TEST 7: Prompt Enricher Regression ═══════════════
+def test_prompt_enricher_unsaid_reconstruction():
+    """inject_query_block should persist unsaid reconstructions from deleted words."""
+    print("=" * 60)
+    print("TEST 7: Prompt Enricher Unsaid Reconstruction")
+    print("=" * 60)
+
+    import tempfile, shutil
+    from pathlib import Path
+
+    tmpdir = Path(tempfile.mkdtemp())
+    try:
+        (tmpdir / 'logs').mkdir()
+        (tmpdir / '.github').mkdir()
+
+        copilot_path = tmpdir / '.github' / 'copilot-instructions.md'
+        copilot_path.write_text(
+            '# test prompt\n\n'
+            '<!-- pigeon:task-context -->\n'
+            '## Live Task Context\n'
+            '<!-- /pigeon:task-context -->\n',
+            encoding='utf-8',
+        )
+
+        matches = sorted(_glob.glob('src/u_pe_s024*.py'))
+        assert matches, 'No prompt enricher module found'
+        spec = importlib.util.spec_from_file_location('_u_pe_regression', matches[-1])
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+
+        original_enrich_prompt = mod.enrich_prompt
+        try:
+            mod.enrich_prompt = lambda *args, **kwargs: '\n'.join([
+                'COPILOT_QUERY: debug deletion reconstruction in prompt assembly',
+                'INTERPRETED INTENT: ensure deleted words survive prompt enrichment',
+                f'KEY FILES: {Path(matches[-1]).name}',
+                'PRIOR ATTEMPTS: none',
+                'WATCH OUT FOR: losing the unsaid log breaks downstream consumers',
+                'OPERATOR SIGNAL: deleted words should remain visible after prompt assembly',
+                'UNSAID_RECONSTRUCTION: the operator started with orange before shifting into deletion reconstruction debugging',
+            ])
+
+            ok = mod.inject_query_block(
+                tmpdir,
+                'test deletion reconstruction path',
+                deleted_words=[{'word': 'orange'}],
+                cognitive_state={'del_ratio': 0.099},
+            )
+            assert ok, 'inject_query_block should succeed'
+        finally:
+            mod.enrich_prompt = original_enrich_prompt
+
+        cp_text = copilot_path.read_text('utf-8')
+        assert 'UNSAID_RECONSTRUCTION: the operator started with orange before shifting into deletion reconstruction debugging' in cp_text
+
+        recon_path = tmpdir / 'logs' / 'unsaid_reconstructions.jsonl'
+        assert recon_path.exists(), 'unsaid reconstruction log should be created'
+        entries = [json.loads(line) for line in recon_path.read_text('utf-8').splitlines() if line.strip()]
+        assert entries, 'unsaid reconstruction log should contain an entry'
+        latest = entries[-1]
+        assert latest['deleted_words'] == ['orange']
+        assert latest['reconstructed_intent'] == 'the operator started with orange before shifting into deletion reconstruction debugging'
+        assert latest['trigger'] == 'enricher'
+
+        print('  ✓ current-query block keeps UNSAID_RECONSTRUCTION')
+        print('  ✓ unsaid_reconstructions.jsonl stores normalized deleted_words')
+    finally:
+        shutil.rmtree(tmpdir, ignore_errors=True)
+
+    print("✓ TEST 7 PASSED\n")
+
+
 # ═══════════════ RUN ALL ═══════════════
 def main():
     from pathlib import Path
@@ -320,6 +471,8 @@ def main():
     test_drift_watcher()
     test_resistance_bridge(summary_path)
     test_edit_pairs_pipeline()
+    test_prompt_density_summary()
+    test_prompt_enricher_unsaid_reconstruction()
 
     print("=" * 60)
     print("ALL TESTS PASSED ✓")

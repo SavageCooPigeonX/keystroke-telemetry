@@ -22,7 +22,7 @@ import importlib.util
 import json
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 
@@ -33,6 +33,7 @@ OUT_LOG = ROOT / "logs" / "operator_state_realtime.jsonl"
 CURRENT = ROOT / "logs" / "operator_state_current.json"
 POLL_S = 1.0
 TAIL_LINES = 2000
+PROMPT_DENSITY_WINDOWS_MIN = (5, 15, 60)
 
 
 # ── COoikit loader ──────────────────────────────────────────────────────────
@@ -83,6 +84,61 @@ def _os_hook_signals(key_lines: list[str]) -> dict:
         "age_s": round(age_s, 1),
         "chat_events": chat_count,
     }
+
+
+def _parse_iso_ts(value: str | None) -> Optional[datetime]:
+    if not value:
+        return None
+    try:
+        dt = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc)
+
+
+def _prompt_density(history_lines: list[str], reference_ts: str | None = None) -> dict:
+    ref = _parse_iso_ts(reference_ts) or datetime.now(timezone.utc)
+    timestamps: list[datetime] = []
+    for raw in history_lines:
+        try:
+            entry = json.loads(raw)
+        except Exception:
+            continue
+        if entry.get("event") != "composition":
+            continue
+        ts = _parse_iso_ts(entry.get("ts") or entry.get("captured_at"))
+        if ts is not None:
+            timestamps.append(ts)
+
+    extra_ts = _parse_iso_ts(reference_ts)
+    if extra_ts is not None:
+        timestamps.append(extra_ts)
+
+    if not timestamps:
+        return {}
+
+    timestamps.sort()
+    density = {}
+    for minutes in PROMPT_DENSITY_WINDOWS_MIN:
+        cutoff = ref - timedelta(minutes=minutes)
+        count = sum(1 for ts in timestamps if cutoff <= ts <= ref)
+        density[f"last_{minutes}m"] = {
+            "count": count,
+            "per_hour": round(count * 60 / minutes, 2),
+        }
+
+    gaps = [
+        max((timestamps[idx] - timestamps[idx - 1]).total_seconds(), 0.0)
+        for idx in range(1, len(timestamps))
+    ]
+    if gaps:
+        recent_gaps = gaps[-5:]
+        density["latest_gap_s"] = round(gaps[-1], 1)
+        density["avg_gap_s"] = round(sum(recent_gaps) / len(recent_gaps), 1)
+
+    return density
 
 
 # ── Draft composition tracker ───────────────────────────────────────────────
@@ -177,6 +233,7 @@ def main():
     while True:
         draft_lines = _tail(DRAFT_LOG, TAIL_LINES)
         key_lines = _tail(KEYS_LOG, 500)
+        history_lines = _tail(OUT_LOG, TAIL_LINES)
         ks = _os_hook_signals(key_lines)
         composition = tracker.poll(draft_lines)
 
@@ -186,6 +243,7 @@ def main():
             if composition["deleted_texts"]:
                 query += " " + " ".join(composition["deleted_texts"][:5])
             file_preds = []
+            density = _prompt_density(history_lines, composition.get("ts"))
             if predict_files:
                 try:
                     file_preds = [
@@ -198,13 +256,16 @@ def main():
                 "event": "composition",
                 **composition,
                 "file_predictions": file_preds,
+                "prompt_density": density,
                 "os_hook": ks,
             })
         elif heartbeat_n % 30 == 0:
             # Heartbeat every 30s — keeps current.json fresh for health checks
+            density = _prompt_density(history_lines)
             CURRENT.write_text(json.dumps({
                 "event": "heartbeat",
                 "ts": datetime.now(timezone.utc).isoformat(),
+                "prompt_density": density,
                 "os_hook": ks,
                 "draft_lines_seen": len(draft_lines),
             }, indent=2, ensure_ascii=False), encoding="utf-8")

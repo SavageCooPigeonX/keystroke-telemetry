@@ -680,6 +680,23 @@ def main():
     root = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else Path('.')
     _WORKSPACE_NAME = root.name  # e.g. "keystroke-telemetry"
 
+    # ── Singleton guard — only one os_hook per workspace ──────────────────
+    pid_file = root / 'logs' / 'os_hook.pid'
+    pid_file.parent.mkdir(parents=True, exist_ok=True)
+    my_pid = os.getpid()
+    if pid_file.exists():
+        try:
+            existing_pid = int(pid_file.read_text().strip())
+            import psutil as _psutil
+            if _psutil.pid_exists(existing_pid) and existing_pid != my_pid:
+                print(json.dumps({"status": "already_running", "existing_pid": existing_pid}))
+                sys.stdout.flush()
+                return
+        except Exception:
+            pass  # stale pidfile — overwrite below
+    pid_file.write_text(str(my_pid))
+    # ──────────────────────────────────────────────────────────────────────
+
     mouse_tracker = MouseSelectionTracker()
     recorder = KeystrokeRecorder(root, mouse_tracker)
 
@@ -728,6 +745,12 @@ def main():
         recorder.stop()
         kb_listener.stop()
         mouse_listener.stop()
+        # Clean up pidfile
+        try:
+            if pid_file.exists() and pid_file.read_text().strip() == str(my_pid):
+                pid_file.unlink()
+        except Exception:
+            pass
         print(json.dumps({"status": "stopped"}))
         sys.stdout.flush()
 

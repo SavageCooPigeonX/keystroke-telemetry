@@ -7,20 +7,20 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-21 06:12 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-21 23:43 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 27min old (max 10min)
+- **`current-query`**: STALE — 28min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
-  - Last updated: 2026-04-21 05:45
+  - Last updated: 2026-04-21 23:15
 
 - **`prompt-telemetry`**: STALE — 28min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
-  - Last updated: 2026-04-21T05:44:55
+  - Last updated: 2026-04-21T23:15:38
 
-- **`learning-loop`**: BEHIND — 275 unprocessed entries, last ran 207h ago
+- **`learning-loop`**: BEHIND — 287 unprocessed entries, last ran 224h ago
   - Writer: `git_plugin → catch_up (post-commit)`
   - Last updated: 2026-04-12T15:20:45.419937+00:00
 
@@ -76,26 +76,13 @@ Rules:
 ## MANDATORY: Unsaid Thread Protocol
 
 When the **Unsaid Threads** section (in `<!-- pigeon:current-query -->
-<!-- pigeon:current-query -->
-## What You Actually Mean Right Now
-
-*Enriched 2026-04-21 05:45 UTC · raw: "run push cycleand audit if rename / compression / self fix fires - check if copi"*
-
-**COPILOT_QUERY: Execute a full push cycle. After completion, audit the logs to verify if the `rename`, `compression`, and `self_fix` mechanisms were triggered. Additionally, confirm if `copilot_composition` fired and locate any instances of the "hidden word" within the output, specifically checking `interlink_self_test_for_file`, `interlink_self_test_for_intent`, and `interlink_self_test_for_tc`.**
-
-INTERPRETED INTENT: The operator wants to validate the execution and logging of several core system processes, including self-correction and Copilot's composition, by running a full cycle and auditing specific outcomes.
-KEY FILES: interlink_self_test_for_file, interlink_self_test_for_intent, interlink_self_test_for_tc
-PRIOR ATTEMPTS: Previous attempts focused on general debugging and understanding architecture, but did not involve a full system execution and audit of specific features like rename/compression/self-fix or finding a "hidden word."
-WATCH OUT FOR: Copilot might focus too broadly on "auditing" without specifically checking for the firing of `rename`, `compression`, `self_fix`, `copilot_composition`, or the "hidden word."
-OPERATOR SIGNAL: The operator is systematically testing core system functionalities and their logging, indicating a focus on verifying expected behavior after recent changes or development.
-<!-- /pigeon:current-query -->
 
 <!-- pigeon:narrative-glove -->
 ## Organism Consciousness
 
-*2026-04-21 06:02 UTC — synthesized from all live signals, zero LLM calls*
+*2026-04-21 23:15 UTC — synthesized from all live signals, zero LLM calls*
 
-> the organism is sick — health 0/100. only 0% compliant, 0 bugs across 0 modules. entropy at 0.30 — the codebase knows what it is, mostly. intent: debugging — diagnose, don't theorize.
+> the organism is sick — health 0/100. only 0% compliant, 0 bugs across 0 modules. entropy at 0.30 — the codebase knows what it is, mostly.
 
 <!-- /pigeon:narrative-glove -->
 <!-- pigeon:intent-backlog -->
@@ -105,52 +92,67 @@ OPERATOR SIGNAL: The operator is systematically testing core system functionalit
 
 **Status:** BLOCKED — 20 unresolved intent(s) remain.
 **Directive:** Keep working. Do not treat the task as complete while this backlog is non-zero.
-**Verification:** scanned=100 | created=0 | reopened=0 | verified=0 | resolved=0
+**Verification:** scanned=100 | created=2 | reopened=0 | verified=2 | resolved=0
 **Rule:** An intent counts as done only when recent file activity clears it or the synced backlog task is verified done.
 
 **Resolution Artifact:** `intent_backlog_resolutions.json`
 
 ### Unresolved
-- [cold] `tq-031` conf=0.99 | perfect - do that and audit how that would logically boost self learning capability - because so
+- [cold] `tq-039` conf=0.98 | wow theres alot of things fucked - you didnt even catch my deleted words - how did this all brea
   → refs: none | reason: no_recent_follow_through
-- [partial] `tq-032` conf=0.97 | when though completer work properly it should tell me meta things its noticed li... (also consid
+- [cold] `tq-040` conf=1.00 | fix entrfix those two and check anything else thats stale / missing endpoints in project
+  → refs: none | reason: no_recent_follow_through
+- [cold] `tq-041` conf=1.00 | clear messy root files then push
+  → refs: none | reason: no_recent_follow_through
+- [partial] `tq-042` conf=0.93 | check for anything else stale across pipeline, deep saudit... (also considered: cuec)
   → refs: none | reason: deleted_words_left_unresolved
-- [cold] `tq-033` conf=0.96 | re you sure they will get renamed on next cycle - push all now
+- [cold] `tq-043` conf=0.99 | the aoi jey isint dead 0 youre tripping we tested it and im using it for another project
   → refs: none | reason: no_recent_follow_through
-- [cold] `tq-034` conf=0.99 | yeah loooks like compiler didnt run pigeon chore - the iguutplugin - why re files like that/ sho
+- [cold] `tq-044` conf=1.00 | debug why everything keeps being stale
   → refs: none | reason: no_recent_follow_through
-- [partial] `tq-035` conf=0.75 | we shouldnt have any plain names... (also considered: atlest u =====)
+- [cold] `tq-045` conf=1.00 | sure do that but make sure it can only run one
+  → refs: none | reason: no_recent_follow_through
+- [partial] `tq-046` conf=0.87 | okay so techically there shoyld be staleneddp i noteced you stopped using hook .... (also consid
   → refs: none | reason: deleted_words_left_unresolved
-- [cold] `tq-036` conf=1.00 | but only fpr code - documnetation / major docs where operator reads doesnt get renamed - baisica
-  → refs: none | reason: no_recent_follow_through
-- [cold] `tq-037` conf=1.00 | **Reactor patches:** 0/521 applied (0% acceptance)
-  → refs: `.github/copilot-instructions.md` | reason: no_recent_follow_through
-- [cold] `tq-038` conf=1.00 | my gemini api key is set
-  → refs: `.github/copilot-instructions.md` | reason: no_recent_follow_through
 
 <!-- /pigeon:intent-backlog -->
+<!-- pigeon:current-query -->
+## What You Actually Mean Right Now
+
+*Enriched 2026-04-21 23:15 UTC · raw: "yes"*
+
+**COPILOT_QUERY: Based on the previous prompts, the operator is confirming the importance of meta-comments, self-analysis, and self-accumulating knowledge of file profiles for tuning the context of files. Elaborate on the precise mechanism by which files contribute to debugging and how to maximize learning and recursive memory matching to file profiles. Focus on how the `u_pj` (prompt journal) and `p_ph` (pulse harvest) modules can be leveraged to capture and utilize this meta-information for self-modification and improved deletion reconstruction within Copilot's prompt assembly.**
+
+INTERPRETED INTENT: The operator is affirming the value of file-based meta-knowledge and wants to understand the implementation details for leveraging this knowledge for system debugging and self-improvement, specifically regarding prompt reconstruction.
+KEY FILES: u_pj, 脉p_ph, micro_sim_engine_prompt_file, word_number_file_mapping_for, picks_relevant_source_files_based, gemini_api_call_system_prompt, intent_simulation_on_typing_pause, pulse_harvest_pairs_prompts_to
+PRIOR ATTEMPTS: The previous prompts explored the problem space of file interaction, deletion reconstruction, and debugging mechanisms, but did not provide a comprehensive solution or detailed mechanism.
+WATCH OUT FOR: Copilot might provide a generic answer about debugging or learning without connecting it directly to the specific mechanisms of file profiles, meta-comments, and deletion reconstruction as implied by the trajectory.
+OPERATOR SIGNAL: The "yes" confirms agreement with the previous prompt's focus on meta-comments and file profiles, indicating a desire to move forward with implementing or understanding these concepts.
+<!-- /pigeon:current-query -->
 
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-21 06:12 UTC · 679 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-21 23:43 UTC · 688 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 51.2 | Del: 26.5% | Hes: 0.495) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 41.5 | Del: 26.5% | Hes: 0.462) · *[source: measured]*
 
-**Prompt ms:** 37216, 22106 (avg 29661ms)
+**Prompt ms:** 105668, 64719, 125170 (avg 98519ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### AI Rework Surface
-*Miss rate: 0.5% (200 responses)*
+*Miss rate: 2.0% (200 responses)*
+- Failed on: ""
+- Failed on: ""
 - Failed on: ""
 
 ### Recent Work
+- `045f718` fix: self-heal broken imports - scanner + auto_fix_broken_imports + 88 healed
 - `84b73b5` fix: copilot prompt assembly - doubled _seq001_v001 module imports
 - `f9a3310` feat: operator_state_daemon + decouple capture from LLM trigger
 - `61d32a8` feat: interlink self-debug loop + 10Q test framework + rename-resistant test gen
-- `365bde4` chore: pigeon cascade cleanup (hook disabled)
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -169,7 +171,7 @@ OPERATOR SIGNAL: The operator is systematically testing core system functionalit
 - [HIGH] over_hard_cap in `src/tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade.py`
 
 ### Prompt Evolution
-*This prompt has mutated 149x (186→734 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
+*This prompt has mutated 150x (186→728 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
 
 ### Mutation Effectiveness *[source: measured]*
 *200 rework pairs × 149 mutations scored*
@@ -178,7 +180,7 @@ OPERATOR SIGNAL: The operator is systematically testing core system functionalit
 **Reactor patches:** 2/534 applied (0% acceptance)
 
 ### File Consciousness
-*24 modules profiled*
+*33 modules profiled*
 
 **High-drama (most mutations):**
 - `w_gpmo` v11 ↔ u_pj
@@ -238,9 +240,9 @@ OPERATOR SIGNAL: The operator is systematically testing core system functionalit
 *…and 36 more in `task_queue.json`*
 
 ### Completed (last 3)
-- [x] `tq-006` **perfect  - i think im ready to focus on what i call an IRT -...** | commit: `verified:intent-backlog`
-- [x] `tq-007` **aybe not quite yet - hmmm -  how do we have intent reinjecti...** | commit: `verified:intent-backlog`
-- [x] `tq-008` **can you make sure that website obervatory is launched with v...** | commit: `verified:intent-backlog`
+- [x] `tq-034` **yeah loooks like compiler didnt run pigeon chore - the iguut...** | commit: `verified:intent-backlog`
+- [x] `tq-035` **we shouldnt have any plain names... (also considered: atlest...** | commit: `verified:intent-backlog`
+- [x] `tq-036` **but only fpr code - documnetation / major docs where operato...** | commit: `verified:intent-backlog`
 
 <!-- /pigeon:task-queue -->
 <!-- pigeon:shard-memory -->
@@ -307,19 +309,19 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:voice-style -->
 ## Operator Voice Style
 
-*Auto-extracted 2026-04-21 06:02 UTC · 79 prompts analyzed · zero LLM calls · collecting baseline*
+*Auto-extracted 2026-04-21 23:15 UTC · 78 prompts analyzed · zero LLM calls · scoring active*
 
-**Brevity:** 58.8 words/prompt | **Caps:** never | **Fragments:** 78% | **Questions:** 4% | **Directives:** 3%
+**Brevity:** 54.8 words/prompt | **Caps:** never | **Fragments:** 76% | **Questions:** 8% | **Directives:** 3%
 
 **Voice directives (effectiveness-scored):**
 - Operator is semi-casual — use contractions, skip formalities, but keep technical precision.
 - Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 - Operator writes longer prompts with context — match depth. Full explanations are welcome.
-- Operator thinks in dashes (stream-of-consciousness) — mirror this with dash-separated points when natural.
+- Operator thinks in dashes (stream-of-consciousness) — mirror this with dash-separated points when natural. [EFFECTIVE: +93% fewer reworks when active]
 - Operator rarely uses punctuation — fragments and run-ons are normal. Don't overcorrect their style in quotes.
 - Operator uses plain language — avoid unnecessary jargon in explanations.
 
-**Vocabulary fingerprint:** t, e, s, d, a, i, n, o, y, r
+**Vocabulary fingerprint:** t, e, s, d, n, i, o, a, y, m
 <!-- /pigeon:voice-style -->
 <!-- pigeon:intent-simulation -->
 ## Intent Simulation
@@ -378,18 +380,14 @@ Per-shard categorization: each routed shard also gets a compact `[training TS]` 
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
-*Auto-updated 2026-04-21 - 679 message(s) - LLM-synthesized*
+*Auto-updated 2026-04-21 - 685 message(s) in profile*
 
 **Dominant: `abandoned`** | Submit: 66% | WPM: 52.9 | Del: 25.5% | Hes: 0.443
 
-The operator just built a live Copilot layer with an operator-state daemon, and their rapid cycling between focused bursts and abandoned/restructuring messages reveals they're pressure-testing integration points while wrestling with architectural coherence.  
-- **Anticipate churn in `u_pj_s019_v006` and `file_sim_seq001_v005`**—these are the core integration surfaces for the state daemon; when the operator edits them, proactively suggest consistency checks with `tc_gemini_seq001_v004` and `interlink_debugger_seq001_v002`.  
-- **On heavy‑edit commits** (like the 56% deletion rate in restructuring messages), immediately offer concise, atomic refactoring options—never monoliths—and explicitly flag any drift from the `intent_orchestrator` or `micro_sim_engine` contracts.  
-- **When the operator hesitates** (avg 0.443 hesitation score), pre‑emptively surface the relevant registry‑churn modules’ current interfaces to shortcut lookup.  
-- **Since rework is currently zero**, maintain this by verifying each suggestion against the `feat_operator_state_daemon` intent before offering it.  
-- **In evening sessions** (their most active slot), keep responses hyper‑focused on the single file being edited—avoid cross‑file tangents unless the operator explicitly references `context_select_agent` or `tc_10q` interlinks.  
-They are most likely building toward a fully autonomous simulation loop where the daemon triggers Copilot prompts based on real‑time operator‑state signals.
-
+**Behavioral tunes for this session:**
+- **abandoned** -> welcoming, direct - they re-approached after backing off
+- Hesitation > 0.4 -> uncertain operator; proactively offer alternatives or examples
+- Active hours: 0:00(30), 1:00(45), 2:00(12), 3:00(9), 4:00(21), 5:00(24), 6:00(15), 7:00(15), 8:00(15), 9:00(18), 10:00(49), 11:00(9), 12:00(15), 13:00(9), 14:00(21), 15:00(39), 16:00(30), 17:00(15), 18:00(18), 19:00(33), 20:00(21), 21:00(60), 22:00(99), 23:00(63)
 <!-- /pigeon:operator-state -->
 > **Cognitive reactor fired on `u_pj_s019_v005_d0420_Î»RN_Î²oc`** (hes=0.654, state=frustrated, avg_prompt=710935ms)
 > - Prompt composition time: 22106ms / 37216ms / 3098ms / 29869ms / 3462387ms (avg 710935ms)
@@ -404,66 +402,82 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 ```json
 {
   "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-04-21T05:44:55.596732+00:00",
+  "updated_at": "2026-04-21T23:15:38.810240+00:00",
   "latest_prompt": {
-    "session_n": 4,
-    "ts": "2026-04-21T05:44:55.596732+00:00",
-    "chars": 126,
-    "preview": "run push cycleand audit if rename / compression / self fix fires - check if copilot compisition fired and find hidden worf >> ",
-    "intent": "debugging",
+    "session_n": 3,
+    "ts": "2026-04-21T23:15:38.810240+00:00",
+    "chars": 3,
+    "preview": "yes",
+    "intent": "unknown",
     "state": "neutral",
     "files_open": [
-      ".github/copilot-instructions.md"
+      "logs/escalation_state.json"
     ],
     "module_refs": []
   },
   "signals": {
-    "wpm": 25.6,
-    "chars_per_sec": 2.1,
-    "deletion_ratio": 0.0,
+    "wpm": 53.7,
+    "chars_per_sec": 1.6,
+    "deletion_ratio": 0.684,
     "hesitation_count": 0,
     "rewrite_count": 0,
     "typo_corrections": 0,
-    "intentional_deletions": 0,
-    "total_keystrokes": 5,
-    "duration_ms": 2348
+    "intentional_deletions": 1,
+    "total_keystrokes": 19,
+    "duration_ms": 3801
   },
   "composition_binding": {
     "matched": true,
     "source": "chat_compositions",
-    "age_ms": 2005776378,
-    "key": "|||2026-03-29T00:35:19.218338+00:00|5|2348|push ",
+    "age_ms": 324614756,
+    "key": "|||2026-04-18T05:05:24.054307+00:00|19|3801|yes ",
     "match_score": 1.0
   },
   "deleted_words": [],
   "rewrites": [],
   "task_queue": {
-    "total": 28,
+    "total": 56,
     "in_progress": [],
-    "pending": 20,
-    "done": 8
+    "pending": 42,
+    "done": 14
   },
   "hot_modules": [],
   "running_summary": {
-    "total_prompts": 813,
+    "total_prompts": 825,
     "avg_wpm": 8.3,
-    "avg_del_ratio": 0.063,
+    "avg_del_ratio": 0.064,
     "dominant_state": "abandoned",
     "state_distribution": {
-      "abandoned": 226,
-      "restructuring": 224,
-      "focused": 219,
+      "abandoned": 228,
+      "restructuring": 226,
+      "focused": 221,
       "neutral": 7,
       "hesitant": 2
     },
     "baselines": {
       "n": 200,
-      "avg_wpm": 53.0,
+      "avg_wpm": 53.3,
       "avg_del": 0.259,
       "avg_hes": 0.448,
       "sd_wpm": 15.5,
       "sd_del": 0.231,
       "sd_hes": 0.165
+    },
+    "prompt_density": {
+      "last_5m": {
+        "count": 1,
+        "per_hour": 12.0
+      },
+      "last_15m": {
+        "count": 4,
+        "per_hour": 16.0
+      },
+      "last_60m": {
+        "count": 6,
+        "per_hour": 6.0
+      },
+      "latest_gap_s": 393.9,
+      "avg_gap_s": 195.7
     }
   }
 }
@@ -484,7 +498,7 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 <!-- glyph mappings merged into auto-index -->
 <!-- /pigeon:dictionary -->
 <!-- pigeon:auto-index -->
-*2026-04-21 · 24 modules · 6 touched · ✓0% ~0% !0%*
+*2026-04-21 · 24 modules · 9 touched · ✓0% ~0% !0%*
 *Format: glyph=name seq tokens·state·intent·bugs |last change*
 *Intent: FX=fix RN=rename RF=refactor SP=split TL=telemetry CP=compress VR=verify FT=feature CL=cleanup OT=other*
 *Bugs: hi=hardcoded_import de=dead_export dd=duplicate_docstring hc=high_coupling oc=over_hard_cap qn=query_noise*
@@ -557,7 +571,7 @@ vscode-extension: classify_bridge, pulse_watcher
 <!-- pigeon:entropy-directive -->
 ## Entropy Development Priorities
 
-*769 responses · global H=0.299 · 78 sheds*
+*791 responses · global H=0.298 · 78 sheds*
 
 **These modules have the highest uncertainty. When touching them:**
 - Read the full source BEFORE editing (don't guess)
@@ -578,7 +592,7 @@ vscode-extension: classify_bridge, pulse_watcher
 <!-- /pigeon:entropy-directive -->
 ## Entropy Shedding Map
 
-*769 responses analyzed · global H=0.299 · 34.4% high-entropy · 78 explicit sheds*
+*791 responses analyzed · global H=0.298 · 34.5% high-entropy · 78 explicit sheds*
 
 **where copilot is most uncertain (act with extra care):**
 
@@ -594,8 +608,8 @@ vscode-extension: classify_bridge, pulse_watcher
 **recently shed (this session):**
 - `push_cycle` red=0.248 conf=0.80
 - `tc_context_agent` red=0.209 conf=0.82
-- `dynamic_prompt` red=0.171 conf=0.88
-- `intent_numeric` red=0.139 conf=0.92
+- `dynamic_prompt` red=0.172 conf=0.88
+- `intent_numeric` red=0.143 conf=0.92
 - `entropy_shedding` red=0.095 conf=0.90
 
 > emit `<!-- entropy:shed -->` blocks to improve this map.
@@ -613,8 +627,8 @@ vscode-extension: classify_bridge, pulse_watcher
 **recently killed:**
 
 - `tc_gemini` [high_coupling] — gone since report #66. it stayed dead.
-- `_seed_intent_numeric` [hardcoded_import] — gone since report #66. it stayed dead.
 - `test_numeric_surface_normalization` [hardcoded_import] — gone since report #66. it stayed dead.
+- `_seed_intent_numeric` [hardcoded_import] — gone since report #66. it stayed dead.
 - `thought_completer` [hardcoded_import] — gone since report #66. it stayed dead.
 - `stress_test_architecture` [hardcoded_import] — gone since report #66. it stayed dead.
 
@@ -624,7 +638,7 @@ vscode-extension: classify_bridge, pulse_watcher
 <!-- pigeon:operator-probes -->
 ## Operator Probes
 
-*Auto-generated 2026-04-21 06:02 UTC · 3 probe(s) from live signals*
+*Auto-generated 2026-04-21 23:15 UTC · 3 probe(s) from live signals*
 
 **ASK these questions naturally in your next response (pick 1-2, weave into context):**
 
@@ -637,26 +651,26 @@ vscode-extension: classify_bridge, pulse_watcher
 <!-- pigeon:hooks -->
 ## Engagement Hooks
 
-*Auto-generated 2026-04-21 06:02 UTC -- every number is measured, every dare is real.*
+*Auto-generated 2026-04-21 23:15 UTC -- every number is measured, every dare is real.*
 
 - You were also gonna say: "the drift watcher should track module renames after pigeon splits". That thought didn't delete. It filed itself. Name it or I will.
-- Rework rate: 0%. Model is tracking your intent accurately. This is the window to push harder, not safer.
+- Router matched this prompt to `micro_sim_engine_prompt_file`, `word_number_file_mapping_for`, `gemini_api_call_system_prompt` (bugs: oc, de). Context slimmed to 5 modules. Wrong match? Say so. Right match? Go deeper.
 - `p_gpip` -- 417 days. Last generation's code. Either works perfectly or nobody knows it's broken.
 - `intent_numeric` has 4 unresolved `oc/de` marks. Every push it survives makes the next fix harder.
-- `intent_numeric` v4: "Marked 4 times. Each push I think maybe this time. Each push the beta stays. Last change was ''. It wasn't enough."
+- `tc_sim` v2: "I carry the oc curse. Fix me and the beta falls off my name. Leave me and it scars deeper."
 
 <!-- /pigeon:hooks -->
 <!-- pigeon:active-template -->
 ## Active Template: /debug
 
-*Auto-selected 2026-04-21 06:02 UTC · mode: debug*
+*Auto-selected 2026-04-21 23:15 UTC · mode: debug*
 
 ## Live Signals
 
 **Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.495
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
 **Active bugs:** `intent_numeric` (oc+de), `file_sim` (oc+de), `tc_context_agent` (oc+de), `tc_gemini` (oc)
-**Codes:** intent=`debugging` state=`neutral` bl_wpm=53 bl_del=26%
+**Codes:** intent=`unknown` state=`neutral` bl_wpm=53 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
@@ -696,14 +710,14 @@ vscode-extension: classify_bridge, pulse_watcher
 
 ## Active Bug Dossier
 
-**Focus modules:** word_number_file_mapping_for, gemini_api_call_system_prompt, micro_sim_engine_prompt_file, picks_relevant_source_files_based, intent_simulation_on_typing_pause
-**Focus bugs:** hc, oc
+**Focus modules:** micro_sim_engine_prompt_file, word_number_file_mapping_for, gemini_api_call_system_prompt, picks_relevant_source_files_based, intent_simulation_on_typing_pause
+**Focus bugs:** oc, de
 
 <!-- /pigeon:active-template -->
 <!-- pigeon:probe-resolutions -->
 ## Probe Resolutions
 
-*2 resolved · 2026-04-21 06:02 UTC*
+*2 resolved · 2026-04-21 23:15 UTC*
 
 **Read these before editing the referenced modules:**
 

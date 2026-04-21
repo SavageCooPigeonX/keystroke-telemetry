@@ -8,9 +8,9 @@ copilot-instructions.md so Copilot reads the enriched context on the next turn.
 Zero friction: called automatically from prompt_journal on every log_enriched_entry.
 """
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
+# EDIT_TS:   2026-04-21T23:04:35.563154+00:00
+# EDIT_HASH: auto
+# EDIT_WHY:  restore unsaid log writes
 # EDIT_AUTHOR: None
 # EDIT_STATE: idle
 # ── /pulse ──
@@ -49,6 +49,25 @@ def _is_operator_entry(entry: dict) -> bool:
     if entry.get('prompt_kind') == 'meta_hook':
         return False
     return not _is_meta_hook_message(str(entry.get('msg', '')))
+
+
+def _normalize_deleted_words(items: list | None, *, limit: int | None = None) -> list[str]:
+    words: list[str] = []
+    for item in items or []:
+        if isinstance(item, dict):
+            word = (
+                item.get('word')
+                or item.get('text')
+                or item.get('deleted_text')
+                or item.get('fragment')
+                or ''
+            )
+        else:
+            word = str(item)
+        word = word.strip()
+        if word:
+            words.append(word[:200])
+    return words[:limit] if limit is not None else words
 
 
 # ── data loaders ──────────────────────────────
@@ -234,10 +253,7 @@ def _deleted_words_from_journal(root: Path, n: int = 3) -> list[str]:
     ][-n:]
     words = []
     for e in entries:
-        for w in (e.get('deleted_words') or []):
-            word = w.get('word', w) if isinstance(w, dict) else str(w)
-            if word and len(word) > 2:
-                words.append(word)
+        words.extend(_normalize_deleted_words(e.get('deleted_words')))
     return words[-MAX_DELETED_WORDS:]
 
 
@@ -393,11 +409,13 @@ def enrich_prompt(root: Path, raw_query: str,
     except Exception:
         pass
 
+    deleted_signal = _normalize_deleted_words(deleted_words, limit=MAX_DELETED_WORDS)
+
     context = {
         'hot_files':          _hot_files(root),
         'rework_history':     _rework_for_query(root, raw_query),
         'past_attempts':      _recent_ai_attempts(root, raw_query),
-        'deleted_words':      deleted_words or _deleted_words_from_journal(root),
+        'deleted_words':      deleted_signal or _deleted_words_from_journal(root),
         'cognitive_state':    cognitive_state or _cognitive_state(root),
         'registry_hits':      _registry_touches(root, raw_query),
         'journal_trajectory': _recent_journal_context(root),
@@ -544,6 +562,25 @@ def inject_query_block(root: Path, raw_query: str,
         else:
             rest_lines.append(line)
     rest = '\n'.join(rest_lines).strip()
+    normalized_deleted_words = _normalize_deleted_words(
+        deleted_words, limit=MAX_DELETED_WORDS)
+
+    if unsaid_recon_line and unsaid_recon_line.lower() != 'none':
+        recon_entry = {
+            'ts': datetime.now(timezone.utc).isoformat(),
+            'final_text': raw_query,
+            'deleted_words': normalized_deleted_words,
+            'deletion_ratio': (cognitive_state or {}).get('del_ratio', 0),
+            'reconstructed_intent': unsaid_recon_line,
+            'trigger': 'enricher',
+        }
+        recon_path = root / 'logs' / 'unsaid_reconstructions.jsonl'
+        recon_path.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            with open(recon_path, 'a', encoding='utf-8') as f:
+                f.write(json.dumps(recon_entry, ensure_ascii=False) + '\n')
+        except OSError:
+            pass
 
     block = (
         f'{BLOCK_START}\n'
