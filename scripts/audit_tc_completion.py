@@ -10,9 +10,9 @@ import sys
 from pathlib import Path
 sys.path.insert(0, '.')
 
-from src.intent_numeric_seq001_v001_seq001_v001 import get_stats, predict_files
-from src.tc_gemini_seq001_v001_seq001_v001 import call_gemini
-from src.tc_context_seq001_v001_seq001_v001 import load_context
+from src.intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import get_stats, predict_files
+from src.tc_gemini_seq001_v004_d0421__gemini_api_call_system_prompt_lc_live_copilot_layer import call_gemini
+from src.tc_context_seq001_v001 import load_context
 
 buffers = [
     ('COMEDY',

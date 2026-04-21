@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.tc_buffer_watcher_seq001_v001_seq001_v001 import BufferWatcher
+    from src.tc_buffer_watcher_seq001_v001 import BufferWatcher
     assert callable(BufferWatcher), "BufferWatcher must be callable"
     print(f"  ✓ tc_buffer_watcher_seq001_v001: 1 exports verified")
 

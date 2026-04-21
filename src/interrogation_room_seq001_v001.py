@@ -19,7 +19,7 @@ import json, os, sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from src.ir_loader_seq001_v001_seq001_v001 import (load_suspects, load_prompt_history, load_unsaid,
+from src.ir_loader_seq001_v001 import (load_suspects, load_prompt_history, load_unsaid,
                            generate_questions, record_answer, get_answers)
 
 # ── telemetry:pulse ──

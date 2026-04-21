@@ -9,11 +9,11 @@ Zero LLM calls — pure signal cross-referencing.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 019 | VER: v005 | 999 lines | ~9,863 tokens
+# SEQ: 019 | VER: v006 | 1100 lines | ~10,995 tokens
 # DESC:   every_entry_cross_references_all
-# INTENT: chore_pigeon_rename_cascade
-# LAST:   2026-04-20 @ c61fc91
-# SESSIONS: 3
+# INTENT: feat_operator_state_daemon
+# LAST:   2026-04-21 @ f9a3310
+# SESSIONS: 4
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-04-21T05:45:00+00:00

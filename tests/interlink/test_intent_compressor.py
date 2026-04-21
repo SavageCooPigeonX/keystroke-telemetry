@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.intent_compressor_seq001_v001_seq001_v001 import strip_metadata, strip_syntactic_noise, collapse_imports, skeleton, intent_map, CompressionResult, compress_file, compress_all
+    from src.intent_compressor_seq001_v001 import strip_metadata, strip_syntactic_noise, collapse_imports, skeleton, intent_map, CompressionResult, compress_file, compress_all
     assert callable(strip_metadata), "strip_metadata must be callable"
     assert callable(strip_syntactic_noise), "strip_syntactic_noise must be callable"
     assert callable(collapse_imports), "collapse_imports must be callable"
@@ -23,49 +23,49 @@ def test_import():
 
 def test_strip_metadata_contract():
     """Data flow contract: strip_metadata(source) → output."""
-    from src.intent_compressor_seq001_v001_seq001_v001 import strip_metadata
+    from src.intent_compressor_seq001_v001 import strip_metadata
     # smoke test: function exists and is callable
     assert strip_metadata.__name__ == "strip_metadata"
     print(f"  ✓ strip_metadata: contract holds")
 
 def test_strip_syntactic_noise_contract():
     """Data flow contract: strip_syntactic_noise(source) → output."""
-    from src.intent_compressor_seq001_v001_seq001_v001 import strip_syntactic_noise
+    from src.intent_compressor_seq001_v001 import strip_syntactic_noise
     # smoke test: function exists and is callable
     assert strip_syntactic_noise.__name__ == "strip_syntactic_noise"
     print(f"  ✓ strip_syntactic_noise: contract holds")
 
 def test_collapse_imports_contract():
     """Data flow contract: collapse_imports(source) → output."""
-    from src.intent_compressor_seq001_v001_seq001_v001 import collapse_imports
+    from src.intent_compressor_seq001_v001 import collapse_imports
     # smoke test: function exists and is callable
     assert collapse_imports.__name__ == "collapse_imports"
     print(f"  ✓ collapse_imports: contract holds")
 
 def test_skeleton_contract():
     """Data flow contract: skeleton(source) → output."""
-    from src.intent_compressor_seq001_v001_seq001_v001 import skeleton
+    from src.intent_compressor_seq001_v001 import skeleton
     # smoke test: function exists and is callable
     assert skeleton.__name__ == "skeleton"
     print(f"  ✓ skeleton: contract holds")
 
 def test_intent_map_contract():
     """Data flow contract: intent_map(source, filename) → output."""
-    from src.intent_compressor_seq001_v001_seq001_v001 import intent_map
+    from src.intent_compressor_seq001_v001 import intent_map
     # smoke test: function exists and is callable
     assert intent_map.__name__ == "intent_map"
     print(f"  ✓ intent_map: contract holds")
 
 def test_compress_file_contract():
     """Data flow contract: compress_file(filepath, root) → output."""
-    from src.intent_compressor_seq001_v001_seq001_v001 import compress_file
+    from src.intent_compressor_seq001_v001 import compress_file
     # smoke test: function exists and is callable
     assert compress_file.__name__ == "compress_file"
     print(f"  ✓ compress_file: contract holds")
 
 def test_compress_all_contract():
     """Data flow contract: compress_all(root, write_output) → output."""
-    from src.intent_compressor_seq001_v001_seq001_v001 import compress_all
+    from src.intent_compressor_seq001_v001 import compress_all
     # smoke test: function exists and is callable
     assert compress_all.__name__ == "compress_all"
     print(f"  ✓ compress_all: contract holds")

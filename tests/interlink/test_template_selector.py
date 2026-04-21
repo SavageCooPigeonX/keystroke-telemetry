@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.template_selector_seq001_v001_seq001_v001 import detect_mode, hydrate_templates, inject_active_template
+    from src.template_selector_seq001_v001 import detect_mode, hydrate_templates, inject_active_template
     assert callable(detect_mode), "detect_mode must be callable"
     assert callable(hydrate_templates), "hydrate_templates must be callable"
     assert callable(inject_active_template), "inject_active_template must be callable"
@@ -18,7 +18,7 @@ def test_import():
 
 def test_detect_mode_contract():
     """Data flow contract: detect_mode(root) → output."""
-    from src.template_selector_seq001_v001_seq001_v001 import detect_mode
+    from src.template_selector_seq001_v001 import detect_mode
     # smoke test: function exists and is callable
     assert detect_mode.__name__ == "detect_mode"
     # safe to call with test root
@@ -29,7 +29,7 @@ def test_detect_mode_contract():
 
 def test_hydrate_templates_contract():
     """Data flow contract: hydrate_templates(root) → output."""
-    from src.template_selector_seq001_v001_seq001_v001 import hydrate_templates
+    from src.template_selector_seq001_v001 import hydrate_templates
     # smoke test: function exists and is callable
     assert hydrate_templates.__name__ == "hydrate_templates"
     # safe to call with test root
@@ -40,7 +40,7 @@ def test_hydrate_templates_contract():
 
 def test_inject_active_template_contract():
     """Data flow contract: inject_active_template(root) → output."""
-    from src.template_selector_seq001_v001_seq001_v001 import inject_active_template
+    from src.template_selector_seq001_v001 import inject_active_template
     # smoke test: function exists and is callable
     assert inject_active_template.__name__ == "inject_active_template"
     # safe to call with test root

@@ -5,7 +5,7 @@ Reads the chatSessions JSONL file in workspaceStorage to extract prompt→respon
 pairs WITHOUT requiring @pigeon invocation. Works on any regular Copilot chat.
 
 Usage:
-    from client.chat_response_reader_seq001_v001_seq001_v001 import read_recent_responses
+    from client.chat_response_reader_seq001_v001 import read_recent_responses
     pairs = read_recent_responses(project_root, limit=5)
     # Returns: [{"prompt": "...", "response": "...", "ts": "...", "request_idx": N}, ...]
 """

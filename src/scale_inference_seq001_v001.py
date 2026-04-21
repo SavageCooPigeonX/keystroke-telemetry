@@ -14,7 +14,7 @@ Scale is inferred from:
   - Cognitive state: FOCUSED + high WPM → auto-upgrade one level
 
 Usage:
-    from src.scale_inference_seq001_v001_seq001_v001 import infer_scale, SCALES
+    from src.scale_inference_seq001_v001 import infer_scale, SCALES
     scale = infer_scale("fix the hardcoded import in", cognitive_state="focused", wpm=62)
 """
 # ── telemetry:pulse ──

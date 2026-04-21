@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.profile_renderer_seq001_v001_seq001_v001 import render_profile, render_profile_index, render_all_profiles
+    from src.profile_renderer_seq001_v001 import render_profile, render_profile_index, render_all_profiles
     assert callable(render_profile), "render_profile must be callable"
     assert callable(render_profile_index), "render_profile_index must be callable"
     assert callable(render_all_profiles), "render_all_profiles must be callable"
@@ -18,21 +18,21 @@ def test_import():
 
 def test_render_profile_contract():
     """Data flow contract: render_profile(ident, root) → output."""
-    from src.profile_renderer_seq001_v001_seq001_v001 import render_profile
+    from src.profile_renderer_seq001_v001 import render_profile
     # smoke test: function exists and is callable
     assert render_profile.__name__ == "render_profile"
     print(f"  ✓ render_profile: contract holds")
 
 def test_render_profile_index_contract():
     """Data flow contract: render_profile_index(identities, root) → output."""
-    from src.profile_renderer_seq001_v001_seq001_v001 import render_profile_index
+    from src.profile_renderer_seq001_v001 import render_profile_index
     # smoke test: function exists and is callable
     assert render_profile_index.__name__ == "render_profile_index"
     print(f"  ✓ render_profile_index: contract holds")
 
 def test_render_all_profiles_contract():
     """Data flow contract: render_all_profiles(root) → output."""
-    from src.profile_renderer_seq001_v001_seq001_v001 import render_all_profiles
+    from src.profile_renderer_seq001_v001 import render_all_profiles
     # smoke test: function exists and is callable
     assert render_all_profiles.__name__ == "render_all_profiles"
     # safe to call with test root

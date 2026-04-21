@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.escalation_engine_seq001_v001_seq001_v001 import compute_module_confidence, inject_warnings, check_and_escalate, get_status
+    from src.escalation_engine_seq001_v001 import compute_module_confidence, inject_warnings, check_and_escalate, get_status
     assert callable(compute_module_confidence), "compute_module_confidence must be callable"
     assert callable(inject_warnings), "inject_warnings must be callable"
     assert callable(check_and_escalate), "check_and_escalate must be callable"
@@ -19,28 +19,28 @@ def test_import():
 
 def test_compute_module_confidence_contract():
     """Data flow contract: compute_module_confidence(module, entropy_conf, dossier, persistence) → output."""
-    from src.escalation_engine_seq001_v001_seq001_v001 import compute_module_confidence
+    from src.escalation_engine_seq001_v001 import compute_module_confidence
     # smoke test: function exists and is callable
     assert compute_module_confidence.__name__ == "compute_module_confidence"
     print(f"  ✓ compute_module_confidence: contract holds")
 
 def test_inject_warnings_contract():
     """Data flow contract: inject_warnings(root, state) → output."""
-    from src.escalation_engine_seq001_v001_seq001_v001 import inject_warnings
+    from src.escalation_engine_seq001_v001 import inject_warnings
     # smoke test: function exists and is callable
     assert inject_warnings.__name__ == "inject_warnings"
     print(f"  ✓ inject_warnings: contract holds")
 
 def test_check_and_escalate_contract():
     """Data flow contract: check_and_escalate(root, registry, changed_py, cross_context) → output."""
-    from src.escalation_engine_seq001_v001_seq001_v001 import check_and_escalate
+    from src.escalation_engine_seq001_v001 import check_and_escalate
     # smoke test: function exists and is callable
     assert check_and_escalate.__name__ == "check_and_escalate"
     print(f"  ✓ check_and_escalate: contract holds")
 
 def test_get_status_contract():
     """Data flow contract: get_status(root) → output."""
-    from src.escalation_engine_seq001_v001_seq001_v001 import get_status
+    from src.escalation_engine_seq001_v001 import get_status
     # smoke test: function exists and is callable
     assert get_status.__name__ == "get_status"
     # safe to call with test root

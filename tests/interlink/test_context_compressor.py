@@ -10,21 +10,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.context_compressor_seq001_v001_seq001_v001 import compress_file, compress_changed
+    from src.context_compressor_seq001_v001 import compress_file, compress_changed
     assert callable(compress_file), "compress_file must be callable"
     assert callable(compress_changed), "compress_changed must be callable"
     print(f"  ✓ context_compressor_seq001_v001: 2 exports verified")
 
 def test_compress_file_contract():
     """Data flow contract: compress_file(filepath) → output."""
-    from src.context_compressor_seq001_v001_seq001_v001 import compress_file
+    from src.context_compressor_seq001_v001 import compress_file
     # smoke test: function exists and is callable
     assert compress_file.__name__ == "compress_file"
     print(f"  ✓ compress_file: contract holds")
 
 def test_compress_changed_contract():
     """Data flow contract: compress_changed(root, changed_files) → output."""
-    from src.context_compressor_seq001_v001_seq001_v001 import compress_changed
+    from src.context_compressor_seq001_v001 import compress_changed
     # smoke test: function exists and is callable
     assert compress_changed.__name__ == "compress_changed"
     print(f"  ✓ compress_changed: contract holds")

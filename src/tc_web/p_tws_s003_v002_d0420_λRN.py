@@ -9,7 +9,7 @@
 # ──────────────────────────────────────────────
 from ..tc_constants_seq001_v001 import GEMINI_MODEL
 from ..tc_context_seq001_v001 import load_context
-from ..tc_gemini_seq001_v003_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import call_gemini, log_completion
+from ..tc_gemini_seq001_v004_d0421__gemini_api_call_system_prompt_lc_live_copilot_layer import call_gemini, log_completion
 import json
 
 def run_web(port=8235):

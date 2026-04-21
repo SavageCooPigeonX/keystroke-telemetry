@@ -19,6 +19,7 @@ from pigeon_compiler.rename_engine import (
     mutate_compressed_stem,
     bug_marker_from_keys,
     rewrite_all_imports,
+    validate_imports,
     extract_desc_slug,
     build_all_manifests,
 )
@@ -324,6 +325,14 @@ def run():
                             print(f'  ⚠️  auto-compile {c["file"]}: {c.get("error")}')
             except Exception as e:
                 print(f'  ⚠️  auto-compile oversized: {e}')
+            # Auto-fix broken module imports (catches doubled suffixes + stale renames)
+            try:
+                if hasattr(fix_mod, 'auto_fix_broken_imports'):
+                    fixed = fix_mod.auto_fix_broken_imports(root)
+                    if fixed:
+                        print(f'  🔧 import heal → {len(fixed)} broken import(s) auto-fixed')
+            except Exception as e:
+                print(f'  ⚠️  import heal: {e}')
     except Exception as e:
         print(f'  ⚠️  self-fix: {e}')
 

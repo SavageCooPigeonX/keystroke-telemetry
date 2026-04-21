@@ -21,22 +21,22 @@ def _build_box(entry: dict, h: str, lines: int, tokens: int = 0,
 def _inject_box(fp: Path, entry: dict, h: str, root: Path | None = None):
     try:
         text = fp.read_text(encoding='utf-8')
-    except Exception:
-        return
-    tokens = _estimate_tokens(text)
-    sessions = 0
-    if root:
-        sessions = count_sessions(root, entry.get('name', ''), entry.get('seq', 0))
-    box = _build_box(entry, h, len(text.splitlines()), tokens, sessions)
-    if '# ── pigeon ─' in text:
-        text = BOX_RE.sub(box, text, count=1)
-    else:
-        end = _ds_end(text)
-        if end >= 0:
-            text = text[:end] + '\n' + box + text[end:]
+        tokens = _estimate_tokens(text)
+        sessions = 0
+        if root:
+            sessions = count_sessions(root, entry.get('name', ''), entry.get('seq', 0))
+        box = _build_box(entry, h, len(text.splitlines()), tokens, sessions)
+        if '# ── pigeon ─' in text:
+            text = BOX_RE.sub(box, text, count=1)
         else:
-            text = box + text
-    fp.write_text(text, encoding='utf-8')
+            end = _ds_end(text)
+            if end >= 0:
+                text = text[:end] + '\n' + box + text[end:]
+            else:
+                text = box + text
+        fp.write_text(text, encoding='utf-8')
+    except (KeyboardInterrupt, Exception):
+        return
 
 
 def _ds_end(text: str) -> int:

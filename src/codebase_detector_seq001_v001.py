@@ -7,7 +7,7 @@ Python, Node.js, Rust, or any codebase with structured naming.
 Zero LLM calls. Pure file scanning.
 
 Usage:
-    from src.codebase_detector_seq001_v001_seq001_v001 import detect_codebase
+    from src.codebase_detector_seq001_v001 import detect_codebase
     profile = detect_codebase(Path('.'))
     print(profile.state_text)  # compact context for LLM prompt
 """

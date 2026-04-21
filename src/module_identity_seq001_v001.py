@@ -64,7 +64,7 @@ def _load_json(path: Path) -> dict | list:
 def _load_all_sources(root: Path) -> dict:
     """Load every data source once, return as lookup dict."""
     try:
-        from src.numeric_surface_seq001_v001_seq001_v001 import generate_surface
+        from src.numeric_surface_seq001_v001 import generate_surface
         generate_surface(root)
     except Exception:
         pass

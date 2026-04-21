@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.tc_profile_seq001_v001_seq001_v001 import load_profile, save_profile, update_profile_from_completion, update_profile_from_composition, bootstrap_profile, format_profile_for_prompt
+    from src.tc_profile_seq001_v001 import load_profile, save_profile, update_profile_from_completion, update_profile_from_composition, bootstrap_profile, format_profile_for_prompt
     assert callable(load_profile), "load_profile must be callable"
     assert callable(save_profile), "save_profile must be callable"
     assert callable(update_profile_from_completion), "update_profile_from_completion must be callable"
@@ -21,7 +21,7 @@ def test_import():
 
 def test_load_profile_contract():
     """Data flow contract: load_profile() → output."""
-    from src.tc_profile_seq001_v001_seq001_v001 import load_profile
+    from src.tc_profile_seq001_v001 import load_profile
     # smoke test: function exists and is callable
     assert load_profile.__name__ == "load_profile"
     result = load_profile()
@@ -30,28 +30,28 @@ def test_load_profile_contract():
 
 def test_save_profile_contract():
     """Data flow contract: save_profile(profile) → output."""
-    from src.tc_profile_seq001_v001_seq001_v001 import save_profile
+    from src.tc_profile_seq001_v001 import save_profile
     # smoke test: function exists and is callable
     assert save_profile.__name__ == "save_profile"
     print(f"  ✓ save_profile: contract holds")
 
 def test_update_profile_from_completion_contract():
     """Data flow contract: update_profile_from_completion(buffer, completion, outcome, context, repo) → output."""
-    from src.tc_profile_seq001_v001_seq001_v001 import update_profile_from_completion
+    from src.tc_profile_seq001_v001 import update_profile_from_completion
     # smoke test: function exists and is callable
     assert update_profile_from_completion.__name__ == "update_profile_from_completion"
     print(f"  ✓ update_profile_from_completion: contract holds")
 
 def test_update_profile_from_composition_contract():
     """Data flow contract: update_profile_from_composition(comp) → output."""
-    from src.tc_profile_seq001_v001_seq001_v001 import update_profile_from_composition
+    from src.tc_profile_seq001_v001 import update_profile_from_composition
     # smoke test: function exists and is callable
     assert update_profile_from_composition.__name__ == "update_profile_from_composition"
     print(f"  ✓ update_profile_from_composition: contract holds")
 
 def test_bootstrap_profile_contract():
     """Data flow contract: bootstrap_profile() → output."""
-    from src.tc_profile_seq001_v001_seq001_v001 import bootstrap_profile
+    from src.tc_profile_seq001_v001 import bootstrap_profile
     # smoke test: function exists and is callable
     assert bootstrap_profile.__name__ == "bootstrap_profile"
     result = bootstrap_profile()
@@ -60,7 +60,7 @@ def test_bootstrap_profile_contract():
 
 def test_format_profile_for_prompt_contract():
     """Data flow contract: format_profile_for_prompt(profile) → output."""
-    from src.tc_profile_seq001_v001_seq001_v001 import format_profile_for_prompt
+    from src.tc_profile_seq001_v001 import format_profile_for_prompt
     # smoke test: function exists and is callable
     assert format_profile_for_prompt.__name__ == "format_profile_for_prompt"
     print(f"  ✓ format_profile_for_prompt: contract holds")

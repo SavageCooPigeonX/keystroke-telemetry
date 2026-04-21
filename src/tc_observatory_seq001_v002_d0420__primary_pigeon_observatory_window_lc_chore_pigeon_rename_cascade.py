@@ -636,10 +636,6 @@ def run_observatory():
             except Exception as e:
                 root.after(0, lambda err=e: _txt_set(profile_box, [('err', f'profile error: {err}')]))
 
-            _refresh_intent_profile()
-            root.after(15000, _refresh_intent)
-        threading.Thread(target=_run, daemon=True).start()
-
     int_filter_var.trace_add('write', lambda *_: _build_intent_boxes(int_filter_var.get()))
 
     # ══════════════════════════════════════════════════════════════════════════
@@ -853,17 +849,35 @@ def run_observatory():
 
     sim_hdr_fr = tk.Frame(sim_frame, bg=SURFACE, height=22)
     sim_hdr_fr.pack(fill='x'); sim_hdr_fr.pack_propagate(False)
-    tk.Label(sim_hdr_fr, text='🎬 keystroke sim — replay sessions + gemini predictions',
+    tk.Label(sim_hdr_fr, text='🎬 live sim — watch 3 agents think on your prompt',
              bg=SURFACE, fg=ACCENT, font=(FONT, 8, 'bold')).pack(side='left', padx=8)
-    sim_status = tk.Label(sim_hdr_fr, text='stopped', bg=SURFACE, fg=DIM, font=SMALL)
+    sim_status = tk.Label(sim_hdr_fr, text='idle', bg=SURFACE, fg=DIM, font=SMALL)
     sim_status.pack(side='right', padx=8)
 
+    # Prompt input row
+    sim_input_fr = tk.Frame(sim_frame, bg=BG, height=30)
+    sim_input_fr.pack(fill='x'); sim_input_fr.pack_propagate(False)
+    tk.Label(sim_input_fr, text='prompt:', bg=BG, fg=DIM, font=SMALL).pack(side='left', padx=(8, 4))
+    sim_prompt_var = tk.StringVar(value='')
+    sim_prompt_entry = tk.Entry(sim_input_fr, textvariable=sim_prompt_var,
+                                bg='#0b0e14', fg=TEXT_C, insertbackground=TEXT_C,
+                                font=(FONT, 9), relief='flat', borderwidth=0)
+    sim_prompt_entry.pack(side='left', fill='x', expand=True, padx=4, pady=4)
+    tk.Label(sim_input_fr, text='(blank = use live keystroke buffer)',
+             bg=BG, fg=DIM, font=SMALL).pack(side='right', padx=8)
+
     sim_box = _make_scrolled_text(sim_frame)
-    sim_box.tag_configure('session', foreground=PURPLE, font=(FONT, 8, 'bold'))
-    sim_box.tag_configure('pause',   foreground=ACCENT)
-    sim_box.tag_configure('pred',    foreground=GREEN, font=(FONT, 8, 'italic'))
-    sim_box.tag_configure('actual',  foreground=YELLOW)
-    sim_box.tag_configure('miss',    foreground=RED)
+    sim_box.tag_configure('session',  foreground=PURPLE, font=(FONT, 8, 'bold'))
+    sim_box.tag_configure('pause',    foreground=ACCENT)
+    sim_box.tag_configure('pred',     foreground=GREEN, font=(FONT, 8, 'italic'))
+    sim_box.tag_configure('actual',   foreground=YELLOW)
+    sim_box.tag_configure('miss',     foreground=RED)
+    sim_box.tag_configure('variant',  foreground=ACCENT, font=(FONT, 9, 'bold'))
+    sim_box.tag_configure('winner',   foreground=GREEN, font=(FONT, 9, 'bold'))
+    sim_box.tag_configure('prompt',   foreground=TEXT_C, font=(FONT, 9, 'bold'))
+    sim_box.tag_configure('files',    foreground=YELLOW)
+    sim_box.tag_configure('thinking', foreground=DIM, font=(FONT, 8, 'italic'))
+    sim_box.tag_configure('history',  foreground=DIM)
     sim_box.pack(fill='both', expand=True)
 
     _sim_running = [False]
@@ -871,32 +885,137 @@ def run_observatory():
     def _sim_append(tag: str, text: str):
         _txt_append(sim_box, tag, text)
 
+    def _sim_clear():
+        sim_box.config(state='normal')
+        sim_box.delete('1.0', 'end')
+        sim_box.config(state='disabled')
+
+    def _render_sim_history():
+        """Show last 5 sim runs from tc_sim_results.jsonl."""
+        hist_path = ROOT / 'logs' / 'tc_sim_results.jsonl'
+        if not hist_path.exists():
+            return
+        try:
+            lines = [l for l in hist_path.read_text('utf-8', errors='ignore')
+                     .splitlines() if l.strip()][-5:]
+        except Exception:
+            return
+        _sim_append('session', '─── recent sim history ───\n')
+        for line in lines:
+            try:
+                rec = json.loads(line)
+            except Exception:
+                continue
+            ts = rec.get('ts', '')[:19].replace('T', ' ')
+            buf = rec.get('buffer', '')[-80:]
+            winner = rec.get('winner', '?')
+            score = rec.get('winner_score', 0)
+            _sim_append('history', f'{ts}  [{winner} {score:.2f}]  {buf}\n')
+        _sim_append('session', '─── end history ───\n\n')
+
     def _launch_sim():
         if _sim_running[0]:
             sim_status.config(text='already running', fg=YELLOW); return
+        prompt = (sim_prompt_var.get() or '').strip()
+        if not prompt:
+            prompt = _read_live_buffer().strip()
+        if not prompt or len(prompt) < 6:
+            sim_status.config(text='prompt too short (need ≥6 chars)', fg=RED)
+            return
         _sim_running[0] = True
-        sim_status.config(text='running…', fg=YELLOW)
-        _sim_append('session', '═══ SIM START ═══\n')
+        sim_status.config(text='running 3 variants…', fg=YELLOW)
+        _sim_clear()
+        _sim_append('session', '═══ LIVE SIM ═══\n')
+        _sim_append('prompt', f'prompt: {prompt[:200]}\n\n')
+        for v in ('grounded', 'adjacent', 'divergent'):
+            _sim_append('thinking', f'  [{v}] thinking...\n')
 
         def _run():
-            cmd = [sys.executable, '-m', 'src.tc_sim_seq001_v001', '--live', '--n', '3']
-            proc = subprocess.Popen(cmd, cwd=str(ROOT),
-                                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                    text=True, encoding='utf-8', errors='replace')
-            for line in proc.stdout:
-                line = line.rstrip()
-                if not line: continue
-                tag = ('session' if line.startswith('SESSION') else
-                       'pred' if 'predicted:' in line else
-                       'actual' if 'actual:' in line else
-                       'miss' if 'overlap:' in line and '0%' in line else
-                       'pause' if 'pause' in line.lower() and 'ms' in line else
-                       'val' if 'buffer:' in line else 'dim')
-                root.after(0, lambda l=line, t=tag: _sim_append(t, l + '\n'))
+            try:
+                _engine = src_import("tc_sim_engine_seq001")
+                load_context = _engine.load_context
+                load_profile = _engine.load_profile
+                _select_files = _engine._select_files_for_sim
+                _build_prompt = _engine._build_sim_prompt
+                _call_gem = _engine._call_gemini_sim
+                _score = _engine._score_completion
+                SimResult = _engine.SimResult
+                CONFIGS = _engine._SIM_CONFIGS
+                _persist = _engine._persist_sim
+            except Exception as e:
+                root.after(0, lambda err=e: (
+                    _sim_append('err', f'[sim engine load failed: {err}]\n'),
+                    sim_status.config(text='error', fg=RED)))
+                _sim_running[0] = False
+                return
+
+            ctx = load_context()
+            profile = load_profile()
+            results: list = []
+            lock = threading.Lock()
+
+            def _run_variant(cfg: dict):
+                try:
+                    files = _select_files(prompt, ctx, cfg['profile_weight'])
+                    prompt_text = _build_prompt(prompt, ctx, files, cfg['name'], profile)
+                    text = _call_gem(prompt_text, cfg['temp'])
+                    score = _score(text, prompt, profile)
+                    res = SimResult(
+                        name=cfg['name'], completion=text,
+                        files=[f['name'] for f in files],
+                        score=score, temp=cfg['temp'])
+                    with lock:
+                        results.append(res)
+
+                    def _paint(r=res):
+                        file_preview = ', '.join(r.files[:5]) or '(none)'
+                        _sim_append('variant', f'\n▸ [{r.name}] score={r.score:.2f} temp={r.temp}\n')
+                        _sim_append('files',   f'  files: {file_preview}\n')
+                        comp = (r.completion or '(empty)').strip()
+                        _sim_append('pred',    f'  → {comp[:500]}\n')
+                    root.after(0, _paint)
+                except Exception as ve:
+                    root.after(0, lambda err=ve, n=cfg['name']:
+                               _sim_append('err', f'  [{n}] error: {err}\n'))
+
+            threads = [threading.Thread(target=_run_variant, args=(c,), daemon=True)
+                       for c in CONFIGS]
+            for t in threads: t.start()
+            for t in threads: t.join(timeout=40)
+
+            if results:
+                winner = max(results, key=lambda r: r.score)
+                try:
+                    _persist(prompt, results, winner)
+                except Exception:
+                    pass
+                def _finale(w=winner):
+                    _sim_append('winner', f'\n★ WINNER: {w.name} ({w.score:.2f})\n')
+                    _sim_append('session', '═══ SIM END ═══\n')
+                    sim_status.config(text=f'winner: {w.name} ({w.score:.2f})', fg=GREEN)
+                root.after(0, _finale)
+            else:
+                root.after(0, lambda: (
+                    _sim_append('err', '\n(no variants returned — check gemini key)\n'),
+                    sim_status.config(text='no results', fg=RED)))
             _sim_running[0] = False
-            root.after(0, lambda: sim_status.config(text='done', fg=GREEN))
-            root.after(0, lambda: _sim_append('session', '═══ SIM END ═══\n'))
+
         threading.Thread(target=_run, daemon=True).start()
+
+    # Global hotkey ctrl+shift+s → trigger sim (works even when observatory not focused)
+    try:
+        import keyboard as _kb_obs
+        _kb_obs.add_hotkey('ctrl+shift+s',
+                           lambda: root.after(0, _launch_sim),
+                           suppress=False)
+    except Exception as _khe:
+        print(f'[observatory] ctrl+shift+s hotkey unavailable: {_khe}')
+
+    # Enter key inside prompt entry triggers sim
+    sim_prompt_entry.bind('<Return>', lambda e: _launch_sim())
+
+    # Seed history on startup
+    root.after(800, _render_sim_history)
 
     # ══════════════════════════════════════════════════════════════════════════
     # TAB JOURNEY

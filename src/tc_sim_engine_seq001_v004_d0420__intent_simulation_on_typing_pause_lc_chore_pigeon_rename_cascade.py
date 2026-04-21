@@ -37,7 +37,7 @@ from pathlib import Path
 from typing import NamedTuple
 
 from .tc_constants_seq001_v001 import ROOT, GEMINI_MODEL, GEMINI_TIMEOUT
-from .tc_gemini_seq001_v003_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import _load_api_key, SYSTEM_PROMPT
+from .tc_gemini_seq001_v004_d0421__gemini_api_call_system_prompt_lc_live_copilot_layer import _load_api_key, SYSTEM_PROMPT
 from .tc_context_seq001_v001 import load_context, invalidate_context_cache
 from .tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade import select_context_ensemble
 from .tc_profile_seq001_v001 import load_profile
@@ -228,6 +228,50 @@ def run_sim(buffer: str) -> SimResult | None:
     winner = max(results, key=lambda r: r.score)
     _persist_sim(buffer, results, winner)
     return winner
+
+
+def run_sim_all(buffer: str) -> tuple[list[SimResult], SimResult | None]:
+    """Run all sim variants and return (full_list, winner). For live display."""
+    if not buffer or len(buffer.strip()) < 6:
+        return [], None
+
+    ctx = load_context()
+    profile = load_profile()
+    results: list[SimResult] = []
+    lock = threading.Lock()
+
+    def _run_one(cfg: dict) -> None:
+        files = _select_files_for_sim(buffer, ctx, cfg['profile_weight'])
+        prompt = _build_sim_prompt(buffer, ctx, files, cfg['name'], profile)
+        text = _call_gemini_sim(prompt, cfg['temp'])
+        score = _score_completion(text, buffer, profile)
+        with lock:
+            results.append(SimResult(
+                name=cfg['name'],
+                completion=text,
+                files=[f['name'] for f in files],
+                score=score,
+                temp=cfg['temp'],
+            ))
+            print(f"[sim:{cfg['name']}] score={score:.2f} len={len(text)} "
+                  f"files={[f['name'] for f in files[:5]]}")
+
+    threads = [threading.Thread(target=_run_one, args=(cfg,), daemon=True)
+               for cfg in _SIM_CONFIGS]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join(timeout=GEMINI_TIMEOUT + 2)
+
+    if not results:
+        return [], None
+
+    winner = max(results, key=lambda r: r.score)
+    _persist_sim(buffer, results, winner)
+    # Stable ordering: grounded, adjacent, divergent
+    order = {'grounded': 0, 'adjacent': 1, 'divergent': 2}
+    results.sort(key=lambda r: order.get(r.name, 99))
+    return results, winner
 
 
 def _persist_sim(buffer: str, results: list[SimResult], winner: SimResult) -> None:

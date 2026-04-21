@@ -7,7 +7,7 @@ Writes logs/rework_scorecard_seq001_v001.json. All managed prompt blocks MUST re
 this file rather than computing their own slice.
 
 Usage:
-    from src.rework_scorecard_seq001_v001_seq001_v001 import update_scorecard, load_scorecard
+    from src.rework_scorecard_seq001_v001 import update_scorecard, load_scorecard
     update_scorecard(total=200, missed=16)  # -> rate=0.08
     card = load_scorecard()  # {'total': 200, 'missed': 16, 'rate': 0.08, 'updated_ts': ...}
 """

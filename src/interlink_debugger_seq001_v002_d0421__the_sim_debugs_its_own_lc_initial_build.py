@@ -9,6 +9,14 @@ When an interlink test fails, this module:
 Called from: post-commit hook + `py -m src.interlink_debugger`
 Output: logs/interlink_debug.jsonl, tests/interlink/ (updated tests)
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v002 | 346 lines | ~3,336 tokens
+# DESC:   the_sim_debugs_its_own
+# INTENT: feat_operator_state_daemon
+# LAST:   2026-04-21 @ f9a3310
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-04-21T04:35:00+00:00
 # EDIT_HASH: auto

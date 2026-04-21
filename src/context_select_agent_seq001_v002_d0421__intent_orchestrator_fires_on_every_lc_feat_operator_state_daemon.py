@@ -11,10 +11,11 @@ Zero LLM calls. Pure numeric signal assembly.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v001 | ~120 lines | ~1.4K tokens
-# DESC:   intent_orchestrator_context_select_layer
-# INTENT: building
-# LAST:   2026-04-20
+# SEQ: 001 | VER: v002 | 195 lines | ~1,814 tokens
+# DESC:   intent_orchestrator_fires_on_every
+# INTENT: feat_operator_state_daemon
+# LAST:   2026-04-21 @ f9a3310
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-04-20T22:00:00+00:00

@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.tc_gemini_seq001_v001_seq001_v001 import ThoughtBuffer, call_gemini, log_completion
+    from src.tc_gemini_seq001_v004_d0421__gemini_api_call_system_prompt_lc_live_copilot_layer import ThoughtBuffer, call_gemini, log_completion
     assert callable(ThoughtBuffer), "ThoughtBuffer must be callable"
     assert callable(call_gemini), "call_gemini must be callable"
     assert callable(log_completion), "log_completion must be callable"
@@ -18,14 +18,14 @@ def test_import():
 
 def test_call_gemini_contract():
     """Data flow contract: call_gemini(buffer, thought_buffer) → output."""
-    from src.tc_gemini_seq001_v001_seq001_v001 import call_gemini
+    from src.tc_gemini_seq001_v004_d0421__gemini_api_call_system_prompt_lc_live_copilot_layer import call_gemini
     # smoke test: function exists and is callable
     assert call_gemini.__name__ == "call_gemini"
     print(f"  ✓ call_gemini: contract holds")
 
 def test_log_completion_contract():
     """Data flow contract: log_completion(entry) → output."""
-    from src.tc_gemini_seq001_v001_seq001_v001 import log_completion
+    from src.tc_gemini_seq001_v004_d0421__gemini_api_call_system_prompt_lc_live_copilot_layer import log_completion
     # smoke test: function exists and is callable
     assert log_completion.__name__ == "log_completion"
     print(f"  ✓ log_completion: contract holds")

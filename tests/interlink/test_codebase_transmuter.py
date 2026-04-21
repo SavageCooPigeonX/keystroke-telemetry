@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.codebase_transmuter_seq001_v001_seq001_v001 import numerify_file, build_numerical_mirror, build_narrative_mirror, compute_global_stats, transmute_all
+    from src.codebase_transmuter_seq001_v001 import numerify_file, build_numerical_mirror, build_narrative_mirror, compute_global_stats, transmute_all
     assert callable(numerify_file), "numerify_file must be callable"
     assert callable(build_numerical_mirror), "build_numerical_mirror must be callable"
     assert callable(build_narrative_mirror), "build_narrative_mirror must be callable"
@@ -20,14 +20,14 @@ def test_import():
 
 def test_numerify_file_contract():
     """Data flow contract: numerify_file(filepath) → output."""
-    from src.codebase_transmuter_seq001_v001_seq001_v001 import numerify_file
+    from src.codebase_transmuter_seq001_v001 import numerify_file
     # smoke test: function exists and is callable
     assert numerify_file.__name__ == "numerify_file"
     print(f"  ✓ numerify_file: contract holds")
 
 def test_build_numerical_mirror_contract():
     """Data flow contract: build_numerical_mirror(root) → output."""
-    from src.codebase_transmuter_seq001_v001_seq001_v001 import build_numerical_mirror
+    from src.codebase_transmuter_seq001_v001 import build_numerical_mirror
     # smoke test: function exists and is callable
     assert build_numerical_mirror.__name__ == "build_numerical_mirror"
     # safe to call with test root
@@ -38,7 +38,7 @@ def test_build_numerical_mirror_contract():
 
 def test_build_narrative_mirror_contract():
     """Data flow contract: build_narrative_mirror(root) → output."""
-    from src.codebase_transmuter_seq001_v001_seq001_v001 import build_narrative_mirror
+    from src.codebase_transmuter_seq001_v001 import build_narrative_mirror
     # smoke test: function exists and is callable
     assert build_narrative_mirror.__name__ == "build_narrative_mirror"
     # safe to call with test root
@@ -49,7 +49,7 @@ def test_build_narrative_mirror_contract():
 
 def test_compute_global_stats_contract():
     """Data flow contract: compute_global_stats(root) → output."""
-    from src.codebase_transmuter_seq001_v001_seq001_v001 import compute_global_stats
+    from src.codebase_transmuter_seq001_v001 import compute_global_stats
     # smoke test: function exists and is callable
     assert compute_global_stats.__name__ == "compute_global_stats"
     # safe to call with test root
@@ -60,7 +60,7 @@ def test_compute_global_stats_contract():
 
 def test_transmute_all_contract():
     """Data flow contract: transmute_all(root) → output."""
-    from src.codebase_transmuter_seq001_v001_seq001_v001 import transmute_all
+    from src.codebase_transmuter_seq001_v001 import transmute_all
     # smoke test: function exists and is callable
     assert transmute_all.__name__ == "transmute_all"
     # safe to call with test root

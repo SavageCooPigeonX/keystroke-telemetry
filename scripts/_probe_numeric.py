@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0, '.')
-from src.tc_context_seq001_v001_seq001_v001_agent_seq001_v001_seq001_v001 import select_context_numeric, _load_registry
+from src.tc_context_seq001_v001 import select_context_numeric, _load_registry
 reg = _load_registry()
 print(f'registry: {len(reg)} modules')
 ns = [r for r in reg if 'numeric_surface_seq001_v001' in r.get('name', '').lower()]

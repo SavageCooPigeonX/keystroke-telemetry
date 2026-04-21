@@ -10,13 +10,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.bug_profiles_seq001_v001_seq001_v001 import generate_profiles
+    from src.bug_profiles_seq001_v001 import generate_profiles
     assert callable(generate_profiles), "generate_profiles must be callable"
     print(f"  ✓ bug_profiles_seq001_v001: 1 exports verified")
 
 def test_generate_profiles_contract():
     """Data flow contract: generate_profiles(root) → output."""
-    from src.bug_profiles_seq001_v001_seq001_v001 import generate_profiles
+    from src.bug_profiles_seq001_v001 import generate_profiles
     # smoke test: function exists and is callable
     assert generate_profiles.__name__ == "generate_profiles"
     # safe to call with test root

@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.unsaid_accumulator_seq001_v001_seq001_v001 import record, get_recent, query, get_summary
+    from src.unsaid_accumulator_seq001_v001 import record, get_recent, query, get_summary
     assert callable(record), "record must be callable"
     assert callable(get_recent), "get_recent must be callable"
     assert callable(query), "query must be callable"
@@ -19,28 +19,28 @@ def test_import():
 
 def test_record_contract():
     """Data flow contract: record(fragment, completed_intent, deleted_words, unsaid_threads, context) → output."""
-    from src.unsaid_accumulator_seq001_v001_seq001_v001 import record
+    from src.unsaid_accumulator_seq001_v001 import record
     # smoke test: function exists and is callable
     assert record.__name__ == "record"
     print(f"  ✓ record: contract holds")
 
 def test_get_recent_contract():
     """Data flow contract: get_recent(n) → output."""
-    from src.unsaid_accumulator_seq001_v001_seq001_v001 import get_recent
+    from src.unsaid_accumulator_seq001_v001 import get_recent
     # smoke test: function exists and is callable
     assert get_recent.__name__ == "get_recent"
     print(f"  ✓ get_recent: contract holds")
 
 def test_query_contract():
     """Data flow contract: query(topic, limit) → output."""
-    from src.unsaid_accumulator_seq001_v001_seq001_v001 import query
+    from src.unsaid_accumulator_seq001_v001 import query
     # smoke test: function exists and is callable
     assert query.__name__ == "query"
     print(f"  ✓ query: contract holds")
 
 def test_get_summary_contract():
     """Data flow contract: get_summary(max_threads) → output."""
-    from src.unsaid_accumulator_seq001_v001_seq001_v001 import get_summary
+    from src.unsaid_accumulator_seq001_v001 import get_summary
     # smoke test: function exists and is callable
     assert get_summary.__name__ == "get_summary"
     print(f"  ✓ get_summary: contract holds")

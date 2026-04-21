@@ -10,13 +10,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.consensus_sim_seq001_v001_seq001_v001 import main
+    from src.consensus_sim_seq001_v001 import main
     assert callable(main), "main must be callable"
     print(f"  ✓ consensus_sim_seq001_v001: 1 exports verified")
 
 def test_main_contract():
     """Data flow contract: main() → output."""
-    from src.consensus_sim_seq001_v001_seq001_v001 import main
+    from src.consensus_sim_seq001_v001 import main
     # smoke test: function exists and is callable
     assert main.__name__ == "main"
     result = main()

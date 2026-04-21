@@ -47,7 +47,7 @@ def _health_score(snapshot: dict) -> float:
     if not snapshot:
         return 0.0
     try:
-        from src.push_snapshot_seq001_v001_seq001_v001 import _compute_health_score
+        from src.push_snapshot_seq001_v001 import _compute_health_score
         return float(_compute_health_score(snapshot))
     except Exception:
         modules_snap = snapshot.get('modules', {})

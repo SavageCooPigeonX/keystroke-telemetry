@@ -25,8 +25,8 @@ Two sync mechanisms:
      and current file state.
 
 Launch: called by push_cycle step 14 or manually:
-  py -m src.file_semantic_layer_seq001_v001_seq001_v001
-  py -c "from src.file_semantic_layer_seq001_v001_seq001_v001 import inspect_module; ..."
+  py -m src.file_semantic_layer_seq001_v001
+  py -c "from src.file_semantic_layer_seq001_v001 import inspect_module; ..."
 """
 
 from __future__ import annotations

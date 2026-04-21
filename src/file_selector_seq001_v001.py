@@ -11,7 +11,7 @@ Zero LLM calls. Pure signal processing. Returns ranked file list
 with scores and reasons for LLM A to feed into LLM B.
 
 Usage:
-    from src.file_selector_seq001_v001_seq001_v001 import select_files
+    from src.file_selector_seq001_v001 import select_files
     ranked = select_files("the drift watcher should prob", context)
 """
 # ── telemetry:pulse ──

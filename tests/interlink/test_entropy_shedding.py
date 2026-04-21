@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.entropy_shedding_seq001_v001_seq001_v001 import parse_shed_blocks, parse_shed_block, accumulate_entropy, build_entropy_block, build_red_layer_block, format_shed_block, get_high_entropy_targets, build_entropy_directive
+    from src.entropy_shedding_seq001_v001 import parse_shed_blocks, parse_shed_block, accumulate_entropy, build_entropy_block, build_red_layer_block, format_shed_block, get_high_entropy_targets, build_entropy_directive
     assert callable(parse_shed_blocks), "parse_shed_blocks must be callable"
     assert callable(parse_shed_block), "parse_shed_block must be callable"
     assert callable(accumulate_entropy), "accumulate_entropy must be callable"
@@ -23,21 +23,21 @@ def test_import():
 
 def test_parse_shed_blocks_contract():
     """Data flow contract: parse_shed_blocks(text) → output."""
-    from src.entropy_shedding_seq001_v001_seq001_v001 import parse_shed_blocks
+    from src.entropy_shedding_seq001_v001 import parse_shed_blocks
     # smoke test: function exists and is callable
     assert parse_shed_blocks.__name__ == "parse_shed_blocks"
     print(f"  ✓ parse_shed_blocks: contract holds")
 
 def test_parse_shed_block_contract():
     """Data flow contract: parse_shed_block(text) → output."""
-    from src.entropy_shedding_seq001_v001_seq001_v001 import parse_shed_block
+    from src.entropy_shedding_seq001_v001 import parse_shed_block
     # smoke test: function exists and is callable
     assert parse_shed_block.__name__ == "parse_shed_block"
     print(f"  ✓ parse_shed_block: contract holds")
 
 def test_accumulate_entropy_contract():
     """Data flow contract: accumulate_entropy(root) → output."""
-    from src.entropy_shedding_seq001_v001_seq001_v001 import accumulate_entropy
+    from src.entropy_shedding_seq001_v001 import accumulate_entropy
     # smoke test: function exists and is callable
     assert accumulate_entropy.__name__ == "accumulate_entropy"
     # safe to call with test root
@@ -48,7 +48,7 @@ def test_accumulate_entropy_contract():
 
 def test_build_entropy_block_contract():
     """Data flow contract: build_entropy_block(root) → output."""
-    from src.entropy_shedding_seq001_v001_seq001_v001 import build_entropy_block
+    from src.entropy_shedding_seq001_v001 import build_entropy_block
     # smoke test: function exists and is callable
     assert build_entropy_block.__name__ == "build_entropy_block"
     # safe to call with test root
@@ -59,7 +59,7 @@ def test_build_entropy_block_contract():
 
 def test_build_red_layer_block_contract():
     """Data flow contract: build_red_layer_block(root) → output."""
-    from src.entropy_shedding_seq001_v001_seq001_v001 import build_red_layer_block
+    from src.entropy_shedding_seq001_v001 import build_red_layer_block
     # smoke test: function exists and is callable
     assert build_red_layer_block.__name__ == "build_red_layer_block"
     # safe to call with test root
@@ -70,21 +70,21 @@ def test_build_red_layer_block_contract():
 
 def test_format_shed_block_contract():
     """Data flow contract: format_shed_block(markers) → output."""
-    from src.entropy_shedding_seq001_v001_seq001_v001 import format_shed_block
+    from src.entropy_shedding_seq001_v001 import format_shed_block
     # smoke test: function exists and is callable
     assert format_shed_block.__name__ == "format_shed_block"
     print(f"  ✓ format_shed_block: contract holds")
 
 def test_get_high_entropy_targets_contract():
     """Data flow contract: get_high_entropy_targets(root, threshold, limit) → output."""
-    from src.entropy_shedding_seq001_v001_seq001_v001 import get_high_entropy_targets
+    from src.entropy_shedding_seq001_v001 import get_high_entropy_targets
     # smoke test: function exists and is callable
     assert get_high_entropy_targets.__name__ == "get_high_entropy_targets"
     print(f"  ✓ get_high_entropy_targets: contract holds")
 
 def test_build_entropy_directive_contract():
     """Data flow contract: build_entropy_directive(root) → output."""
-    from src.entropy_shedding_seq001_v001_seq001_v001 import build_entropy_directive
+    from src.entropy_shedding_seq001_v001 import build_entropy_directive
     # smoke test: function exists and is callable
     assert build_entropy_directive.__name__ == "build_entropy_directive"
     # safe to call with test root

@@ -3,11 +3,11 @@
 COGNITIVE NOTE (auto-added by reactor): This module triggered 3+ high-load flushes (avg_hes=0.907, state=hesitant). Consider simplifying its public interface or adding examples."""
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v003 | 859 lines | ~10,247 tokens
+# SEQ: 001 | VER: v004 | 956 lines | ~11,314 tokens
 # DESC:   gemini_api_call_system_prompt
-# INTENT: chore_pigeon_rename_cascade
-# LAST:   2026-04-20 @ c61fc91
-# SESSIONS: 2
+# INTENT: feat_operator_state_daemon
+# LAST:   2026-04-21 @ f9a3310
+# SESSIONS: 3
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-04-21T04:55:00+00:00

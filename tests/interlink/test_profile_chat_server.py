@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.profile_chat_server_seq001_v001_seq001_v001 import ChatHandler, ThreadedHTTPServer, main
+    from src.profile_chat_server_seq001_v001 import ChatHandler, ThreadedHTTPServer, main
     assert callable(ChatHandler), "ChatHandler must be callable"
     assert callable(ThreadedHTTPServer), "ThreadedHTTPServer must be callable"
     assert callable(main), "main must be callable"
@@ -18,7 +18,7 @@ def test_import():
 
 def test_main_contract():
     """Data flow contract: main() → output."""
-    from src.profile_chat_server_seq001_v001_seq001_v001 import main
+    from src.profile_chat_server_seq001_v001 import main
     # smoke test: function exists and is callable
     assert main.__name__ == "main"
     result = main()

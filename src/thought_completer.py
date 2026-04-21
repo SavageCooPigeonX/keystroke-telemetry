@@ -72,7 +72,7 @@ def main():
 
     if args.sim_buffer:
         predict_files = src_import("intent_numeric_seq001", "predict_files")
-        run_sim as run_pause_sim = src_import("tc_sim_engine_seq001", "run_sim as run_pause_sim")
+        run_pause_sim = src_import("tc_sim_engine_seq001", "run_sim")
 
         buffer = args.sim_buffer.strip()
         if not buffer:
@@ -111,7 +111,7 @@ def main():
                 [sys.executable, '-c',
                  'import sys; sys.path.insert(0,".")\n'
                  'from pathlib import Path\n'
-                 'from src.numeric_surface_seq001_v001_seq001_v001 import generate_surface\n'
+                 'from src.numeric_surface_seq001_v001 import generate_surface\n'
                  'generate_surface(Path("."))'],
                 cwd=_root_dir, timeout=60, capture_output=True
             )

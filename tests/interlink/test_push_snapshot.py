@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.push_snapshot_seq001_v001_seq001_v001 import capture_snapshot, compute_drift, get_snapshot_history, inject_drift_block
+    from src.push_snapshot_seq001_v001 import capture_snapshot, compute_drift, get_snapshot_history, inject_drift_block
     assert callable(capture_snapshot), "capture_snapshot must be callable"
     assert callable(compute_drift), "compute_drift must be callable"
     assert callable(get_snapshot_history), "get_snapshot_history must be callable"
@@ -19,28 +19,28 @@ def test_import():
 
 def test_capture_snapshot_contract():
     """Data flow contract: capture_snapshot(root, commit_hash, intent, changed_files) → output."""
-    from src.push_snapshot_seq001_v001_seq001_v001 import capture_snapshot
+    from src.push_snapshot_seq001_v001 import capture_snapshot
     # smoke test: function exists and is callable
     assert capture_snapshot.__name__ == "capture_snapshot"
     print(f"  ✓ capture_snapshot: contract holds")
 
 def test_compute_drift_contract():
     """Data flow contract: compute_drift(root, current, previous) → output."""
-    from src.push_snapshot_seq001_v001_seq001_v001 import compute_drift
+    from src.push_snapshot_seq001_v001 import compute_drift
     # smoke test: function exists and is callable
     assert compute_drift.__name__ == "compute_drift"
     print(f"  ✓ compute_drift: contract holds")
 
 def test_get_snapshot_history_contract():
     """Data flow contract: get_snapshot_history(root, limit) → output."""
-    from src.push_snapshot_seq001_v001_seq001_v001 import get_snapshot_history
+    from src.push_snapshot_seq001_v001 import get_snapshot_history
     # smoke test: function exists and is callable
     assert get_snapshot_history.__name__ == "get_snapshot_history"
     print(f"  ✓ get_snapshot_history: contract holds")
 
 def test_inject_drift_block_contract():
     """Data flow contract: inject_drift_block(root, snapshot, drift_result) → output."""
-    from src.push_snapshot_seq001_v001_seq001_v001 import inject_drift_block
+    from src.push_snapshot_seq001_v001 import inject_drift_block
     # smoke test: function exists and is callable
     assert inject_drift_block.__name__ == "inject_drift_block"
     print(f"  ✓ inject_drift_block: contract holds")

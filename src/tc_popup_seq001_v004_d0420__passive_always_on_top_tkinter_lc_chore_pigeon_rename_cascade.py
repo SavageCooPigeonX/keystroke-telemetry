@@ -16,6 +16,7 @@
 # ── /pulse ──
 from __future__ import annotations
 import json
+import os
 import time
 import threading
 from datetime import datetime, timezone
@@ -24,8 +25,8 @@ from .tc_constants_seq001_v001 import (ROOT, KEYSTROKE_LOG, LOG_PATH, GEMINI_MOD
                            POLL_INTERVAL_MS)
 from .tc_vscode_seq001_v001 import _detect_repo_from_title
 from .tc_context_seq001_v001 import invalidate_context_cache
-from .tc_gemini_seq001_v003_d0420__gemini_api_call_system_prompt_lc_chore_pigeon_rename_cascade import ThoughtBuffer, call_gemini, log_completion
-from .tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade import run_sim
+from .tc_gemini_seq001_v004_d0421__gemini_api_call_system_prompt_lc_live_copilot_layer import ThoughtBuffer, call_gemini, log_completion
+from .tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade import run_sim, run_sim_all
 from .tc_buffer_watcher_seq001_v001 import BufferWatcher
 from .tc_profile_seq001_v001 import update_profile_from_completion, update_profile_from_composition
 from .tc_grader_seq001_v001 import grade_completion, log_grade, update_grade_summary
@@ -123,7 +124,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             min_btn = tk.Label(hdr, text=' \u2500 ', bg=SURFACE, fg=DIM,
                                font=(FONT, 10), cursor='hand2')
             min_btn.pack(side='right', padx=0)
-            min_btn.bind('<Button-1>', lambda e: self.root.iconify())
+            min_btn.bind('<Button-1>', lambda e: self._minimize())
             min_btn.bind('<Enter>', lambda e: min_btn.config(bg='#30363d'))
             min_btn.bind('<Leave>', lambda e: min_btn.config(bg=SURFACE))
 
@@ -173,7 +174,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             ftr = tk.Frame(r, bg=SURFACE, height=18)
             ftr.pack(fill='x')
             ftr.pack_propagate(False)
-            tk.Label(ftr, text='ctrl+z paste \u00b7 ctrl+shift+x dismiss \u00b7 type in VS Code',
+            tk.Label(ftr, text='ctrl+z paste \u00b7 ctrl+shift+x dismiss \u00b7 ctrl+shift+g sim now',
                      bg=SURFACE, fg=GHOST_C, font=(FONT, 7)).pack(side='left', padx=6)
             self.ctx_lbl = tk.Label(ftr, text='editor', bg=SURFACE, fg=DIM, font=(FONT, 7))
             self.ctx_lbl.pack(side='right', padx=6)
@@ -192,6 +193,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
                 import keyboard as _kb
                 _kb.add_hotkey('ctrl+z', lambda: self.root.after(0, self._accept), suppress=False)
                 _kb.add_hotkey('ctrl+shift+x', lambda: self.root.after(0, self._dismiss), suppress=False)
+                _kb.add_hotkey('ctrl+shift+g', lambda: self.root.after(0, self._request_sim_manual), suppress=False)
             except Exception as _e:
                 print(f'[completer] global hotkeys unavailable: {_e}')
 
@@ -405,10 +407,12 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             self.completing = True
             self.status_lbl.config(text='analyzing...', fg=ACCENT)
 
+            sim_auto = os.environ.get('TC_SIM_AUTO', '0') == '1'
+
             def _do():
                 t0 = time.time()
-                # Run primary completion + sim in parallel
-                result_holder = [None, None]
+                # Primary always; sim only if TC_SIM_AUTO=1 (opt-in, quality not ready)
+                result_holder: list = [None, None]
                 def _primary():
                     result_holder[0] = call_gemini(buf, self.thought_buffer)
                 def _sim():
@@ -417,18 +421,73 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
                     except Exception as _se:
                         print(f'[sim] error: {_se}')
                 t_p = threading.Thread(target=_primary, daemon=True)
-                t_s = threading.Thread(target=_sim, daemon=True)
-                t_p.start(); t_s.start()
-                t_p.join(); t_s.join(timeout=35)
+                t_p.start()
+                if sim_auto:
+                    t_s = threading.Thread(target=_sim, daemon=True)
+                    t_s.start()
+                    t_p.join(); t_s.join(timeout=35)
+                else:
+                    t_p.join()
                 result, ctx_files = result_holder[0] or ('', [])
                 sim_winner = result_holder[1]
                 if sim_winner:
                     print(f'[sim] winner={sim_winner.name} score={sim_winner.score:.2f}')
                 lat = int((time.time() - t0) * 1000)
-                print(f'[completer] latency={lat}ms len={len(result) if result else 0}')
+                print(f'[completer] latency={lat}ms len={len(result) if result else 0} sim_auto={sim_auto}')
                 self.root.after(0, lambda: self._show(buf, result, lat, ctx_files))
 
             threading.Thread(target=_do, daemon=True).start()
+
+        def _request_sim_manual(self, event=None):
+            """ctrl+shift+g — manually trigger sim on current buffer, show all 3 variants live."""
+            buf = (self.watcher.buffer or self._last_nonempty_buf or '').strip()
+            if not buf or len(buf) < 6:
+                self.status_lbl.config(text='sim: buffer too short', fg=RED)
+                return
+            if getattr(self, '_sim_running', False):
+                self.status_lbl.config(text='sim already running', fg=DIM)
+                return
+            self._sim_running = True
+            self.status_lbl.config(text='sim running (3 variants)...', fg=ACCENT)
+            print(f'[sim-manual] trigger buf={buf[-60:]!r}')
+
+            def _do_sim():
+                t0 = time.time()
+                try:
+                    results, winner = run_sim_all(buf)
+                except Exception as _e:
+                    print(f'[sim-manual] error: {_e}')
+                    results, winner = [], None
+                lat = int((time.time() - t0) * 1000)
+                print(f'[sim-manual] done lat={lat}ms n={len(results)}')
+                self.root.after(0, lambda: self._show_sim_results(buf, results, winner, lat))
+
+            threading.Thread(target=_do_sim, daemon=True).start()
+
+        def _show_sim_results(self, buf, results, winner, latency_ms):
+            self._sim_running = False
+            self.text_box.config(state='normal')
+            self.text_box.delete('1.0', 'end')
+            head = f'sim results · {latency_ms}ms · {len(results)} variants\n'
+            self.text_box.insert('end', head, 'ghost')
+            self.text_box.insert('end', f'> {buf[-120:]}\n\n', 'buffer')
+            if not results:
+                self.text_box.insert('end', '(no results — check gemini key / buffer length)\n', 'ghost')
+            for r in results:
+                is_winner = (winner is not None and r.name == winner.name)
+                tag = 'completion' if is_winner else 'buffer'
+                marker = '★ ' if is_winner else '  '
+                self.text_box.insert('end', f'{marker}[{r.name}] score={r.score:.2f} temp={r.temp}\n', 'ghost')
+                files_preview = ', '.join((r.files or [])[:5]) or '(no files)'
+                self.text_box.insert('end', f'  files: {files_preview}\n', 'ghost')
+                comp = (r.completion or '(empty)').strip()
+                self.text_box.insert('end', f'  → {comp[:400]}\n\n', tag)
+            self.text_box.config(state='disabled')
+            self.text_box.see('1.0')
+            if winner:
+                self.status_lbl.config(text=f'sim winner: {winner.name} ({winner.score:.2f})', fg=GREEN)
+            else:
+                self.status_lbl.config(text='sim: no winner', fg=RED)
 
         def _show(self, buf, completion, latency_ms=0, context_files=None):
             self.completing = False
@@ -556,6 +615,19 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
 
         def _quit(self):
             self.root.destroy()
+
+        def _minimize(self):
+            # override-redirect windows can't be iconified; withdraw + restore via tray-less hotkey instead
+            try:
+                self.root.overrideredirect(False)
+                self.root.iconify()
+            except Exception:
+                try:
+                    self.root.withdraw()
+                    self.root.after(2000, lambda: (self.root.deiconify(),
+                                                   self.root.overrideredirect(True)))
+                except Exception:
+                    pass
 
         def run(self):
             self.root.mainloop()

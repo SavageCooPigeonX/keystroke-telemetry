@@ -10,8 +10,8 @@ import sys
 from pathlib import Path
 sys.path.insert(0, '.')
 
-from src.intent_numeric_seq001_v001_seq001_v001 import record_touch, predict_files, get_stats
-from src.tc_context_seq001_v001_seq001_v001_agent_seq001_v001_seq001_v001 import select_context_files
+from src.intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import record_touch, predict_files, get_stats
+from src.tc_context_seq001_v001 import select_context_files
 
 ctx = {'unsaid_threads': [], 'hot_modules': [], 'recent_prompts': []}
 

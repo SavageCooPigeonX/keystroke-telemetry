@@ -10,21 +10,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.tc_context_seq001_v001_seq001_v001 import load_context, invalidate_context_cache
+    from src.tc_context_seq001_v001 import load_context, invalidate_context_cache
     assert callable(load_context), "load_context must be callable"
     assert callable(invalidate_context_cache), "invalidate_context_cache must be callable"
     print(f"  ✓ tc_context_seq001_v001: 2 exports verified")
 
 def test_load_context_contract():
     """Data flow contract: load_context(repo_root) → output."""
-    from src.tc_context_seq001_v001_seq001_v001 import load_context
+    from src.tc_context_seq001_v001 import load_context
     # smoke test: function exists and is callable
     assert load_context.__name__ == "load_context"
     print(f"  ✓ load_context: contract holds")
 
 def test_invalidate_context_cache_contract():
     """Data flow contract: invalidate_context_cache() → output."""
-    from src.tc_context_seq001_v001_seq001_v001 import invalidate_context_cache
+    from src.tc_context_seq001_v001 import invalidate_context_cache
     # smoke test: function exists and is callable
     assert invalidate_context_cache.__name__ == "invalidate_context_cache"
     result = invalidate_context_cache()

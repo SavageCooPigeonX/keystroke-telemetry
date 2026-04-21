@@ -18,6 +18,14 @@ The 10 questions:
 Pass all 10 → INTERLINKED. A module stays interlinked across renames
 because the test file uses glob-based imports (see interlinker.py).
 """
+
+# ── pigeon ────────────────────────────────────
+# SEQ: 001 | VER: v002 | 310 lines | ~2,843 tokens
+# DESC:   10_question_interlink_qualification_test
+# INTENT: feat_operator_state_daemon
+# LAST:   2026-04-21 @ f9a3310
+# SESSIONS: 1
+# ──────────────────────────────────────────────
 # ── telemetry:pulse ──
 # EDIT_TS:   2026-04-21T04:35:00+00:00
 # EDIT_HASH: auto

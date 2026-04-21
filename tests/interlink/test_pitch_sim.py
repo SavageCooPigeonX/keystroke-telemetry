@@ -10,21 +10,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.pitch_sim_seq001_v001_seq001_v001 import run_pitch, main
+    from src.pitch_sim_seq001_v001 import run_pitch, main
     assert callable(run_pitch), "run_pitch must be callable"
     assert callable(main), "main must be callable"
     print(f"  ✓ pitch_sim_seq001_v001: 2 exports verified")
 
 def test_run_pitch_contract():
     """Data flow contract: run_pitch(module_name, top_n) → output."""
-    from src.pitch_sim_seq001_v001_seq001_v001 import run_pitch
+    from src.pitch_sim_seq001_v001 import run_pitch
     # smoke test: function exists and is callable
     assert run_pitch.__name__ == "run_pitch"
     print(f"  ✓ run_pitch: contract holds")
 
 def test_main_contract():
     """Data flow contract: main() → output."""
-    from src.pitch_sim_seq001_v001_seq001_v001 import main
+    from src.pitch_sim_seq001_v001 import main
     # smoke test: function exists and is callable
     assert main.__name__ == "main"
     result = main()

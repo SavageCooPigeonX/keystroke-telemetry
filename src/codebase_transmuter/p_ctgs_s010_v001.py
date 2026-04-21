@@ -15,7 +15,7 @@ import re
 import time
 
 def compute_global_stats(root):
-    from src.context_compressor_seq001_v001_seq001_v001 import compress_file
+    from src.context_compressor_seq001_v001 import compress_file
 
     t0 = time.monotonic()
     total_files = 0

@@ -912,7 +912,7 @@ def render_all_profiles(root: Path) -> int:
     """Generate all profile pages + index. Returns count."""
     root = Path(root)
     try:
-        from src.module_identity_seq001_v001_seq001_v001 import build_identities
+        from src.module_identity_seq001_v001 import build_identities
     except ImportError:
         from module_identity_seq001_v001 import build_identities
 

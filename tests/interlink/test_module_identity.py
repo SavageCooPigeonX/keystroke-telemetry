@@ -10,13 +10,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.module_identity_seq001_v001_seq001_v001 import build_identities
+    from src.module_identity_seq001_v001 import build_identities
     assert callable(build_identities), "build_identities must be callable"
     print(f"  ✓ module_identity_seq001_v001: 1 exports verified")
 
 def test_build_identities_contract():
     """Data flow contract: build_identities(root, include_consciousness) → output."""
-    from src.module_identity_seq001_v001_seq001_v001 import build_identities
+    from src.module_identity_seq001_v001 import build_identities
     # smoke test: function exists and is callable
     assert build_identities.__name__ == "build_identities"
     print(f"  ✓ build_identities: contract holds")

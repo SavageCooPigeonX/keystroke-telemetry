@@ -444,7 +444,7 @@ def _build_freshness_section(root: Path) -> str:
 def _build_narrative_section(root: Path) -> str:
     """Build the narrative layer — module identity profiles."""
     try:
-        from src.module_identity_seq001_v001_seq001_v001 import build_identities
+        from src.module_identity_seq001_v001 import build_identities
     except ImportError:
         try:
             from module_identity_seq001_v001 import build_identities

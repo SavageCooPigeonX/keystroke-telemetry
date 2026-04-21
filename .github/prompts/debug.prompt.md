@@ -4,39 +4,52 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 # /debug (RECOMMENDED)
 
-*Hydrated 2026-04-13 19:12 UTC · detected mode: debug*
+*Hydrated 2026-04-21 06:02 UTC · detected mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 43 | Del: 26% | Hes: 0.487
+**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.495
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
-**Codes:** intent=`unknown` state=`focused` bl_wpm=51 bl_del=26%
+**Active bugs:** `intent_numeric` (oc+de), `file_sim` (oc+de), `tc_context_agent` (oc+de), `tc_gemini` (oc)
+**Codes:** intent=`debugging` state=`neutral` bl_wpm=53 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
 
+## Known Issues (from self-fix scanner)
+
+- [CRITICAL] hardcoded_import in `scripts/bug_probe_hardcoded_import.py`
+- [CRITICAL] hardcoded_import in `scripts/verify_loop_2.py`
+
 ## Fragile Contracts
 
-- break mid-cycle. I receive all cross-referenced data from u_pj and manage the injection lifecycle. If the surface object size balloons, my memory trac
-- contract change, (2) node_memory key `'numeric_surface'` missing or None, (3) surface object
-- break it immediately. **_tmp_probe_loop** orchestrates diagnostic probes, expecting probe modules to return a specific dict schema; a schema violation
-- risks API leakage. **codebase_vitals** now feeds metrics into the scanner hardening, providing complexity scores and assuming file paths are absolute;
-- BREAKING: Self-Healing Codebase Clears 15 Zombie Modules in Single Push**
+- contracts. If a renamed module’s function signature changed silently, my imports will break at runtime.
+- contract breaks, my API calls may send invalid parameters.
+- contract, import statements in all renamed dependents, test suite import failures. This push standardizes the core word-number mapping filename across
+- assumption breaks—for instance, if downstream consumers expect the old module name in dynamic imports—the entire import chain will fail silently. Watc
+- contract with the pigeon registry’s naming schema; if that schema changes or the compiler’s extraction heuristic misinterprets the rename as a split, 
+- assumption is that the orchestrator fires on every state change; if the daemon's event emission is throttled or batched, I may miss transitions. Watch
 
 ## Codebase Clots (dead/bloated)
 
-- `aim_utils`: orphan_no_importers, unused_exports:1
-- `press_release_gen_constants_seq001_v001`: orphan_no_importers, unused_exports:1
-- `adapter`: orphan_no_importers, unused_exports:1
-- `query_memory`: dead_imports:2, oversize:252, self_fix:dead_export:record_query, self_fix:dead_export:load_query_memory, self_fix:dead_export:load_query_memory
+- `classify_bridge`: orphan_no_importers, unused_exports:1, oversize:877
+- `逆f_ba_bp_s005_v003_d0328_λR`: orphan_no_importers, unused_exports:1
+- `学f_ll_cu_s006_v003_d0327_λγ`: orphan_no_importers, unused_exports:1
+- `算f_ps_ca_s009_v002_d0327_λS`: orphan_no_importers, unused_exports:1
+- `预p_pr_co_s001_v001`: orphan_no_importers, unused_exports:1
 
 ## Overcap Files (split candidates)
 
-- `git_plugin` (6050 tok)
-- `module_identity` (3770 tok)
-- `谱建f_mb_s007_v003_d0314_观重箱重拆_λD` (3640 tok)
-- `profile_renderer` (3337 tok)
-- `tc_sim` (3230 tok)
-- `classify_bridge` (3143 tok)
-- `管w_cpm_s020_v005_d0404_缩分话_λNU_βoc` (3118 tok)
-- `层w_sl_s007_v003_d0317_读唤任_λΠ` (3109 tok)
+- `tc_sim` (14095 tok)
+- `tc_gemini` (11314 tok)
+- `tc_observatory` (11262 tok)
+- `u_pj` (10995 tok)
+- `tc_popup` (6993 tok)
+- `w_gpmo` (6982 tok)
+- `w_gpmo` (6980 tok)
+- `tc_popup` (6892 tok)
+
+## Active Bug Dossier
+
+**Focus modules:** word_number_file_mapping_for, gemini_api_call_system_prompt, micro_sim_engine_prompt_file, picks_relevant_source_files_based, intent_simulation_on_typing_pause
+**Focus bugs:** hc, oc

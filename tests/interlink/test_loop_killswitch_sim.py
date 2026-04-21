@@ -10,13 +10,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.loop_killswitch_sim_seq001_v001_seq001_v001 import run_sim
+    from src.loop_killswitch_sim_seq001_v001 import run_sim
     assert callable(run_sim), "run_sim must be callable"
     print(f"  ✓ loop_killswitch_sim_seq001_v001: 1 exports verified")
 
 def test_run_sim_contract():
     """Data flow contract: run_sim() → output."""
-    from src.loop_killswitch_sim_seq001_v001_seq001_v001 import run_sim
+    from src.loop_killswitch_sim_seq001_v001 import run_sim
     # smoke test: function exists and is callable
     assert run_sim.__name__ == "run_sim"
     result = run_sim()

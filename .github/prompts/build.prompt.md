@@ -4,87 +4,42 @@ description: "Build-focused context: module map, file consciousness, coupling, c
 
 # /build
 
-*Hydrated 2026-04-13 19:12 UTC · detected mode: debug*
+*Hydrated 2026-04-21 06:02 UTC · detected mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 43 | Del: 26% | Hes: 0.487
+**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.495
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
-**Codes:** intent=`unknown` state=`focused` bl_wpm=51 bl_del=26%
+**Active bugs:** `intent_numeric` (oc+de), `file_sim` (oc+de), `tc_context_agent` (oc+de), `tc_gemini` (oc)
+**Codes:** intent=`debugging` state=`neutral` bl_wpm=53 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
 
 ## Module Map (compact)
 
-**client** (7 modules, 9.4K tok)
-**pigeon_brain** (24 modules, 15.2K tok)
-**pigeon_brain/flow** (24 modules, 17.6K tok)
-**pigeon_brain/flow/backward_seq007** (7 modules, 1.5K tok)
-**pigeon_brain/flow/learning_loop_seq013** (14 modules, 2.3K tok)
-**pigeon_brain/flow/node_memory_seq008** (9 modules, 795 tok)
-**pigeon_brain/flow/prediction_scorer_seq014** (16 modules, 2.4K tok)
-**pigeon_brain/flow/predictor_seq009** (10 modules, 1.7K tok)
-**pigeon_compiler** (5 modules, 8.9K tok)
-**pigeon_compiler/cut_executor** (12 modules, 3.2K tok)
-**pigeon_compiler/integrations** (1 modules, 362 tok)
-**pigeon_compiler/rename_engine** (12 modules, 11.8K tok)
-**pigeon_compiler/rename_engine/compliance_seq008** (11 modules, 1.1K tok)
-**pigeon_compiler/rename_engine/heal_seq009** (5 modules, 698 tok)
-**pigeon_compiler/rename_engine/manifest_builder_seq007** (31 modules, 3.9K tok)
-**pigeon_compiler/rename_engine/nametag_seq011** (8 modules, 741 tok)
-**pigeon_compiler/rename_engine/registry_seq012** (9 modules, 996 tok)
-**pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR** (13 modules, 1.4K tok)
-**pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc** (12 modules, 1.4K tok)
-**pigeon_compiler/rename_engine/追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc** (11 modules, 1.7K tok)
-**pigeon_compiler/runners** (9 modules, 4.6K tok)
-**pigeon_compiler/runners/run_batch_compile_seq015** (3 modules, 653 tok)
-**pigeon_compiler/state_extractor** (6 modules, 1.7K tok)
-**pigeon_compiler/weakness_planner** (1 modules, 1.3K tok)
-**src** (103 modules, 134.5K tok)
-**src/.operator_stats_seq008_v010_d0331__persi** (9 modules, 2.1K tok)
-**src/cognitive** (3 modules, 2.1K tok)
-**src/cognitive/drift** (6 modules, 752 tok)
-**src/cognitive/drift_seq003** (4 modules, 740 tok)
-**src/cognitive/unsaid** (8 modules, 697 tok)
-**src/cognitive/unsaid_seq002** (3 modules, 731 tok)
-**src/operator_stats** (13 modules, 2.0K tok)
-**src/u_pe_s024_v002_d0402_λC** (13 modules, 2.7K tok)
-**src/u_pe_s024_v004_d0403_λP0_βoc** (10 modules, 2.2K tok)
-**src/u_pj_s019_v002_d0402_λC** (17 modules, 3.1K tok)
-**src/修_sf_s013** (11 modules, 2.2K tok)
-**src/修f_sf_s013_v012_d0402_初写谱净拆_λVR** (16 modules, 2.3K tok)
-**src/修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc** (12 modules, 2.2K tok)
-**src/叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc** (7 modules, 918 tok)
-**src/对p_tp_s027_v003_d0402_缩分话_λVR_βoc** (6 modules, 1.3K tok)
-**src/忆_qm_s010** (6 modules, 552 tok)
-**src/思_cr_s014** (14 modules, 2.6K tok)
-**src/控_ost_s008** (9 modules, 2.1K tok)
-**src/推_dp_s017** (15 modules, 2.3K tok)
-**src/环_pc_s025** (9 modules, 2.0K tok)
-**src/管_cpm_s020** (10 modules, 1.6K tok)
-**src/管_cpm_s020/copilot_prompt_manager_seq020** (5 modules, 769 tok)
-**src/管w_cpm_s020_v003_d0402_缩分话_λVR_βoc** (15 modules, 3.1K tok)
-**src/脉_ph_s015** (7 modules, 826 tok)
-**src/觉_fc_s019** (12 modules, 1.9K tok)
-**src/警p_sa_s030_v003_d0402_缩分话_λV** (8 modules, 615 tok)
-**streaming_layer** (20 modules, 3.5K tok)
-**vscode-extension** (2 modules, 3.3K tok)
+**pigeon_compiler/git_plugin** (3 modules, 14.4K tok · 1 bugged)
+**src** (19 modules, 113.8K tok · 12 bugged)
+**src/tc_sim** (1 modules, 959 tok)
+**src/tc_web** (1 modules, 707 tok)
+**src/thought_completer** (1 modules, 418 tok)
+**tests/interlink** (5 modules, 5.7K tok)
 
 ## Codebase Fears (from file consciousness)
 
-- file may not exist (17 modules)
-- returns empty on failure (silent) (14 modules)
-- regex format dependency (11 modules)
-- swallowed exception (10 modules)
+- file may not exist (13 modules)
+- swallowed exception (12 modules)
+- regex format dependency (10 modules)
+- returns empty on failure (silent) (7 modules)
+- bare except hides errors (1 modules)
 
 ## Recent Commits
 
-- beda89c fix: add missing intra-package imports in registry_io decomposed modules
-- 81177cc fix: add missing intra-package imports in registry_io decomposed modules
-- 9431f3a fix: add missing REGISTRY_FILE import in registry_io decomposed module
-- fdc066a feat: push baseline drift gate + file semantic layer + thought completer suite + intent numeric surface + FRBI reports
-- 9440b28 feat: interrogation room + zombie clearing + scanner hardening + thought completer reinjection loop
-- 847d38c feat: add copilot edit brain entropy map
-- 72a5a72 feat: cascade standup â€” files brief operator in chain, reacting to each other
-- f2d3ca7 feat: manifest work loop â€” autonomous coding from organism signals
+- 84b73b5 fix: copilot prompt assembly - doubled _seq001_v001 module imports
+- f9a3310 feat: operator_state_daemon + decouple capture from LLM trigger
+- 61d32a8 feat: interlink self-debug loop + 10Q test framework + rename-resistant test gen
+- 365bde4 chore: pigeon cascade cleanup (hook disabled)
+- 93020d4 chore: pigeon cascade cleanup (hook disabled)
+- c61fc91 chore: pigeon rename cascade (interrupted hook cleanup)
+- a7aacce chore: pigeon rename cascade (v002 bumps)
+- 6ae8700 fix: close outcome + sim reinjection feedback loops

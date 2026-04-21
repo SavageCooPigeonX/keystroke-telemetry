@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.persona_intent_synthesizer_seq001_v001_seq001_v001 import load_all_memories, extract_intents, extract_frustrations, extract_open_tasks, extract_relationships, build_copilot_block, write_intent_snapshot, inject_into_copilot_instructions
+    from src.persona_intent_synthesizer_seq001_v001 import load_all_memories, extract_intents, extract_frustrations, extract_open_tasks, extract_relationships, build_copilot_block, write_intent_snapshot, inject_into_copilot_instructions
     assert callable(load_all_memories), "load_all_memories must be callable"
     assert callable(extract_intents), "extract_intents must be callable"
     assert callable(extract_frustrations), "extract_frustrations must be callable"
@@ -23,7 +23,7 @@ def test_import():
 
 def test_load_all_memories_contract():
     """Data flow contract: load_all_memories(root) → output."""
-    from src.persona_intent_synthesizer_seq001_v001_seq001_v001 import load_all_memories
+    from src.persona_intent_synthesizer_seq001_v001 import load_all_memories
     # smoke test: function exists and is callable
     assert load_all_memories.__name__ == "load_all_memories"
     # safe to call with test root
@@ -34,35 +34,35 @@ def test_load_all_memories_contract():
 
 def test_extract_intents_contract():
     """Data flow contract: extract_intents(memories) → output."""
-    from src.persona_intent_synthesizer_seq001_v001_seq001_v001 import extract_intents
+    from src.persona_intent_synthesizer_seq001_v001 import extract_intents
     # smoke test: function exists and is callable
     assert extract_intents.__name__ == "extract_intents"
     print(f"  ✓ extract_intents: contract holds")
 
 def test_extract_frustrations_contract():
     """Data flow contract: extract_frustrations(memories) → output."""
-    from src.persona_intent_synthesizer_seq001_v001_seq001_v001 import extract_frustrations
+    from src.persona_intent_synthesizer_seq001_v001 import extract_frustrations
     # smoke test: function exists and is callable
     assert extract_frustrations.__name__ == "extract_frustrations"
     print(f"  ✓ extract_frustrations: contract holds")
 
 def test_extract_open_tasks_contract():
     """Data flow contract: extract_open_tasks(memories) → output."""
-    from src.persona_intent_synthesizer_seq001_v001_seq001_v001 import extract_open_tasks
+    from src.persona_intent_synthesizer_seq001_v001 import extract_open_tasks
     # smoke test: function exists and is callable
     assert extract_open_tasks.__name__ == "extract_open_tasks"
     print(f"  ✓ extract_open_tasks: contract holds")
 
 def test_extract_relationships_contract():
     """Data flow contract: extract_relationships(memories) → output."""
-    from src.persona_intent_synthesizer_seq001_v001_seq001_v001 import extract_relationships
+    from src.persona_intent_synthesizer_seq001_v001 import extract_relationships
     # smoke test: function exists and is callable
     assert extract_relationships.__name__ == "extract_relationships"
     print(f"  ✓ extract_relationships: contract holds")
 
 def test_build_copilot_block_contract():
     """Data flow contract: build_copilot_block(root) → output."""
-    from src.persona_intent_synthesizer_seq001_v001_seq001_v001 import build_copilot_block
+    from src.persona_intent_synthesizer_seq001_v001 import build_copilot_block
     # smoke test: function exists and is callable
     assert build_copilot_block.__name__ == "build_copilot_block"
     # safe to call with test root
@@ -73,14 +73,14 @@ def test_build_copilot_block_contract():
 
 def test_write_intent_snapshot_contract():
     """Data flow contract: write_intent_snapshot(root) → output."""
-    from src.persona_intent_synthesizer_seq001_v001_seq001_v001 import write_intent_snapshot
+    from src.persona_intent_synthesizer_seq001_v001 import write_intent_snapshot
     # smoke test: function exists and is callable
     assert write_intent_snapshot.__name__ == "write_intent_snapshot"
     print(f"  ✓ write_intent_snapshot: contract holds")
 
 def test_inject_into_copilot_instructions_contract():
     """Data flow contract: inject_into_copilot_instructions(root) → output."""
-    from src.persona_intent_synthesizer_seq001_v001_seq001_v001 import inject_into_copilot_instructions
+    from src.persona_intent_synthesizer_seq001_v001 import inject_into_copilot_instructions
     # smoke test: function exists and is callable
     assert inject_into_copilot_instructions.__name__ == "inject_into_copilot_instructions"
     # safe to call with test root

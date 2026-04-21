@@ -1,5 +1,5 @@
 """Quick test: verify keystroke data flow fix."""
-from client.chat_composition_analyzer_seq001_v001_seq001_v001 import _read_messages, reconstruct_composition
+from client.chat_composition_analyzer_seq001_v001 import _read_messages, reconstruct_composition
 from pathlib import Path
 
 log_path = Path('logs/os_keystrokes.jsonl')

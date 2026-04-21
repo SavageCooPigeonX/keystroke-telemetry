@@ -10,14 +10,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.self_fix_tracker_seq001_v001_seq001_v001 import compute_accuracy, build_narrative_block
+    from src.self_fix_tracker_seq001_v001 import compute_accuracy, build_narrative_block
     assert callable(compute_accuracy), "compute_accuracy must be callable"
     assert callable(build_narrative_block), "build_narrative_block must be callable"
     print(f"  ✓ self_fix_tracker_seq001_v001: 2 exports verified")
 
 def test_compute_accuracy_contract():
     """Data flow contract: compute_accuracy(root) → output."""
-    from src.self_fix_tracker_seq001_v001_seq001_v001 import compute_accuracy
+    from src.self_fix_tracker_seq001_v001 import compute_accuracy
     # smoke test: function exists and is callable
     assert compute_accuracy.__name__ == "compute_accuracy"
     # safe to call with test root
@@ -28,7 +28,7 @@ def test_compute_accuracy_contract():
 
 def test_build_narrative_block_contract():
     """Data flow contract: build_narrative_block(root) → output."""
-    from src.self_fix_tracker_seq001_v001_seq001_v001 import build_narrative_block
+    from src.self_fix_tracker_seq001_v001 import build_narrative_block
     # smoke test: function exists and is callable
     assert build_narrative_block.__name__ == "build_narrative_block"
     # safe to call with test root

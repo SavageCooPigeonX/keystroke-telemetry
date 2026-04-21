@@ -89,7 +89,7 @@ def _get_available_modules() -> list[str]:
     """Get list of all module names the server knows about."""
     try:
         sys.path.insert(0, str(ROOT))
-        from src.module_identity_seq001_v001_seq001_v001 import build_identities
+        from src.module_identity_seq001_v001 import build_identities
         ids = build_identities(ROOT, include_consciousness=False)
         return [i['name'] for i in ids]
     except Exception:
@@ -215,7 +215,7 @@ def _select_functions(module: str, all_modules: list[str]) -> list[dict]:
     """Context-select: find the module's functions from identity data."""
     try:
         sys.path.insert(0, str(ROOT))
-        from src.module_identity_seq001_v001_seq001_v001 import build_identities
+        from src.module_identity_seq001_v001 import build_identities
         ids = build_identities(ROOT, include_consciousness=False)
         by_name = {i['name']: i for i in ids}
         ident = by_name.get(module, {})

@@ -6,7 +6,7 @@ between consecutive snapshots. This turns pushes into a time-series of codebase
 health — not just narrative, but numerical drift tracking.
 
 Usage:
-    from src.push_snapshot_seq001_v001_seq001_v001 import capture_snapshot, compute_drift, get_snapshot_history
+    from src.push_snapshot_seq001_v001 import capture_snapshot, compute_drift, get_snapshot_history
 
 Storage:
     logs/push_snapshot_seq001_v001s/{commit_hash}.json   — per-push snapshot

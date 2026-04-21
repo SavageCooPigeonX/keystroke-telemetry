@@ -10,14 +10,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.narrative_glove_seq001_v001_seq001_v001 import synthesize, inject_narrative
+    from src.narrative_glove_seq001_v001 import synthesize, inject_narrative
     assert callable(synthesize), "synthesize must be callable"
     assert callable(inject_narrative), "inject_narrative must be callable"
     print(f"  ✓ narrative_glove_seq001_v001: 2 exports verified")
 
 def test_synthesize_contract():
     """Data flow contract: synthesize(root) → output."""
-    from src.narrative_glove_seq001_v001_seq001_v001 import synthesize
+    from src.narrative_glove_seq001_v001 import synthesize
     # smoke test: function exists and is callable
     assert synthesize.__name__ == "synthesize"
     # safe to call with test root
@@ -28,7 +28,7 @@ def test_synthesize_contract():
 
 def test_inject_narrative_contract():
     """Data flow contract: inject_narrative(root) → output."""
-    from src.narrative_glove_seq001_v001_seq001_v001 import inject_narrative
+    from src.narrative_glove_seq001_v001 import inject_narrative
     # smoke test: function exists and is callable
     assert inject_narrative.__name__ == "inject_narrative"
     # safe to call with test root

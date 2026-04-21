@@ -150,7 +150,7 @@ def record_rework(root: Path, score: dict, query_text: str = '',
     _update_dossier_scores(root, score['verdict'])
     # Sync canonical scorecard — weighted rate: miss=1.0, partial=0.5
     try:
-        from src.rework_scorecard_seq001_v001_seq001_v001 import update_scorecard as _usc
+        from src.rework_scorecard_seq001_v001 import update_scorecard as _usc
         total_ev = len(existing)
         misses_ev = sum(1 for e in existing if e.get('verdict') == 'miss')
         partials_ev = sum(1 for e in existing if e.get('verdict') == 'partial')

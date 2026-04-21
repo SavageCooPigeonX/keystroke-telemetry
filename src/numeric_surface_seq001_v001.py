@@ -5,7 +5,7 @@ to generate numeric_surface_seq001_v001.json — the numeric shadow of the codeb
 
 LLMs read this FIRST. No text. Just addresses, edges, scores, clusters.
 
-    py -c "from src.numeric_surface_seq001_v001_seq001_v001 import generate_surface; generate_surface(Path('.'))"
+    py -c "from src.numeric_surface_seq001_v001 import generate_surface; generate_surface(Path('.'))"
 """
 # ── telemetry:pulse ──
 # EDIT_TS:   None

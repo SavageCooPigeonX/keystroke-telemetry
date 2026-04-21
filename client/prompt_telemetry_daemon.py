@@ -60,7 +60,7 @@ def run():
                            or entry.get('text')
                            or '')
                     if msg:
-                        from src.u_pj_s019_v005_d0420_λRN_βoc import log_enriched_entry  # type: ignore
+                        from src.u_pj_s019_v006_d0421_λTL_βoc import log_enriched_entry  # type: ignore
                         log_enriched_entry(ROOT, msg, [], _session_n)
                         _session_n += 1
                         print(f'[telemetry-daemon] logged session_n={_session_n - 1} msg={msg[:60]!r}', flush=True)

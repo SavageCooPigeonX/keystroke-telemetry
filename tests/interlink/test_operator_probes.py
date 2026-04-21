@@ -10,14 +10,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.operator_probes_seq001_v001_seq001_v001 import build_probe_block, inject_probes
+    from src.operator_probes_seq001_v001 import build_probe_block, inject_probes
     assert callable(build_probe_block), "build_probe_block must be callable"
     assert callable(inject_probes), "inject_probes must be callable"
     print(f"  ✓ operator_probes_seq001_v001: 2 exports verified")
 
 def test_build_probe_block_contract():
     """Data flow contract: build_probe_block(root) → output."""
-    from src.operator_probes_seq001_v001_seq001_v001 import build_probe_block
+    from src.operator_probes_seq001_v001 import build_probe_block
     # smoke test: function exists and is callable
     assert build_probe_block.__name__ == "build_probe_block"
     # safe to call with test root
@@ -28,7 +28,7 @@ def test_build_probe_block_contract():
 
 def test_inject_probes_contract():
     """Data flow contract: inject_probes(root) → output."""
-    from src.operator_probes_seq001_v001_seq001_v001 import inject_probes
+    from src.operator_probes_seq001_v001 import inject_probes
     # smoke test: function exists and is callable
     assert inject_probes.__name__ == "inject_probes"
     # safe to call with test root

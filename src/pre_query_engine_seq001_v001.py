@@ -200,7 +200,7 @@ def _build_user_prompt(fragment: str, ctx: dict, files: list[dict]) -> str:
         fnames = ', '.join(f"{f['name']}({f.get('score',0):.1f})" for f in files[:4])
         parts.append(f'RELEVANT FILES: {fnames}')
     try:
-        from src.unsaid_accumulator_seq001_v001_seq001_v001 import get_summary
+        from src.unsaid_accumulator_seq001_v001 import get_summary
         summary = get_summary(5)
         if summary:
             parts.append(summary)
@@ -218,7 +218,7 @@ def complete_thought(fragment: str) -> CompletionResult:
 
     # 1. detect codebase state (zero LLM, instant)
     try:
-        from src.codebase_detector_seq001_v001_seq001_v001 import detect_codebase
+        from src.codebase_detector_seq001_v001 import detect_codebase
         profile = detect_codebase(ROOT)
         result.codebase_kind = profile.kind
         codebase_state = profile.state_text
@@ -228,7 +228,7 @@ def complete_thought(fragment: str) -> CompletionResult:
     # 2. select relevant files (zero LLM, instant)
     ctx = _load_context()
     try:
-        from src.file_selector_seq001_v001_seq001_v001 import select_files
+        from src.file_selector_seq001_v001 import select_files
         selected = select_files(fragment, ctx, max_files=4)
         result.selected_files = [{'name': f['name'], 'score': f['score'],
                                    'reasons': f['reasons']} for f in selected]
@@ -237,7 +237,7 @@ def complete_thought(fragment: str) -> CompletionResult:
 
     # 3. infer scale (zero LLM, instant)
     try:
-        from src.scale_inference_seq001_v001_seq001_v001 import infer_scale
+        from src.scale_inference_seq001_v001 import infer_scale
         cog = ctx.get('cognitive', {})
         result.scale = infer_scale(
             fragment,
@@ -252,7 +252,7 @@ def complete_thought(fragment: str) -> CompletionResult:
     system = _build_system_prompt(codebase_state)
     prompt = _build_user_prompt(fragment, ctx, selected)
     try:
-        from src.scale_inference_seq001_v001_seq001_v001 import scale_to_token_budget
+        from src.scale_inference_seq001_v001 import scale_to_token_budget
         max_tokens = min(scale_to_token_budget(result.scale.get('scale', 2)), 600)
     except Exception:
         max_tokens = 400
@@ -270,7 +270,7 @@ def complete_thought(fragment: str) -> CompletionResult:
 
     # 5. record in unsaid history
     try:
-        from src.unsaid_accumulator_seq001_v001_seq001_v001 import record
+        from src.unsaid_accumulator_seq001_v001 import record
         unsaid = ctx.get('unsaid', [])
         record(fragment, result.completed_thought, unsaid_threads=unsaid)
     except Exception:
@@ -350,14 +350,14 @@ def run_server(port: int = 8236):
                 fragment = data.get('fragment', '').strip()
                 ctx = _load_context()
                 try:
-                    from src.file_selector_seq001_v001_seq001_v001 import select_files
+                    from src.file_selector_seq001_v001 import select_files
                     files = select_files(fragment, ctx)
                 except Exception:
                     files = []
                 self._json({'files': files})
             elif self.path == '/unsaid':
                 try:
-                    from src.unsaid_accumulator_seq001_v001_seq001_v001 import get_recent, get_summary
+                    from src.unsaid_accumulator_seq001_v001 import get_recent, get_summary
                     n = data.get('n', 10)
                     self._json({'entries': get_recent(n), 'summary': get_summary()})
                 except Exception as e:

@@ -13,8 +13,8 @@ ROOT = Path(__file__).resolve().parent.parent
 
 import sys
 sys.path.insert(0, str(ROOT))
-from src.rework_scorecard_seq001_v001_seq001_v001 import update_scorecard
-from src.self_fix_verification_seq001_v001_seq001_v001 import record_verification
+from src.rework_scorecard_seq001_v001 import update_scorecard
+from src.self_fix_verification_seq001_v001 import record_verification
 
 
 def _read_json(p: Path) -> dict | None:

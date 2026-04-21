@@ -137,7 +137,7 @@ def seed():
             f.write(json.dumps(e, ensure_ascii=False) + '\n')
 
     # Now append a fresh live snapshot at the end
-    from src.codebase_vitals_seq001_v001_seq001_v001 import record_vitals
+    from src.codebase_vitals_seq001_v001 import record_vitals
     import subprocess
     result = subprocess.run(
         ['git', 'log', '--format=%h|%s', '-1'],

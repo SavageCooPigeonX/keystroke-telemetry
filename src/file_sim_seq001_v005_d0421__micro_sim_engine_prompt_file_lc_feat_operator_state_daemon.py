@@ -17,11 +17,11 @@ Files below SELF_SCORE_THRESHOLD self-exclude silently — never hits deepseek.
 """
 
 # ── pigeon ────────────────────────────────────
-# SEQ: 001 | VER: v004 | 426 lines | ~4,077 tokens
+# SEQ: 001 | VER: v005 | 433 lines | ~4,116 tokens
 # DESC:   micro_sim_engine_prompt_file
-# INTENT: chore_pigeon_rename_cascade
-# LAST:   2026-04-20 @ c61fc91
-# SESSIONS: 3
+# INTENT: feat_operator_state_daemon
+# LAST:   2026-04-21 @ f9a3310
+# SESSIONS: 4
 # ──────────────────────────────────────────────
 from __future__ import annotations
 from src._resolve import src_import

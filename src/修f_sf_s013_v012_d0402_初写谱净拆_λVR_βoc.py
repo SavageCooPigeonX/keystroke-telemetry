@@ -376,6 +376,112 @@ def _scan_query_noise(root: Path) -> list[dict]:
     return problems
 
 
+def _scan_broken_module_imports(root: Path) -> list[dict]:
+    """Detect `from src.X import Y` where src/X.py does not exist.
+
+    Catches patterns the hardcoded-import scanner misses (e.g. doubled
+    _seq001_v001_seq001_v001 suffixes, stale renames, copy-paste errors).
+    For each broken import, attempts to find the closest matching real file
+    and suggests the fix.
+    """
+    problems = []
+    _SKIP = frozenset({'.git', '__pycache__', '.venv', 'node_modules', 'build',
+                       'demo_logs', 'test_logs', 'stress_logs', 'logs',
+                       'compiler_output', 'rollback_logs'})
+    _FROM_SRC = re.compile(r'from\s+(src\.[\w.]+)\s+import')
+    _FROM_CLIENT = re.compile(r'from\s+(client\.[\w.]+)\s+import')
+
+    def _module_to_path(root: Path, mod: str) -> Path:
+        """Convert `src.foo.bar` to root/src/foo/bar.py."""
+        parts = mod.split('.')
+        return root.joinpath(*parts).with_suffix('.py')
+
+    def _find_closest(root: Path, mod: str) -> str | None:
+        """Return the import path of the best matching real file."""
+        parts = mod.split('.')
+        if len(parts) < 2:
+            return None
+        pkg = parts[0]  # 'src' or 'client'
+        name = parts[-1]  # the module name
+        # Strip doubled suffix: foo_seq001_v001_seq001_v001 → foo_seq001_v001
+        doubled = re.sub(r'(_seq\d+_v\d+)\1$', r'\1', name)
+        if doubled != name:
+            candidate = root / pkg / (doubled + '.py')
+            if candidate.exists():
+                return f'{pkg}.{doubled}'
+        # Glob for any file whose stem starts with the base name before first _seq
+        base = name.split('_seq')[0]
+        matches = sorted((root / pkg).glob(f'{base}_seq*.py'))
+        if matches:
+            stem = matches[-1].stem  # latest version
+            return f'{pkg}.{stem}'
+        return None
+
+    for py in root.rglob('*.py'):
+        if _SKIP & set(py.parts):
+            continue
+        try:
+            text = py.read_text(encoding='utf-8')
+        except Exception:
+            continue
+        rel = str(py.relative_to(root)).replace('\\', '/')
+        for pat in (_FROM_SRC, _FROM_CLIENT):
+            for m in pat.finditer(text):
+                mod = m.group(1)
+                mod_path = _module_to_path(root, mod)
+                if mod_path.exists():
+                    continue
+                # Also check as package __init__
+                pkg_init = mod_path.parent / mod_path.stem / '__init__.py'
+                if pkg_init.exists():
+                    continue
+                line_no = text[:m.start()].count('\n') + 1
+                suggestion = _find_closest(root, mod)
+                problems.append({
+                    'type': 'broken_module_import',
+                    'file': rel,
+                    'line': line_no,
+                    'import': mod,
+                    'severity': 'high',
+                    'fix': f'Replace with `{suggestion}`' if suggestion else 'No close match found — check if file was deleted',
+                    'suggested_import': suggestion,
+                })
+    return problems
+
+
+def auto_fix_broken_imports(root: Path, dry_run: bool = False) -> list[dict]:
+    """Auto-apply fixes found by _scan_broken_module_imports.
+
+    For each broken import where a suggested replacement exists, does a
+    str.replace in the file. Safe because we only touch lines where the
+    module path is confirmed non-existent.
+    """
+    root = Path(root)
+    problems = _scan_broken_module_imports(root)
+    applied = []
+    for p in problems:
+        if not p.get('suggested_import'):
+            continue
+        py = root / p['file'].replace('/', os.sep)
+        if not py.exists():
+            continue
+        try:
+            text = py.read_text(encoding='utf-8')
+            old = p['import']
+            new = p['suggested_import']
+            if old not in text:
+                continue
+            new_text = text.replace(old, new)
+            if new_text == text:
+                continue
+            if not dry_run:
+                py.write_text(new_text, encoding='utf-8')
+            applied.append({'file': p['file'], 'old': old, 'new': new, 'dry_run': dry_run})
+        except Exception:
+            pass
+    return applied
+
+
 # ── Main analyzer ─────────────────────────────────────────────────────────────
 
 def run_self_fix(
@@ -414,9 +520,12 @@ def run_self_fix(
     # 6. Over-hard-cap files (need auto-compile)
     all_problems.extend(_scan_over_hard_cap(root, reg_list))
 
-    # 7. High-entropy modules (copilot is uncertain — flag for extra care)
+    # 7. Broken module imports (import path doesn't resolve to a real file)
+    all_problems.extend(_scan_broken_module_imports(root))
+
+    # 8. High-entropy modules (copilot is uncertain — flag for extra care)
     try:
-        from src.entropy_shedding_seq001_v001_seq001_v001 import get_high_entropy_targets
+        from src.entropy_shedding_seq001_v001 import get_high_entropy_targets
         for t in get_high_entropy_targets(root, threshold=0.35, limit=5):
             all_problems.append({
                 'type': 'high_entropy',

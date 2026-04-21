@@ -10,21 +10,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.file_selector_seq001_v001_seq001_v001 import select_files, select_partners
+    from src.file_selector_seq001_v001 import select_files, select_partners
     assert callable(select_files), "select_files must be callable"
     assert callable(select_partners), "select_partners must be callable"
     print(f"  ✓ file_selector_seq001_v001: 2 exports verified")
 
 def test_select_files_contract():
     """Data flow contract: select_files(fragment, ctx, max_files) → output."""
-    from src.file_selector_seq001_v001_seq001_v001 import select_files
+    from src.file_selector_seq001_v001 import select_files
     # smoke test: function exists and is callable
     assert select_files.__name__ == "select_files"
     print(f"  ✓ select_files: contract holds")
 
 def test_select_partners_contract():
     """Data flow contract: select_partners(primary_module, max_partners) → output."""
-    from src.file_selector_seq001_v001_seq001_v001 import select_partners
+    from src.file_selector_seq001_v001 import select_partners
     # smoke test: function exists and is callable
     assert select_partners.__name__ == "select_partners"
     print(f"  ✓ select_partners: contract holds")

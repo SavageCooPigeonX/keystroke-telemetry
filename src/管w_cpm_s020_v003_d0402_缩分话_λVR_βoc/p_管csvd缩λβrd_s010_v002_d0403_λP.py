@@ -34,7 +34,7 @@ def refresh_managed_prompt(
     # Entropy shedding map + red layer — copilot self-reported uncertainty
     entropy_refreshed = False
     try:
-        from src.entropy_shedding_seq001_v001_seq001_v001 import build_entropy_block, build_red_layer_block
+        from src.entropy_shedding_seq001_v001 import build_entropy_block, build_red_layer_block
 
         cp_path = root / '.github' / 'copilot-instructions.md'
         if cp_path.exists():
@@ -97,7 +97,7 @@ def refresh_managed_prompt(
     # Template selector — hydrate .prompt.md files for /debug, /build, /review
     templates_result = None
     try:
-        from src.template_selector_seq001_v001_seq001_v001 import hydrate_templates
+        from src.template_selector_seq001_v001 import hydrate_templates
         templates_result = hydrate_templates(root)
     except Exception:
         pass

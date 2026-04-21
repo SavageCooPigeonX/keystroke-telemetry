@@ -10,21 +10,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.probe_resolver_seq001_v001_seq001_v001 import resolve_probe, resolve_all_pending
+    from src.probe_resolver_seq001_v001 import resolve_probe, resolve_all_pending
     assert callable(resolve_probe), "resolve_probe must be callable"
     assert callable(resolve_all_pending), "resolve_all_pending must be callable"
     print(f"  ✓ probe_resolver_seq001_v001: 2 exports verified")
 
 def test_resolve_probe_contract():
     """Data flow contract: resolve_probe(root, probe) → output."""
-    from src.probe_resolver_seq001_v001_seq001_v001 import resolve_probe
+    from src.probe_resolver_seq001_v001 import resolve_probe
     # smoke test: function exists and is callable
     assert resolve_probe.__name__ == "resolve_probe"
     print(f"  ✓ resolve_probe: contract holds")
 
 def test_resolve_all_pending_contract():
     """Data flow contract: resolve_all_pending(root, auto_write) → output."""
-    from src.probe_resolver_seq001_v001_seq001_v001 import resolve_all_pending
+    from src.probe_resolver_seq001_v001 import resolve_all_pending
     # smoke test: function exists and is callable
     assert resolve_all_pending.__name__ == "resolve_all_pending"
     print(f"  ✓ resolve_all_pending: contract holds")

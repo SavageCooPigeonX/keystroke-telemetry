@@ -45,7 +45,7 @@ if surf_path.exists():
 
 # ── Test 2: intent_numeric_seq001_v001 training data ──────────────────────────────────────
 print('\n2. Intent numeric training data')
-from src.intent_numeric_seq001_v001_seq001_v001 import get_stats, predict_files
+from src.intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import get_stats, predict_files
 stats = get_stats()
 check('total_touches >= 10', stats['total_touches'] >= 10, str(stats['total_touches']))
 check('vocab_size >= 10', stats['vocab_size'] >= 10, str(stats['vocab_size']))
@@ -76,7 +76,7 @@ if 'src' not in sys.modules:
     pkg.__package__ = 'src'
     sys.modules['src'] = pkg
 
-from src.tc_context_seq001_v001_seq001_v001_agent_seq001_v001_seq001_v001 import select_context_numeric, select_context_ensemble, select_context_files
+from src.tc_context_seq001_v001 import select_context_numeric, select_context_ensemble, select_context_files
 select_context = select_context_ensemble
 
 ctx = {'unsaid_threads': []}

@@ -10,13 +10,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 def test_import():
     """Module imports without error."""
-    from src.numeric_surface_seq001_v001_seq001_v001 import generate_surface
+    from src.numeric_surface_seq001_v001 import generate_surface
     assert callable(generate_surface), "generate_surface must be callable"
     print(f"  ✓ numeric_surface_seq001_v001: 1 exports verified")
 
 def test_generate_surface_contract():
     """Data flow contract: generate_surface(root) → output."""
-    from src.numeric_surface_seq001_v001_seq001_v001 import generate_surface
+    from src.numeric_surface_seq001_v001 import generate_surface
     # smoke test: function exists and is callable
     assert generate_surface.__name__ == "generate_surface"
     # safe to call with test root

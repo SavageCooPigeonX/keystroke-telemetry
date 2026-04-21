@@ -379,7 +379,7 @@ def enrich_prompt(root: Path, raw_query: str,
     # Context-select agent: load actual code snippets so Gemini can reference real code
     code_ctx = ''
     try:
-        from src.file_selector_seq001_v001_seq001_v001 import select_files as _sel_files
+        from src.file_selector_seq001_v001 import select_files as _sel_files
         _sel_ctx = {'hot_modules': [{'module': h['file']} for h in _hot_files(root)]}
         _selected = _sel_files(raw_query, _sel_ctx, max_files=3)
         _snippets = []

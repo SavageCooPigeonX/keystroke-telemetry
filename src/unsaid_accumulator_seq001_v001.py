@@ -5,7 +5,7 @@ threads. Builds a growing profile of operator thinking over time.
 Usable for code, email drafts, docs — anything.
 
 Usage:
-    from src.unsaid_accumulator_seq001_v001_seq001_v001 import record, get_recent, get_summary
+    from src.unsaid_accumulator_seq001_v001 import record, get_recent, get_summary
     record("the drift watch", "the drift watcher should track module renames")
     print(get_summary())
 """

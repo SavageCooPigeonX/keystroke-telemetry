@@ -77,7 +77,7 @@ def _load_identities() -> dict:
 
     try:
         sys.path.insert(0, str(ROOT))
-        from src.module_identity_seq001_v001_seq001_v001 import build_identities
+        from src.module_identity_seq001_v001 import build_identities
         ids = build_identities(ROOT, include_consciousness=False)
         _identity_cache = {i['name']: i for i in ids}
         _cache_ts = now
