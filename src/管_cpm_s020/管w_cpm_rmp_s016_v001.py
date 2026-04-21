@@ -99,14 +99,14 @@ def refresh_managed_prompt(
 
     # bug profiles — optional module
     try:
-        from src.bug_profiles_seq001_v001_seq001_v001 import generate_profiles
+        from src.bug_profiles_seq001_v001 import generate_profiles
         generate_profiles(root)
     except Exception:
         pass
 
     # numeric surface — optional module
     try:
-        from src.numeric_surface_seq001_v001_seq001_v001 import generate_surface
+        from src.numeric_surface_seq001_v001 import generate_surface
         generate_surface(root)
     except Exception:
         pass
@@ -144,7 +144,7 @@ def refresh_managed_prompt(
 
     # optional modules
     for mod_import, func_name, kwargs in [
-        (lambda: __import__('src.engagement_hooks_seq001_v001_seq001_v001', fromlist=['inject_hooks']), 'inject_hooks', {}),
+        (lambda: __import__('src.engagement_hooks_seq001_v001', fromlist=['inject_hooks']), 'inject_hooks', {}),
     ]:
         try:
             mod = mod_import()
@@ -155,24 +155,24 @@ def refresh_managed_prompt(
             pass
 
     try:
-        from src.narrative_glove_seq001_v001_seq001_v001 import inject_narrative
+        from src.narrative_glove_seq001_v001 import inject_narrative
         inject_narrative(root)
     except Exception:
         pass
     try:
-        from src.persona_intent_synthesizer_seq001_v001_seq001_v001 import inject_into_copilot_instructions, write_intent_snapshot
+        from src.persona_intent_synthesizer_seq001_v001 import inject_into_copilot_instructions, write_intent_snapshot
         write_intent_snapshot(root)
         inject_into_copilot_instructions(root)
     except Exception:
         pass
     intent_backlog_refreshed = False
     try:
-        from src.intent_reconstructor_seq001_v001_seq001_v001 import refresh_intent_backlog
+        from src.intent_reconstructor_seq001_v001 import refresh_intent_backlog
         intent_backlog_refreshed = bool(refresh_intent_backlog(root).get('injected'))
     except Exception:
         pass
     try:
-        from src.operator_probes_seq001_v001_seq001_v001 import inject_probes
+        from src.operator_probes_seq001_v001 import inject_probes
         inject_probes(root)
     except Exception:
         pass
@@ -180,7 +180,7 @@ def refresh_managed_prompt(
     _run_refresher(root, 'src/声w_vs_s028*.py', 'inject_voice_style')
 
     try:
-        from src.template_selector_seq001_v001_seq001_v001 import hydrate_templates, inject_active_template
+        from src.template_selector_seq001_v001 import hydrate_templates, inject_active_template
         hydrate_templates(root)
         inject_active_template(root)
     except Exception:
@@ -189,8 +189,8 @@ def refresh_managed_prompt(
     # probe resolution — harvest + resolve + inject block
     probe_resolved = False
     try:
-        from src.probe_resolver_seq001_v001_seq001_v001 import resolve_all_pending
-        from src.probe_surface_seq001_v001_seq001_v001 import build_resolution_block
+        from src.probe_resolver_seq001_v001 import resolve_all_pending
+        from src.probe_surface_seq001_v001 import build_resolution_block
         resolve_all_pending(root, auto_write=True)
         _probe_start = '<!-- pigeon:probe-resolutions -->'
         _probe_end = '<!-- /pigeon:probe-resolutions -->'
