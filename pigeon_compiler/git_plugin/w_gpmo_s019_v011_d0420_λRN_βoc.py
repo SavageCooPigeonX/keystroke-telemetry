@@ -453,6 +453,18 @@ def run():
     except Exception as e:
         print(f'  ⚠️  organism upgrade: {e}')
 
+    # ── Interlink self-debugger: auto-fix stale import paths ──
+    try:
+        debugger_mod = _load_glob_module(root, 'src', 'interlink_debugger*')
+        if debugger_mod:
+            dbg = debugger_mod.debug_batch(max_modules=6)
+            if dbg.get('fixed', 0):
+                print(f'  🔧 interlink-debug → {dbg["fixed"]} test(s) auto-fixed')
+            if dbg.get('still_failing', 0):
+                print(f'  ⚠️  interlink-debug → {dbg["still_failing"]} test(s) still failing')
+    except Exception as e:
+        print(f'  ⚠️  interlink debug: {e}')
+
     # ── Push narrative + coaching + operator state ──
     all_changed_code = changed_py + [f for f in changed
                                       if f.endswith(('.py', '.ts', '.js'))

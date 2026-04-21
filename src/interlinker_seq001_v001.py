@@ -182,9 +182,10 @@ def assess_module(filepath: Path, root: Path) -> dict[str, Any]:
     entropy = _get_entropy(stem, root)
     shed_conf = _get_shed_confidence(stem, root)
 
-    # check for existing self-test
+    # check for existing self-test — look up by base stem (survives renames)
     test_dir = root / INTERLINK_TESTS_DIR
-    test_file = test_dir / f'test_{stem}.py'
+    base = _base_stem(filepath)
+    test_file = test_dir / f'test_{base}.py'
     has_test = test_file.exists()
 
     # checklist
@@ -222,53 +223,94 @@ def assess_module(filepath: Path, root: Path) -> dict[str, Any]:
     }
 
 
+def _base_stem(filepath: Path) -> str:
+    """Return the base module name without pigeon suffix.
+
+    'bug_demon_hunt_seq001_v001.py' → 'bug_demon_hunt'
+    'tc_constants_seq001_v001.py'   → 'tc_constants'
+    'file_sim.py'                   → 'file_sim'
+    """
+    name = filepath.stem
+    # strip _seq\d+_v\d+... suffix  (and any trailing rename fragments)
+    import re as _re
+    return _re.sub(r'_seq\d+.*$', '', name) or name
+
+
+def _glob_import_block(base: str, api_names: list[str]) -> list[str]:
+    """Generate a rename-resistant import block using glob + importlib.
+
+    The generated test finds the module by base-name prefix so it survives
+    any future pigeon rename cascade.
+    """
+    if api_names:
+        names_repr = repr(api_names)
+        import_frag = (
+            f'    _names = {names_repr}\n'
+            f'    for n in _names:\n'
+            f'        assert hasattr(_mod, n), f"{{n}} missing from {base}"\n'
+            f'        assert callable(getattr(_mod, n)), f"{{n}} not callable"'
+        )
+    else:
+        import_frag = '    assert _mod  # module loaded'
+
+    lines = [
+        f'import importlib.util as _ilu, sys',
+        f'from pathlib import Path',
+        f'_root = Path(__file__).resolve().parents[2]',
+        f'sys.path.insert(0, str(_root))',
+        f'',
+        f'def _load_mod():',
+        f'    """Find {base} by glob — survives pigeon renames."""',
+        f'    matches = sorted(_root.glob("src/{base}*.py"), key=lambda p: len(p.name))',
+        f'    assert matches, f"{base}: module not found in src/ (glob src/{base}*.py)"',
+        f'    spec = _ilu.spec_from_file_location("{base}", matches[0])',
+        f'    mod = _ilu.module_from_spec(spec)',
+        f'    spec.loader.exec_module(mod)',
+        f'    return mod',
+        f'',
+    ]
+    return lines
+
+
 def generate_self_test(filepath: Path, root: Path) -> str:
     """Generate a self-test for a module based on its public API.
 
-    The test validates:
-    - Module imports without error
+    Uses glob-based dynamic imports so the test survives pigeon renames.
+    Tests validate:
+    - Module loads without error (glob-resilient)
     - All public functions are callable
-    - Return types match expectations (smoke test)
-    - Data flow contracts (inputs → outputs) hold
+    - Data flow contracts (inputs → outputs) smoke-tested
     """
     stem = _module_stem(filepath)
-    rel_path = filepath.relative_to(root)
-    # build import path: src/foo.py → src.foo
-    import_path = str(rel_path.with_suffix('')).replace('\\', '.').replace('/', '.')
+    base = _base_stem(filepath)
     api = _extract_public_api(filepath)
+    api_names = [a['name'] for a in api if a.get('type') != 'class']
 
     lines = [
-        f'"""Interlink self-test for {stem}.',
+        f'"""Interlink self-test for {base}.',
         f'',
-        f'Auto-generated. This test keeps {stem} interlinked.',
+        f'Auto-generated (rename-resistant). Keeps {base} interlinked.',
         f'When this passes + pigeon cap + entropy shed → module sleeps.',
         f'Module keeps learning via intent shards while sleeping.',
         f'"""',
-        f'import sys',
-        f'from pathlib import Path',
-        f'sys.path.insert(0, str(Path(__file__).resolve().parents[2]))',
-        f'',
     ]
+    lines += _glob_import_block(base, api_names)
 
-    # import the module
-    if api:
-        names = [a['name'] for a in api]
-        lines.append(f'def test_import():')
-        lines.append(f'    """Module imports without error."""')
-        lines.append(f'    from {import_path} import {", ".join(names)}')
-        for name in names:
-            lines.append(f'    assert callable({name}), "{name} must be callable"')
-        lines.append(f'    print(f"  ✓ {stem}: {len(names)} exports verified")')
-        lines.append(f'')
+    # test_import
+    lines.append(f'def test_import():')
+    lines.append(f'    """Module loads without error."""')
+    lines.append(f'    mod = _load_mod()')
+    if api_names:
+        names_repr = ', '.join(repr(n) for n in api_names)
+        lines.append(f'    for name in [{names_repr}]:')
+        lines.append(f'        assert hasattr(mod, name), f"{{name}} missing"')
+        lines.append(f'        assert callable(getattr(mod, name)), f"{{name}} not callable"')
+        lines.append(f'    print(f"  ok {base}: {len(api_names)} exports verified")')
     else:
-        lines.append(f'def test_import():')
-        lines.append(f'    """Module imports without error."""')
-        lines.append(f'    import importlib')
-        lines.append(f'    mod = importlib.import_module("{import_path}")')
-        lines.append(f'    print(f"  ✓ {stem}: module loads")')
-        lines.append(f'')
+        lines.append(f'    print(f"  ok {base}: module loads")')
+    lines.append(f'')
 
-    # data flow tests for each function
+    # data flow tests for each public function
     for item in api:
         if item.get('type') == 'class':
             continue
@@ -276,28 +318,26 @@ def generate_self_test(filepath: Path, root: Path) -> str:
         args = item.get('args', [])
         fn_name = f'test_{name}_contract'
         lines.append(f'def {fn_name}():')
-        lines.append(f'    """Data flow contract: {name}({", ".join(args)}) → output."""')
-        lines.append(f'    from {import_path} import {name}')
-        lines.append(f'    # smoke test: function exists and is callable')
-        lines.append(f'    assert {name}.__name__ == "{name}"')
+        lines.append(f'    """Data flow contract: {name}({", ".join(args)})."""')
+        lines.append(f'    mod = _load_mod()')
+        lines.append(f'    fn = getattr(mod, "{name}")')
+        lines.append(f'    assert callable(fn), "{name} must be callable"')
 
-        # generate safe smoke calls for common patterns
+        # safe smoke calls
         if _is_safe_to_call(name, args):
             if args == ['root'] or args == ['root', 'path']:
-                lines.append(f'    # safe to call with test root')
-                lines.append(f'    root = Path(__file__).resolve().parents[2]')
-                lines.append(f'    result = {name}(root)')
+                lines.append(f'    result = fn(_root)')
                 lines.append(f'    assert result is not None, "{name} returned None"')
             elif not args:
-                lines.append(f'    result = {name}()')
+                lines.append(f'    result = fn()')
                 lines.append(f'    assert result is not None, "{name} returned None"')
 
-        lines.append(f'    print(f"  ✓ {name}: contract holds")')
+        lines.append(f'    print(f"  ok {name}: contract holds")')
         lines.append(f'')
 
     # runner
     lines.append(f'def run_interlink_test():')
-    lines.append(f'    """Run all interlink checks for {stem}."""')
+    lines.append(f'    """Run all interlink checks for {base}."""')
     lines.append(f'    tests = [v for k, v in globals().items() if k.startswith("test_")]')
     lines.append(f'    passed = 0')
     lines.append(f'    for t in tests:')
@@ -308,7 +348,7 @@ def generate_self_test(filepath: Path, root: Path) -> str:
     lines.append(f'            print(f"  ✗ {{t.__name__}}: {{e}}")')
     lines.append(f'    total = len(tests)')
     lines.append(f'    status = "INTERLINKED" if passed == total else f"{{passed}}/{{total}}"')
-    lines.append(f'    print(f"  {stem}: {{status}}")')
+    lines.append(f'    print(f"  {base}: {{status}}")')
     lines.append(f'    return passed == total')
     lines.append(f'')
     lines.append(f'if __name__ == "__main__":')
@@ -327,10 +367,10 @@ def _is_safe_to_call(name: str, args: list[str]) -> bool:
 
 def write_self_test(filepath: Path, root: Path) -> Path:
     """Generate and write a self-test for a module. Returns test path."""
-    stem = _module_stem(filepath)
+    base = _base_stem(filepath)
     test_dir = root / INTERLINK_TESTS_DIR
     test_dir.mkdir(parents=True, exist_ok=True)
-    test_path = test_dir / f'test_{stem}.py'
+    test_path = test_dir / f'test_{base}.py'
     content = generate_self_test(filepath, root)
     test_path.write_text(content, encoding='utf-8')
     return test_path
@@ -339,10 +379,10 @@ def write_self_test(filepath: Path, root: Path) -> Path:
 def run_self_test(filepath: Path, root: Path) -> tuple[bool, str]:
     """Run the interlink self-test for a module. Returns (passed, output)."""
     import subprocess, sys
-    stem = _module_stem(filepath)
-    test_path = root / INTERLINK_TESTS_DIR / f'test_{stem}.py'
+    base = _base_stem(filepath)
+    test_path = root / INTERLINK_TESTS_DIR / f'test_{base}.py'
     if not test_path.exists():
-        return False, f'no self-test for {stem}'
+        return False, f'no self-test for {base}'
     try:
         r = subprocess.run(
             [sys.executable, str(test_path)],
