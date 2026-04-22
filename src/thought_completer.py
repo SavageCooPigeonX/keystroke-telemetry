@@ -66,7 +66,23 @@ def main():
     p.add_argument('--height', type=int, default=DEFAULT_HEIGHT)
     p.add_argument('--opacity', type=float, default=DEFAULT_OPACITY)
     p.add_argument('--observatory', action='store_true', help='also launch pigeon observatory window')
+    p.add_argument('--onboard', action='store_true', help='10-question onboarding → operator baseline + write mode')
+    p.add_argument('--write', action='store_true', help='interactive write-with-it loop (no VS Code needed)')
+    p.add_argument('--no-gemini', action='store_true', help='skip Gemini API (heat map only, use with --write/--onboard)')
     args = p.parse_args()
+
+    # ── interactive modes (no popup, no tkinter) ──
+    if args.onboard or args.write:
+        from src.tc_onboard_seq001_v001 import run_onboard, run_write
+        use_gemini = not args.no_gemini
+        if use_gemini and not _load_api_key():
+            print('[completer] WARNING: no GEMINI_API_KEY — completions disabled')
+            use_gemini = False
+        if args.onboard:
+            run_onboard(use_gemini=use_gemini)
+        else:
+            run_write(use_gemini=use_gemini)
+        return 0
 
     if not _load_api_key():
         print('[completer] WARNING: no GEMINI_API_KEY in .env or environment')

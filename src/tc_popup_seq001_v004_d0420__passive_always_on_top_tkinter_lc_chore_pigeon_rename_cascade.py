@@ -89,6 +89,11 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             self.drag_x = 0
             self.drag_y = 0
             self.session_started_at = datetime.now(timezone.utc)
+            # ── baseline collection state ──────────────────────────────
+            self._baseline_mode = False
+            self._baseline_samples: list[str] = []
+            self._baseline_end_ts: float = 0.0
+            self._baseline_duration = 45  # seconds to listen
 
             self._build_ui()
             self._bind_keys()
@@ -115,6 +120,14 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             self.status_lbl = tk.Label(hdr, text='watching', bg=SURFACE,
                                        fg=DIM, font=small)
             self.status_lbl.pack(side='right', padx=4)
+
+            # Baseline collection button
+            self.baseline_btn = tk.Label(hdr, text=' \U0001f4e1 ', bg=SURFACE, fg='#f0c040',
+                                         font=(FONT, 9), cursor='hand2')
+            self.baseline_btn.pack(side='right', padx=0)
+            self.baseline_btn.bind('<Button-1>', lambda e: self._toggle_baseline())
+            self.baseline_btn.bind('<Enter>', lambda e: self.baseline_btn.config(bg='#21262d'))
+            self.baseline_btn.bind('<Leave>', lambda e: self.baseline_btn.config(bg=SURFACE))
 
             close_btn = tk.Label(hdr, text=' \u2715 ', bg=SURFACE, fg=RED,
                                  font=(FONT, 10, 'bold'), cursor='hand2')
@@ -190,12 +203,15 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             self.root.bind('<Control-z>', self._accept)
             self.root.bind('<Control-Z>', self._accept)
             self.root.bind('<Control-q>', lambda e: self._quit())
+            self.root.bind('<Control-Shift-KeyPress-B>', lambda e: self._toggle_baseline())
+            self.root.bind('<Control-Shift-KeyPress-b>', lambda e: self._toggle_baseline())
             # Global hotkeys — fire even when popup is not focused
             try:
                 import keyboard as _kb
                 _kb.add_hotkey('ctrl+z', lambda: self.root.after(0, self._accept), suppress=False)
                 _kb.add_hotkey('ctrl+shift+x', lambda: self.root.after(0, self._dismiss), suppress=False)
                 _kb.add_hotkey('ctrl+shift+g', lambda: self.root.after(0, self._request_sim_manual), suppress=False)
+                _kb.add_hotkey('ctrl+shift+b', lambda: self.root.after(0, self._toggle_baseline), suppress=False)
             except Exception as _e:
                 print(f'[completer] global hotkeys unavailable: {_e}')
 
@@ -689,6 +705,83 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             self.toast_lbl.config(text=f'  {msg}  ', bg=color)
             self.toast_lbl.place(relx=0.5, rely=0.5, anchor='center')
             self.root.after(1200, lambda: self.toast_lbl.place_forget())
+
+        # ── baseline collection ───────────────────────────────────────────
+
+        def _toggle_baseline(self):
+            """Start or stop the baseline listening session."""
+            if self._baseline_mode:
+                # Already collecting — stop early and finalize
+                self._finalize_baseline()
+                return
+            self._baseline_mode = True
+            self._baseline_samples = []
+            self._baseline_end_ts = time.time() + self._baseline_duration
+            self.baseline_btn.config(text=' 📡 ', fg=ACCENT)
+            self.status_lbl.config(text=f'baseline: listening {self._baseline_duration}s…', fg='#f0c040')
+            print(f'[baseline] started — collecting for {self._baseline_duration}s')
+            self._baseline_tick()
+
+        def _baseline_tick(self):
+            """Poll during baseline collection — samples buffer every ~1s."""
+            if not self._baseline_mode:
+                return
+            now = time.time()
+            remaining = max(0, self._baseline_end_ts - now)
+            buf = self.watcher.buffer.strip()
+            if buf and (not self._baseline_samples or buf != self._baseline_samples[-1]):
+                self._baseline_samples.append(buf)
+                print(f'[baseline] sample #{len(self._baseline_samples)}: {buf[-40:]!r}')
+                # Update button pulse (alternates between two symbols to show activity)
+                symbols = (' 📡 ', ' ⊕  ')
+                sym = symbols[len(self._baseline_samples) % 2]
+                self.baseline_btn.config(text=sym, fg='#f0c040' if sym[1] == '⊕' else ACCENT)
+                self.status_lbl.config(
+                    text=f'baseline: {len(self._baseline_samples)} samples · {remaining:.0f}s left',
+                    fg='#f0c040')
+            if remaining <= 0:
+                self._finalize_baseline()
+                return
+            self.root.after(1000, self._baseline_tick)
+
+        def _finalize_baseline(self):
+            """Finalize and write operator baseline from collected samples."""
+            self._baseline_mode = False
+            samples = self._baseline_samples[:]
+            self._baseline_samples = []
+            self.baseline_btn.config(text=' 📡 ', fg=DIM)
+            if not samples:
+                self.status_lbl.config(text='baseline: no samples', fg=RED)
+                print('[baseline] stopped — no samples collected')
+                return
+            self.status_lbl.config(text=f'baseline: locking {len(samples)} samples…', fg=ACCENT)
+
+            def _do_lock(ss=samples):
+                try:
+                    from src._resolve import src_import
+                    collect_fn = src_import('tc_file_encoder_seq001', 'collect_baseline_from_buffers')
+                    result = collect_fn(ss)
+                    n_terms = len(result.get('top_terms', []))
+                    n_files = len(result.get('hot_files', []))
+                    self.root.after(0, lambda: (
+                        self.baseline_btn.config(text=' ✓  ', fg=GREEN),
+                        self.status_lbl.config(
+                            text=f'baseline locked · {len(ss)} samples · {n_terms} terms · {n_files} hot files',
+                            fg=GREEN),
+                    ))
+                    self.root.after(4000, lambda: (
+                        self.baseline_btn.config(text=' 📡 ', fg='#f0c040'),
+                        self.status_lbl.config(text='watching', fg=DIM),
+                    ))
+                    print(f'[baseline] locked: {len(ss)} samples, {n_terms} terms, {n_files} hot files')
+                except Exception as _e:
+                    print(f'[baseline] error: {_e}')
+                    self.root.after(0, lambda: (
+                        self.baseline_btn.config(text=' 📡 ', fg='#f0c040'),
+                        self.status_lbl.config(text=f'baseline error: {_e}', fg=RED),
+                    ))
+
+            threading.Thread(target=_do_lock, daemon=True).start()
 
         def _quit(self):
             self.root.destroy()

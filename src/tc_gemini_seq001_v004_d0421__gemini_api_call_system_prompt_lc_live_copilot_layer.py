@@ -189,8 +189,8 @@ def _looks_like_code(text: str) -> bool:
 
 class ThoughtBuffer:
     """Persistent rolling memory across completions."""
-    MAX_ENTRIES = 10
-    MAX_INTENTS = 15
+    MAX_ENTRIES = 20
+    MAX_INTENTS = 20
 
     def __init__(self, path: Path = THOUGHT_BUFFER_PATH):
         self.path = path
@@ -202,23 +202,37 @@ class ThoughtBuffer:
     def _load(self):
         if self.path.exists():
             try:
-                data = json.loads(self.path.read_text('utf-8', errors='ignore'))
+                raw = self.path.read_text('utf-8', errors='ignore')
+                data = json.loads(raw)
+                if not isinstance(data, dict):
+                    raise ValueError('not a dict')
                 self.entries = data.get('entries', [])[-self.MAX_ENTRIES:]
-                self.topics = data.get('topics', [])[-5:]
+                self.topics = data.get('topics', [])[-8:]
                 self.session_intents = data.get('session_intents', [])[-self.MAX_INTENTS:]
-            except Exception:
+            except Exception as _e:
+                # Back up corrupt file rather than silently discarding it
+                _bak = self.path.with_suffix('.bak.json')
+                try:
+                    import shutil as _sh
+                    _sh.copy2(self.path, _bak)
+                except Exception:
+                    pass
+                print(f'[thought_buffer] corrupt state backed up to {_bak.name}, starting fresh ({_e})')
                 self.entries = []
                 self.topics = []
                 self.session_intents = []
 
     def _save(self):
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        self.path.write_text(json.dumps({
+        # Write to temp then rename to avoid partial-write corruption
+        _tmp = self.path.with_suffix('.tmp.json')
+        _tmp.write_text(json.dumps({
             'entries': self.entries[-self.MAX_ENTRIES:],
-            'topics': self.topics[-5:],
+            'topics': self.topics[-8:],
             'session_intents': self.session_intents[-self.MAX_INTENTS:],
             'updated': datetime.now(timezone.utc).isoformat(),
         }, ensure_ascii=False, indent=1), encoding='utf-8')
+        _tmp.replace(self.path)
 
     def record(self, buffer: str, completion: str, outcome: str):
         """outcome: 'rewarded' | 'accepted' | 'dismissed' | 'ignored' | 'superseded'"""

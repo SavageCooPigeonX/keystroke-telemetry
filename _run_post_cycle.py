@@ -74,4 +74,15 @@ if narr_mod:
 else:
     print('[push_narrative] module not found')
 
+# File intent encoder — encode changed files, measure intent dropoff
+try:
+    from src.tc_file_encoder_seq001_v001 import run_push_encoder
+    print('\n[file_encoder] running push encoder...')
+    enc_result = run_push_encoder(Path('.'), changed_py)
+    print(f'  encoded: {enc_result.get("encoded", 0)} | dropoff_count: {enc_result.get("dropoff_count", 0)}')
+    for d in enc_result.get('dropoff', []):
+        print(f'  ⚠ intent loss: {d["file"]} drift={d["drift"]:.3f}')
+except Exception as _e:
+    print(f'[file_encoder] skipped: {_e}')
+
 print('\nDone.')
