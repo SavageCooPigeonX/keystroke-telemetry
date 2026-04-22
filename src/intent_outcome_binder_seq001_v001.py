@@ -18,6 +18,8 @@ Zero LLM calls. Pure signal processing.
 # EDIT_AUTHOR: copilot
 # EDIT_STATE: harvested
 # ── /pulse ──
+
+# CONFIRM: sim fires self fix runs files talk meta comments deepseek auto fix
 """
 from __future__ import annotations
 

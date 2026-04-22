@@ -26,9 +26,9 @@ Manual:
 # SESSIONS: 1
 # ──────────────────────────────────────────────
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-04-22T00:00:00+00:00
+# EDIT_TS:   2026-04-22T01:30:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  initial build - autonomous file patcher
+# EDIT_WHY:  fix atomic write Windows WinError 183
 # EDIT_AUTHOR: copilot
 # EDIT_STATE: active
 # ── /pulse ──
@@ -202,7 +202,7 @@ def _atomic_write(path: Path, content: str) -> None:
     """Write content to a tmp file in the same dir, then rename (atomic on same FS)."""
     tmp = path.with_suffix('.tmp_overwrite')
     tmp.write_text(content, encoding='utf-8')
-    tmp.rename(path)
+    os.replace(tmp, path)  # os.replace works on Windows even if dest exists
 
 
 def _run_regression(stem: str, path: Path, bak_path: Path, root: Path) -> dict:

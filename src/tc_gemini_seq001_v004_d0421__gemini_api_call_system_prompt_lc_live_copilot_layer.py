@@ -650,6 +650,15 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
         daemon=True,
     ).start()
 
+    # ── SIM FIRES SELF FIX RUNS ──
+    # If sim fires, run self-fix on the selected files to confirm meta comments.
+    try:
+        from .tc_sim_seq001_v001 import sim_fires, self_fix_runs
+        if sim_fires(buffer, selected_files):
+            self_fix_runs(selected_files, buffer)
+    except Exception:
+        pass
+
     # ── NUMERIC TRAINING: fire on every TC invocation ──
     # Every buffer pause = a training signal. Log buffer→files NOW using whatever
     # files the heuristic+numeric ensemble picked. This bootstraps the numeric

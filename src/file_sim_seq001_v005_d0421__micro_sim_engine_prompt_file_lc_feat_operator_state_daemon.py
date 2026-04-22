@@ -26,9 +26,9 @@ Files below SELF_SCORE_THRESHOLD self-exclude silently — never hits deepseek.
 from __future__ import annotations
 from src._resolve import src_import
 # ── telemetry:pulse ──
-# EDIT_TS:   2026-04-22T00:00:00+00:00
+# EDIT_TS:   2026-04-22T01:30:00+00:00
 # EDIT_HASH: auto
-# EDIT_WHY:  add file cortex self-accumulating knowledge
+# EDIT_WHY:  switch grader to deepseek over gemini
 # EDIT_AUTHOR: copilot
 # EDIT_STATE: active
 # ── /pulse ──
@@ -240,8 +240,8 @@ def _refresh_self_repair_hint(profile: dict, stem: str) -> None:
 
 
 def _load_api_key() -> tuple[str, str]:
-    """Returns (api_key, provider) — prefers Gemini over DeepSeek."""
-    for name, provider in (('GEMINI_API_KEY', 'gemini'), ('DEEPSEEK_API_KEY', 'deepseek')):
+    """Returns (api_key, provider) — prefers DeepSeek (no rate limit) over Gemini."""
+    for name, provider in (('DEEPSEEK_API_KEY', 'deepseek'), ('GEMINI_API_KEY', 'gemini')):
         v = os.environ.get(name, '')
         if v:
             return v, provider
@@ -249,15 +249,15 @@ def _load_api_key() -> tuple[str, str]:
     if env.exists():
         lines = env.read_text('utf-8').splitlines()
         for line in lines:
-            if line.startswith('GEMINI_API_KEY='):
-                v = line.split('=', 1)[1].strip()
-                if v:
-                    return v, 'gemini'
-        for line in lines:
             if line.startswith('DEEPSEEK_API_KEY='):
                 v = line.split('=', 1)[1].strip()
                 if v:
                     return v, 'deepseek'
+        for line in lines:
+            if line.startswith('GEMINI_API_KEY='):
+                v = line.split('=', 1)[1].strip()
+                if v:
+                    return v, 'gemini'
     return '', ''
 
 
@@ -354,7 +354,7 @@ def _read_source(root: Path, file_stem: str) -> str:
         ):
             hits = list(root.glob(pattern))
             if hits:
-                lines = hits[0].read_text('utf-8', errors='replace').splitlines()[:60]
+                lines = hits[0].read_text('utf-8', errors='replace').splitlines()[:120]
                 return '\n'.join(lines)
     return '[not found]'
 
