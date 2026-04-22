@@ -4,14 +4,14 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 # /debug (RECOMMENDED)
 
-*Hydrated 2026-04-21 23:15 UTC · detected mode: debug*
+*Hydrated 2026-04-22 05:37 UTC · detected mode: debug*
 
 ## Live Signals
 
-**Cognitive:** `abandoned` | WPM: 51 | Del: 26% | Hes: 0.495
+**Cognitive:** `abandoned` | WPM: 48 | Del: 26% | Hes: 0.490
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
 **Active bugs:** `intent_numeric` (oc+de), `file_sim` (oc+de), `tc_context_agent` (oc+de), `tc_gemini` (oc)
-**Codes:** intent=`unknown` state=`neutral` bl_wpm=53 bl_del=26%
+**Codes:** intent=`unknown` state=`unknown` bl_wpm=52 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
@@ -51,5 +51,5 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 ## Active Bug Dossier
 
-**Focus modules:** micro_sim_engine_prompt_file, word_number_file_mapping_for, gemini_api_call_system_prompt, picks_relevant_source_files_based, intent_simulation_on_typing_pause
-**Focus bugs:** oc, de
+**Focus modules:** micro_sim_engine_prompt_file, word_number_file_mapping_for, picks_relevant_source_files_based, gemini_api_call_system_prompt, intent_simulation_on_typing_pause
+**Focus bugs:** de, oc

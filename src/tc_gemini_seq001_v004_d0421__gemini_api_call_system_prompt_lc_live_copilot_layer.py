@@ -16,6 +16,13 @@ COGNITIVE NOTE (auto-added by reactor): This module triggered 3+ high-load flush
 # EDIT_AUTHOR: copilot
 # EDIT_STATE: harvested
 # ── /pulse ──
+# ── telemetry:pulse ──
+# EDIT_TS:   2026-04-21T05:00:00+00:00
+# EDIT_HASH: sim_fires_self_fix
+# EDIT_WHY:  confirm sim fires self fix runs files talk meta comments deepseek auto fix
+# EDIT_AUTHOR: deepseek
+# EDIT_STATE: active
+# ── /pulse ──
 from __future__ import annotations
 import json
 import os
@@ -692,15 +699,19 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
     )
     # Adaptive generation params — tuned from grade history
     params = compute_adaptive_params()
-    # Thinking budget scales with buffer length — longer thought = more reasoning
+    # Thinking budget scales with buffer length — longer thought = more reasoning.
+    # IMPORTANT: in Gemini 2.5, thinking tokens count against maxOutputTokens.
+    # We add the thinking budget to maxOutputTokens so thinking gets its full
+    # allocation AND the caller's requested output length still fits.
     _buf_len = len(buffer.strip())
     _thinking_budget = 0 if _buf_len < 30 else (512 if _buf_len < 80 else 1024)
+    _max_out = params['maxOutputTokens'] + _thinking_budget  # room for both
     body = json.dumps({
         'system_instruction': {'parts': [{'text': SYSTEM_PROMPT}]},
         'contents': [{'role': 'user', 'parts': [{'text': user_prompt}]}],
         'generationConfig': {
             'temperature': params['temperature'],
-            'maxOutputTokens': params['maxOutputTokens'],
+            'maxOutputTokens': _max_out,
             'topP': params['topP'],
             # Gemini 2.5 thinking budget scales with buffer length.
             # Short buffers (<30 chars): 0 — latency sensitive, low signal.
@@ -718,7 +729,7 @@ def call_gemini(buffer: str, thought_buffer: ThoughtBuffer | None = None) -> tup
             if cand0.get('finishReason') == 'MAX_TOKENS':
                 um = data.get('usageMetadata', {})
                 print(f'[completer] MAX_TOKENS truncation: output={um.get("candidatesTokenCount", 0)} '
-                      f'thought={um.get("thoughtsTokenCount", 0)} budget={params["maxOutputTokens"]}')
+                      f'thought={um.get("thoughtsTokenCount", 0)} budget={_max_out} (base={params["maxOutputTokens"]}+think={_thinking_budget})')
             parts = cand0.get('content', {}).get('parts', [])
             text = ''
             for part in parts:

@@ -658,6 +658,63 @@ def select_template(buffer: str, ctx: dict | None = None) -> str:
     return '/build'
 
 
+def select_chain_route(files: list[dict], root: Path | None = None) -> list[dict]:
+    """Order a flat list of files into a dependency-aware chain route.
+
+    Route selection for manifest chaining:
+    - Files that ARE imported by others come FIRST (they define what later files depend on)
+    - Files with higher numeric score get priority within the same tier
+    - Result is an ordered path like [a→b→c→g→f] where each file's output
+      feeds into the next file's sim prompt
+
+    The initial file set comes from entropy (numeric blind fire). This function
+    picks the traversal order so the cascade is topologically sane — a file
+    that imports file_sim should come AFTER file_sim in the route.
+    """
+    _root = root or ROOT
+    if not files:
+        return []
+    if len(files) == 1:
+        return files
+
+    stems = [f.get('name', '').split('_seq')[0] for f in files]
+    stem_to_file = {s: f for s, f in zip(stems, files)}
+
+    # Build lightweight import adjacency: does file X import file Y?
+    # adjacency[x] = set of stems X imports
+    adjacency: dict[str, set[str]] = {s: set() for s in stems}
+    for f in files:
+        path_str = f.get('path', '')
+        if not path_str:
+            continue
+        try:
+            abs_path = _root / path_str
+            if not abs_path.exists():
+                continue
+            text = abs_path.read_text('utf-8', errors='ignore')
+            for target_stem in stems:
+                if target_stem in text and target_stem != f.get('name', '').split('_seq')[0]:
+                    src_stem = f.get('name', '').split('_seq')[0]
+                    adjacency[src_stem].add(target_stem)
+        except Exception:
+            pass
+
+    # Kahn's topological sort (files with no incoming edges first)
+    in_degree: dict[str, int] = {s: 0 for s in stems}
+    for s, deps in adjacency.items():
+        for dep in deps:
+            if dep in in_degree:
+                in_degree[dep] += 1  # dep is imported → it goes first
+
+    # Sort by: in_degree desc (most depended-upon first), then numeric score desc
+    score_map = {f.get('name', '').split('_seq')[0]: f.get('score', 0.0) for f in files}
+
+    ordered = sorted(stems,
+                     key=lambda s: (-in_degree.get(s, 0), -score_map.get(s, 0.0)))
+
+    return [stem_to_file[s] for s in ordered if s in stem_to_file]
+
+
 def grade_and_learn(buffer: str, completion: str, outcome: str,
                     files_touched: list[str] | None = None,
                     actual_intent: str | None = None) -> dict:

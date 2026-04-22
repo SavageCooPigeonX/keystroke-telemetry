@@ -520,31 +520,107 @@ def grade_file_for_intent(intent_text: str, file_stem: str,
 
 def _trigger_overwriter_async(stem: str, intent_text: str, grade_result: dict,
                               root: Path) -> None:
-    """Spawn background thread to run file_overwriter.
-    Auto-applies by default. Set PIGEON_AUTO_OVERWRITE=0 to force dry-run.
+    """Spawn background thread to run the 3-variant patch sim → grader → surgical fix.
+
+    Flow:
+      1. Run tc_sim_engine.run_sim_all(intent + file cortex) — 3 parallel variants
+      2. Grader picks winner based on specificity + interlink signal
+      3. file_overwriter applies winner's action path as surgical patch
+      4. Regression check — rollback on failure
+      5. File pulse updated: EDIT_STATE: idle (sleeping after patch)
     """
     import threading as _th
     dry = os.environ.get('PIGEON_AUTO_OVERWRITE', '1') == '0'
-    live = not dry
 
     def _run():
         try:
-            import importlib.util as _ilu
+            # Build intent seed = original intent + file's cortex hint
+            profiles = _load_profiles(root)
+            profile = profiles.get(stem, {})
+            cortex = _cortex_summary(profile)
+            bug_voice = profile.get('self_repair_hint', '')
+            seed = (
+                f"{intent_text.strip()}\n"
+                f"file={stem} cortex={cortex[:120]} bug={bug_voice[:80]}"
+            ).strip()
+
+            # Step 1: run 3-variant sim seeded by this file's intent
+            try:
+                import importlib.util as _ilu
+                sim_matches = sorted((root / 'src').glob('tc_sim_engine_seq001*.py'),
+                                     key=lambda p: len(p.name))
+                if sim_matches:
+                    spec = _ilu.spec_from_file_location('tc_sim_engine', sim_matches[-1])
+                    m = _ilu.module_from_spec(spec)
+                    if spec and spec.loader:
+                        spec.loader.exec_module(m)
+                        results, winner = m.run_sim_all(seed)
+                        if winner:
+                            print(f'  [overwriter-sim] {stem}: winner={winner.name} score={winner.score:.2f}')
+                            # Winner's completion is the action path — use as intent for patch
+                            patch_intent = winner.completion or intent_text
+                        else:
+                            print(f'  [overwriter-sim] {stem}: no sim winner, falling back to direct intent')
+                            patch_intent = intent_text
+                else:
+                    patch_intent = intent_text
+            except Exception as se:
+                print(f'  [overwriter-sim] {stem} sim failed: {se}')
+                patch_intent = intent_text
+
+            # Step 2: apply surgical patch
+            import importlib.util as _ilu2
             matches = sorted((root / 'src').glob('file_overwriter*.py'),
                              key=lambda p: len(p.name))
             if not matches:
                 return
-            spec = _ilu.spec_from_file_location('file_overwriter', matches[-1])
-            m = _ilu.module_from_spec(spec)
+            spec = _ilu2.spec_from_file_location('file_overwriter', matches[-1])
+            m2 = _ilu2.module_from_spec(spec)
             if spec and spec.loader:
-                spec.loader.exec_module(m)
-                r = m.overwrite_file(stem, intent_text, grade_result=grade_result,
-                                     root=root, dry_run=dry)
+                spec.loader.exec_module(m2)
+                r = m2.overwrite_file(stem, patch_intent, grade_result=grade_result,
+                                      root=root, dry_run=dry)
                 flag = '(dry)' if dry else ('✓ applied' if r.get('applied') else '✗ failed')
                 print(f'  [overwriter] {stem}: {flag} | {r.get("diff","")[:60]}')
+
+                # Step 3: if applied, mark file as sleeping in its pulse block
+                if r.get('applied') and not dry:
+                    _sleep_file_pulse(stem, root, reason=f'patched: {patch_intent[:60]}')
         except Exception as e:
             print(f'  [overwriter] {stem} error: {e}')
     _th.Thread(target=_run, daemon=True).start()
+
+
+def _sleep_file_pulse(stem: str, root: Path, reason: str = 'patched') -> None:
+    """Update EDIT_STATE to idle in the file's pulse block after a successful patch.
+    Files 'sleep' after self-patching — they wake when numeric encoding re-activates them.
+    """
+    import re as _re
+    try:
+        matches = []
+        for pattern in (f'src/{stem}.py', f'src/{stem}_seq*.py',
+                        f'src/**/{stem}_seq*.py', f'{stem}.py'):
+            matches.extend(root.glob(pattern))
+        if not matches:
+            return
+        path = matches[0]
+        src = path.read_text('utf-8', errors='replace')
+        # Replace EDIT_STATE value in pulse block
+        src = _re.sub(
+            r'(# EDIT_STATE:\s*)(\S+)',
+            r'\g<1>idle',
+            src,
+            count=1,
+        )
+        # Also update EDIT_WHY
+        import time as _t
+        ts = __import__('datetime').datetime.now(__import__('datetime').timezone.utc).isoformat()
+        src = _re.sub(r'(# EDIT_TS:\s*)(.+)', rf'\g<1>{ts}', src, count=1)
+        src = _re.sub(r'(# EDIT_WHY:\s*)(.+)', rf'\g<1>sleeping: {reason[:60]}', src, count=1)
+        path.write_text(src, encoding='utf-8')
+        print(f'  [sleep] {stem} → EDIT_STATE: idle')
+    except Exception as e:
+        print(f'  [sleep] {stem} failed: {e}')
 
 
 def _is_conversational(text: str) -> bool:
@@ -689,11 +765,25 @@ def run_sim(intent_text: str, prompt_text: str | None = None,
 
     results.sort(key=lambda x: x['grade'], reverse=True)
 
-    # Write intent_job entry
+    # ── Compute sim route: ordered file path actually taken ──────────────────
+    # Route = the ordered list of files that entered the sim, sorted by grade desc.
+    # Stored in intent_job so backward pass + future sims can reference which
+    # file path was used for this intent (past sim paths for fixes).
+    try:
+        from .tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade import select_chain_route
+        route_inputs = [{'name': r['file_stem'], 'score': r.get('grade', 0.0),
+                         'path': f'src/{r["file_stem"]}.py'} for r in results]
+        ordered_route = select_chain_route(route_inputs, root)
+        sim_route = [f['name'] for f in ordered_route]
+    except Exception:
+        sim_route = [r['file_stem'] for r in results]
+
+    # Write intent_job entry — includes sim_route for audit trail
     _append_jsonl(INTENT_JOBS, {
         'ts': ts,
         'intent_text': intent_text[:300],
         'status': 'simulated',
+        'sim_route': sim_route,                          # ordered traversal path
         'top_files': [r['file_stem'] for r in results if r['needs_change']],
         'grades': {r['file_stem']: round(r['grade'], 3) for r in results},
         'actors_cleared': [],
@@ -1075,8 +1165,12 @@ def _promote_to_interlinked(stem: str, root: Path) -> None:
 
 
 def clear_intent_job(intent_text: str, actor: str, root: Path | None = None):
-    """Mark an intent job as cleared by an actor (copilot|tester|operator).
-    Job is fully resolved when all 3 actors clear it.
+    """Mark an intent job as cleared by an actor (copilot|tester|operator|file_consensus).
+
+    Clearing rules:
+    - 'file_consensus': all files that were graded for this intent now agree
+      needs_change=False — clears immediately without other actors.
+    - Human actors (copilot/tester/operator): requires 2 of 3 to agree.
     """
     root = root or ROOT
     jobs = []
@@ -1092,9 +1186,15 @@ def clear_intent_job(intent_text: str, actor: str, root: Path | None = None):
             if actor not in job.get('actors_cleared', []):
                 job.setdefault('actors_cleared', []).append(actor)
             actors = set(job['actors_cleared'])
-            if {'copilot', 'tester', 'operator'}.issubset(actors) or len(actors) >= 2:
+            ts = datetime.now(timezone.utc).isoformat()
+            # File consensus: all files agreed — clears without human actors
+            if actor == 'file_consensus':
                 job['status'] = 'cleared'
-                job['cleared_ts'] = datetime.now(timezone.utc).isoformat()
+                job['cleared_ts'] = ts
+                job['cleared_by'] = 'file_consensus'
+            elif {'copilot', 'tester', 'operator'}.issubset(actors) or len(actors) >= 2:
+                job['status'] = 'cleared'
+                job['cleared_ts'] = ts
             updated = True
             break
 
@@ -1102,6 +1202,139 @@ def clear_intent_job(intent_text: str, actor: str, root: Path | None = None):
         INTENT_JOBS.write_text(
             '\n'.join(json.dumps(j, ensure_ascii=False) for j in jobs) + '\n',
             'utf-8')
+
+
+def _emit_context_request(stem: str, intent_text: str, reason: str, root: Path) -> None:
+    """File signals it needs more context before it can resolve this intent.
+
+    Written to logs/context_requests.jsonl.
+    Observatory + operator_coaching surface open requests so the operator can
+    supply the missing context (e.g. a follow-up prompt, a log snippet, etc.).
+    Files are 'asking their manager for more information' before deciding.
+    """
+    req = {
+        'ts': datetime.now(timezone.utc).isoformat(),
+        'stem': stem,
+        'intent_text': intent_text[:200],
+        'reason': reason[:200],
+        'status': 'open',
+    }
+    _append_jsonl(root / 'logs' / 'context_requests.jsonl', req)
+    print(f'  [context-req] {stem} → "{reason[:70]}"')
+
+
+def intent_backward_pass(root: Path | None = None,
+                         max_age_hours: float = 72.0) -> dict:
+    """Re-evaluate all uncleared intent jobs on every push.
+
+    Intent dropoff prevention:
+    - Reads intent_jobs.jsonl, finds every status='simulated' job younger than
+      max_age_hours.
+    - Re-grades each of its top_files against the original intent.
+    - If ALL top_files now agree (needs_change=False) → intent is cleared by
+      file_consensus (no human actors needed — the files resolved it themselves).
+    - If any file has confidence < 0.35 → it emits a context_request asking for
+      more context before it can decide (file is acting as its own manager).
+    - Results appended to logs/intent_bp_log.jsonl for audit trail.
+
+    Returns: {recaptured, cleared, context_requests, errors}
+    """
+    root = root or ROOT
+    if not INTENT_JOBS.exists():
+        return {'recaptured': 0, 'cleared': 0, 'context_requests': 0, 'errors': 0}
+
+    import datetime as _dt
+    cutoff_ts = _dt.datetime.now(_dt.timezone.utc).timestamp() - max_age_hours * 3600
+
+    # Load all pending jobs
+    jobs_raw = []
+    for line in INTENT_JOBS.read_text('utf-8', errors='ignore').splitlines():
+        if not line.strip():
+            continue
+        try:
+            jobs_raw.append(json.loads(line))
+        except Exception:
+            pass
+
+    pending = []
+    for job in jobs_raw:
+        if job.get('status') != 'simulated':
+            continue
+        top_files = job.get('top_files', [])
+        if not top_files:
+            continue
+        # Age filter
+        try:
+            job_ts = _dt.datetime.fromisoformat(
+                job.get('ts', '').replace('Z', '+00:00')).timestamp()
+            if job_ts < cutoff_ts:
+                continue
+        except Exception:
+            pass
+        pending.append(job)
+
+    api_key, _provider = _load_api_key()
+    n_cleared = 0
+    n_context_req = 0
+    n_errors = 0
+    bp_events: list[dict] = []
+
+    for job in pending:
+        intent_text = job.get('intent_text', '')
+        top_files = job.get('top_files', [])
+        if not intent_text or not top_files:
+            continue
+
+        all_resolved = True
+        file_verdicts: list[dict] = []
+        for stem in top_files:
+            try:
+                r = grade_file_for_intent(intent_text, stem, root, api_key)
+                file_verdicts.append({'stem': stem, 'needs_change': r['needs_change'],
+                                      'confidence': r['confidence'],
+                                      'reason': r.get('reason', '')[:80]})
+                if r['needs_change']:
+                    all_resolved = False
+                # File has insufficient context to decide — emit request
+                if r['confidence'] < 0.35:
+                    _emit_context_request(
+                        stem, intent_text,
+                        reason=r.get('reason', 'low confidence on backward pass'),
+                        root=root)
+                    n_context_req += 1
+                    all_resolved = False  # ambiguous verdict → keep job alive
+            except Exception as e:
+                n_errors += 1
+                all_resolved = False
+                file_verdicts.append({'stem': stem, 'error': str(e)[:80]})
+
+        ts_now = datetime.now(timezone.utc).isoformat()
+        if all_resolved:
+            clear_intent_job(intent_text, actor='file_consensus', root=root)
+            n_cleared += 1
+            print(f'  [intent-bp] ✓ cleared by consensus: "{intent_text[:60]}"')
+            bp_events.append({'ts': ts_now, 'intent': intent_text[:80],
+                              'result': 'cleared', 'files': file_verdicts})
+        else:
+            bp_events.append({'ts': ts_now, 'intent': intent_text[:80],
+                              'result': 'still_pending', 'files': file_verdicts})
+
+    # Audit log
+    bp_log = root / 'logs' / 'intent_bp_log.jsonl'
+    try:
+        bp_log.parent.mkdir(parents=True, exist_ok=True)
+        with open(bp_log, 'a', encoding='utf-8') as f:
+            for ev in bp_events:
+                f.write(json.dumps(ev, ensure_ascii=False) + '\n')
+    except Exception:
+        pass
+
+    summary = {'recaptured': len(pending), 'cleared': n_cleared,
+                'context_requests': n_context_req, 'errors': n_errors}
+    if pending:
+        print(f'  [intent-bp] {len(pending)} recaptured · {n_cleared} cleared · '
+              f'{n_context_req} context-requests · {n_errors} errors')
+    return summary
 
 
 if __name__ == '__main__':

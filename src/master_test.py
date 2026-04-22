@@ -153,7 +153,9 @@ def test_intent_backlog_has_generated_tests() -> tuple[bool, str]:
     missing = []
     for t in pending:
         tid = t.get("id", "?")
-        test_path = ROOT / "tests" / "generated" / f"test_intent_{tid.replace('-', '_')}.py"
+        # Handle both old hyphenated IDs and new underscore IDs
+        clean_id = tid.replace('-', '_')
+        test_path = ROOT / "tests" / "generated" / f"test_intent_{clean_id}.py"
         if not test_path.exists():
             missing.append(tid)
     if missing:

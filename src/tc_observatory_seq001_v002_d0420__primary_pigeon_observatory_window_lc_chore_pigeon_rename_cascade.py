@@ -891,7 +891,7 @@ def run_observatory():
         sim_box.config(state='disabled')
 
     def _render_sim_history():
-        """Show last 5 sim runs from tc_sim_results.jsonl."""
+        """Show last 5 sim runs from tc_sim_results.jsonl with full chain-of-thought."""
         hist_path = ROOT / 'logs' / 'tc_sim_results.jsonl'
         if not hist_path.exists():
             return
@@ -907,11 +907,22 @@ def run_observatory():
             except Exception:
                 continue
             ts = rec.get('ts', '')[:19].replace('T', ' ')
-            buf = rec.get('buffer', '')[-80:]
+            buf = rec.get('buffer', '')[-100:]
             winner = rec.get('winner', '?')
             score = rec.get('winner_score', 0)
-            _sim_append('history', f'{ts}  [{winner} {score:.2f}]  {buf}\n')
-        _sim_append('session', '─── end history ───\n\n')
+            _sim_append('prompt', f'\n{ts}  ★ {winner} ({score:.2f})\n')
+            _sim_append('history', f'  ▸ {buf}\n')
+            for sim in rec.get('sims', []):
+                name = sim.get('name', '?')
+                s = sim.get('score', 0)
+                files = ', '.join((sim.get('files', []) or [])[:4]) or '—'
+                comp = (sim.get('completion', '') or '').strip()
+                marker = '★' if name == winner else '·'
+                _sim_append('variant' if name == winner else 'history',
+                            f'  {marker} [{name}] s={s:.2f}  {files}\n')
+                if comp:
+                    _sim_append('thinking', f'    → {comp[:400]}\n')
+        _sim_append('session', '\n─── end history ───\n\n')
 
     def _launch_sim():
         if _sim_running[0]:

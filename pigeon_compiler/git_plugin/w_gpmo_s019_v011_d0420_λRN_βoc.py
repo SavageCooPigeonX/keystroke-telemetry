@@ -321,6 +321,29 @@ def run():
                             print(f'     → {c["files"]} file(s) in {c["output_dir"]}')
                             if pruned:
                                 print(f'     ✂️  pruned dead: {", ".join(pruned)}')
+                            # ── Split event: record parent→children for sibling awareness ──
+                            # Children start with zero numeric weight (fresh re-learn)
+                            # but carry birth context so sims know their origin + siblings.
+                            try:
+                                import json as _json
+                                _split_log = root / 'logs' / 'split_events.jsonl'
+                                _split_log.parent.mkdir(parents=True, exist_ok=True)
+                                _child_stems = [Path(cf).stem for cf in c.get('child_files', [])]
+                                _parent_stem = Path(c['file']).stem
+                                _split_entry = {
+                                    'ts': datetime.now(timezone.utc).isoformat(),
+                                    'parent_stem': _parent_stem,
+                                    'child_stems': _child_stems,
+                                    'output_dir': c.get('output_dir', ''),
+                                    'commit': h,
+                                    'intent': intent,
+                                    'dead_pruned': pruned,
+                                }
+                                with open(_split_log, 'a', encoding='utf-8') as _f:
+                                    _f.write(_json.dumps(_split_entry, ensure_ascii=False) + '\n')
+                                print(f'     🧬 split event logged: {_parent_stem} → {_child_stems}')
+                            except Exception as _se:
+                                pass
                         else:
                             print(f'  ⚠️  auto-compile {c["file"]}: {c.get("error")}')
             except Exception as e:
@@ -641,6 +664,39 @@ def run():
                 print(f'  🧠 learning loop: {processed} entries, {trained} nodes trained')
     except Exception as e:
         print(f'  ⚠️  learning loop catch-up: {e}')
+
+    # ── Intent Backward Pass ──
+    # Every push recaptures uncleared intents from intent_jobs.jsonl.
+    # Intent dropoff prevention: files re-grade their pending intents and
+    # clear by file consensus (all top_files agree needs_change=False).
+    # Files that lack context emit context_requests — they are asking for
+    # more information before making a decision.
+    # Intent is NEVER force-cleared — only when all files agree.
+    try:
+        file_sim_mod = _load_glob_module(root, 'src', 'file_sim_seq001*')
+        if file_sim_mod and hasattr(file_sim_mod, 'intent_backward_pass'):
+            bp = file_sim_mod.intent_backward_pass(root)
+            if bp.get('recaptured', 0):
+                print(f"  🔄 intent-bp: {bp['recaptured']} recaptured, "
+                      f"{bp['cleared']} cleared by consensus, "
+                      f"{bp['context_requests']} context-request(s)")
+    except Exception as e:
+        print(f'  ⚠️  intent backward pass: {e}')
+
+    # ── DeepSeek Daemon — one fix cycle on every push ──
+    # DeepSeek runs as the compile/compress layer: pigeon compliance,
+    # bug fixes, and intent draining happen on every git push (non-blocking).
+    try:
+        daemon_mod = _load_glob_module(root, 'src', 'deepseek_daemon_seq001*')
+        if daemon_mod and hasattr(daemon_mod, 'run_cycle'):
+            _api_key = daemon_mod._load_api_key()
+            if _api_key:
+                _already: set = set()
+                _n = daemon_mod.run_cycle(_api_key, dry_run=False, already_attempted=_already)
+                if _n:
+                    print(f'  🤖 deepseek-daemon: {_n} fix(es) attempted this push')
+    except Exception as e:
+        print(f'  ⚠️  deepseek daemon push cycle: {e}')
 
     # Auto-commit
     _git('add', '-A')

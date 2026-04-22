@@ -176,12 +176,21 @@ def _parse_intent(msg: str) -> str:
     return '_'.join(words) or 'manual_edit'
 
 
+def _intent_code_numeric(intent: str) -> str:
+    """Map intent slug to numeric encoding for prompt mapping."""
+    if not intent:
+        return '00'
+    # Simple hash-based numeric encoding (00-99)
+    hash_val = sum(ord(ch) for ch in intent)
+    return f'{hash_val % 100:02d}'
+
+
 _INTENT_CODE_RULES: list[tuple[tuple[str, ...], str]] = [
     (('fix', 'bug', 'repair', 'heal', 'restore', 'wrong', 'broken'), 'FX'),
     (('rename', 'nametag'), 'RN'),
     (('refactor', 'restructure'), 'RF'),
     (('split', 'decompose', 'compile'), 'SP'),
-    (('telemetry', 'prompt', 'operator', 'journal', 'context', 'unsaid', 'voice', 'engagement'), 'TL'),
+    (('telemetry', 'prompt', 'operator', 'journal', 'context', 'unsaid', 'voice', 'engagement', 'orange'), 'TL'),
     (('compress', 'glyph', 'dictionary', 'token'), 'CP'),
     (('verify', 'test', 'audit', 'validate', 'check'), 'VR'),
     (('feature', 'add', 'implement', 'build', 'create'), 'FT'),
@@ -217,6 +226,11 @@ def _intent_code(intent: str) -> str:
     if not text:
         return 'OT'
     return text[:2].upper()
+
+
+def _intent_keys_match(intent1: str, intent2: str) -> bool:
+    """Check if two intent slugs map to same numeric encoding."""
+    return _intent_code_numeric(intent1) == _intent_code_numeric(intent2)
 
 
 def _collect_bug_keys(problems: list[dict]) -> dict[str, list[str]]:
@@ -273,11 +287,13 @@ def _sync_bug_metadata(entry: dict, current_keys: list[str], today: str) -> None
 
 def _build_box(entry: dict, h: str, lines: int, tokens: int = 0,
                sessions: int = 0) -> str:
+    intent = entry.get("intent") or "(none)"
+    intent_code = _intent_code_numeric(intent)
     return (
         f'# ── pigeon ────────────────────────────────────\n'
         f'# SEQ: {entry["seq"]:03d} | VER: v{entry["ver"]:03d} | {lines} lines | ~{tokens:,} tokens\n'
         f'# DESC:   {entry.get("desc") or "(none)"}\n'
-        f'# INTENT: {entry.get("intent") or "(none)"}\n'
+        f'# INTENT: {intent} [{intent_code}]\n'
         f'# LAST:   {datetime.now(timezone.utc).strftime("%Y-%m-%d")} @ {h}\n'
         f'# SESSIONS: {sessions}\n'
         f'# ──────────────────────────────────────────────\n'

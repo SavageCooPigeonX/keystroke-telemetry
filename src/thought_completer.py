@@ -28,6 +28,7 @@ and switches context accordingly.
 # EDIT_STATE: idle
 # ── /pulse ──
 from __future__ import annotations
+import sys as _sys, os as _os; _sys.path.insert(0, _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
 from src._resolve import src_import
 import os
 import sys
@@ -111,7 +112,7 @@ def main():
                 [sys.executable, '-c',
                  'import sys; sys.path.insert(0,".")\n'
                  'from pathlib import Path\n'
-                 'from src.numeric_surface_seq001_v001 import generate_surface\n'
+                 'from src.numeric_surface_seq001_v001_seq001_v001 import generate_surface\n'
                  'generate_surface(Path("."))'],
                 cwd=_root_dir, timeout=60, capture_output=True
             )

@@ -1,10 +1,10 @@
 """Compatibility wrapper for the legacy prompt_journal import path."""
 # ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# EDIT_AUTHOR: None
-# EDIT_STATE: idle
+# EDIT_TS:   2026-04-22T05:36:37.5560367Z
+# EDIT_HASH: auto
+# EDIT_WHY:  prefer latest runtime
+# EDIT_AUTHOR: copilot
+# EDIT_STATE: active
 # ── /pulse ──
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ from typing import Any
 def _load_runtime_module() -> ModuleType:
     root = Path(__file__).resolve().parent
     this_file = Path(__file__).resolve()
-    for candidate in sorted(root.glob('u_pj_s019*.py')):
+    for candidate in sorted(root.glob('u_pj_s019*.py'), reverse=True):
         resolved = candidate.resolve()
         if resolved == this_file:
             continue

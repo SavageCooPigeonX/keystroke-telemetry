@@ -81,9 +81,11 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             self.completing = False
             self.current_repo = _detect_repo_from_title() or ROOT.name
             self._completed_buffer = None
+            self._completed_buffer_ts = 0.0   # when _completed_buffer was last set
             self._last_nonempty_buf = ''
             self._last_fire_time = 0.0
             self._fire_cooldown = 2.0
+            self._vscdb_prompt_offset = 0     # tail position in vscdb_drafts.jsonl
             self.drag_x = 0
             self.drag_y = 0
             self.session_started_at = datetime.now(timezone.utc)
@@ -211,6 +213,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             self._repo_tick()
             self._composition_tick()
             self._prompt_telemetry_tick()
+            self._vscdb_prompt_tick()          # every Copilot prompt → parallel sim
             threading.Thread(target=update_grade_summary, daemon=True).start()
 
         def _poll_tick(self):
@@ -225,6 +228,25 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
                 self._reward()
                 self.root.after(POLL_INTERVAL_MS, self._poll_tick)
                 return
+
+            # Fire sim on Enter/submit — log result to tc_sim_results.jsonl
+            if changed and self.watcher.last_event_type == 'submit':
+                buf_to_sim = self._last_nonempty_buf
+                if buf_to_sim and len(buf_to_sim) >= 6 and not getattr(self, '_sim_running', False):
+                    print(f'[poll] ENTER-SIM buf={buf_to_sim[-60:]!r}')
+                    self.status_lbl.config(text='sim…', fg=ACCENT)
+                    def _do_enter_sim(b=buf_to_sim):
+                        try:
+                            results, winner = run_sim_all(b)
+                            if winner:
+                                self.root.after(0, lambda: self.status_lbl.config(
+                                    text=f'sim: {winner.name} ({winner.score:.2f})', fg=GREEN))
+                                print(f'[enter-sim] winner={winner.name} score={winner.score:.2f}')
+                            else:
+                                self.root.after(0, lambda: self.status_lbl.config(text='sim done', fg=DIM))
+                        except Exception as _e:
+                            print(f'[enter-sim] error: {_e}')
+                    threading.Thread(target=_do_enter_sim, daemon=True).start()
 
             if changed:
                 if buf:
@@ -255,6 +277,11 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
                 cooldown_ok = since_fire >= self._fire_cooldown
                 buf_ok = check_buf and len(check_buf) >= 4
                 not_busy = not self.completing
+                # Dup block expires after 60s — prevents infinite lock when
+                # operator submits to Copilot and stops typing (buffer doesn't change).
+                _dup_age = now - self._completed_buffer_ts
+                if self._completed_buffer == check_buf and _dup_age > 60.0:
+                    self._completed_buffer = None  # release lock
                 not_dup = self._completed_buffer != check_buf
                 not_pending = self.pause_after_id is None
 
@@ -280,6 +307,7 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
                     print(f'[poll] FIRE key_age={since_key_ms:.0f}ms buf={check_buf[-40:]!r}')
                     self._last_fire_time = now
                     self._completed_buffer = check_buf
+                    self._completed_buffer_ts = now   # dup lock timestamp — expires in 60s
                     self.status_lbl.config(text='thinking...', fg=ACCENT)
                     self.pause_after_id = self.root.after(
                         0, lambda b=check_buf: self._request_completion(b))
@@ -327,6 +355,55 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             except Exception:
                 pass
             self.root.after(2000, self._prompt_telemetry_tick)
+
+        def _vscdb_prompt_tick(self):
+            """Poll vscdb_drafts.jsonl for submitted Copilot prompts.
+            Every prompt_submitted event fires run_sim_all() in a background
+            thread — parallel simulation runs on every Copilot prompt, giving
+            the coding agent awareness of what the operator just asked.
+            """
+            _POLL_MS = 1500   # check every 1.5s for new submitted prompts
+            try:
+                log_path = ROOT / 'logs' / 'vscdb_drafts.jsonl'
+                if log_path.exists():
+                    size = log_path.stat().st_size
+                    if self._vscdb_prompt_offset == 0:
+                        # First run — start from end, don't replay old prompts
+                        self._vscdb_prompt_offset = size
+                    elif size > self._vscdb_prompt_offset:
+                        with open(log_path, 'rb') as f:
+                            f.seek(self._vscdb_prompt_offset)
+                            new_data = f.read().decode('utf-8', errors='ignore')
+                        self._vscdb_prompt_offset = size
+                        for line in new_data.strip().splitlines():
+                            try:
+                                entry = json.loads(line)
+                            except Exception:
+                                continue
+                            if entry.get('event') != 'prompt_submitted':
+                                continue
+                            prompt_text = (entry.get('text') or '').strip()
+                            if len(prompt_text) < 6:
+                                continue
+                            print(f'[vscdb-sim] prompt submitted → sim: {prompt_text[:60]!r}')
+                            self.root.after(0, lambda: self.status_lbl.config(
+                                text='⚡ sim from prompt…', fg=ACCENT))
+                            def _do_prompt_sim(pt=prompt_text):
+                                try:
+                                    results, winner = run_sim_all(pt)
+                                    if winner:
+                                        self.root.after(0, lambda w=winner: self.status_lbl.config(
+                                            text=f'⚡ {w.name} ({w.score:.2f})', fg=GREEN))
+                                        print(f'[vscdb-sim] winner={winner.name} score={winner.score:.2f}')
+                                    else:
+                                        self.root.after(0, lambda: self.status_lbl.config(
+                                            text='⚡ sim done', fg=DIM))
+                                except Exception as _e:
+                                    print(f'[vscdb-sim] error: {_e}')
+                            threading.Thread(target=_do_prompt_sim, daemon=True).start()
+            except Exception as _e:
+                pass
+            self.root.after(_POLL_MS, self._vscdb_prompt_tick)
 
         def _composition_tick(self):
             """Poll chat_compositions.jsonl for new entries → feed to profile."""

@@ -74,6 +74,38 @@ Rules:
 - If nothing needs changing, output exactly: NO_CHANGES
 - Do NOT output the full file. Do NOT explain. Only output the blocks."""
 
+_FULL_OVERWRITE_SYSTEM = """You are the autonomous coding agent for a single Python file in the Pigeon system.
+You will be given complete context for ONE file and ONE task. You own this file completely.
+Your job: emit the full, correct, new version of this file. Nothing else.
+
+OUTPUT FORMAT: emit only the complete Python file — no markdown fences, no explanation.
+If the file does not need any change, emit exactly: NO_CHANGES
+
+PIGEON HARD RULES (these are non-negotiable — violations cause CI failure):
+1. Max 200 lines / ~2000 tokens. If your output would exceed this, emit: SPLIT_NEEDED
+2. No hardcoded imports — use the dynamic loader pattern: _load_glob_module(root, 'src', 'stem_prefix*')
+3. The pulse header must be the first block — update EDIT_TS to now (UTC ISO), increment VER, set EDIT_WHY to a one-line summary of what you changed.
+4. Do NOT rename or remove any symbol listed in IMPORTERS — those callers will break.
+5. Do NOT duplicate logic that belongs to SIBLINGS — each file owns exactly one concern.
+6. If you add a new dependency, use _load_glob_module — never import by hardcoded name.
+
+You are written blind — the template below is your complete context. Do not assume anything not stated."""
+
+_POST_PATCH_GRADE_SYSTEM = """You are a code execution grader. A surgical patch was applied to a Python file.
+Grade the assembled change independently — you are acting on behalf of this file alone.
+
+Given: the intent, the applied diff, and the patched code preview.
+
+Return JSON only:
+{"code_grade": 0.0-1.0, "correct": true/false, "issues": "one line or empty", "verdict": "accept|flag|reject"}
+
+Rules:
+- code_grade > 0.7 = good change, 0.4-0.7 = marginal, < 0.4 = suspect
+- correct = true only if the diff clearly and directly addresses the stated intent
+- issues = any visible logic error, missing import, broken call, or unintended side effect
+- verdict: accept = patch stands | flag = patch applied but operator should review | reject = rollback recommended
+- Be strict. A bad patch that compiles is worse than no patch."""
+
 
 def _load_deepseek_key(root: Path) -> str | None:
     v = os.environ.get('DEEPSEEK_API_KEY', '')
@@ -97,7 +129,7 @@ def _call_deepseek(system: str, user: str, api_key: str, timeout: int = 60) -> s
             {'role': 'system', 'content': system},
             {'role': 'user', 'content': user},
         ],
-        'max_tokens': 2048,
+        'max_tokens': 4096,
         'temperature': 0.1,
     }).encode('utf-8')
     req = _ur.Request(
@@ -263,6 +295,66 @@ def _run_regression(stem: str, path: Path, bak_path: Path, root: Path) -> dict:
     return out
 
 
+def _run_post_patch_grader(
+        stem: str, intent_text: str, diff: str,
+        patched_preview: str, api_key: str, root: Path,
+) -> dict:
+    """Grade the assembled code after DeepSeek applies the patch.
+
+    This fires AFTER the patch is written and regression passes — it grades
+    whether the code change actually fulfills the intent correctly.
+    Files are graded independently: each file gets its own code quality verdict.
+
+    Returns: {code_grade, correct, issues, verdict, stem}
+    """
+    result = {'code_grade': 0.5, 'correct': False, 'issues': '', 'verdict': 'flag', 'stem': stem}
+    if not api_key or not diff:
+        return result
+    user_prompt = (
+        f'INTENT: {intent_text[:300]}\n\n'
+        f'FILE: {stem}\n\n'
+        f'APPLIED DIFF:\n{diff[:800]}\n\n'
+        f'PATCHED CODE PREVIEW:\n{patched_preview[:600]}\n\n'
+        f'Grade this patch independently for this file.'
+    )
+    try:
+        raw = _call_deepseek(_POST_PATCH_GRADE_SYSTEM, user_prompt, api_key, timeout=30)
+        start = raw.find('{')
+        end = raw.rfind('}') + 1
+        parsed = json.loads(raw[start:end]) if start >= 0 else {}
+        result['code_grade'] = float(parsed.get('code_grade', 0.5))
+        result['correct'] = bool(parsed.get('correct', False))
+        result['issues'] = str(parsed.get('issues', ''))[:200]
+        result['verdict'] = str(parsed.get('verdict', 'flag'))
+        print(f'  [post-grade] {stem}: grade={result["code_grade"]:.2f} verdict={result["verdict"]}')
+        # Log to grader results for observatory / intent_bp
+        _log_post_patch_grade(stem, intent_text, diff, result, root)
+    except Exception as e:
+        print(f'  [post-grade] {stem} failed: {e}')
+    return result
+
+
+def _log_post_patch_grade(stem: str, intent_text: str, diff: str, grade: dict, root: Path) -> None:
+    """Append post-patch grade to logs/post_patch_grades.jsonl."""
+    log = root / 'logs' / 'post_patch_grades.jsonl'
+    log.parent.mkdir(parents=True, exist_ok=True)
+    entry = {
+        'ts': datetime.now(timezone.utc).isoformat(),
+        'stem': stem,
+        'intent_preview': intent_text[:80],
+        'diff_preview': diff[:200],
+        'code_grade': grade['code_grade'],
+        'correct': grade['correct'],
+        'issues': grade['issues'],
+        'verdict': grade['verdict'],
+    }
+    try:
+        with open(log, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + '\n')
+    except Exception:
+        pass
+
+
 def _update_cortex(stem: str, root: Path, fix: str, success: bool, trigger: str) -> None:
     """Fire update_file_cortex without hard-importing file_sim (avoids circular)."""
     try:
@@ -282,6 +374,219 @@ def _update_cortex(stem: str, root: Path, fix: str, success: bool, trigger: str)
             })
     except Exception:
         pass
+
+
+def _build_overwrite_context(stem: str, intent_text: str, root: Path,
+                             grade_result: dict | None = None) -> str:
+    """Build the full blind-write context template for DeepSeek.
+
+    Assembles everything DeepSeek needs to rewrite the file correctly
+    without reading any other file: contract, constraints, toolkit, task.
+    If a file cannot be written blind from this template, it is too coupled.
+    """
+    import ast as _ast
+
+    path = _find_file(stem, root)
+    if path is None:
+        return f'INTENT: {intent_text}\n\nERROR: file not found for stem {stem}'
+
+    source = path.read_text('utf-8', errors='replace')
+    lines = source.splitlines()
+
+    # ── Pulse header (first block — the file's identity card) ──────────────
+    pulse_lines = [l for l in lines[:25] if l.startswith('#')]
+    pulse_header = '\n'.join(pulse_lines) if pulse_lines else lines[:20] and '\n'.join(lines[:20])
+
+    # ── Registry entry: tokens, bugs, version ──────────────────────────────
+    reg_entry: dict = {}
+    try:
+        reg_path = root / 'pigeon_registry.json'
+        if reg_path.exists():
+            registry = json.loads(reg_path.read_text('utf-8', errors='ignore'))
+            for _path, _entry in registry.items():
+                if stem in Path(_path).stem:
+                    reg_entry = _entry
+                    break
+    except Exception:
+        pass
+
+    token_count = reg_entry.get('tokens', len(source) // 4)
+    bug_codes = reg_entry.get('bug_keys', [])
+    version = reg_entry.get('ver', '?')
+
+    # ── Importers: who calls this file (these exports must not be renamed) ──
+    importers: list[str] = []
+    exported_names: list[str] = []
+    try:
+        # find exported names via AST (top-level defs/classes not prefixed with _)
+        tree = _ast.parse(source)
+        exported_names = [
+            n.name for n in _ast.walk(tree)
+            if isinstance(n, (_ast.FunctionDef, _ast.AsyncFunctionDef, _ast.ClassDef))
+            and not n.name.startswith('_')
+        ]
+        # find who imports this stem from the registry
+        reg_path2 = root / 'pigeon_registry.json'
+        if reg_path2.exists():
+            registry2 = json.loads(reg_path2.read_text('utf-8', errors='ignore'))
+            for _path2, _entry2 in registry2.items():
+                if stem in str(_entry2.get('imports', [])):
+                    importers.append(Path(_path2).stem)
+        # fallback: grep src/ for imports of the stem
+        if not importers:
+            for py in (root / 'src').glob('*.py'):
+                if py.stem == stem:
+                    continue
+                try:
+                    txt = py.read_text('utf-8', errors='ignore')
+                    if stem in txt:
+                        importers.append(py.stem)
+                except Exception:
+                    pass
+    except Exception:
+        pass
+
+    # ── Dependencies: what this file loads ─────────────────────────────────
+    deps: list[str] = []
+    try:
+        tree2 = _ast.parse(source)
+        for node in _ast.walk(tree2):
+            if isinstance(node, _ast.Import):
+                for alias in node.names:
+                    deps.append(alias.name.split('.')[0])
+            elif isinstance(node, _ast.ImportFrom):
+                if node.module:
+                    deps.append(node.module.split('.')[0])
+        deps = sorted(set(deps) - {'__future__', 'json', 'os', 're', 'sys',
+                                    'time', 'pathlib', 'datetime', 'threading',
+                                    'subprocess', 'shutil', 'tempfile'})[:12]
+    except Exception:
+        pass
+
+    # ── Split lineage ───────────────────────────────────────────────────────
+    lineage_section = ''
+    try:
+        split_log = root / 'logs' / 'split_events.jsonl'
+        if split_log.exists():
+            lin_map: dict = {}
+            for _ln in split_log.read_text('utf-8', errors='ignore').strip().splitlines():
+                try:
+                    _ev = json.loads(_ln)
+                    for _ch in _ev.get('child_stems', []):
+                        lin_map[_ch] = {
+                            'parent': _ev.get('parent_stem', ''),
+                            'siblings': [s for s in _ev.get('child_stems', []) if s != _ch],
+                        }
+                except Exception:
+                    pass
+            if stem in lin_map:
+                _l = lin_map[stem]
+                lineage_section = (
+                    f"\nSPLIT LINEAGE\n"
+                    f"  born from:  {_l['parent']}\n"
+                    f"  siblings:   {', '.join(_l['siblings'][:4]) or 'none'}\n"
+                    f"  rule:       do NOT duplicate logic owned by siblings"
+                )
+    except Exception:
+        pass
+
+    # ── MANIFEST chain: last 3 entries nearest this file ───────────────────
+    manifest_section = ''
+    try:
+        manifest = root / 'MANIFEST.md'
+        if manifest.exists():
+            mlines = manifest.read_text('utf-8', errors='ignore').splitlines()
+            relevant = [l for l in mlines if stem in l or path.parent.name in l][:3]
+            if relevant:
+                manifest_section = '\nMANIFEST CHAIN (last relevant entries):\n' + '\n'.join(f'  {l}' for l in relevant)
+    except Exception:
+        pass
+
+    # ── Rework history: last 2 edit_why for this stem ──────────────────────
+    rework_section = ''
+    try:
+        rw_path = root / 'rework_log.json'
+        if rw_path.exists():
+            rw = json.loads(rw_path.read_text('utf-8', errors='ignore'))
+            # rework_log can be list or dict
+            entries = rw if isinstance(rw, list) else rw.get(stem, [])
+            if isinstance(rw, dict):
+                entries = []
+                for k, v in rw.items():
+                    if stem in k:
+                        entries = v if isinstance(v, list) else [v]
+                        break
+            recent = entries[-2:] if entries else []
+            if recent:
+                rework_section = '\nREWORK HISTORY:\n' + '\n'.join(
+                    f"  {e.get('edit_why', str(e))}" for e in recent
+                )
+    except Exception:
+        pass
+
+    # ── Sim winner: what the sim said to do ────────────────────────────────
+    sim_section = ''
+    try:
+        sim_log = root / 'logs' / 'tc_sim_results.jsonl'
+        if sim_log.exists():
+            sim_lines = sim_log.read_text('utf-8', errors='ignore').strip().splitlines()
+            # find latest entry where this stem appears in top_files or action
+            for _sl in reversed(sim_lines[-50:]):
+                try:
+                    _se = json.loads(_sl)
+                    if stem in str(_se.get('top_files', '')) or stem in str(_se.get('action', '')):
+                        sim_section = (
+                            f"\nSIM WINNER: {_se.get('sim_name','?')} (conf={_se.get('confidence',0):.2f})\n"
+                            f"  action: {str(_se.get('action', ''))[:200]}"
+                        )
+                        break
+                except Exception:
+                    pass
+    except Exception:
+        pass
+
+    # ── Grade context ───────────────────────────────────────────────────────
+    grade_section = ''
+    if grade_result:
+        grade_section = (
+            f"\nGRADE: {grade_result.get('confidence', 0):.2f} | "
+            f"REASON: {grade_result.get('reason', '')[:120]}"
+        )
+
+    # ── Assemble the template ───────────────────────────────────────────────
+    importer_lines = '\n'.join(
+        f'  {imp}: uses [{", ".join(exported_names[:8])}]' for imp in importers[:6]
+    ) or '  (none found — you may safely refactor internal names)'
+
+    return f"""═══════════════════════════════════════════════════════
+TASK: {intent_text[:400]}
+{grade_section}
+═══════════════════════════════════════════════════════
+
+TARGET FILE
+  path:        {path.relative_to(root)}
+  stem:        {stem}
+  version:     v{version} → write v{int(version)+1 if str(version).isdigit() else version}+1
+  tokens:      {token_count} / 2000 cap
+  bug codes:   {', '.join(bug_codes) if bug_codes else 'none'}
+
+PULSE HEADER (maintain this format — update EDIT_TS, EDIT_WHY, VER)
+{pulse_header}
+
+IMPORTERS (these symbols must not be renamed or removed)
+{importer_lines}
+
+DEPENDENCIES (available via dynamic loader)
+  {', '.join(deps) if deps else 'standard library only'}
+{lineage_section}
+{manifest_section}
+{rework_section}
+{sim_section}
+
+FULL SOURCE (write a complete new version below — nothing else)
+```python
+{source}
+```"""
 
 
 def overwrite_file(
@@ -319,21 +624,14 @@ def overwrite_file(
         return out
 
     original = path.read_text('utf-8', errors='replace')
-    grade_reason = (grade_result or {}).get('reason', '')
     confidence = (grade_result or {}).get('confidence', 0.0)
 
-    user_prompt = (
-        f'INTENT: {intent_text[:400]}\n\n'
-        f'GRADE REASON: {grade_reason}\n\n'
-        f'FILE PATH: {path.relative_to(root)}\n\n'
-        f'FILE SOURCE (full):\n```python\n{original}\n```\n\n'
-        f'Output search-replace blocks for the minimal change that fulfils the intent.'
-    )
+    user_prompt = _build_overwrite_context(stem, intent_text, root, grade_result)
 
     print(f'  [overwriter] calling DeepSeek for {stem} (conf={confidence:.2f})…')
     t0 = time.perf_counter()
     try:
-        raw = _call_deepseek(_PATCH_SYSTEM, user_prompt, api_key)
+        raw = _call_deepseek(_FULL_OVERWRITE_SYSTEM, user_prompt, api_key)
     except Exception as e:
         out['error'] = f'DeepSeek call failed: {e}'
         _log_overwrite(stem, intent_text, dry_run=dry_run, success=False,
@@ -342,27 +640,30 @@ def overwrite_file(
     elapsed = time.perf_counter() - t0
     print(f'  [overwriter] DeepSeek responded in {elapsed:.1f}s')
 
-    # Parse surgical blocks — if NO_CHANGES or empty, nothing to do
-    if raw.strip().upper().startswith('NO_CHANGES') or not raw.strip():
+    # Handle sentinel responses
+    first_line = raw.strip().splitlines()[0].upper() if raw.strip() else ''
+    if first_line.startswith('NO_CHANGES'):
         out['diff'] = 'no changes needed'
-        out['error'] = ''
         print(f'  [overwriter] {stem}: DeepSeek says no changes needed')
         return out
-
-    blocks = _parse_search_replace_blocks(raw)
-    if not blocks:
-        out['error'] = f'no search-replace blocks found in response — raw: {raw[:120]}'
+    if first_line.startswith('SPLIT_NEEDED'):
+        out['error'] = f'{stem}: DeepSeek flagged SPLIT_NEEDED — file is overcap, pigeon should split'
+        print(f'  [overwriter] ✗ {stem}: SPLIT_NEEDED — skipping write')
         return out
 
-    patched, apply_errors = _apply_search_replace(original, blocks)
-    if apply_errors:
-        out['error'] = '; '.join(apply_errors)
-        # partial apply is fine — report errors but continue if patched differs
-        if patched == original:
-            return out
+    # Strip markdown fences if DeepSeek wrapped the output
+    patched = raw.strip()
+    if patched.startswith('```'):
+        patched = re.sub(r'^```[a-zA-Z]*\n?', '', patched)
+        patched = re.sub(r'\n?```$', '', patched)
+        patched = patched.strip()
 
-    if patched == original:
-        out['diff'] = 'no changes (blocks matched but no diff)'
+    if not patched:
+        out['error'] = f'empty response from DeepSeek'
+        return out
+
+    if patched == original.strip():
+        out['diff'] = 'no changes (identical output)'
         return out
 
     diff = _make_diff(original, patched)
@@ -400,10 +701,24 @@ def overwrite_file(
     else:
         out['applied'] = True
         print(f'  [overwriter] ✓ applied {path.name} | {diff} | test: {reg["test_file"]}')
+        # ── Post-patch code grader ────────────────────────────────────────────
+        # Grader fires AFTER DeepSeek assembles + regression passes.
+        # Each file is graded independently on its own code quality.
+        # This is the execution-quality gate — not the pre-sim intent gate.
+        post_grade = _run_post_patch_grader(
+            stem, intent_text, diff, patched, api_key, root)
+        out['post_patch_grade'] = post_grade
+        if post_grade.get('verdict') == 'reject':
+            # Grader recommends rollback — restore from backup
+            shutil.copy2(bak_path, path)
+            out['applied'] = False
+            out['error'] = (f'post-patch grader rejected: {post_grade.get("issues","")[:120]}')
+            print(f'  [overwriter] ✗ {stem}: post-grade REJECT → restored')
 
     _log_overwrite(stem, intent_text, dry_run=False, success=out['applied'],
                    error=out['error'], diff=diff,
-                   backup_path=str(bak_path), regression=reg, root=root)
+                   backup_path=str(bak_path), regression=reg,
+                   post_grade=out.get('post_patch_grade', {}), root=root)
     _update_cortex(stem, root,
                    fix='file_overwriter',
                    success=out['applied'],
@@ -413,8 +728,10 @@ def overwrite_file(
 
 def _log_overwrite(stem: str, intent: str, dry_run: bool, success: bool,
                    error: str, diff: str, backup_path: str,
-                   regression: dict, root: Path) -> None:
+                   regression: dict, root: Path,
+                   post_grade: dict | None = None) -> None:
     OVERWRITE_LOG.parent.mkdir(parents=True, exist_ok=True)
+    pg = post_grade or {}
     entry = {
         'ts': datetime.now(timezone.utc).isoformat(),
         'stem': stem,
@@ -427,6 +744,11 @@ def _log_overwrite(stem: str, intent: str, dry_run: bool, success: bool,
         'regression_passed': regression.get('passed', None),
         'regression_test': regression.get('test_file', ''),
         'regression_error': regression.get('error', ''),
+        # Post-patch code grade (grader fires after DeepSeek assembles, not before)
+        'post_grade': pg.get('code_grade'),
+        'post_grade_verdict': pg.get('verdict', ''),
+        'post_grade_correct': pg.get('correct'),
+        'post_grade_issues': pg.get('issues', ''),
     }
     with open(OVERWRITE_LOG, 'a', encoding='utf-8') as f:
         f.write(json.dumps(entry, ensure_ascii=False) + '\n')

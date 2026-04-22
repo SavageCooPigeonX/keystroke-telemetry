@@ -46,6 +46,7 @@
       "tokens": 4116,
       "desc": "micro_sim_engine_prompt_file",
       "edges_out": [
+        "tc_context_agent",
         "intent_numeric"
       ],
       "edges_in": [
@@ -113,6 +114,7 @@
         "tc_gemini"
       ],
       "edges_in": [
+        "file_sim",
         "tc_gemini",
         "tc_sim_engine",
         "tc_10q"
@@ -128,6 +130,7 @@
       "desc": "gemini_api_call_system_prompt",
       "edges_out": [
         "tc_context_agent",
+        "tc_sim",
         "intent_numeric",
         "tc_observatory"
       ],
@@ -213,6 +216,7 @@
         "tc_sim_engine"
       ],
       "edges_in": [
+        "tc_gemini",
         "tc_popup"
       ],
       "heat": 0.0,
@@ -360,6 +364,11 @@
   },
   "edges": [
     {
+      "from": "file_sim",
+      "to": "tc_context_agent",
+      "type": "import"
+    },
+    {
       "from": "tc_context_agent",
       "to": "intent_numeric",
       "type": "import"
@@ -367,6 +376,11 @@
     {
       "from": "tc_gemini",
       "to": "tc_context_agent",
+      "type": "import"
+    },
+    {
+      "from": "tc_gemini",
+      "to": "tc_sim",
       "type": "import"
     },
     {
