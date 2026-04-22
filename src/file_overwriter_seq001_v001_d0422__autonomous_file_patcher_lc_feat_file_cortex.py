@@ -38,6 +38,8 @@ import json
 import os
 import re
 import shutil
+import subprocess
+import sys
 import tempfile
 import time
 import urllib.request as _ur
@@ -203,6 +205,64 @@ def _atomic_write(path: Path, content: str) -> None:
     tmp.rename(path)
 
 
+def _run_regression(stem: str, path: Path, bak_path: Path, root: Path) -> dict:
+    """Run post-patch regression: py_compile syntax check, then matching test file.
+    Restores backup if either step fails.
+    Returns {passed, failed, error, test_file}.
+    """
+    out = {'passed': False, 'failed': False, 'error': '', 'test_file': ''}
+
+    # 1. Syntax check
+    r = subprocess.run(
+        [sys.executable, '-m', 'py_compile', str(path)],
+        capture_output=True, text=True, timeout=10,
+    )
+    if r.returncode != 0:
+        shutil.copy2(bak_path, path)
+        out['failed'] = True
+        out['error'] = f'syntax: {(r.stderr or r.stdout)[:200]}'
+        print(f'  [regression] ✗ syntax failed for {stem} — restored')
+        return out
+
+    # 2. Find matching test file in tests/interlink/
+    test_dir = root / 'tests' / 'interlink'
+    stem_short = stem.split('_seq')[0]  # e.g. tc_gemini
+    test_file: Path | None = None
+    for pattern in (
+        f'test_{stem}.py',
+        f'test_{stem_short}.py',
+        f'test_{stem_short}_seq*.py',
+    ):
+        hits = sorted(test_dir.glob(pattern))
+        if hits:
+            test_file = hits[-1]  # newest version
+            break
+
+    if test_file is None:
+        # No test file — syntax passed, that's the full check
+        out['passed'] = True
+        out['test_file'] = 'none (no matching test)'
+        print(f'  [regression] ✓ syntax OK, no test file for {stem}')
+        return out
+
+    out['test_file'] = test_file.name
+    r = subprocess.run(
+        [sys.executable, str(test_file)],
+        capture_output=True, text=True, timeout=30, cwd=str(root),
+    )
+    if r.returncode != 0:
+        shutil.copy2(bak_path, path)
+        out['failed'] = True
+        snippet = (r.stdout + r.stderr)[:300]
+        out['error'] = f'test {test_file.name}: {snippet}'
+        print(f'  [regression] ✗ test failed for {stem} — restored')
+        return out
+
+    out['passed'] = True
+    print(f'  [regression] ✓ {test_file.name} passed for {stem}')
+    return out
+
+
 def _update_cortex(stem: str, root: Path, fix: str, success: bool, trigger: str) -> None:
     """Fire update_file_cortex without hard-importing file_sim (avoids circular)."""
     try:
@@ -245,7 +305,8 @@ def overwrite_file(
     """
     root = root or ROOT
     out: dict = {'applied': False, 'diff': '', 'error': '',
-                 'backup_path': '', 'patched_preview': '', 'dry_run': dry_run}
+                 'backup_path': '', 'patched_preview': '', 'dry_run': dry_run,
+                 'regression': {}}
 
     api_key = _load_deepseek_key(root)
     if not api_key:
@@ -312,7 +373,7 @@ def overwrite_file(
         print(f'  [overwriter] DRY RUN — would apply: {diff}')
         out['dry_run'] = True
         _log_overwrite(stem, intent_text, dry_run=True, success=False,
-                       error='', diff=diff, backup_path='', root=root)
+                       error='', diff=diff, backup_path='', regression={}, root=root)
         return out
 
     # Live write — backup first
@@ -320,17 +381,29 @@ def overwrite_file(
     out['backup_path'] = str(bak_path)
     try:
         _atomic_write(path, patched)
-        out['applied'] = True
-        print(f'  [overwriter] ✓ applied to {path.name} | {diff} | backup: {bak_path.name}')
     except Exception as e:
-        # Restore from backup on failure
         shutil.copy2(bak_path, path)
         out['error'] = f'write failed (restored): {e}'
+        _log_overwrite(stem, intent_text, dry_run=False, success=False,
+                       error=out['error'], diff=diff,
+                       backup_path=str(bak_path), regression={}, root=root)
+        return out
+
+    # Regression TDD — syntax check + matching test file
+    reg = _run_regression(stem, path, bak_path, root)
+    out['regression'] = reg
+    if reg['failed']:
+        # backup already restored by _run_regression
         out['applied'] = False
+        out['error'] = f'regression failed — restored: {reg["error"][:120]}'
+        print(f'  [overwriter] ✗ {stem}: regression rolled back patch')
+    else:
+        out['applied'] = True
+        print(f'  [overwriter] ✓ applied {path.name} | {diff} | test: {reg["test_file"]}')
 
     _log_overwrite(stem, intent_text, dry_run=False, success=out['applied'],
                    error=out['error'], diff=diff,
-                   backup_path=str(bak_path), root=root)
+                   backup_path=str(bak_path), regression=reg, root=root)
     _update_cortex(stem, root,
                    fix='file_overwriter',
                    success=out['applied'],
@@ -339,7 +412,8 @@ def overwrite_file(
 
 
 def _log_overwrite(stem: str, intent: str, dry_run: bool, success: bool,
-                   error: str, diff: str, backup_path: str, root: Path) -> None:
+                   error: str, diff: str, backup_path: str,
+                   regression: dict, root: Path) -> None:
     OVERWRITE_LOG.parent.mkdir(parents=True, exist_ok=True)
     entry = {
         'ts': datetime.now(timezone.utc).isoformat(),
@@ -350,6 +424,9 @@ def _log_overwrite(stem: str, intent: str, dry_run: bool, success: bool,
         'diff': diff,
         'backup_path': backup_path,
         'error': error,
+        'regression_passed': regression.get('passed', None),
+        'regression_test': regression.get('test_file', ''),
+        'regression_error': regression.get('error', ''),
     }
     with open(OVERWRITE_LOG, 'a', encoding='utf-8') as f:
         f.write(json.dumps(entry, ensure_ascii=False) + '\n')

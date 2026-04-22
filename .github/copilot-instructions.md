@@ -7,20 +7,20 @@ Auto-injected into every Copilot session for this repo. Read this before touchin
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-21 23:43 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-22 00:36 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 28min old (max 10min)
+- **`current-query`**: STALE — 81min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-21 23:15
 
-- **`prompt-telemetry`**: STALE — 28min old (max 10min)
+- **`prompt-telemetry`**: STALE — 81min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-21T23:15:38
 
-- **`learning-loop`**: BEHIND — 287 unprocessed entries, last ran 224h ago
+- **`learning-loop`**: BEHIND — 288 unprocessed entries, last ran 225h ago
   - Writer: `git_plugin → catch_up (post-commit)`
   - Last updated: 2026-04-12T15:20:45.419937+00:00
 
@@ -133,12 +133,12 @@ OPERATOR SIGNAL: The "yes" confirms agreement with the previous prompt's focus o
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-21 23:43 UTC · 688 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-22 00:36 UTC · 694 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 41.5 | Del: 26.5% | Hes: 0.462) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 49.9 | Del: 26.5% | Hes: 0.495) · *[source: measured]*
 
-**Prompt ms:** 105668, 64719, 125170 (avg 98519ms)
+**Prompt ms:** 105668, 64719, 125170, 85224 (avg 95195ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
@@ -149,10 +149,10 @@ OPERATOR SIGNAL: The "yes" confirms agreement with the previous prompt's focus o
 - Failed on: ""
 
 ### Recent Work
+- `3f2ffa8` feat: file overwriter (surgical search-replace) + GRADES tab + file cortex + _trigger_overwriter_async
 - `045f718` fix: self-heal broken imports - scanner + auto_fix_broken_imports + 88 healed
 - `84b73b5` fix: copilot prompt assembly - doubled _seq001_v001 module imports
 - `f9a3310` feat: operator_state_daemon + decouple capture from LLM trigger
-- `61d32a8` feat: interlink self-debug loop + 10Q test framework + rename-resistant test gen
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*

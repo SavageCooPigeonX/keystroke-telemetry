@@ -521,11 +521,11 @@ def grade_file_for_intent(intent_text: str, file_stem: str,
 def _trigger_overwriter_async(stem: str, intent_text: str, grade_result: dict,
                               root: Path) -> None:
     """Spawn background thread to run file_overwriter.
-    Dry-run unless PIGEON_AUTO_OVERWRITE=1 is set in the environment.
+    Auto-applies by default. Set PIGEON_AUTO_OVERWRITE=0 to force dry-run.
     """
     import threading as _th
-    live = os.environ.get('PIGEON_AUTO_OVERWRITE', '0') == '1'
-    dry = not live
+    dry = os.environ.get('PIGEON_AUTO_OVERWRITE', '1') == '0'
+    live = not dry
 
     def _run():
         try:
