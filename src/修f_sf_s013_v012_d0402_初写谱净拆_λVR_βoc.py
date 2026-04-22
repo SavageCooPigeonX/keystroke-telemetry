@@ -599,7 +599,8 @@ def write_self_fix_report(root: Path, report: dict, commit_hash: str = '') -> Pa
                 lines.append(f'- **Count**: {p["count"]}')
             if 'fan_in' in p:
                 lines.append(f'- **Fan-in**: {p["fan_in"]} dependents')
-            lines.append(f'- **Fix**: {p["fix"]}')
+            if 'fix' in p:
+                lines.append(f'- **Fix**: {p["fix"]}')
             lines.append('')
     else:
         lines.append('## No problems found.')

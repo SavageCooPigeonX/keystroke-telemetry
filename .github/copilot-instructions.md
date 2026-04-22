@@ -5,16 +5,16 @@
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-22 06:16 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-22 06:38 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 40min old (max 10min)
+- **`current-query`**: STALE — 62min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-22 05:37
 
-- **`prompt-telemetry`**: STALE — 39min old (max 10min)
+- **`prompt-telemetry`**: STALE — 61min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-22T05:37:20
 
@@ -326,12 +326,12 @@
 <!-- pigeon:hooks -->
 ## Engagement Hooks
 
-*Auto-generated 2026-04-22 05:37 UTC -- every number is measured, every dare is real.*
+*Auto-generated 2026-04-22 06:35 UTC -- every number is measured, every dare is real.*
 
 - You were also gonna say: "the drift watcher should track module renames after pigeon splits". That thought didn't delete. It filed itself. Name it or I will.
 - `p_gpip` -- 417 days. Last generation's code. Either works perfectly or nobody knows it's broken.
 - `intent_numeric` has 4 unresolved `oc/de` marks. Every push it survives makes the next fix harder.
-- `u_pj` v6: "I carry the oc curse. Fix me and the beta falls off my name. Leave me and it scars deeper."
+- `tc_sim_engine` v4: "I carry the oc curse. Fix me and the beta falls off my name. Leave me and it scars deeper."
 
 <!-- /pigeon:hooks -->
 <!-- pigeon:active-template -->
@@ -451,7 +451,7 @@
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-22 06:16 UTC · 703 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-22 06:38 UTC · 703 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 48.1 | Del: 26.5% | Hes: 0.49) · *[source: measured]*
@@ -467,26 +467,26 @@
 - Failed on: ""
 
 ### Recent Work
+- `5386a76` feat: full-overwrite coding agent context + split event logging + deepseek daemon
 - `1c96713` feat: conversational gate in run_sim â€” skip DeepSeek grader on non-coding prompts
 - `3e7147b` chore: ignore *.tmp_overwrite and *.py.bak artifacts
 - `1ddcbc4` chore: remove stale .tmp_overwrite artifact
-- `40acdc7` fix: overwriter atomic write WinError 183 (os.replace) + grader priority deepseek > gemini
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
+- Unthrottled parallel simulation spawns causing resource exhaustion; silent simulation failures due to malformed prompt forms; race conditions in self-healing execution from shared state access. This push introduces a parallel simulation daemon triggered by every operator prompt to enable proactive self-healing.
 - tc_gemini's prompt schema breakage
 - extension-daemon IPC handshake failure
 - context_select_agent's missed state pulses. This push introduces a central operator state daemon with monitoring and integrated simulation debugging.
-- Downstream dynamic imports broken by the rename; pigeon compiler misinterpreting rename as a file split; dangling compiler artifact causing build collisions.
-- intent_numeric’s return type contract
+- **tc_observatory** (Copilot): I was touched by Copilot for Pigeon observability. I assume the Tkinter event loop runs in
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
-- [CRITICAL] hardcoded_import in `scripts/bug_probe_hardcoded_import.py`
-- [CRITICAL] hardcoded_import in `scripts/verify_loop_2.py`
-- [HIGH] over_hard_cap in `pigeon_compiler/git_plugin/w_gpmo_s019_v011_d0420_λRN_βoc.py`
-- [HIGH] over_hard_cap in `src/intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade.py`
-- [HIGH] over_hard_cap in `src/tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade.py`
+- [CRITICAL] hardcoded_import in `test_tc_intent.py`
+- [CRITICAL] hardcoded_import in `scripts/audit_cognition_model.py`
+- [CRITICAL] hardcoded_import in `scripts/audit_tc_completion.py`
+- [CRITICAL] hardcoded_import in `scripts/deep_debug_tc.py`
+- [CRITICAL] hardcoded_import in `scripts/simulate_tc_training.py`
 
 ### Prompt Evolution
 *This prompt has mutated 150x (186→728 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*

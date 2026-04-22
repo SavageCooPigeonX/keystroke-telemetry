@@ -258,6 +258,29 @@ def _composition_key(comp: dict) -> str:
     return '|'.join(parts)
 
 
+# Part weights: event_hash(0), first_key_ts(1), last_key_ts(2), ts(3),
+#               total_keystrokes(4), duration_ms(5), final_text(6)
+_KEY_PART_WEIGHTS = [0.35, 0.15, 0.15, 0.05, 0.15, 0.10, 0.05]
+
+
+def _key_stability(key: str | None) -> float:
+    """Return 0.0-1.0 score for how reliably a composition key identifies its source.
+    A degenerate key like '|||ts||0|text' scores < 0.15 (only ts + text fields).
+    A key with event_hash + timing + keystrokes scores >= 0.65 (stable).
+    Threshold for 'stable': >= 0.40.
+    """
+    if not key:
+        return 0.0
+    parts = key.split('|')
+    if len(parts) != 7:
+        return 0.0
+    return round(
+        sum(w for part, w in zip(parts, _KEY_PART_WEIGHTS)
+            if part and part not in ('0', 'None', '')),
+        3,
+    )
+
+
 def _dedup_uia_chars(value: str) -> str:
     """Collapse UIA poll-artifact char tripling: 'fffrroroomm' -> 'from'.
     Uses aggressive consecutive-run collapse + a second pass to handle
@@ -924,15 +947,19 @@ def log_enriched_entry(root: Path, msg: str, files_open: list[str],
                 osd_comp.get('ts', now.isoformat()).replace('Z', '+00:00')
             ).timestamp() * 1000)),
             'key': None,
+            'key_stable': False,  # osd path has no composition key
             'match_score': 1.0,
         }
 
     if comp_match and comp:
+        _bkey = comp_match['key']
         binding = {
             'matched': True,
             'source': comp_match['source'],
             'age_ms': comp_match['age_ms'],
-            'key': comp_match['key'],
+            'key': _bkey,
+            'key_stable': _key_stability(_bkey) >= 0.40,
+            'key_quality': _key_stability(_bkey),
             'match_score': round(comp_match['match_score'], 3),
         }
         cs = comp.get('chat_state', comp.get('signals', {}))
