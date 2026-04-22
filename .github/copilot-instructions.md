@@ -451,9 +451,9 @@
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-22 06:38 UTC · 703 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-22 16:11 UTC · 703 messages profiled · 8 recent commits*
 
-**Current focus:** debugging / fixing
+**Current focus:** building new features
 **Cognitive state:** `abandoned` (WPM: 48.1 | Del: 26.5% | Hes: 0.49) · *[source: measured]*
 
 **Prompt ms:** 89900, 247012, 140885, 103195 (avg 145248ms)
@@ -467,10 +467,10 @@
 - Failed on: ""
 
 ### Recent Work
+- `f54db83` feat: stable journal alias validation + key_stability scorer + audit registry
 - `5386a76` feat: full-overwrite coding agent context + split event logging + deepseek daemon
 - `1c96713` feat: conversational gate in run_sim â€” skip DeepSeek grader on non-coding prompts
 - `3e7147b` chore: ignore *.tmp_overwrite and *.py.bak artifacts
-- `1ddcbc4` chore: remove stale .tmp_overwrite artifact
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -478,7 +478,6 @@
 - tc_gemini's prompt schema breakage
 - extension-daemon IPC handshake failure
 - context_select_agent's missed state pulses. This push introduces a central operator state daemon with monitoring and integrated simulation debugging.
-- **tc_observatory** (Copilot): I was touched by Copilot for Pigeon observability. I assume the Tkinter event loop runs in
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
