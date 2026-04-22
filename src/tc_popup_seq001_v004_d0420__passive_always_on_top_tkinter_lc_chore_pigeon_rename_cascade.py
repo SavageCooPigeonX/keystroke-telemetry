@@ -94,6 +94,12 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
             self._baseline_samples: list[str] = []
             self._baseline_end_ts: float = 0.0
             self._baseline_duration = 45  # seconds to listen
+            # ── deletion tracking (for high-deletion sim trigger) ────────
+            self._del_buf_history: list[tuple[float, int]] = []  # (ts, buf_len)
+            self._del_sim_cooldown_ts: float = 0.0  # prevent spam
+            self._DEL_SIM_THRESHOLD = 0.5   # 50%+ buffer shrink in window
+            self._DEL_SIM_WINDOW_S  = 4.0   # measurement window (seconds)
+            self._DEL_SIM_COOLDOWN  = 10.0  # min seconds between del-triggered sims
 
             self._build_ui()
             self._bind_keys()
@@ -244,6 +250,43 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
                 self._reward()
                 self.root.after(POLL_INTERVAL_MS, self._poll_tick)
                 return
+
+            # ── High-deletion sim trigger ──────────────────────────────
+            # Track buffer length over time. When buffer shrinks ≥50% in
+            # _DEL_SIM_WINDOW_S seconds, the operator is mass-deleting —
+            # fire sim to capture their reformulated intent.
+            cur_len = len(buf) if buf else len(self._last_nonempty_buf)
+            self._del_buf_history.append((now, cur_len))
+            # Prune entries older than the window
+            cutoff = now - self._DEL_SIM_WINDOW_S
+            self._del_buf_history = [(t, l) for t, l in self._del_buf_history if t >= cutoff]
+            if len(self._del_buf_history) >= 2:
+                oldest_len = self._del_buf_history[0][1]
+                newest_len = self._del_buf_history[-1][1]
+                if (oldest_len > 20 and newest_len < oldest_len * (1 - self._DEL_SIM_THRESHOLD)
+                        and now - self._del_sim_cooldown_ts > self._DEL_SIM_COOLDOWN
+                        and not getattr(self, '_sim_running', False)):
+                    sim_buf = self._last_nonempty_buf
+                    if sim_buf and len(sim_buf) >= 6:
+                        del_pct = int((1 - newest_len / oldest_len) * 100)
+                        print(f'[del-sim] {del_pct}% deletion in {self._DEL_SIM_WINDOW_S:.0f}s → sim')
+                        self._del_sim_cooldown_ts = now
+                        self._del_buf_history.clear()
+                        self.status_lbl.config(text=f'⚡ {del_pct}% deleted → sim…', fg='#f0c040')
+                        def _do_del_sim(b=sim_buf):
+                            try:
+                                results, winner = run_sim_all(b)
+                                if winner:
+                                    self.root.after(0, lambda w=winner: self.status_lbl.config(
+                                        text=f'⚡ del-sim: {w.name} ({w.score:.2f})', fg=GREEN))
+                                    print(f'[del-sim] winner={winner.name} score={winner.score:.2f}')
+                                else:
+                                    self.root.after(0, lambda: self.status_lbl.config(
+                                        text='⚡ del-sim done', fg=DIM))
+                            except Exception as _de:
+                                print(f'[del-sim] error: {_de}')
+                        threading.Thread(target=_do_del_sim, daemon=True).start()
+            # ── /High-deletion sim trigger ─────────────────────────────
 
             # Fire sim on Enter/submit — log result to tc_sim_results.jsonl
             if changed and self.watcher.last_event_type == 'submit':

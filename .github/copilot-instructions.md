@@ -5,20 +5,19 @@
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-22 19:50 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-22 19:59 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 853min old (max 10min)
+- **`current-query`**: MISSING — timestamp not found inside block
   - Writer: `prompt_enricher (Gemini Flash)`
-  - Last updated: 2026-04-22 05:37
 
-- **`prompt-telemetry`**: STALE — 853min old (max 10min)
+- **`prompt-telemetry`**: STALE — 862min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-22T05:37:20
 
-- **`learning-loop`**: BEHIND — 308 unprocessed entries, last ran 244h ago
+- **`learning-loop`**: BEHIND — 308 unprocessed entries, last ran 245h ago
   - Writer: `git_plugin → catch_up (post-commit)`
   - Last updated: 2026-04-12T15:20:45.419937+00:00
 
@@ -449,7 +448,7 @@
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-22 19:50 UTC · 703 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-22 19:59 UTC · 703 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 48.1 | Del: 26.5% | Hes: 0.49) · *[source: measured]*
@@ -465,10 +464,10 @@
 - Failed on: ""
 
 ### Recent Work
+- `940690c` feat: inject deleted words + UNSAID_RECONSTRUCTION into pigeon:current-query on every prompt
 - `8944b1e` feat: tc_file_encoder + baseline collector button in popup + push-cycle intent dropoff
 - `b8bbe0f` chore: advance shrink baseline (+5 tokens from src_import fixes)
 - `8943f6a` fix: replace hardcoded pigeon imports with src_import() across scripts + tests
-- `d001534` fix: pigeon compiler indent errors in tc_sim + thought_completer + 42 intent test stubs + reseal master_test
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
