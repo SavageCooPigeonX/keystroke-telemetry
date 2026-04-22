@@ -55,11 +55,85 @@ _BLOCK_RE = re.compile(
 )
 
 
+def _normalize_raw_deleted(raw: str) -> str:
+    """Best-effort decode of interleaved keydown/keyup chars from keystroke hook.
+
+    The hook fires on both keydown and keyup, producing interleaved pairs.
+    We collapse consecutive repeated characters as a heuristic approximation.
+    """
+    import re as _re
+    s = raw.strip()
+    if not s:
+        return ''
+    # Collapse runs of 2+ identical adjacent chars to 1
+    cleaned = _re.sub(r'(.)\1+', r'\1', s)
+    # Remove isolated digits (keyboard noise)
+    cleaned = _re.sub(r'\b\d+\b', '', cleaned)
+    cleaned = _re.sub(r'\s+', ' ', cleaned).strip()
+    return cleaned
+
+
+def _load_latest_unsaid(root: Path) -> tuple[str, str]:
+    """Read the most recent composition + unsaid entry.
+
+    Returns (deleted_summary, reconstructed_intent):
+      - deleted_summary: human-readable description of what was removed
+        (derived from peak_buffer vs final_text, not the garbled raw chars)
+      - reconstructed_intent: LLM interpretation of the deleted signal
+    """
+    recon_path = root / 'logs' / 'unsaid_reconstructions.jsonl'
+    comp_path  = root / 'logs' / 'chat_compositions.jsonl'
+    recon_intent = ''
+    deleted_summary = ''
+
+    # Get LLM-reconstructed intent from unsaid log
+    if recon_path.exists():
+        try:
+            lines = recon_path.read_text('utf-8', errors='ignore').strip().splitlines()
+            if lines:
+                entry = json.loads(lines[-1])
+                recon_intent = (entry.get('reconstructed_intent', '')
+                                or entry.get('thought_completion', '')).strip()
+        except Exception:
+            pass
+
+    # Get deleted summary from composition: peak_buffer had MORE text than final
+    # The difference shows what the operator originally typed then removed
+    if comp_path.exists():
+        try:
+            lines = comp_path.read_text('utf-8', errors='ignore').strip().splitlines()
+            # Find most recent entry with actual deletions
+            for line in reversed(lines[-20:]):
+                try:
+                    entry = json.loads(line)
+                    raw_words = entry.get('intent_deleted_words') or entry.get('deleted_words', [])
+                    if not raw_words:
+                        continue
+                    n_deleted = len(raw_words)
+                    del_ratio = entry.get('intent_deletion_ratio', entry.get('deletion_ratio', 0))
+                    total_chars = entry.get('total_keystrokes', 0)
+                    # Show count + ratio as the summary (raw chars are undecodable)
+                    if n_deleted > 0:
+                        deleted_summary = (
+                            f'{n_deleted} intentional deletion(s) '
+                            f'({del_ratio:.0%} of keystrokes)'
+                        )
+                    break
+                except Exception:
+                    continue
+        except Exception:
+            pass
+
+    return deleted_summary, recon_intent
+
+
 def compile_intent(msg: str, deleted_words: list, rewrites: list) -> str:
     """Build augmented intent string from msg + deleted signal."""
     parts = [msg]
     if deleted_words:
-        parts.append(' '.join(str(w) for w in deleted_words[:15]))
+        # Normalize doubled-char raw keystrokes before including in intent
+        normalized = [_normalize_raw_deleted(str(w)) for w in deleted_words[:15]]
+        parts.append(' '.join(w for w in normalized if len(w) > 1))
     for rw in rewrites[:4]:
         if isinstance(rw, (list, tuple)) and len(rw) >= 2:
             parts.append(f'{rw[0]} {rw[1]}')
@@ -124,12 +198,17 @@ def _patch_current_query(root: Path, buffer: str, files: list[dict],
     now = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
     file_list = ', '.join(f['name'] for f in files[:5]) or 'none'
     stale_str  = ', '.join(stale_blocks) if stale_blocks else 'none'
+    deleted_readable, recon_intent = _load_latest_unsaid(root)
+    unsaid_line = recon_intent.strip() if recon_intent else 'none'
+    deleted_line = deleted_readable if deleted_readable else 'none'
     new_body = (
         f'\n## What You Actually Mean Right Now\n\n'
         f'*Assembled {now} · context_select_agent · zero LLM calls*\n\n'
         f'**INTENT KEYS:** `{buffer[:200]}`\n\n'
         f'**FILES:** {file_list}\n\n'
-        f'**STALE BLOCKS:** {stale_str}\n'
+        f'**STALE BLOCKS:** {stale_str}\n\n'
+        f'**DELETED WORDS (reconstructed):** {deleted_line}\n\n'
+        f'**UNSAID_RECONSTRUCTION:** {unsaid_line}\n'
     )
     new_block = f'<!-- pigeon:current-query -->{new_body}<!-- /pigeon:current-query -->'
     updated = re.sub(
