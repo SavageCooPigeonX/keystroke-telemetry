@@ -28,6 +28,8 @@ docs/cognitive_patches/
 # Temp files
 ext_check.txt
 ext_files.txt
+*.tmp_overwrite
+*.py.bak
 
 # Master test HMAC key (private — never commit)
 .master_key
