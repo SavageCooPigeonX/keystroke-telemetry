@@ -10,7 +10,7 @@
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 661min old (max 10min)
+- **`current-query`**: STALE — 662min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-22 05:37
 
@@ -467,10 +467,10 @@
 - Failed on: ""
 
 ### Recent Work
+- `8943f6a` fix: replace hardcoded pigeon imports with src_import() across scripts + tests
 - `d001534` fix: pigeon compiler indent errors in tc_sim + thought_completer + 42 intent test stubs + reseal master_test
 - `b03dfde` chore: refresh task-context block (inject_task_context)
 - `f54db83` feat: stable journal alias validation + key_stability scorer + audit registry
-- `5386a76` feat: full-overwrite coding agent context + split event logging + deepseek daemon
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
