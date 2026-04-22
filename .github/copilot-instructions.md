@@ -5,20 +5,20 @@
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-22 06:38 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-22 16:15 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 62min old (max 10min)
+- **`current-query`**: STALE — 639min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-22 05:37
 
-- **`prompt-telemetry`**: STALE — 61min old (max 10min)
+- **`prompt-telemetry`**: STALE — 639min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-22T05:37:20
 
-- **`learning-loop`**: BEHIND — 308 unprocessed entries, last ran 231h ago
+- **`learning-loop`**: BEHIND — 308 unprocessed entries, last ran 241h ago
   - Writer: `git_plugin → catch_up (post-commit)`
   - Last updated: 2026-04-12T15:20:45.419937+00:00
 
@@ -451,7 +451,7 @@
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-22 16:11 UTC · 703 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-22 16:15 UTC · 703 messages profiled · 8 recent commits*
 
 **Current focus:** building new features
 **Cognitive state:** `abandoned` (WPM: 48.1 | Del: 26.5% | Hes: 0.49) · *[source: measured]*
@@ -467,10 +467,10 @@
 - Failed on: ""
 
 ### Recent Work
+- `b03dfde` chore: refresh task-context block (inject_task_context)
 - `f54db83` feat: stable journal alias validation + key_stability scorer + audit registry
 - `5386a76` feat: full-overwrite coding agent context + split event logging + deepseek daemon
 - `1c96713` feat: conversational gate in run_sim â€” skip DeepSeek grader on non-coding prompts
-- `3e7147b` chore: ignore *.tmp_overwrite and *.py.bak artifacts
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*

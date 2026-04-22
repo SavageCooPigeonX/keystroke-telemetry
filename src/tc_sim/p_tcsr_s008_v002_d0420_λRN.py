@@ -11,6 +11,7 @@ import json
 import re
 import sys
 import time
+from src._resolve import src_import
 
 def replay_pause_live(pause: PausePoint, use_historical_ctx: bool = False) -> SimResult:
     """Actually call Gemini for one pause point and score the result.
@@ -25,7 +26,6 @@ def replay_pause_live(pause: PausePoint, use_historical_ctx: bool = False) -> Si
     from src.tc_trajectory_seq001_v001 import format_trajectory_for_prompt
     import json, urllib.request
     from src.tc_constants_seq001_v001 import GEMINI_MODEL, GEMINI_TIMEOUT
-from src._resolve import src_import
     _load_api_key, _strip_signal_echo = src_import("tc_gemini_seq001", "_load_api_key", "_strip_signal_echo")
     
     t0 = time.time()

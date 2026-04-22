@@ -7,6 +7,7 @@
 # LAST:   2026-04-20 @ c61fc91
 # SESSIONS: 1
 # ──────────────────────────────────────────────
+from src._resolve import src_import
 from src.tc_constants_seq001_v001 import DEFAULT_PAUSE_MS, DEFAULT_CORNER, DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_OPACITY
 _load_api_key = src_import("tc_gemini_seq001", "_load_api_key")
 run_popup = src_import("tc_popup_seq001", "run_popup")
@@ -15,7 +16,6 @@ import os
 
 def main():
     import argparse
-from src._resolve import src_import
     p = argparse.ArgumentParser(description='thought completer — passive overlay')
     p.add_argument('--web', action='store_true', help='web server mode (Railway)')
     p.add_argument('--port', type=int, default=int(os.environ.get('PORT', '8235')))
