@@ -547,6 +547,33 @@ def _trigger_overwriter_async(stem: str, intent_text: str, grade_result: dict,
     _th.Thread(target=_run, daemon=True).start()
 
 
+def _is_conversational(text: str) -> bool:
+    """True if the prompt looks like conversation rather than coding/debugging intent.
+    Conversational prompts waste DeepSeek grader calls — no file needs to change.
+    """
+    t = text.lower().strip()
+    # Short questions with no code signals
+    code_signals = ('def ', 'class ', 'import ', 'error', 'bug', 'fix', 'broken',
+                    'pipeline', 'sim', 'overwrite', 'grader', 'file_sim', 'deepseek',
+                    'gemini', 'run', 'function', 'module', 'test', 'log', 'daemon',
+                    'assert', 'exception', 'traceback', 'return', 'loop', 'async',
+                    'thread', 'cortex', 'intent', 'orchestrat', 'deploy', 'commit',
+                    'refactor', 'implement', 'debug', 'check', 'why is', 'how does')
+    if any(sig in t for sig in code_signals):
+        return False
+    # Conversational patterns
+    conv_signals = ('thank', 'thanks', 'okay', 'ok', 'cool', 'nice', 'good',
+                    'sounds good', 'got it', 'makes sense', 'understood', 'lol',
+                    'haha', 'yes', 'no', 'sure', 'what is', 'who is', 'tell me',
+                    'explain', 'what do you', 'can you', 'should i', 'do you')
+    if any(sig in t for sig in conv_signals):
+        return True
+    # Very short with no technical tokens → conversational
+    if len(t.split()) <= 8:
+        return True
+    return False
+
+
 def run_sim(intent_text: str, prompt_text: str | None = None,
             top_n: int = 5, root: Path | None = None,
             deleted_words: list | None = None) -> list[dict]:
@@ -561,6 +588,10 @@ def run_sim(intent_text: str, prompt_text: str | None = None,
     deleted_words: carried from prompt_journal, appended to intent_text before encoding.
     """
     root = root or ROOT
+    # Gate: skip DeepSeek grader for conversational prompts — no file needs to change
+    if _is_conversational(intent_text):
+        print(f'  [file_sim] conversational prompt skipped (no file grading): "{intent_text[:60]}"')
+        return []
     api_key, _provider = _load_api_key()
     # Augment intent with deleted signal — operator's unsaid words carry design intent
     if deleted_words:

@@ -5,7 +5,7 @@
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-22 01:14 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-22 03:37 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
@@ -16,7 +16,7 @@
 - **`prompt-telemetry`**: MISSING — block not found in file
   - Writer: `prompt_journal._refresh_copilot_instructions`
 
-- **`learning-loop`**: BEHIND — 289 unprocessed entries, last ran 226h ago
+- **`learning-loop`**: BEHIND — 295 unprocessed entries, last ran 228h ago
   - Writer: `git_plugin → catch_up (post-commit)`
   - Last updated: 2026-04-12T15:20:45.419937+00:00
 
@@ -24,15 +24,65 @@
 
 <!-- /pigeon:staleness-alert -->
 
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
+
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-22 01:14 UTC · 697 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-22 03:37 UTC · 700 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 51.3 | Del: 26.5% | Hes: 0.495) · *[source: measured]*
+**Cognitive state:** `abandoned` (WPM: 47.8 | Del: 26.5% | Hes: 0.49) · *[source: measured]*
 
-**Prompt ms:** 64719, 125170, 85224, 39643 (avg 78689ms)
+**Prompt ms:** 36260, 28507, 17607, 116732, 9124 (avg 41646ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
@@ -43,10 +93,10 @@
 - Failed on: ""
 
 ### Recent Work
+- `3e7147b` chore: ignore *.tmp_overwrite and *.py.bak artifacts
+- `1ddcbc4` chore: remove stale .tmp_overwrite artifact
+- `40acdc7` fix: overwriter atomic write WinError 183 (os.replace) + grader priority deepseek > gemini
 - `f944b28` feat: auto-overwrite on by default + regression TDD (syntax + test rollback)
-- `3f2ffa8` feat: file overwriter (surgical search-replace) + GRADES tab + file cortex + _trigger_overwriter_async
-- `045f718` fix: self-heal broken imports - scanner + auto_fix_broken_imports + 88 healed
-- `84b73b5` fix: copilot prompt assembly - doubled _seq001_v001 module imports
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
