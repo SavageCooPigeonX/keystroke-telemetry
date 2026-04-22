@@ -8,7 +8,8 @@ from pathlib import Path
 sys.path.insert(0, '.')
 
 from src.tc_grader_seq001_v001 import compute_adaptive_params
-from src.tc_gemini_seq001_v004_d0421__gemini_api_call_system_prompt_lc_live_copilot_layer import _load_api_key, SYSTEM_PROMPT, _build_user_prompt, _strip_signal_echo, _is_buffer_echo
+from src._resolve import src_import as _src_import
+_load_api_key, SYSTEM_PROMPT, _build_user_prompt, _strip_signal_echo, _is_buffer_echo = _src_import("tc_gemini_seq001", "_load_api_key", "SYSTEM_PROMPT", "_build_user_prompt", "_strip_signal_echo", "_is_buffer_echo")
 from src.tc_constants_seq001_v001 import GEMINI_MODEL, GEMINI_TIMEOUT
 from src.tc_context_seq001_v001 import load_context
 from src.tc_context_seq001_v001_agent_seq001_v001_seq001_v001 import select_context_ensemble

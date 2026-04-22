@@ -5,16 +5,16 @@
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-22 16:15 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-22 16:38 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
 
-- **`current-query`**: STALE — 639min old (max 10min)
+- **`current-query`**: STALE — 661min old (max 10min)
   - Writer: `prompt_enricher (Gemini Flash)`
   - Last updated: 2026-04-22 05:37
 
-- **`prompt-telemetry`**: STALE — 639min old (max 10min)
+- **`prompt-telemetry`**: STALE — 661min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-22T05:37:20
 
@@ -451,9 +451,9 @@
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-22 16:15 UTC · 703 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-22 16:38 UTC · 703 messages profiled · 8 recent commits*
 
-**Current focus:** building new features
+**Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 48.1 | Del: 26.5% | Hes: 0.49) · *[source: measured]*
 
 **Prompt ms:** 89900, 247012, 140885, 103195 (avg 145248ms)
@@ -467,25 +467,23 @@
 - Failed on: ""
 
 ### Recent Work
+- `d001534` fix: pigeon compiler indent errors in tc_sim + thought_completer + 42 intent test stubs + reseal master_test
 - `b03dfde` chore: refresh task-context block (inject_task_context)
 - `f54db83` feat: stable journal alias validation + key_stability scorer + audit registry
 - `5386a76` feat: full-overwrite coding agent context + split event logging + deepseek daemon
-- `1c96713` feat: conversational gate in run_sim â€” skip DeepSeek grader on non-coding prompts
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
+- Bulk-generated identical stubs causing mass syntax failures; test runner assumptions about sequential filenames; Pigeon's indentation compiler rejecting the Copilot-authored placeholder structure.
 - Unthrottled parallel simulation spawns causing resource exhaustion; silent simulation failures due to malformed prompt forms; race conditions in self-healing execution from shared state access. This push introduces a parallel simulation daemon triggered by every operator prompt to enable proactive self-healing.
-- tc_gemini's prompt schema breakage
-- extension-daemon IPC handshake failure
-- context_select_agent's missed state pulses. This push introduces a central operator state daemon with monitoring and integrated simulation debugging.
 
 ### Known Issues *[source: measured]*
 *From self-fix scanner (AST-verified) — fix when touching nearby code:*
-- [CRITICAL] hardcoded_import in `test_tc_intent.py`
-- [CRITICAL] hardcoded_import in `scripts/audit_cognition_model.py`
-- [CRITICAL] hardcoded_import in `scripts/audit_tc_completion.py`
-- [CRITICAL] hardcoded_import in `scripts/deep_debug_tc.py`
-- [CRITICAL] hardcoded_import in `scripts/simulate_tc_training.py`
+- [CRITICAL] hardcoded_import in `scripts/verify_loop_2.py`
+- [CRITICAL] hardcoded_import in `tests/interlink/test_tc_web.py`
+- [HIGH] over_hard_cap in `pigeon_compiler/git_plugin/w_gpmo_s019_v011_d0420_λRN_βoc.py`
+- [HIGH] over_hard_cap in `src/file_sim_seq001_v005_d0421__micro_sim_engine_prompt_file_lc_feat_operator_state_daemon.py`
+- [HIGH] over_hard_cap in `src/intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade.py`
 
 ### Prompt Evolution
 *This prompt has mutated 150x (186→728 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*

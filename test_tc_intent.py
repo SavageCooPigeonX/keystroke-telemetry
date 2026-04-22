@@ -101,7 +101,8 @@ def run():
     print("=" * 65)
 
     try:
-        from src.tc_gemini_seq001_v004_d0421__gemini_api_call_system_prompt_lc_live_copilot_layer import call_gemini, ThoughtBuffer
+        from src._resolve import src_import as _src_import
+        call_gemini, ThoughtBuffer = _src_import("tc_gemini_seq001", "call_gemini", "ThoughtBuffer")
         tb = ThoughtBuffer()
     except Exception as e:
         print(f"IMPORT FAILED: {e}")

@@ -180,8 +180,9 @@ def _extract_copilot_signal(changed_files: list[str]) -> dict:
 def _train_intent_numeric_seq001_v001(entries: list[dict], changed_files: list[str]) -> None:
     """Train intent_numeric_seq001_v001 surface: journal prompts → files touched."""
     try:
-        from src.intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import record_touch
-    except ImportError:
+        from src._resolve import src_import as _src_import
+        record_touch = _src_import("intent_numeric_seq001", "record_touch")
+    except (ImportError, AttributeError):
         return
     
     # Combine all prompts in this cycle into one training signal

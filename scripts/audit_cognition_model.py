@@ -71,7 +71,8 @@ print('=== LIVE PREDICTION TEST ===')
 import sys
 sys.path.insert(0, str(root))
 try:
-    from src.intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade import predict_files, get_stats
+    from src._resolve import src_import as _src_import
+    predict_files, get_stats = _src_import("intent_numeric_seq001", "predict_files", "get_stats")
     stats = get_stats()
     print(f'  stats: {stats}')
     test_prompts = [

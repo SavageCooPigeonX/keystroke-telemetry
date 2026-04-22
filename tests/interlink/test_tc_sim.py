@@ -7,10 +7,12 @@ Module keeps learning via intent shards while sleeping.
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from src._resolve import src_import as _src_import
 
 def test_import():
     """Module imports without error."""
-    from src.tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade import TypingSession, PausePoint, SimResult, extract_sessions, find_pause_points, score_prediction, replay_pause_live, export_results, update_sim_memory, record_bug_found, record_bug_fixed, print_narrate, print_transcript, diagnose_from_results, apply_fix, main
+    _tc_sim = _src_import("tc_sim_seq001")
+    TypingSession, PausePoint, SimResult, extract_sessions, find_pause_points, score_prediction, replay_pause_live, export_results, update_sim_memory, record_bug_found, record_bug_fixed, print_narrate, print_transcript, diagnose_from_results, apply_fix, main = [getattr(_tc_sim, a) for a in ("TypingSession", "PausePoint", "SimResult", "extract_sessions", "find_pause_points", "score_prediction", "replay_pause_live", "export_results", "update_sim_memory", "record_bug_found", "record_bug_fixed", "print_narrate", "print_transcript", "diagnose_from_results", "apply_fix", "main")]
     assert callable(TypingSession), "TypingSession must be callable"
     assert callable(PausePoint), "PausePoint must be callable"
     assert callable(SimResult), "SimResult must be callable"
@@ -31,91 +33,91 @@ def test_import():
 
 def test_extract_sessions_contract():
     """Data flow contract: extract_sessions(log_path, min_buffer_len) → output."""
-    from src.tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade import extract_sessions
+    extract_sessions = _src_import("tc_sim_seq001", "extract_sessions")
     # smoke test: function exists and is callable
     assert extract_sessions.__name__ == "extract_sessions"
     print(f"  ✓ extract_sessions: contract holds")
 
 def test_find_pause_points_contract():
     """Data flow contract: find_pause_points(session, pause_ms, min_buffer_len) → output."""
-    from src.tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade import find_pause_points
+    find_pause_points = _src_import("tc_sim_seq001", "find_pause_points")
     # smoke test: function exists and is callable
     assert find_pause_points.__name__ == "find_pause_points"
     print(f"  ✓ find_pause_points: contract holds")
 
 def test_score_prediction_contract():
     """Data flow contract: score_prediction(pause, prediction) → output."""
-    from src.tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade import score_prediction
+    score_prediction = _src_import("tc_sim_seq001", "score_prediction")
     # smoke test: function exists and is callable
     assert score_prediction.__name__ == "score_prediction"
     print(f"  ✓ score_prediction: contract holds")
 
 def test_replay_pause_live_contract():
     """Data flow contract: replay_pause_live(pause) → output."""
-    from src.tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade import replay_pause_live
+    replay_pause_live = _src_import("tc_sim_seq001", "replay_pause_live")
     # smoke test: function exists and is callable
     assert replay_pause_live.__name__ == "replay_pause_live"
     print(f"  ✓ replay_pause_live: contract holds")
 
 def test_export_results_contract():
     """Data flow contract: export_results(results, path) → output."""
-    from src.tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade import export_results
+    export_results = _src_import("tc_sim_seq001", "export_results")
     # smoke test: function exists and is callable
     assert export_results.__name__ == "export_results"
     print(f"  ✓ export_results: contract holds")
 
 def test_update_sim_memory_contract():
     """Data flow contract: update_sim_memory(results) → output."""
-    from src.tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade import update_sim_memory
+    update_sim_memory = _src_import("tc_sim_seq001", "update_sim_memory")
     # smoke test: function exists and is callable
     assert update_sim_memory.__name__ == "update_sim_memory"
     print(f"  ✓ update_sim_memory: contract holds")
 
 def test_record_bug_found_contract():
     """Data flow contract: record_bug_found(mem, bug_id, description, file) → output."""
-    from src.tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade import record_bug_found
+    record_bug_found = _src_import("tc_sim_seq001", "record_bug_found")
     # smoke test: function exists and is callable
     assert record_bug_found.__name__ == "record_bug_found"
     print(f"  ✓ record_bug_found: contract holds")
 
 def test_record_bug_fixed_contract():
     """Data flow contract: record_bug_fixed(mem, bug_id, fix_description) → output."""
-    from src.tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade import record_bug_fixed
+    record_bug_fixed = _src_import("tc_sim_seq001", "record_bug_fixed")
     # smoke test: function exists and is callable
     assert record_bug_fixed.__name__ == "record_bug_fixed"
     print(f"  ✓ record_bug_fixed: contract holds")
 
 def test_print_narrate_contract():
     """Data flow contract: print_narrate(sessions, results) → output."""
-    from src.tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade import print_narrate
+    print_narrate = _src_import("tc_sim_seq001", "print_narrate")
     # smoke test: function exists and is callable
     assert print_narrate.__name__ == "print_narrate"
     print(f"  ✓ print_narrate: contract holds")
 
 def test_print_transcript_contract():
     """Data flow contract: print_transcript(sessions, results) → output."""
-    from src.tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade import print_transcript
+    print_transcript = _src_import("tc_sim_seq001", "print_transcript")
     # smoke test: function exists and is callable
     assert print_transcript.__name__ == "print_transcript"
     print(f"  ✓ print_transcript: contract holds")
 
 def test_diagnose_from_results_contract():
     """Data flow contract: diagnose_from_results(results) → output."""
-    from src.tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade import diagnose_from_results
+    diagnose_from_results = _src_import("tc_sim_seq001", "diagnose_from_results")
     # smoke test: function exists and is callable
     assert diagnose_from_results.__name__ == "diagnose_from_results"
     print(f"  ✓ diagnose_from_results: contract holds")
 
 def test_apply_fix_contract():
     """Data flow contract: apply_fix(bug, dry) → output."""
-    from src.tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade import apply_fix
+    apply_fix = _src_import("tc_sim_seq001", "apply_fix")
     # smoke test: function exists and is callable
     assert apply_fix.__name__ == "apply_fix"
     print(f"  ✓ apply_fix: contract holds")
 
 def test_main_contract():
     """Data flow contract: main() → output."""
-    from src.tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade import main
+    main = _src_import("tc_sim_seq001", "main")
     # smoke test: function exists and is callable
     assert main.__name__ == "main"
     result = main()

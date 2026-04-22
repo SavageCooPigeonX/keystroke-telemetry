@@ -15,7 +15,8 @@ import sys, json, re
 from pathlib import Path
 sys.path.insert(0, '.')
 
-from src.tc_gemini_seq001_v004_d0421__gemini_api_call_system_prompt_lc_live_copilot_layer import call_gemini, ThoughtBuffer, _is_buffer_echo
+from src._resolve import src_import as _src_import
+call_gemini, ThoughtBuffer, _is_buffer_echo = _src_import("tc_gemini_seq001", "call_gemini", "ThoughtBuffer", "_is_buffer_echo")
 
 # Representative buffers drawn from actual recent prompts + typical patterns.
 BENCHMARK = [
