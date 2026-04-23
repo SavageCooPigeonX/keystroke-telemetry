@@ -5,7 +5,7 @@
 <!-- pigeon:staleness-alert -->
 ## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
 
-*Checked 2026-04-22 19:59 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-23 04:04 UTC — 3 block(s) stale or missing*
 
 **ATTENTION: The following blocks did NOT update when they should have.**
 **This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
@@ -13,11 +13,11 @@
 - **`current-query`**: MISSING — timestamp not found inside block
   - Writer: `prompt_enricher (Gemini Flash)`
 
-- **`prompt-telemetry`**: STALE — 862min old (max 10min)
+- **`prompt-telemetry`**: STALE — 1347min old (max 10min)
   - Writer: `prompt_journal._refresh_copilot_instructions`
   - Last updated: 2026-04-22T05:37:20
 
-- **`learning-loop`**: BEHIND — 308 unprocessed entries, last ran 245h ago
+- **`learning-loop`**: BEHIND — 308 unprocessed entries, last ran 253h ago
   - Writer: `git_plugin → catch_up (post-commit)`
   - Last updated: 2026-04-12T15:20:45.419937+00:00
 
@@ -401,13 +401,13 @@
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Assembled 2026-04-22 19:50 UTC · context_select_agent · zero LLM calls*
+*Assembled 2026-04-23 04:04 UTC · context_select_agent · zero LLM calls*
 
-**INTENT KEYS:** `deleted word should be injected / recontructed`
+**INTENT KEYS:** `check how good this prompt scores for context select agent and see if it selects proper files for sim deepseek self fix runs`
 
-**FILES:** context_select_agent, u_pj
+**FILES:** context_select_agent, tc_context_agent, tc_context_self_fix, self_fix_tracker, push_snapshot_self_fix
 
-**STALE BLOCKS:** current-query, task-queue, operator-state, prompt-telemetry
+**STALE BLOCKS:** task-queue, operator-state, prompt-telemetry
 
 **DELETED WORDS (reconstructed):** 2 intentional deletion(s) (8% of keystrokes)
 
@@ -448,7 +448,7 @@
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-22 19:59 UTC · 703 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-23 04:04 UTC · 703 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 48.1 | Del: 26.5% | Hes: 0.49) · *[source: measured]*
@@ -464,10 +464,10 @@
 - Failed on: ""
 
 ### Recent Work
+- `1bc3c83` feat: high-deletion sim trigger in popup (50%+ buffer shrink in 4s fires sim)
 - `940690c` feat: inject deleted words + UNSAID_RECONSTRUCTION into pigeon:current-query on every prompt
 - `8944b1e` feat: tc_file_encoder + baseline collector button in popup + push-cycle intent dropoff
 - `b8bbe0f` chore: advance shrink baseline (+5 tokens from src_import fixes)
-- `8943f6a` fix: replace hardcoded pigeon imports with src_import() across scripts + tests
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*

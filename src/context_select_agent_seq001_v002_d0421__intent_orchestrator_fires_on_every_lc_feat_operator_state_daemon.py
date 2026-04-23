@@ -174,7 +174,7 @@ def detect_stale_blocks(root: Path) -> list[str]:
 def _predict(root: Path, intent_text: str, top_n: int = 6) -> list[dict]:
     """Run predict_files via intent_numeric. Returns [{name, score}]."""
     try:
-        matches = sorted(root.glob('src/intent_numeric_seq001*.py'), key=len)
+        matches = sorted(root.glob('src/intent_numeric_seq001*.py'), key=lambda p: len(p.name))
         if not matches:
             return []
         spec = importlib.util.spec_from_file_location('_in', matches[0])
