@@ -459,6 +459,17 @@ def run_popup(corner='br', pause_ms=1500, width=520, height=220, opacity=0.92, s
                                             text='⚡ sim done', fg=DIM))
                                 except Exception as _e:
                                     print(f'[vscdb-sim] error: {_e}')
+                                # update pigeon:current-query with the actual Copilot prompt
+                                try:
+                                    import importlib.util as _ilu
+                                    _ms = sorted(ROOT.glob('src/context_select_agent_seq001*.py'),
+                                                 key=lambda p: len(p.name))
+                                    if _ms:
+                                        _sp = _ilu.spec_from_file_location('_csa', _ms[0])
+                                        _cm = _ilu.module_from_spec(_sp); _sp.loader.exec_module(_cm)
+                                        _cm.run_assembly(ROOT, pt, [], [])
+                                except Exception:
+                                    pass
                             threading.Thread(target=_do_prompt_sim, daemon=True).start()
             except Exception as _e:
                 pass

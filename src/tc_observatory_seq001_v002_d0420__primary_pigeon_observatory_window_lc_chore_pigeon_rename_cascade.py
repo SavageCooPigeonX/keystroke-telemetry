@@ -54,7 +54,7 @@ SMALL   = (FONT, 7)
 MED     = (FONT, 9)
 BIG     = (FONT, 11)
 
-TABS = ['FILES', 'NUMERIC', 'INTENT', 'PROFILE', 'PERCY', 'SIM', 'GRADES', 'JOURNEY']
+TABS = ['FILES', 'NUMERIC', 'INTENT', 'PROFILE', 'PERCY', 'SIM', 'SIMS', 'GRADES', 'JOURNEY']
 
 PERCY_SYSTEM = """You are Percy Pigeon — the living mascot of this codebase.
 You speak in short punchy sentences. You read file bug reports and operator prompts,
@@ -1417,11 +1417,137 @@ def run_observatory():
         threading.Thread(target=_run, daemon=True).start()
 
     # ══════════════════════════════════════════════════════════════════════════
+    # TAB SIMS — browse past sim runs with file profiles + pulse self-models
+    # ══════════════════════════════════════════════════════════════════════════
+    sims_frame = tk.Frame(content_host, bg=BG)
+    _tab_frames['SIMS'] = sims_frame
+
+    sims_pane = tk.PanedWindow(sims_frame, orient='horizontal', bg=BG, sashwidth=6, sashrelief='groove')
+    sims_pane.pack(fill='both', expand=True)
+
+    # ── left: list of past sims ───────────────────────────────────────────────
+    sl_fr = tk.Frame(sims_pane, bg=BG)
+    sims_pane.add(sl_fr, width=400)
+    sl_hdr = tk.Label(sl_fr, text='SIM HISTORY', bg=BG, fg=ACCENT, font=(FONT, 8, 'bold'))
+    sl_hdr.pack(anchor='w', padx=6, pady=(4, 0))
+    sl_lb_fr = tk.Frame(sl_fr, bg=BG)
+    sl_lb_fr.pack(fill='both', expand=True)
+    sl_lb = tk.Listbox(sl_lb_fr, bg='#0b0e14', fg=TEXT_C, font=(FONT, 8),
+                       selectbackground='#1f6feb', activestyle='none',
+                       borderwidth=0, highlightthickness=0)
+    sl_sb = tk.Scrollbar(sl_lb_fr, orient='vertical', command=sl_lb.yview)
+    sl_lb.config(yscrollcommand=sl_sb.set)
+    sl_sb.pack(side='right', fill='y')
+    sl_lb.pack(side='left', fill='both', expand=True)
+
+    # ── right: detail pane ────────────────────────────────────────────────────
+    sd_fr = tk.Frame(sims_pane, bg=BG)
+    sims_pane.add(sd_fr, width=700)
+    sd_box = _make_scrolled_text(sd_fr)
+    sd_box.tag_configure('sim_id',  foreground=PURPLE, font=(FONT, 9, 'bold'))
+    sd_box.tag_configure('prompt',  foreground=TEXT_C, font=(FONT, 9, 'bold'))
+    sd_box.tag_configure('winner',  foreground=GREEN, font=(FONT, 9, 'bold'))
+    sd_box.tag_configure('variant', foreground=ACCENT, font=(FONT, 8, 'bold'))
+    sd_box.tag_configure('files',   foreground=YELLOW)
+    sd_box.tag_configure('action',  foreground=DIM, font=(FONT, 8, 'italic'))
+    sd_box.tag_configure('pulse',   foreground='#484f58', font=(FONT, 7))
+    sd_box.pack(fill='both', expand=True)
+
+    _sims_recs: list[dict] = []
+
+    def _load_sims_recs() -> list[dict]:
+        p = ROOT / 'logs' / 'tc_sim_results.jsonl'
+        if not p.exists():
+            return []
+        try:
+            out = []
+            for ln in p.read_text('utf-8', errors='ignore').splitlines():
+                try: out.append(json.loads(ln))
+                except Exception: pass
+            return out[-80:]
+        except Exception:
+            return []
+
+    def _pulse_for(stem: str) -> str:
+        for fp in ROOT.glob(f'src/{stem}*.py'):
+            try:
+                txt = fp.read_text('utf-8', errors='ignore')
+                m = re.search(r'# ── pigeon ─+\n(.*?)# ─{5,}', txt, re.DOTALL)
+                if m:
+                    return m.group(1).strip()
+            except Exception:
+                pass
+        return ''
+
+    def _sim_id(ts: str) -> str:
+        import hashlib
+        return hashlib.sha256(ts.encode()).hexdigest()[:6]
+
+    def _refresh_sims():
+        nonlocal _sims_recs
+        _sims_recs = _load_sims_recs()
+        sel = sl_lb.curselection()
+        sl_hdr.config(text=f'SIM HISTORY  ({len(_sims_recs)} runs)')
+        sl_lb.delete(0, 'end')
+        for rec in reversed(_sims_recs):
+            ts = rec.get('ts', '')
+            t = ts[11:19] if len(ts) >= 19 else ts
+            sid = _sim_id(ts)
+            winner = rec.get('winner', '?')
+            score = rec.get('winner_score', 0)
+            buf = rec.get('buffer', '')[:55].replace('\n', ' ')
+            sl_lb.insert('end', f'[{sid}] {t}  ★{winner} {score:.2f}  {buf}')
+        if sel:
+            try: sl_lb.selection_set(sel[0])
+            except Exception: pass
+        root.after(4000, _refresh_sims)
+
+    def _on_sim_pick(event=None):
+        sel = sl_lb.curselection()
+        if not sel: return
+        rec = list(reversed(_sims_recs))[sel[0]]
+        ts = rec.get('ts', '')
+        buf = rec.get('buffer', '')
+        winner = rec.get('winner', '?')
+        sims_list = rec.get('sims', [])
+        sid = _sim_id(ts)
+        sd_box.config(state='normal')
+        sd_box.delete('1.0', 'end')
+
+        def _w(tag, text): sd_box.insert('end', text, tag)
+
+        _w('sim_id', f'━━━ SIM {sid} ━━━\n')
+        _w('pulse', f'{ts[:19].replace("T", " ")}\n\n')
+        _w('prompt', f'PROMPT: {buf}\n\n')
+        for sim in sims_list:
+            name = sim.get('name', '?')
+            score = sim.get('score', 0)
+            files = sim.get('files', [])
+            comp = (sim.get('completion', '') or '').strip()
+            is_win = (name == winner)
+            tag = 'winner' if is_win else 'variant'
+            _w(tag, f'{"★" if is_win else "·"} {name.upper()} ({score:.3f})\n')
+            _w('files', f'  FILES: {", ".join(files[:6]) or "—"}\n')
+            _w('action', f'  {comp[:300]}\n\n')
+            if is_win and files:
+                _w('pulse', '  ── file self-models ──\n')
+                for stem in files[:4]:
+                    pulse = _pulse_for(stem)
+                    if pulse:
+                        for pl in pulse.splitlines()[:5]:
+                            _w('pulse', f'    {pl.lstrip("# ").strip()}\n')
+                        _w('pulse', '\n')
+        sd_box.config(state='disabled')
+
+    sl_lb.bind('<<ListboxSelect>>', _on_sim_pick)
+    root.after(400, _refresh_sims)
+
+    # ══════════════════════════════════════════════════════════════════════════
     # Build tab buttons + action buttons
     # ══════════════════════════════════════════════════════════════════════════
     tab_icons = {'FILES': '📁', 'NUMERIC': '🔢', 'INTENT': '🧠',
                  'PROFILE': '🕵', 'PERCY': '🐦', 'SIM': '🎬',
-                 'GRADES': '🔬', 'JOURNEY': '🛤'}
+                 'SIMS': '📋', 'GRADES': '🔬', 'JOURNEY': '🛤'}
     for name in TABS:
         icon = tab_icons.get(name, '')
         b = tk.Label(tab_bar, text=f' {icon} {name} ', bg='#161b22', fg=DIM,
