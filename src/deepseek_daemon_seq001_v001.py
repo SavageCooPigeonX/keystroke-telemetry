@@ -158,27 +158,57 @@ def _intent_work(already_attempted: set[str]) -> list[dict]:
     for job in reversed(jobs):   # newest first
         if job.get('status') != 'simulated':
             continue
-        grades = job.get('grades', {})
-        top_files = job.get('top_files', [])
         intent = job.get('intent_text', '')
+        intent_id = job.get('intent_id', '')
+        top_files = job.get('top_files', [])
+        grades = job.get('grades', {})
+        task_chain = job.get('task_chain', [])
         if not intent or not top_files:
             continue
-        for stem in top_files:
-            key = f'intent:{stem}:{intent[:40]}'
-            if key in already_attempted:
-                continue
-            grade = grades.get(stem, 0.0)
-            if grade < INTENT_MIN_GRADE:
-                continue
-            if _is_file_busy(stem):
-                continue
-            work.append({
-                'type': 'intent',
-                'stem': stem,
-                'intent': intent,
-                'grade': grade,
-                'key': key,
-            })
+        # Prefer task_chain entries (filled templates) over raw intent
+        if task_chain:
+            for task in task_chain:
+                stem = task.get('stem', '')
+                if not stem:
+                    continue
+                key = f'intent:{stem}:{intent[:40]}'
+                if key in already_attempted:
+                    continue
+                if task.get('grade', 0.0) < INTENT_MIN_GRADE:
+                    continue
+                if _is_file_busy(stem):
+                    continue
+                work.append({
+                    'type': 'intent',
+                    'stem': stem,
+                    'intent': task.get('action', intent),   # filled template action, not raw intent
+                    'intent_full': intent,
+                    'intent_id': intent_id,
+                    'grade': task.get('grade', 0.0),
+                    'fix_type': task.get('fix_type', 'fix'),
+                    'confidence': task.get('confidence', 0.0),
+                    'key': key,
+                })
+        else:
+            # Legacy: no task_chain — fall back to raw grades
+            for stem in top_files:
+                key = f'intent:{stem}:{intent[:40]}'
+                if key in already_attempted:
+                    continue
+                grade = grades.get(stem, 0.0)
+                if grade < INTENT_MIN_GRADE:
+                    continue
+                if _is_file_busy(stem):
+                    continue
+                work.append({
+                    'type': 'intent',
+                    'stem': stem,
+                    'intent': intent,
+                    'intent_full': intent,
+                    'intent_id': intent_id,
+                    'grade': grade,
+                    'key': key,
+                })
     return work[:3]  # max 3 pending at once
 
 

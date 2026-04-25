@@ -1,0 +1,123 @@
+# absorption_declarations.yaml
+# Phase 5 — declarations for daemons absorbed into thought_completer.
+# Read by audit tooling, drift watcher, and future cleanup sweeps.
+# Each entry names a deprecated component, the new owner, and the
+# preferred call path. DO NOT remove source files yet; shadow window
+# active (see D5 in docs/THOUGHT_COMPLETER_PLAN.md §15).
+
+version: 1
+declared_at: 2026-04-23
+shadow_window_days: 7
+primary_organ: src/thought_completer_seq001_v001.py
+
+absorptions:
+
+  - component: prompt_enricher
+    role_before: enriches prompt with context
+    absorbed_into: thought_completer.complete
+    call_path: "complete(fragment) -> candidates[].rationale"
+    status: shadow
+    files_touched_before: [src/prompt_enricher_*.py]
+
+  - component: context_select_agent
+    role_before: scores file relevance to prompt
+    absorbed_into: thought_completer.complete + intent_keys.match_fragment
+    call_path: "complete(fragment, open_files=[...]) -> candidates[].file_targets"
+    status: shadow
+    files_touched_before: [src/context_select_agent_*.py]
+
+  - component: intent_backlog
+    role_before: tracks unresolved operator prompts
+    absorbed_into: intent_ledger table (data/operator_profile.db)
+    call_path: "SELECT * FROM intent_ledger WHERE closed_at IS NULL"
+    status: shadow
+    files_touched_before: [logs/intent_backlog_*.json]
+
+  - component: deleted_words_reconstruction
+    role_before: reconstructs deleted fragments for unsaid-thread surfacing
+    absorbed_into: shard_exploration
+    call_path: "write_exploration(deleted_text, ...)"
+    status: shadow
+    files_touched_before: [logs/unsaid_reconstructions.jsonl]
+
+  - component: operator_state_daemon
+    role_before: writes WPM/deletion/hesitation
+    absorbed_into: shard_cognition (owner unchanged; shard is its new surface)
+    call_path: "write_cognition(session_id, wpm=..., ...)"
+    status: kept_as_writer                     # still owns the shard; lane A
+    files_touched_before: [client/operator_state_daemon.py]
+
+  - component: prompt_telemetry
+    role_before: captures per-prompt signals
+    absorbed_into: shard_vocabulary + shard_cognition + shard_exploration
+    call_path: "write_vocabulary / write_cognition / write_exploration"
+    status: kept_as_writer
+    files_touched_before: [client/prompt_telemetry_daemon.py]
+
+  - component: operator_probes
+    role_before: generates probe questions mid-session
+    absorbed_into: thought_completer (clarifying question mode, D4 tier-3)
+    call_path: "match_fragment -> tiebreak:operator_pick"
+    status: shadow
+    files_touched_before: [src/operator_probes_*.py]
+
+  - component: intent_numeric
+    role_before: embeds prompts to numeric vectors
+    absorbed_into: intent_keys.embed (D2 local embedder)
+    call_path: "from intent_keys_seq001_v001 import embed"
+    status: shadow
+    files_touched_before: [src/intent_numeric_*.py]
+
+  - component: copilot_instructions_current_query_block
+    role_before: static block in .github/copilot-instructions.md
+    absorbed_into: thought_completer live candidate render
+    call_path: "complete() result.candidates[0].completion"
+    status: shadow
+    files_touched_before: [.github/copilot-instructions.md]
+    strip_after_shadow: true
+
+# ── kept outside completer (per §7 of plan) ──
+not_absorbed:
+  - deepseek_daemon               # closure executor
+  - self_fix_scanner              # bug source of truth
+  - pigeon_compiler               # file identity persistence
+  - entropy_map                   # post-edit verification
+  - observatory_ui                # dashboard
+
+# ── deprecated but retained (Phase 7, §16.7) ──
+deprecated_but_retained:
+  - component: file_sim
+    role_before: 4-candidate debate picks single edit target
+    superseded_by: manifest_chain_proposer (Phase 7, docs/THOUGHT_COMPLETER_PLAN.md §16)
+    role_after: lane-C cold advisor only; emits per-file needs_change scores as background signal
+    no_longer_gates: coder_orchestration
+    deletion_gate:
+      metric: chain_proposer_match_rate
+      threshold: 0.75
+      window: 14d
+    files_touched_before: [src/file_sim_seq001_v005_d0421__*.py]
+    rationale: |
+      Operator prompt history shows explicit rejection of 4-candidate debate in
+      favor of manifest chain (deletion of "off file sims" -> "manifest chain"
+      at 2026-04-24 03:08). Keep computing scores in background for drift
+      detection; remove from live coder path.
+
+  - component: priority_closure_loop
+    role_before: orchestrates file_sim debate + deepseek call per task
+    superseded_by: manifest_chain_proposer
+    role_after: thin shim that reads completer queue, kicks chain proposer
+    overwriter_sim_bug: "attempted relative import with no known parent package (pre-existing, unfixed)"
+    files_touched_before: [scripts/priority_closure_loop.py]
+
+# ── metrics exposed during shadow ──
+shadow_metrics:
+  match_rate:
+    description: "% of prompts where completer's top candidate matches or beats legacy pipeline output"
+    target: 0.70
+    window: 7d
+    gate_for: strip_after_shadow
+  chain_proposer_match_rate:
+    description: "% of coder tasks where manifest_chain_proposer produces accepted multi-file patch"
+    target: 0.75
+    window: 14d
+    gate_for: delete_file_sim

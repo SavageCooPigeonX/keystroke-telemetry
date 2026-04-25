@@ -557,10 +557,11 @@ ACTIVE_TEMPLATE_END = '<!-- /pigeon:active-template -->'
 
 
 def inject_active_template(root):
-    """Write the selected template body as a managed block in copilot-instructions.md.
+    """Write ONLY the live signals header to pigeon:active-template in copilot-instructions.md.
 
-    This ensures Copilot always sees the focused context without requiring
-    the operator to manually invoke /debug, /build, or /review.
+    The full template body lives in .github/prompts/<mode>.prompt.md (the copilot channel).
+    copilot-instructions.md stays lean — it carries routing signals, not content.
+    The sim reads context_selection.json + intent_jobs.jsonl for its own loop.
     """
     root = Path(root)
     cp = root / '.github' / 'copilot-instructions.md'
@@ -571,10 +572,6 @@ def inject_active_template(root):
     now = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
     shared = _shared_signals(root)
 
-    builders = {'debug': _debug_body, 'build': _build_body, 'review': _review_body}
-    builder = builders.get(mode, _debug_body)
-    body = builder(root)
-
     block_lines = [
         ACTIVE_TEMPLATE_START,
         f'## Active Template: /{mode}',
@@ -582,10 +579,6 @@ def inject_active_template(root):
         f'*Auto-selected {now} · mode: {mode}*',
         '',
         shared,
-        '',
-        '---',
-        '',
-        body,
         ACTIVE_TEMPLATE_END,
     ]
     block = '\n'.join(block_lines)

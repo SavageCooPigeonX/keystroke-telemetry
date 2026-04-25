@@ -217,11 +217,22 @@ def _load_edit_entropy(root: Path) -> dict[str, dict[str, float]]:
             continue
 
         mod = _module_key(raw_file)
-        latency_ms = max(0, int(entry.get('latency_ms', 0) or 0))
+        raw_latency = int(entry.get('latency_ms', 0) or 0)
+        # negative latency = clock skew / bad event; treat as unknown (median proxy)
+        if raw_latency < 0:
+            latency_ms = 60_000  # 1 min neutral fallback
+        else:
+            latency_ms = raw_latency
         state = str(entry.get('state') or 'unknown').strip().lower()
         edit_why = str(entry.get('edit_why') or '').strip().lower()
 
-        latency_score = min(latency_ms / 300000.0, 1.0)  # 5 min = max uncertainty
+        # log-normalize latency over 1s..1h range so saturation is graceful.
+        # 60% of edit_pairs saturated the old 5-min linear clamp — destroyed signal.
+        if latency_ms <= 1000:
+            latency_score = 0.0
+        else:
+            import math as _m
+            latency_score = min(_m.log10(latency_ms) / _m.log10(3_600_000), 1.0)
         state_score = EDIT_STATE_ENTROPY.get(state, EDIT_STATE_ENTROPY['unknown'])
         # clear edit reason = LESS uncertain (reduces entropy)
         reason_bonus = -0.15 if edit_why and edit_why not in {'auto', 'none'} else 0.0

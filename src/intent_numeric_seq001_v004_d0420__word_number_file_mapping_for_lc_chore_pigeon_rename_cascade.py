@@ -552,10 +552,10 @@ def record_touch(prompt_text: str, files_touched: list[str], learning_rate: floa
     _save_matrix()
 
 
-def predict_files(prompt_text: str, top_n: int = 5) -> list[tuple[str, float]]:
+def predict_files(prompt_text: str, top_n: int = 5) -> list[dict]:
     """Predict which files are relevant to this prompt.
     
-    Returns: list of (file_key, relevance_score) sorted by score descending.
+    Returns: list of {'name': file_key, 'score': float} sorted by score descending.
     This is the numeric alternative to LLM-based context selection.
     """
     if not _matrix_loaded:
@@ -602,7 +602,7 @@ def predict_files(prompt_text: str, top_n: int = 5) -> list[tuple[str, float]]:
     
     # Sort by score descending
     scores.sort(key=lambda x: x[1], reverse=True)
-    return scores[:top_n]
+    return [{'name': k, 'score': v} for k, v in scores[:top_n]]
 
 
 # ── Bigram Tracking (word pairs for phrase-level signals) ──────────────────

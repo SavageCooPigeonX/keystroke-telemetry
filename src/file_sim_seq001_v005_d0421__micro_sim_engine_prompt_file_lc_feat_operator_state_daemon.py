@@ -675,6 +675,22 @@ def run_sim(intent_text: str, prompt_text: str | None = None,
     prompt_text = prompt_text or intent_text
     ts = datetime.now(timezone.utc).isoformat()
 
+    # ── Write pending intent_job immediately — deepseek_daemon can see it now ──
+    import hashlib as _hashlib
+    intent_id = _hashlib.sha256(f'{ts}:{intent_text[:80]}'.encode()).hexdigest()[:12]
+    _pending_job: dict = {
+        'intent_id': intent_id,
+        'ts': ts,
+        'intent_text': intent_text[:300],
+        'status': 'pending',
+        'sim_route': [],
+        'top_files': [],
+        'grades': {},
+        'actors_cleared': [],
+    }
+    _append_jsonl(INTENT_JOBS, _pending_job)
+    print(f'  [file_sim] intent_id={intent_id} pending → "{intent_text[:60]}"')
+
     # Step 1: encode prompt → vec (reuse if provided)
     prompt_vec: dict[str, float] = {}
     try:
@@ -705,7 +721,9 @@ def run_sim(intent_text: str, prompt_text: str | None = None,
     # Cold-start fallback — matrix empty, use predict_files heuristic
     if not shortlisted:
         try:
-            shortlisted = list(predict_files(intent_text, top_n=top_n))
+            pf_results = list(predict_files(intent_text, top_n=top_n))
+            # predict_files returns list[dict] with 'name'/'score' keys
+            shortlisted = [(p['name'], p.get('score', 0.0)) for p in pf_results]
         except Exception as e:
             print(f'  [file_sim] predict_files fallback failed: {e}')
 
@@ -735,6 +753,17 @@ def run_sim(intent_text: str, prompt_text: str | None = None,
         results.append(r)
         flag = '✓' if r['needs_change'] else '·'
         print(f'    {flag} {stem}: conf={r["confidence"]:.2f} | {r["reason"][:60]}')
+
+        # ── Build task template for this file (deepseek reads this, not raw intent) ──
+        if r['needs_change'] and r['confidence'] >= 0.3:
+            r['task_template'] = {
+                'stem': stem,
+                'action': r.get('reason', intent_text[:100]),
+                'confidence': r.get('confidence', 0.0),
+                'grade': r.get('grade', 0.0),
+                'intent_text': intent_text[:200],
+                'fix_type': 'feat' if 'add' in intent_text.lower() or 'wire' in intent_text.lower() else 'fix',
+            }
 
         # Step 4: update matrix — positive reward for relevant files
         if api_key and abs(r['grade']) > 0.1:
@@ -778,16 +807,38 @@ def run_sim(intent_text: str, prompt_text: str | None = None,
     except Exception:
         sim_route = [r['file_stem'] for r in results]
 
-    # Write intent_job entry — includes sim_route for audit trail
-    _append_jsonl(INTENT_JOBS, {
+    # Write intent_job entry — updates the pending job to simulated
+    # Rewrite INTENT_JOBS: replace pending entry with same intent_id → simulated
+    _task_chain = [r['task_template'] for r in results if 'task_template' in r]
+    _simulated_job = {
+        'intent_id': intent_id,
         'ts': ts,
         'intent_text': intent_text[:300],
         'status': 'simulated',
         'sim_route': sim_route,                          # ordered traversal path
         'top_files': [r['file_stem'] for r in results if r['needs_change']],
         'grades': {r['file_stem']: round(r['grade'], 3) for r in results},
+        'task_chain': _task_chain,                       # filled templates → deepseek reads these
         'actors_cleared': [],
-    })
+    }
+    # Replace the pending entry in-place; append if not found
+    _updated = False
+    if INTENT_JOBS.exists():
+        _lines = INTENT_JOBS.read_text('utf-8', errors='ignore').strip().splitlines()
+        _new_lines = []
+        for _ln in _lines:
+            try:
+                _job = json.loads(_ln)
+                if _job.get('intent_id') == intent_id and _job.get('status') == 'pending':
+                    _new_lines.append(json.dumps(_simulated_job, ensure_ascii=False))
+                    _updated = True
+                    continue
+            except Exception:
+                pass
+            _new_lines.append(_ln)
+        INTENT_JOBS.write_text('\n'.join(_new_lines) + '\n', 'utf-8')
+    if not _updated:
+        _append_jsonl(INTENT_JOBS, _simulated_job)
 
     return results
 

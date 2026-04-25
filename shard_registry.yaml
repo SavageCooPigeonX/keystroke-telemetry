@@ -1,0 +1,117 @@
+# shard_registry.yaml — thought completer Phase 0
+# ownership, TTL, consumers, compression rules per shard.
+# storage: SQLite (data/operator_profile.db). see data/schema.sql for tables.
+# ONE writer per shard (lane discipline from §8 of the plan).
+
+version: 1
+db_path: data/operator_profile.db
+schema_version: 1
+
+shards:
+
+  vocabulary:
+    table: shard_vocabulary
+    purpose: fragment → expansion mappings, voice fingerprint, cached embeddings
+    owner: prompt_telemetry_daemon            # lane A (live)
+    consumers: [thought_completer, context_select_agent]
+    ttl_days: 180
+    max_rows: 50000
+    compress_rule: dedupe_on_fragment_sum_freq  # merge dup fragments, sum freq
+    lane: A
+
+  cognition:
+    table: shard_cognition
+    purpose: WPM/deletion/hesitation signatures per session
+    owner: operator_state_daemon               # lane A (live)
+    consumers: [thought_completer, narrative_ui]
+    ttl_days: 90
+    max_rows: 100000
+    compress_rule: downsample_to_session_avg_after_30d
+    lane: A
+
+  learned_pairs:
+    table: shard_learned_pairs
+    purpose: core training data — fragment → accepted completion history
+    owner: thought_completer                   # lane B (cycle)
+    consumers: [thought_completer, deepseek_daemon, intent_keys_manager]
+    ttl_days: 365
+    max_rows: 20000
+    compress_rule: keep_accepted_drop_rejected_after_90d
+    lane: B
+
+  file_affinity:
+    table: shard_file_affinity
+    purpose: intent_key → touched files, ground-truth routing
+    owner: thought_completer                   # lane B (cycle)
+    consumers: [thought_completer, file_sim, deepseek_daemon]
+    ttl_days: 365
+    max_rows: 100000
+    compress_rule: decay_touch_count_monthly   # touch_count *= 0.9/month
+    lane: B
+
+  correction_log:
+    table: shard_correction_log
+    purpose: rejected completions + operator reasons — negative training signal
+    owner: thought_completer                   # lane B (cycle)
+    consumers: [thought_completer, intent_keys_manager]
+    ttl_days: 180
+    max_rows: 10000
+    compress_rule: keep_last_N_per_fragment=5
+    lane: B
+
+  exploration:
+    table: shard_exploration
+    purpose: deleted-word substrate, paths-not-taken reconstructions
+    owner: prompt_telemetry_daemon             # lane A (live)
+    consumers: [thought_completer]
+    ttl_days: 30
+    max_rows: 20000
+    compress_rule: drop_after_ttl
+    lane: A
+
+  session_summary:
+    table: shard_session_summary
+    purpose: compressed session-level narrative — one row per session
+    owner: session_compactor                   # lane C (background)
+    consumers: [thought_completer, narrative_ui, operator_probes]
+    ttl_days: 730
+    max_rows: 5000
+    compress_rule: immutable_after_session_end
+    lane: C
+
+  intent_keys:
+    table: intent_keys
+    purpose: active intent key registry with lifecycle state
+    owner: intent_keys_manager                 # lane C (background)
+    consumers: [thought_completer, file_sim, narrative_ui]
+    ttl_days: null                             # managed by lifecycle, not TTL
+    max_rows: 500
+    compress_rule: sleep_after_30d_no_match; archive_after_90d_dormant
+    lane: C
+
+  intent_ledger:
+    table: intent_ledger
+    purpose: closure tracking — 5 conditions per emitted intent
+    owner: thought_completer                   # lane B emitter, lane C verifier
+    consumers: [closure_rate_metric, narrative_ui]
+    ttl_days: 180
+    max_rows: 20000
+    compress_rule: archive_closed_after_30d
+    lane: B
+
+# ── derived metrics ─────────────────────────────────────────────────
+metrics:
+  intent_closure_rate:
+    formula: "count(intent_ledger.closed_at within 7d) / count(intent_ledger.emitted_at within 7d)"
+    target: 0.60
+    source_shard: intent_ledger
+
+# ── migration map ───────────────────────────────────────────────────
+# what existing artifact feeds which shard during Phase 0 backfill.
+migrations:
+  logs/prompt_journal/*.jsonl: [vocabulary, cognition, exploration]
+  logs/prompt_telemetry_latest.json: [cognition]
+  operator_profile.md: [session_summary]
+  rework_log.json: [correction_log]
+  file_profiles.json: [file_affinity]
+  logs/intent_backlog_resolutions.json: [intent_ledger]
