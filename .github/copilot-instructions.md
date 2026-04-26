@@ -3,26 +3,15 @@
 ---
 
 <!-- pigeon:staleness-alert -->
-## ⚠️ STALENESS ALERT — MANAGED BLOCKS FAILED TO UPDATE
+## Staleness Alert
 
-*Checked 2026-04-23 04:28 UTC — 3 block(s) stale or missing*
+*Checked 2026-04-26T04:57:15.421988+00:00 - Codex live context refreshed*
 
-**ATTENTION: The following blocks did NOT update when they should have.**
-**This means Copilot is reading STALE context. Fix the writer or re-run the pipeline.**
+**Live replacements active:** `pigeon:current-query`, `pigeon:prompt-telemetry`, `codex:dynamic-context-pack`, DeepSeek V4 prompt queue.
 
-- **`current-query`**: MISSING — timestamp not found inside block
-  - Writer: `prompt_enricher (Gemini Flash)`
+**Legacy stale blocks still reported:** task-queue, operator-state
 
-- **`prompt-telemetry`**: STALE — 1371min old (max 10min)
-  - Writer: `prompt_journal._refresh_copilot_instructions`
-  - Last updated: 2026-04-22T05:37:20
-
-- **`learning-loop`**: BEHIND — 308 unprocessed entries, last ran 253h ago
-  - Writer: `git_plugin → catch_up (post-commit)`
-  - Last updated: 2026-04-12T15:20:45.419937+00:00
-
-**Action**: Run the journal command or check `logs/enricher_errors.jsonl` for failures.
-
+**Rule:** Prefer the Codex live blocks below over older commit-time or daemon-time sections.
 <!-- /pigeon:staleness-alert -->
 
 ---
@@ -401,46 +390,48 @@
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Assembled 2026-04-23 04:04 UTC · context_select_agent · zero LLM calls*
+*Assembled 2026-04-26T04:57:14.382797+00:00 - codex_compat dynamic context - zero LLM calls*
 
-**INTENT KEYS:** `check how good this prompt scores for context select agent and see if it selects proper files for sim deepseek self fix runs`
+**INTENT KEYS:** `>>> there is problems with forcast  staging / dont render scores  u unless they are real - yo u can cleanyp too wf ko`
 
-**FILES:** context_select_agent, tc_context_agent, tc_context_self_fix, self_fix_tracker, push_snapshot_self_fix
+**FILES:** none
 
-**STALE BLOCKS:** task-queue, operator-state, prompt-telemetry
+**LEGACY_STALE_BLOCKS:** task-queue, operator-state
 
-**DELETED WORDS (reconstructed):** 2 intentional deletion(s) (8% of keystrokes)
+**LIVE_REPLACEMENTS:** dynamic-context-pack, prompt-telemetry/latest/v2, DeepSeek V4 job `ds4-073601fa45e26024`
 
-**UNSAID_RECONSTRUCTION:** The operator was about to specify that the coding agent's primary
+**DELETED WORDS:** wf, ko
+
+**COGNITIVE STATE:** `hesitant`
 <!-- /pigeon:current-query -->
 <!-- pigeon:intent-backlog -->
 ## Intent Backlog Verification
 
 *Strict verification over last 100 operator prompts*
 
-**Status:** BLOCKED — 20 unresolved intent(s) remain.
+**Status:** BLOCKED — 13 unresolved intent(s) remain.
 **Directive:** Keep working. Do not treat the task as complete while this backlog is non-zero.
-**Verification:** scanned=100 | created=18 | reopened=0 | verified=18 | resolved=0
+**Verification:** scanned=22 | created=4 | reopened=0 | verified=0 | resolved=0
 **Rule:** An intent counts as done only when recent file activity clears it or the synced backlog task is verified done.
 
 **Resolution Artifact:** `intent_backlog_resolutions.json`
 
 ### Unresolved
-- [cold] `tq-057` conf=0.99 | >>>>>>   aaauuudddititit   iininntttenenent t t dadattaa  tthathahatttss s  rrreenenndddeereriri
-  → refs: none | reason: no_recent_follow_through
-- [partial] `tq-058` conf=0.93 | hhh   ttthhehererreee  a aallslssooo   aaapppppepeaeaarrrsss   ttto o o bbebee  ... (also consid
+- [abandoned] `tq-001` conf=0.59 | submit Codex edits, make deletion analytics work here, and push the handoff to i... (also consid
+  → refs: none | reason: high_deletion_ratio
+- [abandoned] `tq-002` conf=0.65 | test numeric prompt encoding per query and decide repo focus around file intent ... (also consid
+  → refs: none | reason: high_deletion_ratio
+- [partial] `tq-003` conf=0.73 | capture deletion inject before prompt reaches model... (also considered: deletion thought raw de
   → refs: none | reason: deleted_words_left_unresolved
-- [partial] `tq-059` conf=0.97 | ssseeeccctititioonn h h heaeaeatttmmmaappp  wwwoororrdddss s  aaarerere  mmiid d... (also consid
+- [partial] `tq-004` conf=0.79 | hesitation should trigger thought completer before copilot prompt handoff... (also considered: h
   → refs: none | reason: deleted_words_left_unresolved
-- [partial] `tq-060` conf=0.96 | wwwhahahat t t iis is s llliiikkkleley ley y tththhee e  bbbeesesstt t  fofoforr... (also consid
-  → refs: none | reason: deleted_words_left_unresolved
-- [partial] `tq-061` conf=0.87 | chchcheeeckckck   ccocoopppiilillootott   iiinnsnsstttrruruucccttitiiooonnsnssii... (also consid
-  → refs: none | reason: deleted_words_left_unresolved
-- [partial] `tq-062` conf=0.98 | cccaaann n  yyoyoouu u  dododo   llliiikke ke e a a nnneetettwowoworkrkrk   lllo... (also consid
-  → refs: none | reason: deleted_words_left_unresolved
-- [cold] `tq-063` conf=1.00 | network load audit test
-  → refs: none | reason: no_recent_follow_through
-- [partial] `tq-064` conf=0.98 | sssooo   yoyouyouurreree   iiigngngnorororinining g g iititt>>>   wwwhyhyhy   dd... (also consid
+- [abandoned] `tq-005` conf=0.56 | capture deletion and inject dynamic state before Copilot prompt handoff... (also considered: del
+  → refs: none | reason: high_deletion_ratio
+- [abandoned] `tq-006` conf=0.67 | use thought completer popup as the place to write prompts so injection happens b... (also consid
+  → refs: none | reason: high_deletion_ratio
+- [abandoned] `tq-007` conf=0.63 | launch thought completer composer paired with observatory, keep it always front,... (also consid
+  → refs: none | reason: high_deletion_ratio
+- [partial] `tq-008` conf=0.79 | thought completer composer should fire on pause with cooldown and separate rewar... (also consid
   → refs: none | reason: deleted_words_left_unresolved
 
 <!-- /pigeon:intent-backlog -->
@@ -448,26 +439,20 @@
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-04-23 04:28 UTC · 703 messages profiled · 8 recent commits*
+*Auto-injected 2026-04-26 04:57 UTC · 0 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
-**Cognitive state:** `abandoned` (WPM: 48.1 | Del: 26.5% | Hes: 0.49) · *[source: measured]*
+**Cognitive state:** `neutral` (WPM: 0 | Del: 0% | Hes: 0) · *[source: measured]*
 
-**Prompt ms:** 89900, 247012, 140885, 103195 (avg 145248ms)
+**Prompt ms:** 17639, 1669244, 7953, 28894, 50119 (avg 354770ms)
 
-> **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
-
-### AI Rework Surface
-*Miss rate: 11.0% (200 responses)*
-- Failed on: ""
-- Failed on: ""
-- Failed on: ""
+> **CoT directive:** Standard mode. Be thorough and structured.
 
 ### Recent Work
+- `1ddbb0b` feat: SIMS browser tab in observatory + run_assembly on every Copilot prompt
 - `42e5d68` fix: context_select_agent _predict key=len crash (silent empty results)
 - `1bc3c83` feat: high-deletion sim trigger in popup (50%+ buffer shrink in 4s fires sim)
 - `940690c` feat: inject deleted words + UNSAID_RECONSTRUCTION into pigeon:current-query on every prompt
-- `8944b1e` feat: tc_file_encoder + baseline collector button in popup + push-cycle intent dropoff
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -481,32 +466,6 @@
 - [HIGH] over_hard_cap in `pigeon_compiler/git_plugin/w_gpmo_s019_v011_d0420_λRN_βoc.py`
 - [HIGH] over_hard_cap in `src/file_sim_seq001_v005_d0421__micro_sim_engine_prompt_file_lc_feat_operator_state_daemon.py`
 - [HIGH] over_hard_cap in `src/intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade.py`
-
-### Prompt Evolution
-*This prompt has mutated 150x (186→728 lines). Features added: auto_index, task_context, task_queue, operator_state, prompt_telemetry, prompt_journal, pulse_blocks, file_consciousness.*
-
-### Mutation Effectiveness *[source: measured]*
-*200 rework pairs × 149 mutations scored*
-*No significant signal yet — all 25 sections scored neutral.*
-
-### File Consciousness
-*33 modules profiled*
-
-**High-drama (most mutations):**
-- `w_gpmo` v11 ↔ u_pj
-- `u_pj` v6 ↔ 脉p_ph
-- `脉p_ph` v6 ↔ u_pj
-- `file_sim` v5 ↔ tc_gemini
-
-**Codebase fears:**
-- file may not exist (13 modules)
-- swallowed exception (12 modules)
-- regex format dependency (10 modules)
-
-**Slumber party warnings (high coupling):**
-- `context_select_agent` ↔ `file_sim` (score=0.80, 4 shared imports, both high-churn (v2+v2))
-- `context_select_agent` ↔ `intent_numeric` (score=0.80, 5 shared imports, both high-churn (v2+v2))
-- `context_select_agent` ↔ `interlink_debugger` (score=0.80, 5 shared imports, both high-churn (v2+v2))
 
 ### Codebase Health (Veins / Clots)
 *605/630 alive, 25 clots, avg vein health 0.51*
@@ -589,90 +548,106 @@
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
-*Auto-updated per prompt · source: `logs/prompt_telemetry_latest.json`*
+*Auto-updated 2026-04-26T04:57:15.421988+00:00 - source: `logs/prompt_telemetry_latest.json`*
 
-Use this block as the highest-freshness prompt-level telemetry. When it conflicts with older commit-time context, prefer this block.
+Use this block as the highest-freshness prompt-level telemetry. It is generated from Codex live context, not the stale legacy daemon.
 
 ```json
 {
-  "schema": "prompt_telemetry/latest/v1",
-  "updated_at": "2026-04-22T05:37:20.029707+00:00",
+  "schema": "prompt_telemetry/latest/v2",
+  "updated_at": "2026-04-26T04:57:15.421988+00:00",
+  "source": "codex_compat.dynamic_context_pack",
   "latest_prompt": {
-    "session_n": 99991,
-    "ts": "2026-04-22T05:37:20.029707+00:00",
-    "chars": 31,
-    "preview": "stable journal alias validation",
-    "intent": "unknown",
-    "state": "unknown",
+    "session_n": null,
+    "ts": "2026-04-26T04:57:14.382797+00:00",
+    "chars": 111,
+    "preview": ">>> there is problems with forcast  staging / dont render scores  u unless they are real - yo u can cleanyp too",
+    "intent": ">>> there is problems with forcast  staging / dont render scores  u unless they are real - yo u can cleanyp too wf ko",
+    "state": "hesitant",
     "files_open": [
-      ".github/copilot-instructions.md"
+      "src/thought_completer.py",
+      "test_codex_compat.py",
+      "docs/CODEX_COMPAT.md",
+      "src/tc_prompt_composer_seq001_v001.py",
+      "codex_compat.py",
+      "client/os_hook.py",
+      "client/uia_reader_seq001_v001.py",
+      ".env.example",
+      ".github/copilot-instructions.md",
+      "src/deepseek_daemon_seq001_v001.py",
+      "src/tc_intent_manager_seq001_v001.py",
+      "src/tc_observatory_seq001_v002_d0420__primary_pigeon_observatory_window_lc_chore_pigeon_rename_cascade.py"
     ],
     "module_refs": []
   },
   "signals": {
     "wpm": 0,
     "chars_per_sec": 0,
-    "deletion_ratio": 0.0,
-    "hesitation_count": 0,
+    "deletion_ratio": 0.049,
+    "intent_deletion_ratio": 0.0,
+    "hesitation_count": 4,
     "rewrite_count": 0,
     "typo_corrections": 0,
-    "intentional_deletions": 0,
-    "total_keystrokes": 0,
-    "duration_ms": 0
+    "intentional_deletions": 2,
+    "total_keystrokes": 115,
+    "duration_ms": 50119
   },
   "composition_binding": {
     "matched": true,
-    "source": "chat_compositions",
+    "source": "os_hook_auto",
     "age_ms": 0,
-    "key": "|||2026-04-22T05:37:20.029707+00:00||0|stable journal alias validation",
-    "match_score": 1.0
+    "key": "ds4-073601fa45e26024",
+    "match_score": 0.0
   },
-  "deleted_words": [],
+  "deleted_words": [
+    "wf",
+    "ko"
+  ],
   "rewrites": [],
   "task_queue": {
-    "total": 58,
-    "in_progress": [],
-    "pending": 42,
-    "done": 16
+    "total": 13,
+    "in_progress": [
+      "intent_backlog:2026-04-25T07:29:13.010578+00:00",
+      "intent_backlog:2026-04-25T15:51:58.609806+00:00",
+      "intent_backlog:2026-04-25T16:50:35.069948+00:00",
+      "intent_backlog:2026-04-25T18:00:07.521943+00:00",
+      "intent_backlog:2026-04-25T18:24:53.199524+00:00",
+      "intent_backlog:2026-04-25T18:29:49.256801+00:00",
+      "intent_backlog:2026-04-25T18:33:47.523290+00:00",
+      "intent_backlog:2026-04-25T18:40:09.762258+00:00"
+    ],
+    "pending": 13,
+    "done": 0
   },
-  "hot_modules": [],
+  "hot_modules": [
+    "src/thought_completer.py",
+    "test_codex_compat.py",
+    "docs/CODEX_COMPAT.md",
+    "src/tc_prompt_composer_seq001_v001.py",
+    "codex_compat.py",
+    "client/os_hook.py",
+    "client/uia_reader_seq001_v001.py",
+    ".env.example"
+  ],
   "running_summary": {
-    "total_prompts": 847,
-    "avg_wpm": 8.1,
-    "avg_del_ratio": 0.064,
-    "dominant_state": "abandoned",
+    "total_prompts": 45,
+    "avg_del_ratio": 0.142,
+    "dominant_state": "hesitant",
     "state_distribution": {
-      "abandoned": 233,
-      "restructuring": 231,
-      "focused": 225,
-      "neutral": 8,
-      "hesitant": 2
-    },
-    "baselines": {
-      "n": 200,
-      "avg_wpm": 52.2,
-      "avg_del": 0.259,
-      "avg_hes": 0.445,
-      "sd_wpm": 15.2,
-      "sd_del": 0.231,
-      "sd_hes": 0.164
-    },
-    "prompt_density": {
-      "last_5m": {
-        "count": 1,
-        "per_hour": 12.0
-      },
-      "last_15m": {
-        "count": 2,
-        "per_hour": 8.0
-      },
-      "last_60m": {
-        "count": 8,
-        "per_hour": 8.0
-      },
-      "latest_gap_s": 562.2,
-      "avg_gap_s": 350.3
+      "unknown": 15,
+      "frustrated": 14,
+      "hesitant": 16
     }
+  },
+  "deepseek": {
+    "model": "deepseek-v4-pro",
+    "job_id": "ds4-073601fa45e26024",
+    "status": "queued",
+    "autonomous_write": false
+  },
+  "staleness": {
+    "replaces_legacy_pigeon_prompt_telemetry": true,
+    "fresh_source": "logs/dynamic_context_pack.json"
   }
 }
 ```
@@ -695,3 +670,138 @@ Use this block as the highest-freshness prompt-level telemetry. When it conflict
 They likely deleted it because the overall (conf=0.60, via unsaid_recon)
 
 <!-- /pigeon:probe-resolutions -->
+
+<!-- codex:pre-prompt-state -->
+## Codex Pre-Prompt State
+
+*Prepared 2026-04-26T04:57:14.084089+00:00 before model handoff*
+
+**PROMPT:** `>>> there is problems with forcast  staging / dont render scores  u unless they are real - yo u can cleanyp too`
+
+**DELETION_RATIO:** `0.049`
+**DELETED_WORDS:** wf, ko
+**HESITATION_COUNT:** `4`
+
+**NUMERIC_CONTEXT:**
+- none
+
+**HANDOFF_READY:** `True`
+**SIM_STATUS:** `skipped`
+<!-- /codex:pre-prompt-state -->
+
+<!-- codex:dynamic-context-pack -->
+## Dynamic Context Pack
+
+*Prepared 2026-04-26T04:57:14.382797+00:00 for os_hook_auto*
+
+**PROMPT:** `>>> there is problems with forcast  staging / dont render scores  u unless they are real - yo u can cleanyp too`
+**DELETION_RATIO:** `0.049`
+**INTENT_DELETION_RATIO:** `0.0`
+**HESITATION_COUNT:** `4`
+**COGNITIVE_STATE:** `hesitant`
+**DELETED_WORDS:** wf, ko
+
+**FOCUS_FILES:**
+- `src/thought_completer.py` via recent_edit
+- `test_codex_compat.py` via recent_edit
+- `docs/CODEX_COMPAT.md` via recent_edit
+- `src/tc_prompt_composer_seq001_v001.py` via recent_edit
+- `codex_compat.py` via recent_edit
+- `client/os_hook.py` via recent_edit
+- `client/uia_reader_seq001_v001.py` via recent_edit
+- `.env.example` via dirty_git
+- `.github/copilot-instructions.md` via dirty_git
+- `src/deepseek_daemon_seq001_v001.py` via dirty_git
+
+**CONTEXT_CONFIDENCE:** `0.0`
+**CONTEXT_STATUS:** `ok`
+
+**UNRESOLVED_INTENTS:**
+- `abandoned` submit Codex edits, make deletion analytics work here, and push the handoff to i... (also considered: deletions keystroke keystore telemetry raw)
+- `abandoned` test numeric prompt encoding per query and decide repo focus around file intent ... (also considered: numeric observatory comedy neumeric obervatory)
+- `partial` capture deletion inject before prompt reaches model... (also considered: deletion thought raw deleted)
+- `partial` hesitation should trigger thought completer before copilot prompt handoff... (also considered: hesitation completer stalled half thought)
+
+**PROMPT_BRAIN:**
+- intent key: `src/thought_completer:route:thought_completer:patch`
+- semantic: `intent_system_design`
+- profile hint: `none`
+- prompt box open: `15`
+
+**SURFACE_ACTIVITY:**
+- latest key surface: `codex`
+- latest key context: `chat`
+- latest UIA context: `chat`
+- latest context switch: `unknown` -> `chat`
+
+**ENTROPY:** global H `0.2689`, tracked `8`
+
+**DEEPSEEK_V4:**
+- model: `deepseek-v4-pro`
+- job: `ds4-073601fa45e26024` status `queued`
+- autonomous write: `False`
+
+**CAPTURE_BOUNDARY:**
+- composer: pre-submit and blocking; pause and submit can inject before handoff
+- Codex native chat: composition can be logged by external watcher, but this API path cannot block the already-sent Codex prompt
+- screenshot context: not wired yet; UIA context switches are available now, screenshot/OCR can be layered next
+<!-- /codex:dynamic-context-pack -->
+
+<!-- codex:intent-key-context -->
+## Intent Key Context
+
+**INTENT_KEY:** `src/thought_completer:route:thought_completer:patch`
+**SCOPE:** `src/thought_completer`  **CONFIDENCE:** `0.41`
+**VOID:** `False`  **WARNINGS:** none
+**SEMANTIC_INTENTS:** `intent_system_design`
+**NUMERIC_ENCODING:** `0d10e897ffb9f80780b8a8dc`
+**PROFILE_MATCHES:** `none`
+**PROFILE_UPDATES:** `none`
+**COMPLETION_HINT:** `none`
+**MANIFEST:** `src/thought_completer/MANIFEST.md`
+
+**MANIFEST_EXCERPT:**
+```text
+# MANIFEST ? src/thought_completer
+
+> thought_completer/ ? Pigeon-compliant module.
+
+*Auto-generated by pigeon_compiler manifest_builder | 2026-04-14 03:53 UTC*
+
+## How to read this manifest
+
+This file is **auto-generated** by `manifest_builder` and describes every
+Python module in this folder. It is the single source of truth for:
+- What each file does (Description)
+- What each file exports (Exports) and depends on (Deps)
+- Whether the file meets the Pigeon size budget (Status)
+- Living operator notes that persist across rebuilds (Notes)
+
+**Status icons:** ? ?200 lines | ?? OVER 200?300 | ? WARN 300?500 | ? CRIT >500
+
+**Columns:** Seq = load order ? Lines = source line count ? Exports = public classes/functions ? Deps = intra-project imports
+```
+<!-- /codex:intent-key-context -->
+
+<!-- codex:prompt-brain -->
+## Prompt Brain
+
+**PROMPT:** `thought completer should be the keystroke watcher while typing in codex; if not use the popup, but it should run actual context select, numeric file encoding, manifests, prompt box, and semantic profile of operator`
+**TRIGGER:** `thought_completer_cli:manual`
+**INTENT_KEY:** `src/thought_completer:route:thought_completer:patch`
+**SEMANTIC:** `intent_system_design`
+**COMPLETION_HINT:** `none`
+**PROFILE_FACTS:** `name=Nikita`
+**CONTEXT_STATUS:** `ok` confidence `0.1543`
+**MANIFEST:** `src/thought_completer/MANIFEST.md` confidence `0.41`
+
+**NUMERIC_FILES:**
+- `thought_completer` score `0.1543`
+- `numeric_prompt_encoding_comedy` score `0.1082`
+- `codex_compat` score `0.0655`
+- `tc_prompt_composer` score `0.0386`
+- `os_hook` score `0.0209`
+- `tc_sim_engine` score `0.0049`
+
+**PROMPT_BOX_OPEN:** `15`
+<!-- /codex:prompt-brain -->

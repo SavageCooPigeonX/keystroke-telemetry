@@ -46,15 +46,19 @@ ROOT = Path(__file__).parent.parent
 LOGS = ROOT / 'logs'
 DAEMON_LOG = LOGS / 'deepseek_daemon.jsonl'
 INTENT_JOBS = LOGS / 'intent_jobs.jsonl'
+PROMPT_JOBS = LOGS / 'deepseek_prompt_jobs.jsonl'
+PROMPT_RESULTS = LOGS / 'deepseek_prompt_results.jsonl'
 OVERWRITE_LOG = LOGS / 'file_overwrites.jsonl'
 POST_GRADE_LOG = LOGS / 'post_patch_grades.jsonl'
 
-CYCLE_S = 45            # minimum seconds between DeepSeek calls
+CYCLE_S = 12            # minimum seconds between DeepSeek calls
 MAX_GRADE_RETRY = 2     # max retries for a rejected patch
 INTENT_MIN_GRADE = 0.1  # minimum sim grade to attempt a fix
 
 _DEEPSEEK_URL = 'https://api.deepseek.com/v1/chat/completions'
-_DEEPSEEK_MODEL = 'deepseek-chat'
+_DEEPSEEK_MODEL = os.environ.get('DEEPSEEK_CODING_MODEL') or os.environ.get('DEEPSEEK_MODEL') or 'deepseek-v4-pro'
+_DEEPSEEK_FAST_MODEL = os.environ.get('DEEPSEEK_FAST_MODEL') or 'deepseek-v4-flash'
+_AUTONOMOUS_PROMPT_WRITES = os.environ.get('DEEPSEEK_AUTONOMOUS_PROMPT_WRITES', '').lower() in ('1', 'true', 'yes')
 
 
 # ── helpers ────────────────────────────────────────────────────────────────────
@@ -108,10 +112,10 @@ def _read_jsonl(path: Path) -> list[dict]:
     return out
 
 
-def _call_deepseek(system: str, user: str, api_key: str, max_tokens: int = 2000) -> str | None:
+def _call_deepseek(system: str, user: str, api_key: str, max_tokens: int = 2000, model: str | None = None) -> str | None:
     import urllib.request
     body = json.dumps({
-        'model': _DEEPSEEK_MODEL,
+        'model': model or _DEEPSEEK_MODEL,
         'messages': [
             {'role': 'system', 'content': system},
             {'role': 'user', 'content': user},
@@ -250,6 +254,63 @@ def _rejected_patch_work(already_attempted: set[str]) -> list[dict]:
     return work[:1]
 
 
+def _done_prompt_job_ids() -> set[str]:
+    done: set[str] = set()
+    for row in _read_jsonl(PROMPT_RESULTS):
+        if row.get('dry_run'):
+            continue
+        jid = row.get('job_id')
+        if jid:
+            done.add(str(jid))
+    return done
+
+
+def _stem_from_focus(focus_files: list) -> str:
+    for item in focus_files:
+        name = item.get('name') if isinstance(item, dict) else str(item)
+        if not name:
+            continue
+        name = str(name).replace('\\', '/')
+        if name.startswith('logs/'):
+            continue
+        p = Path(name)
+        if p.suffix == '.py':
+            return p.stem
+        if '/' not in name and '.' not in name:
+            return name
+    return ''
+
+
+def _prompt_job_work(already_attempted: set[str]) -> list[dict]:
+    """Pull prompt-triggered DeepSeek V4 jobs queued by codex_compat."""
+    jobs = _read_jsonl(PROMPT_JOBS)
+    if not jobs:
+        return []
+    done = _done_prompt_job_ids()
+    work = []
+    for job in reversed(jobs):
+        jid = str(job.get('job_id') or '')
+        if not jid or jid in done:
+            continue
+        key = f'prompt:{jid}'
+        if key in already_attempted:
+            continue
+        prompt = str(job.get('prompt') or '').strip()
+        if not prompt:
+            continue
+        focus = job.get('focus_files') if isinstance(job.get('focus_files'), list) else []
+        work.append({
+            'type': 'prompt_coding_context',
+            'stem': _stem_from_focus(focus),
+            'intent': prompt,
+            'job': job,
+            'key': key,
+            'priority': int(job.get('priority') or 5),
+        })
+    work.sort(key=lambda item: item.get('priority', 5))
+    return work[:3]
+
+
 # ── DeepSeek actions ───────────────────────────────────────────────────────────
 
 _COMPILE_SYSTEM = """You are the DeepSeek compiler for a Python codebase that uses the Pigeon naming system.
@@ -279,6 +340,122 @@ Given a file's source and a bug type, explain:
 3. Whether the fix is safe (yes/no/maybe) and why
 
 Be concise — 3-5 sentences max. No code output."""
+
+
+_PROMPT_SYSTEM = """You are DeepSeek V4 Pro acting as the coding delegate for this repo.
+Use the dynamic context pack, prompt text, deleted words, focus files, and recent state.
+Return a compact engineering response:
+1. Which file(s) should be touched first.
+2. The minimal coding action.
+3. Any risk or missing input.
+If code changes are needed, include surgical search-replace blocks only after the plan.
+Do not invent stale observatory facts; prefer the provided live context."""
+
+
+def _focus_source_snippets(focus_files: list, limit: int = 3) -> str:
+    snippets: list[str] = []
+    for item in focus_files[:limit * 2]:
+        name = item.get('name') if isinstance(item, dict) else str(item)
+        if not name:
+            continue
+        candidates: list[Path] = []
+        p = ROOT / str(name)
+        if p.exists() and p.is_file():
+            candidates.append(p)
+        stem = Path(str(name)).stem if str(name).endswith('.py') else str(name)
+        for folder in ('src', 'client', 'pigeon_compiler'):
+            candidates.extend(sorted((ROOT / folder).glob(f'{stem}*.py'))[:1])
+        for candidate in candidates:
+            try:
+                rel = candidate.relative_to(ROOT)
+                source = candidate.read_text('utf-8', errors='ignore')
+            except Exception:
+                continue
+            lines = source.splitlines()
+            body = '\n'.join(lines[:220])
+            if len(lines) > 220:
+                body += f'\n# ... {len(lines) - 220} more lines truncated'
+            snippets.append(f'FILE: {rel}\n```python\n{body}\n```')
+            break
+        if len(snippets) >= limit:
+            break
+    return '\n\n'.join(snippets)
+
+
+def _do_prompt_job(work: dict, api_key: str, dry_run: bool) -> dict:
+    job = work.get('job') or {}
+    prompt = str(job.get('prompt') or work.get('intent') or '').strip()
+    job_id = str(job.get('job_id') or work.get('key') or '')
+    focus_files = job.get('focus_files') if isinstance(job.get('focus_files'), list) else []
+    model = str(job.get('model') or _DEEPSEEK_MODEL)
+    autonomous_write = bool(job.get('autonomous_write')) or _AUTONOMOUS_PROMPT_WRITES
+
+    if dry_run:
+        result = {
+            'success': True,
+            'dry_run': True,
+            'reason': 'prompt job queued; dry-run skipped API call',
+            'job_id': job_id,
+            'model': model,
+        }
+        _append_prompt_result(result)
+        return result
+
+    if autonomous_write and work.get('stem'):
+        result = _do_fix({
+            'type': 'prompt_coding',
+            'stem': work['stem'],
+            'intent': prompt,
+            'key': work['key'],
+        }, api_key, dry_run=False)
+        result.update({'job_id': job_id, 'model': model, 'autonomous_write': True})
+        _append_prompt_result(result)
+        return result
+
+    pack_path = ROOT / str(job.get('context_pack_path') or 'logs/dynamic_context_pack.json')
+    context_pack = {}
+    if pack_path.exists():
+        try:
+            context_pack = json.loads(pack_path.read_text('utf-8', errors='ignore'))
+        except Exception:
+            context_pack = {}
+    snippets = _focus_source_snippets(focus_files)
+    user = f"""PROMPT:
+{prompt}
+
+DELETED WORDS: {', '.join(job.get('deleted_words', [])[:12]) or 'none'}
+CONTEXT CONFIDENCE: {job.get('context_confidence', 0)}
+
+DYNAMIC CONTEXT PACK:
+{json.dumps(context_pack, ensure_ascii=False, indent=2)[:6000]}
+
+FOCUS SOURCE:
+{snippets or '(no source snippets resolved)'}
+"""
+    completion = _call_deepseek(_PROMPT_SYSTEM, user, api_key, max_tokens=1800, model=model)
+    result = {
+        'success': bool(completion),
+        'reason': 'deepseek prompt context completed' if completion else 'deepseek returned empty',
+        'job_id': job_id,
+        'model': model,
+        'prompt_preview': prompt[:180],
+        'focus_files': focus_files[:8],
+        'completion': (completion or '')[:6000],
+        'autonomous_write': False,
+    }
+    _append_prompt_result(result)
+    return result
+
+
+def _append_prompt_result(result: dict) -> None:
+    result = {**result, 'ts': datetime.now(timezone.utc).isoformat()}
+    PROMPT_RESULTS.parent.mkdir(parents=True, exist_ok=True)
+    with open(PROMPT_RESULTS, 'a', encoding='utf-8') as f:
+        f.write(json.dumps(result, ensure_ascii=False) + '\n')
+    (LOGS / 'deepseek_prompt_latest_result.json').write_text(
+        json.dumps(result, indent=2, ensure_ascii=False),
+        encoding='utf-8',
+    )
 
 
 def _do_fix(work: dict, api_key: str, dry_run: bool) -> dict:
@@ -444,6 +621,7 @@ def run_cycle(api_key: str, dry_run: bool, already_attempted: set[str]) -> int:
 
     # collect work by priority
     work_items = []
+    work_items.extend(_prompt_job_work(already_attempted))          # live prompts first
     work_items.extend(_rejected_patch_work(already_attempted))      # retries first
     work_items.extend(_pigeon_compliance_work(already_attempted))   # then compliance
     work_items.extend(_intent_work(already_attempted))              # then intents
@@ -455,9 +633,12 @@ def run_cycle(api_key: str, dry_run: bool, already_attempted: set[str]) -> int:
     # process first available item
     item = work_items[0]
     already_attempted.add(item['key'])
-    print(f'[daemon] → {item["type"]} stem={item["stem"]} intent={item["intent"][:60]!r}')
+    print(f'[daemon] -> {item["type"]} stem={item["stem"]} intent={item["intent"][:60]!r}')
 
-    result = _do_fix(item, api_key, dry_run)
+    if item['type'] == 'prompt_coding_context':
+        result = _do_prompt_job(item, api_key, dry_run)
+    else:
+        result = _do_fix(item, api_key, dry_run)
     result['stem'] = item['stem']
     result['action'] = item['type']
 
@@ -480,19 +661,28 @@ def main():
     args = p.parse_args()
 
     api_key = _load_api_key()
-    if not api_key:
+    if not api_key and not args.dry_run:
         print('[daemon] ERROR: DEEPSEEK_API_KEY not found in env or .env')
         return 1
+    if not api_key:
+        api_key = 'dry-run'
 
-    print(f'[daemon] starting — cycle={args.cycle_s}s dry_run={args.dry_run}')
-    _log({'action': 'start', 'stem': 'daemon', 'result': f'cycle={args.cycle_s}s dry_run={args.dry_run}', 'dry_run': args.dry_run})
+    print(f'[daemon] starting - model={_DEEPSEEK_MODEL} fast={_DEEPSEEK_FAST_MODEL} cycle={args.cycle_s}s dry_run={args.dry_run}')
+    _log({
+        'action': 'start',
+        'stem': 'daemon',
+        'result': f'model={_DEEPSEEK_MODEL} fast={_DEEPSEEK_FAST_MODEL} cycle={args.cycle_s}s dry_run={args.dry_run}',
+        'dry_run': args.dry_run,
+        'model': _DEEPSEEK_MODEL,
+        'fast_model': _DEEPSEEK_FAST_MODEL,
+    })
 
     already_attempted: set[str] = set()
 
     while True:
         try:
             n = run_cycle(api_key, args.dry_run, already_attempted)
-            print(f'[daemon] cycle done — processed={n} attempted={len(already_attempted)}')
+            print(f'[daemon] cycle done - processed={n} attempted={len(already_attempted)}')
         except Exception as e:
             print(f'[daemon] cycle error: {e}')
             _log({'action': 'cycle_error', 'stem': 'daemon', 'result': str(e)[:120]})

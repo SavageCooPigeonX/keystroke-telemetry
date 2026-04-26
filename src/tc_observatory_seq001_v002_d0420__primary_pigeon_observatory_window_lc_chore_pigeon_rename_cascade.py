@@ -54,7 +54,7 @@ SMALL   = (FONT, 7)
 MED     = (FONT, 9)
 BIG     = (FONT, 11)
 
-TABS = ['FILES', 'NUMERIC', 'INTENT', 'PROFILE', 'PERCY', 'SIM', 'SIMS', 'GRADES', 'JOURNEY']
+TABS = ['FILES', 'DEEPSEEK', 'NUMERIC', 'INTENT', 'PROFILE', 'PERCY', 'SIM', 'SIMS', 'GRADES', 'JOURNEY']
 
 PERCY_SYSTEM = """You are Percy Pigeon — the living mascot of this codebase.
 You speak in short punchy sentences. You read file bug reports and operator prompts,
@@ -135,12 +135,59 @@ def _load_bug_voices() -> list[dict]:
 
 def _load_latest_prompt() -> dict:
     p = ROOT / 'logs' / 'prompt_telemetry_latest.json'
-    if not p.exists():
-        return {}
-    try:
-        return json.loads(p.read_text('utf-8', errors='ignore'))
-    except Exception:
-        return {}
+    if p.exists():
+        try:
+            return json.loads(p.read_text('utf-8', errors='ignore'))
+        except Exception:
+            pass
+
+    pack = ROOT / 'logs' / 'dynamic_context_pack.json'
+    if pack.exists():
+        try:
+            d = json.loads(pack.read_text('utf-8', errors='ignore'))
+            return {
+                'latest_prompt': {
+                    'preview': d.get('prompt', '')[:500],
+                    'ts': d.get('ts', ''),
+                    'source': 'dynamic_context_pack',
+                },
+                'dynamic_context_pack': d,
+            }
+        except Exception:
+            pass
+
+    state = ROOT / 'logs' / 'codex_state.json'
+    if state.exists():
+        try:
+            d = json.loads(state.read_text('utf-8', errors='ignore'))
+            lp = d.get('latest_prompt') or {}
+            return {
+                'latest_prompt': {
+                    'preview': (lp.get('msg') or '')[:500],
+                    'ts': lp.get('ts', ''),
+                    'source': 'codex_state',
+                },
+                'codex_state': d,
+            }
+        except Exception:
+            pass
+
+    journal = ROOT / 'logs' / 'prompt_journal.jsonl'
+    if journal.exists():
+        try:
+            rows = [json.loads(line) for line in journal.read_text('utf-8', errors='ignore').splitlines() if line.strip()]
+            if rows:
+                lp = rows[-1]
+                return {
+                    'latest_prompt': {
+                        'preview': (lp.get('msg') or '')[:500],
+                        'ts': lp.get('ts', ''),
+                        'source': 'prompt_journal',
+                    }
+                }
+        except Exception:
+            pass
+    return {}
 
 
 def _call_percy(prompt: str, bug_context: str) -> str:
@@ -275,6 +322,86 @@ def run_observatory():
 
     def _ftr(msg: str, fg: str = DIM):
         _ftr_label.config(text=msg, fg=fg)
+
+    # DeepSeek V4 prompt lane: live queue/result view for prompt-fired coding work.
+    deepseek_frame = tk.Frame(content_host, bg=BG)
+    _tab_frames['DEEPSEEK'] = deepseek_frame
+    ds_top = tk.Frame(deepseek_frame, bg=SURFACE, height=22)
+    ds_top.pack(fill='x')
+    ds_top.pack_propagate(False)
+    ds_status_lbl = tk.Label(ds_top, text='DeepSeek V4 prompt lane',
+                             bg=SURFACE, fg=PURPLE, font=(FONT, 8, 'bold'))
+    ds_status_lbl.pack(side='left', padx=8)
+    ds_box = _make_scrolled_text(deepseek_frame)
+    ds_box.pack(fill='both', expand=True)
+
+    def _tail_jsonl(path: Path, n: int = 6) -> list[dict]:
+        if not path.exists():
+            return []
+        rows: list[dict] = []
+        try:
+            for line in path.read_text('utf-8', errors='ignore').splitlines()[-max(n * 4, n):]:
+                if not line.strip():
+                    continue
+                try:
+                    rows.append(json.loads(line))
+                except Exception:
+                    pass
+        except Exception:
+            return []
+        return rows[-n:]
+
+    def _refresh_deepseek():
+        try:
+            jobs = _tail_jsonl(ROOT / 'logs' / 'deepseek_prompt_jobs.jsonl', 8)
+            results = _tail_jsonl(ROOT / 'logs' / 'deepseek_prompt_results.jsonl', 5)
+            latest = {}
+            latest_path = ROOT / 'logs' / 'deepseek_prompt_latest.json'
+            if latest_path.exists():
+                try:
+                    latest = json.loads(latest_path.read_text('utf-8', errors='ignore'))
+                except Exception:
+                    latest = {}
+            segs: list[tuple[str, str]] = [
+                ('bold_purple', 'DEEPSEEK V4 PROMPT LANE\n'),
+                ('dim', 'jobs: logs/deepseek_prompt_jobs.jsonl\n'),
+                ('dim', 'results: logs/deepseek_prompt_results.jsonl\n\n'),
+            ]
+            if latest:
+                segs += [
+                    ('stage', 'latest prompt job\n'),
+                    ('dim', f"id: {latest.get('job_id', '')}\n"),
+                    ('dim', f"model: {latest.get('model', '')}  status: {latest.get('status', '')}\n"),
+                    ('file', 'focus: ' + ', '.join(latest.get('focus_files') or [])[:260] + '\n'),
+                    ('val', (latest.get('prompt') or '')[:800] + '\n\n'),
+                ]
+            if jobs:
+                segs.append(('stage', 'queued/recent jobs\n'))
+                for job in reversed(jobs):
+                    prompt = (job.get('prompt') or '').replace('\n', ' ')[:160]
+                    segs += [
+                        ('purple', f"{job.get('status', 'queued')} "),
+                        ('dim', f"{job.get('job_id', '')} "),
+                        ('file', f"{job.get('model', '')}\n"),
+                        ('val', f"  {prompt}\n"),
+                    ]
+            else:
+                segs.append(('warn', 'no prompt jobs yet\n'))
+            if results:
+                segs.append(('stage', '\nresults\n'))
+                for result in reversed(results):
+                    tag = 'ok' if result.get('success') else 'err'
+                    body = result.get('completion') or result.get('reason') or result.get('error') or ''
+                    segs += [
+                        (tag, f"{result.get('job_id', '')} {result.get('model', '')}\n"),
+                        ('dim', f"  success={result.get('success')} dry_run={result.get('dry_run', False)}\n"),
+                        ('val', f"  {str(body).replace(chr(10), ' ')[:360]}\n"),
+                    ]
+            ds_status_lbl.config(text=f"DeepSeek V4 lane - jobs {len(jobs)} results {len(results)}")
+            _txt_set(ds_box, segs)
+        except Exception as e:
+            _txt_set(ds_box, [('err', f'deepseek lane error: {e}')])
+        root.after(3000, _refresh_deepseek)
 
     # ══════════════════════════════════════════════════════════════════════════
     # TAB A — FILES TOUCHED
@@ -1548,6 +1675,7 @@ def run_observatory():
     tab_icons = {'FILES': '📁', 'NUMERIC': '🔢', 'INTENT': '🧠',
                  'PROFILE': '🕵', 'PERCY': '🐦', 'SIM': '🎬',
                  'SIMS': '📋', 'GRADES': '🔬', 'JOURNEY': '🛤'}
+    tab_icons['DEEPSEEK'] = 'DS4'
     for name in TABS:
         icon = tab_icons.get(name, '')
         b = tk.Label(tab_bar, text=f' {icon} {name} ', bg='#161b22', fg=DIM,
@@ -1582,6 +1710,7 @@ def run_observatory():
         elif tab == 'PROFILE': _render_spy_log()
         elif tab == 'JOURNEY': _refresh_journey()
         elif tab == 'GRADES':  _refresh_grades()
+        elif tab == 'DEEPSEEK': _refresh_deepseek()
         elif tab == 'NUMERIC': pass  # auto every 500ms
 
     # ── global header poll ────────────────────────────────────────────────────
@@ -1607,6 +1736,7 @@ def run_observatory():
     root.after(350, _render_spy_log)
     root.after(100, _poll_header)
     root.after(150, _refresh_numeric)
+    root.after(180, _refresh_deepseek)
     root.mainloop()
 
 

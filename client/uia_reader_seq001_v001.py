@@ -27,6 +27,7 @@ Usage: py client/uia_reader_seq001_v001.py <project_root>
 import json
 import os
 import sys
+import threading
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -132,7 +133,7 @@ def _classify(element, uia) -> tuple[str, dict]:
     al = auto_id.lower()
 
     # Direct match on element
-    if 'chat' in nl or 'chat' in al or 'copilot' in nl:
+    if 'chat' in nl or 'chat' in al or 'copilot' in nl or 'codex' in nl or 'codex' in al:
         return 'chat', info
     if 'terminal' in nl or 'terminal' in al or 'xterm' in nl:
         return 'terminal', info
@@ -152,7 +153,7 @@ def _classify(element, uia) -> tuple[str, dict]:
             except Exception:
                 break
 
-            if 'chat' in pn or 'copilot' in pn or 'chat' in pa:
+            if 'chat' in pn or 'copilot' in pn or 'codex' in pn or 'chat' in pa or 'codex' in pa:
                 return 'chat', info
             if 'terminal' in pn or 'xterm' in pn or 'terminal' in pa:
                 return 'terminal', info
@@ -199,6 +200,23 @@ def _diff(old: str, new: str) -> dict | None:
 # ── Main reader loop ────────────────────────────────────────────────────────
 
 POLL_MS = 50
+BRAIN_PAUSE_MS = 1600
+BRAIN_COOLDOWN_S = 2.0
+BRAIN_MIN_CHARS = 4
+
+
+def _words(fragments: list[str]) -> list[str]:
+    seen: set[str] = set()
+    out: list[str] = []
+    for fragment in fragments:
+        for part in str(fragment).split():
+            word = part.strip(".,;:!?()[]{}\"'`")
+            key = word.lower()
+            if len(word) >= 3 and key not in seen:
+                seen.add(key)
+                out.append(word)
+    return out[:30]
+
 
 class UIAReader:
     def __init__(self, root: Path, diag: bool = False):
@@ -210,6 +228,10 @@ class UIAReader:
         self._prev_ctx = ''
         self._deletions: list[str] = []
         self._running = True
+        self._last_change_s = 0.0
+        self._last_brain_text = ''
+        self._last_brain_fire_s = 0.0
+        self._brain_busy = False
 
     def run(self):
         uia, consts = _init_uia()
@@ -256,11 +278,13 @@ class UIAReader:
                 if ctx not in ('chat', 'editor', 'text_input', 'search'):
                     self._prev_text = ''
                     self._deletions.clear()
+                    self._last_brain_text = ''
 
             # ── Text diff (only on text-bearing contexts) ──
             if ctx in ('chat', 'editor', 'text_input', 'search'):
                 d = _diff(self._prev_text, text)
                 if d:
+                    self._last_change_s = time.time()
                     if d['deleted']:
                         self._deletions.append(d['deleted'])
                     entry = {
@@ -283,6 +307,7 @@ class UIAReader:
                         sys.stdout.flush()
 
                 self._prev_text = text
+                self._maybe_fire_brain(ctx, text)
 
     def _write(self, entry: dict):
         try:
@@ -296,6 +321,59 @@ class UIAReader:
                'log': str(self._log_path), 'diag': self._diag, **extra}
         print(json.dumps(msg))
         sys.stdout.flush()
+
+    def _maybe_fire_brain(self, ctx: str, text: str):
+        if ctx != 'chat':
+            return
+        stripped = (text or '').strip()
+        if len(stripped) < BRAIN_MIN_CHARS or self._brain_busy:
+            return
+        now = time.time()
+        if self._last_change_s <= 0 or (now - self._last_change_s) * 1000 < BRAIN_PAUSE_MS:
+            return
+        if stripped == self._last_brain_text or now - self._last_brain_fire_s < BRAIN_COOLDOWN_S:
+            return
+        self._last_brain_text = stripped
+        self._last_brain_fire_s = now
+        self._brain_busy = True
+
+        def worker():
+            try:
+                if str(self._root) not in sys.path:
+                    sys.path.insert(0, str(self._root))
+                from src.tc_prompt_brain_seq001_v001 import assemble_prompt_brain
+                brain = assemble_prompt_brain(
+                    self._root,
+                    stripped,
+                    deleted_words=_words(self._deletions[-20:]),
+                    source='uia_reader',
+                    trigger='chat_pause',
+                    emit_prompt_box=False,
+                    inject=True,
+                )
+                files = brain.get('numeric_file_encoding') or (brain.get('context_selection') or {}).get('files') or []
+                entry = {
+                    'ts': datetime.now(timezone.utc).isoformat(),
+                    'event': 'prompt_brain',
+                    'context': ctx,
+                    'intent_key': brain.get('intent_key'),
+                    'semantic': (brain.get('semantic_profile') or {}).get('semantic_intents', []),
+                    'top_file': files[0].get('name') if files else '',
+                    'injected': brain.get('injected', False),
+                }
+                self._write(entry)
+                print(json.dumps({'status': 'prompt_brain', **entry}, ensure_ascii=False))
+                sys.stdout.flush()
+            except Exception as exc:
+                self._write({
+                    'ts': datetime.now(timezone.utc).isoformat(),
+                    'event': 'prompt_brain_error',
+                    'error': str(exc),
+                })
+            finally:
+                self._brain_busy = False
+
+        threading.Thread(target=worker, daemon=True).start()
 
     def stop(self):
         self._running = False

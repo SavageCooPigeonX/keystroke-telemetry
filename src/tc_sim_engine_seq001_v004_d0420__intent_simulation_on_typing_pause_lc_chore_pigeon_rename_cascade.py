@@ -565,6 +565,6 @@ def _reinject_to_intent_compiler(buffer: str, winner: SimResult, ts: str) -> Non
         reinject_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding='utf-8')
         # Invalidate context cache so next call_gemini() picks up the reinjection
         invalidate_context_cache()
-        print(f'[sim] reinjected winner ({winner.name}, score={winner.score:.2f}) → intent compiler')
+        print(f'[sim] reinjected winner ({winner.name}, score={winner.score:.2f}) -> intent compiler')
     except Exception as e:
         print(f'[sim] reinject failed: {e}')
