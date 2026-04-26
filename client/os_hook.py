@@ -45,6 +45,12 @@ FLUSH_INTERVAL_S = 0.3     # Write to disk every 300ms (thought_completer needs 
 IDLE_TIMEOUT_S = 300       # 5 min idle → pause recording
 BUFFER_MAX_LEN = 500       # Max composition buffer size
 VSCODE_WINDOW_MATCH = 'Visual Studio Code'
+CODEX_WINDOW_MATCH = 'Codex'
+TARGET_WINDOW_MATCHES = tuple(
+    item.strip()
+    for item in os.environ.get('TC_WINDOW_MATCHES', f'{VSCODE_WINDOW_MATCH};{CODEX_WINDOW_MATCH}').split(';')
+    if item.strip()
+)
 _WORKSPACE_NAME: str | None = None  # set by main() from repo root folder name
 
 # ── Windows API for foreground window ────────────────────────────────────────
@@ -71,6 +77,25 @@ def _is_vscode_focused() -> bool:
         return True
     except Exception:
         return False
+
+
+def _focused_target() -> tuple[bool, str, str]:
+    """Return whether a watched coding/prompting surface is focused."""
+    try:
+        title = _get_foreground_title()
+        lowered = title.lower()
+        matched = next((m for m in TARGET_WINDOW_MATCHES if m.lower() in lowered), '')
+        if not matched:
+            return False, 'unknown', title
+        if matched == VSCODE_WINDOW_MATCH:
+            if _WORKSPACE_NAME and _WORKSPACE_NAME not in title:
+                return False, 'vscode_other_workspace', title
+            return True, 'vscode', title
+        if matched == CODEX_WINDOW_MATCH:
+            return True, 'codex', title
+        return True, matched.lower().replace(' ', '_'), title
+    except Exception:
+        return False, 'unknown', ''
 
 
 # ── Clipboard reader (ctypes, no subprocess) ────────────────────────────────
@@ -257,6 +282,7 @@ class KeystrokeRecorder:
         self._ctx = ContextTracker()
         self._lock = threading.Lock()
         self._running = True
+        self._surface = 'unknown'
         # Selection tracking
         self._mouse = mouse_tracker
         self._all_selected = False   # True after Ctrl+A
@@ -273,12 +299,14 @@ class KeystrokeRecorder:
     def on_press(self, key):
         if not self._running:
             return
-        if not _is_vscode_focused():
+        focused, surface, _title = _focused_target()
+        if not focused:
             return
 
         now_ms = int(time.time() * 1000)
         key_str = self._key_to_str(key)
-        ctx = self._ctx.on_key(key_str, True)
+        ctx = 'chat' if surface == 'codex' else self._ctx.on_key(key_str, True)
+        self._surface = surface
         self._last_activity = time.time()
 
         # ── Track modifier state ──
@@ -452,6 +480,7 @@ class KeystrokeRecorder:
             'key': key_display,
             'type': evt_type,
             'context': ctx,
+            'surface': getattr(self, '_surface', 'unknown'),
             'buffer_len': len(self._composition),
             'source': 'os_hook',
             'buffer': self._composition,
@@ -490,6 +519,33 @@ class KeystrokeRecorder:
                 try:
                     with open(_err_log, 'a', encoding='utf-8') as ef:
                         ef.write(f'journal: {e}\n')
+                except Exception:
+                    pass
+
+        # 1.6 Feed Codex/Copilot dynamic context from the same composition.
+        # The hook cannot block a native app's network send, but it can keep the
+        # shared state files sharp for the next turn and for Copilot instructions.
+        if composition:
+            try:
+                import importlib.util as _cc_import
+                cc_path = root / 'codex_compat.py'
+                if cc_path.exists():
+                    sp = _cc_import.spec_from_file_location('codex_compat_os_hook', cc_path)
+                    cc = _cc_import.module_from_spec(sp)
+                    sp.loader.exec_module(cc)
+                    run_sim = os.environ.get('TC_OS_HOOK_RUN_SIM', '').lower() in ('1', 'true', 'yes')
+                    cc.run_pre_prompt_from_composition(
+                        root,
+                        composition,
+                        run_sim=run_sim,
+                        sim_timeout_s=int(os.environ.get('TC_OS_HOOK_SIM_TIMEOUT', '15')),
+                        inject=True,
+                        trigger='os_hook_auto',
+                    )
+            except Exception as e:
+                try:
+                    with open(_err_log, 'a', encoding='utf-8') as ef:
+                        ef.write(f'codex_context: {e}\n')
                 except Exception:
                     pass
 
@@ -724,13 +780,16 @@ def main():
             time.sleep(FLUSH_INTERVAL_S)
             n = recorder.flush()
             if n > 0:
+                focused, surface, title = _focused_target()
                 # Status heartbeat — extension reads these
                 print(json.dumps({
                     "status": "flush",
                     "n": n,
                     "context": recorder._ctx.context,
+                    "surface": surface,
                     "buffer_len": len(recorder._composition),
-                    "focused": _is_vscode_focused(),
+                    "focused": focused,
+                    "title": title[:80],
                 }))
                 sys.stdout.flush()
 

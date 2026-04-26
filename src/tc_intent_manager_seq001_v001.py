@@ -74,6 +74,22 @@ def _load_backlog() -> list[dict]:
         return []
 
 
+def _latest_intent_key_block() -> str:
+    try:
+        from .tc_intent_key_io_seq001_v001 import latest_intent_key_block
+        return latest_intent_key_block(ROOT)
+    except Exception:
+        return ''
+
+
+def _latest_prompt_brain_block() -> str:
+    try:
+        from .tc_prompt_brain_seq001_v001 import latest_prompt_brain_block
+        return latest_prompt_brain_block(ROOT)
+    except Exception:
+        return ''
+
+
 def get_active_intent_block() -> str:
     """Build the OPEN JOBS block for the Gemini prompt.
 
@@ -133,6 +149,12 @@ def get_active_intent_block() -> str:
         'DIRECTIVE: When buffer relates to any open job, complete toward CLOSING it. '
         'Be specific — name files, actions, and verification steps.'
     )
+    latest_key = _latest_intent_key_block()
+    if latest_key:
+        lines.extend(['', latest_key])
+    prompt_brain = _latest_prompt_brain_block()
+    if prompt_brain:
+        lines.extend(['', prompt_brain])
 
     block = '\n'.join(lines)
     _CACHE = {'block': block}
