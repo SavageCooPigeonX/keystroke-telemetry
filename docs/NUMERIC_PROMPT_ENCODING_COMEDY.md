@@ -59,24 +59,24 @@ It is:
 
 The core stack should be:
 
-1. **Prompt Event Spine**  
+1. **Prompt Event Spine**
    Every Codex/Copilot query becomes explicit state: prompt, deleted words,
    rewrites, response, files edited, tests run.
 
-2. **Numeric Intent Graph**  
+2. **Numeric Intent Graph**
    Prompt tokens and deleted-word tokens learn file identities from actual
    edits. No LLM call. Just "when the human says this, these files usually
    move."
 
-3. **Dynamic Context Select**  
+3. **Dynamic Context Select**
    On every query, route likely files into context. Start with numeric routing,
    then use LLM context only as seasoning.
 
-4. **File Identity Graph**  
+4. **File Identity Graph**
    Each file has an identity: what it does, what prompts wake it up, what files
    it argues with, how often it causes rework, and what it is becoming.
 
-5. **Narrative Compression Observatory**  
+5. **Narrative Compression Observatory**
    The file graph explains itself in human language. Comedy is useful here
    because jokes are compressed structure: if a file can make fun of its own
    job, a human can remember what it is.
@@ -140,4 +140,3 @@ That is the repo's real center. Not "record keystrokes." More like:
 
 > "Watch human intent condense into code, then teach the codebase to recognize
 > the next intent faster."
-

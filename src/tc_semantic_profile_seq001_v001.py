@@ -23,6 +23,10 @@ SYSTEM_WORDS = {
     "semantic", "profile", "intent", "numeric", "neumeric", "encoding",
     "thought", "completer", "prompt", "matching", "every",
 }
+ORCHESTRATION_WORDS = {
+    "orchestrator", "orchestration", "monitor", "email", "alerts", "alert",
+    "sims", "sim", "deepseek", "approval", "approve", "codex",
+}
 
 
 def _utc_now() -> str:
@@ -124,9 +128,16 @@ def classify_semantic_intents(text: str, profile: dict[str, Any]) -> dict[str, A
         intents.append("profile_reference")
     if len(toks & SYSTEM_WORDS) >= 3:
         intents.append("intent_system_design")
+    if toks & ORCHESTRATION_WORDS or "10q" in toks:
+        intents.append("code_orchestration")
     if not intents:
         intents.append("unknown")
-    primary = "share_information" if "share_information" in intents else intents[0]
+    if "share_information" in intents:
+        primary = "share_information"
+    elif "code_orchestration" in intents:
+        primary = "code_orchestration"
+    else:
+        primary = intents[0]
     return {
         "semantic_intent": primary,
         "semantic_intents": intents,
