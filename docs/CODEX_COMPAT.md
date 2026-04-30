@@ -45,6 +45,18 @@ py src/thought_completer.py --compose
 py src/deepseek_daemon_seq001_v001.py --once --dry-run
 ```
 
+Every prompt logged through `log-prompt`, `log-composition`, `pre-prompt`, or
+the `os_hook_auto` composition path emits a `codex_prompt` operator receipt
+through the local file-email plugin. This is desktop/control-plane mail, not
+Hush or web-chat mail. Real delivery still follows `logs/file_email_config.json`
+and `.env`: use `FILE_EMAIL_DELIVERY=resend` plus `RESEND_API_KEY`, or leave
+`resend_dry_run` to write only the local outbox.
+
+Those same Codex prompt paths force the file-sim lane and the learning-only
+slow self-fix lane. A prompt should therefore produce a file-sim email and a
+`learning_digest` email even when the simulator only finds a monitor/fallback
+candidate and no source overwrite is approved.
+
 ## What This Can And Cannot Do
 
 Can:

@@ -146,10 +146,13 @@ def _build_vitals(journal_entries, heat_map, reactor_state):
     # From latest journal entry
     latest = journal_entries[-1] if journal_entries else {}
     signals = latest.get("signals", {})
-    state = latest.get("state", latest.get("intent", "unknown"))
+    state = latest.get("state", latest.get("cognitive_state", latest.get("intent", "unknown")))
     wpm = signals.get("wpm", latest.get("wpm", "?"))
     del_ratio = signals.get("deletion_ratio", latest.get("deletion_ratio", "?"))
     hes = signals.get("hesitation_count", "?")
+    paste_count = signals.get("paste_count", 0)
+    paste_chars = signals.get("paste_chars_total", 0)
+    paste_ratio = signals.get("paste_ratio", 0)
     session_n = latest.get("session_n", "?")
     ts = latest.get("ts", "")
 
@@ -169,6 +172,8 @@ def _build_vitals(journal_entries, heat_map, reactor_state):
     if isinstance(del_ratio, (int, float)):
         bl_del = baselines.get("avg_del", "?")
         lines.append(f"| Deletion Ratio | {del_ratio:.1%} | {bl_del} |")
+    if paste_count:
+        lines.append(f"| Paste Load (latest) | {paste_count} paste(s) - {paste_chars:,} chars - {paste_ratio:.0%} input | - |")
     lines.append(f"| Prompts Analyzed | {total_prompts} | — |")
     lines.append(f"| Session Message | #{session_n} | — |")
     lines.append(f"| Last Active | {_ago(ts)} ({_freshness_icon(ts)}) | — |")
@@ -187,20 +192,21 @@ def _build_blood_flow(root):
     pipelines = [
         ("prompt_journal", "logs/prompt_journal.jsonl", "jsonl", "Enriched prompts"),
         ("chat_compositions", "logs/chat_compositions.jsonl", "jsonl", "Keystroke compositions"),
+        ("paste_events", "logs/paste_events.jsonl", "jsonl", "Ctrl+V / virtual paste context", "optional"),
         ("edit_pairs", "logs/edit_pairs.jsonl", "jsonl", "Prompt → file pairings"),
-        ("push_cycles", "logs/push_cycles.jsonl", "jsonl", "Push cycle reports"),
-        ("os_keystrokes", "logs/os_keystrokes.jsonl", "jsonl", "OS-level keystrokes"),
-        ("keystroke_live", "logs/keystroke_live.jsonl", "jsonl", "Live keystroke stream"),
-        ("rework_log", "rework_log.json", "json_list", "AI answer quality"),
-        ("file_heat_map", "file_heat_map.json", "json_dict", "Cognitive load per module"),
-        ("file_profiles", "file_profiles.json", "json_dict", "Module consciousness"),
-        ("pigeon_registry", "pigeon_registry.json", "json_dict", "Module registry"),
-        ("execution_deaths", "execution_death_log.json", "json_list", "Electron failures"),
+        ("push_cycles", "logs/push_cycles.jsonl", "jsonl", "Push cycle reports", "not_started"),
+        ("os_keystrokes", "logs/os_keystrokes.jsonl", "jsonl", "OS-level keystrokes", "private"),
+        ("keystroke_live", "logs/keystroke_live.jsonl", "jsonl", "Live keystroke stream", "optional"),
+        ("rework_log", ["rework_log.json", "logs/rework_log.json"], "json_list", "AI answer quality", "private"),
+        ("file_heat_map", "file_heat_map.json", "json_dict", "Cognitive load per module", "private"),
+        ("file_profiles", "file_profiles.json", "json_dict", "Module consciousness", "private"),
+        ("pigeon_registry", "pigeon_registry.json", "json_dict", "Module registry", "private"),
+        ("execution_deaths", "execution_death_log.json", "json_list", "Electron failures", "empty_ok"),
         ("context_veins_seq001_v001", "pigeon_brain/context_veins_seq001_v001.json", "json_dict", "Vein/clot health"),
-        ("mutation_scores", "logs/mutation_scores.json", "json_dict", "Prompt mutation correlation"),
-        ("task_queue", "task_queue.json", "json_dict", "Copilot task queue"),
-        ("push_cycle_state", "logs/push_cycle_state.json", "json_dict", "Push cycle state"),
-        ("reactor_state", "logs/cognitive_reactor_state.json", "json_dict", "Reactor state"),
+        ("mutation_scores", "logs/mutation_scores.json", "json_dict", "Prompt mutation correlation", "optional"),
+        ("task_queue", "task_queue.json", "json_dict", "Copilot task queue", "private"),
+        ("push_cycle_state", "logs/push_cycle_state.json", "json_dict", "Push cycle state", "not_started"),
+        ("reactor_state", "logs/cognitive_reactor_state.json", "json_dict", "Reactor state", "optional"),
     ]
 
     lines = []
@@ -208,9 +214,24 @@ def _build_blood_flow(root):
     lines.append("| Pipeline | Entries | Size | Freshness | Role |")
     lines.append("|---|---:|---:|---|---|")
 
-    for name, relpath, fmt, role in pipelines:
-        path = root / relpath
-        if not path.exists():
+    for item in pipelines:
+        name, relpath, fmt, role = item[:4]
+        missing_mode = item[4] if len(item) > 4 else "required"
+        relpaths = relpath if isinstance(relpath, list) else [relpath]
+        path = next((root / p for p in relpaths if (root / p).exists()), None)
+        if path is None:
+            if missing_mode == "private":
+                lines.append(f"| {name} | — | — | 🔒 LOCAL/IGNORED | {role} |")
+                continue
+            if missing_mode == "empty_ok":
+                lines.append(f"| {name} | 0 | 0 | ⚪ none recorded | {role} |")
+                continue
+            if missing_mode == "not_started":
+                lines.append(f"| {name} | 0 | 0 | ⚪ not started | {role} |")
+                continue
+            if missing_mode == "optional":
+                lines.append(f"| {name} | — | — | ⚪ optional | {role} |")
+                continue
             lines.append(f"| {name} | — | — | ⚫ MISSING | {role} |")
             continue
 
@@ -357,7 +378,7 @@ def _build_prompt_consolidation(journal_entries):
     for entry in journal_entries:
         intent = entry.get("intent", "unknown")
         intents[intent] += 1
-        state = entry.get("state", "unknown")
+        state = entry.get("state", entry.get("cognitive_state", "unknown"))
         states[state] += 1
         total_rewrites += len(entry.get("rewrites", []))
         deleted = entry.get("deleted_words", [])
@@ -390,6 +411,77 @@ def _build_prompt_consolidation(journal_entries):
         lines.append("|---|---:|")
         for word, count in word_counts.most_common(15):
             lines.append(f"| {word} | {count} |")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+def _build_paste_surface(paste_events, journal_entries):
+    """Ctrl+V / virtual paste load by category and prompt impact."""
+    lines = []
+    lines.append("## Paste Surface (Ctrl+V / Virtual Context)\n")
+
+    prompt_pastes = []
+    for entry in journal_entries:
+        signals = entry.get("signals", {}) if isinstance(entry, dict) else {}
+        count = signals.get("paste_count", 0)
+        if count:
+            prompt_pastes.append(entry)
+
+    if not paste_events and not prompt_pastes:
+        lines.append("*No paste events logged yet.*\n")
+        return "\n".join(lines)
+
+    category_counts = Counter()
+    surface_counts = Counter()
+    total_chars = 0
+    for event in paste_events:
+        category = event.get("category") or event.get("kind") or "unknown"
+        category_counts[category] += 1
+        surface_counts[event.get("surface", "unknown")] += 1
+        total_chars += int(event.get("chars", 0) or 0)
+
+    prompt_chars = sum(
+        int((entry.get("signals", {}) or {}).get("paste_chars_total", 0) or 0)
+        for entry in prompt_pastes
+    )
+    prompt_total = max(len(journal_entries), 1)
+    lines.append(
+        f"**{len(paste_events)} raw paste events** - {total_chars:,} chars "
+        f"- **{len(prompt_pastes)}/{prompt_total} prompts** carried paste context "
+        f"({prompt_chars:,} prompt chars)\n"
+    )
+
+    if category_counts:
+        lines.append("### Paste Categories\n")
+        lines.append("| Category | Events | % |")
+        lines.append("|---|---:|---:|")
+        for category, count in category_counts.most_common():
+            lines.append(f"| {category} | {count} | {count/max(len(paste_events), 1)*100:.0f}% |")
+        lines.append("")
+
+    if surface_counts:
+        lines.append("### Paste Surfaces\n")
+        lines.append("| Surface | Events |")
+        lines.append("|---|---:|")
+        for surface, count in surface_counts.most_common():
+            lines.append(f"| {surface} | {count} |")
+        lines.append("")
+
+    recent = paste_events[-10:]
+    if recent:
+        lines.append("### Recent Paste Events\n")
+        lines.append("| Time | Category | Chars | Lines | Surface | Preview |")
+        lines.append("|---|---|---:|---:|---|---|")
+        for event in recent:
+            ts = event.get("ts_iso") or event.get("ts") or ""
+            category = event.get("category") or event.get("kind") or "unknown"
+            preview = str(event.get("preview", "")).replace("\n", " ")[:80]
+            preview = preview.replace("|", "\\|")
+            lines.append(
+                f"| {_ago(ts)} | {category} | {event.get('chars', 0)} | "
+                f"{event.get('lines', 0)} | {event.get('surface', 'unknown')} | {preview} |"
+            )
         lines.append("")
 
     return "\n".join(lines)
@@ -514,6 +606,7 @@ def build_health(root):
 
     # Load everything
     journal = _load_jsonl(root / "logs/prompt_journal.jsonl")
+    paste_events = _load_jsonl(root / "logs/paste_events.jsonl")
     heat_map = _load_json(root / "file_heat_map.json")
     reactor_state = _load_json(root / "logs/cognitive_reactor_state.json")
     veins = _load_json(root / "pigeon_brain/context_veins_seq001_v001.json")
@@ -545,6 +638,8 @@ def build_health(root):
     sections.append(_build_circulation(veins))
     sections.append("---\n")
     sections.append(_build_hot_modules(heat_map))
+    sections.append("---\n")
+    sections.append(_build_paste_surface(paste_events, journal))
     sections.append("---\n")
     sections.append(_build_rework_surface(rework_log))
     sections.append("---\n")
@@ -580,6 +675,7 @@ def build_prompt_block(root):
     now = datetime.now(timezone.utc)
 
     journal = _load_jsonl(root / "logs/prompt_journal.jsonl")
+    paste_events = _load_jsonl(root / "logs/paste_events.jsonl", limit=250)
     heat_map = _load_json(root / "file_heat_map.json") or {}
     veins = _load_json(root / "pigeon_brain/context_veins_seq001_v001.json")
     deaths = _load_json(root / "execution_death_log.json") or []
@@ -599,6 +695,7 @@ def build_prompt_block(root):
     pipelines = [
         ("prompt_journal", "logs/prompt_journal.jsonl"),
         ("chat_compositions", "logs/chat_compositions.jsonl"),
+        ("paste_events", "logs/paste_events.jsonl"),
         ("edit_pairs", "logs/edit_pairs.jsonl"),
         ("context_veins_seq001_v001", "pigeon_brain/context_veins_seq001_v001.json"),
         ("execution_deaths", "execution_death_log.json"),
@@ -649,6 +746,14 @@ def build_prompt_block(root):
         miss_rate = reworked / len(rework) if rework else 0
         L.append(f'**AI rework:** {reworked}/{len(rework)} responses needed rework '
                  f'({miss_rate*100:.0f}%)')
+        L.append('')
+
+    if paste_events:
+        categories = Counter((p.get("category") or p.get("kind") or "unknown") for p in paste_events)
+        total_chars = sum(int(p.get("chars", 0) or 0) for p in paste_events)
+        L.append('**Paste surface:** '
+                 f'{len(paste_events)} recent paste events - {total_chars:,} chars - '
+                 + ', '.join(f'{k}:{v}' for k, v in categories.most_common(4)))
         L.append('')
 
     # Push cycle

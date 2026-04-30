@@ -78,6 +78,24 @@ CODEBASE_ROAST_UNHINGED.md
 INTENT_SIMULATION_ANALYSIS_3000W.md
 WORK_COMPLETED.md
 
+# Personal planning / private operator notes (open-source boundary)
+personal_planning.md
+PERSONAL_PLANNING.md
+personal_plan.md
+PERSONAL_PLAN.md
+private_plan.md
+PRIVATE_PLAN.md
+operator_plan.md
+OPERATOR_PLAN.md
+docs/*personal*plan*.md
+docs/*private*plan*.md
+docs/*operator*plan*.md
+docs/pigeon_v2_planning.md
+pigeon_brain/dev_plan.md
+planning/private/
+private/
+.personal/
+
 # One-shot probe/regen scripts (local only)
 _tmp_*.py
 final_verify.py
