@@ -30,6 +30,7 @@ PAUSE_THRESHOLD_MS = 2000      # 2s pause = hesitation
 TYPO_WINDOW_MS = 800           # delete within 800ms of insert = typo
 REWRITE_MIN_CHARS = 3          # 3+ chars deleted then retyped = rewrite
 INTENT_DELETE_MIN_RUN = 5      # 5+ consecutive backspaces = intent change (not typo)
+DELETE_BURST_GAP_MS = 900      # char-by-char backspace can be slower than typo windows
 WORD_BOUNDARY = set(' .,;:!?-\n\t')
 
 
@@ -255,16 +256,20 @@ def _extract_deleted_words(deleted_chars: list) -> list:
     current_ts = 0
     current_pos = 0
 
-    # Deleted chars come in reverse order (last char deleted first)
-    # Group by proximity in time and position
+    # Deleted chars come in reverse order (last char deleted first).
+    # Group by time and adjacent cursor position; deliberate backspacing can
+    # have >500ms gaps, so this must be looser than the typo classifier.
     for i, dc in enumerate(deleted_chars):
         if not current_word:
             current_word = dc['char']
             current_ts = dc['ts']
             current_pos = dc['pos']
         else:
-            # Same burst? (within 500ms of previous delete)
-            if i > 0 and dc['ts'] - deleted_chars[i-1]['ts'] < 500:
+            prev = deleted_chars[i - 1] if i > 0 else {}
+            time_gap = dc.get('ts', 0) - prev.get('ts', 0)
+            adjacent_pos = abs(int(dc.get('pos', 0)) - int(prev.get('pos', 0))) <= 1
+            same_burst = time_gap <= DELETE_BURST_GAP_MS and adjacent_pos
+            if same_burst:
                 current_word = dc['char'] + current_word  # prepend (deleting right-to-left)
                 current_pos = dc['pos']
             else:

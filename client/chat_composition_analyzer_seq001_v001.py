@@ -20,6 +20,7 @@ Can be called:
 """
 import json
 import os
+import re
 import sys
 from pathlib import Path
 from datetime import datetime, timezone
@@ -30,7 +31,54 @@ PAUSE_THRESHOLD_MS = 2000      # 2s pause = hesitation
 TYPO_WINDOW_MS = 800           # delete within 800ms of insert = typo
 REWRITE_MIN_CHARS = 3          # 3+ chars deleted then retyped = rewrite
 INTENT_DELETE_MIN_RUN = 5      # 5+ consecutive backspaces = intent change (not typo)
+DELETE_BURST_GAP_MS = 900      # char-by-char backspace can be slower than typo windows
 WORD_BOUNDARY = set(' .,;:!?-\n\t')
+
+
+def _paste_category(text: str) -> str:
+    raw = str(text or '')
+    stripped = raw.strip()
+    if not stripped:
+        return 'empty'
+    lower = stripped.lower()
+    if 'http://' in lower or 'https://' in lower:
+        return 'url_reference'
+    if stripped.startswith(('{', '[')):
+        try:
+            json.loads(stripped)
+            return 'structured_json'
+        except Exception:
+            pass
+    if 'traceback' in lower or 'exception' in lower or re.search(r'\b(error|warn|failed)\b', lower):
+        return 'log_trace'
+    if (
+        '```' in stripped
+        or any(tok in stripped for tok in ('def ', 'class ', 'import ', 'from '))
+        or stripped.count('{') + stripped.count(';') >= 4
+    ):
+        return 'code_context'
+    if re.search(r'([A-Za-z]:\\|/[\w.-]+/|[\w./-]+\.(py|ts|tsx|js|json|md|yaml|yml))', stripped):
+        return 'path_reference'
+    if len(stripped.splitlines()) >= 8 or len(stripped) >= 1200:
+        return 'large_context'
+    return 'text_snippet'
+
+
+def _paste_summary(evt: dict, replace: bool) -> dict:
+    text = str(evt.get('pasted_text', '') or '')
+    category = evt.get('paste_category') or evt.get('category') or _paste_category(text)
+    return {
+        'ts': evt.get('ts', 0),
+        'category': category,
+        'kind': category,
+        'chars': int(evt.get('paste_chars') or len(text)),
+        'lines': int(evt.get('paste_lines') or (len(text.splitlines()) if text else 0)),
+        'words': int(evt.get('paste_words') or len(text.split())),
+        'replace': bool(replace),
+        'deleted_chars': len(evt.get('deleted_text', '') or ''),
+        'sha256': evt.get('paste_sha256', ''),
+        'preview': text.replace('\r\n', '\n')[:160],
+    }
 
 
 # ── Core reconstruction ─────────────────────────────────────────────────────
@@ -66,6 +114,7 @@ def reconstruct_composition(events: list) -> dict:
     typo_corrections = 0
     intentional_deletions = 0
     peak_buffer = ''
+    paste_events = []
     prev_ts = 0
     delete_run = []       # accumulate consecutive deletes
     insert_after_delete = []  # track what's typed after a delete run
@@ -154,6 +203,7 @@ def reconstruct_composition(events: list) -> dict:
             # Ctrl+V replaced selected text
             deleted_text = evt.get('deleted_text', '')
             pasted_text = evt.get('pasted_text', '')
+            paste_events.append(_paste_summary(evt, replace=True))
             if deleted_text:
                 for i, ch in enumerate(reversed(deleted_text)):
                     deleted_chars.append({'char': ch, 'ts': ts, 'pos': max(0, len(buffer) - i - 1)})
@@ -170,6 +220,7 @@ def reconstruct_composition(events: list) -> dict:
         elif etype == 'paste':
             # Ctrl+V without selection — append
             pasted_text = evt.get('pasted_text', '')
+            paste_events.append(_paste_summary(evt, replace=False))
             buffer += pasted_text
             if len(buffer) > len(peak_buffer):
                 peak_buffer = buffer
@@ -220,6 +271,10 @@ def reconstruct_composition(events: list) -> dict:
     timestamps = [e.get('ts', 0) for e in events if e.get('ts')]
     duration_ms = (max(timestamps) - min(timestamps)) if len(timestamps) > 1 else 1
     total_inserts = sum(1 for e in events if e.get('type') in ('insert', 'paste', 'paste_replace'))
+    typed_chars_total = sum(1 for e in events if e.get('type') == 'insert')
+    paste_chars_total = sum(p.get('chars', 0) for p in paste_events)
+    paste_lines_total = sum(p.get('lines', 0) for p in paste_events)
+    text_input_chars = typed_chars_total + paste_chars_total
     total_deletes = sum(1 for e in events if e.get('type') in
                         ('backspace', 'selection_delete', 'selection_replace', 'cut'))
     total_keys = total_inserts + total_deletes
@@ -236,6 +291,14 @@ def reconstruct_composition(events: list) -> dict:
         'peak_buffer': peak_buffer,
         'peak_buffer_len': len(peak_buffer),
         'total_keystrokes': total_keys,
+        'typed_chars_total': typed_chars_total,
+        'text_input_chars': text_input_chars,
+        'paste_events': paste_events,
+        'paste_count': len(paste_events),
+        'paste_chars_total': paste_chars_total,
+        'paste_lines_total': paste_lines_total,
+        'paste_categories': list(dict.fromkeys(p.get('category', 'unknown') for p in paste_events)),
+        'paste_ratio': round(paste_chars_total / max(text_input_chars, 1), 3),
         'duration_ms': duration_ms,
         'chars_per_sec': round(total_inserts / max(duration_ms / 1000, 0.001), 1),
         'deletion_ratio': round(total_deletes / max(total_keys, 1), 3),
@@ -255,16 +318,20 @@ def _extract_deleted_words(deleted_chars: list) -> list:
     current_ts = 0
     current_pos = 0
 
-    # Deleted chars come in reverse order (last char deleted first)
-    # Group by proximity in time and position
+    # Deleted chars come in reverse order (last char deleted first).
+    # Group by time and adjacent cursor position; deliberate backspacing can
+    # have >500ms gaps, so this must be looser than the typo classifier.
     for i, dc in enumerate(deleted_chars):
         if not current_word:
             current_word = dc['char']
             current_ts = dc['ts']
             current_pos = dc['pos']
         else:
-            # Same burst? (within 500ms of previous delete)
-            if i > 0 and dc['ts'] - deleted_chars[i-1]['ts'] < 500:
+            prev = deleted_chars[i - 1] if i > 0 else {}
+            time_gap = dc.get('ts', 0) - prev.get('ts', 0)
+            adjacent_pos = abs(int(dc.get('pos', 0)) - int(prev.get('pos', 0))) <= 1
+            same_burst = time_gap <= DELETE_BURST_GAP_MS and adjacent_pos
+            if same_burst:
                 current_word = dc['char'] + current_word  # prepend (deleting right-to-left)
                 current_pos = dc['pos']
             else:
@@ -429,6 +496,9 @@ def classify_chat_state(comp: dict) -> dict:
     n_rewrites = len(comp['rewrites'])
     n_deleted_words = len(comp['deleted_words'])
     dur_s = comp['duration_ms'] / 1000
+    paste_count = comp.get('paste_count', 0)
+    paste_chars = comp.get('paste_chars_total', 0)
+    paste_ratio = comp.get('paste_ratio', 0)
 
     # WPM approximation (5 chars per word)
     wpm = round((comp['total_keystrokes'] - comp['deleted_chars_total']) / 5
@@ -443,10 +513,16 @@ def classify_chat_state(comp: dict) -> dict:
         'deleted_word_count': n_deleted_words,
         'intentional_deletions': comp['intentional_deletions'],
         'typo_corrections': comp['typo_corrections'],
+        'paste_count': paste_count,
+        'paste_chars_total': paste_chars,
+        'paste_ratio': paste_ratio,
+        'paste_categories': comp.get('paste_categories', []),
     }
 
     # Classification rules (mirrors adapter_seq001 states)
-    if dr > 0.4 and n_hes >= 2:
+    if paste_count and paste_ratio >= 0.6:
+        state, conf = 'context_loading', min(0.9, 0.55 + paste_ratio * 0.3)
+    elif dr > 0.4 and n_hes >= 2:
         state, conf = 'frustrated', min(0.9, 0.5 + dr)
     elif n_rewrites >= 2 and dr > 0.25:
         state, conf = 'restructuring', min(0.85, 0.4 + n_rewrites * 0.15)
@@ -488,7 +564,10 @@ def _read_messages(log_path: Path) -> list[list[dict]]:
         # OS-hook raw key events. Composition replay must only consume raw chat keys.
         if evt.get('source') == 'vscode':
             continue
-        if evt.get('type') not in ('insert', 'backspace', 'submit', 'discard'):
+        if evt.get('type') not in (
+            'insert', 'backspace', 'submit', 'discard',
+            'selection_replace', 'selection_delete', 'paste', 'paste_replace', 'cut',
+        ):
             continue
         events.append(evt)
 
@@ -502,10 +581,16 @@ def _read_messages(log_path: Path) -> list[list[dict]]:
                 messages.append(current)
             current = []
 
-    # Post-filter: keep only messages with meaningful typing (not just Enter)
+    # Post-filter: keep meaningful input (typed or pasted), not just Enter.
     MIN_INSERTS = 5
-    messages = [m for m in messages
-                if sum(1 for e in m if e['type'] == 'insert') >= MIN_INSERTS]
+    messages = [
+        m for m in messages
+        if (
+            sum(1 for e in m if e.get('type') == 'insert') >= MIN_INSERTS
+            or sum(len(e.get('pasted_text', '') or '') for e in m
+                   if e.get('type') in ('paste', 'paste_replace')) > 0
+        )
+    ]
 
     return messages
 
@@ -581,6 +666,14 @@ def analyze_and_log(root: Path) -> dict | None:
         'peak_buffer': result['peak_buffer'],
         'duration_ms': result['duration_ms'],
         'total_keystrokes': result['total_keystrokes'],
+        'typed_chars_total': result.get('typed_chars_total', 0),
+        'text_input_chars': result.get('text_input_chars', 0),
+        'paste_events': result.get('paste_events', []),
+        'paste_count': result.get('paste_count', 0),
+        'paste_chars_total': result.get('paste_chars_total', 0),
+        'paste_lines_total': result.get('paste_lines_total', 0),
+        'paste_categories': result.get('paste_categories', []),
+        'paste_ratio': result.get('paste_ratio', 0),
         'typo_corrections': result['typo_corrections'],
         'intentional_deletions': result['intentional_deletions'],
     }
@@ -621,6 +714,9 @@ def main():
             'deletion_ratio': r['deletion_ratio'],
             'peak_buffer': r['peak_buffer'],
             'duration_ms': r['duration_ms'],
+            'paste_count': r.get('paste_count', 0),
+            'paste_chars_total': r.get('paste_chars_total', 0),
+            'paste_categories': r.get('paste_categories', []),
         }, ensure_ascii=False, indent=2))
 
 

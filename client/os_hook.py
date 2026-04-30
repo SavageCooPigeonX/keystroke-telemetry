@@ -24,11 +24,14 @@ Argv: <repo_root>
 Stdout: JSON status lines for the extension to read
 """
 import ctypes
+import hashlib
 import json
 import os
+import re
 import sys
 import threading
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 # Only import pynput at runtime — it's an optional dependency
@@ -122,6 +125,68 @@ def _read_clipboard() -> str:
             user32.CloseClipboard()
     except Exception:
         return ''
+
+
+def _classify_paste_text(text: str) -> str:
+    """Bucket Ctrl+V content without needing to store the full clipboard."""
+    raw = str(text or '')
+    stripped = raw.strip()
+    if not stripped:
+        return 'empty'
+
+    lower = stripped.lower()
+    lines = stripped.splitlines()
+    if 'http://' in lower or 'https://' in lower:
+        return 'url_reference'
+    if stripped.startswith(('{', '[')):
+        try:
+            json.loads(stripped)
+            return 'structured_json'
+        except Exception:
+            pass
+    if 'traceback' in lower or 'exception' in lower or re.search(r'\b(error|warn|failed)\b', lower):
+        return 'log_trace'
+    if (
+        '```' in stripped
+        or any(tok in stripped for tok in ('def ', 'class ', 'import ', 'from '))
+        or stripped.count('{') + stripped.count(';') >= 4
+    ):
+        return 'code_context'
+    if re.search(r'([A-Za-z]:\\|/[\w.-]+/|[\w./-]+\.(py|ts|tsx|js|json|md|yaml|yml))', stripped):
+        return 'path_reference'
+    if len(lines) >= 8 or len(stripped) >= 1200:
+        return 'large_context'
+    return 'text_snippet'
+
+
+def _paste_event_record(
+    ts_ms: int,
+    ctx: str,
+    surface: str,
+    paste_text: str,
+    old_buffer: str = '',
+    deleted_text: str = '',
+    replace: bool = False,
+) -> dict:
+    text = str(paste_text or '')
+    category = _classify_paste_text(text)
+    return {
+        'schema': 'paste_event/v1',
+        'ts': ts_ms,
+        'ts_iso': datetime.fromtimestamp(ts_ms / 1000, tz=timezone.utc).isoformat(),
+        'context': ctx,
+        'surface': surface,
+        'category': category,
+        'kind': category,
+        'chars': len(text),
+        'lines': len(text.splitlines()) if text else 0,
+        'words': len(text.split()),
+        'sha256': hashlib.sha256(text.encode('utf-8', errors='ignore')).hexdigest()[:16],
+        'preview': text.replace('\r\n', '\n')[:300],
+        'replace': bool(replace),
+        'deleted_chars': len(deleted_text or ''),
+        'old_buffer_len': len(old_buffer or ''),
+    }
 
 
 # ── Mouse selection tracker ─────────────────────────────────────────────────
@@ -275,6 +340,7 @@ class KeystrokeRecorder:
     def __init__(self, root: Path, mouse_tracker: MouseSelectionTracker):
         self._root = root
         self._log_path = root / 'logs' / 'os_keystrokes.jsonl'
+        self._paste_log_path = root / 'logs' / 'paste_events.jsonl'
         self._log_path.parent.mkdir(parents=True, exist_ok=True)
         self._buffer: list[dict] = []
         self._composition = ''  # Current typing buffer
@@ -362,14 +428,20 @@ class KeystrokeRecorder:
                     self._composition = paste_text
                     self._all_selected = False
                     self._mouse.has_selection = False
+                    paste_meta = self._append_paste_event(
+                        now_ms, ctx, paste_text, old_buf, deleted, replace=True)
                     self._emit(now_ms, 'Ctrl+V', 'paste_replace', ctx,
                                extra={'deleted_text': deleted[:200],
                                       'pasted_text': paste_text[:200],
-                                      'old_buffer': old_buf[:200]})
+                                      'old_buffer': old_buf[:200],
+                                      **paste_meta})
                 else:
                     self._composition += paste_text
+                    paste_meta = self._append_paste_event(
+                        now_ms, ctx, paste_text, old_buf, '', replace=False)
                     self._emit(now_ms, 'Ctrl+V', 'paste', ctx,
-                               extra={'pasted_text': paste_text[:200]})
+                               extra={'pasted_text': paste_text[:200],
+                                      **paste_meta})
                 if len(self._composition) > BUFFER_MAX_LEN:
                     self._composition = self._composition[-BUFFER_MAX_LEN:]
                 return
@@ -490,6 +562,38 @@ class KeystrokeRecorder:
         with self._lock:
             self._buffer.append(event)
 
+    def _append_paste_event(
+        self,
+        ts: int,
+        ctx: str,
+        paste_text: str,
+        old_buffer: str = '',
+        deleted_text: str = '',
+        replace: bool = False,
+    ) -> dict:
+        record = _paste_event_record(
+            ts,
+            ctx,
+            getattr(self, '_surface', 'unknown'),
+            paste_text,
+            old_buffer=old_buffer,
+            deleted_text=deleted_text,
+            replace=replace,
+        )
+        try:
+            self._paste_log_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(self._paste_log_path, 'a', encoding='utf-8') as f:
+                f.write(json.dumps(record, ensure_ascii=False) + '\n')
+        except OSError:
+            pass
+        return {
+            'paste_category': record['category'],
+            'paste_chars': record['chars'],
+            'paste_lines': record['lines'],
+            'paste_words': record['words'],
+            'paste_sha256': record['sha256'],
+        }
+
     def _analyze_composition(self):
         """Run composition analysis + refresh copilot-instructions on submit.
 
@@ -592,8 +696,9 @@ class KeystrokeRecorder:
         if not final_text.strip():
             return
 
+        chat_signals = (composition.get('chat_state') or {}).get('signals', {})
         signals = {
-            'wpm': composition.get('wpm', 0),
+            'wpm': composition.get('wpm', chat_signals.get('wpm', 0)),
             'chars_per_sec': composition.get('chars_per_sec', 0),
             'deletion_ratio': composition.get('deletion_ratio', 0),
             'intent_deletion_ratio': composition.get('intent_deletion_ratio', 0),
@@ -602,6 +707,13 @@ class KeystrokeRecorder:
             'typo_corrections': composition.get('typo_corrections', 0),
             'intentional_deletions': composition.get('intentional_deletions', 0),
             'total_keystrokes': composition.get('total_keystrokes', 0),
+            'typed_chars_total': composition.get('typed_chars_total', 0),
+            'text_input_chars': composition.get('text_input_chars', 0),
+            'paste_count': composition.get('paste_count', 0),
+            'paste_chars_total': composition.get('paste_chars_total', 0),
+            'paste_lines_total': composition.get('paste_lines_total', 0),
+            'paste_ratio': composition.get('paste_ratio', 0),
+            'paste_categories': composition.get('paste_categories', []),
             'duration_ms': composition.get('duration_ms', 0),
         }
 
@@ -624,7 +736,9 @@ class KeystrokeRecorder:
         del_ratio = signals['deletion_ratio']
         hes_count = signals['hesitation_count']
         wpm = signals['wpm']
-        if del_ratio > 0.4 or hes_count > 5:
+        if signals.get('paste_count', 0) and signals.get('paste_ratio', 0) >= 0.6:
+            cog_state = 'context_loading'
+        elif del_ratio > 0.4 or hes_count > 5:
             cog_state = 'frustrated'
         elif del_ratio > 0.2 or hes_count > 2:
             cog_state = 'hesitant'
@@ -684,9 +798,11 @@ class KeystrokeRecorder:
             'session_id': hashlib.md5(now.date().isoformat().encode()).hexdigest()[:12],
             'msg': final_text,
             'intent': intent,
+            'state': cog_state,
             'cognitive_state': cog_state,
             'signals': signals,
             'deleted_words': deleted_words,
+            'paste_events': composition.get('paste_events', []),
             'rewrites': [{'old': r.get('old', ''), 'new': r.get('new', '')}
                          for r in composition.get('rewrites', [])],
             'module_refs': module_refs,

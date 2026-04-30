@@ -24,6 +24,7 @@ import json
 import os
 import subprocess
 import re
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -107,6 +108,12 @@ def _load_jsonl_tail(path: Path, max_lines: int = 20) -> list[dict[str, Any]]:
 
 def _repo_root() -> Path:
     return Path(__file__).resolve().parent
+
+
+def _ensure_repo_on_path(root: Path) -> None:
+    root_s = str(Path(root).resolve())
+    if root_s not in sys.path:
+        sys.path.insert(0, root_s)
 
 
 def _load_entropy_module() -> Any | None:
@@ -304,6 +311,7 @@ def _render_pre_prompt_block(state: dict[str, Any]) -> str:
     context = state.get("context_selection") or {}
     composition = state.get("composition") or {}
     sim = state.get("sim") or {}
+    file_sim = state.get("file_sim") or {}
     files = context.get("files") or []
     deleted_words = _parse_deleted_words(composition.get("deleted_words") or [], composition.get("deleted_text", ""))
 
@@ -331,7 +339,17 @@ def _render_pre_prompt_block(state: dict[str, Any]) -> str:
         "",
         f"**HANDOFF_READY:** `{state.get('handoff_ready', False)}`",
         f"**SIM_STATUS:** `{sim.get('status', 'not_run')}`",
+        f"**FILE_SIM_STATUS:** `{file_sim.get('status', 'not_run')}`",
+        f"**FILE_SIM_TARGET_STATE:** `{file_sim.get('target_state', 'none')}`",
     ])
+    proposals = file_sim.get("proposals") or []
+    if proposals:
+        lines.append("**FILE_SIM_SOURCE_REWRITES:**")
+        for proposal in proposals[:5]:
+            lines.append(
+                f"- `{proposal.get('path')}` interlink={proposal.get('interlink_score')} "
+                f"decision={proposal.get('decision')}"
+            )
     if state.get("block_reason"):
         lines.append(f"**BLOCK_REASON:** {state['block_reason']}")
     sim_tail = (sim.get("stdout") or "").strip().splitlines()[-8:]
@@ -894,6 +912,8 @@ def build_dynamic_context_pack(
         "signals": signals,
         "context_selection": context_selection,
         "prompt_brain": _load_json(logs / "prompt_brain_latest.json") or {},
+        "file_sim": _load_json(logs / "batch_rewrite_sim_latest.json") or {},
+        "intent_loop": _load_json(logs / "intent_loop_latest.json") or {},
         "focus_files": _build_focus_files(context_selection or {}, state),
         "unresolved_intents": unresolved,
         "recent_training_pairs": state.get("recent_training_pairs") or [],
@@ -910,6 +930,19 @@ def build_dynamic_context_pack(
         },
     }
 
+    try:
+        _ensure_repo_on_path(root)
+        from src.file_self_knowledge_seq001_v001 import build_file_self_knowledge
+        pack["file_self_knowledge"] = build_file_self_knowledge(
+            root,
+            files=pack.get("focus_files") or [],
+            prompt=prompt_text,
+            limit=8,
+            write=True,
+        )
+    except Exception as exc:
+        pack["file_self_knowledge"] = {"status": "error", "error": str(exc)}
+
     pack["deepseek_job"] = enqueue_deepseek_prompt_job(
         root,
         prompt_text,
@@ -921,6 +954,19 @@ def build_dynamic_context_pack(
     )
     pack["live_prompt_telemetry"] = _write_live_prompt_telemetry(root, pack)
     _write_copilot_live_query_blocks(root, pack, pack["live_prompt_telemetry"])
+    try:
+        _ensure_repo_on_path(root)
+        from src.operator_response_policy_seq001_v001 import build_operator_response_policy
+        pack["operator_response_policy"] = build_operator_response_policy(
+            root,
+            prompt_text,
+            surface=surface,
+            context_pack=pack,
+            inject=inject,
+            write=True,
+        )
+    except Exception as exc:
+        pack["operator_response_policy"] = {"status": "error", "error": str(exc)}
     (logs / "dynamic_context_pack.md").write_text(_render_dynamic_context_pack(pack) + "\n", encoding="utf-8")
     pack["injected"] = _inject_dynamic_context_pack(root, pack) if inject else False
     (logs / "dynamic_context_pack.json").write_text(json.dumps(pack, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -959,6 +1005,26 @@ def _render_dynamic_context_pack(pack: dict[str, Any], managed: bool = False) ->
     else:
         lines.append("- none")
 
+    self_knowledge = pack.get("file_self_knowledge") or {}
+    if isinstance(self_knowledge, dict) and self_knowledge.get("packets"):
+        lines.extend([
+            "",
+            "**FILE_SELF_KNOWLEDGE:**",
+            f"- read: {str(self_knowledge.get('operator_read') or '')[:260]}",
+        ])
+        for packet in (self_knowledge.get("packets") or [])[:5]:
+            scope = packet.get("mutation_scope") or {}
+            owns = ", ".join(packet.get("owns") or [])[:120] or "unknown"
+            lines.append(
+                f"- `{packet.get('file')}` owns `{owns}` readiness `{scope.get('readiness')}`"
+            )
+            validates = packet.get("validates_with") or []
+            if validates:
+                lines.append(f"  - validates: `{validates[0]}`")
+            quote = packet.get("file_quote")
+            if quote:
+                lines.append(f"  - says: {quote}")
+
     context = pack.get("context_selection") or {}
     lines.extend([
         "",
@@ -985,6 +1051,50 @@ def _render_dynamic_context_pack(pack: dict[str, Any], managed: bool = False) ->
             f"- profile hint: `{semantic.get('completion_hint') or 'none'}`",
             f"- prompt box open: `{(brain.get('prompt_box') or {}).get('open_count', 0)}`",
         ])
+
+    policy = pack.get("operator_response_policy") or {}
+    if isinstance(policy, dict) and policy:
+        lines.extend([
+            "",
+            "**OPERATOR_RESPONSE_POLICY:**",
+            f"- active arm: `{policy.get('active_arm', 'unknown')}`",
+            f"- operator read: {str(policy.get('operator_read') or '')[:220]}",
+            f"- required sections: `{', '.join(policy.get('required_sections') or [])}`",
+            f"- next mutation: {str(policy.get('next_mutation') or '')[:220]}",
+        ])
+        for move in (policy.get("intent_moves") or [])[:5]:
+            lines.append(f"- intent move: `{move.get('intent_key', 'none')}`")
+        for item in (policy.get("probe_files") or [])[:6]:
+            lines.append(f"- probe file: `{item.get('file')}` via {item.get('reason', 'policy')}")
+
+    file_sim = pack.get("file_sim") or {}
+    if file_sim:
+        proposals = file_sim.get("proposals") or []
+        lines.extend([
+            "",
+            "**FILE_SIM:**",
+            f"- status: `{file_sim.get('status', 'unknown')}`",
+            f"- target state: `{file_sim.get('target_state', 'unknown')}`",
+            f"- trigger: `{file_sim.get('trigger', 'unknown')}`",
+        ])
+        for proposal in proposals[:5]:
+            lines.append(
+                f"- `{proposal.get('path')}` interlink={proposal.get('interlink_score')} "
+                f"decision={proposal.get('decision')}"
+            )
+
+    intent_loop = pack.get("intent_loop") or {}
+    if intent_loop:
+        lines.extend([
+            "",
+            "**INTENT_LOOP:**",
+            f"- loop: `{intent_loop.get('loop_id', 'none')}` status `{intent_loop.get('status', 'unknown')}`",
+            f"- intent: `{intent_loop.get('intent_key', 'none')}`",
+            f"- human: `{intent_loop.get('human_position', 'on_loop')}` approval_required `{intent_loop.get('approval_required', True)}`",
+            f"- observed edits: `{len(intent_loop.get('observed_edits') or [])}` responses: `{len(intent_loop.get('observed_responses') or [])}`",
+        ])
+        for action in (intent_loop.get("next_actions") or [])[:3]:
+            lines.append(f"- next: {action}")
 
     activity = pack.get("surface_activity") or {}
     switch = activity.get("latest_context_switch") or {}
@@ -1024,7 +1134,228 @@ def _render_dynamic_context_pack(pack: dict[str, Any], managed: bool = False) ->
 
     if managed:
         lines.append("<!-- /codex:dynamic-context-pack -->")
-    return "\n".join(lines)
+    return "\n".join(line.rstrip() for line in lines)
+
+
+def _fire_file_sim(
+    root: Path,
+    prompt: str,
+    context_selection: dict[str, Any] | None = None,
+    trigger: str = "pre_prompt",
+    force: bool = False,
+) -> dict[str, Any]:
+    root = Path(root)
+    try:
+        _ensure_repo_on_path(root)
+        from src.batch_rewrite_sim_seq001_v001 import (
+            load_file_sim_config,
+            should_fire_file_sim,
+            simulate_batch_rewrites,
+        )
+        config = load_file_sim_config(root, write_default=True)
+        if not force and not should_fire_file_sim(config, trigger, prompt):
+            return {
+                "status": "skipped",
+                "reason": "disabled_or_trigger_filtered",
+                "trigger": trigger,
+                "file_sim_config": config,
+            }
+        if force and not config.get("enabled", True):
+            return {
+                "status": "skipped",
+                "reason": "disabled",
+                "trigger": trigger,
+                "file_sim_config": config,
+            }
+        return simulate_batch_rewrites(
+            root,
+            prompt,
+            limit=int(config.get("max_proposals") or 6),
+            write=True,
+            config=config,
+            trigger=trigger,
+            context_selection=context_selection,
+        )
+    except Exception as exc:
+        return {"status": "error", "trigger": trigger, "error": str(exc)}
+
+
+def _record_intent_loop(
+    root: Path,
+    prompt: str,
+    context_selection: dict[str, Any] | None = None,
+    file_sim: dict[str, Any] | None = None,
+    prompt_brain: dict[str, Any] | None = None,
+    source: str = "prompt",
+    deleted_words: list[str] | None = None,
+) -> dict[str, Any]:
+    try:
+        _ensure_repo_on_path(root)
+        from src.intent_loop_closer_seq001_v001 import record_intent_loop
+        return record_intent_loop(
+            root,
+            prompt,
+            context_selection=context_selection,
+            file_sim=file_sim,
+            prompt_brain=prompt_brain,
+            source=source,
+            deleted_words=deleted_words,
+        )
+    except Exception as exc:
+        return {"status": "error", "error": str(exc), "source": source}
+
+
+def _emit_codex_prompt_email(
+    root: Path,
+    prompt_entry: dict[str, Any],
+    loop: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    try:
+        _ensure_repo_on_path(root)
+        from src.file_email_plugin_seq001_v001 import emit_codex_prompt_email
+        return emit_codex_prompt_email(root, prompt_entry, loop=loop)
+    except Exception as exc:
+        return {"status": "error", "phase": "codex_prompt", "error": str(exc)}
+
+
+def _bind_intent_loop_response(root: Path, response_entry: dict[str, Any]) -> dict[str, Any]:
+    try:
+        _ensure_repo_on_path(root)
+        from src.intent_loop_closer_seq001_v001 import bind_response_to_latest_loop
+        return bind_response_to_latest_loop(root, response_entry)
+    except Exception as exc:
+        return {"status": "error", "error": str(exc)}
+
+
+def _bind_intent_loop_edit(root: Path, edit_entry: dict[str, Any]) -> dict[str, Any]:
+    try:
+        _ensure_repo_on_path(root)
+        from src.intent_loop_closer_seq001_v001 import bind_edit_to_latest_loop
+        return bind_edit_to_latest_loop(root, edit_entry)
+    except Exception as exc:
+        return {"status": "error", "error": str(exc)}
+
+
+def close_intent_loop(
+    root: Path,
+    loop_id: str | None = None,
+    status: str = "verified",
+    note: str = "",
+) -> dict[str, Any]:
+    try:
+        _ensure_repo_on_path(root)
+        from src.intent_loop_closer_seq001_v001 import close_intent_loop as _close
+        return _close(root, loop_id=loop_id, status=status, note=note)
+    except Exception as exc:
+        return {"status": "error", "error": str(exc)}
+
+
+def get_intent_loop_status(root: Path) -> dict[str, Any]:
+    try:
+        _ensure_repo_on_path(root)
+        from src.intent_loop_closer_seq001_v001 import intent_loop_summary
+        return intent_loop_summary(root)
+    except Exception as exc:
+        return {"status": "error", "error": str(exc)}
+
+
+def _parse_iso_ts(value: Any) -> datetime | None:
+    if not value:
+        return None
+    try:
+        parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        return parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
+
+
+def _latest_log_ts(root: Path, rel_path: str) -> tuple[datetime | None, dict[str, Any]]:
+    path = root / rel_path
+    if rel_path.endswith(".jsonl"):
+        row = _latest_json(path) or {}
+        return _parse_iso_ts(row.get("ts")), row
+    data = _load_json(path) or {}
+    return _parse_iso_ts(data.get("ts")), data
+
+
+def audit_stale_dates(root: Path, max_lag_minutes: int = 30) -> dict[str, Any]:
+    root = Path(root)
+    logs = root / "logs"
+    now = datetime.now(timezone.utc)
+    surfaces = {
+        "prompt_journal": "logs/prompt_journal.jsonl",
+        "chat_compositions": "logs/chat_compositions.jsonl",
+        "pre_prompt_state": "logs/pre_prompt_state.json",
+        "dynamic_context_pack": "logs/dynamic_context_pack.json",
+        "batch_rewrite_sim": "logs/batch_rewrite_sim_latest.json",
+        "intent_loop": "logs/intent_loop_latest.json",
+        "file_email_outbox": "logs/file_email_outbox.jsonl",
+        "resend_payload": "logs/resend_payload_latest.json",
+        "deepseek_prompt": "logs/deepseek_prompt_latest.json",
+    }
+    rows = {}
+    latest_prompt_ts = None
+    for name, rel in surfaces.items():
+        ts, data = _latest_log_ts(root, rel)
+        if name == "prompt_journal":
+            latest_prompt_ts = ts
+        rows[name] = {
+            "path": rel,
+            "ts": ts.isoformat() if ts else "",
+            "age_minutes": round((now - ts).total_seconds() / 60, 2) if ts else None,
+            "status": data.get("status") if isinstance(data, dict) else None,
+            "trigger": data.get("trigger") if isinstance(data, dict) else None,
+        }
+    baseline = latest_prompt_ts or now
+    for row in rows.values():
+        ts = _parse_iso_ts(row.get("ts"))
+        row["lag_from_prompt_minutes"] = round((baseline - ts).total_seconds() / 60, 2) if ts else None
+        row["stale"] = bool(ts and (baseline - ts).total_seconds() > max_lag_minutes * 60)
+
+    latest_comp = _latest_json(logs / "chat_compositions.jsonl") or {}
+    hidden_words = _parse_deleted_words(
+        list(latest_comp.get("deleted_words") or []) + list(latest_comp.get("intent_deleted_words") or []),
+        str(latest_comp.get("deleted_text") or ""),
+    )
+    file_sim_config = _load_json(logs / "file_sim_config.json") or {}
+    pre_prompt = _load_json(logs / "pre_prompt_state.json") or {}
+    trigger = str(pre_prompt.get("trigger") or "")
+    fire_on = file_sim_config.get("fire_on") if isinstance(file_sim_config.get("fire_on"), list) else []
+    result = {
+        "schema": "stale_date_audit/v1",
+        "ts": now.isoformat(),
+        "max_lag_minutes": max_lag_minutes,
+        "latest_prompt_ts": baseline.isoformat(),
+        "hidden_words_latest": hidden_words,
+        "trigger_audit": {
+            "latest_pre_prompt_trigger": trigger,
+            "file_sim_fire_on": fire_on,
+            "trigger_allowed": (not trigger) or trigger in fire_on,
+        },
+        "surfaces": rows,
+        "stale": [name for name, row in rows.items() if row.get("stale")],
+    }
+    logs.mkdir(parents=True, exist_ok=True)
+    (logs / "stale_date_audit_latest.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    lines = [
+        "# Stale Date Audit",
+        "",
+        f"- latest_prompt_ts: `{result['latest_prompt_ts']}`",
+        f"- max_lag_minutes: `{max_lag_minutes}`",
+        f"- hidden_words_latest: `{', '.join(hidden_words) or 'none'}`",
+        f"- trigger_allowed: `{result['trigger_audit']['trigger_allowed']}`",
+        "",
+        "## Surfaces",
+        "",
+    ]
+    for name, row in rows.items():
+        lines.append(
+            f"- `{name}` ts `{row.get('ts') or 'missing'}` lag `{row.get('lag_from_prompt_minutes')}` stale `{row.get('stale')}`"
+        )
+    (logs / "stale_date_audit_latest.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return result
 
 
 def run_pre_prompt_from_composition(
@@ -1068,6 +1399,56 @@ def run_pre_prompt_from_composition(
         "sim_latest": _latest_json(root / "logs" / "tc_sim_results.jsonl") or {},
         "tc_intent_reinjection": _load_json(root / "logs" / "tc_intent_reinjection.json") or {},
     }
+    if final_text:
+        try:
+            _ensure_repo_on_path(root)
+            from src.tc_prompt_brain_seq001_v001 import assemble_prompt_brain
+            state["prompt_brain"] = assemble_prompt_brain(
+                root,
+                final_text,
+                deleted_words=deleted_words,
+                rewrites=rewrites,
+                source=trigger,
+                trigger="composition_submit",
+                emit_prompt_box=False,
+                inject=inject,
+                context_selection=context,
+            )
+        except Exception as exc:
+            state["prompt_brain_error"] = str(exc)
+    state["file_sim"] = _fire_file_sim(root, final_text, context_selection=context, trigger=trigger, force=True) if final_text else {
+        "status": "skipped",
+        "reason": "empty_prompt",
+    }
+    if final_text:
+        state["intent_loop"] = _record_intent_loop(
+            root,
+            final_text,
+            context_selection=context,
+            file_sim=state.get("file_sim"),
+            prompt_brain=state.get("prompt_brain"),
+            source=trigger,
+            deleted_words=deleted_words,
+        )
+        state["codex_prompt_email"] = _emit_codex_prompt_email(
+            root,
+            {
+                "ts": state.get("ts"),
+                "session_n": None,
+                "msg": final_text,
+                "intent": "codex_prompt",
+                "source": trigger,
+                "deleted_words": deleted_words,
+                "signals": {
+                    "hesitation_count": hesitation_count,
+                    "duration_ms": duration_ms,
+                    "intentional_deletions": len(deleted_words),
+                },
+                "context_selection": context,
+                "file_sim": state.get("file_sim"),
+            },
+            loop=state.get("intent_loop"),
+        )
     logs = root / "logs"
     logs.mkdir(parents=True, exist_ok=True)
     (logs / "pre_prompt_state.json").write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -1091,6 +1472,7 @@ def run_pre_prompt_pipeline(
     run_sim: bool = True,
     sim_timeout_s: int = 45,
     inject: bool = True,
+    emit_prompt_email: bool = True,
 ) -> dict[str, Any]:
     """Complete the pre-submit loop before a prompt is handed to a model.
 
@@ -1113,6 +1495,8 @@ def run_pre_prompt_pipeline(
         rewrites=rewrites,
         hesitation_count=hesitation_count,
         duration_ms=duration_ms,
+        fire_file_sim=False,
+        emit_prompt_email=False,
     )
     context = select_context(root, final_text, composition.get("deleted_words", []), rewrites or [])
     sim = _run_sim_buffer(root, final_text, timeout_s=sim_timeout_s) if run_sim else {
@@ -1137,6 +1521,57 @@ def run_pre_prompt_pipeline(
         "sim_latest": sim_latest,
         "tc_intent_reinjection": reinjection,
     }
+    if final_text:
+        try:
+            _ensure_repo_on_path(root)
+            from src.tc_prompt_brain_seq001_v001 import assemble_prompt_brain
+            state["prompt_brain"] = assemble_prompt_brain(
+                root,
+                final_text,
+                deleted_words=composition.get("deleted_words", []),
+                rewrites=rewrites or [],
+                source="pre_prompt",
+                trigger="composition_submit",
+                emit_prompt_box=False,
+                inject=inject,
+                context_selection=context,
+            )
+        except Exception as exc:
+            state["prompt_brain_error"] = str(exc)
+    state["file_sim"] = _fire_file_sim(root, final_text, context_selection=context, trigger="pre_prompt", force=True) if final_text else {
+        "status": "skipped",
+        "reason": "empty_prompt",
+    }
+    if final_text:
+        state["intent_loop"] = _record_intent_loop(
+            root,
+            final_text,
+            context_selection=context,
+            file_sim=state.get("file_sim"),
+            prompt_brain=state.get("prompt_brain"),
+            source="pre_prompt",
+            deleted_words=composition.get("deleted_words", []),
+        )
+        if emit_prompt_email:
+            state["codex_prompt_email"] = _emit_codex_prompt_email(
+                root,
+                {
+                    "ts": state.get("ts"),
+                    "session_n": None,
+                    "msg": final_text,
+                    "intent": "codex_prompt",
+                    "source": "pre_prompt",
+                    "deleted_words": composition.get("deleted_words", []),
+                    "signals": {
+                        "hesitation_count": hesitation_count,
+                        "duration_ms": duration_ms,
+                        "intentional_deletions": len(composition.get("deleted_words", [])),
+                    },
+                    "context_selection": context,
+                    "file_sim": state.get("file_sim"),
+                },
+                loop=state.get("intent_loop"),
+            )
     logs = root / "logs"
     logs.mkdir(parents=True, exist_ok=True)
     (logs / "pre_prompt_state.json").write_text(
@@ -1435,6 +1870,15 @@ def _next_session_n(root: Path) -> int:
 
 def _classify_intent(prompt: str) -> str:
     text = prompt.lower()
+    if any(word in text for word in (
+        "orchestrator", "10q", "consensus", "approval", "approve", "guard",
+        "copilot", "deepseek", "file sim", "file_sim", "autonomous",
+    )):
+        return "orchestration"
+    if any(word in text for word in ("email", "emails", "resend", "outbox", "alert", "alerts")):
+        return "telemetry"
+    if any(word in text for word in ("monitor", "watch", "observe", "observatory")):
+        return "monitoring"
     if any(word in text for word in ("fix", "bug", "error", "broken", "wrong", "fail")):
         return "debugging"
     if any(word in text for word in ("add", "create", "build", "implement", "wire")):
@@ -1461,6 +1905,8 @@ def log_prompt(
     total_keystrokes: int = 0,
     rewrites: list[dict[str, Any]] | None = None,
     source: str = "codex_explicit",
+    fire_file_sim: bool = True,
+    emit_prompt_email: bool = True,
 ) -> dict[str, Any]:
     root = Path(root)
     session_n = session_n or _next_session_n(root)
@@ -1497,6 +1943,7 @@ def log_prompt(
         "source": source,
     }
     try:
+        _ensure_repo_on_path(root)
         from src.tc_semantic_profile_seq001_v001 import log_semantic_profile_event
         entry["semantic_profile"] = log_semantic_profile_event(
             root,
@@ -1506,8 +1953,32 @@ def log_prompt(
         )
     except Exception as exc:
         entry["semantic_profile_error"] = str(exc)
-    _append_jsonl(root / "logs" / "prompt_journal.jsonl", entry)
     context = select_context(root, prompt, parsed_deleted_words, rewrites or [])
+    entry["context_selection"] = context
+    entry["file_sim"] = (
+        _fire_file_sim(root, prompt, context_selection=context, trigger="log_prompt", force=True)
+        if fire_file_sim
+        else {"status": "skipped", "reason": "pre_prompt_will_fire", "trigger": "log_prompt"}
+    )
+    if prompt and fire_file_sim:
+        entry["intent_loop"] = _record_intent_loop(
+            root,
+            prompt,
+            context_selection=context,
+            file_sim=entry.get("file_sim"),
+            prompt_brain=_load_json(root / "logs" / "prompt_brain_latest.json") or {},
+            source=source,
+            deleted_words=parsed_deleted_words,
+        )
+    _append_jsonl(root / "logs" / "prompt_journal.jsonl", entry)
+    if prompt and emit_prompt_email:
+        entry["codex_prompt_email"] = _emit_codex_prompt_email(root, entry, loop=entry.get("intent_loop"))
+    try:
+        _ensure_repo_on_path(root)
+        from src.ai_fingerprint_operator_seq001_v001 import build_operator_fingerprint
+        build_operator_fingerprint(root)
+    except Exception:
+        pass
     try:
         enqueue_deepseek_prompt_job(
             root,
@@ -1531,6 +2002,8 @@ def log_composition(
     rewrites: list[dict[str, Any]] | None = None,
     hesitation_count: int = 0,
     duration_ms: int = 0,
+    fire_file_sim: bool = True,
+    emit_prompt_email: bool = True,
 ) -> dict[str, Any]:
     root = Path(root)
     parsed_deleted_words = _parse_deleted_words(deleted_words, deleted_text)
@@ -1563,6 +2036,8 @@ def log_composition(
         total_keystrokes=entry["total_keystrokes"],
         rewrites=rewrites,
         source="codex_composition",
+        fire_file_sim=fire_file_sim,
+        emit_prompt_email=emit_prompt_email,
     )
     refresh_state(root, "logged composition with deletions")
     return entry
@@ -1611,6 +2086,12 @@ def log_response(
     response: str,
     ts: str | None = None,
     response_id: str | None = None,
+    style_arm: str | None = None,
+    hook_ids: list[str] | None = None,
+    intent_nodes: list[str] | None = None,
+    context_window_files: list[str] | None = None,
+    reward_features: dict[str, Any] | None = None,
+    feedback_text: str = "",
 ) -> dict[str, Any]:
     root = Path(root)
     entry = {
@@ -1620,6 +2101,50 @@ def log_response(
         "response_id": response_id or f"codex:{datetime.now(timezone.utc).timestamp():.0f}",
         "capture_surface": "codex",
     }
+    try:
+        _ensure_repo_on_path(root)
+        from src.operator_response_policy_seq001_v001 import (
+            record_response_reward,
+            response_log_defaults,
+        )
+        defaults = response_log_defaults(root, prompt, response)
+        resolved_style_arm = style_arm or defaults.get("style_arm") or "probe_council"
+        resolved_intent_nodes = intent_nodes if intent_nodes is not None else defaults.get("intent_nodes", [])
+        resolved_hook_ids = hook_ids if hook_ids is not None else defaults.get("hook_ids", [])
+        resolved_files = context_window_files if context_window_files is not None else defaults.get("context_window_files", [])
+        resolved_features = reward_features if reward_features is not None else defaults.get("reward_features", {})
+        entry["response_policy"] = {
+            "style_arm": resolved_style_arm,
+            "intent_nodes": resolved_intent_nodes,
+            "hook_ids": resolved_hook_ids,
+            "context_window_files": resolved_files,
+            "reward_features": resolved_features,
+        }
+        reward_event = record_response_reward(
+            root,
+            {
+                "ts": entry["ts"],
+                "response_id": entry["response_id"],
+                "prompt": entry["prompt"],
+                "response": entry["response"],
+                "style_arm": resolved_style_arm,
+                "intent_nodes": resolved_intent_nodes,
+                "hook_ids": resolved_hook_ids,
+                "context_window_files": resolved_files,
+                "reward_features": resolved_features,
+                "feedback_text": feedback_text,
+            },
+            write=True,
+        )
+        entry["reward_event"] = {
+            "score": reward_event.get("score"),
+            "weighted_score": reward_event.get("weighted_score"),
+            "dimension_scores": reward_event.get("dimension_scores", {}),
+            "style_model": reward_event.get("style_model", {}),
+        }
+    except Exception as exc:
+        entry["response_policy_error"] = str(exc)
+    entry["intent_loop_binding"] = _bind_intent_loop_response(root, entry)
     _append_jsonl(root / "logs" / "ai_responses.jsonl", entry)
     refresh_state(root, "logged response")
     return entry
@@ -1674,6 +2199,13 @@ def log_edit(
             "session_n": session_n,
             "source": "codex_explicit",
         }
+        try:
+            _ensure_repo_on_path(root)
+            from src.file_email_plugin_seq001_v001 import emit_touch_email
+            entry["file_email"] = emit_touch_email(root, changed, why=why, prompt=prompt)
+        except Exception as exc:
+            entry["file_email_error"] = str(exc)
+        entry["intent_loop_binding"] = _bind_intent_loop_edit(root, entry)
         _append_jsonl(root / "logs" / "edit_pairs.jsonl", entry)
         records.append(entry)
     train_numeric_surface(root, prompt, files)
@@ -1840,6 +2372,12 @@ def build_parser() -> argparse.ArgumentParser:
     p_pack.add_argument("--surface", default="codex")
     p_pack.add_argument("--no-inject", action="store_true")
 
+    p_self = sub.add_parser("file-self-knowledge")
+    p_self.add_argument("--prompt", default="")
+    p_self.add_argument("--file", action="append", default=[])
+    p_self.add_argument("--limit", type=int, default=8)
+    p_self.add_argument("--no-write", action="store_true")
+
     p_train = sub.add_parser("train-numeric")
     p_train.add_argument("--prompt", required=True)
     p_train.add_argument("--file", action="append", required=True)
@@ -1851,6 +2389,11 @@ def build_parser() -> argparse.ArgumentParser:
     p_response = sub.add_parser("log-response")
     p_response.add_argument("--prompt", required=True)
     p_response.add_argument("--response", required=True)
+    p_response.add_argument("--style-arm")
+    p_response.add_argument("--hook-id", action="append", default=[])
+    p_response.add_argument("--intent-node", action="append", default=[])
+    p_response.add_argument("--context-window-file", action="append", default=[])
+    p_response.add_argument("--feedback", default="")
 
     p_edit = sub.add_parser("log-edit")
     p_edit.add_argument("--file")
@@ -1873,6 +2416,16 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_intent = sub.add_parser("push-intent-resolver")
     p_intent.add_argument("--prompt-limit", type=int, default=100)
+
+    sub.add_parser("intent-loop-status")
+
+    p_close_loop = sub.add_parser("close-intent-loop")
+    p_close_loop.add_argument("--loop-id")
+    p_close_loop.add_argument("--status", default="verified")
+    p_close_loop.add_argument("--note", default="")
+
+    p_stale = sub.add_parser("stale-date-audit")
+    p_stale.add_argument("--max-lag-minutes", type=int, default=30)
 
     p_import = sub.add_parser("import-jsonl")
     p_import.add_argument("source")
@@ -1925,12 +2478,31 @@ def main(argv: list[str] | None = None) -> int:
             surface=args.surface,
             inject=not args.no_inject,
         )
+    elif args.command == "file-self-knowledge":
+        _ensure_repo_on_path(root)
+        from src.file_self_knowledge_seq001_v001 import build_file_self_knowledge
+        result = build_file_self_knowledge(
+            root,
+            files=args.file,
+            prompt=args.prompt,
+            limit=args.limit,
+            write=not args.no_write,
+        )
     elif args.command == "train-numeric":
         result = train_numeric_surface(root, args.prompt, args.file)
     elif args.command == "predict-numeric":
         result = predict_numeric_files(root, args.prompt, args.top_n)
     elif args.command == "log-response":
-        result = log_response(root, args.prompt, args.response)
+        result = log_response(
+            root,
+            args.prompt,
+            args.response,
+            style_arm=args.style_arm,
+            hook_ids=args.hook_id,
+            intent_nodes=args.intent_node,
+            context_window_files=args.context_window_file,
+            feedback_text=args.feedback,
+        )
     elif args.command == "log-edit":
         result = log_edit(root, file=args.file, why=args.why, prompt=args.prompt)
     elif args.command == "capture-pair":
@@ -1953,12 +2525,22 @@ def main(argv: list[str] | None = None) -> int:
         result = launch_deepseek_daemon(root, dry_run=args.dry_run)
     elif args.command == "push-intent-resolver":
         result = push_intent_resolver(root, args.prompt_limit)
+    elif args.command == "intent-loop-status":
+        result = get_intent_loop_status(root)
+    elif args.command == "close-intent-loop":
+        result = close_intent_loop(root, loop_id=args.loop_id, status=args.status, note=args.note)
+    elif args.command == "stale-date-audit":
+        result = audit_stale_dates(root, max_lag_minutes=args.max_lag_minutes)
     elif args.command == "import-jsonl":
         result = import_jsonl(root, Path(args.source), capture=not args.no_capture)
     else:
         raise AssertionError(args.command)
 
-    print(json.dumps(result, indent=2, ensure_ascii=False))
+    output = json.dumps(result, indent=2, ensure_ascii=False)
+    try:
+        print(output)
+    except UnicodeEncodeError:
+        sys.stdout.buffer.write((output + "\n").encode("utf-8", errors="replace"))
     return 0
 
 

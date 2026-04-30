@@ -2,6 +2,7 @@ import json
 import importlib.util
 import sys
 import tempfile
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import codex_compat
@@ -10,6 +11,15 @@ import codex_compat
 def _load_prompt_composer():
     module_path = Path(__file__).resolve().parent / "src" / "tc_prompt_composer_seq001_v001.py"
     spec = importlib.util.spec_from_file_location("tc_prompt_composer_seq001_v001", module_path)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+def _load_chat_composition_analyzer():
+    module_path = Path(__file__).resolve().parent / "client" / "chat_composition_analyzer_seq001_v001.py"
+    spec = importlib.util.spec_from_file_location("chat_composition_analyzer_seq001_v001", module_path)
     module = importlib.util.module_from_spec(spec)
     sys.modules[spec.name] = module
     spec.loader.exec_module(module)
@@ -51,6 +61,71 @@ def test_import_jsonl_maps_common_codex_events():
     assert (root / "logs" / "prompt_journal.jsonl").exists()
     assert (root / "logs" / "ai_responses.jsonl").exists()
     assert (root / "logs" / "edit_pairs.jsonl").exists()
+
+
+def test_orchestrator_prompt_compiles_and_fires_file_email():
+    root = Path(tempfile.mkdtemp(prefix="codex_compat_orchestrator_"))
+
+    entry = codex_compat.log_prompt(
+        root,
+        "only code through orchestrator monitor email comedy alerts 10q sims",
+        deleted_words=["direct", "bypass"],
+        source="test",
+    )
+
+    assert entry["intent"] == "orchestration"
+    assert entry["semantic_profile"]["semantic_intent"] == "code_orchestration"
+    assert entry["file_sim"]["status"] == "fired"
+    assert entry["file_sim"]["file_email"]["count"] >= 1
+
+
+def test_codex_prompt_logging_fires_operator_email_receipt():
+    root = Path(tempfile.mkdtemp(prefix="codex_compat_prompt_email_"))
+
+    entry = codex_compat.log_prompt(
+        root,
+        "email every codex prompt to the operator control plane",
+        source="codex_explicit",
+    )
+
+    receipt = entry["codex_prompt_email"]
+    assert receipt["trigger"] == "codex_prompt"
+    assert receipt["event_type"] == "codex_prompt"
+    assert receipt["resend"]["status"] == "dry_run"
+    assert receipt["resend"]["would_send"] is True
+    assert receipt["orchestrator_email_guard"]["policy"] == "codex_prompt_operator_receipt"
+    rows = [
+        json.loads(line)
+        for line in (root / "logs" / "file_email_outbox.jsonl").read_text(encoding="utf-8").splitlines()
+    ]
+    assert rows[-1]["event_type"] == "codex_prompt"
+    assert (root / "logs" / "file_email_config.json").exists()
+    assert "codex_prompt" in json.loads((root / "logs" / "file_email_config.json").read_text(encoding="utf-8"))["triggers"]
+
+
+def test_every_codex_prompt_forces_file_sim_and_slow_self_fix_email():
+    root = Path(tempfile.mkdtemp(prefix="codex_compat_every_prompt_"))
+    (root / "src").mkdir()
+    (root / "codex_compat.py").write_text("def adapter():\n    return True\n", encoding="utf-8")
+    (root / "src" / "batch_rewrite_sim_seq001_v001.py").write_text("def sim():\n    return True\n", encoding="utf-8")
+    (root / "src" / "file_self_sim_learning_seq001_v001.py").write_text("def learn():\n    return True\n", encoding="utf-8")
+    (root / "src" / "file_email_plugin_seq001_v001.py").write_text("def mail():\n    return True\n", encoding="utf-8")
+
+    entry = codex_compat.log_prompt(root, "yo", source="codex_explicit")
+
+    assert entry["file_sim"]["status"] == "fired"
+    assert entry["file_sim"]["file_email"]["count"] >= 1
+    assert entry["file_sim"]["file_email"]["records"][0]["resend"]["would_send"] is True
+    slow = entry["file_sim"]["file_self_learning"]
+    assert slow["schema"] == "file_self_sim_learning/v1"
+    assert slow["wake_order"]
+    assert slow["learning_digest_email"]["record"]["event_type"] == "learning_digest"
+    assert slow["learning_digest_email"]["record"]["resend"]["would_send"] is True
+    rows = [
+        json.loads(line)
+        for line in (root / "logs" / "file_email_outbox.jsonl").read_text(encoding="utf-8").splitlines()
+    ]
+    assert {"codex_prompt", "learning_digest"} <= {row["event_type"] for row in rows}
 
 
 def test_codex_composition_logs_deletion_analytics():
@@ -151,9 +226,15 @@ def test_pre_prompt_pipeline_writes_state_and_injects_block():
     assert state["injected"] is True
     assert state["handoff_ready"] is True
     assert state["sim"]["status"] == "skipped"
+    assert state["file_sim"]["status"] == "fired"
+    assert state["file_sim"]["target_state"] == "interlinked_source_state"
+    assert (root / "logs" / "file_sim_config.json").exists()
+    assert (root / "logs" / "file_sim_fire_history.jsonl").exists()
     assert (root / "logs" / "pre_prompt_state.json").exists()
     assert (root / "logs" / "pre_prompt_state.md").exists()
-    assert "<!-- codex:pre-prompt-state -->" in copilot.read_text(encoding="utf-8")
+    copilot_text = copilot.read_text(encoding="utf-8")
+    assert "<!-- codex:pre-prompt-state -->" in copilot_text
+    assert "FILE_SIM_STATUS" in copilot_text
     assert state["composition"]["deleted_words"]
 
     updated = codex_compat.run_pre_prompt_pipeline(
@@ -204,6 +285,23 @@ def test_dynamic_context_pack_writes_browseable_bundle_and_injects():
     assert "LIVE_REPLACEMENTS" in copilot_text
 
 
+def test_dynamic_context_pack_trims_truncated_line_whitespace():
+    pack = {
+        "ts": "now",
+        "surface": "codex",
+        "prompt": "fix trailing whitespace",
+        "signals": {},
+        "file_self_knowledge": {
+            "operator_read": ("context " * 80),
+            "packets": [{"file": "src/thought_completer.py", "mutation_scope": {"readiness": "draft_ready"}}],
+        },
+    }
+
+    rendered = codex_compat._render_dynamic_context_pack(pack, managed=True)
+
+    assert all(line == line.rstrip() for line in rendered.splitlines())
+
+
 def test_pre_prompt_from_existing_composition_preserves_deletion_signal():
     root = Path(tempfile.mkdtemp(prefix="codex_compat_from_composition_"))
     (root / ".github").mkdir()
@@ -243,6 +341,24 @@ def test_prompt_composer_tracker_captures_deletion_and_hesitation():
     assert state["source"] == "thought_completer_composer"
 
 
+def test_chat_composition_reconstructs_slow_backspaced_deleted_word():
+    analyzer = _load_chat_composition_analyzer()
+    # User typed banana, then backspaced it right-to-left. The final b can be
+    # deleted just over 500ms later, which used to split into "anana".
+    chars = [
+        {"char": "a", "ts": 1000, "pos": 5},
+        {"char": "n", "ts": 1247, "pos": 4},
+        {"char": "a", "ts": 1421, "pos": 3},
+        {"char": "n", "ts": 1563, "pos": 2},
+        {"char": "a", "ts": 1721, "pos": 1},
+        {"char": "b", "ts": 2277, "pos": 0},
+    ]
+
+    words = analyzer._extract_deleted_words(chars)
+
+    assert words[0]["word"] == "banana"
+
+
 def test_prompt_composer_pause_gate_cooldown_and_duplicate_guard():
     composer = _load_prompt_composer()
     gate = composer.PauseGate(cooldown_s=2.0, min_chars=4)
@@ -261,3 +377,36 @@ def test_prompt_composer_pause_gate_cooldown_and_duplicate_guard():
     assert ready is False
     assert reason == "cooldown"
     assert wait > 0
+
+
+def test_stale_date_audit_flags_old_file_sim_and_hidden_words():
+    root = Path(tempfile.mkdtemp(prefix="codex_compat_stale_"))
+    now = datetime.now(timezone.utc)
+    (root / "logs").mkdir()
+    (root / "logs" / "prompt_journal.jsonl").write_text(json.dumps({
+        "ts": now.isoformat(),
+        "msg": "audit stale date hidden word",
+    }) + "\n", encoding="utf-8")
+    (root / "logs" / "chat_compositions.jsonl").write_text(json.dumps({
+        "ts": now.isoformat(),
+        "final_text": "audit stale date",
+        "deleted_words": [{"word": "juice"}],
+    }) + "\n", encoding="utf-8")
+    (root / "logs" / "batch_rewrite_sim_latest.json").write_text(json.dumps({
+        "ts": (now - timedelta(hours=2)).isoformat(),
+        "status": "fired",
+    }), encoding="utf-8")
+    (root / "logs" / "file_sim_config.json").write_text(json.dumps({
+        "fire_on": ["pre_prompt", "os_hook_auto"],
+    }), encoding="utf-8")
+    (root / "logs" / "pre_prompt_state.json").write_text(json.dumps({
+        "ts": now.isoformat(),
+        "trigger": "os_hook_auto",
+    }), encoding="utf-8")
+
+    audit = codex_compat.audit_stale_dates(root, max_lag_minutes=30)
+
+    assert "batch_rewrite_sim" in audit["stale"]
+    assert "juice" in audit["hidden_words_latest"]
+    assert audit["trigger_audit"]["trigger_allowed"] is True
+    assert (root / "logs" / "stale_date_audit_latest.md").exists()
