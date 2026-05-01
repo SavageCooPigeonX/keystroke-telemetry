@@ -63,3 +63,61 @@ def test_codex_prompt_logger_runs_semantic_profile_per_prompt():
 
     assert entry["semantic_profile"]["semantic_intent"] == "share_information"
     assert (root / "logs" / "semantic_profile_latest.json").exists()
+
+
+def test_email_voice_prompt_classifies_operator_state_modeling():
+    root = _root()
+
+    event = log_semantic_profile_event(
+        root,
+        "emails should feel like getting mail from an old friend centered around primary operatorstate with more reasoning",
+        source="test",
+    )
+
+    assert event["semantic_intent"] == "operator_state_modeling"
+    assert "telemetry_email" in event["semantic_intents"]
+    assert "file_voice_design" in event["semantic_intents"]
+    assert "reasoning_depth" in event["semantic_intents"]
+    assert event["completion_hint"] == "intent:operator_state_modeling"
+
+
+def test_email_memory_prompt_classifies_file_memory_management():
+    root = _root()
+
+    event = log_semantic_profile_event(
+        root,
+        "manage my files via email and store their knowledge long term memory in our messages",
+        source="test",
+    )
+
+    assert event["semantic_intent"] == "file_memory_management"
+    assert "telemetry_email" in event["semantic_intents"]
+    assert event["completion_hint"] == "intent:file_memory_management"
+
+
+def test_actionable_file_mail_complaint_classifies_file_voice_design():
+    root = _root()
+
+    event = log_semantic_profile_event(
+        root,
+        "make this actionable show what it learned what got done what it is planning no generic chat gpt personalization",
+        source="test",
+    )
+
+    assert event["semantic_intent"] == "file_voice_design"
+    assert "file_voice_design" in event["semantic_intents"]
+
+
+def test_live_field_irt_prompt_classifies_live_field_intent_modeling():
+    root = _root()
+
+    event = log_semantic_profile_event(
+        root,
+        "model intent live in field with microphones using hush listen in whisper mode "
+        "with dynamic entity classification and IRT pulses for podcast speeches and void probes",
+        source="test",
+    )
+
+    assert event["semantic_intent"] == "live_field_intent_modeling"
+    assert "live_field_intent_modeling" in event["semantic_intents"]
+    assert event["completion_hint"] == "intent:live_field_intent_modeling"
