@@ -24,8 +24,31 @@ SYSTEM_WORDS = {
     "thought", "completer", "prompt", "matching", "every",
 }
 ORCHESTRATION_WORDS = {
-    "orchestrator", "orchestration", "monitor", "email", "alerts", "alert",
-    "sims", "sim", "deepseek", "approval", "approve", "codex",
+    "orchestrator", "orchestration", "orchestrate", "monitor", "email",
+    "alerts", "alert", "sims", "sim", "deepseek", "approval", "approve",
+    "codex", "guard", "guarded", "consensus", "10q", "copilot",
+    "autonomous", "rewrite", "fixes",
+}
+EMAIL_WORDS = {"email", "emails", "resend", "outbox", "alert", "alerts", "mail"}
+MONITOR_WORDS = {"monitor", "monitoring", "watch", "observe", "observatory", "telemetry"}
+OPERATOR_STATE_WORDS = {
+    "operator", "operatorstate", "state", "profile", "fingerprint", "live",
+    "model", "primary", "intent", "baseline",
+}
+FILE_VOICE_WORDS = {
+    "old", "friend", "sycophantic", "tone", "voice", "comedy", "mail",
+    "emails", "feel", "centered", "centeread", "actionable", "personalization",
+    "personalized", "planning", "learned", "done", "gpt", "terrible",
+}
+REASONING_WORDS = {"reasoning", "reason", "why", "logic", "receipts", "because"}
+FILE_MEMORY_WORDS = {
+    "memory", "memories", "knowledge", "remember", "store", "stored",
+    "messages", "thread", "threads", "mailbox", "manage", "files",
+}
+LIVE_FIELD_WORDS = {
+    "microphone", "microphones", "whisper", "speech", "speeches", "podcast",
+    "field", "entity", "entities", "hush", "pulse", "pulses", "irt",
+    "void", "probe", "probes", "listen", "listening",
 }
 
 
@@ -128,14 +151,42 @@ def classify_semantic_intents(text: str, profile: dict[str, Any]) -> dict[str, A
         intents.append("profile_reference")
     if len(toks & SYSTEM_WORDS) >= 3:
         intents.append("intent_system_design")
-    if toks & ORCHESTRATION_WORDS or "10q" in toks:
+    if toks & (ORCHESTRATION_WORDS - EMAIL_WORDS) or "10q" in toks:
         intents.append("code_orchestration")
+    if toks & EMAIL_WORDS:
+        intents.append("telemetry_email")
+    if toks & MONITOR_WORDS:
+        intents.append("monitoring")
+    if "operatorstate" in toks or len(toks & OPERATOR_STATE_WORDS) >= 2:
+        intents.append("operator_state_modeling")
+    if len(toks & FILE_VOICE_WORDS) >= 2:
+        intents.append("file_voice_design")
+    if toks & REASONING_WORDS:
+        intents.append("reasoning_depth")
+    if (toks & EMAIL_WORDS) and len(toks & FILE_MEMORY_WORDS) >= 2:
+        intents.append("file_memory_management")
+    if len(toks & LIVE_FIELD_WORDS) >= 3 or {"void", "probe"} <= toks:
+        intents.append("live_field_intent_modeling")
     if not intents:
         intents.append("unknown")
     if "share_information" in intents:
         primary = "share_information"
+    elif "live_field_intent_modeling" in intents:
+        primary = "live_field_intent_modeling"
     elif "code_orchestration" in intents:
         primary = "code_orchestration"
+    elif "operator_state_modeling" in intents:
+        primary = "operator_state_modeling"
+    elif "file_memory_management" in intents:
+        primary = "file_memory_management"
+    elif "file_voice_design" in intents:
+        primary = "file_voice_design"
+    elif "telemetry_email" in intents:
+        primary = "telemetry_email"
+    elif "reasoning_depth" in intents:
+        primary = "reasoning_depth"
+    elif "monitoring" in intents:
+        primary = "monitoring"
     else:
         primary = intents[0]
     return {
@@ -208,4 +259,20 @@ def _completion_hint(classified: dict[str, Any]) -> str:
         return f"remember:{first['fact_type']}={first['value']}"
     if "introduction" in (classified.get("semantic_intents") or []):
         return "intent:introduction"
+    if "code_orchestration" in (classified.get("semantic_intents") or []):
+        return "intent:code_orchestration"
+    if "live_field_intent_modeling" in (classified.get("semantic_intents") or []):
+        return "intent:live_field_intent_modeling"
+    if "operator_state_modeling" in (classified.get("semantic_intents") or []):
+        return "intent:operator_state_modeling"
+    if "file_memory_management" in (classified.get("semantic_intents") or []):
+        return "intent:file_memory_management"
+    if "file_voice_design" in (classified.get("semantic_intents") or []):
+        return "intent:file_voice_design"
+    if "telemetry_email" in (classified.get("semantic_intents") or []):
+        return "intent:telemetry_email"
+    if "reasoning_depth" in (classified.get("semantic_intents") or []):
+        return "intent:reasoning_depth"
+    if "monitoring" in (classified.get("semantic_intents") or []):
+        return "intent:monitoring"
     return ""
