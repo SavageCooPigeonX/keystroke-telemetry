@@ -222,9 +222,7 @@ def peek_recent(n = 50)
 
 - refreshed: `pre-push-stable`
 - commit: `pending-push`
-- changed files in scope: `8`
-  - `pigeon_brain/MANIFEST.md`
-  - `pigeon_brain/flow/MANIFEST.md`
+- changed files in scope: `6`
   - `pigeon_brain/ai_cognitive_log_seq001_v001.py`
   - `pigeon_brain/context_veins_seq001_v001.json`
   - `pigeon_brain/context_veins_seq001_v001.py`

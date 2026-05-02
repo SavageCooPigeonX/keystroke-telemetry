@@ -58,8 +58,7 @@ Public symbols re-exported by `__init__.py`:
 
 - refreshed: `pre-push-stable`
 - commit: `pending-push`
-- changed files in scope: `4`
-  - `src/tc_profile/p_tpes_s003_v001_compiled/MANIFEST.md`
+- changed files in scope: `3`
   - `src/tc_profile/p_tpes_s003_v001_compiled/__init__.py`
   - `src/tc_profile/p_tpes_s003_v001_compiled/p_tpes_s003_v001_compiled_functions_seq001_v001.py`
   - `src/tc_profile/p_tpes_s003_v001_compiled/p_tpes_s003_v001_compiled_functions_seq002_v001.py`

@@ -259,15 +259,15 @@ def update_section(profile: dict, section: str, buffer: str, completion: str, ou
 
 - refreshed: `pre-push-stable`
 - commit: `pending-push`
-- changed files in scope: `11`
-  - `src/tc_profile/MANIFEST.md`
-  - `src/tc_profile/p_tc_p_s009_v001_compiled/MANIFEST.md`
-  - `src/tc_profile/p_tpes_s003_v001_compiled/MANIFEST.md`
+- changed files in scope: `8`
   - `src/tc_profile/p_tc_p_s009_v001.py`
   - `src/tc_profile/p_tc_p_s009_v001_compiled/__init__.py`
   - `src/tc_profile/p_tc_p_s009_v001_compiled/p_tc_p_s009_v001_compiled_functions_seq001_v001.py`
   - `src/tc_profile/p_tc_p_s009_v001_compiled/p_tc_p_s009_v001_compiled_functions_seq002_v001.py`
   - `src/tc_profile/p_tpes_s003_v001.py`
+  - `src/tc_profile/p_tpes_s003_v001_compiled/__init__.py`
+  - `src/tc_profile/p_tpes_s003_v001_compiled/p_tpes_s003_v001_compiled_functions_seq001_v001.py`
+  - `src/tc_profile/p_tpes_s003_v001_compiled/p_tpes_s003_v001_compiled_functions_seq002_v001.py`
 
 ## Numeric Encoding Boundary
 

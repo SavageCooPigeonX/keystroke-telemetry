@@ -5,7 +5,7 @@
 <!-- pigeon:staleness-alert -->
 ## Staleness Alert
 
-*Checked 2026-05-02T22:59:42.605136+00:00 - Codex live context refreshed*
+*Checked 2026-05-02T23:18:05.488407+00:00 - Codex live context refreshed*
 
 **Live replacements active:** `pigeon:current-query`, `pigeon:prompt-telemetry`, `codex:dynamic-context-pack`, DeepSeek V4 prompt queue.
 
@@ -390,17 +390,17 @@
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Assembled 2026-05-02T22:58:54.862522+00:00 - codex_compat dynamic context - zero LLM calls*
+*Assembled 2026-05-02T23:17:16.891867+00:00 - codex_compat dynamic context - zero LLM calls*
 
-**INTENT KEYS:** `can you make gate pass and push - compile as amny files as you need ra`
+**INTENT KEYS:** `i like it much better - go ahead and generate it - ill get photo`
 
-**FILES:** copilot_probe_push_cycle, thought_completer, maif_auditor_tests_manifest, maif_auditor_maif_auditor_manifest, tc_intent_keys, tc_prompt_brain
+**FILES:** maif_auditor_examples_politician_audit, maif_auditor_maif_auditor_models_perplexity, maif_auditor_maif_auditor_models_deepseek, maif_auditor_maif_auditor_models_grok, maif_auditor_maif_auditor_models_claude, tc_intent_keys
 
 **LEGACY_STALE_BLOCKS:** task-queue, operator-state
 
-**LIVE_REPLACEMENTS:** dynamic-context-pack, prompt-telemetry/latest/v2, DeepSeek V4 job `ds4-882f8a34d3560603`
+**LIVE_REPLACEMENTS:** dynamic-context-pack, prompt-telemetry/latest/v2, DeepSeek V4 job `ds4-1ce51bc87b859f54`
 
-**DELETED WORDS:** ra
+**DELETED WORDS:** none
 
 **COGNITIVE STATE:** `unknown`
 <!-- /pigeon:current-query -->
@@ -461,20 +461,20 @@
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-05-02 22:59 UTC · 6 messages profiled · 8 recent commits*
+*Auto-injected 2026-05-02 23:18 UTC · 6 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 48.7 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
 
-**Prompt ms:** 1514, 93874, 1307179, 37440, 19798 (avg 291961ms)
+**Prompt ms:** 93874, 1307179, 37440, 19798, 106784 (avg 313015ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
 ### Recent Work
+- `17bbfee` fix: stabilize push manifest refresh
+- `1f5b421` chore: refresh manifests after compliance migration
+- `54b2a6a` chore: migrate over-cap modules behind compliance facades
 - `11e912b` feat: add artifact probe intent resolution
-- `38a79e5` fix: harden telemetry privacy before push cycle
-- `094f41d` Staging fix by haiku for the intent key refactor, and adding some docs on the intent key system and codex compat layer. Also adding some tests for the intent key system and codex compat layer.``
-- `1ddbb0b` feat: SIMS browser tab in observatory + run_assembly on every Copilot prompt
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -568,29 +568,29 @@
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
-*Auto-updated 2026-05-02T22:59:42.605136+00:00 - source: `logs/prompt_telemetry_latest.json`*
+*Auto-updated 2026-05-02T23:18:05.488407+00:00 - source: `logs/prompt_telemetry_latest.json`*
 
 Use this block as the highest-freshness prompt-level telemetry. It is generated from Codex live context, not the stale legacy daemon.
 
 ```json
 {
   "schema": "prompt_telemetry/latest/v2",
-  "updated_at": "2026-05-02T22:59:42.605136+00:00",
+  "updated_at": "2026-05-02T23:18:05.488407+00:00",
   "source": "codex_compat.dynamic_context_pack",
   "latest_prompt": {
     "session_n": null,
-    "ts": "2026-05-02T22:58:54.862522+00:00",
-    "chars": 67,
-    "preview": "can you make gate pass and push - compile as amny files as you need",
-    "intent": "can you make gate pass and push - compile as amny files as you need ra",
+    "ts": "2026-05-02T23:17:16.891867+00:00",
+    "chars": 64,
+    "preview": "i like it much better - go ahead and generate it - ill get photo",
+    "intent": "i like it much better - go ahead and generate it - ill get photo",
     "state": "unknown",
     "files_open": [
-      "copilot_probe_push_cycle",
-      "thought_completer",
-      "maif_auditor_tests_manifest",
-      "maif_auditor_maif_auditor_manifest",
+      "maif_auditor_examples_politician_audit",
+      "maif_auditor_maif_auditor_models_perplexity",
+      "maif_auditor_maif_auditor_models_deepseek",
+      "maif_auditor_maif_auditor_models_grok",
+      "maif_auditor_maif_auditor_models_claude",
       "tc_intent_keys",
-      "tc_prompt_brain",
       "src/file_intelligence_graph_seq001_v001.py",
       "src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py",
       "test_file_intelligence_graph.py",
@@ -599,36 +599,34 @@ Use this block as the highest-freshness prompt-level telemetry. It is generated 
       "src/deepseek_daemon_seq001_v001.py"
     ],
     "module_refs": [
-      "copilot_probe_push_cycle",
-      "thought_completer",
-      "maif_auditor_tests_manifest",
-      "maif_auditor_maif_auditor_manifest",
-      "tc_intent_keys",
-      "tc_prompt_brain"
+      "maif_auditor_examples_politician_audit",
+      "maif_auditor_maif_auditor_models_perplexity",
+      "maif_auditor_maif_auditor_models_deepseek",
+      "maif_auditor_maif_auditor_models_grok",
+      "maif_auditor_maif_auditor_models_claude",
+      "tc_intent_keys"
     ]
   },
   "signals": {
     "wpm": 0,
     "chars_per_sec": 0,
-    "deletion_ratio": 0.065,
+    "deletion_ratio": 0.015,
     "intent_deletion_ratio": 0.0,
-    "hesitation_count": 1,
+    "hesitation_count": 2,
     "rewrite_count": 0,
     "typo_corrections": 0,
-    "intentional_deletions": 1,
-    "total_keystrokes": 69,
-    "duration_ms": 19798
+    "intentional_deletions": 0,
+    "total_keystrokes": 64,
+    "duration_ms": 106784
   },
   "composition_binding": {
     "matched": true,
     "source": "os_hook_auto",
     "age_ms": 0,
-    "key": "ds4-882f8a34d3560603",
-    "match_score": 0.0594
+    "key": "ds4-1ce51bc87b859f54",
+    "match_score": 0.0217
   },
-  "deleted_words": [
-    "ra"
-  ],
+  "deleted_words": [],
   "rewrites": [],
   "task_queue": {
     "total": 13,
@@ -646,28 +644,28 @@ Use this block as the highest-freshness prompt-level telemetry. It is generated 
     "done": 0
   },
   "hot_modules": [
-    "copilot_probe_push_cycle",
-    "thought_completer",
-    "maif_auditor_tests_manifest",
-    "maif_auditor_maif_auditor_manifest",
+    "maif_auditor_examples_politician_audit",
+    "maif_auditor_maif_auditor_models_perplexity",
+    "maif_auditor_maif_auditor_models_deepseek",
+    "maif_auditor_maif_auditor_models_grok",
+    "maif_auditor_maif_auditor_models_claude",
     "tc_intent_keys",
-    "tc_prompt_brain",
     "src/file_intelligence_graph_seq001_v001.py",
     "src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py"
   ],
   "running_summary": {
     "total_prompts": 250,
-    "avg_del_ratio": 0.065,
+    "avg_del_ratio": 0.061,
     "dominant_state": "unknown",
     "state_distribution": {
-      "frustrated": 42,
-      "unknown": 157,
-      "hesitant": 51
+      "unknown": 158,
+      "hesitant": 51,
+      "frustrated": 41
     }
   },
   "deepseek": {
     "model": "deepseek-v4-pro",
-    "job_id": "ds4-882f8a34d3560603",
+    "job_id": "ds4-1ce51bc87b859f54",
     "status": "queued",
     "autonomous_write": false
   },
@@ -700,83 +698,83 @@ They likely deleted it because the overall (conf=0.60, via unsaid_recon)
 <!-- codex:pre-prompt-state -->
 ## Codex Pre-Prompt State
 
-*Prepared 2026-05-02T22:58:25.883156+00:00 before model handoff*
+*Prepared 2026-05-02T23:16:48.623072+00:00 before model handoff*
 
-**PROMPT:** `can you make gate pass and push - compile as amny files as you need`
+**PROMPT:** `i like it much better - go ahead and generate it - ill get photo`
 
-**DELETION_RATIO:** `0.065`
-**DELETED_WORDS:** ra
-**HESITATION_COUNT:** `1`
+**DELETION_RATIO:** `0.015`
+**DELETED_WORDS:** none
+**HESITATION_COUNT:** `2`
 
 **NUMERIC_CONTEXT:**
-- `copilot_probe_push_cycle` score=0.0594
-- `thought_completer` score=0.0214
-- `maif_auditor_tests_manifest` score=0.0172
-- `maif_auditor_maif_auditor_manifest` score=0.0153
-- `tc_intent_keys` score=0.0152
-- `tc_prompt_brain` score=0.0151
+- `maif_auditor_examples_politician_audit` score=0.0217
+- `maif_auditor_maif_auditor_models_perplexity` score=0.0124
+- `maif_auditor_maif_auditor_models_deepseek` score=0.0121
+- `maif_auditor_maif_auditor_models_grok` score=0.0121
+- `maif_auditor_maif_auditor_models_claude` score=0.0118
+- `tc_intent_keys` score=0.0113
 
 **HANDOFF_READY:** `True`
 **SIM_STATUS:** `skipped`
 **FILE_SIM_STATUS:** `fired`
 **FILE_SIM_TARGET_STATE:** `interlinked_source_state`
 **FILE_SIM_SOURCE_REWRITES:**
-- `src/thought_completer.py` interlink=0.81 decision=safe_dry_run
-- `pigeon_compiler/git_plugin.py` interlink=0.73 decision=safe_dry_run
-- `src/copilot_probe_push_cycle_seq001_v001.py` interlink=0.47 decision=needs_review
-- `src/push_snapshot/__init__.py` interlink=0.765 decision=safe_dry_run
-- `src/tc_intent_keys_seq001_v001.py` interlink=0.595 decision=needs_review
+- `src/tc_intent_keys_seq001_v001.py` interlink=0.67 decision=safe_dry_run
+- `build/pigeon_legacy/src/_resolve.py` interlink=0.73 decision=safe_dry_run
+- `build/pigeon_legacy/src/actual_job_runner_seq001_v001.py` interlink=0.565 decision=safe_dry_run
+- `build/pigeon_legacy/src/autonomous_mutation_audit_seq001_v001.py` interlink=0.44 decision=needs_review
+- `build/pigeon_legacy/src/batch_rewrite_sim_seq001_v001.py` interlink=0.73 decision=safe_dry_run
 <!-- /codex:pre-prompt-state -->
 
 <!-- codex:dynamic-context-pack -->
 ## Dynamic Context Pack
 
-*Prepared 2026-05-02T22:58:54.862522+00:00 for os_hook_auto*
+*Prepared 2026-05-02T23:17:16.891867+00:00 for os_hook_auto*
 
-**PROMPT:** `can you make gate pass and push - compile as amny files as you need`
-**DELETION_RATIO:** `0.065`
+**PROMPT:** `i like it much better - go ahead and generate it - ill get photo`
+**DELETION_RATIO:** `0.015`
 **INTENT_DELETION_RATIO:** `0.0`
-**HESITATION_COUNT:** `1`
+**HESITATION_COUNT:** `2`
 **COGNITIVE_STATE:** `unknown`
-**DELETED_WORDS:** ra
+**DELETED_WORDS:** none
 
 **FOCUS_FILES:**
-- `copilot_probe_push_cycle` via numeric_context score=0.0594
-- `thought_completer` via numeric_context score=0.0214
-- `maif_auditor_tests_manifest` via numeric_context score=0.0172
-- `maif_auditor_maif_auditor_manifest` via numeric_context score=0.0153
-- `tc_intent_keys` via numeric_context score=0.0152
-- `tc_prompt_brain` via numeric_context score=0.0151
+- `maif_auditor_examples_politician_audit` via numeric_context score=0.0217
+- `maif_auditor_maif_auditor_models_perplexity` via numeric_context score=0.0124
+- `maif_auditor_maif_auditor_models_deepseek` via numeric_context score=0.0121
+- `maif_auditor_maif_auditor_models_grok` via numeric_context score=0.0121
+- `maif_auditor_maif_auditor_models_claude` via numeric_context score=0.0118
+- `tc_intent_keys` via numeric_context score=0.0113
 - `src/file_intelligence_graph_seq001_v001.py` via recent_edit
 - `src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py` via recent_edit
 - `test_file_intelligence_graph.py` via recent_edit
 - `src/copilot_probe_push_cycle_seq001_v001.py` via recent_edit
 
 **COPILOT_PROBE_PUSH_CYCLE:**
-- cycle: `probe-4b7b62bb06c911d5`
-- read: The prompt is asking for a bounded next move, not a generic status answer. Deleted-word residue should be treated as hidden intent pressure: ra.
+- cycle: `probe-80c8bb81de15e5f9`
+- read: The prompt is asking for a bounded next move, not a generic status answer.
 - deepseek context: `logs/copilot_probe_push_cycle_latest.json`
-- waking files: `p_tpc, file_sim, bug_profiles, entropy_shedding, master_test, w_vs`
+- waking files: `p_tpc, tc_gemini, tc_prompt_brain, tc_prompt_composer, resolve, tc_constants`
 
 **FILE_SELF_KNOWLEDGE:**
-- read: 8 file packet(s) woke. Top file `src/copilot_probe_push_cycle_seq001_v001.py` now carries owns/wakes/context/validation/refusal data for Codex to probe with before any rewrite model drafts. 7 are draft-ready inside rails; 1 are blocked until real validation/co
+- read: 8 file packet(s) woke. Top file `src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py` now carries owns/wakes/context/validation/refusal data for Codex to probe with before any rewrite model drafts. 7 are dra
+- `src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py` owns `operator response policy and reward routing, sim, engine, d0420, chore, cascade, seq001, pigeon` readiness `blocked`
+  - validates: `py -m py_compile src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py`
+  - says: tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py: I can help, but first stop asking me to pass imaginary validation.
+- `src/file_intelligence_graph_seq001_v001.py` owns `context selection and self-clearing file packs, seq001, intelligence, graph, fingerprint, pigeon, manifest, operator` readiness `draft_ready`
+  - validates: `py -m py_compile src/file_intelligence_graph_seq001_v001.py`
+  - says: file_intelligence_graph_seq001_v001.py: load pigeon_legacy_loader_seq001_v001.py before you let a rewrite model touch my furniture.
 - `src/copilot_probe_push_cycle_seq001_v001.py` owns `operator response policy and reward routing, push, seq001, cycle, copilot, probe, copilot_probe_push_cycle_seq001_v001, ` readiness `draft_ready`
   - validates: `py -m py_compile src/copilot_probe_push_cycle_seq001_v001.py`
   - says: copilot_probe_push_cycle_seq001_v001.py: load codex_compat.py before you let a rewrite model touch my furniture.
-- `src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py` owns `operator response policy and reward routing, sim, engine, d0420, chore, cascade, seq001, intent` readiness `blocked`
-  - validates: `py -m py_compile src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py`
-  - says: tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py: I can help, but first stop asking me to pass imaginary validation.
-- `src/file_intelligence_graph_seq001_v001.py` owns `context selection and self-clearing file packs, seq001, intelligence, graph, fingerprint, manifest, file_intelligence_gr` readiness `draft_ready`
-  - validates: `py -m py_compile src/file_intelligence_graph_seq001_v001.py`
-  - says: file_intelligence_graph_seq001_v001.py: I have a test receipt; give me a bounded warrant and nobody gets theatrical.
-- `src/deepseek_daemon_seq001_v001.py` owns `intent compilation and mutation routing, seq001, deepseek, daemon, deepseek_daemon_seq001_v001, load, log, line` readiness `draft_ready`
+- `src/deepseek_daemon_seq001_v001.py` owns `intent compilation and mutation routing, seq001, deepseek, daemon, deepseek_daemon_seq001_v001, load, fingerprint, opera` readiness `draft_ready`
   - validates: `py -m py_compile src/deepseek_daemon_seq001_v001.py`
-  - says: deepseek_daemon_seq001_v001.py: load local_env_loader_seq001_v001.py before you let a rewrite model touch my furniture.
-- `src/tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade.py` owns `intent compilation and mutation routing, popup, seq001, pigeon, v004, alway, d0420, chore` readiness `draft_ready`
+  - says: deepseek_daemon_seq001_v001.py: load pigeon_legacy_loader_seq001_v001.py before you let a rewrite model touch my furniture.
+- `src/tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade.py` owns `intent compilation and mutation routing, seq001, popup, pigeon, v004, alway, d0420, chore` readiness `draft_ready`
   - validates: `py -m py_compile src/tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade.py`
   - says: tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade.py: load tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py before you let a rewrite model touch my furniture.
 
-**CONTEXT_CONFIDENCE:** `0.0594`
+**CONTEXT_CONFIDENCE:** `0.0217`
 **CONTEXT_STATUS:** `ok`
 
 **UNRESOLVED_INTENTS:**
@@ -786,10 +784,10 @@ They likely deleted it because the overall (conf=0.60, via unsaid_recon)
 - `partial` hesitation should trigger thought completer before copilot prompt handoff... (also considered: hesitation completer stalled half thought)
 
 **PROMPT_BRAIN:**
-- intent key: `scripts:route:can_you_gate_pass:minor`
+- intent key: `build/pigeon_legacy/pigeon_brain:route:like_much_better_ahead:minor`
 - semantic: `unknown`
 - profile hint: `none`
-- prompt box open: `220`
+- prompt box open: `221`
 
 **OPERATOR_RESPONSE_POLICY:**
 - active arm: `probe_council`
@@ -811,15 +809,15 @@ They likely deleted it because the overall (conf=0.60, via unsaid_recon)
 - status: `fired`
 - target state: `interlinked_source_state`
 - trigger: `os_hook_auto`
-- `src/thought_completer.py` interlink=0.81 decision=safe_dry_run
-- `pigeon_compiler/git_plugin.py` interlink=0.73 decision=safe_dry_run
-- `src/copilot_probe_push_cycle_seq001_v001.py` interlink=0.47 decision=needs_review
-- `src/push_snapshot/__init__.py` interlink=0.765 decision=safe_dry_run
-- `src/tc_intent_keys_seq001_v001.py` interlink=0.595 decision=needs_review
+- `src/tc_intent_keys_seq001_v001.py` interlink=0.67 decision=safe_dry_run
+- `build/pigeon_legacy/src/_resolve.py` interlink=0.73 decision=safe_dry_run
+- `build/pigeon_legacy/src/actual_job_runner_seq001_v001.py` interlink=0.565 decision=safe_dry_run
+- `build/pigeon_legacy/src/autonomous_mutation_audit_seq001_v001.py` interlink=0.44 decision=needs_review
+- `build/pigeon_legacy/src/batch_rewrite_sim_seq001_v001.py` interlink=0.73 decision=safe_dry_run
 
 **INTENT_LOOP:**
-- loop: `loop-7850e47e65219390` status `awaiting_operator_approval`
-- intent: `scripts:validate:can_you_gate_pass_push:patch`
+- loop: `loop-2aecbd24187a734b` status `awaiting_operator_approval`
+- intent: `build/pigeon_legacy/src:route:like_much_better_ahead_generate:patch`
 - human: `on_loop` approval_required `True`
 - observed edits: `0` responses: `0`
 - next: operator approves or narrows the active loop
@@ -836,7 +834,7 @@ They likely deleted it because the overall (conf=0.60, via unsaid_recon)
 
 **DEEPSEEK_V4:**
 - model: `deepseek-v4-pro`
-- job: `ds4-882f8a34d3560603` status `queued`
+- job: `ds4-1ce51bc87b859f54` status `queued`
 - autonomous write: `False`
 
 **CAPTURE_BOUNDARY:**
@@ -848,23 +846,23 @@ They likely deleted it because the overall (conf=0.60, via unsaid_recon)
 <!-- codex:intent-key-context -->
 ## Intent Key Context
 
-**INTENT_KEY:** `scripts:route:can_you_gate_pass:minor`
-**SCOPE:** `scripts`  **CONFIDENCE:** `0.5556`
-**VOID:** `False`  **WARNINGS:** none
+**INTENT_KEY:** `build/pigeon_legacy/pigeon_brain:route:like_much_better_ahead:minor`
+**SCOPE:** `build/pigeon_legacy/pigeon_brain`  **CONFIDENCE:** `0.1429`
+**VOID:** `False`  **WARNINGS:** multiple_scope_candidates
 **SEMANTIC_INTENTS:** `unknown`
-**NUMERIC_ENCODING:** `c08fa45d9a7715db1118ab2b`
+**NUMERIC_ENCODING:** `abd26588f78ed195668d8a81`
 **PROFILE_MATCHES:** `none`
 **PROFILE_UPDATES:** `none`
 **COMPLETION_HINT:** `none`
-**MANIFEST:** `scripts/MANIFEST.md`
+**MANIFEST:** `build/pigeon_legacy/pigeon_brain/MANIFEST.md`
 
 **MANIFEST_EXCERPT:**
 ```text
-# MANIFEST ? scripts
+# MANIFEST ? build/pigeon_legacy/pigeon_brain
 
-> Scripts
+> Pigeon brain
 
-*Auto-generated by pigeon_compiler manifest_builder | 2026-05-02 21:12 UTC*
+*Auto-generated by pigeon_compiler manifest_builder | 2026-05-02 23:08 UTC*
 
 ## How to read this manifest
 
@@ -884,32 +882,32 @@ Python module in this folder. It is the single source of truth for:
 <!-- codex:prompt-brain -->
 ## Prompt Brain
 
-**PROMPT:** `can you make gate pass and push - compile as amny files as you need`
+**PROMPT:** `i like it much better - go ahead and generate it - ill get photo`
 **TRIGGER:** `os_hook_auto:composition_submit`
-**INTENT_KEY:** `scripts:route:can_you_gate_pass:minor`
+**INTENT_KEY:** `build/pigeon_legacy/pigeon_brain:route:like_much_better_ahead:minor`
 **SEMANTIC:** `unknown`
 **COMPLETION_HINT:** `none`
 **PROFILE_FACTS:** `name=Nikita`
 **AI_FINGERPRINT:** `aaf0c1d1bd2f2ff3740e747e93e39eb8`
-**CONTEXT_STATUS:** `ok` confidence `0.0594`
-**MANIFEST:** `scripts/MANIFEST.md` confidence `0.5556`
+**CONTEXT_STATUS:** `ok` confidence `0.0217`
+**MANIFEST:** `build/pigeon_legacy/pigeon_brain/MANIFEST.md` confidence `0.1429`
 
 **NUMERIC_FILES:**
-- `copilot_probe_push_cycle` score `0.0594`
-- `thought_completer` score `0.0214`
-- `maif_auditor_tests_manifest` score `0.0172`
-- `maif_auditor_maif_auditor_manifest` score `0.0153`
-- `tc_intent_keys` score `0.0152`
-- `tc_prompt_brain` score `0.0151`
+- `maif_auditor_examples_politician_audit` score `0.0217`
+- `maif_auditor_maif_auditor_models_perplexity` score `0.0124`
+- `maif_auditor_maif_auditor_models_deepseek` score `0.0121`
+- `maif_auditor_maif_auditor_models_grok` score `0.0121`
+- `maif_auditor_maif_auditor_models_claude` score `0.0118`
+- `tc_intent_keys` score `0.0113`
 
-**PROMPT_BOX_OPEN:** `220`
+**PROMPT_BOX_OPEN:** `221`
 <!-- /codex:prompt-brain -->
 
 <!-- codex:operator-response-policy -->
 ## Operator Response Policy
 
 ACTIVE_ARM: `probe_council`
-POLICY_TS: `2026-05-02T22:59:43.096097+00:00`
+POLICY_TS: `2026-05-02T23:18:05.823489+00:00`
 OPERATOR_READ: Extract the real move, pick the files that should wake, and produce an action-ready response.
 PRIORITY: thinking_momentum > intent_extraction > autonomous_code_mutation_readiness > comedy_file_personality
 
@@ -950,8 +948,8 @@ PROBE_FILES:
 - `src/tc_buffer_watcher_seq001_v001.py` via intent:test
 - `src/ai_fingerprint_operator_seq001_v001.py` via intent:test
 - `src/tc_intent_keys_seq001_v001.py` via intent:test
-- `copilot_probe_push_cycle` via numeric_context
-- `thought_completer` via numeric_context
+- `maif_auditor_examples_politician_audit` via numeric_context
+- `maif_auditor_maif_auditor_models_perplexity` via numeric_context
 
 RECENT_REWARD: arm `probe_council`, score `0.0`
 NEXT_MUTATION: Load `src/thought_completer.py` with the top intent move and propose one bounded patch plus validation.

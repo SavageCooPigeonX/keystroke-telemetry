@@ -227,8 +227,7 @@ def predict_next_needs(root: Path, run_flow_fn: Any = None, n_predictions: int =
 
 - refreshed: `pre-push-stable`
 - commit: `pending-push`
-- changed files in scope: `2`
-  - `pigeon_brain/flow/MANIFEST.md`
+- changed files in scope: `1`
   - `pigeon_brain/flow/__main__.py`
 
 ## Numeric Encoding Boundary

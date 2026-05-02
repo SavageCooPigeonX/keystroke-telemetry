@@ -92,7 +92,10 @@ def _git_changed_files(root: Path) -> list[str]:
         proc = subprocess.run(cmd, cwd=root, capture_output=True, text=True, encoding="utf-8", errors="replace")
         if proc.returncode == 0:
             out.extend(line.strip().replace("\\", "/") for line in proc.stdout.splitlines() if line.strip())
-    return list(dict.fromkeys(out))
+    return [
+        rel for rel in dict.fromkeys(out)
+        if not rel.endswith("MANIFEST.md")
+    ]
 
 
 def _folders_for_changed_files(root: Path, changed: list[str]) -> list[Path]:

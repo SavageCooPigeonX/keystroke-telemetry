@@ -171,8 +171,7 @@ def check(name: str, ok: bool, detail: str = '')
 
 - refreshed: `pre-push-stable`
 - commit: `pending-push`
-- changed files in scope: `10`
-  - `scripts/MANIFEST.md`
+- changed files in scope: `9`
   - `scripts/audit_loops.py`
   - `scripts/compile_task_profiles.py`
   - `scripts/install_hourly_deepseek_autonomy_task.ps1`
@@ -180,6 +179,7 @@ def check(name: str, ok: bool, detail: str = '')
   - `scripts/maintain_compliance.py`
   - `scripts/refresh_push_manifests.py`
   - `scripts/replay_speech_intent.py`
+  - `scripts/run_hourly_deepseek_autonomy.ps1`
 
 ## Numeric Encoding Boundary
 

@@ -98,14 +98,13 @@ def read_sessions(root: Path, name: str, seq: int) -> list[dict]
 
 | File | Comment |
 |---|---|
-| `pigeon_compiler/git_plugin.py` | source rewrite pigeon_compiler/git_plugin.py toward interlinked state: intent hooks, context edges, validation surfaces |
+| `none` | no recent file-sim or self-knowledge comment matched this manifest |
 
 ## Manifest Changelog
 
 - refreshed: `pre-push-stable`
 - commit: `pending-push`
-- changed files in scope: `6`
-  - `pigeon_compiler/MANIFEST.md`
+- changed files in scope: `5`
   - `pigeon_compiler/.git_plugin_decomposed.py`
   - `pigeon_compiler/cli.py`
   - `pigeon_compiler/git_plugin.py`
