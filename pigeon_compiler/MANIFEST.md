@@ -102,8 +102,8 @@ def read_sessions(root: Path, name: str, seq: int) -> list[dict]
 
 ## Manifest Changelog
 
-- refreshed: `2026-05-02T17:08:03-06:00`
-- commit: `54b2a6a`
+- refreshed: `pre-push-stable`
+- commit: `pending-push`
 - changed files in scope: `6`
   - `pigeon_compiler/MANIFEST.md`
   - `pigeon_compiler/.git_plugin_decomposed.py`

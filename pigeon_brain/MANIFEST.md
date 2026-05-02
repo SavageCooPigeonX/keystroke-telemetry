@@ -220,8 +220,8 @@ def peek_recent(n = 50)
 
 ## Manifest Changelog
 
-- refreshed: `2026-05-02T17:08:03-06:00`
-- commit: `54b2a6a`
+- refreshed: `pre-push-stable`
+- commit: `pending-push`
 - changed files in scope: `8`
   - `pigeon_brain/MANIFEST.md`
   - `pigeon_brain/flow/MANIFEST.md`

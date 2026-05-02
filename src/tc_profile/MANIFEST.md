@@ -257,8 +257,8 @@ def update_section(profile: dict, section: str, buffer: str, completion: str, ou
 
 ## Manifest Changelog
 
-- refreshed: `2026-05-02T17:08:03-06:00`
-- commit: `54b2a6a`
+- refreshed: `pre-push-stable`
+- commit: `pending-push`
 - changed files in scope: `11`
   - `src/tc_profile/MANIFEST.md`
   - `src/tc_profile/p_tc_p_s009_v001_compiled/MANIFEST.md`

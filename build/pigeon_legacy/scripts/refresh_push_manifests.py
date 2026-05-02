@@ -180,10 +180,8 @@ def _collect_comment(out: list[tuple[str, Any]], folder: str, row: dict[str, Any
 
 
 def _render_changelog(root: Path, folder: str, changed: list[str]) -> str:
-    commit = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=root, capture_output=True, text=True, encoding="utf-8")
-    commit_ts = subprocess.run(["git", "log", "-1", "--format=%cI"], cwd=root, capture_output=True, text=True, encoding="utf-8")
     touched = [rel for rel in changed if _belongs(rel, folder)]
-    lines = ["## Manifest Changelog", "", f"- refreshed: `{(commit_ts.stdout.strip() or 'worktree')}`", f"- commit: `{commit.stdout.strip() or 'worktree'}`"]
+    lines = ["## Manifest Changelog", "", "- refreshed: `pre-push-stable`", "- commit: `pending-push`"]
     lines.append(f"- changed files in scope: `{len(touched)}`")
     for rel in touched[:8]:
         lines.append(f"  - `{rel}`")

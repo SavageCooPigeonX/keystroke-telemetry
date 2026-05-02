@@ -169,8 +169,8 @@ def check(name: str, ok: bool, detail: str = '')
 
 ## Manifest Changelog
 
-- refreshed: `2026-05-02T17:08:03-06:00`
-- commit: `54b2a6a`
+- refreshed: `pre-push-stable`
+- commit: `pending-push`
 - changed files in scope: `10`
   - `scripts/MANIFEST.md`
   - `scripts/audit_loops.py`

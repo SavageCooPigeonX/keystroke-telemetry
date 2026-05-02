@@ -225,8 +225,8 @@ def predict_next_needs(root: Path, run_flow_fn: Any = None, n_predictions: int =
 
 ## Manifest Changelog
 
-- refreshed: `2026-05-02T17:08:03-06:00`
-- commit: `54b2a6a`
+- refreshed: `pre-push-stable`
+- commit: `pending-push`
 - changed files in scope: `2`
   - `pigeon_brain/flow/MANIFEST.md`
   - `pigeon_brain/flow/__main__.py`

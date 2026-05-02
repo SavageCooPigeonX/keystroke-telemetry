@@ -56,8 +56,8 @@ Public symbols re-exported by `__init__.py`:
 
 ## Manifest Changelog
 
-- refreshed: `2026-05-02T17:08:03-06:00`
-- commit: `54b2a6a`
+- refreshed: `pre-push-stable`
+- commit: `pending-push`
 - changed files in scope: `4`
   - `src/tc_profile/p_tpes_s003_v001_compiled/MANIFEST.md`
   - `src/tc_profile/p_tpes_s003_v001_compiled/__init__.py`

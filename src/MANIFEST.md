@@ -1008,8 +1008,8 @@ def inject_task_queue(root) -> bool
 
 ## Manifest Changelog
 
-- refreshed: `2026-05-02T17:08:03-06:00`
-- commit: `54b2a6a`
+- refreshed: `pre-push-stable`
+- commit: `pending-push`
 - changed files in scope: `115`
   - `src/MANIFEST.md`
   - `src/tc_profile/MANIFEST.md`
