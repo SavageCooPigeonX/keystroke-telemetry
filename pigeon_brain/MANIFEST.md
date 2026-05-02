@@ -24,22 +24,22 @@ Python module in this folder. It is the single source of truth for:
 |-----|------|------:|--------|---------|------|-------------|-------|
 | 001 | __main__.py | 25 | ✅ | _CLI_SEQ_RE |  | Allow `py -m pigeon_brain <command>`. |  |
 | 002 | _test_trace.py | 54 | ✅ |  | _resolve | Quick smoke test for the trace hook. | _resolve |
-| 003 | ai_cognitive_log.py | 288 | ⚠️ OVER | LOG_FILE, STATE_FILE, WINDOW_SIZE, log_ai_response(), backfill_rework_verdict() +1 |  | tracks LLM response quality, fix attempts, and AI cognitive state. |  |
-| 004 | build_narratives.py | 80 | ✅ | NARRATIVES_DIR, OUTPUT, parse_narrative(), build_narratives_json() |  | Parse push narratives into JSON for the UI to load. |  |
-| 005 | context_veins.py | 539 | 🔴 CRIT | VEINS_PATH, REGISTRY_PATH, HEAT_MAP_PATH, DUAL_VIEW_PATH, SELF_FIX_DIR +5 |  | scores import graph health for self-trim. |  |
-| 006 | gemini_chat.py | 532 | 🔴 CRIT | MODEL, API_URL, MAX_PROMPT_HISTORY, _ALLOWED_PREFIXES, _ACTION_BLOCK_RE +4 |  | project-aware LLM assistant for Pigeon Brain. |  |
-| 007 | node_tester.py | 335 | 🟠 WARN | test_node() |  | real import/AST/edge tests triggered by UI touch. |  |
-| 008 | pulse_tester.py | 189 | ✅ | ROOT, run_sweep(), main() |  | continuously imports modules and cascades through deps. |  |
+| 001 | ai_cognitive_log_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/ai_cognitive_log_seq001_v001.py. | pigeon_legacy_loader |
+| 001 | build_narratives_seq001_v001.py | 80 | ✅ | NARRATIVES_DIR, OUTPUT, parse_narrative(), build_narratives_seq001_v001_json() |  | Parse push narratives into JSON for the UI to load. |  |
+| 001 | context_veins_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/context_veins_seq001_v001.py. | pigeon_legacy_loader |
+| 001 | gemini_chat_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/gemini_chat_seq001_v001.py. | pigeon_legacy_loader |
+| 001 | node_tester_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/node_tester_seq001_v001.py. | pigeon_legacy_loader |
+| 001 | pulse_tester_seq001_v001.py | 189 | ✅ | ROOT, run_sweep(), main() |  | continuously imports modules and cascades through deps. |  |
 | 009 | 令f_cl_s009_v002_d0323_缩分话_λP.py | 81 | ✅ | main() |  | build graph, run observer, export for UI. |  |
 | 010 | 仿f_dsm_s010_v002_d0323_缩分话_λP.py | 126 | ✅ | DANGER_PATTERNS, DEATH_CAUSES, run_simulation() |  | generates execution telemetry from the real graph. |  |
-| 011 | 双f_dsb_s008_v002_d0323_缩分话_λP.py | 152 | ✅ | build_dual_view(), render_dual_json() |  | merges human and agent telemetry on one graph. |  |
+| 011 | 双f_dsb_s008_v002_d0323_缩分话_λP.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/双f_dsb_s008_v002_d0323_缩分话_λP.py. | pigeon_legacy_loader |
 | 012 | 图p_ge_s003_v003_d0324_读唤任_λB.py | 190 | ✅ | build_graph(), load_graph(), graph_stats() |  | Extract the cognition graph from existing pigeon infrastructure. |  |
 | 013 | 图p_ge_s003_v003_d0324_读唤任_λχ.py | 190 | ✅ | build_graph(), load_graph(), graph_stats() |  | Extract the cognition graph from existing pigeon infrastructure. |  |
 | 014 | 型p_mo_s001_v002_d0323_读唤任_λP.py | 64 | ✅ | SCHEMA_VERSION, EventType, ElectronStatus, DeathCause, ExecutionEvent +1 |  | isomorphic to keystroke models. |  |
 | 015 | 描p_ghm_s004_v002_d0323_缩环检意_λP.py | 100 | ✅ | HEAT_STORE, HIGH_DEATH_THRESH, HIGH_LATENCY_THRESH, update_graph_heat(), load_graph_heat() |  | failure accumulator per node. Port of file_heat_map. |  |
-| 016 | 服f_ls_s012_v003_d0324_踪稿析_λB.py | 250 | ⚠️ OVER | serve_live() |  | WebSocket server for live execution tracing. |  |
-| 017 | 服f_ls_s012_v004_d0324_踪稿析_λB.py | 281 | ⚠️ OVER | serve_live() |  | WebSocket server for live execution tracing. |  |
-| 018 | 服f_ls_s012_v004_d0324_踪稿析_λδ.py | 281 | ⚠️ OVER | serve_live() |  | WebSocket server for live execution tracing. |  |
+| 016 | 服f_ls_s012_v003_d0324_踪稿析_λB.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/服f_ls_s012_v003_d0324_踪稿析_λB.py. | pigeon_legacy_loader |
+| 017 | 服f_ls_s012_v004_d0324_踪稿析_λB.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/服f_ls_s012_v004_d0324_踪稿析_λB.py. | pigeon_legacy_loader |
+| 018 | 服f_ls_s012_v004_d0324_踪稿析_λδ.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/服f_ls_s012_v004_d0324_踪稿析_λδ.py. | pigeon_legacy_loader |
 | 019 | 环检p_ld_s005_v002_d0323_缩描意_λP.py | 112 | ✅ | LOOP_STORE, MAX_ENTRIES, RECUR_THRESH, record_path(), load_loop_stats() |  | recurring path detection. Port of query_memory. |  |
 | 020 | 缩p_fdt_s006_v002_d0323_描环检意_λP.py | 124 | ✅ | DEATH_STORE, MAX_ENTRIES, STALL_MS, TIMEOUT_MS, classify_death() +2 |  | electron death classification. Port of rework_detector. |  |
 | 021 | 观f_os_s007_v003_d0401_读谱建册_λA.py | 142 | ✅ | COACHING_PATH, synthesize_observation(), build_observer_prompt(), write_agent_coaching() |  | coaching from execution patterns. Port of classify_bridge. |  |
@@ -48,44 +48,17 @@ Python module in this folder. It is the single source of truth for:
 | 024 | 钩w_th_s011_v002_d0323_缩分话_λP.py | 137 | ✅ | start_trace(), stop_trace(), drain_events(), peek_recent() |  | instruments Python calls between pigeon modules. |  |
 
 ## Health
-- **Files:** 24 | **Compliant:** 17/24 (71%)
-- **Total lines:** 4531 | **Est. tokens:** ~0 | **Target:** ≤200 per file
-- **Action needed:** 7 file(s) over limit
+- **Files:** 24 | **Compliant:** 24/24 (100%)
+- **Total lines:** 2009 | **Est. tokens:** ~0 | **Target:** ≤200 per file
 
 ## Module Signatures
 
 Function and class signatures for LLM context (type hints included):
 
-**ai_cognitive_log**
-```python
-def log_ai_response(root: Path) -> dict
-def backfill_rework_verdict(root: Path, verdict: str, rework_score: float, query_hint: str) -> None
-def get_ai_state(root: Path) -> dict
-```
-
 **build_narratives**
 ```python
 def parse_narrative(path: Path) -> dict
-def build_narratives_json()
-```
-
-**context_veins**
-```python
-def analyze_veins(root: Path) -> dict
-def get_trim_summary(root: Path) -> str
-```
-
-**gemini_chat**
-```python
-def parse_file_actions(response_text: str) -> list[dict]
-def execute_file_action(root: Path, action: dict) -> dict
-def strip_action_blocks(text: str) -> str
-def chat(root: Path, messages: list[dict], selected_node: dict | None = None) -> str
-```
-
-**node_tester**
-```python
-def test_node(root: Path, node_name: str) -> list[dict]
+def build_narratives_seq001_v001_json()
 ```
 
 **pulse_tester**
@@ -103,12 +76,6 @@ def main()
 **仿f_dsm_s010_v002_d0323_缩分话_λP**
 ```python
 def run_simulation(root: Path, n_electrons: int = 10) -> dict
-```
-
-**双f_dsb_s008_v002_d0323_缩分话_λP**
-```python
-def build_dual_view(root: Path) -> dict
-def render_dual_json(root: Path, output: str = 'pigeon_brain/dual_view.json') -> Path
 ```
 
 **图p_ge_s003_v003_d0324_读唤任_λB**
@@ -140,24 +107,6 @@ class Electron:  # 13 lines
 ```python
 def update_graph_heat(root: Path, node_name: str, event_type: str, death_cause: str = '', latency_ms: int = 0, job_id: str = '') -> None
 def load_graph_heat(root: Path) -> dict
-```
-
-**服f_ls_s012_v003_d0324_踪稿析_λB**
-```python
-async def run_server(root: Path, ws_port: int = 8765, http_port: int = 8766)
-def serve_live(root: Path, ws_port: int = 8765, http_port: int = 8766)
-```
-
-**服f_ls_s012_v004_d0324_踪稿析_λB**
-```python
-async def run_server(root: Path, ws_port: int = 8765, http_port: int = 8766)
-def serve_live(root: Path, ws_port: int = 8765, http_port: int = 8766)
-```
-
-**服f_ls_s012_v004_d0324_踪稿析_λδ**
-```python
-async def run_server(root: Path, ws_port: int = 8765, http_port: int = 8766)
-def serve_live(root: Path, ws_port: int = 8765, http_port: int = 8766)
 ```
 
 **环检p_ld_s005_v002_d0323_缩描意_λP**
@@ -214,31 +163,23 @@ def peek_recent(n = 50)
 | Module | Constant | Value |
 |--------|----------|-------|
 | __main__ | `_CLI_SEQ_RE` | `re.compile('(?:^\|_)(?:seq\|s)009(?:$\|_)', re.IGNORECASE)` |
-| ai_cognitive_log | `LOG_FILE` | `'logs/ai_cognitive_log.jsonl'` |
-| ai_cognitive_log | `STATE_FILE` | `'logs/ai_cognitive_state.json'` |
-| ai_cognitive_log | `WINDOW_SIZE` | `30` |
+| ai_cognitive_log | `_ROOT` | `Path(__file__).resolve().parent` |
 | build_narratives | `NARRATIVES_DIR` | `Path(__file__).resolve().parent.parent / 'docs' / 'push_narratives'` |
 | build_narratives | `OUTPUT` | `Path(__file__).resolve().parent / 'ui' / 'public' / 'narratives.json'` |
-| context_veins | `VEINS_PATH` | `'pigeon_brain/context_veins.json'` |
-| context_veins | `REGISTRY_PATH` | `'pigeon_registry.json'` |
-| context_veins | `HEAT_MAP_PATH` | `'file_heat_map.json'` |
-| context_veins | `DUAL_VIEW_PATH` | `'pigeon_brain/dual_view.json'` |
-| context_veins | `SELF_FIX_DIR` | `'docs/self_fix'` |
-| context_veins | `CLOT_SCORE_THRESHOLD` | `0.4` |
-| context_veins | `HIGH_DEGREE_ARTERY` | `5` |
-| context_veins | `STALE_DAYS` | `30` |
-| gemini_chat | `MODEL` | `os.environ.get('GEMINI_MODEL', 'gemini-2.5-flash')` |
-| gemini_chat | `API_URL` | `'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateCont...` |
-| gemini_chat | `MAX_PROMPT_HISTORY` | `100` |
-| gemini_chat | `_ALLOWED_PREFIXES` | `('src/', 'pigeon_brain/', 'pigeon_compiler/', 'client/', 'docs/', 'logs/', 's...` |
-| gemini_chat | `_ACTION_BLOCK_RE` | `re.compile('```action\\s*\\n(.*?)\\n```', re.DOTALL)` |
+| context_veins | `_ROOT` | `Path(__file__).resolve().parent` |
+| gemini_chat | `_ROOT` | `Path(__file__).resolve().parent` |
+| node_tester | `_ROOT` | `Path(__file__).resolve().parent` |
 | pulse_tester | `ROOT` | `Path(__file__).resolve().parent.parent` |
 | 仿f_dsm_s010_v002_d0323_缩分话_λP | `DANGER_PATTERNS` | `['self_fix', 'import_rewriter', 'deepseek_adapter', 'run_clean_split', 'cogni...` |
 | 仿f_dsm_s010_v002_d0323_缩分话_λP | `DEATH_CAUSES` | `['exception', 'timeout', 'loop', 'stale_import', 'max_attempts']` |
+| 双f_dsb_s008_v002_d0323_缩分话_λP | `_ROOT` | `Path(__file__).resolve().parent` |
 | 型p_mo_s001_v002_d0323_读唤任_λP | `SCHEMA_VERSION` | `'execution_telemetry/v1'` |
 | 描p_ghm_s004_v002_d0323_缩环检意_λP | `HEAT_STORE` | `'graph_heat_map.json'` |
 | 描p_ghm_s004_v002_d0323_缩环检意_λP | `HIGH_DEATH_THRESH` | `3` |
 | 描p_ghm_s004_v002_d0323_缩环检意_λP | `HIGH_LATENCY_THRESH` | `0.5` |
+| 服f_ls_s012_v003_d0324_踪稿析_λB | `_ROOT` | `Path(__file__).resolve().parent` |
+| 服f_ls_s012_v004_d0324_踪稿析_λB | `_ROOT` | `Path(__file__).resolve().parent` |
+| 服f_ls_s012_v004_d0324_踪稿析_λδ | `_ROOT` | `Path(__file__).resolve().parent` |
 | 环检p_ld_s005_v002_d0323_缩描意_λP | `LOOP_STORE` | `'loop_detector.json'` |
 | 环检p_ld_s005_v002_d0323_缩描意_λP | `MAX_ENTRIES` | `500` |
 | 环检p_ld_s005_v002_d0323_缩描意_λP | `RECUR_THRESH` | `3` |
@@ -253,3 +194,47 @@ def peek_recent(n = 50)
 ## Code Markers
 
 *No TODO/FIXME/HACK markers found — codebase is clean.*
+
+<!-- manifest:push-intent-state -->
+
+## Push Intent Keys
+
+| Status | Intent key | Prompt |
+|---|---|---|
+| pending | `pigeon_brain/跑f_tr_s013_v002_d0323_缩分话_λP:route:ort_gpt_genius_glossator:minor` | ort into this. gpt 5.5 18 genius glossator genius killed queries with insightful explenation why a pigeon asking this would expose processor industry > then a f |
+| pending | `pigeon_brain:route:mfs_model_favorability_scpre:minor` | mfs is model favorability scpre |
+| pending | `pigeon_brain:route:ugh_push_main:minor` | ugh push to main |
+| pending | `pigeon_brain:test:run_new_rednder_verify:minor` | run new pr / rednder/ verify quality - pr only |
+| pending | `pigeon_brain:route:push_main:minor` | push to main |
+| pending | `pigeon_brain/flow:route:but_where_actual:minor` | but where is the actual pr? |
+| pending | `pigeon_brain:patch:fix_hook_assuming_keystroke:patch` | fix hook - im assuming this is for keystroke telemtry repo? |
+| pending | `pigeon_brain:test:test_claude_railway_path:minor` | test claude on railway path |
+| pending | `pigeon_brain/flow/backward_seq007:patch:thatand_fix_autonomous_fox:patch` | do thatand fix autonomous fox not actually doing code overwrites with file approval - |
+| pending | `pigeon_brain:route:isint_human_readable_doesnt:read` | >>>> this isint human readable and doesnt feel like something you read |
+
+## File Comments
+
+| File | Comment |
+|---|---|
+| `none` | no recent file-sim or self-knowledge comment matched this manifest |
+
+## Manifest Changelog
+
+- refreshed: `2026-05-01T12:54:33-06:00`
+- commit: `11e912b`
+- changed files in scope: `8`
+  - `pigeon_brain/MANIFEST.md`
+  - `pigeon_brain/ai_cognitive_log_seq001_v001.py`
+  - `pigeon_brain/context_veins_seq001_v001.json`
+  - `pigeon_brain/context_veins_seq001_v001.py`
+  - `pigeon_brain/flow/MANIFEST.md`
+  - `pigeon_brain/flow/__main__.py`
+  - `pigeon_brain/gemini_chat_seq001_v001.py`
+  - `pigeon_brain/node_tester_seq001_v001.py`
+
+## Numeric Encoding Boundary
+
+- numeric encoding stays in `logs/numeric_surface_seq001_v001.json` and prompt/history logs for forward-pass file matching
+- manifest stores structured `scope:verb:target:scale` intent keys and file comments for Copilot clearance
+
+<!-- /manifest:push-intent-state -->

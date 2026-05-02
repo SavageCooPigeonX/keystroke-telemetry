@@ -43,6 +43,7 @@ def test_prompt_brain_assembles_full_watcher_context_and_injects():
     assert brain["intent_key"].startswith("src/thought_completer:")
     assert brain["semantic_profile"]["semantic_intent"] == "share_information"
     assert brain["operator_profile"]["facts"]["name"]["value"] == "Nikita"
+    assert brain["intent_graph"]["intent_count"] >= 1
     assert brain["context_selection"]["status"] == "ok"
     assert brain["numeric_file_encoding"][0]["name"] == "tc_prompt_brain"
     assert brain["prompt_box"]["open_count"] == 1
@@ -58,3 +59,6 @@ def test_latest_prompt_brain_block_is_readable_for_thought_completer():
 
     assert "Prompt Brain" in block
     assert "INTENT_KEY" in block
+    assert "INTENT_FILE_MEMORY" in block
+    assert "INTENT_GRAPH_MOVES" in block
+    assert "FORWARD_CONTEXT_WINDOW" in block

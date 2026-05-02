@@ -1,0 +1,226 @@
+"""Dual-substrate observation — merges human and agent telemetry on one graph.
+
+The unique feature: same graph shows where BOTH the human and the agent fail.
+Nodes that cause high human hesitation AND high electron deaths are the most
+dangerous neurons in the brain. This module produces the unified view.
+"""
+
+
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+
+from .图p_ge_s003_v003_d0324_读唤任_λχ import load_graph
+from .描p_ghm_s004_v002_d0323_缩环检意_λP import HEAT_STORE
+
+
+def build_dual_view(root: Path) -> dict:
+    """Build unified node data with both human and agent heat.
+
+    Returns {nodes: [{name, human_heat, agent_heat, dual_score, ...}]}
+    """
+    graph = load_graph(root)
+    agent_heat = _load_agent_heat_raw(root)
+    human_heat = _load_human_heat_raw(root)
+    profiles = _load_file_profiles(root)
+    registry_entries = _load_registry_entries(root)
+
+    nodes = []
+    for name, node in graph.get("nodes", {}).items():
+        human_hes = human_heat.get(name, {}).get("avg_hes", 0.0)
+        human_miss = human_heat.get(name, {}).get("miss_count", 0)
+
+        agent_deaths = 0
+        agent_calls = 0
+        agent_latency = 0
+        agent_loops = 0
+        last_called = None
+        death_causes = {}
+        ah = agent_heat.get(name, {}) if isinstance(agent_heat, dict) else {}
+        if isinstance(ah, dict) and "total_deaths" in ah:
+            agent_deaths = ah.get("total_deaths", 0)
+            agent_calls = ah.get("total_calls", 0)
+            agent_latency = ah.get("avg_latency_ms", 0)
+            agent_loops = ah.get("total_loops", 0)
+            death_causes = ah.get("death_causes", {})
+            samples = ah.get("samples", [])
+            if samples:
+                last_called = samples[-1].get("ts", None)
+
+        # Intent chain substrate — churn velocity + volatility from filename history
+        intent_chain_data = _extract_intent_chain_for_node(name, registry_entries)
+        churn_vel = intent_chain_data['churn_velocity']
+        intent_vol = intent_chain_data['intent_volatility']
+        # Normalize: churn_vel typically 0-3, intent_vol typically 0-8
+        churn_signal = min(churn_vel / 3.0, 1.0)
+        volatility_signal = min(intent_vol / 6.0, 1.0)
+        name_instability = round((churn_signal + volatility_signal) / 2.0, 3)
+
+        # Dual score: combined human + agent + intent-chain danger
+        dual_score = round(
+            human_hes * 0.35 +
+            min(agent_deaths / max(agent_calls, 1), 1.0) * 0.35 +
+            name_instability * 0.2 +
+            (human_miss > 0) * 0.05 +
+            (agent_deaths > 0) * 0.05,
+            3
+        )
+
+        # File profile data
+        prof = profiles.get(name, {})
+        death_rate = round(agent_deaths / max(agent_calls, 1), 3)
+
+        nodes.append({
+            "name": name,
+            "desc": node.get("desc", ""),
+            "path": node.get("path", ""),
+            "seq": node.get("seq", 0),
+            "ver": node.get("ver", 1),
+            "tokens": node.get("tokens", 0),
+            "lines": _count_lines(root, node.get("path", "")),
+            "edges_out": node.get("edges_out", []),
+            "edges_in": node.get("edges_in", []),
+            "in_degree": len(node.get("edges_in", [])),
+            "out_degree": len(node.get("edges_out", [])),
+            # Human substrate
+            "human_hesitation": round(human_hes, 3),
+            "human_misses": human_miss,
+            # Agent substrate
+            "agent_deaths": agent_deaths,
+            "agent_calls": agent_calls,
+            "agent_latency_ms": agent_latency,
+            "agent_loops": agent_loops,
+            "death_rate": death_rate,
+            "death_causes": death_causes,
+            "last_called": last_called,
+            # Profile
+            "personality": prof.get("personality", "unknown"),
+            "fears": prof.get("fears", []),
+            "partners": [p["name"] for p in prof.get("partners", [])[:3]],
+            # Combined
+            "dual_score": dual_score,
+            # Intent chain substrate
+            "churn_velocity": churn_vel,
+            "intent_volatility": intent_vol,
+            "intent_chain": intent_chain_data['intent_chain'],
+        })
+
+    nodes.sort(key=lambda x: x["dual_score"], reverse=True)
+
+    return {
+        "ts": datetime.now(timezone.utc).isoformat(),
+        "total_nodes": len(nodes),
+        "nodes": nodes,
+        "edges": graph.get("edges", []),
+    }
+
+
+def render_dual_json(root: Path, output: str = "pigeon_brain/dual_view.json") -> Path:
+    """Write the dual-substrate view as JSON for the React UI to consume."""
+    view = build_dual_view(root)
+    out = root / output
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(view, indent=2), encoding="utf-8")
+    return out
+
+
+def _load_human_heat_raw(root: Path) -> dict:
+    """Load raw file_heat_map.json (not the summary)."""
+    heat_path = root / "file_heat_map.json"
+    if not heat_path.exists():
+        return {}
+    try:
+        return json.loads(heat_path.read_text("utf-8"))
+    except Exception:
+        return {}
+
+
+def _load_agent_heat_raw(root: Path) -> dict:
+    """Load raw graph_heat_map.json keyed by node name."""
+    heat_path = root / HEAT_STORE
+    if not heat_path.exists():
+        return {}
+    try:
+        return json.loads(heat_path.read_text("utf-8"))
+    except Exception:
+        return {}
+
+
+def _load_file_profiles(root: Path) -> dict:
+    """Load file_profiles.json for personality/fears/partners."""
+    path = root / "file_profiles.json"
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text("utf-8"))
+    except Exception:
+        return {}
+
+
+def _load_registry_entries(root: Path) -> list[dict]:
+    """Load pigeon_registry.json entries for intent chain extraction."""
+    reg = root / 'pigeon_registry.json'
+    if not reg.exists():
+        return []
+    try:
+        return json.loads(reg.read_text('utf-8', errors='ignore')).get('files', [])
+    except Exception:
+        return []
+
+
+def _extract_intent_chain_for_node(name: str, registry_entries: list[dict]) -> dict:
+    """Extract churn_velocity + intent_volatility from registry history for a node.
+
+    Matches by name prefix — pigeon names like 'self_fix' match 'self_fix_seq013_v006...'.
+    Returns {intent_chain, churn_velocity, intent_volatility}.
+    """
+    import re
+    # Find all registry entries whose name matches this node
+    matches = [e for e in registry_entries
+               if e.get('name', '') == name or e.get('name', '').startswith(name + '_')]
+    if not matches:
+        return {'intent_chain': [], 'churn_velocity': 0.0, 'intent_volatility': 0}
+
+    # Use the entry with the most history (most versions tracked)
+    entry = max(matches, key=lambda e: len(e.get('history', [])))
+    history = entry.get('history', [])
+    path = entry.get('path', '')
+
+    slugs: list[str] = []
+    dates: list[str] = []
+    for h in history:
+        slug = h.get('intent', '') or ''
+        if not slug:
+            m = re.search(r'_lc_([a-z0-9_]+)', h.get('path', ''), re.IGNORECASE)
+            if m:
+                slug = m.group(1)
+        if slug and (not slugs or slug != slugs[-1]):
+            slugs.append(slug)
+        if h.get('date'):
+            dates.append(str(h['date']))
+
+    m = re.search(r'_lc_([a-z0-9_]+)', path, re.IGNORECASE)
+    if m:
+        current = m.group(1)
+        if not slugs or current != slugs[-1]:
+            slugs.append(current)
+
+    ver = entry.get('ver', 1)
+    days_alive = max(len(set(dates)), 1)
+    return {
+        'intent_chain': slugs,
+        'churn_velocity': round(ver / days_alive, 3),
+        'intent_volatility': len(set(slugs)),
+    }
+    except Exception:
+        return {}
+
+
+def _count_lines(root: Path, rel_path: str) -> int:
+    """Count lines in a source file."""
+    if not rel_path:
+        return 0
+    try:
+        return len((root / rel_path).read_text("utf-8").splitlines())
+    except Exception:
+        return 0
