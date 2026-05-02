@@ -996,29 +996,29 @@ def inject_task_queue(root) -> bool
 
 | File | Comment |
 |---|---|
+| `src/copilot_probe_push_cycle_seq001_v001.py` | copilot_probe_push_cycle_seq001_v001.py: load codex_compat.py before you let a rewrite model touch my furniture. |
 | `src/deepseek_daemon_seq001_v001.py` | deepseek_daemon_seq001_v001.py: load local_env_loader_seq001_v001.py before you let a rewrite model touch my furniture. |
+| `src/file_intelligence_graph_seq001_v001.py` | file_intelligence_graph_seq001_v001.py: I have a test receipt; give me a bounded warrant and nobody gets theatrical. |
 | `src/tc_intent_keys_seq001_v001.py` | source rewrite src/tc_intent_keys_seq001_v001.py toward interlinked state: intent hooks, context edges, validation surfaces |
 | `src/tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade.py` | tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade.py: load tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_p |
 | `src/tc_prompt_brain_seq001_v001.py` | source rewrite src/tc_prompt_brain_seq001_v001.py toward interlinked state: intent hooks, context edges, validation surfaces |
 | `src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py` | tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py: I can help, but first stop asking me to pass imaginary val |
 | `src/thought_completer.py` | source rewrite src/thought_completer.py toward interlinked state: intent hooks, context edges, validation surfaces |
-| `src/copilot_probe_push_cycle_seq001_v001.py` | copilot_probe_push_cycle_seq001_v001.py: load codex_compat.py before you let a rewrite model touch my furniture. |
-| `src/file_intelligence_graph_seq001_v001.py` | file_intelligence_graph_seq001_v001.py: I have a test receipt; give me a bounded warrant and nobody gets theatrical. |
 | `src/push_snapshot/__init__.py` | source rewrite src/push_snapshot/__init__.py toward interlinked state: intent hooks, context edges, validation surfaces |
 
 ## Manifest Changelog
 
-- refreshed: `2026-05-01T12:54:33-06:00`
-- commit: `11e912b`
-- changed files in scope: `76`
+- refreshed: `2026-05-02T17:08:03-06:00`
+- commit: `54b2a6a`
+- changed files in scope: `115`
   - `src/MANIFEST.md`
+  - `src/tc_profile/MANIFEST.md`
+  - `src/tc_profile/p_tc_p_s009_v001_compiled/MANIFEST.md`
+  - `src/tc_profile/p_tpes_s003_v001_compiled/MANIFEST.md`
   - `src/_resolve.py`
-  - `src/batch_rewrite_sim_seq001_v001.py`
-  - `src/bug_demon_hunt_seq001_v001.py`
-  - `src/bug_profiles_seq001_v001.py`
-  - `src/codebase_transmuter_seq001_v001.py`
-  - `src/codebase_vitals_seq001_v001.py`
-  - `src/consensus_sim_seq001_v001.py`
+  - `src/actual_job_runner_seq001_v001.py`
+  - `src/ai_fingerprint_operator_seq001_v001.py`
+  - `src/ai_fingerprint_privacy_seq001_v001.py`
 
 ## Numeric Encoding Boundary
 

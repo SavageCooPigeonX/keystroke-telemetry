@@ -102,11 +102,11 @@ def read_sessions(root: Path, name: str, seq: int) -> list[dict]
 
 ## Manifest Changelog
 
-- refreshed: `2026-05-01T12:54:33-06:00`
-- commit: `11e912b`
+- refreshed: `2026-05-02T17:08:03-06:00`
+- commit: `54b2a6a`
 - changed files in scope: `6`
-  - `pigeon_compiler/.git_plugin_decomposed.py`
   - `pigeon_compiler/MANIFEST.md`
+  - `pigeon_compiler/.git_plugin_decomposed.py`
   - `pigeon_compiler/cli.py`
   - `pigeon_compiler/git_plugin.py`
   - `pigeon_compiler/pigeon_limits.py`

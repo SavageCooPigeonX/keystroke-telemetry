@@ -220,14 +220,14 @@ def peek_recent(n = 50)
 
 ## Manifest Changelog
 
-- refreshed: `2026-05-01T12:54:33-06:00`
-- commit: `11e912b`
+- refreshed: `2026-05-02T17:08:03-06:00`
+- commit: `54b2a6a`
 - changed files in scope: `8`
   - `pigeon_brain/MANIFEST.md`
+  - `pigeon_brain/flow/MANIFEST.md`
   - `pigeon_brain/ai_cognitive_log_seq001_v001.py`
   - `pigeon_brain/context_veins_seq001_v001.json`
   - `pigeon_brain/context_veins_seq001_v001.py`
-  - `pigeon_brain/flow/MANIFEST.md`
   - `pigeon_brain/flow/__main__.py`
   - `pigeon_brain/gemini_chat_seq001_v001.py`
   - `pigeon_brain/node_tester_seq001_v001.py`

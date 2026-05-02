@@ -169,12 +169,16 @@ def check(name: str, ok: bool, detail: str = '')
 
 ## Manifest Changelog
 
-- refreshed: `2026-05-01T12:54:33-06:00`
-- commit: `11e912b`
-- changed files in scope: `4`
+- refreshed: `2026-05-02T17:08:03-06:00`
+- commit: `54b2a6a`
+- changed files in scope: `10`
+  - `scripts/MANIFEST.md`
   - `scripts/audit_loops.py`
   - `scripts/compile_task_profiles.py`
-  - `scripts/tc_benchmark.py`
+  - `scripts/install_hourly_deepseek_autonomy_task.ps1`
+  - `scripts/install_pigeon_hooks.py`
+  - `scripts/maintain_compliance.py`
+  - `scripts/refresh_push_manifests.py`
   - `scripts/replay_speech_intent.py`
 
 ## Numeric Encoding Boundary

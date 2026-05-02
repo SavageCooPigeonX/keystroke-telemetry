@@ -257,11 +257,16 @@ def update_section(profile: dict, section: str, buffer: str, completion: str, ou
 
 ## Manifest Changelog
 
-- refreshed: `2026-05-01T12:54:33-06:00`
-- commit: `11e912b`
-- changed files in scope: `3`
+- refreshed: `2026-05-02T17:08:03-06:00`
+- commit: `54b2a6a`
+- changed files in scope: `11`
   - `src/tc_profile/MANIFEST.md`
+  - `src/tc_profile/p_tc_p_s009_v001_compiled/MANIFEST.md`
+  - `src/tc_profile/p_tpes_s003_v001_compiled/MANIFEST.md`
   - `src/tc_profile/p_tc_p_s009_v001.py`
+  - `src/tc_profile/p_tc_p_s009_v001_compiled/__init__.py`
+  - `src/tc_profile/p_tc_p_s009_v001_compiled/p_tc_p_s009_v001_compiled_functions_seq001_v001.py`
+  - `src/tc_profile/p_tc_p_s009_v001_compiled/p_tc_p_s009_v001_compiled_functions_seq002_v001.py`
   - `src/tc_profile/p_tpes_s003_v001.py`
 
 ## Numeric Encoding Boundary
