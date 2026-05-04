@@ -4,31 +4,31 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 # /debug (RECOMMENDED)
 
-*Hydrated 2026-04-22 05:37 UTC · detected mode: debug*
+*Hydrated 2026-04-23 16:28 UTC · detected mode: debug*
 
 ## Live Signals
 
 **Cognitive:** `abandoned` | WPM: 48 | Del: 26% | Hes: 0.490
 **CoT:** Operator abandoned previous attempt. Re-anchor with crisp summary of last context, then be direct.
 **Active bugs:** `intent_numeric` (oc+de), `file_sim` (oc+de), `tc_context_agent` (oc+de), `tc_gemini` (oc)
-**Codes:** intent=`unknown` state=`unknown` bl_wpm=52 bl_del=26%
+**Codes:** intent=`debugging` state=`unknown` bl_wpm=52 bl_del=26%
 **Voice:** Operator is semi-casual — use contractions, skip formalities, but keep technical precision.; Operator never capitalizes — you don't need to either in casual responses, but keep code accurate.
 
 ---
 
 ## Known Issues (from self-fix scanner)
 
-- [CRITICAL] hardcoded_import in `scripts/bug_probe_hardcoded_import.py`
 - [CRITICAL] hardcoded_import in `scripts/verify_loop_2.py`
+- [CRITICAL] hardcoded_import in `tests/interlink/test_tc_web.py`
 
 ## Fragile Contracts
 
-- contracts. If a renamed module’s function signature changed silently, my imports will break at runtime.
-- contract breaks, my API calls may send invalid parameters.
-- contract, import statements in all renamed dependents, test suite import failures. This push standardizes the core word-number mapping filename across
-- assumption breaks—for instance, if downstream consumers expect the old module name in dynamic imports—the entire import chain will fail silently. Watc
-- contract with the pigeon registry’s naming schema; if that schema changes or the compiler’s extraction heuristic misinterprets the rename as a split, 
-- assumption is that the orchestrator fires on every state change; if the daemon's event emission is throttled or batched, I may miss transitions. Watch
+- assumption could break if prompt forms are not yet fully initialized or if the simulation engine lacks the necessary state isolation, leading to race
+- breaks.
+- breaks. If the operator works slowly, I may fire false simulations. I send intent predictions to **tc_sim_engine**; if my output schema drifts, the si
+- break immediately. I test **git_plugin** and **intent_outcome_binder**; if their APIs change, I’ll throw runtime errors.
+- break.
+- break. Watch for my test being silently skipped due to a malformed or empty test case.
 
 ## Codebase Clots (dead/bloated)
 
@@ -51,5 +51,5 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 ## Active Bug Dossier
 
-**Focus modules:** micro_sim_engine_prompt_file, word_number_file_mapping_for, picks_relevant_source_files_based, gemini_api_call_system_prompt, intent_simulation_on_typing_pause
-**Focus bugs:** de, oc
+**Focus modules:** pulse_harvest_pairs_prompts_to, pigeon_extracted_by_compiler, primary_pigeon_observatory_window, passive_always_on_top_tkinter, replay_typed_sessions_through_the
+**Focus bugs:** oc
