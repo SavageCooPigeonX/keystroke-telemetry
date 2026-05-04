@@ -2303,12 +2303,20 @@ def capture_pair(root: Path) -> dict[str, Any] | None:
     root = Path(root)
     repo = _repo_root()
     src_dir = repo / "src"
-    candidates = sorted(src_dir.glob("*s027*.py"), key=lambda item: item.name)
+    search_roots = [
+        src_dir,
+        repo / "build" / "pigeon_legacy" / "src",
+    ]
+    candidates: list[Path] = []
+    for search_root in search_roots:
+        if search_root.exists():
+            candidates.extend(sorted(search_root.rglob("*.py"), key=lambda item: str(item)))
     for candidate in candidates:
         text = candidate.read_text(encoding="utf-8", errors="ignore")
         if "def capture_training_pair" not in text or "def _load_jsonl_tail" not in text:
             continue
-        spec = importlib.util.spec_from_file_location("codex_training_pairs", candidate)
+        module_key = re.sub(r"[^0-9A-Za-z_]+", "_", str(candidate.relative_to(repo)))
+        spec = importlib.util.spec_from_file_location(f"codex_training_pairs_{module_key}", candidate)
         if spec is None or spec.loader is None:
             continue
         module = importlib.util.module_from_spec(spec)
@@ -2316,7 +2324,8 @@ def capture_pair(root: Path) -> dict[str, Any] | None:
         pair = module.capture_training_pair(root)
         refresh_state(root, "captured training pair")
         return pair
-    raise ImportError(f"No complete training pair module found under {src_dir}")
+    roots = ", ".join(str(item) for item in search_roots if item.exists())
+    raise ImportError(f"No complete training pair module found under {roots}")
 
 
 def record_entropy_shed(root: Path, module: str, confidence: float, note: str = "") -> dict[str, Any]:

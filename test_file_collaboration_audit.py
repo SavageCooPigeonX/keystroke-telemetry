@@ -1,5 +1,6 @@
 import json
 import tempfile
+from datetime import datetime, timezone
 from pathlib import Path
 
 from src.file_collaboration_audit_seq001_v001 import audit_file_collaboration
@@ -18,6 +19,7 @@ def _write_jsonl(path: Path, rows):
 def _repo() -> Path:
     root = Path(tempfile.mkdtemp(prefix="file_collab_audit_"))
     logs = root / "logs"
+    ts = datetime.now(timezone.utc).isoformat()
     (root / "MANIFEST.md").write_text("# Root Manifest\n", encoding="utf-8")
     (root / "src" / "intent").mkdir(parents=True)
     (root / "src" / "intent" / "MANIFEST.md").write_text("# Intent Manifest\n", encoding="utf-8")
@@ -80,7 +82,7 @@ def _repo() -> Path:
         ],
     }
     latest = {
-        "ts": "2026-05-02T20:45:23+00:00",
+        "ts": ts,
         "intent": {
             "raw": "make files collaborate through manifest state",
             "intent_key": "src/intent:build:manifest_collaboration:patch",
@@ -100,7 +102,7 @@ def _repo() -> Path:
         ]
     })
     _write_json(logs / "file_job_council_latest.json", {
-        "ts": "2026-05-02T20:45:23+00:00",
+        "ts": ts,
         "jobs": [],
     })
     _write_jsonl(logs / "file_self_sim_learning.jsonl", [
