@@ -4,6 +4,13 @@ This is the light path for "while I am typing": assemble semantic profile,
 intent key, manifest candidates, numeric/file context, and Prompt Box state
 without requiring a model call.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 
 import importlib.util

@@ -3,7 +3,7 @@ import subprocess
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from src import intent_outcome_binder_seq001_v001 as binder
+from src import intent_outcome_binder_seq001_v002_d0510__closes_the_intent_outcome_loop_lc_feat_bind_keystroke_telemetry as binder
 
 
 def _run_git(root: Path, *args: str) -> None:

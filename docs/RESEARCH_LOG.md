@@ -1,6 +1,6 @@
 # What The System Knows Right Now
 
-*Auto-generated 2026-04-21 06:01 UTC · 836 prompts · 200 rework entries · zero LLM calls*
+*Auto-generated 2026-05-10 15:40 UTC · 1 prompts · 0 rework entries · zero LLM calls*
 
 > This report is rewritten on every push. Every prediction becomes pass/fail when the next push lands.
 > All signals are measured from live telemetry — nothing is inferred or hallucinated.
@@ -22,62 +22,32 @@
 
 ## Live Operator State
 
-*836 prompts profiled · source: measured*
+*1 prompts profiled · source: measured*
 
-**Dominant: `abandoned` | Submit: 66% | Del: 4.5%**
-- operator entering restructuring mode — expect more deletions than new code
+**Dominant: `unknown` | Del: 0.0%**
 
 ## Pair Performance
 
-*200 responses scored · 0 background excluded*
+*0 responses scored · 0 background excluded*
 
-**Accuracy: 100% OK | 0% miss** *[source: measured]*
-- trend: **stable** (100% → 99%)
-
-**Prompt→edit latency:** 484.0s median (74 pairs)
 
 ### Mutation Effectiveness *[source: measured]*
-*149 mutations scored*
+*0 mutations scored*
 - no significant signal yet — all sections scored neutral
-
-**Reactor:** 534 fires, 2 accepted (0%)
-> **Directive:** Reactor patches near-zero acceptance — tune confidence threshold or disable
 
 ## Codebase Health
 
-*68 self-fix reports · 2026-03-16 → 2026-04-21*
+*71 self-fix reports · 2026-03-16 → 2026-05-10*
 
-**Problem trend: improving** (early avg 24 → recent avg 12) *[source: measured]*
-- self-fix pipeline is containing technical debt
-
-### Fragile Contracts *[source: llm_derived]*
-*From push narratives — treat as hypothesis:*
-- REGRESSION WATCHLIST: Downstream dynamic imports broken by the rename; pigeon compiler misinterpreting rename as a file split; dangling compiler artifact causing build collisions.
-
-## Unsaid Threads
-
-*Deleted from prompts — operator wanted this but did not ask:*
-
-- "ss.."
-- "aaa"
-- "iss"
-- "ttt"
-- "aee"
-- "oooususushh"
-- "000"
-- "lll"
-- "ppuuu"
-- "hhh"
+**Problem trend: growing** (early avg 24 → recent avg 41) *[source: measured]*
+- problems growing ~16/push — expect more over_hard_cap and dead_exports without intervention
 
 ## Confidence
 
 *How much to trust this report:*
 
-- **Rework signal:** WEAK (placeholder data) — 200 entries, 1 unique scores in last 20
-- **Training pairs:** 197 captured
 - **Prediction accuracy:** F1=0.011, calibration=0.157 (200 scored)
   - predictions near-random — treat all forecasts as hypotheses
-- **Memory shards:** 11 active (zero LLM calls)
 
 ### Hypotheses Under Test
 *These predictions become pass/fail on next push:*

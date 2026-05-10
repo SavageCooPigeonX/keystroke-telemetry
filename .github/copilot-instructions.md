@@ -565,6 +565,35 @@
 
 **Vocabulary fingerprint:** t, e, s, i, d, n, to, a, m, y
 <!-- /pigeon:voice-style -->
+<!-- pigeon:push-drift -->
+## Push Drift Analysis
+
+*Snapshot at `776858d` · 2026-05-10 15:42 UTC*
+
+**Health: 0/100** (first snapshot)
+
+**Modules:** 82 (92.7% compliant)
+**Bugs:** 67 (hi=27 oc=6)
+**Avg tokens/file:** 870.3 (unknown)
+**Deaths:** 0
+**Sync:** 0.6
+**Probes:** 0 modules, 0 intents
+
+<!-- /pigeon:push-drift -->
+<!-- pigeon:predictions -->
+## Push Cycle Predictions
+
+*Auto-generated 2026-05-10 15:42 UTC*
+
+**Operator coaching:**
+- No module references detected in prompts — naming specific modules helps copilot target the right files.
+
+**Agent coaching (for Copilot):**
+- Touched ['__init__', 'batch_rewrite_sim', 'codex_compat', 'codex_compat_add_file_sim_focus_files', 'codex_compat_append_jsonl', 'codex_compat_audit_stale_dates', 'codex_compat_bind_intent_loop_edit', 'codex_compat_bind_intent_loop_response', 'codex_compat_build_dynamic_context_pack', 'codex_compat_build_focus_files', 'codex_compat_build_live_prompt_telemetry', 'codex_compat_build_opus_instruction_layer', 'codex_compat_build_parser', 'codex_compat_build_unsaid_reconstruction', 'codex_compat_capture_pair', 'codex_compat_classify_intent', 'codex_compat_close_intent_loop', 'codex_compat_deepseek_api_key_present', 'codex_compat_deepseek_default_model', 'codex_compat_emit_codex_prompt_email', 'codex_compat_enqueue_deepseek_prompt_job', 'codex_compat_ensure_repo_on_path', 'codex_compat_fire_file_sim', 'codex_compat_get_intent_loop_status', 'codex_compat_git_changed_files', 'codex_compat_git_focus_files', 'codex_compat_git_status', 'codex_compat_import_jsonl', 'codex_compat_inject_dynamic_context_pack', 'codex_compat_inject_pre_prompt_state', 'codex_compat_latest_json', 'codex_compat_latest_log_ts', 'codex_compat_launch_deepseek_daemon', 'codex_compat_load_context_select_agent', 'codex_compat_load_entropy_module', 'codex_compat_load_intent_numeric', 'codex_compat_load_intent_reconstructor', 'codex_compat_load_json', 'codex_compat_load_jsonl_tail', 'codex_compat_log_composition', 'codex_compat_log_counts', 'codex_compat_log_edit', 'codex_compat_log_prompt', 'codex_compat_log_response', 'codex_compat_main', 'codex_compat_next_session_n', 'codex_compat_parse_deleted_words', 'codex_compat_parse_iso_ts', 'codex_compat_predict_numeric_files', 'codex_compat_push_intent_resolver', 'codex_compat_record_entropy_shed', 'codex_compat_record_intent_loop', 'codex_compat_refresh_entropy', 'codex_compat_refresh_state', 'codex_compat_render_current_query_block', 'codex_compat_render_dynamic_context_pack', 'codex_compat_render_pre_prompt_block', 'codex_compat_render_prompt_telemetry_block', 'codex_compat_render_staleness_alert_block', 'codex_compat_render_state_markdown', 'codex_compat_replace_managed_block', 'codex_compat_repo_root', 'codex_compat_run_pre_prompt_from_composition', 'codex_compat_run_pre_prompt_pipeline', 'codex_compat_run_sim_buffer', 'codex_compat_running_prompt_summary', 'codex_compat_select_context', 'codex_compat_state_from_deletions', 'codex_compat_surface_activity', 'codex_compat_task_queue_summary', 'codex_compat_text_from_event', 'codex_compat_train_numeric_surface', 'codex_compat_utc_now', 'codex_compat_words', 'codex_compat_write_copilot_live_query_blocks', 'codex_compat_write_live_prompt_telemetry', 'codex_compat_write_text_resilient', 'codex_compat_write_unsaid', 'compile_lineage', 'file_self_knowledge', 'git_plugin', 'intent_outcome_binder', 'operator_response_policy', 'p_谱msvd观λbam_s020_v001', 'p_谱msvd观λss_s019_v001', 'p_追rsvd册λβrhd_s011_v001', 'test_codex_compat', 'test_codex_compat_compiled', 'test_intent_outcome_binder', 'test_w_gpmo_s019_v002_d0419_λGI_βoc', 'w_gpmo_s019_v011_d0420_λRN_βoc', 'w_gpmo_s019_v012_d0510_λTL_βoc', '写w_fw_s003_v005_d0322_译改名踪_λμ', '写w_fw_s003_v006_d0510_译改名踪_λTL', '净拆f_rcs_s010_v006_d0322_译测编深划_λW', '净拆f_rcs_s010_v007_d0510_译测编深划_λTL_βoc'] without operator reference — confirm intent before modifying unreferenced modules.
+- Large blast radius — prefer focused changes. Wide scatter makes it hard for operator to verify.
+
+<!-- /pigeon:predictions -->
+
 <!-- pigeon:operator-state -->
 ## Live Operator State
 
@@ -816,3 +845,19 @@ They likely deleted it because the overall (conf=0.60, via unsaid_recon)
 - Codex native chat: composition can be logged by external watcher, but this API path cannot block the already-sent Codex prompt
 - screenshot context: not wired yet; UIA context switches are available now, screenshot/OCR can be layered next
 <!-- /codex:dynamic-context-pack -->
+
+
+<!-- pigeon:intent-simulation -->
+## Intent Simulation
+
+*Auto-generated 2026-05-10 15:40 UTC · zero LLM calls*
+
+**1 week:** `self_heal` (conf=high) — ~13 commits
+**1 month:** `self_heal` (conf=medium) — ~34 commits
+**3 months:** `self_heal` (conf=speculative) — themes: none
+
+**PM Directives:**
+- Development decelerating (-55%) — operator may be blocked or shifting focus. Offer architecture-level suggestions, not just code.
+- `unclassified` declining — operator may have deprioritized this. Don't suggest work in this area unless explicitly asked.
+
+<!-- /pigeon:intent-simulation -->

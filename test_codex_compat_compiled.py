@@ -12,6 +12,7 @@ PACKAGE = ROOT / "codex_compat"
 
 def test_compiled_codex_compat_imports_all_modules():
     import codex_compat
+from src._resolve import src_import
 
     failures = []
     for module_info in pkgutil.iter_modules(codex_compat.__path__):
@@ -127,7 +128,7 @@ def test_compiled_codex_compat_writes_compile_lineage_aliases():
 
 
 def test_file_sim_resolves_split_identity_aliases():
-    from src.batch_rewrite_sim_seq001_v001 import _resolve_alias_targets
+    _resolve_alias_targets = src_import("batch_rewrite_sim_seq001", "_resolve_alias_targets")
 
     targets = _resolve_alias_targets(ROOT, "codex_compat.py::build_dynamic_context_pack")
 
@@ -135,7 +136,7 @@ def test_file_sim_resolves_split_identity_aliases():
 
 
 def test_file_sim_context_selection_uses_split_identity_aliases():
-    from src.batch_rewrite_sim_seq001_v001 import simulate_batch_rewrites
+    simulate_batch_rewrites = src_import("batch_rewrite_sim_seq001", "simulate_batch_rewrites")
 
     result = simulate_batch_rewrites(
         ROOT,

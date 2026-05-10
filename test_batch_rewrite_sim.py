@@ -3,7 +3,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from src.batch_rewrite_sim_seq001_v001 import (
+from src.batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry import (
     load_file_sim_config,
     should_fire_file_sim,
     simulate_batch_rewrites,

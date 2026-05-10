@@ -2,8 +2,9 @@ import json
 import tempfile
 from pathlib import Path
 
-from src.batch_rewrite_sim_seq001_v001 import simulate_batch_rewrites
+simulate_batch_rewrites = src_import("batch_rewrite_sim_seq001", "simulate_batch_rewrites")
 from src.file_email_plugin_seq001_v001 import (
+from src._resolve import src_import
     email_delivery_status,
     emit_codex_prompt_email,
     emit_file_email,

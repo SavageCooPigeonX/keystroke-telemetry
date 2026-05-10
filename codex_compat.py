@@ -28,6 +28,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from src._resolve import src_import
 
 
 def _utc_now() -> str:
@@ -1058,7 +1059,7 @@ def build_dynamic_context_pack(
 
     try:
         _ensure_repo_on_path(root)
-        from src.file_self_knowledge_seq001_v001 import build_file_self_knowledge
+        build_file_self_knowledge = src_import("file_self_knowledge_seq001", "build_file_self_knowledge")
         pack["file_self_knowledge"] = build_file_self_knowledge(
             root,
             files=pack.get("focus_files") or [],
@@ -1082,7 +1083,7 @@ def build_dynamic_context_pack(
     _write_copilot_live_query_blocks(root, pack, pack["live_prompt_telemetry"])
     try:
         _ensure_repo_on_path(root)
-        from src.operator_response_policy_seq001_v001 import build_operator_response_policy
+        build_operator_response_policy = src_import("operator_response_policy_seq001", "build_operator_response_policy")
         pack["operator_response_policy"] = build_operator_response_policy(
             root,
             prompt_text,
@@ -1304,7 +1305,7 @@ def _fire_file_sim(
     root = Path(root)
     try:
         _ensure_repo_on_path(root)
-        from src.batch_rewrite_sim_seq001_v001 import (
+        from src.batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry import (
             load_file_sim_config,
             should_fire_file_sim,
             simulate_batch_rewrites,
@@ -2260,7 +2261,7 @@ def log_response(
     }
     try:
         _ensure_repo_on_path(root)
-        from src.operator_response_policy_seq001_v001 import (
+        from src.operator_response_policy_seq001_v002_d0510__operator_response_policy_for_codex_lc_feat_bind_keystroke_telemetry import (
             record_response_reward,
             response_log_defaults,
         )
@@ -2637,7 +2638,7 @@ def main(argv: list[str] | None = None) -> int:
         )
     elif args.command == "file-self-knowledge":
         _ensure_repo_on_path(root)
-        from src.file_self_knowledge_seq001_v001 import build_file_self_knowledge
+        build_file_self_knowledge = src_import("file_self_knowledge_seq001", "build_file_self_knowledge")
         result = build_file_self_knowledge(
             root,
             files=args.file,

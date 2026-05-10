@@ -4,6 +4,13 @@ This is the opt-in surface where prompts can be written before Copilot sees
 them. It captures deletions and hesitation locally, runs the pre-prompt
 pipeline, injects dynamic state, then copies the final prompt for handoff.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 
 import importlib.util
