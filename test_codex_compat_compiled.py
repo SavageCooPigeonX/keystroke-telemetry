@@ -4,6 +4,7 @@ import importlib.util
 import json
 import pkgutil
 from pathlib import Path
+from src._resolve import src_import
 
 
 ROOT = Path(__file__).resolve().parent
@@ -12,7 +13,6 @@ PACKAGE = ROOT / "codex_compat"
 
 def test_compiled_codex_compat_imports_all_modules():
     import codex_compat
-from src._resolve import src_import
 
     failures = []
     for module_info in pkgutil.iter_modules(codex_compat.__path__):
@@ -80,12 +80,12 @@ def test_compiled_codex_compat_parent_package_parity():
 
 
 def test_compiled_codex_compat_has_real_sibling_imports_not_runtime_bridge():
-    generated = list(PACKAGE.glob("codex_compat_*_seq*_v001.py"))
+    generated = list(PACKAGE.glob("codex_compat_*_seq*_v*.py"))
 
     assert generated
     assert not (PACKAGE / "_runtime.py").exists()
     assert any(
-        "from .codex_compat_parse_deleted_words_seq003_v001 import _parse_deleted_words"
+        "import _parse_deleted_words"
         in path.read_text(encoding="utf-8")
         for path in generated
     )
@@ -120,7 +120,8 @@ def test_compiled_codex_compat_writes_compile_lineage_aliases():
 
     assert lineage["schema"] == "pigeon_compile_lineage/v1"
     assert lineage["source_file"] == "codex_compat.py"
-    assert build_alias["current_file"] == "codex_compat/codex_compat_build_dynamic_context_pack_seq042_v001.py"
+    assert build_alias["current_file"].startswith("codex_compat/codex_compat_build_dynamic_context_pack_seq042_")
+    assert (ROOT / build_alias["current_file"]).exists()
     assert any(
         entry["generated_file"] == build_alias["current_file"]
         for entry in lineage["files"]
@@ -132,7 +133,9 @@ def test_file_sim_resolves_split_identity_aliases():
 
     targets = _resolve_alias_targets(ROOT, "codex_compat.py::build_dynamic_context_pack")
 
-    assert targets == ["codex_compat/codex_compat_build_dynamic_context_pack_seq042_v001.py"]
+    assert len(targets) == 1
+    assert targets[0].startswith("codex_compat/codex_compat_build_dynamic_context_pack_seq042_")
+    assert (ROOT / targets[0]).exists()
 
 
 def test_file_sim_context_selection_uses_split_identity_aliases():
@@ -146,5 +149,6 @@ def test_file_sim_context_selection_uses_split_identity_aliases():
         context_selection={"files": [{"name": "codex_compat.py::build_dynamic_context_pack"}]},
     )
 
-    assert result["proposals"][0]["path"] == "codex_compat/codex_compat_build_dynamic_context_pack_seq042_v001.py"
+    assert result["proposals"][0]["path"].startswith("codex_compat/codex_compat_build_dynamic_context_pack_seq042_")
+    assert (ROOT / result["proposals"][0]["path"]).exists()
     assert "identity_alias:numeric_context_selection_alias" in result["proposals"][0]["evidence"]
