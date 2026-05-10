@@ -285,6 +285,82 @@ def test_dynamic_context_pack_writes_browseable_bundle_and_injects():
     assert "LIVE_REPLACEMENTS" in copilot_text
 
 
+def test_dynamic_context_pack_injects_opus_file_comment_contract():
+    root = Path(tempfile.mkdtemp(prefix="codex_compat_opus_layer_"))
+    (root / ".github").mkdir()
+    copilot = root / ".github" / "copilot-instructions.md"
+    copilot.write_text("# Instructions\n", encoding="utf-8")
+
+    prompt = "i want opus to manage every bit of codex instructions"
+    pack = codex_compat.build_dynamic_context_pack(
+        root,
+        prompt=prompt,
+        surface="codex_test",
+        context_selection={
+            "status": "ok",
+            "confidence": 0.91,
+            "files": [
+                {"name": "codex_compat.py", "score": 0.91},
+                {"name": ".github/copilot-instructions.md", "score": 0.77},
+            ],
+        },
+    )
+
+    opus = pack["opus_instruction_layer"]
+    assert opus["status"] == "active"
+    assert opus["fires_for_prompt"] is True
+    assert opus["response_contract"]["file_comments_required"] is True
+    assert [item["file"] for item in opus["selected_files"][:2]] == [
+        "codex_compat.py",
+        ".github/copilot-instructions.md",
+    ]
+
+    copilot_text = copilot.read_text(encoding="utf-8")
+    assert "OPUS_INSTRUCTION_LAYER" in copilot_text
+    assert "file comments required: `True`" in copilot_text
+    assert "OPUS_SELECTED_FILE_COMMENTS" in copilot_text
+
+
+def test_opus_layer_uses_file_sim_proposals_when_context_selection_is_empty():
+    root = Path(tempfile.mkdtemp(prefix="codex_compat_opus_filesim_"))
+    (root / ".github").mkdir()
+    (root / "logs").mkdir()
+    (root / "src").mkdir()
+    (root / ".github" / "copilot-instructions.md").write_text("# Instructions\n", encoding="utf-8")
+    (root / "src" / "context_compressor_seq001_v001.py").write_text(
+        '"""Context compressor owns compact prompt residue."""\n\nVALUE = 1\n',
+        encoding="utf-8",
+    )
+    (root / "logs" / "batch_rewrite_sim_latest.json").write_text(json.dumps({
+        "status": "fired",
+        "proposals": [
+            {"path": "src/context_compressor_seq001_v001.py", "interlink_score": 0.74, "decision": "safe_dry_run"}
+        ],
+    }), encoding="utf-8")
+
+    pack = codex_compat.build_dynamic_context_pack(
+        root,
+        prompt="new wording with no numeric file history",
+        context_selection={"status": "ok", "confidence": 0, "files": []},
+    )
+
+    assert pack["focus_files"][0]["name"] == "src/context_compressor_seq001_v001.py"
+    assert pack["focus_files"][0]["reason"] == "file_sim_proposal"
+    assert pack["opus_instruction_layer"]["selected_files"][0]["file"] == "src/context_compressor_seq001_v001.py"
+    comment = pack["operator_response_policy"]["file_comments"][0]
+    assert comment["file"] == "src/context_compressor_seq001_v001.py"
+    assert comment["selected_by"] == "file_sim"
+    assert "file-sim selected me" in comment["file_signal"]
+    assert "Context compressor owns compact prompt residue" in comment["file_says"]
+    assert comment["file_fix_proposal"].startswith("I think the fix is:")
+    assert comment["fix_grade"]["schema"] == "file_fix_grader/v1"
+    assert comment["backward_pass_learning"]["path"] == "src/context_compressor_seq001_v001.py"
+    assert "pattern_tokens" in comment["backward_pass_learning"]
+    assert "deepseek_response_policy_audit" in pack["operator_response_policy"]
+    assert "FILE_COMMENTS_SYNTH" in (root / "logs" / "dynamic_context_pack.md").read_text(encoding="utf-8")
+    assert (root / "logs" / "file_solution_backward_pass.jsonl").exists()
+
+
 def test_dynamic_context_pack_trims_truncated_line_whitespace():
     pack = {
         "ts": "now",

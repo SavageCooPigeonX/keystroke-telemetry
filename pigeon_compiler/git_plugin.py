@@ -1078,7 +1078,12 @@ def _run_post_commit_extras(root, intent, h, changed_files, registry, msg,
             _binder = _ilu.module_from_spec(_spec)
             _spec.loader.exec_module(_binder)
             _result = _binder.bind_commit(root, 'HEAD')
+            _rename = _result.get('rename_engine') or {}
+            _imports = _rename.get('import_validation') or {}
+            _outcome = _result.get('outcome_binding') or {}
             if not _result.get('skipped'):
+                print(f'  outcome binder: {_outcome.get("outcomes", 0)} outcome(s), '
+                      f'rename_fired={_rename.get("fired", False)} imports_valid={_imports.get("valid", False)}')
                 print(f'  🔗 intent binding: {_result["bound"]}/{_result["files_changed"]} files matched '
                       f'({_result["unmatched"]} unmatched) → edit_pairs.jsonl')
     except Exception as e:

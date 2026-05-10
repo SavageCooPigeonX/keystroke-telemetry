@@ -107,7 +107,10 @@ def _load_jsonl_tail(path: Path, max_lines: int = 20) -> list[dict[str, Any]]:
 
 
 def _repo_root() -> Path:
-    return Path(__file__).resolve().parent
+    here = Path(__file__).resolve().parent
+    if here.name == "codex_compat" and (here.parent / "codex_compat.py").exists():
+        return here.parent
+    return here
 
 
 def _ensure_repo_on_path(root: Path) -> None:
@@ -131,9 +134,11 @@ def _load_entropy_module() -> Any | None:
 def _git_status(root: Path) -> list[str]:
     try:
         result = subprocess.run(
-            ["git", "status", "--short"],
+            ["git", "-c", "core.quotePath=false", "status", "--short"],
             cwd=root,
             text=True,
+            encoding="utf-8",
+            errors="replace",
             capture_output=True,
             check=False,
         )
@@ -808,16 +813,39 @@ def enqueue_deepseek_prompt_job(
 def _build_focus_files(
     context_selection: dict[str, Any],
     state: dict[str, Any],
+    root: Path | None = None,
 ) -> list[dict[str, Any]]:
     seen: set[str] = set()
     focus: list[dict[str, Any]] = []
+    alias_rows: dict[str, Any] = {}
+    if root is not None:
+        alias_data = _load_json(Path(root) / "logs" / "file_identity_aliases.json") or {}
+        if isinstance(alias_data, dict) and isinstance(alias_data.get("aliases"), dict):
+            alias_rows = alias_data["aliases"]
 
     for item in context_selection.get("files") or []:
         name = str(item.get("name") or "").strip()
-        if not name or name in seen:
+        if not name:
             continue
-        seen.add(name)
-        focus.append({"name": name, "reason": "numeric_context", "score": item.get("score", 0)})
+        record = alias_rows.get(name.replace("\\", "/")) or {}
+        targets = [
+            str(target).replace("\\", "/")
+            for target in (record.get("current_files") or [])
+            if root is not None and (Path(root) / str(target)).exists()
+        ]
+        if not targets and record.get("current_file") and root is not None:
+            candidate = str(record.get("current_file")).replace("\\", "/")
+            if (Path(root) / candidate).exists():
+                targets = [candidate]
+        for target in (targets[:3] if targets else [name]):
+            if target in seen:
+                continue
+            seen.add(target)
+            reason = "numeric_context_alias" if target != name else "numeric_context"
+            row = {"name": target, "reason": reason, "score": item.get("score", 0)}
+            if target != name:
+                row["alias_from"] = name
+            focus.append(row)
 
     for edit in state.get("recent_edits") or []:
         file_name = str(edit.get("file") or "").strip()
@@ -827,6 +855,8 @@ def _build_focus_files(
         focus.append({"name": file_name, "reason": "recent_edit", "why": edit.get("edit_why", "")})
 
     for file_name in _git_focus_files(state.get("git_status") or []):
+        if root is not None and not (Path(root) / file_name).is_file():
+            continue
         if file_name in seen:
             continue
         seen.add(file_name)
@@ -846,6 +876,87 @@ def _build_focus_files(
         })
 
     return focus[:16]
+
+
+def _build_opus_instruction_layer(
+    prompt: str,
+    focus_files: list[dict[str, Any]],
+    context_selection: dict[str, Any],
+    signals: dict[str, Any],
+) -> dict[str, Any]:
+    """Build the operator-facing instruction layer that Opus manages.
+
+    This layer is intentionally deterministic: Opus can interpret the selected
+    files and operator state from it, and Codex/Copilot can leave response
+    residue without needing another model call.
+    """
+    selected_files: list[dict[str, Any]] = []
+    for item in focus_files[:12]:
+        if not isinstance(item, dict):
+            continue
+        name = str(item.get("name") or "").strip()
+        if not name:
+            continue
+        selected_files.append({
+            "file": name,
+            "reason": str(item.get("reason") or "context"),
+            "score": item.get("score"),
+            "residue_comment": (
+                f"{name}: selected via {item.get('reason') or 'context'} for this prompt; "
+                "preserve useful findings in the response file comments."
+            ),
+        })
+
+    return {
+        "schema": "opus_instruction_layer/v1",
+        "status": "active",
+        "fires_for_prompt": bool(str(prompt or "").strip()),
+        "manager": "opus",
+        "role": "file interpreter and operator hands for Codex instruction routing",
+        "self_improving_source": "selected-file comments, dynamic context packs, prompt telemetry, and file self-knowledge logs",
+        "prompt_format": {
+            "first_read": "Start from this Opus layer, then reconcile pre-prompt state and dynamic context.",
+            "selected_file_policy": "Treat selected files as the editable/inspectable working set unless the prompt clearly overrides them.",
+            "operator_policy": "Use the operator response policy when present; otherwise stay direct, concrete, and implementation-first.",
+        },
+        "response_contract": {
+            "file_comments_required": True,
+            "section_name": "File Comments",
+            "format": "`path`: one short residue note about why it was selected, what changed or was learned, and what remains risky.",
+            "minimum": "Include one comment for each selected or touched file when any selected files exist.",
+            "purpose": "Leave compact residue context that future Copilot/Codex turns can reuse.",
+        },
+        "selected_files": selected_files,
+        "context_confidence": context_selection.get("confidence", 0),
+        "cognitive_state": signals.get("cognitive_state") or "unknown",
+    }
+
+
+def _add_file_sim_focus_files(pack: dict[str, Any]) -> None:
+    """Promote file-sim proposals into focus files when selectors are sparse."""
+    focus = pack.setdefault("focus_files", [])
+    if not isinstance(focus, list):
+        pack["focus_files"] = []
+        focus = pack["focus_files"]
+    seen = {
+        str(item.get("name") or "")
+        for item in focus
+        if isinstance(item, dict) and item.get("name")
+    }
+    file_sim = pack.get("file_sim") if isinstance(pack.get("file_sim"), dict) else {}
+    for proposal in (file_sim.get("proposals") or [])[:8]:
+        if not isinstance(proposal, dict):
+            continue
+        name = str(proposal.get("path") or "").strip()
+        if not name or name in seen:
+            continue
+        seen.add(name)
+        focus.append({
+            "name": name,
+            "reason": "file_sim_proposal",
+            "score": proposal.get("interlink_score"),
+            "decision": proposal.get("decision"),
+        })
 
 
 def build_dynamic_context_pack(
@@ -922,7 +1033,7 @@ def build_dynamic_context_pack(
         "prompt_brain": _load_json(logs / "prompt_brain_latest.json") or {},
         "file_sim": _load_json(logs / "batch_rewrite_sim_latest.json") or {},
         "intent_loop": _load_json(logs / "intent_loop_latest.json") or {},
-        "focus_files": _build_focus_files(context_selection or {}, state),
+        "focus_files": _build_focus_files(context_selection or {}, state, root),
         "unresolved_intents": unresolved,
         "recent_training_pairs": state.get("recent_training_pairs") or [],
         "entropy": state.get("entropy") or {},
@@ -937,6 +1048,13 @@ def build_dynamic_context_pack(
             "copilot_instructions": ".github/copilot-instructions.md",
         },
     }
+    _add_file_sim_focus_files(pack)
+    pack["opus_instruction_layer"] = _build_opus_instruction_layer(
+        prompt_text,
+        pack.get("focus_files") or [],
+        context_selection or {},
+        signals,
+    )
 
     try:
         _ensure_repo_on_path(root)
@@ -1074,6 +1192,37 @@ def _render_dynamic_context_pack(pack: dict[str, Any], managed: bool = False) ->
             lines.append(f"- intent move: `{move.get('intent_key', 'none')}`")
         for item in (policy.get("probe_files") or [])[:6]:
             lines.append(f"- probe file: `{item.get('file')}` via {item.get('reason', 'policy')}")
+        comments = policy.get("file_comments") if isinstance(policy.get("file_comments"), list) else []
+        if comments:
+            lines.append("**FILE_COMMENTS_SYNTH:**")
+            for comment in comments[:8]:
+                lines.append(
+                    f"- `{comment.get('file')}` says `{str(comment.get('file_signal') or '')[:100]}`; "
+                    f"{str(comment.get('file_fix_proposal') or '')[:140]}; grader `{(comment.get('fix_grade') or {}).get('decision', 'unknown')}`; "
+                    f"backward `{(comment.get('backward_pass_learning') or {}).get('path_family', 'unknown')}`"
+                )
+        audit = policy.get("deepseek_response_policy_audit") if isinstance(policy.get("deepseek_response_policy_audit"), dict) else {}
+        if audit:
+            lines.append(f"- DeepSeek response policy audit: `{audit.get('should_make_response_policy', False)}` {str(audit.get('reason') or '')[:180]}")
+
+    opus = pack.get("opus_instruction_layer") or {}
+    if isinstance(opus, dict) and opus:
+        contract = opus.get("response_contract") or {}
+        lines.extend([
+            "",
+            "**OPUS_INSTRUCTION_LAYER:**",
+            f"- status: `{opus.get('status', 'unknown')}` fires_for_prompt `{opus.get('fires_for_prompt', False)}`",
+            f"- manager: `{opus.get('manager', 'opus')}` role `{opus.get('role', '')}`",
+            f"- file comments required: `{contract.get('file_comments_required', False)}` section `{contract.get('section_name', 'File Comments')}`",
+            f"- response format: {str(contract.get('format') or '')[:220]}",
+        ])
+        selected = opus.get("selected_files") if isinstance(opus.get("selected_files"), list) else []
+        if selected:
+            lines.append("**OPUS_SELECTED_FILE_COMMENTS:**")
+            for item in selected[:8]:
+                lines.append(f"- `{item.get('file')}`: {str(item.get('residue_comment') or '')[:220]}")
+        else:
+            lines.append("**OPUS_SELECTED_FILE_COMMENTS:** none")
 
     file_sim = pack.get("file_sim") or {}
     if file_sim:
@@ -1648,11 +1797,11 @@ def select_context(
             result["files"] = numeric_files
             result["confidence"] = numeric_files[0]["score"]
             result["fallback"] = "intent_numeric_direct"
-            (root / "logs" / "context_selection.json").write_text(
-                json.dumps(result, indent=2, ensure_ascii=False) + "\n",
-                encoding="utf-8",
-            )
 
+    (root / "logs" / "context_selection.json").write_text(
+        json.dumps(result, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
     _append_jsonl(root / "logs" / "context_selection_history.jsonl", result)
     return result
 

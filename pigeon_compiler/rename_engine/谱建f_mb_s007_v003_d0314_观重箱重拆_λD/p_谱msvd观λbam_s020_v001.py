@@ -10,6 +10,9 @@
 from pathlib import Path
 import ast
 import re
+from .p_谱msvd观λbmd_s028_v001 import build_manifest
+from .p_谱msvd观λsmd_s021_v001 import sync_master_structure
+from .p_谱msvd观λss_s019_v001 import _should_skip
 
 def build_all_manifests(root: Path, dry_run: bool = False) -> list[dict]:
     """Build MANIFEST.md for every folder that has .py files.

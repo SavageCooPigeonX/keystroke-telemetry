@@ -44,6 +44,7 @@ from pigeon_compiler.runners.净初w_rcsi_s012_v004_d0315_追跑净助鸽环_λ�
     write_clean_init, write_clean_manifest)
 from pigeon_compiler.runners.谱桥p_mbr_s013_v004_d0315_册谱建环检_λν import (
     update_master_manifest)
+from pigeon_compiler.compile_lineage import write_compile_lineage
 
 from pigeon_compiler.pigeon_limits import PIGEON_MAX, PIGEON_RECOMMENDED
 MAX_RESPLIT_ROUNDS = 5
@@ -171,6 +172,13 @@ def run(source_file: Path, target_name: str = None,
 
     write_clean_init(target_dir, target_name)
     write_clean_manifest(target_dir, stem, cost=total_cost)
+    write_compile_lineage(
+        root=source_file.parent,
+        source_file=source_file,
+        target_dir=target_dir,
+        plan=plan,
+        results=results,
+    )
 
     # Final count
     final_files = sorted(target_dir.glob("*.py"))

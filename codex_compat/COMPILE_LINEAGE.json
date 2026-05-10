@@ -1,0 +1,1511 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-05-10T04:40:13.263984+00:00",
+  "source_file": "codex_compat.py",
+  "source_stem": "codex_compat",
+  "target_dir": "codex_compat",
+  "plan_strategy": "one function per file, group tiny helpers, init_exports only public names",
+  "file_count": 75,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_utc_now"
+      ],
+      "generated_file": "codex_compat/codex_compat_utc_now_seq001_v001.py",
+      "generated_module": "codex_compat_utc_now_seq001_v001",
+      "identity_key": "codex_compat.py::_utc_now",
+      "aliases": [
+        "codex_compat/codex_compat_utc_now_seq001_v001.py",
+        "codex_compat.py::_utc_now",
+        "codex_compat::_utc_now",
+        "_utc_now"
+      ],
+      "line_count": 7,
+      "status": "OK",
+      "reason": "2-line UTC helper"
+    },
+    {
+      "seq": 2,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_words"
+      ],
+      "generated_file": "codex_compat/codex_compat_words_seq002_v001.py",
+      "generated_module": "codex_compat_words_seq002_v001",
+      "identity_key": "codex_compat.py::_words",
+      "aliases": [
+        "codex_compat/codex_compat_words_seq002_v001.py",
+        "codex_compat.py::_words",
+        "codex_compat::_words",
+        "_words"
+      ],
+      "line_count": 6,
+      "status": "OK",
+      "reason": "2-line word splitter"
+    },
+    {
+      "seq": 3,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_parse_deleted_words"
+      ],
+      "generated_file": "codex_compat/codex_compat_parse_deleted_words_seq003_v001.py",
+      "generated_module": "codex_compat_parse_deleted_words_seq003_v001",
+      "identity_key": "codex_compat.py::_parse_deleted_words",
+      "aliases": [
+        "codex_compat/codex_compat_parse_deleted_words_seq003_v001.py",
+        "codex_compat.py::_parse_deleted_words",
+        "codex_compat::_parse_deleted_words",
+        "_parse_deleted_words"
+      ],
+      "line_count": 24,
+      "status": "OK",
+      "reason": "deleted words parser"
+    },
+    {
+      "seq": 4,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_state_from_deletions"
+      ],
+      "generated_file": "codex_compat/codex_compat_state_from_deletions_seq004_v001.py",
+      "generated_module": "codex_compat_state_from_deletions_seq004_v001",
+      "identity_key": "codex_compat.py::_state_from_deletions",
+      "aliases": [
+        "codex_compat/codex_compat_state_from_deletions_seq004_v001.py",
+        "codex_compat.py::_state_from_deletions",
+        "codex_compat::_state_from_deletions",
+        "_state_from_deletions"
+      ],
+      "line_count": 12,
+      "status": "OK",
+      "reason": "state from deletions"
+    },
+    {
+      "seq": 5,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_append_jsonl"
+      ],
+      "generated_file": "codex_compat/codex_compat_append_jsonl_seq005_v001.py",
+      "generated_module": "codex_compat_append_jsonl_seq005_v001",
+      "identity_key": "codex_compat.py::_append_jsonl",
+      "aliases": [
+        "codex_compat/codex_compat_append_jsonl_seq005_v001.py",
+        "codex_compat.py::_append_jsonl",
+        "codex_compat::_append_jsonl",
+        "_append_jsonl"
+      ],
+      "line_count": 11,
+      "status": "OK",
+      "reason": "append JSONL line"
+    },
+    {
+      "seq": 6,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_write_text_resilient"
+      ],
+      "generated_file": "codex_compat/codex_compat_write_text_resilient_seq006_v001.py",
+      "generated_module": "codex_compat_write_text_resilient_seq006_v001",
+      "identity_key": "codex_compat.py::_write_text_resilient",
+      "aliases": [
+        "codex_compat/codex_compat_write_text_resilient_seq006_v001.py",
+        "codex_compat.py::_write_text_resilient",
+        "codex_compat::_write_text_resilient",
+        "_write_text_resilient"
+      ],
+      "line_count": 20,
+      "status": "OK",
+      "reason": "resilient text write"
+    },
+    {
+      "seq": 7,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_load_jsonl_tail"
+      ],
+      "generated_file": "codex_compat/codex_compat_load_jsonl_tail_seq007_v001.py",
+      "generated_module": "codex_compat_load_jsonl_tail_seq007_v001",
+      "identity_key": "codex_compat.py::_load_jsonl_tail",
+      "aliases": [
+        "codex_compat/codex_compat_load_jsonl_tail_seq007_v001.py",
+        "codex_compat.py::_load_jsonl_tail",
+        "codex_compat::_load_jsonl_tail",
+        "_load_jsonl_tail"
+      ],
+      "line_count": 21,
+      "status": "OK",
+      "reason": "tail JSONL loader"
+    },
+    {
+      "seq": 8,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_repo_root"
+      ],
+      "generated_file": "codex_compat/codex_compat_repo_root_seq008_v001.py",
+      "generated_module": "codex_compat_repo_root_seq008_v001",
+      "identity_key": "codex_compat.py::_repo_root",
+      "aliases": [
+        "codex_compat/codex_compat_repo_root_seq008_v001.py",
+        "codex_compat.py::_repo_root",
+        "codex_compat::_repo_root",
+        "_repo_root"
+      ],
+      "line_count": 10,
+      "status": "OK",
+      "reason": "repo root path"
+    },
+    {
+      "seq": 9,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_ensure_repo_on_path"
+      ],
+      "generated_file": "codex_compat/codex_compat_ensure_repo_on_path_seq009_v001.py",
+      "generated_module": "codex_compat_ensure_repo_on_path_seq009_v001",
+      "identity_key": "codex_compat.py::_ensure_repo_on_path",
+      "aliases": [
+        "codex_compat/codex_compat_ensure_repo_on_path_seq009_v001.py",
+        "codex_compat.py::_ensure_repo_on_path",
+        "codex_compat::_ensure_repo_on_path",
+        "_ensure_repo_on_path"
+      ],
+      "line_count": 10,
+      "status": "OK",
+      "reason": "ensure repo on sys.path"
+    },
+    {
+      "seq": 10,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_load_entropy_module"
+      ],
+      "generated_file": "codex_compat/codex_compat_load_entropy_module_seq010_v001.py",
+      "generated_module": "codex_compat_load_entropy_module_seq010_v001",
+      "identity_key": "codex_compat.py::_load_entropy_module",
+      "aliases": [
+        "codex_compat/codex_compat_load_entropy_module_seq010_v001.py",
+        "codex_compat.py::_load_entropy_module",
+        "codex_compat::_load_entropy_module",
+        "_load_entropy_module"
+      ],
+      "line_count": 17,
+      "status": "OK",
+      "reason": "load entropy module"
+    },
+    {
+      "seq": 11,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_git_status"
+      ],
+      "generated_file": "codex_compat/codex_compat_git_status_seq011_v001.py",
+      "generated_module": "codex_compat_git_status_seq011_v001",
+      "identity_key": "codex_compat.py::_git_status",
+      "aliases": [
+        "codex_compat/codex_compat_git_status_seq011_v001.py",
+        "codex_compat.py::_git_status",
+        "codex_compat::_git_status",
+        "_git_status"
+      ],
+      "line_count": 22,
+      "status": "OK",
+      "reason": "git status helper"
+    },
+    {
+      "seq": 12,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_refresh_entropy"
+      ],
+      "generated_file": "codex_compat/codex_compat_refresh_entropy_seq012_v001.py",
+      "generated_module": "codex_compat_refresh_entropy_seq012_v001",
+      "identity_key": "codex_compat.py::_refresh_entropy",
+      "aliases": [
+        "codex_compat/codex_compat_refresh_entropy_seq012_v001.py",
+        "codex_compat.py::_refresh_entropy",
+        "codex_compat::_refresh_entropy",
+        "_refresh_entropy"
+      ],
+      "line_count": 31,
+      "status": "OK",
+      "reason": "refresh entropy state"
+    },
+    {
+      "seq": 13,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_load_intent_reconstructor"
+      ],
+      "generated_file": "codex_compat/codex_compat_load_intent_reconstructor_seq013_v001.py",
+      "generated_module": "codex_compat_load_intent_reconstructor_seq013_v001",
+      "identity_key": "codex_compat.py::_load_intent_reconstructor",
+      "aliases": [
+        "codex_compat/codex_compat_load_intent_reconstructor_seq013_v001.py",
+        "codex_compat.py::_load_intent_reconstructor",
+        "codex_compat::_load_intent_reconstructor",
+        "_load_intent_reconstructor"
+      ],
+      "line_count": 17,
+      "status": "OK",
+      "reason": "load intent reconstructor"
+    },
+    {
+      "seq": 14,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_load_context_select_agent"
+      ],
+      "generated_file": "codex_compat/codex_compat_load_context_select_agent_seq014_v001.py",
+      "generated_module": "codex_compat_load_context_select_agent_seq014_v001",
+      "identity_key": "codex_compat.py::_load_context_select_agent",
+      "aliases": [
+        "codex_compat/codex_compat_load_context_select_agent_seq014_v001.py",
+        "codex_compat.py::_load_context_select_agent",
+        "codex_compat::_load_context_select_agent",
+        "_load_context_select_agent"
+      ],
+      "line_count": 19,
+      "status": "OK",
+      "reason": "load context select agent"
+    },
+    {
+      "seq": 15,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_load_intent_numeric"
+      ],
+      "generated_file": "codex_compat/codex_compat_load_intent_numeric_seq015_v001.py",
+      "generated_module": "codex_compat_load_intent_numeric_seq015_v001",
+      "identity_key": "codex_compat.py::_load_intent_numeric",
+      "aliases": [
+        "codex_compat/codex_compat_load_intent_numeric_seq015_v001.py",
+        "codex_compat.py::_load_intent_numeric",
+        "codex_compat::_load_intent_numeric",
+        "_load_intent_numeric"
+      ],
+      "line_count": 33,
+      "status": "OK",
+      "reason": "load intent numeric module"
+    },
+    {
+      "seq": 16,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "train_numeric_surface"
+      ],
+      "generated_file": "codex_compat/codex_compat_train_numeric_surface_seq016_v001.py",
+      "generated_module": "codex_compat_train_numeric_surface_seq016_v001",
+      "identity_key": "codex_compat.py::train_numeric_surface",
+      "aliases": [
+        "codex_compat/codex_compat_train_numeric_surface_seq016_v001.py",
+        "codex_compat.py::train_numeric_surface",
+        "codex_compat::train_numeric_surface",
+        "train_numeric_surface"
+      ],
+      "line_count": 28,
+      "status": "OK",
+      "reason": "train numeric surface"
+    },
+    {
+      "seq": 17,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "predict_numeric_files"
+      ],
+      "generated_file": "codex_compat/codex_compat_predict_numeric_files_seq017_v001.py",
+      "generated_module": "codex_compat_predict_numeric_files_seq017_v001",
+      "identity_key": "codex_compat.py::predict_numeric_files",
+      "aliases": [
+        "codex_compat/codex_compat_predict_numeric_files_seq017_v001.py",
+        "codex_compat.py::predict_numeric_files",
+        "codex_compat::predict_numeric_files",
+        "predict_numeric_files"
+      ],
+      "line_count": 27,
+      "status": "OK",
+      "reason": "predict numeric files"
+    },
+    {
+      "seq": 18,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_run_sim_buffer"
+      ],
+      "generated_file": "codex_compat/codex_compat_run_sim_buffer_seq018_v001.py",
+      "generated_module": "codex_compat_run_sim_buffer_seq018_v001",
+      "identity_key": "codex_compat.py::_run_sim_buffer",
+      "aliases": [
+        "codex_compat/codex_compat_run_sim_buffer_seq018_v001.py",
+        "codex_compat.py::_run_sim_buffer",
+        "codex_compat::_run_sim_buffer",
+        "_run_sim_buffer"
+      ],
+      "line_count": 43,
+      "status": "OK",
+      "reason": "run sim buffer"
+    },
+    {
+      "seq": 19,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_latest_json"
+      ],
+      "generated_file": "codex_compat/codex_compat_latest_json_seq019_v001.py",
+      "generated_module": "codex_compat_latest_json_seq019_v001",
+      "identity_key": "codex_compat.py::_latest_json",
+      "aliases": [
+        "codex_compat/codex_compat_latest_json_seq019_v001.py",
+        "codex_compat.py::_latest_json",
+        "codex_compat::_latest_json",
+        "_latest_json"
+      ],
+      "line_count": 11,
+      "status": "OK",
+      "reason": "latest JSON file"
+    },
+    {
+      "seq": 20,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_replace_managed_block"
+      ],
+      "generated_file": "codex_compat/codex_compat_replace_managed_block_seq020_v001.py",
+      "generated_module": "codex_compat_replace_managed_block_seq020_v001",
+      "identity_key": "codex_compat.py::_replace_managed_block",
+      "aliases": [
+        "codex_compat/codex_compat_replace_managed_block_seq020_v001.py",
+        "codex_compat.py::_replace_managed_block",
+        "codex_compat::_replace_managed_block",
+        "_replace_managed_block"
+      ],
+      "line_count": 9,
+      "status": "OK",
+      "reason": "replace managed block"
+    },
+    {
+      "seq": 21,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_render_pre_prompt_block"
+      ],
+      "generated_file": "codex_compat/codex_compat_render_pre_prompt_block_seq021_v001.py",
+      "generated_module": "codex_compat_render_pre_prompt_block_seq021_v001",
+      "identity_key": "codex_compat.py::_render_pre_prompt_block",
+      "aliases": [
+        "codex_compat/codex_compat_render_pre_prompt_block_seq021_v001.py",
+        "codex_compat.py::_render_pre_prompt_block",
+        "codex_compat::_render_pre_prompt_block",
+        "_render_pre_prompt_block"
+      ],
+      "line_count": 63,
+      "status": "WARN (63)",
+      "reason": "render pre-prompt block"
+    },
+    {
+      "seq": 22,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_inject_pre_prompt_state"
+      ],
+      "generated_file": "codex_compat/codex_compat_inject_pre_prompt_state_seq022_v001.py",
+      "generated_module": "codex_compat_inject_pre_prompt_state_seq022_v001",
+      "identity_key": "codex_compat.py::_inject_pre_prompt_state",
+      "aliases": [
+        "codex_compat/codex_compat_inject_pre_prompt_state_seq022_v001.py",
+        "codex_compat.py::_inject_pre_prompt_state",
+        "codex_compat::_inject_pre_prompt_state",
+        "_inject_pre_prompt_state"
+      ],
+      "line_count": 24,
+      "status": "OK",
+      "reason": "inject pre-prompt state"
+    },
+    {
+      "seq": 23,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_inject_dynamic_context_pack"
+      ],
+      "generated_file": "codex_compat/codex_compat_inject_dynamic_context_pack_seq023_v001.py",
+      "generated_module": "codex_compat_inject_dynamic_context_pack_seq023_v001",
+      "identity_key": "codex_compat.py::_inject_dynamic_context_pack",
+      "aliases": [
+        "codex_compat/codex_compat_inject_dynamic_context_pack_seq023_v001.py",
+        "codex_compat.py::_inject_dynamic_context_pack",
+        "codex_compat::_inject_dynamic_context_pack",
+        "_inject_dynamic_context_pack"
+      ],
+      "line_count": 24,
+      "status": "OK",
+      "reason": "inject dynamic context"
+    },
+    {
+      "seq": 24,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_running_prompt_summary"
+      ],
+      "generated_file": "codex_compat/codex_compat_running_prompt_summary_seq024_v001.py",
+      "generated_module": "codex_compat_running_prompt_summary_seq024_v001",
+      "identity_key": "codex_compat.py::_running_prompt_summary",
+      "aliases": [
+        "codex_compat/codex_compat_running_prompt_summary_seq024_v001.py",
+        "codex_compat.py::_running_prompt_summary",
+        "codex_compat::_running_prompt_summary",
+        "_running_prompt_summary"
+      ],
+      "line_count": 36,
+      "status": "OK",
+      "reason": "running prompt summary"
+    },
+    {
+      "seq": 25,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_task_queue_summary"
+      ],
+      "generated_file": "codex_compat/codex_compat_task_queue_summary_seq025_v001.py",
+      "generated_module": "codex_compat_task_queue_summary_seq025_v001",
+      "identity_key": "codex_compat.py::_task_queue_summary",
+      "aliases": [
+        "codex_compat/codex_compat_task_queue_summary_seq025_v001.py",
+        "codex_compat.py::_task_queue_summary",
+        "codex_compat::_task_queue_summary",
+        "_task_queue_summary"
+      ],
+      "line_count": 19,
+      "status": "OK",
+      "reason": "task queue summary"
+    },
+    {
+      "seq": 26,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_build_live_prompt_telemetry"
+      ],
+      "generated_file": "codex_compat/codex_compat_build_live_prompt_telemetry_seq026_v001.py",
+      "generated_module": "codex_compat_build_live_prompt_telemetry_seq026_v001",
+      "identity_key": "codex_compat.py::_build_live_prompt_telemetry",
+      "aliases": [
+        "codex_compat/codex_compat_build_live_prompt_telemetry_seq026_v001.py",
+        "codex_compat.py::_build_live_prompt_telemetry",
+        "codex_compat::_build_live_prompt_telemetry",
+        "_build_live_prompt_telemetry"
+      ],
+      "line_count": 70,
+      "status": "WARN (70)",
+      "reason": "build live prompt telemetry"
+    },
+    {
+      "seq": 27,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_render_prompt_telemetry_block"
+      ],
+      "generated_file": "codex_compat/codex_compat_render_prompt_telemetry_block_seq027_v001.py",
+      "generated_module": "codex_compat_render_prompt_telemetry_block_seq027_v001",
+      "identity_key": "codex_compat.py::_render_prompt_telemetry_block",
+      "aliases": [
+        "codex_compat/codex_compat_render_prompt_telemetry_block_seq027_v001.py",
+        "codex_compat.py::_render_prompt_telemetry_block",
+        "codex_compat::_render_prompt_telemetry_block",
+        "_render_prompt_telemetry_block"
+      ],
+      "line_count": 21,
+      "status": "OK",
+      "reason": "render telemetry block"
+    },
+    {
+      "seq": 28,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_write_live_prompt_telemetry"
+      ],
+      "generated_file": "codex_compat/codex_compat_write_live_prompt_telemetry_seq028_v001.py",
+      "generated_module": "codex_compat_write_live_prompt_telemetry_seq028_v001",
+      "identity_key": "codex_compat.py::_write_live_prompt_telemetry",
+      "aliases": [
+        "codex_compat/codex_compat_write_live_prompt_telemetry_seq028_v001.py",
+        "codex_compat.py::_write_live_prompt_telemetry",
+        "codex_compat::_write_live_prompt_telemetry",
+        "_write_live_prompt_telemetry"
+      ],
+      "line_count": 31,
+      "status": "OK",
+      "reason": "write live prompt telemetry"
+    },
+    {
+      "seq": 29,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_render_current_query_block"
+      ],
+      "generated_file": "codex_compat/codex_compat_render_current_query_block_seq029_v001.py",
+      "generated_module": "codex_compat_render_current_query_block_seq029_v001",
+      "identity_key": "codex_compat.py::_render_current_query_block",
+      "aliases": [
+        "codex_compat/codex_compat_render_current_query_block_seq029_v001.py",
+        "codex_compat.py::_render_current_query_block",
+        "codex_compat::_render_current_query_block",
+        "_render_current_query_block"
+      ],
+      "line_count": 37,
+      "status": "OK",
+      "reason": "render current query block"
+    },
+    {
+      "seq": 30,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_render_staleness_alert_block"
+      ],
+      "generated_file": "codex_compat/codex_compat_render_staleness_alert_block_seq030_v001.py",
+      "generated_module": "codex_compat_render_staleness_alert_block_seq030_v001",
+      "identity_key": "codex_compat.py::_render_staleness_alert_block",
+      "aliases": [
+        "codex_compat/codex_compat_render_staleness_alert_block_seq030_v001.py",
+        "codex_compat.py::_render_staleness_alert_block",
+        "codex_compat::_render_staleness_alert_block",
+        "_render_staleness_alert_block"
+      ],
+      "line_count": 25,
+      "status": "OK",
+      "reason": "render staleness alert"
+    },
+    {
+      "seq": 31,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_write_copilot_live_query_blocks"
+      ],
+      "generated_file": "codex_compat/codex_compat_write_copilot_live_query_blocks_seq031_v001.py",
+      "generated_module": "codex_compat_write_copilot_live_query_blocks_seq031_v001",
+      "identity_key": "codex_compat.py::_write_copilot_live_query_blocks",
+      "aliases": [
+        "codex_compat/codex_compat_write_copilot_live_query_blocks_seq031_v001.py",
+        "codex_compat.py::_write_copilot_live_query_blocks",
+        "codex_compat::_write_copilot_live_query_blocks",
+        "_write_copilot_live_query_blocks"
+      ],
+      "line_count": 29,
+      "status": "OK",
+      "reason": "write copilot live query"
+    },
+    {
+      "seq": 32,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_surface_activity"
+      ],
+      "generated_file": "codex_compat/codex_compat_surface_activity_seq032_v001.py",
+      "generated_module": "codex_compat_surface_activity_seq032_v001",
+      "identity_key": "codex_compat.py::_surface_activity",
+      "aliases": [
+        "codex_compat/codex_compat_surface_activity_seq032_v001.py",
+        "codex_compat.py::_surface_activity",
+        "codex_compat::_surface_activity",
+        "_surface_activity"
+      ],
+      "line_count": 40,
+      "status": "OK",
+      "reason": "surface activity"
+    },
+    {
+      "seq": 33,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_log_counts"
+      ],
+      "generated_file": "codex_compat/codex_compat_log_counts_seq033_v001.py",
+      "generated_module": "codex_compat_log_counts_seq033_v001",
+      "identity_key": "codex_compat.py::_log_counts",
+      "aliases": [
+        "codex_compat/codex_compat_log_counts_seq033_v001.py",
+        "codex_compat.py::_log_counts",
+        "codex_compat::_log_counts",
+        "_log_counts"
+      ],
+      "line_count": 39,
+      "status": "OK",
+      "reason": "log counts"
+    },
+    {
+      "seq": 34,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_git_focus_files"
+      ],
+      "generated_file": "codex_compat/codex_compat_git_focus_files_seq034_v001.py",
+      "generated_module": "codex_compat_git_focus_files_seq034_v001",
+      "identity_key": "codex_compat.py::_git_focus_files",
+      "aliases": [
+        "codex_compat/codex_compat_git_focus_files_seq034_v001.py",
+        "codex_compat.py::_git_focus_files",
+        "codex_compat::_git_focus_files",
+        "_git_focus_files"
+      ],
+      "line_count": 14,
+      "status": "OK",
+      "reason": "git focus files"
+    },
+    {
+      "seq": 35,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_deepseek_default_model"
+      ],
+      "generated_file": "codex_compat/codex_compat_deepseek_default_model_seq035_v001.py",
+      "generated_module": "codex_compat_deepseek_default_model_seq035_v001",
+      "identity_key": "codex_compat.py::_deepseek_default_model",
+      "aliases": [
+        "codex_compat/codex_compat_deepseek_default_model_seq035_v001.py",
+        "codex_compat.py::_deepseek_default_model",
+        "codex_compat::_deepseek_default_model",
+        "_deepseek_default_model"
+      ],
+      "line_count": 7,
+      "status": "OK",
+      "reason": "default model name"
+    },
+    {
+      "seq": 36,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_deepseek_api_key_present"
+      ],
+      "generated_file": "codex_compat/codex_compat_deepseek_api_key_present_seq036_v001.py",
+      "generated_module": "codex_compat_deepseek_api_key_present_seq036_v001",
+      "identity_key": "codex_compat.py::_deepseek_api_key_present",
+      "aliases": [
+        "codex_compat/codex_compat_deepseek_api_key_present_seq036_v001.py",
+        "codex_compat.py::_deepseek_api_key_present",
+        "codex_compat::_deepseek_api_key_present",
+        "_deepseek_api_key_present"
+      ],
+      "line_count": 19,
+      "status": "OK",
+      "reason": "check API key"
+    },
+    {
+      "seq": 37,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "launch_deepseek_daemon"
+      ],
+      "generated_file": "codex_compat/codex_compat_launch_deepseek_daemon_seq037_v001.py",
+      "generated_module": "codex_compat_launch_deepseek_daemon_seq037_v001",
+      "identity_key": "codex_compat.py::launch_deepseek_daemon",
+      "aliases": [
+        "codex_compat/codex_compat_launch_deepseek_daemon_seq037_v001.py",
+        "codex_compat.py::launch_deepseek_daemon",
+        "codex_compat::launch_deepseek_daemon",
+        "launch_deepseek_daemon"
+      ],
+      "line_count": 35,
+      "status": "OK",
+      "reason": "launch deepseek daemon"
+    },
+    {
+      "seq": 38,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "enqueue_deepseek_prompt_job"
+      ],
+      "generated_file": "codex_compat/codex_compat_enqueue_deepseek_prompt_job_seq038_v001.py",
+      "generated_module": "codex_compat_enqueue_deepseek_prompt_job_seq038_v001",
+      "identity_key": "codex_compat.py::enqueue_deepseek_prompt_job",
+      "aliases": [
+        "codex_compat/codex_compat_enqueue_deepseek_prompt_job_seq038_v001.py",
+        "codex_compat.py::enqueue_deepseek_prompt_job",
+        "codex_compat::enqueue_deepseek_prompt_job",
+        "enqueue_deepseek_prompt_job"
+      ],
+      "line_count": 69,
+      "status": "WARN (69)",
+      "reason": "enqueue prompt job"
+    },
+    {
+      "seq": 39,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_build_focus_files"
+      ],
+      "generated_file": "codex_compat/codex_compat_build_focus_files_seq039_v001.py",
+      "generated_module": "codex_compat_build_focus_files_seq039_v001",
+      "identity_key": "codex_compat.py::_build_focus_files",
+      "aliases": [
+        "codex_compat/codex_compat_build_focus_files_seq039_v001.py",
+        "codex_compat.py::_build_focus_files",
+        "codex_compat::_build_focus_files",
+        "_build_focus_files"
+      ],
+      "line_count": 75,
+      "status": "WARN (75)",
+      "reason": "build focus files"
+    },
+    {
+      "seq": 40,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_build_opus_instruction_layer"
+      ],
+      "generated_file": "codex_compat/codex_compat_build_opus_instruction_layer_seq040_v001.py",
+      "generated_module": "codex_compat_build_opus_instruction_layer_seq040_v001",
+      "identity_key": "codex_compat.py::_build_opus_instruction_layer",
+      "aliases": [
+        "codex_compat/codex_compat_build_opus_instruction_layer_seq040_v001.py",
+        "codex_compat.py::_build_opus_instruction_layer",
+        "codex_compat::_build_opus_instruction_layer",
+        "_build_opus_instruction_layer"
+      ],
+      "line_count": 58,
+      "status": "WARN (58)",
+      "reason": "build opus instruction"
+    },
+    {
+      "seq": 41,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_add_file_sim_focus_files"
+      ],
+      "generated_file": "codex_compat/codex_compat_add_file_sim_focus_files_seq041_v001.py",
+      "generated_module": "codex_compat_add_file_sim_focus_files_seq041_v001",
+      "identity_key": "codex_compat.py::_add_file_sim_focus_files",
+      "aliases": [
+        "codex_compat/codex_compat_add_file_sim_focus_files_seq041_v001.py",
+        "codex_compat.py::_add_file_sim_focus_files",
+        "codex_compat::_add_file_sim_focus_files",
+        "_add_file_sim_focus_files"
+      ],
+      "line_count": 31,
+      "status": "OK",
+      "reason": "add file sim focus"
+    },
+    {
+      "seq": 42,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "build_dynamic_context_pack"
+      ],
+      "generated_file": "codex_compat/codex_compat_build_dynamic_context_pack_seq042_v001.py",
+      "generated_module": "codex_compat_build_dynamic_context_pack_seq042_v001",
+      "identity_key": "codex_compat.py::build_dynamic_context_pack",
+      "aliases": [
+        "codex_compat/codex_compat_build_dynamic_context_pack_seq042_v001.py",
+        "codex_compat.py::build_dynamic_context_pack",
+        "codex_compat::build_dynamic_context_pack",
+        "build_dynamic_context_pack"
+      ],
+      "line_count": 162,
+      "status": "WARN (162)",
+      "reason": "build dynamic context pack"
+    },
+    {
+      "seq": 43,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_render_dynamic_context_pack"
+      ],
+      "generated_file": "codex_compat/codex_compat_render_dynamic_context_pack_seq043_v001.py",
+      "generated_module": "codex_compat_render_dynamic_context_pack_seq043_v001",
+      "identity_key": "codex_compat.py::_render_dynamic_context_pack",
+      "aliases": [
+        "codex_compat/codex_compat_render_dynamic_context_pack_seq043_v001.py",
+        "codex_compat.py::_render_dynamic_context_pack",
+        "codex_compat::_render_dynamic_context_pack",
+        "_render_dynamic_context_pack"
+      ],
+      "line_count": 199,
+      "status": "WARN (199)",
+      "reason": "render dynamic context"
+    },
+    {
+      "seq": 44,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_fire_file_sim"
+      ],
+      "generated_file": "codex_compat/codex_compat_fire_file_sim_seq044_v001.py",
+      "generated_module": "codex_compat_fire_file_sim_seq044_v001",
+      "identity_key": "codex_compat.py::_fire_file_sim",
+      "aliases": [
+        "codex_compat/codex_compat_fire_file_sim_seq044_v001.py",
+        "codex_compat.py::_fire_file_sim",
+        "codex_compat::_fire_file_sim",
+        "_fire_file_sim"
+      ],
+      "line_count": 49,
+      "status": "OK",
+      "reason": "fire file sim"
+    },
+    {
+      "seq": 45,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_record_intent_loop"
+      ],
+      "generated_file": "codex_compat/codex_compat_record_intent_loop_seq045_v001.py",
+      "generated_module": "codex_compat_record_intent_loop_seq045_v001",
+      "identity_key": "codex_compat.py::_record_intent_loop",
+      "aliases": [
+        "codex_compat/codex_compat_record_intent_loop_seq045_v001.py",
+        "codex_compat.py::_record_intent_loop",
+        "codex_compat::_record_intent_loop",
+        "_record_intent_loop"
+      ],
+      "line_count": 31,
+      "status": "OK",
+      "reason": "record intent loop"
+    },
+    {
+      "seq": 46,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_emit_codex_prompt_email"
+      ],
+      "generated_file": "codex_compat/codex_compat_emit_codex_prompt_email_seq046_v001.py",
+      "generated_module": "codex_compat_emit_codex_prompt_email_seq046_v001",
+      "identity_key": "codex_compat.py::_emit_codex_prompt_email",
+      "aliases": [
+        "codex_compat/codex_compat_emit_codex_prompt_email_seq046_v001.py",
+        "codex_compat.py::_emit_codex_prompt_email",
+        "codex_compat::_emit_codex_prompt_email",
+        "_emit_codex_prompt_email"
+      ],
+      "line_count": 18,
+      "status": "OK",
+      "reason": "emit codex prompt email"
+    },
+    {
+      "seq": 47,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_bind_intent_loop_response"
+      ],
+      "generated_file": "codex_compat/codex_compat_bind_intent_loop_response_seq047_v001.py",
+      "generated_module": "codex_compat_bind_intent_loop_response_seq047_v001",
+      "identity_key": "codex_compat.py::_bind_intent_loop_response",
+      "aliases": [
+        "codex_compat/codex_compat_bind_intent_loop_response_seq047_v001.py",
+        "codex_compat.py::_bind_intent_loop_response",
+        "codex_compat::_bind_intent_loop_response",
+        "_bind_intent_loop_response"
+      ],
+      "line_count": 15,
+      "status": "OK",
+      "reason": "bind intent loop response"
+    },
+    {
+      "seq": 48,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_bind_intent_loop_edit"
+      ],
+      "generated_file": "codex_compat/codex_compat_bind_intent_loop_edit_seq048_v001.py",
+      "generated_module": "codex_compat_bind_intent_loop_edit_seq048_v001",
+      "identity_key": "codex_compat.py::_bind_intent_loop_edit",
+      "aliases": [
+        "codex_compat/codex_compat_bind_intent_loop_edit_seq048_v001.py",
+        "codex_compat.py::_bind_intent_loop_edit",
+        "codex_compat::_bind_intent_loop_edit",
+        "_bind_intent_loop_edit"
+      ],
+      "line_count": 15,
+      "status": "OK",
+      "reason": "bind intent loop edit"
+    },
+    {
+      "seq": 49,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "close_intent_loop"
+      ],
+      "generated_file": "codex_compat/codex_compat_close_intent_loop_seq049_v001.py",
+      "generated_module": "codex_compat_close_intent_loop_seq049_v001",
+      "identity_key": "codex_compat.py::close_intent_loop",
+      "aliases": [
+        "codex_compat/codex_compat_close_intent_loop_seq049_v001.py",
+        "codex_compat.py::close_intent_loop",
+        "codex_compat::close_intent_loop",
+        "close_intent_loop"
+      ],
+      "line_count": 20,
+      "status": "OK",
+      "reason": "close intent loop"
+    },
+    {
+      "seq": 50,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "get_intent_loop_status"
+      ],
+      "generated_file": "codex_compat/codex_compat_get_intent_loop_status_seq050_v001.py",
+      "generated_module": "codex_compat_get_intent_loop_status_seq050_v001",
+      "identity_key": "codex_compat.py::get_intent_loop_status",
+      "aliases": [
+        "codex_compat/codex_compat_get_intent_loop_status_seq050_v001.py",
+        "codex_compat.py::get_intent_loop_status",
+        "codex_compat::get_intent_loop_status",
+        "get_intent_loop_status"
+      ],
+      "line_count": 15,
+      "status": "OK",
+      "reason": "get intent loop status"
+    },
+    {
+      "seq": 51,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_parse_iso_ts"
+      ],
+      "generated_file": "codex_compat/codex_compat_parse_iso_ts_seq051_v001.py",
+      "generated_module": "codex_compat_parse_iso_ts_seq051_v001",
+      "identity_key": "codex_compat.py::_parse_iso_ts",
+      "aliases": [
+        "codex_compat/codex_compat_parse_iso_ts_seq051_v001.py",
+        "codex_compat.py::_parse_iso_ts",
+        "codex_compat::_parse_iso_ts",
+        "_parse_iso_ts"
+      ],
+      "line_count": 16,
+      "status": "OK",
+      "reason": "parse ISO timestamp"
+    },
+    {
+      "seq": 52,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_latest_log_ts"
+      ],
+      "generated_file": "codex_compat/codex_compat_latest_log_ts_seq052_v001.py",
+      "generated_module": "codex_compat_latest_log_ts_seq052_v001",
+      "identity_key": "codex_compat.py::_latest_log_ts",
+      "aliases": [
+        "codex_compat/codex_compat_latest_log_ts_seq052_v001.py",
+        "codex_compat.py::_latest_log_ts",
+        "codex_compat::_latest_log_ts",
+        "_latest_log_ts"
+      ],
+      "line_count": 18,
+      "status": "OK",
+      "reason": "latest log timestamp"
+    },
+    {
+      "seq": 53,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "audit_stale_dates"
+      ],
+      "generated_file": "codex_compat/codex_compat_audit_stale_dates_seq053_v001.py",
+      "generated_module": "codex_compat_audit_stale_dates_seq053_v001",
+      "identity_key": "codex_compat.py::audit_stale_dates",
+      "aliases": [
+        "codex_compat/codex_compat_audit_stale_dates_seq053_v001.py",
+        "codex_compat.py::audit_stale_dates",
+        "codex_compat::audit_stale_dates",
+        "audit_stale_dates"
+      ],
+      "line_count": 90,
+      "status": "WARN (90)",
+      "reason": "audit stale dates"
+    },
+    {
+      "seq": 54,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "run_pre_prompt_from_composition"
+      ],
+      "generated_file": "codex_compat/codex_compat_run_pre_prompt_from_composition_seq054_v001.py",
+      "generated_module": "codex_compat_run_pre_prompt_from_composition_seq054_v001",
+      "identity_key": "codex_compat.py::run_pre_prompt_from_composition",
+      "aliases": [
+        "codex_compat/codex_compat_run_pre_prompt_from_composition_seq054_v001.py",
+        "codex_compat.py::run_pre_prompt_from_composition",
+        "codex_compat::run_pre_prompt_from_composition",
+        "run_pre_prompt_from_composition"
+      ],
+      "line_count": 123,
+      "status": "WARN (123)",
+      "reason": "run pre-prompt from composition"
+    },
+    {
+      "seq": 55,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "run_pre_prompt_pipeline"
+      ],
+      "generated_file": "codex_compat/codex_compat_run_pre_prompt_pipeline_seq055_v001.py",
+      "generated_module": "codex_compat_run_pre_prompt_pipeline_seq055_v001",
+      "identity_key": "codex_compat.py::run_pre_prompt_pipeline",
+      "aliases": [
+        "codex_compat/codex_compat_run_pre_prompt_pipeline_seq055_v001.py",
+        "codex_compat.py::run_pre_prompt_pipeline",
+        "codex_compat::run_pre_prompt_pipeline",
+        "run_pre_prompt_pipeline"
+      ],
+      "line_count": 159,
+      "status": "WARN (159)",
+      "reason": "run pre-prompt pipeline"
+    },
+    {
+      "seq": 56,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "select_context"
+      ],
+      "generated_file": "codex_compat/codex_compat_select_context_seq056_v001.py",
+      "generated_module": "codex_compat_select_context_seq056_v001",
+      "identity_key": "codex_compat.py::select_context",
+      "aliases": [
+        "codex_compat/codex_compat_select_context_seq056_v001.py",
+        "codex_compat.py::select_context",
+        "codex_compat::select_context",
+        "select_context"
+      ],
+      "line_count": 58,
+      "status": "WARN (58)",
+      "reason": "select context"
+    },
+    {
+      "seq": 57,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "refresh_state"
+      ],
+      "generated_file": "codex_compat/codex_compat_refresh_state_seq057_v001.py",
+      "generated_module": "codex_compat_refresh_state_seq057_v001",
+      "identity_key": "codex_compat.py::refresh_state",
+      "aliases": [
+        "codex_compat/codex_compat_refresh_state_seq057_v001.py",
+        "codex_compat.py::refresh_state",
+        "codex_compat::refresh_state",
+        "refresh_state"
+      ],
+      "line_count": 66,
+      "status": "WARN (66)",
+      "reason": "refresh state"
+    },
+    {
+      "seq": 58,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_render_state_markdown"
+      ],
+      "generated_file": "codex_compat/codex_compat_render_state_markdown_seq058_v001.py",
+      "generated_module": "codex_compat_render_state_markdown_seq058_v001",
+      "identity_key": "codex_compat.py::_render_state_markdown",
+      "aliases": [
+        "codex_compat/codex_compat_render_state_markdown_seq058_v001.py",
+        "codex_compat.py::_render_state_markdown",
+        "codex_compat::_render_state_markdown",
+        "_render_state_markdown"
+      ],
+      "line_count": 151,
+      "status": "WARN (151)",
+      "reason": "render state markdown"
+    },
+    {
+      "seq": 59,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_load_json"
+      ],
+      "generated_file": "codex_compat/codex_compat_load_json_seq059_v001.py",
+      "generated_module": "codex_compat_load_json_seq059_v001",
+      "identity_key": "codex_compat.py::_load_json",
+      "aliases": [
+        "codex_compat/codex_compat_load_json_seq059_v001.py",
+        "codex_compat.py::_load_json",
+        "codex_compat::_load_json",
+        "_load_json"
+      ],
+      "line_count": 15,
+      "status": "OK",
+      "reason": "load JSON file"
+    },
+    {
+      "seq": 60,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_next_session_n"
+      ],
+      "generated_file": "codex_compat/codex_compat_next_session_n_seq060_v001.py",
+      "generated_module": "codex_compat_next_session_n_seq060_v001",
+      "identity_key": "codex_compat.py::_next_session_n",
+      "aliases": [
+        "codex_compat/codex_compat_next_session_n_seq060_v001.py",
+        "codex_compat.py::_next_session_n",
+        "codex_compat::_next_session_n",
+        "_next_session_n"
+      ],
+      "line_count": 15,
+      "status": "OK",
+      "reason": "next session number"
+    },
+    {
+      "seq": 61,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_classify_intent"
+      ],
+      "generated_file": "codex_compat/codex_compat_classify_intent_seq061_v001.py",
+      "generated_module": "codex_compat_classify_intent_seq061_v001",
+      "identity_key": "codex_compat.py::_classify_intent",
+      "aliases": [
+        "codex_compat/codex_compat_classify_intent_seq061_v001.py",
+        "codex_compat.py::_classify_intent",
+        "codex_compat::_classify_intent",
+        "_classify_intent"
+      ],
+      "line_count": 26,
+      "status": "OK",
+      "reason": "classify intent"
+    },
+    {
+      "seq": 62,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "log_prompt"
+      ],
+      "generated_file": "codex_compat/codex_compat_log_prompt_seq062_v001.py",
+      "generated_module": "codex_compat_log_prompt_seq062_v001",
+      "identity_key": "codex_compat.py::log_prompt",
+      "aliases": [
+        "codex_compat/codex_compat_log_prompt_seq062_v001.py",
+        "codex_compat.py::log_prompt",
+        "codex_compat::log_prompt",
+        "log_prompt"
+      ],
+      "line_count": 122,
+      "status": "WARN (122)",
+      "reason": "log prompt"
+    },
+    {
+      "seq": 63,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "log_composition"
+      ],
+      "generated_file": "codex_compat/codex_compat_log_composition_seq063_v001.py",
+      "generated_module": "codex_compat_log_composition_seq063_v001",
+      "identity_key": "codex_compat.py::log_composition",
+      "aliases": [
+        "codex_compat/codex_compat_log_composition_seq063_v001.py",
+        "codex_compat.py::log_composition",
+        "codex_compat::log_composition",
+        "log_composition"
+      ],
+      "line_count": 62,
+      "status": "WARN (62)",
+      "reason": "log composition"
+    },
+    {
+      "seq": 64,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_build_unsaid_reconstruction"
+      ],
+      "generated_file": "codex_compat/codex_compat_build_unsaid_reconstruction_seq064_v001.py",
+      "generated_module": "codex_compat_build_unsaid_reconstruction_seq064_v001",
+      "identity_key": "codex_compat.py::_build_unsaid_reconstruction",
+      "aliases": [
+        "codex_compat/codex_compat_build_unsaid_reconstruction_seq064_v001.py",
+        "codex_compat.py::_build_unsaid_reconstruction",
+        "codex_compat::_build_unsaid_reconstruction",
+        "_build_unsaid_reconstruction"
+      ],
+      "line_count": 8,
+      "status": "OK",
+      "reason": "build unsaid reconstruction"
+    },
+    {
+      "seq": 65,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_write_unsaid"
+      ],
+      "generated_file": "codex_compat/codex_compat_write_unsaid_seq065_v001.py",
+      "generated_module": "codex_compat_write_unsaid_seq065_v001",
+      "identity_key": "codex_compat.py::_write_unsaid",
+      "aliases": [
+        "codex_compat/codex_compat_write_unsaid_seq065_v001.py",
+        "codex_compat.py::_write_unsaid",
+        "codex_compat::_write_unsaid",
+        "_write_unsaid"
+      ],
+      "line_count": 39,
+      "status": "OK",
+      "reason": "write unsaid"
+    },
+    {
+      "seq": 66,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "log_response"
+      ],
+      "generated_file": "codex_compat/codex_compat_log_response_seq066_v001.py",
+      "generated_module": "codex_compat_log_response_seq066_v001",
+      "identity_key": "codex_compat.py::log_response",
+      "aliases": [
+        "codex_compat/codex_compat_log_response_seq066_v001.py",
+        "codex_compat.py::log_response",
+        "codex_compat::log_response",
+        "log_response"
+      ],
+      "line_count": 81,
+      "status": "WARN (81)",
+      "reason": "log response"
+    },
+    {
+      "seq": 67,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_git_changed_files"
+      ],
+      "generated_file": "codex_compat/codex_compat_git_changed_files_seq067_v001.py",
+      "generated_module": "codex_compat_git_changed_files_seq067_v001",
+      "identity_key": "codex_compat.py::_git_changed_files",
+      "aliases": [
+        "codex_compat/codex_compat_git_changed_files_seq067_v001.py",
+        "codex_compat.py::_git_changed_files",
+        "codex_compat::_git_changed_files",
+        "_git_changed_files"
+      ],
+      "line_count": 20,
+      "status": "OK",
+      "reason": "git changed files"
+    },
+    {
+      "seq": 68,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "log_edit"
+      ],
+      "generated_file": "codex_compat/codex_compat_log_edit_seq068_v001.py",
+      "generated_module": "codex_compat_log_edit_seq068_v001",
+      "identity_key": "codex_compat.py::log_edit",
+      "aliases": [
+        "codex_compat/codex_compat_log_edit_seq068_v001.py",
+        "codex_compat.py::log_edit",
+        "codex_compat::log_edit",
+        "log_edit"
+      ],
+      "line_count": 60,
+      "status": "WARN (60)",
+      "reason": "log edit"
+    },
+    {
+      "seq": 69,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "capture_pair"
+      ],
+      "generated_file": "codex_compat/codex_compat_capture_pair_seq069_v001.py",
+      "generated_module": "codex_compat_capture_pair_seq069_v001",
+      "identity_key": "codex_compat.py::capture_pair",
+      "aliases": [
+        "codex_compat/codex_compat_capture_pair_seq069_v001.py",
+        "codex_compat.py::capture_pair",
+        "codex_compat::capture_pair",
+        "capture_pair"
+      ],
+      "line_count": 28,
+      "status": "OK",
+      "reason": "capture pair"
+    },
+    {
+      "seq": 70,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "record_entropy_shed"
+      ],
+      "generated_file": "codex_compat/codex_compat_record_entropy_shed_seq070_v001.py",
+      "generated_module": "codex_compat_record_entropy_shed_seq070_v001",
+      "identity_key": "codex_compat.py::record_entropy_shed",
+      "aliases": [
+        "codex_compat/codex_compat_record_entropy_shed_seq070_v001.py",
+        "codex_compat.py::record_entropy_shed",
+        "codex_compat::record_entropy_shed",
+        "record_entropy_shed"
+      ],
+      "line_count": 22,
+      "status": "OK",
+      "reason": "record entropy shed"
+    },
+    {
+      "seq": 71,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "push_intent_resolver"
+      ],
+      "generated_file": "codex_compat/codex_compat_push_intent_resolver_seq071_v001.py",
+      "generated_module": "codex_compat_push_intent_resolver_seq071_v001",
+      "identity_key": "codex_compat.py::push_intent_resolver",
+      "aliases": [
+        "codex_compat/codex_compat_push_intent_resolver_seq071_v001.py",
+        "codex_compat.py::push_intent_resolver",
+        "codex_compat::push_intent_resolver",
+        "push_intent_resolver"
+      ],
+      "line_count": 25,
+      "status": "OK",
+      "reason": "push intent resolver"
+    },
+    {
+      "seq": 72,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "_text_from_event"
+      ],
+      "generated_file": "codex_compat/codex_compat_text_from_event_seq072_v001.py",
+      "generated_module": "codex_compat_text_from_event_seq072_v001",
+      "identity_key": "codex_compat.py::_text_from_event",
+      "aliases": [
+        "codex_compat/codex_compat_text_from_event_seq072_v001.py",
+        "codex_compat.py::_text_from_event",
+        "codex_compat::_text_from_event",
+        "_text_from_event"
+      ],
+      "line_count": 19,
+      "status": "OK",
+      "reason": "text from event"
+    },
+    {
+      "seq": 73,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "import_jsonl"
+      ],
+      "generated_file": "codex_compat/codex_compat_import_jsonl_seq073_v001.py",
+      "generated_module": "codex_compat_import_jsonl_seq073_v001",
+      "identity_key": "codex_compat.py::import_jsonl",
+      "aliases": [
+        "codex_compat/codex_compat_import_jsonl_seq073_v001.py",
+        "codex_compat.py::import_jsonl",
+        "codex_compat::import_jsonl",
+        "import_jsonl"
+      ],
+      "line_count": 62,
+      "status": "WARN (62)",
+      "reason": "import JSONL"
+    },
+    {
+      "seq": 74,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "build_parser"
+      ],
+      "generated_file": "codex_compat/codex_compat_build_parser_seq074_v001.py",
+      "generated_module": "codex_compat_build_parser_seq074_v001",
+      "identity_key": "codex_compat.py::build_parser",
+      "aliases": [
+        "codex_compat/codex_compat_build_parser_seq074_v001.py",
+        "codex_compat.py::build_parser",
+        "codex_compat::build_parser",
+        "build_parser"
+      ],
+      "line_count": 106,
+      "status": "WARN (106)",
+      "reason": "build parser"
+    },
+    {
+      "seq": 75,
+      "version": 1,
+      "source_file": "codex_compat.py",
+      "source_symbols": [
+        "main"
+      ],
+      "generated_file": "codex_compat/codex_compat_main_seq075_v001.py",
+      "generated_module": "codex_compat_main_seq075_v001",
+      "identity_key": "codex_compat.py::main",
+      "aliases": [
+        "codex_compat/codex_compat_main_seq075_v001.py",
+        "codex_compat.py::main",
+        "codex_compat::main",
+        "main"
+      ],
+      "line_count": 139,
+      "status": "WARN (139)",
+      "reason": "main entry point"
+    }
+  ]
+}

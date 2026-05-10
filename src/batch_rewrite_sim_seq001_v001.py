@@ -702,16 +702,19 @@ def _rank_candidates(
     scope = str(compiled.get("scope") or "")
 
     for path, points, reason in _seed_paths(root, compiled, dead_summary, context_selection):
-        _add_candidate(bucket, path, points, reason)
+        _add_candidate_with_aliases(root, bucket, path, points, reason)
     for pair in history:
         path = pair.get("new_path") or pair.get("old_path") or ""
         points = _history_points(pair, tokens, scope)
         if path and points > 0:
-            row = bucket[path]
-            row["score"] += points
-            row["events"][str(pair.get("event_type") or "touch")] += 1
-            if len(row["evidence"]) < 5:
-                row["evidence"].append(str(pair.get("subject") or pair.get("prompt") or "")[:140])
+            for resolved in _resolve_alias_targets(root, path) or [str(path).replace("\\", "/")]:
+                row = bucket[resolved]
+                row["score"] += points
+                row["events"][str(pair.get("event_type") or "touch")] += 1
+                if resolved != str(path).replace("\\", "/"):
+                    row["evidence"].append(f"identity_alias:{path}")
+                if len(row["evidence"]) < 5:
+                    row["evidence"].append(str(pair.get("subject") or pair.get("prompt") or "")[:140])
     if not bucket:
         for path, points, reason in _fallback_prompt_sim_targets(root):
             _add_candidate(bucket, path, points, reason)
@@ -763,6 +766,12 @@ def _proposal(
     dirty: set[str],
     config: dict[str, Any],
 ) -> dict[str, Any]:
+    alias_targets = _resolve_alias_targets(root, rel)
+    alias_from = ""
+    if alias_targets and alias_targets[0] != str(rel).replace("\\", "/"):
+        alias_from = str(rel).replace("\\", "/")
+        rel = alias_targets[0]
+        data.setdefault("evidence", []).append(f"identity_alias:{alias_from}")
     path = root / rel
     validation = _cross_file_validation(root, rel, dirty)
     stem = _stem_key(rel)
@@ -798,6 +807,7 @@ def _proposal(
         "event_counts": dict(data["events"]),
         "evidence": data["evidence"][:5],
         "failure_memory": {"chronic_or_eternal": chronic},
+        "identity_alias": {"from": alias_from, "resolved": rel} if alias_from else {},
         "identity_growth": _identity_growth(compiled, rel, validation, interlink),
         "proposed_fix": _proposed_fix(compiled, rel, decision),
         "context_injection": _context_injection(compiled, rel, validation),
@@ -1257,9 +1267,12 @@ def _seed_paths(
                 seeds.append((path.relative_to(root).as_posix(), 0.9, "manifest_scope_file"))
     ctx = context_selection if isinstance(context_selection, dict) else (_load_json(root / "logs" / "context_selection.json") or {})
     for item in ctx.get("files", [])[:8]:
-        resolved = _resolve_stem(root, str(item.get("name", "")))
+        raw_name = str(item.get("name", ""))
+        resolved = _resolve_stem(root, raw_name)
         if resolved:
-            seeds.append((resolved, 1.2, "numeric_context_selection"))
+            seeds.append((resolved, 1.6, "numeric_context_selection"))
+        elif raw_name:
+            seeds.append((raw_name, 2.6, "numeric_context_selection_alias"))
     for item in (dead_summary.get("top_churn_files") or [])[:8]:
         churn_path = str(item.get("path", ""))
         seeds.append((churn_path, 0.35 if _source_candidate(churn_path) else 0.08, "top_churn_memory"))
@@ -1278,6 +1291,22 @@ def _add_candidate(bucket: dict[str, dict[str, Any]], path: str, points: float, 
     row["score"] += points
     if reason not in row["evidence"]:
         row["evidence"].append(reason)
+
+
+def _add_candidate_with_aliases(
+    root: Path,
+    bucket: dict[str, dict[str, Any]],
+    path: str,
+    points: float,
+    reason: str,
+) -> None:
+    targets = _resolve_alias_targets(root, path)
+    if not targets:
+        _add_candidate(bucket, path, points, reason)
+        return
+    for target in targets:
+        alias_reason = reason if target == str(path).replace("\\", "/") else f"identity_alias:{reason}"
+        _add_candidate(bucket, target, points, alias_reason)
 
 
 def _history_points(pair: dict[str, Any], tokens: set[str], scope: str) -> float:
@@ -1303,6 +1332,29 @@ def _candidate_sort_score(root: Path, path: str, data: dict[str, Any], tokens: s
     if not (root / path).exists():
         score -= 6.0
     return score
+
+
+def _resolve_alias_targets(root: Path, key: str) -> list[str]:
+    normalized = str(key or "").strip().replace("\\", "/")
+    if not normalized:
+        return []
+    aliases = _load_json(root / "logs" / "file_identity_aliases.json")
+    if not isinstance(aliases, dict):
+        return []
+    rows = aliases.get("aliases") or {}
+    if not isinstance(rows, dict):
+        return []
+    record = rows.get(normalized) or rows.get(normalized.lstrip("./"))
+    if not isinstance(record, dict):
+        return []
+    current = [
+        str(item).replace("\\", "/")
+        for item in (record.get("current_files") or [])
+        if str(item).strip()
+    ]
+    if not current and record.get("current_file"):
+        current = [str(record.get("current_file")).replace("\\", "/")]
+    return [item for item in dict.fromkeys(current) if (root / item).exists()]
 
 
 def _metadata_candidate(path: str, tokens: set[str]) -> bool:
@@ -1443,7 +1495,15 @@ def _load_failure_model(root: Path) -> dict[str, Any]:
 
 
 def _git_status(root: Path) -> set[str]:
-    result = subprocess.run(["git", "status", "--porcelain"], cwd=root, capture_output=True, text=True, check=False)
+    result = subprocess.run(
+        ["git", "-c", "core.quotePath=false", "status", "--porcelain"],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        check=False,
+    )
     dirty = set()
     for line in result.stdout.splitlines():
         if len(line) >= 4:
