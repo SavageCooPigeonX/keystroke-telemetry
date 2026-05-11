@@ -34,11 +34,11 @@ Python module in this folder. It is the single source of truth for:
 | 010 | audit_tc_completion.py | 82 | ✅ |  | _resolve, tc_context | Audit thought_completer on two buffer types: comedy vs code. | _resolve, tc_context |
 | 011 | bootstrap_scorecards.py | 85 | ✅ | ROOT, seed_rework(), seed_verification() | rework_scorecard, self_fix_verification | seed rework scorecard + self_fix verification log. | rework_scorecard, self_fix_verification |
 | 012 | bug_probe_hardcoded_import.py | 12 | ✅ | main() | _resolve | Intentional hardcoded-import probe for self-fix scanner verification. | _resolve |
-| 013 | build_file_bug_chat.py | 29 | ✅ | main() | file_bug_chat, root_sim_key_file, unified_manifest_state | Build operator/Opus chat comments for surfaced file bugs. |  |
-| 014 | build_opus_micro_pulse_runtime.py | 42 | ✅ | main() | opus_micro_pulse_runtime | Build the Opus micro-pulse runtime packet from prompt history or a prompt. |  |
-| 015 | build_prompt_context_packet.py | 60 | ✅ | main() | prompt_manifest_compiler, opus_micro_pulse_runtime, root_sim_key_file, cannon_execution_gate | Build the file-sim prompt packet before Codex/Copilot acts. | prompt_manifest_compiler |
-| 016 | build_root_sim_key_file.py | 25 | ✅ | main() | root_sim_key_file | Build ROOT_SIM_KEYS.md from the latest sim surfaces. |  |
-| 017 | check_cannon_gate.py | 41 | ✅ | main() | cannon_execution_gate | Check the repo-wide cannon gate before executor work. |  |
+| 013 | build_file_bug_chat.py | 29 | ✅ | main() | file_bug_chat, root_sim_key_file, unified_manifest_state | Build operator/Opus chat comments for surfaced file bugs. | file_bug_chat, root_sim_key_file, unified_manifest_state |
+| 014 | build_opus_micro_pulse_runtime.py | 42 | ✅ | main() | opus_micro_pulse_runtime | Build the Opus micro-pulse runtime packet from prompt history or a prompt. | opus_micro_pulse_runtime |
+| 015 | build_prompt_context_packet.py | 60 | ✅ | main() | prompt_manifest_compiler, opus_micro_pulse_runtime, root_sim_key_file, cannon_execution_gate | Build the file-sim prompt packet before Codex/Copilot acts. | prompt_manifest_compiler, opus_micro_pulse_runtime, root_sim_key_file, cannon_execution_gate |
+| 016 | build_root_sim_key_file.py | 25 | ✅ | main() | root_sim_key_file | Build ROOT_SIM_KEYS.md from the latest sim surfaces. | root_sim_key_file |
+| 017 | check_cannon_gate.py | 41 | ✅ | main() | cannon_execution_gate | Check the repo-wide cannon gate before executor work. | cannon_execution_gate |
 | 018 | compile_task_profiles.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for scripts/compile_task_profiles.py. | pigeon_legacy_loader |
 | 019 | deep_debug_tc.py | 137 | ✅ |  | tc_grader, _resolve, tc_constants, tc_context +1 | Deep debug pass on thought_completer. | tc_grader, _resolve, tc_constants, tc_context +1 |
 | 020 | generate_intent_tests.py | 100 | ✅ | ROOT, TASK_QUEUE, OUT_DIR, TEMPLATE, main() |  | scaffold failing tests for every pending task_queue item. |  |
@@ -56,7 +56,7 @@ Python module in this folder. It is the single source of truth for:
 | 032 | seal_master_test.py | 31 | ✅ | ROOT, TARGET, SHA_FILE, main() |  | compute SHA of src/master_test.py and write to .master_test_sha. |  |
 | 033 | shrink_pass.py | 181 | ✅ | ROOT, SCAN_PATTERNS, BASELINE, REPORT, BUDGET +2 |  | enforce "every push the files should shrink". |  |
 | 034 | simulate_tc_training.py | 79 | ✅ |  | _resolve, tc_context | Simulate thought_completer training accelerator. | _resolve, tc_context |
-| 035 | surface_file_bugs_to_manifest.py | 36 | ✅ | main() | file_bug_surface, file_bug_chat, root_sim_key_file, unified_manifest_state +1 | Run stale checks and surface file bugs into manifest state. |  |
+| 035 | surface_file_bugs_to_manifest.py | 36 | ✅ | main() | file_bug_surface, file_bug_chat, root_sim_key_file, unified_manifest_state +1 | Run stale checks and surface file bugs into manifest state. | file_bug_surface, file_bug_chat, root_sim_key_file, unified_manifest_state +1 |
 | 036 | tc_benchmark.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for scripts/tc_benchmark.py. | pigeon_legacy_loader |
 | 037 | tc_injection_test.py | 131 | ✅ | ROOT, PASS, FAIL, check() | _resolve, tc_context | verify the numeric surface fires and injects relevant files. | _resolve, tc_context |
 

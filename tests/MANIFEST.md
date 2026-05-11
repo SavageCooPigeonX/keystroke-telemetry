@@ -22,19 +22,19 @@ Python module in this folder. It is the single source of truth for:
 
 | Seq | File | Lines | Status | Exports | Deps | Description | Notes |
 |-----|------|------:|--------|---------|------|-------------|-------|
-| 001 | test_cannon_execution_gate.py | 56 | ✅ | CannonExecutionGateTests | cannon_execution_gate, opus_micro_pulse_runtime | Test cannon execution gate |  |
-| 002 | test_file_bug_chat.py | 54 | ✅ | FileBugChatTests | file_bug_chat, unified_manifest_state | Test file bug chat |  |
-| 003 | test_file_bug_surface.py | 57 | ✅ | FileBugSurfaceTests | file_bug_surface, unified_manifest_state | Test file bug surface |  |
-| 004 | test_folder_context_coupling.py | 48 | ✅ | FolderContextCouplingTests | folder_context_coupling | Test folder context coupling |  |
-| 005 | test_manifest_state_cycle.py | 33 | ✅ | ManifestStateCycleTests | manifest_state_cycle | Test manifest state cycle |  |
-| 006 | test_manifest_state_protocol.py | 49 | ✅ | ManifestStateProtocolTests | manifest_state_protocol | Test manifest state protocol |  |
-| 007 | test_manifest_syntax_matcher.py | 28 | ✅ | ManifestSyntaxMatcherTests | manifest_syntax_matcher | Test manifest syntax matcher |  |
-| 008 | test_numeric_surface_normalization.py | 115 | ✅ | NumericSurfaceNormalizationTests | _resolve | Test numeric surface normalization |  |
-| 009 | test_operator_syntax_triggers.py | 69 | ✅ | OperatorSyntaxTriggerTests | operator_syntax_triggers | Test operator syntax triggers |  |
-| 010 | test_opus_micro_pulse_runtime.py | 106 | ✅ | OpusMicroPulseRuntimeTests | opus_micro_pulse_runtime | Test opus micro pulse runtime |  |
-| 011 | test_prompt_manifest_compiler.py | 79 | ✅ | PromptManifestCompilerTests | prompt_manifest_compiler | Test prompt manifest compiler |  |
-| 012 | test_root_sim_key_file.py | 58 | ✅ | RootSimKeyFileTests | root_sim_key_file | Test root sim key file |  |
-| 013 | test_unified_manifest_state.py | 66 | ✅ | UnifiedManifestStateTests | unified_manifest_state | Test unified manifest state |  |
+| 001 | test_cannon_execution_gate.py | 56 | ✅ | CannonExecutionGateTests | cannon_execution_gate, opus_micro_pulse_runtime | Test cannon execution gate | cannon_execution_gate, opus_micro_pulse_runtime |
+| 002 | test_file_bug_chat.py | 54 | ✅ | FileBugChatTests | file_bug_chat, unified_manifest_state | Test file bug chat | file_bug_chat, unified_manifest_state |
+| 003 | test_file_bug_surface.py | 57 | ✅ | FileBugSurfaceTests | file_bug_surface, unified_manifest_state | Test file bug surface | file_bug_surface, unified_manifest_state |
+| 004 | test_folder_context_coupling.py | 48 | ✅ | FolderContextCouplingTests | folder_context_coupling | Test folder context coupling | folder_context_coupling |
+| 005 | test_manifest_state_cycle.py | 33 | ✅ | ManifestStateCycleTests | manifest_state_cycle | Test manifest state cycle | manifest_state_cycle |
+| 006 | test_manifest_state_protocol.py | 49 | ✅ | ManifestStateProtocolTests | manifest_state_protocol | Test manifest state protocol | manifest_state_protocol |
+| 007 | test_manifest_syntax_matcher.py | 28 | ✅ | ManifestSyntaxMatcherTests | manifest_syntax_matcher | Test manifest syntax matcher | manifest_syntax_matcher |
+| 008 | test_numeric_surface_normalization.py | 115 | ✅ | NumericSurfaceNormalizationTests | _resolve | Test numeric surface normalization | _resolve |
+| 009 | test_operator_syntax_triggers.py | 69 | ✅ | OperatorSyntaxTriggerTests | operator_syntax_triggers | Test operator syntax triggers | operator_syntax_triggers |
+| 010 | test_opus_micro_pulse_runtime.py | 106 | ✅ | OpusMicroPulseRuntimeTests | opus_micro_pulse_runtime | Test opus micro pulse runtime | opus_micro_pulse_runtime |
+| 011 | test_prompt_manifest_compiler.py | 79 | ✅ | PromptManifestCompilerTests | prompt_manifest_compiler | Test prompt manifest compiler | prompt_manifest_compiler |
+| 012 | test_root_sim_key_file.py | 58 | ✅ | RootSimKeyFileTests | root_sim_key_file | Test root sim key file | root_sim_key_file |
+| 013 | test_unified_manifest_state.py | 66 | ✅ | UnifiedManifestStateTests | unified_manifest_state | Test unified manifest state | unified_manifest_state |
 
 ## Health
 - **Files:** 13 | **Compliant:** 13/13 (100%)
