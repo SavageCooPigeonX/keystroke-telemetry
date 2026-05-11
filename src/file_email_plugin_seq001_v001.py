@@ -4,6 +4,13 @@ Files can write local email dispatches when they are touched or selected by
 the file-sim compiler. This module does not send SMTP. It writes an outbox
 that a later LinkRouter/email pipeline can deliver.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 
 import html
@@ -18,6 +25,7 @@ from pathlib import Path
 from typing import Any
 import urllib.error
 import urllib.request
+from src._resolve import src_import
 
 SCHEMA = "file_email/v1"
 DEFAULT_CONFIG = {
@@ -716,7 +724,7 @@ def _response_policy_snapshot(root: Path, event: dict[str, Any], surface: str = 
         if event.get(key)
     ).strip()
     try:
-        from src.operator_response_policy_seq001_v001 import build_operator_response_policy
+        build_operator_response_policy = src_import("operator_response_policy_seq001", "build_operator_response_policy")
         policy = build_operator_response_policy(
             root,
             prompt=prompt,

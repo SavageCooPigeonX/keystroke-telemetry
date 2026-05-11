@@ -53,7 +53,7 @@ def auto_compile_oversized(
 
     results = []
     try:
-        from pigeon_compiler.runners.净拆f_rcs_s010_v006_d0322_译测编深划_λW import run as _run_split
+        from pigeon_compiler.runners.净拆f_rcs_s010_v007_d0510_译测编深划_λTL_βoc import run as _run_split
     except ImportError:
         # glob-safe fallback import
         import importlib.util

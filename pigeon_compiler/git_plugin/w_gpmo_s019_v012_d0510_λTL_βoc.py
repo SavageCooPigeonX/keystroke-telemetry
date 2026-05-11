@@ -1,9 +1,9 @@
 # ── pigeon ────────────────────────────────────
-# SEQ: 019 | VER: v011 | 635 lines | ~6,982 tokens
+# SEQ: 019 | VER: v012 | 731 lines | ~8,298 tokens
 # DESC:   pigeon_extracted_by_compiler
-# INTENT: chore_pigeon_rename_cascade
-# LAST:   2026-04-20 @ c61fc91
-# SESSIONS: 9
+# INTENT: feat_bind_keystroke_telemetry
+# LAST:   2026-05-10 @ 776858d
+# SESSIONS: 1
 # ──────────────────────────────────────────────
 """git_plugin_main_orchestrator_seq019_v001.py — Pigeon-extracted by compiler."""
 from datetime import datetime, timezone
@@ -100,6 +100,23 @@ def _load_dotenv(root: Path) -> None:
         val = val.strip().strip('"').strip("'")
         if key and key not in os.environ:
             os.environ[key] = val
+
+
+def _run_post_push_outcome_binder(root: Path) -> None:
+    """Bind the commit outcome back to file comments and run rename/import guard."""
+    try:
+        from src import intent_outcome_binder_seq001_v002_d0510__closes_the_intent_outcome_loop_lc_feat_bind_keystroke_telemetry as binder
+        result = binder.bind_commit(root, 'HEAD')
+        if result.get('skipped'):
+            return
+        rename = result.get('rename_engine') or {}
+        imports = rename.get('import_validation') or {}
+        outcome = result.get('outcome_binding') or {}
+        print(f'  outcome binder: {outcome.get("outcomes", 0)} outcome(s), '
+              f'rename_fired={rename.get("fired", False)} '
+              f'imports_valid={imports.get("valid", False)}')
+    except Exception as e:
+        print(f'  outcome binder: {e}')
 
 
 def run():
@@ -256,6 +273,7 @@ def run():
                   f'{len(all_changed_code)} non-pigeon file(s)')
             _run_post_commit_extras(root, intent, h, all_changed_code,
                                     registry, msg)
+            _run_post_push_outcome_binder(root)
         return
 
     print(f'\n🐦 Pigeon Git Plugin: {len(renames)} rename(s), '
@@ -504,6 +522,7 @@ def run():
     _run_post_commit_extras(root, intent, h, all_changed_code, registry, msg,
                             renames=renames, box_only=box_only,
                             cross_context=cross_context)
+    _run_post_push_outcome_binder(root)
 
     # Unified Copilot prompt management — ensure all managed prompt blocks and audits stay in sync
     try:

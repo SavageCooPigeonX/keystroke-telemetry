@@ -13,6 +13,13 @@ as "here are the things most likely to break if you touch this file".
 
 No LLM calls — pure AST/text analysis. Deterministic. ~<100ms per target.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 import ast
 import json

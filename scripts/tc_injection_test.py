@@ -77,7 +77,7 @@ if 'src' not in sys.modules:
     pkg.__package__ = 'src'
     sys.modules['src'] = pkg
 
-from src.tc_context_seq001_v001_seq001_v001_agent_seq001_v001_seq001_v001 import select_context_numeric, select_context_ensemble, select_context_files
+from src.tc_context_seq001_v001 import select_context_numeric, select_context_ensemble, select_context_files
 select_context = select_context_ensemble
 
 ctx = {'unsaid_threads': []}

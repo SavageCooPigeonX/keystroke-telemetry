@@ -9,6 +9,7 @@
 # ──────────────────────────────────────────────
 from pathlib import Path
 import re
+from .p_谱msvd观λc_s001_v001 import SKIP_DIRS
 
 def _should_skip(py: Path, root: Path) -> bool:
     parts = py.relative_to(root).parts

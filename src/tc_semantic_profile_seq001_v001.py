@@ -4,6 +4,13 @@ This layer is deliberately local and deterministic. It records what the
 operator appeared to do with a prompt, updates durable profile facts, and
 returns a compact numeric signature that other prompt routers can match.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 
 import hashlib
