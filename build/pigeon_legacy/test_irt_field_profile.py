@@ -4,6 +4,8 @@ from pathlib import Path
 from src.irt_field_profile_seq001_v001 import (
     analyze_transcription_against_profile,
     apply_intent_resolutions,
+    audit_irt_evidence_packet,
+    build_irt_evidence_packet,
     build_irt_profile,
     chunk_transcript,
     probe_artifact_for_intent_keys,
@@ -149,6 +151,27 @@ def test_artifact_probe_emits_candidate_intent_keys_from_irt_evidence():
     assert "legacy_continuity" in keys
     assert "base_consolidation" in keys
     assert all(item["implied_trajectory"] for item in probe["candidate_intent_keys"])
+
+
+def test_irt_evidence_packet_is_stage_only_until_auditor_accepts():
+    root = _root()
+    artifact = {
+        "artifact_id": "artifact-stage-a",
+        "text": "Erika Kirk announced the movement should carry his legacy together. https://example.com/source",
+        "timestamp": "2026-05-01T00:00:00+00:00",
+    }
+
+    packet = build_irt_evidence_packet(root, artifact, {"label": "news_probe", "source_type": "news"})
+    decision = audit_irt_evidence_packet(packet, accept_threshold=0.6)
+
+    assert packet["schema"] == "irt_evidence_packet/v1"
+    assert packet["stage_only"] is True
+    assert packet["canonical_entity_guess"]
+    assert packet["candidate_intent_keys"]
+    assert packet["source_links"][0]["url"] == "https://example.com/source"
+    assert decision["schema"] == "irt_auditor_decision/v1"
+    assert decision["durable_profile_mutated"] is False
+    assert decision["decisions"]
 
 
 def test_existing_profile_keys_are_reinforced_by_matching_artifact():

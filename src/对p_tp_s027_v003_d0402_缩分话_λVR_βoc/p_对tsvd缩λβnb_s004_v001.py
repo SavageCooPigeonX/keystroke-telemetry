@@ -2,6 +2,8 @@
 from pathlib import Path
 import re
 
+from .p_对tsvd缩λβu_s001_v001 import _summarize_text
+
 def _build_work_note(edit_pair: dict, copilot_intent: dict) -> str:
     parts = []
     edit_why = str(edit_pair.get('edit_why', '')).strip()

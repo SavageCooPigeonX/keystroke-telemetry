@@ -1378,10 +1378,214 @@ def _utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
+def build_irt_evidence_packet(
+    root: Path,
+    artifact: dict[str, Any],
+    source_meta: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Extract stage-only IRT evidence without mutating durable profile memory."""
+    root = Path(root)
+    source_meta = dict(source_meta or {})
+    text = str(artifact.get("text") or "")
+    raw_entities = _extract_entities(text)
+    entities = [_entity_candidate(name, text) for name in raw_entities]
+    themes = _classify_themes(text, {"semantic_intents": []})
+    normalized = {
+        "artifact_id": str(artifact.get("artifact_id") or artifact.get("chunk_id") or "artifact-" + _hash(text)[:12]),
+        "text": text,
+        "entities": [{"canonical": item["canonical"], "type": item["type"]} for item in entities],
+        "themes": themes,
+        "semantic": artifact.get("semantic") if isinstance(artifact.get("semantic"), dict) else {},
+        "timestamp": artifact.get("timestamp") or artifact.get("start_ts") or artifact.get("ts") or _utc_now(),
+    }
+    candidate_keys = _extract_candidate_intent_keys(normalized)
+    confidence = _packet_confidence(entities, candidate_keys, themes)
+    source_links = _source_links(text, artifact, source_meta)
+    packet = {
+        "schema": "irt_evidence_packet/v1",
+        "mode": "stage_only",
+        "stage_only": True,
+        "packet_id": "irt-evidence-" + _hash(json.dumps(normalized, sort_keys=True))[:16],
+        "created_at": _utc_now(),
+        "canonical_entity_guess": _canonical_guess(entities),
+        "aliases": _aliases(entities),
+        "associated_accounts": _associated_accounts(text),
+        "source_links": source_links,
+        "source_type": source_meta.get("source_type") or artifact.get("source_type") or "artifact",
+        "extracted_people": [item["canonical"] for item in entities if item["type"] == "person"],
+        "extracted_orgs": [item["canonical"] for item in entities if item["type"] == "organization"],
+        "extracted_events": _event_candidates(text, normalized["timestamp"]),
+        "network_edge_candidates": _network_edges(entities, candidate_keys),
+        "timeline_candidates": _timeline_candidates(candidate_keys, normalized["timestamp"]),
+        "confidence": confidence,
+        "provenance": {
+            "source_label": source_meta.get("label") or source_meta.get("source_label") or "",
+            "artifact_id": normalized["artifact_id"],
+            "method": "deterministic_irt_stage_only_v1",
+        },
+        "dedup_keys": _dedup_keys(normalized, entities, candidate_keys),
+        "recommended_audit_probes": _recommended_audit_probes(entities, candidate_keys, confidence),
+        "retrieval_source_context_hash": _hash("|".join([text, json.dumps(source_meta, sort_keys=True)]))[:24],
+        "artifact": normalized,
+        "candidate_intent_keys": candidate_keys,
+    }
+    return packet
+
+
+def audit_irt_evidence_packet(
+    packet: dict[str, Any],
+    existing_profile: dict[str, Any] | None = None,
+    accept_threshold: float = 0.72,
+) -> dict[str, Any]:
+    """Auditor gate for staged IRT output; returns decisions, not profile writes."""
+    existing_profile = existing_profile or {}
+    candidate_keys = list(packet.get("candidate_intent_keys") or [])
+    active = ((existing_profile.get("artifact_probe_state") or {}).get("active_intent_keys") or {})
+    decisions = []
+    for candidate in candidate_keys:
+        key = str(candidate.get("key") or "unknown_intent")
+        conf = _coerce_probability(candidate.get("confidence"), default=float(packet.get("confidence") or 0.0))
+        if key in active:
+            decision = "duplicate_entity_or_event"
+        elif conf >= accept_threshold:
+            decision = "accepted_into_profile"
+        elif conf >= 0.45:
+            decision = "needs_more_probe"
+        else:
+            decision = "rejected_noise"
+        decisions.append({
+            "candidate_key": key,
+            "decision": decision,
+            "confidence": round(conf, 4),
+            "provenance": packet.get("provenance", {}),
+        })
+    if not decisions:
+        decisions.append({
+            "candidate_key": "unknown_intent",
+            "decision": "needs_more_probe",
+            "confidence": round(float(packet.get("confidence") or 0.0), 4),
+            "provenance": packet.get("provenance", {}),
+        })
+    return {
+        "schema": "irt_auditor_decision/v1",
+        "packet_id": packet.get("packet_id", ""),
+        "stage_only": True,
+        "durable_profile_mutated": False,
+        "decisions": decisions,
+        "accepted_count": len([item for item in decisions if item["decision"] == "accepted_into_profile"]),
+        "probe_queue": [
+            probe for probe in packet.get("recommended_audit_probes") or []
+            if any(item["decision"] == "needs_more_probe" for item in decisions)
+        ],
+    }
+
+
+def _entity_candidate(name: str, text: str) -> dict[str, Any]:
+    return {
+        "canonical": _resolve_entity({}, name),
+        "type": _entity_type(_resolve_entity({}, name)),
+        "aliases": [name] if name != _resolve_entity({}, name) else [],
+        "evidence": _snippet(text, name),
+    }
+
+
+def _canonical_guess(entities: list[dict[str, Any]]) -> str:
+    if not entities:
+        return ""
+    ranked = sorted(entities, key=lambda item: (item["type"] != "person", item["canonical"]))
+    return ranked[0]["canonical"]
+
+
+def _aliases(entities: list[dict[str, Any]]) -> list[str]:
+    out = []
+    for item in entities:
+        out.extend(item.get("aliases") or [])
+    return list(dict.fromkeys(out))[:12]
+
+
+def _associated_accounts(text: str) -> list[str]:
+    return list(dict.fromkeys(re.findall(r"@[A-Za-z0-9_]{2,32}", text)))[:12]
+
+
+def _source_links(text: str, artifact: dict[str, Any], source_meta: dict[str, Any]) -> list[dict[str, str]]:
+    urls = list(re.findall(r"https?://[^\s)>\"]+", text))
+    explicit = artifact.get("source_url") or source_meta.get("source_url")
+    if explicit:
+        urls.insert(0, str(explicit))
+    return [{"url": url.rstrip(".,;"), "source_type": str(source_meta.get("source_type") or "artifact")} for url in list(dict.fromkeys(urls))[:12]]
+
+
+def _event_candidates(text: str, timestamp: str) -> list[dict[str, Any]]:
+    event_words = {"launch", "announced", "filed", "released", "appointed", "resigned", "endorsed", "acquired"}
+    sentences = re.split(r"(?<=[.!?])\s+", text)
+    events = []
+    for sentence in sentences:
+        toks = set(_tokens(sentence))
+        if toks & event_words:
+            events.append({"summary": sentence[:220], "timestamp": timestamp, "confidence": 0.64})
+    return events[:8]
+
+
+def _network_edges(entities: list[dict[str, Any]], candidate_keys: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    names = [item["canonical"] for item in entities]
+    edges = []
+    for left in names:
+        for right in names:
+            if left < right:
+                edges.append({"from": left, "to": right, "relation": "co_mentioned", "confidence": 0.55})
+    for candidate in candidate_keys:
+        entity = str(candidate.get("entity") or "")
+        key = str(candidate.get("key") or "")
+        if entity and key:
+            edges.append({"from": entity, "to": key, "relation": "implies_intent_key", "confidence": candidate.get("confidence", 0.0)})
+    return edges[:16]
+
+
+def _timeline_candidates(candidate_keys: list[dict[str, Any]], timestamp: str) -> list[dict[str, Any]]:
+    return [
+        {
+            "timestamp": timestamp,
+            "intent_key": item.get("key", ""),
+            "summary": item.get("implied_trajectory", ""),
+            "confidence": item.get("confidence", 0.0),
+        }
+        for item in candidate_keys[:12]
+    ]
+
+
+def _dedup_keys(normalized: dict[str, Any], entities: list[dict[str, Any]], candidate_keys: list[dict[str, Any]]) -> list[str]:
+    seeds = [normalized.get("artifact_id", "")]
+    seeds.extend(item["canonical"] for item in entities)
+    seeds.extend(item.get("key", "") for item in candidate_keys)
+    return ["irt-dedup-" + _hash(seed)[:14] for seed in seeds if seed][:20]
+
+
+def _recommended_audit_probes(entities: list[dict[str, Any]], candidate_keys: list[dict[str, Any]], confidence: float) -> list[str]:
+    probes = []
+    if not entities:
+        probes.append("Which canonical entity should this artifact attach to?")
+    if not candidate_keys:
+        probes.append("What implied trajectory or intent key is present in this artifact?")
+    if confidence < 0.72:
+        probes.append("Find corroborating source context before profile memory accepts this lead.")
+    for item in candidate_keys[:4]:
+        probes.append(_probe_question("intent_key_resolution", str(item.get("key") or "unknown_intent")))
+    return list(dict.fromkeys(probes))[:10]
+
+
+def _packet_confidence(entities: list[dict[str, Any]], candidate_keys: list[dict[str, Any]], themes: list[str]) -> float:
+    entity_score = min(0.3, len(entities) * 0.08)
+    key_score = max([float(item.get("confidence") or 0.0) for item in candidate_keys] or [0.0]) * 0.55
+    theme_score = 0.15 if themes and themes != ["unknown"] else 0.0
+    return round(min(0.99, entity_score + key_score + theme_score), 4)
+
+
 __all__ = [
     "analyze_transcription_against_profile",
     "apply_intent_resolutions",
+    "audit_irt_evidence_packet",
     "build_irt_profile",
+    "build_irt_evidence_packet",
     "chunk_transcript",
     "emit_hush_pulse",
     "probe_artifact_for_intent_keys",

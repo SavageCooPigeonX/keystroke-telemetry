@@ -432,3 +432,247 @@
 - refresh file council jobs per prompt so old councils stop cosplaying as current intelligence
 
 <!-- /manifest:global-file-sim-stage -->
+
+<!-- manifest:folder-unified-state -->
+## Folder Unified State
+
+- state_doc: `MANIFEST.md`
+- write_authority: `own_folder_manifest_only`
+- read_authority: `selected_manifest_read_only`
+- changed_files_in_scope: `53`
+
+### Local Files Learning Here
+
+| File | Observations | Learned Trigger Sample |
+|---|---:|---|
+| `src/ai_fingerprint_operator_seq001_v001.py` | 58 | across, act, allowed, assembled, audits, before, block, brain |
+| `src/intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade.py` | 58 | across, act, allowed, assembled, audits, before, block, brain |
+| `src/tc_buffer_watcher_seq001_v001.py` | 58 | across, act, allowed, assembled, audits, before, block, brain |
+| `src/tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade.py` | 58 | across, act, allowed, assembled, audits, before, block, brain |
+| `src/tc_prompt_composer_seq001_v001.py` | 58 | across, act, allowed, assembled, audits, before, block, brain |
+| `src/thought_completer.py` | 58 | across, act, allowed, assembled, audits, before, block, brain |
+| `src/tc_intent_manager_seq001_v001.py` | 9 | allowed, block, brain, build, cannon, canon, codex, complext |
+| `src/manifest_state_cycle_seq001_v001.py` | 9 | audits, build, coherence, compiler, context, couple, cycle, deepseek |
+| `src/tc_profile/p_tc_p_s009_v001_compiled/MANIFEST.md` | 7 | audits, compiled, encoding, extraction, file, files, intent, key |
+| `src/tc_profile/p_tpes_s003_v001_compiled/MANIFEST.md` | 7 | audits, compiled, encoding, extraction, file, files, intent, key |
+
+### Cross-Folder Manifests Read In Sim
+
+- `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/MANIFEST.md`
+- `build/pigeon_legacy/pigeon_brain/flow/MANIFEST.md`
+- `build/pigeon_legacy/src/MANIFEST.md`
+- `pigeon_compiler/integrations/MANIFEST.md`
+- `build/pigeon_legacy/scripts/MANIFEST.md`
+- `build/pigeon_legacy/MANIFEST.md`
+- `pigeon_brain/MANIFEST.md`
+- `pigeon_compiler/MANIFEST.md`
+- `pigeon_compiler/cut_executor/MANIFEST.md`
+- `pigeon_compiler/rename_engine/MANIFEST.md`
+- `pigeon_compiler/state_extractor/MANIFEST.md`
+- `pigeon_compiler/weakness_planner/MANIFEST.md`
+
+### Local Bug Chat
+
+- `logs/deepseek_prompt_results.jsonl` I keep getting touched because stale pipeline lane: deepseek_results. I am in this sim because I help closing DeepSeek job/result receipts. My evidence is age=3186.0m max=90m entries=37. My proposed fix is: verify queued DeepSeek jobs have receipts or mark them expired.
+  - coding_agent: Check `logs/deepseek_prompt_results.jsonl` through `logs_deepseek_prompt_results_jsonl:repair:stale_pipeline_lane_deepseek_results:p1`. Verify this evidence first: age=3186.0m max=90m entries=37. Then do: verify queued DeepSeek jobs have receipts or mark them expired. Keep the patch bounded and write the closeout receipt to the local manifest plus ROOT_SIM_KEYS.md.
+- `logs/deepseek_code_completion_jobs.jsonl` I keep getting touched because stale pipeline lane: code_completion_jobs. I am in this sim because I help closing DeepSeek job/result receipts. My evidence is age=10251.1m max=180m entries=61. My proposed fix is: close stale code job queue before creating more file jobs.
+  - coding_agent: Check `logs/deepseek_code_completion_jobs.jsonl` through `logs_deepseek_code_completion_jobs:repair:stale_pipeline_lane_code_completion:p1`. Verify this evidence first: age=10251.1m max=180m entries=61. Then do: close stale code job queue before creating more file jobs. Keep the patch bounded and write the closeout receipt to the local manifest plus ROOT_SIM_KEYS.md.
+- `logs/file_self_sim_learning_latest.json` I keep getting touched because stale pipeline lane: file_self_learning. I am in this sim because I help making file pressure visible to the master manifest. My evidence is age=2640.4m max=90m entries=1. My proposed fix is: rerun file self-learning so manifests reflect recent prompt behavior.
+  - coding_agent: Check `logs/file_self_sim_learning_latest.json` through `logs_file_self_sim_learning:repair:stale_pipeline_lane_file_self:p2`. Verify this evidence first: age=2640.4m max=90m entries=1. Then do: rerun file self-learning so manifests reflect recent prompt behavior. Keep the patch bounded and write the closeout receipt to the local manifest plus ROOT_SIM_KEYS.md.
+- `logs/edit_pairs.jsonl` I keep getting touched because stale pipeline lane: edit_pairs. I am in this sim because I help teaching prompts which edits actually happened. My evidence is age=5313.1m max=720m entries=79. My proposed fix is: regenerate prompt-to-edit pairs from git and prompt journal.
+  - coding_agent: Check `logs/edit_pairs.jsonl` through `logs_edit_pairs_jsonl:repair:stale_pipeline_lane_edit_pairs:p2`. Verify this evidence first: age=5313.1m max=720m entries=79. Then do: regenerate prompt-to-edit pairs from git and prompt journal. Keep the patch bounded and write the closeout receipt to the local manifest plus ROOT_SIM_KEYS.md.
+- `logs/operator_intent_888.json` I keep getting touched because weak cognitive probe coverage. I am in this sim because I help keeping operator intent labels usable. My evidence is unknown_ratio=0.579 coverage_gap=470. My proposed fix is: rebuild operator intent labels from prompt journal before trusting behavioral routing.
+  - coding_agent: Check `logs/operator_intent_888.json` through `logs_operator_intent_888_json:repair:weak_cognitive_probe_coverage:p1`. Verify this evidence first: unknown_ratio=0.579 coverage_gap=470. Then do: rebuild operator intent labels from prompt journal before trusting behavioral routing. Keep the patch bounded and write the closeout receipt to the local manifest plus ROOT_SIM_KEYS.md.
+- `codex_compat.py` I keep getting touched because file reports stale dependency pressure. I am in this sim because I help making file pressure visible to the master manifest. My evidence is I was stamping unknown cognition too often; prompt-text inference should now keep Codex probing from going blind. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. My proposed fix is: route file opinion into folder manifest and master bug queue.
+  - coding_agent: Check `codex_compat.py` through `codex_compat:repair:file_reports_stale_dependency_pressure:p2`. Verify this evidence first: I was stamping unknown cognition too often; prompt-text inference should now keep Codex probing from going blind. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. Then do: route file opinion into folder manifest and master bug queue. Keep the patch bounded and write the closeout receipt to the local manifest plus ROOT_SIM_KEYS.md.
+- `src/file_email_plugin_seq001_v001.py` I keep getting touched because file reports stale dependency pressure. I am in this sim because I help making file pressure visible to the master manifest. My evidence is I can mail opinions, but stale DeepSeek receipts make me sound like a witness without a closing argument. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. My proposed fix is: route file opinion into folder manifest and master bug queue.
+  - coding_agent: Check `src/file_email_plugin_seq001_v001.py` through `src_file_email_plugin_seq001:repair:file_reports_stale_dependency_pressure:p2`. Verify this evidence first: I can mail opinions, but stale DeepSeek receipts make me sound like a witness without a closing argument. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. Then do: route file opinion into folder manifest and master bug queue. Keep the patch bounded and write the closeout receipt to the local manifest plus ROOT_SIM_KEYS.md.
+- `src/deepseek_daemon_seq001_v001.py` I keep getting touched because file reports stale dependency pressure. I am in this sim because I help closing DeepSeek job/result receipts. My evidence is I need the hourly runner to stop timing me out; current hourly status is ran. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. My proposed fix is: route file opinion into folder manifest and master bug queue.
+  - coding_agent: Check `src/deepseek_daemon_seq001_v001.py` through `src_deepseek_daemon_seq001_v001:repair:file_reports_stale_dependency_pressure:p2`. Verify this evidence first: I need the hourly runner to stop timing me out; current hourly status is ran. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. Then do: route file opinion into folder manifest and master bug queue. Keep the patch bounded and write the closeout receipt to the local manifest plus ROOT_SIM_KEYS.md.
+
+### Live Sim Call Receipts
+
+- `codex_compat.py` kind=bug_chat attention=bug_chat :: file reports stale dependency pressure
+- `logs/dead_stale_code_audit_latest.json` kind=bug_chat attention=bug_chat :: dead/stale code audit has unresolved findings
+- `logs/deepseek_code_completion_jobs.jsonl` kind=bug_chat attention=bug_chat :: stale pipeline lane: code_completion_jobs
+- `logs/deepseek_prompt_results.jsonl` kind=bug_chat attention=bug_chat :: stale pipeline lane: deepseek_results
+- `logs/edit_pairs.jsonl` kind=bug_chat attention=not_selected :: stale pipeline lane: edit_pairs
+- `logs/file_self_sim_learning_latest.json` kind=bug_chat attention=not_selected :: stale pipeline lane: file_self_learning
+- `logs/operator_intent_888.json` kind=bug_chat attention=not_selected :: weak cognitive probe coverage
+- `logs/pigeon_compliance_push_latest.json` kind=bug_chat attention=not_selected :: compiler saw compliance warning pressure
+- `src/batch_rewrite_sim_seq001_v001.py` kind=bug_chat attention=not_selected :: file reports stale dependency pressure
+- `src/copilot_probe_push_cycle_seq001_v001.py` kind=bug_chat attention=not_selected :: file reports stale dependency pressure
+- `src/deepseek_daemon_seq001_v001.py` kind=bug_chat attention=not_selected :: file reports stale dependency pressure
+- `src/file_email_plugin_seq001_v001.py` kind=bug_chat attention=not_selected :: file reports stale dependency pressure
+
+### Local Write Queue
+
+- `codex_compat.py` -> `MANIFEST.md`
+- `logs/dead_stale_code_audit_latest.json` -> `MANIFEST.md`
+- `logs/deepseek_code_completion_jobs.jsonl` -> `MANIFEST.md`
+- `logs/deepseek_prompt_results.jsonl` -> `MANIFEST.md`
+- `logs/edit_pairs.jsonl` -> `MANIFEST.md`
+- `logs/file_self_sim_learning_latest.json` -> `MANIFEST.md`
+- `logs/operator_intent_888.json` -> `MANIFEST.md`
+- `logs/pigeon_compliance_push_latest.json` -> `MANIFEST.md`
+- `src/batch_rewrite_sim_seq001_v001.py` -> `MANIFEST.md`
+- `src/copilot_probe_push_cycle_seq001_v001.py` -> `MANIFEST.md`
+- `src/deepseek_daemon_seq001_v001.py` -> `MANIFEST.md`
+- `src/file_email_plugin_seq001_v001.py` -> `MANIFEST.md`
+<!-- /manifest:folder-unified-state -->
+
+<!-- manifest:master-persistent-state -->
+## Master Persistent State
+
+- state_doc: `MANIFEST.md`
+- role: `opus_master_manifest_project_structure_and_persistent_state`
+- folder_state_contract: `each folder writes one MANIFEST.md`
+- latest_prompt_hash: `3d59c2fd6f5265a8`
+- manifest_gate: `manifest_context_loaded`
+
+### Project Structure
+
+| Folder | Manifest | Changed In Scope |
+|---|---|---:|
+| `build/pigeon_legacy` | `build/pigeon_legacy/MANIFEST.md` | 0 |
+| `build/pigeon_legacy/pigeon_brain/flow` | `build/pigeon_legacy/pigeon_brain/flow/MANIFEST.md` | 0 |
+| `build/pigeon_legacy/pigeon_brain` | `build/pigeon_legacy/pigeon_brain/MANIFEST.md` | 0 |
+| `build/pigeon_legacy/pigeon_compiler` | `build/pigeon_legacy/pigeon_compiler/MANIFEST.md` | 0 |
+| `build/pigeon_legacy/scripts` | `build/pigeon_legacy/scripts/MANIFEST.md` | 0 |
+| `build/pigeon_legacy/src` | `build/pigeon_legacy/src/MANIFEST.md` | 0 |
+| `client` | `client/MANIFEST.md` | 0 |
+| `logs` | `logs/MANIFEST.md` | 7 |
+| `.` | `MANIFEST.md` | 53 |
+| `pigeon_brain/flow/_resolve` | `pigeon_brain/flow/_resolve/MANIFEST.md` | 0 |
+| `pigeon_brain/flow/backward_seq007` | `pigeon_brain/flow/backward_seq007/MANIFEST.md` | 0 |
+| `pigeon_brain/flow/learning_loop_seq013` | `pigeon_brain/flow/learning_loop_seq013/MANIFEST.md` | 0 |
+| `pigeon_brain/flow` | `pigeon_brain/flow/MANIFEST.md` | 0 |
+| `pigeon_brain/flow/node_memory_seq008` | `pigeon_brain/flow/node_memory_seq008/MANIFEST.md` | 0 |
+| `pigeon_brain/flow/prediction_scorer_seq014` | `pigeon_brain/flow/prediction_scorer_seq014/MANIFEST.md` | 0 |
+| `pigeon_brain/flow/predictor_seq009` | `pigeon_brain/flow/predictor_seq009/MANIFEST.md` | 0 |
+| `pigeon_brain/flow/分f_dvp_s010_v002_d0328_唤脉运观_λR` | `pigeon_brain/flow/分f_dvp_s010_v002_d0328_唤脉运观_λR/MANIFEST.md` | 0 |
+| `pigeon_brain/flow/分f_dvp_s010_v003_d0328_唤脉运观_λR` | `pigeon_brain/flow/分f_dvp_s010_v003_d0328_唤脉运观_λR/MANIFEST.md` | 0 |
+| `pigeon_brain/flow/分f_dvp_s010_v004_d0327_唤脉运观_λγ` | `pigeon_brain/flow/分f_dvp_s010_v004_d0327_唤脉运观_λγ/MANIFEST.md` | 0 |
+| `pigeon_brain/flow/包p_cpk_s001_v002_d0324_缩分话_λε` | `pigeon_brain/flow/包p_cpk_s001_v002_d0324_缩分话_λε/MANIFEST.md` | 0 |
+| `pigeon_brain/flow/唤w_noaw_s002_v003_d0401_脉运分话_λA` | `pigeon_brain/flow/唤w_noaw_s002_v003_d0401_脉运分话_λA/MANIFEST.md` | 0 |
+| `pigeon_brain/flow/脉运w_vt_s006_v003_d0401_唤分话_λA` | `pigeon_brain/flow/脉运w_vt_s006_v003_d0401_唤分话_λA/MANIFEST.md` | 0 |
+| `pigeon_brain/flow/虫f_bdm_s015_v001_d0410_λFT` | `pigeon_brain/flow/虫f_bdm_s015_v001_d0410_λFT/MANIFEST.md` | 0 |
+| `pigeon_brain/flow/读f_fi_s016_v001_d0410_λFT` | `pigeon_brain/flow/读f_fi_s016_v001_d0410_λFT/MANIFEST.md` | 0 |
+| `pigeon_brain` | `pigeon_brain/MANIFEST.md` | 0 |
+| `pigeon_brain/仿f_dsm_s010_v002_d0323_缩分话_λP` | `pigeon_brain/仿f_dsm_s010_v002_d0323_缩分话_λP/MANIFEST.md` | 0 |
+| `pigeon_brain/双f_dsb_s008_v002_d0323_缩分话_λP` | `pigeon_brain/双f_dsb_s008_v002_d0323_缩分话_λP/MANIFEST.md` | 0 |
+| `pigeon_brain/型p_mo_s001_v002_d0323_读唤任_λP` | `pigeon_brain/型p_mo_s001_v002_d0323_读唤任_λP/MANIFEST.md` | 0 |
+| `pigeon_brain/描p_ghm_s004_v002_d0323_缩环检意_λP` | `pigeon_brain/描p_ghm_s004_v002_d0323_缩环检意_λP/MANIFEST.md` | 0 |
+| `pigeon_brain/环检p_ld_s005_v002_d0323_缩描意_λP` | `pigeon_brain/环检p_ld_s005_v002_d0323_缩描意_λP/MANIFEST.md` | 0 |
+| `pigeon_brain/缩p_fdt_s006_v002_d0323_描环检意_λP` | `pigeon_brain/缩p_fdt_s006_v002_d0323_描环检意_λP/MANIFEST.md` | 0 |
+| `pigeon_brain/观f_os_s007_v003_d0401_读谱建册_λA` | `pigeon_brain/观f_os_s007_v003_d0401_读谱建册_λA/MANIFEST.md` | 0 |
+| `pigeon_brain/跑f_tr_s013_v002_d0323_缩分话_λP` | `pigeon_brain/跑f_tr_s013_v002_d0323_缩分话_λP/MANIFEST.md` | 0 |
+| `pigeon_brain/钩w_th_s011_v002_d0323_缩分话_λP` | `pigeon_brain/钩w_th_s011_v002_d0323_缩分话_λP/MANIFEST.md` | 0 |
+| `pigeon_compiler/cut_executor` | `pigeon_compiler/cut_executor/MANIFEST.md` | 1 |
+| `pigeon_compiler/cut_executor/织f_cdp_s013_v002_d0322_谱建重箱重拆_λ7` | `pigeon_compiler/cut_executor/织f_cdp_s013_v002_d0322_谱建重箱重拆_λ7/MANIFEST.md` | 0 |
+| `pigeon_compiler/docs` | `pigeon_compiler/docs/MANIFEST.md` | 1 |
+| `pigeon_compiler/integrations` | `pigeon_compiler/integrations/MANIFEST.md` | 0 |
+| `pigeon_compiler` | `pigeon_compiler/MANIFEST.md` | 4 |
+| `pigeon_compiler/rename_engine/compliance_seq008` | `pigeon_compiler/rename_engine/compliance_seq008/MANIFEST.md` | 0 |
+| `pigeon_compiler/rename_engine/f_he_s009_v005_d0401_改名册追跑_λA` | `pigeon_compiler/rename_engine/f_he_s009_v005_d0401_改名册追跑_λA/MANIFEST.md` | 0 |
+| `pigeon_compiler/rename_engine/heal_seq009` | `pigeon_compiler/rename_engine/heal_seq009/MANIFEST.md` | 0 |
+| `pigeon_compiler/rename_engine` | `pigeon_compiler/rename_engine/MANIFEST.md` | 1 |
+| `pigeon_compiler/rename_engine/manifest_builder_seq007` | `pigeon_compiler/rename_engine/manifest_builder_seq007/MANIFEST.md` | 0 |
+| `pigeon_compiler/rename_engine/nametag_seq011` | `pigeon_compiler/rename_engine/nametag_seq011/MANIFEST.md` | 0 |
+| `pigeon_compiler/rename_engine/registry_seq012` | `pigeon_compiler/rename_engine/registry_seq012/MANIFEST.md` | 0 |
+| `pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR` | `pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR/MANIFEST.md` | 0 |
+| `pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc` | `pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc/MANIFEST.md` | 0 |
+| `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX` | `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/MANIFEST.md` | 1 |
+| `pigeon_compiler/rename_engine/谱建f_mb_s007_v003_d0314_观重箱重拆_λD` | `pigeon_compiler/rename_engine/谱建f_mb_s007_v003_d0314_观重箱重拆_λD/MANIFEST.md` | 0 |
+| `pigeon_compiler/rename_engine/追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc` | `pigeon_compiler/rename_engine/追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc/MANIFEST.md` | 0 |
+| `pigeon_compiler/runners/compiler_output/press_release_gen` | `pigeon_compiler/runners/compiler_output/press_release_gen/MANIFEST.md` | 0 |
+| `pigeon_compiler/runners` | `pigeon_compiler/runners/MANIFEST.md` | 0 |
+| `pigeon_compiler/runners/run_batch_compile_seq015` | `pigeon_compiler/runners/run_batch_compile_seq015/MANIFEST.md` | 0 |
+| `pigeon_compiler/runners/净拆f_rcs_s010_v006_d0322_译测编深划_λW` | `pigeon_compiler/runners/净拆f_rcs_s010_v006_d0322_译测编深划_λW/MANIFEST.md` | 0 |
+| `pigeon_compiler/runners/批编f_rbc_s015_v002_d0328_织谱建验_λR` | `pigeon_compiler/runners/批编f_rbc_s015_v002_d0328_织谱建验_λR/MANIFEST.md` | 0 |
+| `pigeon_compiler/state_extractor` | `pigeon_compiler/state_extractor/MANIFEST.md` | 0 |
+| `pigeon_compiler/weakness_planner` | `pigeon_compiler/weakness_planner/MANIFEST.md` | 0 |
+| `scripts` | `scripts/MANIFEST.md` | 1 |
+| `src/.operator_stats_seq008_v010_d0331__persi` | `src/.operator_stats_seq008_v010_d0331__persi/MANIFEST.md` | 0 |
+| `src/codebase_detector` | `src/codebase_detector/MANIFEST.md` | 0 |
+| `src/codebase_transmuter` | `src/codebase_transmuter/MANIFEST.md` | 0 |
+| `src/cognitive/drift` | `src/cognitive/drift/MANIFEST.md` | 0 |
+| `src/cognitive/drift/u_dbcc_s005_v001` | `src/cognitive/drift/u_dbcc_s005_v001/MANIFEST.md` | 0 |
+| `src/cognitive/drift_seq003` | `src/cognitive/drift_seq003/MANIFEST.md` | 0 |
+| `src/cognitive` | `src/cognitive/MANIFEST.md` | 0 |
+| `src/cognitive/unsaid` | `src/cognitive/unsaid/MANIFEST.md` | 0 |
+| `src/cognitive/unsaid/u_uo_s008_v001` | `src/cognitive/unsaid/u_uo_s008_v001/MANIFEST.md` | 0 |
+| `src/cognitive/unsaid_seq002` | `src/cognitive/unsaid_seq002/MANIFEST.md` | 0 |
+| `src/cognitive/隐p_un_s002_v002_d0315_缩分话_λν` | `src/cognitive/隐p_un_s002_v002_d0315_缩分话_λν/MANIFEST.md` | 0 |
+| `src/context_compressor` | `src/context_compressor/MANIFEST.md` | 0 |
+| `src/engagement_hooks` | `src/engagement_hooks/MANIFEST.md` | 0 |
+| `src/escalation_engine/escalation_engine_data_loaders_seq003_v001` | `src/escalation_engine/escalation_engine_data_loaders_seq003_v001/MANIFEST.md` | 0 |
+| `src/escalation_engine/escalation_engine_warnings_decomposed_seq014_v001` | `src/escalation_engine/escalation_engine_warnings_decomposed_seq014_v001/MANIFEST.md` | 0 |
+| `src/escalation_engine` | `src/escalation_engine/MANIFEST.md` | 1 |
+| `src` | `src/MANIFEST.md` | 28 |
+| `src/module_identity` | `src/module_identity/MANIFEST.md` | 0 |
+| `src/module_identity/module_identity_code_seq007_v001` | `src/module_identity/module_identity_code_seq007_v001/MANIFEST.md` | 0 |
+| `src/numeric_surface` | `src/numeric_surface/MANIFEST.md` | 0 |
+| `src/operator_stats` | `src/operator_stats/MANIFEST.md` | 0 |
+
+### Master Intent Keys
+
+- `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX:route:thought_completer:minor`
+- `build/pigeon_legacy/pigeon_brain/flow:route:raw_operator_prompt_fallback:minor`
+- `build/pigeon_legacy/src:patch:promote_bug_notes_quick:minor`
+- `pigeon_compiler/integrations:route:generated_opus_executor_prompt:minor`
+- `root:route:they_are_not_ignored:minor`
+
+### Surfaced Bug Queue
+
+- `P1` `logs/deepseek_prompt_results.jsonl` stale pipeline lane: deepseek_results :: verify queued DeepSeek jobs have receipts or mark them expired
+- `P1` `logs/deepseek_code_completion_jobs.jsonl` stale pipeline lane: code_completion_jobs :: close stale code job queue before creating more file jobs
+- `P2` `logs/file_self_sim_learning_latest.json` stale pipeline lane: file_self_learning :: rerun file self-learning so manifests reflect recent prompt behavior
+- `P2` `logs/edit_pairs.jsonl` stale pipeline lane: edit_pairs :: regenerate prompt-to-edit pairs from git and prompt journal
+- `P1` `logs/operator_intent_888.json` weak cognitive probe coverage :: rebuild operator intent labels from prompt journal before trusting behavioral routing
+- `P2` `codex_compat.py` file reports stale dependency pressure :: route file opinion into folder manifest and master bug queue
+- `P2` `src/file_email_plugin_seq001_v001.py` file reports stale dependency pressure :: route file opinion into folder manifest and master bug queue
+- `P2` `src/deepseek_daemon_seq001_v001.py` file reports stale dependency pressure :: route file opinion into folder manifest and master bug queue
+- `P2` `src/batch_rewrite_sim_seq001_v001.py` file reports stale dependency pressure :: route file opinion into folder manifest and master bug queue
+- `P2` `src/copilot_probe_push_cycle_seq001_v001.py` file reports stale dependency pressure :: route file opinion into folder manifest and master bug queue
+- `P2` `src/file_self_sim_learning_seq001_v001.py` file reports stale dependency pressure :: route file opinion into folder manifest and master bug queue
+- `P2` `logs/pigeon_compliance_push_latest.json` compiler saw compliance warning pressure :: sample warning owners and schedule bounded split/cleanup jobs
+
+### File Bug Chat
+
+- `logs/deepseek_prompt_results.jsonl` I keep getting touched because stale pipeline lane: deepseek_results. I am in this sim because I help closing DeepSeek job/result receipts. My evidence is age=3186.0m max=90m entries=37. My proposed fix is: verify queued DeepSeek jobs have receipts or mark them expired.
+- `logs/deepseek_code_completion_jobs.jsonl` I keep getting touched because stale pipeline lane: code_completion_jobs. I am in this sim because I help closing DeepSeek job/result receipts. My evidence is age=10251.1m max=180m entries=61. My proposed fix is: close stale code job queue before creating more file jobs.
+- `logs/file_self_sim_learning_latest.json` I keep getting touched because stale pipeline lane: file_self_learning. I am in this sim because I help making file pressure visible to the master manifest. My evidence is age=2640.4m max=90m entries=1. My proposed fix is: rerun file self-learning so manifests reflect recent prompt behavior.
+- `logs/edit_pairs.jsonl` I keep getting touched because stale pipeline lane: edit_pairs. I am in this sim because I help teaching prompts which edits actually happened. My evidence is age=5313.1m max=720m entries=79. My proposed fix is: regenerate prompt-to-edit pairs from git and prompt journal.
+- `logs/operator_intent_888.json` I keep getting touched because weak cognitive probe coverage. I am in this sim because I help keeping operator intent labels usable. My evidence is unknown_ratio=0.579 coverage_gap=470. My proposed fix is: rebuild operator intent labels from prompt journal before trusting behavioral routing.
+- `codex_compat.py` I keep getting touched because file reports stale dependency pressure. I am in this sim because I help making file pressure visible to the master manifest. My evidence is I was stamping unknown cognition too often; prompt-text inference should now keep Codex probing from going blind. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. My proposed fix is: route file opinion into folder manifest and master bug queue.
+
+### Root Sim Key File
+
+- `ROOT_SIM_KEYS.md` :: called=53
+
+### Opus Micro-Pulse Runtime
+
+- `logs/opus_micro_pulse_latest.json` :: class=debug executor=codex_execution_session predicted=16
+
+### Cannon Execution Gate
+
+- `logs/cannon_execution_gate_latest.json` :: status=cleared payload_ready=true predicted=16
+
+### Persistent State Files
+
+- `logs/prompt_context_packet_latest.json` :: exists=true
+- `logs/copilot_prompt_box_latest.md` :: exists=true
+- `logs/intent_graph_latest.json` :: exists=true
+- `logs/operator_syntax_triggers.json` :: exists=true
+- `logs/opus_master_manifest_session.json` :: exists=true
+- `logs/deepseek_push_audit_latest.json` :: exists=true
+- `logs/file_bug_surface_latest.json` :: exists=true
+- `logs/file_bug_chat_latest.json` :: exists=true
+- `logs/root_sim_key_file_latest.json` :: exists=true
+- `logs/opus_micro_pulse_latest.json` :: exists=true
+- `logs/opus_executor_prompt_latest.md` :: exists=true
+- `logs/prompt_cannon_job_latest.json` :: exists=true
+- `logs/cannon_execution_gate_latest.json` :: exists=true
+- `logs/backward_file_intelligence_learning_pending_latest.json` :: exists=true
+<!-- /manifest:master-persistent-state -->

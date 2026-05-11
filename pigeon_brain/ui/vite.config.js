@@ -279,6 +279,7 @@ function installSignalRoutes(server) {
     ['/prompt_telemetry.json', path.resolve(repoRoot, 'logs', 'prompt_telemetry_latest.json')],
     ['/file_semantic_layer.json', path.resolve(repoRoot, 'logs', 'file_semantic_layer.json')],
     ['/context_veins.json', path.resolve(repoRoot, 'pigeon_brain', 'context_veins.json')],
+    ['/query_monitoring_audits.json', path.resolve(repoRoot, 'logs', 'query_monitoring_audit_latest.json')],
   ];
 
   jsonFiles.forEach(([route, filePath]) => {

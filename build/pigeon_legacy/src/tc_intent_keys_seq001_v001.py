@@ -249,7 +249,8 @@ def generate_intent_graph(
         scope = str(best.get("scope") or "root")
         intent_key = f"{scope}:{verb}:{target}:{scale}"
         learned_files = _match_intent_file_memory(root, segment, intent_key)
-        files = _intent_files(root, segment, scored[:6], numeric, context_files, node_matches, learned_files)
+        syntax_files = _match_operator_syntax_triggers(root, segment, intent_key)
+        files = _intent_files(root, segment, scored[:6], numeric, context_files, node_matches, learned_files, syntax_files)
         intents.append({
             "index": index,
             "segment": segment,
@@ -263,6 +264,7 @@ def generate_intent_graph(
             "manifest_path": str(best.get("path", "MANIFEST.md")),
             "files": files,
             "learned_files": learned_files[:6],
+            "syntax_trigger_files": syntax_files[:6],
             "numeric_files": _compact_numeric_files(numeric),
             "why": _intent_why(segment, files, confidence),
             "candidates": [{"scope": m["scope"], "path": m["path"], "score": m["score"]} for m in scored[:4]],
@@ -286,6 +288,7 @@ def generate_intent_graph(
         },
     }
     graph["intent_file_memory"] = _learn_intent_file_memory(root, graph, write=write)
+    graph["operator_syntax_triggers"] = _learn_operator_syntax_triggers(root, graph, write=write)
     graph["intent_nodes"] = _accumulate_nodes(root, graph, write=write)
     if write:
         logs = root / "logs"
@@ -432,9 +435,11 @@ def _intent_files(
     context_files: list[dict[str, Any]],
     node_matches: list[dict[str, Any]] | None = None,
     learned_files: list[dict[str, Any]] | None = None,
+    syntax_files: list[dict[str, Any]] | None = None,
 ) -> list[str]:
     out = []
     out.extend(_learned_file_paths(learned_files or []))
+    out.extend(_learned_file_paths(syntax_files or []))
     out.extend(_node_match_files(node_matches or []))
     out.extend(_heuristic_files(root, segment))
     out.extend(_numeric_file_paths(root, context_files))
@@ -470,10 +475,26 @@ def _match_intent_file_memory(root: Path, segment: str, intent_key: str) -> list
         return []
 
 
+def _match_operator_syntax_triggers(root: Path, segment: str, intent_key: str) -> list[dict[str, Any]]:
+    try:
+        from src.operator_syntax_triggers_seq001_v001 import match_operator_syntax_triggers
+        return match_operator_syntax_triggers(root, segment, intent_key=intent_key, limit=6)
+    except Exception:
+        return []
+
+
 def _learn_intent_file_memory(root: Path, graph: dict[str, Any], write: bool) -> dict[str, Any]:
     try:
         from src.tc_intent_file_memory_seq001_v001 import learn_intent_file_memory
         return learn_intent_file_memory(root, graph, write=write)
+    except Exception as exc:
+        return {"status": "error", "error": str(exc)}
+
+
+def _learn_operator_syntax_triggers(root: Path, graph: dict[str, Any], write: bool) -> dict[str, Any]:
+    try:
+        from src.operator_syntax_triggers_seq001_v001 import learn_operator_syntax_triggers
+        return learn_operator_syntax_triggers(root, graph, write=write)
     except Exception as exc:
         return {"status": "error", "error": str(exc)}
 

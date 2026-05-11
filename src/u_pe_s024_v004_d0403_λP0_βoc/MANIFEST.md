@@ -85,3 +85,54 @@ def inject_query_block(root: Path, raw_query: str, deleted_words: list | None = 
 ## Code Markers
 
 *No TODO/FIXME/HACK markers found — codebase is clean.*
+
+<!-- manifest:folder-unified-state -->
+## Folder Unified State
+
+- state_doc: `src/u_pe_s024_v004_d0403_λP0_βoc/MANIFEST.md`
+- write_authority: `own_folder_manifest_only`
+- read_authority: `selected_manifest_read_only`
+- changed_files_in_scope: `1`
+
+### Local Files Learning Here
+
+| File | Observations | Learned Trigger Sample |
+|---|---:|---|
+| `src/u_pe_s024_v004_d0403_λP0_βoc/p_upsvdλβe_s007_v001.py` | 2 | act, assembled, brain, bug, build, cannon, codex, completer |
+| `src/u_pe_s024_v004_d0403_λP0_βoc/MANIFEST.md` | 0 | none |
+| `src/u_pe_s024_v004_d0403_λP0_βoc/__init__.py` | 0 | none |
+| `src/u_pe_s024_v004_d0403_λP0_βoc/p_upsvdλβbr_s005_v001.py` | 0 | none |
+| `src/u_pe_s024_v004_d0403_λP0_βoc/p_upsvdλβbs_s004_v001.py` | 0 | none |
+| `src/u_pe_s024_v004_d0403_λP0_βoc/p_upsvdλβbu_s008_v001.py` | 0 | none |
+| `src/u_pe_s024_v004_d0403_λP0_βoc/p_upsvdλβc_s001_v001.py` | 0 | none |
+| `src/u_pe_s024_v004_d0403_λP0_βoc/p_upsvdλβdl_s003_v001.py` | 0 | none |
+| `src/u_pe_s024_v004_d0403_λP0_βoc/p_upsvdλβi_s009_v001.py` | 0 | none |
+| `src/u_pe_s024_v004_d0403_λP0_βoc/p_upsvdλβm_s010_v001.py` | 0 | none |
+
+### Cross-Folder Manifests Read In Sim
+
+- `MANIFEST.md`
+- `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/MANIFEST.md`
+- `build/pigeon_legacy/pigeon_brain/flow/MANIFEST.md`
+- `build/pigeon_legacy/src/MANIFEST.md`
+- `pigeon_compiler/integrations/MANIFEST.md`
+- `build/pigeon_legacy/scripts/MANIFEST.md`
+- `build/pigeon_legacy/MANIFEST.md`
+- `pigeon_brain/MANIFEST.md`
+- `pigeon_compiler/MANIFEST.md`
+- `pigeon_compiler/cut_executor/MANIFEST.md`
+- `pigeon_compiler/rename_engine/MANIFEST.md`
+- `pigeon_compiler/state_extractor/MANIFEST.md`
+
+### Local Bug Chat
+
+- `none-local`
+
+### Live Sim Call Receipts
+
+- `src/u_pe_s024_v004_d0403_λP0_βoc/p_upsvdλβe_s007_v001.py` kind=manifest_shard+prompt_intent attention=not_selected :: raw operator prompt is fallback
+
+### Local Write Queue
+
+- `src/u_pe_s024_v004_d0403_λP0_βoc/p_upsvdλβe_s007_v001.py` -> `src/u_pe_s024_v004_d0403_λP0_βoc/MANIFEST.md`
+<!-- /manifest:folder-unified-state -->

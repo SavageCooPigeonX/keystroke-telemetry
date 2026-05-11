@@ -6,7 +6,7 @@ by the working LinkRouter checkout:
 
     post-commit -> python -m pigeon_compiler.git_plugin
     pre-commit  -> python -m pigeon_compiler.pre_commit_audit
-    pre-push    -> python scripts/refresh_push_manifests.py + maintain_compliance.py
+    pre-push    -> context compression + compliance + manifest refresh + DeepSeek push audit queue
 """
 from __future__ import annotations
 
@@ -32,6 +32,8 @@ if [ -f ".venv/Scripts/python.exe" ]; then
     PYTHON=".venv/Scripts/python.exe"
 elif [ -f ".venv/bin/python" ]; then
     PYTHON=".venv/bin/python"
+elif command -v py >/dev/null 2>&1; then
+    PYTHON="py"
 elif command -v python3 >/dev/null 2>&1; then
     PYTHON="python3"
 else
@@ -51,6 +53,8 @@ if [ -f ".venv/Scripts/python.exe" ]; then
     PYTHON=".venv/Scripts/python.exe"
 elif [ -f ".venv/bin/python" ]; then
     PYTHON=".venv/bin/python"
+elif command -v py >/dev/null 2>&1; then
+    PYTHON="py"
 elif command -v python3 >/dev/null 2>&1; then
     PYTHON="python3"
 else
@@ -94,6 +98,11 @@ else
     exit 0
 fi
 
+COMPRESS="$ROOT/scripts/run_context_compression.py"
+if [ -f "$COMPRESS" ]; then
+    "$PYTHON" "$COMPRESS" || echo "Pigeon context compression skipped or failed; push gate continues to compliance."
+fi
+
 if [ "${PIGEON_COMPLIANCE_APPLY:-0}" = "1" ]; then
     "$PYTHON" "$SCRIPT" --all --apply --max-files "${PIGEON_COMPLIANCE_MAX_FILES:-0}" --max-risk "${PIGEON_COMPLIANCE_MAX_RISK:-low}"
 else
@@ -107,6 +116,9 @@ if [ -f "$ROOT/scripts/refresh_push_manifests.py" ]; then
         echo "Pigeon manifest refresh updated MANIFEST.md files. Commit them, then push again."
         exit "$manifest_status"
     fi
+fi
+if [ -f "$ROOT/scripts/run_deepseek_push_audit.py" ]; then
+    "$PYTHON" "$ROOT/scripts/run_deepseek_push_audit.py" || echo "DeepSeek push audit queue failed; push gate continues to compliance result."
 fi
 if [ "$status" -ne 0 ]; then
     echo "Pigeon compliance gate blocked push. See logs/pigeon_compliance_push_latest.json"

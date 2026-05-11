@@ -37,6 +37,17 @@ def _root() -> Path:
             "deleted_words": [],
             "intent_deleted_words": [],
         })
+    _append_jsonl(logs / "intent_keys.jsonl", {
+        "ts": "2026-04-30T00:05:02+00:00",
+        "prompt": prompts[-1],
+        "intent_key": "build/pigeon_legacy/src:route:split_repo_if_closed:minor",
+        "scope": "build/pigeon_legacy/src",
+        "target": "split_repo_if_closed",
+        "confidence": 0.31,
+        "void": False,
+        "manifest_path": "build/pigeon_legacy/src/MANIFEST.md",
+        "semantic_profile": {"semantic_intent": "unknown"},
+    })
     (logs / "context_selection.json").write_text(json.dumps({
         "confidence": 0.05,
         "stale_blocks": ["operator-state"],
@@ -75,6 +86,12 @@ def test_compile_operator_intent_reports_alive_blockers_and_writes_artifacts():
     assert "loop_has_no_execution_muscle" in names
     assert "validation_plans_reference_missing_tests" in names
     assert report["bucket_hits"]["repo_self_healing"]["hits"] > 0
+    audit = report["recent_prompt_intent_key_audit"]
+    assert audit["schema"] == "recent_prompt_intent_key_audit/v1"
+    assert audit["prompt_count"] == 5
+    assert any("build_artifact_scope_selected" in item["issues"] for item in audit["items"])
+    assert report["intent_key_spec_gaps"]
     assert (root / "logs" / "operator_intent_888.json").exists()
     md = (root / "logs" / "operator_intent_888.md").read_text(encoding="utf-8")
     assert "Why The Repo Is Not Alive Yet" in md
+    assert "Last Five Prompt Intent-Key Audit" in md

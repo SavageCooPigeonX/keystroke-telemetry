@@ -85,3 +85,55 @@ push_snapshot/
 - **Cost**: $0.0019
 - **Timestamp**: 2026-04-13 22:48
 
+<!-- manifest:folder-unified-state -->
+## Folder Unified State
+
+- state_doc: `src/push_snapshot/MANIFEST.md`
+- write_authority: `own_folder_manifest_only`
+- read_authority: `selected_manifest_read_only`
+- changed_files_in_scope: `2`
+
+### Local Files Learning Here
+
+| File | Observations | Learned Trigger Sample |
+|---|---:|---|
+| `src/push_snapshot/p_psdl_s002_v001.py` | 3 | act, assembled, bug, cannon, codex, completer, copilot, executes |
+| `src/push_snapshot/p_psr_s002_v001.py` | 3 | act, assembled, bug, cannon, codex, completer, copilot, executes |
+| `src/push_snapshot/MANIFEST.md` | 0 | none |
+| `src/push_snapshot/__init__.py` | 0 | none |
+| `src/push_snapshot/p_psbm_s013_v001.py` | 0 | none |
+| `src/push_snapshot/p_pscd_s017_v001.py` | 0 | none |
+| `src/push_snapshot/p_pscdd_s015_v001.py` | 0 | none |
+| `src/push_snapshot/p_psd_s005_v001.py` | 0 | none |
+| `src/push_snapshot/p_psfs_s009_v001.py` | 0 | none |
+| `src/push_snapshot/p_psh_s014_v001.py` | 0 | none |
+
+### Cross-Folder Manifests Read In Sim
+
+- `MANIFEST.md`
+- `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/MANIFEST.md`
+- `build/pigeon_legacy/pigeon_brain/flow/MANIFEST.md`
+- `build/pigeon_legacy/src/MANIFEST.md`
+- `pigeon_compiler/integrations/MANIFEST.md`
+- `build/pigeon_legacy/scripts/MANIFEST.md`
+- `build/pigeon_legacy/MANIFEST.md`
+- `pigeon_brain/MANIFEST.md`
+- `pigeon_compiler/MANIFEST.md`
+- `pigeon_compiler/cut_executor/MANIFEST.md`
+- `pigeon_compiler/rename_engine/MANIFEST.md`
+- `pigeon_compiler/state_extractor/MANIFEST.md`
+
+### Local Bug Chat
+
+- `none-local`
+
+### Live Sim Call Receipts
+
+- `src/push_snapshot/p_psdl_s002_v001.py` kind=manifest_shard+prompt_intent attention=not_selected :: they are not ignored
+- `src/push_snapshot/p_psr_s002_v001.py` kind=manifest_shard+prompt_intent attention=not_selected :: they are not ignored
+
+### Local Write Queue
+
+- `src/push_snapshot/p_psdl_s002_v001.py` -> `src/push_snapshot/MANIFEST.md`
+- `src/push_snapshot/p_psr_s002_v001.py` -> `src/push_snapshot/MANIFEST.md`
+<!-- /manifest:folder-unified-state -->

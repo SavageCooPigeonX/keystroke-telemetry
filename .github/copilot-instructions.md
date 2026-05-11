@@ -5,7 +5,7 @@
 <!-- pigeon:staleness-alert -->
 ## Staleness Alert
 
-*Checked 2026-05-04T22:48:35.793834+00:00 - Codex live context refreshed*
+*Checked 2026-05-10T21:09:25.297249+00:00 - Codex live context refreshed*
 
 **Live replacements active:** `pigeon:current-query`, `pigeon:prompt-telemetry`, `codex:dynamic-context-pack`, DeepSeek V4 prompt queue.
 
@@ -13,6 +13,42 @@
 
 **Rule:** Prefer the Codex live blocks below over older commit-time or daemon-time sections.
 <!-- /pigeon:staleness-alert -->
+
+---
+
+<!-- codex:manifest-execution-contract -->
+## Manifest Execution Contract
+
+Before Codex/Copilot executes code work, it must read manifest state:
+
+- read `logs/prompt_context_packet_latest.json`
+- read `logs/copilot_prompt_box_latest.md`
+- read `MANIFEST.md`
+- read every selected folder manifest listed in `manifest_state_protocol.read_set`
+
+Execution is cleared only when `manifest_state_protocol.status` is `manifest_context_loaded`.
+
+Hard cannon gate:
+
+- before code work, `logs/opus_micro_pulse_latest.json` must exist
+- before code work, `logs/prompt_cannon_job_latest.json` must exist
+- before code work, `logs/opus_executor_prompt_latest.md` must exist and be treated as the primary prompt
+- before code work, `logs/cannon_execution_gate_latest.json` must report `status=cleared`
+- if the cannon gate is missing, blocked, stale, or hash-mismatched, stop and run `py scripts/build_prompt_context_packet.py --source codex` or `py scripts/check_cannon_gate.py --prompt "<operator prompt>"`
+- Codex/Copilot is not allowed to start mutation work from a cold prompt; Opus micro-pulse must first produce the cannon payload
+- Raw operator prompts are fallback evidence only after the generated Opus executor prompt is loaded.
+
+State storage is unified markdown:
+
+- root `MANIFEST.md` is the master persistent project state and project-structure index
+- each folder writes one local `MANIFEST.md`
+- file-sim state, learned syntax triggers, local intent queues, and local write queues belong in that folder's `MANIFEST.md`
+- logs are evidence trails; manifests are the inspectable state surface
+
+Opus/master manifest manages master intent keys across folder manifests. Prompt intent is shattered into `shattered_intent_keys`, numerically encoded, then matched to files through context selection, syntax triggers, and file sim orchestration.
+
+Files may write learned state only to their own folder `MANIFEST.md`. Files may read other selected folder manifests during cross-folder simulation, but cross-folder reads do not grant cross-folder write authority.
+<!-- /codex:manifest-execution-contract -->
 
 ---
 
@@ -390,19 +426,17 @@
 <!-- pigeon:current-query -->
 ## What You Actually Mean Right Now
 
-*Assembled 2026-05-04T22:48:20.989127+00:00 - codex_compat dynamic context - zero LLM calls*
+*Assembled 2026-05-10 21:21 UTC · context_select_agent · zero LLM calls*
 
-**INTENT KEYS:** `github keeeps asking me to select acct`
+**INTENT KEYS:** `its still bot selecting files / writing file comments when i talk to codexes about linkrouter ai repo - why -`
 
-**FILES:** context_select_agent, maif_auditor_pyproject, codex_compat, os_hook, maif_auditor_examples_manifest, maif_auditor_maif_auditor_init
+**FILES:** tc_intent_file_memory, maif_auditor_tests_manifest, maif_auditor_examples_manifest, tc_intent_keys, maif_auditor_maif_auditor_manifest
 
-**LEGACY_STALE_BLOCKS:** organism-health, task-queue, operator-state
+**STALE BLOCKS:** current-query, organism-health, task-queue, operator-state, prompt-telemetry
 
-**LIVE_REPLACEMENTS:** dynamic-context-pack, prompt-telemetry/latest/v2, DeepSeek V4 job `ds4-82102933fa53db79`
+**DELETED WORDS (reconstructed):** 2 intentional deletion(s) (5% of keystrokes)
 
-**DELETED WORDS:** none
-
-**COGNITIVE STATE:** `unknown`
+**UNSAID_RECONSTRUCTION:** stress test prompt lifecycle emails stale date audit os hook path... (also considered: dragonfruit)
 <!-- /pigeon:current-query -->
 <!-- pigeon:intent-backlog -->
 ## Intent Backlog Verification
@@ -461,20 +495,25 @@
 <!-- pigeon:task-context -->
 ## Live Task Context
 
-*Auto-injected 2026-05-04 22:48 UTC · 6 messages profiled · 8 recent commits*
+*Auto-injected 2026-05-10 21:09 UTC · 6 messages profiled · 8 recent commits*
 
 **Current focus:** debugging / fixing
 **Cognitive state:** `abandoned` (WPM: 48.7 | Del: 26.5% | Hes: 0.494) · *[source: measured]*
 
-**Prompt ms:** 12922, 241488, 25508, 45062, 9438 (avg 66884ms)
+**Prompt ms:** 552741, 598213, 106828, 240803, 162790 (avg 332275ms)
 
 > **CoT directive:** Operator previously abandoned a message. They may be re-approaching. Be direct and welcoming.
 
+### Unsaid Threads
+*Deleted from prompts — operator wanted this but didn't ask:*
+- "also"
+- "fingerp"
+
 ### Recent Work
+- `fa8aab3` chore: refresh prompt telemetry context
 - `84ea19b` fix: stabilize compliance training pair lookup
 - `d53d5a9` merge: align telemetry branch with master
 - `aa29359` chore: refresh operator intent context
-- `00aba79` fix: stabilize manifest changed-file scope
 
 ### Fragile Contracts *[source: llm_derived]*
 *From push narratives (LLM-generated) — treat as hypothesis:*
@@ -568,65 +607,72 @@
 <!-- pigeon:prompt-telemetry -->
 ## Live Prompt Telemetry
 
-*Auto-updated 2026-05-04T22:48:35.793834+00:00 - source: `logs/prompt_telemetry_latest.json`*
+*Auto-updated 2026-05-10T21:09:25.297249+00:00 - source: `logs/prompt_telemetry_latest.json`*
 
 Use this block as the highest-freshness prompt-level telemetry. It is generated from Codex live context, not the stale legacy daemon.
 
 ```json
 {
   "schema": "prompt_telemetry/latest/v2",
-  "updated_at": "2026-05-04T22:48:35.793834+00:00",
+  "updated_at": "2026-05-10T21:09:25.297249+00:00",
   "source": "codex_compat.dynamic_context_pack",
   "latest_prompt": {
     "session_n": null,
-    "ts": "2026-05-04T22:48:20.989127+00:00",
-    "chars": 38,
-    "preview": "github keeeps asking me to select acct",
-    "intent": "github keeeps asking me to select acct",
-    "state": "unknown",
+    "ts": "2026-05-10T21:07:48.372967+00:00",
+    "chars": 381,
+    "preview": "we already render intent - so the first step of this migration - all it is is changing how we display intent in consenus - and how we model it - it should pull in past intent data from monthly acumulated profiles - since past audits didnt m",
+    "intent": "we already render intent - so the first step of this migration - all it is is changing how we display intent in consenus - and how we model it - it should pull in past intent data from monthly acumulated profiles - since past audits didnt m",
+    "state": "frustrated",
     "files_open": [
-      "context_select_agent",
-      "maif_auditor_pyproject",
-      "codex_compat",
-      "os_hook",
-      "maif_auditor_examples_manifest",
-      "maif_auditor_maif_auditor_init",
-      "src/file_intelligence_graph_seq001_v001.py",
-      "src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py",
-      "test_file_intelligence_graph.py",
-      "src/copilot_probe_push_cycle_seq001_v001.py",
-      "codex_compat.py",
-      "src/deepseek_daemon_seq001_v001.py"
+      "maif_auditor_maif_auditor_templates_ai_model_audit",
+      "tc_intent_keys",
+      "dev_plan",
+      "maif_auditor_examples_politician_audit",
+      "intent_loop_closer",
+      "maif_auditor_examples_quick_audit",
+      "src/file_interlinked_naming_sim_seq001_v001.py",
+      "test_file_interlinked_naming_sim.py",
+      "src/file_interlinked_naming_policy_seq001_v001.py",
+      "src/file_number_key_identity_seq001_v001.py",
+      ".github/copilot-instructions.md",
+      "MANIFEST.md"
     ],
     "module_refs": [
-      "context_select_agent",
-      "maif_auditor_pyproject",
-      "codex_compat",
-      "os_hook",
-      "maif_auditor_examples_manifest",
-      "maif_auditor_maif_auditor_init"
+      "maif_auditor_maif_auditor_templates_ai_model_audit",
+      "tc_intent_keys",
+      "dev_plan",
+      "maif_auditor_examples_politician_audit",
+      "intent_loop_closer",
+      "maif_auditor_examples_quick_audit"
     ]
   },
   "signals": {
     "wpm": 0,
     "chars_per_sec": 0,
-    "deletion_ratio": 0.025,
-    "intent_deletion_ratio": 0.0,
-    "hesitation_count": 0,
+    "deletion_ratio": 0.068,
+    "intent_deletion_ratio": 0.054,
+    "hesitation_count": 7,
     "rewrite_count": 0,
     "typo_corrections": 0,
-    "intentional_deletions": 0,
-    "total_keystrokes": 38,
-    "duration_ms": 9438
+    "intentional_deletions": 6,
+    "total_keystrokes": 400,
+    "duration_ms": 162790
   },
   "composition_binding": {
     "matched": true,
     "source": "os_hook_auto",
     "age_ms": 0,
-    "key": "ds4-82102933fa53db79",
-    "match_score": 0.056
+    "key": "ds4-0a6ed3738659c1d7",
+    "match_score": 0.1248
   },
-  "deleted_words": [],
+  "deleted_words": [
+    "opt",
+    "-",
+    "also",
+    "my",
+    "ai",
+    "fingerp"
+  ],
   "rewrites": [],
   "task_queue": {
     "total": 13,
@@ -644,28 +690,28 @@ Use this block as the highest-freshness prompt-level telemetry. It is generated 
     "done": 0
   },
   "hot_modules": [
-    "context_select_agent",
-    "maif_auditor_pyproject",
-    "codex_compat",
-    "os_hook",
-    "maif_auditor_examples_manifest",
-    "maif_auditor_maif_auditor_init",
-    "src/file_intelligence_graph_seq001_v001.py",
-    "src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py"
+    "maif_auditor_maif_auditor_templates_ai_model_audit",
+    "tc_intent_keys",
+    "dev_plan",
+    "maif_auditor_examples_politician_audit",
+    "intent_loop_closer",
+    "maif_auditor_examples_quick_audit",
+    "src/file_interlinked_naming_sim_seq001_v001.py",
+    "test_file_interlinked_naming_sim.py"
   ],
   "running_summary": {
     "total_prompts": 250,
-    "avg_del_ratio": 0.061,
+    "avg_del_ratio": 0.051,
     "dominant_state": "unknown",
     "state_distribution": {
-      "unknown": 162,
-      "hesitant": 47,
-      "frustrated": 41
+      "unknown": 149,
+      "hesitant": 52,
+      "frustrated": 49
     }
   },
   "deepseek": {
     "model": "deepseek-v4-pro",
-    "job_id": "ds4-82102933fa53db79",
+    "job_id": "ds4-0a6ed3738659c1d7",
     "status": "queued",
     "autonomous_write": false
   },
@@ -698,83 +744,83 @@ They likely deleted it because the overall (conf=0.60, via unsaid_recon)
 <!-- codex:pre-prompt-state -->
 ## Codex Pre-Prompt State
 
-*Prepared 2026-05-04T22:48:10.991387+00:00 before model handoff*
+*Prepared 2026-05-10T21:21:30.074359+00:00 before model handoff*
 
-**PROMPT:** `github keeeps asking me to select acct`
+**PROMPT:** `its still bot selecting files / writing file comments when i talk to codexes about linkrouter ai repo - why -`
 
-**DELETION_RATIO:** `0.025`
+**DELETION_RATIO:** `0.0`
 **DELETED_WORDS:** none
-**HESITATION_COUNT:** `0`
+**HESITATION_COUNT:** `1`
 
 **NUMERIC_CONTEXT:**
-- `context_select_agent` score=0.056
-- `maif_auditor_pyproject` score=0.0111
-- `codex_compat` score=0.0092
-- `os_hook` score=0.0071
-- `maif_auditor_examples_manifest` score=0.0068
-- `maif_auditor_maif_auditor_init` score=0.0067
+- `tc_intent_file_memory` score=0.0608
+- `maif_auditor_tests_manifest` score=0.0261
+- `maif_auditor_examples_manifest` score=0.0234
+- `tc_intent_keys` score=0.0229
+- `maif_auditor_maif_auditor_manifest` score=0.0222
+- `maif_auditor_maif_auditor_models_manifest` score=0.0201
 
 **HANDOFF_READY:** `True`
 **SIM_STATUS:** `skipped`
 **FILE_SIM_STATUS:** `fired`
 **FILE_SIM_TARGET_STATE:** `interlinked_source_state`
 **FILE_SIM_SOURCE_REWRITES:**
-- `src/u_pj_s019_v002_d0402_λC/__init__.py` interlink=0.63 decision=safe_dry_run
-- `src/context_select_agent_seq001_v002_d0421__intent_orchestrator_fires_on_every_lc_feat_operator_state_daemon.py` interlink=0.365 decision=safe_dry_run
-- `src/u_pj_s019_v002_d0402_λC/p_u_pj_s001_v001.py` interlink=0.65 decision=safe_dry_run
-- `src/u_pj_s019_v002_d0402_λC/p_u_pj_s002_v001.py` interlink=0.645 decision=safe_dry_run
-- `src/u_pj_s019_v002_d0402_λC/p_u_pj_s004_v001.py` interlink=0.31 decision=safe_dry_run
+- `src/tc_intent_file_memory_seq001_v001.py` interlink=0.455 decision=safe_dry_run
+- `src/ai_fingerprint_repo_seq001_v001.py` interlink=0.595 decision=safe_dry_run
+- `src/tc_intent_keys_seq001_v001.py` interlink=0.67 decision=safe_dry_run
+- `src/__init__.py` interlink=0.65 decision=safe_dry_run
+- `src/_resolve.py` interlink=0.67 decision=safe_dry_run
 <!-- /codex:pre-prompt-state -->
 
 <!-- codex:dynamic-context-pack -->
 ## Dynamic Context Pack
 
-*Prepared 2026-05-04T22:48:20.989127+00:00 for os_hook_auto*
+*Prepared 2026-05-10T21:07:48.372967+00:00 for os_hook_auto*
 
-**PROMPT:** `github keeeps asking me to select acct`
-**DELETION_RATIO:** `0.025`
-**INTENT_DELETION_RATIO:** `0.0`
-**HESITATION_COUNT:** `0`
-**COGNITIVE_STATE:** `unknown`
-**DELETED_WORDS:** none
+**PROMPT:** `we already render intent - so the first step of this migration - all it is is changing how we display intent in consenus - and how we model it - it should pull in past intent data from monthly acumulated profiles - since past audits didnt m`
+**DELETION_RATIO:** `0.068`
+**INTENT_DELETION_RATIO:** `0.054`
+**HESITATION_COUNT:** `7`
+**COGNITIVE_STATE:** `frustrated`
+**DELETED_WORDS:** opt, -, also, my, ai, fingerp
 
 **FOCUS_FILES:**
-- `context_select_agent` via numeric_context score=0.056
-- `maif_auditor_pyproject` via numeric_context score=0.0111
-- `codex_compat` via numeric_context score=0.0092
-- `os_hook` via numeric_context score=0.0071
-- `maif_auditor_examples_manifest` via numeric_context score=0.0068
-- `maif_auditor_maif_auditor_init` via numeric_context score=0.0067
-- `src/file_intelligence_graph_seq001_v001.py` via recent_edit
-- `src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py` via recent_edit
-- `test_file_intelligence_graph.py` via recent_edit
-- `src/copilot_probe_push_cycle_seq001_v001.py` via recent_edit
+- `maif_auditor_maif_auditor_templates_ai_model_audit` via numeric_context score=0.1248
+- `tc_intent_keys` via numeric_context score=0.062
+- `dev_plan` via numeric_context score=0.0606
+- `maif_auditor_examples_politician_audit` via numeric_context score=0.0512
+- `intent_loop_closer` via numeric_context score=0.0471
+- `maif_auditor_examples_quick_audit` via numeric_context score=0.0455
+- `src/file_interlinked_naming_sim_seq001_v001.py` via recent_edit
+- `test_file_interlinked_naming_sim.py` via recent_edit
+- `src/file_interlinked_naming_policy_seq001_v001.py` via recent_edit
+- `src/file_number_key_identity_seq001_v001.py` via recent_edit
 
 **COPILOT_PROBE_PUSH_CYCLE:**
-- cycle: `probe-fa95abfbb211398e`
-- read: The prompt is asking for a bounded next move, not a generic status answer.
+- cycle: `probe-422f20eebdfb8b60`
+- read: You are asking the repo to treat intent as routing math: prompts wake files, files simulate consequences, and accepted fixes become memory. Deleted-word residue should be treated as hidden intent pressure: opt, -, also, my, ai, fingerp.
 - deepseek context: `logs/copilot_probe_push_cycle_latest.json`
-- waking files: `copilot_probe_push_cycle, tc_gemini, tc_prompt_brain, deepseek_daemon, resolve, p_gpos`
+- waking files: `tc_gemini, tc_prompt_brain, resolve, tc_prompt_composer, tc_constants, tc_observatory`
 
 **FILE_SELF_KNOWLEDGE:**
-- read: 8 file packet(s) woke. Top file `src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py` now carries owns/wakes/context/validation/refusal data for Codex to probe with before any rewrite model drafts. 7 are dra
-- `src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py` owns `operator response policy and reward routing, sim, d0420, engine, chore, seq001, cascade, intent` readiness `blocked`
-  - validates: `py -m py_compile src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py`
-  - says: tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py: I can help, but first stop asking me to pass imaginary validation.
-- `src/copilot_probe_push_cycle_seq001_v001.py` owns `operator response policy and reward routing, push, cycle, seq001, copilot, probe, patch, copilot_probe_push_cycle_seq001` readiness `draft_ready`
-  - validates: `py -m py_compile src/copilot_probe_push_cycle_seq001_v001.py`
-  - says: copilot_probe_push_cycle_seq001_v001.py: load codex_compat.py before you let a rewrite model touch my furniture.
-- `src/file_intelligence_graph_seq001_v001.py` owns `context selection and self-clearing file packs, seq001, pigeon, fingerprint, intelligence, graph, operator, manifest` readiness `draft_ready`
-  - validates: `py -m py_compile src/file_intelligence_graph_seq001_v001.py`
-  - says: file_intelligence_graph_seq001_v001.py: load pigeon_legacy_loader_seq001_v001.py before you let a rewrite model touch my furniture.
-- `src/deepseek_daemon_seq001_v001.py` owns `intent compilation and mutation routing, seq001, deepseek, daemon, deepseek_daemon_seq001_v001, pigeon, load, fingerprin` readiness `draft_ready`
-  - validates: `py -m py_compile src/deepseek_daemon_seq001_v001.py`
-  - says: deepseek_daemon_seq001_v001.py: load pigeon_legacy_loader_seq001_v001.py before you let a rewrite model touch my furniture.
-- `src/tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade.py` owns `intent compilation and mutation routing, seq001, pigeon, popup, v004, alway, d0420, chore` readiness `draft_ready`
-  - validates: `py -m py_compile src/tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade.py`
-  - says: tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade.py: load tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py before you let a rewrite model touch my furniture.
+- read: 8 file packet(s) woke. Top file `src/file_interlinked_naming_sim_seq001_v001.py` now carries owns/wakes/context/validation/refusal data for Codex to probe with before any rewrite model drafts. 6 are draft-ready inside rails; 2 are blocked until real validation
+- `src/file_interlinked_naming_sim_seq001_v001.py` owns `operator response policy and reward routing, seq001, interlinked, naming, fingerprint, sim, pigeon, manifest` readiness `draft_ready`
+  - validates: `py -m py_compile src/file_interlinked_naming_sim_seq001_v001.py`
+  - says: file_interlinked_naming_sim_seq001_v001.py: load file_interlinked_naming_policy_seq001_v001.py before you let a rewrite model touch my furniture.
+- `src/file_interlinked_naming_policy_seq001_v001.py` owns `operator response policy and reward routing, seq001, fingerprint, pigeon, interlinked, naming, manifest, repo` readiness `draft_ready`
+  - validates: `py -m py_compile src/file_interlinked_naming_policy_seq001_v001.py`
+  - says: file_interlinked_naming_policy_seq001_v001.py: I have a test receipt; give me a bounded warrant and nobody gets theatrical.
+- `src/file_number_key_identity_seq001_v001.py` owns `intent compilation and mutation routing, seq001, fingerprint, pigeon, operator, key, manifest, repo` readiness `blocked`
+  - validates: `py -m py_compile src/file_number_key_identity_seq001_v001.py`
+  - says: file_number_key_identity_seq001_v001.py: I can help, but first stop asking me to pass imaginary validation.
+- `.github/copilot-instructions.md` owns `operator response policy and reward routing, ago, copilot, prompt, keystroke, state, github, instructions` readiness `draft_ready`
+  - validates: `py -m pytest test_file_self_knowledge.py -q`
+  - says: copilot-instructions.md: I can help, but first stop asking me to pass imaginary validation.
+- `MANIFEST.md` owns `context selection and self-clearing file packs, ago, push, cycle, prompt, keystroke, manifest, state` readiness `draft_ready`
+  - validates: `py -m pytest test_batch_rewrite_sim.py -q`
+  - says: MANIFEST.md: I have a test receipt; give me a bounded warrant and nobody gets theatrical.
 
-**CONTEXT_CONFIDENCE:** `0.056`
+**CONTEXT_CONFIDENCE:** `0.1248`
 **CONTEXT_STATUS:** `ok`
 
 **UNRESOLVED_INTENTS:**
@@ -784,40 +830,41 @@ They likely deleted it because the overall (conf=0.60, via unsaid_recon)
 - `partial` hesitation should trigger thought completer before copilot prompt handoff... (also considered: hesitation completer stalled half thought)
 
 **PROMPT_BRAIN:**
-- intent key: `build/pigeon_legacy/src:route:github_keeeps_asking_select:minor`
+- intent key: `pigeon_brain/flow:test:already_render_first_step:read`
 - semantic: `unknown`
 - profile hint: `none`
-- prompt box open: `229`
+- prompt box open: `414`
 
 **OPERATOR_RESPONSE_POLICY:**
-- active arm: `probe_council`
-- operator read: Extract the real move, pick the files that should wake, and produce an action-ready response.
-- required sections: `Operator read, Intent moves, Probe files, Next mutation, File quote`
-- next mutation: Load `src/thought_completer.py` with the top intent move and propose one bounded patch plus validation.
-- intent move: `pigeon_brain:test:deepseek_file_sim_stress:patch`
-- intent move: `src:route:semantic_numeric_file_matching:patch`
-- intent move: `pigeon_brain/flow/node_memory_seq008:document:identify_current_architecture_gaps:minor`
-- intent move: `pigeon_brain/flow/backward_seq007:route:use_only_repo_context:minor`
-- probe file: `src/thought_completer.py` via intent:test
-- probe file: `src/tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade.py` via intent:test
-- probe file: `src/tc_prompt_composer_seq001_v001.py` via intent:test
-- probe file: `src/tc_buffer_watcher_seq001_v001.py` via intent:test
-- probe file: `src/ai_fingerprint_operator_seq001_v001.py` via intent:test
-- probe file: `src/tc_intent_keys_seq001_v001.py` via intent:test
+- active arm: `surgical_engineer`
+- operator read: Mutate the repo through a bounded patch, then prove it with tests or a clear validation gate.
+- required sections: `Operator read, Next mutation, Validation`
+- next mutation: Load `src/tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade.py` with the top intent move and propose one bounded patch plus validation.
+- intent move: `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX:route:thought_completer:minor`
+- intent move: `build/pigeon_legacy/pigeon_brain/flow:route:raw_operator_prompt_fallback:minor`
+- intent move: `build/pigeon_legacy/src:patch:promote_bug_notes_quick:minor`
+- intent move: `pigeon_compiler/integrations:route:generated_opus_executor_prompt:minor`
+- intent move: `root:route:they_are_not_ignored:minor`
+- probe file: `src/tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade.py` via intent:route
+- probe file: `src/tc_prompt_composer_seq001_v001.py` via intent:route
+- probe file: `src/intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade.py` via intent:route
+- probe file: `src/thought_completer.py` via intent:route
+- probe file: `src/ai_fingerprint_operator_seq001_v001.py` via intent:route
+- probe file: `src/tc_buffer_watcher_seq001_v001.py` via intent:route
 
 **FILE_SIM:**
 - status: `fired`
 - target state: `interlinked_source_state`
 - trigger: `os_hook_auto`
-- `src/u_pj_s019_v002_d0402_λC/__init__.py` interlink=0.63 decision=safe_dry_run
-- `src/context_select_agent_seq001_v002_d0421__intent_orchestrator_fires_on_every_lc_feat_operator_state_daemon.py` interlink=0.365 decision=safe_dry_run
-- `src/u_pj_s019_v002_d0402_λC/p_u_pj_s001_v001.py` interlink=0.65 decision=safe_dry_run
-- `src/u_pj_s019_v002_d0402_λC/p_u_pj_s002_v001.py` interlink=0.645 decision=safe_dry_run
-- `src/u_pj_s019_v002_d0402_λC/p_u_pj_s004_v001.py` interlink=0.31 decision=safe_dry_run
+- `src/tc_intent_keys_seq001_v001.py` interlink=0.725 decision=safe_dry_run
+- `src/intent_loop_closer_seq001_v001.py` interlink=0.635 decision=safe_dry_run
+- `src/autonomous_mutation_audit_seq001_v001.py` interlink=0.41 decision=safe_dry_run
+- `src/bug_profiles_seq001_v001.py` interlink=0.725 decision=safe_dry_run
+- `src/__init__.py` interlink=0.65 decision=safe_dry_run
 
 **INTENT_LOOP:**
-- loop: `loop-1d8d853f8e4e0523` status `awaiting_operator_approval`
-- intent: `src/u_pj_s019_v002_d0402_λC:route:github_keeeps_asking_select_acct:patch`
+- loop: `loop-100faf706eedb427` status `awaiting_operator_approval`
+- intent: `src:route:already_render_intent_first_step:major`
 - human: `on_loop` approval_required `True`
 - observed edits: `0` responses: `0`
 - next: operator approves or narrows the active loop
@@ -830,11 +877,11 @@ They likely deleted it because the overall (conf=0.60, via unsaid_recon)
 - latest UIA context: `chat`
 - latest context switch: `unknown` -> `chat`
 
-**ENTROPY:** global H `0.2689`, tracked `10`
+**ENTROPY:** global H `0.2689`, tracked `18`
 
 **DEEPSEEK_V4:**
 - model: `deepseek-v4-pro`
-- job: `ds4-82102933fa53db79` status `queued`
+- job: `ds4-0a6ed3738659c1d7` status `queued`
 - autonomous write: `False`
 
 **CAPTURE_BOUNDARY:**
@@ -846,23 +893,23 @@ They likely deleted it because the overall (conf=0.60, via unsaid_recon)
 <!-- codex:intent-key-context -->
 ## Intent Key Context
 
-**INTENT_KEY:** `build/pigeon_legacy/src:route:github_keeeps_asking_select:minor`
-**SCOPE:** `build/pigeon_legacy/src`  **CONFIDENCE:** `0.2`
-**VOID:** `False`  **WARNINGS:** multiple_scope_candidates
+**INTENT_KEY:** `pigeon_compiler/integrations:route:its_still_bot_selecting:minor`
+**SCOPE:** `pigeon_compiler/integrations`  **CONFIDENCE:** `0.2857`
+**VOID:** `False`  **WARNINGS:** none
 **SEMANTIC_INTENTS:** `unknown`
-**NUMERIC_ENCODING:** `9dffcd8f2f124ac52ff1b8e4`
+**NUMERIC_ENCODING:** `175a08b3d971e92d4c402c80`
 **PROFILE_MATCHES:** `none`
 **PROFILE_UPDATES:** `none`
 **COMPLETION_HINT:** `none`
-**MANIFEST:** `build/pigeon_legacy/src/MANIFEST.md`
+**MANIFEST:** `pigeon_compiler/integrations/MANIFEST.md`
 
 **MANIFEST_EXCERPT:**
 ```text
-# MANIFEST ? build/pigeon_legacy/src
+# MANIFEST ? pigeon_compiler/integrations
 
-> Src
+> pigeon_compiler.integrations ? External AI model adapters.
 
-*Auto-generated by pigeon_compiler manifest_builder | 2026-05-02 23:09 UTC*
+*Auto-generated by pigeon_compiler manifest_builder | 2026-04-14 03:53 UTC*
 
 ## How to read this manifest
 
@@ -882,41 +929,39 @@ Python module in this folder. It is the single source of truth for:
 <!-- codex:prompt-brain -->
 ## Prompt Brain
 
-**PROMPT:** `github keeeps asking me to select acct`
+**PROMPT:** `its still bot selecting files / writing file comments when i talk to codexes about linkrouter ai repo - why -`
 **TRIGGER:** `os_hook_auto:composition_submit`
-**INTENT_KEY:** `build/pigeon_legacy/src:route:github_keeeps_asking_select:minor`
+**INTENT_KEY:** `pigeon_compiler/integrations:route:its_still_bot_selecting:minor`
 **SEMANTIC:** `unknown`
 **COMPLETION_HINT:** `none`
 **PROFILE_FACTS:** `name=Nikita`
 **AI_FINGERPRINT:** `aaf0c1d1bd2f2ff3740e747e93e39eb8`
-**CONTEXT_STATUS:** `ok` confidence `0.056`
-**MANIFEST:** `build/pigeon_legacy/src/MANIFEST.md` confidence `0.2`
+**CONTEXT_STATUS:** `ok` confidence `0.0608`
+**MANIFEST:** `pigeon_compiler/integrations/MANIFEST.md` confidence `0.2857`
 
 **NUMERIC_FILES:**
-- `context_select_agent` score `0.056`
-- `maif_auditor_pyproject` score `0.0111`
-- `codex_compat` score `0.0092`
-- `os_hook` score `0.0071`
-- `maif_auditor_examples_manifest` score `0.0068`
-- `maif_auditor_maif_auditor_init` score `0.0067`
+- `tc_intent_file_memory` score `0.0608`
+- `maif_auditor_tests_manifest` score `0.0261`
+- `maif_auditor_examples_manifest` score `0.0234`
+- `tc_intent_keys` score `0.0229`
+- `maif_auditor_maif_auditor_manifest` score `0.0222`
+- `maif_auditor_maif_auditor_models_manifest` score `0.0201`
 
-**PROMPT_BOX_OPEN:** `229`
+**PROMPT_BOX_OPEN:** `415`
 <!-- /codex:prompt-brain -->
 
 <!-- codex:operator-response-policy -->
 ## Operator Response Policy
 
-ACTIVE_ARM: `probe_council`
-POLICY_TS: `2026-05-04T22:48:35.942853+00:00`
-OPERATOR_READ: Extract the real move, pick the files that should wake, and produce an action-ready response.
+ACTIVE_ARM: `surgical_engineer`
+POLICY_TS: `2026-05-10T21:09:25.584612+00:00`
+OPERATOR_READ: Mutate the repo through a bounded patch, then prove it with tests or a clear validation gate.
 PRIORITY: thinking_momentum > intent_extraction > autonomous_code_mutation_readiness > comedy_file_personality
 
 REQUIRED_RESPONSE_SHAPE:
 1. Operator read
-2. Intent moves
-3. Probe files
-4. Next mutation
-5. File quote
+2. Next mutation
+3. Validation
 
 RESPONSE_RULES:
 - Act as the probe layer for intent, files, and validation.
@@ -928,29 +973,46 @@ RESPONSE_RULES:
 - Do not imitate typos unless quoting the operator.
 
 BANNED_BEHAVIORS:
-- generic encouragement
-- status-only mail
-- unbounded rewrite claims
+- performative comedy
+- long ontology recap
+- unverified confidence
 - imitating operator typos unless quoting
 - fake certainty about mutations not executed
 - file quote when it does not carry signal
 
 ACTIVE_INTENT_MOVES:
-- `pigeon_brain:test:deepseek_file_sim_stress:patch` :: segment matched 8 file signal(s); manifest confidence 0.375
-- `src:route:semantic_numeric_file_matching:patch` :: segment matched 8 file signal(s); manifest confidence 0.556
-- `pigeon_brain/flow/node_memory_seq008:document:identify_current_architecture_gaps:minor` :: segment matched 8 file signal(s); manifest confidence 0.349
-- `pigeon_brain/flow/backward_seq007:route:use_only_repo_context:minor` :: segment matched 8 file signal(s); manifest confidence 0.500
+- `pigeon_compiler/rename_engine/?w_ir_s003_v005_d0403_???_?FX:route:thought_completer:minor` :: segment matched 8 file signal(s); manifest confidence 0.526
+- `build/pigeon_legacy/pigeon_brain/flow:route:raw_operator_prompt_fallback:minor` :: segment matched 8 file signal(s); manifest confidence 0.750
+- `build/pigeon_legacy/src:patch:promote_bug_notes_quick:minor` :: segment matched 8 file signal(s); manifest confidence 0.571
+- `pigeon_compiler/integrations:route:generated_opus_executor_prompt:minor` :: segment matched 8 file signal(s); manifest confidence 0.800
+- `root:route:they_are_not_ignored:minor` :: segment matched 8 file signal(s); manifest confidence 0.500
 
 PROBE_FILES:
-- `src/thought_completer.py` via intent:test
-- `src/tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade.py` via intent:test
-- `src/tc_prompt_composer_seq001_v001.py` via intent:test
-- `src/tc_buffer_watcher_seq001_v001.py` via intent:test
-- `src/ai_fingerprint_operator_seq001_v001.py` via intent:test
-- `src/tc_intent_keys_seq001_v001.py` via intent:test
-- `context_select_agent` via numeric_context
-- `maif_auditor_pyproject` via numeric_context
+- `src/tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade.py` via intent:route
+- `src/tc_prompt_composer_seq001_v001.py` via intent:route
+- `src/intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade.py` via intent:route
+- `src/thought_completer.py` via intent:route
+- `src/ai_fingerprint_operator_seq001_v001.py` via intent:route
+- `src/tc_buffer_watcher_seq001_v001.py` via intent:route
+- `src/opus_micro_pulse_runtime_seq001_v001.py` via self_clearing_context_window
+- `pigeon_compiler/cut_executor/?f_cdp_s013_v002_d0322_??????_?7.py` via self_clearing_context_window
 
 RECENT_REWARD: arm `probe_council`, score `0.0`
-NEXT_MUTATION: Load `src/thought_completer.py` with the top intent move and propose one bounded patch plus validation.
+NEXT_MUTATION: Load `src/tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade.py` with the top intent move and propose one bounded patch plus validation.
 <!-- /codex:operator-response-policy -->
+
+<!-- codex:opus-cannon-bootstrap -->
+## Opus Cannon Bootstrap
+
+This file is only the bootstrap contract. The generated Opus cannon is the current executor prompt.
+
+- primary_executor_prompt: `logs/opus_executor_prompt_latest.md`
+- cannon_packet: `logs/prompt_cannon_job_latest.json`
+- pulse_packet: `logs/opus_micro_pulse_latest.json`
+- gate_packet: `logs/cannon_execution_gate_latest.json`
+- current_prompt_hash: `3d59c2fd6f5265a8`
+- current_executor_session: `codex_execution_session`
+- current_prompt_class: `debug`
+
+Executor rule: read the primary executor prompt first; use the operator prompt only as fallback evidence.
+<!-- /codex:opus-cannon-bootstrap -->

@@ -13,6 +13,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from src.file_deepseek_delegate_seq001_v001 import queue_file_deepseek_delegates
+
 PROMPT_JOBS = "logs/deepseek_prompt_jobs.jsonl"
 CONTEXT_PACK = "logs/file_sim_deepseek_context_pack.json"
 
@@ -20,9 +22,20 @@ CONTEXT_PACK = "logs/file_sim_deepseek_context_pack.json"
 def queue_perpendicular_deepseek_job(root: Path, sim: dict[str, Any], *, write: bool = True) -> dict[str, Any]:
     """Queue exactly one DeepSeek job from a file-sim result."""
     root = Path(root)
-    action = _select_action(sim)
+    hush = _hush_runtime(root, sim)
+    action = _select_action(sim, hush)
     pack = _context_pack(sim, action)
     prompt = _prompt(sim, action)
+    if _hush_blocks_mutation(hush):
+        delegates = _blocked_delegates(hush)
+    else:
+        delegates = queue_file_deepseek_delegates(
+            root,
+            sim.get("learning_packets") or [],
+            intent=sim.get("intent") or {},
+            write=write,
+            limit=3,
+        )
     job_id = "dsfs-" + hashlib.sha1(
         f"{sim.get('ts')}|{action.get('mode')}|{action.get('target_file')}".encode("utf-8")
     ).hexdigest()[:16]
@@ -44,6 +57,7 @@ def queue_perpendicular_deepseek_job(root: Path, sim: dict[str, Any], *, write: 
         "artifact_path": f"logs/deepseek_artifacts/{job_id}_{action['mode']}.md",
         "max_tokens": 8000,
         "selected_action": action,
+        "hush_mutation_fence": ((hush.get("repo_classification") or {}).get("mutation_fence") or "unknown") if hush else "unknown",
     }
     result = {
         "schema": "file_sim_deepseek_lane/v1",
@@ -53,6 +67,8 @@ def queue_perpendicular_deepseek_job(root: Path, sim: dict[str, Any], *, write: 
         "action": action,
         "context_pack_path": CONTEXT_PACK,
         "rule": "DeepSeek runs perpendicular to Copilot; it drafts plans/artifacts until approval opens surgery.",
+        "hush_intent_runtime": _hush_summary(hush),
+        "file_delegates": delegates,
     }
     if write:
         _write_json(root / CONTEXT_PACK, pack)
@@ -63,7 +79,9 @@ def queue_perpendicular_deepseek_job(root: Path, sim: dict[str, Any], *, write: 
     return result
 
 
-def _select_action(sim: dict[str, Any]) -> dict[str, Any]:
+def _select_action(sim: dict[str, Any], hush: dict[str, Any] | None = None) -> dict[str, Any]:
+    if _hush_blocks_mutation(hush):
+        return _hush_blocked_action(sim, hush or {})
     ready = [job for job in sim.get("overcap_split_jobs") or [] if job.get("status") == "ready_for_split_plan"]
     blocked = [job for job in sim.get("overcap_split_jobs") or [] if str(job.get("status", "")).startswith("blocked")]
     if ready:
@@ -83,6 +101,23 @@ def _select_action(sim: dict[str, Any]) -> dict[str, Any]:
         "focus_files": _dedupe([target, "logs/file_self_sim_learning_latest.json", "logs/file_relationship_graph.json"]),
         "validation_plan": ["py -m pytest test_file_self_sim_learning.py -q"],
         "confidence": 0.35,
+    }
+
+
+def _hush_blocked_action(sim: dict[str, Any], hush: dict[str, Any]) -> dict[str, Any]:
+    repo = hush.get("repo_classification") or {}
+    wake = (sim.get("wake_order") or [{}])[0]
+    target = wake.get("file") or "logs/hush_intent_runtime_latest.json"
+    return {
+        "mode": "hush_mutation_fence_plan_only",
+        "priority": 0,
+        "target_file": target,
+        "intent_key": (sim.get("intent") or {}).get("intent_key", ""),
+        "bounded_action": "repo room is ambiguous; draft context plan only and do not propose source mutation",
+        "focus_files": _dedupe([target, "logs/hush_intent_runtime_latest.json", "logs/file_self_sim_learning_latest.json"]),
+        "validation_plan": ["review Hush repo classification", "ask operator for explicit repo lock"],
+        "confidence": repo.get("repo_confidence", 0),
+        "hush_reason": repo.get("reason", "Hush blocked mutation"),
     }
 
 
@@ -117,6 +152,7 @@ def _context_pack(sim: dict[str, Any], action: dict[str, Any]) -> dict[str, Any]
         "role": "perpendicular_deepseek_lane",
         "target_state": "interlinked_source_state",
         "selected_action": action,
+        "hush_intent_runtime": sim.get("hush_intent_runtime") or {},
         "intent": sim.get("intent") or {},
         "learning_packets": packets[:2],
         "relationship_edges": edges[:16],
@@ -132,9 +168,13 @@ def _context_pack(sim: dict[str, Any], action: dict[str, Any]) -> dict[str, Any]
 
 def _prompt(sim: dict[str, Any], action: dict[str, Any]) -> str:
     intent = sim.get("intent") or {}
+    hush_note = ""
+    if action.get("mode") == "hush_mutation_fence_plan_only":
+        hush_note = "HUSH_FENCE: Mutation is blocked. Return a repo-lock/context plan only."
     return "\n".join([
         "You are DeepSeek running perpendicular to Copilot inside the file-sim loop.",
         "Your job is continuous safe maintenance: compress, split-plan, map validation, or simulate an alternate codebase state.",
+        hush_note,
         "",
         f"INTENT_KEY: {intent.get('intent_key', '')}",
         f"TARGET_FILE: {action.get('target_file')}",
@@ -156,6 +196,49 @@ def _highest_pressure(jobs: list[dict[str, Any]]) -> dict[str, Any]:
 
 def _dedupe(items: Any) -> list[str]:
     return list(dict.fromkeys(str(item) for item in items if item))
+
+
+def _hush_runtime(root: Path, sim: dict[str, Any]) -> dict[str, Any]:
+    if isinstance(sim.get("hush_intent_runtime"), dict):
+        return sim["hush_intent_runtime"]
+    return _json(root / "logs" / "hush_intent_runtime_latest.json")
+
+
+def _hush_blocks_mutation(hush: dict[str, Any] | None) -> bool:
+    if not hush:
+        return False
+    repo = hush.get("repo_classification") or {}
+    return repo.get("mutation_fence") == "blocked"
+
+
+def _hush_summary(hush: dict[str, Any] | None) -> dict[str, Any]:
+    repo = (hush or {}).get("repo_classification") or {}
+    return {
+        "active_repo": repo.get("active_repo", ""),
+        "repo_confidence": repo.get("repo_confidence", 0),
+        "mutation_fence": repo.get("mutation_fence", ""),
+        "reason": repo.get("reason", ""),
+    }
+
+
+def _blocked_delegates(hush: dict[str, Any] | None) -> dict[str, Any]:
+    return {
+        "schema": "file_deepseek_delegate/v1",
+        "status": "blocked_by_hush_mutation_fence",
+        "jobs": [],
+        "grader_contract": {
+            "direct_overwrite_allowed": False,
+            "source_mutation_allowed": False,
+            "reason": ((hush or {}).get("repo_classification") or {}).get("reason", "Hush blocked mutation"),
+        },
+    }
+
+
+def _json(path: Path) -> dict[str, Any]:
+    try:
+        return json.loads(path.read_text(encoding="utf-8", errors="replace")) if path.exists() else {}
+    except (OSError, json.JSONDecodeError):
+        return {}
 
 
 def _now() -> str:

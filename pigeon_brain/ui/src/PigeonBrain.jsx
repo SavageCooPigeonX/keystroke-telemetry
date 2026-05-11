@@ -11,6 +11,7 @@ import ObserverPanel from './ObserverPanel';
 import ChatPanel from './ChatPanel';
 import EntropyChart from './EntropyChart';
 import SemanticMemory from './SemanticMemory';
+import QueryMonitoring from './QueryMonitoring';
 import KeystrokeTelemetry from './KeystrokeTelemetry';
 import ProfilePage from './ProfilePage';
 import useLiveTrace from './useLiveTrace';
@@ -495,7 +496,7 @@ export default function PigeonBrain() {
   const recentEvents = useMemo(() => events.slice(-30), [events]);
 
   /* Unified panel view state */
-  const [activePanel, setActivePanel] = useState('observer'); // observer | entropy | memory
+  const [activePanel, setActivePanel] = useState('observer'); // observer | entropy | memory | queries
 
   /* Handle file click from entropy chart */
   const handleEntropyFileClick = useCallback((node) => {
@@ -590,23 +591,29 @@ export default function PigeonBrain() {
         {/* Right Side — Tabbed Panel */}
         <div className="unified-sidebar">
           <div className="sidebar-tabs">
-            <button 
+            <button
               className={`sidebar-tab ${activePanel === 'observer' ? 'active' : ''}`}
               onClick={() => setActivePanel('observer')}
             >
-              👁️ Observer
+              Observer
             </button>
-            <button 
+            <button
               className={`sidebar-tab ${activePanel === 'entropy' ? 'active' : ''}`}
               onClick={() => setActivePanel('entropy')}
             >
-              🌡️ Entropy
+              Entropy
             </button>
-            <button 
+            <button
               className={`sidebar-tab ${activePanel === 'memory' ? 'active' : ''}`}
               onClick={() => setActivePanel('memory')}
             >
-              📚 Memory
+              Memory
+            </button>
+            <button
+              className={`sidebar-tab ${activePanel === 'queries' ? 'active' : ''}`}
+              onClick={() => setActivePanel('queries')}
+            >
+              Queries
             </button>
           </div>
 
@@ -633,6 +640,9 @@ export default function PigeonBrain() {
                 selectedNode={selectedNode}
                 graphData={graphData}
               />
+            )}
+            {activePanel === 'queries' && (
+              <QueryMonitoring />
             )}
           </div>
         </div>

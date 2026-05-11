@@ -96,3 +96,70 @@ def analyze_resistance(file_path: str | Path, call_graph: dict, shared_state: di
 ## Code Markers
 
 *No TODO/FIXME/HACK markers found — codebase is clean.*
+
+<!-- manifest:opus-micro-pulse-state -->
+## Opus Micro-Pulse State
+
+- prompt_hash: `342edaba7337e672`
+- prompt_class: `directive`
+- executor_session: `codex_execution_session`
+- metric: `opus_prediction_vs_executor_diff`
+
+### Local Pulse Comments
+
+- `pigeon_compiler/state_extractor/演p_cg_s002_v004_d0315_重箱重助重拆_λν.py` I was touched by Opus on pause 2 because it thinks I am prompt composition and intent-key compiler. I am really call_graph_seq002_v001.py — Build intra-file call graph via AST walk.. Opus may be flattening my role; calibrate my syntax triggers before trusting this route. Solution: increase learned syntax triggers from this prompt if Codex actually touches me. Persistent faults: low-touch file; can be missed by Opus unless static syntax matches.
+  - coding_agent: If Codex touches `pigeon_compiler/state_extractor/演p_cg_s002_v004_d0315_重箱重助重拆_λν.py`, verify whether Opus prediction `prompt composition and intent-key compiler` matched actual role `call_graph_seq002_v001.py — Build intra-file call graph via AST walk.`. After execution, write touched/predicted/missed status into the backward learning packet.
+
+### Pending Backward Pass
+
+- `pigeon_compiler/state_extractor/演p_cg_s002_v004_d0315_重箱重助重拆_λν.py` waiting_for_codex_diff
+<!-- /manifest:opus-micro-pulse-state -->
+
+<!-- manifest:folder-unified-state -->
+## Folder Unified State
+
+- state_doc: `pigeon_compiler/state_extractor/MANIFEST.md`
+- write_authority: `own_folder_manifest_only`
+- read_authority: `selected_manifest_read_only`
+- changed_files_in_scope: `1`
+
+### Local Files Learning Here
+
+| File | Observations | Learned Trigger Sample |
+|---|---:|---|
+| `pigeon_compiler/state_extractor/MANIFEST.md` | 1 | build, complext, copmosition, full, get, history, how, legacy |
+| `pigeon_compiler/state_extractor/拆f_emb_s006_v004_d0315_追跑改名谱建_λν.py` | 1 | build, complext, copmosition, full, get, history, how, legacy |
+| `pigeon_compiler/state_extractor/__init__.py` | 0 | none |
+| `pigeon_compiler/state_extractor/共态p_ssd_s004_v004_d0315_重箱重助重拆_λν.py` | 0 | none |
+| `pigeon_compiler/state_extractor/查p_ap_s001_v004_d0315_重箱重助重拆_λν.py` | 0 | none |
+| `pigeon_compiler/state_extractor/演p_cg_s002_v004_d0315_重箱重助重拆_λν.py` | 0 | none |
+| `pigeon_compiler/state_extractor/追p_it_s003_v004_d0315_牌谱建踪_λν.py` | 0 | none |
+| `pigeon_compiler/state_extractor/阻w_ra_s005_v004_d0315_重箱重助重拆_λν.py` | 0 | none |
+
+### Cross-Folder Manifests Read In Sim
+
+- `MANIFEST.md`
+- `src/tc_sim/tc_sim_report_seq009_v001/MANIFEST.md`
+- `build/pigeon_legacy/pigeon_brain/MANIFEST.md`
+- `build/pigeon_legacy/scripts/MANIFEST.md`
+- `build/pigeon_legacy/src/MANIFEST.md`
+- `build/pigeon_legacy/MANIFEST.md`
+- `pigeon_brain/MANIFEST.md`
+- `pigeon_compiler/MANIFEST.md`
+- `pigeon_compiler/cut_executor/MANIFEST.md`
+- `pigeon_compiler/integrations/MANIFEST.md`
+- `pigeon_compiler/weakness_planner/MANIFEST.md`
+- `scripts/MANIFEST.md`
+
+### Local Bug Chat
+
+- `none-local`
+
+### Live Sim Call Receipts
+
+- `pigeon_compiler/state_extractor/演p_cg_s002_v004_d0315_重箱重助重拆_λν.py` kind=opus_pulse attention=opus_pulse :: Opus pause pulse predicted this file before Enter prompt composition and intent-key compiler
+
+### Local Write Queue
+
+- `pigeon_compiler/state_extractor/演p_cg_s002_v004_d0315_重箱重助重拆_λν.py` -> `pigeon_compiler/state_extractor/MANIFEST.md`
+<!-- /manifest:folder-unified-state -->

@@ -34,6 +34,7 @@ Python module in this folder. It is the single source of truth for:
 | 001 | codebase_detector_seq001_v001.py | 171 | ✅ | _STRUCTURE_FILES, CodebaseProfile, detect_codebase() |  | pluggable codebase state detection. |  |
 | 001 | codebase_transmuter_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/codebase_transmuter_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | codebase_vitals_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/codebase_vitals_seq001_v001.py. | pigeon_legacy_loader |
+| 001 | codex_edit_outcome_binder_seq001_v001.py | 140 | ✅ | LATEST, HISTORY, bind_codex_edit_outcome() |  | Bind accepted Codex edits into edit-pair and training-pair telemetry. |  |
 | 001 | consensus_sim_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/consensus_sim_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | context_compressor_seq001_v001.py | 170 | ✅ | SKIP_DIRS, APPROX_CHARS_PER_TOKEN, compress_file(), compress_changed() |  | incremental Python compression for LLM context on push. |  |
 | 001 | context_select_agent_seq001_v002_d0421__intent_orchestrator_fires_on_every_lc_feat_operator_state_daemon.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/context_select_agent_seq001_v002_d0421__inte... | pigeon_legacy_loader |
@@ -45,25 +46,33 @@ Python module in this folder. It is the single source of truth for:
 | 001 | engagement_hooks_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/engagement_hooks_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | entropy_shedding_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/entropy_shedding_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | escalation_engine_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/escalation_engine_seq001_v001.py. | pigeon_legacy_loader |
+| 001 | file_blank_sheet_sim_seq001_v001.py | 125 | ✅ | LATEST, HISTORY, MARKDOWN, build_file_blank_sheet_sim(), render_blank_sheet_sim() |  | Let files propose their own pressing state from recent repo memory. |  |
 | 001 | file_collaboration_audit_seq001_v001.py | 137 | ✅ | SCHEMA, audit_file_collaboration() | file_collaboration_comments, file_collaboration_metrics, file_collaboration_render, file_manifest_state_sync | Audit whether file sims are becoming useful collaborators. | file_collaboration_comments, file_collaboration_metrics, file_collaboration_render, file_manifest_state_sync |
 | 001 | file_collaboration_comments_seq001_v001.py | 183 | ✅ | COMMENT_SCHEMA, STATE_SCHEMA, manifest_state(), file_comments(), room_agreement() +1 |  | Manifest-state comments for file collaboration audits. |  |
 | 001 | file_collaboration_metrics_seq001_v001.py | 173 | ✅ | collaboration_metrics(), collaboration_score(), collaboration_verdict(), operator_read(), improvement_notes() +5 |  | Metrics for file-sim collaboration audits. |  |
 | 001 | file_collaboration_render_seq001_v001.py | 82 | ✅ | render_file_collaboration_audit(), render_manifest_collaboration_state() | file_collaboration_metrics | Markdown renderers for file collaboration state. | file_collaboration_metrics |
-| 001 | file_email_plugin_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/file_email_plugin_seq001_v001.py. | pigeon_legacy_loader |
+| 001 | file_deepseek_delegate_seq001_v001.py | 191 | ✅ | SCHEMA, JOB_LOG, LATEST, HISTORY, ARTIFACT_DIR +2 |  | File-local coding delegate queue. |  |
+| 001 | file_email_ambient_state_seq001_v001.py | 134 | ✅ | build_email_ambient_state(), render_room_chat() |  | Ambient codebase state for text-chain file mail. |  |
+| 001 | file_email_plugin_seq001_v001.py | 120 | ✅ | _ROOT, mail_quality_gate(), emit_file_email(), emit_learning_digest_email(), email_delivery_status() | pigeon_legacy_loader, file_email_text_chain | Pigeon compliance facade for src/file_email_plugin_seq001_v001.py. | pigeon_legacy_loader |
+| 001 | file_email_text_chain_seq001_v001.py | 126 | ✅ | _ROOT, set_text_chain_root(), render_text_chain_file_email(), render_text_chain_learning_digest(), text_chain_subject() | file_email_ambient_state | Text-chain renderer for file email receipts. |  |
 | 001 | file_intelligence_graph_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/file_intelligence_graph_seq001_v001.py. | pigeon_legacy_loader |
+| 001 | file_interlinked_naming_policy_seq001_v001.py | 69 | ✅ | interlinked_queries(), corrected_intent(), file_kind(), proposed_name(), discrepancy() +1 |  | Naming policy helpers for the interlinked naming sim. |  |
+| 001 | file_interlinked_naming_sim_seq001_v001.py | 190 | ✅ | LATEST, HISTORY, MARKDOWN, run_interlinked_naming_sim(), send_naming_grader_email() +1 | file_interlinked_naming_policy, file_number_key_identity, file_email_plugin | Interlinked file-room naming convention planning sim. |  |
 | 001 | file_manifest_state_render_seq001_v001.py | 125 | ✅ | FOLDER_START, FOLDER_END, GLOBAL_START, GLOBAL_END, render_folder_block() +1 |  | Render managed MANIFEST.md blocks for file-sim state. |  |
 | 001 | file_manifest_state_sync_seq001_v001.py | 114 | ✅ | sync_file_sim_manifest_state() | file_manifest_state_render | Sync file-sim collaboration state into folder MANIFEST.md files. | file_manifest_state_render |
+| 001 | file_number_key_identity_seq001_v001.py | 60 | ✅ | file_identity_card(), file_number_key(), operator_display_name(), mutation_name(), ownership_from_name() +1 |  | Stable file number keys plus operator-readable identity names. |  |
 | 001 | file_overwriter_seq001_v001_d0422__autonomous_file_patcher_lc_feat_file_cortex.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/file_overwriter_seq001_v001_d0422__autonomou... | pigeon_legacy_loader |
 | 001 | file_selector_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/file_selector_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | file_self_knowledge_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/file_self_knowledge_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | file_self_sim_learning_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/file_self_sim_learning_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | file_semantic_layer_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/file_semantic_layer_seq001_v001.py. | pigeon_legacy_loader |
-| 001 | file_sim_deepseek_lane_seq001_v001.py | 173 | ✅ | PROMPT_JOBS, CONTEXT_PACK, queue_perpendicular_deepseek_job() |  | Per-sim DeepSeek maintenance lane. |  |
+| 001 | file_sim_deepseek_lane_seq001_v001.py | 256 | ⚠️ OVER | PROMPT_JOBS, CONTEXT_PACK, queue_perpendicular_deepseek_job() | file_deepseek_delegate | Per-sim DeepSeek maintenance lane. |  |
 | 001 | file_sim_seq001_v005_d0421__micro_sim_engine_prompt_file_lc_feat_operator_state_daemon.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/file_sim_seq001_v005_d0421__micro_sim_engine... | pigeon_legacy_loader |
 | 001 | hourly_autonomous_file_sim_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/hourly_autonomous_file_sim_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | hourly_deepseek_autonomy_seq001_v001.py | 119 | ✅ | SCHEMA, run_hourly_deepseek_autonomy() | actual_job_runner, hourly_autonomous_file_sim, hourly_deepseek_autonomy_support, hourly_deepseek_io +1 | Closed hourly DeepSeek autonomy loop. | actual_job_runner, hourly_autonomous_file_sim, hourly_deepseek_autonomy_support, hourly_deepseek_io +1 |
 | 001 | hourly_deepseek_autonomy_support_seq001_v001.py | 190 | ✅ | PROMPT_JOBS, enqueue_deepseek_job(), run_deepseek_once(), send_receipt(), deepseek_prompt() +11 | file_email_plugin, hourly_deepseek_io, local_env_loader | Support helpers for the hourly DeepSeek autonomy loop. | file_email_plugin, hourly_deepseek_io, local_env_loader |
 | 001 | hourly_deepseek_io_seq001_v001.py | 46 | ✅ | load_jsonl(), write_json(), append_jsonl(), tail(), truthy() +1 |  | Tiny IO helpers for hourly DeepSeek autonomy. |  |
+| 001 | hush_intent_runtime_seq001_v001.py | 443 | 🟠 WARN | SCHEMA, LATEST, HISTORY, MARKDOWN, LOCAL_REPO +7 | file_number_key_identity | Hush intent runtime and repo-room classifier. |  |
 | 001 | intent_compressor_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/intent_compressor_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | intent_loop_closer_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/intent_loop_closer_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | intent_nodes_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/intent_nodes_seq001_v001.py. | pigeon_legacy_loader |
@@ -79,15 +88,24 @@ Python module in this folder. It is the single source of truth for:
 | 001 | irt_field_profile_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/irt_field_profile_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | local_env_loader_seq001_v001.py | 96 | ✅ | DEFAULT_KEYS, load_local_env(), env_search_paths(), has_env_key() |  | Load trusted local env files without printing secrets. |  |
 | 001 | loop_killswitch_sim_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/loop_killswitch_sim_seq001_v001.py. | pigeon_legacy_loader |
-| 058 | master_test.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/master_test.py. | pigeon_legacy_loader |
+| 001 | manifest_state_protocol_seq001_v001.py | 137 | ✅ | build_manifest_state_protocol(), render_manifest_state_prompt() |  | Manifest read/write protocol for file-sim prompt execution. |  |
+| 068 | master_test.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/master_test.py. | pigeon_legacy_loader |
 | 001 | module_identity_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/module_identity_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | narrative_glove_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/narrative_glove_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | numeric_surface_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/numeric_surface_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | operator_intent_compiler_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/operator_intent_compiler_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | operator_probes_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/operator_probes_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | operator_response_policy_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/operator_response_policy_seq001_v001.py. | pigeon_legacy_loader |
-| 065 | p_prc_s016_v001.py | 54 | ✅ | _RUNTIME, reconstruct_latest(), track_copilot_prompt_mutations() |  | Compatibility wrapper for the legacy prompt_recon import path. |  |
-| 066 | p_psg_s026_v001.py | 71 | ✅ | _RUNTIME, log_raw_signal(), load_raw_signals(), load_latest_raw() |  | Compatibility wrapper for the legacy prompt_signal import path. |  |
+| 001 | operator_syntax_triggers_seq001_v001.py | 200 | ✅ | STOP, SCAN_DIRS, match_operator_syntax_triggers(), learn_operator_syntax_triggers() |  | Learn file wake triggers from operator language and file syntax. |  |
+| 001 | opus_artifact_memory_core_seq001_v001.py | 121 | ✅ | SCHEMA, LATEST, HISTORY, MARKDOWN, build_opus_artifact_memory() +1 | opus_artifact_memory_signals | Core writer for Opus artifact memory. |  |
+| 001 | opus_artifact_memory_seq001_v001.py | 15 | ✅ |  | opus_artifact_memory_core | Public facade for Opus artifact memory. |  |
+| 001 | opus_artifact_memory_signals_seq001_v001.py | 150 | ✅ | telemetry_read(), high_touch_files(), file_death_areas(), compiler_probe(), file_dialogue() +4 |  | Signal readers for Opus artifact memory. |  |
+| 001 | opus_branch_sim_seq001_v001.py | 174 | ✅ | SCHEMA, LATEST, HISTORY, MARKDOWN, simulate_opus_branch_job() +2 |  | Opus branch/worktree simulation jobs. |  |
+| 001 | opus_coding_area_memory_seq001_v001.py | 117 | ✅ | LATEST, MARKDOWN, SKIP, build_opus_coding_area_memory(), render_coding_area_memory() |  | Bounded codebase search and job memory for Opus orchestration. |  |
+| 001 | opus_orchestrator_runtime_seq001_v001.py | 229 | ⚠️ OVER | SCHEMA, LATEST, HISTORY, MARKDOWN, MANIFEST_NOTE +2 | hush_intent_runtime, opus_artifact_memory, opus_coding_area_memory, opus_training_pair_debug | Claude Opus runtime pack for thought-completer chat. |  |
+| 001 | opus_training_pair_debug_seq001_v001.py | 167 | ✅ | LATEST, MARKDOWN, debug_training_pairs(), render_training_pair_debug() |  | Multi-step Opus diagnosis for stale training-pair telemetry. |  |
+| 083 | p_prc_s016_v001.py | 54 | ✅ | _RUNTIME, reconstruct_latest(), track_copilot_prompt_mutations() |  | Compatibility wrapper for the legacy prompt_recon import path. |  |
+| 084 | p_psg_s026_v001.py | 71 | ✅ | _RUNTIME, log_raw_signal(), load_raw_signals(), load_latest_raw() |  | Compatibility wrapper for the legacy prompt_signal import path. |  |
 | 001 | persona_intent_synthesizer_seq001_v001.py | 180 | ✅ | load_all_memories(), extract_intents(), extract_frustrations(), extract_open_tasks(), extract_relationships() +3 |  | reads file_memories/*.json, |  |
 | 001 | pigeon_legacy_loader_seq001_v001.py | 31 | ✅ | load_legacy_module() |  | Loader for mechanically migrated over-cap Python modules. |  |
 | 001 | pipeline_staleness_audit_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/pipeline_staleness_audit_seq001_v001.py. | pigeon_legacy_loader |
@@ -98,6 +116,7 @@ Python module in this folder. It is the single source of truth for:
 | 001 | profile_chat_server_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/profile_chat_server_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | profile_renderer_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/profile_renderer_seq001_v001.py. | pigeon_legacy_loader |
 | 019 | prompt_journal_seq019_v001.py | 30 | ✅ | log_enriched_entry() |  | Compatibility wrapper for the stable prompt_journal import path. |  |
+| 001 | prompt_manifest_compiler_seq001_v001.py | 191 | ✅ | ENCODED_RE, decode_file_intent(), build_prompt_context_packet() | manifest_state_protocol, tc_intent_keys, copilot_probe_push_cycle | Compile operator prompts into manifest-aware file-sim packets. |  |
 | 016 | prompt_recon_seq016_v001.py | 54 | ✅ | _RUNTIME, reconstruct_latest(), track_copilot_prompt_mutations() |  | Compatibility wrapper for the legacy prompt_recon import path. |  |
 | 001 | push_baseline_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/push_baseline_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | push_snapshot_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/push_snapshot_seq001_v001.py. | pigeon_legacy_loader |
@@ -134,76 +153,77 @@ Python module in this folder. It is the single source of truth for:
 | 001 | tc_vscode_seq001_v001.py | 60 | ✅ | _WNDENUMPROC |  | VS Code window detection via Windows API. |  |
 | 001 | tc_web_seq001_v002_d0420__web_server_mode_for_thought_lc_chore_pigeon_rename_cascade.py | 94 | ✅ | WEB_HTML, run_web() |  | Web server mode for thought completer (Railway deploy). |  |
 | 001 | template_selector_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/template_selector_seq001_v001.py. | pigeon_legacy_loader |
-| 113 | thought_completer.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/thought_completer.py. | pigeon_legacy_loader |
-| 114 | u_cs_s033_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/u_cs_s033_v001.py. | pigeon_legacy_loader |
-| 115 | u_pd_s024_v001.py | 131 | ✅ | MUTATIONS_PATH, _RED, _GREEN, _CYAN, _RESET +3 |  | Prompt version diff CLI. |  |
-| 116 | u_pe_s024_v004_d0403_λP0_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/u_pe_s024_v004_d0403_λP0_βoc.py. | pigeon_legacy_loader |
-| 117 | u_pj_s019_v006_d0421_λTL_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/u_pj_s019_v006_d0421_λTL_βoc.py. | pigeon_legacy_loader |
-| 118 | u_prc_s016_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/u_prc_s016_v001.py. | pigeon_legacy_loader |
-| 119 | u_psg_s026_v001.py | 112 | ✅ | RAW_JOURNAL_PATH, log_raw_signal(), load_raw_signals(), load_latest_raw() |  | measured truth only, no interpretation. |  |
+| 132 | thought_completer.py | 25 | ✅ | _ROOT | pigeon_legacy_loader, opus_orchestrator_runtime | Pigeon compliance facade for src/thought_completer.py. | pigeon_legacy_loader |
+| 133 | u_cs_s033_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/u_cs_s033_v001.py. | pigeon_legacy_loader |
+| 134 | u_pd_s024_v001.py | 131 | ✅ | MUTATIONS_PATH, _RED, _GREEN, _CYAN, _RESET +3 |  | Prompt version diff CLI. |  |
+| 135 | u_pe_s024_v004_d0403_λP0_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/u_pe_s024_v004_d0403_λP0_βoc.py. | pigeon_legacy_loader |
+| 136 | u_pj_s019_v006_d0421_λTL_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/u_pj_s019_v006_d0421_λTL_βoc.py. | pigeon_legacy_loader |
+| 137 | u_prc_s016_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/u_prc_s016_v001.py. | pigeon_legacy_loader |
+| 138 | u_psg_s026_v001.py | 112 | ✅ | RAW_JOURNAL_PATH, log_raw_signal(), load_raw_signals(), load_latest_raw() |  | measured truth only, no interpretation. |  |
+| 001 | unified_manifest_state_seq001_v001.py | 165 | ✅ | FOLDER_START, FOLDER_END, MASTER_START, MASTER_END, append_folder_unified_state() +3 |  | Unified folder and master manifest state blocks. |  |
 | 001 | unsaid_accumulator_seq001_v001.py | 93 | ✅ | ROOT, UNSAID_LOG, record(), get_recent(), query() +1 |  | long-term unsaid thread history. |  |
 | 001 | unsaid_thread_digest_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/unsaid_thread_digest_seq001_v001.py. | pigeon_legacy_loader |
 | 001 | vitals_renderer_seq001_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/vitals_renderer_seq001_v001.py. | pigeon_legacy_loader |
-| 123 | w_pe_s024_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/w_pe_s024_v001.py. | pigeon_legacy_loader |
-| 124 | w_pj_s019_v001.py | 50 | ✅ | _RUNTIME, log_enriched_entry() |  | Compatibility wrapper for the legacy prompt_journal import path. |  |
+| 143 | w_pe_s024_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/w_pe_s024_v001.py. | pigeon_legacy_loader |
+| 144 | w_pj_s019_v001.py | 50 | ✅ | _RUNTIME, log_enriched_entry() |  | Compatibility wrapper for the legacy prompt_journal import path. |  |
 | 001 | weakness_surfacer_seq001_v001.py | 178 | ✅ | ROOT, check_stale_telemetry(), check_master_test(), check_health_score(), check_overcap_budget() +8 |  | what the codebase is trying to tell you, surfaced. |  |
-| 126 | 修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc.py. | pigeon_legacy_loader |
-| 127 | 典w_sd_s031_v002_d0401_缩分话_λG.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/典w_sd_s031_v002_d0401_缩分话_λG.py. | pigeon_legacy_loader |
-| 128 | 变p_ms_s021_v002_d0321_缩分话_λ18.py | 182 | ✅ | MUTATIONS_PATH, REWORK_PATH, OUTPUT_PATH, WINDOW_S, score_mutations() |  | Mutation scorer: correlates prompt mutations with rework verdicts. |  |
-| 129 | 叙p_pn_s012_v006_d0328_初写谱净拆_λR.py | 195 | ✅ | generate_push_narrative() |  | Generate per-push narrative: each changed file speaks as its own agent. |  |
-| 130 | 叙p_pn_s012_v007_d0403_初写谱净拆_λP0.py | 195 | ✅ | generate_push_narrative() |  | Generate per-push narrative: each changed file speaks as its own agent. |  |
-| 131 | 叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc.py. | pigeon_legacy_loader |
-| 132 | 合p_us_s026_v002_d0330_缩分话_λF.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/合p_us_s026_v002_d0330_缩分话_λF.py. | pigeon_legacy_loader |
-| 133 | 型p_mo_s002_v003_d0317_读唤任_λΠ.py | 38 | ✅ | KeyEvent, MessageDraft |  | Dataclasses for keystroke events and message draft tracking. |  |
-| 134 | 境w_cb_s004_v008_d0321_初写谱净拆_λφ.py | 89 | ✅ | TOKENS_PER_LINE, DEFAULT_CONFIG, default_budget_config(), estimate_tokens(), score_context_budget() |  | Context budget scorer for LLM-aware file sizing. |  |
-| 135 | 声w_vs_s028_v002_d0330_缩分话_λF.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/声w_vs_s028_v002_d0330_缩分话_λF.py. | pigeon_legacy_loader |
-| 136 | 对p_tp_s027_v003_d0402_缩分话_λVR_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/对p_tp_s027_v003_d0402_缩分话_λVR_βoc.py. | pigeon_legacy_loader |
-| 137 | 层w_sl_s007_v003_d0317_读唤任_λΠ.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/层w_sl_s007_v003_d0317_读唤任_λΠ.py. | pigeon_legacy_loader |
-| 138 | 录p_lo_s003_v005_d0322_译改名踪_λω.py | 172 | ✅ | SCHEMA_VERSION, TelemetryLogger |  | Core keystroke telemetry logger. |  |
-| 139 | 忆p_qm_s010_v004_d0321_踪稿析_λ18.py | 168 | ✅ | QUERY_STORE, MAX_ENTRIES, RECUR_THRESH, cluster_unsaid_threads(), record_query() +1 |  | Recurring query detector + unsaid thought integrator. |  |
-| 140 | 思f_cr_s014_v003_d0321_译改名踪_λ18.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/思f_cr_s014_v003_d0321_译改名踪_λ18.py. | pigeon_legacy_loader |
-| 141 | 思f_cr_s014_v004_d0330_译改名踪_λF.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/思f_cr_s014_v004_d0330_译改名踪_λF.py. | pigeon_legacy_loader |
-| 142 | 思f_cr_s014_v005_d0331_译改名踪_λM.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/思f_cr_s014_v005_d0331_译改名踪_λM.py. | pigeon_legacy_loader |
-| 143 | 意w_is_s034_v002_d0401_缩分话_λC.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/意w_is_s034_v002_d0401_缩分话_λC.py. | pigeon_legacy_loader |
-| 144 | 探p_ur_s024_v002_d0329_读唤任_λS.py | 144 | ✅ | DELETION_THRESHOLD, INTENT_DELETE_MIN_RUN, GEMINI_MODEL, GEMINI_TIMEOUT, SYSTEM_PROMPT +1 |  | fires on high-deletion prompts. |  |
-| 145 | 探p_ur_s024_v003_d0331_读唤任_λI.py | 169 | ✅ | DELETION_THRESHOLD, INTENT_DELETE_MIN_RUN, GEMINI_MODEL, GEMINI_TIMEOUT, SYSTEM_PROMPT +1 |  | fires on high-deletion prompts. |  |
-| 146 | 控f_ost_s008_v007_d0322_初写谱净拆_λω.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/控f_ost_s008_v007_d0322_初写谱净拆_λω.py. | pigeon_legacy_loader |
-| 147 | 控w_ops_s008_v007_d0322_册追跑_λW.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/控w_ops_s008_v007_d0322_册追跑_λW.py. | pigeon_legacy_loader |
-| 148 | 控w_ops_s008_v008_d0331_册追跑_λI.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/控w_ops_s008_v008_d0331_册追跑_λI.py. | pigeon_legacy_loader |
-| 149 | 控w_ops_s008_v009_d0328_册追跑_λR.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/控w_ops_s008_v009_d0328_册追跑_λR.py. | pigeon_legacy_loader |
-| 150 | 控w_ops_s008_v010_d0331_册追跑_λI.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/控w_ops_s008_v010_d0331_册追跑_λI.py. | pigeon_legacy_loader |
-| 151 | 推w_dp_s017_v005_d0324_初写谱净拆_λB.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/推w_dp_s017_v005_d0324_初写谱净拆_λB.py. | pigeon_legacy_loader |
-| 152 | 推w_dp_s017_v005_d0324_初写谱净拆_λδ.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/推w_dp_s017_v005_d0324_初写谱净拆_λδ.py. | pigeon_legacy_loader |
-| 153 | 推w_dp_s017_v008_d0329_初写谱净拆_λS.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/推w_dp_s017_v008_d0329_初写谱净拆_λS.py. | pigeon_legacy_loader |
-| 154 | 推w_dp_s017_v009_d0331_初写谱净拆_λI.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/推w_dp_s017_v009_d0331_初写谱净拆_λI.py. | pigeon_legacy_loader |
-| 155 | 推w_dp_s017_v013_d0403_初写谱净拆_λP0_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/推w_dp_s017_v013_d0403_初写谱净拆_λP0_βoc.py. | pigeon_legacy_loader |
-| 156 | 时p_tu_s001_v004_d0321_踪稿析_λτ.py | 17 | ✅ | TIMESTAMP_VERSION |  | Millisecond-epoch timestamp utility. |  |
-| 157 | 桥p_rb_s006_v003_d0317_读唤任_λΠ.py | 118 | ✅ | HesitationAnalyzer |  | Bridge between keystroke telemetry and pigeon compiler resistance scoring. |  |
-| 158 | 测p_rwd_s009_v006_d0403_译改名踪_λP0_βde.py | 190 | ✅ | REWORK_WINDOW_MS, HEAVY_DEL_RATIO, REWORK_STORE, score_rework(), score_rework_from_composition() +2 | rework_scorecard | measures AI answer quality from typing signal. | rework_scorecard |
-| 159 | 漂p_dw_s005_v004_d0321_踪稿析_λ18.py | 120 | ✅ | DriftWatcher |  | Drift detection for live LLM coding loops. |  |
-| 160 | 热p_fhm_s011_v005_d0403_踪稿析_λP0_βde.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/热p_fhm_s011_v005_d0403_踪稿析_λP0_βde.py. | pigeon_legacy_loader |
-| 161 | 片w_sm_s026_v002_d0330_缩分话_λF.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/片w_sm_s026_v002_d0330_缩分话_λF.py. | pigeon_legacy_loader |
-| 162 | 环w_pc_s025_v002_d0329_读唤任_λS.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/环w_pc_s025_v002_d0329_读唤任_λS.py. | pigeon_legacy_loader |
-| 163 | 环w_pc_s025_v003_d0330_读唤任_λπ.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/环w_pc_s025_v003_d0330_读唤任_λπ.py. | pigeon_legacy_loader |
-| 164 | 研w_rl_s029_v002_d0330_译改名踪_λL.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/研w_rl_s029_v002_d0330_译改名踪_λL.py. | pigeon_legacy_loader |
-| 165 | 研w_rl_s029_v003_d0331_译改名踪_λA.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/研w_rl_s029_v003_d0331_译改名踪_λA.py. | pigeon_legacy_loader |
-| 166 | 研w_rl_s029_v005_d0401_译改名踪_λG.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/研w_rl_s029_v005_d0401_译改名踪_λG.py. | pigeon_legacy_loader |
-| 167 | 管w_cpm_s020_v003_d0402_λR.py | 39 | ✅ | _RUNTIME |  | Compatibility wrapper for the legacy copilot prompt manager import path. |  |
-| 168 | 管w_cpm_s020_v005_d0404_缩分话_λNU_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/管w_cpm_s020_v005_d0404_缩分话_λNU_βoc.py. | pigeon_legacy_loader |
-| 169 | 编w_gc_s032_v002_d0401_读唤任_λG.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/编w_gc_s032_v002_d0401_读唤任_λG.py. | pigeon_legacy_loader |
-| 170 | 编w_gc_s032_v003_d0401_读唤任_λG.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/编w_gc_s032_v003_d0401_读唤任_λG.py. | pigeon_legacy_loader |
-| 171 | 脉p_ph_s015_v006_d0420_读唤任_λRN_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/脉p_ph_s015_v006_d0420_读唤任_λRN_βoc.py. | pigeon_legacy_loader |
-| 172 | 虚f_mc_s036_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/虚f_mc_s036_v001.py. | pigeon_legacy_loader |
-| 173 | 虚f_mc_s036_v001_llm.py | 154 | ✅ | GEMINI_MODEL, GEMINI_TIMEOUT, get_api_key(), build_void_prompt(), call_gemini() +1 |  | prompt building, Gemini calls, response parsing. |  |
-| 174 | 虚f_mc_s036_v001_profile.py | 131 | ✅ | read_source(), is_real_module_name(), top_hesitation_files(), find_module_path(), build_file_profile() |  | loads all data sources for a module. |  |
-| 175 | 补p_rwb_s022_v002_d0321_缩分话_λ18.py | 148 | ✅ | REWORK_WINDOW_MS, backfill() |  | reconstructs historical rework scores from chat history. |  |
-| 176 | 觉w_fc_s019_v002_d0321_缩分话_λ18.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/觉w_fc_s019_v002_d0321_缩分话_λ18.py. | pigeon_legacy_loader |
-| 177 | 警p_sa_s030_v003_d0402_缩分话_λV.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/警p_sa_s030_v003_d0402_缩分话_λV.py. | pigeon_legacy_loader |
-| 178 | 警p_sa_s030_v005_d0404_缩分话_λNU.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/警p_sa_s030_v005_d0404_缩分话_λNU.py. | pigeon_legacy_loader |
-| 179 | 训w_trwr_s028_v002_d0330_缩分话_λF.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/训w_trwr_s028_v002_d0330_缩分话_λF.py. | pigeon_legacy_loader |
-| 180 | 路f_cxr_s027_v002_d0330_缩分话_λF.py | 131 | ✅ | TOP_N_DEFAULT, MIN_RELEVANCE, score_shard(), route_context(), format_shard_context() | 片w_sm_s026_v002_d0330_缩分话_λF | Shard relevance scorer + context injector. | 片w_sm_s026_v002_d0330_缩分话_λF |
-| 181 | 递p_sh_s023_v002_d0321_缩分话_λ18.py | 183 | ✅ | generate() |  | Session handoff summary generator. |  |
-| 182 | 队p_tq_s018_v002_d0317_缩分话_λQ.py | 175 | ✅ | _QUEUE_FILE, _EMPTY, add_task(), mark_done(), mark_in_progress() +2 |  | Copilot-driven task tracking linked to MANIFEST.md entries. |  |
+| 146 | 修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/修f_sf_s013_v012_d0402_初写谱净拆_λVR_βoc.py. | pigeon_legacy_loader |
+| 147 | 典w_sd_s031_v002_d0401_缩分话_λG.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/典w_sd_s031_v002_d0401_缩分话_λG.py. | pigeon_legacy_loader |
+| 148 | 变p_ms_s021_v002_d0321_缩分话_λ18.py | 182 | ✅ | MUTATIONS_PATH, REWORK_PATH, OUTPUT_PATH, WINDOW_S, score_mutations() |  | Mutation scorer: correlates prompt mutations with rework verdicts. |  |
+| 149 | 叙p_pn_s012_v006_d0328_初写谱净拆_λR.py | 195 | ✅ | generate_push_narrative() |  | Generate per-push narrative: each changed file speaks as its own agent. |  |
+| 150 | 叙p_pn_s012_v007_d0403_初写谱净拆_λP0.py | 195 | ✅ | generate_push_narrative() |  | Generate per-push narrative: each changed file speaks as its own agent. |  |
+| 151 | 叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/叙p_pn_s012_v008_d0403_初写谱净拆_λP0_βoc.py. | pigeon_legacy_loader |
+| 152 | 合p_us_s026_v002_d0330_缩分话_λF.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/合p_us_s026_v002_d0330_缩分话_λF.py. | pigeon_legacy_loader |
+| 153 | 型p_mo_s002_v003_d0317_读唤任_λΠ.py | 38 | ✅ | KeyEvent, MessageDraft |  | Dataclasses for keystroke events and message draft tracking. |  |
+| 154 | 境w_cb_s004_v008_d0321_初写谱净拆_λφ.py | 89 | ✅ | TOKENS_PER_LINE, DEFAULT_CONFIG, default_budget_config(), estimate_tokens(), score_context_budget() |  | Context budget scorer for LLM-aware file sizing. |  |
+| 155 | 声w_vs_s028_v002_d0330_缩分话_λF.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/声w_vs_s028_v002_d0330_缩分话_λF.py. | pigeon_legacy_loader |
+| 156 | 对p_tp_s027_v003_d0402_缩分话_λVR_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/对p_tp_s027_v003_d0402_缩分话_λVR_βoc.py. | pigeon_legacy_loader |
+| 157 | 层w_sl_s007_v003_d0317_读唤任_λΠ.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/层w_sl_s007_v003_d0317_读唤任_λΠ.py. | pigeon_legacy_loader |
+| 158 | 录p_lo_s003_v005_d0322_译改名踪_λω.py | 172 | ✅ | SCHEMA_VERSION, TelemetryLogger |  | Core keystroke telemetry logger. |  |
+| 159 | 忆p_qm_s010_v004_d0321_踪稿析_λ18.py | 168 | ✅ | QUERY_STORE, MAX_ENTRIES, RECUR_THRESH, cluster_unsaid_threads(), record_query() +1 |  | Recurring query detector + unsaid thought integrator. |  |
+| 160 | 思f_cr_s014_v003_d0321_译改名踪_λ18.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/思f_cr_s014_v003_d0321_译改名踪_λ18.py. | pigeon_legacy_loader |
+| 161 | 思f_cr_s014_v004_d0330_译改名踪_λF.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/思f_cr_s014_v004_d0330_译改名踪_λF.py. | pigeon_legacy_loader |
+| 162 | 思f_cr_s014_v005_d0331_译改名踪_λM.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/思f_cr_s014_v005_d0331_译改名踪_λM.py. | pigeon_legacy_loader |
+| 163 | 意w_is_s034_v002_d0401_缩分话_λC.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/意w_is_s034_v002_d0401_缩分话_λC.py. | pigeon_legacy_loader |
+| 164 | 探p_ur_s024_v002_d0329_读唤任_λS.py | 144 | ✅ | DELETION_THRESHOLD, INTENT_DELETE_MIN_RUN, GEMINI_MODEL, GEMINI_TIMEOUT, SYSTEM_PROMPT +1 |  | fires on high-deletion prompts. |  |
+| 165 | 探p_ur_s024_v003_d0331_读唤任_λI.py | 169 | ✅ | DELETION_THRESHOLD, INTENT_DELETE_MIN_RUN, GEMINI_MODEL, GEMINI_TIMEOUT, SYSTEM_PROMPT +1 |  | fires on high-deletion prompts. |  |
+| 166 | 控f_ost_s008_v007_d0322_初写谱净拆_λω.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/控f_ost_s008_v007_d0322_初写谱净拆_λω.py. | pigeon_legacy_loader |
+| 167 | 控w_ops_s008_v007_d0322_册追跑_λW.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/控w_ops_s008_v007_d0322_册追跑_λW.py. | pigeon_legacy_loader |
+| 168 | 控w_ops_s008_v008_d0331_册追跑_λI.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/控w_ops_s008_v008_d0331_册追跑_λI.py. | pigeon_legacy_loader |
+| 169 | 控w_ops_s008_v009_d0328_册追跑_λR.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/控w_ops_s008_v009_d0328_册追跑_λR.py. | pigeon_legacy_loader |
+| 170 | 控w_ops_s008_v010_d0331_册追跑_λI.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/控w_ops_s008_v010_d0331_册追跑_λI.py. | pigeon_legacy_loader |
+| 171 | 推w_dp_s017_v005_d0324_初写谱净拆_λB.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/推w_dp_s017_v005_d0324_初写谱净拆_λB.py. | pigeon_legacy_loader |
+| 172 | 推w_dp_s017_v005_d0324_初写谱净拆_λδ.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/推w_dp_s017_v005_d0324_初写谱净拆_λδ.py. | pigeon_legacy_loader |
+| 173 | 推w_dp_s017_v008_d0329_初写谱净拆_λS.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/推w_dp_s017_v008_d0329_初写谱净拆_λS.py. | pigeon_legacy_loader |
+| 174 | 推w_dp_s017_v009_d0331_初写谱净拆_λI.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/推w_dp_s017_v009_d0331_初写谱净拆_λI.py. | pigeon_legacy_loader |
+| 175 | 推w_dp_s017_v013_d0403_初写谱净拆_λP0_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/推w_dp_s017_v013_d0403_初写谱净拆_λP0_βoc.py. | pigeon_legacy_loader |
+| 176 | 时p_tu_s001_v004_d0321_踪稿析_λτ.py | 17 | ✅ | TIMESTAMP_VERSION |  | Millisecond-epoch timestamp utility. |  |
+| 177 | 桥p_rb_s006_v003_d0317_读唤任_λΠ.py | 118 | ✅ | HesitationAnalyzer |  | Bridge between keystroke telemetry and pigeon compiler resistance scoring. |  |
+| 178 | 测p_rwd_s009_v006_d0403_译改名踪_λP0_βde.py | 190 | ✅ | REWORK_WINDOW_MS, HEAVY_DEL_RATIO, REWORK_STORE, score_rework(), score_rework_from_composition() +2 | rework_scorecard | measures AI answer quality from typing signal. | rework_scorecard |
+| 179 | 漂p_dw_s005_v004_d0321_踪稿析_λ18.py | 120 | ✅ | DriftWatcher |  | Drift detection for live LLM coding loops. |  |
+| 180 | 热p_fhm_s011_v005_d0403_踪稿析_λP0_βde.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/热p_fhm_s011_v005_d0403_踪稿析_λP0_βde.py. | pigeon_legacy_loader |
+| 181 | 片w_sm_s026_v002_d0330_缩分话_λF.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/片w_sm_s026_v002_d0330_缩分话_λF.py. | pigeon_legacy_loader |
+| 182 | 环w_pc_s025_v002_d0329_读唤任_λS.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/环w_pc_s025_v002_d0329_读唤任_λS.py. | pigeon_legacy_loader |
+| 183 | 环w_pc_s025_v003_d0330_读唤任_λπ.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/环w_pc_s025_v003_d0330_读唤任_λπ.py. | pigeon_legacy_loader |
+| 184 | 研w_rl_s029_v002_d0330_译改名踪_λL.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/研w_rl_s029_v002_d0330_译改名踪_λL.py. | pigeon_legacy_loader |
+| 185 | 研w_rl_s029_v003_d0331_译改名踪_λA.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/研w_rl_s029_v003_d0331_译改名踪_λA.py. | pigeon_legacy_loader |
+| 186 | 研w_rl_s029_v005_d0401_译改名踪_λG.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/研w_rl_s029_v005_d0401_译改名踪_λG.py. | pigeon_legacy_loader |
+| 187 | 管w_cpm_s020_v003_d0402_λR.py | 39 | ✅ | _RUNTIME |  | Compatibility wrapper for the legacy copilot prompt manager import path. |  |
+| 188 | 管w_cpm_s020_v005_d0404_缩分话_λNU_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/管w_cpm_s020_v005_d0404_缩分话_λNU_βoc.py. | pigeon_legacy_loader |
+| 189 | 编w_gc_s032_v002_d0401_读唤任_λG.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/编w_gc_s032_v002_d0401_读唤任_λG.py. | pigeon_legacy_loader |
+| 190 | 编w_gc_s032_v003_d0401_读唤任_λG.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/编w_gc_s032_v003_d0401_读唤任_λG.py. | pigeon_legacy_loader |
+| 191 | 脉p_ph_s015_v006_d0420_读唤任_λRN_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/脉p_ph_s015_v006_d0420_读唤任_λRN_βoc.py. | pigeon_legacy_loader |
+| 192 | 虚f_mc_s036_v001.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/虚f_mc_s036_v001.py. | pigeon_legacy_loader |
+| 193 | 虚f_mc_s036_v001_llm.py | 154 | ✅ | GEMINI_MODEL, GEMINI_TIMEOUT, get_api_key(), build_void_prompt(), call_gemini() +1 |  | prompt building, Gemini calls, response parsing. |  |
+| 194 | 虚f_mc_s036_v001_profile.py | 131 | ✅ | read_source(), is_real_module_name(), top_hesitation_files(), find_module_path(), build_file_profile() |  | loads all data sources for a module. |  |
+| 195 | 补p_rwb_s022_v002_d0321_缩分话_λ18.py | 148 | ✅ | REWORK_WINDOW_MS, backfill() |  | reconstructs historical rework scores from chat history. |  |
+| 196 | 觉w_fc_s019_v002_d0321_缩分话_λ18.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/觉w_fc_s019_v002_d0321_缩分话_λ18.py. | pigeon_legacy_loader |
+| 197 | 警p_sa_s030_v003_d0402_缩分话_λV.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/警p_sa_s030_v003_d0402_缩分话_λV.py. | pigeon_legacy_loader |
+| 198 | 警p_sa_s030_v005_d0404_缩分话_λNU.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/警p_sa_s030_v005_d0404_缩分话_λNU.py. | pigeon_legacy_loader |
+| 199 | 训w_trwr_s028_v002_d0330_缩分话_λF.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for src/训w_trwr_s028_v002_d0330_缩分话_λF.py. | pigeon_legacy_loader |
+| 200 | 路f_cxr_s027_v002_d0330_缩分话_λF.py | 131 | ✅ | TOP_N_DEFAULT, MIN_RELEVANCE, score_shard(), route_context(), format_shard_context() | 片w_sm_s026_v002_d0330_缩分话_λF | Shard relevance scorer + context injector. | 片w_sm_s026_v002_d0330_缩分话_λF |
+| 201 | 递p_sh_s023_v002_d0321_缩分话_λ18.py | 183 | ✅ | generate() |  | Session handoff summary generator. |  |
+| 202 | 队p_tq_s018_v002_d0317_缩分话_λQ.py | 175 | ✅ | _QUEUE_FILE, _EMPTY, add_task(), mark_done(), mark_in_progress() +2 |  | Copilot-driven task tracking linked to MANIFEST.md entries. |  |
 
 ## Folder API
 
@@ -234,18 +254,22 @@ entropy_shedding --> pigeon_legacy_loader
 escalation_engine --> pigeon_legacy_loader
 file_collaboration_audit --> file_collaboration_comments, file_collaboration_metrics, file_collaboration_render, file_manifest_state_sync
 file_collaboration_render --> file_collaboration_metrics
-file_email_plugin --> pigeon_legacy_loader
+file_email_plugin --> pigeon_legacy_loader, file_email_text_chain
+file_email_text_chain --> file_email_ambient_state
 file_intelligence_graph --> pigeon_legacy_loader
+file_interlinked_naming_sim --> file_interlinked_naming_policy, file_number_key_identity, file_email_plugin
 file_manifest_state_sync --> file_manifest_state_render
 file_overwriter --> pigeon_legacy_loader
 file_selector --> pigeon_legacy_loader
 file_self_knowledge --> pigeon_legacy_loader
 file_self_sim_learning --> pigeon_legacy_loader
 file_semantic_layer --> pigeon_legacy_loader
+file_sim_deepseek_lane --> file_deepseek_delegate
 file_sim --> pigeon_legacy_loader
 hourly_autonomous_file_sim --> pigeon_legacy_loader
 hourly_deepseek_autonomy --> actual_job_runner, hourly_autonomous_file_sim, hourly_deepseek_autonomy_support, hourly_deepseek_io, operator_intent_compiler
 hourly_deepseek_autonomy_support --> file_email_plugin, hourly_deepseek_io, local_env_loader
+hush_intent_runtime --> file_number_key_identity
 intent_compressor --> pigeon_legacy_loader
 intent_loop_closer --> pigeon_legacy_loader
 intent_nodes --> pigeon_legacy_loader
@@ -267,6 +291,9 @@ numeric_surface --> pigeon_legacy_loader
 operator_intent_compiler --> pigeon_legacy_loader
 operator_probes --> pigeon_legacy_loader
 operator_response_policy --> pigeon_legacy_loader
+opus_artifact_memory_core --> opus_artifact_memory_signals
+opus_artifact_memory --> opus_artifact_memory_core
+opus_orchestrator_runtime --> hush_intent_runtime, opus_artifact_memory, opus_coding_area_memory, opus_training_pair_debug
 pipeline_staleness_audit --> pigeon_legacy_loader
 pitch_sim --> pigeon_legacy_loader
 pre_query_engine --> pigeon_legacy_loader
@@ -274,6 +301,7 @@ probe_resolver --> pigeon_legacy_loader
 probe_surface --> pigeon_legacy_loader
 profile_chat_server --> pigeon_legacy_loader
 profile_renderer --> pigeon_legacy_loader
+prompt_manifest_compiler --> manifest_state_protocol, tc_intent_keys, copilot_probe_push_cycle
 push_baseline --> pigeon_legacy_loader
 push_snapshot --> pigeon_legacy_loader
 self_fix_tracker --> pigeon_legacy_loader
@@ -300,7 +328,7 @@ tc_sim_engine --> pigeon_legacy_loader
 tc_sim --> pigeon_legacy_loader
 tc_trajectory --> pigeon_legacy_loader
 template_selector --> pigeon_legacy_loader
-thought_completer --> pigeon_legacy_loader
+thought_completer --> pigeon_legacy_loader, opus_orchestrator_runtime
 u_cs_s033_v001 --> pigeon_legacy_loader
 u_pe_s024_v004_d0403_λP0_βoc --> pigeon_legacy_loader
 u_pj_s019_v006_d0421_λTL_βoc --> pigeon_legacy_loader
@@ -350,8 +378,9 @@ w_pe_s024_v001 --> pigeon_legacy_loader
 ```
 
 ## Health
-- **Files:** 182 | **Compliant:** 182/182 (100%)
-- **Total lines:** 9093 | **Est. tokens:** ~1402 | **Target:** ≤200 per file
+- **Files:** 202 | **Compliant:** 199/202 (99%)
+- **Total lines:** 12431 | **Est. tokens:** ~1402 | **Target:** ≤200 per file
+- **Action needed:** 3 file(s) over limit
 
 ## Module Signatures
 
@@ -384,6 +413,11 @@ class CodebaseProfile:  # 8 lines
 def detect_codebase(root: Path) -> CodebaseProfile
 ```
 
+**codex_edit_outcome_binder**
+```python
+def bind_codex_edit_outcome(root: Path, files: list[str]) -> dict[str, Any]
+```
+
 **context_compressor**
 ```python
 def compress_file(filepath)
@@ -393,6 +427,12 @@ def compress_changed(root, changed_files = None)
 **deepseek_receipt_resolver**
 ```python
 def resolve_deepseek_receipt(root: Path, job_id: str, file_path: str = '') -> dict[str, Any]
+```
+
+**file_blank_sheet_sim**
+```python
+def build_file_blank_sheet_sim(root: Path) -> dict[str, Any]
+def render_blank_sheet_sim(sim: dict[str, Any]) -> str
 ```
 
 **file_collaboration_audit**
@@ -428,6 +468,51 @@ def render_file_collaboration_audit(result: dict[str, Any]) -> str
 def render_manifest_collaboration_state(state: dict[str, Any]) -> str
 ```
 
+**file_deepseek_delegate**
+```python
+def queue_file_deepseek_delegates(root: Path, packets: list[dict[str, Any]]) -> dict[str, Any]
+def grade_file_delegate_result(job: dict[str, Any]) -> dict[str, Any]
+```
+
+**file_email_ambient_state**
+```python
+def build_email_ambient_state(root: Path | None, record: dict[str, Any]) -> dict[str, Any]
+def render_room_chat(record: dict[str, Any], ambient: dict[str, Any], sender: str, gate: dict[str, str]) -> list[str]
+```
+
+**file_email_plugin**
+```python
+def mail_quality_gate(body, record = None)
+def emit_file_email(root, event, config = None)
+def emit_learning_digest_email(root, learning_result, config = None)
+def email_delivery_status(root, config = None)
+```
+
+**file_email_text_chain**
+```python
+def set_text_chain_root(root: Path | None) -> None
+def render_text_chain_file_email(record: dict[str, Any]) -> str
+def render_text_chain_learning_digest(record: dict[str, Any]) -> str
+def text_chain_subject(file_path: str, beef_with: str, event: dict[str, Any]) -> str
+```
+
+**file_interlinked_naming_policy**
+```python
+def interlinked_queries() -> list[str]
+def corrected_intent() -> dict[str, Any]
+def file_kind(file: str, stem: str) -> str
+def proposed_name(file: str, kind: str) -> str
+def discrepancy(file: str, stem: str, kind: str) -> str
+def standard(rows: list[dict[str, Any]]) -> dict[str, Any]
+```
+
+**file_interlinked_naming_sim**
+```python
+def run_interlinked_naming_sim(root: Path) -> dict[str, Any]
+def send_naming_grader_email(root: Path, sim: dict[str, Any]) -> dict[str, Any]
+def render_interlinked_naming_sim(sim: dict[str, Any]) -> str
+```
+
 **file_manifest_state_render**
 ```python
 def render_folder_block(folder: str, rows: list[dict[str, Any]], audit: dict[str, Any]) -> str
@@ -437,6 +522,16 @@ def render_global_block(written: list[dict[str, Any]], audit: dict[str, Any]) ->
 **file_manifest_state_sync**
 ```python
 def sync_file_sim_manifest_state(root: Path, audit: dict[str, Any]) -> dict[str, Any]
+```
+
+**file_number_key_identity**
+```python
+def file_identity_card(file: str, kind: str, last_change: str) -> dict[str, Any]
+def file_number_key(file: str) -> str
+def operator_display_name(ownership: str, kind: str) -> str
+def mutation_name(ownership: str, last_change: str) -> str
+def ownership_from_name(stem: str) -> str
+def identity_standard() -> str
 ```
 
 **file_sim_deepseek_lane**
@@ -478,11 +573,74 @@ def truthy(value: str | None) -> bool
 def now() -> str
 ```
 
+**hush_intent_runtime**
+```python
+def classify_active_repo(root: Path, prompt: str, deleted_words: list[str] | None = None, context_selection: dict[str, Any] | None = None) -> dict[str, Any]
+def build_hush_intent_runtime(root: Path, prompt: str = '') -> dict[str, Any]
+def render_hush_intent_runtime(runtime: dict[str, Any]) -> str
+```
+
 **local_env_loader**
 ```python
 def load_local_env(root: Path, keys: Iterable[str] | None = None) -> dict[str, str]
 def env_search_paths(root: Path) -> list[Path]
 def has_env_key(root: Path, key: str) -> bool
+```
+
+**manifest_state_protocol**
+```python
+def build_manifest_state_protocol(root: Path, graph: dict[str, Any], context: dict[str, Any], changed: list[str]) -> dict[str, Any]
+def render_manifest_state_prompt(protocol: dict[str, Any]) -> list[str]
+```
+
+**operator_syntax_triggers**
+```python
+def match_operator_syntax_triggers(root: Path, text: str) -> list[dict[str, Any]]
+def learn_operator_syntax_triggers(root: Path, graph: dict[str, Any] | None = None) -> dict[str, Any]
+```
+
+**opus_artifact_memory_core**
+```python
+def build_opus_artifact_memory(root: Path, prompt: str = '') -> dict[str, Any]
+def render_opus_artifact_memory(memory: dict[str, Any]) -> str
+```
+
+**opus_artifact_memory_signals**
+```python
+def telemetry_read(telemetry: dict[str, Any], training: list[dict[str, Any]], edits: list[dict[str, Any]]) -> dict[str, Any]
+def high_touch_files(git_touches: Counter[str], edits: list[dict[str, Any]], focus: list[str]) -> list[dict[str, Any]]
+def file_death_areas(root: Path, git_touches: Counter[str], recent: Counter[str], edits: list[dict[str, Any]], focus: list[str]) -> list[dict[str, Any]]
+def compiler_probe(root: Path, compression: dict[str, Any]) -> dict[str, Any]
+def file_dialogue(self_knowledge: dict[str, Any]) -> list[dict[str, str]]
+def memory_directive(high_touch: list[dict[str, Any]], focus: list[str]) -> str
+def focus_files(telemetry: dict[str, Any], graph: dict[str, Any], self_knowledge: dict[str, Any]) -> list[str]
+def git_touch_counts(root: Path, limit: int) -> tuple[Counter[str], Counter[str]]
+def nearby_tests(root: Path, file: str) -> list[str]
+```
+
+**opus_branch_sim**
+```python
+def simulate_opus_branch_job(root: Path, goal: str) -> dict[str, Any]
+def grade_opus_branch_sim(sim: dict[str, Any], evidence: dict[str, Any]) -> dict[str, Any]
+def render_opus_branch_sim(sim: dict[str, Any]) -> str
+```
+
+**opus_coding_area_memory**
+```python
+def build_opus_coding_area_memory(root: Path, prompt: str) -> dict[str, Any]
+def render_coding_area_memory(memory: dict[str, Any]) -> str
+```
+
+**opus_orchestrator_runtime**
+```python
+def build_opus_orchestrator_runtime(root: Path, prompt: str = '') -> dict[str, Any]
+def render_opus_runtime(runtime: dict[str, Any]) -> str
+```
+
+**opus_training_pair_debug**
+```python
+def debug_training_pairs(root: Path) -> dict[str, Any]
+def render_training_pair_debug(debug: dict[str, Any]) -> str
 ```
 
 **p_prc_s016_v001**
@@ -518,6 +676,12 @@ def load_legacy_module(current_name: str, target_globals: dict, original_rel: st
 **prompt_journal**
 ```python
 def log_enriched_entry(root: Path, msg: str, files_open: list[str], session_n: int) -> dict[str, Any]
+```
+
+**prompt_manifest_compiler**
+```python
+def decode_file_intent(path: str) -> dict[str, Any]
+def build_prompt_context_packet(root: Path, prompt: str) -> dict[str, Any]
 ```
 
 **prompt_recon**
@@ -586,6 +750,14 @@ def main() -> None
 def log_raw_signal(root: Path, msg: str, files_open: list[str], session_n: int, signals: dict[str, Any], deleted_words: list[str], rewrites: list[dict], composition_binding: dict[str, Any]) -> dict[str, Any]
 def load_raw_signals(root: Path, after_line: int = 0) -> list[dict[str, Any]]
 def load_latest_raw(root: Path, n: int = 1) -> list[dict[str, Any]]
+```
+
+**unified_manifest_state**
+```python
+def append_folder_unified_state(root: Path, content: str, folder: str, changed: list[str], old: str = '') -> str
+def render_folder_unified_state(root: Path, folder: str, changed: list[str]) -> str
+def refresh_master_manifest(root: Path, changed: list[str]) -> dict[str, Any]
+def append_master_persistent_state(root: Path, content: str, changed: list[str]) -> str
 ```
 
 **unsaid_accumulator**
@@ -761,6 +933,8 @@ def inject_task_queue(root) -> bool
 | codebase_detector | `_STRUCTURE_FILES` | `{'pigeon_registry': 'pigeon_registry.json', 'file_profiles': 'file_profiles.j...` |
 | codebase_transmuter | `_ROOT` | `Path(__file__).resolve().parent` |
 | codebase_vitals | `_ROOT` | `Path(__file__).resolve().parent` |
+| codex_edit_outcome_binder | `LATEST` | `'logs/codex_edit_outcome_latest.json'` |
+| codex_edit_outcome_binder | `HISTORY` | `'logs/codex_edit_outcomes.jsonl'` |
 | consensus_sim | `_ROOT` | `Path(__file__).resolve().parent` |
 | context_compressor | `SKIP_DIRS` | `{'.git', '__pycache__', '.venv', 'venv', 'node_modules', '.egg-info', 'pigeon...` |
 | context_compressor | `APPROX_CHARS_PER_TOKEN` | `4.0` |
@@ -772,11 +946,22 @@ def inject_task_queue(root) -> bool
 | engagement_hooks | `_ROOT` | `Path(__file__).resolve().parent` |
 | entropy_shedding | `_ROOT` | `Path(__file__).resolve().parent` |
 | escalation_engine | `_ROOT` | `Path(__file__).resolve().parent` |
+| file_blank_sheet_sim | `LATEST` | `'logs/file_blank_sheet_sim_latest.json'` |
+| file_blank_sheet_sim | `HISTORY` | `'logs/file_blank_sheet_sim.jsonl'` |
+| file_blank_sheet_sim | `MARKDOWN` | `'logs/file_blank_sheet_sim.md'` |
 | file_collaboration_audit | `SCHEMA` | `'file_collaboration_audit/v1'` |
 | file_collaboration_comments | `COMMENT_SCHEMA` | `'file_manifest_comment/v1'` |
 | file_collaboration_comments | `STATE_SCHEMA` | `'file_manifest_collaboration_state/v1'` |
+| file_deepseek_delegate | `SCHEMA` | `'file_deepseek_delegate/v1'` |
+| file_deepseek_delegate | `JOB_LOG` | `'logs/deepseek_prompt_jobs.jsonl'` |
+| file_deepseek_delegate | `LATEST` | `'logs/file_deepseek_delegate_latest.json'` |
+| file_deepseek_delegate | `HISTORY` | `'logs/file_deepseek_delegate.jsonl'` |
+| file_deepseek_delegate | `ARTIFACT_DIR` | `'logs/file_deepseek_delegate'` |
 | file_email_plugin | `_ROOT` | `Path(__file__).resolve().parent` |
 | file_intelligence_graph | `_ROOT` | `Path(__file__).resolve().parent` |
+| file_interlinked_naming_sim | `LATEST` | `'logs/file_interlinked_naming_sim_latest.json'` |
+| file_interlinked_naming_sim | `HISTORY` | `'logs/file_interlinked_naming_sim.jsonl'` |
+| file_interlinked_naming_sim | `MARKDOWN` | `'logs/file_interlinked_naming_sim.md'` |
 | file_manifest_state_render | `FOLDER_START` | `'<!-- manifest:file-sim-state -->'` |
 | file_manifest_state_render | `FOLDER_END` | `'<!-- /manifest:file-sim-state -->'` |
 | file_manifest_state_render | `GLOBAL_START` | `'<!-- manifest:global-file-sim-stage -->'` |
@@ -792,6 +977,15 @@ def inject_task_queue(root) -> bool
 | hourly_autonomous_file_sim | `_ROOT` | `Path(__file__).resolve().parent` |
 | hourly_deepseek_autonomy | `SCHEMA` | `'hourly_deepseek_autonomy/v1'` |
 | hourly_deepseek_autonomy_support | `PROMPT_JOBS` | `'logs/deepseek_prompt_jobs.jsonl'` |
+| hush_intent_runtime | `SCHEMA` | `'hush_intent_runtime/v1'` |
+| hush_intent_runtime | `LATEST` | `'logs/hush_intent_runtime_latest.json'` |
+| hush_intent_runtime | `HISTORY` | `'logs/hush_intent_runtime.jsonl'` |
+| hush_intent_runtime | `MARKDOWN` | `'logs/hush_intent_runtime.md'` |
+| hush_intent_runtime | `LOCAL_REPO` | `'keystroke_telemetry'` |
+| hush_intent_runtime | `LOW_CONFIDENCE` | `0.22` |
+| hush_intent_runtime | `CROSS_REPO_MARGIN` | `0.08` |
+| hush_intent_runtime | `LOCAL_TERMS` | `{'keystroke', 'telemetry', 'file', 'files', 'sim', 'orchestrator', 'opus', 'r...` |
+| hush_intent_runtime | `MAIF_TERMS` | `{'maif', 'myaifingerprint', 'linkrouter', 'hush', 'entity', 'entities', 'dire...` |
 | intent_compressor | `_ROOT` | `Path(__file__).resolve().parent` |
 | intent_loop_closer | `_ROOT` | `Path(__file__).resolve().parent` |
 | intent_nodes | `_ROOT` | `Path(__file__).resolve().parent` |
@@ -814,6 +1008,26 @@ def inject_task_queue(root) -> bool
 | operator_intent_compiler | `_ROOT` | `Path(__file__).resolve().parent` |
 | operator_probes | `_ROOT` | `Path(__file__).resolve().parent` |
 | operator_response_policy | `_ROOT` | `Path(__file__).resolve().parent` |
+| operator_syntax_triggers | `STOP` | `{'the', 'and', 'for', 'with', 'that', 'this', 'from', 'into', 'over', 'have',...` |
+| operator_syntax_triggers | `SCAN_DIRS` | `('src', 'scripts', 'tests', 'pigeon_compiler')` |
+| opus_artifact_memory_core | `SCHEMA` | `'opus_artifact_memory/v1'` |
+| opus_artifact_memory_core | `LATEST` | `'logs/opus_artifact_memory_latest.json'` |
+| opus_artifact_memory_core | `HISTORY` | `'logs/opus_artifact_memory.jsonl'` |
+| opus_artifact_memory_core | `MARKDOWN` | `'logs/opus_artifact_memory.md'` |
+| opus_branch_sim | `SCHEMA` | `'opus_branch_sim/v1'` |
+| opus_branch_sim | `LATEST` | `'logs/opus_branch_sim_latest.json'` |
+| opus_branch_sim | `HISTORY` | `'logs/opus_branch_sim.jsonl'` |
+| opus_branch_sim | `MARKDOWN` | `'logs/opus_branch_sim.md'` |
+| opus_coding_area_memory | `LATEST` | `'logs/opus_coding_area_memory_latest.json'` |
+| opus_coding_area_memory | `MARKDOWN` | `'logs/opus_coding_area_memory.md'` |
+| opus_coding_area_memory | `SKIP` | `{'.git', 'build', 'logs', '__pycache__', '.pytest_cache', 'node_modules', '.v...` |
+| opus_orchestrator_runtime | `SCHEMA` | `'opus_orchestrator_runtime/v1'` |
+| opus_orchestrator_runtime | `LATEST` | `'logs/opus_orchestrator_runtime_latest.json'` |
+| opus_orchestrator_runtime | `HISTORY` | `'logs/opus_orchestrator_runtime.jsonl'` |
+| opus_orchestrator_runtime | `MARKDOWN` | `'logs/opus_orchestrator_runtime.md'` |
+| opus_orchestrator_runtime | `MANIFEST_NOTE` | `'logs/opus_orchestrator_manifest_note.md'` |
+| opus_training_pair_debug | `LATEST` | `'logs/opus_training_pair_debug_latest.json'` |
+| opus_training_pair_debug | `MARKDOWN` | `'logs/opus_training_pair_debug.md'` |
 | p_prc_s016_v001 | `_RUNTIME` | `_load_runtime_module()` |
 | p_psg_s026_v001 | `_RUNTIME` | `_load_runtime_module()` |
 | pipeline_staleness_audit | `_ROOT` | `Path(__file__).resolve().parent` |
@@ -823,6 +1037,7 @@ def inject_task_queue(root) -> bool
 | probe_surface | `_ROOT` | `Path(__file__).resolve().parent` |
 | profile_chat_server | `_ROOT` | `Path(__file__).resolve().parent` |
 | profile_renderer | `_ROOT` | `Path(__file__).resolve().parent` |
+| prompt_manifest_compiler | `ENCODED_RE` | `re.compile('seq(?P<seq>\\d+)(?:_v(?P<version>\\d+))?(?:_d(?P<date>\\d{4}))?(?...` |
 | prompt_recon | `_RUNTIME` | `_load_runtime_module()` |
 | push_baseline | `_ROOT` | `Path(__file__).resolve().parent` |
 | push_snapshot | `_ROOT` | `Path(__file__).resolve().parent` |
@@ -886,6 +1101,9 @@ def inject_task_queue(root) -> bool
 | u_pj_s019_v006_d0421_λTL_βoc | `_ROOT` | `Path(__file__).resolve().parent` |
 | u_prc_s016_v001 | `_ROOT` | `Path(__file__).resolve().parent` |
 | u_psg_s026_v001 | `RAW_JOURNAL_PATH` | `'logs/prompt_signal_raw.jsonl'` |
+| unified_manifest_state | `FOLDER_START` | `''` |
+| unified_manifest_state | `MASTER_START` | `'<!-- manifest:master-persistent-state -->'` |
+| unified_manifest_state | `MASTER_END` | `'<!-- /manifest:master-persistent-state -->'` |
 | unsaid_accumulator | `ROOT` | `Path(__file__).resolve().parent.parent` |
 | unsaid_accumulator | `UNSAID_LOG` | `ROOT / 'logs' / 'unsaid_history.jsonl'` |
 | unsaid_thread_digest | `_ROOT` | `Path(__file__).resolve().parent` |
@@ -981,41 +1199,39 @@ def inject_task_queue(root) -> bool
 
 | Status | Intent key | Prompt |
 |---|---|---|
-| pending | `src/虚f_mc_s036_v001_profile:build:want_you_build_proper:minor` | >>> i want you to build a proper pr in hat by pulling news/ trumps profile 0 i want you to mock a grapgh - pull inn trumps network and mock writie the pr - we w |
-| pending | `src/u_pe_s024_v004_d0403_λP0_βoc:route:page_wont_open:minor` | the page wont open |
-| pending | `src/cognitive/drift:patch:dont_render_models_when:patch` | dont render models when they are broken - make a sscource compounding list - dont list all scources but accumulate most mentioned / count mentioned counts - als |
-| pending | `src/修_sf_s013/self_fix_seq013:patch:4formatting_issues_capitilization_scource:patch` | 4formatting issues with capitilization / scource lists isint rendered S>>also looks like claude citation extraction across whole auditor diesnt work - the scour |
-| pending | `src/push_snapshot:route:these_are_fire_prs:minor` | these are fire prs - push this |
-| pending | `src:route:shouldnt_models_together_persistent:minor` | shouldnt the models work together to work on a persistent evidence layer ? |
-| pending | `src/探p_ur_s024_v002_d0329_读唤任_λS:route:does_looj_right_you:minor` | >>>> does this looj right to you |
-| pending | `src/环_pc_s025/push_cycle_seq025:test:intent_key:read` | im pretty sure i ran a push cycle for keystroke telemetry - audit why my manifests dont audoregenerate on push with updated structure - manifests should now be  |
-| pending | `src/探p_ur_s024_v002_d0329_读唤任_λS:route:does_look_right_you:minor` | >>>> does this look right to you |
-| pending | `src:test:manifest:read` | that manifest is hugee for src wow - deepseek must always be fixing something or compressing something every file sim - it always runs perpendicular to copilot  |
+| pending | `src/.operator_stats_seq008_v010_d0331__persi:route:you_removes_data_none:minor` | you removes data - none of it renders on stats |
+| pending | `src/tc_profile/p_tc_p_s009_v001_compiled:test:aaudit_why_press_releases:read` | aaudit why press releases are still weak - i think this may be a core auditor issue - and an interface issue - i hate doing frontend changes - if i could descri |
+| pending | `src/tc_profile:route:two_questions_can_perplexities:minor` | two questions - can perplexities native image incorperation in search be used for entity profile pictures -what would be the nbest way toget a face for that acc |
+| pending | `src/推_dp_s017/dynamic_prompt_seq017:route:why_you_keep_answerring:minor` | why do you keep answerring how i dont like - map my frustration every since switchin to codex from claude from prompt journal - i switched about 1 week ago and  |
+| pending | `src/cognitive:route:use_emergent_behavior_connect:minor` | ng for / use emergent behavior to connect thoughts |
+| pending | `src/push_snapshot:route:push_linkrouter_frontend_changes:minor` | push linkrouter a frontend changes |
+| pending | `src/管_cpm_s020/copilot_prompt_manager_seq020:test:prompt_box:read` | okay so heres what i think is the real solution - file sim assembles context for copilot every proompt - copilots initial tast every prompt is to sync into sim  |
+| pending | `src/tc_profile/p_tc_p_s009_v001_compiled:test:intent_key:patch` | check if intent key extraction 0 i want to tune it - so i want files to have a learned operator inten semantic neumeric encoding - nbecause some files may not g |
+| pending | `src/管_cpm_s020/copilot_prompt_manager_seq020:route:intent_key:minor` | how do we sort prompt shatters into intent keys and classify intent keys per fle - or should they self select during sim - but if they self select during sim /  |
+| pending | `src/thought_completer:test:thought_completer:read` | xis there any way to have my agcopilot / codex sessions be monitored by giving sesion id  / live trascription - this is kind of important for thought completer. |
 
 ## File Comments
 
 | File | Comment |
 |---|---|
-| `src/copilot_probe_push_cycle_seq001_v001.py` | copilot_probe_push_cycle_seq001_v001.py: load codex_compat.py before you let a rewrite model touch my furniture. |
-| `src/deepseek_daemon_seq001_v001.py` | deepseek_daemon_seq001_v001.py: load pigeon_legacy_loader_seq001_v001.py before you let a rewrite model touch my furniture. |
-| `src/file_intelligence_graph_seq001_v001.py` | file_intelligence_graph_seq001_v001.py: load pigeon_legacy_loader_seq001_v001.py before you let a rewrite model touch my furniture. |
-| `src/tc_intent_keys_seq001_v001.py` | source rewrite src/tc_intent_keys_seq001_v001.py toward interlinked state: intent hooks, context edges, validation surfaces |
-| `src/tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade.py` | tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade.py: load tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_p |
-| `src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py` | tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py: I can help, but first stop asking me to pass imaginary val |
+| `src/thought_completer.py` | source rewrite src/thought_completer.py toward interlinked state: intent hooks, context edges, validation surfaces |
+| `src/autonomous_mutation_audit_seq001_v001.py` | source rewrite src/autonomous_mutation_audit_seq001_v001.py toward interlinked state: intent hooks, context edges, validation surfaces |
+| `src/context_select_agent_seq001_v002_d0421__intent_orchestrator_fires_on_every_lc_feat_operator_state_daemon.py` | source rewrite src/context_select_agent_seq001_v002_d0421__intent_orchestrator_fires_on_every_lc_feat_operator_state_daemon.py toward interlinked state: intent  |
+| `src/copilot_probe_push_cycle_seq001_v001.py` | source rewrite src/copilot_probe_push_cycle_seq001_v001.py toward interlinked state: intent hooks, context edges, validation surfaces |
+| `src/file_interlinked_naming_policy_seq001_v001.py` | file_interlinked_naming_policy_seq001_v001.py: I can help, but first stop asking me to pass imaginary validation. |
+| `src/file_interlinked_naming_sim_seq001_v001.py` | file_interlinked_naming_sim_seq001_v001.py: load file_interlinked_naming_policy_seq001_v001.py before you let a rewrite model touch my furniture. |
+| `src/file_number_key_identity_seq001_v001.py` | file_number_key_identity_seq001_v001.py: I can help, but first stop asking me to pass imaginary validation. |
+| `src/tc_intent_file_memory_seq001_v001.py` | source rewrite src/tc_intent_file_memory_seq001_v001.py toward interlinked state: intent hooks, context edges, validation surfaces |
+| `src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py` | source rewrite src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py toward interlinked state: intent hooks,  |
 
 ## Manifest Changelog
 
 - refreshed: `pre-push-stable`
 - commit: `pending-push`
-- changed files in scope: `111`
-  - `src/_resolve.py`
-  - `src/actual_job_runner_seq001_v001.py`
-  - `src/ai_fingerprint_operator_seq001_v001.py`
-  - `src/ai_fingerprint_privacy_seq001_v001.py`
-  - `src/ai_fingerprint_repo_seq001_v001.py`
-  - `src/autonomous_mutation_audit_seq001_v001.py`
-  - `src/batch_rewrite_sim_seq001_v001.py`
-  - `src/bug_demon_hunt_seq001_v001.py`
+- changed files in scope: `3`
+  - `src/file_email_plugin_seq001_v001.py` :: `seq=001; v=001; intent=unencoded standard path`
+  - `src/file_sim_deepseek_lane_seq001_v001.py` :: `seq=001; v=001; intent=unencoded standard path`
+  - `src/thought_completer.py` :: `intent=unencoded standard path`
 
 ## Numeric Encoding Boundary
 
@@ -1026,3 +1242,131 @@ def inject_task_queue(root) -> bool
 
 <!-- manifest:file-sim-state -->'` |
 | file_manifest_state_render | `FOLDER_END` | `'<!-- /manifest:file-sim-state -->
+
+<!-- manifest:opus-micro-pulse-state -->
+## Opus Micro-Pulse State
+
+- prompt_hash: `3d59c2fd6f5265a8`
+- prompt_class: `debug`
+- executor_session: `codex_execution_session`
+- metric: `opus_prediction_vs_executor_diff`
+
+### Local Pulse Comments
+
+- `src/opus_micro_pulse_runtime_seq001_v001.py` I was touched by Opus on pause 1 because it thinks I am manifest state holder for this prompt. I am really Opus pause-pulse simulation optimizer for prompt-to-file intelligence.. Opus read me mostly correctly. Solution: log as learning only; do not launch file sim. Persistent faults: low-touch file; can be missed by Opus unless static syntax matches.
+  - coding_agent: If Codex touches `src/opus_micro_pulse_runtime_seq001_v001.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `Opus pause-pulse simulation optimizer for prompt-to-file intelligence.`. After execution, write touched/predicted/missed status into the backward learning packet.
+- `src/file_bug_surface_seq001_v001.py` I was touched by Opus on pause 1 because it thinks I am manifest state holder for this prompt. I am really Surface file and pipeline bug signals for the master manifest.. Opus read me mostly correctly. Solution: log as learning only; do not launch file sim. Persistent faults: low-touch file; can be missed by Opus unless static syntax matches.
+  - coding_agent: If Codex touches `src/file_bug_surface_seq001_v001.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `Surface file and pipeline bug signals for the master manifest.`. After execution, write touched/predicted/missed status into the backward learning packet.
+- `src/thought_completer.py` I was touched by Opus on pause 1 because it thinks I am manifest state holder for this prompt. I am really Pigeon compliance facade for src/thought_completer.py.. Opus read me mostly correctly. Solution: log as learning only; do not launch file sim. Persistent faults: observations=38; learned triggers may need backward-pass validation.
+  - coding_agent: If Codex touches `src/thought_completer.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `Pigeon compliance facade for src/thought_completer.py.`. After execution, write touched/predicted/missed status into the backward learning packet.
+- `src/opus_orchestrator_runtime_seq001_v001.py` I was touched by Opus on pause 1 because it thinks I am manifest state holder for this prompt. I am really Claude Opus runtime pack for thought-completer chat.. Opus read me mostly correctly. Solution: log as learning only; do not launch file sim. Persistent faults: observations=1; learned triggers may need backward-pass validation.
+  - coding_agent: If Codex touches `src/opus_orchestrator_runtime_seq001_v001.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `Claude Opus runtime pack for thought-completer chat.`. After execution, write touched/predicted/missed status into the backward learning packet.
+- `src/file_sim_deepseek_lane_seq001_v001.py` I was touched by Opus on pause 1 because it thinks I am manifest state holder for this prompt. I am really Per-sim DeepSeek maintenance lane.. Opus may be flattening my role; calibrate my syntax triggers before trusting this route. Solution: increase learned syntax triggers from this prompt if Codex actually touches me. Persistent faults: low-touch file; can be missed by Opus unless static syntax matches.
+  - coding_agent: If Codex touches `src/file_sim_deepseek_lane_seq001_v001.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `Per-sim DeepSeek maintenance lane.`. After execution, write touched/predicted/missed status into the backward learning packet.
+- `src/thought_completer.py` I was touched by Opus on pause 2 because it thinks I am manifest state holder for this prompt. I am really Pigeon compliance facade for src/thought_completer.py.. Opus read me mostly correctly. Solution: log as learning only; do not launch file sim. Persistent faults: observations=38; learned triggers may need backward-pass validation.
+  - coding_agent: If Codex touches `src/thought_completer.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `Pigeon compliance facade for src/thought_completer.py.`. After execution, write touched/predicted/missed status into the backward learning packet.
+- `src/opus_orchestrator_runtime_seq001_v001.py` I was touched by Opus on pause 2 because it thinks I am manifest state holder for this prompt. I am really Claude Opus runtime pack for thought-completer chat.. Opus read me mostly correctly. Solution: log as learning only; do not launch file sim. Persistent faults: observations=1; learned triggers may need backward-pass validation.
+  - coding_agent: If Codex touches `src/opus_orchestrator_runtime_seq001_v001.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `Claude Opus runtime pack for thought-completer chat.`. After execution, write touched/predicted/missed status into the backward learning packet.
+- `src/tc_intent_manager_seq001_v001.py` I was touched by Opus on pause 2 because it thinks I am manifest state holder for this prompt. I am really Intent job block reader for thought completer.. Opus read me mostly correctly. Solution: log as learning only; do not launch file sim. Persistent faults: observations=9; learned triggers may need backward-pass validation.
+  - coding_agent: If Codex touches `src/tc_intent_manager_seq001_v001.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `Intent job block reader for thought completer.`. After execution, write touched/predicted/missed status into the backward learning packet.
+- `src/opus_micro_pulse_runtime_seq001_v001.py` I was touched by Opus on pause 2 because it thinks I am manifest state holder for this prompt. I am really Opus pause-pulse simulation optimizer for prompt-to-file intelligence.. Opus read me mostly correctly. Solution: log as learning only; do not launch file sim. Persistent faults: low-touch file; can be missed by Opus unless static syntax matches.
+  - coding_agent: If Codex touches `src/opus_micro_pulse_runtime_seq001_v001.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `Opus pause-pulse simulation optimizer for prompt-to-file intelligence.`. After execution, write touched/predicted/missed status into the backward learning packet.
+- `src/hush_intent_runtime_seq001_v001.py` I was touched by Opus on pause 2 because it thinks I am manifest state holder for this prompt. I am really Hush intent runtime and repo-room classifier.. Opus may be flattening my role; calibrate my syntax triggers before trusting this route. Solution: increase learned syntax triggers from this prompt if Codex actually touches me. Persistent faults: observations=1; learned triggers may need backward-pass validation.
+  - coding_agent: If Codex touches `src/hush_intent_runtime_seq001_v001.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `Hush intent runtime and repo-room classifier.`. After execution, write touched/predicted/missed status into the backward learning packet.
+- `src/thought_completer.py` I was touched by Opus on pause 3 because it thinks I am manifest state holder for this prompt. I am really Pigeon compliance facade for src/thought_completer.py.. Opus read me mostly correctly. Solution: route through debug chain and require grader receipt. Persistent faults: observations=38; learned triggers may need backward-pass validation.
+  - coding_agent: If Codex touches `src/thought_completer.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `Pigeon compliance facade for src/thought_completer.py.`. After execution, write touched/predicted/missed status into the backward learning packet.
+- `src/opus_orchestrator_runtime_seq001_v001.py` I was touched by Opus on pause 3 because it thinks I am manifest state holder for this prompt. I am really Claude Opus runtime pack for thought-completer chat.. Opus read me mostly correctly. Solution: route through debug chain and require grader receipt. Persistent faults: observations=1; learned triggers may need backward-pass validation.
+  - coding_agent: If Codex touches `src/opus_orchestrator_runtime_seq001_v001.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `Claude Opus runtime pack for thought-completer chat.`. After execution, write touched/predicted/missed status into the backward learning packet.
+
+### Pending Backward Pass
+
+- `src/opus_micro_pulse_runtime_seq001_v001.py` waiting_for_codex_diff
+- `src/file_bug_surface_seq001_v001.py` waiting_for_codex_diff
+- `src/thought_completer.py` waiting_for_codex_diff
+- `src/opus_orchestrator_runtime_seq001_v001.py` waiting_for_codex_diff
+- `src/file_sim_deepseek_lane_seq001_v001.py` waiting_for_codex_diff
+- `src/tc_intent_manager_seq001_v001.py` waiting_for_codex_diff
+- `src/hush_intent_runtime_seq001_v001.py` waiting_for_codex_diff
+<!-- /manifest:opus-micro-pulse-state -->
+
+<!-- manifest:folder-unified-state -->
+## Folder Unified State
+
+- state_doc: `src/MANIFEST.md`
+- write_authority: `own_folder_manifest_only`
+- read_authority: `selected_manifest_read_only`
+- changed_files_in_scope: `28`
+
+### Local Files Learning Here
+
+| File | Observations | Learned Trigger Sample |
+|---|---:|---|
+| `src/ai_fingerprint_operator_seq001_v001.py` | 58 | across, act, allowed, assembled, audits, before, block, brain |
+| `src/intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade.py` | 58 | across, act, allowed, assembled, audits, before, block, brain |
+| `src/tc_buffer_watcher_seq001_v001.py` | 58 | across, act, allowed, assembled, audits, before, block, brain |
+| `src/tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade.py` | 58 | across, act, allowed, assembled, audits, before, block, brain |
+| `src/tc_prompt_composer_seq001_v001.py` | 58 | across, act, allowed, assembled, audits, before, block, brain |
+| `src/thought_completer.py` | 58 | across, act, allowed, assembled, audits, before, block, brain |
+| `src/tc_intent_manager_seq001_v001.py` | 9 | allowed, block, brain, build, cannon, canon, codex, complext |
+| `src/manifest_state_cycle_seq001_v001.py` | 9 | audits, build, coherence, compiler, context, couple, cycle, deepseek |
+| `src/tc_profile/p_tc_p_s009_v001_compiled/MANIFEST.md` | 7 | audits, compiled, encoding, extraction, file, files, intent, key |
+| `src/tc_profile/p_tpes_s003_v001_compiled/MANIFEST.md` | 7 | audits, compiled, encoding, extraction, file, files, intent, key |
+
+### Cross-Folder Manifests Read In Sim
+
+- `MANIFEST.md`
+- `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/MANIFEST.md`
+- `build/pigeon_legacy/pigeon_brain/flow/MANIFEST.md`
+- `build/pigeon_legacy/src/MANIFEST.md`
+- `pigeon_compiler/integrations/MANIFEST.md`
+- `build/pigeon_legacy/scripts/MANIFEST.md`
+- `build/pigeon_legacy/MANIFEST.md`
+- `pigeon_brain/MANIFEST.md`
+- `pigeon_compiler/MANIFEST.md`
+- `pigeon_compiler/cut_executor/MANIFEST.md`
+- `pigeon_compiler/rename_engine/MANIFEST.md`
+- `pigeon_compiler/state_extractor/MANIFEST.md`
+
+### Local Bug Chat
+
+- `src/file_email_plugin_seq001_v001.py` I keep getting touched because file reports stale dependency pressure. I am in this sim because I help making file pressure visible to the master manifest. My evidence is I can mail opinions, but stale DeepSeek receipts make me sound like a witness without a closing argument. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. My proposed fix is: route file opinion into folder manifest and master bug queue.
+  - coding_agent: Check `src/file_email_plugin_seq001_v001.py` through `src_file_email_plugin_seq001:repair:file_reports_stale_dependency_pressure:p2`. Verify this evidence first: I can mail opinions, but stale DeepSeek receipts make me sound like a witness without a closing argument. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. Then do: route file opinion into folder manifest and master bug queue. Keep the patch bounded and write the closeout receipt to the local manifest plus ROOT_SIM_KEYS.md.
+- `src/deepseek_daemon_seq001_v001.py` I keep getting touched because file reports stale dependency pressure. I am in this sim because I help closing DeepSeek job/result receipts. My evidence is I need the hourly runner to stop timing me out; current hourly status is ran. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. My proposed fix is: route file opinion into folder manifest and master bug queue.
+  - coding_agent: Check `src/deepseek_daemon_seq001_v001.py` through `src_deepseek_daemon_seq001_v001:repair:file_reports_stale_dependency_pressure:p2`. Verify this evidence first: I need the hourly runner to stop timing me out; current hourly status is ran. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. Then do: route file opinion into folder manifest and master bug queue. Keep the patch bounded and write the closeout receipt to the local manifest plus ROOT_SIM_KEYS.md.
+- `src/batch_rewrite_sim_seq001_v001.py` I keep getting touched because file reports stale dependency pressure. I am in this sim because I help making file pressure visible to the master manifest. My evidence is I can wake files and queue code-completion jobs, but my downstream result log has to keep moving. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. My proposed fix is: route file opinion into folder manifest and master bug queue.
+  - coding_agent: Check `src/batch_rewrite_sim_seq001_v001.py` through `src_batch_rewrite_sim_seq001:repair:file_reports_stale_dependency_pressure:p2`. Verify this evidence first: I can wake files and queue code-completion jobs, but my downstream result log has to keep moving. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. Then do: route file opinion into folder manifest and master bug queue. Keep the patch bounded and write the closeout receipt to the local manifest plus ROOT_SIM_KEYS.md.
+- `src/copilot_probe_push_cycle_seq001_v001.py` I keep getting touched because file reports stale dependency pressure. I am in this sim because I help making file pressure visible to the master manifest. My evidence is My probe is only as good as cognition labels; warnings=too_many_unknown_cognitive_states,prompt_coverage_gap. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. My proposed fix is: route file opinion into folder manifest and master bug queue.
+  - coding_agent: Check `src/copilot_probe_push_cycle_seq001_v001.py` through `src_copilot_probe_push_cycle:repair:file_reports_stale_dependency_pressure:p2`. Verify this evidence first: My probe is only as good as cognition labels; warnings=too_many_unknown_cognitive_states,prompt_coverage_gap. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. Then do: route file opinion into folder manifest and master bug queue. Keep the patch bounded and write the closeout receipt to the local manifest plus ROOT_SIM_KEYS.md.
+- `src/file_self_sim_learning_seq001_v001.py` I keep getting touched because file reports stale dependency pressure. I am in this sim because I help making file pressure visible to the master manifest. My evidence is I see stale lanes: deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. My proposed fix is: route file opinion into folder manifest and master bug queue.
+  - coding_agent: Check `src/file_self_sim_learning_seq001_v001.py` through `src_file_self_sim_learning:repair:file_reports_stale_dependency_pressure:p2`. Verify this evidence first: I see stale lanes: deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. deps=deepseek_results, code_completion_jobs, file_self_learning, edit_pairs. Then do: route file opinion into folder manifest and master bug queue. Keep the patch bounded and write the closeout receipt to the local manifest plus ROOT_SIM_KEYS.md.
+
+### Live Sim Call Receipts
+
+- `src/batch_rewrite_sim_seq001_v001.py` kind=bug_chat attention=not_selected :: file reports stale dependency pressure
+- `src/copilot_probe_push_cycle_seq001_v001.py` kind=bug_chat attention=not_selected :: file reports stale dependency pressure
+- `src/deepseek_daemon_seq001_v001.py` kind=bug_chat attention=not_selected :: file reports stale dependency pressure
+- `src/file_email_plugin_seq001_v001.py` kind=bug_chat attention=not_selected :: file reports stale dependency pressure
+- `src/file_self_sim_learning_seq001_v001.py` kind=bug_chat attention=not_selected :: file reports stale dependency pressure
+- `src/opus_micro_pulse_runtime_seq001_v001.py` kind=manifest_shard+opus_pulse+prompt_intent attention=prompt_intent :: in my opinion copilot instructions should be assembled by opus: select manifests, expand prompt, investigate files in runtime, act as thought completer, write t
+- `src/thought_completer.py` kind=manifest_shard+opus_pulse+prompt_intent attention=prompt_intent :: in my opinion copilot instructions should be assembled by opus: select manifests, expand prompt, investigate files in runtime, act as thought completer, write t
+- `src/u_pj_s019_v002_d0402_λC/p_upsvdλleed_s016_v001.py` kind=manifest_shard+opus_pulse+prompt_intent attention=prompt_intent :: Generated Opus executor prompt is primary Opus pause pulse predicted this file before Enter manifest state holder for this prompt
+- `src/ai_fingerprint_operator_seq001_v001.py` kind=manifest_shard+prompt_intent attention=manifest_shard :: in my opinion copilot instructions should be assembled by opus: select manifests, expand prompt, investigate files in runtime, act as thought completer, write t
+- `src/escalation_engine/p_eecd_s007_v001.py` kind=manifest_shard+prompt_intent attention=manifest_shard :: Promote bug notes and quick file fixes into the cannon
+- `src/intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade.py` kind=manifest_shard+prompt_intent attention=manifest_shard :: in my opinion copilot instructions should be assembled by opus: select manifests, expand prompt, investigate files in runtime, act as thought completer, write t
+- `src/push_snapshot/p_psdl_s002_v001.py` kind=manifest_shard+prompt_intent attention=not_selected :: they are not ignored
+
+### Local Write Queue
+
+- `src/batch_rewrite_sim_seq001_v001.py` -> `src/MANIFEST.md`
+- `src/copilot_probe_push_cycle_seq001_v001.py` -> `src/MANIFEST.md`
+- `src/deepseek_daemon_seq001_v001.py` -> `src/MANIFEST.md`
+- `src/file_email_plugin_seq001_v001.py` -> `src/MANIFEST.md`
+- `src/file_self_sim_learning_seq001_v001.py` -> `src/MANIFEST.md`
+- `src/opus_micro_pulse_runtime_seq001_v001.py` -> `src/MANIFEST.md`
+- `src/thought_completer.py` -> `src/MANIFEST.md`
+- `src/u_pj_s019_v002_d0402_λC/p_upsvdλleed_s016_v001.py` -> `src/MANIFEST.md`
+- `src/ai_fingerprint_operator_seq001_v001.py` -> `src/MANIFEST.md`
+- `src/escalation_engine/p_eecd_s007_v001.py` -> `src/MANIFEST.md`
+- `src/intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade.py` -> `src/MANIFEST.md`
+- `src/push_snapshot/p_psdl_s002_v001.py` -> `src/MANIFEST.md`
+<!-- /manifest:folder-unified-state -->

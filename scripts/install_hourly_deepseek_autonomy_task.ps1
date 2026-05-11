@@ -17,7 +17,9 @@ Register-ScheduledTask `
     -Action $Action `
     -Trigger $Trigger `
     -Settings $Settings `
-    -Description "Compile operator intent, run hourly DeepSeek autonomy, and email the receipt." `
+    -Description "Disabled by default. Compile operator intent, run hourly DeepSeek autonomy, and email the receipt only when HOURLY_DEEPSEEK_AUTONOMY_ENABLED=1." `
     -Force | Out-Null
 
-Write-Host "Installed $TaskName. Next run: $($Trigger.StartBoundary). Repeats hourly."
+Disable-ScheduledTask -TaskName $TaskName | Out-Null
+
+Write-Host "Installed $TaskName disabled. Enable it and set HOURLY_DEEPSEEK_AUTONOMY_ENABLED=1 to run hourly."

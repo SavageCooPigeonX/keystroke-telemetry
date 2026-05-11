@@ -51,6 +51,38 @@ def test_file_sim_queues_one_perpendicular_deepseek_job_without_source_write():
     assert lane["job"]["autonomous_write"] is False
     assert lane["job"]["write_artifact"] is True
     assert "alternate-state simulation" in lane["job"]["prompt"]
+    assert lane["file_delegates"]["schema"] == "file_deepseek_delegate/v1"
+    assert lane["file_delegates"]["grader_contract"]["direct_overwrite_allowed"] is False
+    assert lane["file_delegates"]["jobs"]
     assert (root / "logs" / "deepseek_prompt_jobs.jsonl").exists()
+    assert (root / "logs" / "file_deepseek_delegate_latest.json").exists()
     assert (root / "logs" / "file_sim_deepseek_context_pack.json").exists()
     assert big_path.read_text(encoding="utf-8") == source
+
+
+def test_file_sim_deepseek_lane_obeys_hush_mutation_fence():
+    root = _repo()
+    hush = {
+        "repo_classification": {
+            "active_repo": "ambiguous",
+            "repo_confidence": 0.05,
+            "mutation_fence": "blocked",
+            "reason": "repo room unclear",
+        }
+    }
+    (root / "logs" / "hush_intent_runtime_latest.json").write_text(json.dumps(hush), encoding="utf-8")
+
+    result = simulate_file_self_learning(
+        root,
+        "context0",
+        limit=3,
+        write=True,
+        source_result={"proposals": []},
+        config={"soft_line_cap": 20, "warn_line_cap": 30, "hard_line_cap": 40},
+    )
+
+    lane = result["perpendicular_deepseek"]
+    assert lane["job"]["mode"] == "hush_mutation_fence_plan_only"
+    assert lane["job"]["autonomous_write"] is False
+    assert lane["file_delegates"]["status"] == "blocked_by_hush_mutation_fence"
+    assert lane["file_delegates"]["grader_contract"]["source_mutation_allowed"] is False

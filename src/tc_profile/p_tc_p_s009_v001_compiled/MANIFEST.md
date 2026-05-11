@@ -73,3 +73,37 @@ Public symbols re-exported by `__init__.py`:
 - manifest stores structured `scope:verb:target:scale` intent keys and file comments for Copilot clearance
 
 <!-- /manifest:push-intent-state -->
+
+<!-- manifest:folder-unified-state -->
+## Folder Unified State
+
+- state_doc: `src/tc_profile/p_tc_p_s009_v001_compiled/MANIFEST.md`
+- write_authority: `own_folder_manifest_only`
+- read_authority: `selected_manifest_read_only`
+- changed_files_in_scope: `1`
+
+### Local Files Learning Here
+
+| File | Observations | Learned Trigger Sample |
+|---|---:|---|
+| `src/tc_profile/p_tc_p_s009_v001_compiled/MANIFEST.md` | 7 | audits, compiled, encoding, extraction, file, files, intent, key |
+| `src/tc_profile/p_tc_p_s009_v001_compiled/__init__.py` | 0 | none |
+| `src/tc_profile/p_tc_p_s009_v001_compiled/p_tc_p_s009_v001_compiled_functions_seq001_v001.py` | 0 | none |
+| `src/tc_profile/p_tc_p_s009_v001_compiled/p_tc_p_s009_v001_compiled_functions_seq002_v001.py` | 0 | none |
+
+### Cross-Folder Manifests Read In Sim
+
+- `MANIFEST.md`
+- `build/pigeon_legacy/MANIFEST.md`
+- `scripts/MANIFEST.md`
+- `build/pigeon_legacy/pigeon_compiler/MANIFEST.md`
+- `src/MANIFEST.md`
+- `src/tc_profile/p_tpes_s003_v001_compiled/MANIFEST.md`
+- `build/pigeon_legacy/src/MANIFEST.md`
+- `build/pigeon_legacy/pigeon_brain/flow/MANIFEST.md`
+- `build/pigeon_legacy/scripts/MANIFEST.md`
+
+### Local Write Queue
+
+- `src/tc_profile/p_tc_p_s009_v001_compiled/MANIFEST.md` -> `src/tc_profile/p_tc_p_s009_v001_compiled/MANIFEST.md`
+<!-- /manifest:folder-unified-state -->

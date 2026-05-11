@@ -67,6 +67,7 @@ def compile_operator_intent(root: Path, prompt_limit: int = 888, write: bool = T
     runtime = _runtime_state(root)
     blockers = _alive_blockers(root, runtime, len(prompts), prompt_limit)
     split = _split_pressure(bucket_hits, blockers)
+    recent_key_audit = audit_recent_intent_keys(root, prompt_count=5)
     report = {
         "schema": SCHEMA,
         "ts": _now(),
@@ -82,6 +83,8 @@ def compile_operator_intent(root: Path, prompt_limit: int = 888, write: bool = T
         "runtime_state": runtime,
         "missing_alive_loop": blockers,
         "split_pressure": split,
+        "recent_prompt_intent_key_audit": recent_key_audit,
+        "intent_key_spec_gaps": _intent_key_spec_gaps(recent_key_audit),
         "compiled_read": _compiled_read(bucket_hits, blockers, len(prompts), prompt_limit),
         "next_actions": _next_actions(blockers),
         "paths": {
@@ -144,6 +147,32 @@ def render_operator_intent_report(report: dict[str, Any]) -> str:
         f"- dirty_files_seen_by_sim: `{runtime.get('dirty_files_seen_by_sim')}`",
         f"- dead_stale_findings: `{runtime.get('dead_stale_findings')}`",
         "",
+        "## Last Five Prompt Intent-Key Audit",
+        "",
+    ])
+    audit = report.get("recent_prompt_intent_key_audit") if isinstance(report.get("recent_prompt_intent_key_audit"), dict) else {}
+    lines.extend([
+        f"- status: `{audit.get('status', 'unknown')}`",
+        f"- audited_prompts: `{audit.get('prompt_count', 0)}`",
+        f"- spec_pass_count: `{audit.get('spec_pass_count', 0)}`",
+        f"- graph_coverage_count: `{audit.get('graph_coverage_count', 0)}`",
+        f"- stage_only: `{audit.get('stage_only', True)}`",
+        "",
+    ])
+    for item in audit.get("items") or []:
+        issue_text = ", ".join(item.get("issues") or []) or "none"
+        graph_keys = ", ".join(item.get("graph_keys") or []) or "none"
+        lines.append(
+            f"- `{item.get('intent_key') or 'missing'}` prompt `{item.get('prompt_index')}` "
+            f"issues `{issue_text}` graph `{_ascii(graph_keys[:220])}`"
+        )
+    gaps = report.get("intent_key_spec_gaps") or []
+    if gaps:
+        lines.extend(["", "### Spec Gaps", ""])
+        for gap in gaps:
+            lines.append(f"- {gap}")
+    lines.extend([
+        "",
         "## Split Pressure",
         "",
     ])
@@ -167,6 +196,158 @@ def render_operator_intent_report(report: dict[str, Any]) -> str:
         "",
     ])
     return "\n".join(lines)
+
+
+def audit_recent_intent_keys(root: Path, prompt_count: int = 5) -> dict[str, Any]:
+    """Audit recent prompt rows against emitted keys and graph-level extraction."""
+    root = Path(root)
+    logs = root / "logs"
+    prompts = _load_jsonl(logs / "prompt_journal.jsonl")[-max(1, int(prompt_count or 5)):]
+    key_rows = _load_jsonl(logs / "intent_keys.jsonl")
+    items = []
+    for index, prompt_row in enumerate(prompts, 1):
+        text = _prompt_text(prompt_row)
+        key_row = _matching_intent_key(text, key_rows)
+        graph = _generate_stage_only_intent_graph(root, text)
+        issues = _intent_key_issues(key_row, graph)
+        items.append({
+            "prompt_index": index,
+            "ts": prompt_row.get("ts", ""),
+            "prompt": text[:500],
+            "logged_intent": prompt_row.get("intent", "unknown"),
+            "intent_key": key_row.get("intent_key", "") if key_row else "",
+            "scope": key_row.get("scope", "") if key_row else "",
+            "target": key_row.get("target", "") if key_row else "",
+            "confidence": key_row.get("confidence", 0.0) if key_row else 0.0,
+            "void": bool(key_row.get("void")) if key_row else True,
+            "manifest_path": key_row.get("manifest_path", "") if key_row else "",
+            "semantic_intent": ((key_row.get("semantic_profile") or {}).get("semantic_intent") if key_row else "missing"),
+            "key_schema_ok": _intent_key_schema_ok(key_row.get("intent_key", "") if key_row else ""),
+            "graph_schema": graph.get("schema", ""),
+            "graph_intent_count": graph.get("intent_count", 0),
+            "graph_keys": [item.get("intent_key", "") for item in graph.get("intents", [])][:5],
+            "graph_files": _graph_files(graph),
+            "issues": issues,
+            "decision": "passes_spec" if not issues else "needs_key_reextract",
+        })
+    return {
+        "schema": "recent_prompt_intent_key_audit/v1",
+        "ts": _now(),
+        "prompt_count": len(items),
+        "stage_only": True,
+        "status": "ok" if items else "no_prompts",
+        "spec_pass_count": len([item for item in items if not item["issues"]]),
+        "graph_coverage_count": len([item for item in items if item.get("graph_intent_count", 0) > 1]),
+        "items": items,
+    }
+
+
+def _generate_stage_only_intent_graph(root: Path, prompt: str) -> dict[str, Any]:
+    if not prompt:
+        return {}
+    try:
+        from src.tc_intent_keys_seq001_v001 import generate_intent_graph
+        return generate_intent_graph(root, prompt, write=False)
+    except Exception as exc:
+        return {"schema": "intent_graph/error", "error": str(exc), "intent_count": 0, "intents": []}
+
+
+def _matching_intent_key(prompt: str, key_rows: list[dict[str, Any]]) -> dict[str, Any] | None:
+    if not prompt:
+        return None
+    prompt_norm = _norm_prompt(prompt)
+    best = None
+    best_score = 0.0
+    for row in reversed(key_rows):
+        row_prompt = _norm_prompt(str(row.get("prompt") or ""))
+        if not row_prompt:
+            continue
+        if row_prompt == prompt_norm:
+            return row
+        overlap = _token_overlap(prompt_norm, row_prompt)
+        if overlap > best_score:
+            best = row
+            best_score = overlap
+    return best if best_score >= 0.72 else None
+
+
+def _intent_key_issues(key_row: dict[str, Any] | None, graph: dict[str, Any]) -> list[str]:
+    issues = []
+    if not key_row:
+        return ["missing_intent_key_record"]
+    key = str(key_row.get("intent_key") or "")
+    if not _intent_key_schema_ok(key):
+        issues.append("schema_not_scope_verb_target_scale")
+    if bool(key_row.get("void")):
+        issues.append("void_key")
+    scope = str(key_row.get("scope") or "")
+    if scope.startswith("build/"):
+        issues.append("build_artifact_scope_selected")
+    if str((key_row.get("semantic_profile") or {}).get("semantic_intent") or "") == "unknown":
+        issues.append("semantic_intent_unknown")
+    target = str(key_row.get("target") or "").lower()
+    if target in {"work", "unknown"} or len(target) < 4:
+        issues.append("weak_target")
+    if any(word in target for word in ["fuck", "stupid", "hate"]):
+        issues.append("raw_affect_leaked_into_target")
+    if int(graph.get("intent_count") or 0) <= 1 and len(str(key_row.get("prompt") or "")) > 120:
+        issues.append("collapsed_multi_intent_prompt")
+    graph_keys = [str(item.get("intent_key") or "") for item in graph.get("intents", [])]
+    if graph_keys and key not in graph_keys and len(graph_keys) > 1:
+        issues.append("single_key_disagrees_with_graph")
+    return issues
+
+
+def _intent_key_schema_ok(intent_key: str) -> bool:
+    parts = str(intent_key or "").split(":")
+    if len(parts) != 4:
+        return False
+    scope, verb, target, scale = parts
+    return bool(scope and target) and verb in {"build", "patch", "test", "refactor", "route", "document"} and scale in {"read", "patch", "minor", "major"}
+
+
+def _intent_key_spec_gaps(audit: dict[str, Any]) -> list[str]:
+    rows = audit.get("items") or []
+    counts: Counter[str] = Counter()
+    for row in rows:
+        counts.update(row.get("issues") or [])
+    gap_reads = {
+        "build_artifact_scope_selected": "Manifest scoring can still select `build/*` legacy scopes; generated manifests should be deranked for live intent keys.",
+        "semantic_intent_unknown": "Semantic classifier is too shallow for architecture prompts; it needs entity/profile/key-extraction vocabulary.",
+        "raw_affect_leaked_into_target": "Target slugging preserves affect terms instead of extracting the actual repair request.",
+        "collapsed_multi_intent_prompt": "Long operator prompts are still logged as one key unless the graph extractor is called by the compiler.",
+        "single_key_disagrees_with_graph": "Pause-time key and graph-time key extraction disagree; graph keys should become the audit source of truth.",
+        "void_key": "Low-confidence prompts correctly void, but the audit should emit recommended probes instead of only skipping.",
+        "missing_intent_key_record": "Prompt capture can outrun key capture; the compiler needs to re-extract keys during audit.",
+    }
+    return [f"{gap_reads[key]} ({count})" for key, count in counts.most_common() if key in gap_reads]
+
+
+def _graph_files(graph: dict[str, Any]) -> list[str]:
+    out = []
+    for item in graph.get("intents") or []:
+        out.extend(str(path) for path in item.get("files") or [])
+    return list(dict.fromkeys(out))[:12]
+
+
+def _prompt_text(row: dict[str, Any]) -> str:
+    return str(row.get("msg") or row.get("final_text") or row.get("prompt") or "").strip()
+
+
+def _norm_prompt(text: str) -> str:
+    return re.sub(r"\s+", " ", str(text or "").strip().lower())
+
+
+def _token_overlap(left: str, right: str) -> float:
+    left_tokens = set(re.findall(r"[a-z0-9]+", left.lower()))
+    right_tokens = set(re.findall(r"[a-z0-9]+", right.lower()))
+    if not left_tokens or not right_tokens:
+        return 0.0
+    return len(left_tokens & right_tokens) / max(1, len(left_tokens | right_tokens))
+
+
+def _ascii(value: Any) -> str:
+    return str(value).encode("ascii", errors="replace").decode("ascii")
 
 
 def _bucket_hits(texts: list[str]) -> dict[str, dict[str, Any]]:

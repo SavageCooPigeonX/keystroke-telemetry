@@ -46,22 +46,41 @@ def refresh_push_manifests(
         path = folder / "MANIFEST.md"
         old = path.read_text(encoding="utf-8", errors="ignore") if path.exists() else ""
         content = _append_state_block(root, _preserve_generated_stamp(content, old), rel_folder, changed, old)
+        content = _append_folder_unified_state(root, content, rel_folder, changed, old)
         changed_manifest = old != content
         if changed_manifest and not dry_run:
             path.write_text(content, encoding="utf-8")
         rows.append({"path": _rel(root, path), "folder": rel_folder, "changed": changed_manifest})
+    master = _refresh_master_manifest(root, changed, dry_run=dry_run)
     result = {
         "schema": "push_manifest_refresh/v1",
         "mode": "dry_run" if dry_run else "write",
         "ts": datetime.now(timezone.utc).isoformat(),
         "changed_files": changed[:80],
         "manifests": rows,
-        "changed_count": sum(1 for row in rows if row["changed"]),
+        "master_manifest": master,
+        "changed_count": sum(1 for row in rows if row["changed"]) + (1 if master.get("changed") else 0),
     }
     _write_json(root / "logs" / "push_manifest_refresh_latest.json", result)
     if not dry_run:
         _append_jsonl(root / "logs" / "push_manifest_refresh.jsonl", result)
     return result
+
+
+def _append_folder_unified_state(root: Path, content: str, folder: str, changed: list[str], old: str) -> str:
+    try:
+        from src.unified_manifest_state_seq001_v001 import append_folder_unified_state
+        return append_folder_unified_state(root, content, folder, changed, old)
+    except Exception:
+        return content
+
+
+def _refresh_master_manifest(root: Path, changed: list[str], *, dry_run: bool) -> dict[str, Any]:
+    try:
+        from src.unified_manifest_state_seq001_v001 import refresh_master_manifest
+        return refresh_master_manifest(root, changed, dry_run=dry_run)
+    except Exception as exc:
+        return {"path": "MANIFEST.md", "changed": False, "error": str(exc)}
 
 
 def _load_manifest_builder(root: Path):
@@ -187,8 +206,28 @@ def _render_changelog(root: Path, folder: str, changed: list[str]) -> str:
     lines = ["## Manifest Changelog", "", "- refreshed: `pre-push-stable`", "- commit: `pending-push`"]
     lines.append(f"- changed files in scope: `{len(touched)}`")
     for rel in touched[:8]:
-        lines.append(f"  - `{rel}`")
+        encoded = _decode_file_intent(rel)
+        lines.append(f"  - `{rel}` :: `{encoded}`")
     return "\n".join(lines)
+
+
+def _decode_file_intent(path: str) -> str:
+    stem = Path(path.replace("\\", "/")).stem
+    match = re.search(r"seq(?P<seq>\d+)(?:_v(?P<version>\d+))?(?:_d(?P<date>\d{4}))?(?:__(?P<intent>.+))?", stem)
+    encoded = (match.group("intent") if match else "") or ""
+    if not encoded and "__" in stem:
+        encoded = stem.split("__", 1)[1]
+    words = [part for part in re.split(r"[_\W]+", encoded.lower()) if part]
+    intent = " ".join(words) if words else "unencoded standard path"
+    fields = []
+    if match and match.group("seq"):
+        fields.append(f"seq={match.group('seq')}")
+    if match and match.group("version"):
+        fields.append(f"v={match.group('version')}")
+    if match and match.group("date"):
+        fields.append(f"d={match.group('date')}")
+    fields.append(f"intent={intent}")
+    return "; ".join(fields)
 
 
 def _render_numeric_boundary() -> str:
