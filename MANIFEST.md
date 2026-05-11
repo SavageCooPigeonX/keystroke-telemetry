@@ -534,15 +534,15 @@
 
 | Folder | Manifest | Changed In Scope |
 |---|---|---:|
-| `build/pigeon_legacy` | `build/pigeon_legacy/MANIFEST.md` | 0 |
+| `build/pigeon_legacy` | `build/pigeon_legacy/MANIFEST.md` | 5 |
 | `build/pigeon_legacy/pigeon_brain/flow` | `build/pigeon_legacy/pigeon_brain/flow/MANIFEST.md` | 0 |
 | `build/pigeon_legacy/pigeon_brain` | `build/pigeon_legacy/pigeon_brain/MANIFEST.md` | 0 |
 | `build/pigeon_legacy/pigeon_compiler` | `build/pigeon_legacy/pigeon_compiler/MANIFEST.md` | 0 |
-| `build/pigeon_legacy/scripts` | `build/pigeon_legacy/scripts/MANIFEST.md` | 0 |
-| `build/pigeon_legacy/src` | `build/pigeon_legacy/src/MANIFEST.md` | 0 |
+| `build/pigeon_legacy/scripts` | `build/pigeon_legacy/scripts/MANIFEST.md` | 1 |
+| `build/pigeon_legacy/src` | `build/pigeon_legacy/src/MANIFEST.md` | 3 |
 | `client` | `client/MANIFEST.md` | 0 |
-| `logs` | `logs/MANIFEST.md` | 7 |
-| `.` | `MANIFEST.md` | 53 |
+| `logs` | `logs/MANIFEST.md` | 0 |
+| `.` | `MANIFEST.md` | 99 |
 | `pigeon_brain/flow/_resolve` | `pigeon_brain/flow/_resolve/MANIFEST.md` | 0 |
 | `pigeon_brain/flow/backward_seq007` | `pigeon_brain/flow/backward_seq007/MANIFEST.md` | 0 |
 | `pigeon_brain/flow/learning_loop_seq013` | `pigeon_brain/flow/learning_loop_seq013/MANIFEST.md` | 0 |
@@ -558,7 +558,7 @@
 | `pigeon_brain/flow/脉运w_vt_s006_v003_d0401_唤分话_λA` | `pigeon_brain/flow/脉运w_vt_s006_v003_d0401_唤分话_λA/MANIFEST.md` | 0 |
 | `pigeon_brain/flow/虫f_bdm_s015_v001_d0410_λFT` | `pigeon_brain/flow/虫f_bdm_s015_v001_d0410_λFT/MANIFEST.md` | 0 |
 | `pigeon_brain/flow/读f_fi_s016_v001_d0410_λFT` | `pigeon_brain/flow/读f_fi_s016_v001_d0410_λFT/MANIFEST.md` | 0 |
-| `pigeon_brain` | `pigeon_brain/MANIFEST.md` | 0 |
+| `pigeon_brain` | `pigeon_brain/MANIFEST.md` | 7 |
 | `pigeon_brain/仿f_dsm_s010_v002_d0323_缩分话_λP` | `pigeon_brain/仿f_dsm_s010_v002_d0323_缩分话_λP/MANIFEST.md` | 0 |
 | `pigeon_brain/双f_dsb_s008_v002_d0323_缩分话_λP` | `pigeon_brain/双f_dsb_s008_v002_d0323_缩分话_λP/MANIFEST.md` | 0 |
 | `pigeon_brain/型p_mo_s001_v002_d0323_读唤任_λP` | `pigeon_brain/型p_mo_s001_v002_d0323_读唤任_λP/MANIFEST.md` | 0 |
@@ -568,21 +568,21 @@
 | `pigeon_brain/观f_os_s007_v003_d0401_读谱建册_λA` | `pigeon_brain/观f_os_s007_v003_d0401_读谱建册_λA/MANIFEST.md` | 0 |
 | `pigeon_brain/跑f_tr_s013_v002_d0323_缩分话_λP` | `pigeon_brain/跑f_tr_s013_v002_d0323_缩分话_λP/MANIFEST.md` | 0 |
 | `pigeon_brain/钩w_th_s011_v002_d0323_缩分话_λP` | `pigeon_brain/钩w_th_s011_v002_d0323_缩分话_λP/MANIFEST.md` | 0 |
-| `pigeon_compiler/cut_executor` | `pigeon_compiler/cut_executor/MANIFEST.md` | 1 |
+| `pigeon_compiler/cut_executor` | `pigeon_compiler/cut_executor/MANIFEST.md` | 0 |
 | `pigeon_compiler/cut_executor/织f_cdp_s013_v002_d0322_谱建重箱重拆_λ7` | `pigeon_compiler/cut_executor/织f_cdp_s013_v002_d0322_谱建重箱重拆_λ7/MANIFEST.md` | 0 |
-| `pigeon_compiler/docs` | `pigeon_compiler/docs/MANIFEST.md` | 1 |
+| `pigeon_compiler/docs` | `pigeon_compiler/docs/MANIFEST.md` | 0 |
 | `pigeon_compiler/integrations` | `pigeon_compiler/integrations/MANIFEST.md` | 0 |
-| `pigeon_compiler` | `pigeon_compiler/MANIFEST.md` | 4 |
+| `pigeon_compiler` | `pigeon_compiler/MANIFEST.md` | 1 |
 | `pigeon_compiler/rename_engine/compliance_seq008` | `pigeon_compiler/rename_engine/compliance_seq008/MANIFEST.md` | 0 |
 | `pigeon_compiler/rename_engine/f_he_s009_v005_d0401_改名册追跑_λA` | `pigeon_compiler/rename_engine/f_he_s009_v005_d0401_改名册追跑_λA/MANIFEST.md` | 0 |
 | `pigeon_compiler/rename_engine/heal_seq009` | `pigeon_compiler/rename_engine/heal_seq009/MANIFEST.md` | 0 |
-| `pigeon_compiler/rename_engine` | `pigeon_compiler/rename_engine/MANIFEST.md` | 1 |
+| `pigeon_compiler/rename_engine` | `pigeon_compiler/rename_engine/MANIFEST.md` | 0 |
 | `pigeon_compiler/rename_engine/manifest_builder_seq007` | `pigeon_compiler/rename_engine/manifest_builder_seq007/MANIFEST.md` | 0 |
 | `pigeon_compiler/rename_engine/nametag_seq011` | `pigeon_compiler/rename_engine/nametag_seq011/MANIFEST.md` | 0 |
 | `pigeon_compiler/rename_engine/registry_seq012` | `pigeon_compiler/rename_engine/registry_seq012/MANIFEST.md` | 0 |
 | `pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR` | `pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR/MANIFEST.md` | 0 |
 | `pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc` | `pigeon_compiler/rename_engine/册f_reg_s012_v005_d0402_追跑谱桥复审_λVR_βoc/MANIFEST.md` | 0 |
-| `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX` | `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/MANIFEST.md` | 1 |
+| `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX` | `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/MANIFEST.md` | 0 |
 | `pigeon_compiler/rename_engine/谱建f_mb_s007_v003_d0314_观重箱重拆_λD` | `pigeon_compiler/rename_engine/谱建f_mb_s007_v003_d0314_观重箱重拆_λD/MANIFEST.md` | 0 |
 | `pigeon_compiler/rename_engine/追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc` | `pigeon_compiler/rename_engine/追跑f_ruhe_s010_v005_d0403_册复审净助_λFX_βoc/MANIFEST.md` | 0 |
 | `pigeon_compiler/runners/compiler_output/press_release_gen` | `pigeon_compiler/runners/compiler_output/press_release_gen/MANIFEST.md` | 0 |
@@ -592,7 +592,7 @@
 | `pigeon_compiler/runners/批编f_rbc_s015_v002_d0328_织谱建验_λR` | `pigeon_compiler/runners/批编f_rbc_s015_v002_d0328_织谱建验_λR/MANIFEST.md` | 0 |
 | `pigeon_compiler/state_extractor` | `pigeon_compiler/state_extractor/MANIFEST.md` | 0 |
 | `pigeon_compiler/weakness_planner` | `pigeon_compiler/weakness_planner/MANIFEST.md` | 0 |
-| `scripts` | `scripts/MANIFEST.md` | 1 |
+| `scripts` | `scripts/MANIFEST.md` | 14 |
 | `src/.operator_stats_seq008_v010_d0331__persi` | `src/.operator_stats_seq008_v010_d0331__persi/MANIFEST.md` | 0 |
 | `src/codebase_detector` | `src/codebase_detector/MANIFEST.md` | 0 |
 | `src/codebase_transmuter` | `src/codebase_transmuter/MANIFEST.md` | 0 |
@@ -608,8 +608,8 @@
 | `src/engagement_hooks` | `src/engagement_hooks/MANIFEST.md` | 0 |
 | `src/escalation_engine/escalation_engine_data_loaders_seq003_v001` | `src/escalation_engine/escalation_engine_data_loaders_seq003_v001/MANIFEST.md` | 0 |
 | `src/escalation_engine/escalation_engine_warnings_decomposed_seq014_v001` | `src/escalation_engine/escalation_engine_warnings_decomposed_seq014_v001/MANIFEST.md` | 0 |
-| `src/escalation_engine` | `src/escalation_engine/MANIFEST.md` | 1 |
-| `src` | `src/MANIFEST.md` | 28 |
+| `src/escalation_engine` | `src/escalation_engine/MANIFEST.md` | 0 |
+| `src` | `src/MANIFEST.md` | 33 |
 | `src/module_identity` | `src/module_identity/MANIFEST.md` | 0 |
 | `src/module_identity/module_identity_code_seq007_v001` | `src/module_identity/module_identity_code_seq007_v001/MANIFEST.md` | 0 |
 | `src/numeric_surface` | `src/numeric_surface/MANIFEST.md` | 0 |

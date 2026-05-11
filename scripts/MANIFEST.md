@@ -34,30 +34,35 @@ Python module in this folder. It is the single source of truth for:
 | 010 | audit_tc_completion.py | 82 | ✅ |  | _resolve, tc_context | Audit thought_completer on two buffer types: comedy vs code. | _resolve, tc_context |
 | 011 | bootstrap_scorecards.py | 85 | ✅ | ROOT, seed_rework(), seed_verification() | rework_scorecard, self_fix_verification | seed rework scorecard + self_fix verification log. | rework_scorecard, self_fix_verification |
 | 012 | bug_probe_hardcoded_import.py | 12 | ✅ | main() | _resolve | Intentional hardcoded-import probe for self-fix scanner verification. | _resolve |
-| 013 | build_prompt_context_packet.py | 42 | ✅ | main() | prompt_manifest_compiler | Build the file-sim prompt packet before Codex/Copilot acts. |  |
-| 014 | compile_task_profiles.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for scripts/compile_task_profiles.py. | pigeon_legacy_loader |
-| 015 | deep_debug_tc.py | 137 | ✅ |  | tc_grader, _resolve, tc_constants, tc_context +1 | Deep debug pass on thought_completer. | tc_grader, _resolve, tc_constants, tc_context +1 |
-| 016 | generate_intent_tests.py | 100 | ✅ | ROOT, TASK_QUEUE, OUT_DIR, TEMPLATE, main() |  | scaffold failing tests for every pending task_queue item. |  |
-| 017 | generate_query_monitoring_profiles.py | 128 | ✅ | ROOT, OUT_PATHS, JSONL_PATH, MODELS, profile() +3 |  | Generate searchable MAIF query monitoring profiles. |  |
-| 018 | grade_tc_sim_engine.py | 170 | ✅ | benchmark(), main() |  | Grade tc sim engine |  |
-| 019 | grade_thought_completer.py | 123 | ✅ | grade() |  | Grade thought-completer outputs vs real operator history. |  |
-| 020 | inspect_recent_grades.py | 19 | ✅ |  |  | see patterns in failures. |  |
-| 021 | install_pigeon_hooks.py | 179 | ✅ | POST_COMMIT, PRE_COMMIT, PRE_PUSH, main() |  | Install local Git hooks that wake the Pigeon compiler. |  |
-| 022 | maintain_compliance.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for scripts/maintain_compliance.py. | pigeon_legacy_loader |
-| 023 | record_codex_edit_outcome.py | 50 | ✅ | ROOT, changed_files(), main() | codex_edit_outcome_binder | Record accepted Codex edits into training telemetry. |  |
-| 024 | refresh_push_manifests.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for scripts/refresh_push_manifests.py. | pigeon_legacy_loader |
-| 025 | replay_speech_intent.py | 99 | ✅ | ROOT, main() | irt_field_profile | Replay a transcript through the IRT field-profile simulator. | irt_field_profile |
-| 026 | run_context_compression.py | 66 | ✅ | ROOT, changed_files(), run(), main() | context_compressor | Run the context compressor for changed Python files and log the result. |  |
-| 027 | run_deepseek_push_audit.py | 163 | ✅ | build_deepseek_push_audit(), main() | prompt_manifest_compiler | Queue a DeepSeek push audit from manifest/file-sim state. |  |
-| 028 | seal_master_test.py | 31 | ✅ | ROOT, TARGET, SHA_FILE, main() |  | compute SHA of src/master_test.py and write to .master_test_sha. |  |
-| 029 | shrink_pass.py | 181 | ✅ | ROOT, SCAN_PATTERNS, BASELINE, REPORT, BUDGET +2 |  | enforce "every push the files should shrink". |  |
-| 030 | simulate_tc_training.py | 79 | ✅ |  | _resolve, tc_context | Simulate thought_completer training accelerator. | _resolve, tc_context |
-| 031 | tc_benchmark.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for scripts/tc_benchmark.py. | pigeon_legacy_loader |
-| 032 | tc_injection_test.py | 131 | ✅ | ROOT, PASS, FAIL, check() | _resolve, tc_context | verify the numeric surface fires and injects relevant files. | _resolve, tc_context |
+| 013 | build_file_bug_chat.py | 29 | ✅ | main() | file_bug_chat, root_sim_key_file, unified_manifest_state | Build operator/Opus chat comments for surfaced file bugs. |  |
+| 014 | build_opus_micro_pulse_runtime.py | 42 | ✅ | main() | opus_micro_pulse_runtime | Build the Opus micro-pulse runtime packet from prompt history or a prompt. |  |
+| 015 | build_prompt_context_packet.py | 60 | ✅ | main() | prompt_manifest_compiler, opus_micro_pulse_runtime, root_sim_key_file, cannon_execution_gate | Build the file-sim prompt packet before Codex/Copilot acts. | prompt_manifest_compiler |
+| 016 | build_root_sim_key_file.py | 25 | ✅ | main() | root_sim_key_file | Build ROOT_SIM_KEYS.md from the latest sim surfaces. |  |
+| 017 | check_cannon_gate.py | 41 | ✅ | main() | cannon_execution_gate | Check the repo-wide cannon gate before executor work. |  |
+| 018 | compile_task_profiles.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for scripts/compile_task_profiles.py. | pigeon_legacy_loader |
+| 019 | deep_debug_tc.py | 137 | ✅ |  | tc_grader, _resolve, tc_constants, tc_context +1 | Deep debug pass on thought_completer. | tc_grader, _resolve, tc_constants, tc_context +1 |
+| 020 | generate_intent_tests.py | 100 | ✅ | ROOT, TASK_QUEUE, OUT_DIR, TEMPLATE, main() |  | scaffold failing tests for every pending task_queue item. |  |
+| 021 | generate_query_monitoring_profiles.py | 128 | ✅ | ROOT, OUT_PATHS, JSONL_PATH, MODELS, profile() +3 |  | Generate searchable MAIF query monitoring profiles. |  |
+| 022 | grade_tc_sim_engine.py | 170 | ✅ | benchmark(), main() |  | Grade tc sim engine |  |
+| 023 | grade_thought_completer.py | 123 | ✅ | grade() |  | Grade thought-completer outputs vs real operator history. |  |
+| 024 | inspect_recent_grades.py | 19 | ✅ |  |  | see patterns in failures. |  |
+| 025 | install_pigeon_hooks.py | 179 | ✅ | POST_COMMIT, PRE_COMMIT, PRE_PUSH, main() |  | Install local Git hooks that wake the Pigeon compiler. |  |
+| 026 | maintain_compliance.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for scripts/maintain_compliance.py. | pigeon_legacy_loader |
+| 027 | record_codex_edit_outcome.py | 50 | ✅ | ROOT, changed_files(), main() | codex_edit_outcome_binder | Record accepted Codex edits into training telemetry. | codex_edit_outcome_binder |
+| 028 | refresh_push_manifests.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for scripts/refresh_push_manifests.py. | pigeon_legacy_loader |
+| 029 | replay_speech_intent.py | 99 | ✅ | ROOT, main() | irt_field_profile | Replay a transcript through the IRT field-profile simulator. | irt_field_profile |
+| 030 | run_context_compression.py | 66 | ✅ | ROOT, changed_files(), run(), main() | context_compressor | Run the context compressor for changed Python files and log the result. | context_compressor |
+| 031 | run_deepseek_push_audit.py | 163 | ✅ | build_deepseek_push_audit(), main() | prompt_manifest_compiler | Queue a DeepSeek push audit from manifest/file-sim state. | prompt_manifest_compiler |
+| 032 | seal_master_test.py | 31 | ✅ | ROOT, TARGET, SHA_FILE, main() |  | compute SHA of src/master_test.py and write to .master_test_sha. |  |
+| 033 | shrink_pass.py | 181 | ✅ | ROOT, SCAN_PATTERNS, BASELINE, REPORT, BUDGET +2 |  | enforce "every push the files should shrink". |  |
+| 034 | simulate_tc_training.py | 79 | ✅ |  | _resolve, tc_context | Simulate thought_completer training accelerator. | _resolve, tc_context |
+| 035 | surface_file_bugs_to_manifest.py | 36 | ✅ | main() | file_bug_surface, file_bug_chat, root_sim_key_file, unified_manifest_state +1 | Run stale checks and surface file bugs into manifest state. |  |
+| 036 | tc_benchmark.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for scripts/tc_benchmark.py. | pigeon_legacy_loader |
+| 037 | tc_injection_test.py | 131 | ✅ | ROOT, PASS, FAIL, check() | _resolve, tc_context | verify the numeric surface fires and injects relevant files. | _resolve, tc_context |
 
 ## Health
-- **Files:** 32 | **Compliant:** 31/32 (97%)
-- **Total lines:** 3472 | **Est. tokens:** ~0 | **Target:** ≤200 per file
+- **Files:** 37 | **Compliant:** 36/37 (97%)
+- **Total lines:** 3663 | **Est. tokens:** ~0 | **Target:** ≤200 per file
 - **Action needed:** 1 file(s) over limit
 
 ## Module Signatures
@@ -88,7 +93,27 @@ def seed_verification() -> None
 def main() -> int
 ```
 
+**build_file_bug_chat**
+```python
+def main() -> int
+```
+
+**build_opus_micro_pulse_runtime**
+```python
+def main() -> int
+```
+
 **build_prompt_context_packet**
+```python
+def main() -> int
+```
+
+**build_root_sim_key_file**
+```python
+def main() -> int
+```
+
+**check_cannon_gate**
 ```python
 def main() -> int
 ```
@@ -155,6 +180,11 @@ def main() -> int
 def main(argv: list[str]) -> int
 ```
 
+**surface_file_bugs_to_manifest**
+```python
+def main() -> int
+```
+
 **tc_injection_test**
 ```python
 def check(name: str, ok: bool, detail: str = '')
@@ -218,6 +248,8 @@ def check(name: str, ok: bool, detail: str = '')
 | pending | `scripts:test:okay_anthropic_right_local:minor` | okay so my anthropic key is right in local env and i just fixed it on railway  test |
 | pending | `scripts:route:can_you_gate_pass:minor` | can you make gate pass and push - compile as amny files as you need |
 | pending | `scripts:route:where_does_irt_fit:minor` | where does irt fit ito this planthis out |
+| pending | `scripts:test:test_prompt_works_opus:minor` | test if this prompt works with opus file sim - it has to make payload - if cannon isint fire we should set up repo wide block - codex never os allowed to start  |
+| pending | `scripts:test:intent_key:read` | >>>> audit ifthis is viable - the key iste seperate news with its own profile and thid eoul ytunr rntity into a directory of surfaced intent keys 0 real oersona |
 
 ## File Comments
 
@@ -229,10 +261,15 @@ def check(name: str, ok: bool, detail: str = '')
 
 - refreshed: `pre-push-stable`
 - commit: `pending-push`
-- changed files in scope: `3`
+- changed files in scope: `14`
+  - `scripts/analyze_prompt_behavior.py` :: `intent=unencoded standard path`
+  - `scripts/build_file_bug_chat.py` :: `intent=unencoded standard path`
+  - `scripts/build_opus_micro_pulse_runtime.py` :: `intent=unencoded standard path`
+  - `scripts/build_prompt_context_packet.py` :: `intent=unencoded standard path`
+  - `scripts/build_root_sim_key_file.py` :: `intent=unencoded standard path`
+  - `scripts/check_cannon_gate.py` :: `intent=unencoded standard path`
+  - `scripts/generate_query_monitoring_profiles.py` :: `intent=unencoded standard path`
   - `scripts/install_hourly_deepseek_autonomy_task.ps1` :: `intent=unencoded standard path`
-  - `scripts/install_pigeon_hooks.py` :: `intent=unencoded standard path`
-  - `scripts/run_hourly_deepseek_autonomy.ps1` :: `intent=unencoded standard path`
 
 ## Numeric Encoding Boundary
 
@@ -241,33 +278,13 @@ def check(name: str, ok: bool, detail: str = '')
 
 <!-- /manifest:push-intent-state -->
 
-<!-- manifest:opus-micro-pulse-state -->
-## Opus Micro-Pulse State
-
-- prompt_hash: `3d59c2fd6f5265a8`
-- prompt_class: `debug`
-- executor_session: `codex_execution_session`
-- metric: `opus_prediction_vs_executor_diff`
-
-### Local Pulse Comments
-
-- `scripts/deep_debug_tc.py` I was touched by Opus on pause 2 because it thinks I am manifest state holder for this prompt. I am really Deep debug pass on thought_completer.. Opus may be flattening my role; calibrate my syntax triggers before trusting this route. Solution: increase learned syntax triggers from this prompt if Codex actually touches me. Persistent faults: low-touch file; can be missed by Opus unless static syntax matches.
-  - coding_agent: If Codex touches `scripts/deep_debug_tc.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `Deep debug pass on thought_completer.`. After execution, write touched/predicted/missed status into the backward learning packet.
-- `scripts/deep_debug_tc.py` I was touched by Opus on pause 3 because it thinks I am manifest state holder for this prompt. I am really Deep debug pass on thought_completer.. Opus may be flattening my role; calibrate my syntax triggers before trusting this route. Solution: increase learned syntax triggers from this prompt if Codex actually touches me. Persistent faults: low-touch file; can be missed by Opus unless static syntax matches.
-  - coding_agent: If Codex touches `scripts/deep_debug_tc.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `Deep debug pass on thought_completer.`. After execution, write touched/predicted/missed status into the backward learning packet.
-
-### Pending Backward Pass
-
-- `scripts/deep_debug_tc.py` waiting_for_codex_diff
-<!-- /manifest:opus-micro-pulse-state -->
-
 <!-- manifest:folder-unified-state -->
 ## Folder Unified State
 
 - state_doc: `scripts/MANIFEST.md`
 - write_authority: `own_folder_manifest_only`
 - read_authority: `selected_manifest_read_only`
-- changed_files_in_scope: `1`
+- changed_files_in_scope: `14`
 
 ### Local Files Learning Here
 
@@ -309,5 +326,16 @@ def check(name: str, ok: bool, detail: str = '')
 
 ### Local Write Queue
 
-- `scripts/deep_debug_tc.py` -> `scripts/MANIFEST.md`
+- `scripts/analyze_prompt_behavior.py` -> `scripts/MANIFEST.md`
+- `scripts/build_file_bug_chat.py` -> `scripts/MANIFEST.md`
+- `scripts/build_opus_micro_pulse_runtime.py` -> `scripts/MANIFEST.md`
+- `scripts/build_prompt_context_packet.py` -> `scripts/MANIFEST.md`
+- `scripts/build_root_sim_key_file.py` -> `scripts/MANIFEST.md`
+- `scripts/check_cannon_gate.py` -> `scripts/MANIFEST.md`
+- `scripts/generate_query_monitoring_profiles.py` -> `scripts/MANIFEST.md`
+- `scripts/install_hourly_deepseek_autonomy_task.ps1` -> `scripts/MANIFEST.md`
+- `scripts/install_pigeon_hooks.py` -> `scripts/MANIFEST.md`
+- `scripts/record_codex_edit_outcome.py` -> `scripts/MANIFEST.md`
+- `scripts/run_context_compression.py` -> `scripts/MANIFEST.md`
+- `scripts/run_deepseek_push_audit.py` -> `scripts/MANIFEST.md`
 <!-- /manifest:folder-unified-state -->

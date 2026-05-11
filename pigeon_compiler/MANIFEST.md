@@ -25,9 +25,10 @@ Python module in this folder. It is the single source of truth for:
 | 001 | .git_plugin_decomposed.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_compiler/.git_plugin_decomposed.py. | pigeon_legacy_loader |
 | 002 | cli.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_compiler/cli.py. | pigeon_legacy_loader |
 | 003 | git_plugin.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_compiler/git_plugin.py. | pigeon_legacy_loader |
-| 004 | pigeon_limits.py | 119 | ✅ | PIGEON_RECOMMENDED, PIGEON_MAX, FILE_OVERHEAD, EXCLUDE_NAMES, EXCLUDE_DIR_PATTERNS +3 |  | Central compliance thresholds and exclude logic. |  |
-| 005 | pre_commit_audit.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_compiler/pre_commit_audit.py. | pigeon_legacy_loader |
-| 006 | session_logger.py | 81 | ✅ | SESSIONS_DIR, log_session(), count_sessions(), read_sessions() |  | Per-file LLM session capture for pigeon files. |  |
+| 001 | organization_pass_seq001_v001.py | 354 | 🟠 WARN | SCHEMA, LATEST, HISTORY, MARKDOWN, MAX_PY_LINES +7 |  | Whole-codebase organization pass for package-independent pigeon code. |  |
+| 005 | pigeon_limits.py | 119 | ✅ | PIGEON_RECOMMENDED, PIGEON_MAX, FILE_OVERHEAD, EXCLUDE_NAMES, EXCLUDE_DIR_PATTERNS +3 |  | Central compliance thresholds and exclude logic. |  |
+| 006 | pre_commit_audit.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_compiler/pre_commit_audit.py. | pigeon_legacy_loader |
+| 007 | session_logger.py | 81 | ✅ | SESSIONS_DIR, log_session(), count_sessions(), read_sessions() |  | Per-file LLM session capture for pigeon files. |  |
 
 ## Folder API
 
@@ -36,12 +37,22 @@ Public symbols re-exported by `__init__.py`:
 - `build_ether_map`
 
 ## Health
-- **Files:** 6 | **Compliant:** 6/6 (100%)
-- **Total lines:** 268 | **Est. tokens:** ~0 | **Target:** ≤200 per file
+- **Files:** 7 | **Compliant:** 6/7 (86%)
+- **Total lines:** 622 | **Est. tokens:** ~0 | **Target:** ≤200 per file
+- **Action needed:** 1 file(s) over limit
 
 ## Module Signatures
 
 Function and class signatures for LLM context (type hints included):
+
+**organization_pass**
+```python
+@dataclass(frozen=True)
+class FileInfo:  # 7 lines
+def build_organization_plan(root: Path) -> dict[str, Any]
+def render_organization_plan(plan: dict[str, Any]) -> str
+def main() -> int
+```
 
 **pigeon_limits**
 ```python
@@ -64,6 +75,14 @@ def read_sessions(root: Path, name: str, seq: int) -> list[dict]
 | .git_plugin_decomposed | `_ROOT` | `Path(__file__).resolve().parent` |
 | cli | `_ROOT` | `Path(__file__).resolve().parent` |
 | git_plugin | `_ROOT` | `Path(__file__).resolve().parent` |
+| organization_pass | `SCHEMA` | `'pigeon_codebase_organization_plan/v1'` |
+| organization_pass | `LATEST` | `'logs/pigeon_codebase_organization_plan_latest.json'` |
+| organization_pass | `HISTORY` | `'logs/pigeon_codebase_organization_plan.jsonl'` |
+| organization_pass | `MARKDOWN` | `'logs/pigeon_codebase_organization_plan.md'` |
+| organization_pass | `MAX_PY_LINES` | `200` |
+| organization_pass | `SKIP_PARTS` | `{'.git', '.pytest_cache', '__pycache__', 'build', 'dist', 'node_modules', 've...` |
+| organization_pass | `TOP_SOURCE_DIRS` | `{'src', 'pigeon_compiler', 'pigeon_brain', 'client', 'scripts'}` |
+| organization_pass | `ROOT_SRC_FAMILIES` | `{'batch': 'src/batch_rewrite', 'codex': 'src/codex_runtime', 'context': 'src/...` |
 | pigeon_limits | `PIGEON_RECOMMENDED` | `50` |
 | pigeon_limits | `PIGEON_MAX` | `200` |
 | pigeon_limits | `FILE_OVERHEAD` | `5` |
@@ -83,16 +102,16 @@ def read_sessions(root: Path, name: str, seq: int) -> list[dict]
 
 | Status | Intent key | Prompt |
 |---|---|---|
-| pending | `pigeon_compiler/runners/compiler_output/press_release_gen:route:yes_but_predictions_news:minor` | >>> yes but the pr with predictions / news / new developments / deift is what i want rendered for press release - entity drift / artifact analysis of their stat |
-| pending | `pigeon_compiler/state_extractor:route:got_emails_why_was:minor` | i got no emails - why was it classyfying some as unknown  analyze those |
-| pending | `pigeon_compiler/rename_engine/nametag_seq011:route:bruh_its_bias_analysis:minor` | bruh no - its a bias analysis of the models -and the synthesis is what models average is / difference. your listing individual model responses - when we are doi |
-| pending | `pigeon_compiler/runners/compiler_output/press_release_gen:route:thats_terrible_needs_read:read` | no thats terrible - it needs to read like a breaking news report - reall cnn press release style - its like its getting stats - but not actually taking narrativ |
-| pending | `pigeon_compiler/runners:test:killer_run_audit_caroline:read` | killer - run re audit on caroline levvit - make sure pr goes out - then run news > (collects baselines from mentioned entities > pr around this event |
-| pending | `pigeon_compiler/rename_engine/compliance_seq008:test:umm_bruh_whole_point:read` | umm bruh the whole point is to maintain pigeon code compliance and autnomous development that intent gated - my intent righ now isn autonomous action - i actula |
-| pending | `pigeon_compiler/runners/compiler_output/press_release_gen:route:logging_consensus_baseline_auditor:minor` | logging / consensus from baseline auditor - which is iportant because its the most in depth |
-| pending | `pigeon_compiler:test:rener_erun_audit_model:read` | rener / erun audit with this model 0 also scource list still sdoesnt show |
-| pending | `pigeon_compiler/state_extractor:test:manifest:read` | check ifour file sim is leading to improving colabboration - what if the primary goals of files becomes to collaborate though manifest state ? and thats where o |
-| pending | `pigeon_compiler/rename_engine/compliance_seq008:document:manifest:minor` | youre being silly - we have onen manifest per folder which acts as state - master manifest is global stage - file sim can write to that with proposals (grader a |
+| pending | `pigeon_compiler/rename_engine/nametag_seq011:refactor:first_time_pigeon_code:major` | the first time pigeon code compiler compiled itself it found 7 bugs - how did it do that and could we attempt to recreate that - make sure that codex compac fil |
+| pending | `pigeon_compiler:route:run_news_event_new:read` | run 1 news event and 1 new research paper - news event has entity extraction - also i feel like the audits dont quite read like the monthly reconstruction on di |
+| pending | `pigeon_compiler/rename_engine/谱建f_mb_s007_v003_d0314_观重箱重拆_λD:route:deployed_version_still_has:minor` | deployed version still has wrong header - i want just bell + burger |
+| pending | `pigeon_compiler/rename_engine:route:bro_what_actual_fuck:major` | bro what the actual fuck did you do - okay fuck that - revert all your changes - what the fuck ??? how did you fuc up migration / depth of report bty 10x thatws |
+| pending | `pigeon_compiler/state_extractor:build:map_exactl_why_you:major` | - map exactl why you upset me with your migration - how you decreased // nuled depth - the real trick i think on this migration is letting the artifact surfacin |
+| pending | `pigeon_compiler:test:you_didnt_send_emailswith:minor` | you didnt send emailswith test artifact / news analysis - i need analytics on what all happened in maif - ive notived i dont get daily updates on pla |
+| pending | `pigeon_compiler:test:submit_audit_throught_railway:read` | submit an audit throught railway test all api keys - make surenew link photo works |
+| pending | `pigeon_compiler/docs:route:sure_may_help_develpment:minor` | sure do that - may help with a develpment - can we also make them meta debuggers / amplify that file to codex debug loop - |
+| pending | `pigeon_compiler:route:beset_bruh_run_shit:minor` | it should beset bruh i run shit before |
+| pending | `pigeon_compiler/integrations:route:its_still_bot_selecting:minor` | its still bot selecting files / writing file comments when i talk to codexes about linkrouter ai repo - why - |
 
 ## File Comments
 
@@ -104,12 +123,8 @@ def read_sessions(root: Path, name: str, seq: int) -> list[dict]
 
 - refreshed: `pre-push-stable`
 - commit: `pending-push`
-- changed files in scope: `5`
-  - `pigeon_compiler/.git_plugin_decomposed.py`
-  - `pigeon_compiler/cli.py`
-  - `pigeon_compiler/git_plugin.py`
-  - `pigeon_compiler/pigeon_limits.py`
-  - `pigeon_compiler/pre_commit_audit.py`
+- changed files in scope: `1`
+  - `pigeon_compiler/organization_pass_seq001_v001.py` :: `seq=001; v=001; intent=unencoded standard path`
 
 ## Numeric Encoding Boundary
 
@@ -118,31 +133,13 @@ def read_sessions(root: Path, name: str, seq: int) -> list[dict]
 
 <!-- /manifest:push-intent-state -->
 
-<!-- manifest:opus-micro-pulse-state -->
-## Opus Micro-Pulse State
-
-- prompt_hash: `3d59c2fd6f5265a8`
-- prompt_class: `debug`
-- executor_session: `codex_execution_session`
-- metric: `opus_prediction_vs_executor_diff`
-
-### Local Pulse Comments
-
-- `pigeon_compiler/README.md` I was touched by Opus on pause 3 because it thinks I am manifest state holder for this prompt. I am really # 🐦 Pigeon Code Compiler. Opus may be flattening my role; calibrate my syntax triggers before trusting this route. Solution: increase learned syntax triggers from this prompt if Codex actually touches me. Persistent faults: observations=1; learned triggers may need backward-pass validation.
-  - coding_agent: If Codex touches `pigeon_compiler/README.md`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `# 🐦 Pigeon Code Compiler`. After execution, write touched/predicted/missed status into the backward learning packet.
-
-### Pending Backward Pass
-
-- `pigeon_compiler/README.md` waiting_for_codex_diff
-<!-- /manifest:opus-micro-pulse-state -->
-
 <!-- manifest:folder-unified-state -->
 ## Folder Unified State
 
 - state_doc: `pigeon_compiler/MANIFEST.md`
 - write_authority: `own_folder_manifest_only`
 - read_authority: `selected_manifest_read_only`
-- changed_files_in_scope: `4`
+- changed_files_in_scope: `1`
 
 ### Local Files Learning Here
 
@@ -187,8 +184,5 @@ def read_sessions(root: Path, name: str, seq: int) -> list[dict]
 
 ### Local Write Queue
 
-- `pigeon_compiler/docs/COMPILER_SELF_TEST_RESULTS.md` -> `pigeon_compiler/MANIFEST.md`
-- `pigeon_compiler/cut_executor/织f_cdp_s013_v002_d0322_谱建重箱重拆_λ7.py` -> `pigeon_compiler/MANIFEST.md`
-- `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/p_引isvd踪λo_s007_v001.py` -> `pigeon_compiler/MANIFEST.md`
-- `pigeon_compiler/README.md` -> `pigeon_compiler/MANIFEST.md`
+- `pigeon_compiler/organization_pass_seq001_v001.py` -> `pigeon_compiler/MANIFEST.md`
 <!-- /manifest:folder-unified-state -->
