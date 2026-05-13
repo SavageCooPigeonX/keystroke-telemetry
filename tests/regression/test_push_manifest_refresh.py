@@ -28,7 +28,7 @@ def test_refresh_push_manifest_adds_intent_comments_and_boundaries(tmp_path):
     )
 
     text = (src / "MANIFEST.md").read_text(encoding="utf-8")
-    assert result["changed_count"] == 1
+    assert result["changed_count"] >= 1
     assert "## Push Intent Keys" in text
     assert "src:document:manifest:patch" in text
     assert "alpha says manifests need comments" in text

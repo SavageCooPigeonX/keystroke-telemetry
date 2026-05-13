@@ -3,7 +3,14 @@ import json
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+def _repo_root() -> Path:
+    root = Path(__file__).resolve().parent
+    while root != root.parent and not (root / "client").exists():
+        root = root.parent
+    return root
+
+
+ROOT = _repo_root()
 
 
 def _load_module(name: str, relpath: str):

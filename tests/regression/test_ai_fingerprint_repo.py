@@ -6,6 +6,13 @@ from pathlib import Path
 from src.ai_fingerprint_repo_seq001_v001 import build_operator_fingerprint, plug_repo
 
 
+def _repo_root() -> Path:
+    root = Path(__file__).resolve().parent
+    while root != root.parent and not (root / "src").exists():
+        root = root.parent
+    return root
+
+
 def test_external_repo_plugs_into_ai_fingerprint_without_training():
     root = Path(tempfile.mkdtemp(prefix="ai_fp_root_"))
     repo = Path(tempfile.mkdtemp(prefix="maif_probe_"))
@@ -43,7 +50,7 @@ def test_closed_repo_training_redacts_touch_preview():
     repo = Path(tempfile.mkdtemp(prefix="closed_probe_"))
     (root / "logs").mkdir()
     (root / "src").mkdir()
-    source_numeric = next((Path(__file__).resolve().parent / "src").glob("intent_numeric_seq001*.py"))
+    source_numeric = next((_repo_root() / "src").glob("intent_numeric_seq001*.py"))
     shutil.copy(source_numeric, root / "src" / source_numeric.name)
     (repo / "engine.py").write_text("def secret_entity_pipeline():\n    return 'classified'\n", encoding="utf-8")
 

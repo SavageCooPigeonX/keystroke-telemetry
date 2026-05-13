@@ -2,8 +2,15 @@ import importlib.util
 from pathlib import Path
 
 
-def _load_overwriter():
+def _repo_root() -> Path:
     root = Path(__file__).resolve().parent
+    while root != root.parent and not (root / "src").exists():
+        root = root.parent
+    return root
+
+
+def _load_overwriter():
+    root = _repo_root()
     path = root / "src" / "file_overwriter_seq001_v001_d0422__autonomous_file_patcher_lc_feat_file_cortex.py"
     spec = importlib.util.spec_from_file_location("file_overwriter_under_test", path)
     module = importlib.util.module_from_spec(spec)
@@ -34,6 +41,13 @@ def test_patch_override_requires_file_approval(tmp_path):
 
 def test_approved_patch_override_writes_with_regression(tmp_path, monkeypatch):
     mod = _load_overwriter()
+    regression_calls = []
+
+    def fake_regression(*args, **kwargs):
+        regression_calls.append((args, kwargs))
+        return {"passed": True, "failed": False, "test_file": "", "error": ""}
+
+    monkeypatch.setattr(mod, "_run_regression", fake_regression)
     monkeypatch.setattr(mod, "_run_post_patch_grader", lambda *args, **kwargs: {"verdict": "accept"})
     (tmp_path / "src").mkdir()
     target = tmp_path / "src" / "sample.py"
@@ -52,5 +66,6 @@ def test_approved_patch_override_writes_with_regression(tmp_path, monkeypatch):
 
     assert result["applied"] is True
     assert result["dry_run"] is False
+    assert regression_calls
     assert target.read_text(encoding="utf-8") == "VALUE = 2\n"
     assert (tmp_path / "logs" / "file_overwrites.jsonl").exists()

@@ -11,7 +11,15 @@ import sys
 import time
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+
+def _repo_root() -> Path:
+    root = Path(__file__).resolve().parent
+    while root != root.parent and not (root / "src").exists():
+        root = root.parent
+    return root
+
+
+ROOT = _repo_root()
 sys.path.insert(0, str(ROOT))
 
 # ── test buffers — real operator fragments from prompt_journal ──

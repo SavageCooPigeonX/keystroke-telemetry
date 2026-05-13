@@ -170,13 +170,12 @@ def test_file_self_learning_writes_deepseek_packets_and_profiles():
     assert "File Self-Sim Learning Mode" in rendered
     assert "Backward Learning Pass" in rendered
     email = (root / "logs" / "file_self_sim_learning_email.md").read_text(encoding="utf-8")
-    assert "emergency rewrite meeting" in email
+    assert "File room:" in email
+    assert "Blank sheet:" in email
     assert "grader" in email.lower()
-    assert "What the files learned while arguing:" in email
-    assert "Overheard in the file room:" in email
-    assert "I woke first" in email
-    assert "What DeepSeek should receive" in email
-    assert "Routing crumbs under the floorboards:" in email
+    assert "Woke files ->" in email
+    assert "Text back like a message:" in email
+    assert "I need from you:" in email
     profiles = json.loads((root / "file_profiles.json").read_text(encoding="utf-8"))
     assert profiles["router"]["self_sim_profile"]["file"] == "src/intent/router.py"
     assert profiles["router"]["learning_history"]

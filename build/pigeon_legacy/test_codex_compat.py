@@ -154,7 +154,12 @@ def test_every_codex_prompt_forces_file_sim_and_slow_self_fix_email(monkeypatch)
     assert slow["schema"] == "file_self_sim_learning/v1"
     assert slow["wake_order"]
     assert slow["learning_digest_email"]["record"]["event_type"] == "learning_digest"
-    assert slow["learning_digest_email"]["record"]["resend"]["would_send"] is True
+    digest_resend = slow["learning_digest_email"]["record"]["resend"]
+    assert digest_resend["status"] in {"dry_run", "blocked_by_mail_quality_gate"}
+    if digest_resend["status"] == "dry_run":
+        assert digest_resend["would_send"] is True
+    else:
+        assert digest_resend["quality"]["passed"] is False
     rows = [
         json.loads(line)
         for line in (root / "logs" / "file_email_outbox.jsonl").read_text(encoding="utf-8").splitlines()

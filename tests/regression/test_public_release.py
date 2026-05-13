@@ -3,7 +3,14 @@
 from pathlib import Path
 
 
-REPO_ROOT = Path(__file__).resolve().parent
+def _repo_root() -> Path:
+    root = Path(__file__).resolve().parent
+    while root != root.parent and not (root / "pyproject.toml").exists():
+        root = root.parent
+    return root
+
+
+REPO_ROOT = _repo_root()
 
 
 def main():
