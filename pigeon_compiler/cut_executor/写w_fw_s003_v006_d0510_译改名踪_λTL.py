@@ -4,6 +4,14 @@ Creates each file with: docstring, imports, extracted code.
 Resolves which imports each file actually needs.
 """
 
+# ── pigeon ────────────────────────────────────
+# SEQ: 003 | VER: v006 | 125 lines | ~1,143 tokens
+# DESC:   write_new_pigeon_compliant_files
+# INTENT: feat_bind_keystroke_telemetry
+# LAST:   2026-05-10 @ 776858d
+# SESSIONS: 1
+# ──────────────────────────────────────────────
+
 import ast
 from pathlib import Path
 from pigeon_compiler.pigeon_limits import PIGEON_MAX, PIGEON_RECOMMENDED
@@ -15,6 +23,7 @@ def write_cut_files(plan: dict, sliced: dict, source_path: Path,
     target_dir.mkdir(parents=True, exist_ok=True)
     source_text = source_path.read_text(encoding='utf-8')
     original_imports = _collect_imports(source_text)
+    symbol_modules = _symbol_module_map(plan)
     results = []
     for cut in plan["cuts"]:
         fname = cut["new_file"]
@@ -22,7 +31,7 @@ def write_cut_files(plan: dict, sliced: dict, source_path: Path,
         names += cut.get("classes", [])  # class extraction
         names += cut.get("contents", [])  # v1 compat
         body = _build_body(names, sliced)
-        needed = _resolve_imports(body, original_imports, plan, cut)
+        needed = _resolve_imports(body, original_imports, plan, cut, symbol_modules)
         content = _assemble(fname, needed, body)
         out = target_dir / fname
         lc = content.count('\n') + 1
@@ -43,15 +52,61 @@ def _build_body(names, sliced):
     return "\n".join(parts)
 
 
-def _resolve_imports(body, orig_imports, plan, cut):
-    """Figure out which original imports this file actually uses."""
+def _resolve_imports(body, orig_imports, plan, cut, symbol_modules=None):
+    """Figure out which original and sibling imports this file actually uses."""
     needed = []
     for imp in orig_imports:
         for name in imp["names"]:
             if name in body:
                 needed.append(imp["line"])
                 break
+    needed.extend(_resolve_internal_imports(body, cut, symbol_modules or {}))
     return sorted(set(needed))
+
+
+def _symbol_module_map(plan: dict) -> dict[str, str]:
+    """Map every planned top-level symbol to the module that will own it."""
+    out = {}
+    for cut in plan.get("cuts", []):
+        module = Path(cut.get("new_file", "")).stem
+        names = []
+        for key in ("functions", "constants", "classes", "contents"):
+            names.extend(cut.get(key, []) or [])
+        for name in names:
+            if name:
+                out[str(name)] = module
+    return out
+
+
+def _resolve_internal_imports(body: str, cut: dict, symbol_modules: dict[str, str]) -> list[str]:
+    """Add imports for extracted sibling helpers referenced by this cut."""
+    if not symbol_modules:
+        return []
+    current_module = Path(cut.get("new_file", "")).stem
+    current_names = set()
+    for key in ("functions", "constants", "classes", "contents"):
+        current_names.update(cut.get(key, []) or [])
+    used = _used_names(body)
+    lines = []
+    for name in sorted(used):
+        module = symbol_modules.get(name)
+        if not module or module == current_module or name in current_names:
+            continue
+        lines.append(f"from .{module} import {name}")
+    return lines
+
+
+def _used_names(body: str) -> set[str]:
+    """Collect loaded names from an extracted body."""
+    try:
+        tree = ast.parse(body)
+    except SyntaxError:
+        return set()
+    used = set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Name) and isinstance(node.ctx, ast.Load):
+            used.add(node.id)
+    return used
 
 
 def _collect_imports(source: str) -> list:

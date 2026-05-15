@@ -13,27 +13,21 @@ from pigeon_compiler.rename_engine.扫p_sc_s001_v004_d0315_踪稿析_λν import
 from pigeon_compiler.rename_engine.正f_cmp_s008_v004_d0315_踪稿析_λν import audit_compliance
 from pigeon_compiler.rename_engine.牌f_nam_s011_v004_d0401_追谱建踪_λA import scan_drift, scan_glyph_drift
 from pigeon_compiler.rename_engine.谱建f_mb_s007_v003_d0314_观重箱重拆_λD import build_all_manifests
+from .p_追rsvd册λβcs_s006_v001 import _run_heal_pipeline_compliance_audit
+from .p_追rsvd册λβgdd_s009_v001 import _run_heal_pipeline_glyph_drift
+from .p_追rsvd册λβms_s005_v001 import _run_heal_pipeline_rebuild_manifests
+from .p_追rsvd册λβnd_s007_v001 import _run_heal_pipeline_nametag_drift
+from .p_追rsvd册λβrd_s008_v001 import _run_heal_pipeline_rename_non_compliant
+from .p_追rsvd册λβrs_s004_v001 import (
+    _run_heal_pipeline_load_registry,
+    _run_heal_pipeline_save_registry,
+)
 
 def run_heal_pipeline(root: str, execute: bool = False,
                       manifests_only: bool = False,
                       skip_rename: bool = False,
                       intent: str = 'heal_pipeline') -> dict:
     """Full self-healing pipeline with registry tracking."""
-    from pathlib import Path
-    from datetime import datetime, timezone
-    from pigeon_compiler.registry import (load_registry, save_registry,
-                                          build_registry_from_scan)
-    from pigeon_compiler.scanner import scan_project
-    from pigeon_compiler.rename_engine import (build_rename_plan,
-                                               execute_rename,
-                                               rewrite_all_imports,
-                                               validate_imports,
-                                               scan_drift,
-                                               scan_glyph_drift)
-    from pigeon_compiler.manifest import build_all_manifests
-    from pigeon_compiler.audit import audit_compliance
-    from pigeon_compiler.glyph_context import _load_glyph_context
-
     root = Path(root).resolve()
     report = {
         'timestamp': datetime.now(timezone.utc).isoformat(),

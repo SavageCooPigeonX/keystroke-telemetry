@@ -1,169 +1,180 @@
 # Bug Profiles — The Rogues Gallery
 
-*Auto-generated 2026-04-23 16:28 UTC · 13 modules carrying bugs · 2 species identified*
+*Auto-generated 2026-05-10 15:38 UTC · 15 modules carrying bugs · 3 species identified*
 
 > Every bug here is alive. They have names, habits, and a body count.
 > This page tells you who they are, what they're doing to your codebase, and what to do about it.
 
 ## The Lineup
 
-**Dead Export Shade** (`de`) — 3 modules, 10 total sightings. *Leaves dead functions standing so everyone thinks they matter.*
+**Dead Export Shade** (`de`) — 1 module, 2 total sightings. *Leaves dead functions standing so everyone thinks they matter.*
 
-**Overcap Maw** (`oc`) — 13 modules, 29 total sightings. *Swells files past the hard cap. Split before it eats context.*
+**Coupling Leech** (`hc`) — 9 modules, 9 total sightings. *Braids modules together until one cut hurts five files.*
+
+**Overcap Maw** (`oc`) — 6 modules, 7 total sightings. *Swells files past the hard cap. Split before it eats context.*
 
 ## Filename β Check
 
 The β suffix in a filename is the bug's brand. If it's missing, pigeon lost track.
 
-- `file_sim` — should be βdeoc, filename says β(nothing). Pigeon needs to re-stamp this one.
-- `intent_numeric` — should be βdeoc, filename says β(nothing). Pigeon needs to re-stamp this one.
-- `interlink_debugger` — should be βoc, filename says β(nothing). Pigeon needs to re-stamp this one.
-- `tc_10q` — should be βoc, filename says β(nothing). Pigeon needs to re-stamp this one.
-- `tc_context_agent` — should be βdeoc, filename says β(nothing). Pigeon needs to re-stamp this one.
-- `tc_gemini` — should be βoc, filename says β(nothing). Pigeon needs to re-stamp this one.
-- `tc_observatory` — should be βoc, filename says β(nothing). Pigeon needs to re-stamp this one.
-- `tc_popup` — should be βoc, filename says β(nothing). Pigeon needs to re-stamp this one.
-- `tc_sim_engine` — should be βoc, filename says β(nothing). Pigeon needs to re-stamp this one.
-- `tc_sim` — should be βoc, filename says β(nothing). Pigeon needs to re-stamp this one.
+- `codex_compat_append_jsonl` — should be βhc, filename says β(nothing). Pigeon needs to re-stamp this one.
+- `codex_compat_ensure_repo_on_path` — should be βhc, filename says β(nothing). Pigeon needs to re-stamp this one.
+- `codex_compat_load_json` — should be βhc, filename says β(nothing). Pigeon needs to re-stamp this one.
+- `codex_compat_load_jsonl_tail` — should be βhc, filename says β(nothing). Pigeon needs to re-stamp this one.
+- `codex_compat_parse_deleted_words` — should be βhc, filename says β(nothing). Pigeon needs to re-stamp this one.
+- `codex_compat_refresh_state` — should be βhc, filename says β(nothing). Pigeon needs to re-stamp this one.
+- `codex_compat_render_dynamic_context_pack` — should be βoc, filename says β(nothing). Pigeon needs to re-stamp this one.
+- `codex_compat_repo_root` — should be βhc, filename says β(nothing). Pigeon needs to re-stamp this one.
+- `codex_compat_select_context` — should be βhc, filename says β(nothing). Pigeon needs to re-stamp this one.
+- `codex_compat_utc_now` — should be βhc, filename says β(nothing). Pigeon needs to re-stamp this one.
+- `batch_rewrite_sim` — should be βoc, filename says β(nothing). Pigeon needs to re-stamp this one.
+- `intent_outcome_binder` — should be βdeoc, filename says β(nothing). Pigeon needs to re-stamp this one.
+- `operator_response_policy` — should be βoc, filename says β(nothing). Pigeon needs to re-stamp this one.
 
-3/13 branded correctly. 10 missing — next rename cycle should catch them.
+2/15 branded correctly. 13 missing — next rename cycle should catch them.
 
 ---
 ## Dead Export Shade
 
-*Leaves dead functions standing so everyone thinks they matter.* — 3 known hosts.
+*Leaves dead functions standing so everyone thinks they matter.* — 1 known host.
 
-### intent_numeric
+### intent_outcome_binder
 
-*Demon name: Export Shade of intentnu*
+*Demon name: Export Shade of intentou*
 
-`intent_numeric` has 1 dead export(s) still standing at attention like they matter. Nobody imports them. Nobody calls them. They just… sit there, consuming mental space. Remove them or give them a job. Right now they're decoration.
+`intent_outcome_binder` has 1 dead export(s) still standing at attention like they matter. Nobody imports them. Nobody calls them. They just… sit there, consuming mental space. Remove them or give them a job. Right now they're decoration.
 
-Spotted 4x across 4 versions. β in filename: **MISSING**.
+Spotted 2x across 2 versions. β in filename: **MISSING**.
 
-### file_sim
 
-*Demon name: Dead Echo of filesim*
+---
+## Coupling Leech
 
-`file_sim` has 1 dead export(s) still standing at attention like they matter. Nobody imports them. Nobody calls them. They just… sit there, consuming mental space. Remove them or give them a job. Right now they're decoration.
+*Braids modules together until one cut hurts five files.* — 9 known hosts.
 
-Spotted 3x across 5 versions. β in filename: **MISSING**.
+### codex_compat_append_jsonl
 
-### tc_context_agent
+*Demon name: Tangle Fiend of codexcom*
 
-*Demon name: Null Moth of tccontex*
+`codex_compat_append_jsonl` braided itself to (unknown) so tightly that touching one means touching all 0. Extract the shared logic into a common module. Or accept the pain every time you edit.
 
-`tc_context_agent` has 1 dead export(s) still standing at attention like they matter. Nobody imports them. Nobody calls them. They just… sit there, consuming mental space. Remove them or give them a job. Right now they're decoration.
+Spotted 1x across 2 versions. β in filename: **MISSING**.
 
-Spotted 3x across 4 versions. β in filename: **MISSING**.
+### codex_compat_ensure_repo_on_path
+
+*Demon name: Coupling Leech of codexcom*
+
+`codex_compat_ensure_repo_on_path` braided itself to (unknown) so tightly that touching one means touching all 0. Extract the shared logic into a common module. Or accept the pain every time you edit.
+
+Spotted 1x across 2 versions. β in filename: **MISSING**.
+
+### codex_compat_load_json
+
+*Demon name: Tangle Fiend of codexcom*
+
+`codex_compat_load_json` braided itself to (unknown) so tightly that touching one means touching all 0. Extract the shared logic into a common module. Or accept the pain every time you edit.
+
+Spotted 1x across 2 versions. β in filename: **MISSING**.
+
+### codex_compat_load_jsonl_tail
+
+*Demon name: Knot Familiar of codexcom*
+
+`codex_compat_load_jsonl_tail` braided itself to (unknown) so tightly that touching one means touching all 0. Extract the shared logic into a common module. Or accept the pain every time you edit.
+
+Spotted 1x across 2 versions. β in filename: **MISSING**.
+
+### codex_compat_parse_deleted_words
+
+*Demon name: Tangle Fiend of codexcom*
+
+`codex_compat_parse_deleted_words` braided itself to (unknown) so tightly that touching one means touching all 0. Extract the shared logic into a common module. Or accept the pain every time you edit.
+
+Spotted 1x across 2 versions. β in filename: **MISSING**.
+
+### codex_compat_refresh_state
+
+*Demon name: Tangle Fiend of codexcom*
+
+`codex_compat_refresh_state` braided itself to (unknown) so tightly that touching one means touching all 0. Extract the shared logic into a common module. Or accept the pain every time you edit.
+
+Spotted 1x across 2 versions. β in filename: **MISSING**.
+
+### codex_compat_repo_root
+
+*Demon name: Knot Familiar of codexcom*
+
+`codex_compat_repo_root` braided itself to (unknown) so tightly that touching one means touching all 0. Extract the shared logic into a common module. Or accept the pain every time you edit.
+
+Spotted 1x across 2 versions. β in filename: **MISSING**.
+
+### codex_compat_select_context
+
+*Demon name: Tangle Fiend of codexcom*
+
+`codex_compat_select_context` braided itself to (unknown) so tightly that touching one means touching all 0. Extract the shared logic into a common module. Or accept the pain every time you edit.
+
+Spotted 1x across 2 versions. β in filename: **MISSING**.
+
+### codex_compat_utc_now
+
+*Demon name: Tangle Fiend of codexcom*
+
+`codex_compat_utc_now` braided itself to (unknown) so tightly that touching one means touching all 0. Extract the shared logic into a common module. Or accept the pain every time you edit.
+
+Spotted 1x across 2 versions. β in filename: **MISSING**.
 
 
 ---
 ## Overcap Maw
 
-*Swells files past the hard cap. Split before it eats context.* — 13 known hosts.
+*Swells files past the hard cap. Split before it eats context.* — 6 known hosts.
 
-### intent_numeric
+### intent_outcome_binder
 
-*Demon name: Overcap Maw of intentnu*
+*Demon name: Overcap Maw of intentou*
 
-`intent_numeric` came in wheezing at 6819 tokens — that's 241% over the 2000-token hard cap. Every push it gains weight. v4, still unsplit. This one's CODE RED — 2.5x the cap, actively eating context window. The pigeon compiler can carve this into shards in one command. The question is: when.
+`intent_outcome_binder` came in wheezing at 5433 tokens — that's 172% over the 2000-token hard cap. Every push it gains weight. v2, still unsplit. This one's CODE RED — 2.5x the cap, actively eating context window. The pigeon compiler can carve this into shards in one command. The question is: when.
 
-Spotted 4x across 4 versions. β in filename: **MISSING**.
+Spotted 2x across 2 versions. β in filename: **MISSING**.
 
-### file_sim
+### codex_compat_render_dynamic_context_pack
 
-*Demon name: Shard Hunger of filesim*
+*Demon name: Split Fiend of codexcom*
 
-`file_sim` came in wheezing at 4116 tokens — that's 106% over the 2000-token hard cap. Every push it gains weight. v5, still unsplit. Significant bloat. Every prompt that touches this file pays the tax. The pigeon compiler can carve this into shards in one command. The question is: when.
+`codex_compat_render_dynamic_context_pack` came in wheezing at 2316 tokens — that's 16% over the 2000-token hard cap. Every push it gains weight. v2, still unsplit. Over the line but not emergency. Schedule a split this push cycle. The pigeon compiler can carve this into shards in one command. The question is: when.
 
-Spotted 3x across 5 versions. β in filename: **MISSING**.
-
-### tc_context_agent
-
-*Demon name: Split Fiend of tccontex*
-
-`tc_context_agent` came in wheezing at 6804 tokens — that's 240% over the 2000-token hard cap. Every push it gains weight. v4, still unsplit. This one's CODE RED — 2.5x the cap, actively eating context window. The pigeon compiler can carve this into shards in one command. The question is: when.
-
-Spotted 3x across 4 versions. β in filename: **MISSING**.
-
-### tc_gemini
-
-*Demon name: Split Fiend of tcgemini*
-
-`tc_gemini` came in wheezing at 11314 tokens — that's 466% over the 2000-token hard cap. Every push it gains weight. v4, still unsplit. This one's CODE RED — 2.5x the cap, actively eating context window. The pigeon compiler can carve this into shards in one command. The question is: when.
-
-Spotted 3x across 4 versions. Last touched: live copilot layer. β in filename: **MISSING**.
+Spotted 1x across 2 versions. β in filename: **MISSING**.
 
 ### w_gpmo
 
 *Demon name: Split Fiend of wgpmo*
 
-`w_gpmo` came in wheezing at 6982 tokens — that's 249% over the 2000-token hard cap. Every push it gains weight. v11, still unsplit. This one's CODE RED — 2.5x the cap, actively eating context window. The pigeon compiler can carve this into shards in one command. The question is: when.
+`w_gpmo` came in wheezing at 8280 tokens — that's 314% over the 2000-token hard cap. Every push it gains weight. v12, still unsplit. This one's CODE RED — 2.5x the cap, actively eating context window. The pigeon compiler can carve this into shards in one command. The question is: when.
 
-Spotted 2x across 11 versions. β in filename: yes.
+Spotted 1x across 12 versions. β in filename: yes.
 
-### tc_observatory
+### 净拆f_rcs
 
-*Demon name: Overcap Maw of tcobserv*
+*Demon name: Overcap Maw of frcs*
 
-`tc_observatory` came in wheezing at 11262 tokens — that's 463% over the 2000-token hard cap. Every push it gains weight. v2, still unsplit. This one's CODE RED — 2.5x the cap, actively eating context window. The pigeon compiler can carve this into shards in one command. The question is: when.
+`净拆f_rcs` came in wheezing at 2343 tokens — that's 17% over the 2000-token hard cap. Every push it gains weight. v7, still unsplit. Over the line but not emergency. Schedule a split this push cycle. The pigeon compiler can carve this into shards in one command. The question is: when.
 
-Spotted 2x across 2 versions. β in filename: **MISSING**.
+Spotted 1x across 7 versions. β in filename: yes.
 
-### tc_popup
+### batch_rewrite_sim
 
-*Demon name: Split Fiend of tcpopup*
+*Demon name: Shard Hunger of batchrew*
 
-`tc_popup` came in wheezing at 6993 tokens — that's 250% over the 2000-token hard cap. Every push it gains weight. v4, still unsplit. This one's CODE RED — 2.5x the cap, actively eating context window. The pigeon compiler can carve this into shards in one command. The question is: when.
+`batch_rewrite_sim` came in wheezing at 16929 tokens — that's 746% over the 2000-token hard cap. Every push it gains weight. v2, still unsplit. This one's CODE RED — 2.5x the cap, actively eating context window. The pigeon compiler can carve this into shards in one command. The question is: when.
 
-Spotted 2x across 4 versions. β in filename: **MISSING**.
+Spotted 1x across 2 versions. β in filename: **MISSING**.
 
-### tc_sim_engine
+### operator_response_policy
 
-*Demon name: Overcap Maw of tcsimeng*
+*Demon name: Shard Hunger of operator*
 
-`tc_sim_engine` came in wheezing at 2627 tokens — that's 31% over the 2000-token hard cap. Every push it gains weight. v4, still unsplit. Over the line but not emergency. Schedule a split this push cycle. The pigeon compiler can carve this into shards in one command. The question is: when.
+`operator_response_policy` came in wheezing at 3186 tokens — that's 59% over the 2000-token hard cap. Every push it gains weight. v2, still unsplit. Significant bloat. Every prompt that touches this file pays the tax. The pigeon compiler can carve this into shards in one command. The question is: when.
 
-Spotted 2x across 4 versions. β in filename: **MISSING**.
-
-### tc_sim
-
-*Demon name: Shard Hunger of tcsim*
-
-`tc_sim` came in wheezing at 14095 tokens — that's 605% over the 2000-token hard cap. Every push it gains weight. v2, still unsplit. This one's CODE RED — 2.5x the cap, actively eating context window. The pigeon compiler can carve this into shards in one command. The question is: when.
-
-Spotted 2x across 2 versions. β in filename: **MISSING**.
-
-### u_pj
-
-*Demon name: Split Fiend of upj*
-
-`u_pj` came in wheezing at 10995 tokens — that's 450% over the 2000-token hard cap. Every push it gains weight. v6, still unsplit. This one's CODE RED — 2.5x the cap, actively eating context window. The pigeon compiler can carve this into shards in one command. The question is: when.
-
-Spotted 2x across 6 versions. β in filename: yes.
-
-### 脉p_ph
-
-*Demon name: Shard Hunger of pph*
-
-`脉p_ph` came in wheezing at 2607 tokens — that's 30% over the 2000-token hard cap. Every push it gains weight. v6, still unsplit. Over the line but not emergency. Schedule a split this push cycle. The pigeon compiler can carve this into shards in one command. The question is: when.
-
-Spotted 2x across 6 versions. β in filename: yes.
-
-### interlink_debugger
-
-*Demon name: Shard Hunger of interlin*
-
-`interlink_debugger` came in wheezing at 3336 tokens — that's 67% over the 2000-token hard cap. Every push it gains weight. v2, still unsplit. Significant bloat. Every prompt that touches this file pays the tax. The pigeon compiler can carve this into shards in one command. The question is: when.
-
-Spotted 1x across 2 versions. Last touched: initial build -. β in filename: **MISSING**.
-
-### tc_10q
-
-*Demon name: Split Fiend of tc10q*
-
-`tc_10q` came in wheezing at 2843 tokens — that's 42% over the 2000-token hard cap. Every push it gains weight. v2, still unsplit. Over the line but not emergency. Schedule a split this push cycle. The pigeon compiler can carve this into shards in one command. The question is: when.
-
-Spotted 1x across 2 versions. Last touched: initial build -. β in filename: **MISSING**.
+Spotted 1x across 2 versions. β in filename: **MISSING**.
 

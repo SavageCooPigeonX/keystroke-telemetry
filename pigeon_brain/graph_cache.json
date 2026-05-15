@@ -1,362 +1,1584 @@
 {
   "nodes": {
-    "p_gpip": {
-      "path": "pigeon_compiler/git_plugin/p_gpip_s004_v003_d0420_λFX.py",
-      "seq": 4,
-      "ver": 3,
-      "tokens": 462,
+    "codex_compat_add_file_sim_focus_files": {
+      "path": "codex_compat/codex_compat_add_file_sim_focus_files_seq041_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 41,
+      "ver": 2,
+      "tokens": 280,
       "desc": "auto_extracted_by_pigeon_compiler",
       "edges_out": [
-        "w_gpmo"
+        "codex_compat_append_jsonl"
       ],
+      "edges_in": [
+        "codex_compat_build_dynamic_context_pack"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_append_jsonl": {
+      "path": "codex_compat/codex_compat_append_jsonl_seq005_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 5,
+      "ver": 2,
+      "tokens": 97,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_audit_stale_dates"
+      ],
+      "edges_in": [
+        "codex_compat_enqueue_deepseek_prompt_job",
+        "codex_compat_log_composition",
+        "codex_compat_log_edit",
+        "codex_compat_log_prompt",
+        "codex_compat_log_response",
+        "codex_compat_record_entropy_shed",
+        "codex_compat_select_context",
+        "codex_compat_train_numeric_surface",
+        "codex_compat_write_unsaid",
+        "codex_compat_add_file_sim_focus_files"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_audit_stale_dates": {
+      "path": "codex_compat/codex_compat_audit_stale_dates_seq053_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 53,
+      "ver": 2,
+      "tokens": 1022,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_latest_json",
+        "codex_compat_latest_log_ts",
+        "codex_compat_load_json",
+        "codex_compat_parse_deleted_words",
+        "codex_compat_parse_iso_ts",
+        "codex_compat_bind_intent_loop_edit"
+      ],
+      "edges_in": [
+        "codex_compat_main",
+        "codex_compat_append_jsonl"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_bind_intent_loop_edit": {
+      "path": "codex_compat/codex_compat_bind_intent_loop_edit_seq048_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 48,
+      "ver": 2,
+      "tokens": 148,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_ensure_repo_on_path",
+        "codex_compat_bind_intent_loop_response"
+      ],
+      "edges_in": [
+        "codex_compat_log_edit",
+        "codex_compat_audit_stale_dates"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_bind_intent_loop_response": {
+      "path": "codex_compat/codex_compat_bind_intent_loop_response_seq047_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 47,
+      "ver": 2,
+      "tokens": 154,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_ensure_repo_on_path",
+        "codex_compat_build_dynamic_context_pack"
+      ],
+      "edges_in": [
+        "codex_compat_log_response",
+        "codex_compat_bind_intent_loop_edit"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_build_dynamic_context_pack": {
+      "path": "codex_compat/codex_compat_build_dynamic_context_pack_seq042_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 42,
+      "ver": 2,
+      "tokens": 1888,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_add_file_sim_focus_files",
+        "codex_compat_build_focus_files",
+        "codex_compat_build_opus_instruction_layer",
+        "codex_compat_enqueue_deepseek_prompt_job",
+        "codex_compat_ensure_repo_on_path",
+        "codex_compat_inject_dynamic_context_pack",
+        "codex_compat_load_json",
+        "codex_compat_log_counts",
+        "codex_compat_parse_deleted_words",
+        "codex_compat_refresh_state",
+        "codex_compat_render_dynamic_context_pack",
+        "codex_compat_select_context",
+        "codex_compat_surface_activity",
+        "codex_compat_utc_now",
+        "codex_compat_write_copilot_live_query_blocks",
+        "codex_compat_write_live_prompt_telemetry",
+        "file_self_knowledge",
+        "operator_response_policy"
+      ],
+      "edges_in": [
+        "codex_compat_main",
+        "codex_compat_run_pre_prompt_from_composition",
+        "codex_compat_run_pre_prompt_pipeline",
+        "codex_compat_bind_intent_loop_response"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_build_focus_files": {
+      "path": "codex_compat/codex_compat_build_focus_files_seq039_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 39,
+      "ver": 2,
+      "tokens": 730,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_git_focus_files",
+        "codex_compat_load_json",
+        "codex_compat_build_live_prompt_telemetry"
+      ],
+      "edges_in": [
+        "codex_compat_build_dynamic_context_pack"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_build_live_prompt_telemetry": {
+      "path": "codex_compat/codex_compat_build_live_prompt_telemetry_seq026_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 26,
+      "ver": 2,
+      "tokens": 898,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_deepseek_default_model",
+        "codex_compat_parse_deleted_words",
+        "codex_compat_running_prompt_summary",
+        "codex_compat_task_queue_summary",
+        "codex_compat_utc_now",
+        "codex_compat_build_opus_instruction_layer"
+      ],
+      "edges_in": [
+        "codex_compat_write_live_prompt_telemetry",
+        "codex_compat_build_focus_files"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_build_opus_instruction_layer": {
+      "path": "codex_compat/codex_compat_build_opus_instruction_layer_seq040_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 40,
+      "ver": 2,
+      "tokens": 677,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_build_parser"
+      ],
+      "edges_in": [
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_build_live_prompt_telemetry"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_build_parser": {
+      "path": "codex_compat/codex_compat_build_parser_seq074_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 74,
+      "ver": 2,
+      "tokens": 1152,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_build_unsaid_reconstruction"
+      ],
+      "edges_in": [
+        "codex_compat_main",
+        "codex_compat_build_opus_instruction_layer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_build_unsaid_reconstruction": {
+      "path": "codex_compat/codex_compat_build_unsaid_reconstruction_seq064_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 64,
+      "ver": 2,
+      "tokens": 80,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_capture_pair"
+      ],
+      "edges_in": [
+        "codex_compat_log_composition",
+        "codex_compat_build_parser"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_capture_pair": {
+      "path": "codex_compat/codex_compat_capture_pair_seq069_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 69,
+      "ver": 2,
+      "tokens": 295,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_refresh_state",
+        "codex_compat_repo_root",
+        "codex_compat_classify_intent"
+      ],
+      "edges_in": [
+        "codex_compat_import_jsonl",
+        "codex_compat_main",
+        "codex_compat_build_unsaid_reconstruction"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_classify_intent": {
+      "path": "codex_compat/codex_compat_classify_intent_seq061_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 61,
+      "ver": 2,
+      "tokens": 303,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_close_intent_loop"
+      ],
+      "edges_in": [
+        "codex_compat_log_prompt",
+        "codex_compat_capture_pair"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_close_intent_loop": {
+      "path": "codex_compat/codex_compat_close_intent_loop_seq049_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 49,
+      "ver": 2,
+      "tokens": 165,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_ensure_repo_on_path",
+        "codex_compat_deepseek_api_key_present"
+      ],
+      "edges_in": [
+        "codex_compat_main",
+        "codex_compat_classify_intent"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_deepseek_api_key_present": {
+      "path": "codex_compat/codex_compat_deepseek_api_key_present_seq036_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 36,
+      "ver": 2,
+      "tokens": 155,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_deepseek_default_model"
+      ],
+      "edges_in": [
+        "codex_compat_launch_deepseek_daemon",
+        "codex_compat_close_intent_loop"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_deepseek_default_model": {
+      "path": "codex_compat/codex_compat_deepseek_default_model_seq035_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 35,
+      "ver": 2,
+      "tokens": 65,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_emit_codex_prompt_email"
+      ],
+      "edges_in": [
+        "codex_compat_build_live_prompt_telemetry",
+        "codex_compat_enqueue_deepseek_prompt_job",
+        "codex_compat_launch_deepseek_daemon",
+        "codex_compat_deepseek_api_key_present"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_emit_codex_prompt_email": {
+      "path": "codex_compat/codex_compat_emit_codex_prompt_email_seq046_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 46,
+      "ver": 2,
+      "tokens": 168,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_ensure_repo_on_path",
+        "codex_compat_enqueue_deepseek_prompt_job"
+      ],
+      "edges_in": [
+        "codex_compat_log_prompt",
+        "codex_compat_run_pre_prompt_from_composition",
+        "codex_compat_run_pre_prompt_pipeline",
+        "codex_compat_deepseek_default_model"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_enqueue_deepseek_prompt_job": {
+      "path": "codex_compat/codex_compat_enqueue_deepseek_prompt_job_seq038_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 38,
+      "ver": 2,
+      "tokens": 714,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_append_jsonl",
+        "codex_compat_deepseek_default_model",
+        "codex_compat_load_jsonl_tail",
+        "codex_compat_parse_deleted_words",
+        "codex_compat_utc_now",
+        "codex_compat_ensure_repo_on_path"
+      ],
+      "edges_in": [
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_log_prompt",
+        "codex_compat_emit_codex_prompt_email"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_ensure_repo_on_path": {
+      "path": "codex_compat/codex_compat_ensure_repo_on_path_seq009_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 9,
+      "ver": 2,
+      "tokens": 72,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_fire_file_sim"
+      ],
+      "edges_in": [
+        "codex_compat_bind_intent_loop_edit",
+        "codex_compat_bind_intent_loop_response",
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_close_intent_loop",
+        "codex_compat_emit_codex_prompt_email",
+        "codex_compat_fire_file_sim",
+        "codex_compat_get_intent_loop_status",
+        "codex_compat_log_edit",
+        "codex_compat_log_prompt",
+        "codex_compat_log_response",
+        "codex_compat_main",
+        "codex_compat_record_intent_loop",
+        "codex_compat_run_pre_prompt_from_composition",
+        "codex_compat_run_pre_prompt_pipeline",
+        "codex_compat_enqueue_deepseek_prompt_job"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_fire_file_sim": {
+      "path": "codex_compat/codex_compat_fire_file_sim_seq044_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 44,
+      "ver": 2,
+      "tokens": 406,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_ensure_repo_on_path",
+        "batch_rewrite_sim",
+        "codex_compat_get_intent_loop_status"
+      ],
+      "edges_in": [
+        "codex_compat_log_prompt",
+        "codex_compat_run_pre_prompt_from_composition",
+        "codex_compat_run_pre_prompt_pipeline",
+        "codex_compat_ensure_repo_on_path"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_get_intent_loop_status": {
+      "path": "codex_compat/codex_compat_get_intent_loop_status_seq050_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 50,
+      "ver": 2,
+      "tokens": 135,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_ensure_repo_on_path",
+        "codex_compat_git_changed_files"
+      ],
+      "edges_in": [
+        "codex_compat_main",
+        "codex_compat_fire_file_sim"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_git_changed_files": {
+      "path": "codex_compat/codex_compat_git_changed_files_seq067_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 67,
+      "ver": 2,
+      "tokens": 139,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_git_focus_files"
+      ],
+      "edges_in": [
+        "codex_compat_log_edit",
+        "codex_compat_get_intent_loop_status"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_git_focus_files": {
+      "path": "codex_compat/codex_compat_git_focus_files_seq034_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 34,
+      "ver": 2,
+      "tokens": 111,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_git_status"
+      ],
+      "edges_in": [
+        "codex_compat_build_focus_files",
+        "codex_compat_git_changed_files"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_git_status": {
+      "path": "codex_compat/codex_compat_git_status_seq011_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 11,
+      "ver": 2,
+      "tokens": 156,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_import_jsonl"
+      ],
+      "edges_in": [
+        "codex_compat_refresh_state",
+        "codex_compat_git_focus_files"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_import_jsonl": {
+      "path": "codex_compat/codex_compat_import_jsonl_seq073_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 73,
+      "ver": 2,
+      "tokens": 767,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_capture_pair",
+        "codex_compat_log_composition",
+        "codex_compat_log_edit",
+        "codex_compat_log_prompt",
+        "codex_compat_log_response",
+        "codex_compat_text_from_event",
+        "codex_compat_inject_dynamic_context_pack"
+      ],
+      "edges_in": [
+        "codex_compat_main",
+        "codex_compat_git_status"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_inject_dynamic_context_pack": {
+      "path": "codex_compat/codex_compat_inject_dynamic_context_pack_seq023_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 23,
+      "ver": 2,
+      "tokens": 242,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_render_dynamic_context_pack",
+        "codex_compat_replace_managed_block",
+        "codex_compat_write_text_resilient",
+        "codex_compat_inject_pre_prompt_state"
+      ],
+      "edges_in": [
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_import_jsonl"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_inject_pre_prompt_state": {
+      "path": "codex_compat/codex_compat_inject_pre_prompt_state_seq022_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 22,
+      "ver": 2,
+      "tokens": 232,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_render_pre_prompt_block",
+        "codex_compat_replace_managed_block",
+        "codex_compat_write_text_resilient",
+        "codex_compat_latest_json"
+      ],
+      "edges_in": [
+        "codex_compat_run_pre_prompt_from_composition",
+        "codex_compat_run_pre_prompt_pipeline",
+        "codex_compat_inject_dynamic_context_pack"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_latest_json": {
+      "path": "codex_compat/codex_compat_latest_json_seq019_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 19,
+      "ver": 2,
+      "tokens": 91,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_load_jsonl_tail",
+        "codex_compat_latest_log_ts"
+      ],
+      "edges_in": [
+        "codex_compat_audit_stale_dates",
+        "codex_compat_latest_log_ts",
+        "codex_compat_run_pre_prompt_from_composition",
+        "codex_compat_run_pre_prompt_pipeline",
+        "codex_compat_inject_pre_prompt_state"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_latest_log_ts": {
+      "path": "codex_compat/codex_compat_latest_log_ts_seq052_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 52,
+      "ver": 2,
+      "tokens": 176,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_latest_json",
+        "codex_compat_load_json",
+        "codex_compat_parse_iso_ts",
+        "codex_compat_launch_deepseek_daemon"
+      ],
+      "edges_in": [
+        "codex_compat_audit_stale_dates",
+        "codex_compat_latest_json"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_launch_deepseek_daemon": {
+      "path": "codex_compat/codex_compat_launch_deepseek_daemon_seq037_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 37,
+      "ver": 2,
+      "tokens": 338,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_deepseek_api_key_present",
+        "codex_compat_deepseek_default_model",
+        "codex_compat_load_context_select_agent"
+      ],
+      "edges_in": [
+        "codex_compat_main",
+        "codex_compat_latest_log_ts"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_load_context_select_agent": {
+      "path": "codex_compat/codex_compat_load_context_select_agent_seq014_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 14,
+      "ver": 2,
+      "tokens": 193,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_repo_root",
+        "codex_compat_load_entropy_module"
+      ],
+      "edges_in": [
+        "codex_compat_select_context",
+        "codex_compat_launch_deepseek_daemon"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_load_entropy_module": {
+      "path": "codex_compat/codex_compat_load_entropy_module_seq010_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 10,
+      "ver": 2,
+      "tokens": 158,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_repo_root",
+        "codex_compat_load_intent_numeric"
+      ],
+      "edges_in": [
+        "codex_compat_refresh_entropy",
+        "codex_compat_load_context_select_agent"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_load_intent_numeric": {
+      "path": "codex_compat/codex_compat_load_intent_numeric_seq015_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 15,
+      "ver": 2,
+      "tokens": 325,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_repo_root",
+        "codex_compat_load_intent_reconstructor"
+      ],
+      "edges_in": [
+        "codex_compat_predict_numeric_files",
+        "codex_compat_train_numeric_surface",
+        "codex_compat_load_entropy_module"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_load_intent_reconstructor": {
+      "path": "codex_compat/codex_compat_load_intent_reconstructor_seq013_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 13,
+      "ver": 2,
+      "tokens": 163,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_repo_root",
+        "codex_compat_load_json"
+      ],
+      "edges_in": [
+        "codex_compat_push_intent_resolver",
+        "codex_compat_load_intent_numeric"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_load_json": {
+      "path": "codex_compat/codex_compat_load_json_seq059_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 59,
+      "ver": 2,
+      "tokens": 110,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_load_jsonl_tail"
+      ],
+      "edges_in": [
+        "codex_compat_audit_stale_dates",
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_build_focus_files",
+        "codex_compat_latest_log_ts",
+        "codex_compat_log_prompt",
+        "codex_compat_refresh_state",
+        "codex_compat_run_pre_prompt_from_composition",
+        "codex_compat_run_pre_prompt_pipeline",
+        "codex_compat_task_queue_summary",
+        "codex_compat_load_intent_reconstructor"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_load_jsonl_tail": {
+      "path": "codex_compat/codex_compat_load_jsonl_tail_seq007_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 7,
+      "ver": 2,
+      "tokens": 163,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_log_composition"
+      ],
+      "edges_in": [
+        "codex_compat_enqueue_deepseek_prompt_job",
+        "codex_compat_latest_json",
+        "codex_compat_log_edit",
+        "codex_compat_next_session_n",
+        "codex_compat_refresh_state",
+        "codex_compat_running_prompt_summary",
+        "codex_compat_surface_activity",
+        "codex_compat_load_json"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_log_composition": {
+      "path": "codex_compat/codex_compat_log_composition_seq063_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 63,
+      "ver": 2,
+      "tokens": 621,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_append_jsonl",
+        "codex_compat_build_unsaid_reconstruction",
+        "codex_compat_log_prompt",
+        "codex_compat_parse_deleted_words",
+        "codex_compat_refresh_state",
+        "codex_compat_utc_now",
+        "codex_compat_write_unsaid",
+        "codex_compat_log_counts"
+      ],
+      "edges_in": [
+        "codex_compat_import_jsonl",
+        "codex_compat_main",
+        "codex_compat_run_pre_prompt_pipeline",
+        "codex_compat_load_jsonl_tail"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_log_counts": {
+      "path": "codex_compat/codex_compat_log_counts_seq033_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 33,
+      "ver": 2,
+      "tokens": 268,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_log_edit"
+      ],
+      "edges_in": [
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_log_composition"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_log_edit": {
+      "path": "codex_compat/codex_compat_log_edit_seq068_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 68,
+      "ver": 2,
+      "tokens": 617,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_append_jsonl",
+        "codex_compat_bind_intent_loop_edit",
+        "codex_compat_ensure_repo_on_path",
+        "codex_compat_git_changed_files",
+        "codex_compat_load_jsonl_tail",
+        "codex_compat_refresh_state",
+        "codex_compat_train_numeric_surface",
+        "codex_compat_utc_now",
+        "codex_compat_log_prompt"
+      ],
+      "edges_in": [
+        "codex_compat_import_jsonl",
+        "codex_compat_main",
+        "codex_compat_log_counts"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_log_prompt": {
+      "path": "codex_compat/codex_compat_log_prompt_seq062_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 62,
+      "ver": 2,
+      "tokens": 1259,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_append_jsonl",
+        "codex_compat_classify_intent",
+        "codex_compat_emit_codex_prompt_email",
+        "codex_compat_enqueue_deepseek_prompt_job",
+        "codex_compat_ensure_repo_on_path",
+        "codex_compat_fire_file_sim",
+        "codex_compat_load_json",
+        "codex_compat_next_session_n",
+        "codex_compat_parse_deleted_words",
+        "codex_compat_record_intent_loop",
+        "codex_compat_refresh_state",
+        "codex_compat_select_context",
+        "codex_compat_state_from_deletions",
+        "codex_compat_utc_now",
+        "codex_compat_log_response"
+      ],
+      "edges_in": [
+        "codex_compat_import_jsonl",
+        "codex_compat_log_composition",
+        "codex_compat_main",
+        "codex_compat_log_edit"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_log_response": {
+      "path": "codex_compat/codex_compat_log_response_seq066_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 66,
+      "ver": 2,
+      "tokens": 873,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_append_jsonl",
+        "codex_compat_bind_intent_loop_response",
+        "codex_compat_ensure_repo_on_path",
+        "codex_compat_refresh_state",
+        "codex_compat_utc_now",
+        "operator_response_policy",
+        "codex_compat_main"
+      ],
+      "edges_in": [
+        "codex_compat_import_jsonl",
+        "codex_compat_main",
+        "codex_compat_log_prompt"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_main": {
+      "path": "codex_compat/codex_compat_main_seq075_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 75,
+      "ver": 2,
+      "tokens": 1545,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_audit_stale_dates",
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_build_parser",
+        "codex_compat_capture_pair",
+        "codex_compat_close_intent_loop",
+        "codex_compat_ensure_repo_on_path",
+        "codex_compat_get_intent_loop_status",
+        "codex_compat_import_jsonl",
+        "codex_compat_launch_deepseek_daemon",
+        "codex_compat_log_composition",
+        "codex_compat_log_edit",
+        "codex_compat_log_prompt",
+        "codex_compat_log_response",
+        "codex_compat_predict_numeric_files",
+        "codex_compat_push_intent_resolver",
+        "codex_compat_record_entropy_shed",
+        "codex_compat_refresh_state",
+        "codex_compat_run_pre_prompt_pipeline",
+        "codex_compat_select_context",
+        "codex_compat_train_numeric_surface",
+        "file_self_knowledge",
+        "codex_compat_next_session_n"
+      ],
+      "edges_in": [
+        "codex_compat_log_response"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_next_session_n": {
+      "path": "codex_compat/codex_compat_next_session_n_seq060_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 60,
+      "ver": 2,
+      "tokens": 118,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_load_jsonl_tail",
+        "codex_compat_parse_deleted_words"
+      ],
+      "edges_in": [
+        "codex_compat_log_prompt",
+        "codex_compat_main"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_parse_deleted_words": {
+      "path": "codex_compat/codex_compat_parse_deleted_words_seq003_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 3,
+      "ver": 2,
+      "tokens": 203,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_words",
+        "codex_compat_parse_iso_ts"
+      ],
+      "edges_in": [
+        "codex_compat_audit_stale_dates",
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_build_live_prompt_telemetry",
+        "codex_compat_enqueue_deepseek_prompt_job",
+        "codex_compat_log_composition",
+        "codex_compat_log_prompt",
+        "codex_compat_render_current_query_block",
+        "codex_compat_render_pre_prompt_block",
+        "codex_compat_render_state_markdown",
+        "codex_compat_run_pre_prompt_from_composition",
+        "codex_compat_write_unsaid",
+        "codex_compat_next_session_n"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_parse_iso_ts": {
+      "path": "codex_compat/codex_compat_parse_iso_ts_seq051_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 51,
+      "ver": 2,
+      "tokens": 124,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_predict_numeric_files"
+      ],
+      "edges_in": [
+        "codex_compat_audit_stale_dates",
+        "codex_compat_latest_log_ts",
+        "codex_compat_parse_deleted_words"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_predict_numeric_files": {
+      "path": "codex_compat/codex_compat_predict_numeric_files_seq017_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 17,
+      "ver": 2,
+      "tokens": 254,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_load_intent_numeric",
+        "codex_compat_push_intent_resolver"
+      ],
+      "edges_in": [
+        "codex_compat_main",
+        "codex_compat_select_context",
+        "codex_compat_parse_iso_ts"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_push_intent_resolver": {
+      "path": "codex_compat/codex_compat_push_intent_resolver_seq071_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 71,
+      "ver": 2,
+      "tokens": 273,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_load_intent_reconstructor",
+        "codex_compat_refresh_state",
+        "codex_compat_record_entropy_shed"
+      ],
+      "edges_in": [
+        "codex_compat_main",
+        "codex_compat_predict_numeric_files"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_record_entropy_shed": {
+      "path": "codex_compat/codex_compat_record_entropy_shed_seq070_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 70,
+      "ver": 2,
+      "tokens": 202,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_append_jsonl",
+        "codex_compat_refresh_state",
+        "codex_compat_utc_now",
+        "codex_compat_record_intent_loop"
+      ],
+      "edges_in": [
+        "codex_compat_main",
+        "codex_compat_push_intent_resolver"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_record_intent_loop": {
+      "path": "codex_compat/codex_compat_record_intent_loop_seq045_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 45,
+      "ver": 2,
+      "tokens": 255,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_ensure_repo_on_path",
+        "codex_compat_refresh_entropy"
+      ],
+      "edges_in": [
+        "codex_compat_log_prompt",
+        "codex_compat_run_pre_prompt_from_composition",
+        "codex_compat_run_pre_prompt_pipeline",
+        "codex_compat_record_entropy_shed"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_refresh_entropy": {
+      "path": "codex_compat/codex_compat_refresh_entropy_seq012_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 12,
+      "ver": 2,
+      "tokens": 325,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_load_entropy_module",
+        "codex_compat_refresh_state"
+      ],
+      "edges_in": [
+        "codex_compat_refresh_state",
+        "codex_compat_record_intent_loop"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_refresh_state": {
+      "path": "codex_compat/codex_compat_refresh_state_seq057_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 57,
+      "ver": 2,
+      "tokens": 837,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_git_status",
+        "codex_compat_load_json",
+        "codex_compat_load_jsonl_tail",
+        "codex_compat_refresh_entropy",
+        "codex_compat_render_state_markdown",
+        "codex_compat_utc_now",
+        "codex_compat_render_current_query_block"
+      ],
+      "edges_in": [
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_capture_pair",
+        "codex_compat_log_composition",
+        "codex_compat_log_edit",
+        "codex_compat_log_prompt",
+        "codex_compat_log_response",
+        "codex_compat_main",
+        "codex_compat_push_intent_resolver",
+        "codex_compat_record_entropy_shed",
+        "codex_compat_run_pre_prompt_from_composition",
+        "codex_compat_run_pre_prompt_pipeline",
+        "codex_compat_refresh_entropy"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_render_current_query_block": {
+      "path": "codex_compat/codex_compat_render_current_query_block_seq029_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 29,
+      "ver": 2,
+      "tokens": 481,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_parse_deleted_words",
+        "codex_compat_render_dynamic_context_pack"
+      ],
+      "edges_in": [
+        "codex_compat_write_copilot_live_query_blocks",
+        "codex_compat_refresh_state"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_render_dynamic_context_pack": {
+      "path": "codex_compat/codex_compat_render_dynamic_context_pack_seq043_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 43,
+      "ver": 2,
+      "tokens": 2316,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_render_pre_prompt_block"
+      ],
+      "edges_in": [
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_inject_dynamic_context_pack",
+        "codex_compat_render_current_query_block"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_render_pre_prompt_block": {
+      "path": "codex_compat/codex_compat_render_pre_prompt_block_seq021_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 21,
+      "ver": 2,
+      "tokens": 629,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_parse_deleted_words",
+        "codex_compat_render_prompt_telemetry_block"
+      ],
+      "edges_in": [
+        "codex_compat_inject_pre_prompt_state",
+        "codex_compat_run_pre_prompt_from_composition",
+        "codex_compat_run_pre_prompt_pipeline",
+        "codex_compat_render_dynamic_context_pack"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_render_prompt_telemetry_block": {
+      "path": "codex_compat/codex_compat_render_prompt_telemetry_block_seq027_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 27,
+      "ver": 2,
+      "tokens": 191,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_render_staleness_alert_block"
+      ],
+      "edges_in": [
+        "codex_compat_write_live_prompt_telemetry",
+        "codex_compat_render_pre_prompt_block"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_render_staleness_alert_block": {
+      "path": "codex_compat/codex_compat_render_staleness_alert_block_seq030_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 30,
+      "ver": 2,
+      "tokens": 286,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_render_state_markdown"
+      ],
+      "edges_in": [
+        "codex_compat_write_copilot_live_query_blocks",
+        "codex_compat_render_prompt_telemetry_block"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_render_state_markdown": {
+      "path": "codex_compat/codex_compat_render_state_markdown_seq058_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 58,
+      "ver": 2,
+      "tokens": 1568,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_parse_deleted_words",
+        "codex_compat_replace_managed_block"
+      ],
+      "edges_in": [
+        "codex_compat_refresh_state",
+        "codex_compat_render_staleness_alert_block"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_replace_managed_block": {
+      "path": "codex_compat/codex_compat_replace_managed_block_seq020_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 20,
+      "ver": 2,
+      "tokens": 99,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_repo_root"
+      ],
+      "edges_in": [
+        "codex_compat_inject_dynamic_context_pack",
+        "codex_compat_inject_pre_prompt_state",
+        "codex_compat_write_copilot_live_query_blocks",
+        "codex_compat_write_live_prompt_telemetry",
+        "codex_compat_render_state_markdown"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_repo_root": {
+      "path": "codex_compat/codex_compat_repo_root_seq008_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 8,
+      "ver": 2,
+      "tokens": 78,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_run_pre_prompt_from_composition"
+      ],
+      "edges_in": [
+        "codex_compat_capture_pair",
+        "codex_compat_load_context_select_agent",
+        "codex_compat_load_entropy_module",
+        "codex_compat_load_intent_numeric",
+        "codex_compat_load_intent_reconstructor",
+        "codex_compat_replace_managed_block"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_run_pre_prompt_from_composition": {
+      "path": "codex_compat/codex_compat_run_pre_prompt_from_composition_seq054_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 54,
+      "ver": 2,
+      "tokens": 1440,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_emit_codex_prompt_email",
+        "codex_compat_ensure_repo_on_path",
+        "codex_compat_fire_file_sim",
+        "codex_compat_inject_pre_prompt_state",
+        "codex_compat_latest_json",
+        "codex_compat_load_json",
+        "codex_compat_parse_deleted_words",
+        "codex_compat_record_intent_loop",
+        "codex_compat_refresh_state",
+        "codex_compat_render_pre_prompt_block",
+        "codex_compat_run_sim_buffer",
+        "codex_compat_select_context",
+        "codex_compat_utc_now",
+        "codex_compat_run_pre_prompt_pipeline"
+      ],
+      "edges_in": [
+        "codex_compat_repo_root"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_run_pre_prompt_pipeline": {
+      "path": "codex_compat/codex_compat_run_pre_prompt_pipeline_seq055_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 55,
+      "ver": 2,
+      "tokens": 1628,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_emit_codex_prompt_email",
+        "codex_compat_ensure_repo_on_path",
+        "codex_compat_fire_file_sim",
+        "codex_compat_inject_pre_prompt_state",
+        "codex_compat_latest_json",
+        "codex_compat_load_json",
+        "codex_compat_log_composition",
+        "codex_compat_record_intent_loop",
+        "codex_compat_refresh_state",
+        "codex_compat_render_pre_prompt_block",
+        "codex_compat_run_sim_buffer",
+        "codex_compat_select_context",
+        "codex_compat_utc_now"
+      ],
+      "edges_in": [
+        "codex_compat_main",
+        "codex_compat_run_pre_prompt_from_composition"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_run_sim_buffer": {
+      "path": "codex_compat/codex_compat_run_sim_buffer_seq018_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 18,
+      "ver": 2,
+      "tokens": 364,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_running_prompt_summary"
+      ],
+      "edges_in": [
+        "codex_compat_run_pre_prompt_from_composition",
+        "codex_compat_run_pre_prompt_pipeline"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_running_prompt_summary": {
+      "path": "codex_compat/codex_compat_running_prompt_summary_seq024_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 24,
+      "ver": 2,
+      "tokens": 344,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_load_jsonl_tail",
+        "codex_compat_select_context"
+      ],
+      "edges_in": [
+        "codex_compat_build_live_prompt_telemetry",
+        "codex_compat_run_sim_buffer"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_select_context": {
+      "path": "codex_compat/codex_compat_select_context_seq056_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 56,
+      "ver": 2,
+      "tokens": 514,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_append_jsonl",
+        "codex_compat_load_context_select_agent",
+        "codex_compat_predict_numeric_files",
+        "codex_compat_utc_now",
+        "codex_compat_state_from_deletions"
+      ],
+      "edges_in": [
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_log_prompt",
+        "codex_compat_main",
+        "codex_compat_run_pre_prompt_from_composition",
+        "codex_compat_run_pre_prompt_pipeline",
+        "codex_compat_running_prompt_summary"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_state_from_deletions": {
+      "path": "codex_compat/codex_compat_state_from_deletions_seq004_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 4,
+      "ver": 2,
+      "tokens": 105,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_surface_activity"
+      ],
+      "edges_in": [
+        "codex_compat_log_prompt",
+        "codex_compat_select_context"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_surface_activity": {
+      "path": "codex_compat/codex_compat_surface_activity_seq032_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 32,
+      "ver": 2,
+      "tokens": 369,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_load_jsonl_tail",
+        "codex_compat_task_queue_summary"
+      ],
+      "edges_in": [
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_state_from_deletions"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_task_queue_summary": {
+      "path": "codex_compat/codex_compat_task_queue_summary_seq025_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 25,
+      "ver": 2,
+      "tokens": 212,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_load_json",
+        "codex_compat_text_from_event"
+      ],
+      "edges_in": [
+        "codex_compat_build_live_prompt_telemetry",
+        "codex_compat_surface_activity"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_text_from_event": {
+      "path": "codex_compat/codex_compat_text_from_event_seq072_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 72,
+      "ver": 2,
+      "tokens": 173,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_train_numeric_surface"
+      ],
+      "edges_in": [
+        "codex_compat_import_jsonl",
+        "codex_compat_task_queue_summary"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_train_numeric_surface": {
+      "path": "codex_compat/codex_compat_train_numeric_surface_seq016_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 16,
+      "ver": 2,
+      "tokens": 269,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_append_jsonl",
+        "codex_compat_load_intent_numeric",
+        "codex_compat_utc_now"
+      ],
+      "edges_in": [
+        "codex_compat_log_edit",
+        "codex_compat_main",
+        "codex_compat_text_from_event"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_utc_now": {
+      "path": "codex_compat/codex_compat_utc_now_seq001_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 1,
+      "ver": 2,
+      "tokens": 50,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_words"
+      ],
+      "edges_in": [
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_build_live_prompt_telemetry",
+        "codex_compat_enqueue_deepseek_prompt_job",
+        "codex_compat_log_composition",
+        "codex_compat_log_edit",
+        "codex_compat_log_prompt",
+        "codex_compat_log_response",
+        "codex_compat_record_entropy_shed",
+        "codex_compat_refresh_state",
+        "codex_compat_run_pre_prompt_from_composition",
+        "codex_compat_run_pre_prompt_pipeline",
+        "codex_compat_select_context",
+        "codex_compat_train_numeric_surface"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_words": {
+      "path": "codex_compat/codex_compat_words_seq002_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 2,
+      "ver": 2,
+      "tokens": 58,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_write_copilot_live_query_blocks"
+      ],
+      "edges_in": [
+        "codex_compat_parse_deleted_words",
+        "codex_compat_utc_now"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_write_copilot_live_query_blocks": {
+      "path": "codex_compat/codex_compat_write_copilot_live_query_blocks_seq031_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 31,
+      "ver": 2,
+      "tokens": 309,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_render_current_query_block",
+        "codex_compat_render_staleness_alert_block",
+        "codex_compat_replace_managed_block",
+        "codex_compat_write_text_resilient",
+        "codex_compat_write_live_prompt_telemetry"
+      ],
+      "edges_in": [
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_words"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_write_live_prompt_telemetry": {
+      "path": "codex_compat/codex_compat_write_live_prompt_telemetry_seq028_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 28,
+      "ver": 2,
+      "tokens": 339,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_build_live_prompt_telemetry",
+        "codex_compat_render_prompt_telemetry_block",
+        "codex_compat_replace_managed_block",
+        "codex_compat_write_text_resilient"
+      ],
+      "edges_in": [
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_write_copilot_live_query_blocks"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_write_text_resilient": {
+      "path": "codex_compat/codex_compat_write_text_resilient_seq006_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 6,
+      "ver": 2,
+      "tokens": 178,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_write_unsaid"
+      ],
+      "edges_in": [
+        "codex_compat_inject_dynamic_context_pack",
+        "codex_compat_inject_pre_prompt_state",
+        "codex_compat_write_copilot_live_query_blocks",
+        "codex_compat_write_live_prompt_telemetry"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "codex_compat_write_unsaid": {
+      "path": "codex_compat/codex_compat_write_unsaid_seq065_v002_d0510__auto_extracted_by_pigeon_compiler_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 65,
+      "ver": 2,
+      "tokens": 364,
+      "desc": "auto_extracted_by_pigeon_compiler",
+      "edges_out": [
+        "codex_compat_append_jsonl",
+        "codex_compat_parse_deleted_words"
+      ],
+      "edges_in": [
+        "codex_compat_log_composition",
+        "codex_compat_write_text_resilient"
+      ],
+      "heat": 0.0,
+      "electron_deaths": 0
+    },
+    "写w_fw": {
+      "path": "pigeon_compiler/cut_executor/写w_fw_s003_v006_d0510_译改名踪_λTL.py",
+      "seq": 3,
+      "ver": 6,
+      "tokens": 1143,
+      "desc": "write_new_pigeon_compliant_files",
+      "edges_out": [],
       "edges_in": [],
       "heat": 0.0,
       "electron_deaths": 0
     },
     "w_gpmo": {
-      "path": "pigeon_compiler/git_plugin/w_gpmo_s019_v011_d0420_λRN_βoc.py",
+      "path": "pigeon_compiler/git_plugin/w_gpmo_s019_v012_d0510_λTL_βoc.py",
       "seq": 19,
-      "ver": 11,
-      "tokens": 6982,
+      "ver": 12,
+      "tokens": 8280,
       "desc": "pigeon_extracted_by_compiler",
       "edges_out": [],
-      "edges_in": [
-        "p_gpip"
-      ],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "context_select_agent": {
-      "path": "src/context_select_agent_seq001_v002_d0421__intent_orchestrator_fires_on_every_lc_feat_operator_state_daemon.py",
-      "seq": 1,
-      "ver": 2,
-      "tokens": 1814,
-      "desc": "intent_orchestrator_fires_on_every",
-      "edges_out": [
-        "file_sim"
-      ],
       "edges_in": [],
       "heat": 0.0,
       "electron_deaths": 0
     },
-    "file_sim": {
-      "path": "src/file_sim_seq001_v005_d0421__micro_sim_engine_prompt_file_lc_feat_operator_state_daemon.py",
-      "seq": 1,
-      "ver": 5,
-      "tokens": 4116,
-      "desc": "micro_sim_engine_prompt_file",
-      "edges_out": [
-        "tc_context_agent",
-        "intent_numeric"
-      ],
-      "edges_in": [
-        "context_select_agent"
-      ],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "intent_numeric": {
-      "path": "src/intent_numeric_seq001_v004_d0420__word_number_file_mapping_for_lc_chore_pigeon_rename_cascade.py",
-      "seq": 1,
-      "ver": 4,
-      "tokens": 6819,
-      "desc": "word_number_file_mapping_for",
-      "edges_out": [
-        "interlink_debugger"
-      ],
-      "edges_in": [
-        "tc_context_agent",
-        "tc_gemini",
-        "tc_sim_engine",
-        "file_sim"
-      ],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "interlink_debugger": {
-      "path": "src/interlink_debugger_seq001_v002_d0421__the_sim_debugs_its_own_lc_initial_build.py",
-      "seq": 1,
-      "ver": 2,
-      "tokens": 3336,
-      "desc": "the_sim_debugs_its_own",
-      "edges_out": [
-        "tc_10q"
-      ],
-      "edges_in": [
-        "intent_numeric"
-      ],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "tc_10q": {
-      "path": "src/tc_10q_seq001_v002_d0421__10_question_interlink_qualification_test_lc_initial_build.py",
-      "seq": 1,
-      "ver": 2,
-      "tokens": 2843,
-      "desc": "10_question_interlink_qualification_test",
-      "edges_out": [
-        "tc_context_agent"
-      ],
-      "edges_in": [
-        "interlink_debugger"
-      ],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "tc_context_agent": {
-      "path": "src/tc_context_agent_seq001_v004_d0420__picks_relevant_source_files_based_lc_chore_pigeon_rename_cascade.py",
-      "seq": 1,
-      "ver": 4,
-      "tokens": 6804,
-      "desc": "picks_relevant_source_files_based",
-      "edges_out": [
-        "intent_numeric",
-        "tc_gemini"
-      ],
-      "edges_in": [
-        "file_sim",
-        "tc_gemini",
-        "tc_sim_engine",
-        "tc_10q"
-      ],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "tc_gemini": {
-      "path": "src/tc_gemini_seq001_v004_d0421__gemini_api_call_system_prompt_lc_live_copilot_layer.py",
-      "seq": 1,
-      "ver": 4,
-      "tokens": 11314,
-      "desc": "gemini_api_call_system_prompt",
-      "edges_out": [
-        "tc_context_agent",
-        "tc_sim",
-        "intent_numeric",
-        "tc_observatory"
-      ],
-      "edges_in": [
-        "tc_popup",
-        "tc_sim_engine",
-        "p_tws",
-        "tc_web",
-        "tc_context_agent"
-      ],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "tc_observatory": {
-      "path": "src/tc_observatory_seq001_v002_d0420__primary_pigeon_observatory_window_lc_chore_pigeon_rename_cascade.py",
-      "seq": 1,
-      "ver": 2,
-      "tokens": 11262,
-      "desc": "primary_pigeon_observatory_window",
-      "edges_out": [
-        "tc_popup"
-      ],
-      "edges_in": [
-        "tc_gemini"
-      ],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "tc_popup": {
-      "path": "src/tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade.py",
-      "seq": 1,
-      "ver": 4,
-      "tokens": 6993,
-      "desc": "passive_always_on_top_tkinter",
-      "edges_out": [
-        "tc_gemini",
-        "tc_sim_engine",
-        "tc_sim"
-      ],
-      "edges_in": [
-        "tc_observatory"
-      ],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "p_tcsr": {
-      "path": "src/tc_sim/p_tcsr_s008_v002_d0420_λRN.py",
-      "seq": 8,
-      "ver": 2,
-      "tokens": 959,
-      "desc": "auto_extracted_by_pigeon_compiler",
+    "净拆f_rcs": {
+      "path": "pigeon_compiler/runners/净拆f_rcs_s010_v007_d0510_译测编深划_λTL_βoc.py",
+      "seq": 10,
+      "ver": 7,
+      "tokens": 2343,
+      "desc": "full_clean_pipeline_deepseek_plan",
       "edges_out": [],
       "edges_in": [],
       "heat": 0.0,
       "electron_deaths": 0
     },
-    "tc_sim_engine": {
-      "path": "src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py",
-      "seq": 1,
-      "ver": 4,
-      "tokens": 2627,
-      "desc": "intent_simulation_on_typing_pause",
-      "edges_out": [
-        "tc_gemini",
-        "tc_context_agent",
-        "intent_numeric",
-        "tc_web"
-      ],
-      "edges_in": [
-        "tc_popup",
-        "tc_sim"
-      ],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "tc_sim": {
-      "path": "src/tc_sim_seq001_v002_d0420__replay_typed_sessions_through_the_lc_chore_pigeon_rename_cascade.py",
+    "batch_rewrite_sim": {
+      "path": "src/batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
       "seq": 1,
       "ver": 2,
-      "tokens": 14095,
-      "desc": "replay_typed_sessions_through_the",
+      "tokens": 16929,
+      "desc": "proposal_only_batch_rewrite_simulator",
       "edges_out": [
-        "tc_sim_engine"
+        "file_self_knowledge"
       ],
       "edges_in": [
-        "tc_gemini",
-        "tc_popup"
+        "codex_compat_fire_file_sim"
       ],
       "heat": 0.0,
       "electron_deaths": 0
     },
-    "p_tws": {
-      "path": "src/tc_web/p_tws_s003_v002_d0420_λRN.py",
-      "seq": 3,
-      "ver": 2,
-      "tokens": 707,
-      "desc": "auto_extracted_by_pigeon_compiler",
-      "edges_out": [
-        "tc_gemini"
-      ],
-      "edges_in": [],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "tc_web": {
-      "path": "src/tc_web_seq001_v002_d0420__web_server_mode_for_thought_lc_chore_pigeon_rename_cascade.py",
+    "file_self_knowledge": {
+      "path": "src/file_self_knowledge_seq001_v002_d0510__file_self_knowledge_packets_for_lc_feat_bind_keystroke_telemetry.py",
       "seq": 1,
       "ver": 2,
-      "tokens": 1402,
-      "desc": "web_server_mode_for_thought",
+      "tokens": 948,
+      "desc": "file_self_knowledge_packets_for",
       "edges_out": [
-        "tc_gemini",
-        "u_pj"
+        "intent_outcome_binder"
       ],
       "edges_in": [
-        "tc_sim_engine"
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_main",
+        "batch_rewrite_sim"
       ],
       "heat": 0.0,
       "electron_deaths": 0
     },
-    "p_tcm": {
-      "path": "src/thought_completer/p_tcm_s001_v003_d0420_λRN.py",
+    "intent_outcome_binder": {
+      "path": "src/intent_outcome_binder_seq001_v002_d0510__closes_the_intent_outcome_loop_lc_feat_bind_keystroke_telemetry.py",
       "seq": 1,
-      "ver": 3,
-      "tokens": 418,
-      "desc": "auto_extracted_by_pigeon_compiler",
-      "edges_out": [],
-      "edges_in": [],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "u_pj": {
-      "path": "src/u_pj_s019_v006_d0421_λTL_βoc.py",
-      "seq": 19,
-      "ver": 6,
-      "tokens": 10995,
-      "desc": "every_entry_cross_references_all",
+      "ver": 2,
+      "tokens": 5433,
+      "desc": "closes_the_intent_outcome_loop",
       "edges_out": [
-        "脉p_ph"
+        "operator_response_policy"
       ],
       "edges_in": [
-        "tc_web"
+        "file_self_knowledge"
       ],
       "heat": 0.0,
       "electron_deaths": 0
     },
-    "脉p_ph": {
-      "path": "src/脉p_ph_s015_v006_d0420_读唤任_λRN_βoc.py",
-      "seq": 15,
-      "ver": 6,
-      "tokens": 2607,
-      "desc": "pulse_harvest_pairs_prompts_to",
+    "operator_response_policy": {
+      "path": "src/operator_response_policy_seq001_v002_d0510__operator_response_policy_for_codex_lc_feat_bind_keystroke_telemetry.py",
+      "seq": 1,
+      "ver": 2,
+      "tokens": 3186,
+      "desc": "operator_response_policy_for_codex",
       "edges_out": [],
       "edges_in": [
-        "u_pj"
-      ],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "test_file_sim": {
-      "path": "tests/interlink/test_file_sim_seq001_v004_d0420__interlink_self_test_for_file_lc_chore_pigeon_rename_cascade.py",
-      "seq": 1,
-      "ver": 4,
-      "tokens": 952,
-      "desc": "interlink_self_test_for_file",
-      "edges_out": [
-        "test_intent_numeric"
-      ],
-      "edges_in": [],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "test_intent_numeric": {
-      "path": "tests/interlink/test_intent_numeric_seq001_v004_d0420__interlink_self_test_for_intent_lc_chore_pigeon_rename_cascade.py",
-      "seq": 1,
-      "ver": 4,
-      "tokens": 2187,
-      "desc": "interlink_self_test_for_intent",
-      "edges_out": [
-        "test_tc_context_agent"
-      ],
-      "edges_in": [
-        "test_file_sim"
-      ],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "test_tc_context_agent": {
-      "path": "tests/interlink/test_tc_context_agent_seq001_v004_d0420__interlink_self_test_for_tc_lc_chore_pigeon_rename_cascade.py",
-      "seq": 1,
-      "ver": 4,
-      "tokens": 1594,
-      "desc": "interlink_self_test_for_tc",
-      "edges_out": [
-        "test_tc_popup"
-      ],
-      "edges_in": [
-        "test_intent_numeric"
-      ],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "test_tc_popup": {
-      "path": "tests/interlink/test_tc_popup_seq001_v004_d0420__interlink_self_test_for_tc_lc_chore_pigeon_rename_cascade.py",
-      "seq": 1,
-      "ver": 4,
-      "tokens": 484,
-      "desc": "interlink_self_test_for_tc",
-      "edges_out": [
-        "test_tc_sim_engine"
-      ],
-      "edges_in": [
-        "test_tc_context_agent"
-      ],
-      "heat": 0.0,
-      "electron_deaths": 0
-    },
-    "test_tc_sim_engine": {
-      "path": "tests/interlink/test_tc_sim_engine_seq001_v004_d0420__interlink_self_test_for_tc_lc_chore_pigeon_rename_cascade.py",
-      "seq": 1,
-      "ver": 4,
-      "tokens": 491,
-      "desc": "interlink_self_test_for_tc",
-      "edges_out": [],
-      "edges_in": [
-        "test_tc_popup"
+        "codex_compat_build_dynamic_context_pack",
+        "codex_compat_log_response",
+        "intent_outcome_binder"
       ],
       "heat": 0.0,
       "electron_deaths": 0
@@ -364,155 +1586,1315 @@
   },
   "edges": [
     {
-      "from": "file_sim",
-      "to": "tc_context_agent",
+      "from": "codex_compat_audit_stale_dates",
+      "to": "codex_compat_latest_json",
       "type": "import"
     },
     {
-      "from": "tc_context_agent",
-      "to": "intent_numeric",
+      "from": "codex_compat_audit_stale_dates",
+      "to": "codex_compat_latest_log_ts",
       "type": "import"
     },
     {
-      "from": "tc_gemini",
-      "to": "tc_context_agent",
+      "from": "codex_compat_audit_stale_dates",
+      "to": "codex_compat_load_json",
       "type": "import"
     },
     {
-      "from": "tc_gemini",
-      "to": "tc_sim",
+      "from": "codex_compat_audit_stale_dates",
+      "to": "codex_compat_parse_deleted_words",
       "type": "import"
     },
     {
-      "from": "tc_gemini",
-      "to": "intent_numeric",
+      "from": "codex_compat_audit_stale_dates",
+      "to": "codex_compat_parse_iso_ts",
       "type": "import"
     },
     {
-      "from": "tc_popup",
-      "to": "tc_gemini",
+      "from": "codex_compat_bind_intent_loop_edit",
+      "to": "codex_compat_ensure_repo_on_path",
       "type": "import"
     },
     {
-      "from": "tc_popup",
-      "to": "tc_sim_engine",
+      "from": "codex_compat_bind_intent_loop_response",
+      "to": "codex_compat_ensure_repo_on_path",
       "type": "import"
     },
     {
-      "from": "tc_sim_engine",
-      "to": "tc_gemini",
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_add_file_sim_focus_files",
       "type": "import"
     },
     {
-      "from": "tc_sim_engine",
-      "to": "tc_context_agent",
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_build_focus_files",
       "type": "import"
     },
     {
-      "from": "tc_sim_engine",
-      "to": "intent_numeric",
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_build_opus_instruction_layer",
       "type": "import"
     },
     {
-      "from": "p_tws",
-      "to": "tc_gemini",
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_enqueue_deepseek_prompt_job",
       "type": "import"
     },
     {
-      "from": "tc_web",
-      "to": "tc_gemini",
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_ensure_repo_on_path",
       "type": "import"
     },
     {
-      "from": "p_gpip",
-      "to": "w_gpmo",
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_inject_dynamic_context_pack",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_load_json",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_log_counts",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_parse_deleted_words",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_refresh_state",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_render_dynamic_context_pack",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_select_context",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_surface_activity",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_utc_now",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_write_copilot_live_query_blocks",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "codex_compat_write_live_prompt_telemetry",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "file_self_knowledge",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_dynamic_context_pack",
+      "to": "operator_response_policy",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_focus_files",
+      "to": "codex_compat_git_focus_files",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_focus_files",
+      "to": "codex_compat_load_json",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_live_prompt_telemetry",
+      "to": "codex_compat_deepseek_default_model",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_live_prompt_telemetry",
+      "to": "codex_compat_parse_deleted_words",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_live_prompt_telemetry",
+      "to": "codex_compat_running_prompt_summary",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_live_prompt_telemetry",
+      "to": "codex_compat_task_queue_summary",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_build_live_prompt_telemetry",
+      "to": "codex_compat_utc_now",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_capture_pair",
+      "to": "codex_compat_refresh_state",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_capture_pair",
+      "to": "codex_compat_repo_root",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_close_intent_loop",
+      "to": "codex_compat_ensure_repo_on_path",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_emit_codex_prompt_email",
+      "to": "codex_compat_ensure_repo_on_path",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_enqueue_deepseek_prompt_job",
+      "to": "codex_compat_append_jsonl",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_enqueue_deepseek_prompt_job",
+      "to": "codex_compat_deepseek_default_model",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_enqueue_deepseek_prompt_job",
+      "to": "codex_compat_load_jsonl_tail",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_enqueue_deepseek_prompt_job",
+      "to": "codex_compat_parse_deleted_words",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_enqueue_deepseek_prompt_job",
+      "to": "codex_compat_utc_now",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_fire_file_sim",
+      "to": "codex_compat_ensure_repo_on_path",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_fire_file_sim",
+      "to": "batch_rewrite_sim",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_get_intent_loop_status",
+      "to": "codex_compat_ensure_repo_on_path",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_import_jsonl",
+      "to": "codex_compat_capture_pair",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_import_jsonl",
+      "to": "codex_compat_log_composition",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_import_jsonl",
+      "to": "codex_compat_log_edit",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_import_jsonl",
+      "to": "codex_compat_log_prompt",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_import_jsonl",
+      "to": "codex_compat_log_response",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_import_jsonl",
+      "to": "codex_compat_text_from_event",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_inject_dynamic_context_pack",
+      "to": "codex_compat_render_dynamic_context_pack",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_inject_dynamic_context_pack",
+      "to": "codex_compat_replace_managed_block",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_inject_dynamic_context_pack",
+      "to": "codex_compat_write_text_resilient",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_inject_pre_prompt_state",
+      "to": "codex_compat_render_pre_prompt_block",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_inject_pre_prompt_state",
+      "to": "codex_compat_replace_managed_block",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_inject_pre_prompt_state",
+      "to": "codex_compat_write_text_resilient",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_latest_json",
+      "to": "codex_compat_load_jsonl_tail",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_latest_log_ts",
+      "to": "codex_compat_latest_json",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_latest_log_ts",
+      "to": "codex_compat_load_json",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_latest_log_ts",
+      "to": "codex_compat_parse_iso_ts",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_launch_deepseek_daemon",
+      "to": "codex_compat_deepseek_api_key_present",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_launch_deepseek_daemon",
+      "to": "codex_compat_deepseek_default_model",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_load_context_select_agent",
+      "to": "codex_compat_repo_root",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_load_entropy_module",
+      "to": "codex_compat_repo_root",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_load_intent_numeric",
+      "to": "codex_compat_repo_root",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_load_intent_reconstructor",
+      "to": "codex_compat_repo_root",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_composition",
+      "to": "codex_compat_append_jsonl",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_composition",
+      "to": "codex_compat_build_unsaid_reconstruction",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_composition",
+      "to": "codex_compat_log_prompt",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_composition",
+      "to": "codex_compat_parse_deleted_words",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_composition",
+      "to": "codex_compat_refresh_state",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_composition",
+      "to": "codex_compat_utc_now",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_composition",
+      "to": "codex_compat_write_unsaid",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_edit",
+      "to": "codex_compat_append_jsonl",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_edit",
+      "to": "codex_compat_bind_intent_loop_edit",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_edit",
+      "to": "codex_compat_ensure_repo_on_path",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_edit",
+      "to": "codex_compat_git_changed_files",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_edit",
+      "to": "codex_compat_load_jsonl_tail",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_edit",
+      "to": "codex_compat_refresh_state",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_edit",
+      "to": "codex_compat_train_numeric_surface",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_edit",
+      "to": "codex_compat_utc_now",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_append_jsonl",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_classify_intent",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_emit_codex_prompt_email",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_enqueue_deepseek_prompt_job",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_ensure_repo_on_path",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_fire_file_sim",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_load_json",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_next_session_n",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_parse_deleted_words",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_record_intent_loop",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_refresh_state",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_select_context",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_state_from_deletions",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_utc_now",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_response",
+      "to": "codex_compat_append_jsonl",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_response",
+      "to": "codex_compat_bind_intent_loop_response",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_response",
+      "to": "codex_compat_ensure_repo_on_path",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_response",
+      "to": "codex_compat_refresh_state",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_response",
+      "to": "codex_compat_utc_now",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_log_response",
+      "to": "operator_response_policy",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_audit_stale_dates",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_build_dynamic_context_pack",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_build_parser",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_capture_pair",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_close_intent_loop",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_ensure_repo_on_path",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_get_intent_loop_status",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_import_jsonl",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_launch_deepseek_daemon",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_log_composition",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_log_edit",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_log_prompt",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_log_response",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_predict_numeric_files",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_push_intent_resolver",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_record_entropy_shed",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_refresh_state",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_run_pre_prompt_pipeline",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_select_context",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_train_numeric_surface",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "file_self_knowledge",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_next_session_n",
+      "to": "codex_compat_load_jsonl_tail",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_parse_deleted_words",
+      "to": "codex_compat_words",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_predict_numeric_files",
+      "to": "codex_compat_load_intent_numeric",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_push_intent_resolver",
+      "to": "codex_compat_load_intent_reconstructor",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_push_intent_resolver",
+      "to": "codex_compat_refresh_state",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_record_entropy_shed",
+      "to": "codex_compat_append_jsonl",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_record_entropy_shed",
+      "to": "codex_compat_refresh_state",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_record_entropy_shed",
+      "to": "codex_compat_utc_now",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_record_intent_loop",
+      "to": "codex_compat_ensure_repo_on_path",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_refresh_entropy",
+      "to": "codex_compat_load_entropy_module",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_refresh_state",
+      "to": "codex_compat_git_status",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_refresh_state",
+      "to": "codex_compat_load_json",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_refresh_state",
+      "to": "codex_compat_load_jsonl_tail",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_refresh_state",
+      "to": "codex_compat_refresh_entropy",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_refresh_state",
+      "to": "codex_compat_render_state_markdown",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_refresh_state",
+      "to": "codex_compat_utc_now",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_render_current_query_block",
+      "to": "codex_compat_parse_deleted_words",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_render_pre_prompt_block",
+      "to": "codex_compat_parse_deleted_words",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_render_state_markdown",
+      "to": "codex_compat_parse_deleted_words",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_build_dynamic_context_pack",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_emit_codex_prompt_email",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_ensure_repo_on_path",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_fire_file_sim",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_inject_pre_prompt_state",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_latest_json",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_load_json",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_parse_deleted_words",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_record_intent_loop",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_refresh_state",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_render_pre_prompt_block",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_run_sim_buffer",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_select_context",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_utc_now",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_pipeline",
+      "to": "codex_compat_build_dynamic_context_pack",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_pipeline",
+      "to": "codex_compat_emit_codex_prompt_email",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_pipeline",
+      "to": "codex_compat_ensure_repo_on_path",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_pipeline",
+      "to": "codex_compat_fire_file_sim",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_pipeline",
+      "to": "codex_compat_inject_pre_prompt_state",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_pipeline",
+      "to": "codex_compat_latest_json",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_pipeline",
+      "to": "codex_compat_load_json",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_pipeline",
+      "to": "codex_compat_log_composition",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_pipeline",
+      "to": "codex_compat_record_intent_loop",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_pipeline",
+      "to": "codex_compat_refresh_state",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_pipeline",
+      "to": "codex_compat_render_pre_prompt_block",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_pipeline",
+      "to": "codex_compat_run_sim_buffer",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_pipeline",
+      "to": "codex_compat_select_context",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_pipeline",
+      "to": "codex_compat_utc_now",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_running_prompt_summary",
+      "to": "codex_compat_load_jsonl_tail",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_select_context",
+      "to": "codex_compat_append_jsonl",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_select_context",
+      "to": "codex_compat_load_context_select_agent",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_select_context",
+      "to": "codex_compat_predict_numeric_files",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_select_context",
+      "to": "codex_compat_utc_now",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_surface_activity",
+      "to": "codex_compat_load_jsonl_tail",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_task_queue_summary",
+      "to": "codex_compat_load_json",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_train_numeric_surface",
+      "to": "codex_compat_append_jsonl",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_train_numeric_surface",
+      "to": "codex_compat_load_intent_numeric",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_write_copilot_live_query_blocks",
+      "to": "codex_compat_render_current_query_block",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_write_copilot_live_query_blocks",
+      "to": "codex_compat_render_staleness_alert_block",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_write_copilot_live_query_blocks",
+      "to": "codex_compat_replace_managed_block",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_write_copilot_live_query_blocks",
+      "to": "codex_compat_write_text_resilient",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_write_live_prompt_telemetry",
+      "to": "codex_compat_build_live_prompt_telemetry",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_write_live_prompt_telemetry",
+      "to": "codex_compat_render_prompt_telemetry_block",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_write_live_prompt_telemetry",
+      "to": "codex_compat_replace_managed_block",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_write_live_prompt_telemetry",
+      "to": "codex_compat_write_text_resilient",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_write_unsaid",
+      "to": "codex_compat_append_jsonl",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_write_unsaid",
+      "to": "codex_compat_parse_deleted_words",
+      "type": "import"
+    },
+    {
+      "from": "codex_compat_add_file_sim_focus_files",
+      "to": "codex_compat_append_jsonl",
       "type": "package"
     },
     {
-      "from": "context_select_agent",
-      "to": "file_sim",
+      "from": "codex_compat_append_jsonl",
+      "to": "codex_compat_audit_stale_dates",
       "type": "package"
     },
     {
-      "from": "file_sim",
-      "to": "intent_numeric",
+      "from": "codex_compat_audit_stale_dates",
+      "to": "codex_compat_bind_intent_loop_edit",
       "type": "package"
     },
     {
-      "from": "intent_numeric",
-      "to": "interlink_debugger",
+      "from": "codex_compat_bind_intent_loop_edit",
+      "to": "codex_compat_bind_intent_loop_response",
       "type": "package"
     },
     {
-      "from": "interlink_debugger",
-      "to": "tc_10q",
+      "from": "codex_compat_bind_intent_loop_response",
+      "to": "codex_compat_build_dynamic_context_pack",
       "type": "package"
     },
     {
-      "from": "tc_10q",
-      "to": "tc_context_agent",
+      "from": "codex_compat_build_focus_files",
+      "to": "codex_compat_build_live_prompt_telemetry",
       "type": "package"
     },
     {
-      "from": "tc_context_agent",
-      "to": "tc_gemini",
+      "from": "codex_compat_build_live_prompt_telemetry",
+      "to": "codex_compat_build_opus_instruction_layer",
       "type": "package"
     },
     {
-      "from": "tc_gemini",
-      "to": "tc_observatory",
+      "from": "codex_compat_build_opus_instruction_layer",
+      "to": "codex_compat_build_parser",
       "type": "package"
     },
     {
-      "from": "tc_observatory",
-      "to": "tc_popup",
+      "from": "codex_compat_build_parser",
+      "to": "codex_compat_build_unsaid_reconstruction",
       "type": "package"
     },
     {
-      "from": "tc_popup",
-      "to": "tc_sim",
+      "from": "codex_compat_build_unsaid_reconstruction",
+      "to": "codex_compat_capture_pair",
       "type": "package"
     },
     {
-      "from": "tc_sim",
-      "to": "tc_sim_engine",
+      "from": "codex_compat_capture_pair",
+      "to": "codex_compat_classify_intent",
       "type": "package"
     },
     {
-      "from": "tc_sim_engine",
-      "to": "tc_web",
+      "from": "codex_compat_classify_intent",
+      "to": "codex_compat_close_intent_loop",
       "type": "package"
     },
     {
-      "from": "tc_web",
-      "to": "u_pj",
+      "from": "codex_compat_close_intent_loop",
+      "to": "codex_compat_deepseek_api_key_present",
       "type": "package"
     },
     {
-      "from": "u_pj",
-      "to": "脉p_ph",
+      "from": "codex_compat_deepseek_api_key_present",
+      "to": "codex_compat_deepseek_default_model",
       "type": "package"
     },
     {
-      "from": "test_file_sim",
-      "to": "test_intent_numeric",
+      "from": "codex_compat_deepseek_default_model",
+      "to": "codex_compat_emit_codex_prompt_email",
       "type": "package"
     },
     {
-      "from": "test_intent_numeric",
-      "to": "test_tc_context_agent",
+      "from": "codex_compat_emit_codex_prompt_email",
+      "to": "codex_compat_enqueue_deepseek_prompt_job",
       "type": "package"
     },
     {
-      "from": "test_tc_context_agent",
-      "to": "test_tc_popup",
+      "from": "codex_compat_enqueue_deepseek_prompt_job",
+      "to": "codex_compat_ensure_repo_on_path",
       "type": "package"
     },
     {
-      "from": "test_tc_popup",
-      "to": "test_tc_sim_engine",
+      "from": "codex_compat_ensure_repo_on_path",
+      "to": "codex_compat_fire_file_sim",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_fire_file_sim",
+      "to": "codex_compat_get_intent_loop_status",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_get_intent_loop_status",
+      "to": "codex_compat_git_changed_files",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_git_changed_files",
+      "to": "codex_compat_git_focus_files",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_git_focus_files",
+      "to": "codex_compat_git_status",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_git_status",
+      "to": "codex_compat_import_jsonl",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_import_jsonl",
+      "to": "codex_compat_inject_dynamic_context_pack",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_inject_dynamic_context_pack",
+      "to": "codex_compat_inject_pre_prompt_state",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_inject_pre_prompt_state",
+      "to": "codex_compat_latest_json",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_latest_json",
+      "to": "codex_compat_latest_log_ts",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_latest_log_ts",
+      "to": "codex_compat_launch_deepseek_daemon",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_launch_deepseek_daemon",
+      "to": "codex_compat_load_context_select_agent",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_load_context_select_agent",
+      "to": "codex_compat_load_entropy_module",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_load_entropy_module",
+      "to": "codex_compat_load_intent_numeric",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_load_intent_numeric",
+      "to": "codex_compat_load_intent_reconstructor",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_load_intent_reconstructor",
+      "to": "codex_compat_load_json",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_load_json",
+      "to": "codex_compat_load_jsonl_tail",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_load_jsonl_tail",
+      "to": "codex_compat_log_composition",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_log_composition",
+      "to": "codex_compat_log_counts",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_log_counts",
+      "to": "codex_compat_log_edit",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_log_edit",
+      "to": "codex_compat_log_prompt",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_log_prompt",
+      "to": "codex_compat_log_response",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_log_response",
+      "to": "codex_compat_main",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_main",
+      "to": "codex_compat_next_session_n",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_next_session_n",
+      "to": "codex_compat_parse_deleted_words",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_parse_deleted_words",
+      "to": "codex_compat_parse_iso_ts",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_parse_iso_ts",
+      "to": "codex_compat_predict_numeric_files",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_predict_numeric_files",
+      "to": "codex_compat_push_intent_resolver",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_push_intent_resolver",
+      "to": "codex_compat_record_entropy_shed",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_record_entropy_shed",
+      "to": "codex_compat_record_intent_loop",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_record_intent_loop",
+      "to": "codex_compat_refresh_entropy",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_refresh_entropy",
+      "to": "codex_compat_refresh_state",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_refresh_state",
+      "to": "codex_compat_render_current_query_block",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_render_current_query_block",
+      "to": "codex_compat_render_dynamic_context_pack",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_render_dynamic_context_pack",
+      "to": "codex_compat_render_pre_prompt_block",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_render_pre_prompt_block",
+      "to": "codex_compat_render_prompt_telemetry_block",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_render_prompt_telemetry_block",
+      "to": "codex_compat_render_staleness_alert_block",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_render_staleness_alert_block",
+      "to": "codex_compat_render_state_markdown",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_render_state_markdown",
+      "to": "codex_compat_replace_managed_block",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_replace_managed_block",
+      "to": "codex_compat_repo_root",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_repo_root",
+      "to": "codex_compat_run_pre_prompt_from_composition",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_run_pre_prompt_from_composition",
+      "to": "codex_compat_run_pre_prompt_pipeline",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_run_sim_buffer",
+      "to": "codex_compat_running_prompt_summary",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_running_prompt_summary",
+      "to": "codex_compat_select_context",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_select_context",
+      "to": "codex_compat_state_from_deletions",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_state_from_deletions",
+      "to": "codex_compat_surface_activity",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_surface_activity",
+      "to": "codex_compat_task_queue_summary",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_task_queue_summary",
+      "to": "codex_compat_text_from_event",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_text_from_event",
+      "to": "codex_compat_train_numeric_surface",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_train_numeric_surface",
+      "to": "codex_compat_utc_now",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_utc_now",
+      "to": "codex_compat_words",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_words",
+      "to": "codex_compat_write_copilot_live_query_blocks",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_write_copilot_live_query_blocks",
+      "to": "codex_compat_write_live_prompt_telemetry",
+      "type": "package"
+    },
+    {
+      "from": "codex_compat_write_text_resilient",
+      "to": "codex_compat_write_unsaid",
+      "type": "package"
+    },
+    {
+      "from": "batch_rewrite_sim",
+      "to": "file_self_knowledge",
+      "type": "package"
+    },
+    {
+      "from": "file_self_knowledge",
+      "to": "intent_outcome_binder",
+      "type": "package"
+    },
+    {
+      "from": "intent_outcome_binder",
+      "to": "operator_response_policy",
       "type": "package"
     }
   ],
-  "total": 24
+  "total": 82
 }
