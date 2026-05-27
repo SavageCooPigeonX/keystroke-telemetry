@@ -4,13 +4,6 @@ Files can write local email dispatches when they are touched or selected by
 the file-sim compiler. This module does not send SMTP. It writes an outbox
 that a later LinkRouter/email pipeline can deliver.
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# EDIT_AUTHOR: None
-# EDIT_STATE: idle
-# ── /pulse ──
 from __future__ import annotations
 
 import html
@@ -25,12 +18,14 @@ from pathlib import Path
 from typing import Any
 import urllib.error
 import urllib.request
-from src._resolve import src_import
+
+from src.local_env_loader_seq001_v001 import load_local_env
+from src.deepseek_receipt_resolver_seq001_v001 import resolve_deepseek_receipt
 
 SCHEMA = "file_email/v1"
 DEFAULT_CONFIG = {
     "enabled": True,
-    "recipient": "context@myaifingerprint.com",
+    "recipient": "contact@myaifingerprint.com",
     "sender_domain": "files.local",
     "outbox_dir": "logs/file_email_outbox",
     "context_request_dir": "logs/context_requests",
@@ -39,7 +34,7 @@ DEFAULT_CONFIG = {
     "write_eml": True,
     "write_markdown": True,
     "tone": "adaptive_mail_memory",
-    "triggers": ["file_sim", "touch", "compile", "submission", "completion", "learning_digest", "codex_prompt"],
+    "triggers": ["file_sim", "touch", "compile", "submission", "completion", "learning_digest", "codex_prompt", "hourly_autonomy", "file_opinion", "pipeline_audit"],
     "delivery_mode": "resend_dry_run",
     "resend_api_url": "https://api.resend.com/emails",
     "resend_from": "File Comedy <contact@myaifingerprint.com>",
@@ -53,19 +48,15 @@ def load_file_email_config(root: Path, write_default: bool = True) -> dict[str, 
     raw = _load_json(path) if path.exists() else {}
     migrated = False
     if isinstance(raw, dict):
-        if raw.get("recipient") in {"operator@local", "context@myaifingerprint"}:
+        if raw.get("recipient") in {"operator@local", "context@myaifingerprint", "context@myaifingerprint.com"}:
             raw["recipient"] = DEFAULT_CONFIG["recipient"]
-            migrated = True
-        if raw.get("recipient") == "contact@myaifingerprint.com":
-            raw["recipient"] = DEFAULT_CONFIG["recipient"]
-            raw["resend_from"] = DEFAULT_CONFIG["resend_from"]
             migrated = True
         if raw.get("resend_from") in {"File Comedy <onboarding@resend.dev>", "contact@myaifingerprint.com"}:
             raw["resend_from"] = DEFAULT_CONFIG["resend_from"]
             migrated = True
         raw_triggers = raw.get("triggers")
         if isinstance(raw_triggers, list):
-            merged_triggers = list(dict.fromkeys([*raw_triggers, "submission", "completion", "learning_digest", "codex_prompt"]))
+            merged_triggers = list(dict.fromkeys([*raw_triggers, "submission", "completion", "learning_digest", "codex_prompt", "hourly_autonomy", "file_opinion", "pipeline_audit"]))
             if merged_triggers != raw_triggers:
                 raw["triggers"] = merged_triggers
                 migrated = True
@@ -110,6 +101,7 @@ def emit_file_sim_emails(
                 "interlink_score": proposal.get("interlink_score", 0),
                 "beef_with": _choose_beef(proposal, proposals),
                 "reason": proposal.get("proposed_fix", ""),
+                "file_comment": _proposal_file_comment(proposal),
                 "deepseek_completion_job_id": proposal.get("deepseek_completion_job_id", ""),
                 "context_injection": proposal.get("context_injection", []),
                 "validation_plan": proposal.get("validation_plan", []),
@@ -119,6 +111,17 @@ def emit_file_sim_emails(
             config=config,
         ))
     return {"status": "ok", "count": len(records), "records": records[:3]}
+
+
+def _proposal_file_comment(proposal: dict[str, Any]) -> str:
+    for key in ("file_comment", "file_quote", "comment", "proposed_fix", "reason"):
+        value = proposal.get(key)
+        if value:
+            return str(value)
+    ten_q = proposal.get("ten_q") if isinstance(proposal.get("ten_q"), dict) else {}
+    if ten_q.get("reason"):
+        return str(ten_q.get("reason"))
+    return ""
 
 
 def emit_learning_digest_email(
@@ -563,12 +566,14 @@ def emit_file_email(root: Path, event: dict[str, Any], config: dict[str, Any] | 
         "decision": event.get("decision", ""),
         "interlink_score": event.get("interlink_score", 0),
         "reason": event.get("reason", ""),
+        "file_comment": event.get("file_comment", ""),
         "deepseek_completion_job_id": event.get("deepseek_completion_job_id", ""),
         "context_injection": event.get("context_injection", []),
         "validation_plan": event.get("validation_plan", []),
         "ten_q": event.get("ten_q", {}),
         "orchestrator_email_guard": event.get("orchestrator_email_guard", {}),
     }
+    record["deepseek_receipt"] = resolve_deepseek_receipt(root, record["deepseek_completion_job_id"], file_path)
     record["operator_state"] = _operator_state_snapshot(root, event)
     record["operator_response_policy"] = _response_policy_snapshot(root, event, surface="file_mail")
     record["mail_memory"] = _file_mail_memory_hint(root, config, record)
@@ -646,6 +651,11 @@ def render_learning_digest_email(record: dict[str, Any]) -> str:
     context = _learning_context_from_record(record)
     current = _learning_current_work(record) or operator.get("current_work") or "make the files earn their own rewrite"
     profile_note = _learning_profile_signal_line(record, operator)
+    woke_files = ", ".join(
+        str(item.get("file") or "")
+        for item in wake_order[:6]
+        if isinstance(item, dict) and item.get("file")
+    ) or "none"
     lines = [
         f"From: {record.get('file')}",
         "To: Nikita",
@@ -654,6 +664,11 @@ def render_learning_digest_email(record: dict[str, Any]) -> str:
         "Nikita,",
         "",
         _policy_mail_line(policy),
+        "",
+        f"File room: `{record.get('file')}`",
+        "Blank sheet: learning-only; no source overwrite happened.",
+        f"Woke files -> {woke_files}",
+        "Text back like a message: `remember: ...`, `use: ...`, `avoid: ...`, `style: ...`",
         "",
         "The repo called an emergency rewrite meeting and immediately lied about being ready.",
         "",
@@ -697,6 +712,7 @@ def render_learning_digest_email(record: dict[str, Any]) -> str:
         "What the grader will accept:",
         *_learning_story_grader(validation),
         "",
+        "I need from you:",
         "What I need from you, not as a form, as control:",
         "- `approve: draft tests` if the next move is letting the files write their own proof.",
         "- `use: path/to/file.py` if a context vein is missing and you want it loaded every time.",
@@ -724,7 +740,7 @@ def _response_policy_snapshot(root: Path, event: dict[str, Any], surface: str = 
         if event.get(key)
     ).strip()
     try:
-        build_operator_response_policy = src_import("operator_response_policy_seq001", "build_operator_response_policy")
+        from src.operator_response_policy_seq001_v001 import build_operator_response_policy
         policy = build_operator_response_policy(
             root,
             prompt=prompt,
@@ -1052,6 +1068,9 @@ def _learned_lines(
         lines.append(f"Your actual move is `{current}`.")
     if latest:
         lines.append(f"Latest signal: \"{latest}\"")
+    comment = _plain_snip(record.get("file_comment"), 180)
+    if comment:
+        lines.append(f"My file comment: \"{comment}\"")
     for note in _useful_memory_notes(knowledge)[-2:]:
         lines.append(f"I remember: {note}.")
     for avoid in (knowledge.get("avoid_rules") or [])[-2:]:
@@ -1087,6 +1106,9 @@ def _done_lines(
     reason = _plain_snip(record.get("reason"), 180)
     if reason:
         lines.insert(0, reason)
+    deepseek = _deepseek_done_line(record)
+    if deepseek:
+        lines.insert(1 if reason else 0, deepseek)
     if record.get("event_type") == "completion":
         lines.append("Closed a lifecycle email and checked whether completion had real bound evidence.")
     elif record.get("event_type") == "codex_prompt":
@@ -1096,6 +1118,19 @@ def _done_lines(
     else:
         lines.append(f"Logged `{Path(file_path).name}` as touched in the operator-intent trail.")
     return lines[:5]
+
+
+def _deepseek_done_line(record: dict[str, Any]) -> str:
+    receipt = record.get("deepseek_receipt") if isinstance(record.get("deepseek_receipt"), dict) else {}
+    status = str(receipt.get("status") or "")
+    if not status or status == "none":
+        return ""
+    job_id = str(receipt.get("job_id") or record.get("deepseek_completion_job_id") or "")
+    summary = _plain_snip(receipt.get("summary"), 160)
+    preview = _plain_snip(receipt.get("completion_preview"), 220)
+    if preview:
+        return f"DeepSeek `{job_id}` {status}: {summary}; returned: {preview}"
+    return f"DeepSeek `{job_id}` {status}: {summary}"
 
 
 def _planning_lines(
@@ -2140,26 +2175,11 @@ def _deliver_resend(root: Path, config: dict[str, Any], record: dict[str, Any], 
 
 
 def _load_local_email_env(root: Path) -> dict[str, bool]:
-    loaded: dict[str, bool] = {}
-    for path in [Path(root) / ".env", Path(root) / "logs" / "file_email.env"]:
-        if not path.exists():
-            continue
-        try:
-            lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
-        except OSError:
-            continue
-        for line in lines:
-            raw = line.strip()
-            if not raw or raw.startswith("#") or "=" not in raw:
-                continue
-            key, value = raw.split("=", 1)
-            key = key.strip()
-            if key not in {"RESEND_API_KEY", "RESEND_FROM", "FILE_EMAIL_DELIVERY", "RESEND_USER_AGENT"}:
-                continue
-            if key not in os.environ:
-                os.environ[key] = value.strip().strip("'\"")
-                loaded[key] = True
-    return loaded
+    loaded = load_local_env(
+        root,
+        keys={"RESEND_API_KEY", "RESEND_FROM", "FILE_EMAIL_DELIVERY", "RESEND_USER_AGENT"},
+    )
+    return {key: True for key in loaded}
 
 
 def _resend_payload(config: dict[str, Any], record: dict[str, Any], body: str) -> dict[str, Any]:
@@ -2243,13 +2263,15 @@ def _touch_beef(file_path: str, prompt: str) -> str:
 
 def _subject(file_path: str, beef_with: str, event: dict[str, Any]) -> str:
     stem = Path(file_path).stem or "unknown file"
-    enemy = Path(beef_with).stem or str(beef_with)
+    enemy = (Path(beef_with).stem or str(beef_with)).strip()
     if event.get("event_type") == "submission":
         verb = "sent an old-friend note about"
     elif event.get("event_type") == "completion":
         verb = "closed the loop and briefed"
     elif event.get("event_type") == "codex_prompt":
         verb = "received a Codex prompt for"
+    elif event.get("event_type") == "file_opinion":
+        verb = "has an opinion about"
     else:
         verb = "sent context for" if event.get("event_type") == "compile" else "was touched and updated"
     return f"{stem} {verb} {enemy}"
@@ -2264,6 +2286,8 @@ def _event_voice(event_type: Any) -> str:
         return "completed"
     if event_type == "codex_prompt":
         return "received"
+    if event_type == "file_opinion":
+        return "opined"
     return "touched"
 
 
@@ -2280,6 +2304,8 @@ def _closing_argument(file_path: str, beef: str, record: dict[str, Any]) -> str:
         return "`intent_completion` closed the loop, stamped the receipt, and left a training crumb for future routing."
     if record.get("event_type") == "codex_prompt":
         return "`codex_prompt` heard the operator directly and filed a dev-surface receipt before any web-chat lane could touch it."
+    if record.get("event_type") == "file_opinion":
+        return "`pipeline_audit` made the file speak from current logs instead of pretending stale data was fine."
     return f"`{Path(file_path).name}` changed in the operator-state lane and will keep future mail centered on the actual work."
 
 

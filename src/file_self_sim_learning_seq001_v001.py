@@ -5,13 +5,6 @@ from numeric intent/profile signals, chains peer context, emits DeepSeek-ready
 learning packets, and records file-local memory for a later approval-gated
 rewrite pass.
 """
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# EDIT_AUTHOR: None
-# EDIT_STATE: idle
-# ── /pulse ──
 from __future__ import annotations
 
 import hashlib
@@ -51,6 +44,10 @@ DEFAULT_CONFIG = {
     "mode": "learning_only_no_overwrite",
     "max_packets": 8,
     "token_budget": 24000,
+    "soft_line_cap": 200,
+    "warn_line_cap": 300,
+    "hard_line_cap": 500,
+    "split_plan_limit": 8,
     "overwrite_allowed": False,
     "target_state": "interlinked_source_state",
     "deepseek_packet_policy": "draft_only_until_operator_approval",
@@ -77,10 +74,12 @@ def simulate_file_self_learning(
     sources = _load_signal_sources(root, source_result)
     if intent and source_result is None:
         _drop_stale_runtime_sources(intent, sources)
+    architecture_registry = _architecture_sequence_registry(root, settings)
+    sources["architecture_registry"] = architecture_registry
     intent_model = _intent_model(root, intent, sources)
-    candidates = _select_candidates(root, intent_model, sources, limit)
+    candidates = _select_candidates(root, intent_model, sources, limit, settings)
     wake_order = [
-        _wake_node(root, row, index, intent_model, sources)
+        _wake_node(root, row, index, intent_model, sources, settings)
         for index, row in enumerate(candidates)
     ]
     diagnosis_flow = _diagnosis_flow(wake_order)
@@ -88,7 +87,9 @@ def simulate_file_self_learning(
         _learning_packet(root, node, intent_model, sources, settings)
         for node in wake_order
     ]
-    interlink_plan = _interlink_plan(root, wake_order, packets, intent_model, settings)
+    relationship_graph = _weighted_relationship_graph(root, sources, wake_order, packets)
+    split_jobs = _overcap_split_jobs(root, wake_order, packets, architecture_registry, relationship_graph, settings)
+    interlink_plan = _interlink_plan(root, wake_order, packets, intent_model, settings, split_jobs)
     result = {
         "schema": SCHEMA,
         "ts": _now(),
@@ -101,6 +102,9 @@ def simulate_file_self_learning(
         "wake_order": wake_order,
         "diagnosis_flow": diagnosis_flow,
         "learning_packets": packets,
+        "relationship_graph": relationship_graph,
+        "architecture_sequence_registry": architecture_registry,
+        "overcap_split_jobs": split_jobs,
         "interlink_plan": interlink_plan,
         "backward_learning_pass": _backward_learning_plan(packets),
         "paths": {
@@ -108,6 +112,9 @@ def simulate_file_self_learning(
             "history": "logs/file_self_sim_learning.jsonl",
             "markdown": "logs/file_self_sim_learning.md",
             "deepseek_learning_packets": "logs/deepseek_learning_packets.jsonl",
+            "relationship_graph": "logs/file_relationship_graph.json",
+            "architecture_sequence_registry": "logs/file_identity_registry.json",
+            "overcap_split_jobs": "logs/overcap_split_jobs.json",
             "profiles": "file_profiles.json",
             "outcomes": "logs/file_self_sim_learning_outcomes.jsonl",
         },
@@ -173,6 +180,7 @@ def _load_signal_sources(root: Path, source_result: dict[str, Any] | None) -> di
     file_profiles = _load_json(root / "file_profiles.json") or {}
     identity_growth = _load_jsonl(logs / "file_identity_growth.jsonl", 400)
     dead_pairs = _load_jsonl(logs / "dead_token_collective_pairs.jsonl", 400)
+    learning_outcomes = _load_jsonl(logs / "file_self_sim_learning_outcomes.jsonl", 600)
     intent_latest = _load_json(logs / "intent_key_latest.json") or {}
     numeric = _load_numeric_surface(root)
     return {
@@ -183,6 +191,7 @@ def _load_signal_sources(root: Path, source_result: dict[str, Any] | None) -> di
         "file_profiles": file_profiles,
         "identity_growth": identity_growth,
         "dead_pairs": dead_pairs,
+        "learning_outcomes": learning_outcomes,
         "intent_latest": intent_latest,
         "numeric": numeric,
         "source_counts": {
@@ -191,6 +200,7 @@ def _load_signal_sources(root: Path, source_result: dict[str, Any] | None) -> di
             "memory_files": len(memory_index.get("files") or []),
             "identity_growth": len(identity_growth),
             "history_pairs": len(dead_pairs),
+            "learning_outcomes": len(learning_outcomes),
             "numeric_files": len((numeric.get("matrix") or {})),
         },
     }
@@ -254,6 +264,7 @@ def _select_candidates(
     intent_model: dict[str, Any],
     sources: dict[str, Any],
     limit: int,
+    settings: dict[str, Any],
 ) -> list[dict[str, Any]]:
     bucket: dict[str, dict[str, Any]] = defaultdict(
         lambda: {"score": 0.0, "reasons": [], "proposal": {}, "signals": Counter()}
@@ -265,6 +276,7 @@ def _select_candidates(
     _seed_from_dead_pairs(bucket, sources, intent_model)
     _seed_from_numeric_surface(root, bucket, sources, intent_model)
     _seed_from_path_tokens(root, bucket, intent_model)
+    _seed_from_size_pressure(root, bucket, sources, intent_model, settings)
     if not bucket:
         _seed_from_prompt_contract_fallback(root, bucket)
     rows = []
@@ -399,28 +411,66 @@ def _seed_from_path_tokens(root: Path, bucket: dict[str, dict[str, Any]], intent
             _add(bucket, rel, points, "path tokens match current intent", "path")
 
 
+def _seed_from_size_pressure(
+    root: Path,
+    bucket: dict[str, dict[str, Any]],
+    sources: dict[str, Any],
+    intent_model: dict[str, Any],
+    settings: dict[str, Any],
+) -> None:
+    pressure_terms = {
+        "split", "splitting", "cap", "overcap", "over", "large", "monolith",
+        "sequence", "architecture", "maintain", "maintenance", "heal", "self",
+    }
+    tokens = set(intent_model.get("tokens") or [])
+    explicit_pressure = bool(tokens & pressure_terms)
+    registry = sources.get("architecture_registry") or {}
+    files = [
+        item for item in registry.get("files", [])
+        if isinstance(item, dict) and item.get("split_pressure", 0) > 0
+    ]
+    for item in files:
+        rel = _clean_rel(item.get("file"))
+        if not rel or not _candidate_allowed(root, rel):
+            continue
+        pressure = float(item.get("split_pressure") or 0)
+        path_overlap = len(tokens & set(_tokens(rel)))
+        if rel in bucket:
+            _add(bucket, rel, 0.8 + pressure * 1.2, "size pressure should affect maintenance routing", "size_pressure")
+        if explicit_pressure and (path_overlap or item.get("size_state") in {"critical", "warn"}):
+            points = 2.2 + min(pressure, 3.0) * 1.4 + path_overlap * 0.8
+            _add(bucket, rel, points, "over-cap file woke for split-plan job", "size_pressure")
+
+
 def _wake_node(
     root: Path,
     row: dict[str, Any],
     index: int,
     intent_model: dict[str, Any],
     sources: dict[str, Any],
+    settings: dict[str, Any],
 ) -> dict[str, Any]:
     rel = row["file"]
     proposal = row.get("proposal") or {}
     memory = _memory_for_file(root, rel, sources)
     profile = _profile_for_file(rel, sources)
     growth = _growth_for_file(rel, sources)
-    neighbors = _neighbors_for_file(rel, proposal, sources)
+    neighbors = _neighbors_for_file(root, rel, proposal, sources)
     tests = _tests_for_file(root, rel, proposal)
     learned = _learned_enough(memory, profile, growth, proposal, tests)
     role = _wake_role(index, rel, proposal, neighbors, tests)
+    size_pressure = _size_pressure(root, rel, settings)
+    validation_confidence = _validation_confidence(tests, proposal)
+    relationship_weight = _node_relationship_weight(rel, neighbors, sources)
     basis = json.dumps({
         "intent": intent_model.get("intent_key"),
         "file": rel,
         "memory": memory.get("summary", ""),
         "neighbors": neighbors[:8],
         "tests": tests[:5],
+        "size_pressure": size_pressure.get("state"),
+        "validation_confidence": validation_confidence,
+        "relationship_weight": relationship_weight,
     }, sort_keys=True)
     return {
         "sequence": index + 1,
@@ -436,6 +486,9 @@ def _wake_node(
         "manifest": _nearest_manifest(root, rel),
         "tests": tests[:8],
         "estimated_tokens": _estimate_tokens(root, rel),
+        "size_pressure": size_pressure,
+        "validation_confidence": validation_confidence,
+        "relationship_weight": relationship_weight,
         "learned_enough": learned,
         "next_question": _next_question(role, learned, neighbors, tests),
     }
@@ -479,6 +532,9 @@ def _learning_packet(
         },
         "accumulated_knowledge": _accumulated_knowledge(rel, sources),
         "context_veins": node.get("context_veins", []),
+        "size_pressure": node.get("size_pressure", {}),
+        "validation_confidence": node.get("validation_confidence", 0),
+        "relationship_weight": node.get("relationship_weight", 0),
         "verification_packet": {
             "validation_plan": validation_plan,
             "tests": node.get("tests", []),
@@ -487,6 +543,7 @@ def _learning_packet(
             "dirty": validation.get("dirty", False),
         },
         "overwrite_readiness": readiness,
+        "split_plan_request": _split_plan_request(root, rel, node, validation_plan, settings),
         "deepseek_instruction": _deepseek_learning_instruction(rel, intent_model, node, validation_plan, readiness),
         "backward_learning_targets": _backward_targets(rel, node),
     }
@@ -542,6 +599,7 @@ def _interlink_plan(
     packets: list[dict[str, Any]],
     intent_model: dict[str, Any],
     settings: dict[str, Any],
+    split_jobs: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     manifests: dict[str, list[str]] = defaultdict(list)
     for node in wake_order:
@@ -573,6 +631,11 @@ def _interlink_plan(
                 "job": "prepare_deepseek_context_pack",
                 "files": _context_pack_files(root, wake_order),
                 "action": "load top waker, manifest, tests, and highest-friction peers",
+            },
+            {
+                "job": "draft_overcap_split_plans",
+                "files": [job.get("file") for job in (split_jobs or [])[:8]],
+                "action": "ask DeepSeek for split plans only; keep source writes approval-gated",
             },
         ],
         "overwrite_gate": {
@@ -606,14 +669,264 @@ def _backward_learning_plan(packets: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def _architecture_sequence_registry(root: Path, settings: dict[str, Any]) -> dict[str, Any]:
+    existing = _load_json(root / "logs" / "file_identity_registry.json") or {}
+    previous: dict[str, str] = {
+        str(item.get("file")): str(item.get("arch_seq"))
+        for item in existing.get("files", []) or []
+        if item.get("file") and item.get("arch_seq")
+    }
+    max_arch = 0
+    for value in previous.values():
+        match = re.search(r"(\d+)$", value)
+        if match:
+            max_arch = max(max_arch, int(match.group(1)))
+
+    files = []
+    next_arch = max_arch + 1
+    for rel in sorted(_scan_repo_files(root)):
+        if not _candidate_allowed(root, rel):
+            continue
+        line_count = _line_count(root, rel)
+        local_seq, version = _parse_sequence_markers(rel)
+        arch_seq = previous.get(rel)
+        if not arch_seq:
+            arch_seq = f"A-{next_arch:06d}"
+            next_arch += 1
+        pressure = _size_pressure(root, rel, settings)
+        files.append({
+            "file": rel,
+            "file_id": "F-" + hashlib.sha256(rel.encode("utf-8")).hexdigest()[:12],
+            "arch_seq": arch_seq,
+            "local_seq": local_seq,
+            "version": version,
+            "scope": _scope_for_file(rel),
+            "line_count": line_count,
+            "approx_tokens": _estimate_tokens(root, rel),
+            "size_state": pressure.get("state"),
+            "split_pressure": pressure.get("pressure", 0),
+            "sequence_note": "global arch_seq is registry-owned; filename seq remains local to scope/module",
+        })
+
+    summary = Counter(item["size_state"] for item in files)
+    return {
+        "schema": "file_identity_registry/v1",
+        "ts": _now(),
+        "sequence_policy": {
+            "filename_seq": "local_to_file_family_or_scope",
+            "arch_seq": "global_registry_sequence_do_not_rename_files",
+            "file_id": "stable_hash_of_relative_path",
+        },
+        "summary": {
+            "files": len(files),
+            "ok": summary.get("ok", 0),
+            "over_soft": summary.get("over_soft", 0),
+            "warn": summary.get("warn", 0),
+            "critical": summary.get("critical", 0),
+        },
+        "files": files,
+    }
+
+
+def _weighted_relationship_graph(
+    root: Path,
+    sources: dict[str, Any],
+    wake_order: list[dict[str, Any]],
+    packets: list[dict[str, Any]],
+) -> dict[str, Any]:
+    edges: dict[tuple[str, str, str], dict[str, Any]] = {}
+
+    for edge in (sources.get("council") or {}).get("relationships") or []:
+        _add_weighted_edge(
+            edges,
+            edge.get("from"),
+            edge.get("to"),
+            str(edge.get("type") or "peer"),
+            str(edge.get("reason") or "file council relationship"),
+            _relation_weight(str(edge.get("type") or "peer")),
+        )
+
+    for pack in (sources.get("council") or {}).get("context_packs") or []:
+        files = [_clean_rel(item) for item in pack.get("files") or []]
+        files = [item for item in files if item]
+        for index, left in enumerate(files[:10]):
+            for right in files[index + 1:10]:
+                _add_weighted_edge(edges, left, right, "context_pack", str(pack.get("pack_id") or "context pack"), 0.35)
+
+    for node in wake_order:
+        rel = node.get("file")
+        for vein in node.get("context_veins") or []:
+            _add_weighted_edge(
+                edges,
+                rel,
+                vein.get("file"),
+                str(vein.get("relation") or "peer_context"),
+                str(vein.get("reason") or "wake context vein"),
+                _relation_weight(str(vein.get("relation") or "peer_context")),
+            )
+
+    for packet in packets:
+        rel = packet.get("file")
+        for target in packet.get("backward_learning_targets") or []:
+            if not isinstance(target, dict):
+                continue
+            _add_weighted_edge(edges, rel, target.get("file"), "backward_target", target.get("learn", ""), 0.45)
+
+    for outcome in sources.get("learning_outcomes") or []:
+        reward = float(outcome.get("reward") or 0)
+        rel = outcome.get("file")
+        for target in outcome.get("backward_targets") or []:
+            if isinstance(target, dict):
+                _add_weighted_edge(
+                    edges,
+                    rel,
+                    target.get("file"),
+                    "learned_peer_outcome",
+                    str(outcome.get("outcome") or "learning outcome"),
+                    0.2 + min(max(reward, 0.0), 1.0) * 0.6,
+                )
+
+    edge_rows = sorted(edges.values(), key=lambda item: item.get("weight", 0), reverse=True)
+    node_weights: dict[str, float] = defaultdict(float)
+    for edge in edge_rows:
+        node_weights[edge["from"]] += float(edge["weight"])
+        node_weights[edge["to"]] += float(edge["weight"])
+
+    nodes = [
+        {"file": rel, "weighted_degree": round(weight, 3)}
+        for rel, weight in sorted(node_weights.items(), key=lambda item: item[1], reverse=True)
+    ]
+    return {
+        "schema": "weighted_file_relationship_graph/v1",
+        "ts": _now(),
+        "learning_rule": "peer outcomes alter future routing weight; they do not authorize source writes",
+        "nodes": nodes[:80],
+        "edges": edge_rows[:160],
+    }
+
+
+def _overcap_split_jobs(
+    root: Path,
+    wake_order: list[dict[str, Any]],
+    packets: list[dict[str, Any]],
+    registry: dict[str, Any],
+    graph: dict[str, Any],
+    settings: dict[str, Any],
+) -> list[dict[str, Any]]:
+    packet_by_file = {packet.get("file"): packet for packet in packets}
+    registry_by_file = {item.get("file"): item for item in registry.get("files", []) or []}
+    ordered: list[str] = []
+    for node in wake_order:
+        rel = node.get("file")
+        pressure = node.get("size_pressure") or {}
+        if rel and pressure.get("needs_split_plan"):
+            ordered.append(rel)
+    critical = [
+        item.get("file") for item in sorted(
+            registry.get("files", []) or [],
+            key=lambda row: (row.get("split_pressure", 0), row.get("line_count", 0)),
+            reverse=True,
+        )
+        if item.get("split_pressure", 0) > 0
+    ]
+    ordered.extend(critical)
+
+    jobs = []
+    for rel in _dedupe(_clean_rel(item) for item in ordered):
+        if not rel or not _candidate_allowed(root, rel):
+            continue
+        size = _size_pressure(root, rel, settings)
+        if not size.get("needs_split_plan"):
+            continue
+        packet = packet_by_file.get(rel) or {}
+        tests = ((packet.get("verification_packet") or {}).get("tests") or _tests_for_file(root, rel, {}))
+        validation = ((packet.get("verification_packet") or {}).get("validation_plan") or _default_validation(root, rel, tests))
+        neighbors = _neighbors_from_graph(graph, rel)
+        reg = registry_by_file.get(rel) or {}
+        status = "ready_for_split_plan" if tests or not rel.endswith(".py") else "blocked_missing_validation"
+        jobs.append({
+            "schema": "overcap_split_job/v1",
+            "job_id": "split-" + hashlib.sha256(f"{rel}|{size.get('line_count')}".encode("utf-8")).hexdigest()[:12],
+            "file": rel,
+            "file_id": reg.get("file_id") or "F-" + hashlib.sha256(rel.encode("utf-8")).hexdigest()[:12],
+            "arch_seq": reg.get("arch_seq", ""),
+            "local_seq": reg.get("local_seq", ""),
+            "status": status,
+            "deepseek_mode": "split_plan_only_no_source_write",
+            "approval_gate": "operator_required",
+            "line_count": size.get("line_count", 0),
+            "size_state": size.get("state"),
+            "split_pressure": size.get("pressure"),
+            "reason_to_split": "over cap and repeatedly expensive for context; extract responsibilities behind a stable facade",
+            "reason_not_to_split": _reason_not_to_split(rel, tests, neighbors),
+            "context_pack": _dedupe([rel, _nearest_manifest(root, rel), *tests[:4], *neighbors[:6]]),
+            "proposed_children": _proposed_split_children(root, rel),
+            "validation_plan": validation[:6],
+            "file_quote": _split_file_quote(rel, size, tests),
+        })
+        if len(jobs) >= int(settings.get("split_plan_limit") or 8):
+            break
+    return jobs
+
+
+def _add_weighted_edge(
+    edges: dict[tuple[str, str, str], dict[str, Any]],
+    left: Any,
+    right: Any,
+    relation: str,
+    reason: str,
+    weight: float,
+) -> None:
+    a = _clean_rel(left)
+    b = _clean_rel(right)
+    if not a or not b or a == b:
+        return
+    first, second = sorted([a, b])
+    key = (first, second, relation)
+    edge = edges.setdefault(key, {
+        "from": first,
+        "to": second,
+        "relation": relation,
+        "weight": 0.0,
+        "evidence": [],
+    })
+    edge["weight"] = round(float(edge.get("weight", 0)) + float(weight), 4)
+    if reason:
+        edge["evidence"].append(reason[:140])
+        edge["evidence"] = _dedupe(edge["evidence"])[-5:]
+
+
+def _relation_weight(relation: str) -> float:
+    return {
+        "beef": 1.4,
+        "friendship": 1.15,
+        "import": 1.05,
+        "validator": 1.0,
+        "manifest": 0.85,
+        "backward_target": 0.7,
+        "learned_peer_outcome": 0.65,
+        "context_pack": 0.35,
+    }.get(str(relation or "peer_context"), 0.55)
+
+
 def _write_learning_outputs(root: Path, result: dict[str, Any], settings: dict[str, Any]) -> None:
     logs = root / "logs"
     logs.mkdir(parents=True, exist_ok=True)
     _write_json(logs / "file_self_sim_learning_latest.json", result)
+    _write_json(logs / "file_relationship_graph.json", result.get("relationship_graph") or {})
+    _write_json(logs / "file_identity_registry.json", result.get("architecture_sequence_registry") or {})
+    _write_json(logs / "overcap_split_jobs.json", result.get("overcap_split_jobs") or [])
     _append_jsonl(logs / "file_self_sim_learning.jsonl", result)
     (logs / "file_self_sim_learning.md").write_text(_render_learning_markdown(result), encoding="utf-8")
     for packet in result.get("learning_packets") or []:
         _append_jsonl(logs / "deepseek_learning_packets.jsonl", packet)
+    try:
+        from src.file_sim_deepseek_lane_seq001_v001 import queue_perpendicular_deepseek_job
+        result["perpendicular_deepseek"] = queue_perpendicular_deepseek_job(root, result, write=True)
+        _write_json(logs / "file_self_sim_learning_latest.json", result)
+    except Exception as exc:
+        result["perpendicular_deepseek_error"] = str(exc)
+        _write_json(logs / "file_self_sim_learning_latest.json", result)
     if settings.get("update_file_profiles", True):
         _update_file_profiles(root, result)
     try:
@@ -629,6 +942,21 @@ def _update_file_profiles(root: Path, result: dict[str, Any]) -> None:
     profiles = _load_json(root / "file_profiles.json") or {}
     ts = result.get("ts") or _now()
     intent_key = (result.get("intent") or {}).get("intent_key", "")
+    graph_nodes = {
+        item.get("file"): item
+        for item in (result.get("relationship_graph") or {}).get("nodes", [])
+        if isinstance(item, dict)
+    }
+    split_jobs = {
+        item.get("file"): item
+        for item in result.get("overcap_split_jobs") or []
+        if isinstance(item, dict)
+    }
+    registry = {
+        item.get("file"): item
+        for item in (result.get("architecture_sequence_registry") or {}).get("files", [])
+        if isinstance(item, dict)
+    }
     for packet in result.get("learning_packets") or []:
         rel = packet.get("file", "")
         key = _stem_key(rel)
@@ -649,12 +977,18 @@ def _update_file_profiles(root: Path, result: dict[str, Any]) -> None:
             "file": rel,
             "responsibility_profile": packet.get("responsibility_profile", {}),
             "context_veins": packet.get("context_veins", []),
+            "relationship_weight": packet.get("relationship_weight", 0),
+            "relationship_memory": graph_nodes.get(rel, {}),
+            "size_pressure": packet.get("size_pressure", {}),
+            "split_plan_request": packet.get("split_plan_request", {}),
+            "architecture_identity": registry.get(rel, {}),
             "verification_packet": packet.get("verification_packet", {}),
             "last_packet_id": packet.get("packet_id"),
             "target_state": result.get("target_state"),
         }
         profile["self_repair_hint"] = _profile_hint(packet)
         profile["overwrite_readiness"] = packet.get("overwrite_readiness", {})
+        profile["split_plan_job"] = split_jobs.get(rel, {})
         watch = profile.setdefault("backwards_pass_watch", [])
         for target in packet.get("backward_learning_targets") or []:
             file_name = target.get("file") if isinstance(target, dict) else str(target)
@@ -711,6 +1045,16 @@ def _render_learning_markdown(result: dict[str, Any]) -> str:
             f"(score {node.get('wake_score')})"
         )
         lines.append(f"   - why: {node.get('wake_reason') or 'selected by profile signals'}")
+        size = node.get("size_pressure") or {}
+        if size.get("needs_split_plan"):
+            lines.append(
+                f"   - split pressure: {size.get('state')} "
+                f"({size.get('line_count')} lines, pressure {size.get('pressure')})"
+            )
+        lines.append(
+            f"   - relationship/validation: {node.get('relationship_weight', 0)} / "
+            f"{node.get('validation_confidence', 0)}"
+        )
         lines.append(f"   - next: {node.get('next_question')}")
     lines.extend(["", "## Diagnosis Flow", ""])
     for step in result.get("diagnosis_flow", []):
@@ -730,6 +1074,34 @@ def _render_learning_markdown(result: dict[str, Any]) -> str:
             + (", ".join(f"`{item}`" for item in (packet.get("verification_packet") or {}).get("validation_plan", [])[:4]) or "none")
         )
         lines.append("")
+    registry = result.get("architecture_sequence_registry") or {}
+    summary = registry.get("summary") or {}
+    lines.extend(["## Architecture Sequence Registry", ""])
+    lines.append(
+        f"- files: `{summary.get('files', 0)}` ok `{summary.get('ok', 0)}` "
+        f"over_soft `{summary.get('over_soft', 0)}` warn `{summary.get('warn', 0)}` "
+        f"critical `{summary.get('critical', 0)}`"
+    )
+    lines.append("- policy: filename seq stays local; registry `arch_seq` is the global program spine")
+    graph = result.get("relationship_graph") or {}
+    lines.extend(["", "## Relationship Graph", ""])
+    lines.append(f"- nodes: `{len(graph.get('nodes') or [])}` edges: `{len(graph.get('edges') or [])}`")
+    for edge in (graph.get("edges") or [])[:6]:
+        lines.append(
+            f"- `{edge.get('from')}` <-> `{edge.get('to')}` "
+            f"{edge.get('relation')} weight `{edge.get('weight')}`"
+        )
+    split_jobs = result.get("overcap_split_jobs") or []
+    lines.extend(["", "## Over-Cap Split Jobs", ""])
+    if split_jobs:
+        for job in split_jobs[:8]:
+            lines.append(
+                f"- `{job.get('file')}` {job.get('size_state')} "
+                f"{job.get('line_count')} lines -> `{job.get('status')}`"
+            )
+            lines.append(f"  - {job.get('file_quote')}")
+    else:
+        lines.append("- none")
     plan = result.get("interlink_plan") or {}
     lines.extend(["## Interlink Plan", ""])
     for job in plan.get("near_term_jobs", []):
@@ -792,6 +1164,159 @@ def _backward_targets(rel: str, node: dict[str, Any]) -> list[dict[str, str]]:
     return targets
 
 
+def _size_pressure(root: Path, rel: str, settings: dict[str, Any]) -> dict[str, Any]:
+    line_count = _line_count(root, rel)
+    soft = int(settings.get("soft_line_cap") or 200)
+    warn = int(settings.get("warn_line_cap") or 300)
+    hard = int(settings.get("hard_line_cap") or 500)
+    if line_count <= soft:
+        state = "ok"
+    elif line_count <= warn:
+        state = "over_soft"
+    elif line_count <= hard:
+        state = "warn"
+    else:
+        state = "critical"
+    pressure = 0.0 if line_count <= soft else round(line_count / max(hard, 1), 3)
+    return {
+        "line_count": line_count,
+        "soft_cap": soft,
+        "warn_cap": warn,
+        "hard_cap": hard,
+        "state": state,
+        "pressure": pressure,
+        "needs_split_plan": line_count > soft,
+    }
+
+
+def _validation_confidence(tests: list[str], proposal: dict[str, Any]) -> float:
+    score = 0.15
+    if tests:
+        score += min(len(tests), 4) * 0.18
+    validation = proposal.get("cross_file_validation") or {}
+    if validation.get("exists"):
+        score += 0.12
+    if validation.get("referenced_by"):
+        score += 0.1
+    ten_q = proposal.get("ten_q") or {}
+    if ten_q.get("passed"):
+        score += 0.15
+    return round(min(score, 1.0), 3)
+
+
+def _node_relationship_weight(rel: str, neighbors: list[str], sources: dict[str, Any]) -> float:
+    weight = 0.0
+    for neighbor in neighbors[:16]:
+        weight += _relation_weight(_relationship_type(rel, neighbor, sources))
+    return round(weight, 3)
+
+
+def _split_plan_request(
+    root: Path,
+    rel: str,
+    node: dict[str, Any],
+    validation_plan: list[str],
+    settings: dict[str, Any],
+) -> dict[str, Any]:
+    size = node.get("size_pressure") or _size_pressure(root, rel, settings)
+    if not size.get("needs_split_plan"):
+        return {"needed": False, "reason": "file is within configured line cap"}
+    tests = node.get("tests") or []
+    return {
+        "needed": True,
+        "mode": "deepseek_split_plan_only",
+        "approval_gate": "operator_required",
+        "reason": "file is over cap; plan extraction before any source rewrite",
+        "reason_not_to_split": _reason_not_to_split(rel, tests, node.get("known_neighbors") or []),
+        "proposed_children": _proposed_split_children(root, rel),
+        "validation_plan": validation_plan[:6],
+    }
+
+
+def _parse_sequence_markers(rel: str) -> tuple[str, str]:
+    name = Path(rel).name
+    seq = ""
+    version = ""
+    seq_match = re.search(r"(?:^|_)seq(\d{3})(?=_|\.|$)", name) or re.search(r"_s(\d{3})(?=_|\.|$)", name)
+    version_match = re.search(r"_v(\d{3})(?=_|\.|$)", name)
+    if seq_match:
+        seq = f"seq{seq_match.group(1)}"
+    if version_match:
+        version = f"v{version_match.group(1)}"
+    return seq, version
+
+
+def _scope_for_file(rel: str) -> str:
+    parts = Path(rel).parts
+    if len(parts) <= 1:
+        return "root"
+    if parts[0] in {"src", "client", "tests", "pigeon_brain", "pigeon_compiler"}:
+        return "/".join(parts[:2]) if len(parts) > 2 else parts[0]
+    return parts[0]
+
+
+def _neighbors_from_graph(graph: dict[str, Any], rel: str) -> list[str]:
+    neighbors = []
+    for edge in graph.get("edges") or []:
+        if edge.get("from") == rel:
+            neighbors.append(edge.get("to"))
+        elif edge.get("to") == rel:
+            neighbors.append(edge.get("from"))
+    return [item for item in _dedupe(neighbors) if item][:12]
+
+
+def _reason_not_to_split(rel: str, tests: list[str], neighbors: list[str]) -> str:
+    reasons = []
+    if not tests and rel.endswith(".py"):
+        reasons.append("no mapped test gate yet")
+    if len(neighbors) > 8:
+        reasons.append("dense peer context; extract behind facade first")
+    if Path(rel).name in {"__init__.py", "codex_compat.py"}:
+        reasons.append("likely public facade/import surface")
+    return "; ".join(reasons) or "no blocker; draft split plan behind stable imports"
+
+
+def _proposed_split_children(root: Path, rel: str) -> list[dict[str, str]]:
+    path = root / rel
+    text = ""
+    if path.exists():
+        try:
+            text = path.read_text(encoding="utf-8", errors="ignore")
+        except Exception:
+            text = ""
+    symbols = re.findall(r"^(?:def|class)\s+([A-Za-z_][A-Za-z0-9_]*)", text, flags=re.MULTILINE)
+    stem = _stem_key(rel)
+    parent = str(Path(rel).parent).replace("\\", "/")
+    if parent == ".":
+        parent = "src"
+    buckets = [
+        ("core", "pure helpers and constants"),
+        ("routing", "intent routing and orchestration entrypoints"),
+        ("validation", "compile/test guards and 10Q checks"),
+        ("io", "log, file, email, or external side effects"),
+    ]
+    children = []
+    for label, role in buckets:
+        children.append({
+            "path": f"{parent}/{stem}_{label}_seq001_v001.py",
+            "role": role,
+            "seed_symbols": ", ".join(symbols[:4]) if symbols else "derive from AST during split plan",
+        })
+    children.append({
+        "path": rel,
+        "role": "facade preserving current imports while child files take responsibility",
+        "seed_symbols": "re-export stable public API",
+    })
+    return children
+
+
+def _split_file_quote(rel: str, size: dict[str, Any], tests: list[str]) -> str:
+    name = Path(rel).name
+    if tests:
+        return f"{name}: I am {size.get('line_count')} lines; bring the tests and I will discuss moving out."
+    return f"{name}: I am {size.get('line_count')} lines and somehow expected to pack my own boxes without a test witness."
+
+
 def _deepseek_learning_instruction(
     rel: str,
     intent_model: dict[str, Any],
@@ -800,13 +1325,25 @@ def _deepseek_learning_instruction(
     readiness: dict[str, Any],
 ) -> str:
     context_files = [item.get("file") for item in node.get("context_veins", []) if item.get("file")]
+    size = node.get("size_pressure") or {}
+    split_lines = []
+    if size.get("needs_split_plan"):
+        split_lines = [
+            "SPLIT_PLAN_REQUIRED:",
+            f"- current_lines: {size.get('line_count')} state: {size.get('state')} pressure: {size.get('pressure')}",
+            "- propose child files plus a facade/wrapper; do not produce a full overwrite",
+            "- include reason_not_to_split if tests, imports, or operator memory make extraction unsafe",
+        ]
     return "\n".join([
         "You are the deep rewrite planner for one source file.",
         "Do not overwrite source. Produce a plan or patch candidate only.",
         f"INTENT_KEY: {intent_model.get('intent_key', '')}",
         f"FILE: {rel}",
         f"WAKE_ROLE: {node.get('role')}",
+        f"RELATIONSHIP_WEIGHT: {node.get('relationship_weight', 0)}",
+        f"VALIDATION_CONFIDENCE: {node.get('validation_confidence', 0)}",
         f"READINESS: {readiness.get('state')} - {readiness.get('reason')}",
+        *split_lines,
         "LOAD_CONTEXT:",
         *[f"- {item}" for item in context_files[:10]],
         "VALIDATION:",
@@ -906,11 +1443,12 @@ def _history_count_for_file(rel: str, sources: dict[str, Any]) -> int:
     )
 
 
-def _neighbors_for_file(rel: str, proposal: dict[str, Any], sources: dict[str, Any]) -> list[str]:
+def _neighbors_for_file(root: Path, rel: str, proposal: dict[str, Any], sources: dict[str, Any]) -> list[str]:
     neighbors: list[str] = []
     neighbors.extend(_clean_rel(item) for item in proposal.get("context_injection") or [])
     validation = proposal.get("cross_file_validation") or {}
     neighbors.extend(_clean_rel(item) for item in validation.get("referenced_by") or [])
+    neighbors.extend(_local_import_neighbors(root, rel))
     for edge in (sources.get("council") or {}).get("relationships") or []:
         left = _clean_rel(edge.get("from"))
         right = _clean_rel(edge.get("to"))
@@ -923,6 +1461,34 @@ def _neighbors_for_file(rel: str, proposal: dict[str, Any], sources: dict[str, A
         if rel in files:
             neighbors.extend(files)
     return [item for item in _dedupe(neighbors) if item and item != rel][:16]
+
+
+def _local_import_neighbors(root: Path, rel: str) -> list[str]:
+    path = root / rel
+    if not path.exists() or path.suffix != ".py":
+        return []
+    try:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+    except Exception:
+        return []
+    candidates = []
+    for line in text.splitlines():
+        stripped = line.strip()
+        match = re.match(r"from\s+([A-Za-z_][A-Za-z0-9_\.]*)\s+import\s+", stripped)
+        if not match:
+            match = re.match(r"import\s+([A-Za-z_][A-Za-z0-9_\.]*)", stripped)
+        if not match:
+            continue
+        module = match.group(1)
+        if not module.startswith(("src.", "client.", "pigeon_brain.", "pigeon_compiler.")):
+            continue
+        rel_path = module.replace(".", "/") + ".py"
+        if (root / rel_path).exists():
+            candidates.append(rel_path)
+        init_path = module.replace(".", "/") + "/__init__.py"
+        if (root / init_path).exists():
+            candidates.append(init_path)
+    return _dedupe(candidates)[:12]
 
 
 def _proposal_for_file(rel: str, sources: dict[str, Any]) -> dict[str, Any]:
@@ -1085,10 +1651,13 @@ def _resolve_file_key(root: Path, file_key: str) -> str:
 
 def _scan_repo_files(root: Path) -> list[str]:
     patterns = [
+        "*.py",
+        "*.md",
         "src/**/*.py",
         "client/**/*.py",
         "test*.py",
         "tests/**/*.py",
+        "docs/**/*.md",
         "src/**/MANIFEST.md",
         ".github/copilot-instructions.md",
     ]
