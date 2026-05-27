@@ -12,8 +12,9 @@ function sendJson(res, payload, statusCode = 200) {
   res.end(JSON.stringify(payload));
 }
 
-function sendJsonFile(res, filePath) {
-  if (!fs.existsSync(filePath)) {
+function sendJsonFile(res, filePath, fallbackPath = '') {
+  const readablePath = fs.existsSync(filePath) ? filePath : fallbackPath;
+  if (!readablePath || !fs.existsSync(readablePath)) {
     sendJson(res, {});
     return;
   }
@@ -21,7 +22,7 @@ function sendJsonFile(res, filePath) {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.end(fs.readFileSync(filePath, 'utf-8'));
+    res.end(fs.readFileSync(readablePath, 'utf-8'));
   } catch {
     sendJson(res, {});
   }
@@ -279,12 +280,16 @@ function installSignalRoutes(server) {
     ['/prompt_telemetry.json', path.resolve(repoRoot, 'logs', 'prompt_telemetry_latest.json')],
     ['/file_semantic_layer.json', path.resolve(repoRoot, 'logs', 'file_semantic_layer.json')],
     ['/context_veins.json', path.resolve(repoRoot, 'pigeon_brain', 'context_veins.json')],
-    ['/query_monitoring_audits.json', path.resolve(repoRoot, 'logs', 'query_monitoring_audit_latest.json')],
+    [
+      '/query_monitoring_audits.json',
+      path.resolve(repoRoot, 'logs', 'query_monitoring_audit_latest.json'),
+      path.resolve(__dirname, 'public', 'query_monitoring_audits.json'),
+    ],
   ];
 
-  jsonFiles.forEach(([route, filePath]) => {
+  jsonFiles.forEach(([route, filePath, fallbackPath]) => {
     server.middlewares.use(route, (_, res) => {
-      sendJsonFile(res, filePath);
+      sendJsonFile(res, filePath, fallbackPath);
     });
   });
 
