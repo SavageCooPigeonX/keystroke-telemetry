@@ -638,7 +638,7 @@ _HC_BARE_IMPORT = re.compile(
 
 def _seq_base(full_name: str) -> str:
     """Extract `logger_seq003` from `logger_seq003_v003_d0317__core_logger`.
-    
+
     Also handles dotted paths: `cognitive.adapter_seq001_v002_...`
     → `cognitive.adapter_seq001`.
     """

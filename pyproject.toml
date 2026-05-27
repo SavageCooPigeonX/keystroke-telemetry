@@ -30,3 +30,9 @@ Repository = "https://github.com/SavageCooPigeonX/keystroke-telemetry"
 
 [tool.setuptools.packages.find]
 include = ["pigeon_compiler*", "src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = ["--import-mode=importlib"]
+norecursedirs = ["archive", "generated", "interlink"]

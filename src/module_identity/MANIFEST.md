@@ -92,3 +92,54 @@ def build_identities(root: Path, include_consciousness: bool = False) -> list[di
 | Module | Tag | Line | Note |
 |--------|-----|-----:|------|
 | module_identity_orchestrator | TODO | 96 | list |
+
+<!-- manifest:folder-unified-state -->
+## Folder Unified State
+
+- state_doc: `src/module_identity/MANIFEST.md`
+- write_authority: `own_folder_manifest_only`
+- read_authority: `selected_manifest_read_only`
+- changed_files_in_scope: `1`
+
+### Local Files Learning Here
+
+| File | Observations | Learned Trigger Sample |
+|---|---:|---|
+| `src/module_identity/p_mil_s005_v001.py` | 1 | build, complext, copmosition, full, get, history, how, legacy |
+| `src/module_identity/MANIFEST.md` | 0 | none |
+| `src/module_identity/__init__.py` | 0 | none |
+| `src/module_identity/module_identity_code_seq007_v001/MANIFEST.md` | 0 | none |
+| `src/module_identity/module_identity_code_seq007_v001/__init__.py` | 0 | none |
+| `src/module_identity/module_identity_code_seq007_v001/p_modu_ved_s003_v001.py` | 0 | none |
+| `src/module_identity/module_identity_code_seq007_v001/p_modu_vfsp_s001_v001.py` | 0 | none |
+| `src/module_identity/module_identity_code_seq007_v001/p_modu_vpan_s002_v001.py` | 0 | none |
+| `src/module_identity/module_identity_code_seq007_v001/p_modu_vw_s004_v001.py` | 0 | none |
+| `src/module_identity/p_mia_s003_v001.py` | 0 | none |
+
+### Cross-Folder Manifests Read In Sim
+
+- `MANIFEST.md`
+- `build/pigeon_legacy/scripts/MANIFEST.md`
+- `build/pigeon_legacy/pigeon_brain/MANIFEST.md`
+- `build/pigeon_legacy/src/MANIFEST.md`
+- `build/pigeon_legacy/MANIFEST.md`
+- `pigeon_brain/MANIFEST.md`
+- `pigeon_compiler/MANIFEST.md`
+- `pigeon_compiler/cut_executor/MANIFEST.md`
+- `pigeon_compiler/integrations/MANIFEST.md`
+- `pigeon_compiler/state_extractor/MANIFEST.md`
+- `pigeon_compiler/weakness_planner/MANIFEST.md`
+- `scripts/MANIFEST.md`
+
+### Local Bug Chat
+
+- `none-local`
+
+### Live Sim Call Receipts
+
+- `src/module_identity/p_mil_s005_v001.py` kind=manifest_shard+prompt_intent attention=manifest_shard :: perfect build out the full system and test it with some complext prompts
+
+### Local Write Queue
+
+- `src/module_identity/p_mil_s005_v001.py` -> `src/module_identity/MANIFEST.md`
+<!-- /manifest:folder-unified-state -->

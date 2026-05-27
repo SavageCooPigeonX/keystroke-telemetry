@@ -141,3 +141,72 @@ def validate_plan(plan: dict, ether_map: dict) -> dict
 ## Code Markers
 
 *No TODO/FIXME/HACK markers found — codebase is clean.*
+
+<!-- manifest:opus-micro-pulse-state -->
+## Opus Micro-Pulse State
+
+- prompt_hash: `c067f933f391079c`
+- prompt_class: `directive`
+- executor_session: `codex_execution_session`
+- metric: `opus_prediction_vs_executor_diff`
+
+### Local Pulse Comments
+
+- `pigeon_compiler/cut_executor/写w_fw_s003_v005_d0322_译改名踪_λμ.py` I was touched by Opus on pause 2 because it thinks I am prompt composition and intent-key compiler. I am really file_writer_seq003_v001.py — Write new Pigeon-compliant files from cut plan.. Opus may be flattening my role; calibrate my syntax triggers before trusting this route. Solution: increase learned syntax triggers from this prompt if Codex actually touches me. Persistent faults: low-touch file; can be missed by Opus unless static syntax matches.
+  - coding_agent: If Codex touches `pigeon_compiler/cut_executor/写w_fw_s003_v005_d0322_译改名踪_λμ.py`, verify whether Opus prediction `prompt composition and intent-key compiler` matched actual role `file_writer_seq003_v001.py — Write new Pigeon-compliant files from cut plan.`. After execution, write touched/predicted/missed status into the backward learning packet.
+
+### Pending Backward Pass
+
+- `pigeon_compiler/cut_executor/写w_fw_s003_v005_d0322_译改名踪_λμ.py` waiting_for_codex_diff
+<!-- /manifest:opus-micro-pulse-state -->
+
+<!-- manifest:folder-unified-state -->
+## Folder Unified State
+
+- state_doc: `pigeon_compiler/cut_executor/MANIFEST.md`
+- write_authority: `own_folder_manifest_only`
+- read_authority: `selected_manifest_read_only`
+- changed_files_in_scope: `1`
+
+### Local Files Learning Here
+
+| File | Observations | Learned Trigger Sample |
+|---|---:|---|
+| `pigeon_compiler/cut_executor/织f_cdp_s013_v002_d0322_谱建重箱重拆_λ7.py` | 4 | act, assembled, bug, cannon, codex, compiler, completer, copilot |
+| `pigeon_compiler/cut_executor/MANIFEST.md` | 1 | audits, build, compiler, document, file, files, legacy, let |
+| `pigeon_compiler/cut_executor/写w_fw_s003_v005_d0322_译改名踪_λμ.py` | 1 | build, complext, copmosition, full, get, history, how, legacy |
+| `pigeon_compiler/cut_executor/__init__.py` | 0 | none |
+| `pigeon_compiler/cut_executor/切p_ss_s002_v004_d0315_重箱重助重拆_λν.py` | 0 | none |
+| `pigeon_compiler/cut_executor/初写p_iw_s007_v007_d0322_净拆译_λ7.py` | 0 | none |
+| `pigeon_compiler/cut_executor/析p_pp_s001_v004_d0315_测编深划鸽环_λν.py` | 0 | none |
+| `pigeon_compiler/cut_executor/稿p_mw_s005_v004_d0315_册追跑谱桥_λν.py` | 0 | none |
+| `pigeon_compiler/cut_executor/织f_cdp_s013_v002_d0322_谱建重箱重拆_λ7/MANIFEST.md` | 0 | none |
+| `pigeon_compiler/cut_executor/织f_cdp_s013_v002_d0322_谱建重箱重拆_λ7/__init__.py` | 0 | none |
+
+### Cross-Folder Manifests Read In Sim
+
+- `MANIFEST.md`
+- `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/MANIFEST.md`
+- `build/pigeon_legacy/pigeon_brain/flow/MANIFEST.md`
+- `build/pigeon_legacy/src/MANIFEST.md`
+- `pigeon_compiler/integrations/MANIFEST.md`
+- `build/pigeon_legacy/scripts/MANIFEST.md`
+- `build/pigeon_legacy/MANIFEST.md`
+- `pigeon_brain/MANIFEST.md`
+- `pigeon_compiler/MANIFEST.md`
+- `pigeon_compiler/rename_engine/MANIFEST.md`
+- `pigeon_compiler/state_extractor/MANIFEST.md`
+- `pigeon_compiler/weakness_planner/MANIFEST.md`
+
+### Local Bug Chat
+
+- `none-local`
+
+### Live Sim Call Receipts
+
+- `pigeon_compiler/cut_executor/织f_cdp_s013_v002_d0322_谱建重箱重拆_λ7.py` kind=manifest_shard+prompt_intent attention=prompt_intent :: Generated Opus executor prompt is primary
+
+### Local Write Queue
+
+- `pigeon_compiler/cut_executor/织f_cdp_s013_v002_d0322_谱建重箱重拆_λ7.py` -> `pigeon_compiler/cut_executor/MANIFEST.md`
+<!-- /manifest:folder-unified-state -->

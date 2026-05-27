@@ -100,7 +100,7 @@ def _extract_ast_symbols(source: str) -> list[str]:
 
 def encode_file(path: Path) -> dict[str, Any]:
     """Encode one file into an intent profile.
-    
+
     Returns:
         {
           "name": str,          # module stem
@@ -229,7 +229,7 @@ def match_prompt_to_files(
     profiles: dict[str, dict] | None = None,
 ) -> list[tuple[str, float]]:
     """Dot-product of prompt tokens vs file keyword vectors.
-    
+
     Complements intent_numeric (word→file matrix) with semantic profile matching.
     Returns: [(module_name, score), ...] ranked by match strength.
     """
@@ -266,7 +266,7 @@ def match_prompt_to_files(
 
 def run_push_encoder(root: Path = ROOT, changed_files: list[str] | None = None) -> dict:
     """Called by push cycle. Encode changed files and measure intent dropoff.
-    
+
     Intent dropoff = files that had high intent scores last push but score
     lower now (keywords dropped out = that intent thread is dying).
     """
@@ -358,7 +358,7 @@ def collect_baseline_from_buffers(
     root: Path = ROOT,
 ) -> dict:
     """Build operator baseline profile from a list of typing buffers.
-    
+
     Called by popup after 'Collect Baseline' button listen session.
     Returns baseline dict + writes logs/operator_baseline.json.
     """

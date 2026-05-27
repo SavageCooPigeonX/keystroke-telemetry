@@ -4,6 +4,11 @@ from pathlib import Path
 import json
 import re
 
+from .p_对tsvd缩λβic_s002_v001 import _classify_copilot_intent, _classify_user_intent
+from .p_对tsvd缩λβm_s003_v001 import _find_response_for_prompt, _find_rework_for_prompt
+from .p_对tsvd缩λβnb_s004_v001 import _build_completion_note, _build_work_note
+from .p_对tsvd缩λβu_s001_v001 import _load_jsonl_tail, _summarize_text
+
 def capture_training_pair(root: Path) -> dict | None:
     """
     Capture a training pair from the latest edit cycle.

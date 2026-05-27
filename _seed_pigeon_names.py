@@ -1,6 +1,6 @@
 """Seed plain-named .py files into the pigeon naming convention.
 
-Assigns {stem}_seq001_v001 to each plain file, renames via git mv,
+Assigns {stem}_seqNNN_v001 to each plain file from local sibling sequence pressure, renames via git mv,
 then rewrites all imports in the codebase so nothing breaks.
 
 Usage:
@@ -14,7 +14,8 @@ ROOT = Path('.')
 EXECUTE = '--execute' in sys.argv
 
 CODE_DIRS = ['src', 'pigeon_compiler', 'pigeon_brain', 'client']
-PIGEON_RE = re.compile(r'(_seq\d{3,}|_s\d{3,}_v\d{3,})')
+PIGEON_RE = re.compile(r'(_seq\d{3,}_v\d{3,}|_s\d{3,}_v\d{3,})')
+SEQ_RE = re.compile(r'(?:_seq|_s)(\d{3,})_v\d{3,}')
 SKIP_DIRS = {'.git', '__pycache__', 'node_modules', 'dist', 'build', 'venv', '.venv'}
 
 # Files that are externally referenced entry points — keep plain
@@ -44,8 +45,17 @@ def _collect_plain():
     return plain
 
 
-def _make_new_stem(stem: str) -> str:
-    return f'{stem}_seq001_v001'
+def _make_new_stem(path: Path) -> str:
+    return f'{path.stem}_seq{_next_local_seq(path):03d}_v001'
+
+
+def _next_local_seq(path: Path) -> int:
+    used = []
+    for sibling in path.parent.glob('*.py'):
+        match = SEQ_RE.search(sibling.stem)
+        if match:
+            used.append(int(match.group(1)))
+    return max(used, default=0) + 1
 
 
 def _build_import_map(plain_files):
@@ -53,7 +63,7 @@ def _build_import_map(plain_files):
     mapping = {}
     for p in plain_files:
         old_stem = p.stem
-        new_stem = _make_new_stem(old_stem)
+        new_stem = _make_new_stem(p)
         # Compute dotted module paths relative to root
         try:
             rel = p.relative_to(ROOT)
@@ -105,7 +115,7 @@ def main():
 
     renames = []
     for p in plain:
-        new_name = _make_new_stem(p.stem) + '.py'
+        new_name = _make_new_stem(p) + '.py'
         new_path = p.parent / new_name
         renames.append((p, new_path))
         marker = '' if p.exists() else ' [MISSING?]'

@@ -22,7 +22,7 @@ Python module in this folder. It is the single source of truth for:
 
 | Seq | File | Lines | Status | Exports | Deps | Description | Notes |
 |-----|------|------:|--------|---------|------|-------------|-------|
-| 001 | __main__.py | 257 | ⚠️ OVER | main() |  | Usage: |  |
+| 001 | __main__.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/flow/__main__.py. | pigeon_legacy_loader |
 | 002 | _resolve.py | 117 | ✅ | _FLOW_DIR, _CACHE, flow_import(), pb_import() |  | Dynamic import resolver for pigeon-named modules. |  |
 | 003 | 任w_tawr_s005_v003_d0401_唤脉运分_λA.py | 163 | ✅ | write_task(), write_multi() |  | The river delta. Where all flowing intelligence collects and deposits. |  |
 | 004 | 分f_dvp_s010_v002_d0328_唤脉运观_λR.py | 162 | ✅ | DEV_PLAN_FILE, generate_dev_plan() |  | The roadmap writer. Synthesizes the graph's accumulated learning into |  |
@@ -30,38 +30,32 @@ Python module in this folder. It is the single source of truth for:
 | 006 | 分f_dvp_s010_v004_d0327_唤脉运观_λγ.py | 166 | ✅ | DEV_PLAN_FILE, generate_dev_plan() |  | The roadmap writer. Synthesizes the graph's accumulated learning into |  |
 | 007 | 包p_cpk_s001_v002_d0324_缩分话_λε.py | 115 | ✅ | MAX_DEPTH, MAX_ACCUMULATED, IMPORTANCE_DECAY, NodeIntel, ContextPacket +1 |  | The ContextPacket is the unit of cognition that flows through the graph. |  |
 | 008 | 唤w_noaw_s002_v003_d0401_脉运分话_λA.py | 148 | ✅ | RELEVANCE_THRESHOLD, HEAT_AUTO_RELEVANT, FEAR_KEYWORD_BOOST, awaken() |  | When a packet arrives at a node, the node WAKES UP. |  |
-| 009 | 存p_nm_s008_v001_d0325_读唤任_λB.py | 222 | ⚠️ OVER | DECAY_ALPHA, MIN_CONFIDENCE_SAMPLES, MAX_RAW_ENTRIES, MEMORY_FILE, load_memory() +4 |  | The experience vault. Stores raw learning entries per node and maintains |  |
-| 010 | 存p_nm_s008_v003_d0328_读唤任_λR.py | 222 | ⚠️ OVER | DECAY_ALPHA, MIN_CONFIDENCE_SAMPLES, MAX_RAW_ENTRIES, MEMORY_FILE, load_memory() +4 |  | The experience vault. Stores raw learning entries per node and maintains |  |
-| 011 | 学f_ll_s013_v003_d0327_读唤任_λS.py | 309 | 🟠 WARN | LOOP_STATE_FILE, POLL_INTERVAL, PREDICT_EVERY, MAX_ENTRIES_PER_WAKE, run_single_cycle() +3 |  | The perpetual learning loop. |  |
+| 009 | 存p_nm_s008_v001_d0325_读唤任_λB.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/flow/存p_nm_s008_v001_d0325_读唤任_λB.py. | pigeon_legacy_loader |
+| 010 | 存p_nm_s008_v003_d0328_读唤任_λR.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/flow/存p_nm_s008_v003_d0328_读唤任_λR.py. | pigeon_legacy_loader |
+| 011 | 学f_ll_s013_v003_d0327_读唤任_λS.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/flow/学f_ll_s013_v003_d0327_读唤任_λS.py. | pigeon_legacy_loader |
 | 012 | 择p_pase_s004_v002_d0324_分话唤_λε.py | 181 | ✅ | MAX_TARGETED_DEPTH, MAX_HEAT_DEPTH, MAX_FAILURE_DEPTH, select_next(), find_origin() |  | Three traversal modes, each a different perspective on the same graph: |  |
 | 013 | 流f_fe_s003_v002_d0324_缩分话_λε.py | 168 | ✅ | load_graph_data(), run_flow(), run_multi() |  | The flow engine is the runtime. |  |
-| 014 | 算f_ps_s014_v006_d0404_译改名踪_λNU_βoc.py | 636 | 🔴 CRIT | SCORED_CACHE_FILE, CALIBRATION_FILE, MAX_SCORED, EVAL_WINDOW, extract_module_name() +4 |  | edit-session based. |  |
+| 014 | 算f_ps_s014_v006_d0404_译改名踪_λNU_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/flow/算f_ps_s014_v006_d0404_译改名踪_λNU... | pigeon_legacy_loader |
 | 015 | 结u_fxs_s011_v001_d0325_λB.py | 171 | ✅ | FIX_MEMORY_FILE, INTENT_PATTERNS, get_last_diff(), parse_diff_files(), classify_intents() +4 |  | The ground truth extractor. Converts raw git diffs into structured |  |
 | 016 | 脉运w_vt_s006_v003_d0401_唤分话_λA.py | 116 | ✅ | DEAD_VEIN_HEAT, WEAK_THRESHOLD, STRONG_THRESHOLD, WEAK_DECAY, STRONG_AMPLIFY +1 |  | As a packet flows along an edge (vein), the edge modifies the signal. |  |
-| 017 | 虫f_bdm_s015_v001_d0410_λFT.py | 469 | 🟠 WARN | REGISTRY_PATH, VEINS_PATH, NODE_MEMORY_PATH, BUG_MANIFEST_LOG, BUG_SEVERITY +9 |  | prototype (bounded slice). |  |
+| 017 | 虫f_bdm_s015_v001_d0410_λFT.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/flow/虫f_bdm_s015_v001_d0410_λFT.py. | pigeon_legacy_loader |
 | 018 | 话f_nc_s012_v002_d0328_读唤脉运_λR.py | 150 | ✅ | find_worst_node(), build_conversation_prompt(), talk_to_node() |  | The interpretability interface. Lets the operator have a conversation |  |
 | 019 | 话f_nc_s012_v004_d0328_读唤脉运_λR.py | 150 | ✅ | find_worst_node(), build_conversation_prompt(), talk_to_node() |  | The interpretability interface. Lets the operator have a conversation |  |
-| 020 | 读f_fi_s016_v001_d0410_λFT.py | 248 | ⚠️ OVER | _MODEL, _MODEL_FALLBACK, _API_URL, _NM_FILE, _MAX_SRC +6 |  | LLM reads each file ONCE, stores understanding in node_memory.file_understand... |  |
-| 021 | 逆f_ba_s007_v002_d0328_踪稿析_λR.py | 266 | ⚠️ OVER | FLOW_LOG, STATE_FRUSTRATION, log_forward_pass(), compute_loss(), backward_pass() |  | Backward pass: walks electron path in REVERSE, computes credit/node, |  |
-| 022 | 逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc.py | 259 | ⚠️ OVER | FLOW_LOG, STATE_FRUSTRATION, log_forward_pass(), compute_loss(), backward_pass() | 谱p_dsa_s001_v006_d0322_读_λ7 | Backward pass: walks electron path in REVERSE, computes credit/node, | 谱p_dsa_s001_v006_d0322_读_λ7 |
-| 023 | 预p_pr_s009_v002_d0328_踪稿析_λR.py | 219 | ⚠️ OVER | PREDICTION_CACHE_FILE, DEFAULT_PREDICTION_INTERVAL, MODULE_CLUSTER_THRESHOLD, load_predictions(), save_predictions() +4 |  | Fires phantom electrons using cognitive profile (no real task). Triggers: |  |
+| 020 | 读f_fi_s016_v001_d0410_λFT.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/flow/读f_fi_s016_v001_d0410_λFT.py. | pigeon_legacy_loader |
+| 021 | 逆f_ba_s007_v002_d0328_踪稿析_λR.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/flow/逆f_ba_s007_v002_d0328_踪稿析_λR.py. | pigeon_legacy_loader |
+| 022 | 逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/flow/逆f_ba_s007_v005_d0404_踪稿析_λNU_... | pigeon_legacy_loader |
+| 023 | 预p_pr_s009_v002_d0328_踪稿析_λR.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/flow/预p_pr_s009_v002_d0328_踪稿析_λR.py. | pigeon_legacy_loader |
 | 024 | 预p_pr_s009_v003_d0327_踪稿析_λS.py | 186 | ✅ | PREDICTION_CACHE_FILE, DEFAULT_PREDICTION_INTERVAL, MODULE_CLUSTER_THRESHOLD, load_predictions(), save_predictions() +4 |  | Fires phantom electrons using cognitive profile (no real task). Triggers: |  |
-| 025 | 预p_pr_s009_v003_d0330_踪稿析_λF.py | 247 | ⚠️ OVER | PREDICTION_CACHE_FILE, DEFAULT_PREDICTION_INTERVAL, MODULE_CLUSTER_THRESHOLD, load_predictions(), save_predictions() +4 |  | Fires phantom electrons using cognitive profile (no real task). Triggers: |  |
-| 026 | 预p_pr_s009_v004_d0330_踪稿析_λρ.py | 247 | ⚠️ OVER | PREDICTION_CACHE_FILE, DEFAULT_PREDICTION_INTERVAL, MODULE_CLUSTER_THRESHOLD, load_predictions(), save_predictions() +4 |  | Fires phantom electrons using cognitive profile (no real task). Triggers: |  |
+| 025 | 预p_pr_s009_v003_d0330_踪稿析_λF.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/flow/预p_pr_s009_v003_d0330_踪稿析_λF.py. | pigeon_legacy_loader |
+| 026 | 预p_pr_s009_v004_d0330_踪稿析_λρ.py | 17 | ✅ | _ROOT | pigeon_legacy_loader | Pigeon compliance facade for pigeon_brain/flow/预p_pr_s009_v004_d0330_踪稿析_λρ.py. | pigeon_legacy_loader |
 
 ## Health
-- **Files:** 26 | **Compliant:** 14/26 (54%)
-- **Total lines:** 5760 | **Est. tokens:** ~2507 | **Target:** ≤200 per file
-- **Action needed:** 12 file(s) over limit
+- **Files:** 26 | **Compliant:** 26/26 (100%)
+- **Total lines:** 2363 | **Est. tokens:** ~0 | **Target:** ≤200 per file
 
 ## Module Signatures
 
 Function and class signatures for LLM context (type hints included):
-
-**__main__**
-```python
-def main() -> None
-```
 
 **_resolve**
 ```python
@@ -109,32 +103,6 @@ def create_packet(origin: str, task_seed: str, mode: str = 'targeted') -> Contex
 def awaken(node_name: str, packet: ContextPacket, graph_data: dict[str, Any]) -> bool
 ```
 
-**存p_nm_s008_v001_d0325_读唤任_λB**
-```python
-def load_memory(root: Path) -> dict[str, Any]
-def save_memory(root: Path, memory: dict[str, Any]) -> None
-def append_learning(root: Path, node: str, electron_id: str, task_seed: str, contribution_summary: str, credit_score: float, outcome_loss: float, operator_state_after: str = 'unknown', rework_score: float = 0.0, deletion_ratio_after: float = 0.0) -> dict[str, Any]
-def get_policy(root: Path, node: str) -> dict[str, Any]
-def get_all_policies(root: Path) -> dict[str, dict]
-```
-
-**存p_nm_s008_v003_d0328_读唤任_λR**
-```python
-def load_memory(root: Path) -> dict[str, Any]
-def save_memory(root: Path, memory: dict[str, Any]) -> None
-def append_learning(root: Path, node: str, electron_id: str, task_seed: str, contribution_summary: str, credit_score: float, outcome_loss: float, operator_state_after: str = 'unknown', rework_score: float = 0.0, deletion_ratio_after: float = 0.0) -> dict[str, Any]
-def get_policy(root: Path, node: str) -> dict[str, Any]
-def get_all_policies(root: Path) -> dict[str, dict]
-```
-
-**学f_ll_s013_v003_d0327_读唤任_λS**
-```python
-def run_single_cycle(root: Path, entry: dict[str, Any], state: dict[str, Any], use_deepseek: bool = True) -> dict[str, Any]
-def run_prediction_cycle(root: Path, state: dict[str, Any]) -> int
-def catch_up(root: Path, use_deepseek: bool = True) -> dict[str, Any]
-def run_loop(root: Path, once: bool = False, use_deepseek: bool = True) -> None
-```
-
 **择p_pase_s004_v002_d0324_分话唤_λε**
 ```python
 def select_next(current: str, visited: set[str], mode: str, graph_data: dict[str, Any], depth: int = 0) -> str | None
@@ -146,15 +114,6 @@ def find_origin(task_seed: str, graph_data: dict[str, Any]) -> str | None
 def load_graph_data(root: Path) -> dict[str, Any]
 def run_flow(root: Path, task_seed: str, mode: str = 'targeted', origin: str | None = None, graph_data: dict[str, Any] | None = None) -> ContextPacket
 def run_multi(root: Path, task_seed: str, origin: str | None = None) -> list[ContextPacket]
-```
-
-**算f_ps_s014_v006_d0404_译改名踪_λNU_βoc**
-```python
-def extract_module_name(filepath: str) -> str | None
-def score_prediction(prediction: dict[str, Any], actual_modules: set[str], edit_pairs_in_window: list[dict[str, Any]], rework_signal: dict[str, Any]) -> dict[str, Any]
-def backfill_prediction_scores(root: Path, scored: list[dict[str, Any]]) -> int
-def score_predictions_post_edit(root: Path) -> dict[str, Any]
-def score_predictions_post_commit(root: Path) -> dict[str, Any]
 ```
 
 **结u_fxs_s011_v001_d0325_λB**
@@ -173,18 +132,6 @@ def lookup_fix_pattern(root: Path, intent: str) -> list[dict]
 def transport(packet: ContextPacket, from_node: str, to_node: str, graph_data: dict[str, Any], veins_data: dict[str, Any] | None = None) -> ContextPacket
 ```
 
-**虫f_bdm_s015_v001_d0410_λFT**
-```python
-@dataclass
-class BugManifest:  # 12 lines
-def load_active_bugs(root: Path) -> list[BugManifest]
-def propagate_through_veins(root: Path, manifests: list[BugManifest], max_depth: int = 3) -> list[BugManifest]
-def inject_into_packet(packet_dict: dict[str, Any], manifests: list[BugManifest]) -> dict[str, Any]
-def write_to_node_memory(root: Path, node: str, manifests: list[BugManifest], electron_id: str) -> None
-def run_propagation(root: Path) -> dict[str, Any]
-def demo_chain(root: Path) -> None
-```
-
 **话f_nc_s012_v002_d0328_读唤脉运_λR**
 ```python
 def find_worst_node(root: Path, min_samples: int = 3) -> str | None
@@ -199,59 +146,7 @@ def build_conversation_prompt(root: Path, node_name: str, question: str, graph_d
 def talk_to_node(root: Path, node_name: str, question: str, graph_data: dict[str, Any] | None = None, use_gemini: bool = True) -> str
 ```
 
-**读f_fi_s016_v001_d0410_λFT**
-```python
-def get_file_understanding(root: Path, node_name: str) -> dict | None
-def interrogate_file(root: Path, file_path: str, node_name: str, bugs: list, force: bool = False) -> dict | None
-def run_interrogation_sweep(root: Path, n: int = 10, force: bool = False) -> list[dict]
-def print_agent_briefing(root: Path, node_name: str) -> None
-```
-
-**逆f_ba_s007_v002_d0328_踪稿析_λR**
-```python
-def log_forward_pass(root: Path, packet_summary: dict[str, Any]) -> str
-def compute_loss(journal_entry: dict[str, Any]) -> float
-def backward_pass(root: Path, electron_id: str, journal_entry: dict[str, Any], fix_context: str = '', use_deepseek: bool = True) -> list[dict[str, Any]]
-```
-
-**逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc**
-```python
-def log_forward_pass(root: Path, packet_summary: dict[str, Any]) -> str
-def compute_loss(journal_entry: dict[str, Any]) -> float
-def backward_pass(root: Path, electron_id: str, journal_entry: dict[str, Any], fix_context: str = '', use_deepseek: bool = True) -> list[dict[str, Any]]
-```
-
-**预p_pr_s009_v002_d0328_踪稿析_λR**
-```python
-def load_predictions(root: Path) -> list[dict[str, Any]]
-def save_predictions(root: Path, predictions: list[dict[str, Any]]) -> None
-def extract_cognitive_trend(journal_path: Path, n_recent: int = 10) -> dict[str, Any]
-def should_predict(root: Path, prompt_count: int, interval: int = DEFAULT_PREDICTION_INTERVAL) -> bool
-def synthesize_phantom_seed(trend: dict[str, Any]) -> str
-def predict_next_needs(root: Path, run_flow_fn: Any = None, n_predictions: int = 3) -> list[dict[str, Any]]
-```
-
 **预p_pr_s009_v003_d0327_踪稿析_λS**
-```python
-def load_predictions(root: Path) -> list[dict[str, Any]]
-def save_predictions(root: Path, predictions: list[dict[str, Any]]) -> None
-def extract_cognitive_trend(journal_path: Path, n_recent: int = 10) -> dict[str, Any]
-def should_predict(root: Path, prompt_count: int, interval: int = DEFAULT_PREDICTION_INTERVAL) -> bool
-def synthesize_phantom_seed(trend: dict[str, Any]) -> str
-def predict_next_needs(root: Path, run_flow_fn: Any = None, n_predictions: int = 3) -> list[dict[str, Any]]
-```
-
-**预p_pr_s009_v003_d0330_踪稿析_λF**
-```python
-def load_predictions(root: Path) -> list[dict[str, Any]]
-def save_predictions(root: Path, predictions: list[dict[str, Any]]) -> None
-def extract_cognitive_trend(journal_path: Path, n_recent: int = 10) -> dict[str, Any]
-def should_predict(root: Path, prompt_count: int, interval: int = DEFAULT_PREDICTION_INTERVAL) -> bool
-def synthesize_phantom_seed(trend: dict[str, Any]) -> str
-def predict_next_needs(root: Path, run_flow_fn: Any = None, n_predictions: int = 3) -> list[dict[str, Any]]
-```
-
-**预p_pr_s009_v004_d0330_踪稿析_λρ**
 ```python
 def load_predictions(root: Path) -> list[dict[str, Any]]
 def save_predictions(root: Path, predictions: list[dict[str, Any]]) -> None
@@ -266,6 +161,7 @@ def predict_next_needs(root: Path, run_flow_fn: Any = None, n_predictions: int =
 
 | Module | Constant | Value |
 |--------|----------|-------|
+| __main__ | `_ROOT` | `Path(__file__).resolve().parent` |
 | _resolve | `_FLOW_DIR` | `Path(__file__).parent` |
 | 分f_dvp_s010_v002_d0328_唤脉运观_λR | `DEV_PLAN_FILE` | `'dev_plan.md'` |
 | 分f_dvp_s010_v003_d0328_唤脉运观_λR | `DEV_PLAN_FILE` | `'dev_plan.md'` |
@@ -276,68 +172,67 @@ def predict_next_needs(root: Path, run_flow_fn: Any = None, n_predictions: int =
 | 唤w_noaw_s002_v003_d0401_脉运分话_λA | `RELEVANCE_THRESHOLD` | `0.3` |
 | 唤w_noaw_s002_v003_d0401_脉运分话_λA | `HEAT_AUTO_RELEVANT` | `0.5` |
 | 唤w_noaw_s002_v003_d0401_脉运分话_λA | `FEAR_KEYWORD_BOOST` | `0.25` |
-| 存p_nm_s008_v001_d0325_读唤任_λB | `DECAY_ALPHA` | `0.1` |
-| 存p_nm_s008_v001_d0325_读唤任_λB | `MIN_CONFIDENCE_SAMPLES` | `5` |
-| 存p_nm_s008_v001_d0325_读唤任_λB | `MAX_RAW_ENTRIES` | `200` |
-| 存p_nm_s008_v001_d0325_读唤任_λB | `MEMORY_FILE` | `'node_memory.json'` |
-| 存p_nm_s008_v003_d0328_读唤任_λR | `DECAY_ALPHA` | `0.1` |
-| 存p_nm_s008_v003_d0328_读唤任_λR | `MIN_CONFIDENCE_SAMPLES` | `5` |
-| 存p_nm_s008_v003_d0328_读唤任_λR | `MAX_RAW_ENTRIES` | `200` |
-| 存p_nm_s008_v003_d0328_读唤任_λR | `MEMORY_FILE` | `'node_memory.json'` |
-| 学f_ll_s013_v003_d0327_读唤任_λS | `LOOP_STATE_FILE` | `'learning_loop_state.json'` |
-| 学f_ll_s013_v003_d0327_读唤任_λS | `POLL_INTERVAL` | `5.0` |
-| 学f_ll_s013_v003_d0327_读唤任_λS | `PREDICT_EVERY` | `10` |
-| 学f_ll_s013_v003_d0327_读唤任_λS | `MAX_ENTRIES_PER_WAKE` | `5` |
+| 存p_nm_s008_v001_d0325_读唤任_λB | `_ROOT` | `Path(__file__).resolve().parent` |
+| 存p_nm_s008_v003_d0328_读唤任_λR | `_ROOT` | `Path(__file__).resolve().parent` |
+| 学f_ll_s013_v003_d0327_读唤任_λS | `_ROOT` | `Path(__file__).resolve().parent` |
 | 择p_pase_s004_v002_d0324_分话唤_λε | `MAX_TARGETED_DEPTH` | `10` |
 | 择p_pase_s004_v002_d0324_分话唤_λε | `MAX_HEAT_DEPTH` | `8` |
 | 择p_pase_s004_v002_d0324_分话唤_λε | `MAX_FAILURE_DEPTH` | `6` |
-| 算f_ps_s014_v006_d0404_译改名踪_λNU_βoc | `SCORED_CACHE_FILE` | `'prediction_scores.json'` |
-| 算f_ps_s014_v006_d0404_译改名踪_λNU_βoc | `CALIBRATION_FILE` | `'prediction_calibration.json'` |
-| 算f_ps_s014_v006_d0404_译改名踪_λNU_βoc | `MAX_SCORED` | `200` |
-| 算f_ps_s014_v006_d0404_译改名踪_λNU_βoc | `EVAL_WINDOW` | `5` |
+| 算f_ps_s014_v006_d0404_译改名踪_λNU_βoc | `_ROOT` | `Path(__file__).resolve().parent` |
 | 结u_fxs_s011_v001_d0325_λB | `FIX_MEMORY_FILE` | `'fix_memory.json'` |
 | 脉运w_vt_s006_v003_d0401_唤分话_λA | `DEAD_VEIN_HEAT` | `0.15` |
 | 脉运w_vt_s006_v003_d0401_唤分话_λA | `WEAK_THRESHOLD` | `0.3` |
 | 脉运w_vt_s006_v003_d0401_唤分话_λA | `STRONG_THRESHOLD` | `0.8` |
 | 脉运w_vt_s006_v003_d0401_唤分话_λA | `WEAK_DECAY` | `0.93` |
 | 脉运w_vt_s006_v003_d0401_唤分话_λA | `STRONG_AMPLIFY` | `1.05` |
-| 虫f_bdm_s015_v001_d0410_λFT | `REGISTRY_PATH` | `'pigeon_registry.json'` |
-| 虫f_bdm_s015_v001_d0410_λFT | `VEINS_PATH` | `'pigeon_brain/context_veins.json'` |
-| 虫f_bdm_s015_v001_d0410_λFT | `NODE_MEMORY_PATH` | `'pigeon_brain/node_memory.json'` |
-| 虫f_bdm_s015_v001_d0410_λFT | `BUG_MANIFEST_LOG` | `'pigeon_brain/bug_manifest_chain.jsonl'` |
-| 虫f_bdm_s015_v001_d0410_λFT | `BUG_SEVERITY` | `{'oc': 0.8, 'hi': 0.7, 'hc': 0.6, 'de': 0.4, 'dd': 0.3, 'qn': 0.2}` |
-| 虫f_bdm_s015_v001_d0410_λFT | `_BETA_RE` | `__import__('re').compile('_β(\\w+?)(?:_\|\\.py$\|$)')` |
-| 虫f_bdm_s015_v001_d0410_λFT | `_SEQ_RE` | `__import__('re').compile('_s(\\d+)_')` |
-| 读f_fi_s016_v001_d0410_λFT | `_MODEL` | `os.environ.get('GEMINI_MODEL', 'gemini-2.5-flash')` |
-| 读f_fi_s016_v001_d0410_λFT | `_MODEL_FALLBACK` | `'gemini-flash-latest'` |
-| 读f_fi_s016_v001_d0410_λFT | `_API_URL` | `'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateCont...` |
-| 读f_fi_s016_v001_d0410_λFT | `_NM_FILE` | `'pigeon_brain/node_memory.json'` |
-| 读f_fi_s016_v001_d0410_λFT | `_MAX_SRC` | `5000` |
-| 读f_fi_s016_v001_d0410_λFT | `_BUG_SEV` | `{'oc': 0.8, 'hi': 0.7, 'hc': 0.6, 'de': 0.4, 'dd': 0.3, 'qn': 0.2}` |
-| 读f_fi_s016_v001_d0410_λFT | `_BETA_RE` | `re.compile('_β(\\w+?)(?:_\|\\.py$\|$)')` |
-| 逆f_ba_s007_v002_d0328_踪稿析_λR | `FLOW_LOG` | `'flow_log.jsonl'` |
-| 逆f_ba_s007_v002_d0328_踪稿析_λR | `STATE_FRUSTRATION` | `{'frustrated', 'confused', 'struggling'}` |
-| 逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc | `FLOW_LOG` | `'flow_log.jsonl'` |
-| 逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc | `STATE_FRUSTRATION` | `{'frustrated', 'confused', 'struggling'}` |
-| 预p_pr_s009_v002_d0328_踪稿析_λR | `PREDICTION_CACHE_FILE` | `'prediction_cache.json'` |
-| 预p_pr_s009_v002_d0328_踪稿析_λR | `DEFAULT_PREDICTION_INTERVAL` | `10` |
-| 预p_pr_s009_v002_d0328_踪稿析_λR | `MODULE_CLUSTER_THRESHOLD` | `3` |
+| 虫f_bdm_s015_v001_d0410_λFT | `_ROOT` | `Path(__file__).resolve().parent` |
+| 读f_fi_s016_v001_d0410_λFT | `_ROOT` | `Path(__file__).resolve().parent` |
+| 逆f_ba_s007_v002_d0328_踪稿析_λR | `_ROOT` | `Path(__file__).resolve().parent` |
+| 逆f_ba_s007_v005_d0404_踪稿析_λNU_βoc | `_ROOT` | `Path(__file__).resolve().parent` |
+| 预p_pr_s009_v002_d0328_踪稿析_λR | `_ROOT` | `Path(__file__).resolve().parent` |
 | 预p_pr_s009_v003_d0327_踪稿析_λS | `PREDICTION_CACHE_FILE` | `'prediction_cache.json'` |
 | 预p_pr_s009_v003_d0327_踪稿析_λS | `DEFAULT_PREDICTION_INTERVAL` | `10` |
 | 预p_pr_s009_v003_d0327_踪稿析_λS | `MODULE_CLUSTER_THRESHOLD` | `3` |
-| 预p_pr_s009_v003_d0330_踪稿析_λF | `PREDICTION_CACHE_FILE` | `'prediction_cache.json'` |
-| 预p_pr_s009_v003_d0330_踪稿析_λF | `DEFAULT_PREDICTION_INTERVAL` | `10` |
-| 预p_pr_s009_v003_d0330_踪稿析_λF | `MODULE_CLUSTER_THRESHOLD` | `3` |
-| 预p_pr_s009_v004_d0330_踪稿析_λρ | `PREDICTION_CACHE_FILE` | `'prediction_cache.json'` |
-| 预p_pr_s009_v004_d0330_踪稿析_λρ | `DEFAULT_PREDICTION_INTERVAL` | `10` |
-| 预p_pr_s009_v004_d0330_踪稿析_λρ | `MODULE_CLUSTER_THRESHOLD` | `3` |
-
-## Pigeon Metadata
-
-| File | Ver | Tokens | Sessions | Last Modified | Intent |
-|------|-----|-------:|---------:|---------------|--------|
-| 读f_fi_s016_v001_d0410_λFT | v001 | 2507 | 0 | 2026-04-14 @ heal | FT |
+| 预p_pr_s009_v003_d0330_踪稿析_λF | `_ROOT` | `Path(__file__).resolve().parent` |
+| 预p_pr_s009_v004_d0330_踪稿析_λρ | `_ROOT` | `Path(__file__).resolve().parent` |
 
 ## Code Markers
 
 *No TODO/FIXME/HACK markers found — codebase is clean.*
+
+<!-- manifest:push-intent-state -->
+
+## Push Intent Keys
+
+| Status | Intent key | Prompt |
+|---|---|---|
+| pending | `pigeon_brain/flow/node_memory_seq008:route:888_genius_los_santos:minor` | 8,888 genius los santos fm comedy - match patst tone with 18 glossator banned queries for a killed to avoid asking at all costs with genius explensation then a  |
+| pending | `pigeon_brain/flow/虫f_bdm_s015_v001_d0410_λFT:route:codex_also_helps_write:minor` | codex also helps write guides / help act as current grader / orchestrator - if the orchestration layer is good - the coding / re writes dont matter - and im sic |
+| pending | `pigeon_brain/flow:test:want_you_test_all:minor` | i want you to test all voices i want samples - probably gonna change - get toms charachter and how would you make him the main podcast host - maybe not even los |
+| pending | `pigeon_brain/flow/learning_loop_seq013:refactor:during_file_sim_are:major` | during file sim are files learning off eahothers relationships - why are somanyfiles over cap - shouldnt deepseek be auto spliting oc files unles they have a re |
+| pending | `pigeon_brain/flow:test:isint_okay_explain_engineering:minor` | no this isint okay - explain this from an engineering perspective - and what people say online abiut this - write los santos glossator refusal pre amble then a  |
+| pending | `pigeon_brain/flow/backward_seq007:route:feel_like_need_los:minor` | hi feel like i need a los santos fm comedy about how to solve long horizon exploration as deepseek needs just like claudes subagents work - coo coo zap mf |
+| pending | `pigeon_brain/flow/backward_seq007:route:actually_cannot_use_you:minor` | i actually cannot use you to brainstorm - is it somethin about my adhd - ilike i litteraly wee incompatible with you |
+| pending | `pigeon_brain/flow:route:okay_killer_task_wbut:minor` | >>>okay this is a killer task wbut explain the emergent behavior where the listing diagnosed itself with the data? how tf did that happemn |
+| pending | `pigeon_brain/flow:route:but_where_actual:minor` | but where is the actual pr? |
+| pending | `pigeon_brain/flow/backward_seq007:patch:thatand_fix_autonomous_fox:patch` | do thatand fix autonomous fox not actually doing code overwrites with file approval - |
+
+## File Comments
+
+| File | Comment |
+|---|---|
+| `none` | no recent file-sim or self-knowledge comment matched this manifest |
+
+## Manifest Changelog
+
+- refreshed: `pre-push-stable`
+- commit: `pending-push`
+- changed files in scope: `1`
+  - `pigeon_brain/flow/__main__.py`
+
+## Numeric Encoding Boundary
+
+- numeric encoding stays in `logs/numeric_surface_seq001_v001.json` and prompt/history logs for forward-pass file matching
+- manifest stores structured `scope:verb:target:scale` intent keys and file comments for Copilot clearance
+
+<!-- /manifest:push-intent-state -->

@@ -56,3 +56,65 @@ def request_cut_plan(ether_map: dict, source_code: str, folder_name: str = None,
 ## Code Markers
 
 *No TODO/FIXME/HACK markers found — codebase is clean.*
+
+<!-- manifest:opus-micro-pulse-state -->
+## Opus Micro-Pulse State
+
+- prompt_hash: `c067f933f391079c`
+- prompt_class: `directive`
+- executor_session: `codex_execution_session`
+- metric: `opus_prediction_vs_executor_diff`
+
+### Local Pulse Comments
+
+- `pigeon_compiler/weakness_planner/__init__.py` I was touched by Opus on pause 1 because it thinks I am prompt composition and intent-key compiler. I am really weakness_planner/ — Layer 2: DeepSeek-powered strategic cut planning.. Opus may be flattening my role; calibrate my syntax triggers before trusting this route. Solution: increase learned syntax triggers from this prompt if Codex actually touches me. Persistent faults: low-touch file; can be missed by Opus unless static syntax matches.
+  - coding_agent: If Codex touches `pigeon_compiler/weakness_planner/__init__.py`, verify whether Opus prediction `prompt composition and intent-key compiler` matched actual role `weakness_planner/ — Layer 2: DeepSeek-powered strategic cut planning.`. After execution, write touched/predicted/missed status into the backward learning packet.
+
+### Pending Backward Pass
+
+- `pigeon_compiler/weakness_planner/__init__.py` waiting_for_codex_diff
+<!-- /manifest:opus-micro-pulse-state -->
+
+<!-- manifest:folder-unified-state -->
+## Folder Unified State
+
+- state_doc: `pigeon_compiler/weakness_planner/MANIFEST.md`
+- write_authority: `own_folder_manifest_only`
+- read_authority: `selected_manifest_read_only`
+- changed_files_in_scope: `1`
+
+### Local Files Learning Here
+
+| File | Observations | Learned Trigger Sample |
+|---|---:|---|
+| `pigeon_compiler/weakness_planner/MANIFEST.md` | 0 | none |
+| `pigeon_compiler/weakness_planner/__init__.py` | 0 | none |
+| `pigeon_compiler/weakness_planner/核w_dspp_s004_v003_d0314_测编深划鸽环_λD.py` | 0 | none |
+
+### Cross-Folder Manifests Read In Sim
+
+- `MANIFEST.md`
+- `build/pigeon_legacy/scripts/MANIFEST.md`
+- `build/pigeon_legacy/pigeon_brain/MANIFEST.md`
+- `build/pigeon_legacy/src/MANIFEST.md`
+- `build/pigeon_legacy/MANIFEST.md`
+- `pigeon_brain/MANIFEST.md`
+- `pigeon_compiler/MANIFEST.md`
+- `pigeon_compiler/cut_executor/MANIFEST.md`
+- `pigeon_compiler/integrations/MANIFEST.md`
+- `pigeon_compiler/state_extractor/MANIFEST.md`
+- `scripts/MANIFEST.md`
+- `src/MANIFEST.md`
+
+### Local Bug Chat
+
+- `none-local`
+
+### Live Sim Call Receipts
+
+- `pigeon_compiler/weakness_planner/__init__.py` kind=opus_pulse attention=opus_pulse :: Opus pause pulse predicted this file before Enter prompt composition and intent-key compiler
+
+### Local Write Queue
+
+- `pigeon_compiler/weakness_planner/__init__.py` -> `pigeon_compiler/weakness_planner/MANIFEST.md`
+<!-- /manifest:folder-unified-state -->

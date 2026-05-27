@@ -70,3 +70,54 @@ def OperatorStats.flush()
 ## Code Markers
 
 *No TODO/FIXME/HACK markers found — codebase is clean.*
+
+<!-- manifest:folder-unified-state -->
+## Folder Unified State
+
+- state_doc: `src/.operator_stats_seq008_v010_d0331__persi/MANIFEST.md`
+- write_authority: `own_folder_manifest_only`
+- read_authority: `selected_manifest_read_only`
+- changed_files_in_scope: `1`
+
+### Local Files Learning Here
+
+| File | Observations | Learned Trigger Sample |
+|---|---:|---|
+| `src/.operator_stats_seq008_v010_d0331__persi/.operator_stats_seq008_v010_d0331__persi_classify_state_seq005_v001.py` | 1 | act, assembled, brain, bug, build, cannon, codex, completer |
+| `src/.operator_stats_seq008_v010_d0331__persi/.operator_stats_seq008_v010_d0331__persi_baselines_seq004_v001.py` | 0 | none |
+| `src/.operator_stats_seq008_v010_d0331__persi/.operator_stats_seq008_v010_d0331__persi_constants_seq001_v001.py` | 0 | none |
+| `src/.operator_stats_seq008_v010_d0331__persi/.operator_stats_seq008_v010_d0331__persi_markdown_seq008_v001.py` | 0 | none |
+| `src/.operator_stats_seq008_v010_d0331__persi/.operator_stats_seq008_v010_d0331__persi_observations_seq007_v001.py` | 0 | none |
+| `src/.operator_stats_seq008_v010_d0331__persi/.operator_stats_seq008_v010_d0331__persi_operator_stats_seq009_v001.py` | 0 | none |
+| `src/.operator_stats_seq008_v010_d0331__persi/.operator_stats_seq008_v010_d0331__persi_time_utils_seq002_v001.py` | 0 | none |
+| `src/.operator_stats_seq008_v010_d0331__persi/.operator_stats_seq008_v010_d0331__persi_timeframes_seq006_v001.py` | 0 | none |
+| `src/.operator_stats_seq008_v010_d0331__persi/MANIFEST.md` | 0 | none |
+| `src/.operator_stats_seq008_v010_d0331__persi/__init__.py` | 0 | none |
+
+### Cross-Folder Manifests Read In Sim
+
+- `MANIFEST.md`
+- `src/tc_profile/p_tpes_s003_v001_compiled/MANIFEST.md`
+- `build/pigeon_legacy/pigeon_brain/flow/MANIFEST.md`
+- `build/pigeon_legacy/src/MANIFEST.md`
+- `pigeon_compiler/integrations/MANIFEST.md`
+- `build/pigeon_legacy/scripts/MANIFEST.md`
+- `build/pigeon_legacy/MANIFEST.md`
+- `pigeon_brain/MANIFEST.md`
+- `pigeon_compiler/MANIFEST.md`
+- `pigeon_compiler/cut_executor/MANIFEST.md`
+- `pigeon_compiler/state_extractor/MANIFEST.md`
+- `pigeon_compiler/weakness_planner/MANIFEST.md`
+
+### Local Bug Chat
+
+- `none-local`
+
+### Live Sim Call Receipts
+
+- `src/.operator_stats_seq008_v010_d0331__persi/.operator_stats_seq008_v010_d0331__persi_classify_state_seq005_v001.py` kind=manifest_shard+prompt_intent attention=manifest_shard :: raw operator prompt is fallback
+
+### Local Write Queue
+
+- `src/.operator_stats_seq008_v010_d0331__persi/.operator_stats_seq008_v010_d0331__persi_classify_state_seq005_v001.py` -> `src/.operator_stats_seq008_v010_d0331__persi/MANIFEST.md`
+<!-- /manifest:folder-unified-state -->

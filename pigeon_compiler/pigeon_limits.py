@@ -91,17 +91,29 @@ EXCLUDE_STEM_PATTERNS = re.compile(
 )
 
 
-def is_excluded(path: Path, root: Path = None) -> bool:
-    """Return True if path should be excluded from compliance checks."""
+def explain_exclusion(path: Path, root: Path = None) -> dict:
+    """Return the compliance exclusion decision and reason for a path."""
+    path = Path(path)
+    rel = None
+    if root is not None:
+        try:
+            rel = path.relative_to(root).as_posix()
+        except ValueError:
+            rel = path.as_posix()
     if path.name in EXCLUDE_NAMES:
-        return True
+        return {"excluded": True, "reason": "protected_name", "path": rel or path.as_posix()}
     parts = path.parts
     for d in EXCLUDE_DIR_PATTERNS:
         if d in parts:
-            return True
+            return {"excluded": True, "reason": f"protected_dir:{d}", "path": rel or path.as_posix()}
     if EXCLUDE_STEM_PATTERNS.search(path.stem):
-        return True
+        return {"excluded": True, "reason": "protected_stem_pattern", "path": rel or path.as_posix()}
     # Non-Python files are never candidates for pigeon rename
     if path.suffix and path.suffix != ".py":
-        return True
-    return False
+        return {"excluded": True, "reason": "non_python", "path": rel or path.as_posix()}
+    return {"excluded": False, "reason": "compliance_candidate", "path": rel or path.as_posix()}
+
+
+def is_excluded(path: Path, root: Path = None) -> bool:
+    """Return True if path should be excluded from compliance checks."""
+    return bool(explain_exclusion(path, root).get("excluded"))

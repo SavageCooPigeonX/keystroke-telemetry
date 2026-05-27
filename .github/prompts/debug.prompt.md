@@ -23,7 +23,7 @@ description: "Debug-focused context: known issues, fragile contracts, clots, dos
 
 ## Fragile Contracts
 
-- assumption could break if prompt forms are not yet fully initialized or if the simulation engine lacks the necessary state isolation, leading to race 
+- assumption could break if prompt forms are not yet fully initialized or if the simulation engine lacks the necessary state isolation, leading to race
 - breaks.
 - breaks. If the operator works slowly, I may fire false simulations. I send intent predictions to **tc_sim_engine**; if my output schema drifts, the si
 - break immediately. I test **git_plugin** and **intent_outcome_binder**; if their APIs change, I’ll throw runtime errors.

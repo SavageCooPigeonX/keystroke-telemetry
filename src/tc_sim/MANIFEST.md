@@ -209,3 +209,72 @@ def print_transcript(sessions: list[TypingSession], results: list[SimResult] | N
 ## Code Markers
 
 *No TODO/FIXME/HACK markers found — codebase is clean.*
+
+<!-- manifest:opus-micro-pulse-state -->
+## Opus Micro-Pulse State
+
+- prompt_hash: `3d59c2fd6f5265a8`
+- prompt_class: `debug`
+- executor_session: `codex_execution_session`
+- metric: `opus_prediction_vs_executor_diff`
+
+### Local Pulse Comments
+
+- `src/tc_sim/p_tst_s024_v001.py` I was touched by Opus on pause 1 because it thinks I am manifest state holder for this prompt. I am really tc_sim_seq001_v001_transcript_seq024_v001.py — Auto-extracted by Pigeon Compiler.. Opus may be flattening my role; calibrate my syntax triggers before trusting this route. Solution: increase learned syntax triggers from this prompt if Codex actually touches me. Persistent faults: low-touch file; can be missed by Opus unless static syntax matches.
+  - coding_agent: If Codex touches `src/tc_sim/p_tst_s024_v001.py`, verify whether Opus prediction `manifest state holder for this prompt` matched actual role `tc_sim_seq001_v001_transcript_seq024_v001.py — Auto-extracted by Pigeon Compiler.`. After execution, write touched/predicted/missed status into the backward learning packet.
+
+### Pending Backward Pass
+
+- `src/tc_sim/p_tst_s024_v001.py` waiting_for_codex_diff
+<!-- /manifest:opus-micro-pulse-state -->
+
+<!-- manifest:folder-unified-state -->
+## Folder Unified State
+
+- state_doc: `src/tc_sim/MANIFEST.md`
+- write_authority: `own_folder_manifest_only`
+- read_authority: `selected_manifest_read_only`
+- changed_files_in_scope: `1`
+
+### Local Files Learning Here
+
+| File | Observations | Learned Trigger Sample |
+|---|---:|---|
+| `src/tc_sim/p_tcsm_s027_v001.py` | 1 | act, assembled, bug, build, cannon, codex, completer, copilot |
+| `src/tc_sim/p_tsf_s026_v001.py` | 1 | act, assembled, bug, build, cannon, codex, completer, copilot |
+| `src/tc_sim/tc_sim_report_seq009_v001/MANIFEST.md` | 1 | allowed, block, cannon, canon, codex, file, fire, isint |
+| `src/tc_sim/MANIFEST.md` | 0 | none |
+| `src/tc_sim/__init__.py` | 0 | none |
+| `src/tc_sim/p_tc_s_s001_v001.py` | 0 | none |
+| `src/tc_sim/p_tc_s_s004_v001.py` | 0 | none |
+| `src/tc_sim/p_tc_s_s007_v001.py` | 0 | none |
+| `src/tc_sim/p_tc_s_s009_v001.py` | 0 | none |
+| `src/tc_sim/p_tc_s_s013_v001.py` | 0 | none |
+
+### Cross-Folder Manifests Read In Sim
+
+- `MANIFEST.md`
+- `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/MANIFEST.md`
+- `build/pigeon_legacy/pigeon_brain/flow/MANIFEST.md`
+- `build/pigeon_legacy/src/MANIFEST.md`
+- `pigeon_compiler/integrations/MANIFEST.md`
+- `build/pigeon_legacy/scripts/MANIFEST.md`
+- `build/pigeon_legacy/MANIFEST.md`
+- `pigeon_brain/MANIFEST.md`
+- `pigeon_compiler/MANIFEST.md`
+- `pigeon_compiler/cut_executor/MANIFEST.md`
+- `pigeon_compiler/rename_engine/MANIFEST.md`
+- `pigeon_compiler/state_extractor/MANIFEST.md`
+
+### Local Bug Chat
+
+- `none-local`
+
+### Live Sim Call Receipts
+
+- `src/tc_sim/p_tst_s024_v001.py` kind=opus_pulse attention=not_selected :: Opus pause pulse predicted this file before Enter manifest state holder for this prompt
+
+### Local Write Queue
+
+- `src/tc_sim/p_tst_s024_v001.py` -> `src/tc_sim/MANIFEST.md`
+<!-- /manifest:folder-unified-state -->

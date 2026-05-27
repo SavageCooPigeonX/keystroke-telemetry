@@ -1,6 +1,8 @@
 """对p_tp_s027_v003_d0402_缩分话_λVR_βoc_matching_seq003_v001.py — Auto-extracted by Pigeon Compiler."""
 import re
 
+from .p_对tsvd缩λβu_s001_v001 import _normalize_text
+
 def _find_response_for_prompt(prompt_msg: str, response_entries: list[dict]) -> dict | None:
     prompt_norm = _normalize_text(prompt_msg)
     if not prompt_norm:

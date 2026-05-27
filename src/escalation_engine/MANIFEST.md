@@ -146,3 +146,54 @@ def inject_warnings(root: Path, state: dict)
 ## Code Markers
 
 *No TODO/FIXME/HACK markers found — codebase is clean.*
+
+<!-- manifest:folder-unified-state -->
+## Folder Unified State
+
+- state_doc: `src/escalation_engine/MANIFEST.md`
+- write_authority: `own_folder_manifest_only`
+- read_authority: `selected_manifest_read_only`
+- changed_files_in_scope: `1`
+
+### Local Files Learning Here
+
+| File | Observations | Learned Trigger Sample |
+|---|---:|---|
+| `src/escalation_engine/p_eecd_s007_v001.py` | 1 | act, assembled, bug, build, cannon, codex, completer, copilot |
+| `src/escalation_engine/p_eech_s016_v001.py` | 1 | act, assembled, bug, cannon, codex, completer, copilot, executes |
+| `src/escalation_engine/p_eechb_s018_v001.py` | 1 | act, assembled, bug, cannon, codex, completer, copilot, executes |
+| `src/escalation_engine/p_eefe_s009_v001.py` | 1 | act, assembled, bug, build, cannon, codex, completer, copilot |
+| `src/escalation_engine/MANIFEST.md` | 0 | none |
+| `src/escalation_engine/__init__.py` | 0 | none |
+| `src/escalation_engine/escalation_engine_data_loaders_seq003_v001/MANIFEST.md` | 0 | none |
+| `src/escalation_engine/escalation_engine_data_loaders_seq003_v001/__init__.py` | 0 | none |
+| `src/escalation_engine/escalation_engine_data_loaders_seq003_v001/p_eedl_vbp_s001_v001.py` | 0 | none |
+| `src/escalation_engine/escalation_engine_data_loaders_seq003_v001/p_eedl_vd_s002_v001.py` | 0 | none |
+
+### Cross-Folder Manifests Read In Sim
+
+- `MANIFEST.md`
+- `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/MANIFEST.md`
+- `build/pigeon_legacy/pigeon_brain/flow/MANIFEST.md`
+- `build/pigeon_legacy/src/MANIFEST.md`
+- `pigeon_compiler/integrations/MANIFEST.md`
+- `build/pigeon_legacy/scripts/MANIFEST.md`
+- `build/pigeon_legacy/MANIFEST.md`
+- `pigeon_brain/MANIFEST.md`
+- `pigeon_compiler/MANIFEST.md`
+- `pigeon_compiler/cut_executor/MANIFEST.md`
+- `pigeon_compiler/rename_engine/MANIFEST.md`
+- `pigeon_compiler/state_extractor/MANIFEST.md`
+
+### Local Bug Chat
+
+- `none-local`
+
+### Live Sim Call Receipts
+
+- `src/escalation_engine/p_eecd_s007_v001.py` kind=manifest_shard+prompt_intent attention=manifest_shard :: Promote bug notes and quick file fixes into the cannon
+
+### Local Write Queue
+
+- `src/escalation_engine/p_eecd_s007_v001.py` -> `src/escalation_engine/MANIFEST.md`
+<!-- /manifest:folder-unified-state -->

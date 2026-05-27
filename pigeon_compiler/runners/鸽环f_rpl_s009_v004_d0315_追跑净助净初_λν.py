@@ -113,7 +113,7 @@ def pigeon_loop(source_file: Path, target_folder: str = None,
         if work_file != source_file:
             # Re-build ether map on decomposed source
             em = build_ether_map(work_file)
-        
+
         save_ether_map(em, OUT_DIR / f"{stem}_ether_map_i{iteration}.json")
         print(f"      {em['total_lines']} lines, {len(em['functions'])} funcs, "
               f"resistance={em['resistance']['score']}")

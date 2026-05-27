@@ -61,3 +61,52 @@
 - **Cost**: $0.0011
 - **Timestamp**: 2026-04-13 22:31
 
+<!-- manifest:folder-unified-state -->
+## Folder Unified State
+
+- state_doc: `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/MANIFEST.md`
+- write_authority: `own_folder_manifest_only`
+- read_authority: `selected_manifest_read_only`
+- changed_files_in_scope: `1`
+
+### Local Files Learning Here
+
+| File | Observations | Learned Trigger Sample |
+|---|---:|---|
+| `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/p_引isvd踪λo_s007_v001.py` | 3 | act, assembled, bug, build, cannon, codex, compiler, completer |
+| `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/MANIFEST.md` | 0 | none |
+| `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/__init__.py` | 0 | none |
+| `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/p_引isvd踪λc_s001_v001.py` | 0 | none |
+| `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/p_引isvd踪λetm_s002_v001.py` | 0 | none |
+| `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/p_引isvd踪λremp_s003_v001.py` | 0 | none |
+| `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/p_引isvd踪λrf_s006_v001.py` | 0 | none |
+| `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/p_引isvd踪λrl_s004_v001.py` | 0 | none |
+| `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/p_引isvd踪λuh_s005_v001.py` | 0 | none |
+
+### Cross-Folder Manifests Read In Sim
+
+- `MANIFEST.md`
+- `build/pigeon_legacy/pigeon_brain/flow/MANIFEST.md`
+- `build/pigeon_legacy/src/MANIFEST.md`
+- `pigeon_compiler/integrations/MANIFEST.md`
+- `build/pigeon_legacy/scripts/MANIFEST.md`
+- `build/pigeon_legacy/MANIFEST.md`
+- `pigeon_brain/MANIFEST.md`
+- `pigeon_compiler/MANIFEST.md`
+- `pigeon_compiler/cut_executor/MANIFEST.md`
+- `pigeon_compiler/rename_engine/MANIFEST.md`
+- `pigeon_compiler/state_extractor/MANIFEST.md`
+- `pigeon_compiler/weakness_planner/MANIFEST.md`
+
+### Local Bug Chat
+
+- `none-local`
+
+### Live Sim Call Receipts
+
+- `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/p_引isvd踪λo_s007_v001.py` kind=manifest_shard+prompt_intent attention=prompt_intent :: in my opinion copilot instructions should be assembled by opus: select manifests, expand prompt, investigate files in runtime, act as thought completer, write t
+
+### Local Write Queue
+
+- `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/p_引isvd踪λo_s007_v001.py` -> `pigeon_compiler/rename_engine/引w_ir_s003_v005_d0403_踪稿析_λFX/MANIFEST.md`
+<!-- /manifest:folder-unified-state -->
