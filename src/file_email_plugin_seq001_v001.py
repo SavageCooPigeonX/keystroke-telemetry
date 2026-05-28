@@ -74,6 +74,24 @@ def merge_file_email_config(config: dict[str, Any]) -> dict[str, Any]:
     return merged
 
 
+def mail_quality_gate(text: str) -> dict[str, Any]:
+    """Reject status-only file mail that lacks learned/did/next/need signal."""
+    lower = str(text or "").lower()
+    checks = {
+        "learned": bool(re.search(r"\blearned\b|\bi learned\b|what the files learned", lower)),
+        "did": bool(re.search(r"\bdid\b|\bi did\b|what got done", lower)),
+        "next": bool(re.search(r"\bnext\b|next move|comes next", lower)),
+        "need": bool(re.search(r"\bneed\b|i need|needs? from you|missing context", lower)),
+    }
+    missing = [key for key, passed in checks.items() if not passed]
+    return {
+        "schema": "file_mail_quality_gate/v1",
+        "passed": not missing,
+        "checks": checks,
+        "missing": missing,
+    }
+
+
 def emit_file_sim_emails(
     root: Path,
     sim_result: dict[str, Any],
@@ -590,6 +608,10 @@ def emit_file_email(root: Path, event: dict[str, Any], config: dict[str, Any] | 
 def render_file_email(record: dict[str, Any]) -> str:
     file_path = record.get("file", "unknown")
     beef = record.get("beef_with", "unknown")
+    file_name = Path(str(file_path)).name
+    file_stem = Path(str(file_path)).stem or "file"
+    context_targets = [str(item) for item in (record.get("context_injection") or []) if str(item) != str(file_path)]
+    text_chain_target = context_targets[0] if context_targets else str(beef)
     operator = record.get("operator_state") if isinstance(record.get("operator_state"), dict) else {}
     policy = record.get("operator_response_policy") if isinstance(record.get("operator_response_policy"), dict) else {}
     memory = record.get("mail_memory") if isinstance(record.get("mail_memory"), dict) else {}
@@ -600,6 +622,15 @@ def render_file_email(record: dict[str, Any]) -> str:
         f"Subject: {record.get('subject', '')}",
         "",
         f"{operator.get('operator_name') or 'Nikita'},",
+        "",
+        f"File room: `{file_path}`",
+        "Blank sheet: learning-only; no source overwrite happened.",
+        f"{file_stem}: I heard the complaint and turned it into a validation request.",
+        f"{file_name}: I have beef with `{text_chain_target}`",
+        "Opus: Backward pass solution -> keep the proof path visible before source mutation.",
+        f"{file_stem}: Approval -> {'blocked by failed checks' if failed_checks else 'approved by file checks'}",
+        "Grader: open",
+        "Text back like a message: `remember: ...`, `use: ...`, `avoid: ...`, `style: ...`",
         "",
         _actionable_mail_opening(file_path, record, operator, memory, failed_checks),
         _policy_mail_line(policy),
@@ -2105,7 +2136,8 @@ def _delivery_guard(record: dict[str, Any]) -> dict[str, Any]:
 
 def _deliver_resend(root: Path, config: dict[str, Any], record: dict[str, Any], body: str) -> dict[str, Any]:
     _load_local_email_env(root)
-    mode = os.environ.get("FILE_EMAIL_DELIVERY") or str(config.get("delivery_mode") or "resend_dry_run")
+    configured_mode = str(config.get("delivery_mode") or "resend_dry_run")
+    mode = configured_mode if configured_mode == "resend_dry_run" else os.environ.get("FILE_EMAIL_DELIVERY") or configured_mode
     payload = _resend_payload(config, record, body)
     guard = _delivery_guard(record)
     payload_record = {
@@ -2264,6 +2296,8 @@ def _touch_beef(file_path: str, prompt: str) -> str:
 def _subject(file_path: str, beef_with: str, event: dict[str, Any]) -> str:
     stem = Path(file_path).stem or "unknown file"
     enemy = (Path(beef_with).stem or str(beef_with)).strip()
+    if event.get("event_type") == "compile":
+        return f"group text: {stem} needs {enemy}"
     if event.get("event_type") == "submission":
         verb = "sent an old-friend note about"
     elif event.get("event_type") == "completion":
@@ -2273,7 +2307,7 @@ def _subject(file_path: str, beef_with: str, event: dict[str, Any]) -> str:
     elif event.get("event_type") == "file_opinion":
         verb = "has an opinion about"
     else:
-        verb = "sent context for" if event.get("event_type") == "compile" else "was touched and updated"
+        verb = "was touched and updated"
     return f"{stem} {verb} {enemy}"
 
 

@@ -27,6 +27,15 @@ from typing import Any
 import json
 import re
 
+def _prompt_text_state(prompt: str, fallback: str) -> str:
+    lower = str(prompt or "").lower()
+    if any(term in lower for term in ("broken", "still not", "not going out", "doesn't work", "does not work", "wtf")):
+        return "frustrated"
+    if re.search(r"\b(um+|uh+|hmm+|how do we|not sure|maybe)\b", lower):
+        return "hesitant"
+    return fallback
+
+
 def log_prompt(
     root: Path,
     prompt: str,
@@ -59,7 +68,7 @@ def log_prompt(
         "session_id": f"codex-{datetime.now(timezone.utc).strftime('%Y%m%d')}",
         "msg": prompt,
         "intent": _classify_intent(prompt),
-        "cognitive_state": _state_from_deletions(deletion_ratio, hesitation_count),
+        "cognitive_state": _prompt_text_state(prompt, _state_from_deletions(deletion_ratio, hesitation_count)),
         "signals": {
             "wpm": 0,
             "chars_per_sec": 0,
@@ -105,9 +114,9 @@ def log_prompt(
             source=source,
             deleted_words=parsed_deleted_words,
         )
-    _append_jsonl(root / "logs" / "prompt_journal.jsonl", entry)
     if prompt and emit_prompt_email:
         entry["codex_prompt_email"] = _emit_codex_prompt_email(root, entry, loop=entry.get("intent_loop"))
+    _append_jsonl(root / "logs" / "prompt_journal.jsonl", entry)
     try:
         _ensure_repo_on_path(root)
         from src.ai_fingerprint_operator_seq001_v001 import build_operator_fingerprint

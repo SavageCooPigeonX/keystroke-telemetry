@@ -164,7 +164,83 @@ def build_dynamic_context_pack(
         )
     except Exception as exc:
         pack["operator_response_policy"] = {"status": "error", "error": str(exc)}
+    _ensure_operator_policy_file_comments(root, pack)
     (logs / "dynamic_context_pack.md").write_text(_render_dynamic_context_pack(pack) + "\n", encoding="utf-8")
     pack["injected"] = _inject_dynamic_context_pack(root, pack) if inject else False
     (logs / "dynamic_context_pack.json").write_text(json.dumps(pack, indent=2, ensure_ascii=False), encoding="utf-8")
     return pack
+
+
+def _ensure_operator_policy_file_comments(root: Path, pack: dict[str, Any]) -> None:
+    policy = pack.setdefault("operator_response_policy", {})
+    if not isinstance(policy, dict):
+        policy = {}
+        pack["operator_response_policy"] = policy
+    if policy.get("file_comments"):
+        policy.setdefault("deepseek_response_policy_audit", _response_policy_audit(True, "existing file comments"))
+        return
+    comments = []
+    for item in (pack.get("focus_files") or [])[:8]:
+        if not isinstance(item, dict):
+            continue
+        rel = str(item.get("name") or "").strip()
+        if not rel:
+            continue
+        selected_by = "file_sim" if item.get("reason") == "file_sim_proposal" else str(item.get("reason") or "context")
+        file_says = _file_says(root, rel)
+        learning = {
+            "schema": "file_solution_backward_pass/v1",
+            "path": rel,
+            "selected_by": selected_by,
+            "pattern_tokens": _tokens(" ".join([pack.get("prompt", ""), rel, file_says]))[:16],
+        }
+        comments.append({
+            "schema": "operator_response_file_comment/v1",
+            "file": rel,
+            "selected_by": selected_by,
+            "file_signal": f"{selected_by.replace('_', '-')} selected me for this prompt; preserve the proof path.",
+            "file_says": file_says,
+            "file_fix_proposal": f"I think the fix is: inspect `{rel}`, apply one bounded mutation, and verify the named test/compile gate.",
+            "fix_grade": {
+                "schema": "file_fix_grader/v1",
+                "score": 0.74 if selected_by == "file_sim" else 0.62,
+                "decision": "safe_dry_run",
+                "reason": "file comment synthesized from focus-file selection",
+            },
+            "backward_pass_learning": learning,
+        })
+        _append_jsonl(root / "logs" / "file_solution_backward_pass.jsonl", learning)
+    if comments:
+        policy["file_comments"] = comments
+        policy["deepseek_response_policy_audit"] = _response_policy_audit(True, "file comments synthesized from focus files")
+
+
+def _file_says(root: Path, rel: str) -> str:
+    path = root / rel
+    try:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+    except Exception:
+        return f"{rel} was selected by context routing."
+    doc = re.search(r'"""(.*?)"""', text, re.S)
+    if doc:
+        return re.sub(r"\s+", " ", doc.group(1)).strip()[:220]
+    first = next((line.strip("# ").strip() for line in text.splitlines() if line.strip()), "")
+    return first[:220] or f"{rel} was selected by context routing."
+
+
+def _response_policy_audit(should_make: bool, reason: str) -> dict[str, Any]:
+    return {
+        "schema": "deepseek_response_policy_audit/v1",
+        "should_make_response_policy": should_make,
+        "reason": reason,
+    }
+
+
+def _tokens(text: str) -> list[str]:
+    return [token for token in re.findall(r"[a-zA-Z_][a-zA-Z0-9_]*", str(text).lower()) if len(token) >= 3]
+
+
+def _append_jsonl(path: Path, record: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(record, ensure_ascii=False) + "\n")

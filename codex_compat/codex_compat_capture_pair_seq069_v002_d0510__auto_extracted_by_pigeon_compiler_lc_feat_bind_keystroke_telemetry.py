@@ -18,8 +18,22 @@ import re
 def capture_pair(root: Path) -> dict[str, Any] | None:
     root = Path(root)
     repo = _repo_root()
-    src_dir = repo / "src"
-    candidates = sorted(src_dir.glob("*s027*.py"), key=lambda item: item.name)
+    search_roots = [
+        repo / "src",
+        repo / "build" / "pigeon_legacy" / "src",
+    ]
+    candidates: list[Path] = []
+    seen: set[Path] = set()
+    for src_dir in search_roots:
+        if not src_dir.exists():
+            continue
+        for candidate in [*src_dir.glob("*s027*.py"), *src_dir.rglob("*s027*.py")]:
+            resolved = candidate.resolve()
+            if resolved in seen:
+                continue
+            seen.add(resolved)
+            candidates.append(candidate)
+    candidates.sort(key=lambda item: (len(item.parts), item.as_posix()))
     for candidate in candidates:
         text = candidate.read_text(encoding="utf-8", errors="ignore")
         if "def capture_training_pair" not in text or "def _load_jsonl_tail" not in text:
@@ -32,4 +46,4 @@ def capture_pair(root: Path) -> dict[str, Any] | None:
         pair = module.capture_training_pair(root)
         refresh_state(root, "captured training pair")
         return pair
-    raise ImportError(f"No complete training pair module found under {src_dir}")
+    raise ImportError(f"No complete training pair module found under {', '.join(path.as_posix() for path in search_roots)}")

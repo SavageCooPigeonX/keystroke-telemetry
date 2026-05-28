@@ -6,15 +6,27 @@ Turns a prompt fragment into:
 This is intentionally deterministic. It is the core that UI/popup/composer
 surfaces can call without depending on Gemini, DeepSeek, or a live window.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from src.tc_intent_file_memory_seq001_v001 import (
+    match_intent_file_memory,
+    remember_intent_files,
+)
 from src.tc_intent_key_io_seq001_v001 import write_outputs
 from src.tc_semantic_profile_seq001_v001 import log_semantic_profile_event
 
@@ -32,20 +44,24 @@ VERBS = {
     "document": {"doc", "docs", "document", "manifest", "spec"},
 }
 PHRASE_TARGETS = [
-    ("operator profile", "operator_profile"),
-    ("operator model", "operator_profile"),
-    ("pause analysis", "pause_analysis"),
-    ("intent graph", "intent_graph"),
-    ("file matching", "file_matching"),
-    ("numerically matched", "semantic_numeric_file_matching"),
-    ("semantically", "semantic_numeric_file_matching"),
-    ("semantic numeric", "semantic_numeric_file_matching"),
-    ("numeric file", "numeric_file_encoding"),
-    ("neumeric file", "numeric_file_encoding"),
-    ("numeric encoding", "numeric_encoding"),
-    ("structured intent", "structured_intent_extraction"),
-    ("intent extraction", "structured_intent_extraction"),
     ("thought completer", "thought_completer"),
+    ("proper intent key mapping", "intent_key_mapping"),
+    ("promper intent key mapping", "intent_key_mapping"),
+    ("intent key mapping", "intent_key_mapping"),
+    ("intent mapping", "intent_key_mapping"),
+    ("operator profile", "operator_profile"),
+    ("intent graph", "intent_graph"),
+    ("intent graphs", "intent_graph"),
+    ("structured intent", "structured_intent"),
+    ("file matching", "file_matching"),
+    ("match intent keys", "file_matching"),
+    ("numeric encoding", "numeric_encoding"),
+    ("prompt history", "prompt_history"),
+    ("file comments", "file_comments"),
+    ("context select", "context_select"),
+    ("domain manifest", "domain_manifest"),
+    ("intent profile", "intent_profile"),
+    ("intent profiles", "intent_profile"),
     ("prompt box", "prompt_box"),
     ("intent manager", "intent_manager"),
     ("intent key", "intent_key"),
@@ -58,8 +74,28 @@ def _utc_now() -> str:
 
 
 def _tokens(text: str) -> list[str]:
-    text = text.replace("_", " ")
-    return [t for t in re.findall(r"[a-zA-Z0-9]+", text.lower()) if len(t) > 2 and t not in STOP]
+    lower = str(text or "").lower().replace("_", " ")
+    compound_tokens = []
+    phrase_tokens = {
+        "intent key": "intent_key",
+        "intent keys": "intent_key",
+        "intent map": "intent_map",
+        "intent mapping": "intent_key_mapping",
+        "intent key mapping": "intent_key_mapping",
+        "proper intent key mapping": "intent_key_mapping",
+        "promper intent key mapping": "intent_key_mapping",
+        "context select": "context_select",
+        "domain manifest": "domain_manifest",
+        "file pairing": "file_pairing",
+        "file pairings": "file_pairing",
+        "file comments": "file_comments",
+        "prompt history": "prompt_history",
+    }
+    for phrase, token in phrase_tokens.items():
+        if phrase in lower:
+            compound_tokens.append(token)
+    base_tokens = [t for t in re.findall(r"[a-zA-Z0-9]+", lower) if len(t) > 2 and t not in STOP]
+    return [*base_tokens, *compound_tokens]
 
 
 def _slug(text: str, fallback: str = "work") -> str:
@@ -93,11 +129,13 @@ def discover_manifests(root: Path, limit: int = 500) -> list[dict[str, Any]]:
         scope = "root" if parent == "." else parent
         first_heading = next((ln.strip("# ").strip() for ln in text.splitlines() if ln.startswith("#")), scope)
         haystack = f"{rel} {scope} {first_heading} {text[:4000]}"
+        tokens = sorted(set(_tokens(haystack)))
         out.append({
             "path": rel,
             "scope": scope,
             "title": first_heading[:120],
-            "tokens": sorted(set(_tokens(haystack))),
+            "tokens": tokens,
+            "domain_id": _file_domain(rel, set(tokens)),
             "excerpt": "\n".join(text.splitlines()[:18])[:1200],
         })
     return out
@@ -134,9 +172,18 @@ def _choose_scale(prompt_tokens: set[str]) -> str:
 
 def _choose_target(prompt: str, scope: str) -> str:
     lower = prompt.lower().replace("-", " ")
+    matches: list[tuple[int, int, str]] = []
     for phrase, target in PHRASE_TARGETS:
         if phrase in lower:
-            return target
+            matches.append((lower.rfind(phrase), len(phrase), target))
+    if matches:
+        specific = [
+            row for row in matches
+            if row[2] not in {"thought_completer", "intent_key", "manifest"}
+        ]
+        pool = specific or matches
+        pool.sort(key=lambda row: (row[0], row[1]), reverse=True)
+        return pool[0][2]
     explicit = re.findall(r"(?:src|client|pigeon_compiler|pigeon_brain)/[a-zA-Z0-9_./-]+", prompt)
     if explicit:
         return _slug(Path(explicit[0]).stem)
@@ -209,524 +256,1282 @@ def generate_intent_key(
     return write_outputs(root, record, emit_prompt_box=emit_prompt_box, inject=inject)
 
 
+DOMAIN_HINTS = {
+    "project.keystroke_telemetry": {
+        "terms": {
+            "keystroke", "typing", "deleted", "deletion", "context", "select",
+            "telemetry", "thought", "completer", "prompt", "intent", "numeric",
+            "profile", "manifest", "file", "files", "pairing", "learning",
+        },
+        "privacy": "local-first",
+    },
+    "project.hush": {
+        "terms": {"hush", "shard", "shards", "memory", "writeback", "recall"},
+        "privacy": "mixed",
+    },
+    "project.irt": {
+        "terms": {"irt", "artifact", "probe", "field", "pulse", "entity"},
+        "privacy": "project-with-personal-signals",
+    },
+    "project.pigeon_code_compiler": {
+        "terms": {"pigeon", "compiler", "compile", "rename", "registry", "import"},
+        "privacy": "project",
+    },
+    "personal.operator_profile": {
+        "terms": {"personal", "operator", "profile", "routine", "name", "style"},
+        "privacy": "private",
+    },
+    "cross_domain.audit": {
+        "terms": {"audit", "security", "origin", "push", "pr", "github", "test"},
+        "privacy": "project-with-sensitive-logs",
+    },
+}
+DOMAIN_ANCHORS = {
+    "project.hush": {"hush", "shard", "shards", "writeback", "recall"},
+    "project.irt": {"irt", "artifact", "probe", "field", "pulse", "entity"},
+    "project.pigeon_code_compiler": {"pigeon", "compiler", "compile"},
+    "personal.operator_profile": {"operator", "personal", "profile"},
+    "cross_domain.audit": {"audit", "origin", "push", "pr", "github", "security"},
+}
+DOMAIN_PATH_PREFIXES = {
+    "project.keystroke_telemetry": (
+        "src/tc_",
+        "src/intent_",
+        "src/context_",
+        "client/",
+        "vscode-extension/",
+    ),
+    "project.hush": (
+        "hush/",
+        "hush_runtime/",
+        "hush_memory/",
+    ),
+    "project.irt": (
+        "src/irt_",
+        "irt/",
+        "artifacts/",
+    ),
+    "project.pigeon_code_compiler": (
+        "pigeon_compiler/",
+        "pigeon_brain/",
+    ),
+    "cross_domain.audit": (
+        ".github/",
+        "documentation/manifests/",
+        "docs/push_narratives/",
+    ),
+}
+DOMAIN_EXTERNAL_PREFIXES = {
+    "project.hush": (
+        "hush/",
+        "hush_runtime/",
+        "hush_memory/",
+        "listen/",
+    ),
+    "project.irt": (
+        "api/",
+        "directory/",
+        "production_auditor/",
+        "artifact_storage/",
+    ),
+    "project.pigeon_code_compiler": (
+        "pigeon_compiler/",
+    ),
+}
+STALE_CONTEXT_PARTS = {
+    "docs/push_narratives",
+    "pigeon_compiler/bones",
+    "documentation/manifests",
+}
+DOC_SUPPORT_TOKENS = {
+    "audit", "architecture", "architerchture", "doc", "docs",
+    "document", "manifest", "policy", "plan", "read", "review", "spec", "system",
+    "systems",
+}
+EXTERNAL_PROJECT_DOMAINS = {
+    "project.hush",
+    "project.irt",
+    "project.pigeon_code_compiler",
+}
+
+GRAPH_SPLIT_RE = re.compile(
+    r"\s*(?:[,;]|\bthen\b|\bplus\b|\band\s+(?="
+    r"build|complete|get|match|use|route|update|write|run|seed|make|audit|fix|"
+    r"implement|create|add|select|compile|learn|pair"
+    r"\b))\s*",
+    re.I,
+)
+
+SOURCE_SUFFIXES = {".py", ".md", ".js", ".jsx", ".ts", ".tsx", ".json"}
+SOURCE_SKIP_PARTS = {
+    ".git", ".pytest_cache", "__pycache__", "node_modules", "logs",
+    "build", "dist", ".venv", "venv",
+}
+
+
+def _safe_key(text: str) -> str:
+    key = re.sub(r"[^a-zA-Z0-9_.:-]+", "_", str(text or "").strip())
+    key = re.sub(r"_+", "_", key).strip("_")
+    return key[:180] or "unknown"
+
+
+def _prompt_hash(prompt: str) -> str:
+    return hashlib.sha256(str(prompt or "").encode("utf-8", errors="replace")).hexdigest()[:16]
+
+
+def _as_posix(path: Path) -> str:
+    return path.resolve().as_posix()
+
+
+def _is_relative_to(path: Path, base: Path) -> bool:
+    try:
+        path.resolve().relative_to(base.resolve())
+        return True
+    except ValueError:
+        return False
+
+
+def _resolve_context_path(root: Path, rel: str) -> Path:
+    path = Path(str(rel or ""))
+    if path.is_absolute():
+        return path
+    return Path(root) / path
+
+
+def _split_prompt(prompt: str, max_intents: int = 8) -> list[str]:
+    text = re.sub(r"\s+", " ", str(prompt or "").strip())
+    if not text:
+        return []
+    parts = [part.strip(" .:-") for part in GRAPH_SPLIT_RE.split(text)]
+    out = []
+    seen = set()
+    for part in parts:
+        if len(_tokens(part)) < 2:
+            continue
+        key = part.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(part)
+        if len(out) >= max_intents:
+            break
+    return out or [text]
+
+
+def _select_domain(text: str, fallback_domain: str = "project.keystroke_telemetry") -> dict[str, Any]:
+    toks = set(_tokens(text))
+    rows = []
+    for domain_id, spec in DOMAIN_HINTS.items():
+        terms = set(spec["terms"])
+        hits = sorted(toks & terms)
+        anchors = DOMAIN_ANCHORS.get(domain_id, set())
+        anchor_hits = sorted(toks & anchors)
+        score = round(len(hits) / max(1, len(toks)) + (0.08 if hits else 0), 4)
+        if anchors and not anchor_hits:
+            score = 0.0
+        rows.append({
+            "domain_id": domain_id,
+            "score": score,
+            "matched_terms": hits,
+            "anchor_terms": anchor_hits,
+            "privacy": spec["privacy"],
+        })
+    rows.sort(key=lambda row: (-float(row["score"]), row["domain_id"]))
+    primary = rows[0] if rows and rows[0]["score"] > 0 else {
+        "domain_id": fallback_domain,
+        "score": 0.0,
+        "matched_terms": [],
+        "privacy": DOMAIN_HINTS.get(fallback_domain, DOMAIN_HINTS["project.keystroke_telemetry"])["privacy"],
+        "fallback": True,
+    }
+    return {
+        "schema": "domain_selection/v1",
+        "primary_domain": primary["domain_id"],
+        "primary": primary,
+        "secondary_domains": [row for row in rows[1:5] if row["score"] > 0],
+        "scores": rows,
+    }
+
+
+def _default_domain_manifest(root: Path) -> dict[str, Any]:
+    root = Path(root)
+    root_abs = _as_posix(root)
+    domains = []
+    for domain_id, spec in DOMAIN_HINTS.items():
+        roots = [{
+            "root": root_abs,
+            "source": "local_repo",
+            "path_prefixes": list(DOMAIN_PATH_PREFIXES.get(domain_id, ())),
+        }]
+        external_root = os.environ.get("KEYSTROKE_EXTERNAL_PROJECT_ROOT", "").strip()
+        if external_root and root.name.lower() == "keystroke-telemetry" and domain_id in DOMAIN_EXTERNAL_PREFIXES:
+            roots.append({
+                "root": _as_posix(Path(external_root)),
+                "source": "external_project",
+                "path_prefixes": list(DOMAIN_EXTERNAL_PREFIXES[domain_id]),
+            })
+        domains.append({
+            "domain_id": domain_id,
+            "terms": sorted(spec["terms"]),
+            "anchors": sorted(DOMAIN_ANCHORS.get(domain_id, set())),
+            "privacy": spec["privacy"],
+            "roots": roots,
+            "intent_profile_dir": "logs/intent_profiles",
+        })
+    return {
+        "schema": "domain_manifest/v1",
+        "root": root_abs,
+        "domains": domains,
+        "split_policy": "split when prompt segment domain differs, selected files exceed intent scope, or domain files are unavailable",
+    }
+
+
+def _merge_domain_manifest(default: dict[str, Any], override: dict[str, Any]) -> dict[str, Any]:
+    if not isinstance(override, dict) or override.get("schema") != "domain_manifest/v1":
+        return default
+    default_by_id = {row.get("domain_id"): row for row in default.get("domains") or []}
+    merged = {**default, **{k: v for k, v in override.items() if k != "domains"}}
+    domains = []
+    for row in override.get("domains") or []:
+        domain_id = row.get("domain_id")
+        if not domain_id:
+            continue
+        base = default_by_id.get(domain_id, {})
+        merged_row = {**base, **row}
+        roots_by_key = {}
+        for spec in [*(base.get("roots") or []), *(row.get("roots") or [])]:
+            if not isinstance(spec, dict) or not spec.get("root"):
+                continue
+            key = (str(spec.get("root")), str(spec.get("source", "")))
+            roots_by_key[key] = {**roots_by_key.get(key, {}), **spec}
+        merged_row["roots"] = list(roots_by_key.values())
+        domains.append(merged_row)
+        default_by_id.pop(domain_id, None)
+    domains.extend(default_by_id.values())
+    merged["domains"] = domains
+    return merged
+
+
+def _load_domain_manifest(root: Path) -> dict[str, Any]:
+    root = Path(root)
+    default = _default_domain_manifest(root)
+    path = root / "logs" / "domain_manifest.json"
+    if not path.exists():
+        return default
+    try:
+        existing = json.loads(path.read_text(encoding="utf-8", errors="replace"))
+    except Exception:
+        return default
+    return _merge_domain_manifest(default, existing)
+
+
+def _domain_rows(domain_manifest: dict[str, Any]) -> list[dict[str, Any]]:
+    rows = domain_manifest.get("domains") if isinstance(domain_manifest, dict) else []
+    return [row for row in rows or [] if isinstance(row, dict) and row.get("domain_id")]
+
+
+def _write_domain_manifest(root: Path, domain_manifest: dict[str, Any]) -> dict[str, str]:
+    root = Path(root)
+    now = _utc_now()
+    state = {**domain_manifest, "updated_at": now}
+    domains = []
+    for domain in _domain_rows(domain_manifest):
+        row = {**domain}
+        roots = []
+        for spec in domain.get("roots") or []:
+            if not isinstance(spec, dict) or not spec.get("root"):
+                continue
+            root_path = Path(str(spec["root"]))
+            roots.append({
+                **spec,
+                "root": root_path.as_posix(),
+                "exists": root_path.exists(),
+            })
+        row["roots"] = roots
+        domains.append(row)
+    state["domains"] = domains
+    path = root / "logs" / "domain_manifest.json"
+    _write_json(path, state)
+    lines = [
+        "# Domain Manifest",
+        "",
+        f"- updated_at: `{now}`",
+        f"- root: `{state.get('root', _as_posix(root))}`",
+        f"- split_policy: {state.get('split_policy', '')}",
+        "",
+    ]
+    for domain in domains:
+        lines.extend([
+            f"## {domain.get('domain_id', '')}",
+            "",
+            f"- privacy: `{domain.get('privacy', '')}`",
+            f"- intent_profile_dir: `{domain.get('intent_profile_dir', '')}`",
+            f"- anchors: {', '.join(f'`{term}`' for term in domain.get('anchors') or [])}",
+            "",
+            "### Roots",
+            "",
+        ])
+        for spec in domain.get("roots") or []:
+            prefixes = ", ".join(f"`{prefix}`" for prefix in spec.get("path_prefixes") or [])
+            lines.append(
+                f"- `{spec.get('root', '')}` source=`{spec.get('source', '')}` "
+                f"exists=`{bool(spec.get('exists'))}` prefixes={prefixes}"
+            )
+        lines.append("")
+    md = root / "logs" / "domain_manifest.md"
+    md.parent.mkdir(parents=True, exist_ok=True)
+    md.write_text("\n".join(lines), encoding="utf-8")
+    return {"json": path.relative_to(root).as_posix(), "markdown": md.relative_to(root).as_posix()}
+
+
+def _canonical_file_key(path: str) -> str:
+    stem = Path(str(path or "")).stem.lower()
+    stem = stem.split("__", 1)[0]
+    stem = re.sub(r"[^a-z0-9_]+", "_", stem)
+    stem = re.sub(r"_seq\d+(?=_|$)", "", stem)
+    stem = re.sub(r"_v\d+(?=_|$)", "", stem)
+    stem = re.sub(r"_d\d{4}(?=_|$)", "", stem)
+    stem = re.sub(r"_s\d{3}(?=_|$)", "", stem)
+    return re.sub(r"_+", "_", stem).strip("_")
+
+
+def _file_domain(rel: str, tokens: set[str]) -> str:
+    path = str(rel or "").lower().replace("\\", "/")
+    for domain_id, prefixes in DOMAIN_PATH_PREFIXES.items():
+        if any(path.startswith(prefix) for prefix in prefixes):
+            return domain_id
+    if path.startswith("docs/") or path.startswith("documentation/") or path.endswith("manifest.md"):
+        return "cross_domain.audit"
+    if "hush" in path or {"hush", "shard"} <= tokens:
+        return "project.hush"
+    if "irt" in path or {"irt", "artifact"} <= tokens:
+        return "project.irt"
+    if "pigeon" in path or {"pigeon", "compiler"} <= tokens:
+        return "project.pigeon_code_compiler"
+    return "project.keystroke_telemetry"
+
+
+def _is_stale_context_path(rel: str) -> bool:
+    path = str(rel or "").lower().replace("\\", "/")
+    return any(part in path for part in STALE_CONTEXT_PARTS)
+
+
+def _source_preference(rel: str, domain_id: str, segment_tokens: set[str]) -> tuple[float, list[str]]:
+    path = str(rel or "").lower().replace("\\", "/")
+    suffix = Path(path).suffix
+    reasons: list[str] = []
+    score = 0.0
+    if suffix in {".py", ".ts", ".tsx", ".js", ".jsx"}:
+        score += 0.42
+        reasons.append("source_file_preference")
+    if suffix == ".md":
+        doc_penalty = 0.28
+        if "manifest" in segment_tokens or "docs" in segment_tokens or "document" in segment_tokens:
+            doc_penalty = 0.04
+        score -= doc_penalty
+        reasons.append("markdown_context_penalty")
+    if _is_stale_context_path(path):
+        stale_penalty = 0.95
+        if "audit" in segment_tokens or "history" in segment_tokens:
+            stale_penalty = 0.35
+        score -= stale_penalty
+        reasons.append("stale_generated_context_penalty")
+    if domain_id == "project.pigeon_code_compiler" and path.startswith("pigeon_compiler/") and suffix == ".py":
+        score += 0.36
+        reasons.append("domain_source_bonus")
+    if domain_id == "project.hush" and "hush" in path and suffix == ".py":
+        score += 0.36
+        reasons.append("domain_source_bonus")
+    if domain_id == "project.irt" and ("irt" in path or "artifact" in path) and suffix == ".py":
+        score += 0.36
+        reasons.append("domain_source_bonus")
+    if segment_tokens & {"intent_key", "intent_key_mapping", "intent_map"}:
+        if any(part in path for part in ("tc_intent_keys", "test_tc_intent_keys", "intent_map", "intent_file_memory")):
+            score += 0.76
+            reasons.append("intent_key_mapping_file_bonus")
+        elif (path.startswith("test_") or path.startswith("tests/")) and "intent" not in path:
+            score -= 0.28
+            reasons.append("generic_test_penalty")
+    return score, reasons
+
+
+def _row_for_path(root: Path, path: Path, rel: str, domain_id: str | None = None,
+                  *, external: bool = False, scan_root: Path | None = None) -> dict[str, Any]:
+    try:
+        text = path.read_text(encoding="utf-8", errors="ignore")[:5000]
+    except Exception:
+        text = ""
+    haystack = f"{rel} {Path(rel).stem} {text[:1600]}"
+    toks = set(_tokens(haystack))
+    return {
+        "path": _as_posix(path) if external else rel,
+        "repo_path": rel,
+        "root": _as_posix(scan_root or root),
+        "key": _canonical_file_key(rel),
+        "domain_id": domain_id or _file_domain(rel, toks),
+        "tokens": toks,
+        "excerpt": text[:700],
+        "external": external,
+    }
+
+
+def _file_rows(root: Path, limit: int = 5000) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    root = Path(root)
+    for path in sorted(root.rglob("*")):
+        if len(rows) >= limit:
+            break
+        if not path.is_file() or path.suffix.lower() not in SOURCE_SUFFIXES:
+            continue
+        rel = path.relative_to(root).as_posix()
+        if any(part in SOURCE_SKIP_PARTS for part in Path(rel).parts):
+            continue
+        rows.append(_row_for_path(root, path, rel))
+    return rows
+
+
+def _external_file_rows(root: Path, domain_manifest: dict[str, Any], limit: int = 1800) -> list[dict[str, Any]]:
+    root = Path(root)
+    rows: list[dict[str, Any]] = []
+    local_root = root.resolve()
+    for domain in _domain_rows(domain_manifest):
+        domain_id = str(domain.get("domain_id") or "")
+        for spec in domain.get("roots") or []:
+            if len(rows) >= limit:
+                break
+            if not isinstance(spec, dict) or spec.get("source") != "external_project":
+                continue
+            scan_root = Path(str(spec.get("root") or ""))
+            if not scan_root.exists() or _is_relative_to(scan_root, local_root):
+                continue
+            prefixes = [str(prefix).replace("\\", "/").strip("/") for prefix in spec.get("path_prefixes") or []]
+            if not prefixes:
+                continue
+            for prefix in prefixes:
+                if len(rows) >= limit:
+                    break
+                base = scan_root / Path(prefix)
+                if not base.exists():
+                    continue
+                for path in sorted(base.rglob("*")):
+                    if len(rows) >= limit:
+                        break
+                    if not path.is_file() or path.suffix.lower() not in SOURCE_SUFFIXES:
+                        continue
+                    rel = path.relative_to(scan_root).as_posix()
+                    if any(part in SOURCE_SKIP_PARTS for part in Path(rel).parts):
+                        continue
+                    rows.append(_row_for_path(root, path, rel, domain_id, external=True, scan_root=scan_root))
+    return rows
+
+
+def _numeric_rows(numeric_files: list[Any] | None) -> tuple[dict[str, float], list[str]]:
+    scores: dict[str, float] = {}
+    raw_files: list[str] = []
+    for row in numeric_files or []:
+        if isinstance(row, dict):
+            name = str(row.get("path") or row.get("file") or row.get("name") or "")
+            score = float(row.get("score") or 0.0)
+        else:
+            name = str(row)
+            score = 0.1
+        if not name:
+            continue
+        raw_files.append(name.replace("\\", "/"))
+        key = _canonical_file_key(name)
+        scores[key] = max(scores.get(key, 0.0), score)
+    return scores, raw_files
+
+
+def _score_file(domain_id: str, segment_tokens: set[str], prompt_tokens: set[str], file_row: dict[str, Any],
+                numeric_scores: dict[str, float]) -> tuple[float, list[str]]:
+    ftoks = set(file_row.get("tokens") or [])
+    reasons = []
+    score = 0.0
+    file_domain = str(file_row.get("domain_id") or "project.keystroke_telemetry")
+    if file_domain == domain_id:
+        score += 0.75
+        reasons.append("domain_match")
+    elif file_domain == "cross_domain.audit" and domain_id != "personal.operator_profile":
+        score -= 0.12
+        reasons.append("cross_domain_context")
+    else:
+        score -= 0.7
+        reasons.append("domain_mismatch")
+    segment_overlap = segment_tokens & ftoks
+    prompt_overlap = prompt_tokens & ftoks
+    if segment_overlap:
+        score += len(segment_overlap) * 0.45
+        reasons.append("segment_overlap")
+    if prompt_overlap:
+        score += min(1.0, len(prompt_overlap) * 0.08)
+        reasons.append("prompt_overlap")
+    numeric = numeric_scores.get(str(file_row.get("key") or ""), 0.0)
+    if numeric:
+        score += min(2.0, numeric * 2.0)
+        reasons.append("numeric_prediction")
+    path = str(file_row.get("path") or "").lower()
+    for tok in segment_tokens:
+        if tok in path:
+            score += 0.18
+            reasons.append("path_token")
+            break
+    source_score, source_reasons = _source_preference(path, domain_id, segment_tokens)
+    score += source_score
+    reasons.extend(source_reasons)
+    return round(score, 4), sorted(set(reasons))
+
+
+def _is_source_file(rel: str) -> bool:
+    return Path(str(rel or "")).suffix.lower() in {".py", ".ts", ".tsx", ".js", ".jsx"}
+
+
+def _compatible_file_domains(domain_id: str) -> set[str]:
+    domains = {domain_id}
+    if domain_id == "personal.operator_profile":
+        domains.add("project.keystroke_telemetry")
+    return domains
+
+
+def _domain_source_available(candidates: list[dict[str, Any]], domain_id: str) -> bool:
+    compatible = _compatible_file_domains(domain_id)
+    return any(
+        str(row.get("domain_id") or "") in compatible and _is_source_file(str(row.get("path") or ""))
+        for row in candidates
+    )
+
+
+def _doc_support_allowed(segment_tokens: set[str], domain_id: str) -> bool:
+    return domain_id == "cross_domain.audit" or bool(segment_tokens & DOC_SUPPORT_TOKENS)
+
+
+def _file_allowed_for_domain(row: dict[str, Any], domain_id: str, segment_tokens: set[str]) -> bool:
+    file_domain = str(row.get("domain_id") or "")
+    if file_domain in _compatible_file_domains(domain_id):
+        return True
+    if file_domain == "cross_domain.audit" and _doc_support_allowed(segment_tokens, domain_id):
+        return True
+    return False
+
+
+def _score_manifest_for_domain(
+    segment_tokens: set[str],
+    prompt_tokens: set[str],
+    manifest: dict[str, Any],
+    domain_id: str,
+) -> tuple[float, list[str]]:
+    reasons: list[str] = []
+    score = _score_manifest(segment_tokens | prompt_tokens, manifest)
+    manifest_domain = str(manifest.get("domain_id") or "")
+    path = str(manifest.get("path") or "")
+    if manifest_domain == domain_id:
+        score += 0.32
+        reasons.append("domain_manifest_match")
+    elif manifest_domain == "cross_domain.audit" and _doc_support_allowed(segment_tokens, domain_id):
+        score += 0.02
+        reasons.append("cross_domain_manifest_support")
+    else:
+        return -1.0, ["manifest_domain_mismatch"]
+    if _is_stale_context_path(path):
+        score -= 0.7
+        reasons.append("stale_manifest_penalty")
+    return round(score, 4), sorted(set(reasons))
+
+
+def _select_manifest_for_intent(
+    manifests: list[dict[str, Any]],
+    segment_tokens: set[str],
+    prompt_tokens: set[str],
+    domain_id: str,
+) -> dict[str, Any]:
+    scored = []
+    for manifest in manifests:
+        score, reasons = _score_manifest_for_domain(segment_tokens, prompt_tokens, manifest, domain_id)
+        if score > 0:
+            scored.append({**manifest, "score": score, "score_reasons": reasons})
+    scored.sort(key=lambda row: (-float(row["score"]), row["path"]))
+    if scored:
+        return scored[0]
+    return {
+        "path": f"domain:{domain_id}",
+        "scope": domain_id,
+        "title": domain_id,
+        "domain_id": domain_id,
+        "score": 0.0,
+        "score_reasons": ["domain_scope_fallback"],
+        "excerpt": "",
+    }
+
+
+def _manifest_for_file(root: Path, rel: str) -> str:
+    full_path = _resolve_context_path(root, rel)
+    if full_path.is_absolute() and not _is_relative_to(full_path, Path(root)):
+        for parent in [full_path.parent, *full_path.parents]:
+            candidate = parent / "MANIFEST.md"
+            if candidate.exists():
+                return candidate.as_posix()
+        return "external:MANIFEST.md"
+    path = Path(str(rel or ""))
+    parts = path.parts
+    for index in range(len(parts), 0, -1):
+        candidate = Path(*parts[:index]) / "MANIFEST.md"
+        if (Path(root) / candidate).exists():
+            return candidate.as_posix()
+    return "MANIFEST.md"
+
+
+def _file_comment(root: Path, rel: str) -> str:
+    path = _resolve_context_path(root, rel)
+    try:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+    except Exception:
+        return rel
+    for line in text.splitlines()[:40]:
+        clean = line.strip().strip("#").strip().strip('"')
+        if clean and not clean.startswith("-*-") and "telemetry:pulse" not in clean:
+            return clean[:220]
+    return rel
+
+
+def _select_files_for_intent(
+    root: Path,
+    segment: str,
+    prompt: str,
+    intent_key: str,
+    domain_id: str,
+    candidates: list[dict[str, Any]],
+    numeric_scores: dict[str, float],
+    max_files: int,
+) -> tuple[list[str], list[dict[str, Any]], list[str]]:
+    segment_tokens = set(_tokens(segment))
+    prompt_tokens = set(_tokens(prompt))
+    scored = []
+    for row in candidates:
+        score, reasons = _score_file(domain_id, segment_tokens, prompt_tokens, row, numeric_scores)
+        if score > 0:
+            scored.append({
+                "file": row["path"],
+                "repo_path": row.get("repo_path", row["path"]),
+                "root": row.get("root", ""),
+                "domain_id": row.get("domain_id", ""),
+                "external": bool(row.get("external")),
+                "score": score,
+                "reasons": reasons,
+            })
+    scored.sort(key=lambda row: (-float(row["score"]), row["file"]))
+
+    learned = match_intent_file_memory(root, segment, intent_key=intent_key, limit=max_files)
+    learned_files = [row["file"] for row in learned if _resolve_context_path(root, row["file"]).exists()]
+    rows_by_file = {row["file"]: row for row in scored}
+    for row in learned:
+        file = row["file"]
+        if not _resolve_context_path(root, file).exists():
+            continue
+        existing = rows_by_file.get(file)
+        if existing:
+            existing["score"] = round(float(existing["score"]) + float(row["score"]), 4)
+            existing.setdefault("reasons", []).append("learned_file_memory")
+        else:
+            file_domain = _file_domain(file, set(_tokens(file)))
+            if file_domain not in {domain_id, "cross_domain.audit"}:
+                continue
+            rows_by_file[file] = {
+                "file": file,
+                "repo_path": file,
+                "root": _as_posix(Path(root)),
+                "domain_id": file_domain,
+                "external": Path(file).is_absolute(),
+                "score": row["score"],
+                "reasons": ["learned_file_memory"],
+            }
+    domain_source_available = _domain_source_available(candidates, domain_id)
+    scoped_rows = [
+        row for row in rows_by_file.values()
+        if _file_allowed_for_domain(row, domain_id, segment_tokens)
+    ]
+    if domain_source_available:
+        scored = scoped_rows
+    elif domain_id in EXTERNAL_PROJECT_DOMAINS:
+        scored = [
+            row for row in scoped_rows
+            if str(row.get("domain_id") or "") == "cross_domain.audit"
+            and _doc_support_allowed(segment_tokens, domain_id)
+        ]
+    else:
+        scored = scoped_rows or list(rows_by_file.values())
+    scored = sorted(scored, key=lambda row: (-float(row["score"]), row["file"]))
+
+    files = [row["file"] for row in scored[:max_files]]
+    if not files and domain_id not in EXTERNAL_PROJECT_DOMAINS:
+        fallback = _manifest_for_file(root, "MANIFEST.md")
+        if (Path(root) / fallback).exists():
+            files = [fallback]
+            scored = [{"file": fallback, "score": 0.01, "reasons": ["manifest_fallback"]}]
+        elif candidates:
+            files = [candidates[0]["path"]]
+            scored = [{"file": candidates[0]["path"], "score": 0.01, "reasons": ["repo_fallback"]}]
+    return files, scored[:max_files], learned_files
+
+
+def _context_clearing(root: Path, selected_files: list[str], numeric_raw: list[str]) -> dict[str, Any]:
+    selected = list(dict.fromkeys(selected_files))
+    selected_keys = {_canonical_file_key(file) for file in selected}
+    deranked = []
+    for raw in numeric_raw:
+        key = _canonical_file_key(raw)
+        exists = (Path(root) / raw).exists()
+        if key not in selected_keys or not exists:
+            deranked.append({
+                "file": raw,
+                "reason": "missing_or_outside_selected_context" if not exists else "weaker_than_intent_files",
+                "canonical_key": key,
+            })
+    return {
+        "schema": "self_clearing_context/v1",
+        "context_window_files": selected,
+        "deranked_files": deranked,
+        "selected_count": len(selected),
+    }
+
+
+def _load_existing_nodes(root: Path) -> dict[str, Any]:
+    path = Path(root) / "logs" / "intent_nodes.json"
+    if not path.exists():
+        return {"schema": "intent_nodes/v1", "nodes": {}}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8", errors="replace"))
+    except Exception:
+        data = {"schema": "intent_nodes/v1", "nodes": {}}
+    if not isinstance(data, dict):
+        data = {"schema": "intent_nodes/v1", "nodes": {}}
+    data.setdefault("schema", "intent_nodes/v1")
+    data.setdefault("nodes", {})
+    return data
+
+
+def _match_existing_nodes(root: Path, intents: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    state = _load_existing_nodes(root)
+    rows = []
+    for intent in intents:
+        toks = set(_tokens(" ".join([intent.get("intent_key", ""), intent.get("segment", "")])))
+        for key, node in (state.get("nodes") or {}).items():
+            ntoks = set(node.get("tokens") or [])
+            overlap = toks & ntoks
+            if not overlap:
+                continue
+            file_counts = node.get("files") if isinstance(node.get("files"), dict) else {}
+            dominant = [
+                file for file, _count in sorted(
+                    file_counts.items(),
+                    key=lambda item: (-int(item[1]), item[0]),
+                )[:5]
+            ]
+            rows.append({
+                "intent_key": key,
+                "current_intent_key": intent.get("intent_key", ""),
+                "score": round(len(overlap) / max(1, len(toks)), 4),
+                "matched_tokens": sorted(overlap)[:12],
+                "dominant_files": dominant,
+            })
+    rows.sort(key=lambda row: (-float(row["score"]), row["intent_key"]))
+    return rows[:8]
+
+
+def _update_intent_nodes(root: Path, intents: list[dict[str, Any]]) -> dict[str, Any]:
+    state = _load_existing_nodes(root)
+    now = _utc_now()
+    nodes = state.setdefault("nodes", {})
+    for intent in intents:
+        key = intent["intent_key"]
+        node = nodes.setdefault(key, {
+            "intent_key": key,
+            "created_at": now,
+            "support": 0,
+            "tokens": [],
+            "files": {},
+            "last_seen": now,
+        })
+        node["support"] = int(node.get("support") or 0) + 1
+        node["last_seen"] = now
+        node["tokens"] = sorted(set([*node.get("tokens", []), *_tokens(" ".join([key, intent.get("segment", "")]))]))[:120]
+        files = node.setdefault("files", {})
+        for file in intent.get("files") or []:
+            files[file] = int(files.get(file) or 0) + 1
+    state["updated_at"] = now
+    state["node_count"] = len(nodes)
+    _write_json(Path(root) / "logs" / "intent_nodes.json", state)
+    return {"schema": "intent_nodes/v1", "node_count": len(nodes)}
+
+
+def _write_intent_profile_event(root: Path, event: dict[str, Any]) -> None:
+    _append_jsonl(Path(root) / "logs" / "intent_profile_events.jsonl", event)
+
+
+def _write_intent_profiles(root: Path, graph: dict[str, Any]) -> list[str]:
+    root = Path(root)
+    updated = []
+    now = graph["ts"]
+    for intent in graph.get("intents") or []:
+        key = intent["intent_key"]
+        safe = _safe_key(key).replace(":", "__")
+        path = root / "logs" / "intent_profiles" / f"{safe}.json"
+        profile = {}
+        if path.exists():
+            try:
+                profile = json.loads(path.read_text(encoding="utf-8", errors="replace"))
+            except Exception:
+                profile = {}
+        if not isinstance(profile, dict) or profile.get("schema") != "intent_key_profile/v1":
+            profile = {
+                "schema": "intent_key_profile/v1",
+                "intent_key": key,
+                "domain_id": intent.get("domain_id", ""),
+                "created_at": now,
+                "status": "active",
+                "files": {},
+                "file_comments": [],
+                "prompt_count": 0,
+                "triggers": {},
+            }
+        profile["updated_at"] = now
+        profile["domain_id"] = intent.get("domain_id", profile.get("domain_id", ""))
+        profile["prompt_count"] = int(profile.get("prompt_count") or 0) + 1
+        profile["last_prompt_hash"] = graph.get("prompt_hash")
+        profile["last_segment"] = intent.get("segment", "")
+        profile["manifest_path"] = intent.get("manifest_path", "")
+        triggers = profile.setdefault("triggers", {})
+        for tok in _tokens(" ".join([intent.get("segment", ""), key])):
+            triggers[tok] = int(triggers.get(tok) or 0) + 1
+        files = profile.setdefault("files", {})
+        comments = profile.setdefault("file_comments", [])
+        for file in intent.get("files") or []:
+            row = files.setdefault(file, {
+                "path": file,
+                "support": 0,
+                "role": "context_file",
+                "first_seen": now,
+            })
+            row["support"] = int(row.get("support") or 0) + 1
+            row["last_seen"] = now
+            row["manifest"] = _manifest_for_file(root, file)
+            comment = {
+                "ts": now,
+                "run_id": graph.get("run_id"),
+                "file": file,
+                "file_says": _file_comment(root, file),
+                "opinion": f"Serves {key} as selected context for segment: {intent.get('segment', '')[:160]}",
+                "missing": intent.get("missing", []),
+                "confidence": intent.get("confidence", 0.0),
+            }
+            comments.append(comment)
+            _write_intent_profile_event(root, {
+                "schema": "intent_profile_event/v1",
+                "ts": now,
+                "run_id": graph.get("run_id"),
+                "event": "file_comment_added",
+                "intent_key": key,
+                "file": file,
+                "prompt_hash": graph.get("prompt_hash"),
+            })
+        profile["file_comments"] = comments[-40:]
+        _write_json(path, profile)
+        updated.append(path.relative_to(root).as_posix())
+    return updated
+
+
+def _intent_file_pairings(root: Path, graph: dict[str, Any]) -> list[dict[str, Any]]:
+    rows = []
+    for intent in graph.get("intents") or []:
+        scores_by_file = {row.get("file"): row for row in intent.get("file_scores") or []}
+        for file in intent.get("files") or []:
+            score = scores_by_file.get(file, {})
+            rows.append({
+                "pairing_id": "intent-file:" + _prompt_hash(f"{intent.get('intent_key', '')}|{file}"),
+                "intent_key": intent.get("intent_key", ""),
+                "domain_id": intent.get("domain_id", ""),
+                "segment": intent.get("segment", ""),
+                "file": file,
+                "repo_path": score.get("repo_path", file),
+                "root": score.get("root", _as_posix(Path(root))),
+                "external": bool(score.get("external")),
+                "score": score.get("score", 0.0),
+                "reasons": score.get("reasons", []),
+                "file_comment": _file_comment(root, file),
+                "missing": intent.get("missing", []),
+                "manifest_path": intent.get("manifest_path", ""),
+            })
+    rows.sort(key=lambda row: (row["domain_id"], row["intent_key"], row["file"]))
+    return rows
+
+
+def _domain_gaps(graph: dict[str, Any]) -> list[dict[str, Any]]:
+    gaps = []
+    for intent in graph.get("intents") or []:
+        missing = intent.get("missing") or []
+        if not missing:
+            continue
+        gaps.append({
+            "intent_key": intent.get("intent_key", ""),
+            "domain_id": intent.get("domain_id", ""),
+            "segment": intent.get("segment", ""),
+            "missing": missing,
+        })
+    return gaps
+
+
+def _write_intent_map_manifest(root: Path, graph: dict[str, Any]) -> dict[str, str]:
+    root = Path(root)
+    logs = root / "logs"
+    manifest_json = logs / "intent_map_manifest.json"
+    pairings = _intent_file_pairings(root, graph)
+    files_by_domain: dict[str, list[str]] = {}
+    for pairing in pairings:
+        files_by_domain.setdefault(pairing["domain_id"], [])
+        if pairing["file"] not in files_by_domain[pairing["domain_id"]]:
+            files_by_domain[pairing["domain_id"]].append(pairing["file"])
+    state = {
+        "schema": "intent_map_manifest/v1",
+        "updated_at": graph["ts"],
+        "last_run_id": graph["run_id"],
+        "last_prompt_hash": graph["prompt_hash"],
+        "domain_manifest": graph.get("domain_manifest", {}),
+        "domain_selection": graph["domain_selection"],
+        "intent_count": graph["intent_count"],
+        "intents": [
+            {
+                "intent_key": row["intent_key"],
+                "domain_id": row["domain_id"],
+                "files": row["files"],
+                "external_files": [file for file in row["files"] if Path(str(file)).is_absolute()],
+                "manifest_path": row["manifest_path"],
+            }
+            for row in graph.get("intents") or []
+        ],
+        "file_pairings": pairings,
+        "files_by_domain": files_by_domain,
+        "domain_gaps": _domain_gaps(graph),
+        "profiles_updated": graph.get("intent_profiles_updated", []),
+    }
+    _write_json(manifest_json, state)
+    lines = [
+        "# Intent Map Manifest",
+        "",
+        f"- updated_at: `{graph['ts']}`",
+        f"- run_id: `{graph['run_id']}`",
+        f"- prompt_hash: `{graph['prompt_hash']}`",
+        f"- primary_domain: `{graph['domain_selection']['primary_domain']}`",
+        f"- domain_manifest: `{(graph.get('domain_manifest') or {}).get('path', 'logs/domain_manifest.json')}`",
+        "",
+        "## Domains",
+        "",
+    ]
+    for domain_id, files in sorted(files_by_domain.items()):
+        lines.append(f"- `{domain_id}` files={len(files)}")
+    if state["domain_gaps"]:
+        lines.extend(["", "## Domain Gaps", ""])
+        for gap in state["domain_gaps"]:
+            lines.append(f"- `{gap['intent_key']}` missing={', '.join(gap['missing'])}")
+    lines.extend([
+        "",
+        "## File Pairings",
+        "",
+    ])
+    for row in pairings:
+        external = " external" if row["external"] else ""
+        lines.append(f"- `{row['intent_key']}` -> `{row['file']}` score=`{row['score']}`{external}")
+        if row.get("file_comment"):
+            lines.append(f"  - says: {row['file_comment'][:160]}")
+    lines.extend([
+        "",
+        "## Intent Profiles",
+        "",
+    ])
+    for intent in graph.get("intents") or []:
+        lines.append(f"- `{intent['intent_key']}` domain=`{intent['domain_id']}` manifest=`{intent['manifest_path']}`")
+        for file in intent.get("files") or []:
+            lines.append(f"  - `{file}`")
+    md = logs / "intent_map_manifest.md"
+    md.parent.mkdir(parents=True, exist_ok=True)
+    md.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return {"json": manifest_json.relative_to(root).as_posix(), "markdown": md.relative_to(root).as_posix()}
+
+
+def _write_graph_context(root: Path, graph: dict[str, Any]) -> None:
+    lines = [
+        "# Intent Graph Context",
+        "",
+        f"- run_id: `{graph['run_id']}`",
+        f"- prompt_hash: `{graph['prompt_hash']}`",
+        f"- primary_domain: `{graph['domain_selection']['primary_domain']}`",
+        f"- intent_count: `{graph['intent_count']}`",
+        "",
+    ]
+    for intent in graph.get("intents") or []:
+        lines.extend([
+            f"## {intent['intent_key']}",
+            "",
+            f"- segment: {intent['segment']}",
+            f"- manifest: `{intent['manifest_path']}`",
+            f"- files: {', '.join(f'`{file}`' for file in intent.get('files') or [])}",
+            "",
+        ])
+    path = Path(root) / "logs" / "intent_graph_context.md"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines), encoding="utf-8")
+
+
 def generate_intent_graph(
     root: Path,
     prompt: str,
+    *,
     deleted_words: list[str] | None = None,
-    limit: int = 5,
-    numeric_files: list[dict[str, Any]] | None = None,
-    context_selection: dict[str, Any] | None = None,
+    numeric_files: list[Any] | None = None,
+    file_rows: list[dict[str, Any]] | None = None,
+    domain_manifest: dict[str, Any] | None = None,
     write: bool = True,
+    max_intents: int = 8,
+    max_files_per_intent: int = 3,
+    limit: int | None = None,
+    context_selection: dict[str, Any] | None = None,
+    **_compat_options: Any,
 ) -> dict[str, Any]:
-    """Generate multiple structured intent keys from one messy operator prompt.
-
-    This is the thought-completer shape: a pause should not collapse the whole
-    buffer into one key. It should expose the handful of moves the operator is
-    circling, with each move bound to manifests and candidate files.
-    """
+    """Compile a prompt into routed intent nodes and update profile memory."""
     root = Path(root)
     prompt = str(prompt or "").strip()
-    deleted = deleted_words or []
+    deleted_words = deleted_words or []
+    if limit is not None:
+        try:
+            max_intents = int(limit)
+        except (TypeError, ValueError):
+            pass
+    if numeric_files is None and isinstance(context_selection, dict):
+        numeric_files = context_selection.get("files") or []
+    combined_prompt = " ".join([prompt, *map(str, deleted_words)])
+    domain_manifest = domain_manifest or _load_domain_manifest(root)
+    global_domain = _select_domain(combined_prompt)
     manifests = discover_manifests(root)
-    numeric = list(numeric_files or [])
-    context_files = list((context_selection or {}).get("files") or [])
-    node_matches = _match_nodes(root, prompt)
-    segments = _split_intent_segments(prompt, limit=limit)
-    if prompt and not segments:
-        segments = [prompt]
-    p_tokens = set(_tokens(" ".join([prompt, *deleted])))
-    graph_id = hashlib.sha256(f"{prompt}|{' '.join(deleted)}".encode("utf-8")).hexdigest()[:16]
+    candidates = file_rows if file_rows is not None else [
+        *_file_rows(root),
+        *_external_file_rows(root, domain_manifest),
+    ]
+    numeric_scores, numeric_raw = _numeric_rows(numeric_files)
+    segments = _split_prompt(prompt, max_intents=max_intents)
+    prompt_tokens = set(_tokens(combined_prompt))
     intents = []
-    for index, segment in enumerate(segments[: max(1, int(limit or 5))], 1):
-        seg_tokens = set(_tokens(" ".join([segment, *deleted])))
-        scored = [{**m, "score": _score_manifest(seg_tokens or p_tokens, m)} for m in manifests]
-        scored.sort(key=lambda m: (-m["score"], m["path"]))
-        best = scored[0] if scored else {"scope": "root", "path": "MANIFEST.md", "score": 0.0, "excerpt": ""}
-        confidence = float(best.get("score", 0.0))
-        verb = _choose_verb(seg_tokens or p_tokens)
-        scale = _choose_scale(seg_tokens or p_tokens)
-        target = _choose_target(segment, str(best.get("scope", "root")))
-        scope = str(best.get("scope") or "root")
+    for index, segment in enumerate(segments, 1):
+        segment_tokens = set(_tokens(segment))
+        segment_domain = _select_domain(segment, fallback_domain=global_domain["primary_domain"])
+        domain_id = segment_domain["primary_domain"]
+        manifest = _select_manifest_for_intent(manifests, segment_tokens, prompt_tokens, domain_id)
+        scope = str(manifest.get("scope") or "root")
+        verb = _choose_verb(segment_tokens)
+        scale = _choose_scale(segment_tokens | prompt_tokens)
+        target = _choose_target(segment, scope)
         intent_key = f"{scope}:{verb}:{target}:{scale}"
-        learned_files = _match_intent_file_memory(root, segment, intent_key)
-        syntax_files = _match_operator_syntax_triggers(root, segment, intent_key)
-        files = _intent_files(root, segment, scored[:6], numeric, context_files, node_matches, learned_files, syntax_files)
+        files, file_scores, learned_files = _select_files_for_intent(
+            root,
+            segment,
+            combined_prompt,
+            intent_key,
+            domain_id,
+            candidates,
+            numeric_scores,
+            max_files_per_intent,
+        )
+        confidence = round(
+            min(1.0, float(manifest.get("score") or 0.0) + (0.08 * len(files)) + (0.08 if learned_files else 0)),
+            4,
+        )
+        missing = []
+        if not files:
+            missing.append("no_file_pairing")
+            if domain_id in EXTERNAL_PROJECT_DOMAINS:
+                missing.append(f"domain_files_unavailable:{domain_id}")
         intents.append({
-            "index": index,
-            "segment": segment,
+            "schema": "intent_node/v1",
+            "intent_id": "intent-node:" + _prompt_hash(f"{prompt}|{index}|{intent_key}"),
             "intent_key": intent_key,
+            "domain_id": domain_id,
+            "domain_selection": segment_domain,
+            "segment": segment,
             "scope": scope,
             "verb": verb,
             "target": target,
             "scale": scale,
             "confidence": confidence,
-            "void": confidence < 0.06,
-            "manifest_path": str(best.get("path", "MANIFEST.md")),
+            "manifest_path": str(manifest.get("path") or "MANIFEST.md"),
             "files": files,
-            "learned_files": learned_files[:6],
-            "syntax_trigger_files": syntax_files[:6],
-            "numeric_files": _compact_numeric_files(numeric),
-            "why": _intent_why(segment, files, confidence),
-            "candidates": [{"scope": m["scope"], "path": m["path"], "score": m["score"]} for m in scored[:4]],
+            "file_scores": file_scores,
+            "learned_files": learned_files,
+            "missing": missing,
         })
-    clearing = _context_clearing_pass(root, prompt, intents, numeric, context_files)
+
+    selected_files = [file for intent in intents for file in intent.get("files") or []]
+    node_matches = _match_existing_nodes(root, intents)
+    nodes = _update_intent_nodes(root, intents) if write else {"schema": "intent_nodes/v1", "node_count": 0}
+    domain_split = {
+        "schema": "domain_split/v1",
+        "primary_domain": global_domain["primary_domain"],
+        "global": global_domain,
+        "intent_domains": [
+            {
+                "intent_key": intent["intent_key"],
+                "segment": intent["segment"],
+                "domain_id": intent["domain_id"],
+                "score": (intent.get("domain_selection") or {}).get("primary", {}).get("score", 0.0),
+            }
+            for intent in intents
+        ],
+        "split_count": len({intent["domain_id"] for intent in intents}),
+    }
     graph = {
         "schema": "intent_graph/v1",
         "ts": _utc_now(),
-        "graph_id": f"intent-graph:{graph_id}",
+        "run_id": "intent-run-" + _prompt_hash(prompt + _utc_now()),
+        "prompt_hash": _prompt_hash(prompt),
         "prompt": prompt,
-        "deleted_words": deleted,
+        "deleted_words": deleted_words,
+        "domain_manifest": {
+            "schema": domain_manifest.get("schema", "domain_manifest/v1"),
+            "domain_count": len(_domain_rows(domain_manifest)),
+            "path": "logs/domain_manifest.json",
+        },
+        "domain_selection": domain_split,
         "intent_count": len(intents),
         "intents": intents,
-        "context_clearing_pass": clearing,
+        "context_clearing_pass": _context_clearing(root, selected_files, numeric_raw),
+        "intent_nodes": nodes,
         "intent_node_matches": node_matches,
-        "operator_model_use": "pause-time thought completion should model repeated operator intent, not merely complete text",
-        "paths": {
-            "latest": "logs/intent_graph_latest.json",
-            "history": "logs/intent_graph_history.jsonl",
-            "context": "logs/intent_graph_context.md",
-        },
     }
-    graph["intent_file_memory"] = _learn_intent_file_memory(root, graph, write=write)
-    graph["operator_syntax_triggers"] = _learn_operator_syntax_triggers(root, graph, write=write)
-    graph["intent_nodes"] = _accumulate_nodes(root, graph, write=write)
     if write:
+        for intent in intents:
+            memory_files = list(intent.get("files") or [])
+            if memory_files:
+                memory_files = [memory_files[0], *memory_files]
+            remember_intent_files(
+                root,
+                " ".join([intent.get("segment", ""), prompt, *deleted_words]),
+                intent["intent_key"],
+                memory_files,
+            )
+        graph["intent_profiles_updated"] = _write_intent_profiles(root, graph)
+        graph["domain_manifest_written"] = _write_domain_manifest(root, domain_manifest)
+        graph["intent_map_manifest"] = _write_intent_map_manifest(root, graph)
         logs = root / "logs"
         _write_json(logs / "intent_graph_latest.json", graph)
-        _append_jsonl(logs / "intent_graph_history.jsonl", graph)
-        (logs / "intent_graph_context.md").write_text(render_intent_graph(graph) + "\n", encoding="utf-8")
+        _append_jsonl(logs / "intent_graphs.jsonl", graph)
+        _write_graph_context(root, graph)
     return graph
 
 
-def render_intent_graph(graph: dict[str, Any]) -> str:
-    lines = [
-        "## Intent Graph",
-        "",
-        f"**GRAPH:** `{graph.get('graph_id', 'none')}`",
-        f"**PROMPT:** `{_ascii(str(graph.get('prompt') or '')[:240])}`",
-        f"**INTENTS:** `{graph.get('intent_count', 0)}`",
-        "",
-    ]
-    for item in graph.get("intents") or []:
-        files = ", ".join(item.get("files") or []) or "none"
-        lines.extend([
-            f"{item.get('index')}. `{_ascii(item.get('intent_key'))}`",
-            f"   - segment: {_ascii(item.get('segment'))}",
-            f"   - files: `{_ascii(files)}`",
-            f"   - why: {_ascii(item.get('why'))}",
-        ])
-        learned = item.get("learned_files") or []
-        if learned:
-            lines.append(
-                f"   - learned: `{_ascii(', '.join(row.get('file', '') for row in learned[:5]))}`"
-            )
-    clearing = graph.get("context_clearing_pass") or {}
-    if clearing:
-        lines.extend([
-            "",
-            "## Self-Clearing Context Window",
-            "",
-            f"**BUDGET:** `{clearing.get('token_budget', 0)}` tokens",
-            f"**SELECTED:** `{len(clearing.get('selected_files') or [])}`",
-            f"**DERANKED:** `{len(clearing.get('deranked_files') or [])}`",
-            "",
-        ])
-        for item in (clearing.get("selected_files") or [])[:12]:
-            lines.append(
-                f"- keep `{_ascii(item.get('file'))}` score `{item.get('final_score')}` - "
-                f"{_ascii('; '.join(item.get('reasons') or [])[:180])}"
-            )
-        if clearing.get("deranked_files"):
-            lines.extend(["", "### Deranked", ""])
-            for item in (clearing.get("deranked_files") or [])[:12]:
-                lines.append(
-                    f"- drop `{_ascii(item.get('file'))}` score `{item.get('final_score')}` - "
-                    f"{_ascii('; '.join(item.get('derank_reasons') or [])[:180])}"
-                )
-    node_matches = graph.get("intent_node_matches") or []
-    if node_matches:
-        lines.extend(["", "## Intent Node Memory", ""])
-        for node in node_matches[:8]:
-            lines.append(
-                f"- `{_ascii(node.get('node_key'))}` score `{node.get('score')}` "
-                f"files `{_ascii(', '.join(node.get('dominant_files') or [])[:180])}`"
-            )
-    return "\n".join(lines)
+def _history_prompt(row: dict[str, Any]) -> str:
+    for key in ("msg", "prompt", "text", "message", "final_text", "content"):
+        value = row.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return ""
 
 
-def _split_intent_segments(prompt: str, limit: int = 5) -> list[str]:
-    text = re.sub(r"\s+", " ", str(prompt or "")).strip()
-    if not text:
+def _load_prompt_history(path: Path, limit_scan: int = 800) -> list[dict[str, Any]]:
+    if not path.exists():
         return []
-    split_pattern = (
-        r"\s*(?:[.;?]|(?:\s+-\s+)|(?:\s+/\s+)|"
-        r"\b(?:but|also|then|so|because|which|maybe|basically|baisically|right now|"
-        r"part two|what i want|there should|this means|that means)\b)\s*"
-    )
-    raw = [part.strip(" ,:-") for part in re.split(split_pattern, text, flags=re.I) if part.strip(" ,:-")]
-    segments: list[str] = []
-    for part in raw:
-        if len(_tokens(part)) < 3:
-            continue
-        segments.append(_clean_segment(part))
-    if len(segments) < limit:
-        topics = _topic_segments(text)
-        segments.extend(topics)
-    deduped = _dedupe_text(segments)
-    ranked = sorted(enumerate(deduped), key=lambda pair: (-_segment_score(pair[1]), pair[0]))
-    return [segment for _idx, segment in ranked[: max(1, int(limit or 5))]]
-
-
-def _segment_score(segment: str) -> float:
-    toks = set(_tokens(segment))
-    score = min(len(toks), 12) * 0.1
-    weighted = [
-        ({"operator", "profile", "fingerprint", "model"}, 2.6),
-        ({"pause", "pauses", "paused", "analysis", "complete", "completion"}, 2.3),
-        ({"intent", "graph", "graphs"}, 2.4),
-        ({"file", "files", "matching", "matched"}, 2.2),
-        ({"numeric", "neumeric", "numerically", "semantically", "encoding"}, 2.5),
-        ({"structured", "extraction", "extractions"}, 2.3),
-        ({"thought", "completer"}, 1.2),
-    ]
-    for words, weight in weighted:
-        hits = len(toks & words)
-        if hits:
-            score += weight * min(hits, 2)
-    if toks <= {"knows", "your", "prompt", "intent"}:
-        score -= 2.0
-    return score
-
-
-def _topic_segments(text: str) -> list[str]:
-    lower = text.lower()
-    topics = [
-        ("operator profile", "build a durable operator profile from prompt history and profile facts"),
-        ("pause", "complete paused thoughts with actual analysis before model handoff"),
-        ("intent graph", "derive an intent graph from structured intent key extraction"),
-        ("file matching", "match extracted intent keys to files using manifest and numeric file identity"),
-        ("numeric", "use semantic numeric file encoding so prompt intent wakes the right files"),
-        ("structured intent", "emit several structured intent extractions for one prompt instead of one collapsed key"),
-    ]
-    return [value for needle, value in topics if needle in lower]
-
-
-def _clean_segment(text: str) -> str:
-    return re.sub(r"\s+", " ", text).strip()[:260]
-
-
-def _dedupe_text(values: list[str]) -> list[str]:
-    out = []
-    seen = set()
-    for value in values:
-        key = " ".join(_tokens(value)[:10])
-        if not key or key in seen:
-            continue
-        seen.add(key)
-        out.append(value)
-    return out
-
-
-def _intent_files(
-    root: Path,
-    segment: str,
-    manifest_candidates: list[dict[str, Any]],
-    numeric_files: list[dict[str, Any]],
-    context_files: list[dict[str, Any]],
-    node_matches: list[dict[str, Any]] | None = None,
-    learned_files: list[dict[str, Any]] | None = None,
-    syntax_files: list[dict[str, Any]] | None = None,
-) -> list[str]:
-    out = []
-    out.extend(_learned_file_paths(learned_files or []))
-    out.extend(_learned_file_paths(syntax_files or []))
-    out.extend(_node_match_files(node_matches or []))
-    out.extend(_heuristic_files(root, segment))
-    out.extend(_numeric_file_paths(root, context_files))
-    out.extend(_numeric_file_paths(root, numeric_files))
-    for manifest in manifest_candidates[:3]:
-        path = str(manifest.get("path") or "")
-        if path:
-            out.append(path)
-    return _dedupe_text(out)[:8]
-
-
-def _match_nodes(root: Path, prompt: str) -> list[dict[str, Any]]:
-    try:
-        from src.intent_nodes_seq001_v001 import match_intent_nodes
-        return match_intent_nodes(root, prompt, limit=5)
-    except Exception:
-        return []
-
-
-def _accumulate_nodes(root: Path, graph: dict[str, Any], write: bool) -> dict[str, Any]:
-    try:
-        from src.intent_nodes_seq001_v001 import accumulate_intent_nodes
-        return accumulate_intent_nodes(root, graph, write=write)
-    except Exception as exc:
-        return {"status": "error", "error": str(exc)}
-
-
-def _match_intent_file_memory(root: Path, segment: str, intent_key: str) -> list[dict[str, Any]]:
-    try:
-        from src.tc_intent_file_memory_seq001_v001 import match_intent_file_memory
-        return match_intent_file_memory(root, segment, intent_key=intent_key, limit=6)
-    except Exception:
-        return []
-
-
-def _match_operator_syntax_triggers(root: Path, segment: str, intent_key: str) -> list[dict[str, Any]]:
-    try:
-        from src.operator_syntax_triggers_seq001_v001 import match_operator_syntax_triggers
-        return match_operator_syntax_triggers(root, segment, intent_key=intent_key, limit=6)
-    except Exception:
-        return []
-
-
-def _learn_intent_file_memory(root: Path, graph: dict[str, Any], write: bool) -> dict[str, Any]:
-    try:
-        from src.tc_intent_file_memory_seq001_v001 import learn_intent_file_memory
-        return learn_intent_file_memory(root, graph, write=write)
-    except Exception as exc:
-        return {"status": "error", "error": str(exc)}
-
-
-def _learn_operator_syntax_triggers(root: Path, graph: dict[str, Any], write: bool) -> dict[str, Any]:
-    try:
-        from src.operator_syntax_triggers_seq001_v001 import learn_operator_syntax_triggers
-        return learn_operator_syntax_triggers(root, graph, write=write)
-    except Exception as exc:
-        return {"status": "error", "error": str(exc)}
-
-
-def _learned_file_paths(learned_files: list[dict[str, Any]]) -> list[str]:
-    out = []
-    for item in learned_files[:8]:
-        rel = str(item.get("file") or item.get("path") or item.get("name") or "").strip()
-        if rel:
-            out.append(rel.replace("\\", "/"))
-    return out
-
-
-def _node_match_files(node_matches: list[dict[str, Any]]) -> list[str]:
-    out = []
-    for node in node_matches[:4]:
-        out.extend(str(item) for item in (node.get("dominant_files") or [])[:5])
-    return out
-
-
-def _heuristic_files(root: Path, text: str) -> list[str]:
-    haystack = text.lower()
-    hints = [
-        (
-            {"thought", "completer", "pause", "paused", "completion", "popup"},
-            [
-                "src/thought_completer.py",
-                "src/tc_prompt_composer_seq001_v001.py",
-                "src/tc_buffer_watcher_seq001_v001.py",
-                "src/tc_popup_seq001_v004*.py",
-            ],
-        ),
-        (
-            {"operator", "profile", "semantic", "fingerprint", "model"},
-            [
-                "src/tc_semantic_profile_seq001_v001.py",
-                "src/ai_fingerprint_operator_seq001_v001.py",
-            ],
-        ),
-        (
-            {"intent", "key", "keys", "extraction", "structured", "graph"},
-            [
-                "src/tc_intent_keys_seq001_v001.py",
-                "src/intent_loop_closer_seq001_v001.py",
-            ],
-        ),
-        (
-            {"file", "files", "matching", "matched", "numeric", "neumeric", "encoding"},
-            [
-                "src/intent_numeric_seq001*.py",
-                "src/tc_context_agent_seq001_v004*.py",
-                "codex_compat.py",
-            ],
-        ),
-        (
-            {"analysis", "sim", "sims", "simulation"},
-            [
-                "src/tc_sim_engine_seq001_v004*.py",
-                "src/file_self_sim_learning_seq001_v001.py",
-            ],
-        ),
-    ]
-    out = []
-    for terms, candidates in hints:
-        if any(term in haystack for term in terms):
-            out.extend(_existing_candidates(root, candidates))
-    return out
-
-
-def _existing_candidates(root: Path, candidates: list[str]) -> list[str]:
-    out = []
-    for candidate in candidates:
-        if "*" in candidate:
-            out.extend(path.relative_to(root).as_posix() for path in sorted(root.glob(candidate)) if path.is_file())
-            continue
-        if (root / candidate).exists():
-            out.append(candidate)
-    return out
-
-
-def _numeric_file_paths(root: Path, files: list[dict[str, Any]]) -> list[str]:
-    out = []
-    for item in files[:8]:
-        name = str(item.get("path") or item.get("name") or "").strip()
-        if not name:
-            continue
-        if (root / name).exists():
-            out.append(name.replace("\\", "/"))
-            continue
-        if "/" in name or "\\" in name:
-            out.append(name.replace("\\", "/"))
-            continue
-        stem = Path(name).stem
-        matches = sorted((root / "src").glob(f"**/{stem}.py")) if (root / "src").exists() else []
-        if matches:
-            out.append(matches[0].relative_to(root).as_posix())
-            continue
-        doc_matches = sorted(
-            path for path in (root / "docs").glob("**/*")
-            if path.is_file() and path.stem.lower() == stem.lower()
-        ) if (root / "docs").exists() else []
-        if doc_matches:
-            out.append(doc_matches[0].relative_to(root).as_posix())
-            continue
-        out.append(name)
-    return out
-
-
-def _compact_numeric_files(files: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    return [
-        {"name": item.get("path") or item.get("name"), "score": item.get("score", 0)}
-        for item in files[:6]
-        if item.get("path") or item.get("name")
-    ]
-
-
-def _intent_why(segment: str, files: list[str], confidence: float) -> str:
-    if files:
-        return f"segment matched {len(files)} file signal(s); manifest confidence {confidence:.3f}"
-    return f"segment produced an intent key but needs better file history; manifest confidence {confidence:.3f}"
-
-
-def _context_clearing_pass(
-    root: Path,
-    prompt: str,
-    intents: list[dict[str, Any]],
-    numeric_files: list[dict[str, Any]],
-    context_files: list[dict[str, Any]],
-    token_budget: int = 18000,
-) -> dict[str, Any]:
-    prompt_tokens = set(_tokens(prompt))
-    numeric_names = {_file_ref_name(item) for item in numeric_files}
-    context_names = {_file_ref_name(item) for item in context_files}
-    records: dict[str, dict[str, Any]] = {}
-    for intent in intents:
-        segment_tokens = set(_tokens(intent.get("segment", "")))
-        for rank, file_name in enumerate(intent.get("files") or []):
-            rel = str(file_name or "").replace("\\", "/")
-            if not rel:
-                continue
-            rec = records.setdefault(rel, {
-                "file": rel,
-                "score": 0.0,
-                "supporting_intents": [],
-                "deranked_by": [],
-                "reasons": [],
-                "derank_reasons": [],
-            })
-            path_tokens = set(_tokens(rel))
-            overlap = segment_tokens & path_tokens
-            points = max(0.15, 1.4 - rank * 0.12)
-            if overlap:
-                points += min(len(overlap), 4) * 0.55
-                rec["reasons"].append(f"{intent.get('target')} promoted path tokens {', '.join(sorted(overlap)[:4])}")
-            else:
-                points -= 0.35
-                rec["deranked_by"].append(intent.get("intent_key"))
-                rec["derank_reasons"].append(f"{intent.get('target')} saw no path-token overlap")
-            if (root / rel).exists():
-                points += 0.45
-            elif rel in numeric_names or Path(rel).stem in numeric_names:
-                points -= 1.6
-                rec["unresolved"] = True
-                rec["derank_reasons"].append("numeric prediction did not resolve to an existing repo file")
-            else:
-                points -= 1.0
-                rec["unresolved"] = True
-                rec["derank_reasons"].append("candidate did not resolve to an existing repo file")
-            if rel in context_names:
-                points += 0.45
-                rec["reasons"].append("context selector independently selected it")
-            if rel in numeric_names or Path(rel).stem in numeric_names:
-                points += 0.25
-                rec["reasons"].append("numeric surface nominated it")
-            if not (path_tokens & prompt_tokens) and not rel.lower().endswith("manifest.md"):
-                points -= 0.25
-                rec["derank_reasons"].append("file identity is weak against the full prompt")
-            rec["score"] += points
-            rec["supporting_intents"].append(intent.get("intent_key"))
     rows = []
-    for rec in records.values():
-        rec["supporting_intents"] = _dedupe_text([str(x) for x in rec.get("supporting_intents") or []])
-        rec["deranked_by"] = _dedupe_text([str(x) for x in rec.get("deranked_by") or []])
-        rec["reasons"] = _dedupe_text([str(x) for x in rec.get("reasons") or []])[:6]
-        rec["derank_reasons"] = _dedupe_text([str(x) for x in rec.get("derank_reasons") or []])[:6]
-        rec["estimated_tokens"] = _estimate_tokens(root, rec["file"])
-        rec["final_score"] = round(float(rec.get("score") or 0.0), 4)
-        rows.append(rec)
-    rows.sort(key=lambda item: (item["final_score"], len(item["supporting_intents"])), reverse=True)
-    selected = []
-    deranked = []
-    total = 0
-    for item in rows:
-        if item.get("unresolved"):
-            deranked.append({**item, "decision": "deranked"})
+    for line in path.read_text(encoding="utf-8", errors="ignore").splitlines()[-limit_scan:]:
+        try:
+            row = json.loads(line)
+        except Exception:
             continue
-        if item["final_score"] < 0.65:
-            deranked.append({**item, "decision": "deranked"})
-            continue
-        tokens = int(item.get("estimated_tokens") or 0)
-        if selected and total + tokens > token_budget:
-            deranked.append({**item, "decision": "deranked", "derank_reasons": [*item.get("derank_reasons", []), "forward context token budget"]})
-            continue
-        selected.append({**item, "decision": "selected"})
-        total += tokens
-    return {
-        "schema": "self_clearing_context/v1",
-        "mode": "sim_votes_promote_and_derank_files_before_prompt_handoff",
-        "token_budget": token_budget,
-        "total_estimated_tokens": total,
-        "selected_files": selected[:12],
-        "deranked_files": deranked[:40],
-        "context_window_files": [item["file"] for item in selected[:12]],
+        prompt = _history_prompt(row)
+        if len(prompt) >= 25:
+            rows.append({**row, "_prompt": prompt})
+    return rows
+
+
+def _complexity_score(prompt: str) -> float:
+    toks = _tokens(prompt)
+    domain_hits = 0
+    for spec in DOMAIN_HINTS.values():
+        domain_hits += len(set(toks) & set(spec["terms"]))
+    punctuation = len(re.findall(r"[,;:/-]", prompt))
+    return len(set(toks)) + domain_hits * 3 + punctuation * 0.5
+
+
+def seed_intent_graphs_from_history(
+    root: Path,
+    *,
+    history_path: Path | str | None = None,
+    prompts: list[str] | None = None,
+    limit: int = 12,
+    write: bool = True,
+) -> dict[str, Any]:
+    """Run complex historical prompts through the intent graph as seed data."""
+    root = Path(root)
+    selected_prompts: list[str] = []
+    source = "explicit_prompts"
+    if prompts:
+        selected_prompts = [str(prompt).strip() for prompt in prompts if str(prompt).strip()]
+    else:
+        path = Path(history_path) if history_path else root / "logs" / "prompt_journal.jsonl"
+        source = path.as_posix()
+        rows = _load_prompt_history(path)
+        rows.sort(key=lambda row: _complexity_score(row["_prompt"]), reverse=True)
+        chosen = []
+        seen_hashes = set()
+        for row in rows:
+            digest = _prompt_hash(row["_prompt"])
+            if digest in seen_hashes:
+                continue
+            seen_hashes.add(digest)
+            chosen.append(row)
+            if len(chosen) >= limit:
+                break
+        selected_prompts = [row["_prompt"] for row in chosen]
+
+    graphs = []
+    file_reactions: dict[str, int] = {}
+    profiles = set()
+    domain_manifest = _load_domain_manifest(root)
+    candidates = [*_file_rows(root), *_external_file_rows(root, domain_manifest)]
+    for prompt in selected_prompts[:limit]:
+        graph = generate_intent_graph(root, prompt, file_rows=candidates, domain_manifest=domain_manifest, write=write)
+        graphs.append({
+            "prompt_preview": prompt[:180],
+            "prompt_hash": graph["prompt_hash"],
+            "intent_count": graph["intent_count"],
+            "primary_domain": graph["domain_selection"]["primary_domain"],
+            "intent_keys": [intent["intent_key"] for intent in graph.get("intents") or []],
+            "files_reacted": list(dict.fromkeys(
+                file for intent in graph.get("intents") or [] for file in intent.get("files") or []
+            )),
+        })
+        for intent in graph.get("intents") or []:
+            profiles.add(intent["intent_key"])
+            for file in intent.get("files") or []:
+                file_reactions[file] = file_reactions.get(file, 0) + 1
+
+    summary = {
+        "schema": "intent_graph_seed_run/v1",
+        "ts": _utc_now(),
+        "source": source,
+        "processed": len(graphs),
+        "graphs": graphs,
+        "file_reactions": [
+            {"file": file, "count": count}
+            for file, count in sorted(file_reactions.items(), key=lambda item: (-item[1], item[0]))
+        ],
+        "intent_profiles_updated": sorted(profiles),
+        "manifest": "logs/intent_map_manifest.md",
     }
-
-
-def _file_ref_name(item: dict[str, Any]) -> str:
-    return str(item.get("path") or item.get("name") or "").replace("\\", "/")
-
-
-def _estimate_tokens(root: Path, rel: str) -> int:
-    path = root / str(rel)
-    if not path.exists() or not path.is_file():
-        return 0
-    try:
-        return max(1, len(path.read_text(encoding="utf-8", errors="ignore")) // 4)
-    except Exception:
-        return 0
-
-
-def _ascii(value: Any) -> str:
-    return str(value).encode("ascii", errors="replace").decode("ascii")
-
-
-__all__ = ["generate_intent_key", "generate_intent_graph", "render_intent_graph"]
+    if write:
+        logs = root / "logs"
+        _write_json(logs / "intent_graph_seed_latest.json", summary)
+        lines = ["# Intent Graph Seed Run", "", f"- processed: `{len(graphs)}`", f"- source: `{source}`", "", "## File Reactions", ""]
+        for row in summary["file_reactions"][:30]:
+            lines.append(f"- `{row['file']}` count={row['count']}")
+        lines.extend(["", "## Prompt Graphs", ""])
+        for row in graphs:
+            lines.append(f"- `{row['prompt_hash']}` domain=`{row['primary_domain']}` intents={row['intent_count']}")
+            for file in row["files_reacted"][:8]:
+                lines.append(f"  - `{file}`")
+        (logs / "intent_graph_seed_latest.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return summary

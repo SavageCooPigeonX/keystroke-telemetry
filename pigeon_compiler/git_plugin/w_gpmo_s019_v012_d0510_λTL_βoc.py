@@ -27,6 +27,7 @@ from pigeon_compiler.session_logger import log_session, count_sessions
 import ast
 import os
 import re
+import subprocess
 
 # ── Pigeon-decomposed sibling helpers (cross-linked namespace) ──
 # The sibling modules were auto-extracted by the pigeon compiler and they call
@@ -86,6 +87,100 @@ def _pull_sibling_symbols() -> None:
 
 _pull_sibling_symbols()
 
+def _status_paths(root: Path) -> set[str]:
+    """Return paths currently dirty in the worktree/index."""
+    try:
+        result = subprocess.run(
+            ['git', '-c', 'core.quotepath=false', 'status', '--porcelain'],
+            cwd=str(root),
+            capture_output=True,
+            text=True,
+            encoding='utf-8',
+            timeout=30,
+        )
+    except Exception:
+        return set()
+    paths: set[str] = set()
+    for line in result.stdout.splitlines():
+        if not line:
+            continue
+        path = line[3:].strip()
+        if ' -> ' in path:
+            old_path, new_path = path.split(' -> ', 1)
+            paths.add(old_path.replace('\\', '/'))
+            paths.add(new_path.replace('\\', '/'))
+        elif path:
+            paths.add(path.replace('\\', '/'))
+    return paths
+
+
+def _new_hook_dirty_paths(before: set[str], after: set[str]) -> list[str]:
+    """Keep Pigeon auto-commit paired to paths dirtied by this hook run."""
+    return sorted(path for path in after - before if path)
+
+
+def _git_add_paths(root: Path, paths: list[str]) -> None:
+    """Stage explicit hook-owned paths without sweeping the whole worktree."""
+    if not paths:
+        return
+    batch_size = 80
+    for i in range(0, len(paths), batch_size):
+        subprocess.run(
+            ['git', 'add', '--', *paths[i:i + batch_size]],
+            cwd=str(root),
+            capture_output=True,
+            text=True,
+            encoding='utf-8',
+            timeout=30,
+        )
+
+
+def _has_staged_changes(root: Path) -> bool:
+    result = subprocess.run(
+        ['git', 'diff', '--cached', '--quiet'],
+        cwd=str(root),
+        capture_output=True,
+        text=True,
+        encoding='utf-8',
+        timeout=30,
+    )
+    return result.returncode == 1
+
+
+def _auto_commit_paired_paths(
+    root: Path,
+    pre_hook_dirty: set[str],
+    rename_count: int,
+    intent: str,
+    total_tokens: int,
+    msg: str,
+) -> bool:
+    """Auto-commit only files that became dirty during this Pigeon run."""
+    post_hook_dirty = _status_paths(root)
+    paired_paths = _new_hook_dirty_paths(pre_hook_dirty, post_hook_dirty)
+    skipped = sorted(post_hook_dirty & pre_hook_dirty)
+    if skipped:
+        preview = ', '.join(skipped[:8])
+        more = f' +{len(skipped) - 8} more' if len(skipped) > 8 else ''
+        print(f'  🧷 skipped pre-existing dirty path(s): {preview}{more}')
+    if not paired_paths:
+        print('  ℹ️  No paired Pigeon changes to auto-commit\n')
+        return False
+    _git_add_paths(root, paired_paths)
+    if not _has_staged_changes(root):
+        print('  ℹ️  No staged paired Pigeon changes\n')
+        return False
+    _git('commit', '-m',
+         f'chore(pigeon): auto-rename {rename_count} file(s) [pigeon-auto]\n\n'
+         f'Intent: {intent}\n'
+         f'Tokens: ~{total_tokens:,}\n'
+         f'Paired-paths: {len(paired_paths)}\n'
+         f'Triggered by: {msg.splitlines()[0]}')
+    print(f'  ✅ Auto-committed [pigeon-auto] with {len(paired_paths)} paired path(s) '
+          f'(~{total_tokens:,} tokens)\n')
+    return True
+
+
 def _load_dotenv(root: Path) -> None:
     """Load .env into os.environ (no external deps)."""
     env_path = root / '.env'
@@ -132,6 +227,7 @@ def run():
     changed = _changed_files()
     if not changed:
         return
+    pre_hook_dirty = _status_paths(root)
 
     registry = load_registry(root)
     edit_whys = _load_edit_whys(root)
@@ -717,15 +813,7 @@ def run():
     except Exception as e:
         print(f'  ⚠️  deepseek daemon push cycle: {e}')
 
-    # Auto-commit
-    _git('add', '-A')
-    if _git('status', '--porcelain').strip():
-        n = rename_count
-        _git('commit', '-m',
-             f'chore(pigeon): auto-rename {n} file(s) [pigeon-auto]\n\n'
-             f'Intent: {intent}\n'
-             f'Tokens: ~{total_tokens:,}\n'
-             f'Triggered by: {msg.splitlines()[0]}')
-        print(f'  ✅ Auto-committed [pigeon-auto] (~{total_tokens:,} tokens)\n')
-    else:
-        print(f'  ℹ️  No changes to auto-commit\n')
+    # Auto-commit only paths dirtied by this hook run. This keeps Pigeon paired
+    # to the just-committed work instead of sweeping unrelated dirty state.
+    _auto_commit_paired_paths(root, pre_hook_dirty, rename_count, intent,
+                              total_tokens, msg)

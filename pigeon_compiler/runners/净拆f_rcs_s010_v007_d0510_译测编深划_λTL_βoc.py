@@ -104,12 +104,15 @@ def run(source_file: Path, target_name: str = None,
     print(f"{'='*60}")
 
     src = work_file.read_text(encoding="utf-8")
-    raw = request_cut_plan(em, src, target_name, exclude_symbols=exclude_symbols or [])
-    cost = raw.get("response", {}).get("cost", 0)
-    total_cost += cost
-    print(f"  DeepSeek cost: ${cost:.4f}")
-
-    plan = parse_plan(raw)
+    try:
+        raw = request_cut_plan(em, src, target_name, exclude_symbols=exclude_symbols or [])
+        cost = raw.get("response", {}).get("cost", 0)
+        total_cost += cost
+        print(f"  DeepSeek cost: ${cost:.4f}")
+        plan = parse_plan(raw)
+    except Exception as exc:
+        print(f"  DeepSeek unavailable, using deterministic AST fallback: {exc}")
+        plan = _fallback_cut_plan(work_file, em, target_name, exclude_symbols or [])
     print(f"  Strategy: {plan.get('strategy', '?')}")
     print(f"  Cuts: {len(plan['cuts'])}")
 
@@ -242,6 +245,81 @@ def _next_seq(folder: Path, stem: str) -> int:
         if m:
             highest = max(highest, int(m.group(1)))
     return highest + 1
+
+
+def _fallback_cut_plan(source_file: Path, ether_map: dict,
+                       target_name: str, exclude_symbols: list[str]) -> dict:
+    """Build a deterministic split plan when the planner API is unavailable."""
+    import re as _re
+
+    excluded = {str(name) for name in exclude_symbols or []}
+    items = []
+    for fn in ether_map.get("functions", []):
+        if fn.get("name") in excluded:
+            continue
+        items.append({
+            "kind": "functions",
+            "name": fn.get("name"),
+            "line_count": int(fn.get("line_count") or 1),
+            "export": bool(fn.get("is_public")),
+        })
+    for cls in ether_map.get("classes", []):
+        if cls.get("name") in excluded:
+            continue
+        start = int(cls.get("start_line") or 0)
+        end = int(cls.get("end_line") or start)
+        items.append({
+            "kind": "classes",
+            "name": cls.get("name"),
+            "line_count": max(1, end - start + 1),
+            "export": True,
+        })
+    for const in ether_map.get("constants", []):
+        if const.get("name") in excluded:
+            continue
+        items.append({
+            "kind": "constants",
+            "name": const.get("name"),
+            "line_count": 1,
+            "export": True,
+        })
+
+    base = _re.sub(r"[^A-Za-z0-9_]+", "_", str(target_name or source_file.stem)).strip("_")
+    base = base or "compiled"
+    cap = max(20, PIGEON_RECOMMENDED - 6)
+    cuts = []
+    current = {"functions": [], "classes": [], "constants": [], "contents": []}
+    current_lines = 0
+
+    def flush() -> None:
+        nonlocal current, current_lines
+        if not any(current.values()):
+            return
+        seq = len(cuts) + 1
+        cuts.append({
+            "new_file": f"{base}_seq{seq:03d}_v001.py",
+            **current,
+        })
+        current = {"functions": [], "classes": [], "constants": [], "contents": []}
+        current_lines = 0
+
+    for item in items:
+        name = item.get("name")
+        if not name:
+            continue
+        line_count = int(item.get("line_count") or 1)
+        if current_lines and current_lines + line_count > cap:
+            flush()
+        current[item["kind"]].append(name)
+        current_lines += line_count
+    flush()
+
+    return {
+        "source_file": source_file.name,
+        "strategy": "deterministic_ast_fallback",
+        "cuts": cuts,
+        "init_exports": [item["name"] for item in items if item.get("export") and item.get("name")],
+    }
 
 
 def main():

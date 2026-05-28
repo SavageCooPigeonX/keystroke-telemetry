@@ -41,7 +41,7 @@ def log_response(
     }
     try:
         _ensure_repo_on_path(root)
-        from src.operator_response_policy_seq001_v002_d0510__operator_response_policy_for_codex_lc_feat_bind_keystroke_telemetry import (
+        from src.operator_response_policy_seq001_v001 import (
             record_response_reward,
             response_log_defaults,
         )

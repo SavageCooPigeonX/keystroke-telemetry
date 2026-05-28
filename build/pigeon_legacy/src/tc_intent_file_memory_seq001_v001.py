@@ -101,6 +101,68 @@ def match_intent_file_memory(
     return rows[: max(1, int(limit or 8))]
 
 
+def remember_intent_files(
+    root: Path,
+    prompt: str,
+    intent_key: str,
+    files: list[str],
+    *,
+    source: str = "intent_graph",
+) -> dict[str, Any]:
+    """Compatibility write path for graph routers that remember selected files directly."""
+    root = Path(root)
+    state = _load_state(root)
+    now = _now()
+    record = state["intent_keys"].setdefault(
+        intent_key,
+        _new_intent_record({"intent_key": intent_key, "segment": prompt}),
+    )
+    record["prompt_count"] = int(record.get("prompt_count") or 0) + 1
+    record["updated_at"] = now
+    record["last_segment"] = str(prompt or "")
+    record["tokens"] = sorted(set([
+        *record.get("tokens", []),
+        *_tokens(prompt),
+        *_tokens(intent_key),
+    ]))
+    scores = record.setdefault("file_scores", {})
+    remembered = []
+    for raw in files:
+        rel = _rel(raw)
+        if not rel:
+            continue
+        remembered.append(rel)
+        current = scores.setdefault(rel, {"score": 0.0, "selected_count": 0, "last_reasons": []})
+        current["score"] = round(float(current.get("score") or 0.0) + 1.0, 4)
+        current["selected_count"] = int(current.get("selected_count") or 0) + 1
+        current["last_reasons"] = _dedupe([*current.get("last_reasons", []), source, "remembered by intent graph"])[:6]
+    ranked = sorted(
+        scores.items(),
+        key=lambda pair: (float(pair[1].get("score") or 0.0), int(pair[1].get("selected_count") or 0)),
+        reverse=True,
+    )
+    record["dominant_files"] = [rel for rel, data in ranked if float(data.get("score") or 0.0) > 0][:12]
+    examples = list(record.get("examples") or [])
+    examples.append({"ts": now, "segment": str(prompt or "")[:240], "source": source})
+    record["examples"] = examples[-8:]
+    state["updated_at"] = now
+
+    logs = root / "logs"
+    _write_json(logs / "intent_file_memory.json", state)
+    event = {
+        "schema": "tc_intent_file_memory_direct_remember/v1",
+        "ts": now,
+        "source": source,
+        "intent_key": intent_key,
+        "files": remembered,
+        "prompt_preview": str(prompt or "")[:220],
+    }
+    _write_json(logs / "intent_file_memory_latest.json", event)
+    _append_jsonl(logs / "intent_file_memory_history.jsonl", event)
+    (logs / "intent_file_memory.md").write_text(render_intent_file_memory(state), encoding="utf-8")
+    return event
+
+
 def render_intent_file_memory(state: dict[str, Any]) -> str:
     records = sorted(
         (state.get("intent_keys") or {}).values(),
@@ -313,4 +375,9 @@ def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-__all__ = ["learn_intent_file_memory", "match_intent_file_memory", "render_intent_file_memory"]
+__all__ = [
+    "learn_intent_file_memory",
+    "match_intent_file_memory",
+    "remember_intent_files",
+    "render_intent_file_memory",
+]
