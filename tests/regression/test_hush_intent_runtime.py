@@ -71,6 +71,15 @@ def test_hush_routes_maif_social_sb_opus_rerun_without_live_logs(tmp_path: Path)
     assert result["repo_confidence"] >= 0.22
 
 
+def test_hush_name_alone_does_not_open_maif_room_without_anchor(tmp_path: Path):
+    (tmp_path / "logs").mkdir()
+
+    result = classify_active_repo(tmp_path, "debug hush runtime state")
+
+    assert result["active_repo"] == "ambiguous"
+    assert result["mutation_fence"] == "blocked"
+
+
 def test_hush_runtime_splits_messy_prompt_and_writes_file_packets(tmp_path: Path):
     root = _root(tmp_path)
     prompt = (

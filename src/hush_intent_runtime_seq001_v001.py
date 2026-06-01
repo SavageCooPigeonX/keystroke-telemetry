@@ -31,7 +31,7 @@ LOCAL_TERMS = {
     "rename", "inator", "deepseek", "copilot", "codex", "pigeon",
     "micro", "agents", "substrate", "mail", "email",
 }
-MAIF_ANCHOR_TERMS = {"maif", "myaifingerprint", "linkrouter", "hush"}
+MAIF_ANCHOR_TERMS = {"maif", "myaifingerprint", "linkrouter"}
 MAIF_SOCIAL_TERMS = {
     "social", "post", "posts", "caption", "captions", "thread", "threads",
     "linkedin", "twitter", "x", "sb", "supabase", "tone", "voice", "public",
@@ -202,17 +202,21 @@ def _fingerprint_candidates(root: Path, tokens: set[str], context: dict[str, Any
 
 def _maif_domain_score(tokens: set[str], matched: list[str]) -> float:
     score = len(matched) / 7
-    if tokens & MAIF_ANCHOR_TERMS:
+    anchored = bool(tokens & MAIF_ANCHOR_TERMS)
+    social_sb = bool(tokens & {"sb", "supabase"}) and bool(tokens & {"social", "post", "posts", "caption", "captions", "thread", "threads"})
+    if anchored:
         score += 0.12
-    if tokens & {"social", "post", "posts", "caption", "captions", "thread", "threads"}:
+    if anchored and tokens & {"social", "post", "posts", "caption", "captions", "thread", "threads"}:
         score += 0.08
-    if tokens & {"sb", "supabase"}:
+    if anchored and tokens & {"sb", "supabase"}:
         score += 0.08
-    if tokens & {"tone", "voice", "proper", "rerun", "rewrite"}:
+    if (anchored or social_sb) and tokens & {"tone", "voice", "proper", "rerun", "rewrite"}:
         score += 0.06
     # "Opus 4.8" is a model/rerun selector here, not a local-repo signal.
-    if "opus" in tokens and ({"4", "8"} <= tokens or "4_8" in tokens):
+    if anchored and "opus" in tokens and ({"4", "8"} <= tokens or "4_8" in tokens):
         score += 0.04
+    if not (anchored or social_sb):
+        score = min(score, LOW_CONFIDENCE - 0.01)
     return round(min(score, 1.0), 4)
 
 
