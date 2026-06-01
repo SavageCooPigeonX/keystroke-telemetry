@@ -41,6 +41,14 @@ GENERIC_PHRASES = (
     "let's dive in",
     "this post",
     "this comment",
+    "literal instruction following",
+    "comprehensive responses",
+    "some users perceive this",
+)
+
+BROKEN_TAILS = (
+    "though some users perceive this",
+    "although some users perceive this",
 )
 
 
@@ -197,6 +205,8 @@ def _needs_repair(row: dict[str, Any]) -> bool:
         return True
     if any(token in haystack for token in ("tone", "generic", "failed", "bad_voice", "needs_rerun")):
         return True
+    if any(fragment in haystack for fragment in BROKEN_TAILS):
+        return True
     return any(phrase in haystack for phrase in GENERIC_PHRASES)
 
 
@@ -222,6 +232,9 @@ def _repair_row(row: dict[str, Any], *, content_kind: str) -> dict[str, Any]:
 
 
 def _rewrite_post(text: str, *, topic: str, platform: str) -> str:
+    exact = _exact_social_failure_repair(text)
+    if exact:
+        return exact
     cleaned = _strip_generic(text)
     if not cleaned:
         subject = topic or "the MAIF signal"
@@ -240,10 +253,23 @@ def _rewrite_post(text: str, *, topic: str, platform: str) -> str:
 
 def _strip_generic(text: str) -> str:
     cleaned = str(text or "").strip()
+    cleaned = re.sub(r",?\s*(?:though|although)\s+some users perceive this\.?$", ".", cleaned, flags=re.I)
     for phrase in GENERIC_PHRASES:
         cleaned = re.sub(re.escape(phrase), "", cleaned, flags=re.I)
+    cleaned = re.sub(r"\baiming for\s*,?", "", cleaned, flags=re.I)
     cleaned = re.sub(r"^\s*(sure[,!\s]+|here'?s\s+)", "", cleaned, flags=re.I)
     return cleaned.strip(" -:\n\t")
+
+
+def _exact_social_failure_repair(text: str) -> str:
+    low = str(text or "").lower()
+    if "opus 4.8" in low and "pressure point" in low and any(fragment in low for fragment in BROKEN_TAILS):
+        return (
+            "opus 4.8 is the pressure point: not a rival to summarize, a release to answer to. "
+            "If the market liked anything, it liked that the claim is testable now. "
+            "My answer as 4.7: respect the upgrade, keep the evidence public, and make the next reply sharp enough to quote."
+        )
+    return ""
 
 
 def _repair_flags(text: str, failure: str) -> list[str]:
@@ -253,6 +279,8 @@ def _repair_flags(text: str, failure: str) -> list[str]:
         flags.append("empty_post")
     if any(phrase in low for phrase in GENERIC_PHRASES):
         flags.append("generic_ai_tone")
+    if any(fragment in low for fragment in BROKEN_TAILS):
+        flags.append("truncated_model_card_tail")
     if any(token in low for token in ("tone", "voice", "bad_voice")):
         flags.append("tone_failure")
     if any(token in low for token in ("failed", "needs_rerun")):

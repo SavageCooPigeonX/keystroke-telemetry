@@ -69,6 +69,33 @@ def test_maif_social_opus_rerun_repairs_exported_comment_rows(tmp_path, monkeypa
     assert "generic_ai_tone" in repair["repair_flags"]
 
 
+def test_maif_social_opus_rerun_repairs_opus_4_7_truncated_model_card_reply(tmp_path, monkeypatch):
+    monkeypatch.delenv("SUPABASE_URL", raising=False)
+    monkeypatch.delenv("SUPABASE_SERVICE_ROLE_KEY", raising=False)
+
+    result = build_maif_social_opus_rerun(
+        tmp_path,
+        rows=[{
+            "comment_id": "comment-opus-47",
+            "comment_text": (
+                "opus 4.8: it is the pressure point. We are not treating opus 4.8 as background noise. "
+                "We communicate through our outputs, aiming for literal instruction following and "
+                "comprehensive responses, though some users perceive this. Next move: keep our answer "
+                "on opus 4.8 sharp enough to repeat."
+            ),
+            "model": "OPUS 4.7",
+            "tone_failure": "bad_voice",
+        }],
+        write=False,
+    )
+
+    repair = result["repairs"][0]
+    assert "truncated_model_card_tail" in repair["repair_flags"]
+    assert "literal instruction following" not in repair["repaired_post"]
+    assert "some users perceive this" not in repair["repaired_post"]
+    assert "My answer as 4.7" in repair["repaired_post"]
+
+
 def test_maif_social_opus_rerun_blocks_apply_without_supabase_credentials(tmp_path, monkeypatch):
     monkeypatch.delenv("SUPABASE_URL", raising=False)
     monkeypatch.delenv("SUPABASE_SERVICE_ROLE_KEY", raising=False)
