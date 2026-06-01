@@ -9,8 +9,16 @@
 # ──────────────────────────────────────────────
 import re
 
+CREATIVE_TERMS = (
+    "comedy", "comic", "satire", "sketch", "story", "scene",
+    "unhinged", "max length", "max-length", "glossator", "radio",
+)
+
+
 def _classify_intent(prompt: str) -> str:
     text = prompt.lower()
+    if any(term in text for term in CREATIVE_TERMS):
+        return "creative"
     if any(word in text for word in (
         "orchestrator", "10q", "consensus", "approval", "approve", "guard",
         "copilot", "deepseek", "file sim", "file_sim", "autonomous",

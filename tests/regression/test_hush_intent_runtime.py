@@ -104,3 +104,18 @@ def test_hush_runtime_splits_messy_prompt_and_writes_file_packets(tmp_path: Path
     assert packet["last_change_state"]
     assert packet["validation_gate"]
     assert (root / "logs" / "hush_intent_runtime_latest.json").exists()
+
+
+def test_hush_blocks_creative_no_research_prompt_as_artifact_only(tmp_path: Path):
+    root = _root(tmp_path)
+    prompt = "write a max length unhinged comedy about proactive intent probes no research"
+
+    runtime = build_hush_intent_runtime(root, prompt)
+
+    names = {move["name"] for move in runtime["intent_moves"]}
+    assert "creative_artifact_only" in names
+    authority = runtime["runtime_authority"]
+    assert authority["mutation_fence"] == "blocked"
+    assert authority["mode"] == "creative_artifact_only"
+    assert authority["source_mutation_allowed"] is False
+    assert runtime["intent_probe_capability"]["egress"] == "none"

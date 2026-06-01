@@ -68,6 +68,16 @@
           "type": "boolean",
           "default": true,
           "description": "Automatically open the Pigeon freshness surface when the extension activates."
+        },
+        "pigeon.telemetryEnabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable optional keystroke and draft-composition monitoring after first-run consent."
+        },
+        "pigeon.showTelemetryDisclaimerOnFirstRun": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the optional keystroke monitoring disclaimer before starting capture processes."
         }
       }
     },

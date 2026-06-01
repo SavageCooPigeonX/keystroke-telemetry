@@ -121,3 +121,34 @@ def test_live_field_irt_prompt_classifies_live_field_intent_modeling():
     assert event["semantic_intent"] == "live_field_intent_modeling"
     assert "live_field_intent_modeling" in event["semantic_intents"]
     assert event["completion_hint"] == "intent:live_field_intent_modeling"
+
+
+def test_creative_no_research_prompt_classifies_artifact_modifier():
+    root = _root()
+
+    event = log_semantic_profile_event(
+        root,
+        "write a max length unhinged comedy about proactive intent probes no research",
+        source="test",
+    )
+
+    assert event["semantic_intent"] == "creative_artifact"
+    assert "creative_artifact" in event["semantic_intents"]
+    assert "no_research" in event["modifiers"]
+    assert event["completion_hint"] == "intent:creative_artifact:no_research"
+
+
+def test_codex_prompt_logger_skips_deep_research_for_creative_artifact():
+    root = _root()
+
+    entry = codex_compat.log_prompt(
+        root,
+        "write a max length unhinged comedy about proactive intent probes no research",
+        fire_file_sim=True,
+        emit_prompt_email=False,
+    )
+
+    assert entry["intent"] == "creative"
+    assert entry["hush"]["runtime_authority"]["mode"] == "creative_artifact_only"
+    assert entry["file_sim"]["status"] == "skipped"
+    assert entry["deepseek_prompt_job"]["status"] == "skipped"

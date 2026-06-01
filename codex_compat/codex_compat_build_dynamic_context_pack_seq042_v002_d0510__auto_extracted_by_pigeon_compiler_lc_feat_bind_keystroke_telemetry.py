@@ -61,6 +61,7 @@ def build_dynamic_context_pack(
             if prompt_text
             else state.get("latest_context_selection") or {}
         )
+    hush = _build_hush_runtime(root, prompt_text, parsed_deleted, context_selection)
 
     intent_resolver = state.get("intent_resolver") or {}
     unresolved = []
@@ -101,6 +102,7 @@ def build_dynamic_context_pack(
         "prompt": prompt_text,
         "signals": signals,
         "context_selection": context_selection,
+        "hush": hush,
         "prompt_brain": _load_json(logs / "prompt_brain_latest.json") or {},
         "file_sim": _load_json(logs / "batch_rewrite_sim_latest.json") or {},
         "intent_loop": _load_json(logs / "intent_loop_latest.json") or {},
@@ -140,15 +142,22 @@ def build_dynamic_context_pack(
     except Exception as exc:
         pack["file_self_knowledge"] = {"status": "error", "error": str(exc)}
 
-    pack["deepseek_job"] = enqueue_deepseek_prompt_job(
-        root,
-        prompt_text,
-        context_selection=context_selection,
-        context_pack=pack,
-        deleted_words=signals.get("deleted_words") or [],
-        source=surface,
-        priority=3,
-    )
+    if _hush_requests_artifact_only(hush):
+        pack["deepseek_job"] = {
+            "status": "skipped",
+            "mode": "artifact_only",
+            "reason": "hush_creative_artifact_only",
+        }
+    else:
+        pack["deepseek_job"] = enqueue_deepseek_prompt_job(
+            root,
+            prompt_text,
+            context_selection=context_selection,
+            context_pack=pack,
+            deleted_words=signals.get("deleted_words") or [],
+            source=surface,
+            priority=3,
+        )
     pack["live_prompt_telemetry"] = _write_live_prompt_telemetry(root, pack)
     _write_copilot_live_query_blocks(root, pack, pack["live_prompt_telemetry"])
     try:
@@ -213,6 +222,38 @@ def _ensure_operator_policy_file_comments(root: Path, pack: dict[str, Any]) -> N
     if comments:
         policy["file_comments"] = comments
         policy["deepseek_response_policy_audit"] = _response_policy_audit(True, "file comments synthesized from focus files")
+
+
+def _build_hush_runtime(
+    root: Path,
+    prompt: str,
+    deleted_words: list[str],
+    context_selection: dict[str, Any],
+) -> dict[str, Any]:
+    if not prompt:
+        return {}
+    try:
+        _ensure_repo_on_path(root)
+        build_hush_intent_runtime = src_import("hush_intent_runtime_seq001", "build_hush_intent_runtime")
+        return build_hush_intent_runtime(
+            root,
+            prompt,
+            write=True,
+            deleted_words=deleted_words,
+            context_selection=context_selection,
+        )
+    except Exception as exc:
+        return {"status": "error", "error": str(exc)}
+
+
+def _hush_requests_artifact_only(hush: dict[str, Any]) -> bool:
+    if not isinstance(hush, dict):
+        return False
+    authority = hush.get("runtime_authority") if isinstance(hush.get("runtime_authority"), dict) else {}
+    if authority.get("mode") == "creative_artifact_only":
+        return True
+    move_names = {str(move.get("name") or "") for move in (hush.get("intent_moves") or []) if isinstance(move, dict)}
+    return "creative_artifact_only" in move_names
 
 
 def _file_says(root: Path, rel: str) -> str:

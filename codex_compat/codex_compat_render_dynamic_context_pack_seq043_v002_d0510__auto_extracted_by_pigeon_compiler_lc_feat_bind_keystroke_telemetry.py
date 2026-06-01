@@ -43,6 +43,21 @@ def _render_dynamic_context_pack(pack: dict[str, Any], managed: bool = False) ->
     else:
         lines.append("- none")
 
+    hush = pack.get("hush") or {}
+    if isinstance(hush, dict) and hush:
+        repo = hush.get("repo_classification") if isinstance(hush.get("repo_classification"), dict) else {}
+        authority = hush.get("runtime_authority") if isinstance(hush.get("runtime_authority"), dict) else {}
+        lines.extend([
+            "",
+            "**HUSH_RUNTIME:**",
+            f"- repo: `{repo.get('active_repo', 'unknown')}` confidence `{repo.get('repo_confidence', 0)}`",
+            f"- fence: `{authority.get('mutation_fence', 'unknown')}` mode `{authority.get('mode', 'unknown')}`",
+            f"- source mutation allowed: `{authority.get('source_mutation_allowed', False)}`",
+        ])
+        probe = hush.get("intent_probe_capability") if isinstance(hush.get("intent_probe_capability"), dict) else {}
+        if probe:
+            lines.append(f"- probe capability: `{probe.get('status')}` egress `{probe.get('egress')}`")
+
     self_knowledge = pack.get("file_self_knowledge") or {}
     if isinstance(self_knowledge, dict) and self_knowledge.get("packets"):
         lines.extend([

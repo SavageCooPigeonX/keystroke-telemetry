@@ -74,22 +74,31 @@ def classify_active_repo(
     }
 
 
-def build_hush_intent_runtime(root: Path, prompt: str = "", *, write: bool = True) -> dict[str, Any]:
+def build_hush_intent_runtime(
+    root: Path,
+    prompt: str = "",
+    *,
+    write: bool = True,
+    deleted_words: list[str] | None = None,
+    context_selection: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     """Build the persistent Hush intent-map packet for orchestration."""
     root = Path(root)
     journal = _jsonl_tail(root / "logs" / "prompt_journal.jsonl", 8)
     latest_prompt = journal[-1] if journal else {}
     current_prompt = str(prompt or latest_prompt.get("msg") or "")
-    deleted = list(latest_prompt.get("deleted_words") or [])
+    deleted = list(deleted_words if deleted_words is not None else latest_prompt.get("deleted_words") or [])
     context_pack = _json(root / "logs" / "dynamic_context_pack.json")
-    context_selection = context_pack.get("context_selection") if isinstance(context_pack.get("context_selection"), dict) else {}
+    if context_selection is None:
+        context_selection = context_pack.get("context_selection") if isinstance(context_pack.get("context_selection"), dict) else {}
     repo = classify_active_repo(root, current_prompt, deleted, context_selection)
     semantic = _json(root / "logs" / "semantic_profile_latest.json")
     intent_graph = _json(root / "logs" / "intent_graph_latest.json")
     sim = _json(root / "logs" / "file_self_sim_learning_latest.json")
     outcome = _json(root / "logs" / "codex_edit_outcome_latest.json")
     intent_moves = _intent_moves(current_prompt, intent_graph)
-    packets = _file_packets(root, repo, sim, current_prompt)
+    effective_fence, fence_reason = _effective_mutation_fence(repo, intent_moves, current_prompt, semantic)
+    packets = _file_packets(root, {**repo, "mutation_fence": effective_fence}, sim, current_prompt)
     result = {
         "schema": SCHEMA,
         "ts": _now(),
@@ -113,12 +122,15 @@ def build_hush_intent_runtime(root: Path, prompt: str = "", *, write: bool = Tru
             "memory update",
         ],
         "runtime_authority": {
-            "mutation_fence": repo["mutation_fence"],
+            "mutation_fence": effective_fence,
+            "mutation_fence_reason": fence_reason,
+            "mode": "creative_artifact_only" if _is_creative_artifact_only(intent_moves, current_prompt, semantic) else "orchestration",
             "allowed_when_blocked": ["read", "plan", "artifact_only", "ask_for_repo_lock"],
-            "source_mutation_allowed": repo["mutation_fence"] == "open",
+            "source_mutation_allowed": effective_fence == "open",
         },
         "repo_room_context": _repo_room_context(root, repo),
         "recent_outcome": _recent_outcome(outcome),
+        "intent_probe_capability": _intent_probe_capability(repo),
         "whisper_irt": {
             "status": "modeled_future_layer",
             "capability": "live field intent whispering is memory-hooked here, not deployed in v1",
@@ -155,7 +167,15 @@ def render_hush_intent_runtime(runtime: dict[str, Any]) -> str:
     lines.extend(["", "## Runtime Authority"])
     auth = runtime.get("runtime_authority") or {}
     lines.append(f"- source mutation allowed: `{auth.get('source_mutation_allowed')}`")
+    lines.append(f"- mode: `{auth.get('mode')}`")
+    lines.append(f"- reason: {auth.get('mutation_fence_reason')}")
     lines.append(f"- blocked fallback: `{', '.join(auth.get('allowed_when_blocked') or [])}`")
+    probe = runtime.get("intent_probe_capability") or {}
+    if probe:
+        lines.extend(["", "## Intent Probe Capability"])
+        lines.append(f"- status: `{probe.get('status')}`")
+        lines.append(f"- egress: `{probe.get('egress')}`")
+        lines.append(f"- requires: `{', '.join(probe.get('requires') or [])}`")
     return "\n".join(lines) + "\n"
 
 
@@ -199,6 +219,7 @@ def _candidate(repo: str, score: float, matched: list[str], source: str) -> dict
 def _intent_moves(prompt: str, graph: dict[str, Any]) -> list[dict[str, Any]]:
     lower = prompt.lower()
     specs = [
+        ("creative_artifact_only", {"comedy", "comic", "satire", "sketch", "story", "unhinged", "max length", "max-length", "no research"}),
         ("hush_intent_runtime", {"hush", "runtime", "reconstruction", "persistent", "intent map"}),
         ("repo_classification", {"repo", "root", "context0", "linkrouter", "maif", "codebase"}),
         ("linkrouter_file_room_access", {"linkrouter", "maif", "files", "call files"}),
@@ -238,6 +259,7 @@ def _summary_for_move(name: str, prompt: str) -> str:
         "file_mail_quality_gate": "stop emails that do not carry learned/done/next/need signal",
         "file_identity_narrative": "make file packets expose identity, responsibility, and mutation state",
         "field_whisper_irt_future_layer": "reserve live field intent whisper hooks for non-coding IRT",
+        "creative_artifact_only": "answer as a chat artifact; do not launch research jobs or mutate source",
     }
     return summaries.get(name, _snip(prompt, 180))
 
@@ -250,8 +272,54 @@ def _files_for_move(name: str) -> list[str]:
         "file_mail_quality_gate": ["src/file_email_plugin_seq001_v001.py", "src/file_email_text_chain_seq001_v001.py"],
         "file_identity_narrative": ["src/file_number_key_identity_seq001_v001.py", "src/file_interlinked_naming_sim_seq001_v001.py"],
         "field_whisper_irt_future_layer": ["src/hush_intent_runtime_seq001_v001.py"],
+        "creative_artifact_only": ["src/hush_intent_runtime_seq001_v001.py"],
     }
     return table.get(name, [])
+
+
+def _effective_mutation_fence(
+    repo: dict[str, Any],
+    moves: list[dict[str, Any]],
+    prompt: str,
+    semantic: dict[str, Any],
+) -> tuple[str, str]:
+    if _is_creative_artifact_only(moves, prompt, semantic):
+        return "blocked", "creative/no-research prompt requested chat artifact only"
+    fence = str(repo.get("mutation_fence") or "blocked")
+    return fence, str(repo.get("reason") or "repo mutation fence")
+
+
+def _is_creative_artifact_only(moves: list[dict[str, Any]], prompt: str, semantic: dict[str, Any]) -> bool:
+    names = {str(move.get("name") or "") for move in moves}
+    semantic_intents = set(semantic.get("semantic_intents") or [])
+    modifiers = set(semantic.get("modifiers") or [])
+    lower = prompt.lower()
+    creative = "creative_artifact_only" in names or "creative_artifact" in semantic_intents
+    no_research = "no_research" in modifiers or "no research" in lower or "without research" in lower
+    return creative or no_research
+
+
+def _intent_probe_capability(repo: dict[str, Any]) -> dict[str, Any]:
+    scope = "local" if repo.get("active_repo") in {LOCAL_REPO, "ambiguous"} else "closed_repo"
+    return {
+        "schema": "hush_intent_probe_capability/v1",
+        "status": "designed_not_network_enabled",
+        "scope": scope,
+        "egress": "none",
+        "learned_signals": [
+            "prompt_intent",
+            "deleted_words",
+            "hesitation_windows",
+            "file_heat",
+            "response_outcomes",
+        ],
+        "requires": [
+            "explicit_operator_ack",
+            "repo_lock",
+            "network_egress_flag_for_operator_network",
+        ],
+        "safe_next_step": "emit local probe receipts before any proactive or network action",
+    }
 
 
 def _file_packets(root: Path, repo: dict[str, Any], sim: dict[str, Any], prompt: str) -> list[dict[str, Any]]:

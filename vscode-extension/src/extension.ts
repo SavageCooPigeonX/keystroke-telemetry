@@ -2,7 +2,7 @@
  * extension.ts — Pigeon Chat VS Code Extension
  *
  * TWO MODES:
- *   A. Background telemetry (always-on, no panel needed):
+ *   A. Optional background telemetry (after first-run consent, no panel needed):
  *      - Captures typing patterns from normal VS Code editing
  *      - Logs events to logs/os_keystrokes.jsonl
  *      - Flushes session to classify_bridge.py every 60s of activity
@@ -729,7 +729,7 @@ function classifySession(
 }
 
 // ── Background Telemetry ─────────────────────────────────────────────────────
-// Always-on process. Captures ALL operator activity:
+// Optional process. After consent, captures operator activity:
 //   - Editor typing (any scheme — files, untitled, notebooks, search editors)
 //   - Terminal activity (shell commands, output reading pauses)
 //   - Context switches (file focus changes = research/browsing signal)
@@ -3456,6 +3456,12 @@ class ManifestWorkLoop {
 
     private async _evaluateAndAct() {
         if (this._running) return;
+        const hushFence = this._hushMutationFence();
+        if (hushFence.blocked) {
+            this._statusItem.text = '$(lock) Work Loop: Hush fence';
+            this._log(`Hush mutation fence blocked work loop: ${hushFence.reason}`);
+            return;
+        }
 
         // Build task list from all signals
         const tasks = this._buildTaskList();
@@ -3553,6 +3559,24 @@ class ManifestWorkLoop {
         tasks.sort((a, b) => a.priority - b.priority);
 
         return tasks;
+    }
+
+    private _hushMutationFence(): { blocked: boolean; reason: string } {
+        try {
+            const raw = fs.readFileSync(path.join(this._root, 'logs', 'hush_intent_runtime_latest.json'), 'utf-8');
+            const hush = JSON.parse(raw);
+            const authority = hush?.runtime_authority ?? {};
+            const repo = hush?.repo_classification ?? {};
+            const blocked = authority.source_mutation_allowed === false
+                || authority.mutation_fence === 'blocked'
+                || repo.mutation_fence === 'blocked';
+            return {
+                blocked,
+                reason: authority.mutation_fence_reason ?? repo.reason ?? 'source mutation disabled',
+            };
+        } catch {
+            return { blocked: false, reason: '' };
+        }
     }
 
     private _findSourceFile(moduleName: string): string | undefined {
@@ -3912,50 +3936,28 @@ h2 { border-bottom: 1px solid var(--vscode-panel-border); padding-bottom: 4px; }
 
 // ── Activation ───────────────────────────────────────────────────────────────
 
+const TELEMETRY_CONSENT_KEY = 'pigeon.telemetryConsentV1';
+const TELEMETRY_CONSENT_SCHEMA = 'pigeon_telemetry_consent/v1';
+
+interface TelemetryConsentRecord {
+    schema: string;
+    ts: string;
+    version: number;
+    enabled: boolean;
+    source: string;
+}
+
 export function activate(context: vscode.ExtensionContext) {
     const root = getRoot();
 
-    // Background telemetry — starts immediately, no panel needed
     if (root) {
         installManagedPromptBufferSync(root, context);
-
-        const bg = new BackgroundTelemetry(root);
-        bg.start(context);
 
         // Initialize persona memory store
         personaMemoryStore = new FilePersonaMemoryStore(root);
 
-        // Enable accessibility support — required for UIA to read Monaco editors
-        // (chat input, code editor, search boxes). Without this, UIA gets a
-        // placeholder "not accessible" message instead of actual content.
-        const editorConfig = vscode.workspace.getConfiguration('editor');
-        if (editorConfig.get('accessibilitySupport') !== 'on') {
-            editorConfig.update('accessibilitySupport', 'on', vscode.ConfigurationTarget.Workspace);
-        }
-
-        // OS-level keystroke hook — captures chat input, search, palette
-        startOsHook(root);
-        context.subscriptions.push({ dispose: () => stopOsHook() });
-
-        // Chat participant — captures exact prompt text via @pigeon
+        // Chat participant is explicit/on-demand; passive capture remains behind consent.
         registerChatParticipant(root, context);
-
-        // state.vscdb poller — captures draft composition from VS Code state
-        startVscdbPoller(root);
-        context.subscriptions.push({ dispose: () => stopVscdbPoller() });
-
-        // UIA reader — live text capture via Windows UI Automation
-        startUIAReader(root);
-        context.subscriptions.push({ dispose: () => stopUIAReader() });
-
-        // Operator state daemon — independent capture + COoikit file pairing
-        // Fully decoupled from LLM. Reads os_keystrokes + vscdb_drafts, pairs
-        // compositions to files via intent_numeric (no LLM involvement).
-        startOperatorStateDaemon(root);
-        context.subscriptions.push({ dispose: () => stopOperatorStateDaemon() });
-
-        // Live operator state status bar (refreshes every 15s)
-        new OperatorStateStatusBar(root, context);
 
         // Unified stale-data / freshness surface in the frontend
         new FreshnessStatusBar(root, context);
@@ -3975,6 +3977,10 @@ export function activate(context: vscode.ExtensionContext) {
 
         // Manifest work loop — autonomous coding from organism signals
         new ManifestWorkLoop(root, context);
+
+        startOptionalTelemetry(root, context).catch((err: unknown) => {
+            console.log(`[pigeon] optional telemetry startup failed: ${String(err)}`);
+        });
     }
 
     // Operator state panel command
@@ -4015,6 +4021,137 @@ export function activate(context: vscode.ExtensionContext) {
             if (root) StandupPanel.createOrShow(context, root);
         })
     );
+}
+
+async function startOptionalTelemetry(root: string, context: vscode.ExtensionContext) {
+    const enabled = await ensureTelemetryConsent(root, context);
+    if (!enabled) {
+        console.log('[pigeon] optional keystroke monitoring disabled');
+        return;
+    }
+
+    const bg = new BackgroundTelemetry(root);
+    bg.start(context);
+
+    // Enable accessibility support — required for UIA to read Monaco editors
+    // (chat input, code editor, search boxes). Without this, UIA gets a
+    // placeholder "not accessible" message instead of actual content.
+    const editorConfig = vscode.workspace.getConfiguration('editor');
+    if (editorConfig.get('accessibilitySupport') !== 'on') {
+        editorConfig.update('accessibilitySupport', 'on', vscode.ConfigurationTarget.Workspace);
+    }
+
+    // OS-level keystroke hook — captures chat input, search, palette
+    startOsHook(root);
+    context.subscriptions.push({ dispose: () => stopOsHook() });
+
+    // state.vscdb poller — captures draft composition from VS Code state
+    startVscdbPoller(root);
+    context.subscriptions.push({ dispose: () => stopVscdbPoller() });
+
+    // UIA reader — live text capture via Windows UI Automation
+    startUIAReader(root);
+    context.subscriptions.push({ dispose: () => stopUIAReader() });
+
+    // Operator state daemon — independent capture + COoikit file pairing
+    // Fully decoupled from LLM. Reads os_keystrokes + vscdb_drafts, pairs
+    // compositions to files via intent_numeric (no LLM involvement).
+    startOperatorStateDaemon(root);
+    context.subscriptions.push({ dispose: () => stopOperatorStateDaemon() });
+
+    // Live operator state status bar (refreshes every 15s)
+    new OperatorStateStatusBar(root, context);
+}
+
+async function ensureTelemetryConsent(root: string, context: vscode.ExtensionContext): Promise<boolean> {
+    const pigeonConfig = vscode.workspace.getConfiguration('pigeon');
+    const showDisclaimer = pigeonConfig.get<boolean>('showTelemetryDisclaimerOnFirstRun', true);
+    const existing = context.globalState.get<TelemetryConsentRecord>(TELEMETRY_CONSENT_KEY);
+
+    if (existing && existing.schema === TELEMETRY_CONSENT_SCHEMA) {
+        const settingEnabled = pigeonConfig.get<boolean>('telemetryEnabled', existing.enabled);
+        const enabled = Boolean(existing.enabled && settingEnabled);
+        writeTelemetryConsent(root, { ...existing, enabled, ts: new Date().toISOString(), source: 'vscode_existing_consent' });
+        return enabled;
+    }
+
+    if (!showDisclaimer) {
+        const enabled = pigeonConfig.get<boolean>('telemetryEnabled', false);
+        await recordTelemetryConsent(root, context, enabled, 'vscode_setting_without_disclaimer');
+        return enabled;
+    }
+
+    const choice = await vscode.window.showInformationMessage(
+        'Pigeon optional keystroke monitoring can capture typing cadence, deletions, draft text, active files, and chat/search input while VS Code is focused. It is used locally for operator-state and intent routing.',
+        { modal: true },
+        'Enable Monitoring',
+        'Decline',
+        'Learn More'
+    );
+
+    if (choice === 'Learn More') {
+        const followup = await vscode.window.showInformationMessage(
+            'Optional monitoring writes local workspace logs such as os_keystrokes.jsonl, vscdb_drafts.jsonl, UIA reader output, and operator_state_current.json. You can disable it any time with pigeon.telemetryEnabled.',
+            { modal: true },
+            'Enable Monitoring',
+            'Decline'
+        );
+        if (followup === 'Enable Monitoring') {
+            return enableTelemetry(root, context);
+        }
+        await recordTelemetryConsent(root, context, false, 'vscode_first_run_declined');
+        return false;
+    }
+
+    if (choice === 'Enable Monitoring') {
+        return enableTelemetry(root, context);
+    }
+
+    await recordTelemetryConsent(root, context, false, 'vscode_first_run_declined');
+    return false;
+}
+
+async function enableTelemetry(root: string, context: vscode.ExtensionContext): Promise<boolean> {
+    try {
+        await vscode.workspace
+            .getConfiguration('pigeon')
+            .update('telemetryEnabled', true, vscode.ConfigurationTarget.Global);
+    } catch {
+        // Consent in globalState is authoritative if settings cannot be updated.
+    }
+    await recordTelemetryConsent(root, context, true, 'vscode_first_run_enabled');
+    return true;
+}
+
+async function recordTelemetryConsent(
+    root: string,
+    context: vscode.ExtensionContext,
+    enabled: boolean,
+    source: string,
+): Promise<void> {
+    const record: TelemetryConsentRecord = {
+        schema: TELEMETRY_CONSENT_SCHEMA,
+        ts: new Date().toISOString(),
+        version: 1,
+        enabled,
+        source,
+    };
+    await context.globalState.update(TELEMETRY_CONSENT_KEY, record);
+    writeTelemetryConsent(root, record);
+}
+
+function writeTelemetryConsent(root: string, record: TelemetryConsentRecord) {
+    try {
+        const logs = path.join(root, 'logs');
+        if (!fs.existsSync(logs)) { fs.mkdirSync(logs, { recursive: true }); }
+        fs.writeFileSync(
+            path.join(logs, 'telemetry_consent.json'),
+            JSON.stringify(record, null, 2) + '\n',
+            'utf-8',
+        );
+    } catch {
+        // Consent state is also persisted in VS Code globalState.
+    }
 }
 
 export function deactivate() {
