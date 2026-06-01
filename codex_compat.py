@@ -2558,6 +2558,9 @@ def build_parser() -> argparse.ArgumentParser:
     p_edit.add_argument("--why", default="codex edit")
     p_edit.add_argument("--prompt")
 
+    p_overlay = sub.add_parser("intent-overlay")
+    p_overlay.add_argument("--no-write", action="store_true")
+
     sub.add_parser("capture-pair")
     sub.add_parser("state")
 
@@ -2663,6 +2666,10 @@ def main(argv: list[str] | None = None) -> int:
         )
     elif args.command == "log-edit":
         result = log_edit(root, file=args.file, why=args.why, prompt=args.prompt)
+    elif args.command == "intent-overlay":
+        _ensure_repo_on_path(root)
+        from src.intent_overlay_graph_seq001_v001 import build_intent_overlay
+        result = build_intent_overlay(root, write=not args.no_write)
     elif args.command == "capture-pair":
         result = capture_pair(root)
     elif args.command == "state":
