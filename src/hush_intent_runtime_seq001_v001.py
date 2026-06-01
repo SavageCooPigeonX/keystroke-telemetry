@@ -33,7 +33,7 @@ LOCAL_TERMS = {
 }
 MAIF_ANCHOR_TERMS = {"maif", "myaifingerprint", "linkrouter"}
 MAIF_SOCIAL_TERMS = {
-    "social", "post", "posts", "caption", "captions", "thread", "threads",
+    "social", "comment", "comments", "post", "posts", "caption", "captions", "thread", "threads",
     "linkedin", "twitter", "x", "sb", "supabase", "tone", "voice", "public",
     "publish", "published", "rerun", "rewrite", "proper", "opus", "4", "8",
 }
@@ -203,10 +203,10 @@ def _fingerprint_candidates(root: Path, tokens: set[str], context: dict[str, Any
 def _maif_domain_score(tokens: set[str], matched: list[str]) -> float:
     score = len(matched) / 7
     anchored = bool(tokens & MAIF_ANCHOR_TERMS)
-    social_sb = bool(tokens & {"sb", "supabase"}) and bool(tokens & {"social", "post", "posts", "caption", "captions", "thread", "threads"})
+    social_sb = bool(tokens & {"sb", "supabase"}) and bool(tokens & {"social", "comment", "comments", "post", "posts", "caption", "captions", "thread", "threads"})
     if anchored:
         score += 0.12
-    if anchored and tokens & {"social", "post", "posts", "caption", "captions", "thread", "threads"}:
+    if anchored and tokens & {"social", "comment", "comments", "post", "posts", "caption", "captions", "thread", "threads"}:
         score += 0.08
     if anchored and tokens & {"sb", "supabase"}:
         score += 0.08
@@ -230,7 +230,7 @@ def _intent_moves(prompt: str, graph: dict[str, Any]) -> list[dict[str, Any]]:
         ("hush_intent_runtime", {"hush", "runtime", "reconstruction", "persistent", "intent map"}),
         ("repo_classification", {"repo", "root", "context0", "linkrouter", "maif", "codebase"}),
         ("linkrouter_file_room_access", {"linkrouter", "maif", "files", "call files"}),
-        ("maif_social_post_rerun", {"maif social", "social posts", "social post", "supabase", "sb", "opus 4.8", "tone rerun"}),
+        ("maif_social_post_rerun", {"maif social", "social comments", "social comment", "social posts", "social post", "supabase", "sb", "opus 4.8", "tone rerun"}),
         ("file_mail_quality_gate", {"email", "emails", "mail", "text"}),
         ("file_identity_narrative", {"rename", "identity", "inator", "names", "responsible"}),
         ("field_whisper_irt_future_layer", {"whisper", "irt", "field", "intent"}),
@@ -264,7 +264,7 @@ def _summary_for_move(name: str, prompt: str) -> str:
         "hush_intent_runtime": "make Hush own persistent intent reconstruction and extended runtime state",
         "repo_classification": "classify active repo before manifest scoring and block unsafe mutation",
         "linkrouter_file_room_access": "treat LinkRouter/MAIF fingerprints as callable repo-room context",
-        "maif_social_post_rerun": "repair Supabase MAIF social rows whose Opus 4.8 generation failed tone",
+        "maif_social_post_rerun": "repair Supabase MAIF social comment/post rows whose Opus 4.8 generation failed tone",
         "file_mail_quality_gate": "stop emails that do not carry learned/done/next/need signal",
         "file_identity_narrative": "make file packets expose identity, responsibility, and mutation state",
         "field_whisper_irt_future_layer": "reserve live field intent whisper hooks for non-coding IRT",

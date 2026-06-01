@@ -1,4 +1,4 @@
-"""MAIF social post tone-repair rerun packet for Opus 4.8 outputs.
+"""MAIF social comment/post tone-repair rerun packet for Opus 4.8 outputs.
 
 The live Supabase table is privacy fenced outside this repository.  This module
 therefore works from exported rows by default and only applies updates when a
@@ -22,6 +22,10 @@ LATEST = "logs/maif_social_opus_rerun_latest.json"
 HISTORY = "logs/maif_social_opus_rerun.jsonl"
 MARKDOWN = "logs/maif_social_opus_rerun.md"
 DEFAULT_EXPORTS = (
+    "logs/maif_social_comments_export.jsonl",
+    "logs/maif_social_comments_export.json",
+    "logs/sb_maif_social_comments.jsonl",
+    "logs/sb_maif_social_comments.json",
     "logs/maif_social_posts_export.jsonl",
     "logs/maif_social_posts_export.json",
     "logs/sb_maif_social_posts.jsonl",
@@ -36,6 +40,7 @@ GENERIC_PHRASES = (
     "it is important to",
     "let's dive in",
     "this post",
+    "this comment",
 )
 
 
@@ -53,11 +58,12 @@ def build_maif_social_opus_rerun(
     root = Path(root)
     source_path, loaded_rows = _load_rows(root, input_path) if rows is None else ("inline", rows)
     normalized = [_normalize_row(row) for row in loaded_rows]
+    content_kind = _infer_content_kind(normalized, str(source_path))
     candidates = [row for row in normalized if _needs_repair(row)]
     if limit is not None:
         candidates = candidates[: max(0, limit)]
-    repairs = [_repair_row(row) for row in candidates]
-    apply_result = _apply_supabase_repairs(repairs, table=table) if apply else {
+    repairs = [_repair_row(row, content_kind=content_kind) for row in candidates]
+    apply_result = _apply_supabase_repairs(repairs, table=table, content_kind=content_kind) if apply else {
         "status": "dry_run",
         "applied": 0,
         "reason": "pass apply=True after reviewing repairs",
@@ -71,6 +77,7 @@ def build_maif_social_opus_rerun(
         "status": status,
         "source": str(source_path),
         "requested_model": "opus-4.8",
+        "content_kind": content_kind,
         "repair_contract": _repair_contract(),
         "input_count": len(loaded_rows),
         "candidate_count": len(candidates),
@@ -91,6 +98,7 @@ def render_maif_social_opus_rerun(result: dict[str, Any]) -> str:
         "",
         f"- status: `{result.get('status')}`",
         f"- source: `{result.get('source')}`",
+        f"- content kind: `{result.get('content_kind')}`",
         f"- input rows: `{result.get('input_count')}`",
         f"- repair candidates: `{result.get('candidate_count')}`",
         f"- supabase apply: `{(result.get('supabase_apply') or {}).get('status')}`",
@@ -105,7 +113,7 @@ def render_maif_social_opus_rerun(result: dict[str, Any]) -> str:
         lines.append(f"  - before: {repair.get('before_preview')}")
         lines.append(f"  - after: {repair.get('repaired_post')}")
     if not result.get("repairs"):
-        lines.append("- no repair rows available; export SB rows into `logs/maif_social_posts_export.jsonl` and rerun.")
+        lines.append("- no repair rows available; export SB rows into `logs/maif_social_comments_export.jsonl` and rerun.")
     return "\n".join(lines) + "\n"
 
 
@@ -134,7 +142,7 @@ def _read_rows(path: Path) -> list[dict[str, Any]]:
     if isinstance(data, list):
         return [row for row in data if isinstance(row, dict)]
     if isinstance(data, dict):
-        for key in ("rows", "posts", "data"):
+        for key in ("rows", "comments", "posts", "data"):
             value = data.get(key)
             if isinstance(value, list):
                 return [row for row in value if isinstance(row, dict)]
@@ -142,12 +150,12 @@ def _read_rows(path: Path) -> list[dict[str, Any]]:
 
 
 def _normalize_row(row: dict[str, Any]) -> dict[str, Any]:
-    text = _first_text(row, ("post_text", "content", "caption", "body", "text", "draft", "output"))
+    text = _first_text(row, ("comment_text", "comment", "post_text", "content", "caption", "body", "text", "draft", "output"))
     source = _first_text(row, ("source_model", "model", "generator", "llm", "rerun_model"))
     failure = _first_text(row, ("failure_reason", "tone_failure", "status", "quality_status", "notes"))
     return {
         "raw": row,
-        "id": str(row.get("id") or row.get("post_id") or row.get("uuid") or row.get("slug") or ""),
+        "id": str(row.get("id") or row.get("comment_id") or row.get("post_id") or row.get("uuid") or row.get("slug") or ""),
         "post_text": text,
         "topic": _first_text(row, ("topic", "title", "entity", "subject")),
         "source_model": source,
@@ -164,6 +172,23 @@ def _first_text(row: dict[str, Any], keys: tuple[str, ...]) -> str:
     return ""
 
 
+def _infer_content_kind(rows: list[dict[str, Any]], source: str) -> str:
+    source_lower = source.lower()
+    if "comment" in source_lower:
+        return "comment"
+    if "post" in source_lower:
+        return "post"
+    raw_keys = set()
+    for row in rows[:20]:
+        raw = row.get("raw") if isinstance(row.get("raw"), dict) else {}
+        raw_keys.update(str(key).lower() for key in raw)
+    if any("comment" in key for key in raw_keys):
+        return "comment"
+    if any("post" in key for key in raw_keys):
+        return "post"
+    return "social_item"
+
+
 def _needs_repair(row: dict[str, Any]) -> bool:
     haystack = " ".join([row["post_text"], row["source_model"], row["failure_reason"]]).lower()
     if not row["post_text"].strip():
@@ -175,7 +200,7 @@ def _needs_repair(row: dict[str, Any]) -> bool:
     return any(phrase in haystack for phrase in GENERIC_PHRASES)
 
 
-def _repair_row(row: dict[str, Any]) -> dict[str, Any]:
+def _repair_row(row: dict[str, Any], *, content_kind: str) -> dict[str, Any]:
     repaired = _rewrite_post(row["post_text"], topic=row["topic"], platform=row["platform"])
     flags = _repair_flags(row["post_text"], row["failure_reason"])
     return {
@@ -183,6 +208,7 @@ def _repair_row(row: dict[str, Any]) -> dict[str, Any]:
         "platform": row["platform"],
         "source_model": row["source_model"] or "unknown",
         "requested_model": "opus-4.8",
+        "content_kind": content_kind,
         "repair_flags": flags,
         "before_preview": _snip(row["post_text"], 220),
         "repaired_post": repaired,
@@ -238,23 +264,28 @@ def _repair_contract() -> dict[str, Any]:
     return {
         "model": "opus-4.8",
         "rules": [
-            "make the post public-facing and specific, not a generic assistant answer",
+            "make the social comment/post public-facing and specific, not a generic assistant answer",
             "preserve the original claim/topic when present",
             "name MAIF as the signal layer only when the row does not already do it",
             "remove apology, template, and filler phrasing",
-            "write only the corrected post text back to Supabase content fields",
+            "write only the corrected social text back to Supabase content fields",
         ],
     }
 
 
-def _apply_supabase_repairs(repairs: list[dict[str, Any]], *, table: str | None) -> dict[str, Any]:
+def _apply_supabase_repairs(repairs: list[dict[str, Any]], *, table: str | None, content_kind: str) -> dict[str, Any]:
     url = os.environ.get("MAIF_SUPABASE_URL") or os.environ.get("SUPABASE_URL")
     key = (
         os.environ.get("MAIF_SUPABASE_SERVICE_ROLE_KEY")
         or os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
         or os.environ.get("SUPABASE_KEY")
     )
-    table = table or os.environ.get("MAIF_SOCIAL_POSTS_TABLE") or "maif_social_posts"
+    table = (
+        table
+        or os.environ.get("MAIF_SOCIAL_COMMENTS_TABLE")
+        or os.environ.get("MAIF_SOCIAL_POSTS_TABLE")
+        or ("maif_social_comments" if content_kind == "comment" else "maif_social_posts")
+    )
     if not url or not key:
         return {"status": "missing_credentials", "applied": 0, "table": table}
     applied = []

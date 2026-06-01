@@ -63,7 +63,7 @@ def test_hush_routes_maif_social_sb_opus_rerun_without_live_logs(tmp_path: Path)
 
     result = classify_active_repo(
         tmp_path,
-        "fix data in sb and rerun Opus 4.8 so MAIF social posts answer in the proper tone",
+        "fix data in sb and rerun Opus 4.8 so yesterday's MAIF social comment answers in the proper tone",
     )
 
     assert result["active_repo"] == "maif_auditor"

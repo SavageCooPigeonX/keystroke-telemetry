@@ -1,4 +1,4 @@
-"""Rerun MAIF social Opus 4.8 tone repair from exported Supabase rows."""
+"""Rerun MAIF social comment/post Opus 4.8 tone repair from exported Supabase rows."""
 from __future__ import annotations
 
 import argparse
@@ -10,8 +10,8 @@ from pathlib import Path
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", default=".")
-    parser.add_argument("--input", default="", help="JSON/JSONL export of MAIF social rows")
-    parser.add_argument("--table", default="", help="Supabase table name; defaults to MAIF_SOCIAL_POSTS_TABLE or maif_social_posts")
+    parser.add_argument("--input", default="", help="JSON/JSONL export of MAIF social comment/post rows")
+    parser.add_argument("--table", default="", help="Supabase table name; defaults to comment/post MAIF social env")
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--apply", action="store_true", help="PATCH Supabase rows using SUPABASE_URL and service key env")
     args = parser.parse_args()

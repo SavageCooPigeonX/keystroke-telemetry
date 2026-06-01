@@ -41,6 +41,34 @@ def test_maif_social_opus_rerun_repairs_exported_bad_tone_rows(tmp_path, monkeyp
     assert (logs / "maif_social_opus_rerun_latest.json").exists()
 
 
+def test_maif_social_opus_rerun_repairs_exported_comment_rows(tmp_path, monkeypatch):
+    monkeypatch.delenv("SUPABASE_URL", raising=False)
+    monkeypatch.delenv("SUPABASE_SERVICE_ROLE_KEY", raising=False)
+    logs = tmp_path / "logs"
+    logs.mkdir()
+    export = logs / "maif_social_comments_export.jsonl"
+    export.write_text(
+        json.dumps({
+            "comment_id": "comment-1",
+            "comment_text": "This comment is important to understand because here are generic insights.",
+            "model": "opus-4.8",
+            "tone_failure": "bad_voice",
+        })
+        + "\n",
+        encoding="utf-8",
+    )
+
+    result = build_maif_social_opus_rerun(tmp_path, input_path=export, write=True)
+
+    assert result["content_kind"] == "comment"
+    assert result["candidate_count"] == 1
+    repair = result["repairs"][0]
+    assert repair["id"] == "comment-1"
+    assert repair["content_kind"] == "comment"
+    assert "This comment" not in repair["repaired_post"]
+    assert "generic_ai_tone" in repair["repair_flags"]
+
+
 def test_maif_social_opus_rerun_blocks_apply_without_supabase_credentials(tmp_path, monkeypatch):
     monkeypatch.delenv("SUPABASE_URL", raising=False)
     monkeypatch.delenv("SUPABASE_SERVICE_ROLE_KEY", raising=False)
