@@ -58,11 +58,25 @@ def test_hush_blocks_ambiguous_context0_without_repo_lock(tmp_path: Path):
     assert result["mutation_fence"] == "blocked"
 
 
+def test_hush_routes_maif_social_sb_opus_rerun_without_live_logs(tmp_path: Path):
+    (tmp_path / "logs").mkdir()
+
+    result = classify_active_repo(
+        tmp_path,
+        "fix data in sb and rerun Opus 4.8 so MAIF social posts answer in the proper tone",
+    )
+
+    assert result["active_repo"] == "maif_auditor"
+    assert result["mutation_fence"] == "open"
+    assert result["repo_confidence"] >= 0.22
+
+
 def test_hush_runtime_splits_messy_prompt_and_writes_file_packets(tmp_path: Path):
     root = _root(tmp_path)
     prompt = (
         "Hush needs persistent intent reconstruction, repo classification for LinkRouter MAIF files, "
-        "emails with useful text, Inator file identity names, and future whisper IRT field intent."
+        "MAIF social post reruns in Supabase, emails with useful text, Inator file identity names, "
+        "and future whisper IRT field intent."
     )
     with (root / "logs" / "prompt_journal.jsonl").open("a", encoding="utf-8") as handle:
         handle.write(json.dumps({"msg": prompt, "intent": "building", "deleted_words": ["jarvis"]}) + "\n")
@@ -92,6 +106,7 @@ def test_hush_runtime_splits_messy_prompt_and_writes_file_packets(tmp_path: Path
         "hush_intent_runtime",
         "repo_classification",
         "linkrouter_file_room_access",
+        "maif_social_post_rerun",
         "file_mail_quality_gate",
         "file_identity_narrative",
         "field_whisper_irt_future_layer",

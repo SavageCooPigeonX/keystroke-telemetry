@@ -31,10 +31,17 @@ LOCAL_TERMS = {
     "rename", "inator", "deepseek", "copilot", "codex", "pigeon",
     "micro", "agents", "substrate", "mail", "email",
 }
+MAIF_ANCHOR_TERMS = {"maif", "myaifingerprint", "linkrouter", "hush"}
+MAIF_SOCIAL_TERMS = {
+    "social", "post", "posts", "caption", "captions", "thread", "threads",
+    "linkedin", "twitter", "x", "sb", "supabase", "tone", "voice", "public",
+    "publish", "published", "rerun", "rewrite", "proper", "opus", "4", "8",
+}
 MAIF_TERMS = {
     "maif", "myaifingerprint", "linkrouter", "hush", "entity",
     "entities", "directory", "audit", "auditor", "consensus", "drift",
     "whisperer", "whisper", "irt", "field", "reputation",
+    *MAIF_SOCIAL_TERMS,
 }
 
 
@@ -188,8 +195,25 @@ def _fingerprint_candidates(root: Path, tokens: set[str], context: dict[str, Any
         rows.append(_candidate(label, min(score, 1.0), matched, f"repo fingerprint {path.name}"))
     if not rows and tokens & MAIF_TERMS:
         matched = sorted(tokens & MAIF_TERMS)
-        rows.append(_candidate("maif_auditor", min(len(matched) / 7, 1.0), matched, "MAIF domain map"))
+        score = _maif_domain_score(tokens, matched)
+        rows.append(_candidate("maif_auditor", score, matched, "MAIF domain map"))
     return rows
+
+
+def _maif_domain_score(tokens: set[str], matched: list[str]) -> float:
+    score = len(matched) / 7
+    if tokens & MAIF_ANCHOR_TERMS:
+        score += 0.12
+    if tokens & {"social", "post", "posts", "caption", "captions", "thread", "threads"}:
+        score += 0.08
+    if tokens & {"sb", "supabase"}:
+        score += 0.08
+    if tokens & {"tone", "voice", "proper", "rerun", "rewrite"}:
+        score += 0.06
+    # "Opus 4.8" is a model/rerun selector here, not a local-repo signal.
+    if "opus" in tokens and ({"4", "8"} <= tokens or "4_8" in tokens):
+        score += 0.04
+    return round(min(score, 1.0), 4)
 
 
 def _candidate(repo: str, score: float, matched: list[str], source: str) -> dict[str, Any]:
@@ -202,6 +226,7 @@ def _intent_moves(prompt: str, graph: dict[str, Any]) -> list[dict[str, Any]]:
         ("hush_intent_runtime", {"hush", "runtime", "reconstruction", "persistent", "intent map"}),
         ("repo_classification", {"repo", "root", "context0", "linkrouter", "maif", "codebase"}),
         ("linkrouter_file_room_access", {"linkrouter", "maif", "files", "call files"}),
+        ("maif_social_post_rerun", {"maif social", "social posts", "social post", "supabase", "sb", "opus 4.8", "tone rerun"}),
         ("file_mail_quality_gate", {"email", "emails", "mail", "text"}),
         ("file_identity_narrative", {"rename", "identity", "inator", "names", "responsible"}),
         ("field_whisper_irt_future_layer", {"whisper", "irt", "field", "intent"}),
@@ -235,6 +260,7 @@ def _summary_for_move(name: str, prompt: str) -> str:
         "hush_intent_runtime": "make Hush own persistent intent reconstruction and extended runtime state",
         "repo_classification": "classify active repo before manifest scoring and block unsafe mutation",
         "linkrouter_file_room_access": "treat LinkRouter/MAIF fingerprints as callable repo-room context",
+        "maif_social_post_rerun": "repair Supabase MAIF social rows whose Opus 4.8 generation failed tone",
         "file_mail_quality_gate": "stop emails that do not carry learned/done/next/need signal",
         "file_identity_narrative": "make file packets expose identity, responsibility, and mutation state",
         "field_whisper_irt_future_layer": "reserve live field intent whisper hooks for non-coding IRT",
@@ -247,6 +273,7 @@ def _files_for_move(name: str) -> list[str]:
         "hush_intent_runtime": ["src/hush_intent_runtime_seq001_v001.py", "src/opus_orchestrator_runtime_seq001_v001.py"],
         "repo_classification": ["src/hush_intent_runtime_seq001_v001.py", "src/ai_fingerprint_repo_seq001_v001.py"],
         "linkrouter_file_room_access": ["src/ai_fingerprint_repo_seq001_v001.py", "docs/LINKROUTER_AI_MAP.md"],
+        "maif_social_post_rerun": ["src/maif_social_opus_rerun_seq001_v001.py", "scripts/rerun_maif_social_opus.py"],
         "file_mail_quality_gate": ["src/file_email_plugin_seq001_v001.py", "src/file_email_text_chain_seq001_v001.py"],
         "file_identity_narrative": ["src/file_number_key_identity_seq001_v001.py", "src/file_interlinked_naming_sim_seq001_v001.py"],
         "field_whisper_irt_future_layer": ["src/hush_intent_runtime_seq001_v001.py"],
