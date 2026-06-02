@@ -80,6 +80,24 @@ def test_hush_name_alone_does_not_open_maif_room_without_anchor(tmp_path: Path):
     assert result["mutation_fence"] == "blocked"
 
 
+def test_hush_routes_maif_auditor_consensus_manager_move(tmp_path: Path):
+    root = _root(tmp_path)
+    prompt = (
+        "MAIF auditor consensus baseline should shift from original Gemini synthesis "
+        "to DeepSeek consensus manager for profile updates and intent graph work"
+    )
+
+    runtime = build_hush_intent_runtime(root, prompt, write=False)
+
+    repo = runtime["repo_classification"]
+    assert repo["active_repo"] == "maif_auditor"
+    assert repo["mutation_fence"] == "open"
+    names = {move["name"] for move in runtime["intent_moves"]}
+    assert "maif_auditor_consensus_manager" in names
+    move = next(move for move in runtime["intent_moves"] if move["name"] == "maif_auditor_consensus_manager")
+    assert "DeepSeek consensus-manager" in move["summary"]
+
+
 def test_hush_runtime_splits_messy_prompt_and_writes_file_packets(tmp_path: Path):
     root = _root(tmp_path)
     prompt = (

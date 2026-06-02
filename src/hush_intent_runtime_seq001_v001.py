@@ -40,7 +40,9 @@ MAIF_SOCIAL_TERMS = {
 MAIF_TERMS = {
     "maif", "myaifingerprint", "linkrouter", "hush", "entity",
     "entities", "directory", "audit", "auditor", "consensus", "drift",
-    "whisperer", "whisper", "irt", "field", "reputation",
+    "whisperer", "whisper", "irt", "field", "reputation", "baseline",
+    "baselines", "profile", "profiles", "post_audit", "storage_maif",
+    "production_auditor", "consensus_manager", "manager", "deepseek",
     *MAIF_SOCIAL_TERMS,
 }
 
@@ -230,6 +232,7 @@ def _intent_moves(prompt: str, graph: dict[str, Any]) -> list[dict[str, Any]]:
         ("hush_intent_runtime", {"hush", "runtime", "reconstruction", "persistent", "intent map"}),
         ("repo_classification", {"repo", "root", "context0", "linkrouter", "maif", "codebase"}),
         ("linkrouter_file_room_access", {"linkrouter", "maif", "files", "call files"}),
+        ("maif_auditor_consensus_manager", {"maif consensus", "auditor consensus", "initial consensus", "consensus baseline", "maif baseline", "deepseek consensus", "consensus manager", "profile updates", "intent graph", "post_audit", "storage_maif", "production_auditor"}),
         ("maif_social_post_rerun", {"maif social", "social comments", "social comment", "social posts", "social post", "supabase", "sb", "opus 4.8", "tone rerun"}),
         ("file_mail_quality_gate", {"email", "emails", "mail", "text"}),
         ("file_identity_narrative", {"rename", "identity", "inator", "names", "responsible"}),
@@ -264,6 +267,7 @@ def _summary_for_move(name: str, prompt: str) -> str:
         "hush_intent_runtime": "make Hush own persistent intent reconstruction and extended runtime state",
         "repo_classification": "classify active repo before manifest scoring and block unsafe mutation",
         "linkrouter_file_room_access": "treat LinkRouter/MAIF fingerprints as callable repo-room context",
+        "maif_auditor_consensus_manager": "route MAIF auditor baseline/profile/intent graph work through a DeepSeek consensus-manager lane",
         "maif_social_post_rerun": "repair Supabase MAIF social comment/post rows whose Opus 4.8 generation failed tone",
         "file_mail_quality_gate": "stop emails that do not carry learned/done/next/need signal",
         "file_identity_narrative": "make file packets expose identity, responsibility, and mutation state",
@@ -277,6 +281,7 @@ def _files_for_move(name: str) -> list[str]:
         "hush_intent_runtime": ["src/hush_intent_runtime_seq001_v001.py", "src/opus_orchestrator_runtime_seq001_v001.py"],
         "repo_classification": ["src/hush_intent_runtime_seq001_v001.py", "src/ai_fingerprint_repo_seq001_v001.py"],
         "linkrouter_file_room_access": ["src/ai_fingerprint_repo_seq001_v001.py", "docs/LINKROUTER_AI_MAP.md"],
+        "maif_auditor_consensus_manager": ["docs/LINKROUTER_AI_MAP.md", "scripts/generate_query_monitoring_profiles.py", "src/hush_intent_runtime_seq001_v001.py"],
         "maif_social_post_rerun": ["src/maif_social_opus_rerun_seq001_v001.py", "scripts/rerun_maif_social_opus.py"],
         "file_mail_quality_gate": ["src/file_email_plugin_seq001_v001.py", "src/file_email_text_chain_seq001_v001.py"],
         "file_identity_narrative": ["src/file_number_key_identity_seq001_v001.py", "src/file_interlinked_naming_sim_seq001_v001.py"],
