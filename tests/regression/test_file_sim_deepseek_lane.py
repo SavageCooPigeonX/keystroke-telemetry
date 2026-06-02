@@ -60,9 +60,9 @@ def test_file_sim_queues_one_perpendicular_deepseek_job_without_source_write():
     assert big_path.read_text(encoding="utf-8") == source
 
 
-def test_file_sim_deepseek_lane_obeys_hush_mutation_fence():
+def test_file_sim_deepseek_lane_obeys_mira_mutation_fence():
     root = _repo()
-    hush = {
+    mira = {
         "repo_classification": {
             "active_repo": "ambiguous",
             "repo_confidence": 0.05,
@@ -70,7 +70,7 @@ def test_file_sim_deepseek_lane_obeys_hush_mutation_fence():
             "reason": "repo room unclear",
         }
     }
-    (root / "logs" / "hush_intent_runtime_latest.json").write_text(json.dumps(hush), encoding="utf-8")
+    (root / "logs" / "mira_runtime_latest.json").write_text(json.dumps(mira), encoding="utf-8")
 
     result = simulate_file_self_learning(
         root,
@@ -82,7 +82,7 @@ def test_file_sim_deepseek_lane_obeys_hush_mutation_fence():
     )
 
     lane = result["perpendicular_deepseek"]
-    assert lane["job"]["mode"] == "hush_mutation_fence_plan_only"
+    assert lane["job"]["mode"] == "mira_mutation_fence_plan_only"
     assert lane["job"]["autonomous_write"] is False
-    assert lane["file_delegates"]["status"] == "blocked_by_hush_mutation_fence"
+    assert lane["file_delegates"]["status"] == "blocked_by_mira_mutation_fence"
     assert lane["file_delegates"]["grader_contract"]["source_mutation_allowed"] is False

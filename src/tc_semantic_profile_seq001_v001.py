@@ -47,6 +47,11 @@ FILE_VOICE_WORDS = {
     "emails", "feel", "centered", "centeread", "actionable", "personalization",
     "personalized", "planning", "learned", "done", "gpt", "terrible",
 }
+CREATIVE_WORDS = {
+    "write", "comedy", "comic", "satire", "sketch", "story", "scene",
+    "unhinged", "joke", "jokes", "bit", "fiction", "dialogue", "max",
+    "length", "glossator", "radio",
+}
 REASONING_WORDS = {"reasoning", "reason", "why", "logic", "receipts", "because"}
 FILE_MEMORY_WORDS = {
     "memory", "memories", "knowledge", "remember", "store", "stored",
@@ -150,6 +155,9 @@ def classify_semantic_intents(text: str, profile: dict[str, Any]) -> dict[str, A
     updates = _extract_fact_updates(text)
     matches = _find_profile_matches(text, profile)
     intents: list[str] = []
+    modifiers: list[str] = []
+    if {"no", "research"} <= toks or {"without", "research"} <= toks:
+        modifiers.append("no_research")
     if toks & INTRO_WORDS:
         intents.append("introduction")
     if updates:
@@ -166,6 +174,8 @@ def classify_semantic_intents(text: str, profile: dict[str, Any]) -> dict[str, A
         intents.append("monitoring")
     if "operatorstate" in toks or len(toks & OPERATOR_STATE_WORDS) >= 2:
         intents.append("operator_state_modeling")
+    if len(toks & CREATIVE_WORDS) >= 2 or {"write", "comedy"} <= toks:
+        intents.append("creative_artifact")
     if len(toks & FILE_VOICE_WORDS) >= 2:
         intents.append("file_voice_design")
     if toks & REASONING_WORDS:
@@ -178,6 +188,8 @@ def classify_semantic_intents(text: str, profile: dict[str, Any]) -> dict[str, A
         intents.append("unknown")
     if "share_information" in intents:
         primary = "share_information"
+    elif "creative_artifact" in intents:
+        primary = "creative_artifact"
     elif "live_field_intent_modeling" in intents:
         primary = "live_field_intent_modeling"
     elif "code_orchestration" in intents:
@@ -199,6 +211,7 @@ def classify_semantic_intents(text: str, profile: dict[str, Any]) -> dict[str, A
     return {
         "semantic_intent": primary,
         "semantic_intents": intents,
+        "modifiers": modifiers,
         "profile_updates": updates,
         "profile_matches": matches,
     }
@@ -268,6 +281,10 @@ def _completion_hint(classified: dict[str, Any]) -> str:
         return "intent:introduction"
     if "code_orchestration" in (classified.get("semantic_intents") or []):
         return "intent:code_orchestration"
+    if "creative_artifact" in (classified.get("semantic_intents") or []):
+        if "no_research" in (classified.get("modifiers") or []):
+            return "intent:creative_artifact:no_research"
+        return "intent:creative_artifact"
     if "live_field_intent_modeling" in (classified.get("semantic_intents") or []):
         return "intent:live_field_intent_modeling"
     if "operator_state_modeling" in (classified.get("semantic_intents") or []):

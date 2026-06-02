@@ -99,12 +99,19 @@ def log_prompt(
         entry["semantic_profile_error"] = str(exc)
     context = select_context(root, prompt, parsed_deleted_words, rewrites or [])
     entry["context_selection"] = context
+    entry["mira"] = _build_mira_runtime(root, prompt, parsed_deleted_words, context)
+    entry["hush"] = {}
+    if isinstance(entry.get("mira"), dict):
+        entry["hush"] = (entry["mira"].get("hush_frontend_interface") or {})
+    artifact_only = _mira_requests_artifact_only(entry.get("mira") or {})
     entry["file_sim"] = (
         _fire_file_sim(root, prompt, context_selection=context, trigger="log_prompt", force=True)
-        if fire_file_sim
+        if fire_file_sim and not artifact_only
+        else {"status": "skipped", "reason": "mira_read_only_or_artifact_only", "trigger": "log_prompt"}
+        if artifact_only
         else {"status": "skipped", "reason": "pre_prompt_will_fire", "trigger": "log_prompt"}
     )
-    if prompt and fire_file_sim:
+    if prompt and fire_file_sim and not artifact_only:
         entry["intent_loop"] = _record_intent_loop(
             root,
             prompt,
@@ -123,16 +130,55 @@ def log_prompt(
         build_operator_fingerprint(root)
     except Exception:
         pass
-    try:
-        enqueue_deepseek_prompt_job(
-            root,
-            prompt,
-            context_selection=context,
-            deleted_words=parsed_deleted_words,
-            source=source,
-            priority=4,
-        )
-    except Exception:
-        pass
+    if prompt and artifact_only:
+        entry["deepseek_prompt_job"] = {
+            "status": "skipped",
+            "mode": "artifact_only",
+            "reason": "mira_read_only_or_artifact_only",
+        }
+    else:
+        try:
+            entry["deepseek_prompt_job"] = enqueue_deepseek_prompt_job(
+                root,
+                prompt,
+                context_selection=context,
+                deleted_words=parsed_deleted_words,
+                source=source,
+                priority=4,
+            )
+        except Exception:
+            pass
     refresh_state(root, "logged prompt")
     return entry
+
+
+def _build_mira_runtime(
+    root: Path,
+    prompt: str,
+    deleted_words: list[str],
+    context_selection: dict[str, Any],
+) -> dict[str, Any]:
+    if not prompt:
+        return {}
+    try:
+        _ensure_repo_on_path(root)
+        from src.mira_runtime_seq001_v001 import build_mira_runtime
+        return build_mira_runtime(
+            root,
+            prompt,
+            write=True,
+            deleted_words=deleted_words,
+            context_selection=context_selection,
+        )
+    except Exception as exc:
+        return {"status": "error", "error": str(exc)}
+
+
+def _mira_requests_artifact_only(mira: dict[str, Any]) -> bool:
+    if not isinstance(mira, dict):
+        return False
+    authority = mira.get("runtime_authority") if isinstance(mira.get("runtime_authority"), dict) else {}
+    if authority.get("mode") in {"creative_artifact_only", "maif_information_interface"}:
+        return True
+    move_names = {str(move.get("name") or "") for move in (mira.get("intent_moves") or []) if isinstance(move, dict)}
+    return "creative_artifact_only" in move_names

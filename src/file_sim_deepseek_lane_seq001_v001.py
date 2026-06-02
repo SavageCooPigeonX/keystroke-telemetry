@@ -57,7 +57,7 @@ def queue_perpendicular_deepseek_job(root: Path, sim: dict[str, Any], *, write: 
         "artifact_path": f"logs/deepseek_artifacts/{job_id}_{action['mode']}.md",
         "max_tokens": 8000,
         "selected_action": action,
-        "hush_mutation_fence": ((hush.get("repo_classification") or {}).get("mutation_fence") or "unknown") if hush else "unknown",
+        "mira_mutation_fence": ((hush.get("repo_classification") or {}).get("mutation_fence") or "unknown") if hush else "unknown",
     }
     result = {
         "schema": "file_sim_deepseek_lane/v1",
@@ -67,7 +67,7 @@ def queue_perpendicular_deepseek_job(root: Path, sim: dict[str, Any], *, write: 
         "action": action,
         "context_pack_path": CONTEXT_PACK,
         "rule": "DeepSeek runs perpendicular to Copilot; it drafts plans/artifacts until approval opens surgery.",
-        "hush_intent_runtime": _hush_summary(hush),
+        "mira_runtime": _hush_summary(hush),
         "file_delegates": delegates,
     }
     if write:
@@ -107,17 +107,17 @@ def _select_action(sim: dict[str, Any], hush: dict[str, Any] | None = None) -> d
 def _hush_blocked_action(sim: dict[str, Any], hush: dict[str, Any]) -> dict[str, Any]:
     repo = hush.get("repo_classification") or {}
     wake = (sim.get("wake_order") or [{}])[0]
-    target = wake.get("file") or "logs/hush_intent_runtime_latest.json"
+    target = wake.get("file") or "logs/mira_runtime_latest.json"
     return {
-        "mode": "hush_mutation_fence_plan_only",
+        "mode": "mira_mutation_fence_plan_only",
         "priority": 0,
         "target_file": target,
         "intent_key": (sim.get("intent") or {}).get("intent_key", ""),
         "bounded_action": "repo room is ambiguous; draft context plan only and do not propose source mutation",
-        "focus_files": _dedupe([target, "logs/hush_intent_runtime_latest.json", "logs/file_self_sim_learning_latest.json"]),
-        "validation_plan": ["review Hush repo classification", "ask operator for explicit repo lock"],
+        "focus_files": _dedupe([target, "logs/mira_runtime_latest.json", "logs/file_self_sim_learning_latest.json"]),
+        "validation_plan": ["review MIRA repo classification", "ask operator for explicit repo lock"],
         "confidence": repo.get("repo_confidence", 0),
-        "hush_reason": repo.get("reason", "Hush blocked mutation"),
+        "mira_reason": repo.get("reason", "MIRA blocked mutation"),
     }
 
 
@@ -152,7 +152,7 @@ def _context_pack(sim: dict[str, Any], action: dict[str, Any]) -> dict[str, Any]
         "role": "perpendicular_deepseek_lane",
         "target_state": "interlinked_source_state",
         "selected_action": action,
-        "hush_intent_runtime": sim.get("hush_intent_runtime") or {},
+        "mira_runtime": sim.get("mira_runtime") or sim.get("hush_intent_runtime") or {},
         "intent": sim.get("intent") or {},
         "learning_packets": packets[:2],
         "relationship_edges": edges[:16],
@@ -168,13 +168,13 @@ def _context_pack(sim: dict[str, Any], action: dict[str, Any]) -> dict[str, Any]
 
 def _prompt(sim: dict[str, Any], action: dict[str, Any]) -> str:
     intent = sim.get("intent") or {}
-    hush_note = ""
-    if action.get("mode") == "hush_mutation_fence_plan_only":
-        hush_note = "HUSH_FENCE: Mutation is blocked. Return a repo-lock/context plan only."
+    mira_note = ""
+    if action.get("mode") == "mira_mutation_fence_plan_only":
+        mira_note = "MIRA_FENCE: Mutation is blocked. Return a repo-lock/context plan only."
     return "\n".join([
         "You are DeepSeek running perpendicular to Copilot inside the file-sim loop.",
         "Your job is continuous safe maintenance: compress, split-plan, map validation, or simulate an alternate codebase state.",
-        hush_note,
+        mira_note,
         "",
         f"INTENT_KEY: {intent.get('intent_key', '')}",
         f"TARGET_FILE: {action.get('target_file')}",
@@ -199,9 +199,12 @@ def _dedupe(items: Any) -> list[str]:
 
 
 def _hush_runtime(root: Path, sim: dict[str, Any]) -> dict[str, Any]:
+    if isinstance(sim.get("mira_runtime"), dict):
+        return sim["mira_runtime"]
     if isinstance(sim.get("hush_intent_runtime"), dict):
         return sim["hush_intent_runtime"]
-    return _json(root / "logs" / "hush_intent_runtime_latest.json")
+    latest = _json(root / "logs" / "mira_runtime_latest.json")
+    return latest or _json(root / "logs" / "hush_intent_runtime_latest.json")
 
 
 def _hush_blocks_mutation(hush: dict[str, Any] | None) -> bool:
@@ -224,12 +227,12 @@ def _hush_summary(hush: dict[str, Any] | None) -> dict[str, Any]:
 def _blocked_delegates(hush: dict[str, Any] | None) -> dict[str, Any]:
     return {
         "schema": "file_deepseek_delegate/v1",
-        "status": "blocked_by_hush_mutation_fence",
+        "status": "blocked_by_mira_mutation_fence",
         "jobs": [],
         "grader_contract": {
             "direct_overwrite_allowed": False,
             "source_mutation_allowed": False,
-            "reason": ((hush or {}).get("repo_classification") or {}).get("reason", "Hush blocked mutation"),
+            "reason": ((hush or {}).get("repo_classification") or {}).get("reason", "MIRA blocked mutation"),
         },
     }
 

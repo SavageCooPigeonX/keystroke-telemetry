@@ -121,3 +121,61 @@ def test_live_field_irt_prompt_classifies_live_field_intent_modeling():
     assert event["semantic_intent"] == "live_field_intent_modeling"
     assert "live_field_intent_modeling" in event["semantic_intents"]
     assert event["completion_hint"] == "intent:live_field_intent_modeling"
+
+
+def test_creative_no_research_prompt_classifies_artifact_modifier():
+    root = _root()
+
+    event = log_semantic_profile_event(
+        root,
+        "write a max length unhinged comedy about proactive intent probes no research",
+        source="test",
+    )
+
+    assert event["semantic_intent"] == "creative_artifact"
+    assert "creative_artifact" in event["semantic_intents"]
+    assert "no_research" in event["modifiers"]
+    assert event["completion_hint"] == "intent:creative_artifact:no_research"
+
+
+def test_codex_prompt_logger_skips_deep_research_for_creative_artifact():
+    root = _root()
+
+    entry = codex_compat.log_prompt(
+        root,
+        "write a max length unhinged comedy about proactive intent probes no research",
+        fire_file_sim=True,
+        emit_prompt_email=False,
+    )
+
+    assert entry["intent"] == "creative"
+    assert entry["mira"]["runtime_authority"]["mode"] == "creative_artifact_only"
+    assert entry["mira"]["name"] == "MIRA"
+    assert entry["file_sim"]["status"] == "skipped"
+    assert entry["deepseek_prompt_job"]["status"] == "skipped"
+
+
+def test_codex_prompt_logger_skips_code_sim_for_maif_entity_interface():
+    root = _root()
+    (root / "logs").mkdir(exist_ok=True)
+    (root / "logs" / "repo_fingerprint_maif_auditor.json").write_text(json.dumps({
+        "schema": "repo_fingerprint/v1",
+        "label": "maif_auditor",
+        "privacy": "closed",
+        "files_indexed": 1,
+        "files": [{"identity": "maif_auditor_directory_route_entity"}],
+    }), encoding="utf-8")
+
+    entry = codex_compat.log_prompt(
+        root,
+        "Hush entity sim for Audit SavageCooPigeonX marked staged docs copy file",
+        fire_file_sim=True,
+        emit_prompt_email=False,
+    )
+
+    assert entry["mira"]["runtime_authority"]["mode"] == "maif_information_interface"
+    assert entry["mira"]["entity_sim"]
+    assert entry["hush"]["assistant"] == "Hush"
+    assert entry["hush"]["frontend_intent"] == "entity_sim"
+    assert entry["file_sim"]["status"] == "skipped"
+    assert entry["deepseek_prompt_job"]["status"] == "skipped"

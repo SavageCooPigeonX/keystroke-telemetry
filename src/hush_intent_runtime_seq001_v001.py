@@ -1,9 +1,13 @@
-"""Hush intent runtime and repo-room classifier.
+"""MIRA runtime and MAIF/Hush interface bridge.
 
-Hush is the intent reconstruction authority for the file-substrate loop. This
-module stays deterministic: it reads local telemetry, repo fingerprints, file
-sim state, and intent history, then emits a mutation fence plus wakeable file
-packets for downstream orchestrators.
+MIRA is the codebase/Opus-side Memory Intent Reconstruction Agent:
+Map -> Infer -> Reconstruct -> Align.
+
+Hush remains the user-facing myaifingerprint.com interface. This module bridges
+the two deterministically: MIRA reads local telemetry, AI fingerprints, entity
+fingerprints, and intent history, then emits internal alignment packets plus a
+mutation fence for automation. If the prompt is a MAIF frontend request, it also
+embeds a read-only Hush entity-sim packet.
 """
 from __future__ import annotations
 
@@ -15,11 +19,15 @@ from pathlib import Path
 from typing import Any
 
 from src.file_number_key_identity_seq001_v001 import file_identity_card
+from src.hush_maif_interface_seq001_v001 import build_hush_maif_interface
 
-SCHEMA = "hush_intent_runtime/v1"
-LATEST = "logs/hush_intent_runtime_latest.json"
-HISTORY = "logs/hush_intent_runtime.jsonl"
-MARKDOWN = "logs/hush_intent_runtime.md"
+SCHEMA = "mira_runtime/v1"
+LATEST = "logs/mira_runtime_latest.json"
+HISTORY = "logs/mira_runtime.jsonl"
+MARKDOWN = "logs/mira_runtime.md"
+LEGACY_LATEST = "logs/hush_intent_runtime_latest.json"
+LEGACY_HISTORY = "logs/hush_intent_runtime.jsonl"
+LEGACY_MARKDOWN = "logs/hush_intent_runtime.md"
 
 LOCAL_REPO = "keystroke_telemetry"
 LOW_CONFIDENCE = 0.22
@@ -64,7 +72,7 @@ def classify_active_repo(
     else:
         reason = f"{top['repo']} matched {', '.join(top.get('matched_terms') or ['repo signals'])}"
     return {
-        "schema": "hush_repo_classification/v1",
+        "schema": "mira_repo_classification/v1",
         "ts": _now(),
         "active_repo": active_repo,
         "repo_confidence": confidence,
@@ -74,70 +82,130 @@ def classify_active_repo(
     }
 
 
-def build_hush_intent_runtime(root: Path, prompt: str = "", *, write: bool = True) -> dict[str, Any]:
-    """Build the persistent Hush intent-map packet for orchestration."""
+def build_hush_intent_runtime(
+    root: Path,
+    prompt: str = "",
+    *,
+    write: bool = True,
+    deleted_words: list[str] | None = None,
+    context_selection: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Compatibility wrapper for the renamed MIRA runtime."""
+    return build_mira_runtime(
+        root,
+        prompt,
+        write=write,
+        deleted_words=deleted_words,
+        context_selection=context_selection,
+    )
+
+
+def build_mira_runtime(
+    root: Path,
+    prompt: str = "",
+    *,
+    write: bool = True,
+    deleted_words: list[str] | None = None,
+    context_selection: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Build the persistent MIRA packet for Opus/codebase orchestration."""
     root = Path(root)
     journal = _jsonl_tail(root / "logs" / "prompt_journal.jsonl", 8)
     latest_prompt = journal[-1] if journal else {}
     current_prompt = str(prompt or latest_prompt.get("msg") or "")
-    deleted = list(latest_prompt.get("deleted_words") or [])
+    deleted = list(deleted_words if deleted_words is not None else latest_prompt.get("deleted_words") or [])
     context_pack = _json(root / "logs" / "dynamic_context_pack.json")
-    context_selection = context_pack.get("context_selection") if isinstance(context_pack.get("context_selection"), dict) else {}
+    if context_selection is None:
+        context_selection = context_pack.get("context_selection") if isinstance(context_pack.get("context_selection"), dict) else {}
     repo = classify_active_repo(root, current_prompt, deleted, context_selection)
     semantic = _json(root / "logs" / "semantic_profile_latest.json")
     intent_graph = _json(root / "logs" / "intent_graph_latest.json")
     sim = _json(root / "logs" / "file_self_sim_learning_latest.json")
     outcome = _json(root / "logs" / "codex_edit_outcome_latest.json")
     intent_moves = _intent_moves(current_prompt, intent_graph)
-    packets = _file_packets(root, repo, sim, current_prompt)
+    maif_interface = (
+        build_hush_maif_interface(root, current_prompt, write=write)
+        if _is_maif_information_prompt(current_prompt, repo)
+        else {}
+    )
+    effective_fence, fence_reason = _effective_mutation_fence(repo, intent_moves, current_prompt, semantic, maif_interface)
+    packets = _file_packets(root, {**repo, "mutation_fence": effective_fence}, sim, current_prompt)
+    mode = _runtime_mode(intent_moves, current_prompt, semantic, maif_interface)
     result = {
         "schema": SCHEMA,
         "ts": _now(),
-        "name": "Hush",
-        "role": "persistent_intent_reconstruction_agent",
+        "name": "MIRA",
+        "full_name": "Memory Intent Reconstruction Agent",
+        "role": "memory_intent_reconstruction_agent",
+        "loop": ["Map", "Infer", "Reconstruct", "Align"],
+        "interface_surface": "opus_codebase_runtime",
+        "hush_frontend_interface": maif_interface,
         "operator_prompt": current_prompt,
         "deleted_words": deleted,
+        "entity_sim": maif_interface.get("entity_sim", []) if isinstance(maif_interface, dict) else [],
+        "frontend_cards": maif_interface.get("frontend_cards", []) if isinstance(maif_interface, dict) else [],
         "repo_classification": repo,
         "intent_map": _intent_map(journal, semantic, intent_moves),
         "intent_moves": intent_moves,
         "file_packets": packets,
         "workflow": [
             "operator signal",
-            "Hush intent map",
-            "active repo",
-            "intent moves",
-            "wake order",
-            "file packets",
-            "sim/delegate jobs",
-            "validation gate",
-            "memory update",
+            "Map",
+            "Infer",
+            "Reconstruct",
+            "Align",
+            "MIRA intent map",
+            "safe action boundary",
+            "Hush entity-sim handoff when MAIF frontend intent is present",
         ],
         "runtime_authority": {
-            "mutation_fence": repo["mutation_fence"],
+            "mutation_fence": effective_fence,
+            "mutation_fence_reason": fence_reason,
+            "mode": mode,
             "allowed_when_blocked": ["read", "plan", "artifact_only", "ask_for_repo_lock"],
-            "source_mutation_allowed": repo["mutation_fence"] == "open",
+            "source_mutation_allowed": effective_fence == "open",
         },
         "repo_room_context": _repo_room_context(root, repo),
         "recent_outcome": _recent_outcome(outcome),
+        "intent_probe_capability": _intent_probe_capability(repo),
         "whisper_irt": {
             "status": "modeled_future_layer",
             "capability": "live field intent whispering is memory-hooked here, not deployed in v1",
         },
-        "paths": {"latest": LATEST, "history": HISTORY, "markdown": MARKDOWN},
+        "paths": {
+            "latest": LATEST,
+            "history": HISTORY,
+            "markdown": MARKDOWN,
+            "legacy_latest": LEGACY_LATEST,
+            "legacy_history": LEGACY_HISTORY,
+            "legacy_markdown": LEGACY_MARKDOWN,
+        },
     }
     if write:
         _write_json(root / LATEST, result)
         _append_jsonl(root / HISTORY, result)
-        (root / MARKDOWN).write_text(render_hush_intent_runtime(result), encoding="utf-8")
+        rendered = render_mira_runtime(result)
+        (root / MARKDOWN).write_text(rendered, encoding="utf-8")
+        _write_json(root / LEGACY_LATEST, result)
+        _append_jsonl(root / LEGACY_HISTORY, result)
+        (root / LEGACY_MARKDOWN).write_text(rendered, encoding="utf-8")
     return result
 
 
 def render_hush_intent_runtime(runtime: dict[str, Any]) -> str:
+    """Compatibility wrapper for the renamed MIRA renderer."""
+    return render_mira_runtime(runtime)
+
+
+def render_mira_runtime(runtime: dict[str, Any]) -> str:
     repo = runtime.get("repo_classification") or {}
     lines = [
-        "# Hush Intent Runtime",
+        "# MIRA Runtime",
         "",
+        "- full name: `Memory Intent Reconstruction Agent`",
+        "- loop: `Map -> Infer -> Reconstruct -> Align`",
         f"- active repo: `{repo.get('active_repo')}`",
+        f"- interface surface: `{runtime.get('interface_surface')}`",
         f"- confidence: `{repo.get('repo_confidence')}`",
         f"- mutation fence: `{repo.get('mutation_fence')}`",
         f"- reason: {repo.get('reason')}",
@@ -155,7 +223,28 @@ def render_hush_intent_runtime(runtime: dict[str, Any]) -> str:
     lines.extend(["", "## Runtime Authority"])
     auth = runtime.get("runtime_authority") or {}
     lines.append(f"- source mutation allowed: `{auth.get('source_mutation_allowed')}`")
+    lines.append(f"- mode: `{auth.get('mode')}`")
+    lines.append(f"- reason: {auth.get('mutation_fence_reason')}")
     lines.append(f"- blocked fallback: `{', '.join(auth.get('allowed_when_blocked') or [])}`")
+    hush_interface = runtime.get("hush_frontend_interface") or {}
+    if hush_interface:
+        lines.extend(["", "## Hush Frontend Interface"])
+        lines.append(f"- surface: `{hush_interface.get('surface')}`")
+        lines.append(f"- frontend intent: `{hush_interface.get('frontend_intent')}`")
+    entities = runtime.get("entity_sim") or []
+    if entities:
+        lines.extend(["", "## Entity Sim"])
+        for entity in entities[:6]:
+            lines.append(
+                f"- `{entity.get('entity_id')}` {entity.get('display_name')} "
+                f"status `{entity.get('sim_state')}`"
+            )
+    probe = runtime.get("intent_probe_capability") or {}
+    if probe:
+        lines.extend(["", "## Intent Probe Capability"])
+        lines.append(f"- status: `{probe.get('status')}`")
+        lines.append(f"- egress: `{probe.get('egress')}`")
+        lines.append(f"- requires: `{', '.join(probe.get('requires') or [])}`")
     return "\n".join(lines) + "\n"
 
 
@@ -199,7 +288,8 @@ def _candidate(repo: str, score: float, matched: list[str], source: str) -> dict
 def _intent_moves(prompt: str, graph: dict[str, Any]) -> list[dict[str, Any]]:
     lower = prompt.lower()
     specs = [
-        ("hush_intent_runtime", {"hush", "runtime", "reconstruction", "persistent", "intent map"}),
+        ("creative_artifact_only", {"comedy", "comic", "satire", "sketch", "story", "unhinged", "max length", "max-length", "no research"}),
+        ("mira_runtime", {"mira", "runtime", "reconstruction", "persistent", "intent map", "memory intent reconstruction"}),
         ("repo_classification", {"repo", "root", "context0", "linkrouter", "maif", "codebase"}),
         ("linkrouter_file_room_access", {"linkrouter", "maif", "files", "call files"}),
         ("file_mail_quality_gate", {"email", "emails", "mail", "text"}),
@@ -214,7 +304,7 @@ def _intent_moves(prompt: str, graph: dict[str, Any]) -> list[dict[str, Any]]:
         for item in (graph.get("intents") or [])[:4]:
             moves.append({
                 "name": str(item.get("target") or "intent_move"),
-                "intent_key": str(item.get("intent_key") or "hush:route:intent_move:minor"),
+                "intent_key": str(item.get("intent_key") or "mira:route:intent_move:minor"),
                 "summary": str(item.get("segment") or item.get("why") or "intent graph move"),
                 "files": item.get("files") or [],
             })
@@ -224,7 +314,7 @@ def _intent_moves(prompt: str, graph: dict[str, Any]) -> list[dict[str, Any]]:
 def _move(name: str, prompt: str) -> dict[str, Any]:
     return {
         "name": name,
-        "intent_key": f"hush:build:{name}:patch",
+        "intent_key": f"mira:build:{name}:patch",
         "summary": _summary_for_move(name, prompt),
         "files": _files_for_move(name),
     }
@@ -232,26 +322,96 @@ def _move(name: str, prompt: str) -> dict[str, Any]:
 
 def _summary_for_move(name: str, prompt: str) -> str:
     summaries = {
-        "hush_intent_runtime": "make Hush own persistent intent reconstruction and extended runtime state",
+        "mira_runtime": "make MIRA own memory intent reconstruction and alignment state",
         "repo_classification": "classify active repo before manifest scoring and block unsafe mutation",
         "linkrouter_file_room_access": "treat LinkRouter/MAIF fingerprints as callable repo-room context",
         "file_mail_quality_gate": "stop emails that do not carry learned/done/next/need signal",
         "file_identity_narrative": "make file packets expose identity, responsibility, and mutation state",
         "field_whisper_irt_future_layer": "reserve live field intent whisper hooks for non-coding IRT",
+        "creative_artifact_only": "answer as a chat artifact; do not launch research jobs or mutate source",
     }
     return summaries.get(name, _snip(prompt, 180))
 
 
 def _files_for_move(name: str) -> list[str]:
     table = {
-        "hush_intent_runtime": ["src/hush_intent_runtime_seq001_v001.py", "src/opus_orchestrator_runtime_seq001_v001.py"],
+        "mira_runtime": ["src/hush_intent_runtime_seq001_v001.py", "src/opus_orchestrator_runtime_seq001_v001.py"],
         "repo_classification": ["src/hush_intent_runtime_seq001_v001.py", "src/ai_fingerprint_repo_seq001_v001.py"],
         "linkrouter_file_room_access": ["src/ai_fingerprint_repo_seq001_v001.py", "docs/LINKROUTER_AI_MAP.md"],
         "file_mail_quality_gate": ["src/file_email_plugin_seq001_v001.py", "src/file_email_text_chain_seq001_v001.py"],
         "file_identity_narrative": ["src/file_number_key_identity_seq001_v001.py", "src/file_interlinked_naming_sim_seq001_v001.py"],
         "field_whisper_irt_future_layer": ["src/hush_intent_runtime_seq001_v001.py"],
+        "creative_artifact_only": ["src/hush_intent_runtime_seq001_v001.py"],
     }
     return table.get(name, [])
+
+
+def _effective_mutation_fence(
+    repo: dict[str, Any],
+    moves: list[dict[str, Any]],
+    prompt: str,
+    semantic: dict[str, Any],
+    maif_interface: dict[str, Any] | None = None,
+) -> tuple[str, str]:
+    if maif_interface:
+        return "blocked", "MAIF frontend information interface is read/entity-sim only"
+    if _is_creative_artifact_only(moves, prompt, semantic):
+        return "blocked", "creative/no-research prompt requested chat artifact only"
+    fence = str(repo.get("mutation_fence") or "blocked")
+    return fence, str(repo.get("reason") or "repo mutation fence")
+
+
+def _runtime_mode(
+    moves: list[dict[str, Any]],
+    prompt: str,
+    semantic: dict[str, Any],
+    maif_interface: dict[str, Any] | None = None,
+) -> str:
+    if maif_interface:
+        return "maif_information_interface"
+    if _is_creative_artifact_only(moves, prompt, semantic):
+        return "creative_artifact_only"
+    return "automation_guard"
+
+
+def _is_maif_information_prompt(prompt: str, repo: dict[str, Any]) -> bool:
+    if repo.get("active_repo") in {"maif_auditor", "linkrouter", "linkrouter_ai", "myaifingerprint"}:
+        return True
+    tokens = set(_tokens(prompt))
+    return bool(tokens & MAIF_TERMS and {"entity", "entities", "audit", "auditor", "myaifingerprint", "maif", "hush", "sim"} & tokens)
+
+
+def _is_creative_artifact_only(moves: list[dict[str, Any]], prompt: str, semantic: dict[str, Any]) -> bool:
+    names = {str(move.get("name") or "") for move in moves}
+    semantic_intents = set(semantic.get("semantic_intents") or [])
+    modifiers = set(semantic.get("modifiers") or [])
+    lower = prompt.lower()
+    creative = "creative_artifact_only" in names or "creative_artifact" in semantic_intents
+    no_research = "no_research" in modifiers or "no research" in lower or "without research" in lower
+    return creative or no_research
+
+
+def _intent_probe_capability(repo: dict[str, Any]) -> dict[str, Any]:
+    scope = "local" if repo.get("active_repo") in {LOCAL_REPO, "ambiguous"} else "closed_repo"
+    return {
+        "schema": "mira_intent_probe_capability/v1",
+        "status": "designed_not_network_enabled",
+        "scope": scope,
+        "egress": "none",
+        "learned_signals": [
+            "prompt_intent",
+            "deleted_words",
+            "hesitation_windows",
+            "file_heat",
+            "response_outcomes",
+        ],
+        "requires": [
+            "explicit_operator_ack",
+            "repo_lock",
+            "network_egress_flag_for_operator_network",
+        ],
+        "safe_next_step": "emit local probe receipts before any proactive or network action",
+    }
 
 
 def _file_packets(root: Path, repo: dict[str, Any], sim: dict[str, Any], prompt: str) -> list[dict[str, Any]]:
@@ -268,8 +428,8 @@ def _file_packets(root: Path, repo: dict[str, Any], sim: dict[str, Any], prompt:
         source_packet = by_file.get(file, {})
         rows.append(_local_file_packet(file, item, source_packet, repo))
     if not rows:
-        for file in _files_for_move("hush_intent_runtime")[:3]:
-            rows.append(_local_file_packet(file, {"wake_reason": "Hush runtime bootstrap"}, {}, repo))
+        for file in _files_for_move("mira_runtime")[:3]:
+            rows.append(_local_file_packet(file, {"wake_reason": "MIRA runtime bootstrap"}, {}, repo))
     return rows
 
 
@@ -277,14 +437,14 @@ def _local_file_packet(file: str, wake: dict[str, Any], source_packet: dict[str,
     identity = file_identity_card(file, _file_kind(file), str(wake.get("wake_reason") or "current prompt wake"))
     fence = repo.get("mutation_fence")
     return {
-        "schema": "hush_file_packet/v1",
+        "schema": "mira_file_packet/v1",
         "repo": LOCAL_REPO,
         "file": file,
         "file_identity": identity["number_key"],
         "operator_display_name": identity["operator_display_name"],
         "current_responsibility": _responsibility(file, source_packet),
         "last_change_state": identity["mutation_name"],
-        "wake_reason": str(wake.get("wake_reason") or "selected by Hush runtime"),
+        "wake_reason": str(wake.get("wake_reason") or "selected by MIRA runtime"),
         "allowed_actions": _allowed_actions(fence),
         "blocked_actions": _blocked_actions(fence),
         "neighbor_context": _neighbors(wake, source_packet),
@@ -299,7 +459,7 @@ def _repo_fingerprint_packets(root: Path, label: str, repo: dict[str, Any]) -> l
     for item in (data.get("files") or [])[:8]:
         identity = str(item.get("identity") or "")
         rows.append({
-            "schema": "hush_file_packet/v1",
+            "schema": "mira_file_packet/v1",
             "repo": label,
             "file": identity,
             "file_identity": identity,
@@ -371,7 +531,7 @@ def _file_kind(file: str) -> str:
 def _intent_map(journal: list[dict[str, Any]], semantic: dict[str, Any], moves: list[dict[str, Any]]) -> dict[str, Any]:
     counts = Counter(str(row.get("intent") or "unknown") for row in journal)
     return {
-        "schema": "hush_persistent_intent_map/v1",
+        "schema": "mira_persistent_intent_map/v1",
         "recent_prompt_count": len(journal),
         "recent_intents": dict(counts),
         "semantic_intents": semantic.get("semantic_intents") or ([semantic.get("semantic_intent")] if semantic.get("semantic_intent") else []),
