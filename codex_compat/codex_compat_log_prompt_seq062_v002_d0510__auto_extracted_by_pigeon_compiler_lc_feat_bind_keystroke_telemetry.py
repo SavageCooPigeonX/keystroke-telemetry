@@ -99,12 +99,15 @@ def log_prompt(
         entry["semantic_profile_error"] = str(exc)
     context = select_context(root, prompt, parsed_deleted_words, rewrites or [])
     entry["context_selection"] = context
-    entry["hush"] = _build_hush_runtime(root, prompt, parsed_deleted_words, context)
-    artifact_only = _hush_requests_artifact_only(entry.get("hush") or {})
+    entry["mira"] = _build_mira_runtime(root, prompt, parsed_deleted_words, context)
+    entry["hush"] = {}
+    if isinstance(entry.get("mira"), dict):
+        entry["hush"] = (entry["mira"].get("hush_frontend_interface") or {})
+    artifact_only = _mira_requests_artifact_only(entry.get("mira") or {})
     entry["file_sim"] = (
         _fire_file_sim(root, prompt, context_selection=context, trigger="log_prompt", force=True)
         if fire_file_sim and not artifact_only
-        else {"status": "skipped", "reason": "hush_creative_artifact_only", "trigger": "log_prompt"}
+        else {"status": "skipped", "reason": "mira_read_only_or_artifact_only", "trigger": "log_prompt"}
         if artifact_only
         else {"status": "skipped", "reason": "pre_prompt_will_fire", "trigger": "log_prompt"}
     )
@@ -131,7 +134,7 @@ def log_prompt(
         entry["deepseek_prompt_job"] = {
             "status": "skipped",
             "mode": "artifact_only",
-            "reason": "hush_creative_artifact_only",
+            "reason": "mira_read_only_or_artifact_only",
         }
     else:
         try:
@@ -149,7 +152,7 @@ def log_prompt(
     return entry
 
 
-def _build_hush_runtime(
+def _build_mira_runtime(
     root: Path,
     prompt: str,
     deleted_words: list[str],
@@ -159,8 +162,8 @@ def _build_hush_runtime(
         return {}
     try:
         _ensure_repo_on_path(root)
-        from src.hush_intent_runtime_seq001_v001 import build_hush_intent_runtime
-        return build_hush_intent_runtime(
+        from src.mira_runtime_seq001_v001 import build_mira_runtime
+        return build_mira_runtime(
             root,
             prompt,
             write=True,
@@ -171,11 +174,11 @@ def _build_hush_runtime(
         return {"status": "error", "error": str(exc)}
 
 
-def _hush_requests_artifact_only(hush: dict[str, Any]) -> bool:
-    if not isinstance(hush, dict):
+def _mira_requests_artifact_only(mira: dict[str, Any]) -> bool:
+    if not isinstance(mira, dict):
         return False
-    authority = hush.get("runtime_authority") if isinstance(hush.get("runtime_authority"), dict) else {}
-    if authority.get("mode") == "creative_artifact_only":
+    authority = mira.get("runtime_authority") if isinstance(mira.get("runtime_authority"), dict) else {}
+    if authority.get("mode") in {"creative_artifact_only", "maif_information_interface"}:
         return True
-    move_names = {str(move.get("name") or "") for move in (hush.get("intent_moves") or []) if isinstance(move, dict)}
+    move_names = {str(move.get("name") or "") for move in (mira.get("intent_moves") or []) if isinstance(move, dict)}
     return "creative_artifact_only" in move_names

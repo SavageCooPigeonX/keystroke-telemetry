@@ -41,8 +41,12 @@ def test_opus_runtime_pairs_thought_completer_with_file_subagents(tmp_path):
     runtime = build_opus_orchestrator_runtime(tmp_path, "can i talk to opus")
 
     assert runtime["chat_surface"] == "thought_completer"
+    assert runtime["roles"]["runtime_authority"] == "mira"
+    assert runtime["roles"]["memory_intent_reconstruction_agent"] == "MIRA"
     assert runtime["roles"]["orchestrator"] == "claude-opus"
     assert runtime["roles"]["context_selector"] == "gemini"
+    assert runtime["mira_runtime"]["full_name"] == "Memory Intent Reconstruction Agent"
+    assert runtime["mira_runtime"]["loop"] == ["Map", "Infer", "Reconstruct", "Align"]
     assert runtime["file_subagents"][0]["deepseek_job"] == "fdd-123"
     assert runtime["artifact_memory"]["path"] == "logs/opus_artifact_memory_latest.json"
     assert runtime["coding_area_memory"]["path"] == "logs/opus_coding_area_memory_latest.json"

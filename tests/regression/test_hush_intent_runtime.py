@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from src.hush_intent_runtime_seq001_v001 import build_hush_intent_runtime, classify_active_repo
+from src.mira_runtime_seq001_v001 import build_mira_runtime, classify_active_repo
 
 
 def _write_json(path: Path, data):
@@ -58,10 +58,10 @@ def test_hush_blocks_ambiguous_context0_without_repo_lock(tmp_path: Path):
     assert result["mutation_fence"] == "blocked"
 
 
-def test_hush_runtime_splits_messy_prompt_and_writes_file_packets(tmp_path: Path):
+def test_mira_runtime_splits_messy_prompt_and_writes_file_packets(tmp_path: Path):
     root = _root(tmp_path)
     prompt = (
-        "Hush needs persistent intent reconstruction, repo classification for LinkRouter MAIF files, "
+        "MIRA needs persistent intent reconstruction, repo classification for LinkRouter MAIF files, "
         "emails with useful text, Inator file identity names, and future whisper IRT field intent."
     )
     with (root / "logs" / "prompt_journal.jsonl").open("a", encoding="utf-8") as handle:
@@ -85,11 +85,11 @@ def test_hush_runtime_splits_messy_prompt_and_writes_file_packets(tmp_path: Path
         },
     )
 
-    runtime = build_hush_intent_runtime(root, prompt)
+    runtime = build_mira_runtime(root, prompt)
 
     names = {move["name"] for move in runtime["intent_moves"]}
     assert {
-        "hush_intent_runtime",
+        "mira_runtime",
         "repo_classification",
         "linkrouter_file_room_access",
         "file_mail_quality_gate",
@@ -103,14 +103,36 @@ def test_hush_runtime_splits_messy_prompt_and_writes_file_packets(tmp_path: Path
     assert packet["current_responsibility"]
     assert packet["last_change_state"]
     assert packet["validation_gate"]
+    assert runtime["name"] == "MIRA"
+    assert runtime["full_name"] == "Memory Intent Reconstruction Agent"
+    assert runtime["loop"] == ["Map", "Infer", "Reconstruct", "Align"]
+    assert (root / "logs" / "mira_runtime_latest.json").exists()
     assert (root / "logs" / "hush_intent_runtime_latest.json").exists()
 
 
-def test_hush_blocks_creative_no_research_prompt_as_artifact_only(tmp_path: Path):
+def test_mira_runtime_hands_maif_prompts_to_hush_entity_sim(tmp_path: Path):
+    root = _root(tmp_path)
+
+    runtime = build_mira_runtime(
+        root,
+        "Hush entity sim for Audit SavageCooPigeonX marked staged docs copy file",
+    )
+
+    assert runtime["role"] == "memory_intent_reconstruction_agent"
+    assert runtime["interface_surface"] == "opus_codebase_runtime"
+    assert runtime["runtime_authority"]["mode"] == "maif_information_interface"
+    assert runtime["runtime_authority"]["source_mutation_allowed"] is False
+    assert runtime["entity_sim"]
+    assert runtime["frontend_cards"]
+    assert runtime["hush_frontend_interface"]["frontend_intent"] == "entity_sim"
+    assert runtime["hush_frontend_interface"]["assistant"] == "Hush"
+
+
+def test_mira_blocks_creative_no_research_prompt_as_artifact_only(tmp_path: Path):
     root = _root(tmp_path)
     prompt = "write a max length unhinged comedy about proactive intent probes no research"
 
-    runtime = build_hush_intent_runtime(root, prompt)
+    runtime = build_mira_runtime(root, prompt)
 
     names = {move["name"] for move in runtime["intent_moves"]}
     assert "creative_artifact_only" in names

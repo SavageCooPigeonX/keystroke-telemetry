@@ -3456,10 +3456,10 @@ class ManifestWorkLoop {
 
     private async _evaluateAndAct() {
         if (this._running) return;
-        const hushFence = this._hushMutationFence();
-        if (hushFence.blocked) {
-            this._statusItem.text = '$(lock) Work Loop: Hush fence';
-            this._log(`Hush mutation fence blocked work loop: ${hushFence.reason}`);
+        const miraFence = this._miraMutationFence();
+        if (miraFence.blocked) {
+            this._statusItem.text = '$(lock) Work Loop: MIRA fence';
+            this._log(`MIRA mutation fence blocked work loop: ${miraFence.reason}`);
             return;
         }
 
@@ -3561,12 +3561,14 @@ class ManifestWorkLoop {
         return tasks;
     }
 
-    private _hushMutationFence(): { blocked: boolean; reason: string } {
+    private _miraMutationFence(): { blocked: boolean; reason: string } {
         try {
-            const raw = fs.readFileSync(path.join(this._root, 'logs', 'hush_intent_runtime_latest.json'), 'utf-8');
-            const hush = JSON.parse(raw);
-            const authority = hush?.runtime_authority ?? {};
-            const repo = hush?.repo_classification ?? {};
+            const miraPath = path.join(this._root, 'logs', 'mira_runtime_latest.json');
+            const legacyPath = path.join(this._root, 'logs', 'hush_intent_runtime_latest.json');
+            const raw = fs.readFileSync(fs.existsSync(miraPath) ? miraPath : legacyPath, 'utf-8');
+            const mira = JSON.parse(raw);
+            const authority = mira?.runtime_authority ?? {};
+            const repo = mira?.repo_classification ?? {};
             const blocked = authority.source_mutation_allowed === false
                 || authority.mutation_fence === 'blocked'
                 || repo.mutation_fence === 'blocked';

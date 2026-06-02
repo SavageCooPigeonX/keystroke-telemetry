@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from src.hush_intent_runtime_seq001_v001 import build_hush_intent_runtime
+from src.mira_runtime_seq001_v001 import build_mira_runtime
 from src.opus_artifact_memory_seq001_v001 import build_opus_artifact_memory
 from src.opus_coding_area_memory_seq001_v001 import build_opus_coding_area_memory
 from src.opus_training_pair_debug_seq001_v001 import debug_training_pairs
@@ -31,11 +31,11 @@ def build_opus_orchestrator_runtime(root: Path, prompt: str = "", *, write: bool
     artifact = build_opus_artifact_memory(root, current_prompt, write=write)
     coding_memory = build_opus_coding_area_memory(root, current_prompt, write=write)
     training_debug = debug_training_pairs(root, write=write)
-    hush = build_hush_intent_runtime(root, current_prompt, write=write)
+    mira = build_mira_runtime(root, current_prompt, write=write)
     macro_cycle = build_session_macro_cycle(root, prompt_limit=5, window_minutes=20, write=write)
     packets = fsk.get("packets") or []
     jobs = delegates.get("jobs") or []
-    fence = ((hush.get("repo_classification") or {}).get("mutation_fence")) or "blocked"
+    fence = ((mira.get("repo_classification") or {}).get("mutation_fence")) or "blocked"
     result = {
         "schema": SCHEMA,
         "ts": _now(),
@@ -43,7 +43,8 @@ def build_opus_orchestrator_runtime(root: Path, prompt: str = "", *, write: bool
         "operator_prompt": current_prompt,
         "last_three_prompts": [_prompt_row(row) for row in journal],
         "roles": {
-            "runtime_authority": "hush",
+            "runtime_authority": "mira",
+            "memory_intent_reconstruction_agent": "MIRA",
             "orchestrator": "claude-opus",
             "context_selector": "gemini",
             "file_reasoner": "gemini",
@@ -55,14 +56,15 @@ def build_opus_orchestrator_runtime(root: Path, prompt: str = "", *, write: bool
             "files": (context.get("context_selection") or {}).get("files") or [],
             "intent_key": ((context.get("prompt_brain") or {}).get("intent") or {}).get("intent_key", ""),
         },
-        "hush_intent_runtime": _hush_summary(hush),
+        "mira_runtime": _mira_summary(mira),
+        "hush_frontend_interface": mira.get("hush_frontend_interface") or {},
         "orchestration_gate": {
             "mutation_fence": fence,
             "source_mutation_allowed": fence == "open",
-            "rule": "Hush owns repo-room selection; blocked fences mean plans/artifacts only.",
+            "rule": "MIRA maps, infers, reconstructs, and aligns memory intent; blocked fences mean plans/artifacts only.",
         },
         "file_subagents": [_agent_from_packet(packet, jobs, fence) for packet in packets[:8]],
-        "hush_file_packets": (hush.get("file_packets") or [])[:8],
+        "mira_file_packets": (mira.get("file_packets") or [])[:8],
         "artifact_memory": _artifact_summary(artifact),
         "coding_area_memory": _coding_memory_summary(coding_memory),
         "training_pair_debug": _training_debug_summary(training_debug),
@@ -83,8 +85,9 @@ def build_opus_orchestrator_runtime(root: Path, prompt: str = "", *, write: bool
 
 def render_opus_runtime(runtime: dict[str, Any]) -> str:
     lines = ["# Opus Orchestrator Runtime", "", f"- prompt: {runtime.get('operator_prompt', '')}"]
-    hush = runtime.get("hush_intent_runtime") or {}
-    lines.append(f"- Hush repo: `{hush.get('active_repo')}` fence `{hush.get('mutation_fence')}`")
+    mira = runtime.get("mira_runtime") or {}
+    lines.append(f"- MIRA repo: `{mira.get('active_repo')}` fence `{mira.get('mutation_fence')}`")
+    lines.append("- MIRA loop: `Map -> Infer -> Reconstruct -> Align`")
     lines.append(f"- context confidence: `{(runtime.get('gemini_context') or {}).get('confidence')}`")
     lines.extend(["", "## Last 3 Prompts"])
     for row in runtime.get("last_three_prompts") or []:
@@ -92,8 +95,8 @@ def render_opus_runtime(runtime: dict[str, Any]) -> str:
     lines.extend(["", "## File Subagents"])
     for agent in runtime.get("file_subagents") or []:
         lines.append(f"- `{agent['file']}` {agent['readiness']} via {agent['gemini']} + {agent['deepseek_job']}")
-    for packet in runtime.get("hush_file_packets") or []:
-        lines.append(f"- Hush `{packet.get('file_identity')}` {packet.get('operator_display_name')} -> {packet.get('current_responsibility')}")
+    for packet in runtime.get("mira_file_packets") or []:
+        lines.append(f"- MIRA `{packet.get('file_identity')}` {packet.get('operator_display_name')} -> {packet.get('current_responsibility')}")
     lines.extend(["", "## Artifact Memory"])
     memory = runtime.get("artifact_memory") or {}
     lines.append(f"- compiler probe: `{memory.get('compiler_status')}`")
@@ -204,15 +207,19 @@ def _coding_memory_summary(memory: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def _hush_summary(hush: dict[str, Any]) -> dict[str, Any]:
-    repo = hush.get("repo_classification") or {}
+def _mira_summary(mira: dict[str, Any]) -> dict[str, Any]:
+    repo = mira.get("repo_classification") or {}
     return {
-        "path": "logs/hush_intent_runtime_latest.json",
+        "path": "logs/mira_runtime_latest.json",
+        "legacy_path": "logs/hush_intent_runtime_latest.json",
+        "name": "MIRA",
+        "full_name": "Memory Intent Reconstruction Agent",
+        "loop": ["Map", "Infer", "Reconstruct", "Align"],
         "active_repo": repo.get("active_repo", ""),
         "repo_confidence": repo.get("repo_confidence", 0),
         "mutation_fence": repo.get("mutation_fence", "blocked"),
-        "intent_moves": [row.get("name", "") for row in hush.get("intent_moves") or []],
-        "file_packet_count": len(hush.get("file_packets") or []),
+        "intent_moves": [row.get("name", "") for row in mira.get("intent_moves") or []],
+        "file_packet_count": len(mira.get("file_packets") or []),
     }
 
 
@@ -222,7 +229,7 @@ def _agent_from_packet(packet: dict[str, Any], jobs: list[dict[str, Any]], fence
     scope = packet.get("mutation_scope") or {}
     action = "artifact patch+test, no direct overwrite"
     if fence == "blocked":
-        action = "plan/artifact only; Hush mutation fence is blocked"
+        action = "plan/artifact only; MIRA mutation fence is blocked"
     return {
         "file": file_path,
         "readiness": scope.get("readiness", ""),
