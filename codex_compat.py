@@ -2128,6 +2128,13 @@ def log_prompt(
             source=source,
             deleted_words=parsed_deleted_words,
         )
+    try:
+        _ensure_repo_on_path(root)
+        from src.opus_prompt_box_seq001_v001 import refine_opus_prompt_box
+
+        entry["opus_prompt_box"] = refine_opus_prompt_box(root, prompt, write=True)
+    except Exception as exc:
+        entry["opus_prompt_box_error"] = str(exc)
     _append_jsonl(root / "logs" / "prompt_journal.jsonl", entry)
     if prompt and emit_prompt_email:
         entry["codex_prompt_email"] = _emit_codex_prompt_email(root, entry, loop=entry.get("intent_loop"))
@@ -2582,6 +2589,36 @@ def build_parser() -> argparse.ArgumentParser:
     p_close_loop.add_argument("--status", default="verified")
     p_close_loop.add_argument("--note", default="")
 
+    p_closeout = sub.add_parser(
+        "submit-closeout",
+        help="Agent end-of-work notes before backwards pass / push (deferred bugs, unsaid flags).",
+    )
+    p_closeout.add_argument("--note", default="", help="Freeform closeout summary")
+    p_closeout.add_argument("--file", action="append", default=[], help="Touched files this session")
+    p_closeout.add_argument(
+        "--deferred-bug",
+        action="append",
+        default=[],
+        help="Bug noticed but not fixed: title|file|reason",
+    )
+    p_closeout.add_argument("--completed-fix", action="append", default=[], help="Fix completed this session")
+    p_closeout.add_argument("--unsaid-flag", action="append", default=[], help="Risk/flag left unsaid during work")
+    p_closeout.add_argument("--source", default="cursor_agent")
+
+    sub.add_parser("bug-notice-stats", help="How many bugs agents noticed vs deferred vs fixed")
+
+    p_intent_attn = sub.add_parser(
+        "intent-attention-stats",
+        help="Per-file operator vs edit vs file intent grades (X/Y/Z alignment)",
+    )
+    p_intent_attn.add_argument("--file", default="", help="Filter to one file path")
+
+    p_patch_reg = sub.add_parser(
+        "patch-registry",
+        help="Bootstrap/reconcile pigeon_registry.json and file identity aliases",
+    )
+    p_patch_reg.add_argument("--rebuild", action="store_true", help="Force full registry rebuild from disk scan")
+
     p_stale = sub.add_parser("stale-date-audit")
     p_stale.add_argument("--max-lag-minutes", type=int, default=30)
 
@@ -2687,6 +2724,35 @@ def main(argv: list[str] | None = None) -> int:
         result = get_intent_loop_status(root)
     elif args.command == "close-intent-loop":
         result = close_intent_loop(root, loop_id=args.loop_id, status=args.status, note=args.note)
+    elif args.command == "submit-closeout":
+        _ensure_repo_on_path(root)
+        from src.agent_work_closeout_seq001_v001 import parse_deferred_bug_arg, submit_work_closeout
+
+        deferred = [parse_deferred_bug_arg(raw) for raw in args.deferred_bug]
+        result = submit_work_closeout(
+            root,
+            note=args.note,
+            files=args.file,
+            deferred_bugs=deferred,
+            completed_fixes=args.completed_fix,
+            unsaid_flags=args.unsaid_flag,
+            source=args.source,
+        )
+    elif args.command == "bug-notice-stats":
+        _ensure_repo_on_path(root)
+        from src.agent_work_closeout_seq001_v001 import load_bug_notice_stats
+
+        result = load_bug_notice_stats(root)
+    elif args.command == "intent-attention-stats":
+        _ensure_repo_on_path(root)
+        from src.intent_attention_grader_seq001_v001 import load_intent_attention_stats
+
+        result = load_intent_attention_stats(root, file=args.file)
+    elif args.command == "patch-registry":
+        _ensure_repo_on_path(root)
+        from src.registry_identity_bridge_seq001_v001 import patch_registry
+
+        result = patch_registry(root, write=True, rebuild=bool(args.rebuild))
     elif args.command == "stale-date-audit":
         result = audit_stale_dates(root, max_lag_minutes=args.max_lag_minutes)
     elif args.command == "import-jsonl":
