@@ -2,6 +2,7 @@ import json
 import tempfile
 from pathlib import Path
 
+from src.opus_prompt_box_seq001_v001 import refine_opus_prompt_box
 from src.tc_intent_file_memory_seq001_v001 import match_intent_file_memory
 from src.tc_intent_keys_seq001_v001 import generate_intent_graph, generate_intent_key, seed_intent_graphs_from_history
 
@@ -51,9 +52,11 @@ def test_manifest_prompt_generates_scoped_intent_key_and_prompt_box_task():
 
     assert result["intent_key"].startswith("src/thought_completer:")
     assert result["void"] is False
-    assert result["prompt_box"]["status"] == "queued"
+    assert result["prompt_box"]["status"] == "candidate"
+    box = refine_opus_prompt_box(root, "wire thought completer intent key generation to prompt box")
     tasks = json.loads((root / "task_queue.json").read_text(encoding="utf-8"))["tasks"]
-    assert tasks[-1]["intent_key"] == result["intent_key"]
+    assert any(t.get("intent_key") == result["intent_key"] for t in tasks)
+    assert box["writer"] == "claude-opus"
     assert "codex:intent-key-context" in (root / ".github" / "copilot-instructions.md").read_text(encoding="utf-8")
     assert (root / "logs" / "intent_key_context.md").exists()
 
@@ -64,10 +67,11 @@ def test_intent_key_duplicate_does_not_spam_prompt_box():
     first = generate_intent_key(root, "wire thought completer intent key generation to prompt box")
     second = generate_intent_key(root, "wire thought completer intent key generation to prompt box")
 
-    tasks = json.loads((root / "task_queue.json").read_text(encoding="utf-8"))["tasks"]
-    assert len(tasks) == 1
-    assert second["prompt_box"]["status"] == "duplicate"
-    assert second["prompt_box"]["task_id"] == first["prompt_box"]["task_id"]
+    assert first["prompt_box"]["status"] == "candidate"
+    assert second["prompt_box"]["status"] == "candidate"
+    box = refine_opus_prompt_box(root, "wire thought completer intent key generation to prompt box")
+    open_keys = [row.get("intent_key") for row in box.get("open_problems") or []]
+    assert open_keys.count(first["intent_key"]) == 1
 
 
 def test_low_manifest_confidence_becomes_void_not_prompt_box_task():

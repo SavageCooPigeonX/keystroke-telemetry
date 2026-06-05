@@ -9,6 +9,7 @@ from typing import Any
 from src.hush_intent_runtime_seq001_v001 import build_hush_intent_runtime
 from src.opus_artifact_memory_seq001_v001 import build_opus_artifact_memory
 from src.opus_coding_area_memory_seq001_v001 import build_opus_coding_area_memory
+from src.opus_prompt_box_seq001_v001 import refine_opus_prompt_box
 from src.opus_training_pair_debug_seq001_v001 import debug_training_pairs
 from src.session_macro_cycle_seq001_v001 import build_session_macro_cycle
 
@@ -33,6 +34,7 @@ def build_opus_orchestrator_runtime(root: Path, prompt: str = "", *, write: bool
     training_debug = debug_training_pairs(root, write=write)
     hush = build_hush_intent_runtime(root, current_prompt, write=write)
     macro_cycle = build_session_macro_cycle(root, prompt_limit=5, window_minutes=20, write=write)
+    prompt_box = refine_opus_prompt_box(root, current_prompt, write=write)
     packets = fsk.get("packets") or []
     jobs = delegates.get("jobs") or []
     fence = ((hush.get("repo_classification") or {}).get("mutation_fence")) or "blocked"
@@ -67,6 +69,7 @@ def build_opus_orchestrator_runtime(root: Path, prompt: str = "", *, write: bool
         "coding_area_memory": _coding_memory_summary(coding_memory),
         "training_pair_debug": _training_debug_summary(training_debug),
         "session_macro_cycle": _macro_cycle_summary(macro_cycle),
+        "opus_prompt_box": _prompt_box_summary(prompt_box),
         "manifest_state_write_cycle": _manifest_write_cycle_summary(root),
         "folder_context_coupling": _folder_context_coupling_summary(root),
         "work_completed": _work_completed(delegates, sim),
@@ -109,6 +112,12 @@ def render_opus_runtime(runtime: dict[str, Any]) -> str:
     debug = runtime.get("training_pair_debug") or {}
     lines.append(f"- status: `{debug.get('status')}`")
     lines.append(f"- recommended: {debug.get('recommended_fix', '')}")
+    box = runtime.get("opus_prompt_box") or {}
+    lines.extend(["", "## Opus Prompt Box"])
+    lines.append(f"- open: `{box.get('open_count', 0)}` / `{box.get('max_open', 20)}`")
+    lines.append(f"- dropped: `{box.get('dropped_count', 0)}`")
+    for row in box.get("top_open") or []:
+        lines.append(f"- `{row.get('id')}` {row.get('intent_key')} score={row.get('priority_score')}")
     macro = runtime.get("session_macro_cycle") or {}
     lines.extend(["", "## Session Macro Cycle"])
     lines.append(f"- status: `{macro.get('status')}`")
@@ -149,6 +158,28 @@ def _training_debug_summary(debug: dict[str, Any]) -> dict[str, Any]:
         "status": debug.get("status", ""),
         "recommended_fix": debug.get("recommended_fix", ""),
         "failed_steps": [row for row in debug.get("multi_step_reasoning", []) if not row.get("ok")],
+    }
+
+
+def _prompt_box_summary(box: dict[str, Any]) -> dict[str, Any]:
+    open_rows = box.get("open_problems") or []
+    return {
+        "path": box.get("paths", {}).get("latest_md", "logs/copilot_prompt_box_latest.md"),
+        "writer": box.get("writer", "claude-opus"),
+        "open_count": box.get("open_count", 0),
+        "max_open": box.get("max_open", 20),
+        "dropped_count": box.get("dropped_count", 0),
+        "routing_note": box.get("routing_note", ""),
+        "intent_routes": (box.get("intent_routes") or [])[:6],
+        "top_open": [
+            {
+                "id": row.get("id"),
+                "intent_key": row.get("intent_key"),
+                "priority_score": row.get("priority_score"),
+                "effective_score": row.get("effective_score"),
+            }
+            for row in open_rows[:8]
+        ],
     }
 
 

@@ -1,8 +1,23 @@
-﻿# keystroke-telemetry
+# keystroke-telemetry
 
 > **Compiler-first telemetry for AI-assisted coding.** The main tools are the Pigeon Code Compiler, safe rename/import rewriting, auto-generated manifests, intent-key architecture, and keystroke capture for behavioral signals. The system keeps weird file identity on purpose, turns prompts and edits into routing data, and makes context explicit before an assistant mutates code.
 >
 > Filenames encode intent and mutation history → the compiler keeps files small and imports safe → manifests are regenerated as routing/state surfaces → intent keys decide what resurfaces → keystroke/deletion signals tell the assistant how the operator is thinking. Pigeon Brain and generated health diagnostics exist, but they are supporting observer surfaces, not the center of the product.
+
+### Where this runs (honest host matrix)
+
+This repo is the **local open-source auditor** for AI-assisted coding: compiler + rename safety + intent routing + prompt telemetry. Install it in a project repo and wire hooks; it is not a cloud service.
+
+| Host | What works today | How you wire it |
+|---|---|---|
+| **VS Code** (+ Copilot) | **Full keystroke path** — extension, UIA/OS hook, deleted-word capture, cognitive state, Copilot instruction blocks, pulse harvest | Load `vscode-extension/` (F5 dev host or package). Post-commit runs `pigeon_compiler.git_plugin`. |
+| **Codex desktop** | **Prompt/edit spine** — `codex_compat.py` journals, context packs, intent keys, file-sim, training pairs; optional OS hook when foreground title contains `Codex` | `py codex_compat.py log-prompt`, `pre-prompt`, `context-pack`. See [`docs/CODEX_COMPAT.md`](docs/CODEX_COMPAT.md). |
+| **Cursor** | **Same Python spine as Codex** if you log prompts/edits explicitly (or via LinkRouter file-interview scripts). **Native chat keystroke capture is not proven here** — no Cursor-specific extension in this repo yet. | Run `py codex_compat.py log-prompt ...` per turn and/or `py scripts/file_interview.py` on dirty files; do not assume ambient typing capture. |
+| **Thought completer popup** | Intent-key generation, semantic profile, optional UIA pause watcher — **works without VS Code** for controlled composition | `py src/thought_completer.py --prompt-brain "..."` |
+
+**Keystroke / deletion signals:** production-grade in **VS Code** only. Elsewhere you get explicit logging, popup composition, or best-effort OS hook — not the same unsaid-thread fidelity.
+
+**Read next for naming and pipeline:** [`docs/RUNTIME_HOSTS_AND_NAMING.md`](docs/RUNTIME_HOSTS_AND_NAMING.md) maps `tc_*`, `codex_compat`, file interview, intent keys, `file_profiles.json`, prompt box, and what is still unwired (patch-derived bug profiles ↔ intent keys).
 
 ---
 

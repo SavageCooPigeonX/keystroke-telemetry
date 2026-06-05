@@ -52,45 +52,12 @@ def _next_task_id(tasks: list[dict[str, Any]]) -> str:
 
 
 def update_prompt_box(root: Path, record: dict[str, Any]) -> dict[str, Any]:
-    path = root / "task_queue.json"
-    data = _load_json(path) or {"tasks": []}
-    tasks = data.get("tasks") if isinstance(data, dict) and isinstance(data.get("tasks"), list) else []
-    for task in tasks:
-        if task.get("intent_key") == record["intent_key"] and task.get("status") != "done":
-            return {"status": "duplicate", "task_id": task.get("id"), "path": str(path)}
-        if task.get("intent") == record["prompt"][:300] and task.get("source") == "thought_completer_intent_keys":
-            task.update({
-                "title": record["intent_key"],
-                "intent_key": record["intent_key"],
-                "scope": record["scope"],
-                "priority": _priority(record),
-                "confidence": record["confidence"],
-                "focus_files": [record["manifest_path"]],
-                "source_key": record["intent_id"],
-            })
-            _write_json(path, data)
-            return {"status": "updated", "task_id": task.get("id"), "path": str(path)}
-    task = {
-        "id": _next_task_id(tasks),
-        "status": "pending",
-        "created_ts": record["ts"],
-        "completed_ts": None,
-        "title": record["intent_key"],
-        "intent": record["prompt"][:300],
-        "intent_key": record["intent_key"],
-        "scope": record["scope"],
-        "stage": "intent_key",
-        "priority": _priority(record),
-        "confidence": record["confidence"],
-        "focus_files": [record["manifest_path"]],
-        "source": "thought_completer_intent_keys",
-        "source_key": record["intent_id"],
-        "verification_state": "queued",
-    }
-    tasks.append(task)
-    data["tasks"] = tasks
-    _write_json(path, data)
-    return {"status": "queued", "task_id": task["id"], "path": str(path)}
+    """Deprecated direct writer — Opus owns task_queue; queue a candidate instead."""
+    from src.opus_prompt_box_seq001_v001 import queue_prompt_box_candidate
+
+    record = dict(record)
+    record.setdefault("source", "thought_completer_intent_keys")
+    return queue_prompt_box_candidate(root, record)
 
 
 def render_intent_key_block(record: dict[str, Any], managed: bool = False) -> str:

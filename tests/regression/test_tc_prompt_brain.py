@@ -2,6 +2,7 @@ import json
 import tempfile
 from pathlib import Path
 
+from src.opus_prompt_box_seq001_v001 import refine_opus_prompt_box
 from src.tc_prompt_brain_seq001_v001 import assemble_prompt_brain, latest_prompt_brain_block
 
 
@@ -46,7 +47,9 @@ def test_prompt_brain_assembles_full_watcher_context_and_injects():
     assert brain["intent_graph"]["intent_count"] >= 1
     assert brain["context_selection"]["status"] == "ok"
     assert brain["numeric_file_encoding"][0]["name"] == "tc_prompt_brain"
-    assert brain["prompt_box"]["open_count"] == 1
+    refine_opus_prompt_box(root, brain["prompt"])
+    assert brain["intent"]["prompt_box"]["status"] == "candidate"
+    assert refine_opus_prompt_box(root, brain["prompt"])["open_count"] >= 1
     assert (root / "logs" / "prompt_brain_latest.json").exists()
     assert "codex:prompt-brain" in (root / ".github" / "copilot-instructions.md").read_text(encoding="utf-8")
 
