@@ -1,4 +1,11 @@
 """Pigeon compliance facade for src/interlink_debugger_seq001_v002_d0421__the_sim_debugs_its_own_lc_initial_build.py."""
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from pathlib import Path
 import sys
 

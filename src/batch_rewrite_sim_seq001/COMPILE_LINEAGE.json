@@ -1,0 +1,1299 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-06-05T23:49:08.658357+00:00",
+  "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+  "source_stem": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry",
+  "target_dir": "batch_rewrite_sim_seq001",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 34,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "simulate_batch_rewrites"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq001_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq001_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::simulate_batch_rewrites",
+      "itid": "extract-simulate-batch-rewrites",
+      "lh": "9c7d",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq001_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::simulate_batch_rewrites",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::simulate_batch_rewrites",
+        "simulate_batch_rewrites"
+      ],
+      "line_count": 149,
+      "status": "WARN (149)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "load_file_sim_config",
+        "merge_file_sim_config",
+        "should_fire_file_sim"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq002_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq002_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::load_file_sim_config|merge_file_sim_config|should_fire_file_sim",
+      "itid": "extract-load-file-sim-config",
+      "lh": "b511",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq002_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::load_file_sim_config",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::load_file_sim_config",
+        "load_file_sim_config",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::merge_file_sim_config",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::merge_file_sim_config",
+        "merge_file_sim_config",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::should_fire_file_sim",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::should_fire_file_sim",
+        "should_fire_file_sim"
+      ],
+      "line_count": 43,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "compile_intent"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq003_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq003_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::compile_intent",
+      "itid": "extract-compile-intent",
+      "lh": "4aa2",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq003_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::compile_intent",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::compile_intent",
+        "compile_intent"
+      ],
+      "line_count": 41,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "render_batch_rewrite_sim"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq004_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq004_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::render_batch_rewrite_sim",
+      "itid": "extract-render-batch-rewrite-sim",
+      "lh": "2818",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq004_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::render_batch_rewrite_sim",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::render_batch_rewrite_sim",
+        "render_batch_rewrite_sim"
+      ],
+      "line_count": 97,
+      "status": "WARN (97)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_file_job_council"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq005_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq005_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_file_job_council",
+      "itid": "extract-file-job-council",
+      "lh": "8a51",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq005_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_file_job_council",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_file_job_council",
+        "_file_job_council"
+      ],
+      "line_count": 81,
+      "status": "WARN (81)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_job_council_member"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq006_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq006_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_job_council_member",
+      "itid": "extract-job-council-member",
+      "lh": "029c",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq006_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_job_council_member",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_job_council_member",
+        "_job_council_member"
+      ],
+      "line_count": 52,
+      "status": "WARN (52)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_job_role",
+        "_member_mood",
+        "_model_grievance"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq007_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq007_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_job_role|_member_mood|_model_grievance",
+      "itid": "extract-job-role",
+      "lh": "f107",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq007_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_job_role",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_job_role",
+        "_job_role",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_member_mood",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_member_mood",
+        "_member_mood",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_model_grievance",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_model_grievance",
+        "_model_grievance"
+      ],
+      "line_count": 49,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_proposal_token_estimate",
+        "_estimate_file_tokens",
+        "_dedupe_strings"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq008_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq008_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_proposal_token_estimate|_estimate_file_tokens|_dedupe_strings",
+      "itid": "extract-proposal-token-estimate",
+      "lh": "fd73",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq008_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_proposal_token_estimate",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_proposal_token_estimate",
+        "_proposal_token_estimate",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_estimate_file_tokens",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_estimate_file_tokens",
+        "_estimate_file_tokens",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_dedupe_strings",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_dedupe_strings",
+        "_dedupe_strings"
+      ],
+      "line_count": 37,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_context_packs",
+        "_validation_context_files"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq009_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq009_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_context_packs|_validation_context_files",
+      "itid": "extract-context-packs",
+      "lh": "759f",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq009_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_context_packs",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_context_packs",
+        "_context_packs",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_validation_context_files",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_validation_context_files",
+        "_validation_context_files"
+      ],
+      "line_count": 50,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_context_pack",
+        "_job_why"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq010_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq010_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_context_pack|_job_why",
+      "itid": "extract-context-pack",
+      "lh": "b688",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq010_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_context_pack",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_context_pack",
+        "_context_pack",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_job_why",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_job_why",
+        "_job_why"
+      ],
+      "line_count": 36,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_job_council_summary"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq011_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq011_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_job_council_summary",
+      "itid": "extract-job-council-summary",
+      "lh": "a6d9",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq011_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_job_council_summary",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_job_council_summary",
+        "_job_council_summary"
+      ],
+      "line_count": 27,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_render_file_job_council"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq012_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq012_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_render_file_job_council",
+      "itid": "extract-render-file-job-council",
+      "lh": "2114",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq012_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_render_file_job_council",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_render_file_job_council",
+        "_render_file_job_council"
+      ],
+      "line_count": 50,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_rank_candidates"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq013_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq013_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_rank_candidates",
+      "itid": "extract-rank-candidates",
+      "lh": "67bd",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq013_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_rank_candidates",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_rank_candidates",
+        "_rank_candidates"
+      ],
+      "line_count": 71,
+      "status": "WARN (71)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_fallback_prompt_sim_targets"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq014_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq014_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_fallback_prompt_sim_targets",
+      "itid": "extract-fallback-prompt-sim-targets",
+      "lh": "36be",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq014_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_fallback_prompt_sim_targets",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_fallback_prompt_sim_targets",
+        "_fallback_prompt_sim_targets"
+      ],
+      "line_count": 19,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_proposal"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq015_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq015_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_proposal",
+      "itid": "extract-proposal",
+      "lh": "aaad",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq015_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_proposal",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_proposal",
+        "_proposal"
+      ],
+      "line_count": 79,
+      "status": "WARN (79)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_rewrite_orchestration",
+        "_overwrite_path"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq016_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq016_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_rewrite_orchestration|_overwrite_path",
+      "itid": "extract-rewrite-orchestration",
+      "lh": "08e5",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq016_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_rewrite_orchestration",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_rewrite_orchestration",
+        "_rewrite_orchestration",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_overwrite_path",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_overwrite_path",
+        "_overwrite_path"
+      ],
+      "line_count": 53,
+      "status": "WARN (53)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_reasoning_budget",
+        "_attach_incompatibility_reports"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq017_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq017_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_reasoning_budget|_attach_incompatibility_reports",
+      "itid": "extract-reasoning-budget",
+      "lh": "cdf6",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq017_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_reasoning_budget",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_reasoning_budget",
+        "_reasoning_budget",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_attach_incompatibility_reports",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_attach_incompatibility_reports",
+        "_attach_incompatibility_reports"
+      ],
+      "line_count": 47,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_attach_consensus_scores",
+        "_compute_ten_q"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq018_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq018_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_attach_consensus_scores|_compute_ten_q",
+      "itid": "extract-attach-consensus-scores",
+      "lh": "7456",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq018_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_attach_consensus_scores",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_attach_consensus_scores",
+        "_attach_consensus_scores",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_compute_ten_q",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_compute_ten_q",
+        "_compute_ten_q"
+      ],
+      "line_count": 48,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_ten_q_checks"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq019_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq019_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_ten_q_checks",
+      "itid": "extract-ten-q-checks",
+      "lh": "0569",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq019_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_ten_q_checks",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_ten_q_checks",
+        "_ten_q_checks"
+      ],
+      "line_count": 81,
+      "status": "WARN (81)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_check",
+        "_ten_q_failure_reason",
+        "_orchestrator_email_guard",
+        "_context_edges",
+        "_dedupe_incompatibilities"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq020_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq020_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_check|_ten_q_failure_reason|_orchestrator_email_guard|_context_edges|_dedupe_incompatibilities",
+      "itid": "extract-check",
+      "lh": "3bbc",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq020_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_check",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_check",
+        "_check",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_ten_q_failure_reason",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_ten_q_failure_reason",
+        "_ten_q_failure_reason",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_orchestrator_email_guard",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_orchestrator_email_guard",
+        "_orchestrator_email_guard",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_context_edges",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_context_edges",
+        "_context_edges",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_dedupe_incompatibilities",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_dedupe_incompatibilities",
+        "_dedupe_incompatibilities"
+      ],
+      "line_count": 55,
+      "status": "WARN (55)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_render_incompatibilities",
+        "_render_ten_q",
+        "_render_email_guard",
+        "_queue_deepseek_completion_jobs"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq021_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq021_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_render_incompatibilities|_render_ten_q|_render_email_guard|_queue_deepseek_completion_jobs",
+      "itid": "extract-render-incompatibilities",
+      "lh": "c5b9",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq021_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_render_incompatibilities",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_render_incompatibilities",
+        "_render_incompatibilities",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_render_ten_q",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_render_ten_q",
+        "_render_ten_q",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_render_email_guard",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_render_email_guard",
+        "_render_email_guard",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_queue_deepseek_completion_jobs",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_queue_deepseek_completion_jobs",
+        "_queue_deepseek_completion_jobs"
+      ],
+      "line_count": 61,
+      "status": "WARN (61)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_deepseek_completion_job"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq022_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq022_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_deepseek_completion_job",
+      "itid": "extract-deepseek-completion-job",
+      "lh": "3f1a",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq022_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_deepseek_completion_job",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_deepseek_completion_job",
+        "_deepseek_completion_job"
+      ],
+      "line_count": 41,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_deepseek_completion_prompt",
+        "_deepseek_model",
+        "_orchestrator_oath"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq023_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq023_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_deepseek_completion_prompt|_deepseek_model|_orchestrator_oath",
+      "itid": "extract-deepseek-completion-prompt",
+      "lh": "17f8",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq023_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_deepseek_completion_prompt",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_deepseek_completion_prompt",
+        "_deepseek_completion_prompt",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_deepseek_model",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_deepseek_model",
+        "_deepseek_model",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_orchestrator_oath",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_orchestrator_oath",
+        "_orchestrator_oath"
+      ],
+      "line_count": 47,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_render_orchestrator_oath"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq024_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq024_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_render_orchestrator_oath",
+      "itid": "extract-render-orchestrator-oath",
+      "lh": "d691",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq024_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_render_orchestrator_oath",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_render_orchestrator_oath",
+        "_render_orchestrator_oath"
+      ],
+      "line_count": 22,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_render_file_push_narrative_fragment"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq025_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq025_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_render_file_push_narrative_fragment",
+      "itid": "extract-render-file-push-narrative-fragment",
+      "lh": "479b",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq025_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_render_file_push_narrative_fragment",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_render_file_push_narrative_fragment",
+        "_render_file_push_narrative_fragment"
+      ],
+      "line_count": 41,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_seed_paths",
+        "_add_candidate"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq026_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq026_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_seed_paths|_add_candidate",
+      "itid": "extract-seed-paths",
+      "lh": "8035",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq026_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_seed_paths",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_seed_paths",
+        "_seed_paths",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_add_candidate",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_add_candidate",
+        "_add_candidate"
+      ],
+      "line_count": 53,
+      "status": "WARN (53)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_add_candidate_with_aliases",
+        "_history_points",
+        "_candidate_sort_score"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq027_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq027_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_add_candidate_with_aliases|_history_points|_candidate_sort_score",
+      "itid": "extract-add-candidate-with-aliases",
+      "lh": "5b73",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq027_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_add_candidate_with_aliases",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_add_candidate_with_aliases",
+        "_add_candidate_with_aliases",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_history_points",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_history_points",
+        "_history_points",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_candidate_sort_score",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_candidate_sort_score",
+        "_candidate_sort_score"
+      ],
+      "line_count": 50,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_resolve_alias_targets",
+        "_metadata_candidate",
+        "_source_candidate",
+        "_cross_file_validation"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq028_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq028_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_resolve_alias_targets|_metadata_candidate|_source_candidate|_cross_file_validation",
+      "itid": "extract-resolve-alias-targets",
+      "lh": "599a",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq028_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_resolve_alias_targets",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_resolve_alias_targets",
+        "_resolve_alias_targets",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_metadata_candidate",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_metadata_candidate",
+        "_metadata_candidate",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_source_candidate",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_source_candidate",
+        "_source_candidate",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_cross_file_validation",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_cross_file_validation",
+        "_cross_file_validation"
+      ],
+      "line_count": 55,
+      "status": "WARN (55)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_validation_plan",
+        "_context_injection",
+        "_proposed_fix",
+        "_distributed_intent_encoding"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq029_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq029_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_validation_plan|_context_injection|_proposed_fix|_distributed_intent_encoding",
+      "itid": "extract-validation-plan",
+      "lh": "5b52",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq029_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_validation_plan",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_validation_plan",
+        "_validation_plan",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_context_injection",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_context_injection",
+        "_context_injection",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_proposed_fix",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_proposed_fix",
+        "_proposed_fix",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_distributed_intent_encoding",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_distributed_intent_encoding",
+        "_distributed_intent_encoding"
+      ],
+      "line_count": 56,
+      "status": "WARN (56)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_identity_growth",
+        "_fire_record",
+        "_identity_growth_record"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq030_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq030_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_identity_growth|_fire_record|_identity_growth_record",
+      "itid": "extract-identity-growth",
+      "lh": "715d",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq030_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_identity_growth",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_identity_growth",
+        "_identity_growth",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_fire_record",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_fire_record",
+        "_fire_record",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_identity_growth_record",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_identity_growth_record",
+        "_identity_growth_record"
+      ],
+      "line_count": 44,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_interlink_score",
+        "_load_failure_model",
+        "_git_status"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq031_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq031_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_interlink_score|_load_failure_model|_git_status",
+      "itid": "extract-interlink-score",
+      "lh": "d190",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq031_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_interlink_score",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_interlink_score",
+        "_interlink_score",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_load_failure_model",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_load_failure_model",
+        "_load_failure_model",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_git_status",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_git_status",
+        "_git_status"
+      ],
+      "line_count": 55,
+      "status": "WARN (55)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_referenced_by",
+        "_clean_rel_path",
+        "_resolve_stem",
+        "_choose_verb"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq032_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq032_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_referenced_by|_clean_rel_path|_resolve_stem|_choose_verb",
+      "itid": "extract-referenced-by",
+      "lh": "ad44",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq032_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_referenced_by",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_referenced_by",
+        "_referenced_by",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_clean_rel_path",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_clean_rel_path",
+        "_clean_rel_path",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_resolve_stem",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_resolve_stem",
+        "_resolve_stem",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_choose_verb",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_choose_verb",
+        "_choose_verb"
+      ],
+      "line_count": 44,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_choose_scope_from_manifests",
+        "_stem_key",
+        "_tokens",
+        "_token_list"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq033_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq033_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_choose_scope_from_manifests|_stem_key|_tokens|_token_list",
+      "itid": "extract-choose-scope-from-manifests",
+      "lh": "80ae",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq033_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_choose_scope_from_manifests",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_choose_scope_from_manifests",
+        "_choose_scope_from_manifests",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_stem_key",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_stem_key",
+        "_stem_key",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_tokens",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_tokens",
+        "_tokens",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_token_list",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_token_list",
+        "_token_list"
+      ],
+      "line_count": 55,
+      "status": "WARN (55)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+      "source_symbols": [
+        "_load_json",
+        "_load_jsonl",
+        "_write_json",
+        "_append_jsonl",
+        "_now",
+        "SCHEMA",
+        "STOP",
+        "VERBS",
+        "RISKY_SUFFIXES",
+        "RISKY_BITS",
+        "SOURCE_SUFFIXES",
+        "DEFAULT_CONFIG"
+      ],
+      "generated_file": "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq034_v001.py",
+      "generated_module": "batch_rewrite_sim_seq001_seq034_v001",
+      "identity_key": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_load_json|_load_jsonl|_write_json|_append_jsonl|_now|SCHEMA|STOP|VERBS|RISKY_SUFFIXES|RISKY_BITS|SOURCE_SUFFIXES|DEFAULT_CONFIG",
+      "itid": "extract-load-json",
+      "lh": "8739",
+      "parent_lineage": {
+        "lh": "4926",
+        "identity_id": "batch_rewrite_sim",
+        "itid": "unknown-intent",
+        "path": "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "batch_rewrite_sim_seq001/batch_rewrite_sim_seq001_seq034_v001.py",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_load_json",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_load_json",
+        "_load_json",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_load_jsonl",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_load_jsonl",
+        "_load_jsonl",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_write_json",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_write_json",
+        "_write_json",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_append_jsonl",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_append_jsonl",
+        "_append_jsonl",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::_now",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::_now",
+        "_now",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::SCHEMA",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::SCHEMA",
+        "SCHEMA",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::STOP",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::STOP",
+        "STOP",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::VERBS",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::VERBS",
+        "VERBS",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::RISKY_SUFFIXES",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::RISKY_SUFFIXES",
+        "RISKY_SUFFIXES",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::RISKY_BITS",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::RISKY_BITS",
+        "RISKY_BITS",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::SOURCE_SUFFIXES",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::SOURCE_SUFFIXES",
+        "SOURCE_SUFFIXES",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry.py::DEFAULT_CONFIG",
+        "batch_rewrite_sim_seq001_v002_d0510__proposal_only_batch_rewrite_simulator_lc_feat_bind_keystroke_telemetry::DEFAULT_CONFIG",
+        "DEFAULT_CONFIG"
+      ],
+      "line_count": 116,
+      "status": "WARN (116)",
+      "reason": ""
+    }
+  ]
+}

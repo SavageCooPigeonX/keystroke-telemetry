@@ -4,6 +4,13 @@ Files can write local email dispatches when they are touched or selected by
 the file-sim compiler. This module does not send SMTP. It writes an outbox
 that a later LinkRouter/email pipeline can deliver.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 
 import html

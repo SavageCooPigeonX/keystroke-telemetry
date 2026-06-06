@@ -2750,7 +2750,7 @@ def main(argv: list[str] | None = None) -> int:
         result = load_intent_attention_stats(root, file=args.file)
     elif args.command == "patch-registry":
         _ensure_repo_on_path(root)
-        from src.registry_identity_bridge_seq001_v001 import patch_registry
+        patch_registry = src_import("registry_identity_bridge_seq001", "patch_registry")
 
         result = patch_registry(root, write=True, rebuild=bool(args.rebuild))
     elif args.command == "stale-date-audit":

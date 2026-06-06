@@ -4,6 +4,13 @@ Feeds an external repository into keystroke telemetry by turning each file into
 prompt-like training text, binding that text to stable repo file identities,
 and refreshing an operator fingerprint snapshot from local prompt/profile logs.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 
 import argparse

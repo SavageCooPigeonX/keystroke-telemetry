@@ -3,7 +3,7 @@ import tempfile
 from pathlib import Path
 
 from pigeon_compiler.rename_engine import load_registry, parse_pigeon_stem
-from src.intent_identity_naming_seq001_v001 import (
+from src.intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with import (
     build_intent_filename,
     itid_from_intent_key,
     lineage_hash,

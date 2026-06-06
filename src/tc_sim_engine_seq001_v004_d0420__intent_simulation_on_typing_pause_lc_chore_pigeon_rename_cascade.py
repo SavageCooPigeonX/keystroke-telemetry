@@ -1,4 +1,11 @@
 """Pigeon compliance facade for src/tc_sim_engine_seq001_v004_d0420__intent_simulation_on_typing_pause_lc_chore_pigeon_rename_cascade.py."""
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from pathlib import Path
 import sys
 

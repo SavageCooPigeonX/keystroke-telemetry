@@ -1,4 +1,11 @@
 """Pigeon compliance facade for src/控w_ops_s008_v008_d0331_册追跑_λI.py."""
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from pathlib import Path
 import sys
 

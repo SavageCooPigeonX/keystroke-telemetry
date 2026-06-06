@@ -1,4 +1,11 @@
 """Pigeon compliance facade for src/tc_observatory_seq001_v002_d0420__primary_pigeon_observatory_window_lc_chore_pigeon_rename_cascade.py."""
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from pathlib import Path
 import sys
 

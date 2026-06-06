@@ -4,6 +4,13 @@ Every file self-sim should emit one perpendicular DeepSeek job: compression,
 split planning, validation mapping, or alternate-state simulation. Copilot stays
 the foreground probe/orchestrator; DeepSeek keeps chewing safe maintenance work.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 
 import hashlib

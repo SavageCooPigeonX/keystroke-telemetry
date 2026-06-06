@@ -1,4 +1,11 @@
 """Pigeon compliance facade for src/context_select_agent_seq001_v002_d0421__intent_orchestrator_fires_on_every_lc_feat_operator_state_daemon.py."""
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from pathlib import Path
 import sys
 

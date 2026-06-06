@@ -5,6 +5,13 @@ module stays deterministic: it reads local telemetry, repo fingerprints, file
 sim state, and intent history, then emits a mutation fence plus wakeable file
 packets for downstream orchestrators.
 """
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from __future__ import annotations
 
 import json

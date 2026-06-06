@@ -2,7 +2,7 @@ import json
 import tempfile
 from pathlib import Path
 
-from src.registry_identity_bridge_seq001_v001 import (
+from src.registry_identity_bridge_seq001_v002_d0605__seq_pairing_aliases_md_anchors_lc_patch_registry import (
     ALIASES_JSON,
     audit_registry_pairing,
     merge_rename_alias,

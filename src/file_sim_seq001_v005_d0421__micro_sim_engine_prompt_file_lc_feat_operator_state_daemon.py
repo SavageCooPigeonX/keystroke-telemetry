@@ -1,4 +1,11 @@
 """Pigeon compliance facade for src/file_sim_seq001_v005_d0421__micro_sim_engine_prompt_file_lc_feat_operator_state_daemon.py."""
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from pathlib import Path
 import sys
 

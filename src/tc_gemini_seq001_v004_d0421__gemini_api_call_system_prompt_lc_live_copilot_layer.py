@@ -1,4 +1,11 @@
 """Pigeon compliance facade for src/tc_gemini_seq001_v004_d0421__gemini_api_call_system_prompt_lc_live_copilot_layer.py."""
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from pathlib import Path
 import sys
 

@@ -1,0 +1,1947 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-06-05T23:48:56.026958+00:00",
+  "source_file": "file_email_plugin_seq001_v001.py",
+  "source_stem": "file_email_plugin_seq001_v001",
+  "target_dir": "file_email_plugin_seq001",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 52,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "load_file_email_config",
+        "merge_file_email_config",
+        "mail_quality_gate"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq001_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq001_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::load_file_email_config|merge_file_email_config|mail_quality_gate",
+      "itid": "extract-load-file-email-config",
+      "lh": "72a9",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq001_v001.py",
+        "file_email_plugin_seq001_v001.py::load_file_email_config",
+        "file_email_plugin_seq001_v001::load_file_email_config",
+        "load_file_email_config",
+        "file_email_plugin_seq001_v001.py::merge_file_email_config",
+        "file_email_plugin_seq001_v001::merge_file_email_config",
+        "merge_file_email_config",
+        "file_email_plugin_seq001_v001.py::mail_quality_gate",
+        "file_email_plugin_seq001_v001::mail_quality_gate",
+        "mail_quality_gate"
+      ],
+      "line_count": 58,
+      "status": "WARN (58)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "emit_file_sim_emails"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq002_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq002_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::emit_file_sim_emails",
+      "itid": "extract-emit-file-sim-emails",
+      "lh": "03be",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq002_v001.py",
+        "file_email_plugin_seq001_v001.py::emit_file_sim_emails",
+        "file_email_plugin_seq001_v001::emit_file_sim_emails",
+        "emit_file_sim_emails"
+      ],
+      "line_count": 51,
+      "status": "WARN (51)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_proposal_file_comment"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq003_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq003_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_proposal_file_comment",
+      "itid": "extract-proposal-file-comment",
+      "lh": "cae3",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq003_v001.py",
+        "file_email_plugin_seq001_v001.py::_proposal_file_comment",
+        "file_email_plugin_seq001_v001::_proposal_file_comment",
+        "_proposal_file_comment"
+      ],
+      "line_count": 15,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "emit_learning_digest_email"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq004_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq004_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::emit_learning_digest_email",
+      "itid": "extract-emit-learning-digest-email",
+      "lh": "472d",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq004_v001.py",
+        "file_email_plugin_seq001_v001.py::emit_learning_digest_email",
+        "file_email_plugin_seq001_v001::emit_learning_digest_email",
+        "emit_learning_digest_email"
+      ],
+      "line_count": 102,
+      "status": "WARN (102)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_monitor_event"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq005_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq005_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_monitor_event",
+      "itid": "extract-monitor-event",
+      "lh": "fabb",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq005_v001.py",
+        "file_email_plugin_seq001_v001.py::_monitor_event",
+        "file_email_plugin_seq001_v001::_monitor_event",
+        "_monitor_event"
+      ],
+      "line_count": 51,
+      "status": "WARN (51)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "emit_touch_email"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq006_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq006_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::emit_touch_email",
+      "itid": "extract-emit-touch-email",
+      "lh": "0a89",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq006_v001.py",
+        "file_email_plugin_seq001_v001.py::emit_touch_email",
+        "file_email_plugin_seq001_v001::emit_touch_email",
+        "emit_touch_email"
+      ],
+      "line_count": 40,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "emit_codex_prompt_email"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq007_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq007_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::emit_codex_prompt_email",
+      "itid": "extract-emit-codex-prompt-email",
+      "lh": "f5eb",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq007_v001.py",
+        "file_email_plugin_seq001_v001.py::emit_codex_prompt_email",
+        "file_email_plugin_seq001_v001::emit_codex_prompt_email",
+        "emit_codex_prompt_email"
+      ],
+      "line_count": 58,
+      "status": "WARN (58)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_codex_prompt_focus_files",
+        "_codex_prompt_job_id",
+        "_codex_prompt_reason"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq008_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq008_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_codex_prompt_focus_files|_codex_prompt_job_id|_codex_prompt_reason",
+      "itid": "extract-codex-prompt-focus-files",
+      "lh": "0632",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq008_v001.py",
+        "file_email_plugin_seq001_v001.py::_codex_prompt_focus_files",
+        "file_email_plugin_seq001_v001::_codex_prompt_focus_files",
+        "_codex_prompt_focus_files",
+        "file_email_plugin_seq001_v001.py::_codex_prompt_job_id",
+        "file_email_plugin_seq001_v001::_codex_prompt_job_id",
+        "_codex_prompt_job_id",
+        "file_email_plugin_seq001_v001.py::_codex_prompt_reason",
+        "file_email_plugin_seq001_v001::_codex_prompt_reason",
+        "_codex_prompt_reason"
+      ],
+      "line_count": 47,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_codex_prompt_ten_q",
+        "_codex_prompt_guard"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq009_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq009_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_codex_prompt_ten_q|_codex_prompt_guard",
+      "itid": "extract-codex-prompt-ten-q",
+      "lh": "c46e",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq009_v001.py",
+        "file_email_plugin_seq001_v001.py::_codex_prompt_ten_q",
+        "file_email_plugin_seq001_v001::_codex_prompt_ten_q",
+        "_codex_prompt_ten_q",
+        "file_email_plugin_seq001_v001.py::_codex_prompt_guard",
+        "file_email_plugin_seq001_v001::_codex_prompt_guard",
+        "_codex_prompt_guard"
+      ],
+      "line_count": 38,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "email_delivery_status"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq010_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq010_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::email_delivery_status",
+      "itid": "extract-email-delivery-status",
+      "lh": "262e",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq010_v001.py",
+        "file_email_plugin_seq001_v001.py::email_delivery_status",
+        "file_email_plugin_seq001_v001::email_delivery_status",
+        "email_delivery_status"
+      ],
+      "line_count": 52,
+      "status": "WARN (52)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_lifecycle_event",
+        "_lifecycle_reason"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq011_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq011_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_lifecycle_event|_lifecycle_reason",
+      "itid": "extract-lifecycle-event",
+      "lh": "0851",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq011_v001.py",
+        "file_email_plugin_seq001_v001.py::_lifecycle_event",
+        "file_email_plugin_seq001_v001::_lifecycle_event",
+        "_lifecycle_event",
+        "file_email_plugin_seq001_v001.py::_lifecycle_reason",
+        "file_email_plugin_seq001_v001::_lifecycle_reason",
+        "_lifecycle_reason"
+      ],
+      "line_count": 46,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_lifecycle_validation",
+        "_lifecycle_ten_q"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq012_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq012_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_lifecycle_validation|_lifecycle_ten_q",
+      "itid": "extract-lifecycle-validation",
+      "lh": "b7f7",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq012_v001.py",
+        "file_email_plugin_seq001_v001.py::_lifecycle_validation",
+        "file_email_plugin_seq001_v001::_lifecycle_validation",
+        "_lifecycle_validation",
+        "file_email_plugin_seq001_v001.py::_lifecycle_ten_q",
+        "file_email_plugin_seq001_v001::_lifecycle_ten_q",
+        "_lifecycle_ten_q"
+      ],
+      "line_count": 48,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_lifecycle_guard"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq013_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq013_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_lifecycle_guard",
+      "itid": "extract-lifecycle-guard",
+      "lh": "ce1e",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq013_v001.py",
+        "file_email_plugin_seq001_v001.py::_lifecycle_guard",
+        "file_email_plugin_seq001_v001::_lifecycle_guard",
+        "_lifecycle_guard"
+      ],
+      "line_count": 14,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "emit_file_email"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq014_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq014_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::emit_file_email",
+      "itid": "extract-emit-file-email",
+      "lh": "8f53",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq014_v001.py",
+        "file_email_plugin_seq001_v001.py::emit_file_email",
+        "file_email_plugin_seq001_v001::emit_file_email",
+        "emit_file_email"
+      ],
+      "line_count": 66,
+      "status": "WARN (66)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "render_file_email"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq015_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq015_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::render_file_email",
+      "itid": "extract-render-file-email",
+      "lh": "c7e0",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq015_v001.py",
+        "file_email_plugin_seq001_v001.py::render_file_email",
+        "file_email_plugin_seq001_v001::render_file_email",
+        "render_file_email"
+      ],
+      "line_count": 80,
+      "status": "WARN (80)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "render_learning_digest_email"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq016_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq016_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::render_learning_digest_email",
+      "itid": "extract-render-learning-digest-email",
+      "lh": "05f4",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq016_v001.py",
+        "file_email_plugin_seq001_v001.py::render_learning_digest_email",
+        "file_email_plugin_seq001_v001::render_learning_digest_email",
+        "render_learning_digest_email"
+      ],
+      "line_count": 113,
+      "status": "WARN (113)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_response_policy_snapshot",
+        "_policy_mail_line",
+        "_prefixed"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq017_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq017_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_response_policy_snapshot|_policy_mail_line|_prefixed",
+      "itid": "extract-response-policy-snapshot",
+      "lh": "2e22",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq017_v001.py",
+        "file_email_plugin_seq001_v001.py::_response_policy_snapshot",
+        "file_email_plugin_seq001_v001::_response_policy_snapshot",
+        "_response_policy_snapshot",
+        "file_email_plugin_seq001_v001.py::_policy_mail_line",
+        "file_email_plugin_seq001_v001::_policy_mail_line",
+        "_policy_mail_line",
+        "file_email_plugin_seq001_v001.py::_prefixed",
+        "file_email_plugin_seq001_v001::_prefixed",
+        "_prefixed"
+      ],
+      "line_count": 55,
+      "status": "WARN (55)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_learning_interlink_score",
+        "_learning_packet_summary",
+        "_learning_context_files",
+        "_learning_validation_plan"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq018_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq018_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_learning_interlink_score|_learning_packet_summary|_learning_context_files|_learning_validation_plan",
+      "itid": "extract-learning-interlink-score",
+      "lh": "16a0",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq018_v001.py",
+        "file_email_plugin_seq001_v001.py::_learning_interlink_score",
+        "file_email_plugin_seq001_v001::_learning_interlink_score",
+        "_learning_interlink_score",
+        "file_email_plugin_seq001_v001.py::_learning_packet_summary",
+        "file_email_plugin_seq001_v001::_learning_packet_summary",
+        "_learning_packet_summary",
+        "file_email_plugin_seq001_v001.py::_learning_context_files",
+        "file_email_plugin_seq001_v001::_learning_context_files",
+        "_learning_context_files",
+        "file_email_plugin_seq001_v001.py::_learning_validation_plan",
+        "file_email_plugin_seq001_v001::_learning_validation_plan",
+        "_learning_validation_plan"
+      ],
+      "line_count": 42,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_learning_digest_10q",
+        "_digest_check",
+        "_learning_context_from_record",
+        "_learning_current_work"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq019_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq019_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_learning_digest_10q|_digest_check|_learning_context_from_record|_learning_current_work",
+      "itid": "extract-learning-digest-10q",
+      "lh": "3570",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq019_v001.py",
+        "file_email_plugin_seq001_v001.py::_learning_digest_10q",
+        "file_email_plugin_seq001_v001::_learning_digest_10q",
+        "_learning_digest_10q",
+        "file_email_plugin_seq001_v001.py::_digest_check",
+        "file_email_plugin_seq001_v001::_digest_check",
+        "_digest_check",
+        "file_email_plugin_seq001_v001.py::_learning_context_from_record",
+        "file_email_plugin_seq001_v001::_learning_context_from_record",
+        "_learning_context_from_record",
+        "file_email_plugin_seq001_v001.py::_learning_current_work",
+        "file_email_plugin_seq001_v001::_learning_current_work",
+        "_learning_current_work"
+      ],
+      "line_count": 54,
+      "status": "WARN (54)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_learning_profile_signal_line",
+        "_token_overlap_ratio",
+        "_learning_story_lessons"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq020_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq020_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_learning_profile_signal_line|_token_overlap_ratio|_learning_story_lessons",
+      "itid": "extract-learning-profile-signal-line",
+      "lh": "bccb",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq020_v001.py",
+        "file_email_plugin_seq001_v001.py::_learning_profile_signal_line",
+        "file_email_plugin_seq001_v001::_learning_profile_signal_line",
+        "_learning_profile_signal_line",
+        "file_email_plugin_seq001_v001.py::_token_overlap_ratio",
+        "file_email_plugin_seq001_v001::_token_overlap_ratio",
+        "_token_overlap_ratio",
+        "file_email_plugin_seq001_v001.py::_learning_story_lessons",
+        "file_email_plugin_seq001_v001::_learning_story_lessons",
+        "_learning_story_lessons"
+      ],
+      "line_count": 46,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_learning_story_quotes",
+        "_file_state_quote"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq021_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq021_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_learning_story_quotes|_file_state_quote",
+      "itid": "extract-learning-story-quotes",
+      "lh": "5eaf",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq021_v001.py",
+        "file_email_plugin_seq001_v001.py::_learning_story_quotes",
+        "file_email_plugin_seq001_v001::_learning_story_quotes",
+        "_learning_story_quotes",
+        "file_email_plugin_seq001_v001.py::_file_state_quote",
+        "file_email_plugin_seq001_v001::_file_state_quote",
+        "_file_state_quote"
+      ],
+      "line_count": 47,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_learning_story_cast",
+        "_learning_story_deepseek",
+        "_learning_story_grader"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq022_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq022_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_learning_story_cast|_learning_story_deepseek|_learning_story_grader",
+      "itid": "extract-learning-story-cast",
+      "lh": "9826",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq022_v001.py",
+        "file_email_plugin_seq001_v001.py::_learning_story_cast",
+        "file_email_plugin_seq001_v001::_learning_story_cast",
+        "_learning_story_cast",
+        "file_email_plugin_seq001_v001.py::_learning_story_deepseek",
+        "file_email_plugin_seq001_v001::_learning_story_deepseek",
+        "_learning_story_deepseek",
+        "file_email_plugin_seq001_v001.py::_learning_story_grader",
+        "file_email_plugin_seq001_v001::_learning_story_grader",
+        "_learning_story_grader"
+      ],
+      "line_count": 56,
+      "status": "WARN (56)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_learning_closing_scene",
+        "_all_checks",
+        "_failed_checks",
+        "_passed_checks",
+        "_format_check_line",
+        "_actionable_mail_opening"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq023_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq023_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_learning_closing_scene|_all_checks|_failed_checks|_passed_checks|_format_check_line|_actionable_mail_opening",
+      "itid": "extract-learning-closing-scene",
+      "lh": "a3e0",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq023_v001.py",
+        "file_email_plugin_seq001_v001.py::_learning_closing_scene",
+        "file_email_plugin_seq001_v001::_learning_closing_scene",
+        "_learning_closing_scene",
+        "file_email_plugin_seq001_v001.py::_all_checks",
+        "file_email_plugin_seq001_v001::_all_checks",
+        "_all_checks",
+        "file_email_plugin_seq001_v001.py::_failed_checks",
+        "file_email_plugin_seq001_v001::_failed_checks",
+        "_failed_checks",
+        "file_email_plugin_seq001_v001.py::_passed_checks",
+        "file_email_plugin_seq001_v001::_passed_checks",
+        "_passed_checks",
+        "file_email_plugin_seq001_v001.py::_format_check_line",
+        "file_email_plugin_seq001_v001::_format_check_line",
+        "_format_check_line",
+        "file_email_plugin_seq001_v001.py::_actionable_mail_opening",
+        "file_email_plugin_seq001_v001::_actionable_mail_opening",
+        "_actionable_mail_opening"
+      ],
+      "line_count": 60,
+      "status": "WARN (60)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_learned_lines",
+        "_useful_memory_notes"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq024_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq024_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_learned_lines|_useful_memory_notes",
+      "itid": "extract-learned-lines",
+      "lh": "fd5a",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq024_v001.py",
+        "file_email_plugin_seq001_v001.py::_learned_lines",
+        "file_email_plugin_seq001_v001::_learned_lines",
+        "_learned_lines",
+        "file_email_plugin_seq001_v001.py::_useful_memory_notes",
+        "file_email_plugin_seq001_v001::_useful_memory_notes",
+        "_useful_memory_notes"
+      ],
+      "line_count": 45,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_done_lines",
+        "_deepseek_done_line"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq025_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq025_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_done_lines|_deepseek_done_line",
+      "itid": "extract-done-lines",
+      "lh": "04e5",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq025_v001.py",
+        "file_email_plugin_seq001_v001.py::_done_lines",
+        "file_email_plugin_seq001_v001::_done_lines",
+        "_done_lines",
+        "file_email_plugin_seq001_v001.py::_deepseek_done_line",
+        "file_email_plugin_seq001_v001::_deepseek_done_line",
+        "_deepseek_done_line"
+      ],
+      "line_count": 46,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_planning_lines",
+        "_need_lines"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq026_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq026_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_planning_lines|_need_lines",
+      "itid": "extract-planning-lines",
+      "lh": "a7af",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq026_v001.py",
+        "file_email_plugin_seq001_v001.py::_planning_lines",
+        "file_email_plugin_seq001_v001::_planning_lines",
+        "_planning_lines",
+        "file_email_plugin_seq001_v001.py::_need_lines",
+        "file_email_plugin_seq001_v001::_need_lines",
+        "_need_lines"
+      ],
+      "line_count": 45,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_actionable_comedy_line",
+        "_memory_knowledge",
+        "_preferred_context",
+        "_first_validation",
+        "_failed_check_summary"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq027_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq027_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_actionable_comedy_line|_memory_knowledge|_preferred_context|_first_validation|_failed_check_summary",
+      "itid": "extract-actionable-comedy-line",
+      "lh": "3721",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq027_v001.py",
+        "file_email_plugin_seq001_v001.py::_actionable_comedy_line",
+        "file_email_plugin_seq001_v001::_actionable_comedy_line",
+        "_actionable_comedy_line",
+        "file_email_plugin_seq001_v001.py::_memory_knowledge",
+        "file_email_plugin_seq001_v001::_memory_knowledge",
+        "_memory_knowledge",
+        "file_email_plugin_seq001_v001.py::_preferred_context",
+        "file_email_plugin_seq001_v001::_preferred_context",
+        "_preferred_context",
+        "file_email_plugin_seq001_v001.py::_first_validation",
+        "file_email_plugin_seq001_v001::_first_validation",
+        "_first_validation",
+        "file_email_plugin_seq001_v001.py::_failed_check_summary",
+        "file_email_plugin_seq001_v001::_failed_check_summary",
+        "_failed_check_summary"
+      ],
+      "line_count": 53,
+      "status": "WARN (53)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_plain_snip",
+        "_old_friend_opening"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq028_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq028_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_plain_snip|_old_friend_opening",
+      "itid": "extract-plain-snip",
+      "lh": "ee6a",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq028_v001.py",
+        "file_email_plugin_seq001_v001.py::_plain_snip",
+        "file_email_plugin_seq001_v001::_plain_snip",
+        "_plain_snip",
+        "file_email_plugin_seq001_v001.py::_old_friend_opening",
+        "file_email_plugin_seq001_v001::_old_friend_opening",
+        "_old_friend_opening"
+      ],
+      "line_count": 43,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_old_friend_read",
+        "_adaptive_operator_note"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq029_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq029_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_old_friend_read|_adaptive_operator_note",
+      "itid": "extract-old-friend-read",
+      "lh": "f28b",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq029_v001.py",
+        "file_email_plugin_seq001_v001.py::_old_friend_read",
+        "file_email_plugin_seq001_v001::_old_friend_read",
+        "_old_friend_read",
+        "file_email_plugin_seq001_v001.py::_adaptive_operator_note",
+        "file_email_plugin_seq001_v001::_adaptive_operator_note",
+        "_adaptive_operator_note"
+      ],
+      "line_count": 49,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_file_role_for_operator",
+        "_reasoning_operator_read",
+        "_next_bounded_move",
+        "_loyalty_clause"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq030_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq030_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_file_role_for_operator|_reasoning_operator_read|_next_bounded_move|_loyalty_clause",
+      "itid": "extract-file-role-for-operator",
+      "lh": "e932",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq030_v001.py",
+        "file_email_plugin_seq001_v001.py::_file_role_for_operator",
+        "file_email_plugin_seq001_v001::_file_role_for_operator",
+        "_file_role_for_operator",
+        "file_email_plugin_seq001_v001.py::_reasoning_operator_read",
+        "file_email_plugin_seq001_v001::_reasoning_operator_read",
+        "_reasoning_operator_read",
+        "file_email_plugin_seq001_v001.py::_next_bounded_move",
+        "file_email_plugin_seq001_v001::_next_bounded_move",
+        "_next_bounded_move",
+        "file_email_plugin_seq001_v001.py::_loyalty_clause",
+        "file_email_plugin_seq001_v001::_loyalty_clause",
+        "_loyalty_clause"
+      ],
+      "line_count": 52,
+      "status": "WARN (52)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_inline_quote",
+        "_operator_text_quote",
+        "_comedy_grievance"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq031_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq031_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_inline_quote|_operator_text_quote|_comedy_grievance",
+      "itid": "extract-inline-quote",
+      "lh": "e3d0",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq031_v001.py",
+        "file_email_plugin_seq001_v001.py::_inline_quote",
+        "file_email_plugin_seq001_v001::_inline_quote",
+        "_inline_quote",
+        "file_email_plugin_seq001_v001.py::_operator_text_quote",
+        "file_email_plugin_seq001_v001::_operator_text_quote",
+        "_operator_text_quote",
+        "file_email_plugin_seq001_v001.py::_comedy_grievance",
+        "file_email_plugin_seq001_v001::_comedy_grievance",
+        "_comedy_grievance"
+      ],
+      "line_count": 46,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_write_context_request"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq032_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq032_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_write_context_request",
+      "itid": "extract-write-context-request",
+      "lh": "55f9",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq032_v001.py",
+        "file_email_plugin_seq001_v001.py::_write_context_request",
+        "file_email_plugin_seq001_v001::_write_context_request",
+        "_write_context_request"
+      ],
+      "line_count": 80,
+      "status": "WARN (80)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_context_10q"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq033_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq033_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_context_10q",
+      "itid": "extract-context-10q",
+      "lh": "4982",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq033_v001.py",
+        "file_email_plugin_seq001_v001.py::_context_10q",
+        "file_email_plugin_seq001_v001::_context_10q",
+        "_context_10q"
+      ],
+      "line_count": 39,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_file_mail_memory_hint"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq034_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq034_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_file_mail_memory_hint",
+      "itid": "extract-file-mail-memory-hint",
+      "lh": "3111",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq034_v001.py",
+        "file_email_plugin_seq001_v001.py::_file_mail_memory_hint",
+        "file_email_plugin_seq001_v001::_file_mail_memory_hint",
+        "_file_mail_memory_hint"
+      ],
+      "line_count": 26,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_write_file_mail_memory",
+        "_file_memory_paths"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq035_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq035_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_write_file_mail_memory|_file_memory_paths",
+      "itid": "extract-write-file-mail-memory",
+      "lh": "48db",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq035_v001.py",
+        "file_email_plugin_seq001_v001.py::_write_file_mail_memory",
+        "file_email_plugin_seq001_v001::_write_file_mail_memory",
+        "_write_file_mail_memory",
+        "file_email_plugin_seq001_v001.py::_file_memory_paths",
+        "file_email_plugin_seq001_v001::_file_memory_paths",
+        "_file_memory_paths"
+      ],
+      "line_count": 64,
+      "status": "WARN (64)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_file_memory_thread_id",
+        "_file_memory_message"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq036_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq036_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_file_memory_thread_id|_file_memory_message",
+      "itid": "extract-file-memory-thread-id",
+      "lh": "e113",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq036_v001.py",
+        "file_email_plugin_seq001_v001.py::_file_memory_thread_id",
+        "file_email_plugin_seq001_v001::_file_memory_thread_id",
+        "_file_memory_thread_id",
+        "file_email_plugin_seq001_v001.py::_file_memory_message",
+        "file_email_plugin_seq001_v001::_file_memory_message",
+        "_file_memory_message"
+      ],
+      "line_count": 42,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_empty_file_memory_knowledge",
+        "_merge_file_memory_knowledge"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq037_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq037_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_empty_file_memory_knowledge|_merge_file_memory_knowledge",
+      "itid": "extract-empty-file-memory-knowledge",
+      "lh": "0586",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq037_v001.py",
+        "file_email_plugin_seq001_v001.py::_empty_file_memory_knowledge",
+        "file_email_plugin_seq001_v001::_empty_file_memory_knowledge",
+        "_empty_file_memory_knowledge",
+        "file_email_plugin_seq001_v001.py::_merge_file_memory_knowledge",
+        "file_email_plugin_seq001_v001::_merge_file_memory_knowledge",
+        "_merge_file_memory_knowledge"
+      ],
+      "line_count": 43,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_apply_mail_memory_commands",
+        "_parse_mail_memory_commands",
+        "_split_mail_command_values",
+        "_file_memory_tags"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq038_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq038_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_apply_mail_memory_commands|_parse_mail_memory_commands|_split_mail_command_values|_file_memory_tags",
+      "itid": "extract-apply-mail-memory-commands",
+      "lh": "0446",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq038_v001.py",
+        "file_email_plugin_seq001_v001.py::_apply_mail_memory_commands",
+        "file_email_plugin_seq001_v001::_apply_mail_memory_commands",
+        "_apply_mail_memory_commands",
+        "file_email_plugin_seq001_v001.py::_parse_mail_memory_commands",
+        "file_email_plugin_seq001_v001::_parse_mail_memory_commands",
+        "_parse_mail_memory_commands",
+        "file_email_plugin_seq001_v001.py::_split_mail_command_values",
+        "file_email_plugin_seq001_v001::_split_mail_command_values",
+        "_split_mail_command_values",
+        "file_email_plugin_seq001_v001.py::_file_memory_tags",
+        "file_email_plugin_seq001_v001::_file_memory_tags",
+        "_file_memory_tags"
+      ],
+      "line_count": 51,
+      "status": "WARN (51)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_render_file_memory"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq039_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq039_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_render_file_memory",
+      "itid": "extract-render-file-memory",
+      "lh": "9ff8",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq039_v001.py",
+        "file_email_plugin_seq001_v001.py::_render_file_memory",
+        "file_email_plugin_seq001_v001::_render_file_memory",
+        "_render_file_memory"
+      ],
+      "line_count": 46,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_write_file_memory_index",
+        "_bump",
+        "_append_unique",
+        "_top_counts",
+        "_dedupe_list"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq040_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq040_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_write_file_memory_index|_bump|_append_unique|_top_counts|_dedupe_list",
+      "itid": "extract-write-file-memory-index",
+      "lh": "e826",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq040_v001.py",
+        "file_email_plugin_seq001_v001.py::_write_file_memory_index",
+        "file_email_plugin_seq001_v001::_write_file_memory_index",
+        "_write_file_memory_index",
+        "file_email_plugin_seq001_v001.py::_bump",
+        "file_email_plugin_seq001_v001::_bump",
+        "_bump",
+        "file_email_plugin_seq001_v001.py::_append_unique",
+        "file_email_plugin_seq001_v001::_append_unique",
+        "_append_unique",
+        "file_email_plugin_seq001_v001.py::_top_counts",
+        "file_email_plugin_seq001_v001::_top_counts",
+        "_top_counts",
+        "file_email_plugin_seq001_v001.py::_dedupe_list",
+        "file_email_plugin_seq001_v001::_dedupe_list",
+        "_dedupe_list"
+      ],
+      "line_count": 63,
+      "status": "WARN (63)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_operator_state_snapshot",
+        "_profile_facts",
+        "_operator_name_from_facts"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq041_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq041_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_operator_state_snapshot|_profile_facts|_operator_name_from_facts",
+      "itid": "extract-operator-state-snapshot",
+      "lh": "ae36",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq041_v001.py",
+        "file_email_plugin_seq001_v001.py::_operator_state_snapshot",
+        "file_email_plugin_seq001_v001::_operator_state_snapshot",
+        "_operator_state_snapshot",
+        "file_email_plugin_seq001_v001.py::_profile_facts",
+        "file_email_plugin_seq001_v001::_profile_facts",
+        "_profile_facts",
+        "file_email_plugin_seq001_v001.py::_operator_name_from_facts",
+        "file_email_plugin_seq001_v001::_operator_name_from_facts",
+        "_operator_name_from_facts"
+      ],
+      "line_count": 57,
+      "status": "WARN (57)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_latest_operator_text",
+        "_infer_operator_intent"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq042_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq042_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_latest_operator_text|_infer_operator_intent",
+      "itid": "extract-latest-operator-text",
+      "lh": "f7e0",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq042_v001.py",
+        "file_email_plugin_seq001_v001.py::_latest_operator_text",
+        "file_email_plugin_seq001_v001::_latest_operator_text",
+        "_latest_operator_text",
+        "file_email_plugin_seq001_v001.py::_infer_operator_intent",
+        "file_email_plugin_seq001_v001::_infer_operator_intent",
+        "_infer_operator_intent"
+      ],
+      "line_count": 41,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_current_work_summary",
+        "_state_source"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq043_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq043_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_current_work_summary|_state_source",
+      "itid": "extract-current-work-summary",
+      "lh": "7976",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq043_v001.py",
+        "file_email_plugin_seq001_v001.py::_current_work_summary",
+        "file_email_plugin_seq001_v001::_current_work_summary",
+        "_current_work_summary",
+        "file_email_plugin_seq001_v001.py::_state_source",
+        "file_email_plugin_seq001_v001::_state_source",
+        "_state_source"
+      ],
+      "line_count": 44,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_render_context_request"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq044_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq044_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_render_context_request",
+      "itid": "extract-render-context-request",
+      "lh": "8a3b",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq044_v001.py",
+        "file_email_plugin_seq001_v001.py::_render_context_request",
+        "file_email_plugin_seq001_v001::_render_context_request",
+        "_render_context_request"
+      ],
+      "line_count": 69,
+      "status": "WARN (69)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_ten_q_line",
+        "_guard_line"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq045_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq045_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_ten_q_line|_guard_line",
+      "itid": "extract-ten-q-line",
+      "lh": "d398",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq045_v001.py",
+        "file_email_plugin_seq001_v001.py::_ten_q_line",
+        "file_email_plugin_seq001_v001::_ten_q_line",
+        "_ten_q_line",
+        "file_email_plugin_seq001_v001.py::_guard_line",
+        "file_email_plugin_seq001_v001::_guard_line",
+        "_guard_line"
+      ],
+      "line_count": 18,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_delivery_guard"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq046_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq046_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_delivery_guard",
+      "itid": "extract-delivery-guard",
+      "lh": "e903",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq046_v001.py",
+        "file_email_plugin_seq001_v001.py::_delivery_guard",
+        "file_email_plugin_seq001_v001::_delivery_guard",
+        "_delivery_guard"
+      ],
+      "line_count": 50,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_deliver_resend"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq047_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq047_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_deliver_resend",
+      "itid": "extract-deliver-resend",
+      "lh": "e324",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq047_v001.py",
+        "file_email_plugin_seq001_v001.py::_deliver_resend",
+        "file_email_plugin_seq001_v001::_deliver_resend",
+        "_deliver_resend"
+      ],
+      "line_count": 88,
+      "status": "WARN (88)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_load_local_email_env",
+        "_resend_payload"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq048_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq048_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_load_local_email_env|_resend_payload",
+      "itid": "extract-load-local-email-env",
+      "lh": "9f21",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq048_v001.py",
+        "file_email_plugin_seq001_v001.py::_load_local_email_env",
+        "file_email_plugin_seq001_v001::_load_local_email_env",
+        "_load_local_email_env",
+        "file_email_plugin_seq001_v001.py::_resend_payload",
+        "file_email_plugin_seq001_v001::_resend_payload",
+        "_resend_payload"
+      ],
+      "line_count": 40,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_write_outbox",
+        "_choose_beef"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq049_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq049_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_write_outbox|_choose_beef",
+      "itid": "extract-write-outbox",
+      "lh": "5fbb",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq049_v001.py",
+        "file_email_plugin_seq001_v001.py::_write_outbox",
+        "file_email_plugin_seq001_v001::_write_outbox",
+        "_write_outbox",
+        "file_email_plugin_seq001_v001.py::_choose_beef",
+        "file_email_plugin_seq001_v001::_choose_beef",
+        "_choose_beef"
+      ],
+      "line_count": 54,
+      "status": "WARN (54)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_touch_beef",
+        "_subject",
+        "_event_voice"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq050_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq050_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_touch_beef|_subject|_event_voice",
+      "itid": "extract-touch-beef",
+      "lh": "c32f",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq050_v001.py",
+        "file_email_plugin_seq001_v001.py::_touch_beef",
+        "file_email_plugin_seq001_v001::_touch_beef",
+        "_touch_beef",
+        "file_email_plugin_seq001_v001.py::_subject",
+        "file_email_plugin_seq001_v001::_subject",
+        "_subject",
+        "file_email_plugin_seq001_v001.py::_event_voice",
+        "file_email_plugin_seq001_v001::_event_voice",
+        "_event_voice"
+      ],
+      "line_count": 49,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_closing_argument",
+        "_enabled",
+        "_safe_mailbox",
+        "_safe_filename",
+        "_safe_tag",
+        "_rel",
+        "_load_json"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq051_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq051_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_closing_argument|_enabled|_safe_mailbox|_safe_filename|_safe_tag|_rel|_load_json",
+      "itid": "extract-closing-argument",
+      "lh": "6b6a",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq051_v001.py",
+        "file_email_plugin_seq001_v001.py::_closing_argument",
+        "file_email_plugin_seq001_v001::_closing_argument",
+        "_closing_argument",
+        "file_email_plugin_seq001_v001.py::_enabled",
+        "file_email_plugin_seq001_v001::_enabled",
+        "_enabled",
+        "file_email_plugin_seq001_v001.py::_safe_mailbox",
+        "file_email_plugin_seq001_v001::_safe_mailbox",
+        "_safe_mailbox",
+        "file_email_plugin_seq001_v001.py::_safe_filename",
+        "file_email_plugin_seq001_v001::_safe_filename",
+        "_safe_filename",
+        "file_email_plugin_seq001_v001.py::_safe_tag",
+        "file_email_plugin_seq001_v001::_safe_tag",
+        "_safe_tag",
+        "file_email_plugin_seq001_v001.py::_rel",
+        "file_email_plugin_seq001_v001::_rel",
+        "_rel",
+        "file_email_plugin_seq001_v001.py::_load_json",
+        "file_email_plugin_seq001_v001::_load_json",
+        "_load_json"
+      ],
+      "line_count": 60,
+      "status": "WARN (60)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_email_plugin_seq001_v001.py",
+      "source_symbols": [
+        "_latest_jsonl",
+        "_write_json",
+        "_append_jsonl",
+        "SCHEMA",
+        "DEFAULT_CONFIG"
+      ],
+      "generated_file": "file_email_plugin_seq001/file_email_plugin_seq001_seq052_v001.py",
+      "generated_module": "file_email_plugin_seq001_seq052_v001",
+      "identity_key": "file_email_plugin_seq001_v001.py::_latest_jsonl|_write_json|_append_jsonl|SCHEMA|DEFAULT_CONFIG",
+      "itid": "extract-latest-jsonl",
+      "lh": "bd8c",
+      "parent_lineage": {
+        "lh": "0244",
+        "identity_id": "file_email_plugin",
+        "itid": "unknown-intent",
+        "path": "file_email_plugin_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_email_plugin_seq001/file_email_plugin_seq001_seq052_v001.py",
+        "file_email_plugin_seq001_v001.py::_latest_jsonl",
+        "file_email_plugin_seq001_v001::_latest_jsonl",
+        "_latest_jsonl",
+        "file_email_plugin_seq001_v001.py::_write_json",
+        "file_email_plugin_seq001_v001::_write_json",
+        "_write_json",
+        "file_email_plugin_seq001_v001.py::_append_jsonl",
+        "file_email_plugin_seq001_v001::_append_jsonl",
+        "_append_jsonl",
+        "file_email_plugin_seq001_v001.py::SCHEMA",
+        "file_email_plugin_seq001_v001::SCHEMA",
+        "SCHEMA",
+        "file_email_plugin_seq001_v001.py::DEFAULT_CONFIG",
+        "file_email_plugin_seq001_v001::DEFAULT_CONFIG",
+        "DEFAULT_CONFIG"
+      ],
+      "line_count": 53,
+      "status": "WARN (53)",
+      "reason": ""
+    }
+  ]
+}

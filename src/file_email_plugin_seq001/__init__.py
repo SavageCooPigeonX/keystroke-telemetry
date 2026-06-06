@@ -1,0 +1,11 @@
+"""file_email_plugin_seq001/ — Pigeon-compliant module."""
+from .file_email_plugin_seq001_seq001_v001 import load_file_email_config, mail_quality_gate, merge_file_email_config
+from .file_email_plugin_seq001_seq002_v001 import emit_file_sim_emails
+from .file_email_plugin_seq001_seq004_v001 import emit_learning_digest_email
+from .file_email_plugin_seq001_seq006_v001 import emit_touch_email
+from .file_email_plugin_seq001_seq007_v001 import emit_codex_prompt_email
+from .file_email_plugin_seq001_seq010_v001 import email_delivery_status
+from .file_email_plugin_seq001_seq014_v001 import emit_file_email
+from .file_email_plugin_seq001_seq015_v001 import render_file_email
+from .file_email_plugin_seq001_seq016_v001 import render_learning_digest_email
+from .file_email_plugin_seq001_seq052_v001 import DEFAULT_CONFIG, SCHEMA

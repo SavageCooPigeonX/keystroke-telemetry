@@ -1,4 +1,11 @@
 """Pigeon compliance facade for src/tc_popup_seq001_v004_d0420__passive_always_on_top_tkinter_lc_chore_pigeon_rename_cascade.py."""
+# ── telemetry:pulse ──
+# EDIT_TS:   None
+# EDIT_HASH: None
+# EDIT_WHY:  None
+# EDIT_AUTHOR: None
+# EDIT_STATE: idle
+# ── /pulse ──
 from pathlib import Path
 import sys
 

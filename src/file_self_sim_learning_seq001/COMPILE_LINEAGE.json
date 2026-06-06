@@ -1,0 +1,1531 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-06-05T23:49:00.720751+00:00",
+  "source_file": "file_self_sim_learning_seq001_v001.py",
+  "source_stem": "file_self_sim_learning_seq001_v001",
+  "target_dir": "file_self_sim_learning_seq001",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 41,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "simulate_file_self_learning"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq001_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq001_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::simulate_file_self_learning",
+      "itid": "extract-simulate-file-self-learning",
+      "lh": "6063",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq001_v001.py",
+        "file_self_sim_learning_seq001_v001.py::simulate_file_self_learning",
+        "file_self_sim_learning_seq001_v001::simulate_file_self_learning",
+        "simulate_file_self_learning"
+      ],
+      "line_count": 90,
+      "status": "WARN (90)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_merge_config",
+        "_load_signal_sources"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq002_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq002_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_merge_config|_load_signal_sources",
+      "itid": "extract-merge-config",
+      "lh": "2f60",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq002_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_merge_config",
+        "file_self_sim_learning_seq001_v001::_merge_config",
+        "_merge_config",
+        "file_self_sim_learning_seq001_v001.py::_load_signal_sources",
+        "file_self_sim_learning_seq001_v001::_load_signal_sources",
+        "_load_signal_sources"
+      ],
+      "line_count": 53,
+      "status": "WARN (53)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_drop_stale_runtime_sources"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq003_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq003_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_drop_stale_runtime_sources",
+      "itid": "extract-drop-stale-runtime-sources",
+      "lh": "7df7",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq003_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_drop_stale_runtime_sources",
+        "file_self_sim_learning_seq001_v001::_drop_stale_runtime_sources",
+        "_drop_stale_runtime_sources"
+      ],
+      "line_count": 25,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_intent_model"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq004_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq004_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_intent_model",
+      "itid": "extract-intent-model",
+      "lh": "e18e",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq004_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_intent_model",
+        "file_self_sim_learning_seq001_v001::_intent_model",
+        "_intent_model"
+      ],
+      "line_count": 40,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_select_candidates"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq005_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq005_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_select_candidates",
+      "itid": "extract-select-candidates",
+      "lh": "1ad3",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq005_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_select_candidates",
+        "file_self_sim_learning_seq001_v001::_select_candidates",
+        "_select_candidates"
+      ],
+      "line_count": 60,
+      "status": "WARN (60)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_seed_from_prompt_contract_fallback",
+        "_seed_from_proposals",
+        "_seed_from_council",
+        "_seed_from_memory"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq006_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq006_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_seed_from_prompt_contract_fallback|_seed_from_proposals|_seed_from_council|_seed_from_memory",
+      "itid": "extract-seed-from-prompt-contract-fallback",
+      "lh": "2d65",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq006_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_seed_from_prompt_contract_fallback",
+        "file_self_sim_learning_seq001_v001::_seed_from_prompt_contract_fallback",
+        "_seed_from_prompt_contract_fallback",
+        "file_self_sim_learning_seq001_v001.py::_seed_from_proposals",
+        "file_self_sim_learning_seq001_v001::_seed_from_proposals",
+        "_seed_from_proposals",
+        "file_self_sim_learning_seq001_v001.py::_seed_from_council",
+        "file_self_sim_learning_seq001_v001::_seed_from_council",
+        "_seed_from_council",
+        "file_self_sim_learning_seq001_v001.py::_seed_from_memory",
+        "file_self_sim_learning_seq001_v001::_seed_from_memory",
+        "_seed_from_memory"
+      ],
+      "line_count": 52,
+      "status": "WARN (52)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_seed_from_identity_growth",
+        "_seed_from_dead_pairs"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq007_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq007_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_seed_from_identity_growth|_seed_from_dead_pairs",
+      "itid": "extract-seed-from-identity-growth",
+      "lh": "5ac3",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq007_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_seed_from_identity_growth",
+        "file_self_sim_learning_seq001_v001::_seed_from_identity_growth",
+        "_seed_from_identity_growth",
+        "file_self_sim_learning_seq001_v001.py::_seed_from_dead_pairs",
+        "file_self_sim_learning_seq001_v001::_seed_from_dead_pairs",
+        "_seed_from_dead_pairs"
+      ],
+      "line_count": 46,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_seed_from_numeric_surface",
+        "_seed_from_path_tokens"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq008_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq008_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_seed_from_numeric_surface|_seed_from_path_tokens",
+      "itid": "extract-seed-from-numeric-surface",
+      "lh": "d35b",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq008_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_seed_from_numeric_surface",
+        "file_self_sim_learning_seq001_v001::_seed_from_numeric_surface",
+        "_seed_from_numeric_surface",
+        "file_self_sim_learning_seq001_v001.py::_seed_from_path_tokens",
+        "file_self_sim_learning_seq001_v001::_seed_from_path_tokens",
+        "_seed_from_path_tokens"
+      ],
+      "line_count": 34,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_seed_from_size_pressure"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq009_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq009_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_seed_from_size_pressure",
+      "itid": "extract-seed-from-size-pressure",
+      "lh": "d288",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq009_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_seed_from_size_pressure",
+        "file_self_sim_learning_seq001_v001::_seed_from_size_pressure",
+        "_seed_from_size_pressure"
+      ],
+      "line_count": 39,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_wake_node"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq010_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq010_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_wake_node",
+      "itid": "extract-wake-node",
+      "lh": "45e0",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq010_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_wake_node",
+        "file_self_sim_learning_seq001_v001::_wake_node",
+        "_wake_node"
+      ],
+      "line_count": 73,
+      "status": "WARN (73)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_learning_packet"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq011_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq011_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_learning_packet",
+      "itid": "extract-learning-packet",
+      "lh": "25b0",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq011_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_learning_packet",
+        "file_self_sim_learning_seq001_v001::_learning_packet",
+        "_learning_packet"
+      ],
+      "line_count": 69,
+      "status": "WARN (69)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_diagnosis_flow"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq012_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq012_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_diagnosis_flow",
+      "itid": "extract-diagnosis-flow",
+      "lh": "cfb3",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq012_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_diagnosis_flow",
+        "file_self_sim_learning_seq001_v001::_diagnosis_flow",
+        "_diagnosis_flow"
+      ],
+      "line_count": 47,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_interlink_plan"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq013_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq013_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_interlink_plan",
+      "itid": "extract-interlink-plan",
+      "lh": "23e8",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq013_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_interlink_plan",
+        "file_self_sim_learning_seq001_v001::_interlink_plan",
+        "_interlink_plan"
+      ],
+      "line_count": 64,
+      "status": "WARN (64)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_backward_learning_plan"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq014_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq014_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_backward_learning_plan",
+      "itid": "extract-backward-learning-plan",
+      "lh": "6d9f",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq014_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_backward_learning_plan",
+        "file_self_sim_learning_seq001_v001::_backward_learning_plan",
+        "_backward_learning_plan"
+      ],
+      "line_count": 21,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_architecture_sequence_registry"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq015_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq015_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_architecture_sequence_registry",
+      "itid": "extract-architecture-sequence-registry",
+      "lh": "3dcc",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq015_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_architecture_sequence_registry",
+        "file_self_sim_learning_seq001_v001::_architecture_sequence_registry",
+        "_architecture_sequence_registry"
+      ],
+      "line_count": 75,
+      "status": "WARN (75)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_weighted_relationship_graph"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq016_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq016_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_weighted_relationship_graph",
+      "itid": "extract-weighted-relationship-graph",
+      "lh": "f4f0",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq016_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_weighted_relationship_graph",
+        "file_self_sim_learning_seq001_v001::_weighted_relationship_graph",
+        "_weighted_relationship_graph"
+      ],
+      "line_count": 86,
+      "status": "WARN (86)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_overcap_split_jobs"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq017_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq017_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_overcap_split_jobs",
+      "itid": "extract-overcap-split-jobs",
+      "lh": "668a",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq017_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_overcap_split_jobs",
+        "file_self_sim_learning_seq001_v001::_overcap_split_jobs",
+        "_overcap_split_jobs"
+      ],
+      "line_count": 80,
+      "status": "WARN (80)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_add_weighted_edge",
+        "_relation_weight"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq018_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq018_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_add_weighted_edge|_relation_weight",
+      "itid": "extract-add-weighted-edge",
+      "lh": "0c0f",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq018_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_add_weighted_edge",
+        "file_self_sim_learning_seq001_v001::_add_weighted_edge",
+        "_add_weighted_edge",
+        "file_self_sim_learning_seq001_v001.py::_relation_weight",
+        "file_self_sim_learning_seq001_v001::_relation_weight",
+        "_relation_weight"
+      ],
+      "line_count": 45,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_write_learning_outputs"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq019_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq019_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_write_learning_outputs",
+      "itid": "extract-write-learning-outputs",
+      "lh": "0bda",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq019_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_write_learning_outputs",
+        "file_self_sim_learning_seq001_v001::_write_learning_outputs",
+        "_write_learning_outputs"
+      ],
+      "line_count": 38,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_update_file_profiles"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq020_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq020_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_update_file_profiles",
+      "itid": "extract-update-file-profiles",
+      "lh": "4d8b",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq020_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_update_file_profiles",
+        "file_self_sim_learning_seq001_v001::_update_file_profiles",
+        "_update_file_profiles"
+      ],
+      "line_count": 71,
+      "status": "WARN (71)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_apply_outcome_to_profiles"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq021_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq021_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_apply_outcome_to_profiles",
+      "itid": "extract-apply-outcome-to-profiles",
+      "lh": "cdd2",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq021_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_apply_outcome_to_profiles",
+        "file_self_sim_learning_seq001_v001::_apply_outcome_to_profiles",
+        "_apply_outcome_to_profiles"
+      ],
+      "line_count": 32,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_render_learning_markdown"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq022_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq022_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_render_learning_markdown",
+      "itid": "extract-render-learning-markdown",
+      "lh": "51da",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq022_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_render_learning_markdown",
+        "file_self_sim_learning_seq001_v001::_render_learning_markdown",
+        "_render_learning_markdown"
+      ],
+      "line_count": 94,
+      "status": "WARN (94)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_responsibility_profile",
+        "_accumulated_knowledge",
+        "_context_veins",
+        "_backward_targets"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq023_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq023_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_responsibility_profile|_accumulated_knowledge|_context_veins|_backward_targets",
+      "itid": "extract-responsibility-profile",
+      "lh": "5015",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq023_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_responsibility_profile",
+        "file_self_sim_learning_seq001_v001::_responsibility_profile",
+        "_responsibility_profile",
+        "file_self_sim_learning_seq001_v001.py::_accumulated_knowledge",
+        "file_self_sim_learning_seq001_v001::_accumulated_knowledge",
+        "_accumulated_knowledge",
+        "file_self_sim_learning_seq001_v001.py::_context_veins",
+        "file_self_sim_learning_seq001_v001::_context_veins",
+        "_context_veins",
+        "file_self_sim_learning_seq001_v001.py::_backward_targets",
+        "file_self_sim_learning_seq001_v001::_backward_targets",
+        "_backward_targets"
+      ],
+      "line_count": 66,
+      "status": "WARN (66)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_size_pressure",
+        "_validation_confidence",
+        "_node_relationship_weight"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq024_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq024_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_size_pressure|_validation_confidence|_node_relationship_weight",
+      "itid": "extract-size-pressure",
+      "lh": "0d63",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq024_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_size_pressure",
+        "file_self_sim_learning_seq001_v001::_size_pressure",
+        "_size_pressure",
+        "file_self_sim_learning_seq001_v001.py::_validation_confidence",
+        "file_self_sim_learning_seq001_v001::_validation_confidence",
+        "_validation_confidence",
+        "file_self_sim_learning_seq001_v001.py::_node_relationship_weight",
+        "file_self_sim_learning_seq001_v001::_node_relationship_weight",
+        "_node_relationship_weight"
+      ],
+      "line_count": 54,
+      "status": "WARN (54)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_split_plan_request",
+        "_parse_sequence_markers",
+        "_scope_for_file"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq025_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq025_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_split_plan_request|_parse_sequence_markers|_scope_for_file",
+      "itid": "extract-split-plan-request",
+      "lh": "cec7",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq025_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_split_plan_request",
+        "file_self_sim_learning_seq001_v001::_split_plan_request",
+        "_split_plan_request",
+        "file_self_sim_learning_seq001_v001.py::_parse_sequence_markers",
+        "file_self_sim_learning_seq001_v001::_parse_sequence_markers",
+        "_parse_sequence_markers",
+        "file_self_sim_learning_seq001_v001.py::_scope_for_file",
+        "file_self_sim_learning_seq001_v001::_scope_for_file",
+        "_scope_for_file"
+      ],
+      "line_count": 51,
+      "status": "WARN (51)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_neighbors_from_graph",
+        "_reason_not_to_split"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq026_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq026_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_neighbors_from_graph|_reason_not_to_split",
+      "itid": "extract-neighbors-from-graph",
+      "lh": "e2e4",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq026_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_neighbors_from_graph",
+        "file_self_sim_learning_seq001_v001::_neighbors_from_graph",
+        "_neighbors_from_graph",
+        "file_self_sim_learning_seq001_v001.py::_reason_not_to_split",
+        "file_self_sim_learning_seq001_v001::_reason_not_to_split",
+        "_reason_not_to_split"
+      ],
+      "line_count": 26,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_proposed_split_children",
+        "_split_file_quote"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq027_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq027_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_proposed_split_children|_split_file_quote",
+      "itid": "extract-proposed-split-children",
+      "lh": "0c05",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq027_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_proposed_split_children",
+        "file_self_sim_learning_seq001_v001::_proposed_split_children",
+        "_proposed_split_children",
+        "file_self_sim_learning_seq001_v001.py::_split_file_quote",
+        "file_self_sim_learning_seq001_v001::_split_file_quote",
+        "_split_file_quote"
+      ],
+      "line_count": 46,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_deepseek_learning_instruction"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq028_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq028_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_deepseek_learning_instruction",
+      "itid": "extract-deepseek-learning-instruction",
+      "lh": "d8e9",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq028_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_deepseek_learning_instruction",
+        "file_self_sim_learning_seq001_v001::_deepseek_learning_instruction",
+        "_deepseek_learning_instruction"
+      ],
+      "line_count": 38,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_overwrite_readiness",
+        "_learned_enough"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq029_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq029_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_overwrite_readiness|_learned_enough",
+      "itid": "extract-overwrite-readiness",
+      "lh": "9561",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq029_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_overwrite_readiness",
+        "file_self_sim_learning_seq001_v001::_overwrite_readiness",
+        "_overwrite_readiness",
+        "file_self_sim_learning_seq001_v001.py::_learned_enough",
+        "file_self_sim_learning_seq001_v001::_learned_enough",
+        "_learned_enough"
+      ],
+      "line_count": 39,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_memory_for_file",
+        "_profile_for_file",
+        "_growth_for_file"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq030_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq030_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_memory_for_file|_profile_for_file|_growth_for_file",
+      "itid": "extract-memory-for-file",
+      "lh": "f38a",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq030_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_memory_for_file",
+        "file_self_sim_learning_seq001_v001::_memory_for_file",
+        "_memory_for_file",
+        "file_self_sim_learning_seq001_v001.py::_profile_for_file",
+        "file_self_sim_learning_seq001_v001::_profile_for_file",
+        "_profile_for_file",
+        "file_self_sim_learning_seq001_v001.py::_growth_for_file",
+        "file_self_sim_learning_seq001_v001::_growth_for_file",
+        "_growth_for_file"
+      ],
+      "line_count": 58,
+      "status": "WARN (58)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_history_count_for_file",
+        "_neighbors_for_file"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq031_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq031_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_history_count_for_file|_neighbors_for_file",
+      "itid": "extract-history-count-for-file",
+      "lh": "80cf",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq031_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_history_count_for_file",
+        "file_self_sim_learning_seq001_v001::_history_count_for_file",
+        "_history_count_for_file",
+        "file_self_sim_learning_seq001_v001.py::_neighbors_for_file",
+        "file_self_sim_learning_seq001_v001::_neighbors_for_file",
+        "_neighbors_for_file"
+      ],
+      "line_count": 34,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_local_import_neighbors",
+        "_proposal_for_file"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq032_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq032_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_local_import_neighbors|_proposal_for_file",
+      "itid": "extract-local-import-neighbors",
+      "lh": "f974",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq032_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_local_import_neighbors",
+        "file_self_sim_learning_seq001_v001::_local_import_neighbors",
+        "_local_import_neighbors",
+        "file_self_sim_learning_seq001_v001.py::_proposal_for_file",
+        "file_self_sim_learning_seq001_v001::_proposal_for_file",
+        "_proposal_for_file"
+      ],
+      "line_count": 41,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_wake_role",
+        "_next_question",
+        "_default_validation"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq033_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq033_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_wake_role|_next_question|_default_validation",
+      "itid": "extract-wake-role",
+      "lh": "e9eb",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq033_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_wake_role",
+        "file_self_sim_learning_seq001_v001::_wake_role",
+        "_wake_role",
+        "file_self_sim_learning_seq001_v001.py::_next_question",
+        "file_self_sim_learning_seq001_v001::_next_question",
+        "_next_question",
+        "file_self_sim_learning_seq001_v001.py::_default_validation",
+        "file_self_sim_learning_seq001_v001::_default_validation",
+        "_default_validation"
+      ],
+      "line_count": 44,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_tests_for_file",
+        "_nearest_manifest",
+        "_context_pack_files"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq034_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq034_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_tests_for_file|_nearest_manifest|_context_pack_files",
+      "itid": "extract-tests-for-file",
+      "lh": "c769",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq034_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_tests_for_file",
+        "file_self_sim_learning_seq001_v001::_tests_for_file",
+        "_tests_for_file",
+        "file_self_sim_learning_seq001_v001.py::_nearest_manifest",
+        "file_self_sim_learning_seq001_v001::_nearest_manifest",
+        "_nearest_manifest",
+        "file_self_sim_learning_seq001_v001.py::_context_pack_files",
+        "file_self_sim_learning_seq001_v001::_context_pack_files",
+        "_context_pack_files"
+      ],
+      "line_count": 57,
+      "status": "WARN (57)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_numeric_predictions",
+        "_prompt_numeric_encoding",
+        "_load_numeric_surface"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq035_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq035_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_numeric_predictions|_prompt_numeric_encoding|_load_numeric_surface",
+      "itid": "extract-numeric-predictions",
+      "lh": "06aa",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq035_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_numeric_predictions",
+        "file_self_sim_learning_seq001_v001::_numeric_predictions",
+        "_numeric_predictions",
+        "file_self_sim_learning_seq001_v001.py::_prompt_numeric_encoding",
+        "file_self_sim_learning_seq001_v001::_prompt_numeric_encoding",
+        "_prompt_numeric_encoding",
+        "file_self_sim_learning_seq001_v001.py::_load_numeric_surface",
+        "file_self_sim_learning_seq001_v001::_load_numeric_surface",
+        "_load_numeric_surface"
+      ],
+      "line_count": 54,
+      "status": "WARN (54)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_file_key_resolver",
+        "_resolve_file_key",
+        "_scan_repo_files",
+        "_candidate_allowed"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq036_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq036_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_file_key_resolver|_resolve_file_key|_scan_repo_files|_candidate_allowed",
+      "itid": "extract-file-key-resolver",
+      "lh": "7130",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq036_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_file_key_resolver",
+        "file_self_sim_learning_seq001_v001::_file_key_resolver",
+        "_file_key_resolver",
+        "file_self_sim_learning_seq001_v001.py::_resolve_file_key",
+        "file_self_sim_learning_seq001_v001::_resolve_file_key",
+        "_resolve_file_key",
+        "file_self_sim_learning_seq001_v001.py::_scan_repo_files",
+        "file_self_sim_learning_seq001_v001::_scan_repo_files",
+        "_scan_repo_files",
+        "file_self_sim_learning_seq001_v001.py::_candidate_allowed",
+        "file_self_sim_learning_seq001_v001::_candidate_allowed",
+        "_candidate_allowed"
+      ],
+      "line_count": 54,
+      "status": "WARN (54)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_role_from_path",
+        "_relationship_type",
+        "_vein_reason",
+        "_top_growth_tags"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq037_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq037_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_role_from_path|_relationship_type|_vein_reason|_top_growth_tags",
+      "itid": "extract-role-from-path",
+      "lh": "de81",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq037_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_role_from_path",
+        "file_self_sim_learning_seq001_v001::_role_from_path",
+        "_role_from_path",
+        "file_self_sim_learning_seq001_v001.py::_relationship_type",
+        "file_self_sim_learning_seq001_v001::_relationship_type",
+        "_relationship_type",
+        "file_self_sim_learning_seq001_v001.py::_vein_reason",
+        "file_self_sim_learning_seq001_v001::_vein_reason",
+        "_vein_reason",
+        "file_self_sim_learning_seq001_v001.py::_top_growth_tags",
+        "file_self_sim_learning_seq001_v001::_top_growth_tags",
+        "_top_growth_tags"
+      ],
+      "line_count": 51,
+      "status": "WARN (51)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_hash_encoding",
+        "_profile_hint",
+        "_clean_rel",
+        "_tokens"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq038_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq038_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_hash_encoding|_profile_hint|_clean_rel|_tokens",
+      "itid": "extract-hash-encoding",
+      "lh": "3bd8",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq038_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_hash_encoding",
+        "file_self_sim_learning_seq001_v001::_hash_encoding",
+        "_hash_encoding",
+        "file_self_sim_learning_seq001_v001.py::_profile_hint",
+        "file_self_sim_learning_seq001_v001::_profile_hint",
+        "_profile_hint",
+        "file_self_sim_learning_seq001_v001.py::_clean_rel",
+        "file_self_sim_learning_seq001_v001::_clean_rel",
+        "_clean_rel",
+        "file_self_sim_learning_seq001_v001.py::_tokens",
+        "file_self_sim_learning_seq001_v001::_tokens",
+        "_tokens"
+      ],
+      "line_count": 52,
+      "status": "WARN (52)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_stem_key",
+        "_fallback_intent_key",
+        "_line_count",
+        "_estimate_tokens",
+        "_exists_bonus"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq039_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq039_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_stem_key|_fallback_intent_key|_line_count|_estimate_tokens|_exists_bonus",
+      "itid": "extract-stem-key",
+      "lh": "ca2f",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq039_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_stem_key",
+        "file_self_sim_learning_seq001_v001::_stem_key",
+        "_stem_key",
+        "file_self_sim_learning_seq001_v001.py::_fallback_intent_key",
+        "file_self_sim_learning_seq001_v001::_fallback_intent_key",
+        "_fallback_intent_key",
+        "file_self_sim_learning_seq001_v001.py::_line_count",
+        "file_self_sim_learning_seq001_v001::_line_count",
+        "_line_count",
+        "file_self_sim_learning_seq001_v001.py::_estimate_tokens",
+        "file_self_sim_learning_seq001_v001::_estimate_tokens",
+        "_estimate_tokens",
+        "file_self_sim_learning_seq001_v001.py::_exists_bonus",
+        "file_self_sim_learning_seq001_v001::_exists_bonus",
+        "_exists_bonus"
+      ],
+      "line_count": 51,
+      "status": "WARN (51)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_source_wake_bonus",
+        "_add",
+        "_dedupe",
+        "_load_json",
+        "_write_json"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq040_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq040_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_source_wake_bonus|_add|_dedupe|_load_json|_write_json",
+      "itid": "extract-source-wake-bonus",
+      "lh": "3056",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq040_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_source_wake_bonus",
+        "file_self_sim_learning_seq001_v001::_source_wake_bonus",
+        "_source_wake_bonus",
+        "file_self_sim_learning_seq001_v001.py::_add",
+        "file_self_sim_learning_seq001_v001::_add",
+        "_add",
+        "file_self_sim_learning_seq001_v001.py::_dedupe",
+        "file_self_sim_learning_seq001_v001::_dedupe",
+        "_dedupe",
+        "file_self_sim_learning_seq001_v001.py::_load_json",
+        "file_self_sim_learning_seq001_v001::_load_json",
+        "_load_json",
+        "file_self_sim_learning_seq001_v001.py::_write_json",
+        "file_self_sim_learning_seq001_v001::_write_json",
+        "_write_json"
+      ],
+      "line_count": 59,
+      "status": "WARN (59)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_self_sim_learning_seq001_v001.py",
+      "source_symbols": [
+        "_load_jsonl",
+        "_append_jsonl",
+        "_now",
+        "SCHEMA",
+        "PACKET_SCHEMA",
+        "OUTCOME_SCHEMA",
+        "STOP",
+        "ALIASES",
+        "DEFAULT_CONFIG"
+      ],
+      "generated_file": "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq041_v001.py",
+      "generated_module": "file_self_sim_learning_seq001_seq041_v001",
+      "identity_key": "file_self_sim_learning_seq001_v001.py::_load_jsonl|_append_jsonl|_now|SCHEMA|PACKET_SCHEMA|OUTCOME_SCHEMA|STOP|ALIASES|DEFAULT_CONFIG",
+      "itid": "extract-load-jsonl",
+      "lh": "6081",
+      "parent_lineage": {
+        "lh": "16a6",
+        "identity_id": "file_self_sim_learning",
+        "itid": "unknown-intent",
+        "path": "file_self_sim_learning_seq001_v001.py",
+        "extraction": "auto_compile",
+        "intent_key": "",
+        "compiler_generation": 0
+      },
+      "compiler_generation": 1,
+      "aliases": [
+        "file_self_sim_learning_seq001/file_self_sim_learning_seq001_seq041_v001.py",
+        "file_self_sim_learning_seq001_v001.py::_load_jsonl",
+        "file_self_sim_learning_seq001_v001::_load_jsonl",
+        "_load_jsonl",
+        "file_self_sim_learning_seq001_v001.py::_append_jsonl",
+        "file_self_sim_learning_seq001_v001::_append_jsonl",
+        "_append_jsonl",
+        "file_self_sim_learning_seq001_v001.py::_now",
+        "file_self_sim_learning_seq001_v001::_now",
+        "_now",
+        "file_self_sim_learning_seq001_v001.py::SCHEMA",
+        "file_self_sim_learning_seq001_v001::SCHEMA",
+        "SCHEMA",
+        "file_self_sim_learning_seq001_v001.py::PACKET_SCHEMA",
+        "file_self_sim_learning_seq001_v001::PACKET_SCHEMA",
+        "PACKET_SCHEMA",
+        "file_self_sim_learning_seq001_v001.py::OUTCOME_SCHEMA",
+        "file_self_sim_learning_seq001_v001::OUTCOME_SCHEMA",
+        "OUTCOME_SCHEMA",
+        "file_self_sim_learning_seq001_v001.py::STOP",
+        "file_self_sim_learning_seq001_v001::STOP",
+        "STOP",
+        "file_self_sim_learning_seq001_v001.py::ALIASES",
+        "file_self_sim_learning_seq001_v001::ALIASES",
+        "ALIASES",
+        "file_self_sim_learning_seq001_v001.py::DEFAULT_CONFIG",
+        "file_self_sim_learning_seq001_v001::DEFAULT_CONFIG",
+        "DEFAULT_CONFIG"
+      ],
+      "line_count": 81,
+      "status": "WARN (81)",
+      "reason": ""
+    }
+  ]
+}

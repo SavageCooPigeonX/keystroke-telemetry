@@ -1,123 +1,6 @@
 {
   "predictions": [
     {
-      "prediction_id": "209b50fe2611",
-      "batch_id": "e0c67a1f1719",
-      "session_n_at": 105,
-      "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-      "mode": "heat",
-      "trend": {
-        "states": [
-          "unknown",
-          "unknown",
-          "unknown",
-          "unknown",
-          "hesitant",
-          "unknown",
-          "unknown",
-          "unknown",
-          "hesitant",
-          "hesitant"
-        ],
-        "modules": [
-          "file_heat_map",
-          "import_rewriter",
-          "file_writer",
-          "shard_manager",
-          "context_router"
-        ],
-        "avg_del": 0.0302,
-        "avg_wpm": 0.0,
-        "dominant_state": "unknown",
-        "n_entries": 10
-      },
-      "result": {
-        "mode": "heat",
-        "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer"
-      },
-      "confidence": 0.242,
-      "ts": "2026-03-31T15:12:44.742117+00:00",
-      "scored": false
-    },
-    {
-      "prediction_id": "c0b0ad20da79",
-      "batch_id": "e0c67a1f1719",
-      "session_n_at": 105,
-      "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer",
-      "mode": "failure",
-      "trend": {
-        "states": [
-          "unknown",
-          "unknown",
-          "unknown",
-          "unknown",
-          "hesitant",
-          "unknown",
-          "unknown",
-          "unknown",
-          "hesitant",
-          "hesitant"
-        ],
-        "modules": [
-          "file_heat_map",
-          "import_rewriter",
-          "file_writer",
-          "shard_manager",
-          "context_router"
-        ],
-        "avg_del": 0.0302,
-        "avg_wpm": 0.0,
-        "dominant_state": "unknown",
-        "n_entries": 10
-      },
-      "result": {
-        "mode": "failure",
-        "phantom_seed": "Predict operator's next need. Module focus: file_heat_map, import_rewriter, file_writer"
-      },
-      "confidence": 0.242,
-      "ts": "2026-03-31T15:12:44.742117+00:00",
-      "scored": false
-    },
-    {
-      "prediction_id": "847e1b7c0077",
-      "batch_id": "44d93e5585ce",
-      "session_n_at": 111,
-      "phantom_seed": "Predict operator's next need. Module focus: shard_manager, context_router, research_lab",
-      "mode": "targeted",
-      "trend": {
-        "states": [
-          "unknown",
-          "unknown",
-          "hesitant",
-          "hesitant",
-          "frustrated",
-          "unknown",
-          "hesitant",
-          "unknown",
-          "unknown",
-          "unknown"
-        ],
-        "modules": [
-          "shard_manager",
-          "context_router",
-          "research_lab",
-          "cognitive_reactor",
-          "file_heat_map"
-        ],
-        "avg_del": 0.0673,
-        "avg_wpm": 0.0,
-        "dominant_state": "unknown",
-        "n_entries": 10
-      },
-      "result": {
-        "mode": "targeted",
-        "phantom_seed": "Predict operator's next need. Module focus: shard_manager, context_router, research_lab"
-      },
-      "confidence": 0.296,
-      "ts": "2026-03-31T17:36:53.658581+00:00",
-      "scored": false
-    },
-    {
       "prediction_id": "1ac651a1dfaf",
       "batch_id": "44d93e5585ce",
       "session_n_at": 111,
@@ -1949,7 +1832,97 @@
       "confidence": 0.494,
       "ts": "2026-04-21T06:01:59.022652+00:00",
       "scored": false
+    },
+    {
+      "prediction_id": "1c9896b3abae",
+      "batch_id": "0ce7e6d0ba37",
+      "session_n_at": 99,
+      "phantom_seed": "Operator uncertain, likely needs guidance. Module focus: file_intent_identity, codex_edit_outcome_binder, opus_task_drift",
+      "mode": "targeted",
+      "trend": {
+        "states": [
+          "hesitant",
+          "hesitant",
+          "focused"
+        ],
+        "modules": [
+          "file_intent_identity",
+          "codex_edit_outcome_binder",
+          "opus_task_drift"
+        ],
+        "avg_del": 0.1867,
+        "avg_wpm": 0.0,
+        "dominant_state": "hesitant",
+        "n_entries": 3
+      },
+      "result": {
+        "mode": "targeted",
+        "phantom_seed": "Operator uncertain, likely needs guidance. Module focus: file_intent_identity, codex_edit_outcome_binder, opus_task_drift"
+      },
+      "confidence": 0.18,
+      "ts": "2026-06-05T23:59:51.799750+00:00",
+      "scored": false
+    },
+    {
+      "prediction_id": "cfafe26f605b",
+      "batch_id": "0ce7e6d0ba37",
+      "session_n_at": 99,
+      "phantom_seed": "Operator uncertain, likely needs guidance. Module focus: file_intent_identity, codex_edit_outcome_binder, opus_task_drift",
+      "mode": "heat",
+      "trend": {
+        "states": [
+          "hesitant",
+          "hesitant",
+          "focused"
+        ],
+        "modules": [
+          "file_intent_identity",
+          "codex_edit_outcome_binder",
+          "opus_task_drift"
+        ],
+        "avg_del": 0.1867,
+        "avg_wpm": 0.0,
+        "dominant_state": "hesitant",
+        "n_entries": 3
+      },
+      "result": {
+        "mode": "heat",
+        "phantom_seed": "Operator uncertain, likely needs guidance. Module focus: file_intent_identity, codex_edit_outcome_binder, opus_task_drift"
+      },
+      "confidence": 0.18,
+      "ts": "2026-06-05T23:59:51.799750+00:00",
+      "scored": false
+    },
+    {
+      "prediction_id": "c2c28412ddcf",
+      "batch_id": "0ce7e6d0ba37",
+      "session_n_at": 99,
+      "phantom_seed": "Operator uncertain, likely needs guidance. Module focus: file_intent_identity, codex_edit_outcome_binder, opus_task_drift",
+      "mode": "failure",
+      "trend": {
+        "states": [
+          "hesitant",
+          "hesitant",
+          "focused"
+        ],
+        "modules": [
+          "file_intent_identity",
+          "codex_edit_outcome_binder",
+          "opus_task_drift"
+        ],
+        "avg_del": 0.1867,
+        "avg_wpm": 0.0,
+        "dominant_state": "hesitant",
+        "n_entries": 3
+      },
+      "result": {
+        "mode": "failure",
+        "phantom_seed": "Operator uncertain, likely needs guidance. Module focus: file_intent_identity, codex_edit_outcome_binder, opus_task_drift"
+      },
+      "confidence": 0.18,
+      "ts": "2026-06-05T23:59:51.799750+00:00",
+      "scored": false
     }
   ],
-  "updated": "2026-04-21T06:01:59.056153+00:00"
+  "updated": "2026-06-05T23:59:51.982545+00:00"
 }
