@@ -62,6 +62,10 @@ pigeon_brain/ui/dist/
 dist/
 
 # Operator-personal data (raw prompts / queries / rework text) - kept local only
+.maif/
+maif_operator_data/
+operator_data/
+operator_sessions/
 task_queue.json
 intent_backlog_resolutions.json
 query_memory.json
