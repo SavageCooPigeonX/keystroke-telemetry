@@ -132,6 +132,45 @@ Cannot:
 | Codex native chat | Best-effort with `os_hook` window match or explicit session logging | Not guaranteed before current request | Good for next turn/state |
 | Screenshots | Not wired yet | N/A | Next layer: screenshot/OCR context shift events |
 
+## Agent/File Loop Orchestration Path
+
+The existing Codex loop state should stay the ledger, not become the whole
+orchestrator. Keep `codex_compat.py` as the command facade and loop-state
+writer, then attach new file orchestration through small modules.
+
+Recommended next file:
+
+```text
+src/agent_loop_file_orchestration_seq001_v001.py
+```
+
+Inputs:
+
+- `logs/intent_loop_latest.json` from `src/intent_loop_closer_seq001_v001.py`.
+- `logs/dynamic_context_pack.json` from the Codex context pack.
+- Manifest/file identity state from `MANIFEST.md` files and
+  `src/manifest_state_cycle_seq001_v001.py`.
+- Push hygiene state from `logs/pigeon_changed_file_gate_latest.json` and
+  `logs/pigeon_compliance_push_latest.json`.
+
+Outputs:
+
+- `logs/agent_file_loop_plan_latest.json` for automation.
+- `logs/agent_file_loop_plan.md` for browseable operator review.
+- A selected file packet per loop containing responsibility score, intent hits,
+  allowed writeback count, verification contract, and next safe action.
+
+Sequence:
+
+1. Read current intent loop and changed files.
+2. Score candidate files against the full intent matrix, not just one primary intent.
+3. Assign each selected file an orchestration role: owner, witness, verifier, or monitor.
+4. Emit a file packet and verification contract before source mutation.
+5. Bind responses and edits back through `intent_loop_closer` so rework and misses count against the same loop.
+
+Do not add this orchestration directly into `codex_compat.py`; it is already a
+last-mile facade on the compliance roadmap.
+
 ## DeepSeek V4 Coding Lane
 
 Default model:
