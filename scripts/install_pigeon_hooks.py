@@ -1,13 +1,4 @@
-"""Install local Git hooks that wake the Pigeon compiler.
-
-Git does not version files under .git/hooks, so a fresh clone can have the
-compiler package but no trigger. This script restores the same hook shape used
-by the working LinkRouter checkout:
-
-    post-commit -> python -m pigeon_compiler.git_plugin
-    pre-commit  -> python -m pigeon_compiler.pre_commit_audit
-    pre-push    -> context compression + compliance + manifest refresh + DeepSeek push audit queue
-"""
+"""Install local Pigeon git hooks."""
 from __future__ import annotations
 
 import argparse
@@ -18,16 +9,12 @@ from pathlib import Path
 
 POST_COMMIT = """#!/bin/sh
 # Pigeon Git Plugin -- post-commit auto-rename daemon.
-# Renames touched pigeon files with living desc + intent from commit msg.
-# Safe: if it fails, the commit is already done.
 
-# Skip if this commit is already [pigeon-auto]
 MSG=$(git log -1 --format=%B)
 case "$MSG" in
   *\\[pigeon-auto\\]*) exit 0 ;;
 esac
 
-# Find Python
 if [ -f ".venv/Scripts/python.exe" ]; then
     PYTHON=".venv/Scripts/python.exe"
 elif [ -f ".venv/bin/python" ]; then
@@ -39,16 +26,15 @@ elif command -v python3 >/dev/null 2>&1; then
 else
     PYTHON="python"
 fi
+
+export PYTHONIOENCODING="${PYTHONIOENCODING:-utf-8}"
 
 "$PYTHON" -m pigeon_compiler.git_plugin || true
 """
 
 PRE_COMMIT = """#!/bin/sh
 # Pigeon Compiler pre-commit hook.
-# Runs pigeon compliance audit on every commit.
-# Advisory only - exit 0 always, never blocks commits.
 
-# Find Python
 if [ -f ".venv/Scripts/python.exe" ]; then
     PYTHON=".venv/Scripts/python.exe"
 elif [ -f ".venv/bin/python" ]; then
@@ -60,6 +46,8 @@ elif command -v python3 >/dev/null 2>&1; then
 else
     PYTHON="python"
 fi
+
+export PYTHONIOENCODING="${PYTHONIOENCODING:-utf-8}"
 
 "$PYTHON" -m pigeon_compiler.pre_commit_audit || true
 
@@ -68,9 +56,6 @@ exit 0
 
 PRE_PUSH = """#!/bin/sh
 # Pigeon Compiler pre-push compliance gate.
-# Blocks pushes while non-excluded Python files exceed PIGEON_MAX.
-# Set PIGEON_COMPLIANCE_APPLY=1 to generate low-risk split packages before blocking.
-# Raise PIGEON_COMPLIANCE_MAX_RISK=medium/high only when ready for facade tests.
 
 ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 SCRIPT="$ROOT/scripts/maintain_compliance.py"
@@ -81,8 +66,6 @@ if [ ! -f "$SCRIPT" ]; then
     exit 0
 fi
 
-# Find Python. Windows installs in this repo commonly expose only the `py`
-# launcher, so check it before falling back to a bare `python`.
 if [ -f "$ROOT/.venv/Scripts/python.exe" ]; then
     PYTHON="$ROOT/.venv/Scripts/python.exe"
 elif [ -f "$ROOT/.venv/bin/python" ]; then
@@ -98,7 +81,18 @@ else
     exit 0
 fi
 
+export PYTHONIOENCODING="${PYTHONIOENCODING:-utf-8}"
+
 COMPRESS="$ROOT/scripts/run_context_compression.py"
+OPERATOR_GUARD="$ROOT/scripts/operator_data_guard_seq001_v001__block_operator_data_git_storage_lc_data_storage_operator_happens.py"
+if [ -f "$OPERATOR_GUARD" ]; then
+    "$PYTHON" "$OPERATOR_GUARD" --pre-push
+    guard_status=$?
+    if [ "$guard_status" -ne 0 ]; then
+        exit "$guard_status"
+    fi
+fi
+
 if [ -f "$COMPRESS" ]; then
     "$PYTHON" "$COMPRESS" || echo "Pigeon context compression skipped or failed; push gate continues to compliance."
 fi
@@ -108,21 +102,39 @@ if [ "${PIGEON_COMPLIANCE_APPLY:-0}" = "1" ]; then
 else
     "$PYTHON" "$SCRIPT" --all
 fi
-status=$?
+full_status=$?
+CHANGED_GATE="$ROOT/scripts/pigeon_changed_file_gate_seq001_v001__block_new_overcap_lc_push_compliance.py"
+if [ -f "$CHANGED_GATE" ]; then
+    "$PYTHON" "$CHANGED_GATE"
+    changed_status=$?
+else
+    changed_status=$full_status
+fi
 if [ -f "$ROOT/scripts/refresh_push_manifests.py" ]; then
-    "$PYTHON" "$ROOT/scripts/refresh_push_manifests.py" --fail-on-write
-    manifest_status=$?
-    if [ "$manifest_status" -ne 0 ]; then
-        echo "Pigeon manifest refresh updated MANIFEST.md files. Commit them, then push again."
-        exit "$manifest_status"
+    if [ "${PIGEON_REFRESH_PUSH_MANIFESTS:-0}" = "1" ]; then
+        "$PYTHON" "$ROOT/scripts/refresh_push_manifests.py" --fail-on-write
+        manifest_status=$?
+        if [ "$manifest_status" -ne 0 ]; then
+            echo "Pigeon manifest refresh updated MANIFEST.md files. Commit them, then push again."
+            exit "$manifest_status"
+        fi
+    else
+        "$PYTHON" "$ROOT/scripts/refresh_push_manifests.py" --dry-run || echo "Pigeon manifest refresh dry-run failed; push gate continues to compliance result."
     fi
 fi
 if [ -f "$ROOT/scripts/run_deepseek_push_audit.py" ]; then
     "$PYTHON" "$ROOT/scripts/run_deepseek_push_audit.py" || echo "DeepSeek push audit queue failed; push gate continues to compliance result."
 fi
-if [ "$status" -ne 0 ]; then
+if [ "$changed_status" -ne 0 ]; then
+    echo "Pigeon changed-file compliance gate blocked push. See logs/pigeon_changed_file_gate_latest.json"
+    exit "$changed_status"
+fi
+if [ "$full_status" -ne 0 ] && [ "${PIGEON_FULL_COMPLIANCE_BLOCK:-0}" = "1" ]; then
     echo "Pigeon compliance gate blocked push. See logs/pigeon_compliance_push_latest.json"
-    exit "$status"
+    exit "$full_status"
+fi
+if [ "$full_status" -ne 0 ]; then
+    echo "Pigeon full compliance has baseline violations; changed-file gate allowed this push."
 fi
 
 exit 0

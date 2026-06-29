@@ -1,0 +1,26 @@
+---
+description: Require agent closeout before commits, pushes, or backwards-pass handoff.
+alwaysApply: true
+---
+
+# Agent Work Closeout
+
+Before a Codex/Cursor agent commits, pushes, or hands off work in this repo, it must run:
+
+```powershell
+$env:PYTHONIOENCODING = "utf-8"
+py codex_compat.py submit-closeout `
+  --note "summary of shipped vs skipped work" `
+  --file path/to/changed_file.py `
+  --completed-fix "what was fixed this session" `
+  --deferred-bug "title|file|reason_not_fixed" `
+  --unsaid-flag "risk or follow-up not in the diff"
+```
+
+Then check:
+
+```powershell
+py codex_compat.py bug-notice-stats
+```
+
+Closeout data is local operator/runtime state and must remain ignored by git.
