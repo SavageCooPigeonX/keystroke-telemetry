@@ -6,6 +6,16 @@
 
 ---
 
+## Root Hygiene Audit - 2026-06-29
+
+- Manual audit doc: `docs/MASTER_DOCS_CODE_AUDIT_20260629.md`.
+- `test_all.py` remains the documented root smoke runner for humans, hooks, and `pigeon_brain trace test_all.py`.
+- Root pytest-style history moved to `tests/test_history/` with non-collecting filenames.
+- README now maps the actual tracked root surfaces: `MANIFEST.md` and `ROOT_SIM_KEYS.md`; no root `MASTER_MANIFEST.md` exists on this branch.
+- Generated health counts below predate this manual hygiene note. Regenerate with the guarded producer only when local operator data is safe to summarize.
+
+---
+
 ## Vitals
 
 | Metric | Value | Baseline |

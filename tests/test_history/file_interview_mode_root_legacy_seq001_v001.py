@@ -1,3 +1,9 @@
+"""Historical root-level file interview mode compatibility test.
+
+Original path: test_file_interview_mode.py
+Moved on: 2026-06-29
+Reason: keep repo root reserved for the documented test_all.py smoke runner; this file is non-collected history.
+"""
 import json
 
 from src.file_interview_mode_seq001_v001 import interview_files

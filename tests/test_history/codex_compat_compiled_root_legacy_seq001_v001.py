@@ -1,3 +1,9 @@
+"""Historical root-level codex_compat compiled compatibility test.
+
+Original path: test_codex_compat_compiled.py
+Moved on: 2026-06-29
+Reason: keep repo root reserved for the documented test_all.py smoke runner; this file is non-collected history.
+"""
 import ast
 import importlib
 import importlib.util

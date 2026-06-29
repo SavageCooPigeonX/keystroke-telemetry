@@ -35,6 +35,8 @@ py -m pytest
 
 `test_all.py` is the public smoke runner and stays at repo root on purpose. The maintained pytest lane lives under `tests/` and `tests/regression/`; generated intent probes, interlink self-tests, and archived probes are explicit lanes. The glyphs and duplicate-looking names are not trash; they are the fossil record and routing map. Pytest runs with importlib collection so same-basename tests can coexist without punching each other.
 
+Root hygiene note: historical root pytest files that are no longer the public smoke runner live in `tests/test_history/` with filenames that do not match pytest collection patterns. The current audit is `docs/MASTER_DOCS_CODE_AUDIT_20260629.md`.
+
 ---
 
 ## Status
@@ -930,13 +932,14 @@ keystroke-telemetry/
 ├── task_queue.json                       ← Copilot-managed task queue (auto-seeded from self-fix)
 ├── pigeon_registry.json                  ← all module versions + token history
 ├── MANIFEST.md                           ← generated project manifest and diagnostic dashboard
-├── MASTER_MANIFEST.md                    ← full project reference
+├── ROOT_SIM_KEYS.md                      <- generated root sim key map
 ├── CHANGELOG.md                          ← patch notes
 ├── tests/
 │   ├── regression/                       ← former root regression tests, kept discoverable
 │   ├── interlink/                        ← generated self-tests for compiled/glyph modules
 │   ├── generated/                        ← intent probe fixtures
-│   └── archive/                          ← archived test scripts
+│   ├── archive/                          ← archived test scripts
+│   └── test_history/                     <- non-collected root test history
 └── test_all.py                           ← core tests (always run before commit)
 ```
 
