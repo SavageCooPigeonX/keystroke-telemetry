@@ -1,42 +1,22 @@
-"""Install the operator data guard as the local pre-push hook."""
+"""Compatibility installer for the operator data pre-push guard.
+
+The canonical hook installer is scripts/install_pigeon_hooks.py because pre-push
+must keep both the operator-data guard and the Pigeon compliance gate.
+"""
 from __future__ import annotations
 
 import argparse
-import os
+import subprocess
+import sys
 from pathlib import Path
 
 
-HOOK_TEXT = """#!/bin/sh
-# Keystroke Telemetry: block operator-private runtime data from git pushes.
-
-if [ -f ".venv/Scripts/python.exe" ]; then
-    PYTHON=".venv/Scripts/python.exe"
-elif [ -f ".venv/bin/python" ]; then
-    PYTHON=".venv/bin/python"
-elif command -v python3 >/dev/null 2>&1; then
-    PYTHON="python3"
-elif command -v py >/dev/null 2>&1; then
-    PYTHON="py"
-else
-    PYTHON="python"
-fi
-
-"$PYTHON" scripts/operator_data_guard_seq001_v001__block_operator_data_git_storage_lc_data_storage_operator_happens.py --pre-push
-"""
-
-
 def install_hook(root: Path) -> Path:
-    hooks_dir = root / ".git" / "hooks"
-    if not hooks_dir.exists():
-        raise FileNotFoundError(f"missing git hooks directory: {hooks_dir}")
-    hook = hooks_dir / "pre-push"
-    hook.write_text(HOOK_TEXT, encoding="utf-8", newline="\n")
-    try:
-        current_mode = hook.stat().st_mode
-        os.chmod(hook, current_mode | 0o111)
-    except OSError:
-        pass
-    return hook
+    installer = root / "scripts" / "install_pigeon_hooks.py"
+    if not installer.exists():
+        raise FileNotFoundError(f"missing canonical hook installer: {installer}")
+    subprocess.run([sys.executable, str(installer)], cwd=root, check=True)
+    return root / ".git" / "hooks" / "pre-push"
 
 
 def main() -> int:

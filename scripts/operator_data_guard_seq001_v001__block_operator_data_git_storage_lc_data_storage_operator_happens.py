@@ -14,74 +14,33 @@ from pathlib import Path
 
 
 BLOCKED_EXACT = {
-    ".master_key",
-    ".master_test_sha",
-    ".overcap_budget",
-    "agent_coaching.md",
-    "file_heat_map.json",
-    "file_profiles.json",
-    "intent_backlog_resolutions.json",
-    "operator_coaching.md",
-    "operator_profile.md",
-    "query_memory.json",
-    "rework_log.json",
-    "task_queue.json",
+    ".master_key", ".master_test_sha", ".overcap_budget", "agent_coaching.md",
+    "file_heat_map.json", "file_profiles.json", "intent_backlog_resolutions.json",
+    "operator_coaching.md", "operator_profile.md", "query_memory.json",
+    "rework_log.json", "task_queue.json",
 }
 
 BLOCKED_DIRS = {
-    ".maif/",
-    ".personal/",
-    "logs/",
-    "test_logs/",
-    "stress_logs/",
-    "maif_operator_data/",
-    "operator_data/",
-    "operator_sessions/",
-    "planning/private/",
-    "private/",
+    ".maif/", ".personal/", "logs/", "test_logs/", "stress_logs/",
+    "maif_operator_data/", "operator_data/", "operator_sessions/",
+    "planning/private/", "private/",
 }
 
 BLOCKED_NAME_FRAGMENTS = {
-    "chat_compositions",
-    "deleted_words",
-    "file_heat_map",
-    "keystroke",
-    "operator_profile",
-    "operator_state",
-    "prompt_journal",
-    "query_memory",
-    "rework_log",
-    "telemetry_session",
-    "typing_telemetry",
-    "unsaid_thread",
+    "chat_compositions", "deleted_words", "file_heat_map", "keystroke",
+    "operator_profile", "operator_state", "prompt_journal", "query_memory",
+    "rework_log", "telemetry_session", "typing_telemetry", "unsaid_thread",
 }
 
-DATA_SUFFIXES = {
-    ".db",
-    ".json",
-    ".jsonl",
-    ".log",
-    ".md",
-    ".sqlite",
-    ".sqlite3",
-    ".txt",
-}
+DATA_SUFFIXES = {".db", ".json", ".jsonl", ".log", ".md", ".sqlite", ".sqlite3", ".txt"}
 
 REQUIRED_GITIGNORE_PATTERNS = [
-    ".maif/",
-    "maif_operator_data/",
-    "operator_data/",
-    "operator_sessions/",
-    "operator_profile.md",
-    "query_memory.json",
-    "rework_log.json",
-    "task_queue.json",
-    "logs/",
+    ".maif/", "maif_operator_data/", "operator_data/", "operator_sessions/",
+    "operator_profile.md", "query_memory.json", "rework_log.json",
+    "task_queue.json", "logs/",
 ]
 
-ALLOWED_DOCS = {
-    "docs/operator_data_storage_contract.md",
-}
+ALLOWED_DOCS = {"docs/operator_data_storage_contract.md"}
 
 
 @dataclass(frozen=True)

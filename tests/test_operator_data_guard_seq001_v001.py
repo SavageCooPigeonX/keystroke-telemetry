@@ -17,6 +17,8 @@ INSTALLER = ROOT / "scripts" / (
     "install_operator_data_guard_hook_seq001_v001__install_pre_push_operator_data_guard_lc_"
     "data_storage_operator_happens.py"
 )
+PIGEON_INSTALLER = ROOT / "scripts" / "install_pigeon_hooks.py"
+CHANGED_GATE = ROOT / "scripts" / "pigeon_changed_file_gate_seq001_v001__block_new_overcap_lc_push_compliance.py"
 
 
 def _load(path: Path, name: str):
@@ -60,6 +62,13 @@ class OperatorDataGuardTests(unittest.TestCase):
             root = Path(tmp)
             hooks = root / ".git" / "hooks"
             hooks.mkdir(parents=True)
+            scripts = root / "scripts"
+            scripts.mkdir()
+            (scripts / "install_pigeon_hooks.py").write_text(
+                "from pathlib import Path\n"
+                "Path('.git/hooks/pre-push').write_text('operator_data_guard --pre-push\\n', encoding='utf-8')\n",
+                encoding="utf-8",
+            )
 
             hook = installer.install_hook(root)
 
@@ -67,6 +76,48 @@ class OperatorDataGuardTests(unittest.TestCase):
             text = hook.read_text(encoding="utf-8")
             self.assertIn("operator_data_guard", text)
             self.assertIn("--pre-push", text)
+
+    def test_combined_pigeon_pre_push_runs_operator_guard_before_compliance(self):
+        installer = _load(PIGEON_INSTALLER, "install_pigeon_hooks")
+
+        pre_push = installer.PRE_PUSH
+        guard_index = pre_push.index("operator_data_guard_seq001_v001")
+        compliance_index = pre_push.index('if [ "${PIGEON_COMPLIANCE_APPLY:-0}" = "1" ]')
+
+        self.assertLess(guard_index, compliance_index)
+        self.assertIn("PIGEON_REFRESH_PUSH_MANIFESTS", pre_push)
+        self.assertIn("refresh_push_manifests.py\" --dry-run", pre_push)
+        self.assertIn("pigeon_changed_file_gate_seq001_v001", pre_push)
+        self.assertIn("PIGEON_FULL_COMPLIANCE_BLOCK", pre_push)
+        self.assertIn('export PYTHONIOENCODING="${PYTHONIOENCODING:-utf-8}"', installer.POST_COMMIT)
+        self.assertIn('export PYTHONIOENCODING="${PYTHONIOENCODING:-utf-8}"', installer.PRE_COMMIT)
+        self.assertIn('export PYTHONIOENCODING="${PYTHONIOENCODING:-utf-8}"', installer.PRE_PUSH)
+        self.assertIn('elif command -v py >/dev/null 2>&1; then', installer.POST_COMMIT)
+        self.assertIn('elif command -v py >/dev/null 2>&1; then', installer.PRE_COMMIT)
+
+    def test_changed_file_gate_allows_improved_existing_overcap_and_blocks_worse(self):
+        gate = _load(CHANGED_GATE, "pigeon_changed_file_gate")
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            subprocess.run(["git", "init"], cwd=root, check=True, stdout=subprocess.PIPE)
+            subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=root, check=True)
+            subprocess.run(["git", "config", "user.name", "Test"], cwd=root, check=True)
+            src = root / "src"
+            src.mkdir()
+            target = src / "over_seq001_v001.py"
+            target.write_text("\n".join("x = 1" for _ in range(gate.PIGEON_MAX + 5)), encoding="utf-8")
+            subprocess.run(["git", "add", "src/over_seq001_v001.py"], cwd=root, check=True)
+            subprocess.run(["git", "commit", "-m", "seed"], cwd=root, check=True, stdout=subprocess.PIPE)
+
+            target.write_text("\n".join("x = 1" for _ in range(gate.PIGEON_MAX + 2)), encoding="utf-8")
+            subprocess.run(["git", "commit", "-am", "improve"], cwd=root, check=True, stdout=subprocess.PIPE)
+            self.assertTrue(gate.audit_changed_file_compliance(root)["ok"])
+
+            target.write_text("\n".join("x = 1" for _ in range(gate.PIGEON_MAX + 8)), encoding="utf-8")
+            subprocess.run(["git", "commit", "-am", "worse"], cwd=root, check=True, stdout=subprocess.PIPE)
+            report = gate.audit_changed_file_compliance(root)
+            self.assertFalse(report["ok"])
+            self.assertEqual(report["violations"][0]["status"], "worsened_overcap")
 
 
 if __name__ == "__main__":

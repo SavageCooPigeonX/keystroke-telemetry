@@ -32,7 +32,7 @@ py scripts\operator_data_guard_seq001_v001__block_operator_data_git_storage_lc_d
 Install the local hook:
 
 ```powershell
-py scripts\install_operator_data_guard_hook_seq001_v001__install_pre_push_operator_data_guard_lc_data_storage_operator_happens.py
+py scripts\install_pigeon_hooks.py
 ```
 
-The hook blocks if operator-data-shaped files are staged, tracked, visibly untracked, or if `.gitignore` is missing the required MAIF/local-spool ignore patterns.
+The combined pre-push hook runs the operator data guard before Pigeon compliance, manifest refresh, and DeepSeek push audit. The guard blocks if operator-data-shaped files are staged, tracked, visibly untracked, or if `.gitignore` is missing the required MAIF/local-spool ignore patterns.
