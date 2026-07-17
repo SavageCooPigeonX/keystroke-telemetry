@@ -63,6 +63,8 @@ def test_read_messages_keeps_paste_only_prompt(tmp_path):
     state = analyzer.classify_chat_state(comp)
 
     assert comp["final_text"] == paste_text
+    assert comp["operator_intent_text"] == ""
+    assert comp["intent_eligible"] is False
     assert comp["paste_count"] == 1
     assert comp["paste_chars_total"] == len(paste_text)
     assert comp["paste_categories"] == ["code_context"]

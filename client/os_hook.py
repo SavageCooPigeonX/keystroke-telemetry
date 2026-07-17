@@ -695,6 +695,9 @@ class KeystrokeRecorder:
         final_text = composition.get('final_text', '')
         if not final_text.strip():
             return
+        operator_intent_text = composition.get('operator_intent_text', final_text)
+        intent_eligible = bool(
+            composition.get('intent_eligible', operator_intent_text.strip()))
 
         chat_signals = (composition.get('chat_state') or {}).get('signals', {})
         signals = {
@@ -717,9 +720,12 @@ class KeystrokeRecorder:
             'duration_ms': composition.get('duration_ms', 0),
         }
 
-        # Simple intent classification from text
-        text_lower = final_text.lower()
-        if any(w in text_lower for w in ('fix', 'bug', 'error', 'broken', 'wrong')):
+        # Classify only surviving operator-authored keystrokes. Pasted text is
+        # context evidence recorded by the dedicated paste stream, not intent.
+        text_lower = operator_intent_text.lower()
+        if not intent_eligible:
+            intent = 'context_only'
+        elif any(w in text_lower for w in ('fix', 'bug', 'error', 'broken', 'wrong')):
             intent = 'debugging'
         elif any(w in text_lower for w in ('add', 'create', 'build', 'implement', 'wire', 'new')):
             intent = 'building'
@@ -751,7 +757,8 @@ class KeystrokeRecorder:
 
         # Extract deleted words
         deleted_words = []
-        for dw in composition.get('deleted_words', []):
+        for dw in composition.get(
+                'operator_deleted_words', composition.get('deleted_words', [])):
             if isinstance(dw, dict):
                 deleted_words.append(dw.get('word', ''))
             elif isinstance(dw, str):
@@ -761,21 +768,23 @@ class KeystrokeRecorder:
         import re
         module_refs = []
         # 1. Pigeon-renamed modules (xxx_seq001)
-        module_refs.extend(re.findall(r'\b(\w+_seq\d+)\b', final_text.lower()))
+        module_refs.extend(re.findall(
+            r'\b(\w+_seq\d+)\b', operator_intent_text.lower()))
         # 2. Common module stems (loaded from registry once)
         try:
             reg_path = root / 'pigeon_registry.json'
             if reg_path.exists():
                 reg = json.loads(reg_path.read_text('utf-8'))
                 known_names = {f.get('name', '').lower() for f in reg.get('files', [])}
-                text_lower = final_text.lower()
+                text_lower = operator_intent_text.lower()
                 for name in known_names:
                     if name and len(name) > 4 and name in text_lower:
                         module_refs.append(name)
         except Exception:
             pass
         # 3. Glyph-prefixed modules (管w_cpm, 推w_dp, etc)
-        module_refs.extend(re.findall(r'\b([^\x00-\x7F]\w+_\w+)\b', final_text))
+        module_refs.extend(re.findall(
+            r'\b([^\x00-\x7F]\w+_\w+)\b', operator_intent_text))
         # Deduplicate
         module_refs = list(dict.fromkeys(module_refs))[:15]
 
@@ -796,7 +805,18 @@ class KeystrokeRecorder:
             'ts': now.isoformat(),
             'session_n': session_n,
             'session_id': hashlib.md5(now.date().isoformat().encode()).hexdigest()[:12],
-            'msg': final_text,
+            # `msg` remains the backwards-compatible retrieval field, but now
+            # contains only typed operator intent. The submitted mixed input is
+            # represented by a digest and the separate paste-event receipts.
+            'msg': operator_intent_text,
+            'operator_intent_text': operator_intent_text,
+            'operator_intent_chars': len(operator_intent_text),
+            'intent_eligible': intent_eligible,
+            'input_provenance_schema': composition.get(
+                'input_provenance_schema', 'operator_input_provenance/v1'),
+            'submitted_text_sha256': hashlib.sha256(
+                final_text.encode('utf-8', errors='ignore')).hexdigest(),
+            'submitted_text_chars': len(final_text),
             'intent': intent,
             'state': cog_state,
             'cognitive_state': cog_state,

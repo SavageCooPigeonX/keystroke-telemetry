@@ -77,7 +77,6 @@ def _paste_summary(evt: dict, replace: bool) -> dict:
         'replace': bool(replace),
         'deleted_chars': len(evt.get('deleted_text', '') or ''),
         'sha256': evt.get('paste_sha256', ''),
-        'preview': text.replace('\r\n', '\n')[:160],
     }
 
 
@@ -92,6 +91,8 @@ def reconstruct_composition(events: list) -> dict:
     Returns:
         {
             'final_text': str,
+            'operator_intent_text': str,
+            'intent_eligible': bool,
             'deleted_words': [{'word': str, 'ts': int, 'position': int}],
             'deleted_chars_total': int,
             'rewrites': [{'old': str, 'new': str, 'ts': int, 'position': int}],
@@ -108,6 +109,10 @@ def reconstruct_composition(events: list) -> dict:
         }
     """
     buffer = ''
+    # One source marker per surviving character. This lets the prompt journal
+    # exclude pasted context without attempting to infer provenance from the
+    # final mixed string after edits and replacements.
+    buffer_sources = []
     composition_events = []
     deleted_chars = []
     hesitation_windows = []
@@ -135,6 +140,7 @@ def reconstruct_composition(events: list) -> dict:
         if etype == 'insert':
             char = key
             buffer += char
+            buffer_sources.extend(['typed'] * len(char))
             if len(buffer) > len(peak_buffer):
                 peak_buffer = buffer
             composition_events.append({
@@ -150,10 +156,17 @@ def reconstruct_composition(events: list) -> dict:
         elif etype == 'backspace':
             if buffer:
                 deleted_char = buffer[-1]
+                deleted_source = buffer_sources[-1] if buffer_sources else 'unknown'
                 buffer = buffer[:-1]
-                deleted_chars.append({'char': deleted_char, 'ts': ts, 'pos': len(buffer)})
+                if buffer_sources:
+                    buffer_sources.pop()
+                deleted_chars.append({
+                    'char': deleted_char, 'ts': ts, 'pos': len(buffer),
+                    'source': deleted_source,
+                })
                 composition_events.append({
-                    'ts': ts, 'action': 'delete', 'char': deleted_char, 'buffer': buffer,
+                    'ts': ts, 'action': 'delete', 'char': deleted_char,
+                    'source': deleted_source, 'buffer': buffer,
                 })
                 delete_run.append({'char': deleted_char, 'ts': ts})
             prev_ts = ts
@@ -174,14 +187,27 @@ def reconstruct_composition(events: list) -> dict:
         elif etype == 'selection_replace':
             # User selected text, then typed a char — replacing selection
             deleted_text = evt.get('deleted_text', buffer)
+            deleted_sources = (
+                list(buffer_sources) if len(deleted_text) == len(buffer_sources)
+                else ['unknown'] * len(deleted_text)
+            )
+            reversed_sources = list(reversed(deleted_sources))
             for i, ch in enumerate(reversed(deleted_text)):
-                deleted_chars.append({'char': ch, 'ts': ts, 'pos': max(0, len(buffer) - i - 1)})
+                deleted_chars.append({
+                    'char': ch, 'ts': ts,
+                    'pos': max(0, len(buffer) - i - 1),
+                    'source': reversed_sources[i],
+                })
             composition_events.append({
                 'ts': ts, 'action': 'selection_replace',
                 'char': key, 'buffer': key,
                 'deleted': deleted_text,
+                'deleted_typed': ''.join(
+                    char for char, source in zip(deleted_text, deleted_sources)
+                    if source == 'typed'),
             })
             buffer = key
+            buffer_sources = ['typed'] * len(key)
             if len(buffer) > len(peak_buffer):
                 peak_buffer = buffer
             prev_ts = ts
@@ -189,30 +215,56 @@ def reconstruct_composition(events: list) -> dict:
         elif etype == 'selection_delete':
             # User selected text then hit Backspace/Delete
             deleted_text = evt.get('deleted_text', buffer)
+            deleted_sources = (
+                list(buffer_sources) if len(deleted_text) == len(buffer_sources)
+                else ['unknown'] * len(deleted_text)
+            )
+            reversed_sources = list(reversed(deleted_sources))
             for i, ch in enumerate(reversed(deleted_text)):
-                deleted_chars.append({'char': ch, 'ts': ts, 'pos': max(0, len(buffer) - i - 1)})
+                deleted_chars.append({
+                    'char': ch, 'ts': ts,
+                    'pos': max(0, len(buffer) - i - 1),
+                    'source': reversed_sources[i],
+                })
             composition_events.append({
                 'ts': ts, 'action': 'selection_delete',
                 'char': '', 'buffer': '',
                 'deleted': deleted_text,
+                'deleted_typed': ''.join(
+                    char for char, source in zip(deleted_text, deleted_sources)
+                    if source == 'typed'),
             })
             buffer = ''
+            buffer_sources = []
             prev_ts = ts
 
         elif etype == 'paste_replace':
             # Ctrl+V replaced selected text
             deleted_text = evt.get('deleted_text', '')
             pasted_text = evt.get('pasted_text', '')
+            deleted_sources = (
+                list(buffer_sources) if len(deleted_text) == len(buffer_sources)
+                else ['unknown'] * len(deleted_text)
+            )
+            reversed_sources = list(reversed(deleted_sources))
             paste_events.append(_paste_summary(evt, replace=True))
             if deleted_text:
                 for i, ch in enumerate(reversed(deleted_text)):
-                    deleted_chars.append({'char': ch, 'ts': ts, 'pos': max(0, len(buffer) - i - 1)})
+                    deleted_chars.append({
+                        'char': ch, 'ts': ts,
+                        'pos': max(0, len(buffer) - i - 1),
+                        'source': reversed_sources[i],
+                    })
             composition_events.append({
                 'ts': ts, 'action': 'paste_replace',
                 'char': pasted_text, 'buffer': pasted_text,
                 'deleted': deleted_text,
+                'deleted_typed': ''.join(
+                    char for char, source in zip(deleted_text, deleted_sources)
+                    if source == 'typed'),
             })
             buffer = pasted_text
+            buffer_sources = ['paste'] * len(pasted_text)
             if len(buffer) > len(peak_buffer):
                 peak_buffer = buffer
             prev_ts = ts
@@ -222,6 +274,7 @@ def reconstruct_composition(events: list) -> dict:
             pasted_text = evt.get('pasted_text', '')
             paste_events.append(_paste_summary(evt, replace=False))
             buffer += pasted_text
+            buffer_sources.extend(['paste'] * len(pasted_text))
             if len(buffer) > len(peak_buffer):
                 peak_buffer = buffer
             composition_events.append({
@@ -233,15 +286,28 @@ def reconstruct_composition(events: list) -> dict:
         elif etype == 'cut':
             # Ctrl+X — text was cut (deleted + copied)
             deleted_text = evt.get('deleted_text', '')
+            deleted_sources = (
+                list(buffer_sources) if len(deleted_text) == len(buffer_sources)
+                else ['unknown'] * len(deleted_text)
+            )
+            reversed_sources = list(reversed(deleted_sources))
             if deleted_text:
                 for i, ch in enumerate(reversed(deleted_text)):
-                    deleted_chars.append({'char': ch, 'ts': ts, 'pos': max(0, len(buffer) - i - 1)})
+                    deleted_chars.append({
+                        'char': ch, 'ts': ts,
+                        'pos': max(0, len(buffer) - i - 1),
+                        'source': reversed_sources[i],
+                    })
             composition_events.append({
                 'ts': ts, 'action': 'cut',
                 'char': '', 'buffer': '',
                 'deleted': deleted_text,
+                'deleted_typed': ''.join(
+                    char for char, source in zip(deleted_text, deleted_sources)
+                    if source == 'typed'),
             })
             buffer = ''
+            buffer_sources = []
             prev_ts = ts
 
         # Flush delete_run when we see a non-delete, non-insert event or
@@ -255,6 +321,8 @@ def reconstruct_composition(events: list) -> dict:
 
     # Extract deleted words from deleted chars
     deleted_words = _extract_deleted_words(deleted_chars)
+    operator_deleted_words = _extract_deleted_words([
+        item for item in deleted_chars if item.get('source') == 'typed'])
 
     # Classify delete runs retroactively
     typo_corrections, intentional_deletions = _classify_all_deletions(
@@ -279,9 +347,19 @@ def reconstruct_composition(events: list) -> dict:
                         ('backspace', 'selection_delete', 'selection_replace', 'cut'))
     total_keys = total_inserts + total_deletes
 
+    operator_intent_text = ''.join(
+        char for char, source in zip(buffer, buffer_sources)
+        if source == 'typed'
+    )
+
     return {
         'final_text': buffer,
+        'operator_intent_text': operator_intent_text,
+        'operator_intent_chars': len(operator_intent_text),
+        'intent_eligible': bool(operator_intent_text.strip()),
+        'input_provenance_schema': 'operator_input_provenance/v1',
         'deleted_words': deleted_words,
+        'operator_deleted_words': operator_deleted_words,
         'deleted_chars_total': len(deleted_chars),
         'rewrites': rewrites,
         'hesitation_windows': hesitation_windows,
@@ -366,7 +444,8 @@ def _extract_rewrites(comp_events: list) -> list:
         del_start = i
         deleted_text = ''
         while i < len(comp_events) and comp_events[i]['action'] == 'delete':
-            deleted_text = comp_events[i]['char'] + deleted_text  # prepend
+            if comp_events[i].get('source', 'typed') == 'typed':
+                deleted_text = comp_events[i]['char'] + deleted_text  # prepend
             i += 1
 
         if len(deleted_text) < REWRITE_MIN_CHARS:
@@ -444,7 +523,8 @@ def _extract_intent_deletions(comp_events: list) -> tuple[list, int]:
             run_start = i
             deleted_text = ''
             while i < len(comp_events) and comp_events[i]['action'] == 'delete':
-                deleted_text = comp_events[i]['char'] + deleted_text  # prepend (right-to-left)
+                if comp_events[i].get('source', 'typed') == 'typed':
+                    deleted_text = comp_events[i]['char'] + deleted_text  # prepend
                 i += 1
 
             if len(deleted_text) >= INTENT_DELETE_MIN_RUN:
@@ -460,7 +540,8 @@ def _extract_intent_deletions(comp_events: list) -> tuple[list, int]:
 
         elif action in ('selection_delete', 'selection_replace', 'cut'):
             # Selection-based deletions are always intentional
-            deleted = comp_events[i].get('deleted', '')
+            deleted = comp_events[i].get(
+                'deleted_typed', comp_events[i].get('deleted', ''))
             if deleted:
                 intent_chars += len(deleted)
                 word = deleted.strip()
@@ -656,8 +737,14 @@ def analyze_and_log(root: Path) -> dict | None:
     log_entry = {
         'ts': result['timestamp'],
         'final_text': result['final_text'],
+        'operator_intent_text': result.get('operator_intent_text', ''),
+        'operator_intent_chars': result.get('operator_intent_chars', 0),
+        'intent_eligible': result.get('intent_eligible', False),
+        'input_provenance_schema': result.get(
+            'input_provenance_schema', 'operator_input_provenance/v1'),
         'chat_state': result['chat_state'],
         'deleted_words': result['deleted_words'],
+        'operator_deleted_words': result.get('operator_deleted_words', []),
         'intent_deleted_words': result.get('intent_deleted_words', []),
         'rewrites': result['rewrites'],
         'hesitation_windows': result['hesitation_windows'],
