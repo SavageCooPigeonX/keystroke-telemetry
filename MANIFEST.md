@@ -676,3 +676,63 @@
 - `logs/cannon_execution_gate_latest.json` :: exists=true
 - `logs/backward_file_intelligence_learning_pending_latest.json` :: exists=true
 <!-- /manifest:master-persistent-state -->
+
+---
+
+## Folder purpose map (audited 2026-07-29)
+
+| Folder | Files | Actual purpose |
+|---|---|---|
+| `src/` | 222+ | Main runtime: intent-key engine, prompt telemetry, manifest state, thought-completer, context compression |
+| `pigeon_compiler/` | 254 | Compiler: cut planning, rename engine, git plugin, weakness planner, state extractor |
+| `pigeon_brain/` | 210 | Observer/graph UI backend + Vite frontend (ui/), execution tracing, flow engine |
+| `codex_compat/` | 44 | Codex/Cursor prompt-telemetry adapter (decomposed sequential modules) |
+| `client/` | 11 | VS Code / OS-level capture daemons, chrome-extension manifest |
+| `vscode-extension/` | 3 real (10,710 node_modules) | VS Code extension; real source is src/ (3 files) |
+| `streaming_layer/` | 17 | Streaming/session layer — UNDOCUMENTED in README architecture |
+| `tests/` | 210 | Pytest suite + archive/generated/interlink/regression lanes |
+| `scripts/` | ~45 | Operator CLI/PowerShell utilities |
+| `docs/` | 32 | Real documentation |
+| `documentation/` | 1 | DUPLICATE of docs/ — only manifests/COMMIT_AUDIT_LOG.md |
+| `build/` | 3,577 (gitignored) | Compiler output archive |
+| `logs/` | 1,979 (gitignored) | Runtime telemetry dump |
+| `demo_logs/` | 2 | Sample telemetry output |
+| `mira/` | 0 source | DEAD — __pycache__ only |
+| `file_profiles/` | 0 source | DEAD — __pycache__ only |
+| `codex_intent_keys/` | 0 source | DEAD — __pycache__ only |
+| `rename/` | 0 source | DEAD — __pycache__ only |
+| `prompt_journal/` | 0 source | DEAD — __pycache__ only |
+| `operator_intent_keys/` | 0 source | DEAD — __pycache__ only |
+| `manifest_state/` | 0 source | DEAD — __pycache__ only |
+| `legacy/` | 0 source | DEAD — __pycache__ only |
+| `keystrokes/` | 0 source | DEAD — __pycache__ only |
+| `integrations/` | 0 source | DEAD — __pycache__ only |
+| `data_endpoints/` | 0 source | DEAD — __pycache__ only |
+| `compiler/` | 0 source | DEAD — __pycache__ only |
+
+## File naming audit (2026-07-29)
+
+Glyph/seq/version names are documented and intentional per docs/RUNTIME_HOSTS_AND_NAMING.md. Issues below are genuine violations.
+
+| Current name | Ideal name | Issue |
+|---|---|---|
+| `codex_compat.py` (root, 114KB) + `codex_compat/` (package) | Merge: fold root into `codex_compat/__main__.py` | File/package name collision — Python import shadowing |
+| `pigeon_compiler/git_plugin.py` + `pigeon_compiler/git_plugin/` | Merge to one | Same collision |
+| 9 glyph pairs in `pigeon_brain/` (e.g. `型p_mo_s001.py` + `型p_mo_s001/`) | Remove flat .py after decomposition | Import shadowing x9 |
+| `documentation/` (1 file) | Move file to `docs/`, delete folder | Duplicates docs/ |
+| 12 dead folders (mira/, file_profiles/, etc.) | Delete | Cache-only, zero source, misleads ls |
+| `scripts/install_operator_data_guard_hook_seq001_v001__install_pre_push_operator_data_guard_lc_data_storage_operator_happens.py` | Shorter name (116 chars, repeats "operator_data_guard" 2x) | Excessive repetition |
+| `client/.chat_composition_analyzer_decomposed.py` | Remove leading dot | Hidden file on POSIX |
+| 4 versions of src/控w_ops_s008 coexisting (v007-v010) | Mark which is live | "Fossil record" but nothing indicates canonical version |
+| Root `test_*.py` files (3 besides test_all.py) | Move to `tests/` | test_all.py explained as public smoke runner; others unexplained at root |
+| `file_heat_map.json` at root | Move to `logs/` | Generated state mixed with source |
+| `pigeon_registry.json` (2.7MB) at root | Move to `logs/` or `build/` | Large generated file mixed with source |
+| `streaming_layer/` | Keep, but add to README | Live code undocumented in architecture |
+
+## Structural issues
+
+- File/directory name collisions from incomplete compiler decompositions (11 pairs total)
+- 12 dead top-level folders containing only stale __pycache__
+- documentation/ vs docs/ — duplicate purpose
+- Two parallel prompt architectures (codex_compat.py vs prompt_manifest_compiler) not collapsed
+- build/ has 4 near-duplicate output trees with no indicator of which is current
