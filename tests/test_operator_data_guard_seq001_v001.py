@@ -5,6 +5,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import warnings
 from pathlib import Path
 
 
@@ -19,6 +20,7 @@ INSTALLER = ROOT / "scripts" / (
 )
 PIGEON_INSTALLER = ROOT / "scripts" / "install_pigeon_hooks.py"
 CHANGED_GATE = ROOT / "scripts" / "pigeon_changed_file_gate_seq001_v001__block_new_overcap_lc_push_compliance.py"
+GENERATE_INTENT_TESTS = ROOT / "scripts" / "generate_intent_tests.py"
 
 
 def _load(path: Path, name: str):
@@ -118,6 +120,12 @@ class OperatorDataGuardTests(unittest.TestCase):
             report = gate.audit_changed_file_compliance(root)
             self.assertFalse(report["ok"])
             self.assertEqual(report["violations"][0]["status"], "worsened_overcap")
+
+    def test_hook_scanned_scripts_compile_without_syntax_warnings(self):
+        source = GENERATE_INTENT_TESTS.read_text(encoding="utf-8")
+        with warnings.catch_warnings():
+            warnings.simplefilter("error", SyntaxWarning)
+            compile(source, str(GENERATE_INTENT_TESTS), "exec")
 
 
 if __name__ == "__main__":

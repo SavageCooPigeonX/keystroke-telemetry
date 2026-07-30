@@ -3,7 +3,7 @@
 Per FIX_PLAN.md §5: intents that have no generated test evaporate into cold backlog.
 Giving each pending task a failing test file makes the intent mechanically tracked.
 
-Run: py scripts\generate_intent_tests.py
+Run: py scripts/generate_intent_tests.py
 
 Uses ONLY deterministic templates. No LLM calls. User explicitly said: "the model
 is what's risky." Intent compiler via LLM is deferred until these skeletons stabilize.
