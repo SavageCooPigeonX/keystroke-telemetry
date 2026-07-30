@@ -58,11 +58,52 @@ def test_hush_blocks_ambiguous_context0_without_repo_lock(tmp_path: Path):
     assert result["mutation_fence"] == "blocked"
 
 
+def test_hush_routes_maif_social_sb_opus_rerun_without_live_logs(tmp_path: Path):
+    (tmp_path / "logs").mkdir()
+
+    result = classify_active_repo(
+        tmp_path,
+        "fix data in sb and rerun Opus 4.8 so yesterday's MAIF social comment answers in the proper tone",
+    )
+
+    assert result["active_repo"] == "maif_auditor"
+    assert result["mutation_fence"] == "open"
+    assert result["repo_confidence"] >= 0.22
+
+
+def test_hush_name_alone_does_not_open_maif_room_without_anchor(tmp_path: Path):
+    (tmp_path / "logs").mkdir()
+
+    result = classify_active_repo(tmp_path, "debug hush runtime state")
+
+    assert result["active_repo"] == "ambiguous"
+    assert result["mutation_fence"] == "blocked"
+
+
+def test_hush_routes_maif_auditor_consensus_manager_move(tmp_path: Path):
+    root = _root(tmp_path)
+    prompt = (
+        "MAIF auditor consensus baseline should shift from original Gemini synthesis "
+        "to DeepSeek consensus manager for profile updates and intent graph work"
+    )
+
+    runtime = build_hush_intent_runtime(root, prompt, write=False)
+
+    repo = runtime["repo_classification"]
+    assert repo["active_repo"] == "maif_auditor"
+    assert repo["mutation_fence"] == "open"
+    names = {move["name"] for move in runtime["intent_moves"]}
+    assert "maif_auditor_consensus_manager" in names
+    move = next(move for move in runtime["intent_moves"] if move["name"] == "maif_auditor_consensus_manager")
+    assert "DeepSeek consensus-manager" in move["summary"]
+
+
 def test_hush_runtime_splits_messy_prompt_and_writes_file_packets(tmp_path: Path):
     root = _root(tmp_path)
     prompt = (
         "Hush needs persistent intent reconstruction, repo classification for LinkRouter MAIF files, "
-        "emails with useful text, Inator file identity names, and future whisper IRT field intent."
+        "MAIF social post reruns in Supabase, emails with useful text, Inator file identity names, "
+        "and future whisper IRT field intent."
     )
     with (root / "logs" / "prompt_journal.jsonl").open("a", encoding="utf-8") as handle:
         handle.write(json.dumps({"msg": prompt, "intent": "building", "deleted_words": ["jarvis"]}) + "\n")
@@ -92,6 +133,7 @@ def test_hush_runtime_splits_messy_prompt_and_writes_file_packets(tmp_path: Path
         "hush_intent_runtime",
         "repo_classification",
         "linkrouter_file_room_access",
+        "maif_social_post_rerun",
         "file_mail_quality_gate",
         "file_identity_narrative",
         "field_whisper_irt_future_layer",
