@@ -33,6 +33,11 @@ def enqueue_deepseek_prompt_job(
     focus_files = (context_pack or {}).get("focus_files") or context_selection.get("files") or []
     signals = (context_pack or {}).get("signals") or {}
     parsed_deleted = _parse_deleted_words(deleted_words if deleted_words is not None else signals.get("deleted_words") or [], "")
+    probe_cycle = (context_pack or {}).get("copilot_probe_push_cycle") if isinstance(context_pack, dict) else {}
+    if mode == "probe_push_cycle" and isinstance(probe_cycle, dict) and probe_cycle:
+        probe_focus = ((probe_cycle.get("file_sim_orchestration") or {}).get("waking_files") or [])
+        if probe_focus:
+            focus_files = probe_focus
 
     digest_src = json.dumps({
         "prompt": prompt,
@@ -47,6 +52,13 @@ def enqueue_deepseek_prompt_job(
         if row.get("job_id") == job_id:
             return {**row, "duplicate": True}
 
+    handoff = (probe_cycle.get("deepseek_compiler_handoff") or {}) if isinstance(probe_cycle, dict) else {}
+    context_pack_path = "logs/dynamic_context_pack.json" if context_pack else ""
+    dynamic_context_pack_path = ""
+    if mode == "probe_push_cycle" and isinstance(probe_cycle, dict) and probe_cycle:
+        context_pack_path = str(handoff.get("context_pack_path") or "logs/copilot_probe_push_cycle_latest.json")
+        dynamic_context_pack_path = str(handoff.get("dynamic_context_pack_path") or "logs/dynamic_context_pack.json")
+
     job = {
         "ts": _utc_now(),
         "job_id": job_id,
@@ -60,9 +72,13 @@ def enqueue_deepseek_prompt_job(
         "focus_files": focus_files[:12],
         "context_confidence": context_selection.get("confidence", 0),
         "context_status": context_selection.get("status", "unknown"),
-        "context_pack_path": "logs/dynamic_context_pack.json" if context_pack else "",
+        "context_pack_path": context_pack_path,
         "autonomous_write": os.environ.get("DEEPSEEK_AUTONOMOUS_PROMPT_WRITES", "").lower() in {"1", "true", "yes"},
     }
+    if dynamic_context_pack_path:
+        job["dynamic_context_pack_path"] = dynamic_context_pack_path
+    if isinstance(probe_cycle, dict) and probe_cycle.get("cycle_id"):
+        job["probe_cycle_id"] = probe_cycle.get("cycle_id")
     _append_jsonl(logs / "deepseek_prompt_jobs.jsonl", job)
     (logs / "deepseek_prompt_latest.json").write_text(json.dumps(job, indent=2, ensure_ascii=False), encoding="utf-8")
     return job

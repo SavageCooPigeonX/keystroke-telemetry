@@ -1,0 +1,247 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:43:19.863336+00:00",
+  "source_file": "file_interview_mode_seq001_v001.py",
+  "source_stem": "file_interview_mode_seq001_v001",
+  "target_dir": "file_interview_mode_seq001_v001_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 8,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_interview_mode_seq001_v001.py",
+      "source_symbols": [
+        "interview_files"
+      ],
+      "generated_file": "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq001_v001.py",
+      "generated_module": "file_interview_mode_seq001_v001_compiled_seq001_v001",
+      "identity_key": "file_interview_mode_seq001_v001.py::interview_files",
+      "aliases": [
+        "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq001_v001.py",
+        "file_interview_mode_seq001_v001.py::interview_files",
+        "file_interview_mode_seq001_v001::interview_files",
+        "interview_files"
+      ],
+      "line_count": 35,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_interview_mode_seq001_v001.py",
+      "source_symbols": [
+        "_answer_file",
+        "_select_files"
+      ],
+      "generated_file": "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq002_v001.py",
+      "generated_module": "file_interview_mode_seq001_v001_compiled_seq002_v001",
+      "identity_key": "file_interview_mode_seq001_v001.py::_answer_file|_select_files",
+      "aliases": [
+        "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq002_v001.py",
+        "file_interview_mode_seq001_v001.py::_answer_file",
+        "file_interview_mode_seq001_v001::_answer_file",
+        "_answer_file",
+        "file_interview_mode_seq001_v001.py::_select_files",
+        "file_interview_mode_seq001_v001::_select_files",
+        "_select_files"
+      ],
+      "line_count": 60,
+      "status": "WARN (60)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_interview_mode_seq001_v001.py",
+      "source_symbols": [
+        "_recent_learning_files",
+        "_resolve_file"
+      ],
+      "generated_file": "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq003_v001.py",
+      "generated_module": "file_interview_mode_seq001_v001_compiled_seq003_v001",
+      "identity_key": "file_interview_mode_seq001_v001.py::_recent_learning_files|_resolve_file",
+      "aliases": [
+        "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq003_v001.py",
+        "file_interview_mode_seq001_v001.py::_recent_learning_files",
+        "file_interview_mode_seq001_v001::_recent_learning_files",
+        "_recent_learning_files",
+        "file_interview_mode_seq001_v001.py::_resolve_file",
+        "file_interview_mode_seq001_v001::_resolve_file",
+        "_resolve_file"
+      ],
+      "line_count": 50,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_interview_mode_seq001_v001.py",
+      "source_symbols": [
+        "_find_by_stem",
+        "_file_profile",
+        "_comments_for_file"
+      ],
+      "generated_file": "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq004_v001.py",
+      "generated_module": "file_interview_mode_seq001_v001_compiled_seq004_v001",
+      "identity_key": "file_interview_mode_seq001_v001.py::_find_by_stem|_file_profile|_comments_for_file",
+      "aliases": [
+        "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq004_v001.py",
+        "file_interview_mode_seq001_v001.py::_find_by_stem",
+        "file_interview_mode_seq001_v001::_find_by_stem",
+        "_find_by_stem",
+        "file_interview_mode_seq001_v001.py::_file_profile",
+        "file_interview_mode_seq001_v001::_file_profile",
+        "_file_profile",
+        "file_interview_mode_seq001_v001.py::_comments_for_file",
+        "file_interview_mode_seq001_v001::_comments_for_file",
+        "_comments_for_file"
+      ],
+      "line_count": 56,
+      "status": "WARN (56)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_interview_mode_seq001_v001.py",
+      "source_symbols": [
+        "_context_questions_for_file",
+        "_alias_for_file",
+        "_alias_for_key",
+        "_same_identity"
+      ],
+      "generated_file": "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq005_v001.py",
+      "generated_module": "file_interview_mode_seq001_v001_compiled_seq005_v001",
+      "identity_key": "file_interview_mode_seq001_v001.py::_context_questions_for_file|_alias_for_file|_alias_for_key|_same_identity",
+      "aliases": [
+        "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq005_v001.py",
+        "file_interview_mode_seq001_v001.py::_context_questions_for_file",
+        "file_interview_mode_seq001_v001::_context_questions_for_file",
+        "_context_questions_for_file",
+        "file_interview_mode_seq001_v001.py::_alias_for_file",
+        "file_interview_mode_seq001_v001::_alias_for_file",
+        "_alias_for_file",
+        "file_interview_mode_seq001_v001.py::_alias_for_key",
+        "file_interview_mode_seq001_v001::_alias_for_key",
+        "_alias_for_key",
+        "file_interview_mode_seq001_v001.py::_same_identity",
+        "file_interview_mode_seq001_v001::_same_identity",
+        "_same_identity"
+      ],
+      "line_count": 51,
+      "status": "WARN (51)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_interview_mode_seq001_v001.py",
+      "source_symbols": [
+        "_latest_push_cycle",
+        "_risk_for_file",
+        "_proposed_fix"
+      ],
+      "generated_file": "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq006_v001.py",
+      "generated_module": "file_interview_mode_seq001_v001_compiled_seq006_v001",
+      "identity_key": "file_interview_mode_seq001_v001.py::_latest_push_cycle|_risk_for_file|_proposed_fix",
+      "aliases": [
+        "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq006_v001.py",
+        "file_interview_mode_seq001_v001.py::_latest_push_cycle",
+        "file_interview_mode_seq001_v001::_latest_push_cycle",
+        "_latest_push_cycle",
+        "file_interview_mode_seq001_v001.py::_risk_for_file",
+        "file_interview_mode_seq001_v001::_risk_for_file",
+        "_risk_for_file",
+        "file_interview_mode_seq001_v001.py::_proposed_fix",
+        "file_interview_mode_seq001_v001::_proposed_fix",
+        "_proposed_fix"
+      ],
+      "line_count": 55,
+      "status": "WARN (55)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_interview_mode_seq001_v001.py",
+      "source_symbols": [
+        "_codex_takeaway",
+        "_summarize_answers",
+        "_write_outputs",
+        "_render_markdown",
+        "_load_json"
+      ],
+      "generated_file": "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq007_v001.py",
+      "generated_module": "file_interview_mode_seq001_v001_compiled_seq007_v001",
+      "identity_key": "file_interview_mode_seq001_v001.py::_codex_takeaway|_summarize_answers|_write_outputs|_render_markdown|_load_json",
+      "aliases": [
+        "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq007_v001.py",
+        "file_interview_mode_seq001_v001.py::_codex_takeaway",
+        "file_interview_mode_seq001_v001::_codex_takeaway",
+        "_codex_takeaway",
+        "file_interview_mode_seq001_v001.py::_summarize_answers",
+        "file_interview_mode_seq001_v001::_summarize_answers",
+        "_summarize_answers",
+        "file_interview_mode_seq001_v001.py::_write_outputs",
+        "file_interview_mode_seq001_v001::_write_outputs",
+        "_write_outputs",
+        "file_interview_mode_seq001_v001.py::_render_markdown",
+        "file_interview_mode_seq001_v001::_render_markdown",
+        "_render_markdown",
+        "file_interview_mode_seq001_v001.py::_load_json",
+        "file_interview_mode_seq001_v001::_load_json",
+        "_load_json"
+      ],
+      "line_count": 60,
+      "status": "WARN (60)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_interview_mode_seq001_v001.py",
+      "source_symbols": [
+        "_load_jsonl",
+        "_append_jsonl",
+        "_safe_read",
+        "_rel",
+        "_utcnow",
+        "main",
+        "DEFAULT_QUESTIONS"
+      ],
+      "generated_file": "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq008_v001.py",
+      "generated_module": "file_interview_mode_seq001_v001_compiled_seq008_v001",
+      "identity_key": "file_interview_mode_seq001_v001.py::_load_jsonl|_append_jsonl|_safe_read|_rel|_utcnow|main|DEFAULT_QUESTIONS",
+      "aliases": [
+        "file_interview_mode_seq001_v001_compiled/file_interview_mode_seq001_v001_compiled_seq008_v001.py",
+        "file_interview_mode_seq001_v001.py::_load_jsonl",
+        "file_interview_mode_seq001_v001::_load_jsonl",
+        "_load_jsonl",
+        "file_interview_mode_seq001_v001.py::_append_jsonl",
+        "file_interview_mode_seq001_v001::_append_jsonl",
+        "_append_jsonl",
+        "file_interview_mode_seq001_v001.py::_safe_read",
+        "file_interview_mode_seq001_v001::_safe_read",
+        "_safe_read",
+        "file_interview_mode_seq001_v001.py::_rel",
+        "file_interview_mode_seq001_v001::_rel",
+        "_rel",
+        "file_interview_mode_seq001_v001.py::_utcnow",
+        "file_interview_mode_seq001_v001::_utcnow",
+        "_utcnow",
+        "file_interview_mode_seq001_v001.py::main",
+        "file_interview_mode_seq001_v001::main",
+        "main",
+        "file_interview_mode_seq001_v001.py::DEFAULT_QUESTIONS",
+        "file_interview_mode_seq001_v001::DEFAULT_QUESTIONS",
+        "DEFAULT_QUESTIONS"
+      ],
+      "line_count": 69,
+      "status": "WARN (69)",
+      "reason": ""
+    }
+  ]
+}

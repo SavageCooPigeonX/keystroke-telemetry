@@ -1,0 +1,7 @@
+"""intent_identity_naming_seq001_v002_compiled/ — Pigeon-compliant module."""
+from .intent_identity_naming_seq001_v002_compiled_seq001_v001 import identity_id_from_path, intent_domain_for_path, itid_from_intent_key, lineage_hash
+from .intent_identity_naming_seq001_v002_compiled_seq002_v001 import build_intent_filename
+from .intent_identity_naming_seq001_v002_compiled_seq003_v001 import next_eci, parse_intent_stem
+from .intent_identity_naming_seq001_v002_compiled_seq004_v001 import enrich_registry_entry
+from .intent_identity_naming_seq001_v002_compiled_seq005_v001 import stamp_intent_touch
+from .intent_identity_naming_seq001_v002_compiled_seq006_v001 import INTENT_STEM_RE, LC_SEP, parent_lineage_from_compile

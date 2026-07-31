@@ -10,7 +10,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from pigeon_compiler.pigeon_limits import PIGEON_MAX, PIGEON_RECOMMENDED
+from pigeon_compiler.pigeon_limits_seq003_v001_d0730__central_compliance_thresholds_and_exclude_lc_organism_health_refactor import PIGEON_MAX, PIGEON_RECOMMENDED
 
 
 def find_oversized(ether_map: dict) -> list:

@@ -11,6 +11,8 @@ from pathlib import Path
 import ast
 import re
 
+from .p_谱msvd观λc_s001_v001 import MAX_COMPLIANT
+
 def _build_signatures_section(file_records: list[dict]) -> list[str]:
     """Build the Module Signatures section content."""
     lines = []

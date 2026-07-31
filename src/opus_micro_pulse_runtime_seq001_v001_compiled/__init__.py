@@ -1,0 +1,5 @@
+"""opus_micro_pulse_runtime_seq001_v001_compiled/ — Pigeon-compliant module."""
+from .opus_micro_pulse_runtime_seq001_v001_compiled_seq001_v001 import build_opus_micro_pulse_runtime
+from .opus_micro_pulse_runtime_seq001_v001_compiled_seq002_v001 import classify_prompt
+from .opus_micro_pulse_runtime_seq001_v001_compiled_seq003_v001 import render_opus_micro_pulse
+from .opus_micro_pulse_runtime_seq001_v001_compiled_seq018_v001 import EXECUTOR_PROMPT, HISTORY, LATEST, MARKDOWN, PROMPT_CLASSES, SCHEMA

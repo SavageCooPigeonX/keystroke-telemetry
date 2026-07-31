@@ -1,0 +1,183 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:48:54.352451+00:00",
+  "source_file": "root_sim_key_file_seq001_v001.py",
+  "source_stem": "root_sim_key_file_seq001_v001",
+  "target_dir": "root_sim_key_file_seq001_v001_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 6,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "root_sim_key_file_seq001_v001.py",
+      "source_symbols": [
+        "build_root_sim_key_file"
+      ],
+      "generated_file": "root_sim_key_file_seq001_v001_compiled/root_sim_key_file_seq001_v001_compiled_seq001_v001.py",
+      "generated_module": "root_sim_key_file_seq001_v001_compiled_seq001_v001",
+      "identity_key": "root_sim_key_file_seq001_v001.py::build_root_sim_key_file",
+      "aliases": [
+        "root_sim_key_file_seq001_v001_compiled/root_sim_key_file_seq001_v001_compiled_seq001_v001.py",
+        "root_sim_key_file_seq001_v001.py::build_root_sim_key_file",
+        "root_sim_key_file_seq001_v001::build_root_sim_key_file",
+        "build_root_sim_key_file"
+      ],
+      "line_count": 54,
+      "status": "WARN (54)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "root_sim_key_file_seq001_v001.py",
+      "source_symbols": [
+        "render_root_sim_key_file"
+      ],
+      "generated_file": "root_sim_key_file_seq001_v001_compiled/root_sim_key_file_seq001_v001_compiled_seq002_v001.py",
+      "generated_module": "root_sim_key_file_seq001_v001_compiled_seq002_v001",
+      "identity_key": "root_sim_key_file_seq001_v001.py::render_root_sim_key_file",
+      "aliases": [
+        "root_sim_key_file_seq001_v001_compiled/root_sim_key_file_seq001_v001_compiled_seq002_v001.py",
+        "root_sim_key_file_seq001_v001.py::render_root_sim_key_file",
+        "root_sim_key_file_seq001_v001::render_root_sim_key_file",
+        "render_root_sim_key_file"
+      ],
+      "line_count": 35,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "root_sim_key_file_seq001_v001.py",
+      "source_symbols": [
+        "_attention_plan",
+        "_slot_pool"
+      ],
+      "generated_file": "root_sim_key_file_seq001_v001_compiled/root_sim_key_file_seq001_v001_compiled_seq003_v001.py",
+      "generated_module": "root_sim_key_file_seq001_v001_compiled_seq003_v001",
+      "identity_key": "root_sim_key_file_seq001_v001.py::_attention_plan|_slot_pool",
+      "aliases": [
+        "root_sim_key_file_seq001_v001_compiled/root_sim_key_file_seq001_v001_compiled_seq003_v001.py",
+        "root_sim_key_file_seq001_v001.py::_attention_plan",
+        "root_sim_key_file_seq001_v001::_attention_plan",
+        "_attention_plan",
+        "root_sim_key_file_seq001_v001.py::_slot_pool",
+        "root_sim_key_file_seq001_v001::_slot_pool",
+        "_slot_pool"
+      ],
+      "line_count": 36,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "root_sim_key_file_seq001_v001.py",
+      "source_symbols": [
+        "_write_live_manifest_receipts",
+        "_folder_for_file",
+        "_add_prompt_packet",
+        "_add_probe_cycle"
+      ],
+      "generated_file": "root_sim_key_file_seq001_v001_compiled/root_sim_key_file_seq001_v001_compiled_seq004_v001.py",
+      "generated_module": "root_sim_key_file_seq001_v001_compiled_seq004_v001",
+      "identity_key": "root_sim_key_file_seq001_v001.py::_write_live_manifest_receipts|_folder_for_file|_add_prompt_packet|_add_probe_cycle",
+      "aliases": [
+        "root_sim_key_file_seq001_v001_compiled/root_sim_key_file_seq001_v001_compiled_seq004_v001.py",
+        "root_sim_key_file_seq001_v001.py::_write_live_manifest_receipts",
+        "root_sim_key_file_seq001_v001::_write_live_manifest_receipts",
+        "_write_live_manifest_receipts",
+        "root_sim_key_file_seq001_v001.py::_folder_for_file",
+        "root_sim_key_file_seq001_v001::_folder_for_file",
+        "_folder_for_file",
+        "root_sim_key_file_seq001_v001.py::_add_prompt_packet",
+        "root_sim_key_file_seq001_v001::_add_prompt_packet",
+        "_add_prompt_packet",
+        "root_sim_key_file_seq001_v001.py::_add_probe_cycle",
+        "root_sim_key_file_seq001_v001::_add_probe_cycle",
+        "_add_probe_cycle"
+      ],
+      "line_count": 46,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "root_sim_key_file_seq001_v001.py",
+      "source_symbols": [
+        "_add_bug_chat",
+        "_add_opus_pulse",
+        "_merge"
+      ],
+      "generated_file": "root_sim_key_file_seq001_v001_compiled/root_sim_key_file_seq001_v001_compiled_seq005_v001.py",
+      "generated_module": "root_sim_key_file_seq001_v001_compiled_seq005_v001",
+      "identity_key": "root_sim_key_file_seq001_v001.py::_add_bug_chat|_add_opus_pulse|_merge",
+      "aliases": [
+        "root_sim_key_file_seq001_v001_compiled/root_sim_key_file_seq001_v001_compiled_seq005_v001.py",
+        "root_sim_key_file_seq001_v001.py::_add_bug_chat",
+        "root_sim_key_file_seq001_v001::_add_bug_chat",
+        "_add_bug_chat",
+        "root_sim_key_file_seq001_v001.py::_add_opus_pulse",
+        "root_sim_key_file_seq001_v001::_add_opus_pulse",
+        "_add_opus_pulse",
+        "root_sim_key_file_seq001_v001.py::_merge",
+        "root_sim_key_file_seq001_v001::_merge",
+        "_merge"
+      ],
+      "line_count": 51,
+      "status": "WARN (51)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "root_sim_key_file_seq001_v001.py",
+      "source_symbols": [
+        "_local_manifest",
+        "_cell",
+        "_load_json",
+        "_write_json",
+        "_append_jsonl",
+        "_now",
+        "ROOT_KEY",
+        "DEFAULT_ATTENTION_LIMIT"
+      ],
+      "generated_file": "root_sim_key_file_seq001_v001_compiled/root_sim_key_file_seq001_v001_compiled_seq006_v001.py",
+      "generated_module": "root_sim_key_file_seq001_v001_compiled_seq006_v001",
+      "identity_key": "root_sim_key_file_seq001_v001.py::_local_manifest|_cell|_load_json|_write_json|_append_jsonl|_now|ROOT_KEY|DEFAULT_ATTENTION_LIMIT",
+      "aliases": [
+        "root_sim_key_file_seq001_v001_compiled/root_sim_key_file_seq001_v001_compiled_seq006_v001.py",
+        "root_sim_key_file_seq001_v001.py::_local_manifest",
+        "root_sim_key_file_seq001_v001::_local_manifest",
+        "_local_manifest",
+        "root_sim_key_file_seq001_v001.py::_cell",
+        "root_sim_key_file_seq001_v001::_cell",
+        "_cell",
+        "root_sim_key_file_seq001_v001.py::_load_json",
+        "root_sim_key_file_seq001_v001::_load_json",
+        "_load_json",
+        "root_sim_key_file_seq001_v001.py::_write_json",
+        "root_sim_key_file_seq001_v001::_write_json",
+        "_write_json",
+        "root_sim_key_file_seq001_v001.py::_append_jsonl",
+        "root_sim_key_file_seq001_v001::_append_jsonl",
+        "_append_jsonl",
+        "root_sim_key_file_seq001_v001.py::_now",
+        "root_sim_key_file_seq001_v001::_now",
+        "_now",
+        "root_sim_key_file_seq001_v001.py::ROOT_KEY",
+        "root_sim_key_file_seq001_v001::ROOT_KEY",
+        "ROOT_KEY",
+        "root_sim_key_file_seq001_v001.py::DEFAULT_ATTENTION_LIMIT",
+        "root_sim_key_file_seq001_v001::DEFAULT_ATTENTION_LIMIT",
+        "DEFAULT_ATTENTION_LIMIT"
+      ],
+      "line_count": 40,
+      "status": "OK",
+      "reason": ""
+    }
+  ]
+}

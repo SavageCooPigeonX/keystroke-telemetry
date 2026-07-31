@@ -1,0 +1,4 @@
+"""opus_orchestrator_runtime_seq001_v001_compiled/ — Pigeon-compliant module."""
+from .opus_orchestrator_runtime_seq001_v001_compiled_seq001_v001 import build_opus_orchestrator_runtime
+from .opus_orchestrator_runtime_seq001_v001_compiled_seq002_v001 import render_opus_runtime
+from .opus_orchestrator_runtime_seq001_v001_compiled_seq006_v001 import HISTORY, LATEST, MANIFEST_NOTE, MARKDOWN, SCHEMA

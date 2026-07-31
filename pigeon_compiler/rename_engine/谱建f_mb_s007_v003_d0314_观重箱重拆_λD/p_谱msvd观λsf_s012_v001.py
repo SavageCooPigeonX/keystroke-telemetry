@@ -10,6 +10,19 @@
 from pathlib import Path
 import re
 
+from .p_谱msvd观λc_s001_v001 import SKIP_FILES
+from .p_谱msvd观λse_s002_v001 import (
+    _extract_classes,
+    _extract_code_markers,
+    _extract_constants,
+    _extract_deps,
+    _extract_docstring_first_line,
+    _extract_exports,
+    _extract_seq,
+    _extract_signatures,
+    _parse_pigeon_header,
+)
+
 def _scan_folder_rich(folder: Path) -> list[dict]:
     """Return list of file records with exports, deps, signatures, and pigeon metadata."""
     results = []

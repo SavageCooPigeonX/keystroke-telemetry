@@ -1,0 +1,387 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:32:40.586966+00:00",
+  "source_file": "opus_prompt_box_seq001_v001.py",
+  "source_stem": "opus_prompt_box_seq001_v001",
+  "target_dir": "opus_prompt_box_seq001_v001_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 13,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_prompt_box_seq001_v001.py",
+      "source_symbols": [
+        "refine_opus_prompt_box"
+      ],
+      "generated_file": "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq001_v001.py",
+      "generated_module": "opus_prompt_box_seq001_v001_compiled_seq001_v001",
+      "identity_key": "opus_prompt_box_seq001_v001.py::refine_opus_prompt_box",
+      "aliases": [
+        "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq001_v001.py",
+        "opus_prompt_box_seq001_v001.py::refine_opus_prompt_box",
+        "opus_prompt_box_seq001_v001::refine_opus_prompt_box",
+        "refine_opus_prompt_box"
+      ],
+      "line_count": 78,
+      "status": "WARN (78)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_prompt_box_seq001_v001.py",
+      "source_symbols": [
+        "queue_prompt_box_candidate"
+      ],
+      "generated_file": "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq002_v001.py",
+      "generated_module": "opus_prompt_box_seq001_v001_compiled_seq002_v001",
+      "identity_key": "opus_prompt_box_seq001_v001.py::queue_prompt_box_candidate",
+      "aliases": [
+        "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq002_v001.py",
+        "opus_prompt_box_seq001_v001.py::queue_prompt_box_candidate",
+        "opus_prompt_box_seq001_v001::queue_prompt_box_candidate",
+        "queue_prompt_box_candidate"
+      ],
+      "line_count": 29,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_prompt_box_seq001_v001.py",
+      "source_symbols": [
+        "render_opus_prompt_box"
+      ],
+      "generated_file": "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq003_v001.py",
+      "generated_module": "opus_prompt_box_seq001_v001_compiled_seq003_v001",
+      "identity_key": "opus_prompt_box_seq001_v001.py::render_opus_prompt_box",
+      "aliases": [
+        "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq003_v001.py",
+        "opus_prompt_box_seq001_v001.py::render_opus_prompt_box",
+        "opus_prompt_box_seq001_v001::render_opus_prompt_box",
+        "render_opus_prompt_box"
+      ],
+      "line_count": 42,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_prompt_box_seq001_v001.py",
+      "source_symbols": [
+        "_merge_problems"
+      ],
+      "generated_file": "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq004_v001.py",
+      "generated_module": "opus_prompt_box_seq001_v001_compiled_seq004_v001",
+      "identity_key": "opus_prompt_box_seq001_v001.py::_merge_problems",
+      "aliases": [
+        "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq004_v001.py",
+        "opus_prompt_box_seq001_v001.py::_merge_problems",
+        "opus_prompt_box_seq001_v001::_merge_problems",
+        "_merge_problems"
+      ],
+      "line_count": 41,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_prompt_box_seq001_v001.py",
+      "source_symbols": [
+        "_upsert",
+        "_apply_tax"
+      ],
+      "generated_file": "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq005_v001.py",
+      "generated_module": "opus_prompt_box_seq001_v001_compiled_seq005_v001",
+      "identity_key": "opus_prompt_box_seq001_v001.py::_upsert|_apply_tax",
+      "aliases": [
+        "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq005_v001.py",
+        "opus_prompt_box_seq001_v001.py::_upsert",
+        "opus_prompt_box_seq001_v001::_upsert",
+        "_upsert",
+        "opus_prompt_box_seq001_v001.py::_apply_tax",
+        "opus_prompt_box_seq001_v001::_apply_tax",
+        "_apply_tax"
+      ],
+      "line_count": 45,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_prompt_box_seq001_v001.py",
+      "source_symbols": [
+        "_boost_for_prompt",
+        "_cap_open"
+      ],
+      "generated_file": "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq006_v001.py",
+      "generated_module": "opus_prompt_box_seq001_v001_compiled_seq006_v001",
+      "identity_key": "opus_prompt_box_seq001_v001.py::_boost_for_prompt|_cap_open",
+      "aliases": [
+        "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq006_v001.py",
+        "opus_prompt_box_seq001_v001.py::_boost_for_prompt",
+        "opus_prompt_box_seq001_v001::_boost_for_prompt",
+        "_boost_for_prompt",
+        "opus_prompt_box_seq001_v001.py::_cap_open",
+        "opus_prompt_box_seq001_v001::_cap_open",
+        "_cap_open"
+      ],
+      "line_count": 44,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_prompt_box_seq001_v001.py",
+      "source_symbols": [
+        "_intent_routes",
+        "_routing_note",
+        "_problem_from_intent"
+      ],
+      "generated_file": "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq007_v001.py",
+      "generated_module": "opus_prompt_box_seq001_v001_compiled_seq007_v001",
+      "identity_key": "opus_prompt_box_seq001_v001.py::_intent_routes|_routing_note|_problem_from_intent",
+      "aliases": [
+        "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq007_v001.py",
+        "opus_prompt_box_seq001_v001.py::_intent_routes",
+        "opus_prompt_box_seq001_v001::_intent_routes",
+        "_intent_routes",
+        "opus_prompt_box_seq001_v001.py::_routing_note",
+        "opus_prompt_box_seq001_v001::_routing_note",
+        "_routing_note",
+        "opus_prompt_box_seq001_v001.py::_problem_from_intent",
+        "opus_prompt_box_seq001_v001::_problem_from_intent",
+        "_problem_from_intent"
+      ],
+      "line_count": 53,
+      "status": "WARN (53)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_prompt_box_seq001_v001.py",
+      "source_symbols": [
+        "_problem_from_bug",
+        "_problem_from_candidate"
+      ],
+      "generated_file": "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq008_v001.py",
+      "generated_module": "opus_prompt_box_seq001_v001_compiled_seq008_v001",
+      "identity_key": "opus_prompt_box_seq001_v001.py::_problem_from_bug|_problem_from_candidate",
+      "aliases": [
+        "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq008_v001.py",
+        "opus_prompt_box_seq001_v001.py::_problem_from_bug",
+        "opus_prompt_box_seq001_v001::_problem_from_bug",
+        "_problem_from_bug",
+        "opus_prompt_box_seq001_v001.py::_problem_from_candidate",
+        "opus_prompt_box_seq001_v001::_problem_from_candidate",
+        "_problem_from_candidate"
+      ],
+      "line_count": 50,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_prompt_box_seq001_v001.py",
+      "source_symbols": [
+        "_problem_from_prompt"
+      ],
+      "generated_file": "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq009_v001.py",
+      "generated_module": "opus_prompt_box_seq001_v001_compiled_seq009_v001",
+      "identity_key": "opus_prompt_box_seq001_v001.py::_problem_from_prompt",
+      "aliases": [
+        "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq009_v001.py",
+        "opus_prompt_box_seq001_v001.py::_problem_from_prompt",
+        "opus_prompt_box_seq001_v001::_problem_from_prompt",
+        "_problem_from_prompt"
+      ],
+      "line_count": 25,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_prompt_box_seq001_v001.py",
+      "source_symbols": [
+        "_absorb_legacy_tasks",
+        "_legacy_priority",
+        "_bug_candidates"
+      ],
+      "generated_file": "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq010_v001.py",
+      "generated_module": "opus_prompt_box_seq001_v001_compiled_seq010_v001",
+      "identity_key": "opus_prompt_box_seq001_v001.py::_absorb_legacy_tasks|_legacy_priority|_bug_candidates",
+      "aliases": [
+        "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq010_v001.py",
+        "opus_prompt_box_seq001_v001.py::_absorb_legacy_tasks",
+        "opus_prompt_box_seq001_v001::_absorb_legacy_tasks",
+        "_absorb_legacy_tasks",
+        "opus_prompt_box_seq001_v001.py::_legacy_priority",
+        "opus_prompt_box_seq001_v001::_legacy_priority",
+        "_legacy_priority",
+        "opus_prompt_box_seq001_v001.py::_bug_candidates",
+        "opus_prompt_box_seq001_v001::_bug_candidates",
+        "_bug_candidates"
+      ],
+      "line_count": 59,
+      "status": "WARN (59)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_prompt_box_seq001_v001.py",
+      "source_symbols": [
+        "_intent_graph",
+        "_write_task_queue"
+      ],
+      "generated_file": "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq011_v001.py",
+      "generated_module": "opus_prompt_box_seq001_v001_compiled_seq011_v001",
+      "identity_key": "opus_prompt_box_seq001_v001.py::_intent_graph|_write_task_queue",
+      "aliases": [
+        "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq011_v001.py",
+        "opus_prompt_box_seq001_v001.py::_intent_graph",
+        "opus_prompt_box_seq001_v001::_intent_graph",
+        "_intent_graph",
+        "opus_prompt_box_seq001_v001.py::_write_task_queue",
+        "opus_prompt_box_seq001_v001::_write_task_queue",
+        "_write_task_queue"
+      ],
+      "line_count": 51,
+      "status": "WARN (51)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_prompt_box_seq001_v001.py",
+      "source_symbols": [
+        "_score_priority",
+        "_truncate_candidates",
+        "_load_candidates",
+        "_problem_key",
+        "_tokens",
+        "_slug",
+        "_latest_prompt",
+        "_next_id"
+      ],
+      "generated_file": "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq012_v001.py",
+      "generated_module": "opus_prompt_box_seq001_v001_compiled_seq012_v001",
+      "identity_key": "opus_prompt_box_seq001_v001.py::_score_priority|_truncate_candidates|_load_candidates|_problem_key|_tokens|_slug|_latest_prompt|_next_id",
+      "aliases": [
+        "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq012_v001.py",
+        "opus_prompt_box_seq001_v001.py::_score_priority",
+        "opus_prompt_box_seq001_v001::_score_priority",
+        "_score_priority",
+        "opus_prompt_box_seq001_v001.py::_truncate_candidates",
+        "opus_prompt_box_seq001_v001::_truncate_candidates",
+        "_truncate_candidates",
+        "opus_prompt_box_seq001_v001.py::_load_candidates",
+        "opus_prompt_box_seq001_v001::_load_candidates",
+        "_load_candidates",
+        "opus_prompt_box_seq001_v001.py::_problem_key",
+        "opus_prompt_box_seq001_v001::_problem_key",
+        "_problem_key",
+        "opus_prompt_box_seq001_v001.py::_tokens",
+        "opus_prompt_box_seq001_v001::_tokens",
+        "_tokens",
+        "opus_prompt_box_seq001_v001.py::_slug",
+        "opus_prompt_box_seq001_v001::_slug",
+        "_slug",
+        "opus_prompt_box_seq001_v001.py::_latest_prompt",
+        "opus_prompt_box_seq001_v001::_latest_prompt",
+        "_latest_prompt",
+        "opus_prompt_box_seq001_v001.py::_next_id",
+        "opus_prompt_box_seq001_v001::_next_id",
+        "_next_id"
+      ],
+      "line_count": 66,
+      "status": "WARN (66)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_prompt_box_seq001_v001.py",
+      "source_symbols": [
+        "_parse_ts",
+        "_load_json",
+        "_write_json",
+        "_append_jsonl",
+        "_now",
+        "SCHEMA",
+        "MAX_OPEN_PROBLEMS",
+        "TAX_HALF_LIFE_HOURS",
+        "CANDIDATES_LOG",
+        "LATEST_JSON",
+        "LATEST_MD",
+        "HISTORY_JSONL",
+        "OPEN_STATUSES",
+        "DONE_STATUSES",
+        "DROP_STATUS"
+      ],
+      "generated_file": "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq013_v001.py",
+      "generated_module": "opus_prompt_box_seq001_v001_compiled_seq013_v001",
+      "identity_key": "opus_prompt_box_seq001_v001.py::_parse_ts|_load_json|_write_json|_append_jsonl|_now|SCHEMA|MAX_OPEN_PROBLEMS|TAX_HALF_LIFE_HOURS|CANDIDATES_LOG|LATEST_JSON|LATEST_MD|HISTORY_JSONL|OPEN_STATUSES|DONE_STATUSES|DROP_STATUS",
+      "aliases": [
+        "opus_prompt_box_seq001_v001_compiled/opus_prompt_box_seq001_v001_compiled_seq013_v001.py",
+        "opus_prompt_box_seq001_v001.py::_parse_ts",
+        "opus_prompt_box_seq001_v001::_parse_ts",
+        "_parse_ts",
+        "opus_prompt_box_seq001_v001.py::_load_json",
+        "opus_prompt_box_seq001_v001::_load_json",
+        "_load_json",
+        "opus_prompt_box_seq001_v001.py::_write_json",
+        "opus_prompt_box_seq001_v001::_write_json",
+        "_write_json",
+        "opus_prompt_box_seq001_v001.py::_append_jsonl",
+        "opus_prompt_box_seq001_v001::_append_jsonl",
+        "_append_jsonl",
+        "opus_prompt_box_seq001_v001.py::_now",
+        "opus_prompt_box_seq001_v001::_now",
+        "_now",
+        "opus_prompt_box_seq001_v001.py::SCHEMA",
+        "opus_prompt_box_seq001_v001::SCHEMA",
+        "SCHEMA",
+        "opus_prompt_box_seq001_v001.py::MAX_OPEN_PROBLEMS",
+        "opus_prompt_box_seq001_v001::MAX_OPEN_PROBLEMS",
+        "MAX_OPEN_PROBLEMS",
+        "opus_prompt_box_seq001_v001.py::TAX_HALF_LIFE_HOURS",
+        "opus_prompt_box_seq001_v001::TAX_HALF_LIFE_HOURS",
+        "TAX_HALF_LIFE_HOURS",
+        "opus_prompt_box_seq001_v001.py::CANDIDATES_LOG",
+        "opus_prompt_box_seq001_v001::CANDIDATES_LOG",
+        "CANDIDATES_LOG",
+        "opus_prompt_box_seq001_v001.py::LATEST_JSON",
+        "opus_prompt_box_seq001_v001::LATEST_JSON",
+        "LATEST_JSON",
+        "opus_prompt_box_seq001_v001.py::LATEST_MD",
+        "opus_prompt_box_seq001_v001::LATEST_MD",
+        "LATEST_MD",
+        "opus_prompt_box_seq001_v001.py::HISTORY_JSONL",
+        "opus_prompt_box_seq001_v001::HISTORY_JSONL",
+        "HISTORY_JSONL",
+        "opus_prompt_box_seq001_v001.py::OPEN_STATUSES",
+        "opus_prompt_box_seq001_v001::OPEN_STATUSES",
+        "OPEN_STATUSES",
+        "opus_prompt_box_seq001_v001.py::DONE_STATUSES",
+        "opus_prompt_box_seq001_v001::DONE_STATUSES",
+        "DONE_STATUSES",
+        "opus_prompt_box_seq001_v001.py::DROP_STATUS",
+        "opus_prompt_box_seq001_v001::DROP_STATUS",
+        "DROP_STATUS"
+      ],
+      "line_count": 56,
+      "status": "WARN (56)",
+      "reason": ""
+    }
+  ]
+}

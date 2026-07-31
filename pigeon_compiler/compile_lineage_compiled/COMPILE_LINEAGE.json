@@ -1,0 +1,155 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:17:31.842780+00:00",
+  "source_file": "compile_lineage.py",
+  "source_stem": "compile_lineage",
+  "target_dir": "compile_lineage_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 5,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "compile_lineage.py",
+      "source_symbols": [
+        "write_compile_lineage"
+      ],
+      "generated_file": "compile_lineage_compiled/compile_lineage_compiled_seq001_v001.py",
+      "generated_module": "compile_lineage_compiled_seq001_v001",
+      "identity_key": "compile_lineage.py::write_compile_lineage",
+      "aliases": [
+        "compile_lineage_compiled/compile_lineage_compiled_seq001_v001.py",
+        "compile_lineage.py::write_compile_lineage",
+        "compile_lineage::write_compile_lineage",
+        "write_compile_lineage"
+      ],
+      "line_count": 86,
+      "status": "WARN (86)",
+      "reason": ""
+    },
+    {
+      "seq": 2,
+      "version": 1,
+      "source_file": "compile_lineage.py",
+      "source_symbols": [
+        "resolve_identity_alias"
+      ],
+      "generated_file": "compile_lineage_compiled/compile_lineage_compiled_seq002_v001.py",
+      "generated_module": "compile_lineage_compiled_seq002_v001",
+      "identity_key": "compile_lineage.py::resolve_identity_alias",
+      "aliases": [
+        "compile_lineage_compiled/compile_lineage_compiled_seq002_v001.py",
+        "compile_lineage.py::resolve_identity_alias",
+        "compile_lineage::resolve_identity_alias",
+        "resolve_identity_alias"
+      ],
+      "line_count": 18,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 3,
+      "version": 1,
+      "source_file": "compile_lineage.py",
+      "source_symbols": [
+        "_merge_aliases",
+        "_cut_symbols"
+      ],
+      "generated_file": "compile_lineage_compiled/compile_lineage_compiled_seq003_v001.py",
+      "generated_module": "compile_lineage_compiled_seq003_v001",
+      "identity_key": "compile_lineage.py::_merge_aliases|_cut_symbols",
+      "aliases": [
+        "compile_lineage_compiled/compile_lineage_compiled_seq003_v001.py",
+        "compile_lineage.py::_merge_aliases",
+        "compile_lineage::_merge_aliases",
+        "_merge_aliases",
+        "compile_lineage.py::_cut_symbols",
+        "compile_lineage::_cut_symbols",
+        "_cut_symbols"
+      ],
+      "line_count": 56,
+      "status": "WARN (56)",
+      "reason": ""
+    },
+    {
+      "seq": 4,
+      "version": 1,
+      "source_file": "compile_lineage.py",
+      "source_symbols": [
+        "_aliases_for_cut",
+        "_identity_key",
+        "_render_lineage",
+        "_seq_from_name",
+        "_version_from_name",
+        "_line_count"
+      ],
+      "generated_file": "compile_lineage_compiled/compile_lineage_compiled_seq004_v001.py",
+      "generated_module": "compile_lineage_compiled_seq004_v001",
+      "identity_key": "compile_lineage.py::_aliases_for_cut|_identity_key|_render_lineage|_seq_from_name|_version_from_name|_line_count",
+      "aliases": [
+        "compile_lineage_compiled/compile_lineage_compiled_seq004_v001.py",
+        "compile_lineage.py::_aliases_for_cut",
+        "compile_lineage::_aliases_for_cut",
+        "_aliases_for_cut",
+        "compile_lineage.py::_identity_key",
+        "compile_lineage::_identity_key",
+        "_identity_key",
+        "compile_lineage.py::_render_lineage",
+        "compile_lineage::_render_lineage",
+        "_render_lineage",
+        "compile_lineage.py::_seq_from_name",
+        "compile_lineage::_seq_from_name",
+        "_seq_from_name",
+        "compile_lineage.py::_version_from_name",
+        "compile_lineage::_version_from_name",
+        "_version_from_name",
+        "compile_lineage.py::_line_count",
+        "compile_lineage::_line_count",
+        "_line_count"
+      ],
+      "line_count": 58,
+      "status": "WARN (58)",
+      "reason": ""
+    },
+    {
+      "seq": 5,
+      "version": 1,
+      "source_file": "compile_lineage.py",
+      "source_symbols": [
+        "_rel",
+        "_load_json",
+        "_write_json",
+        "_append_jsonl",
+        "SCHEMA",
+        "ALIAS_SCHEMA"
+      ],
+      "generated_file": "compile_lineage_compiled/compile_lineage_compiled_seq005_v001.py",
+      "generated_module": "compile_lineage_compiled_seq005_v001",
+      "identity_key": "compile_lineage.py::_rel|_load_json|_write_json|_append_jsonl|SCHEMA|ALIAS_SCHEMA",
+      "aliases": [
+        "compile_lineage_compiled/compile_lineage_compiled_seq005_v001.py",
+        "compile_lineage.py::_rel",
+        "compile_lineage::_rel",
+        "_rel",
+        "compile_lineage.py::_load_json",
+        "compile_lineage::_load_json",
+        "_load_json",
+        "compile_lineage.py::_write_json",
+        "compile_lineage::_write_json",
+        "_write_json",
+        "compile_lineage.py::_append_jsonl",
+        "compile_lineage::_append_jsonl",
+        "_append_jsonl",
+        "compile_lineage.py::SCHEMA",
+        "compile_lineage::SCHEMA",
+        "SCHEMA",
+        "compile_lineage.py::ALIAS_SCHEMA",
+        "compile_lineage::ALIAS_SCHEMA",
+        "ALIAS_SCHEMA"
+      ],
+      "line_count": 36,
+      "status": "OK",
+      "reason": ""
+    }
+  ]
+}

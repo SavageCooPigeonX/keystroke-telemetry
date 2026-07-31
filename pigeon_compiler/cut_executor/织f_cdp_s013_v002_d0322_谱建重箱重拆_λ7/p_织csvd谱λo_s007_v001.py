@@ -8,7 +8,7 @@
 # SESSIONS: 0
 # ──────────────────────────────────────────────
 from pathlib import Path
-from pigeon_compiler.pigeon_limits import PIGEON_MAX
+from pigeon_compiler.pigeon_limits_seq003_v001_d0730__central_compliance_thresholds_and_exclude_lc_organism_health_refactor import PIGEON_MAX
 from .p_织csvd谱λfc_s004_v001 import find_oversized_classes
 import ast
 

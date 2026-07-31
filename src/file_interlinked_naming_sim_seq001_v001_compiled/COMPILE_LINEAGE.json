@@ -1,0 +1,183 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:17:17.304727+00:00",
+  "source_file": "file_interlinked_naming_sim_seq001_v001.py",
+  "source_stem": "file_interlinked_naming_sim_seq001_v001",
+  "target_dir": "file_interlinked_naming_sim_seq001_v001_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 6,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_interlinked_naming_sim_seq001_v001.py",
+      "source_symbols": [
+        "run_interlinked_naming_sim"
+      ],
+      "generated_file": "file_interlinked_naming_sim_seq001_v001_compiled/file_interlinked_naming_sim_seq001_v001_compiled_seq001_v001.py",
+      "generated_module": "file_interlinked_naming_sim_seq001_v001_compiled_seq001_v001",
+      "identity_key": "file_interlinked_naming_sim_seq001_v001.py::run_interlinked_naming_sim",
+      "aliases": [
+        "file_interlinked_naming_sim_seq001_v001_compiled/file_interlinked_naming_sim_seq001_v001_compiled_seq001_v001.py",
+        "file_interlinked_naming_sim_seq001_v001.py::run_interlinked_naming_sim",
+        "file_interlinked_naming_sim_seq001_v001::run_interlinked_naming_sim",
+        "run_interlinked_naming_sim"
+      ],
+      "line_count": 55,
+      "status": "WARN (55)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_interlinked_naming_sim_seq001_v001.py",
+      "source_symbols": [
+        "send_naming_grader_email",
+        "render_interlinked_naming_sim"
+      ],
+      "generated_file": "file_interlinked_naming_sim_seq001_v001_compiled/file_interlinked_naming_sim_seq001_v001_compiled_seq002_v001.py",
+      "generated_module": "file_interlinked_naming_sim_seq001_v001_compiled_seq002_v001",
+      "identity_key": "file_interlinked_naming_sim_seq001_v001.py::send_naming_grader_email|render_interlinked_naming_sim",
+      "aliases": [
+        "file_interlinked_naming_sim_seq001_v001_compiled/file_interlinked_naming_sim_seq001_v001_compiled_seq002_v001.py",
+        "file_interlinked_naming_sim_seq001_v001.py::send_naming_grader_email",
+        "file_interlinked_naming_sim_seq001_v001::send_naming_grader_email",
+        "send_naming_grader_email",
+        "file_interlinked_naming_sim_seq001_v001.py::render_interlinked_naming_sim",
+        "file_interlinked_naming_sim_seq001_v001::render_interlinked_naming_sim",
+        "render_interlinked_naming_sim"
+      ],
+      "line_count": 49,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_interlinked_naming_sim_seq001_v001.py",
+      "source_symbols": [
+        "_select_files",
+        "_first_symbolic_file"
+      ],
+      "generated_file": "file_interlinked_naming_sim_seq001_v001_compiled/file_interlinked_naming_sim_seq001_v001_compiled_seq003_v001.py",
+      "generated_module": "file_interlinked_naming_sim_seq001_v001_compiled_seq003_v001",
+      "identity_key": "file_interlinked_naming_sim_seq001_v001.py::_select_files|_first_symbolic_file",
+      "aliases": [
+        "file_interlinked_naming_sim_seq001_v001_compiled/file_interlinked_naming_sim_seq001_v001_compiled_seq003_v001.py",
+        "file_interlinked_naming_sim_seq001_v001.py::_select_files",
+        "file_interlinked_naming_sim_seq001_v001::_select_files",
+        "_select_files",
+        "file_interlinked_naming_sim_seq001_v001.py::_first_symbolic_file",
+        "file_interlinked_naming_sim_seq001_v001::_first_symbolic_file",
+        "_first_symbolic_file"
+      ],
+      "line_count": 30,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_interlinked_naming_sim_seq001_v001.py",
+      "source_symbols": [
+        "_query_file",
+        "_queries"
+      ],
+      "generated_file": "file_interlinked_naming_sim_seq001_v001_compiled/file_interlinked_naming_sim_seq001_v001_compiled_seq004_v001.py",
+      "generated_module": "file_interlinked_naming_sim_seq001_v001_compiled_seq004_v001",
+      "identity_key": "file_interlinked_naming_sim_seq001_v001.py::_query_file|_queries",
+      "aliases": [
+        "file_interlinked_naming_sim_seq001_v001_compiled/file_interlinked_naming_sim_seq001_v001_compiled_seq004_v001.py",
+        "file_interlinked_naming_sim_seq001_v001.py::_query_file",
+        "file_interlinked_naming_sim_seq001_v001::_query_file",
+        "_query_file",
+        "file_interlinked_naming_sim_seq001_v001.py::_queries",
+        "file_interlinked_naming_sim_seq001_v001::_queries",
+        "_queries"
+      ],
+      "line_count": 55,
+      "status": "WARN (55)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_interlinked_naming_sim_seq001_v001.py",
+      "source_symbols": [
+        "_last_change_state",
+        "_sibling_files",
+        "_latest_growth_for_file"
+      ],
+      "generated_file": "file_interlinked_naming_sim_seq001_v001_compiled/file_interlinked_naming_sim_seq001_v001_compiled_seq005_v001.py",
+      "generated_module": "file_interlinked_naming_sim_seq001_v001_compiled_seq005_v001",
+      "identity_key": "file_interlinked_naming_sim_seq001_v001.py::_last_change_state|_sibling_files|_latest_growth_for_file",
+      "aliases": [
+        "file_interlinked_naming_sim_seq001_v001_compiled/file_interlinked_naming_sim_seq001_v001_compiled_seq005_v001.py",
+        "file_interlinked_naming_sim_seq001_v001.py::_last_change_state",
+        "file_interlinked_naming_sim_seq001_v001::_last_change_state",
+        "_last_change_state",
+        "file_interlinked_naming_sim_seq001_v001.py::_sibling_files",
+        "file_interlinked_naming_sim_seq001_v001::_sibling_files",
+        "_sibling_files",
+        "file_interlinked_naming_sim_seq001_v001.py::_latest_growth_for_file",
+        "file_interlinked_naming_sim_seq001_v001::_latest_growth_for_file",
+        "_latest_growth_for_file"
+      ],
+      "line_count": 49,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_interlinked_naming_sim_seq001_v001.py",
+      "source_symbols": [
+        "_git_last_subject",
+        "_rename_risk",
+        "_email_reason",
+        "_json",
+        "_write_json",
+        "_append_jsonl",
+        "LATEST",
+        "HISTORY",
+        "MARKDOWN"
+      ],
+      "generated_file": "file_interlinked_naming_sim_seq001_v001_compiled/file_interlinked_naming_sim_seq001_v001_compiled_seq006_v001.py",
+      "generated_module": "file_interlinked_naming_sim_seq001_v001_compiled_seq006_v001",
+      "identity_key": "file_interlinked_naming_sim_seq001_v001.py::_git_last_subject|_rename_risk|_email_reason|_json|_write_json|_append_jsonl|LATEST|HISTORY|MARKDOWN",
+      "aliases": [
+        "file_interlinked_naming_sim_seq001_v001_compiled/file_interlinked_naming_sim_seq001_v001_compiled_seq006_v001.py",
+        "file_interlinked_naming_sim_seq001_v001.py::_git_last_subject",
+        "file_interlinked_naming_sim_seq001_v001::_git_last_subject",
+        "_git_last_subject",
+        "file_interlinked_naming_sim_seq001_v001.py::_rename_risk",
+        "file_interlinked_naming_sim_seq001_v001::_rename_risk",
+        "_rename_risk",
+        "file_interlinked_naming_sim_seq001_v001.py::_email_reason",
+        "file_interlinked_naming_sim_seq001_v001::_email_reason",
+        "_email_reason",
+        "file_interlinked_naming_sim_seq001_v001.py::_json",
+        "file_interlinked_naming_sim_seq001_v001::_json",
+        "_json",
+        "file_interlinked_naming_sim_seq001_v001.py::_write_json",
+        "file_interlinked_naming_sim_seq001_v001::_write_json",
+        "_write_json",
+        "file_interlinked_naming_sim_seq001_v001.py::_append_jsonl",
+        "file_interlinked_naming_sim_seq001_v001::_append_jsonl",
+        "_append_jsonl",
+        "file_interlinked_naming_sim_seq001_v001.py::LATEST",
+        "file_interlinked_naming_sim_seq001_v001::LATEST",
+        "LATEST",
+        "file_interlinked_naming_sim_seq001_v001.py::HISTORY",
+        "file_interlinked_naming_sim_seq001_v001::HISTORY",
+        "HISTORY",
+        "file_interlinked_naming_sim_seq001_v001.py::MARKDOWN",
+        "file_interlinked_naming_sim_seq001_v001::MARKDOWN",
+        "MARKDOWN"
+      ],
+      "line_count": 61,
+      "status": "WARN (61)",
+      "reason": ""
+    }
+  ]
+}

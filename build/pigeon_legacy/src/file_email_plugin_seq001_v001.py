@@ -682,6 +682,11 @@ def render_learning_digest_email(record: dict[str, Any]) -> str:
     context = _learning_context_from_record(record)
     current = _learning_current_work(record) or operator.get("current_work") or "make the files earn their own rewrite"
     profile_note = _learning_profile_signal_line(record, operator)
+    woke_files = ", ".join(
+        str(item.get("file") or "")
+        for item in wake_order[:6]
+        if isinstance(item, dict) and item.get("file")
+    ) or "none"
     lines = [
         f"From: {record.get('file')}",
         "To: Nikita",
@@ -690,6 +695,11 @@ def render_learning_digest_email(record: dict[str, Any]) -> str:
         "Nikita,",
         "",
         _policy_mail_line(policy),
+        "",
+        f"File room: `{record.get('file')}`",
+        "Blank sheet: learning-only; no source overwrite happened.",
+        f"Woke files -> {woke_files}",
+        "Text back like a message: `remember: ...`, `use: ...`, `avoid: ...`, `style: ...`",
         "",
         "The repo called an emergency rewrite meeting and immediately lied about being ready.",
         "",
@@ -733,6 +743,7 @@ def render_learning_digest_email(record: dict[str, Any]) -> str:
         "What the grader will accept:",
         *_learning_story_grader(validation),
         "",
+        "I need from you:",
         "What I need from you, not as a form, as control:",
         "- `approve: draft tests` if the next move is letting the files write their own proof.",
         "- `use: path/to/file.py` if a context vein is missing and you want it loaded every time.",

@@ -1,0 +1,183 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:49:01.223945+00:00",
+  "source_file": "unified_manifest_state_seq001_v001.py",
+  "source_stem": "unified_manifest_state_seq001_v001",
+  "target_dir": "unified_manifest_state_seq001_v001_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 6,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "unified_manifest_state_seq001_v001.py",
+      "source_symbols": [
+        "append_folder_unified_state"
+      ],
+      "generated_file": "unified_manifest_state_seq001_v001_compiled/unified_manifest_state_seq001_v001_compiled_seq001_v001.py",
+      "generated_module": "unified_manifest_state_seq001_v001_compiled_seq001_v001",
+      "identity_key": "unified_manifest_state_seq001_v001.py::append_folder_unified_state",
+      "aliases": [
+        "unified_manifest_state_seq001_v001_compiled/unified_manifest_state_seq001_v001_compiled_seq001_v001.py",
+        "unified_manifest_state_seq001_v001.py::append_folder_unified_state",
+        "unified_manifest_state_seq001_v001::append_folder_unified_state",
+        "append_folder_unified_state"
+      ],
+      "line_count": 17,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "unified_manifest_state_seq001_v001.py",
+      "source_symbols": [
+        "render_folder_unified_state"
+      ],
+      "generated_file": "unified_manifest_state_seq001_v001_compiled/unified_manifest_state_seq001_v001_compiled_seq002_v001.py",
+      "generated_module": "unified_manifest_state_seq001_v001_compiled_seq002_v001",
+      "identity_key": "unified_manifest_state_seq001_v001.py::render_folder_unified_state",
+      "aliases": [
+        "unified_manifest_state_seq001_v001_compiled/unified_manifest_state_seq001_v001_compiled_seq002_v001.py",
+        "unified_manifest_state_seq001_v001.py::render_folder_unified_state",
+        "unified_manifest_state_seq001_v001::render_folder_unified_state",
+        "render_folder_unified_state"
+      ],
+      "line_count": 68,
+      "status": "WARN (68)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "unified_manifest_state_seq001_v001.py",
+      "source_symbols": [
+        "refresh_master_manifest"
+      ],
+      "generated_file": "unified_manifest_state_seq001_v001_compiled/unified_manifest_state_seq001_v001_compiled_seq003_v001.py",
+      "generated_module": "unified_manifest_state_seq001_v001_compiled_seq003_v001",
+      "identity_key": "unified_manifest_state_seq001_v001.py::refresh_master_manifest",
+      "aliases": [
+        "unified_manifest_state_seq001_v001_compiled/unified_manifest_state_seq001_v001_compiled_seq003_v001.py",
+        "unified_manifest_state_seq001_v001.py::refresh_master_manifest",
+        "unified_manifest_state_seq001_v001::refresh_master_manifest",
+        "refresh_master_manifest"
+      ],
+      "line_count": 16,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "unified_manifest_state_seq001_v001.py",
+      "source_symbols": [
+        "append_master_persistent_state"
+      ],
+      "generated_file": "unified_manifest_state_seq001_v001_compiled/unified_manifest_state_seq001_v001_compiled_seq004_v001.py",
+      "generated_module": "unified_manifest_state_seq001_v001_compiled_seq004_v001",
+      "identity_key": "unified_manifest_state_seq001_v001.py::append_master_persistent_state",
+      "aliases": [
+        "unified_manifest_state_seq001_v001_compiled/unified_manifest_state_seq001_v001_compiled_seq004_v001.py",
+        "unified_manifest_state_seq001_v001.py::append_master_persistent_state",
+        "unified_manifest_state_seq001_v001::append_master_persistent_state",
+        "append_master_persistent_state"
+      ],
+      "line_count": 82,
+      "status": "WARN (82)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "unified_manifest_state_seq001_v001.py",
+      "source_symbols": [
+        "_folder_rows",
+        "_syntax_rows",
+        "_state_files",
+        "_latest_protocol",
+        "_bug_rows",
+        "_bug_chat_rows",
+        "_replace_block",
+        "_extract_block"
+      ],
+      "generated_file": "unified_manifest_state_seq001_v001_compiled/unified_manifest_state_seq001_v001_compiled_seq005_v001.py",
+      "generated_module": "unified_manifest_state_seq001_v001_compiled_seq005_v001",
+      "identity_key": "unified_manifest_state_seq001_v001.py::_folder_rows|_syntax_rows|_state_files|_latest_protocol|_bug_rows|_bug_chat_rows|_replace_block|_extract_block",
+      "aliases": [
+        "unified_manifest_state_seq001_v001_compiled/unified_manifest_state_seq001_v001_compiled_seq005_v001.py",
+        "unified_manifest_state_seq001_v001.py::_folder_rows",
+        "unified_manifest_state_seq001_v001::_folder_rows",
+        "_folder_rows",
+        "unified_manifest_state_seq001_v001.py::_syntax_rows",
+        "unified_manifest_state_seq001_v001::_syntax_rows",
+        "_syntax_rows",
+        "unified_manifest_state_seq001_v001.py::_state_files",
+        "unified_manifest_state_seq001_v001::_state_files",
+        "_state_files",
+        "unified_manifest_state_seq001_v001.py::_latest_protocol",
+        "unified_manifest_state_seq001_v001::_latest_protocol",
+        "_latest_protocol",
+        "unified_manifest_state_seq001_v001.py::_bug_rows",
+        "unified_manifest_state_seq001_v001::_bug_rows",
+        "_bug_rows",
+        "unified_manifest_state_seq001_v001.py::_bug_chat_rows",
+        "unified_manifest_state_seq001_v001::_bug_chat_rows",
+        "_bug_chat_rows",
+        "unified_manifest_state_seq001_v001.py::_replace_block",
+        "unified_manifest_state_seq001_v001::_replace_block",
+        "_replace_block",
+        "unified_manifest_state_seq001_v001.py::_extract_block",
+        "unified_manifest_state_seq001_v001::_extract_block",
+        "_extract_block"
+      ],
+      "line_count": 60,
+      "status": "WARN (60)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "unified_manifest_state_seq001_v001.py",
+      "source_symbols": [
+        "_belongs",
+        "_cell",
+        "_load_json",
+        "FOLDER_START",
+        "FOLDER_END",
+        "MASTER_START",
+        "MASTER_END"
+      ],
+      "generated_file": "unified_manifest_state_seq001_v001_compiled/unified_manifest_state_seq001_v001_compiled_seq006_v001.py",
+      "generated_module": "unified_manifest_state_seq001_v001_compiled_seq006_v001",
+      "identity_key": "unified_manifest_state_seq001_v001.py::_belongs|_cell|_load_json|FOLDER_START|FOLDER_END|MASTER_START|MASTER_END",
+      "aliases": [
+        "unified_manifest_state_seq001_v001_compiled/unified_manifest_state_seq001_v001_compiled_seq006_v001.py",
+        "unified_manifest_state_seq001_v001.py::_belongs",
+        "unified_manifest_state_seq001_v001::_belongs",
+        "_belongs",
+        "unified_manifest_state_seq001_v001.py::_cell",
+        "unified_manifest_state_seq001_v001::_cell",
+        "_cell",
+        "unified_manifest_state_seq001_v001.py::_load_json",
+        "unified_manifest_state_seq001_v001::_load_json",
+        "_load_json",
+        "unified_manifest_state_seq001_v001.py::FOLDER_START",
+        "unified_manifest_state_seq001_v001::FOLDER_START",
+        "FOLDER_START",
+        "unified_manifest_state_seq001_v001.py::FOLDER_END",
+        "unified_manifest_state_seq001_v001::FOLDER_END",
+        "FOLDER_END",
+        "unified_manifest_state_seq001_v001.py::MASTER_START",
+        "unified_manifest_state_seq001_v001::MASTER_START",
+        "MASTER_START",
+        "unified_manifest_state_seq001_v001.py::MASTER_END",
+        "unified_manifest_state_seq001_v001::MASTER_END",
+        "MASTER_END"
+      ],
+      "line_count": 28,
+      "status": "OK",
+      "reason": ""
+    }
+  ]
+}

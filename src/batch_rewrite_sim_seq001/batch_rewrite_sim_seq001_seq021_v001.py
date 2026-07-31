@@ -1,6 +1,7 @@
 """batch_rewrite_sim_seq001_seq021_v001.py — Auto-extracted by Pigeon Compiler."""
 from .batch_rewrite_sim_seq001_seq022_v001 import _deepseek_completion_job
 from .batch_rewrite_sim_seq001_seq023_v001 import _deepseek_model
+from .batch_rewrite_sim_seq001_seq023_v001 import _render_incompatibilities
 from .batch_rewrite_sim_seq001_seq034_v001 import _append_jsonl
 from .batch_rewrite_sim_seq001_seq034_v001 import _load_jsonl
 from .batch_rewrite_sim_seq001_seq034_v001 import _write_json
@@ -9,16 +10,6 @@ from typing import Any
 import json
 import os
 import re
-
-def _render_incompatibilities(proposal: dict[str, Any]) -> str:
-    reports = proposal.get("incompatibilities") or []
-    if not reports:
-        return "none"
-    return "; ".join(
-        f"{item.get('severity')} with {item.get('with')}: {item.get('reason')}"
-        for item in reports[:3]
-    )
-
 
 def _render_ten_q(proposal: dict[str, Any]) -> str:
     ten_q = proposal.get("ten_q") or {}

@@ -1,0 +1,323 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:40:51.047855+00:00",
+  "source_file": "hush_intent_runtime_seq001_v001.py",
+  "source_stem": "hush_intent_runtime_seq001_v001",
+  "target_dir": "hush_intent_runtime_seq001_v001_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 10,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "hush_intent_runtime_seq001_v001.py",
+      "source_symbols": [
+        "classify_active_repo"
+      ],
+      "generated_file": "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq001_v001.py",
+      "generated_module": "hush_intent_runtime_seq001_v001_compiled_seq001_v001",
+      "identity_key": "hush_intent_runtime_seq001_v001.py::classify_active_repo",
+      "aliases": [
+        "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq001_v001.py",
+        "hush_intent_runtime_seq001_v001.py::classify_active_repo",
+        "hush_intent_runtime_seq001_v001::classify_active_repo",
+        "classify_active_repo"
+      ],
+      "line_count": 47,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "hush_intent_runtime_seq001_v001.py",
+      "source_symbols": [
+        "build_hush_intent_runtime"
+      ],
+      "generated_file": "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq002_v001.py",
+      "generated_module": "hush_intent_runtime_seq001_v001_compiled_seq002_v001",
+      "identity_key": "hush_intent_runtime_seq001_v001.py::build_hush_intent_runtime",
+      "aliases": [
+        "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq002_v001.py",
+        "hush_intent_runtime_seq001_v001.py::build_hush_intent_runtime",
+        "hush_intent_runtime_seq001_v001::build_hush_intent_runtime",
+        "build_hush_intent_runtime"
+      ],
+      "line_count": 79,
+      "status": "WARN (79)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "hush_intent_runtime_seq001_v001.py",
+      "source_symbols": [
+        "render_hush_intent_runtime",
+        "_local_candidate"
+      ],
+      "generated_file": "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq003_v001.py",
+      "generated_module": "hush_intent_runtime_seq001_v001_compiled_seq003_v001",
+      "identity_key": "hush_intent_runtime_seq001_v001.py::render_hush_intent_runtime|_local_candidate",
+      "aliases": [
+        "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq003_v001.py",
+        "hush_intent_runtime_seq001_v001.py::render_hush_intent_runtime",
+        "hush_intent_runtime_seq001_v001::render_hush_intent_runtime",
+        "render_hush_intent_runtime",
+        "hush_intent_runtime_seq001_v001.py::_local_candidate",
+        "hush_intent_runtime_seq001_v001::_local_candidate",
+        "_local_candidate"
+      ],
+      "line_count": 43,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "hush_intent_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_fingerprint_candidates",
+        "_candidate"
+      ],
+      "generated_file": "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq004_v001.py",
+      "generated_module": "hush_intent_runtime_seq001_v001_compiled_seq004_v001",
+      "identity_key": "hush_intent_runtime_seq001_v001.py::_fingerprint_candidates|_candidate",
+      "aliases": [
+        "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq004_v001.py",
+        "hush_intent_runtime_seq001_v001.py::_fingerprint_candidates",
+        "hush_intent_runtime_seq001_v001::_fingerprint_candidates",
+        "_fingerprint_candidates",
+        "hush_intent_runtime_seq001_v001.py::_candidate",
+        "hush_intent_runtime_seq001_v001::_candidate",
+        "_candidate"
+      ],
+      "line_count": 35,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "hush_intent_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_intent_moves",
+        "_move",
+        "_summary_for_move"
+      ],
+      "generated_file": "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq005_v001.py",
+      "generated_module": "hush_intent_runtime_seq001_v001_compiled_seq005_v001",
+      "identity_key": "hush_intent_runtime_seq001_v001.py::_intent_moves|_move|_summary_for_move",
+      "aliases": [
+        "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq005_v001.py",
+        "hush_intent_runtime_seq001_v001.py::_intent_moves",
+        "hush_intent_runtime_seq001_v001::_intent_moves",
+        "_intent_moves",
+        "hush_intent_runtime_seq001_v001.py::_move",
+        "hush_intent_runtime_seq001_v001::_move",
+        "_move",
+        "hush_intent_runtime_seq001_v001.py::_summary_for_move",
+        "hush_intent_runtime_seq001_v001::_summary_for_move",
+        "_summary_for_move"
+      ],
+      "line_count": 51,
+      "status": "WARN (51)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "hush_intent_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_files_for_move",
+        "_file_packets"
+      ],
+      "generated_file": "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq006_v001.py",
+      "generated_module": "hush_intent_runtime_seq001_v001_compiled_seq006_v001",
+      "identity_key": "hush_intent_runtime_seq001_v001.py::_files_for_move|_file_packets",
+      "aliases": [
+        "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq006_v001.py",
+        "hush_intent_runtime_seq001_v001.py::_files_for_move",
+        "hush_intent_runtime_seq001_v001::_files_for_move",
+        "_files_for_move",
+        "hush_intent_runtime_seq001_v001.py::_file_packets",
+        "hush_intent_runtime_seq001_v001::_file_packets",
+        "_file_packets"
+      ],
+      "line_count": 38,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "hush_intent_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_local_file_packet",
+        "_repo_fingerprint_packets",
+        "_allowed_actions"
+      ],
+      "generated_file": "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq007_v001.py",
+      "generated_module": "hush_intent_runtime_seq001_v001_compiled_seq007_v001",
+      "identity_key": "hush_intent_runtime_seq001_v001.py::_local_file_packet|_repo_fingerprint_packets|_allowed_actions",
+      "aliases": [
+        "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq007_v001.py",
+        "hush_intent_runtime_seq001_v001.py::_local_file_packet",
+        "hush_intent_runtime_seq001_v001::_local_file_packet",
+        "_local_file_packet",
+        "hush_intent_runtime_seq001_v001.py::_repo_fingerprint_packets",
+        "hush_intent_runtime_seq001_v001::_repo_fingerprint_packets",
+        "_repo_fingerprint_packets",
+        "hush_intent_runtime_seq001_v001.py::_allowed_actions",
+        "hush_intent_runtime_seq001_v001::_allowed_actions",
+        "_allowed_actions"
+      ],
+      "line_count": 62,
+      "status": "WARN (62)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "hush_intent_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_blocked_actions",
+        "_responsibility",
+        "_neighbors",
+        "_validation_gate",
+        "_file_kind"
+      ],
+      "generated_file": "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq008_v001.py",
+      "generated_module": "hush_intent_runtime_seq001_v001_compiled_seq008_v001",
+      "identity_key": "hush_intent_runtime_seq001_v001.py::_blocked_actions|_responsibility|_neighbors|_validation_gate|_file_kind",
+      "aliases": [
+        "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq008_v001.py",
+        "hush_intent_runtime_seq001_v001.py::_blocked_actions",
+        "hush_intent_runtime_seq001_v001::_blocked_actions",
+        "_blocked_actions",
+        "hush_intent_runtime_seq001_v001.py::_responsibility",
+        "hush_intent_runtime_seq001_v001::_responsibility",
+        "_responsibility",
+        "hush_intent_runtime_seq001_v001.py::_neighbors",
+        "hush_intent_runtime_seq001_v001::_neighbors",
+        "_neighbors",
+        "hush_intent_runtime_seq001_v001.py::_validation_gate",
+        "hush_intent_runtime_seq001_v001::_validation_gate",
+        "_validation_gate",
+        "hush_intent_runtime_seq001_v001.py::_file_kind",
+        "hush_intent_runtime_seq001_v001::_file_kind",
+        "_file_kind"
+      ],
+      "line_count": 51,
+      "status": "WARN (51)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "hush_intent_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_intent_map",
+        "_repo_room_context",
+        "_recent_outcome",
+        "_tokens",
+        "_snip",
+        "_json"
+      ],
+      "generated_file": "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq009_v001.py",
+      "generated_module": "hush_intent_runtime_seq001_v001_compiled_seq009_v001",
+      "identity_key": "hush_intent_runtime_seq001_v001.py::_intent_map|_repo_room_context|_recent_outcome|_tokens|_snip|_json",
+      "aliases": [
+        "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq009_v001.py",
+        "hush_intent_runtime_seq001_v001.py::_intent_map",
+        "hush_intent_runtime_seq001_v001::_intent_map",
+        "_intent_map",
+        "hush_intent_runtime_seq001_v001.py::_repo_room_context",
+        "hush_intent_runtime_seq001_v001::_repo_room_context",
+        "_repo_room_context",
+        "hush_intent_runtime_seq001_v001.py::_recent_outcome",
+        "hush_intent_runtime_seq001_v001::_recent_outcome",
+        "_recent_outcome",
+        "hush_intent_runtime_seq001_v001.py::_tokens",
+        "hush_intent_runtime_seq001_v001::_tokens",
+        "_tokens",
+        "hush_intent_runtime_seq001_v001.py::_snip",
+        "hush_intent_runtime_seq001_v001::_snip",
+        "_snip",
+        "hush_intent_runtime_seq001_v001.py::_json",
+        "hush_intent_runtime_seq001_v001::_json",
+        "_json"
+      ],
+      "line_count": 54,
+      "status": "WARN (54)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "hush_intent_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_jsonl_tail",
+        "_write_json",
+        "_append_jsonl",
+        "_now",
+        "SCHEMA",
+        "LATEST",
+        "HISTORY",
+        "MARKDOWN",
+        "LOCAL_REPO",
+        "LOW_CONFIDENCE",
+        "CROSS_REPO_MARGIN",
+        "LOCAL_TERMS",
+        "MAIF_TERMS"
+      ],
+      "generated_file": "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq010_v001.py",
+      "generated_module": "hush_intent_runtime_seq001_v001_compiled_seq010_v001",
+      "identity_key": "hush_intent_runtime_seq001_v001.py::_jsonl_tail|_write_json|_append_jsonl|_now|SCHEMA|LATEST|HISTORY|MARKDOWN|LOCAL_REPO|LOW_CONFIDENCE|CROSS_REPO_MARGIN|LOCAL_TERMS|MAIF_TERMS",
+      "aliases": [
+        "hush_intent_runtime_seq001_v001_compiled/hush_intent_runtime_seq001_v001_compiled_seq010_v001.py",
+        "hush_intent_runtime_seq001_v001.py::_jsonl_tail",
+        "hush_intent_runtime_seq001_v001::_jsonl_tail",
+        "_jsonl_tail",
+        "hush_intent_runtime_seq001_v001.py::_write_json",
+        "hush_intent_runtime_seq001_v001::_write_json",
+        "_write_json",
+        "hush_intent_runtime_seq001_v001.py::_append_jsonl",
+        "hush_intent_runtime_seq001_v001::_append_jsonl",
+        "_append_jsonl",
+        "hush_intent_runtime_seq001_v001.py::_now",
+        "hush_intent_runtime_seq001_v001::_now",
+        "_now",
+        "hush_intent_runtime_seq001_v001.py::SCHEMA",
+        "hush_intent_runtime_seq001_v001::SCHEMA",
+        "SCHEMA",
+        "hush_intent_runtime_seq001_v001.py::LATEST",
+        "hush_intent_runtime_seq001_v001::LATEST",
+        "LATEST",
+        "hush_intent_runtime_seq001_v001.py::HISTORY",
+        "hush_intent_runtime_seq001_v001::HISTORY",
+        "HISTORY",
+        "hush_intent_runtime_seq001_v001.py::MARKDOWN",
+        "hush_intent_runtime_seq001_v001::MARKDOWN",
+        "MARKDOWN",
+        "hush_intent_runtime_seq001_v001.py::LOCAL_REPO",
+        "hush_intent_runtime_seq001_v001::LOCAL_REPO",
+        "LOCAL_REPO",
+        "hush_intent_runtime_seq001_v001.py::LOW_CONFIDENCE",
+        "hush_intent_runtime_seq001_v001::LOW_CONFIDENCE",
+        "LOW_CONFIDENCE",
+        "hush_intent_runtime_seq001_v001.py::CROSS_REPO_MARGIN",
+        "hush_intent_runtime_seq001_v001::CROSS_REPO_MARGIN",
+        "CROSS_REPO_MARGIN",
+        "hush_intent_runtime_seq001_v001.py::LOCAL_TERMS",
+        "hush_intent_runtime_seq001_v001::LOCAL_TERMS",
+        "LOCAL_TERMS",
+        "hush_intent_runtime_seq001_v001.py::MAIF_TERMS",
+        "hush_intent_runtime_seq001_v001::MAIF_TERMS",
+        "MAIF_TERMS"
+      ],
+      "line_count": 63,
+      "status": "WARN (63)",
+      "reason": ""
+    }
+  ]
+}

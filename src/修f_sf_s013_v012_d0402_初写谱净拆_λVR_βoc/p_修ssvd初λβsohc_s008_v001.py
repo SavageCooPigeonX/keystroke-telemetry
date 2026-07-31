@@ -11,7 +11,7 @@ def _scan_over_hard_cap(root: Path, registry: dict) -> list[dict]:
     """
     problems = []
     try:
-        from pigeon_compiler.pigeon_limits import PIGEON_MAX, is_excluded
+        from pigeon_compiler.pigeon_limits_seq003_v001_d0730__central_compliance_thresholds_and_exclude_lc_organism_health_refactor import PIGEON_MAX, is_excluded
     except ImportError:
         PIGEON_MAX = 200
         is_excluded = lambda p, root=None: False  # noqa: E731

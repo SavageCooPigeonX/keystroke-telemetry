@@ -7,7 +7,7 @@
 # LAST:   2026-04-14 @ heal
 # SESSIONS: 0
 # ──────────────────────────────────────────────
-from pigeon_compiler.pigeon_limits import PIGEON_MAX, PIGEON_RECOMMENDED, is_excluded
+from pigeon_compiler.pigeon_limits_seq003_v001_d0730__central_compliance_thresholds_and_exclude_lc_organism_health_refactor import PIGEON_MAX, PIGEON_RECOMMENDED, is_excluded
 import json
 import re
 

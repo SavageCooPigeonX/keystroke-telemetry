@@ -11,7 +11,7 @@ from pigeon_compiler.cut_executor.重助p_rehe_s011_v004_d0315_重箱重拆切_�
     line_count, node_name, collect_imports)
 from pigeon_compiler.cut_executor.重箱f_rebi_s010_v004_d0315_重拆谱建织_λν import (
     bin_pack, write_splits)
-from pigeon_compiler.pigeon_limits import PIGEON_MAX, PIGEON_RECOMMENDED, FILE_OVERHEAD, is_excluded
+from pigeon_compiler.pigeon_limits_seq003_v001_d0730__central_compliance_thresholds_and_exclude_lc_organism_health_refactor import PIGEON_MAX, PIGEON_RECOMMENDED, FILE_OVERHEAD, is_excluded
 
 
 def scan_violations(folder: Path) -> list[Path]:

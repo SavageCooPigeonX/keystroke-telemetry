@@ -6,27 +6,70 @@ from .codex_compat_seq031_v001 import refresh_state
 from pathlib import Path
 from typing import Any
 import importlib.util
-import json
-import re
+import sys
 
-def capture_pair(root: Path) -> dict[str, Any] | None:
-    root = Path(root)
-    repo = _repo_root()
-    src_dir = repo / "src"
-    candidates = sorted(src_dir.glob("*s027*.py"), key=lambda item: item.name)
+
+def _load_training_pair_capture(src_dir: Path):
+    """Load the training-pair callable from either Pigeon layout."""
+    candidates = sorted(src_dir.glob("*s027*"), key=lambda item: item.name)
+    import_errors: list[str] = []
+
+    # Current Pigeon decompositions expose their API from a same-named package.
+    for index, candidate in enumerate(candidates):
+        init_path = candidate / "__init__.py"
+        if not init_path.is_file():
+            continue
+        module_name = f"_codex_training_pairs_{index}"
+        spec = importlib.util.spec_from_file_location(
+            module_name,
+            init_path,
+            submodule_search_locations=[str(candidate)],
+        )
+        if spec is None or spec.loader is None:
+            continue
+        module = importlib.util.module_from_spec(spec)
+        sys.modules[module_name] = module
+        try:
+            spec.loader.exec_module(module)
+        except (ImportError, OSError, SyntaxError) as exc:
+            sys.modules.pop(module_name, None)
+            import_errors.append(f"{candidate.name}: {exc}")
+            continue
+        capture = getattr(module, "capture_training_pair", None)
+        if callable(capture):
+            return capture
+
+    # Older layouts kept the implementation in one top-level module.
     for candidate in candidates:
+        if not candidate.is_file() or candidate.suffix != ".py":
+            continue
         text = candidate.read_text(encoding="utf-8", errors="ignore")
-        if "def capture_training_pair" not in text or "def _load_jsonl_tail" not in text:
+        if "def capture_training_pair" not in text:
             continue
         spec = importlib.util.spec_from_file_location("codex_training_pairs", candidate)
         if spec is None or spec.loader is None:
             continue
         module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(module)
-        pair = module.capture_training_pair(root)
-        refresh_state(root, "captured training pair")
-        return pair
-    raise ImportError(f"No complete training pair module found under {src_dir}")
+        try:
+            spec.loader.exec_module(module)
+        except (ImportError, OSError, SyntaxError) as exc:
+            import_errors.append(f"{candidate.name}: {exc}")
+            continue
+        capture = getattr(module, "capture_training_pair", None)
+        if callable(capture):
+            return capture
+
+    detail = f" ({'; '.join(import_errors)})" if import_errors else ""
+    raise ImportError(f"No training pair API found under {src_dir}{detail}")
+
+def capture_pair(root: Path) -> dict[str, Any] | None:
+    root = Path(root)
+    repo = _repo_root()
+    src_dir = repo / "src"
+    capture_training_pair = _load_training_pair_capture(src_dir)
+    pair = capture_training_pair(root)
+    refresh_state(root, "captured training pair")
+    return pair
 
 
 def record_entropy_shed(root: Path, module: str, confidence: float, note: str = "") -> dict[str, Any]:

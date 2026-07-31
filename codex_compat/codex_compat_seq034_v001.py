@@ -13,6 +13,7 @@ from .codex_compat_seq031_v001 import refresh_state
 from .codex_compat_seq033_v001 import _classify_intent
 from .codex_compat_seq033_v001 import _load_json
 from .codex_compat_seq033_v001 import _next_session_n
+from .codex_compat_prompt_state_seq045_v001 import infer_prompt_cognitive_state
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -51,7 +52,10 @@ def log_prompt(
         "session_id": f"codex-{datetime.now(timezone.utc).strftime('%Y%m%d')}",
         "msg": prompt,
         "intent": _classify_intent(prompt),
-        "cognitive_state": _state_from_deletions(deletion_ratio, hesitation_count),
+        "cognitive_state": infer_prompt_cognitive_state(
+            prompt,
+            _state_from_deletions(deletion_ratio, hesitation_count),
+        ),
         "signals": {
             "wpm": 0,
             "chars_per_sec": 0,
@@ -104,9 +108,9 @@ def log_prompt(
         entry["opus_prompt_box"] = refine_opus_prompt_box(root, prompt, write=True)
     except Exception as exc:
         entry["opus_prompt_box_error"] = str(exc)
-    _append_jsonl(root / "logs" / "prompt_journal.jsonl", entry)
     if prompt and emit_prompt_email:
         entry["codex_prompt_email"] = _emit_codex_prompt_email(root, entry, loop=entry.get("intent_loop"))
+    _append_jsonl(root / "logs" / "prompt_journal.jsonl", entry)
     try:
         _ensure_repo_on_path(root)
         from src.ai_fingerprint_operator_seq001_v001 import build_operator_fingerprint

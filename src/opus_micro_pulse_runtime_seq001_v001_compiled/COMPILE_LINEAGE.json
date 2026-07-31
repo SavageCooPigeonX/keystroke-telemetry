@@ -1,0 +1,491 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:30:40.799206+00:00",
+  "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+  "source_stem": "opus_micro_pulse_runtime_seq001_v001",
+  "target_dir": "opus_micro_pulse_runtime_seq001_v001_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 18,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "build_opus_micro_pulse_runtime"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq001_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq001_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::build_opus_micro_pulse_runtime",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq001_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::build_opus_micro_pulse_runtime",
+        "opus_micro_pulse_runtime_seq001_v001::build_opus_micro_pulse_runtime",
+        "build_opus_micro_pulse_runtime"
+      ],
+      "line_count": 113,
+      "status": "WARN (113)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "classify_prompt"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq002_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq002_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::classify_prompt",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq002_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::classify_prompt",
+        "opus_micro_pulse_runtime_seq001_v001::classify_prompt",
+        "classify_prompt"
+      ],
+      "line_count": 35,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "render_opus_micro_pulse"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq003_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq003_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::render_opus_micro_pulse",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq003_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::render_opus_micro_pulse",
+        "opus_micro_pulse_runtime_seq001_v001::render_opus_micro_pulse",
+        "render_opus_micro_pulse"
+      ],
+      "line_count": 50,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_composition_fragments",
+        "_select_files"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq004_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq004_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_composition_fragments|_select_files",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq004_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_composition_fragments",
+        "opus_micro_pulse_runtime_seq001_v001::_composition_fragments",
+        "_composition_fragments",
+        "opus_micro_pulse_runtime_seq001_v001.py::_select_files",
+        "opus_micro_pulse_runtime_seq001_v001::_select_files",
+        "_select_files"
+      ],
+      "line_count": 49,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_explicit_runtime_files",
+        "_selected_manifests"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq005_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq005_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_explicit_runtime_files|_selected_manifests",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq005_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_explicit_runtime_files",
+        "opus_micro_pulse_runtime_seq001_v001::_explicit_runtime_files",
+        "_explicit_runtime_files",
+        "opus_micro_pulse_runtime_seq001_v001.py::_selected_manifests",
+        "opus_micro_pulse_runtime_seq001_v001::_selected_manifests",
+        "_selected_manifests"
+      ],
+      "line_count": 30,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_file_interrogation",
+        "_file_profile"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq006_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq006_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_file_interrogation|_file_profile",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq006_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_file_interrogation",
+        "opus_micro_pulse_runtime_seq001_v001::_file_interrogation",
+        "_file_interrogation",
+        "opus_micro_pulse_runtime_seq001_v001.py::_file_profile",
+        "opus_micro_pulse_runtime_seq001_v001::_file_profile",
+        "_file_profile"
+      ],
+      "line_count": 60,
+      "status": "WARN (60)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_why_opus_called",
+        "_mismatch",
+        "_file_solution",
+        "_persistent_faults",
+        "_deepseek_note"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq007_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq007_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_why_opus_called|_mismatch|_file_solution|_persistent_faults|_deepseek_note",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq007_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_why_opus_called",
+        "opus_micro_pulse_runtime_seq001_v001::_why_opus_called",
+        "_why_opus_called",
+        "opus_micro_pulse_runtime_seq001_v001.py::_mismatch",
+        "opus_micro_pulse_runtime_seq001_v001::_mismatch",
+        "_mismatch",
+        "opus_micro_pulse_runtime_seq001_v001.py::_file_solution",
+        "opus_micro_pulse_runtime_seq001_v001::_file_solution",
+        "_file_solution",
+        "opus_micro_pulse_runtime_seq001_v001.py::_persistent_faults",
+        "opus_micro_pulse_runtime_seq001_v001::_persistent_faults",
+        "_persistent_faults",
+        "opus_micro_pulse_runtime_seq001_v001.py::_deepseek_note",
+        "opus_micro_pulse_runtime_seq001_v001::_deepseek_note",
+        "_deepseek_note"
+      ],
+      "line_count": 58,
+      "status": "WARN (58)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_stale_flags",
+        "_theories"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq008_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq008_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_stale_flags|_theories",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq008_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_stale_flags",
+        "opus_micro_pulse_runtime_seq001_v001::_stale_flags",
+        "_stale_flags",
+        "opus_micro_pulse_runtime_seq001_v001.py::_theories",
+        "opus_micro_pulse_runtime_seq001_v001::_theories",
+        "_theories"
+      ],
+      "line_count": 49,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_opus_theory_packet"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq009_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq009_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_opus_theory_packet",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq009_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_opus_theory_packet",
+        "opus_micro_pulse_runtime_seq001_v001::_opus_theory_packet",
+        "_opus_theory_packet"
+      ],
+      "line_count": 13,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_cannon_packet"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq010_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq010_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_cannon_packet",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq010_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_cannon_packet",
+        "opus_micro_pulse_runtime_seq001_v001::_cannon_packet",
+        "_cannon_packet"
+      ],
+      "line_count": 100,
+      "status": "WARN (100)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_render_executor_prompt"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq011_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq011_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_render_executor_prompt",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq011_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_render_executor_prompt",
+        "opus_micro_pulse_runtime_seq001_v001::_render_executor_prompt",
+        "_render_executor_prompt"
+      ],
+      "line_count": 86,
+      "status": "WARN (86)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_quick_fix_queue",
+        "_dedupe",
+        "_pending_backward_packet"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq012_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq012_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_quick_fix_queue|_dedupe|_pending_backward_packet",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq012_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_quick_fix_queue",
+        "opus_micro_pulse_runtime_seq001_v001::_quick_fix_queue",
+        "_quick_fix_queue",
+        "opus_micro_pulse_runtime_seq001_v001.py::_dedupe",
+        "opus_micro_pulse_runtime_seq001_v001::_dedupe",
+        "_dedupe",
+        "opus_micro_pulse_runtime_seq001_v001.py::_pending_backward_packet",
+        "opus_micro_pulse_runtime_seq001_v001::_pending_backward_packet",
+        "_pending_backward_packet"
+      ],
+      "line_count": 48,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_write_manifest_state"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq013_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq013_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_write_manifest_state",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq013_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_write_manifest_state",
+        "opus_micro_pulse_runtime_seq001_v001::_write_manifest_state",
+        "_write_manifest_state"
+      ],
+      "line_count": 24,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_write_copilot_bootstrap"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq014_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq014_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_write_copilot_bootstrap",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq014_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_write_copilot_bootstrap",
+        "opus_micro_pulse_runtime_seq001_v001::_write_copilot_bootstrap",
+        "_write_copilot_bootstrap"
+      ],
+      "line_count": 37,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_append_pulse_folder_block"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq015_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq015_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_append_pulse_folder_block",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq015_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_append_pulse_folder_block",
+        "opus_micro_pulse_runtime_seq001_v001::_append_pulse_folder_block",
+        "_append_pulse_folder_block"
+      ],
+      "line_count": 36,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_session_broker",
+        "_intent_keys",
+        "_identity_from_path",
+        "_folder_for"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq016_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq016_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_session_broker|_intent_keys|_identity_from_path|_folder_for",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq016_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_session_broker",
+        "opus_micro_pulse_runtime_seq001_v001::_session_broker",
+        "_session_broker",
+        "opus_micro_pulse_runtime_seq001_v001.py::_intent_keys",
+        "opus_micro_pulse_runtime_seq001_v001::_intent_keys",
+        "_intent_keys",
+        "opus_micro_pulse_runtime_seq001_v001.py::_identity_from_path",
+        "opus_micro_pulse_runtime_seq001_v001::_identity_from_path",
+        "_identity_from_path",
+        "opus_micro_pulse_runtime_seq001_v001.py::_folder_for",
+        "opus_micro_pulse_runtime_seq001_v001::_folder_for",
+        "_folder_for"
+      ],
+      "line_count": 56,
+      "status": "WARN (56)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_epistemic_status",
+        "_class_priority",
+        "_composition_source",
+        "_latest_prompt_row",
+        "_row_text",
+        "_git_changed_files",
+        "_tokens"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq017_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq017_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_epistemic_status|_class_priority|_composition_source|_latest_prompt_row|_row_text|_git_changed_files|_tokens",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq017_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_epistemic_status",
+        "opus_micro_pulse_runtime_seq001_v001::_epistemic_status",
+        "_epistemic_status",
+        "opus_micro_pulse_runtime_seq001_v001.py::_class_priority",
+        "opus_micro_pulse_runtime_seq001_v001::_class_priority",
+        "_class_priority",
+        "opus_micro_pulse_runtime_seq001_v001.py::_composition_source",
+        "opus_micro_pulse_runtime_seq001_v001::_composition_source",
+        "_composition_source",
+        "opus_micro_pulse_runtime_seq001_v001.py::_latest_prompt_row",
+        "opus_micro_pulse_runtime_seq001_v001::_latest_prompt_row",
+        "_latest_prompt_row",
+        "opus_micro_pulse_runtime_seq001_v001.py::_row_text",
+        "opus_micro_pulse_runtime_seq001_v001::_row_text",
+        "_row_text",
+        "opus_micro_pulse_runtime_seq001_v001.py::_git_changed_files",
+        "opus_micro_pulse_runtime_seq001_v001::_git_changed_files",
+        "_git_changed_files",
+        "opus_micro_pulse_runtime_seq001_v001.py::_tokens",
+        "opus_micro_pulse_runtime_seq001_v001::_tokens",
+        "_tokens"
+      ],
+      "line_count": 60,
+      "status": "WARN (60)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_micro_pulse_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_numeric",
+        "_sha",
+        "_now",
+        "_load_json",
+        "_write_json",
+        "_append_jsonl",
+        "SCHEMA",
+        "LATEST",
+        "HISTORY",
+        "MARKDOWN",
+        "EXECUTOR_PROMPT",
+        "PROMPT_CLASSES"
+      ],
+      "generated_file": "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq018_v001.py",
+      "generated_module": "opus_micro_pulse_runtime_seq001_v001_compiled_seq018_v001",
+      "identity_key": "opus_micro_pulse_runtime_seq001_v001.py::_numeric|_sha|_now|_load_json|_write_json|_append_jsonl|SCHEMA|LATEST|HISTORY|MARKDOWN|EXECUTOR_PROMPT|PROMPT_CLASSES",
+      "aliases": [
+        "opus_micro_pulse_runtime_seq001_v001_compiled/opus_micro_pulse_runtime_seq001_v001_compiled_seq018_v001.py",
+        "opus_micro_pulse_runtime_seq001_v001.py::_numeric",
+        "opus_micro_pulse_runtime_seq001_v001::_numeric",
+        "_numeric",
+        "opus_micro_pulse_runtime_seq001_v001.py::_sha",
+        "opus_micro_pulse_runtime_seq001_v001::_sha",
+        "_sha",
+        "opus_micro_pulse_runtime_seq001_v001.py::_now",
+        "opus_micro_pulse_runtime_seq001_v001::_now",
+        "_now",
+        "opus_micro_pulse_runtime_seq001_v001.py::_load_json",
+        "opus_micro_pulse_runtime_seq001_v001::_load_json",
+        "_load_json",
+        "opus_micro_pulse_runtime_seq001_v001.py::_write_json",
+        "opus_micro_pulse_runtime_seq001_v001::_write_json",
+        "_write_json",
+        "opus_micro_pulse_runtime_seq001_v001.py::_append_jsonl",
+        "opus_micro_pulse_runtime_seq001_v001::_append_jsonl",
+        "_append_jsonl",
+        "opus_micro_pulse_runtime_seq001_v001.py::SCHEMA",
+        "opus_micro_pulse_runtime_seq001_v001::SCHEMA",
+        "SCHEMA",
+        "opus_micro_pulse_runtime_seq001_v001.py::LATEST",
+        "opus_micro_pulse_runtime_seq001_v001::LATEST",
+        "LATEST",
+        "opus_micro_pulse_runtime_seq001_v001.py::HISTORY",
+        "opus_micro_pulse_runtime_seq001_v001::HISTORY",
+        "HISTORY",
+        "opus_micro_pulse_runtime_seq001_v001.py::MARKDOWN",
+        "opus_micro_pulse_runtime_seq001_v001::MARKDOWN",
+        "MARKDOWN",
+        "opus_micro_pulse_runtime_seq001_v001.py::EXECUTOR_PROMPT",
+        "opus_micro_pulse_runtime_seq001_v001::EXECUTOR_PROMPT",
+        "EXECUTOR_PROMPT",
+        "opus_micro_pulse_runtime_seq001_v001.py::PROMPT_CLASSES",
+        "opus_micro_pulse_runtime_seq001_v001::PROMPT_CLASSES",
+        "PROMPT_CLASSES"
+      ],
+      "line_count": 90,
+      "status": "WARN (90)",
+      "reason": ""
+    }
+  ]
+}

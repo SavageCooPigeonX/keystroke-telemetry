@@ -14,7 +14,7 @@ Resolves which imports each file actually needs.
 
 import ast
 from pathlib import Path
-from pigeon_compiler.pigeon_limits import PIGEON_MAX, PIGEON_RECOMMENDED
+from pigeon_compiler.pigeon_limits_seq003_v001_d0730__central_compliance_thresholds_and_exclude_lc_organism_health_refactor import PIGEON_MAX, PIGEON_RECOMMENDED
 
 
 def write_cut_files(plan: dict, sliced: dict, source_path: Path,

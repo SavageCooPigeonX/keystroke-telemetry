@@ -1,0 +1,547 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:36:12.916947+00:00",
+  "source_file": "analyze_prompt_behavior.py",
+  "source_stem": "analyze_prompt_behavior",
+  "target_dir": "analyze_prompt_behavior_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 23,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_parse_ts",
+        "_load_jsonl",
+        "_has_any",
+        "_themes",
+        "_reinforcement"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq001_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq001_v001",
+      "identity_key": "analyze_prompt_behavior.py::_parse_ts|_load_jsonl|_has_any|_themes|_reinforcement",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq001_v001.py",
+        "analyze_prompt_behavior.py::_parse_ts",
+        "analyze_prompt_behavior::_parse_ts",
+        "_parse_ts",
+        "analyze_prompt_behavior.py::_load_jsonl",
+        "analyze_prompt_behavior::_load_jsonl",
+        "_load_jsonl",
+        "analyze_prompt_behavior.py::_has_any",
+        "analyze_prompt_behavior::_has_any",
+        "_has_any",
+        "analyze_prompt_behavior.py::_themes",
+        "analyze_prompt_behavior::_themes",
+        "_themes",
+        "analyze_prompt_behavior.py::_reinforcement",
+        "analyze_prompt_behavior::_reinforcement",
+        "_reinforcement"
+      ],
+      "line_count": 54,
+      "status": "WARN (54)",
+      "reason": ""
+    },
+    {
+      "seq": 2,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_cognitive_load",
+        "_tokens",
+        "_prepare"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq002_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq002_v001",
+      "identity_key": "analyze_prompt_behavior.py::_cognitive_load|_tokens|_prepare",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq002_v001.py",
+        "analyze_prompt_behavior.py::_cognitive_load",
+        "analyze_prompt_behavior::_cognitive_load",
+        "_cognitive_load",
+        "analyze_prompt_behavior.py::_tokens",
+        "analyze_prompt_behavior::_tokens",
+        "_tokens",
+        "analyze_prompt_behavior.py::_prepare",
+        "analyze_prompt_behavior::_prepare",
+        "_prepare"
+      ],
+      "line_count": 49,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 3,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_bucket_by_day"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq003_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq003_v001",
+      "identity_key": "analyze_prompt_behavior.py::_bucket_by_day",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq003_v001.py",
+        "analyze_prompt_behavior.py::_bucket_by_day",
+        "analyze_prompt_behavior::_bucket_by_day",
+        "_bucket_by_day"
+      ],
+      "line_count": 30,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 4,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_theme_reinforcement"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq004_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq004_v001",
+      "identity_key": "analyze_prompt_behavior.py::_theme_reinforcement",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq004_v001.py",
+        "analyze_prompt_behavior.py::_theme_reinforcement",
+        "analyze_prompt_behavior::_theme_reinforcement",
+        "_theme_reinforcement"
+      ],
+      "line_count": 36,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 5,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_cooccurrence_graph"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq005_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq005_v001",
+      "identity_key": "analyze_prompt_behavior.py::_cooccurrence_graph",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq005_v001.py",
+        "analyze_prompt_behavior.py::_cooccurrence_graph",
+        "analyze_prompt_behavior::_cooccurrence_graph",
+        "_cooccurrence_graph"
+      ],
+      "line_count": 33,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 6,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_shift_points"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq006_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq006_v001",
+      "identity_key": "analyze_prompt_behavior.py::_shift_points",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq006_v001.py",
+        "analyze_prompt_behavior.py::_shift_points",
+        "analyze_prompt_behavior::_shift_points",
+        "_shift_points"
+      ],
+      "line_count": 45,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 7,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_emergent_threads"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq007_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq007_v001",
+      "identity_key": "analyze_prompt_behavior.py::_emergent_threads",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq007_v001.py",
+        "analyze_prompt_behavior.py::_emergent_threads",
+        "analyze_prompt_behavior::_emergent_threads",
+        "_emergent_threads"
+      ],
+      "line_count": 60,
+      "status": "WARN (60)",
+      "reason": ""
+    },
+    {
+      "seq": 8,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_compile_bridge",
+        "_mode_matches",
+        "_context_window"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq008_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq008_v001",
+      "identity_key": "analyze_prompt_behavior.py::_compile_bridge|_mode_matches|_context_window",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq008_v001.py",
+        "analyze_prompt_behavior.py::_compile_bridge",
+        "analyze_prompt_behavior::_compile_bridge",
+        "_compile_bridge",
+        "analyze_prompt_behavior.py::_mode_matches",
+        "analyze_prompt_behavior::_mode_matches",
+        "_mode_matches",
+        "analyze_prompt_behavior.py::_context_window",
+        "analyze_prompt_behavior::_context_window",
+        "_context_window"
+      ],
+      "line_count": 45,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 9,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_infer_failed_response_style",
+        "_infer_rewarded_response_style"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq009_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq009_v001",
+      "identity_key": "analyze_prompt_behavior.py::_infer_failed_response_style|_infer_rewarded_response_style",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq009_v001.py",
+        "analyze_prompt_behavior.py::_infer_failed_response_style",
+        "analyze_prompt_behavior::_infer_failed_response_style",
+        "_infer_failed_response_style",
+        "analyze_prompt_behavior.py::_infer_rewarded_response_style",
+        "analyze_prompt_behavior::_infer_rewarded_response_style",
+        "_infer_rewarded_response_style"
+      ],
+      "line_count": 35,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 10,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_behavioral_events"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq010_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq010_v001",
+      "identity_key": "analyze_prompt_behavior.py::_behavioral_events",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq010_v001.py",
+        "analyze_prompt_behavior.py::_behavioral_events",
+        "analyze_prompt_behavior::_behavioral_events",
+        "_behavioral_events"
+      ],
+      "line_count": 53,
+      "status": "WARN (53)",
+      "reason": ""
+    },
+    {
+      "seq": 11,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_internal_event_log"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq011_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq011_v001",
+      "identity_key": "analyze_prompt_behavior.py::_internal_event_log",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq011_v001.py",
+        "analyze_prompt_behavior.py::_internal_event_log",
+        "analyze_prompt_behavior::_internal_event_log",
+        "_internal_event_log"
+      ],
+      "line_count": 57,
+      "status": "WARN (57)",
+      "reason": ""
+    },
+    {
+      "seq": 12,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_event_type",
+        "_operator_state"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq012_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq012_v001",
+      "identity_key": "analyze_prompt_behavior.py::_event_type|_operator_state",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq012_v001.py",
+        "analyze_prompt_behavior.py::_event_type",
+        "analyze_prompt_behavior::_event_type",
+        "_event_type",
+        "analyze_prompt_behavior.py::_operator_state",
+        "analyze_prompt_behavior::_operator_state",
+        "_operator_state"
+      ],
+      "line_count": 33,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 13,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_infer_trigger",
+        "_latent_need"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq013_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq013_v001",
+      "identity_key": "analyze_prompt_behavior.py::_infer_trigger|_latent_need",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq013_v001.py",
+        "analyze_prompt_behavior.py::_infer_trigger",
+        "analyze_prompt_behavior::_infer_trigger",
+        "_infer_trigger",
+        "analyze_prompt_behavior.py::_latent_need",
+        "analyze_prompt_behavior::_latent_need",
+        "_latent_need"
+      ],
+      "line_count": 48,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 14,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_next_response_policy"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq014_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq014_v001",
+      "identity_key": "analyze_prompt_behavior.py::_next_response_policy",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq014_v001.py",
+        "analyze_prompt_behavior.py::_next_response_policy",
+        "analyze_prompt_behavior::_next_response_policy",
+        "_next_response_policy"
+      ],
+      "line_count": 26,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 15,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_correction_chains",
+        "_chain_logline"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq015_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq015_v001",
+      "identity_key": "analyze_prompt_behavior.py::_correction_chains|_chain_logline",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq015_v001.py",
+        "analyze_prompt_behavior.py::_correction_chains",
+        "analyze_prompt_behavior::_correction_chains",
+        "_correction_chains",
+        "analyze_prompt_behavior.py::_chain_logline",
+        "analyze_prompt_behavior::_chain_logline",
+        "_chain_logline"
+      ],
+      "line_count": 55,
+      "status": "WARN (55)",
+      "reason": ""
+    },
+    {
+      "seq": 16,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_role_models",
+        "_compile_role"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq016_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq016_v001",
+      "identity_key": "analyze_prompt_behavior.py::_role_models|_compile_role",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq016_v001.py",
+        "analyze_prompt_behavior.py::_role_models",
+        "analyze_prompt_behavior::_role_models",
+        "_role_models",
+        "analyze_prompt_behavior.py::_compile_role",
+        "analyze_prompt_behavior::_compile_role",
+        "_compile_role"
+      ],
+      "line_count": 51,
+      "status": "WARN (51)",
+      "reason": ""
+    },
+    {
+      "seq": 17,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_internal_logs"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq017_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq017_v001",
+      "identity_key": "analyze_prompt_behavior.py::_internal_logs",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq017_v001.py",
+        "analyze_prompt_behavior.py::_internal_logs",
+        "analyze_prompt_behavior::_internal_logs",
+        "_internal_logs"
+      ],
+      "line_count": 46,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 18,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_deepseek_prompt"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq018_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq018_v001",
+      "identity_key": "analyze_prompt_behavior.py::_deepseek_prompt",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq018_v001.py",
+        "analyze_prompt_behavior.py::_deepseek_prompt",
+        "analyze_prompt_behavior::_deepseek_prompt",
+        "_deepseek_prompt"
+      ],
+      "line_count": 44,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 19,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "analyze",
+        "_write_json"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq019_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq019_v001",
+      "identity_key": "analyze_prompt_behavior.py::analyze|_write_json",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq019_v001.py",
+        "analyze_prompt_behavior.py::analyze",
+        "analyze_prompt_behavior::analyze",
+        "analyze",
+        "analyze_prompt_behavior.py::_write_json",
+        "analyze_prompt_behavior::_write_json",
+        "_write_json"
+      ],
+      "line_count": 51,
+      "status": "WARN (51)",
+      "reason": ""
+    },
+    {
+      "seq": 20,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_write_md"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq020_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq020_v001",
+      "identity_key": "analyze_prompt_behavior.py::_write_md",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq020_v001.py",
+        "analyze_prompt_behavior.py::_write_md",
+        "analyze_prompt_behavior::_write_md",
+        "_write_md"
+      ],
+      "line_count": 93,
+      "status": "WARN (93)",
+      "reason": ""
+    },
+    {
+      "seq": 21,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "_write_internal_events",
+        "_queue_deepseek"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq021_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq021_v001",
+      "identity_key": "analyze_prompt_behavior.py::_write_internal_events|_queue_deepseek",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq021_v001.py",
+        "analyze_prompt_behavior.py::_write_internal_events",
+        "analyze_prompt_behavior::_write_internal_events",
+        "_write_internal_events",
+        "analyze_prompt_behavior.py::_queue_deepseek",
+        "analyze_prompt_behavior::_queue_deepseek",
+        "_queue_deepseek"
+      ],
+      "line_count": 39,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 22,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "main"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq022_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq022_v001",
+      "identity_key": "analyze_prompt_behavior.py::main",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq022_v001.py",
+        "analyze_prompt_behavior.py::main",
+        "analyze_prompt_behavior::main",
+        "main"
+      ],
+      "line_count": 51,
+      "status": "WARN (51)",
+      "reason": ""
+    },
+    {
+      "seq": 23,
+      "version": 1,
+      "source_file": "analyze_prompt_behavior.py",
+      "source_symbols": [
+        "PromptRow",
+        "SCHEMA",
+        "POSITIVE_PATTERNS",
+        "NEGATIVE_PATTERNS",
+        "STOPWORDS"
+      ],
+      "generated_file": "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq023_v001.py",
+      "generated_module": "analyze_prompt_behavior_compiled_seq023_v001",
+      "identity_key": "analyze_prompt_behavior.py::PromptRow|SCHEMA|POSITIVE_PATTERNS|NEGATIVE_PATTERNS|STOPWORDS",
+      "aliases": [
+        "analyze_prompt_behavior_compiled/analyze_prompt_behavior_compiled_seq023_v001.py",
+        "analyze_prompt_behavior.py::PromptRow",
+        "analyze_prompt_behavior::PromptRow",
+        "PromptRow",
+        "analyze_prompt_behavior.py::SCHEMA",
+        "analyze_prompt_behavior::SCHEMA",
+        "SCHEMA",
+        "analyze_prompt_behavior.py::POSITIVE_PATTERNS",
+        "analyze_prompt_behavior::POSITIVE_PATTERNS",
+        "POSITIVE_PATTERNS",
+        "analyze_prompt_behavior.py::NEGATIVE_PATTERNS",
+        "analyze_prompt_behavior::NEGATIVE_PATTERNS",
+        "NEGATIVE_PATTERNS",
+        "analyze_prompt_behavior.py::STOPWORDS",
+        "analyze_prompt_behavior::STOPWORDS",
+        "STOPWORDS"
+      ],
+      "line_count": 108,
+      "status": "WARN (108)",
+      "reason": ""
+    }
+  ]
+}

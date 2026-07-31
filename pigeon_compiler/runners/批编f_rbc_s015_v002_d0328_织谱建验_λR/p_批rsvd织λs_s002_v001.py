@@ -8,7 +8,7 @@
 # SESSIONS: 0
 # ──────────────────────────────────────────────
 from pathlib import Path
-from pigeon_compiler.pigeon_limits import PIGEON_MAX, is_excluded
+from pigeon_compiler.pigeon_limits_seq003_v001_d0730__central_compliance_thresholds_and_exclude_lc_organism_health_refactor import PIGEON_MAX, is_excluded
 import sys, argparse, traceback, re
 
 def scan_oversized(root: Path, include_compiler: bool = False) -> list[dict]:

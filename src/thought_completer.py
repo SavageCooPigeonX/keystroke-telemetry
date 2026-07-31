@@ -1,35 +1,4 @@
-"""thought_completer.py — passive always-on-top code analysis overlay.
-
-Watches your VS Code typing (via os_hook's keystroke log), shows real-time
-code analysis in a corner popup when you pause. Catches bugs, suggests
-next steps, spots missing pieces — not sentence completion.
-
-Launch:  py src/thought_completer.py
-         py src/thought_completer.py --corner tr --pause 1500
-         py src/thought_completer.py --compose
-         py src/thought_completer.py --intent-key "wire manifest intent keys"
-         py src/thought_completer.py --prompt-brain "typing buffer to assemble"
-         py src/thought_completer.py --sim-buffer "audit stale data points"
-         py src/thought_completer.py --web --port 8235  (Railway mode)
-
-Split into modules: tc_constants_seq001_v001, tc_vscode_seq001_v001, tc_context_seq001_v001_agent_seq001_v001, tc_context_seq001_v001,
-tc_gemini_seq001_v001, tc_buffer_watcher_seq001_v001, tc_popup_seq001_v001, tc_web_seq001_v001. This file is the entrypoint.
-
-Hotkeys (global when popup is focused):
-    Ctrl+Shift+C   — copy analysis to clipboard
-    Ctrl+Shift+X   — dismiss analysis
-    Ctrl+Q         — quit
-
-The popup auto-detects which repo you're in from VS Code window titles
-and switches context accordingly.
-"""
-# ── telemetry:pulse ──
-# EDIT_TS:   None
-# EDIT_HASH: None
-# EDIT_WHY:  None
-# EDIT_AUTHOR: None
-# EDIT_STATE: idle
-# ── /pulse ──
+"""Passive thought-completer entrypoint; implementation lives in split tc_* modules."""
 from __future__ import annotations
 import sys as _sys, os as _os; _sys.path.insert(0, _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
 from src._resolve import src_import

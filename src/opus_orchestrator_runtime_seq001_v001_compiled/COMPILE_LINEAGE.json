@@ -1,0 +1,203 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:17:05.356462+00:00",
+  "source_file": "opus_orchestrator_runtime_seq001_v001.py",
+  "source_stem": "opus_orchestrator_runtime_seq001_v001",
+  "target_dir": "opus_orchestrator_runtime_seq001_v001_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 6,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_orchestrator_runtime_seq001_v001.py",
+      "source_symbols": [
+        "build_opus_orchestrator_runtime"
+      ],
+      "generated_file": "opus_orchestrator_runtime_seq001_v001_compiled/opus_orchestrator_runtime_seq001_v001_compiled_seq001_v001.py",
+      "generated_module": "opus_orchestrator_runtime_seq001_v001_compiled_seq001_v001",
+      "identity_key": "opus_orchestrator_runtime_seq001_v001.py::build_opus_orchestrator_runtime",
+      "aliases": [
+        "opus_orchestrator_runtime_seq001_v001_compiled/opus_orchestrator_runtime_seq001_v001_compiled_seq001_v001.py",
+        "opus_orchestrator_runtime_seq001_v001.py::build_opus_orchestrator_runtime",
+        "opus_orchestrator_runtime_seq001_v001::build_opus_orchestrator_runtime",
+        "build_opus_orchestrator_runtime"
+      ],
+      "line_count": 97,
+      "status": "WARN (97)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_orchestrator_runtime_seq001_v001.py",
+      "source_symbols": [
+        "render_opus_runtime"
+      ],
+      "generated_file": "opus_orchestrator_runtime_seq001_v001_compiled/opus_orchestrator_runtime_seq001_v001_compiled_seq002_v001.py",
+      "generated_module": "opus_orchestrator_runtime_seq001_v001_compiled_seq002_v001",
+      "identity_key": "opus_orchestrator_runtime_seq001_v001.py::render_opus_runtime",
+      "aliases": [
+        "opus_orchestrator_runtime_seq001_v001_compiled/opus_orchestrator_runtime_seq001_v001_compiled_seq002_v001.py",
+        "opus_orchestrator_runtime_seq001_v001.py::render_opus_runtime",
+        "opus_orchestrator_runtime_seq001_v001::render_opus_runtime",
+        "render_opus_runtime"
+      ],
+      "line_count": 59,
+      "status": "WARN (59)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_orchestrator_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_artifact_summary",
+        "_training_debug_summary",
+        "_prompt_box_summary"
+      ],
+      "generated_file": "opus_orchestrator_runtime_seq001_v001_compiled/opus_orchestrator_runtime_seq001_v001_compiled_seq003_v001.py",
+      "generated_module": "opus_orchestrator_runtime_seq001_v001_compiled_seq003_v001",
+      "identity_key": "opus_orchestrator_runtime_seq001_v001.py::_artifact_summary|_training_debug_summary|_prompt_box_summary",
+      "aliases": [
+        "opus_orchestrator_runtime_seq001_v001_compiled/opus_orchestrator_runtime_seq001_v001_compiled_seq003_v001.py",
+        "opus_orchestrator_runtime_seq001_v001.py::_artifact_summary",
+        "opus_orchestrator_runtime_seq001_v001::_artifact_summary",
+        "_artifact_summary",
+        "opus_orchestrator_runtime_seq001_v001.py::_training_debug_summary",
+        "opus_orchestrator_runtime_seq001_v001::_training_debug_summary",
+        "_training_debug_summary",
+        "opus_orchestrator_runtime_seq001_v001.py::_prompt_box_summary",
+        "opus_orchestrator_runtime_seq001_v001::_prompt_box_summary",
+        "_prompt_box_summary"
+      ],
+      "line_count": 45,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_orchestrator_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_macro_cycle_summary",
+        "_manifest_write_cycle_summary",
+        "_folder_context_coupling_summary",
+        "_coding_memory_summary"
+      ],
+      "generated_file": "opus_orchestrator_runtime_seq001_v001_compiled/opus_orchestrator_runtime_seq001_v001_compiled_seq004_v001.py",
+      "generated_module": "opus_orchestrator_runtime_seq001_v001_compiled_seq004_v001",
+      "identity_key": "opus_orchestrator_runtime_seq001_v001.py::_macro_cycle_summary|_manifest_write_cycle_summary|_folder_context_coupling_summary|_coding_memory_summary",
+      "aliases": [
+        "opus_orchestrator_runtime_seq001_v001_compiled/opus_orchestrator_runtime_seq001_v001_compiled_seq004_v001.py",
+        "opus_orchestrator_runtime_seq001_v001.py::_macro_cycle_summary",
+        "opus_orchestrator_runtime_seq001_v001::_macro_cycle_summary",
+        "_macro_cycle_summary",
+        "opus_orchestrator_runtime_seq001_v001.py::_manifest_write_cycle_summary",
+        "opus_orchestrator_runtime_seq001_v001::_manifest_write_cycle_summary",
+        "_manifest_write_cycle_summary",
+        "opus_orchestrator_runtime_seq001_v001.py::_folder_context_coupling_summary",
+        "opus_orchestrator_runtime_seq001_v001::_folder_context_coupling_summary",
+        "_folder_context_coupling_summary",
+        "opus_orchestrator_runtime_seq001_v001.py::_coding_memory_summary",
+        "opus_orchestrator_runtime_seq001_v001::_coding_memory_summary",
+        "_coding_memory_summary"
+      ],
+      "line_count": 57,
+      "status": "WARN (57)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_orchestrator_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_hush_summary",
+        "_agent_from_packet",
+        "_manifest_write",
+        "_work_completed"
+      ],
+      "generated_file": "opus_orchestrator_runtime_seq001_v001_compiled/opus_orchestrator_runtime_seq001_v001_compiled_seq005_v001.py",
+      "generated_module": "opus_orchestrator_runtime_seq001_v001_compiled_seq005_v001",
+      "identity_key": "opus_orchestrator_runtime_seq001_v001.py::_hush_summary|_agent_from_packet|_manifest_write|_work_completed",
+      "aliases": [
+        "opus_orchestrator_runtime_seq001_v001_compiled/opus_orchestrator_runtime_seq001_v001_compiled_seq005_v001.py",
+        "opus_orchestrator_runtime_seq001_v001.py::_hush_summary",
+        "opus_orchestrator_runtime_seq001_v001::_hush_summary",
+        "_hush_summary",
+        "opus_orchestrator_runtime_seq001_v001.py::_agent_from_packet",
+        "opus_orchestrator_runtime_seq001_v001::_agent_from_packet",
+        "_agent_from_packet",
+        "opus_orchestrator_runtime_seq001_v001.py::_manifest_write",
+        "opus_orchestrator_runtime_seq001_v001::_manifest_write",
+        "_manifest_write",
+        "opus_orchestrator_runtime_seq001_v001.py::_work_completed",
+        "opus_orchestrator_runtime_seq001_v001::_work_completed",
+        "_work_completed"
+      ],
+      "line_count": 55,
+      "status": "WARN (55)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "opus_orchestrator_runtime_seq001_v001.py",
+      "source_symbols": [
+        "_prompt_row",
+        "_json",
+        "_jsonl_tail",
+        "_write_json",
+        "_append_jsonl",
+        "_now",
+        "SCHEMA",
+        "LATEST",
+        "HISTORY",
+        "MARKDOWN",
+        "MANIFEST_NOTE"
+      ],
+      "generated_file": "opus_orchestrator_runtime_seq001_v001_compiled/opus_orchestrator_runtime_seq001_v001_compiled_seq006_v001.py",
+      "generated_module": "opus_orchestrator_runtime_seq001_v001_compiled_seq006_v001",
+      "identity_key": "opus_orchestrator_runtime_seq001_v001.py::_prompt_row|_json|_jsonl_tail|_write_json|_append_jsonl|_now|SCHEMA|LATEST|HISTORY|MARKDOWN|MANIFEST_NOTE",
+      "aliases": [
+        "opus_orchestrator_runtime_seq001_v001_compiled/opus_orchestrator_runtime_seq001_v001_compiled_seq006_v001.py",
+        "opus_orchestrator_runtime_seq001_v001.py::_prompt_row",
+        "opus_orchestrator_runtime_seq001_v001::_prompt_row",
+        "_prompt_row",
+        "opus_orchestrator_runtime_seq001_v001.py::_json",
+        "opus_orchestrator_runtime_seq001_v001::_json",
+        "_json",
+        "opus_orchestrator_runtime_seq001_v001.py::_jsonl_tail",
+        "opus_orchestrator_runtime_seq001_v001::_jsonl_tail",
+        "_jsonl_tail",
+        "opus_orchestrator_runtime_seq001_v001.py::_write_json",
+        "opus_orchestrator_runtime_seq001_v001::_write_json",
+        "_write_json",
+        "opus_orchestrator_runtime_seq001_v001.py::_append_jsonl",
+        "opus_orchestrator_runtime_seq001_v001::_append_jsonl",
+        "_append_jsonl",
+        "opus_orchestrator_runtime_seq001_v001.py::_now",
+        "opus_orchestrator_runtime_seq001_v001::_now",
+        "_now",
+        "opus_orchestrator_runtime_seq001_v001.py::SCHEMA",
+        "opus_orchestrator_runtime_seq001_v001::SCHEMA",
+        "SCHEMA",
+        "opus_orchestrator_runtime_seq001_v001.py::LATEST",
+        "opus_orchestrator_runtime_seq001_v001::LATEST",
+        "LATEST",
+        "opus_orchestrator_runtime_seq001_v001.py::HISTORY",
+        "opus_orchestrator_runtime_seq001_v001::HISTORY",
+        "HISTORY",
+        "opus_orchestrator_runtime_seq001_v001.py::MARKDOWN",
+        "opus_orchestrator_runtime_seq001_v001::MARKDOWN",
+        "MARKDOWN",
+        "opus_orchestrator_runtime_seq001_v001.py::MANIFEST_NOTE",
+        "opus_orchestrator_runtime_seq001_v001::MANIFEST_NOTE",
+        "MANIFEST_NOTE"
+      ],
+      "line_count": 53,
+      "status": "WARN (53)",
+      "reason": ""
+    }
+  ]
+}

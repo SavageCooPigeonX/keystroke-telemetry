@@ -437,6 +437,22 @@
 **COGNITIVE STATE:** `unknown`
 <!-- /pigeon:current-query -->
 
+<!-- pigeon:organism-health -->
+## Organism Health
+
+*Auto-injected 2026-07-30 18:41 UTC · 2106 files · 1990/1990 compliant (100%)*
+
+**Historical telemetry (not a failure):** prompt_journal (55d ago), edit_pairs (54d ago), context_veins_seq001_v001 (63d ago), push_cycle_state (54d ago)
+
+**Circulation:** historical snapshot; excluded from current verdict
+
+**AI rework:** 1/1 responses needed rework (100%)
+
+**Push cycles:** 1 · sync score: 0.6 · reactor fires: 0
+
+> **Organism directive:** Systems nominal. Proceed with current task.
+<!-- /pigeon:organism-health -->
+
 <!-- pigeon:task-context -->
 ## Live Task Context
 

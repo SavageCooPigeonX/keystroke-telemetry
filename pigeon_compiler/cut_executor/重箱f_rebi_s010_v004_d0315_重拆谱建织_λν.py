@@ -8,7 +8,7 @@ import ast
 from pathlib import Path
 from pigeon_compiler.cut_executor.重助p_rehe_s011_v004_d0315_重箱重拆切_λν import (
     filter_imports, assemble_file)
-from pigeon_compiler.pigeon_limits import PIGEON_MAX, PIGEON_RECOMMENDED, FILE_OVERHEAD
+from pigeon_compiler.pigeon_limits_seq003_v001_d0730__central_compliance_thresholds_and_exclude_lc_organism_health_refactor import PIGEON_MAX, PIGEON_RECOMMENDED, FILE_OVERHEAD
 
 
 def bin_pack(items: list[dict], budget: int = None) -> list[list[dict]]:

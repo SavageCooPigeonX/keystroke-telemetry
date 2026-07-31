@@ -1,0 +1,3 @@
+"""file_sim_deepseek_lane_seq001_v001_compiled/ — Pigeon-compliant module."""
+from .file_sim_deepseek_lane_seq001_v001_compiled_seq001_v001 import queue_perpendicular_deepseek_job
+from .file_sim_deepseek_lane_seq001_v001_compiled_seq005_v001 import CONTEXT_PACK, PROMPT_JOBS

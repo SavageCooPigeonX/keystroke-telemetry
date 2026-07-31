@@ -7,6 +7,7 @@ Includes self-healing manifests that track operator intent.
 from pathlib import Path
 
 from pigeon_compiler import _load_package_attrs
+from .intent_stem_seq013_v001 import parse_intent_pigeon_stem
 
 _PACKAGE_DIR = Path(__file__).resolve().parent
 
@@ -34,7 +35,7 @@ extract_desc_slug, build_nametag, scan_drift = _load_package_attrs(
     'build_nametag',
     'scan_drift',
 )
-load_registry, save_registry, build_registry_from_scan, build_pigeon_filename, parse_pigeon_stem, bump_version, bump_all_versions, build_compressed_filename, mutate_compressed_stem, bug_keys_from_marker, bug_marker_from_keys = _load_package_attrs(
+load_registry, save_registry, build_registry_from_scan, build_pigeon_filename, _parse_legacy_pigeon_stem, bump_version, bump_all_versions, build_compressed_filename, mutate_compressed_stem, bug_keys_from_marker, bug_marker_from_keys = _load_package_attrs(
     __name__,
     _PACKAGE_DIR,
     's012',
@@ -50,6 +51,12 @@ load_registry, save_registry, build_registry_from_scan, build_pigeon_filename, p
     'bug_keys_from_marker',
     'bug_marker_from_keys',
 )
+
+
+def parse_pigeon_stem(stem: str) -> dict | None:
+    """Parse legacy, compressed, or semantic intent-identity filename stems."""
+    return _parse_legacy_pigeon_stem(stem) or parse_intent_pigeon_stem(stem)
+
 
 __all__ = [
     'scan_project',

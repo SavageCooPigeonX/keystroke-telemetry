@@ -1,0 +1,175 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:51:20.025908+00:00",
+  "source_file": "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py",
+  "source_stem": "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with",
+  "target_dir": "intent_identity_naming_seq001_v002_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 6,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py",
+      "source_symbols": [
+        "itid_from_intent_key",
+        "lineage_hash",
+        "intent_domain_for_path",
+        "identity_id_from_path"
+      ],
+      "generated_file": "intent_identity_naming_seq001_v002_compiled/intent_identity_naming_seq001_v002_compiled_seq001_v001.py",
+      "generated_module": "intent_identity_naming_seq001_v002_compiled_seq001_v001",
+      "identity_key": "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::itid_from_intent_key|lineage_hash|intent_domain_for_path|identity_id_from_path",
+      "aliases": [
+        "intent_identity_naming_seq001_v002_compiled/intent_identity_naming_seq001_v002_compiled_seq001_v001.py",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::itid_from_intent_key",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::itid_from_intent_key",
+        "itid_from_intent_key",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::lineage_hash",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::lineage_hash",
+        "lineage_hash",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::intent_domain_for_path",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::intent_domain_for_path",
+        "intent_domain_for_path",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::identity_id_from_path",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::identity_id_from_path",
+        "identity_id_from_path"
+      ],
+      "line_count": 47,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py",
+      "source_symbols": [
+        "build_intent_filename"
+      ],
+      "generated_file": "intent_identity_naming_seq001_v002_compiled/intent_identity_naming_seq001_v002_compiled_seq002_v001.py",
+      "generated_module": "intent_identity_naming_seq001_v002_compiled_seq002_v001",
+      "identity_key": "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::build_intent_filename",
+      "aliases": [
+        "intent_identity_naming_seq001_v002_compiled/intent_identity_naming_seq001_v002_compiled_seq002_v001.py",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::build_intent_filename",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::build_intent_filename",
+        "build_intent_filename"
+      ],
+      "line_count": 30,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py",
+      "source_symbols": [
+        "parse_intent_stem",
+        "next_eci"
+      ],
+      "generated_file": "intent_identity_naming_seq001_v002_compiled/intent_identity_naming_seq001_v002_compiled_seq003_v001.py",
+      "generated_module": "intent_identity_naming_seq001_v002_compiled_seq003_v001",
+      "identity_key": "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::parse_intent_stem|next_eci",
+      "aliases": [
+        "intent_identity_naming_seq001_v002_compiled/intent_identity_naming_seq001_v002_compiled_seq003_v001.py",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::parse_intent_stem",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::parse_intent_stem",
+        "parse_intent_stem",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::next_eci",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::next_eci",
+        "next_eci"
+      ],
+      "line_count": 47,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py",
+      "source_symbols": [
+        "enrich_registry_entry"
+      ],
+      "generated_file": "intent_identity_naming_seq001_v002_compiled/intent_identity_naming_seq001_v002_compiled_seq004_v001.py",
+      "generated_module": "intent_identity_naming_seq001_v002_compiled_seq004_v001",
+      "identity_key": "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::enrich_registry_entry",
+      "aliases": [
+        "intent_identity_naming_seq001_v002_compiled/intent_identity_naming_seq001_v002_compiled_seq004_v001.py",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::enrich_registry_entry",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::enrich_registry_entry",
+        "enrich_registry_entry"
+      ],
+      "line_count": 52,
+      "status": "WARN (52)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py",
+      "source_symbols": [
+        "stamp_intent_touch"
+      ],
+      "generated_file": "intent_identity_naming_seq001_v002_compiled/intent_identity_naming_seq001_v002_compiled_seq005_v001.py",
+      "generated_module": "intent_identity_naming_seq001_v002_compiled_seq005_v001",
+      "identity_key": "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::stamp_intent_touch",
+      "aliases": [
+        "intent_identity_naming_seq001_v002_compiled/intent_identity_naming_seq001_v002_compiled_seq005_v001.py",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::stamp_intent_touch",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::stamp_intent_touch",
+        "stamp_intent_touch"
+      ],
+      "line_count": 67,
+      "status": "WARN (67)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py",
+      "source_symbols": [
+        "parent_lineage_from_compile",
+        "_slug",
+        "_slug_lc",
+        "_slug_itid",
+        "_now",
+        "_append_jsonl",
+        "LC_SEP",
+        "INTENT_STEM_RE"
+      ],
+      "generated_file": "intent_identity_naming_seq001_v002_compiled/intent_identity_naming_seq001_v002_compiled_seq006_v001.py",
+      "generated_module": "intent_identity_naming_seq001_v002_compiled_seq006_v001",
+      "identity_key": "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::parent_lineage_from_compile|_slug|_slug_lc|_slug_itid|_now|_append_jsonl|LC_SEP|INTENT_STEM_RE",
+      "aliases": [
+        "intent_identity_naming_seq001_v002_compiled/intent_identity_naming_seq001_v002_compiled_seq006_v001.py",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::parent_lineage_from_compile",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::parent_lineage_from_compile",
+        "parent_lineage_from_compile",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::_slug",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::_slug",
+        "_slug",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::_slug_lc",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::_slug_lc",
+        "_slug_lc",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::_slug_itid",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::_slug_itid",
+        "_slug_itid",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::_now",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::_now",
+        "_now",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::_append_jsonl",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::_append_jsonl",
+        "_append_jsonl",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::LC_SEP",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::LC_SEP",
+        "LC_SEP",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with.py::INTENT_STEM_RE",
+        "intent_identity_naming_seq001_v002_d0605__itid_lh_eci_replaces_meaningless_lc_replace_seq_with::INTENT_STEM_RE",
+        "INTENT_STEM_RE"
+      ],
+      "line_count": 62,
+      "status": "WARN (62)",
+      "reason": ""
+    }
+  ]
+}

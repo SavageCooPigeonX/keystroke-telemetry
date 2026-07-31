@@ -3,6 +3,9 @@ from pathlib import Path
 import ast
 import re
 
+from .p_谱msvd观λc_s001_v001 import _MARKER_RE
+from .p_谱msvd观λfs_s007_v001 import _format_signature
+
 def _extract_docstring_first_line(text: str, filename: str) -> str:
     """Extract the first line of the module docstring."""
     try:

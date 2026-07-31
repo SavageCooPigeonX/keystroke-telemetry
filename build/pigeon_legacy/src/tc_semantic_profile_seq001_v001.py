@@ -23,10 +23,11 @@ SYSTEM_WORDS = {
     "semantic", "profile", "intent", "numeric", "neumeric", "encoding",
     "thought", "completer", "prompt", "matching", "every",
 }
-ORCHESTRATOR_WORDS = {
-    "orchestrator", "orchestrate", "approval", "approve", "guard", "guarded",
-    "consensus", "10q", "sim", "sims", "copilot", "deepseek", "autonomous",
-    "rewrite", "fixes",
+ORCHESTRATION_WORDS = {
+    "orchestrator", "orchestration", "orchestrate", "monitor", "email",
+    "alerts", "alert", "sims", "sim", "deepseek", "approval", "approve",
+    "codex", "guard", "guarded", "consensus", "10q", "copilot",
+    "autonomous", "rewrite", "fixes",
 }
 EMAIL_WORDS = {"email", "emails", "resend", "outbox", "alert", "alerts", "mail"}
 MONITOR_WORDS = {"monitor", "monitoring", "watch", "observe", "observatory", "telemetry"}
@@ -150,7 +151,7 @@ def classify_semantic_intents(text: str, profile: dict[str, Any]) -> dict[str, A
         intents.append("profile_reference")
     if len(toks & SYSTEM_WORDS) >= 3:
         intents.append("intent_system_design")
-    if len(toks & ORCHESTRATOR_WORDS) >= 2:
+    if toks & (ORCHESTRATION_WORDS - EMAIL_WORDS) or "10q" in toks:
         intents.append("code_orchestration")
     if toks & EMAIL_WORDS:
         intents.append("telemetry_email")

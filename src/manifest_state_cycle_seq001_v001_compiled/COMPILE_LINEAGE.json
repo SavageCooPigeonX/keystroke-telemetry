@@ -1,0 +1,155 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:17:24.004959+00:00",
+  "source_file": "manifest_state_cycle_seq001_v001.py",
+  "source_stem": "manifest_state_cycle_seq001_v001",
+  "target_dir": "manifest_state_cycle_seq001_v001_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 5,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "manifest_state_cycle_seq001_v001.py",
+      "source_symbols": [
+        "apply_manifest_state_cycle"
+      ],
+      "generated_file": "manifest_state_cycle_seq001_v001_compiled/manifest_state_cycle_seq001_v001_compiled_seq001_v001.py",
+      "generated_module": "manifest_state_cycle_seq001_v001_compiled_seq001_v001",
+      "identity_key": "manifest_state_cycle_seq001_v001.py::apply_manifest_state_cycle",
+      "aliases": [
+        "manifest_state_cycle_seq001_v001_compiled/manifest_state_cycle_seq001_v001_compiled_seq001_v001.py",
+        "manifest_state_cycle_seq001_v001.py::apply_manifest_state_cycle",
+        "manifest_state_cycle_seq001_v001::apply_manifest_state_cycle",
+        "apply_manifest_state_cycle"
+      ],
+      "line_count": 65,
+      "status": "WARN (65)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "manifest_state_cycle_seq001_v001.py",
+      "source_symbols": [
+        "render_manifest_state_write",
+        "_selected_files"
+      ],
+      "generated_file": "manifest_state_cycle_seq001_v001_compiled/manifest_state_cycle_seq001_v001_compiled_seq002_v001.py",
+      "generated_module": "manifest_state_cycle_seq001_v001_compiled_seq002_v001",
+      "identity_key": "manifest_state_cycle_seq001_v001.py::render_manifest_state_write|_selected_files",
+      "aliases": [
+        "manifest_state_cycle_seq001_v001_compiled/manifest_state_cycle_seq001_v001_compiled_seq002_v001.py",
+        "manifest_state_cycle_seq001_v001.py::render_manifest_state_write",
+        "manifest_state_cycle_seq001_v001::render_manifest_state_write",
+        "render_manifest_state_write",
+        "manifest_state_cycle_seq001_v001.py::_selected_files",
+        "manifest_state_cycle_seq001_v001::_selected_files",
+        "_selected_files"
+      ],
+      "line_count": 41,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "manifest_state_cycle_seq001_v001.py",
+      "source_symbols": [
+        "_build_packet",
+        "_light_intent_graph"
+      ],
+      "generated_file": "manifest_state_cycle_seq001_v001_compiled/manifest_state_cycle_seq001_v001_compiled_seq003_v001.py",
+      "generated_module": "manifest_state_cycle_seq001_v001_compiled_seq003_v001",
+      "identity_key": "manifest_state_cycle_seq001_v001.py::_build_packet|_light_intent_graph",
+      "aliases": [
+        "manifest_state_cycle_seq001_v001_compiled/manifest_state_cycle_seq001_v001_compiled_seq003_v001.py",
+        "manifest_state_cycle_seq001_v001.py::_build_packet",
+        "manifest_state_cycle_seq001_v001::_build_packet",
+        "_build_packet",
+        "manifest_state_cycle_seq001_v001.py::_light_intent_graph",
+        "manifest_state_cycle_seq001_v001::_light_intent_graph",
+        "_light_intent_graph"
+      ],
+      "line_count": 46,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "manifest_state_cycle_seq001_v001.py",
+      "source_symbols": [
+        "_selected_manifests",
+        "_write_folder_manifests"
+      ],
+      "generated_file": "manifest_state_cycle_seq001_v001_compiled/manifest_state_cycle_seq001_v001_compiled_seq004_v001.py",
+      "generated_module": "manifest_state_cycle_seq001_v001_compiled_seq004_v001",
+      "identity_key": "manifest_state_cycle_seq001_v001.py::_selected_manifests|_write_folder_manifests",
+      "aliases": [
+        "manifest_state_cycle_seq001_v001_compiled/manifest_state_cycle_seq001_v001_compiled_seq004_v001.py",
+        "manifest_state_cycle_seq001_v001.py::_selected_manifests",
+        "manifest_state_cycle_seq001_v001::_selected_manifests",
+        "_selected_manifests",
+        "manifest_state_cycle_seq001_v001.py::_write_folder_manifests",
+        "manifest_state_cycle_seq001_v001::_write_folder_manifests",
+        "_write_folder_manifests"
+      ],
+      "line_count": 48,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "manifest_state_cycle_seq001_v001.py",
+      "source_symbols": [
+        "_own_manifest",
+        "_belongs",
+        "_write_json",
+        "_append_jsonl",
+        "_now",
+        "_sha",
+        "LATEST",
+        "HISTORY",
+        "MARKDOWN"
+      ],
+      "generated_file": "manifest_state_cycle_seq001_v001_compiled/manifest_state_cycle_seq001_v001_compiled_seq005_v001.py",
+      "generated_module": "manifest_state_cycle_seq001_v001_compiled_seq005_v001",
+      "identity_key": "manifest_state_cycle_seq001_v001.py::_own_manifest|_belongs|_write_json|_append_jsonl|_now|_sha|LATEST|HISTORY|MARKDOWN",
+      "aliases": [
+        "manifest_state_cycle_seq001_v001_compiled/manifest_state_cycle_seq001_v001_compiled_seq005_v001.py",
+        "manifest_state_cycle_seq001_v001.py::_own_manifest",
+        "manifest_state_cycle_seq001_v001::_own_manifest",
+        "_own_manifest",
+        "manifest_state_cycle_seq001_v001.py::_belongs",
+        "manifest_state_cycle_seq001_v001::_belongs",
+        "_belongs",
+        "manifest_state_cycle_seq001_v001.py::_write_json",
+        "manifest_state_cycle_seq001_v001::_write_json",
+        "_write_json",
+        "manifest_state_cycle_seq001_v001.py::_append_jsonl",
+        "manifest_state_cycle_seq001_v001::_append_jsonl",
+        "_append_jsonl",
+        "manifest_state_cycle_seq001_v001.py::_now",
+        "manifest_state_cycle_seq001_v001::_now",
+        "_now",
+        "manifest_state_cycle_seq001_v001.py::_sha",
+        "manifest_state_cycle_seq001_v001::_sha",
+        "_sha",
+        "manifest_state_cycle_seq001_v001.py::LATEST",
+        "manifest_state_cycle_seq001_v001::LATEST",
+        "LATEST",
+        "manifest_state_cycle_seq001_v001.py::HISTORY",
+        "manifest_state_cycle_seq001_v001::HISTORY",
+        "HISTORY",
+        "manifest_state_cycle_seq001_v001.py::MARKDOWN",
+        "manifest_state_cycle_seq001_v001::MARKDOWN",
+        "MARKDOWN"
+      ],
+      "line_count": 49,
+      "status": "OK",
+      "reason": ""
+    }
+  ]
+}

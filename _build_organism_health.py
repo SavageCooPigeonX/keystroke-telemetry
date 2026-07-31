@@ -9,6 +9,9 @@ import json, os, sys
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from collections import Counter
+from functools import lru_cache
+
+from pigeon_compiler.pigeon_limits_seq003_v001_d0730__central_compliance_thresholds_and_exclude_lc_organism_health_refactor import PIGEON_MAX, explain_exclusion
 
 ROOT = Path(__file__).resolve().parent
 
@@ -61,7 +64,7 @@ def _ago(iso_ts):
 
 
 def _freshness_icon(iso_ts, stale_hours=24):
-    """Green if recent, yellow if aging, red if stale."""
+    """Show active captures by freshness and old captures as historical."""
     try:
         dt = datetime.fromisoformat(iso_ts)
         if dt.tzinfo is None:
@@ -71,11 +74,19 @@ def _freshness_icon(iso_ts, stale_hours=24):
             return "🟢"
         if hours < stale_hours:
             return "🟡"
-        return "🔴"
+        return "📚"
     except Exception:
         return "⚫"
 
 
+def _path_is_historical(path: Path, stale_hours=24) -> bool:
+    if not path.exists():
+        return False
+    captured = datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc)
+    return (datetime.now(timezone.utc) - captured).total_seconds() > stale_hours * 3600
+
+
+@lru_cache(maxsize=4)
 def _count_py_files(root):
     """Count .py files by top-level folder, excluding junk."""
     skip = {"__pycache__", ".venv", "pigeon_code.egg-info", "node_modules", ".git", "build"}
@@ -100,40 +111,56 @@ def _count_py_files(root):
     return total, counts
 
 
+@lru_cache(maxsize=4)
 def _compliance_scan(root):
-    """Return (compliant, over, details) for all .py files."""
-    skip = {"__pycache__", ".venv", "pigeon_code.egg-info", "node_modules", ".git", "build"}
+    """Return the authoritative central-policy compliance result."""
     compliant = 0
     over = []
     total = 0
     for f in root.rglob("*.py"):
+        if explain_exclusion(f, root)["excluded"]:
+            continue
         rel = f.relative_to(root)
-        parts = rel.parts
-        if any(s in parts for s in skip):
-            continue
-        # Skip monolith originals — a .py file whose stem matches a sibling
-        # package directory (with __init__.py). Python ignores the .py when
-        # both exist, so counting it is double-counting.
-        pkg_dir = f.parent / f.stem
-        if pkg_dir.is_dir() and (pkg_dir / "__init__.py").exists():
-            continue
-        # Skip temporary scripts, test harnesses, and compiler artifacts
-        fname = f.name
-        if fname.startswith("_tmp_") or fname.startswith("."):
-            continue
-        if f.parent == root and fname.startswith(("test_", "stress_test", "deep_test", "deep_stress")):
-            continue
         total += 1
         try:
             lines = len(f.read_text("utf-8").splitlines())
         except Exception:
             continue
-        if lines <= 200:
+        if lines <= PIGEON_MAX:
             compliant += 1
         else:
             over.append((str(rel).replace("\\", "/"), lines))
     over.sort(key=lambda x: -x[1])
     return total, compliant, over
+
+
+@lru_cache(maxsize=4)
+def _collision_scan(root):
+    """Classify same-stem file/package pairs by their Pigeon manifest."""
+    skip = {".git", ".venv", "__pycache__", "build", "node_modules", "test_logs"}
+    entrypoints = []
+    source_shadows = []
+    unsafe = []
+    for path in root.rglob("*.py"):
+        if any(part in skip for part in path.relative_to(root).parts):
+            continue
+        package = path.parent / path.stem
+        if not (package / "__init__.py").exists():
+            continue
+        rel = path.relative_to(root).as_posix()
+        if not (package / "MANIFEST.md").exists():
+            unsafe.append(rel)
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace")
+        if "__main__" in text:
+            entrypoints.append(rel)
+        else:
+            source_shadows.append(rel)
+    return {
+        "entrypoints": entrypoints,
+        "source_shadows": source_shadows,
+        "unsafe": unsafe,
+    }
 
 
 # ── section builders ─────────────────────────────────────────────────────────
@@ -191,7 +218,7 @@ def _build_blood_flow(root):
     """Data pipeline health — every artery the organism depends on."""
     pipelines = [
         ("prompt_journal", "logs/prompt_journal.jsonl", "jsonl", "Enriched prompts"),
-        ("chat_compositions", "logs/chat_compositions.jsonl", "jsonl", "Keystroke compositions"),
+        ("chat_compositions", "logs/chat_compositions.jsonl", "jsonl", "Keystroke compositions", "inactive"),
         ("paste_events", "logs/paste_events.jsonl", "jsonl", "Ctrl+V / virtual paste context", "optional"),
         ("edit_pairs", "logs/edit_pairs.jsonl", "jsonl", "Prompt → file pairings"),
         ("push_cycles", "logs/push_cycles.jsonl", "jsonl", "Push cycle reports", "not_started"),
@@ -228,6 +255,9 @@ def _build_blood_flow(root):
                 continue
             if missing_mode == "not_started":
                 lines.append(f"| {name} | 0 | 0 | ⚪ not started | {role} |")
+                continue
+            if missing_mode == "inactive":
+                lines.append(f"| {name} | — | — | ⏸ inactive capture | {role} |")
                 continue
             if missing_mode == "optional":
                 lines.append(f"| {name} | — | — | ⚪ optional | {role} |")
@@ -304,10 +334,34 @@ def _build_structure(root):
     return "\n".join(lines)
 
 
-def _build_circulation(veins_data):
+def _build_collisions(root):
+    """Report unsafe collisions separately from manifested split pairs."""
+    scan = _collision_scan(root)
+    safe = len(scan["entrypoints"]) + len(scan["source_shadows"])
+    lines = [
+        "## Module/File Collision Safety\n",
+        f"🟢 **{len(scan['unsafe'])} unsafe collisions** · "
+        f"{safe} manifested split pairs "
+        f"({len(scan['entrypoints'])} entrypoints, "
+        f"{len(scan['source_shadows'])} compiled-source shadows)\n",
+    ]
+    if scan["unsafe"]:
+        lines.extend(["| Unsafe pair |", "|---|"])
+        lines.extend(f"| `{path}` |" for path in scan["unsafe"])
+        lines.append("")
+    return "\n".join(lines)
+
+
+def _build_circulation(veins_data, historical=False):
     """Dependency health — arteries, clots, vein scores."""
     if not veins_data:
         return "## Circulation\n\n*No context_veins_seq001_v001.json found.*\n"
+    if historical:
+        return (
+            "## Circulation (Historical Snapshot)\n\n"
+            "*The dependency snapshot is historical and is not used for the "
+            "current health verdict. Regenerate it before acting on old clot signals.*\n"
+        )
 
     stats = veins_data.get("stats", {})
     arteries = veins_data.get("arteries", [])
@@ -602,6 +656,10 @@ def _build_task_queue(tq):
 
 def build_health(root):
     """Synthesize the organism health document from all data sources."""
+    root = Path(root).resolve()
+    _count_py_files.cache_clear()
+    _compliance_scan.cache_clear()
+    _collision_scan.cache_clear()
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
     # Load everything
@@ -624,8 +682,8 @@ def build_health(root):
         f"# ORGANISM HEALTH — keystroke-telemetry\n\n"
         f"*Auto-generated {now} · {total_files} Python files tracked · "
         f"{len(journal)} prompts analyzed*\n\n"
-        f"**This document is the organism. Every data pipeline that flows "
-        f"through this codebase is measured here. If it's not flowing, it's dying.**\n\n"
+        f"**Live code health and last-known telemetry are measured separately; "
+        f"dormant captures are labeled historical rather than failed.**\n\n"
         f"---\n"
     )
 
@@ -635,7 +693,10 @@ def build_health(root):
     sections.append("---\n")
     sections.append(_build_structure(root))
     sections.append("---\n")
-    sections.append(_build_circulation(veins))
+    sections.append(_build_collisions(root))
+    sections.append("---\n")
+    veins_path = root / "pigeon_brain/context_veins_seq001_v001.json"
+    sections.append(_build_circulation(veins, historical=_path_is_historical(veins_path)))
     sections.append("---\n")
     sections.append(_build_hot_modules(heat_map))
     sections.append("---\n")
@@ -684,34 +745,44 @@ def build_prompt_block(root):
     reactor_state = _load_json(root / "logs/cognitive_reactor_state.json") or {}
     total_files, _ = _count_py_files(root)
     total, compliant, over = _compliance_scan(root)
+    compliance_pct = (compliant / total * 100) if total else 100
 
     L = [BLOCK_START, '## Organism Health', '',
          f'*Auto-injected {now.strftime("%Y-%m-%d %H:%M UTC")} · '
          f'{total_files} files · {compliant}/{total} compliant '
-         f'({compliant/total*100:.0f}%)*', '']
+         f'({compliance_pct:.0f}%)*', '']
 
-    # Blood flow — only stale/dead pipelines
+    # Distinguish live pipeline failures from valid historical captures.
     stale = []
+    historical = []
     pipelines = [
-        ("prompt_journal", "logs/prompt_journal.jsonl"),
-        ("chat_compositions", "logs/chat_compositions.jsonl"),
-        ("paste_events", "logs/paste_events.jsonl"),
-        ("edit_pairs", "logs/edit_pairs.jsonl"),
-        ("context_veins_seq001_v001", "pigeon_brain/context_veins_seq001_v001.json"),
-        ("execution_deaths", "execution_death_log.json"),
-        ("push_cycle_state", "logs/push_cycle_state.json"),
+        ("prompt_journal", "logs/prompt_journal.jsonl", "historical_ok"),
+        ("chat_compositions", "logs/chat_compositions.jsonl", "inactive"),
+        ("paste_events", "logs/paste_events.jsonl", "optional"),
+        ("edit_pairs", "logs/edit_pairs.jsonl", "historical_ok"),
+        ("context_veins_seq001_v001", "pigeon_brain/context_veins_seq001_v001.json", "historical_ok"),
+        ("execution_deaths", "execution_death_log.json", "empty_ok"),
+        ("push_cycle_state", "logs/push_cycle_state.json", "historical_ok"),
     ]
-    for name, relpath in pipelines:
+    for name, relpath, mode in pipelines:
         path = root / relpath
         if not path.exists():
-            stale.append(f"- **{name}**: MISSING")
+            if mode == "required":
+                stale.append(f"- **{name}**: missing")
         else:
             hours = (now - datetime.fromtimestamp(
                 path.stat().st_mtime, tz=timezone.utc)).total_seconds() / 3600
             if hours > 24:
-                stale.append(f"- **{name}**: {_ago(datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc).isoformat())} \U0001f534")
+                age = _ago(datetime.fromtimestamp(
+                    path.stat().st_mtime, tz=timezone.utc).isoformat())
+                historical.append(f"{name} ({age})")
     if stale:
-        L += ['**Stale pipelines:**'] + stale + ['']
+        L += ['**Pipeline issues:**'] + stale + ['']
+    if historical:
+        L += [
+            "**Historical telemetry (not a failure):** " + ", ".join(historical),
+            "",
+        ]
 
     # Over-cap critical (>500 lines only)
     crit = [(f, lc) for f, lc in over if lc > 500]
@@ -720,18 +791,24 @@ def build_prompt_block(root):
                  + ', '.join(f'`{f.split("/")[-1][:40]}` ({lc})' for f, lc in crit[:8]))
         L.append('')
 
-    # Clots
+    # Clots are actionable only when the dependency snapshot is current.
+    veins_path = root / "pigeon_brain/context_veins_seq001_v001.json"
+    veins_current = bool(veins) and not _path_is_historical(veins_path)
     if veins:
-        clots = veins.get("clots", [])
-        if clots:
-            L.append('**Clots:** ' + ', '.join(
-                f'`{c["module"]}` ({", ".join(c.get("clot_signals", [])[:2])})'
-                for c in clots))
+        clots = veins.get("clots", []) if veins_current else []
+        if not veins_current:
+            L.append("**Circulation:** historical snapshot; excluded from current verdict")
             L.append('')
-        stats = veins.get("stats", {})
-        L.append(f'**Circulation:** {stats.get("alive", "?")}/{stats.get("total_nodes", "?")} alive '
-                 f'· {stats.get("clots", 0)} clots · vein health {stats.get("avg_vein_health", 0):.2f}')
-        L.append('')
+        else:
+            if clots:
+                L.append('**Clots:** ' + ', '.join(
+                    f'`{c["module"]}` ({", ".join(c.get("clot_signals", [])[:2])})'
+                    for c in clots))
+                L.append('')
+            stats = veins.get("stats", {})
+            L.append(f'**Circulation:** {stats.get("alive", "?")}/{stats.get("total_nodes", "?")} alive '
+                     f'· {stats.get("clots", 0)} clots · vein health {stats.get("avg_vein_health", 0):.2f}')
+            L.append('')
 
     # Recent deaths
     recent_deaths = [d for d in deaths[-5:] if d.get("severity") in ("high", "critical")]
@@ -765,7 +842,7 @@ def build_prompt_block(root):
 
     # Directive
     over_crit = len(crit)
-    clot_n = len(veins.get("clots", [])) if veins else 0
+    clot_n = len(veins.get("clots", [])) if veins_current else 0
     death_n = len(recent_deaths)
     if over_crit > 10 or clot_n > 3 or death_n > 3:
         L.append('> **Organism directive:** Multiple systems degraded. '

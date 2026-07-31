@@ -9,7 +9,7 @@ Generates __init__.py with re-exports and MANIFEST.md with:
 import ast, re
 from pathlib import Path
 from datetime import datetime
-from pigeon_compiler.pigeon_limits import PIGEON_MAX, PIGEON_RECOMMENDED
+from pigeon_compiler.pigeon_limits_seq003_v001_d0730__central_compliance_thresholds_and_exclude_lc_organism_health_refactor import PIGEON_MAX, PIGEON_RECOMMENDED
 CHANGELOG_MARKER = "## CHANGELOG"
 
 

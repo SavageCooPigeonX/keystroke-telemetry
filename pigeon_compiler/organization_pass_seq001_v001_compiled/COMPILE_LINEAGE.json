@@ -1,0 +1,243 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:43:26.198593+00:00",
+  "source_file": "organization_pass_seq001_v001.py",
+  "source_stem": "organization_pass_seq001_v001",
+  "target_dir": "organization_pass_seq001_v001_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 7,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "organization_pass_seq001_v001.py",
+      "source_symbols": [
+        "build_organization_plan"
+      ],
+      "generated_file": "organization_pass_seq001_v001_compiled/organization_pass_seq001_v001_compiled_seq001_v001.py",
+      "generated_module": "organization_pass_seq001_v001_compiled_seq001_v001",
+      "identity_key": "organization_pass_seq001_v001.py::build_organization_plan",
+      "aliases": [
+        "organization_pass_seq001_v001_compiled/organization_pass_seq001_v001_compiled_seq001_v001.py",
+        "organization_pass_seq001_v001.py::build_organization_plan",
+        "organization_pass_seq001_v001::build_organization_plan",
+        "build_organization_plan"
+      ],
+      "line_count": 50,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "organization_pass_seq001_v001.py",
+      "source_symbols": [
+        "render_organization_plan",
+        "_collect_python_files"
+      ],
+      "generated_file": "organization_pass_seq001_v001_compiled/organization_pass_seq001_v001_compiled_seq002_v001.py",
+      "generated_module": "organization_pass_seq001_v001_compiled_seq002_v001",
+      "identity_key": "organization_pass_seq001_v001.py::render_organization_plan|_collect_python_files",
+      "aliases": [
+        "organization_pass_seq001_v001_compiled/organization_pass_seq001_v001_compiled_seq002_v001.py",
+        "organization_pass_seq001_v001.py::render_organization_plan",
+        "organization_pass_seq001_v001::render_organization_plan",
+        "render_organization_plan",
+        "organization_pass_seq001_v001.py::_collect_python_files",
+        "organization_pass_seq001_v001::_collect_python_files",
+        "_collect_python_files"
+      ],
+      "line_count": 46,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "organization_pass_seq001_v001.py",
+      "source_symbols": [
+        "_file_info",
+        "_project_imports",
+        "_resolve_import"
+      ],
+      "generated_file": "organization_pass_seq001_v001_compiled/organization_pass_seq001_v001_compiled_seq003_v001.py",
+      "generated_module": "organization_pass_seq001_v001_compiled_seq003_v001",
+      "identity_key": "organization_pass_seq001_v001.py::_file_info|_project_imports|_resolve_import",
+      "aliases": [
+        "organization_pass_seq001_v001_compiled/organization_pass_seq001_v001_compiled_seq003_v001.py",
+        "organization_pass_seq001_v001.py::_file_info",
+        "organization_pass_seq001_v001::_file_info",
+        "_file_info",
+        "organization_pass_seq001_v001.py::_project_imports",
+        "organization_pass_seq001_v001::_project_imports",
+        "_project_imports",
+        "organization_pass_seq001_v001.py::_resolve_import",
+        "organization_pass_seq001_v001::_resolve_import",
+        "_resolve_import"
+      ],
+      "line_count": 58,
+      "status": "WARN (58)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "organization_pass_seq001_v001.py",
+      "source_symbols": [
+        "_folder_rows"
+      ],
+      "generated_file": "organization_pass_seq001_v001_compiled/organization_pass_seq001_v001_compiled_seq004_v001.py",
+      "generated_module": "organization_pass_seq001_v001_compiled_seq004_v001",
+      "identity_key": "organization_pass_seq001_v001.py::_folder_rows",
+      "aliases": [
+        "organization_pass_seq001_v001_compiled/organization_pass_seq001_v001_compiled_seq004_v001.py",
+        "organization_pass_seq001_v001.py::_folder_rows",
+        "organization_pass_seq001_v001::_folder_rows",
+        "_folder_rows"
+      ],
+      "line_count": 57,
+      "status": "WARN (57)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "organization_pass_seq001_v001.py",
+      "source_symbols": [
+        "_move_plan",
+        "_target_folder",
+        "_move_reason",
+        "_mode"
+      ],
+      "generated_file": "organization_pass_seq001_v001_compiled/organization_pass_seq001_v001_compiled_seq005_v001.py",
+      "generated_module": "organization_pass_seq001_v001_compiled_seq005_v001",
+      "identity_key": "organization_pass_seq001_v001.py::_move_plan|_target_folder|_move_reason|_mode",
+      "aliases": [
+        "organization_pass_seq001_v001_compiled/organization_pass_seq001_v001_compiled_seq005_v001.py",
+        "organization_pass_seq001_v001.py::_move_plan",
+        "organization_pass_seq001_v001::_move_plan",
+        "_move_plan",
+        "organization_pass_seq001_v001.py::_target_folder",
+        "organization_pass_seq001_v001::_target_folder",
+        "_target_folder",
+        "organization_pass_seq001_v001.py::_move_reason",
+        "organization_pass_seq001_v001::_move_reason",
+        "_move_reason",
+        "organization_pass_seq001_v001.py::_mode",
+        "organization_pass_seq001_v001::_mode",
+        "_mode"
+      ],
+      "line_count": 56,
+      "status": "WARN (56)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "organization_pass_seq001_v001.py",
+      "source_symbols": [
+        "_summary",
+        "_operator_label",
+        "_folder_of",
+        "_module_name",
+        "_read_text",
+        "_write_outputs",
+        "_write_json",
+        "_append_jsonl",
+        "_now"
+      ],
+      "generated_file": "organization_pass_seq001_v001_compiled/organization_pass_seq001_v001_compiled_seq006_v001.py",
+      "generated_module": "organization_pass_seq001_v001_compiled_seq006_v001",
+      "identity_key": "organization_pass_seq001_v001.py::_summary|_operator_label|_folder_of|_module_name|_read_text|_write_outputs|_write_json|_append_jsonl|_now",
+      "aliases": [
+        "organization_pass_seq001_v001_compiled/organization_pass_seq001_v001_compiled_seq006_v001.py",
+        "organization_pass_seq001_v001.py::_summary",
+        "organization_pass_seq001_v001::_summary",
+        "_summary",
+        "organization_pass_seq001_v001.py::_operator_label",
+        "organization_pass_seq001_v001::_operator_label",
+        "_operator_label",
+        "organization_pass_seq001_v001.py::_folder_of",
+        "organization_pass_seq001_v001::_folder_of",
+        "_folder_of",
+        "organization_pass_seq001_v001.py::_module_name",
+        "organization_pass_seq001_v001::_module_name",
+        "_module_name",
+        "organization_pass_seq001_v001.py::_read_text",
+        "organization_pass_seq001_v001::_read_text",
+        "_read_text",
+        "organization_pass_seq001_v001.py::_write_outputs",
+        "organization_pass_seq001_v001::_write_outputs",
+        "_write_outputs",
+        "organization_pass_seq001_v001.py::_write_json",
+        "organization_pass_seq001_v001::_write_json",
+        "_write_json",
+        "organization_pass_seq001_v001.py::_append_jsonl",
+        "organization_pass_seq001_v001::_append_jsonl",
+        "_append_jsonl",
+        "organization_pass_seq001_v001.py::_now",
+        "organization_pass_seq001_v001::_now",
+        "_now"
+      ],
+      "line_count": 71,
+      "status": "WARN (71)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "organization_pass_seq001_v001.py",
+      "source_symbols": [
+        "main",
+        "FileInfo",
+        "SCHEMA",
+        "LATEST",
+        "HISTORY",
+        "MARKDOWN",
+        "MAX_PY_LINES",
+        "SKIP_PARTS",
+        "TOP_SOURCE_DIRS",
+        "ROOT_SRC_FAMILIES"
+      ],
+      "generated_file": "organization_pass_seq001_v001_compiled/organization_pass_seq001_v001_compiled_seq007_v001.py",
+      "generated_module": "organization_pass_seq001_v001_compiled_seq007_v001",
+      "identity_key": "organization_pass_seq001_v001.py::main|FileInfo|SCHEMA|LATEST|HISTORY|MARKDOWN|MAX_PY_LINES|SKIP_PARTS|TOP_SOURCE_DIRS|ROOT_SRC_FAMILIES",
+      "aliases": [
+        "organization_pass_seq001_v001_compiled/organization_pass_seq001_v001_compiled_seq007_v001.py",
+        "organization_pass_seq001_v001.py::main",
+        "organization_pass_seq001_v001::main",
+        "main",
+        "organization_pass_seq001_v001.py::FileInfo",
+        "organization_pass_seq001_v001::FileInfo",
+        "FileInfo",
+        "organization_pass_seq001_v001.py::SCHEMA",
+        "organization_pass_seq001_v001::SCHEMA",
+        "SCHEMA",
+        "organization_pass_seq001_v001.py::LATEST",
+        "organization_pass_seq001_v001::LATEST",
+        "LATEST",
+        "organization_pass_seq001_v001.py::HISTORY",
+        "organization_pass_seq001_v001::HISTORY",
+        "HISTORY",
+        "organization_pass_seq001_v001.py::MARKDOWN",
+        "organization_pass_seq001_v001::MARKDOWN",
+        "MARKDOWN",
+        "organization_pass_seq001_v001.py::MAX_PY_LINES",
+        "organization_pass_seq001_v001::MAX_PY_LINES",
+        "MAX_PY_LINES",
+        "organization_pass_seq001_v001.py::SKIP_PARTS",
+        "organization_pass_seq001_v001::SKIP_PARTS",
+        "SKIP_PARTS",
+        "organization_pass_seq001_v001.py::TOP_SOURCE_DIRS",
+        "organization_pass_seq001_v001::TOP_SOURCE_DIRS",
+        "TOP_SOURCE_DIRS",
+        "organization_pass_seq001_v001.py::ROOT_SRC_FAMILIES",
+        "organization_pass_seq001_v001::ROOT_SRC_FAMILIES",
+        "ROOT_SRC_FAMILIES"
+      ],
+      "line_count": 70,
+      "status": "WARN (70)",
+      "reason": ""
+    }
+  ]
+}

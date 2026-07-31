@@ -11,6 +11,20 @@ from datetime import datetime, timezone
 from pathlib import Path
 import re
 
+from .p_谱msvd观λbs_s013_v001 import (
+    _build_constants_section,
+    _build_dep_graph,
+    _build_folder_api,
+    _build_markers_section,
+    _build_pigeon_table,
+    _build_signatures_section,
+    _infer_folder_purpose,
+    _parse_existing_notes,
+    _status_icon,
+)
+from .p_谱msvd观λc_s001_v001 import MAX_COMPLIANT, _LEGEND
+from .p_谱msvd观λsf_s012_v001 import _scan_folder_rich
+
 def build_manifest(folder: Path, root: Path = None) -> str:
     """Generate self-documenting MANIFEST.md content for a single folder.
 

@@ -1,0 +1,163 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:17:10.992527+00:00",
+  "source_file": "file_sim_deepseek_lane_seq001_v001.py",
+  "source_stem": "file_sim_deepseek_lane_seq001_v001",
+  "target_dir": "file_sim_deepseek_lane_seq001_v001_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 5,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_sim_deepseek_lane_seq001_v001.py",
+      "source_symbols": [
+        "queue_perpendicular_deepseek_job"
+      ],
+      "generated_file": "file_sim_deepseek_lane_seq001_v001_compiled/file_sim_deepseek_lane_seq001_v001_compiled_seq001_v001.py",
+      "generated_module": "file_sim_deepseek_lane_seq001_v001_compiled_seq001_v001",
+      "identity_key": "file_sim_deepseek_lane_seq001_v001.py::queue_perpendicular_deepseek_job",
+      "aliases": [
+        "file_sim_deepseek_lane_seq001_v001_compiled/file_sim_deepseek_lane_seq001_v001_compiled_seq001_v001.py",
+        "file_sim_deepseek_lane_seq001_v001.py::queue_perpendicular_deepseek_job",
+        "file_sim_deepseek_lane_seq001_v001::queue_perpendicular_deepseek_job",
+        "queue_perpendicular_deepseek_job"
+      ],
+      "line_count": 79,
+      "status": "WARN (79)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_sim_deepseek_lane_seq001_v001.py",
+      "source_symbols": [
+        "_select_action",
+        "_hush_blocked_action"
+      ],
+      "generated_file": "file_sim_deepseek_lane_seq001_v001_compiled/file_sim_deepseek_lane_seq001_v001_compiled_seq002_v001.py",
+      "generated_module": "file_sim_deepseek_lane_seq001_v001_compiled_seq002_v001",
+      "identity_key": "file_sim_deepseek_lane_seq001_v001.py::_select_action|_hush_blocked_action",
+      "aliases": [
+        "file_sim_deepseek_lane_seq001_v001_compiled/file_sim_deepseek_lane_seq001_v001_compiled_seq002_v001.py",
+        "file_sim_deepseek_lane_seq001_v001.py::_select_action",
+        "file_sim_deepseek_lane_seq001_v001::_select_action",
+        "_select_action",
+        "file_sim_deepseek_lane_seq001_v001.py::_hush_blocked_action",
+        "file_sim_deepseek_lane_seq001_v001::_hush_blocked_action",
+        "_hush_blocked_action"
+      ],
+      "line_count": 50,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_sim_deepseek_lane_seq001_v001.py",
+      "source_symbols": [
+        "_action",
+        "_context_pack"
+      ],
+      "generated_file": "file_sim_deepseek_lane_seq001_v001_compiled/file_sim_deepseek_lane_seq001_v001_compiled_seq003_v001.py",
+      "generated_module": "file_sim_deepseek_lane_seq001_v001_compiled_seq003_v001",
+      "identity_key": "file_sim_deepseek_lane_seq001_v001.py::_action|_context_pack",
+      "aliases": [
+        "file_sim_deepseek_lane_seq001_v001_compiled/file_sim_deepseek_lane_seq001_v001_compiled_seq003_v001.py",
+        "file_sim_deepseek_lane_seq001_v001.py::_action",
+        "file_sim_deepseek_lane_seq001_v001::_action",
+        "_action",
+        "file_sim_deepseek_lane_seq001_v001.py::_context_pack",
+        "file_sim_deepseek_lane_seq001_v001::_context_pack",
+        "_context_pack"
+      ],
+      "line_count": 49,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_sim_deepseek_lane_seq001_v001.py",
+      "source_symbols": [
+        "_prompt",
+        "_highest_pressure",
+        "_dedupe",
+        "_hush_runtime",
+        "_hush_blocks_mutation",
+        "_hush_summary"
+      ],
+      "generated_file": "file_sim_deepseek_lane_seq001_v001_compiled/file_sim_deepseek_lane_seq001_v001_compiled_seq004_v001.py",
+      "generated_module": "file_sim_deepseek_lane_seq001_v001_compiled_seq004_v001",
+      "identity_key": "file_sim_deepseek_lane_seq001_v001.py::_prompt|_highest_pressure|_dedupe|_hush_runtime|_hush_blocks_mutation|_hush_summary",
+      "aliases": [
+        "file_sim_deepseek_lane_seq001_v001_compiled/file_sim_deepseek_lane_seq001_v001_compiled_seq004_v001.py",
+        "file_sim_deepseek_lane_seq001_v001.py::_prompt",
+        "file_sim_deepseek_lane_seq001_v001::_prompt",
+        "_prompt",
+        "file_sim_deepseek_lane_seq001_v001.py::_highest_pressure",
+        "file_sim_deepseek_lane_seq001_v001::_highest_pressure",
+        "_highest_pressure",
+        "file_sim_deepseek_lane_seq001_v001.py::_dedupe",
+        "file_sim_deepseek_lane_seq001_v001::_dedupe",
+        "_dedupe",
+        "file_sim_deepseek_lane_seq001_v001.py::_hush_runtime",
+        "file_sim_deepseek_lane_seq001_v001::_hush_runtime",
+        "_hush_runtime",
+        "file_sim_deepseek_lane_seq001_v001.py::_hush_blocks_mutation",
+        "file_sim_deepseek_lane_seq001_v001::_hush_blocks_mutation",
+        "_hush_blocks_mutation",
+        "file_sim_deepseek_lane_seq001_v001.py::_hush_summary",
+        "file_sim_deepseek_lane_seq001_v001::_hush_summary",
+        "_hush_summary"
+      ],
+      "line_count": 61,
+      "status": "WARN (61)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "file_sim_deepseek_lane_seq001_v001.py",
+      "source_symbols": [
+        "_blocked_delegates",
+        "_json",
+        "_now",
+        "_write_json",
+        "_append_jsonl",
+        "PROMPT_JOBS",
+        "CONTEXT_PACK"
+      ],
+      "generated_file": "file_sim_deepseek_lane_seq001_v001_compiled/file_sim_deepseek_lane_seq001_v001_compiled_seq005_v001.py",
+      "generated_module": "file_sim_deepseek_lane_seq001_v001_compiled_seq005_v001",
+      "identity_key": "file_sim_deepseek_lane_seq001_v001.py::_blocked_delegates|_json|_now|_write_json|_append_jsonl|PROMPT_JOBS|CONTEXT_PACK",
+      "aliases": [
+        "file_sim_deepseek_lane_seq001_v001_compiled/file_sim_deepseek_lane_seq001_v001_compiled_seq005_v001.py",
+        "file_sim_deepseek_lane_seq001_v001.py::_blocked_delegates",
+        "file_sim_deepseek_lane_seq001_v001::_blocked_delegates",
+        "_blocked_delegates",
+        "file_sim_deepseek_lane_seq001_v001.py::_json",
+        "file_sim_deepseek_lane_seq001_v001::_json",
+        "_json",
+        "file_sim_deepseek_lane_seq001_v001.py::_now",
+        "file_sim_deepseek_lane_seq001_v001::_now",
+        "_now",
+        "file_sim_deepseek_lane_seq001_v001.py::_write_json",
+        "file_sim_deepseek_lane_seq001_v001::_write_json",
+        "_write_json",
+        "file_sim_deepseek_lane_seq001_v001.py::_append_jsonl",
+        "file_sim_deepseek_lane_seq001_v001::_append_jsonl",
+        "_append_jsonl",
+        "file_sim_deepseek_lane_seq001_v001.py::PROMPT_JOBS",
+        "file_sim_deepseek_lane_seq001_v001::PROMPT_JOBS",
+        "PROMPT_JOBS",
+        "file_sim_deepseek_lane_seq001_v001.py::CONTEXT_PACK",
+        "file_sim_deepseek_lane_seq001_v001::CONTEXT_PACK",
+        "CONTEXT_PACK"
+      ],
+      "line_count": 44,
+      "status": "OK",
+      "reason": ""
+    }
+  ]
+}

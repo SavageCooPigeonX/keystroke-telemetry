@@ -3,6 +3,7 @@ from .codex_compat_seq006_v001 import predict_numeric_files, train_numeric_surfa
 from .codex_compat_seq017_v001 import launch_deepseek_daemon
 from .codex_compat_seq018_v001 import enqueue_deepseek_prompt_job
 from .codex_compat_seq022_v001 import build_dynamic_context_pack
+from .codex_compat_seq023_v001 import _render_dynamic_context_pack
 from .codex_compat_seq026_v001 import close_intent_loop, get_intent_loop_status
 from .codex_compat_seq027_v001 import audit_stale_dates
 from .codex_compat_seq028_v001 import run_pre_prompt_from_composition

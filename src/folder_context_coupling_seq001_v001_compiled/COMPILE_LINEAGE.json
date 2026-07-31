@@ -1,0 +1,311 @@
+{
+  "schema": "pigeon_compile_lineage/v1",
+  "compiled_at": "2026-07-30T04:40:40.503514+00:00",
+  "source_file": "folder_context_coupling_seq001_v001.py",
+  "source_stem": "folder_context_coupling_seq001_v001",
+  "target_dir": "folder_context_coupling_seq001_v001_compiled",
+  "plan_strategy": "deterministic_ast_fallback",
+  "file_count": 10,
+  "files": [
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "folder_context_coupling_seq001_v001.py",
+      "source_symbols": [
+        "build_folder_context_coupling"
+      ],
+      "generated_file": "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq001_v001.py",
+      "generated_module": "folder_context_coupling_seq001_v001_compiled_seq001_v001",
+      "identity_key": "folder_context_coupling_seq001_v001.py::build_folder_context_coupling",
+      "aliases": [
+        "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq001_v001.py",
+        "folder_context_coupling_seq001_v001.py::build_folder_context_coupling",
+        "folder_context_coupling_seq001_v001::build_folder_context_coupling",
+        "build_folder_context_coupling"
+      ],
+      "line_count": 70,
+      "status": "WARN (70)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "folder_context_coupling_seq001_v001.py",
+      "source_symbols": [
+        "render_folder_context_coupling"
+      ],
+      "generated_file": "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq002_v001.py",
+      "generated_module": "folder_context_coupling_seq001_v001_compiled_seq002_v001",
+      "identity_key": "folder_context_coupling_seq001_v001.py::render_folder_context_coupling",
+      "aliases": [
+        "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq002_v001.py",
+        "folder_context_coupling_seq001_v001.py::render_folder_context_coupling",
+        "folder_context_coupling_seq001_v001::render_folder_context_coupling",
+        "render_folder_context_coupling"
+      ],
+      "line_count": 27,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "folder_context_coupling_seq001_v001.py",
+      "source_symbols": [
+        "_folder_row"
+      ],
+      "generated_file": "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq003_v001.py",
+      "generated_module": "folder_context_coupling_seq001_v001_compiled_seq003_v001",
+      "identity_key": "folder_context_coupling_seq001_v001.py::_folder_row",
+      "aliases": [
+        "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq003_v001.py",
+        "folder_context_coupling_seq001_v001.py::_folder_row",
+        "folder_context_coupling_seq001_v001::_folder_row",
+        "_folder_row"
+      ],
+      "line_count": 56,
+      "status": "WARN (56)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "folder_context_coupling_seq001_v001.py",
+      "source_symbols": [
+        "_deepseek_packet",
+        "_selected_folders",
+        "_folder_edges",
+        "_edge_counts"
+      ],
+      "generated_file": "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq004_v001.py",
+      "generated_module": "folder_context_coupling_seq001_v001_compiled_seq004_v001",
+      "identity_key": "folder_context_coupling_seq001_v001.py::_deepseek_packet|_selected_folders|_folder_edges|_edge_counts",
+      "aliases": [
+        "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq004_v001.py",
+        "folder_context_coupling_seq001_v001.py::_deepseek_packet",
+        "folder_context_coupling_seq001_v001::_deepseek_packet",
+        "_deepseek_packet",
+        "folder_context_coupling_seq001_v001.py::_selected_folders",
+        "folder_context_coupling_seq001_v001::_selected_folders",
+        "_selected_folders",
+        "folder_context_coupling_seq001_v001.py::_folder_edges",
+        "folder_context_coupling_seq001_v001::_folder_edges",
+        "_folder_edges",
+        "folder_context_coupling_seq001_v001.py::_edge_counts",
+        "folder_context_coupling_seq001_v001::_edge_counts",
+        "_edge_counts"
+      ],
+      "line_count": 54,
+      "status": "WARN (54)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "folder_context_coupling_seq001_v001.py",
+      "source_symbols": [
+        "_missing_trigger_repair",
+        "_mode",
+        "_repo_file_scan",
+        "_overcap_files",
+        "_manifest_overcap_index"
+      ],
+      "generated_file": "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq005_v001.py",
+      "generated_module": "folder_context_coupling_seq001_v001_compiled_seq005_v001",
+      "identity_key": "folder_context_coupling_seq001_v001.py::_missing_trigger_repair|_mode|_repo_file_scan|_overcap_files|_manifest_overcap_index",
+      "aliases": [
+        "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq005_v001.py",
+        "folder_context_coupling_seq001_v001.py::_missing_trigger_repair",
+        "folder_context_coupling_seq001_v001::_missing_trigger_repair",
+        "_missing_trigger_repair",
+        "folder_context_coupling_seq001_v001.py::_mode",
+        "folder_context_coupling_seq001_v001::_mode",
+        "_mode",
+        "folder_context_coupling_seq001_v001.py::_repo_file_scan",
+        "folder_context_coupling_seq001_v001::_repo_file_scan",
+        "_repo_file_scan",
+        "folder_context_coupling_seq001_v001.py::_overcap_files",
+        "folder_context_coupling_seq001_v001::_overcap_files",
+        "_overcap_files",
+        "folder_context_coupling_seq001_v001.py::_manifest_overcap_index",
+        "folder_context_coupling_seq001_v001::_manifest_overcap_index",
+        "_manifest_overcap_index"
+      ],
+      "line_count": 60,
+      "status": "WARN (60)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "folder_context_coupling_seq001_v001.py",
+      "source_symbols": [
+        "_line_count_over"
+      ],
+      "generated_file": "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq006_v001.py",
+      "generated_module": "folder_context_coupling_seq001_v001_compiled_seq006_v001",
+      "identity_key": "folder_context_coupling_seq001_v001.py::_line_count_over",
+      "aliases": [
+        "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq006_v001.py",
+        "folder_context_coupling_seq001_v001.py::_line_count_over",
+        "folder_context_coupling_seq001_v001::_line_count_over",
+        "_line_count_over"
+      ],
+      "line_count": 13,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "folder_context_coupling_seq001_v001.py",
+      "source_symbols": [
+        "_folder_identity",
+        "_operator_label"
+      ],
+      "generated_file": "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq007_v001.py",
+      "generated_module": "folder_context_coupling_seq001_v001_compiled_seq007_v001",
+      "identity_key": "folder_context_coupling_seq001_v001.py::_folder_identity|_operator_label",
+      "aliases": [
+        "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq007_v001.py",
+        "folder_context_coupling_seq001_v001.py::_folder_identity",
+        "folder_context_coupling_seq001_v001::_folder_identity",
+        "_folder_identity",
+        "folder_context_coupling_seq001_v001.py::_operator_label",
+        "folder_context_coupling_seq001_v001::_operator_label",
+        "_operator_label"
+      ],
+      "line_count": 57,
+      "status": "WARN (57)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "folder_context_coupling_seq001_v001.py",
+      "source_symbols": [
+        "_path_identity_tokens",
+        "_read_prefix",
+        "_split_identity_text",
+        "_split_camel"
+      ],
+      "generated_file": "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq008_v001.py",
+      "generated_module": "folder_context_coupling_seq001_v001_compiled_seq008_v001",
+      "identity_key": "folder_context_coupling_seq001_v001.py::_path_identity_tokens|_read_prefix|_split_identity_text|_split_camel",
+      "aliases": [
+        "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq008_v001.py",
+        "folder_context_coupling_seq001_v001.py::_path_identity_tokens",
+        "folder_context_coupling_seq001_v001::_path_identity_tokens",
+        "_path_identity_tokens",
+        "folder_context_coupling_seq001_v001.py::_read_prefix",
+        "folder_context_coupling_seq001_v001::_read_prefix",
+        "_read_prefix",
+        "folder_context_coupling_seq001_v001.py::_split_identity_text",
+        "folder_context_coupling_seq001_v001::_split_identity_text",
+        "_split_identity_text",
+        "folder_context_coupling_seq001_v001.py::_split_camel",
+        "folder_context_coupling_seq001_v001::_split_camel",
+        "_split_camel"
+      ],
+      "line_count": 45,
+      "status": "OK",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "folder_context_coupling_seq001_v001.py",
+      "source_symbols": [
+        "_package_folders",
+        "_rank_packages",
+        "_folder_of",
+        "_belongs",
+        "_json"
+      ],
+      "generated_file": "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq009_v001.py",
+      "generated_module": "folder_context_coupling_seq001_v001_compiled_seq009_v001",
+      "identity_key": "folder_context_coupling_seq001_v001.py::_package_folders|_rank_packages|_folder_of|_belongs|_json",
+      "aliases": [
+        "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq009_v001.py",
+        "folder_context_coupling_seq001_v001.py::_package_folders",
+        "folder_context_coupling_seq001_v001::_package_folders",
+        "_package_folders",
+        "folder_context_coupling_seq001_v001.py::_rank_packages",
+        "folder_context_coupling_seq001_v001::_rank_packages",
+        "_rank_packages",
+        "folder_context_coupling_seq001_v001.py::_folder_of",
+        "folder_context_coupling_seq001_v001::_folder_of",
+        "_folder_of",
+        "folder_context_coupling_seq001_v001.py::_belongs",
+        "folder_context_coupling_seq001_v001::_belongs",
+        "_belongs",
+        "folder_context_coupling_seq001_v001.py::_json",
+        "folder_context_coupling_seq001_v001::_json",
+        "_json"
+      ],
+      "line_count": 59,
+      "status": "WARN (59)",
+      "reason": ""
+    },
+    {
+      "seq": 1,
+      "version": 1,
+      "source_file": "folder_context_coupling_seq001_v001.py",
+      "source_symbols": [
+        "_write_json",
+        "_append_jsonl",
+        "_now",
+        "LATEST",
+        "HISTORY",
+        "MARKDOWN",
+        "FILE_SCAN_CAP",
+        "OVERCAP_LINE_LIMIT",
+        "PACKAGE_RANK_SCAN_CAP",
+        "AST_IDENTITY_FILE_CAP",
+        "_IDENTITY_STOPWORDS"
+      ],
+      "generated_file": "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq010_v001.py",
+      "generated_module": "folder_context_coupling_seq001_v001_compiled_seq010_v001",
+      "identity_key": "folder_context_coupling_seq001_v001.py::_write_json|_append_jsonl|_now|LATEST|HISTORY|MARKDOWN|FILE_SCAN_CAP|OVERCAP_LINE_LIMIT|PACKAGE_RANK_SCAN_CAP|AST_IDENTITY_FILE_CAP|_IDENTITY_STOPWORDS",
+      "aliases": [
+        "folder_context_coupling_seq001_v001_compiled/folder_context_coupling_seq001_v001_compiled_seq010_v001.py",
+        "folder_context_coupling_seq001_v001.py::_write_json",
+        "folder_context_coupling_seq001_v001::_write_json",
+        "_write_json",
+        "folder_context_coupling_seq001_v001.py::_append_jsonl",
+        "folder_context_coupling_seq001_v001::_append_jsonl",
+        "_append_jsonl",
+        "folder_context_coupling_seq001_v001.py::_now",
+        "folder_context_coupling_seq001_v001::_now",
+        "_now",
+        "folder_context_coupling_seq001_v001.py::LATEST",
+        "folder_context_coupling_seq001_v001::LATEST",
+        "LATEST",
+        "folder_context_coupling_seq001_v001.py::HISTORY",
+        "folder_context_coupling_seq001_v001::HISTORY",
+        "HISTORY",
+        "folder_context_coupling_seq001_v001.py::MARKDOWN",
+        "folder_context_coupling_seq001_v001::MARKDOWN",
+        "MARKDOWN",
+        "folder_context_coupling_seq001_v001.py::FILE_SCAN_CAP",
+        "folder_context_coupling_seq001_v001::FILE_SCAN_CAP",
+        "FILE_SCAN_CAP",
+        "folder_context_coupling_seq001_v001.py::OVERCAP_LINE_LIMIT",
+        "folder_context_coupling_seq001_v001::OVERCAP_LINE_LIMIT",
+        "OVERCAP_LINE_LIMIT",
+        "folder_context_coupling_seq001_v001.py::PACKAGE_RANK_SCAN_CAP",
+        "folder_context_coupling_seq001_v001::PACKAGE_RANK_SCAN_CAP",
+        "PACKAGE_RANK_SCAN_CAP",
+        "folder_context_coupling_seq001_v001.py::AST_IDENTITY_FILE_CAP",
+        "folder_context_coupling_seq001_v001::AST_IDENTITY_FILE_CAP",
+        "AST_IDENTITY_FILE_CAP",
+        "folder_context_coupling_seq001_v001.py::_IDENTITY_STOPWORDS",
+        "folder_context_coupling_seq001_v001::_IDENTITY_STOPWORDS",
+        "_IDENTITY_STOPWORDS"
+      ],
+      "line_count": 68,
+      "status": "WARN (68)",
+      "reason": ""
+    }
+  ]
+}

@@ -19,7 +19,7 @@ from pigeon_compiler.cut_executor.重拆f_res_s009_v004_d0315_重箱谱建织_λ
     scan_violations, resplit_file)
 from pigeon_compiler.cut_executor.重箱f_rebi_s010_v004_d0315_重拆谱建织_λν import (
     bin_pack, write_splits)
-from pigeon_compiler.pigeon_limits import PIGEON_MAX, PIGEON_RECOMMENDED
+from pigeon_compiler.pigeon_limits_seq003_v001_d0730__central_compliance_thresholds_and_exclude_lc_organism_health_refactor import PIGEON_MAX, PIGEON_RECOMMENDED
 from pigeon_compiler.runners.净初w_rcsi_s012_v004_d0315_追跑净助鸽环_λν import (
     write_clean_init, write_clean_manifest)
 from pigeon_compiler.runners.净助f_rcsh_s011_v004_d0315_追跑净初鸽环_λν import (

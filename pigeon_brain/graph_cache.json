@@ -4192,7 +4192,7 @@
       "electron_deaths": 0
     },
     "compile_lineage": {
-      "path": "pigeon_compiler/compile_lineage.py",
+      "path": "pigeon_compiler/compile_lineage_seq002_v001_d0730__compatibility_facade_for_split_compile_lc_organism_health_refactor.py",
       "seq": 0,
       "ver": 0,
       "tokens": 0,
@@ -4849,7 +4849,7 @@
       "electron_deaths": 0
     },
     "pigeon_limits": {
-      "path": "pigeon_compiler/pigeon_limits.py",
+      "path": "pigeon_compiler/pigeon_limits_seq003_v001_d0730__central_compliance_thresholds_and_exclude_lc_organism_health_refactor.py",
       "seq": 0,
       "ver": 0,
       "tokens": 0,
@@ -7471,7 +7471,7 @@
       "electron_deaths": 0
     },
     "净拆f_rcs": {
-      "path": "pigeon_compiler/runners/净拆f_rcs_s010_v007_d0510_译测编深划_λTL_βoc.py",
+      "path": "pigeon_compiler/runners/净拆f_rcs_s010_v007_d0510_译测编深划_λTL_βoc_seq001_v001_d0730__stable_facade_for_the_clean_lc_organism_health_refactor.py",
       "seq": 10,
       "ver": 7,
       "tokens": 0,
@@ -7651,7 +7651,7 @@
       "electron_deaths": 0
     },
     "鸽环f_rpl": {
-      "path": "pigeon_compiler/runners/鸽环f_rpl_s009_v004_d0315_追跑净助净初_λν.py",
+      "path": "pigeon_compiler/runners/鸽环f_rpl_s009_v004_d0315_追跑净助净初_λν_seq002_v001_d0730__stable_facade_for_the_iterative_lc_organism_health_refactor.py",
       "seq": 9,
       "ver": 4,
       "tokens": 0,
@@ -7738,7 +7738,7 @@
       "electron_deaths": 0
     },
     "追p_it": {
-      "path": "pigeon_compiler/state_extractor/追p_it_s003_v004_d0315_牌谱建踪_λν.py",
+      "path": "pigeon_compiler/state_extractor/追p_it_s003_v004_d0315_牌谱建踪_λν_seq001_v001_d0730__trace_imports_inbound_and_outbound_lc_organism_health_refactor.py",
       "seq": 3,
       "ver": 4,
       "tokens": 0,
@@ -7865,7 +7865,7 @@
       "electron_deaths": 0
     },
     "analyze_prompt_behavior": {
-      "path": "scripts/analyze_prompt_behavior.py",
+      "path": "scripts/analyze_prompt_behavior_seq002_v001_d0730__command_line_facade_for_the_lc_organism_health_refactor.py",
       "seq": 0,
       "ver": 0,
       "tokens": 0,
@@ -8129,7 +8129,7 @@
       "electron_deaths": 0
     },
     "generate_intent_tests": {
-      "path": "scripts/generate_intent_tests.py",
+      "path": "scripts/generate_intent_tests_seq003_v001_d0730__scaffold_failing_tests_for_every_lc_organism_health_refactor.py",
       "seq": 0,
       "ver": 0,
       "tokens": 0,
@@ -21819,7 +21819,7 @@
       "electron_deaths": 0
     },
     "test_codex_compat_compiled": {
-      "path": "test_codex_compat_compiled.py",
+      "path": "test_codex_compat_compiled_seq001_v001_d0730.py",
       "seq": 0,
       "ver": 0,
       "tokens": 0,
@@ -22188,7 +22188,7 @@
       "electron_deaths": 0
     },
     "test_codex_compat_build_parser": {
-      "path": "tests/interlink/test_codex_compat_build_parser.py",
+      "path": "tests/interlink/test_codex_compat_build_parser_seq027_v001_d0730__interlink_self_test_for_codex_lc_organism_health_refactor.py",
       "seq": 0,
       "ver": 0,
       "tokens": 0,
@@ -24238,7 +24238,7 @@
       "electron_deaths": 0
     },
     "test_compliance_maintenance": {
-      "path": "tests/regression/test_compliance_maintenance.py",
+      "path": "tests/regression/test_compliance_maintenance_seq001_v001_d0730.py",
       "seq": 0,
       "ver": 0,
       "tokens": 0,
@@ -24714,7 +24714,7 @@
       "electron_deaths": 0
     },
     "test_paste_telemetry": {
-      "path": "tests/regression/test_paste_telemetry.py",
+      "path": "tests/regression/test_paste_telemetry_seq002_v001_d0730.py",
       "seq": 0,
       "ver": 0,
       "tokens": 0,
@@ -24840,7 +24840,7 @@
       "electron_deaths": 0
     },
     "test_tc_intent_keys": {
-      "path": "tests/regression/test_tc_intent_keys.py",
+      "path": "tests/regression/test_tc_intent_keys_seq004_v001_d0730.py",
       "seq": 0,
       "ver": 0,
       "tokens": 0,
